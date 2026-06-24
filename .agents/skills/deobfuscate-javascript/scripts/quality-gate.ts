@@ -7,6 +7,7 @@ import { extractSymbols, parseSource, type SymbolEntry } from "./extract.ts";
 import {
   isKnownTerminalBoundaryChunk,
   isLikelyAppChunk,
+  JS_GLOBALS,
 } from "./chunk-classification.ts";
 
 const traverse = ((
@@ -666,17 +667,29 @@ function isCrypticSymbol(symbol: SymbolEntry): boolean {
   return CRYPTIC_RE.test(symbol.name) && !SHORT_ALLOWLIST.has(symbol.name);
 }
 
+// `_Array` / `__Array` etc.: a JS global underscore-prefixed because the renamer
+// chose a stem that collides with a builtin (the `array-XXXX` → `_Array(__Array)`
+// residue). tslib helpers (`__assign`) are `_`+lowercase, so they don't match.
+const GLOBAL_COLLISION_RE = /^_{1,2}([A-Z][A-Za-z0-9]*)$/;
+
+function isGlobalCollisionName(name: string): boolean {
+  const m = GLOBAL_COLLISION_RE.exec(name);
+  return m != null && JS_GLOBALS.has(m[1]!);
+}
+
 function collectMechanicalNames(
   source: string,
   symbols: SymbolEntry[],
 ): string[] {
   const names = new Set<string>();
-  for (const symbol of symbols) {
-    if (MECHANICAL_NAME_RE.test(symbol.name)) names.add(symbol.name);
-  }
+  const flag = (name: string): void => {
+    if (MECHANICAL_NAME_RE.test(name) || isGlobalCollisionName(name)) {
+      names.add(name);
+    }
+  };
+  for (const symbol of symbols) flag(symbol.name);
   for (const match of source.matchAll(/\b[$A-Za-z_][$A-Za-z0-9_]*\b/g)) {
-    const name = match[0]!;
-    if (MECHANICAL_NAME_RE.test(name)) names.add(name);
+    flag(match[0]!);
   }
   return [...names].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 }

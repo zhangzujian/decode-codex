@@ -23,6 +23,7 @@ import {
   DEFAULT_OPTIONS,
   type QualityGateOptions,
 } from "./quality-gate.ts";
+import { Progress } from "./progress.ts";
 
 /**
  * promote-organized.ts — drain the promote frontier: for every organized chunk
@@ -77,14 +78,28 @@ export function relativeImport(fromSemanticPath: string, toSemanticPath: string)
   return rel;
 }
 
-/** Build import rewrites for one chunk against producers already promoted. */
+/**
+ * Build import rewrites for one chunk: (1) imports of already-promoted local
+ * producers → their semantic relative path; (2) imports of bundled vendor-data
+ * chunks (Shiki grammars/themes, data libs) → the bare npm specifier recorded on
+ * the manifest, so a consumer's `./rust-XXXX.js` becomes `@shikijs/langs/rust`
+ * instead of a dangling local import into a chunk we deliberately didn't restore.
+ */
 export function buildImportMappings(
   chunk: ManifestFile,
   semanticPath: string,
   importMap: ImportMap,
+  manifest?: Manifest,
 ): SemanticImportMapping[] {
   const mappings: SemanticImportMapping[] = [];
   for (const imp of chunk.imports ?? []) {
+    // Vendor data: redirect to the bare specifier regardless of the (stale)
+    // edge kind recorded before the target's content was fingerprinted.
+    const target = manifest?.files?.[imp.target];
+    if (target?.kind === "npm-leaf" && target.vendorSpecifier) {
+      mappings.push({ source: imp.source, to: target.vendorSpecifier, exports: {} });
+      continue;
+    }
     if (imp.kind !== "local") continue;
     const producer = importMap.chunks?.[imp.target];
     if (!producer?.restored || producer.status !== "done") continue;
@@ -122,6 +137,7 @@ function buildCandidate(
     fullDir: string;
     importMap: ImportMap;
     rootDir?: string;
+    manifest?: Manifest;
   },
 ): Built {
   const { basename, semanticPath, recipe, fullDir } = args;
@@ -130,7 +146,12 @@ function buildCandidate(
   const sourcePath = args.rootDir
     ? path.posix.join(args.rootDir, `${basename}.js`)
     : (chunk.path ?? `${basename}.js`);
-  const mappings = buildImportMappings(chunk, semanticPath, args.importMap);
+  const mappings = buildImportMappings(
+    chunk,
+    semanticPath,
+    args.importMap,
+    args.manifest,
+  );
   const rewrite = (code: string) =>
     mappings.length > 0 ? rewriteSemanticImports(code, mappings) : code;
 
@@ -216,6 +237,8 @@ export type PromoteOrganizedOptions = {
   /** "deep" (default) enforces TS types at promote; "readable" allows untyped. */
   tier?: "readable" | "deep";
   log?: (msg: string) => void;
+  /** Emit a throttled progress line as the frontier drains (CLI sets this). */
+  progress?: boolean;
 };
 
 export function promoteOrganized(opts: PromoteOrganizedOptions): PromoteResult[] {
@@ -256,6 +279,13 @@ export function promoteOrganized(opts: PromoteOrganizedOptions): PromoteResult[]
   };
 
   let processed = 0;
+  let promotedCount = 0;
+  const pendingTotal = Object.values(manifest.files).filter(
+    (f) => f.kind === "local" && f.organization && !f.stages?.promoted,
+  ).length;
+  const prog = opts.progress
+    ? new Progress({ label: "promote", total: pendingTotal })
+    : null;
   // Chunks we tried this run but couldn't promote (gate fail / lock / error) —
   // skip them so the loop drains instead of re-picking the same stuck chunk.
   const attempted = new Set<string>();
@@ -279,6 +309,7 @@ export function promoteOrganized(opts: PromoteOrganizedOptions): PromoteResult[]
     const file = manifest.files[basename]!;
     const org = file.organization!;
     processed++;
+    prog?.tick(1, `${promotedCount} promoted · ${attempted.size} blocked`);
 
     let lockHeld = false;
     try {
@@ -293,6 +324,7 @@ export function promoteOrganized(opts: PromoteOrganizedOptions): PromoteResult[]
         fullDir: paths.fullDir,
         importMap,
         rootDir: manifest.rootDir,
+        manifest,
       });
       // Write at the FINAL location so relative imports to promoted siblings
       // resolve, gate in place, then keep or roll back.
@@ -349,6 +381,7 @@ export function promoteOrganized(opts: PromoteOrganizedOptions): PromoteResult[]
       } else {
         writeJsonAtomic(importMapPath, importMap);
         writeJsonAtomic(paths.manifestPath, manifest);
+        promotedCount++;
         log(`promote: ${basename} → ${org.semanticPath}`);
         results.push({
           basename,
@@ -388,6 +421,7 @@ export function promoteOrganized(opts: PromoteOrganizedOptions): PromoteResult[]
     }
   }
 
+  prog?.done(`${promotedCount} promoted · ${attempted.size} blocked`);
   // A dry run leaves no public files behind (deepest paths first).
   if (opts.dryRun) {
     for (const root of [...dryWritten].reverse()) rollback(root);
@@ -452,6 +486,7 @@ async function main(): Promise<void> {
       only,
       limit,
       tier,
+      progress: true,
       log: (msg) => console.error(msg),
     });
     const promoted = results.filter((r) => r.promoted).length;

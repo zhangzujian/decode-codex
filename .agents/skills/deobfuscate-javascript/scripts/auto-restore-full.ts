@@ -11,6 +11,8 @@ import { extractSymbols, type SymbolEntry } from "./extract.ts";
 import { formatPath } from "./format.ts";
 import { polish } from "./polish.ts";
 import { findRenames } from "./smart-rename.ts";
+import { JS_GLOBALS } from "./chunk-classification.ts";
+import { Progress } from "./progress.ts";
 
 const traverse = ((
   babelTraverse as unknown as { default?: typeof babelTraverse }
@@ -430,7 +432,13 @@ function isCryptic(name: string): boolean {
 }
 
 function stripHashSuffix(basename: string): string {
-  return basename.replace(/-[A-Za-z0-9_-]{6,16}$/, "");
+  // Anchor to Vite/Rolldown's 8-char base64url hash first so multi-word chunk
+  // names survive (`app-shell-D1abc234` → `app-shell`, not `app`). The greedy
+  // `{6,16}` we used before ate the `-shell-XXXXXXXX` tail because the char
+  // class includes `-`. Fall back to 10–12-char hashes only if 8 didn't match.
+  const stripped = basename.replace(/-[A-Za-z0-9_-]{8}$/u, "");
+  if (stripped !== basename) return stripped;
+  return basename.replace(/-[A-Za-z0-9_-]{10,12}$/u, "");
 }
 
 function words(value: string): string[] {
@@ -467,7 +475,15 @@ function fileStem(basename: string): string {
   return stripHashSuffix(basename);
 }
 
-function inferSingleExportName(basename: string, source: string): string {
+/** Avoid emitting a name that collides with a JS global (`Array`, `Map`, …) —
+ * the collision-safe applier underscore-prefixes those (`Array` → `_Array`),
+ * which is exactly the mechanical residue we're trying to eliminate. */
+function avoidJsGlobal(name: string): string {
+  if (!JS_GLOBALS.has(name)) return name;
+  return /^[A-Z]/.test(name) ? `${name}Component` : `${name}Value`;
+}
+
+export function inferSingleExportName(basename: string, source: string): string {
   const stem = fileStem(basename);
   if (/^use-/.test(stem)) return camelCase(stem);
   if (/^(?:get|set|create|parse|format|score|data)-/.test(stem))
@@ -478,8 +494,15 @@ function inferSingleExportName(basename: string, source: string): string {
   ) {
     return `${pascalCase(stem)}Icon`;
   }
-  if (/^[A-Z]/.test(pascalCase(stem))) return pascalCase(stem);
-  return camelCase(stem);
+  // PascalCase only when the export is actually a component/class — otherwise a
+  // plain utility (`array-XXXX`) would pascal-case onto a global (`Array`) and
+  // get underscore-prefixed. Default utilities to camelCase.
+  const looksComponentOrClass =
+    /\b(?:jsx|jsxs|jsxDEV|createElement)\b/.test(source) ||
+    /<[A-Z][A-Za-z0-9]*[\s/>]/.test(source) ||
+    /\bclass[\s{]/.test(source); // `class Foo`, `class {`, `class extends`
+  const name = looksComponentOrClass ? pascalCase(stem) : camelCase(stem);
+  return avoidJsGlobal(name);
 }
 
 function inferExportNames(
@@ -807,6 +830,7 @@ async function main(): Promise<void> {
   }
 
   const report: RestoreReport = { target: targetDir, files: [] };
+  const prog = new Progress({ label: "checkpoint", total: localEntries.length });
   for (const [basename, file] of localEntries) {
     const ledgerFile = ledger.files[basename];
     if (!ledgerFile) continue;
@@ -821,9 +845,7 @@ async function main(): Promise<void> {
       (!parsed.values["write-target-checkpoints"] ||
         fs.existsSync(targetCheckpointPath))
     ) {
-      console.error(
-        `auto-restore: ${basename} checkpoint already exists, skipping`,
-      );
+      prog.tick(1, `${basename} (cached)`);
       continue;
     }
     const originalPath = path.join(workspace, "original.js");
@@ -872,10 +894,12 @@ async function main(): Promise<void> {
       ignoredRenames: applied.stats.ignored,
       needsAgentRewrite: true,
     });
-    console.error(
-      `auto-restore: ${basename} checkpoint (${Object.keys(built.renames).length} rename(s), ignored ${applied.stats.ignored})`,
+    prog.tick(
+      1,
+      `${basename} (${Object.keys(built.renames).length} renames)`,
     );
   }
+  prog.done("checkpoints built");
 
   const reportPath = path.join(fullDir, "auto-restore-report.json");
   fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);

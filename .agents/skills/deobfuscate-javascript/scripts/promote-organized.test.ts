@@ -193,6 +193,40 @@ describe("relativeImport / buildImportMappings", () => {
     expect(mappings[0]!.to).toBe("../utils/a");
     expect(mappings[0]!.exports).toEqual({ t: "doA" });
   });
+
+  test("buildImportMappings rewrites vendor-data imports to the bare specifier", () => {
+    const chunk: ManifestFile = {
+      basename: "highlighter-Aa11Bb22",
+      kind: "local",
+      depth: 0,
+      stages: {},
+      owner: null,
+      claimedAt: null,
+      lastUpdated: null,
+      imports: [
+        // Edge kind is the stale `local` recorded before the target was
+        // fingerprinted as vendor data — the manifest lookup must override it.
+        { source: "./rust-Cc33Dd44.js", target: "rust-Cc33Dd44", kind: "local", specifiers: [], reExport: false },
+      ],
+    };
+    const manifest = {
+      files: {
+        "rust-Cc33Dd44": {
+          basename: "rust-Cc33Dd44",
+          kind: "npm-leaf",
+          vendorSpecifier: "@shikijs/langs/rust",
+          depth: 1,
+          stages: { skipped: true },
+          owner: null,
+          claimedAt: null,
+          lastUpdated: null,
+        },
+      },
+    } as unknown as import("./build-import-graph.ts").Manifest;
+    const mappings = buildImportMappings(chunk, "syntax/highlighter.tsx", { chunks: {} }, manifest);
+    expect(mappings).toHaveLength(1);
+    expect(mappings[0]!.to).toBe("@shikijs/langs/rust");
+  });
 });
 
 describe("promoteOrganized", () => {

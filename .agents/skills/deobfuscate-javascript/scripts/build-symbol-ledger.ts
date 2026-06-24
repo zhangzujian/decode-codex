@@ -9,6 +9,7 @@ import {
   type Manifest,
   type ManifestFile,
 } from "./build-import-graph.ts";
+import { Progress } from "./progress.ts";
 
 export type SymbolStatus = "pending" | "claimed" | "done";
 
@@ -240,6 +241,8 @@ export type BuildLedgerOptions = {
   prior?: Ledger;
   rebuild?: boolean;
   onlyBasenames?: Set<string>;
+  /** Optional progress reporter; the CLI passes one, tests omit it. */
+  progress?: Progress | null;
 };
 
 export function buildLedger(opts: BuildLedgerOptions): Ledger {
@@ -287,6 +290,7 @@ export function buildLedger(opts: BuildLedgerOptions): Ledger {
     // implies we've parsed and indexed the source.
     file.stages.extracted = true;
     file.lastUpdated = NOW();
+    opts.progress?.tick(1, basename);
   }
 
   const crossFileBindings = buildCrossFileBindings({
@@ -364,6 +368,10 @@ async function main(): Promise<void> {
     ? new Set(values.only.split(",").map((s) => s.trim()).filter(Boolean))
     : undefined;
 
+  const localTotal = Object.values(manifest.files).filter(
+    (f) => f.kind === "local",
+  ).length;
+  const progress = new Progress({ label: "ledger", total: localTotal });
   let ledger: Ledger;
   try {
     ledger = buildLedger({
@@ -372,11 +380,13 @@ async function main(): Promise<void> {
       prior,
       rebuild: values.rebuild,
       onlyBasenames,
+      progress,
     });
   } catch (err) {
     console.error(`failed to build ledger: ${(err as Error).message}`);
     process.exit(2);
   }
+  progress.done("ledger built");
 
   // buildLedger() already flipped file.stages.extracted; persist the manifest.
   manifest.updatedAt = NOW();

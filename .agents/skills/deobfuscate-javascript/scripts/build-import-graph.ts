@@ -10,6 +10,8 @@ import {
 } from "./resolve-npm-imports.ts";
 import { PARSER_PLUGINS } from "./extract.ts";
 import { checkEntry, discoverEntry } from "./check-entry.ts";
+import { classifyVendorDataChunk } from "./chunk-classification.ts";
+import { Progress } from "./progress.ts";
 
 const traverse = ((
   babelTraverse as unknown as { default?: typeof babelTraverse }
@@ -98,6 +100,10 @@ export type ManifestFile = {
   basename: string;
   kind: FileKind;
   npmPackage?: string;
+  /** For `npm-leaf` chunks detected as bundled vendor data: the bare specifier
+   * consumers should import (`@shikijs/langs/rust`, `3dmol`). Lets promote rewrite
+   * a consumer's `./rust-XXXX.js` to the package without a per-id name registry. */
+  vendorSpecifier?: string;
   depth: number;
   size?: number;
   /** Newline count of the source. Populated for `local` and `oversized-local`. */
@@ -431,6 +437,8 @@ export type BuildOptions = {
    * `maxLines`. Always includes the entry.
    */
   forceInclude?: Set<string>;
+  /** Optional progress reporter; the CLI passes one, tests omit it. */
+  progress?: Progress | null;
 };
 
 export const DEFAULT_MAX_LINES = 0;
@@ -451,6 +459,7 @@ export function buildImportGraph(
   opts: BuildOptions,
 ): Manifest {
   const treatAsNpm = opts.treatAsNpm ?? new Set<string>();
+  const progress = opts.progress ?? null;
   const forceInclude = new Set(opts.forceInclude ?? []);
   const maxLines =
     opts.maxLines === undefined ? DEFAULT_MAX_LINES : opts.maxLines;
@@ -508,6 +517,33 @@ export function buildImportGraph(
     const parsed = parseImportsExports(source, treatAsNpm);
     const lineCount = countLines(source);
 
+    // Bundled vendor DATA (Shiki grammars/themes, standalone data libs) is not
+    // app code — make it a terminal npm-leaf so it never gets staged, organized,
+    // or promoted into restored/. Consumers import the bare specifier instead.
+    // The entry is always app code, never faced this way.
+    const vendor =
+      basename === entryBasename
+        ? null
+        : classifyVendorDataChunk(basename, source);
+    if (vendor) {
+      files[basename] = {
+        path: absPath,
+        basename,
+        kind: "npm-leaf",
+        npmPackage: vendor.package,
+        vendorSpecifier: vendor.specifier,
+        depth,
+        size,
+        lineCount,
+        stages: { skipped: true },
+        owner: null,
+        claimedAt: null,
+        lastUpdated: NOW(),
+      };
+      progress?.tick(1, `${basename} → ${vendor.specifier}`);
+      continue; // terminal: don't BFS into vendor data
+    }
+
     // Decide: oversized-local vs local. The entry and any forceInclude basename
     // is always restored regardless of size.
     const oversized =
@@ -539,6 +575,7 @@ export function buildImportGraph(
       unresolved: parsed.unresolved.length > 0 ? parsed.unresolved : undefined,
     };
     files[basename] = fileEntry;
+    progress?.tick(1, basename);
 
     // Don't BFS into oversized files — we won't restore them, so their
     // downstream npm-leaf/local edges aren't part of this restoration tree.
@@ -750,6 +787,7 @@ async function main(): Promise<void> {
     }
   }
 
+  const progress = new Progress({ label: "graph" });
   const manifest = buildImportGraph(entry, {
     rootDir,
     targetDir,
@@ -757,7 +795,9 @@ async function main(): Promise<void> {
     prior,
     maxLines,
     forceInclude,
+    progress,
   });
+  progress.done("graph built");
 
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.mkdirSync(path.join(fullDir, "files"), { recursive: true });
@@ -792,10 +832,15 @@ async function main(): Promise<void> {
   const npmCount = Object.values(manifest.files).filter(
     (f) => f.kind === "npm-leaf",
   ).length;
+  const vendorDataCount = Object.values(manifest.files).filter(
+    (f) => f.vendorSpecifier,
+  ).length;
   const parts = [`${localCount} local`];
   if (oversizedCount > 0)
     parts.push(`${oversizedCount} oversized-local (skipped)`);
   parts.push(`${npmCount} npm-leaf`);
+  if (vendorDataCount > 0)
+    parts.push(`${vendorDataCount} vendor-data (not restored)`);
   parts.push(`${manifest.edges.length} edges`);
   console.error(`manifest: ${parts.join(" · ")} → ${out}`);
   if (oversizedCount > 0) {

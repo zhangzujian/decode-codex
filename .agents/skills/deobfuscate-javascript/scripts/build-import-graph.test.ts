@@ -238,6 +238,33 @@ describe("buildImportGraph (BFS)", () => {
     expect(npm.map((f) => f.npmPackage).sort()).toEqual(["clsx", "react"]);
   });
 
+  test("bundled vendor DATA (Shiki grammar) is a terminal npm-leaf, not restored", () => {
+    const rootDir = makeTmpRoot();
+    const targetDir = path.join(rootDir, "decode");
+    fs.mkdirSync(targetDir, { recursive: true });
+    const assets = path.join(rootDir, "assets");
+    fs.mkdirSync(assets, { recursive: true });
+    const entry = path.join(assets, "highlighter-Aa11Bb22.js");
+    fs.writeFileSync(
+      entry,
+      `import grammar from "./rust-Cc33Dd44.js";\nexport const langs = [grammar];\n`,
+    );
+    // A Shiki TextMate grammar chunk — recognised by content, not by name.
+    fs.writeFileSync(
+      path.join(assets, "rust-Cc33Dd44.js"),
+      `export default {name:"rust",scopeName:"source.rust",patterns:[{include:"#x"}],repository:{}};\n`,
+    );
+
+    const manifest = buildImportGraph(entry, { rootDir: assets, targetDir });
+    const rust = manifest.files["rust-Cc33Dd44"];
+    expect(rust?.kind).toBe("npm-leaf");
+    expect(rust?.vendorSpecifier).toBe("@shikijs/langs/rust");
+    expect(rust?.stages.skipped).toBe(true);
+    // It must NOT be staged as a local chunk to restore.
+    const local = Object.values(manifest.files).filter((f) => f.kind === "local");
+    expect(local.map((f) => f.basename)).toEqual(["highlighter-Aa11Bb22"]);
+  });
+
   test("npm leaves have stages.skipped = true and no imports/exports", () => {
     const { rootDir, targetDir, entry } = makeFixture();
     const manifest = buildImportGraph(entry, { rootDir, targetDir });

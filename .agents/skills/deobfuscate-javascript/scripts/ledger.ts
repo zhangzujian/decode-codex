@@ -698,6 +698,53 @@ async function main(): Promise<void> {
       console.log(
         `symbols: pending=${report.symbols.pending} claimed=${report.symbols.claimed} done=${report.symbols.done}`,
       );
+
+      // Completion overview — the deep/whole-tree restore is done only when
+      // every local chunk is promoted. Surface organized/promoted counts, the
+      // promote frontier (chunks whose deps are ready), and the actionable
+      // "blocked" list: organized chunks in the frontier with no agent candidate
+      // yet (write files/<basename>/candidate.tsx, then re-run promote-organized).
+      const organized = report.byStage.organize.done;
+      const promoted = report.byStage.promote.done;
+      const totalLocal = report.files;
+      const pctPromoted =
+        totalLocal > 0 ? Math.floor((promoted / totalLocal) * 100) : 0;
+      const promoteFrontier = computeFrontier(manifest, ledger, paths.fullDir, {
+        stage: "promote",
+      });
+      const hasCandidate = (basename: string): boolean =>
+        [".tsx", ".ts"].some((ext) =>
+          fs.existsSync(
+            path.join(paths.fullDir, "files", basename, `candidate${ext}`),
+          ),
+        );
+      const blocked = promoteFrontier
+        .map((f) => f.basename)
+        .filter((b) => {
+          const file = manifest.files[b];
+          return (
+            file?.kind === "local" &&
+            file.organization?.semanticPath &&
+            !file.stages?.promoted &&
+            !hasCandidate(b)
+          );
+        });
+      console.log(
+        `completion: ${promoted}/${totalLocal} promoted (${pctPromoted}%) · ${organized} organized · ${promoteFrontier.length} ready-to-promote`,
+      );
+      if (blocked.length > 0) {
+        console.log(
+          `  ${blocked.length} ready chunk(s) need an agent candidate (write files/<basename>/candidate.tsx, then promote-organized):`,
+        );
+        for (const b of blocked.slice(0, 15)) console.log(`    ${b}`);
+        if (blocked.length > 15)
+          console.log(`    … and ${blocked.length - 15} more`);
+      } else if (promoted < totalLocal) {
+        console.log(
+          `  no chunk is candidate-ready right now — run promote-organized to drain auto-promotable chunks, or check 'frontier --stage organize'`,
+        );
+      }
+
       if (report.locks.length > 0) {
         console.log(`active locks: ${report.locks.length}`);
         for (const l of report.locks) {

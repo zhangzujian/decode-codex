@@ -199,6 +199,34 @@ export function Toolbar() {
     );
   });
 
+  test("flags _Array/__Array (a global underscore-prefixed by collision)", () => {
+    const source = `// Restored from ref/webview/assets/array-Hq6MvHot.js
+export function _Array(__Array) {
+  return typeof __Array == "object" ? __Array : Array.from(__Array);
+}
+`;
+    const report = analyzeSource(source, "utils/array.ts");
+    expect(report.mechanicalNames).toContain("_Array");
+    expect(report.mechanicalNames).toContain("__Array");
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "mechanical-names",
+    );
+  });
+
+  test("does NOT flag real tslib helpers or _React shim bindings", () => {
+    const source = `// Restored from ref/webview/assets/helpers-Aa11Bb22.js
+export function __assign(target, source) {
+  return Object.assign(target, source);
+}
+export function __rest(value) {
+  return value;
+}
+`;
+    const report = analyzeSource(source, "utils/helpers.ts");
+    expect(report.mechanicalNames).not.toContain("__assign");
+    expect(report.mechanicalNames).not.toContain("__rest");
+  });
+
   test("fails cryptic public export names even when counts are low", () => {
     const source = `
       function commandShortcutLabels(commandId) {
