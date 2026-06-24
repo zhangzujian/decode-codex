@@ -1,6 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { parseArgs } from "node:util";
+import * as parser from "@babel/parser";
+import babelTraverse from "@babel/traverse";
+import * as t from "@babel/types";
 import {
   writeJsonAtomic,
   type Manifest,
@@ -24,6 +27,22 @@ import {
   type QualityGateOptions,
 } from "./quality-gate.ts";
 import { Progress } from "./progress.ts";
+
+const traverse = ((
+  babelTraverse as unknown as { default?: typeof babelTraverse }
+).default ?? babelTraverse) as typeof babelTraverse;
+
+const PARSER_PLUGINS: parser.ParserPlugin[] = [
+  "jsx",
+  "typescript",
+  "classProperties",
+  "classPrivateProperties",
+  "classPrivateMethods",
+  "dynamicImport",
+  "importMeta",
+  "objectRestSpread",
+  "topLevelAwait",
+];
 
 /**
  * promote-organized.ts — drain the promote frontier: for every organized chunk
@@ -49,7 +68,10 @@ type ImportMap = {
   [k: string]: unknown;
 };
 
-type Ledger = { files?: Record<string, unknown>; crossFileBindings?: unknown[] };
+type Ledger = {
+  files?: Record<string, unknown>;
+  crossFileBindings?: unknown[];
+};
 
 export type PromoteResult = {
   basename: string;
@@ -68,7 +90,10 @@ function readJson<T>(p: string): T | null {
 }
 
 /** Relative, extension-less import specifier from one semantic file to another. */
-export function relativeImport(fromSemanticPath: string, toSemanticPath: string): string {
+export function relativeImport(
+  fromSemanticPath: string,
+  toSemanticPath: string,
+): string {
   const fromDir = path.dirname(fromSemanticPath);
   const toNoExt = toSemanticPath.replace(/\.[cm]?[jt]sx?$/i, "");
   let rel = path.relative(fromDir, toNoExt);
@@ -97,7 +122,11 @@ export function buildImportMappings(
     // edge kind recorded before the target's content was fingerprinted.
     const target = manifest?.files?.[imp.target];
     if (target?.kind === "npm-leaf" && target.vendorSpecifier) {
-      mappings.push({ source: imp.source, to: target.vendorSpecifier, exports: {} });
+      mappings.push({
+        source: imp.source,
+        to: target.vendorSpecifier,
+        exports: {},
+      });
       continue;
     }
     if (imp.kind !== "local") continue;
@@ -152,6 +181,78 @@ export function ensureProvenanceHeader(
     return code.replace(/^\/\/ Restored from .*(?:\r?\n|$)/, `${normalized}\n`);
   }
   return `${normalized}\n// ${description}\n${code}`;
+}
+
+function exportedName(node: t.ExportSpecifier["exported"]): string {
+  return t.isIdentifier(node) ? node.name : node.value;
+}
+
+export function inferManualExportMap(
+  code: string,
+  chunk: ManifestFile,
+): Record<string, string> {
+  const publicExports: string[] = [];
+  try {
+    const ast = parser.parse(code, {
+      sourceType: "module",
+      errorRecovery: true,
+      allowImportExportEverywhere: true,
+      allowReturnOutsideFunction: true,
+      allowAwaitOutsideFunction: true,
+      allowUndeclaredExports: true,
+      plugins: PARSER_PLUGINS,
+    });
+    traverse(ast, {
+      ExportNamedDeclaration(exportPath) {
+        if (exportPath.node.source) return;
+        const declaration = exportPath.node.declaration;
+        if (t.isVariableDeclaration(declaration)) {
+          for (const declarator of declaration.declarations) {
+            if (t.isIdentifier(declarator.id)) {
+              publicExports.push(declarator.id.name);
+            }
+          }
+        } else if (
+          (t.isFunctionDeclaration(declaration) ||
+            t.isClassDeclaration(declaration)) &&
+          declaration.id
+        ) {
+          publicExports.push(declaration.id.name);
+        }
+        for (const spec of exportPath.node.specifiers) {
+          if (t.isExportSpecifier(spec))
+            publicExports.push(exportedName(spec.exported));
+        }
+      },
+      ExportDefaultDeclaration() {
+        publicExports.push("default");
+      },
+    });
+  } catch {
+    return {};
+  }
+
+  const uniqueExports = [...new Set(publicExports)];
+  const sourceExports = chunk.exports ?? [];
+  const out: Record<string, string> = {};
+  if (sourceExports.length === 1 && uniqueExports.length === 1) {
+    out[sourceExports[0]!.exported] = uniqueExports[0]!;
+    return out;
+  }
+  if (sourceExports.length === uniqueExports.length) {
+    for (let index = 0; index < sourceExports.length; index += 1) {
+      out[sourceExports[index]!.exported] = uniqueExports[index]!;
+    }
+    return out;
+  }
+  for (const sourceExport of sourceExports) {
+    if (uniqueExports.includes(sourceExport.exported)) {
+      out[sourceExport.exported] = sourceExport.exported;
+    } else if (uniqueExports.includes(sourceExport.local)) {
+      out[sourceExport.exported] = sourceExport.local;
+    }
+  }
+  return out;
 }
 
 /**
@@ -239,7 +340,7 @@ function buildCandidate(
       },
     ],
     promotionRoot: semanticPath,
-    exportMap: {},
+    exportMap: inferManualExportMap(source, chunk),
   };
 }
 
@@ -288,12 +389,17 @@ export type PromoteOrganizedOptions = {
   progress?: boolean;
 };
 
-export function promoteOrganized(opts: PromoteOrganizedOptions): PromoteResult[] {
+export function promoteOrganized(
+  opts: PromoteOrganizedOptions,
+): PromoteResult[] {
   const log = opts.log ?? (() => {});
   const paths = pathsForTarget(opts.target);
   const manifest = readJson<Manifest>(paths.manifestPath);
   if (!manifest) throw new Error(`manifest not found: ${paths.manifestPath}`);
-  const ledger = readJson<Ledger>(paths.ledgerPath) ?? { files: {}, crossFileBindings: [] };
+  const ledger = readJson<Ledger>(paths.ledgerPath) ?? {
+    files: {},
+    crossFileBindings: [],
+  };
   const importMapPath = path.join(opts.target, "IMPORT_MAP.json");
   const importMap = readJson<ImportMap>(importMapPath) ?? {};
   if (!importMap.chunks) importMap.chunks = {};
@@ -520,7 +626,12 @@ async function main(): Promise<void> {
     process.exit(64);
   }
   const only = values.only
-    ? new Set(values.only.split(",").map((s) => s.trim()).filter(Boolean))
+    ? new Set(
+        values.only
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean),
+      )
     : null;
   const limit = values.limit ? parseInt(values.limit, 10) : undefined;
   const tier = values.tier === "readable" ? "readable" : "deep";

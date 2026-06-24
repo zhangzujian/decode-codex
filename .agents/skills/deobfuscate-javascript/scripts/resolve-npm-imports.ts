@@ -80,6 +80,10 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
   // markdown / parsers
   "marked.esm": { package: "marked", namedOnly: true },
   marked: { package: "marked", namedOnly: true },
+  // Mermaid and search vendor chunks surfaced in Codex.app webview bundles.
+  fuse: { package: "fuse.js", defaultName: "Fuse" },
+  "rough.esm": { package: "roughjs", defaultName: "rough" },
+  "cytoscape.esm": { package: "cytoscape", defaultName: "cytoscape" },
   // floating-ui — the common chunk basenames are dot-delimited.
   "floating-ui.react-dom": {
     package: "@floating-ui/react-dom",

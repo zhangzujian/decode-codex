@@ -87,6 +87,24 @@ describe("resolveNpmImports (chunk-name based)", () => {
     expect(n).toContain("__assign");
     expect(n).toContain("__rest");
   });
+
+  test("rewrites Codex webview vendor chunks to package imports", () => {
+    const src = `
+      import { t as FuseAlias } from "../fuse-BODhnlb2.js";
+      import { t as RoughAlias } from "../rough.esm-tT7A6vdj.js";
+      import { t as CytoscapeAlias } from "../cytoscape.esm-EFcka3gR.js";
+      FuseAlias; RoughAlias; CytoscapeAlias;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('import Fuse from "fuse.js"');
+    expect(n).toContain('import rough from "roughjs"');
+    expect(n).toContain('import cytoscape from "cytoscape"');
+    expect(n).not.toContain("fuse-BODhnlb2");
+    expect(n).not.toContain("rough.esm-tT7A6vdj");
+    expect(n).not.toContain("cytoscape.esm-EFcka3gR");
+    expect(out.stats.specifiersResolved).toBe(3);
+  });
 });
 
 describe("resolveNpmImports (alias-based)", () => {

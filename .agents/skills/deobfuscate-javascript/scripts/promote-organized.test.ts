@@ -5,6 +5,7 @@ import * as path from "node:path";
 import {
   buildImportMappings,
   ensureProvenanceHeader,
+  inferManualExportMap,
   promoteOrganized,
   relativeImport,
 } from "./promote-organized.ts";
@@ -74,7 +75,9 @@ function setupTarget(): string {
   const target = makeTmpRoot();
   const fullDir = path.join(target, ".deobfuscate-javascript", "_full");
   fs.mkdirSync(path.join(fullDir, "checkpoints"), { recursive: true });
-  fs.mkdirSync(path.join(fullDir, "files", "panel-Mn5oPq78"), { recursive: true });
+  fs.mkdirSync(path.join(fullDir, "files", "panel-Mn5oPq78"), {
+    recursive: true,
+  });
   fs.mkdirSync(path.join(fullDir, "locks"), { recursive: true });
 
   fs.writeFileSync(
@@ -106,6 +109,7 @@ function setupTarget(): string {
     depth,
     stages: { organized: true },
     organization,
+    exports: [{ exported: "t", local: "e", kind: "named" }],
     owner: null,
     claimedAt: null,
     lastUpdated: null,
@@ -145,7 +149,9 @@ function setupTarget(): string {
               source: "./format-thing-AbCdEf12.js",
               target: "format-thing-AbCdEf12",
               kind: "local",
-              specifiers: [{ imported: "t", local: "formatThing", kind: "named" }],
+              specifiers: [
+                { imported: "t", local: "formatThing", kind: "named" },
+              ],
               reExport: false,
             },
           ],
@@ -178,7 +184,9 @@ describe("relativeImport / buildImportMappings", () => {
         "ref/webview/assets/format-thing-AbCdEf12.js",
         "Format thing chunk restored from the Codex webview bundle.",
       ),
-    ).toMatch(/^\/\/ Restored from ref\/webview\/assets\/format-thing-AbCdEf12\.js\n/);
+    ).toMatch(
+      /^\/\/ Restored from ref\/webview\/assets\/format-thing-AbCdEf12\.js\n/,
+    );
   });
 
   test("relativeImport produces an extension-less relative specifier", () => {
@@ -198,13 +206,29 @@ describe("relativeImport / buildImportMappings", () => {
       claimedAt: null,
       lastUpdated: null,
       imports: [
-        { source: "./a-X1Y2Z3a.js", target: "a-X1Y2Z3a", kind: "local", specifiers: [], reExport: false },
-        { source: "./b-X1Y2Z3b.js", target: "b-X1Y2Z3b", kind: "local", specifiers: [], reExport: false },
+        {
+          source: "./a-X1Y2Z3a.js",
+          target: "a-X1Y2Z3a",
+          kind: "local",
+          specifiers: [],
+          reExport: false,
+        },
+        {
+          source: "./b-X1Y2Z3b.js",
+          target: "b-X1Y2Z3b",
+          kind: "local",
+          specifiers: [],
+          reExport: false,
+        },
       ],
     };
     const mappings = buildImportMappings(chunk, "ui/panel.tsx", {
       chunks: {
-        "a-X1Y2Z3a": { restored: "utils/a.ts", status: "done", exports: { t: "doA" } },
+        "a-X1Y2Z3a": {
+          restored: "utils/a.ts",
+          status: "done",
+          exports: { t: "doA" },
+        },
         "b-X1Y2Z3b": { restored: "utils/b.ts", status: "pending" }, // not done → skipped
       },
     });
@@ -225,7 +249,13 @@ describe("relativeImport / buildImportMappings", () => {
       imports: [
         // Edge kind is the stale `local` recorded before the target was
         // fingerprinted as vendor data — the manifest lookup must override it.
-        { source: "./rust-Cc33Dd44.js", target: "rust-Cc33Dd44", kind: "local", specifiers: [], reExport: false },
+        {
+          source: "./rust-Cc33Dd44.js",
+          target: "rust-Cc33Dd44",
+          kind: "local",
+          specifiers: [],
+          reExport: false,
+        },
       ],
     };
     const manifest = {
@@ -242,9 +272,45 @@ describe("relativeImport / buildImportMappings", () => {
         },
       },
     } as unknown as import("./build-import-graph.ts").Manifest;
-    const mappings = buildImportMappings(chunk, "syntax/highlighter.tsx", { chunks: {} }, manifest);
+    const mappings = buildImportMappings(
+      chunk,
+      "syntax/highlighter.tsx",
+      { chunks: {} },
+      manifest,
+    );
     expect(mappings).toHaveLength(1);
     expect(mappings[0]!.to).toBe("@shikijs/langs/rust");
+  });
+
+  test("inferManualExportMap maps original single-export aliases to public names", () => {
+    const chunk = {
+      basename: "format-thing-AbCdEf12",
+      kind: "local",
+      exports: [{ exported: "t", local: "e", kind: "named" }],
+    } as ManifestFile;
+    expect(inferManualExportMap(UTIL_CHECKPOINT, chunk)).toEqual({
+      t: "formatThing",
+    });
+  });
+
+  test("inferManualExportMap maps multi-export candidates by export order", () => {
+    const chunk = {
+      basename: "helpers-BDwSRLlu",
+      kind: "local",
+      exports: [
+        { exported: "a", local: "a", kind: "named" },
+        { exported: "b", local: "b", kind: "named" },
+      ],
+    } as ManifestFile;
+    expect(
+      inferManualExportMap(
+        [
+          "export function isString(value: unknown): value is string { return typeof value === 'string'; }",
+          "export function isNumber(value: unknown): value is number { return typeof value === 'number'; }",
+        ].join("\n"),
+        chunk,
+      ),
+    ).toEqual({ a: "isString", b: "isNumber" });
   });
 });
 
@@ -271,10 +337,15 @@ describe("promoteOrganized", () => {
     expect(iconSrc).toContain("IconProps");
 
     // Util promoted from its clean checkpoint.
-    expect(fs.existsSync(path.join(target, "utils", "format-thing.ts"))).toBe(true);
+    expect(fs.existsSync(path.join(target, "utils", "format-thing.ts"))).toBe(
+      true,
+    );
 
     // Consumer promoted with its hashed import rewritten to the semantic path.
-    const panelSrc = fs.readFileSync(path.join(target, "ui", "panel.tsx"), "utf-8");
+    const panelSrc = fs.readFileSync(
+      path.join(target, "ui", "panel.tsx"),
+      "utf-8",
+    );
     expect(panelSrc).toContain('from "../utils/format-thing"');
     expect(panelSrc).not.toContain("format-thing-AbCdEf12.js");
 
@@ -282,7 +353,12 @@ describe("promoteOrganized", () => {
     const importMap = JSON.parse(
       fs.readFileSync(path.join(target, "IMPORT_MAP.json"), "utf-8"),
     );
-    expect(importMap.chunks["format-thing-AbCdEf12"].restored).toBe("utils/format-thing.ts");
+    expect(importMap.chunks["format-thing-AbCdEf12"].restored).toBe(
+      "utils/format-thing.ts",
+    );
+    expect(importMap.chunks["format-thing-AbCdEf12"].exports).toEqual({
+      t: "formatThing",
+    });
     expect(importMap.chunks["format-thing-AbCdEf12"].status).toBe("done");
     expect(importMap.chunks["panel-Mn5oPq78"].status).toBe("done");
 
@@ -302,11 +378,12 @@ describe("promoteOrganized", () => {
     expect(junk?.issues && junk.issues.length).toBeGreaterThan(0);
 
     // Three of four promoted (icon, util, panel); junk failed.
-    expect(results.filter((r) => r.promoted).map((r) => r.basename).sort()).toEqual([
-      "download-Gh1jKl34",
-      "format-thing-AbCdEf12",
-      "panel-Mn5oPq78",
-    ]);
+    expect(
+      results
+        .filter((r) => r.promoted)
+        .map((r) => r.basename)
+        .sort(),
+    ).toEqual(["download-Gh1jKl34", "format-thing-AbCdEf12", "panel-Mn5oPq78"]);
   });
 
   test("is idempotent: a second run promotes nothing new", () => {
@@ -364,11 +441,18 @@ describe("promoteOrganized", () => {
     const deep = promoteOrganized({ target: deepTarget, tier: "deep" });
     expect(deep[0]!.promoted).toBe(false);
     expect(deep[0]!.issues).toContain("untyped-public-function-params");
-    expect(fs.existsSync(path.join(deepTarget, "utils", "slugify.ts"))).toBe(false);
+    expect(fs.existsSync(path.join(deepTarget, "utils", "slugify.ts"))).toBe(
+      false,
+    );
 
     const readableTarget = setupUntypedUtil();
-    const readable = promoteOrganized({ target: readableTarget, tier: "readable" });
+    const readable = promoteOrganized({
+      target: readableTarget,
+      tier: "readable",
+    });
     expect(readable[0]!.promoted).toBe(true);
-    expect(fs.existsSync(path.join(readableTarget, "utils", "slugify.ts"))).toBe(true);
+    expect(
+      fs.existsSync(path.join(readableTarget, "utils", "slugify.ts")),
+    ).toBe(true);
   });
 });

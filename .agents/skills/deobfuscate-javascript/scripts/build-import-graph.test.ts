@@ -94,6 +94,12 @@ describe("classifyTarget", () => {
     expect(c.npmPackage).toBe("react");
   });
 
+  test("./cytoscape.esm-XXXX.js maps to npm-leaf cytoscape", () => {
+    const c = classifyTarget("./cytoscape.esm-EFcka3gR.js", new Set());
+    expect(c.kind).toBe("npm-leaf");
+    expect(c.npmPackage).toBe("cytoscape");
+  });
+
   test("./react-dom-XXXXXXXX.js correctly resolves to react-dom (not greedy-stripped to react)", () => {
     // Regression: the old regex /-[A-Za-z0-9_-]{6,12}$/ was greedy and would
     // eat `-dom-XXXXXXXX` (12 chars) collapsing the chunk to `react`. We now
