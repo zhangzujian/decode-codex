@@ -4,6 +4,7 @@ import * as os from "node:os";
 import * as path from "node:path";
 import {
   buildImportMappings,
+  ensureProvenanceHeader,
   promoteOrganized,
   relativeImport,
 } from "./promote-organized.ts";
@@ -162,6 +163,24 @@ function setupTarget(): string {
 }
 
 describe("relativeImport / buildImportMappings", () => {
+  test("ensureProvenanceHeader normalizes absolute restored paths", () => {
+    const absolute = path.join(
+      process.cwd(),
+      "ref",
+      "webview",
+      "assets",
+      "format-thing-AbCdEf12.js",
+    );
+    const source = `// Restored from ${absolute}\nexport const value = 1;\n`;
+    expect(
+      ensureProvenanceHeader(
+        source,
+        "ref/webview/assets/format-thing-AbCdEf12.js",
+        "Format thing chunk restored from the Codex webview bundle.",
+      ),
+    ).toMatch(/^\/\/ Restored from ref\/webview\/assets\/format-thing-AbCdEf12\.js\n/);
+  });
+
   test("relativeImport produces an extension-less relative specifier", () => {
     expect(relativeImport("ui/panel.tsx", "utils/format-thing.ts")).toBe(
       "../utils/format-thing",

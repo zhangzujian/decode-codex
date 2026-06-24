@@ -66,6 +66,7 @@ type ManifestFile = {
 
 type Manifest = {
   files: Record<string, ManifestFile>;
+  rootDir?: string;
   targetDir: string;
 };
 
@@ -483,7 +484,10 @@ function avoidJsGlobal(name: string): string {
   return /^[A-Z]/.test(name) ? `${name}Component` : `${name}Value`;
 }
 
-export function inferSingleExportName(basename: string, source: string): string {
+export function inferSingleExportName(
+  basename: string,
+  source: string,
+): string {
   const stem = fileStem(basename);
   if (/^use-/.test(stem)) return camelCase(stem);
   if (/^(?:get|set|create|parse|format|score|data)-/.test(stem))
@@ -754,6 +758,28 @@ function descriptionFor(basename: string): string {
   return `${pascalCase(fileStem(basename)) || "Restored"} chunk restored from the Codex webview bundle.`;
 }
 
+function toPosixPath(input: string): string {
+  return input.split(path.sep).join("/");
+}
+
+function repoRelativeSourcePath(
+  filePath: string | undefined,
+  basename: string,
+  rootDir?: string,
+): string {
+  const fromRoot = rootDir
+    ? path.posix.join(toPosixPath(rootDir), `${basename}.js`)
+    : `${basename}.js`;
+  const raw = toPosixPath(filePath ?? fromRoot);
+  const refIndex = raw.indexOf("ref/webview/assets/");
+  if (refIndex >= 0) return raw.slice(refIndex);
+  if (path.isAbsolute(filePath ?? "")) {
+    const relative = toPosixPath(path.relative(process.cwd(), filePath!));
+    if (!relative.startsWith("..")) return relative;
+  }
+  return fromRoot;
+}
+
 function readJson<T>(file: string): T {
   return JSON.parse(fs.readFileSync(file, "utf-8")) as T;
 }
@@ -821,7 +847,12 @@ async function main(): Promise<void> {
   const localEntries = localFilesInRestoreOrder(manifest);
 
   for (const [basename, file] of localEntries) {
-    const workspaceOriginal = path.join(fullDir, "files", basename, "original.js");
+    const workspaceOriginal = path.join(
+      fullDir,
+      "files",
+      basename,
+      "original.js",
+    );
     const sourcePath = fs.existsSync(workspaceOriginal)
       ? workspaceOriginal
       : file.path;
@@ -830,7 +861,10 @@ async function main(): Promise<void> {
   }
 
   const report: RestoreReport = { target: targetDir, files: [] };
-  const prog = new Progress({ label: "checkpoint", total: localEntries.length });
+  const prog = new Progress({
+    label: "checkpoint",
+    total: localEntries.length,
+  });
   for (const [basename, file] of localEntries) {
     const ledgerFile = ledger.files[basename];
     if (!ledgerFile) continue;
@@ -858,14 +892,17 @@ async function main(): Promise<void> {
       exportNames,
     );
     const renamesPath = path.join(workspace, "auto-renames.json");
-    fs.writeFileSync(renamesPath, `${JSON.stringify(built.renames, null, 2)}\n`);
+    fs.writeFileSync(
+      renamesPath,
+      `${JSON.stringify(built.renames, null, 2)}\n`,
+    );
 
     const applied = applyRenames(original, built.renames);
     const renamedPath = path.join(workspace, "auto-renamed.js");
     fs.writeFileSync(renamedPath, applied.code);
 
     const polished = polish(applied.code, {
-      sourcePath: file.path,
+      sourcePath: repoRelativeSourcePath(file.path, basename, manifest.rootDir),
       description: descriptionFor(basename),
       preferExportName: "local",
     });
@@ -894,10 +931,7 @@ async function main(): Promise<void> {
       ignoredRenames: applied.stats.ignored,
       needsAgentRewrite: true,
     });
-    prog.tick(
-      1,
-      `${basename} (${Object.keys(built.renames).length} renames)`,
-    );
+    prog.tick(1, `${basename} (${Object.keys(built.renames).length} renames)`);
   }
   prog.done("checkpoints built");
 

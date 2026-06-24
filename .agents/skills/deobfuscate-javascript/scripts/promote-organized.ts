@@ -120,6 +120,40 @@ type Built = {
   exportMap: Record<string, string>;
 };
 
+function toPosixPath(input: string): string {
+  return input.split(path.sep).join("/");
+}
+
+function repoRelativeSourcePath(
+  filePath: string | undefined,
+  basename: string,
+  rootDir?: string,
+): string {
+  const fromRoot = rootDir
+    ? path.posix.join(toPosixPath(rootDir), `${basename}.js`)
+    : `${basename}.js`;
+  const raw = toPosixPath(filePath ?? fromRoot);
+  const refIndex = raw.indexOf("ref/webview/assets/");
+  if (refIndex >= 0) return raw.slice(refIndex);
+  if (path.isAbsolute(filePath ?? "")) {
+    const relative = toPosixPath(path.relative(process.cwd(), filePath!));
+    if (!relative.startsWith("..")) return relative;
+  }
+  return fromRoot;
+}
+
+export function ensureProvenanceHeader(
+  code: string,
+  sourcePath: string,
+  description: string,
+): string {
+  const normalized = `// Restored from ${sourcePath}`;
+  if (code.startsWith("// Restored from ")) {
+    return code.replace(/^\/\/ Restored from .*(?:\r?\n|$)/, `${normalized}\n`);
+  }
+  return `${normalized}\n// ${description}\n${code}`;
+}
+
 /**
  * Build a chunk's deliverable file set (contents + final relative paths) without
  * touching disk. icon/button use the typed semantic-finalize recipe; manual/split
@@ -143,9 +177,8 @@ function buildCandidate(
   const { basename, semanticPath, recipe, fullDir } = args;
   // Provenance must be the repo-relative source path (`ref/webview/assets/<chunk>.js`),
   // not the manifest's absolute path — that's what the gate's header check expects.
-  const sourcePath = args.rootDir
-    ? path.posix.join(args.rootDir, `${basename}.js`)
-    : (chunk.path ?? `${basename}.js`);
+  const sourcePath = repoRelativeSourcePath(chunk.path, basename, args.rootDir);
+  const description = `${basename} chunk restored from the Codex webview bundle.`;
   const mappings = buildImportMappings(
     chunk,
     semanticPath,
@@ -168,7 +201,16 @@ function buildCandidate(
     let files: Built["files"];
     if (result.layout === "single") {
       // One file lands at the planner's chosen path.
-      files = [{ relPath: semanticPath, code: rewrite(result.files[0]!.code) }];
+      files = [
+        {
+          relPath: semanticPath,
+          code: ensureProvenanceHeader(
+            rewrite(result.files[0]!.code),
+            sourcePath,
+            description,
+          ),
+        },
+      ];
     } else {
       // Directory layout: place every file under the semanticPath directory,
       // dropping semantic-finalize's own top-level dir segment.
@@ -177,7 +219,7 @@ function buildCandidate(
           semanticPath,
           f.path.split("/").slice(1).join("/"),
         ),
-        code: rewrite(f.code),
+        code: ensureProvenanceHeader(rewrite(f.code), sourcePath, description),
       }));
     }
     return { files, promotionRoot: semanticPath, exportMap: result.exportMap };
@@ -190,7 +232,12 @@ function buildCandidate(
     throw new Error(`no candidate or checkpoint for ${basename}`);
   }
   return {
-    files: [{ relPath: semanticPath, code: rewrite(source) }],
+    files: [
+      {
+        relPath: semanticPath,
+        code: ensureProvenanceHeader(rewrite(source), sourcePath, description),
+      },
+    ],
     promotionRoot: semanticPath,
     exportMap: {},
   };
