@@ -265,6 +265,25 @@ describe("buildImportGraph (BFS)", () => {
     expect(second.createdAt).toBe(first.createdAt);
   });
 
+  test("preserves organization (domain/path) across a rebuild", () => {
+    const { rootDir, targetDir, entry } = makeFixture();
+    const first = buildImportGraph(entry, { rootDir, targetDir });
+    first.files["entry-AaAaAaAa"]!.stages.organized = true;
+    first.files["entry-AaAaAaAa"]!.organization = {
+      domain: "app-shell",
+      semanticPath: "app-shell/AppShell.tsx",
+      classification: "app-feature",
+      source: "agent-override",
+      decidedAt: "2026-06-24T00:00:00.000Z",
+    };
+
+    const second = buildImportGraph(entry, { rootDir, targetDir, prior: first });
+    const file = second.files["entry-AaAaAaAa"]!;
+    expect(file.stages.organized).toBe(true);
+    expect(file.organization?.semanticPath).toBe("app-shell/AppShell.tsx");
+    expect(file.organization?.domain).toBe("app-shell");
+  });
+
   test("records depth from entry (entry=0)", () => {
     const { rootDir, targetDir, entry } = makeFixture();
     const manifest = buildImportGraph(entry, { rootDir, targetDir });

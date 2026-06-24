@@ -6,6 +6,8 @@ import {
   type Manifest,
   type ManifestFile,
   type ManifestStages,
+  type OrganizationClassification,
+  type OrganizationRecipe,
 } from "./build-import-graph.ts";
 import {
   buildCrossFileBindings,
@@ -15,13 +17,28 @@ import {
 } from "./build-symbol-ledger.ts";
 import { isLikelyAppChunk } from "./chunk-classification.ts";
 
-export type StageName = "extract" | "rename" | "polish" | "finalize";
-const STAGES: StageName[] = ["extract", "rename", "polish", "finalize"];
+export type StageName =
+  | "extract"
+  | "rename"
+  | "polish"
+  | "finalize"
+  | "organize"
+  | "promote";
+const STAGES: StageName[] = [
+  "extract",
+  "rename",
+  "polish",
+  "finalize",
+  "organize",
+  "promote",
+];
 const STAGE_FIELD: Record<StageName, keyof ManifestStages> = {
   extract: "extracted",
   rename: "renamed",
   polish: "polished",
   finalize: "finalized",
+  organize: "organized",
+  promote: "promoted",
 };
 
 /** Exit code reserved for "lock already held by another agent". */
@@ -340,6 +357,8 @@ export function computeStatus(
     rename: { done: 0, pending: 0, claimed: 0 },
     polish: { done: 0, pending: 0, claimed: 0 },
     finalize: { done: 0, pending: 0, claimed: 0 },
+    organize: { done: 0, pending: 0, claimed: 0 },
+    promote: { done: 0, pending: 0, claimed: 0 },
   };
   let files = 0;
   let oversized = 0;
@@ -493,6 +512,51 @@ export function propagateCrossFile(
   return { bindingsUpdated, consumersUpdated };
 }
 
+export const ORGANIZATION_RECIPES: OrganizationRecipe[] = [
+  "icon",
+  "button",
+  "split",
+  "manual",
+];
+export const ORGANIZATION_CLASSIFICATIONS: OrganizationClassification[] = [
+  "app-feature",
+  "icon",
+  "single-util",
+  "vendor-runtime",
+  "boundary",
+];
+
+/**
+ * Record a chunk's chosen domain + public path on its manifest entry and flip
+ * `stages.organized`. The data-only half of the organize → promote phase; the
+ * `promote` stage later writes the deliverable to `organization.semanticPath`.
+ */
+export function setOrganization(
+  manifest: Manifest,
+  basename: string,
+  info: {
+    domain: string;
+    semanticPath: string;
+    recipe?: OrganizationRecipe;
+    classification: OrganizationClassification;
+    source?: "heuristic" | "agent-override";
+  },
+): ManifestFile {
+  const file = manifest.files[basename];
+  if (!file) throw new Error(`unknown basename: ${basename}`);
+  file.organization = {
+    domain: info.domain,
+    semanticPath: info.semanticPath,
+    recipe: info.recipe,
+    classification: info.classification,
+    source: info.source ?? "agent-override",
+    decidedAt: NOW(),
+  };
+  file.stages.organized = true;
+  file.lastUpdated = NOW();
+  return file;
+}
+
 // ---- CLI -------------------------------------------------------------------
 
 const USAGE = `Usage: bun scripts/ledger.ts <subcommand> [args]
@@ -514,6 +578,13 @@ Subcommands:
                                           treat it as satisfied at every stage.
                                           Refuses app/feature basenames unless
                                           --force — those must be restored, not faced.
+  set-organization <basename> --domain <d> --semantic-path <p>
+                    [--recipe icon|button|split|manual]
+                    [--classification app-feature|icon|single-util|vendor-runtime|boundary]
+                                          Record the chosen domain + public path and
+                                          flip stages.organized. Usually written in bulk
+                                          by plan-organize.ts --apply; use this to override
+                                          one chunk's domain/path before promotion.
   propagate-cross-file [--from <basename>] [--auto-fill]
                                           Push producer restored names into
                                           downstream consumer bindings.
@@ -546,6 +617,7 @@ const KNOWN_SUBCOMMANDS = new Set([
   "release",
   "mark-done",
   "mark-faced",
+  "set-organization",
   "propagate-cross-file",
   "reset",
 ]);
@@ -577,6 +649,10 @@ async function main(): Promise<void> {
         renames: { type: "string" },
         from: { type: "string" },
         "auto-fill": { type: "boolean", default: false },
+        domain: { type: "string" },
+        "semantic-path": { type: "string" },
+        recipe: { type: "string" },
+        classification: { type: "string" },
       },
       allowPositionals: true,
     });
@@ -841,6 +917,48 @@ async function main(): Promise<void> {
           `${basename} is restored or the user explicitly scopes it out. Report it in the import map/README.`,
       );
       console.log(`${basename} → faced (boundary facade)`);
+      break;
+    }
+    case "set-organization": {
+      const basename = positionals[0];
+      if (!basename) {
+        console.error(
+          `Usage: bun scripts/ledger.ts set-organization <basename> --domain <d> --semantic-path <p>`,
+        );
+        process.exit(64);
+      }
+      if (!manifest.files[basename]) {
+        console.error(`unknown basename: ${basename}`);
+        process.exit(1);
+      }
+      const domain = need(values, "domain");
+      const semanticPath = need(values, "semantic-path");
+      const recipe = values.recipe as OrganizationRecipe | undefined;
+      if (recipe && !ORGANIZATION_RECIPES.includes(recipe)) {
+        console.error(
+          `unknown --recipe ${recipe}; expected one of: ${ORGANIZATION_RECIPES.join(", ")}`,
+        );
+        process.exit(64);
+      }
+      const classification =
+        (values.classification as OrganizationClassification | undefined) ??
+        "app-feature";
+      if (!ORGANIZATION_CLASSIFICATIONS.includes(classification)) {
+        console.error(
+          `unknown --classification ${classification}; expected one of: ${ORGANIZATION_CLASSIFICATIONS.join(", ")}`,
+        );
+        process.exit(64);
+      }
+      setOrganization(manifest, basename, {
+        domain,
+        semanticPath,
+        recipe,
+        classification,
+        source: "agent-override",
+      });
+      manifest.updatedAt = NOW();
+      writeJsonAtomic(paths.manifestPath, manifest);
+      console.log(`${basename} → organized (${semanticPath})`);
       break;
     }
     case "propagate-cross-file": {

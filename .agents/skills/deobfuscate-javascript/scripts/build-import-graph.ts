@@ -47,6 +47,20 @@ export type ManifestStages = {
   renamed?: boolean;
   polished?: boolean;
   finalized?: boolean;
+  /**
+   * A semantic domain + public path was decided for this chunk (via
+   * `plan-organize.ts --apply` or `ledger.ts set-organization`). The choice is
+   * recorded in `ManifestFile.organization`. This is the data-only "where does
+   * it go" stage; it precedes `promoted`.
+   */
+  organized?: boolean;
+  /**
+   * The chunk's deliverable was written into the public restore root at its
+   * semantic path (via `promote-organized.ts`). `restored/` is empty until
+   * chunks reach this stage — the completion proof for a whole-tree restore is
+   * every reachable local chunk `promoted` + an all-tree `quality-gate.ts` pass.
+   */
+  promoted?: boolean;
   /** For npm-leaf, external, and oversized-local nodes that aren't worked on. */
   skipped?: boolean;
   /**
@@ -56,6 +70,27 @@ export type ManifestStages = {
    * explicitly scoped. Set via `ledger.ts mark-faced`.
    */
   faced?: boolean;
+};
+
+/** How a chunk was classified for organization, and where it lands publicly. */
+export type OrganizationRecipe = "icon" | "button" | "split" | "manual";
+export type OrganizationClassification =
+  | "app-feature"
+  | "icon"
+  | "single-util"
+  | "vendor-runtime"
+  | "boundary";
+export type OrganizationInfo = {
+  /** First path segment of the public deliverable (`icons`, `utils`, `boundaries`, …). */
+  domain: string;
+  /** Public deliverable path relative to the target root (`icons/download-icon.tsx`). */
+  semanticPath: string;
+  /** Finalize recipe that produces the typed deliverable, when one applies. */
+  recipe?: OrganizationRecipe;
+  classification: OrganizationClassification;
+  /** Whether a heuristic proposed this or an agent overrode it. */
+  source: "heuristic" | "agent-override";
+  decidedAt: string;
 };
 
 export type ManifestFile = {
@@ -70,6 +105,8 @@ export type ManifestFile = {
   imports?: ImportEdge[];
   exports?: ExportEntry[];
   stages: ManifestStages;
+  /** Chosen domain + public path (set once organized). Preserved across rebuilds. */
+  organization?: OrganizationInfo;
   owner: string | null;
   claimedAt: string | null;
   lastUpdated: string | null;
@@ -495,6 +532,7 @@ export function buildImportGraph(
               polished: false,
               finalized: false,
             }),
+      organization: prior?.files?.[basename]?.organization,
       owner: prior?.files?.[basename]?.owner ?? null,
       claimedAt: prior?.files?.[basename]?.claimedAt ?? null,
       lastUpdated: NOW(),

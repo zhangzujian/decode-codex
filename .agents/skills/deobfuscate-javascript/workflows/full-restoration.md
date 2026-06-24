@@ -48,10 +48,16 @@ vendor/data chunks in the extracted Codex.app tree.
      run existing stage scripts (extract → write renames → apply → polish)
      ledger.ts mark-done <basename> <stage>
      ledger.ts propagate-cross-file   →  push restored names to downstream consumers
-4. Host-agent semantic rewrite every checkpoint into final public TS/TSX: semantic filenames, typed surfaces, pure-icon recipes, Button/control recipes, mandatory splits, import-map repair, and gated promotion.
-5. Stage 3 acceptance review: the host agent reads each delivered file end-to-end and reworks any `NEEDS_FIX` file until all pass (no sub-agent required; optional one for extra eyes).
-6. Final target audit: run `quality-gate.ts <target-dir>` over the whole public target. This checks every manifest `local` / `oversized-local` chunk against the shared import map (including codex-app legacy `chunks` / `boundaries`) and fails app-feature chunks that are still mechanical, `@ts-nocheck`, typed facades, empty placeholders, or missing Stage 3 acceptance/finalized evidence.
+4. ORGANIZE → PROMOTE (this is what carries the restore out of `_full/` into `restored/`):
+     plan-organize.ts --target            →  propose a domain + kebab public path for every chunk (organize-plan.json)
+     review/override the plan, then --apply  →  write approved entries into manifest.organization (stages.organized)
+     promote-organized.ts --target --dry-run →  preview every move + gate verdict
+     promote-organized.ts --target           →  drain the promote frontier: build typed deliverable, gate, copy to restored/<domain>/, update IMPORT_MAP.json, rewrite imports, set stages.promoted
+5. Stage 3 acceptance review (deep mode): the host agent reads each delivered file end-to-end and reworks any `NEEDS_FIX` file until all pass (no sub-agent required; optional one for extra eyes).
+6. Final target audit (the completion proof): run `quality-gate.ts <target-dir>` over the whole public target. It now also fails the "checkpoints built but `restored/` empty" stall (`full-restoration-checkpoints-not-drained` / `-organize-incomplete`) and a public file left in a hash-named dir (`-public-file-in-hash-dir`), in addition to mechanical / `@ts-nocheck` / facade / placeholder app-feature chunks.
 ```
+
+**Completion definition (whole-tree).** The restore is done **iff** all three hold: `quality-gate.ts <target-dir>` exits 0 · every reachable local chunk has `stages.promoted` (deep mode also requires `stages.finalized`) · `ledger.ts frontier --stage promote --target <dir>` is empty. While checkpoints sit in `_full/checkpoints/` and `restored/` is empty, all three fail — so "mechanical checkpoint = done" is not a reachable state.
 
 Step 3 is where most of the work lives. Each iteration is one **file × stage**; multiple agents can iterate in parallel as long as they `claim` different `(file, stage)` tuples. Use `ledger.ts frontier` (not just `next`) to see the whole restorable batch — every file whose local dependencies are all `done` or `faced` — and fan agents out across it, deepest first. `next` returns the single best of the same set.
 
@@ -368,31 +374,72 @@ bun <skill-dir>/scripts/ledger.ts propagate-cross-file --target "$TARGET" --from
 
 Then loop. `ledger.ts next` will skip files where the requested stage is already `done` and prefer ones whose dependencies (other files this one imports from) are further along — so by the time you rename the entry, all its consumed names are already decided.
 
-## Step 4 — finishing
+## Step 4 — organize → promote (carry the restore out of `_full/`)
 
-When `ledger.ts status --target "$TARGET"` reports `0 pending across N files`, the rename pass is done. **Recursion check before you call the deep/full restore complete:** `status` counts a `faced` chunk as _satisfied_, not pending, so "0 pending" does **not** prove every project chunk was restored. Confirm `ledger.ts frontier` is empty **and** that no project-local feature chunk remains `faced` — only genuine third-party vendor/runtime boundaries (Zod, Statsig, the host/runtime bridge) may remain, and each must be reported as an open boundary in the README/import map. A referenced `app-shell-*` / feature chunk left as a facade means the restore is **not done**; restore it (and everything it transitively imports) before finishing. Finalization is a host-agent rewrite, not a copy step:
+When `ledger.ts status --target "$TARGET"` reports `0 pending across N files`, the rename pass is done — but the deliverables are still **mechanical checkpoints in `_full/checkpoints/`, and `restored/` is empty.** Step 4 is the phase that actually produces the public tree. It is a drainable, resumable, gated loop — not per-file eyeballing.
 
-1. **Stage 3 rewrite per file** — pass [Stage 3's D5 gate](../stages/stage-3-finalize.md#d5--typescript-types-and-the-tsx-recipe) for _each_ restored file: semantic public filename, `.tsx`, `Props` interface for every exported component, lifted type-only imports, `forwardRef` + `displayName` where appropriate, no sourcemap comments. The polished/checkpoint output is the _input_ to Stage 3, not the deliverable. A `.tsx` whose exported component is `function MyRow(props)` with no Props type is still a fail.
-2. **Run semantic recipes when they match**: use `scripts/semantic-finalize.ts --recipe icon` for pure SVG chunks and `--recipe button` for Button/control chunks. A pure single icon lands at a semantic kebab public path such as `restored/icons/download-icon.tsx` (exporting `DownloadIcon`); a chunk with two or more independent icons lands in a kebab directory with `types.ts`, one kebab `*-icon.tsx` per component, and `index.ts`. This split is mandatory even when [multi-export-bundle.md](multi-export-bundle.md)'s size threshold would not fire.
-3. **Repair consumer imports after semantic exports/files change**: when a producer changes from bundle aliases to semantic exports (`t` → `DownloadIcon`, `t` → `Button`, `n` → `CollapseIcon`) or from a hash checkpoint to a semantic final path, rewrite every finalized consumer import before formatting. Record the original hash-to-semantic mapping in an import map/report so traceability is preserved without hash filenames in public output.
-4. **Split every large or multi-export surface**: most "complete restoration" deliverables want directories under `<target-dir>/`, not flat `_full/files/` outputs. Run [multi-export-bundle.md](multi-export-bundle.md) on any hand-finalized `.tsx` with ≥ 3 named exports, a registry object, or > 1000 lines after polish. Use `scripts/plan-split.ts` to draft `$WS/split-plan.json`, adjust the plan names/groups by reading the code, then run `scripts/split-bundle.ts "$WS/polished.tsx" "$WS/split-plan.json" --out-dir "$WS/candidate/<basename>"`.
-5. **Promote only after the candidate passes the script pre-filter**:
-   ```bash
-   bun <skill-dir>/scripts/promote-final.ts "$WS/candidate/<basename>" "<target-dir>/<basename>" \
-     --report "$WS/final-quality-report.json"
-   ```
-   If `promote-final.ts` exits non-zero, the public target is left untouched. Fix the reported issues inside `$WS/candidate`, reformat, and run it again. Do not copy `$WS/polished.tsx` or `$WS/candidate` directly into `<target-dir>`. A successful promote still needs the Stage 3 acceptance review.
-6. **Run the executable quality gate** over the whole target before Stage 3 acceptance:
-   ```bash
-   bun <skill-dir>/scripts/quality-gate.ts <target-dir>
-   ```
-   A non-zero exit means the candidate is not ready for review. Fix the named issues (usually replace mechanical names, run another Stage 2 rename pass, split the large flat file, or delete residue) and run the gate again. This must be the whole target, not only `boundaries/`, because app chunks may already have semantic public paths outside `boundaries/` while still failing the deep bar.
-7. **Run the Stage 3 acceptance review.** The host agent reads each delivered file end-to-end against the quality bar — no sub-agent and no authorization required. Read 5–10 sibling files together so cross-file consistency is checked (delegating a batch to an optional reviewer sub-agent is fine when one is available and authorized). `NEEDS_FIX` means rewrite and re-read. Only a clean pass marks the file finalized.
-8. **Run the final target audit after acceptance**:
-   ```bash
-   bun <skill-dir>/scripts/quality-gate.ts <target-dir>
-   ```
-   This final run is the completion proof for deep/full mode. It reads `_full/manifest.json` plus the shared import map and rejects reachable app-feature chunks whose public output is a boundary/facade, `mechanical-readable-restored`, `@ts-nocheck`, empty `export {}`, `export declare const`, `oversized-local`, or lacks `manifest.stages.finalized=true` / an explicit Stage 3 acceptance record. `IMPORT_MAP.status === "done"` by itself is not completion evidence.
+**Recursion check first:** `status` counts a `faced` chunk as _satisfied_, not pending, so "0 pending" does **not** prove every project chunk was restored. Confirm `ledger.ts frontier` is empty **and** that no project-local feature chunk remains `faced` — only genuine third-party vendor/runtime boundaries (Zod, Statsig, the host/runtime bridge) may remain, and each must be reported as an open boundary in the README/import map. A referenced `app-shell-*` / feature chunk left as a facade means the restore is **not done**.
+
+### 4.1 — Plan the organization (one batch pass)
+
+```bash
+bun <skill-dir>/scripts/plan-organize.ts --target "$TARGET"
+```
+
+This reads the manifest + each chunk's checkpoint + `auto-restore-report.json` and writes `_full/organize-plan.json` proposing, for every local chunk, a `{ domain, semanticPath, recipe, classification, status, fallbackRenameRatio }`. It uses **project-agnostic shape heuristics**: icon-shaped → `icons/`, button-shaped → `ui/`, single-export → `utils/<kebab>.ts`, known vendor/runtime → `boundaries/`. Everything else is an `app-feature` left `status: "needs-review"` with **no domain** — a generic planner can't know your domain layout. Colliding public paths are auto-downgraded to `needs-review` so a promote never silently overwrites. `fallbackRenameRatio` surfaces the 62–91 %-fallback checkpoints to hand-clean first.
+
+### 4.2 — Review / override the plan, then apply
+
+Read `organize-plan.json`. For every `needs-review` app-feature chunk, decide its domain + semantic kebab path (a component file is kebab, e.g. `composer/composer-footer.tsx` exporting `ComposerFooter`). Either edit the plan's `status`/`domain`/`semanticPath` in place, or override one chunk at a time:
+
+```bash
+bun <skill-dir>/scripts/ledger.ts set-organization composer-footer-DyRbFsKV \
+  --domain composer --semantic-path composer/composer-footer.tsx \
+  --recipe manual --classification app-feature --target "$TARGET"
+```
+
+Then write the approved entries into the manifest (idempotent; only `status: "approved"` rows land):
+
+```bash
+bun <skill-dir>/scripts/plan-organize.ts --target "$TARGET" --apply
+```
+
+A project may supply an optional `--domain-map map.json` (`{ "<basename-prefix>": "<domain>" }`) to auto-assign app chunks; the planner core stays generic.
+
+### 4.3 — Hand-clean / type the chunks that need it (deep mode)
+
+`icon`/`button` recipe chunks are produced typed by `semantic-finalize.ts` at promote time — no hand work. For `manual`/`split` app-feature chunks, the checkpoint is the _input_, not the deliverable: drop a hand-cleaned, typed candidate at `_full/files/<basename>/candidate.tsx` (semantic names throughout, a `Props` interface on every exported component, `forwardRef`+`displayName` where appropriate, lookup tables `as const`). The promote gate rejects an untyped/mechanical candidate, so this is enforced, not optional, in deep mode. Readable-tier `manual` chunks may stay untyped as long as names are semantic. Use [multi-export-bundle.md](multi-export-bundle.md) (`plan-split.ts` → `split-bundle.ts`) to pre-split a `split`-recipe chunk into a directory candidate.
+
+### 4.4 — Drain the promote frontier
+
+```bash
+bun <skill-dir>/scripts/promote-organized.ts --target "$TARGET" --dry-run   # preview moves + gate verdicts
+bun <skill-dir>/scripts/promote-organized.ts --target "$TARGET"             # do it
+```
+
+For each organized chunk whose local deps are already promoted (producers before consumers), this builds the typed deliverable (recipe or candidate), writes it at its semantic path, runs the **same quality gate** through `analyzeSource`, and on pass: upserts `restored/IMPORT_MAP.json` (`restored` path, `exports`, `status: "done"`), rewrites this chunk's imports of already-promoted producers to their semantic names/paths, and sets `stages.promoted`. On gate fail it rolls the file back, records the issues, and **continues** — one bad chunk never blocks the batch. It is resumable (skips `promoted`, idempotent IMPORT_MAP upsert) and fleet-safe (per-chunk `promote` lock). Fan multiple agents across the frontier; each claims a different chunk. Re-run after hand-fixing the chunks it reported.
+
+It writes only into `restored/`; promote into `restored/` is never a manual `cp`. The legacy single-file `promote-final.ts "$WS/candidate/<basename>" "<target>/<path>"` gate-before-copy primitive is still available for a one-off delta.
+
+### 4.5 — Quality gate over the whole target before acceptance
+
+```bash
+bun <skill-dir>/scripts/quality-gate.ts <target-dir>
+```
+
+A non-zero exit means the target is not ready for review. Fix the named issues (replace mechanical names, hand-clean another chunk's candidate, split a large flat file, or delete residue) and re-run promote + the gate. This must be the whole target, not only `boundaries/`, because app chunks have semantic public paths outside `boundaries/` while still failing the deep bar. The gate also fails the **stall** — `full-restoration-checkpoints-not-drained` / `-organize-incomplete` when checkpoints exist but chunks aren't `promoted`, and `-public-file-in-hash-dir` when a deliverable still sits in a hash-named dir. Pass `--allow-organize-incomplete` only for an intermediate mid-drain run.
+
+### 4.6 — Stage 3 acceptance review (deep mode)
+
+The host agent reads each delivered file end-to-end against the quality bar — no sub-agent and no authorization required. Read 5–10 sibling files together so cross-file consistency is checked (delegating a batch to an optional reviewer sub-agent is fine when one is available and authorized). `NEEDS_FIX` means rewrite the candidate and re-promote. Only a clean pass marks the file finalized.
+
+### 4.7 — Final target audit after acceptance (completion proof)
+
+```bash
+bun <skill-dir>/scripts/quality-gate.ts <target-dir>
+```
+
+This final run is the completion proof. It reads `_full/manifest.json` plus the shared import map and rejects reachable app-feature chunks whose public output is a boundary/facade, `mechanical-readable-restored`, `@ts-nocheck`, empty `export {}`, `export declare const`, `oversized-local`, or lacks `manifest.stages.finalized=true` / an explicit Stage 3 acceptance record — and the stall checks above. `IMPORT_MAP.status === "done"` by itself is not completion evidence. Done **iff** this exits 0, every reachable local chunk is `stages.promoted` (deep: + `stages.finalized`), and `ledger.ts frontier --stage promote` is empty.
 
 ### Quality bar checklist (per restored file)
 

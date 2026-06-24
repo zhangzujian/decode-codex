@@ -15,6 +15,16 @@ Stage 3 has two phases:
 
 After Stage 2, the output is a mechanical checkpoint — it may parse and format while still reading like `buttonValue3` output. Scripts provide recipes and pre-filters; the host agent owns the final code.
 
+## D-1 — Whole-tree restores: drive Phase A from the organize plan + promote frontier
+
+For a single chunk, work D0–D7 directly. For a **whole-tree** restore (the default scope), don't hand-walk hundreds of checkpoints — drive Phase A through the resumable worklist from [workflows/full-restoration.md → Step 4](../workflows/full-restoration.md):
+
+1. `plan-organize.ts --target "$TARGET"` → proposes each chunk's domain + semantic kebab path + recipe into `_full/organize-plan.json`; review `needs-review` rows, `--apply`.
+2. For `manual`/`split` chunks, do the D0–D7 rewrite on the chunk's candidate at `_full/files/<basename>/candidate.tsx` (the checkpoint is the input). `icon`/`button` chunks are produced typed by `semantic-finalize.ts` at promote time.
+3. `promote-organized.ts --target "$TARGET"` drains the `promote` frontier (producers first): it runs the **same D7 gate** per chunk, copies passing deliverables into `restored/<domain>/`, repairs imports, and sets `stages.promoted`. Gate-fail → it rolls back and reports; fix the candidate and re-run.
+
+This is **resumable and fleet-safe**: state lives on disk (`manifest.organization`, `stages.organized`/`promoted`), a cold restart just re-runs `promote-organized.ts` (it skips `promoted` chunks and re-derives the frontier), and multiple agents fan across the frontier via per-chunk `promote` locks. Per-chunk D0–D7 below is unchanged; it just runs inside the candidate rewrite (manual) or the recipe (icon/button).
+
 ## D0 — Did the rename and split actually finish?
 
 > **Tier note.** In the **default tier** this gate is _advisory_ — only the naming-density checks matter (cryptic-reference density, cryptic params); the split / icon-type / Button-recipe checks are deep-mode requirements. Run `quality-gate.ts --allow-flat --allow-mechanical-names` for the naming signal only. In **deep mode** it's a hard pre-filter.
@@ -216,13 +226,13 @@ Stage 3 acceptance complete.
   Blocked/partial: 0
 ```
 
-For a full-restoration run, also set each accepted app-feature file's `manifest.stages.finalized = true` in `_full/manifest.json`, then run the final target-level gate:
+For a full-restoration run, `promote-organized.ts` already set `manifest.stages.promoted = true` on each promoted chunk; for deep mode, also set each accepted app-feature file's `manifest.stages.finalized = true` in `_full/manifest.json`, then run the final target-level gate:
 
 ```bash
 bun <skill-dir>/scripts/quality-gate.ts <target-dir>
 ```
 
-That final run is required because Stage 3 acceptance proves the files you reviewed are good, but full/deep completion also requires the manifest/import-map coverage to be complete. The gate reads `_full/manifest.json` plus current and legacy import maps and fails app-feature chunks that remain missing, `oversized-local`, `mechanical-readable-restored`, `@ts-nocheck`, typed facades, empty `export {}`, boundary placeholders, or without finalized/acceptance evidence. Do not report completion from a `boundaries/` scan or `IMPORT_MAP.status === "done"` alone. If any file is blocked/partial, report the findings and the rewrites still needed instead.
+That final run is required because Stage 3 acceptance proves the files you reviewed are good, but full/deep completion also requires the manifest/import-map coverage to be complete. The gate reads `_full/manifest.json` plus current and legacy import maps and fails app-feature chunks that remain missing, `oversized-local`, `mechanical-readable-restored`, `@ts-nocheck`, typed facades, empty `export {}`, boundary placeholders, or without finalized/acceptance evidence — **and** the stall checks (`full-restoration-checkpoints-not-drained` / `-organize-incomplete` / `-public-file-in-hash-dir`). Do not report completion from a `boundaries/` scan or `IMPORT_MAP.status === "done"` alone. The completion test is: this gate exits 0 · every reachable local chunk is `stages.promoted` (deep: + `stages.finalized`) · `ledger.ts frontier --stage promote` is empty. If any file is blocked/partial, report the findings and the rewrites still needed instead.
 
 > In **deep mode**, shipping after `promote-final.ts` exits 0 _without the acceptance review_ is a fail mode at the same severity as skipping the D0 gate. Because the review is always runnable by the host agent, "no sub-agent available" is never a reason to skip it or declare the phase blocked.
 

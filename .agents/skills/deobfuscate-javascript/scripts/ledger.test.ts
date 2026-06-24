@@ -15,6 +15,7 @@ import {
   pathsForTarget,
   propagateCrossFile,
   releaseLock,
+  setOrganization,
   suggestNext,
 } from "./ledger.ts";
 
@@ -469,6 +470,96 @@ describe("computeFrontier (library)", () => {
     // the faced leaf itself is excluded; its consumer is now restorable.
     expect(names).not.toContain("grandchild-EeEeEeEe");
     expect(names).toContain("child-BbBbBbBb");
+  });
+});
+
+describe("organize / promote stages", () => {
+  function load(fx: ReturnType<typeof makeFixture>) {
+    const manifest = JSON.parse(fs.readFileSync(fx.manifestPath, "utf-8"));
+    const ledger = JSON.parse(fs.readFileSync(fx.ledgerPath, "utf-8"));
+    return { manifest, ledger };
+  }
+
+  test("setOrganization records domain/path and flips stages.organized", () => {
+    const fx = makeFixture();
+    const { manifest } = load(fx);
+    setOrganization(manifest, "grandchild-EeEeEeEe", {
+      domain: "utils",
+      semanticPath: "utils/addNumbers.ts",
+      classification: "single-util",
+    });
+    const file = manifest.files["grandchild-EeEeEeEe"];
+    expect(file.organization.semanticPath).toBe("utils/addNumbers.ts");
+    expect(file.organization.domain).toBe("utils");
+    expect(file.organization.classification).toBe("single-util");
+    expect(file.stages.organized).toBe(true);
+  });
+
+  test("setOrganization throws on an unknown basename", () => {
+    const fx = makeFixture();
+    const { manifest } = load(fx);
+    expect(() =>
+      setOrganization(manifest, "nope-ZZZZ", {
+        domain: "utils",
+        semanticPath: "utils/x.ts",
+        classification: "single-util",
+      }),
+    ).toThrow("unknown basename");
+  });
+
+  test("promote frontier defers a consumer until its producer is promoted", () => {
+    const fx = makeFixture();
+    const { manifest, ledger } = load(fx);
+    // Leaf-first: only the leaf is promotable; consumers wait on it.
+    const first = computeFrontier(manifest, ledger, fx.fullDir, {
+      stage: "promote",
+    });
+    expect(first.map((f) => f.basename)).toEqual(["grandchild-EeEeEeEe"]);
+
+    manifest.files["grandchild-EeEeEeEe"].stages.promoted = true;
+    const next = computeFrontier(manifest, ledger, fx.fullDir, {
+      stage: "promote",
+    });
+    expect(next.map((f) => f.basename)).toEqual(["child-BbBbBbBb"]);
+  });
+
+  test("set-organization CLI writes the manifest entry", () => {
+    const fx = makeFixture();
+    const out = runCLI([
+      "set-organization",
+      "grandchild-EeEeEeEe",
+      "--domain",
+      "utils",
+      "--semantic-path",
+      "utils/addNumbers.ts",
+      "--classification",
+      "single-util",
+      "--target",
+      fx.targetDir,
+    ]);
+    expect(out.code).toBe(0);
+    expect(out.stdout).toContain("organized");
+    const manifest = JSON.parse(fs.readFileSync(fx.manifestPath, "utf-8"));
+    const file = manifest.files["grandchild-EeEeEeEe"];
+    expect(file.organization.semanticPath).toBe("utils/addNumbers.ts");
+    expect(file.stages.organized).toBe(true);
+  });
+
+  test("set-organization CLI rejects an unknown --classification", () => {
+    const fx = makeFixture();
+    const out = runCLI([
+      "set-organization",
+      "grandchild-EeEeEeEe",
+      "--domain",
+      "utils",
+      "--semantic-path",
+      "utils/addNumbers.ts",
+      "--classification",
+      "bogus",
+      "--target",
+      fx.targetDir,
+    ]);
+    expect(out.code).toBe(64);
   });
 });
 

@@ -453,6 +453,13 @@ export type QualityGateOptions = {
   allowMechanicalNames: boolean;
   requireProvenanceHeader: boolean;
   /**
+   * Readable-tier promotion: suppress the TypeScript-typing checks
+   * (`untyped-component-props`, `untyped-public-function-params`). The readable
+   * whole-tree tier still requires semantic names + a clear structure, but may
+   * ship untyped output; deep/full mode (the default) keeps typing enforced.
+   */
+  allowUntyped?: boolean;
+  /**
    * Treat the file as a faithful vendored module or a typed boundary facade:
    * suppress the semantic-naming/typing/split checks that are false positives
    * on code we deliberately did not rewrite (a package's own short API names
@@ -553,6 +560,7 @@ export const DEFAULT_OPTIONS: QualityGateOptions = {
   allowFlat: false,
   allowMechanicalNames: false,
   requireProvenanceHeader: false,
+  allowUntyped: false,
   vendored: false,
 };
 
@@ -802,6 +810,18 @@ function collectResidueMatches(source: string): string[] {
 
 function isIndexFile(filePath: string): boolean {
   return /^index\.[cm]?[jt]sx?$/i.test(path.basename(filePath));
+}
+
+/**
+ * Generated barrel / shared-types files (`index.ts`, `types.ts`) carry no
+ * restored logic — they re-export or declare a shared type alias — so the
+ * provenance-header requirement does not apply to them.
+ */
+function isGeneratedBarrelFile(filePath: string): boolean {
+  return (
+    isIndexFile(filePath) ||
+    /^types\.[cm]?tsx?$/i.test(path.basename(filePath))
+  );
 }
 
 const KEBAB_PUBLIC_BASENAME_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*(?:\.[a-z0-9]+)*$/;
@@ -1840,14 +1860,18 @@ export function analyzeSource(
       detail: astFacts.unboundIdentifiers,
     });
   }
-  if (!vendored && astFacts.untypedComponentProps.length > 0) {
+  if (!vendored && !options.allowUntyped && astFacts.untypedComponentProps.length > 0) {
     issues.push({
       code: "untyped-component-props",
       message: `Exported component props need explicit TS types: ${astFacts.untypedComponentProps.join(", ")}`,
       detail: astFacts.untypedComponentProps,
     });
   }
-  if (!vendored && astFacts.untypedPublicFunctionParams.length > 0) {
+  if (
+    !vendored &&
+    !options.allowUntyped &&
+    astFacts.untypedPublicFunctionParams.length > 0
+  ) {
     issues.push({
       code: "untyped-public-function-params",
       message: `Exported function params need explicit TS types: ${astFacts.untypedPublicFunctionParams.join(", ")}`,
@@ -1868,7 +1892,11 @@ export function analyzeSource(
       detail: astFacts.publicCrypticNames,
     });
   }
-  if (options.requireProvenanceHeader && !hasProvenanceHeader) {
+  if (
+    options.requireProvenanceHeader &&
+    !hasProvenanceHeader &&
+    !isGeneratedBarrelFile(file)
+  ) {
     issues.push({
       code: "missing-provenance-header",
       message:
@@ -2237,8 +2265,122 @@ export function collectBoundaryCheckpointImportFiles(
   return allowedFiles;
 }
 
+/** Stripped basenames of every flat checkpoint the batch executor wrote. */
+function checkpointBasenames(targetDir: string): Set<string> {
+  const dir = path.join(
+    targetDir,
+    ".deobfuscate-javascript",
+    "_full",
+    "checkpoints",
+  );
+  const out = new Set<string>();
+  if (!fs.existsSync(dir)) return out;
+  let entries: fs.Dirent[];
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return out;
+  }
+  for (const entry of entries) {
+    if (entry.isFile() && SOURCE_EXT_RE.test(entry.name)) {
+      out.add(entry.name.replace(SOURCE_EXT_RE, ""));
+    }
+  }
+  return out;
+}
+
+/**
+ * The anti-stall checks: a whole-tree restore that built mechanical checkpoints
+ * but never promoted them into the public tree (the "checkpoints full, restored/
+ * empty" failure), and the structural "a promoted public file is still sitting in
+ * a hash-named chunk directory" failure. Computable from the manifest + the
+ * staging tree alone — they fire even before IMPORT_MAP.json exists, which is the
+ * exact state a stalled restore is left in.
+ */
+function analyzeOrganizePromoteState(
+  targetDir: string,
+  manifest: unknown,
+  opts: { allowOrganizeIncomplete?: boolean },
+): QualityGateIssue[] {
+  const issues: QualityGateIssue[] = [];
+  const checkpoints = checkpointBasenames(targetDir);
+
+  const localBasenames = new Set<string>();
+  const promoted = new Set<string>();
+  const finalizedNotPromoted: string[] = [];
+  for (const [fallback, file] of manifestFiles(manifest)) {
+    if (file.kind !== "local" && file.kind !== "oversized-local") continue;
+    const basename = file.basename ?? fallback;
+    if (!basename) continue;
+    localBasenames.add(basename);
+    const stages = file.stages ?? {};
+    if (stages.faced) continue; // a facade boundary is not promotable
+    if (stages.promoted) promoted.add(basename);
+    else if (stages.finalized) finalizedNotPromoted.push(basename);
+  }
+
+  // The "drain" checks only apply once the batch executor has run (checkpoints
+  // exist). A restore that never used it — or one whose chunks are all promoted —
+  // is unaffected. `--allow-organize-incomplete` suppresses them for in-progress runs.
+  if (checkpoints.size > 0 && !opts.allowOrganizeIncomplete) {
+    const undrained = [...checkpoints].filter((b) => !promoted.has(b)).sort();
+    if (undrained.length > 0) {
+      issues.push({
+        code: "full-restoration-checkpoints-not-drained",
+        message:
+          "Mechanical checkpoints exist under _full/checkpoints/ but were not promoted into the public tree (restored/ left empty). Run plan-organize.ts then promote-organized.ts until every chunk is promoted, or pass --allow-organize-incomplete for an intermediate run.",
+        detail: {
+          checkpoints: checkpoints.size,
+          promoted: promoted.size,
+          undrained: undrained.slice(0, 50),
+        },
+      });
+    }
+    if (finalizedNotPromoted.length > 0) {
+      issues.push({
+        code: "full-restoration-organize-incomplete",
+        message:
+          "Chunks reached the finalize stage but were never promoted to their semantic path. Promote them (promote-organized.ts) before declaring the restore complete.",
+        detail: finalizedNotPromoted.sort().slice(0, 50),
+      });
+    }
+  }
+
+  // Structural: a promoted public file must not live inside a directory still
+  // named after its hash chunk basename (e.g. restored/button-bq66r8jD/button.tsx).
+  // Matching against real manifest basenames avoids false positives on semantic
+  // dirs like composer-controller/.
+  if (localBasenames.size > 0) {
+    const hashDirFiles: string[] = [];
+    let publicFiles: string[];
+    try {
+      publicFiles = collectFiles(targetDir);
+    } catch {
+      publicFiles = [];
+    }
+    for (const file of publicFiles) {
+      const rel = path.relative(targetDir, file);
+      const segments = rel.split(path.sep).slice(0, -1); // dirs only
+      if (segments.some((seg) => localBasenames.has(seg))) {
+        hashDirFiles.push(rel);
+      }
+    }
+    if (hashDirFiles.length > 0) {
+      issues.push({
+        code: "full-restoration-public-file-in-hash-dir",
+        message:
+          "Promoted public files must live in semantic kebab-case domain folders, not directories still named after the hash chunk basename.",
+        detail: hashDirFiles.sort().slice(0, 50),
+      });
+    }
+  }
+
+  return issues;
+}
+
 export function analyzeFullRestorationCoverage(
   targetDir: string,
+  coverageOpts: { allowOrganizeIncomplete?: boolean } = {},
 ): FileQualityReport[] {
   const stat = fs.statSync(targetDir);
   if (!stat.isDirectory()) return [];
@@ -2251,8 +2393,14 @@ export function analyzeFullRestorationCoverage(
   );
   if (!fs.existsSync(manifestPath)) return [];
 
+  const manifest = parseJsonFile<unknown>(manifestPath);
   const importMapPath = path.join(targetDir, "IMPORT_MAP.json");
   const issues: QualityGateIssue[] = [];
+  // Anti-stall checks run first so they fire even when IMPORT_MAP.json is absent
+  // — the exact state a checkpoints-only stall is left in.
+  issues.push(
+    ...analyzeOrganizePromoteState(targetDir, manifest, coverageOpts),
+  );
   if (!fs.existsSync(importMapPath)) {
     issues.push({
       code: "missing-import-map",
@@ -2263,7 +2411,6 @@ export function analyzeFullRestorationCoverage(
     return [emptyReport(importMapPath, issues)];
   }
 
-  const manifest = parseJsonFile<unknown>(manifestPath);
   const importMap = parseJsonFile<FullRestorationImportMap>(importMapPath);
   const missingLocalChunks: string[] = [];
   const oversizedLocalChunks: string[] = [];
@@ -2423,7 +2570,7 @@ function printHumanReport(reports: FileQualityReport[]): void {
 }
 
 const USAGE =
-  "Usage: bun scripts/quality-gate.ts <file-or-dir> [--json] [--allow-flat] [--allow-mechanical-names] [--allow-missing-provenance] [--vendored] " +
+  "Usage: bun scripts/quality-gate.ts <file-or-dir> [--json] [--allow-flat] [--allow-mechanical-names] [--allow-missing-provenance] [--allow-untyped] [--vendored] [--allow-organize-incomplete] " +
   "[--max-cryptic-params N] [--max-cryptic-bindings N] " +
   "[--max-short-ref-count N] [--max-flat-lines N] [--max-flat-exports N]";
 
@@ -2451,7 +2598,9 @@ async function main(): Promise<void> {
         "allow-flat": { type: "boolean", default: false },
         "allow-mechanical-names": { type: "boolean", default: false },
         "allow-missing-provenance": { type: "boolean", default: false },
+        "allow-untyped": { type: "boolean", default: false },
         vendored: { type: "boolean", default: false },
+        "allow-organize-incomplete": { type: "boolean", default: false },
         "max-cryptic-params": { type: "string" },
         "max-cryptic-bindings": { type: "string" },
         "max-short-ref-count": { type: "string" },
@@ -2506,6 +2655,7 @@ async function main(): Promise<void> {
     allowFlat: values["allow-flat"] ?? false,
     allowMechanicalNames: values["allow-mechanical-names"] ?? false,
     requireProvenanceHeader: !(values["allow-missing-provenance"] ?? false),
+    allowUntyped: values["allow-untyped"] ?? false,
     vendored: values["vendored"] ?? false,
     allowedCheckpointImportFiles: collectBoundaryCheckpointImportFiles(input),
   };
@@ -2521,7 +2671,11 @@ async function main(): Promise<void> {
   const reports = files.map((file) =>
     analyzeSource(fs.readFileSync(file, "utf-8"), file, options),
   );
-  reports.push(...analyzeFullRestorationCoverage(input));
+  reports.push(
+    ...analyzeFullRestorationCoverage(input, {
+      allowOrganizeIncomplete: values["allow-organize-incomplete"] ?? false,
+    }),
+  );
   if (values.json) {
     process.stdout.write(JSON.stringify(reports, null, 2) + "\n");
   } else {

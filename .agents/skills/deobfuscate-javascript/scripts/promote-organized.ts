@@ -1,0 +1,470 @@
+import * as fs from "node:fs";
+import * as path from "node:path";
+import { parseArgs } from "node:util";
+import {
+  writeJsonAtomic,
+  type Manifest,
+  type ManifestFile,
+} from "./build-import-graph.ts";
+import {
+  acquireLock,
+  computeFrontier,
+  LockHeldError,
+  pathsForTarget,
+  releaseLock,
+} from "./ledger.ts";
+import {
+  rewriteSemanticImports,
+  semanticFinalize,
+  type SemanticImportMapping,
+} from "./semantic-finalize.ts";
+import {
+  analyzeSource,
+  DEFAULT_OPTIONS,
+  type QualityGateOptions,
+} from "./quality-gate.ts";
+
+/**
+ * promote-organized.ts — drain the promote frontier: for every organized chunk
+ * whose local dependencies are already promoted, produce its typed deliverable
+ * (semantic-finalize recipe, or the agent/checkpoint candidate), gate it through
+ * the SAME quality gate promote-final uses, copy it to its semantic path, update
+ * the shared IMPORT_MAP.json, and rewrite this chunk's imports of already-promoted
+ * producers to their semantic names/paths.
+ *
+ * Resumable + fleet-safe: per-chunk promote lock, skip already-promoted, idempotent
+ * IMPORT_MAP upsert, continue-on-gate-fail (one bad chunk never blocks the batch).
+ * `--dry-run` previews every move + import-map change + gate verdict with no writes.
+ */
+
+type ImportMapEntry = {
+  restored?: string;
+  exports?: Record<string, string>;
+  status?: string;
+  [k: string]: unknown;
+};
+type ImportMap = {
+  chunks?: Record<string, ImportMapEntry>;
+  [k: string]: unknown;
+};
+
+type Ledger = { files?: Record<string, unknown>; crossFileBindings?: unknown[] };
+
+export type PromoteResult = {
+  basename: string;
+  promoted: boolean;
+  semanticPath: string;
+  reason: string;
+  issues?: string[];
+};
+
+function readJson<T>(p: string): T | null {
+  try {
+    return JSON.parse(fs.readFileSync(p, "utf-8")) as T;
+  } catch {
+    return null;
+  }
+}
+
+/** Relative, extension-less import specifier from one semantic file to another. */
+export function relativeImport(fromSemanticPath: string, toSemanticPath: string): string {
+  const fromDir = path.dirname(fromSemanticPath);
+  const toNoExt = toSemanticPath.replace(/\.[cm]?[jt]sx?$/i, "");
+  let rel = path.relative(fromDir, toNoExt);
+  if (rel === "") rel = ".";
+  rel = rel.split(path.sep).join("/");
+  if (!rel.startsWith(".")) rel = `./${rel}`;
+  return rel;
+}
+
+/** Build import rewrites for one chunk against producers already promoted. */
+export function buildImportMappings(
+  chunk: ManifestFile,
+  semanticPath: string,
+  importMap: ImportMap,
+): SemanticImportMapping[] {
+  const mappings: SemanticImportMapping[] = [];
+  for (const imp of chunk.imports ?? []) {
+    if (imp.kind !== "local") continue;
+    const producer = importMap.chunks?.[imp.target];
+    if (!producer?.restored || producer.status !== "done") continue;
+    mappings.push({
+      source: imp.source,
+      to: relativeImport(semanticPath, producer.restored),
+      exports: producer.exports ?? {},
+    });
+  }
+  return mappings;
+}
+
+type Built = {
+  /** Deliverable files, paths relative to the target root. */
+  files: Array<{ relPath: string; code: string }>;
+  /** The path to remove on rollback (the file, or the chunk's directory). */
+  promotionRoot: string;
+  exportMap: Record<string, string>;
+};
+
+/**
+ * Build a chunk's deliverable file set (contents + final relative paths) without
+ * touching disk. icon/button use the typed semantic-finalize recipe; manual/split
+ * use the agent candidate (files/<basename>/candidate.tsx|.ts) if present, else the
+ * mechanical checkpoint (which the gate rejects unless clean). The caller writes
+ * the files at their final locations, gates them there (so relative imports to
+ * already-promoted siblings resolve), and rolls back `promotionRoot` on failure.
+ */
+function buildCandidate(
+  chunk: ManifestFile,
+  args: {
+    basename: string;
+    semanticPath: string;
+    recipe: string;
+    fullDir: string;
+    importMap: ImportMap;
+    rootDir?: string;
+  },
+): Built {
+  const { basename, semanticPath, recipe, fullDir } = args;
+  // Provenance must be the repo-relative source path (`ref/webview/assets/<chunk>.js`),
+  // not the manifest's absolute path — that's what the gate's header check expects.
+  const sourcePath = args.rootDir
+    ? path.posix.join(args.rootDir, `${basename}.js`)
+    : (chunk.path ?? `${basename}.js`);
+  const mappings = buildImportMappings(chunk, semanticPath, args.importMap);
+  const rewrite = (code: string) =>
+    mappings.length > 0 ? rewriteSemanticImports(code, mappings) : code;
+
+  if (recipe === "icon" || recipe === "button") {
+    const checkpoint = readCheckpoint(fullDir, basename);
+    if (checkpoint == null) {
+      throw new Error(`no checkpoint to finalize for ${basename}`);
+    }
+    const result = semanticFinalize(checkpoint, {
+      recipe: recipe === "icon" ? "icon" : "button",
+      basename,
+      sourcePath,
+    });
+    let files: Built["files"];
+    if (result.layout === "single") {
+      // One file lands at the planner's chosen path.
+      files = [{ relPath: semanticPath, code: rewrite(result.files[0]!.code) }];
+    } else {
+      // Directory layout: place every file under the semanticPath directory,
+      // dropping semantic-finalize's own top-level dir segment.
+      files = result.files.map((f) => ({
+        relPath: path.posix.join(
+          semanticPath,
+          f.path.split("/").slice(1).join("/"),
+        ),
+        code: rewrite(f.code),
+      }));
+    }
+    return { files, promotionRoot: semanticPath, exportMap: result.exportMap };
+  }
+
+  // manual / split: prefer an agent-rewritten candidate, else the checkpoint.
+  const source =
+    readCandidate(fullDir, basename) ?? readCheckpoint(fullDir, basename);
+  if (source == null) {
+    throw new Error(`no candidate or checkpoint for ${basename}`);
+  }
+  return {
+    files: [{ relPath: semanticPath, code: rewrite(source) }],
+    promotionRoot: semanticPath,
+    exportMap: {},
+  };
+}
+
+function readCheckpoint(fullDir: string, basename: string): string | null {
+  for (const ext of [".tsx", ".ts", ".jsx", ".js"]) {
+    const p = path.join(fullDir, "checkpoints", `${basename}${ext}`);
+    if (fs.existsSync(p)) return fs.readFileSync(p, "utf-8");
+  }
+  return null;
+}
+
+function readCandidate(fullDir: string, basename: string): string | null {
+  for (const ext of [".tsx", ".ts"]) {
+    const p = path.join(fullDir, "files", basename, `candidate${ext}`);
+    if (fs.existsSync(p)) return fs.readFileSync(p, "utf-8");
+  }
+  return null;
+}
+
+function qualityOptionsFor(
+  classification: string | undefined,
+  tier: "readable" | "deep",
+): QualityGateOptions {
+  if (classification === "vendor-runtime" || classification === "boundary") {
+    return {
+      ...DEFAULT_OPTIONS,
+      vendored: true,
+      allowFlat: true,
+      allowMechanicalNames: true,
+    };
+  }
+  // Readable tier ships organized-but-untyped output; deep tier enforces types.
+  return { ...DEFAULT_OPTIONS, allowUntyped: tier === "readable" };
+}
+
+export type PromoteOrganizedOptions = {
+  target: string;
+  dryRun?: boolean;
+  owner?: string;
+  only?: Set<string> | null;
+  limit?: number;
+  /** "deep" (default) enforces TS types at promote; "readable" allows untyped. */
+  tier?: "readable" | "deep";
+  log?: (msg: string) => void;
+};
+
+export function promoteOrganized(opts: PromoteOrganizedOptions): PromoteResult[] {
+  const log = opts.log ?? (() => {});
+  const paths = pathsForTarget(opts.target);
+  const manifest = readJson<Manifest>(paths.manifestPath);
+  if (!manifest) throw new Error(`manifest not found: ${paths.manifestPath}`);
+  const ledger = readJson<Ledger>(paths.ledgerPath) ?? { files: {}, crossFileBindings: [] };
+  const importMapPath = path.join(opts.target, "IMPORT_MAP.json");
+  const importMap = readJson<ImportMap>(importMapPath) ?? {};
+  if (!importMap.chunks) importMap.chunks = {};
+
+  const owner = opts.owner ?? `agent-${process.pid}`;
+  const results: PromoteResult[] = [];
+  // In dry-run we still write deliverables to disk (so a consumer's relative
+  // imports to already-promoted siblings resolve during gating), then remove
+  // them all at the end.
+  const dryWritten: string[] = [];
+
+  const writeBuilt = (built: Built): void => {
+    for (const f of built.files) {
+      const dest = path.join(opts.target, f.relPath);
+      fs.mkdirSync(path.dirname(dest), { recursive: true });
+      fs.writeFileSync(dest, f.code);
+    }
+  };
+  const rollback = (promotionRoot: string): void => {
+    const abs = path.join(opts.target, promotionRoot);
+    fs.rmSync(abs, { recursive: true, force: true });
+    const domain = path.dirname(abs);
+    try {
+      if (domain !== opts.target && fs.readdirSync(domain).length === 0) {
+        fs.rmSync(domain, { recursive: true, force: true });
+      }
+    } catch {
+      // best-effort
+    }
+  };
+
+  let processed = 0;
+  // Chunks we tried this run but couldn't promote (gate fail / lock / error) —
+  // skip them so the loop drains instead of re-picking the same stuck chunk.
+  const attempted = new Set<string>();
+  // Drain the promote frontier: producers promote before consumers, so each
+  // consumer's import rewrites point at already-promoted producer files.
+  for (;;) {
+    if (opts.limit !== undefined && processed >= opts.limit) break;
+    const frontier = computeFrontier(manifest, ledger as never, paths.fullDir, {
+      stage: "promote",
+    });
+    const next = frontier.find((item) => {
+      const file = manifest.files[item.basename];
+      if (!file?.organization?.semanticPath) return false;
+      if (opts.only && !opts.only.has(item.basename)) return false;
+      if (attempted.has(item.basename)) return false;
+      return true;
+    });
+    if (!next) break;
+
+    const basename = next.basename;
+    const file = manifest.files[basename]!;
+    const org = file.organization!;
+    processed++;
+
+    let lockHeld = false;
+    try {
+      if (!opts.dryRun) {
+        acquireLock(paths.fullDir, basename, "promote", owner);
+        lockHeld = true;
+      }
+      const built = buildCandidate(file, {
+        basename,
+        semanticPath: org.semanticPath,
+        recipe: org.recipe ?? "manual",
+        fullDir: paths.fullDir,
+        importMap,
+        rootDir: manifest.rootDir,
+      });
+      // Write at the FINAL location so relative imports to promoted siblings
+      // resolve, gate in place, then keep or roll back.
+      writeBuilt(built);
+      const qopts = qualityOptionsFor(org.classification, opts.tier ?? "deep");
+      const issues = [
+        ...new Set(
+          built.files.flatMap((f) =>
+            analyzeSource(
+              f.code,
+              path.join(opts.target, f.relPath),
+              qopts,
+            ).issues.map((i) => i.code),
+          ),
+        ),
+      ];
+
+      if (issues.length > 0) {
+        rollback(built.promotionRoot);
+        log(`promote: FAIL ${basename} (${issues.join(", ")})`);
+        results.push({
+          basename,
+          promoted: false,
+          semanticPath: org.semanticPath,
+          reason: "gate rejected candidate",
+          issues,
+        });
+        attempted.add(basename);
+        continue; // resumable: leave unpromoted, drain the rest
+      }
+
+      // Gate passed — record success in-memory (so downstream consumers see it).
+      importMap.chunks![basename] = {
+        ...(importMap.chunks![basename] ?? {}),
+        restored: org.semanticPath,
+        ...(Object.keys(built.exportMap).length > 0
+          ? { exports: built.exportMap }
+          : {}),
+        status: "done",
+      };
+      file.stages.promoted = true;
+      file.lastUpdated = new Date().toISOString();
+      manifest.updatedAt = new Date().toISOString();
+
+      if (opts.dryRun) {
+        dryWritten.push(built.promotionRoot);
+        log(`[dry] ${basename} → ${org.semanticPath}  PASS`);
+        results.push({
+          basename,
+          promoted: false,
+          semanticPath: org.semanticPath,
+          reason: "would promote",
+        });
+      } else {
+        writeJsonAtomic(importMapPath, importMap);
+        writeJsonAtomic(paths.manifestPath, manifest);
+        log(`promote: ${basename} → ${org.semanticPath}`);
+        results.push({
+          basename,
+          promoted: true,
+          semanticPath: org.semanticPath,
+          reason: "promoted",
+        });
+      }
+    } catch (err) {
+      if (err instanceof LockHeldError) {
+        log(`promote: ${basename} locked by ${err.info.owner}; skipping`);
+        attempted.add(basename); // another agent owns it this run
+        results.push({
+          basename,
+          promoted: false,
+          semanticPath: org.semanticPath,
+          reason: "locked by another agent",
+        });
+        continue;
+      }
+      log(`promote: ERROR ${basename} ${(err as Error).message}`);
+      results.push({
+        basename,
+        promoted: false,
+        semanticPath: org.semanticPath,
+        reason: (err as Error).message,
+      });
+      attempted.add(basename); // avoid re-picking a hard-failing chunk
+    } finally {
+      if (lockHeld) {
+        try {
+          releaseLock(paths.fullDir, basename, "promote", { force: true });
+        } catch {
+          // best-effort
+        }
+      }
+    }
+  }
+
+  // A dry run leaves no public files behind (deepest paths first).
+  if (opts.dryRun) {
+    for (const root of [...dryWritten].reverse()) rollback(root);
+  }
+  return results;
+}
+
+// ---- CLI -------------------------------------------------------------------
+
+const USAGE = `Usage: bun scripts/promote-organized.ts --target <dir> [options]
+
+Drain the promote frontier: build each organized chunk's typed deliverable, gate
+it, copy it to its semantic path, update IMPORT_MAP.json, and rewrite imports.
+
+Options:
+  --target <dir>     Target restore root whose _full/ to operate on (required).
+  --dry-run          Preview every move + gate verdict; write nothing.
+  --owner <id>       Lock owner identifier (default: agent-<pid>).
+  --only <list>      Comma-separated basenames to restrict promotion to.
+  --limit <n>        Promote at most n chunks this run.
+  --tier <t>         deep (default, enforces TS types) | readable (allows untyped).
+
+Exit codes: 0 success · 1 I/O · 64 usage.
+`;
+
+async function main(): Promise<void> {
+  let parsed;
+  try {
+    parsed = parseArgs({
+      args: process.argv.slice(2),
+      options: {
+        target: { type: "string" },
+        "dry-run": { type: "boolean", default: false },
+        owner: { type: "string" },
+        only: { type: "string" },
+        limit: { type: "string" },
+        tier: { type: "string" },
+      },
+      allowPositionals: true,
+    });
+  } catch (err) {
+    console.error(USAGE);
+    console.error((err as Error).message);
+    process.exit(64);
+  }
+  const { values } = parsed;
+  if (!values.target) {
+    console.error(USAGE);
+    process.exit(64);
+  }
+  const only = values.only
+    ? new Set(values.only.split(",").map((s) => s.trim()).filter(Boolean))
+    : null;
+  const limit = values.limit ? parseInt(values.limit, 10) : undefined;
+  const tier = values.tier === "readable" ? "readable" : "deep";
+
+  try {
+    const results = promoteOrganized({
+      target: values.target,
+      dryRun: values["dry-run"],
+      owner: values.owner,
+      only,
+      limit,
+      tier,
+      log: (msg) => console.error(msg),
+    });
+    const promoted = results.filter((r) => r.promoted).length;
+    const failed = results.filter((r) => !r.promoted && r.issues).length;
+    console.error(
+      `promote-organized: ${promoted} promoted · ${failed} gate-failed · ${results.length} considered`,
+    );
+  } catch (err) {
+    console.error((err as Error).message);
+    process.exit(1);
+  }
+}
+
+if (import.meta.main) {
+  await main();
+}

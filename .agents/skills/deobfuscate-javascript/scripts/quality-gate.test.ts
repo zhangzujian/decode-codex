@@ -1288,6 +1288,169 @@ export function Toolbar() {
     expect(analyzeFullRestorationCoverage(targetDir)).toEqual([]);
   });
 
+  function writeFullManifest(
+    targetDir: string,
+    files: Record<string, unknown>,
+  ): void {
+    fs.mkdirSync(path.join(targetDir, ".deobfuscate-javascript", "_full"), {
+      recursive: true,
+    });
+    fs.writeFileSync(
+      path.join(targetDir, ".deobfuscate-javascript", "_full", "manifest.json"),
+      JSON.stringify({ files }),
+    );
+  }
+
+  function writeCheckpoints(targetDir: string, basenames: string[]): void {
+    const dir = path.join(
+      targetDir,
+      ".deobfuscate-javascript",
+      "_full",
+      "checkpoints",
+    );
+    fs.mkdirSync(dir, { recursive: true });
+    for (const b of basenames) {
+      fs.writeFileSync(path.join(dir, `${b}.tsx`), "export const x = 1;\n");
+    }
+  }
+
+  test("anti-stall: checkpoints-not-drained fires when checkpoints exist but nothing is promoted", () => {
+    const targetDir = makeTmpRoot();
+    writeFullManifest(targetDir, {
+      "foo-AbCdEf12": { basename: "foo-AbCdEf12", kind: "local", stages: {} },
+      "bar-Gh1jKl34": { basename: "bar-Gh1jKl34", kind: "local", stages: {} },
+    });
+    writeCheckpoints(targetDir, ["foo-AbCdEf12", "bar-Gh1jKl34"]);
+    // No IMPORT_MAP.json — the exact state a stalled restore is left in.
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    expect(reports).toHaveLength(1);
+    const codes = reports[0]!.issues.map((i) => i.code);
+    expect(codes).toContain("full-restoration-checkpoints-not-drained");
+  });
+
+  test("anti-stall: organize-incomplete fires when a chunk is finalized but not promoted", () => {
+    const targetDir = makeTmpRoot();
+    writeFullManifest(targetDir, {
+      "foo-AbCdEf12": {
+        basename: "foo-AbCdEf12",
+        kind: "local",
+        stages: { finalized: true },
+      },
+    });
+    writeCheckpoints(targetDir, ["foo-AbCdEf12"]);
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports[0]!.issues.map((i) => i.code);
+    expect(codes).toContain("full-restoration-organize-incomplete");
+  });
+
+  test("anti-stall: --allow-organize-incomplete suppresses the drain checks", () => {
+    const targetDir = makeTmpRoot();
+    writeFullManifest(targetDir, {
+      "foo-AbCdEf12": {
+        basename: "foo-AbCdEf12",
+        kind: "local",
+        stages: { finalized: true },
+      },
+    });
+    writeCheckpoints(targetDir, ["foo-AbCdEf12"]);
+    const reports = analyzeFullRestorationCoverage(targetDir, {
+      allowOrganizeIncomplete: true,
+    });
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain("full-restoration-checkpoints-not-drained");
+    expect(codes).not.toContain("full-restoration-organize-incomplete");
+  });
+
+  test("anti-stall: public-file-in-hash-dir flags a promoted file in a hash-named dir", () => {
+    const targetDir = makeTmpRoot();
+    writeFullManifest(targetDir, {
+      "button-bq66r8jD": {
+        basename: "button-bq66r8jD",
+        kind: "local",
+        stages: { promoted: true },
+      },
+    });
+    fs.mkdirSync(path.join(targetDir, "button-bq66r8jD"), { recursive: true });
+    fs.writeFileSync(
+      path.join(targetDir, "button-bq66r8jD", "button.tsx"),
+      "export const Button = () => null;\n",
+    );
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).toContain("full-restoration-public-file-in-hash-dir");
+  });
+
+  test("anti-stall: a fully promoted tree passes the drain checks", () => {
+    const targetDir = makeTmpRoot();
+    fs.mkdirSync(path.join(targetDir, "ui"), { recursive: true });
+    fs.writeFileSync(
+      path.join(targetDir, "ui", "button.tsx"),
+      "// Restored from ref/webview/assets/button-bq66r8jD.js\nexport const Button = () => null;\n",
+    );
+    writeFullManifest(targetDir, {
+      "button-bq66r8jD": {
+        basename: "button-bq66r8jD",
+        kind: "local",
+        stages: { promoted: true },
+      },
+    });
+    writeCheckpoints(targetDir, ["button-bq66r8jD"]);
+    fs.writeFileSync(
+      path.join(targetDir, "IMPORT_MAP.json"),
+      JSON.stringify({
+        chunks: {
+          "button-bq66r8jD": { restored: "ui/button.tsx", status: "done" },
+        },
+      }),
+    );
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain("full-restoration-checkpoints-not-drained");
+    expect(codes).not.toContain("full-restoration-organize-incomplete");
+    expect(codes).not.toContain("full-restoration-public-file-in-hash-dir");
+  });
+
+  test("generated barrel/types files are exempt from the provenance-header requirement", () => {
+    const opts = { ...DEFAULT_OPTIONS, requireProvenanceHeader: true };
+    const barrel = analyzeSource(
+      `export { SpeakerIcon } from "./speaker-icon";\n`,
+      "icons/speaker/index.ts",
+      opts,
+    );
+    expect(barrel.issues.map((i) => i.code)).not.toContain(
+      "missing-provenance-header",
+    );
+    const types = analyzeSource(
+      `import type { SVGProps } from "react";\nexport type IconProps = SVGProps<SVGSVGElement>;\n`,
+      "icons/speaker/types.ts",
+      opts,
+    );
+    expect(types.issues.map((i) => i.code)).not.toContain(
+      "missing-provenance-header",
+    );
+    // A real restored file with no header still fails.
+    const real = analyzeSource(
+      `export function speakerIcon() {}\n`,
+      "icons/speaker/speaker-icon.tsx",
+      opts,
+    );
+    expect(real.issues.map((i) => i.code)).toContain("missing-provenance-header");
+  });
+
+  test("allowUntyped suppresses the typing checks (readable tier)", () => {
+    const src =
+      "// Restored from ref/webview/assets/widget-AbCdEf12.js\nexport function Widget(props) {\n  return props.label;\n}\n";
+    const deep = analyzeSource(src, "widget.tsx", DEFAULT_OPTIONS);
+    expect(deep.issues.map((i) => i.code)).toContain("untyped-component-props");
+    const readable = analyzeSource(src, "widget.tsx", {
+      ...DEFAULT_OPTIONS,
+      allowUntyped: true,
+    });
+    expect(readable.issues.map((i) => i.code)).not.toContain(
+      "untyped-component-props",
+    );
+  });
+
   test("full-restoration coverage rejects mechanical app feature checkpoints", () => {
     const targetDir = makeTmpRoot();
     fs.mkdirSync(path.join(targetDir, ".deobfuscate-javascript", "_full"), {
