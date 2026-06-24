@@ -161,6 +161,29 @@ describe("discoverEntry", () => {
     expect(polyfill?.report?.looksVendored).toBe(true);
   });
 
+  test("does not choose a modulepreload polyfill over a script root that looks vendored", () => {
+    const dir = makeTree({
+      "index-HASH01.js": `
+        import "./modulepreload-polyfill-HASH01.js";
+        import { preload } from "./preload-helper-HASH01.js";
+        const runtime = "react-dom";
+        await preload(() => import("./app-main-HASH01.js"));
+      `,
+      "modulepreload-polyfill-HASH01.js": `export {};`,
+      "preload-helper-HASH01.js": `export function preload(loader) { return loader(); }`,
+      "app-main-HASH01.js": `import "./feature-HASH01.js";`,
+      "feature-HASH01.js": `export const feature = true;`,
+      "index.html": `
+        <script type="module" src="./assets/index-HASH01.js"></script>
+        <link rel="modulepreload" href="./assets/modulepreload-polyfill-HASH01.js">
+        <link rel="modulepreload" href="./assets/preload-helper-HASH01.js">
+      `,
+    });
+    const result = discoverEntry(dir);
+    expect(result.chosen?.basename).toBe("index-HASH01");
+    expect(result.reason).toContain("script root");
+  });
+
   test("returns no entry when there is no index.html", () => {
     const dir = makeTree({ "lonely-AAAA.js": `export const x = 1;` });
     const result = discoverEntry(dir);

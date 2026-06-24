@@ -301,10 +301,12 @@ export type DiscoverEntryResult = {
  * whole-tree restore the default: the caller no longer hand-globs `app-main-*`.
  *
  * Selection: resolve every index root to a real file under `rootDir`, run
- * `checkEntry` on each, then prefer the non-suspicious, non-vendored candidate
- * with the highest local out-degree (script roots beat preload roots on ties).
- * If nothing looks clean, fall back to the highest fan-out candidate and flag
- * the risk in `reason`.
+ * `checkEntry` on each, then prefer a non-suspicious `<script>` root. Module
+ * preload roots are dependencies of that entry and must not beat the script
+ * root just because the script contains vendored/runtime fingerprints. If no
+ * script root is usable, prefer the non-suspicious, non-vendored candidate with
+ * the highest local out-degree. If nothing looks clean, fall back to the highest
+ * fan-out candidate and flag the risk in `reason`.
  */
 export function discoverEntry(
   rootDir: string,
@@ -378,6 +380,28 @@ export function discoverEntry(
     if (a.source !== b.source) return a.source === "script" ? -1 : 1;
     return a.basename.localeCompare(b.basename);
   };
+
+  const scriptLike = resolved
+    .filter((c) => c.source === "script" && !c.report.suspicious)
+    .sort(byBestEntry);
+
+  if (scriptLike.length > 0) {
+    const chosen = scriptLike[0]!;
+    const skipped = resolved
+      .filter((c) => c.basename !== chosen.basename)
+      .filter((c) => c.report.looksVendored || c.report.suspicious)
+      .map((c) => c.basename);
+    const reason =
+      `${ordered.length} index root(s); chose script root '${chosen.basename}' ` +
+      `(local out-degree ${chosen.report.localOutDegree}, looks vendored=${chosen.report.looksVendored})` +
+      (chosen.report.looksVendored
+        ? " — verify it is the app entry."
+        : "") +
+      (skipped.length
+        ? `; skipped vendored/suspicious: ${skipped.join(", ")}`
+        : "");
+    return { indexHtml, chosen, candidates, reason };
+  }
 
   const appLike = resolved
     .filter((c) => !c.report.suspicious && !c.report.looksVendored)
