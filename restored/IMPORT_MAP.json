@@ -10559,8 +10559,7 @@
       "exports": {
         "AboveComposerSuggestions": "AboveComposerSuggestions"
       },
-      "status": "draft",
-      "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
+      "status": "done"
     },
     "composer-footer-branch-switcher-GaN7fzcq": {
       "restored": "composer/composer-footer-branch-switcher.tsx",
