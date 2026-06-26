@@ -10590,6 +10590,23 @@
         "t": "useGitRecentBranches"
       },
       "status": "done"
+    },
+    "git-branch-switcher-BokkKYIT": {
+      "restored": "git/git-branch-switcher.tsx",
+      "exports": {
+        "a": "initGitRecentBranchesQuery",
+        "c": "useGitStatusSummaryQuery",
+        "i": "sanitizeGitBranchSearchInput",
+        "l": "gitBranchSearchQuery",
+        "n": "initGitBranchSwitcherChunk",
+        "o": "useGitRecentBranchesQuery",
+        "r": "initSanitizeGitBranchSearchInput",
+        "s": "initGitStatusSummaryQuery",
+        "t": "GitBranchSwitcher",
+        "u": "initGitBranchSearchQuery"
+      },
+      "status": "draft",
+      "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
     }
   }
 }

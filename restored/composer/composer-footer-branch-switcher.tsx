@@ -57,13 +57,13 @@ import {
   r as A,
 } from "./app-initial~app-main~projects-index-page~hotkey-window-new-thread-page~hotkey-window-home-p~hswrsggc-D-_P9low.js";
 import {
-  c as ge,
-  l as _e,
-  n as j,
-  s as ve,
-  t as M,
-  u as ye,
-} from "./git-branch-switcher-BokkKYIT.js";
+  gitBranchSearchQuery as _e,
+  GitBranchSwitcher as M,
+  initGitBranchSearchQuery as ye,
+  initGitBranchSwitcherChunk as j,
+  initGitStatusSummaryQuery as ve,
+  useGitStatusSummaryQuery as ge,
+} from "../git/git-branch-switcher";
 import {
   initUseGitRecentBranchesChunk as be,
   useGitRecentBranches as xe,

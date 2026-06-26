@@ -703,7 +703,10 @@ import {
 } from "../utils/artifact-file-preview-icon";
 import { n as Nu, t as Pu } from "./share-invite-autocomplete-DUiU0DI5.js";
 import { n as Fu, t as Iu } from "./star-wM0A9s5z.js";
-import { n as Lu, t as Ru } from "./git-branch-switcher-BokkKYIT.js";
+import {
+  GitBranchSwitcher as Ru,
+  initGitBranchSwitcherChunk as Lu,
+} from "../git/git-branch-switcher";
 import {
   a as zu,
   i as Bu,
