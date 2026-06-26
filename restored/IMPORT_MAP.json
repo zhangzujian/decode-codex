@@ -10673,6 +10673,46 @@
         "t": "getAttachedHeartbeatAutomationForThread"
       },
       "status": "done"
+    },
+    "thread-side-panel-tabs-_WbpVYWU": {
+      "restored": "runtime/thread-side-panel-tabs.ts",
+      "exports": {
+        "THREAD_SIDE_PANEL_TAB": "THREAD_SIDE_PANEL_TAB",
+        "closeThreadMcpAppSidePanelTab": "closeThreadMcpAppSidePanelTab",
+        "getBrowserTabIdForSidePanelOpen": "getBrowserTabIdForSidePanelOpen",
+        "getThreadMcpAppSidePanelTabId": "getThreadMcpAppSidePanelTabId",
+        "openSessionSandboxSidePanel": "openSessionSandboxSidePanel",
+        "openThreadBranchReviewSidePanelTab": "openThreadBranchReviewSidePanelTab",
+        "openThreadBrowserSidePanelTab": "openThreadBrowserSidePanelTab",
+        "openThreadBrowserSidePanelTabWithPendingState": "openThreadBrowserSidePanelTabWithPendingState",
+        "openThreadBrowserSidePanelTabWithoutAnimation": "openThreadBrowserSidePanelTabWithoutAnimation",
+        "openThreadLastTurnReviewSidePanelTab": "openThreadLastTurnReviewSidePanelTab",
+        "openThreadMcpAppSidePanelTab": "openThreadMcpAppSidePanelTab",
+        "openThreadReviewSidePanelTab": "openThreadReviewSidePanelTab",
+        "openThreadTimelineSidePanel": "openThreadTimelineSidePanel",
+        "primeBrowserTabTransfers": "primeBrowserTabTransfers",
+        "toggleThreadSidePanel": "toggleThreadSidePanel"
+      },
+      "status": "draft",
+      "note": "Semantic passthrough barrel for the updated side-panel tab API; not promoted until the large producer chunks are restored locally."
+    },
+    "selectable-list-row-Bm082MDr": {
+      "restored": "ui/selectable-list-row.tsx",
+      "exports": {
+        "i": "getSelectableListRowButtonProps",
+        "n": "initSelectableListRowChunk",
+        "r": "initSelectableListRowButtonPropsChunk",
+        "t": "SelectableListRow"
+      },
+      "status": "done"
+    },
+    "tabs-Bltkr1kO": {
+      "restored": "utils/tabs.tsx",
+      "exports": {
+        "n": "initTabsChunk",
+        "t": "Tabs"
+      },
+      "status": "done"
     }
   }
 }
