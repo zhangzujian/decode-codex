@@ -765,6 +765,12 @@ import {
   openSideChatTab as jd,
   ThreadOverflowMenu as Pd,
 } from "../threads/thread-overflow-menu";
+import {
+  formatArtifactTargetLabel,
+  getGeneratedImagePreviewArtifactPaths,
+  getLocalConversationArtifactKey,
+  isGeneratedImageArtifact,
+} from "./local-conversation-thread-parts/artifact-summary";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
 import { createLatestTurnSubmitPlacementSnapshot } from "./local-conversation-thread-parts/latest-turn-submit-placement";
 import {
@@ -1225,8 +1231,10 @@ function Wf(e) {
     l,
     u;
   {
-    let e = artifacts.flatMap(Kf),
-      r = artifacts.some(Gf);
+    let e = artifacts.flatMap((artifact) =>
+        getGeneratedImagePreviewArtifactPaths(artifact, wt),
+      ),
+      r = artifacts.some(isGeneratedImageArtifact);
     let a = r;
     l = new Map(
       e.map((item, index) => [item, a ? e.length - index : index + 1]),
@@ -1296,7 +1304,7 @@ function Wf(e) {
   let p = (event) => {
     switch (event.type) {
       case "website": {
-        let t = Jf(event.target);
+        let t = formatArtifactTargetLabel(event.target, yn, wt);
         return (
           <Fl
             icon={<Sr className="icon-sm shrink-0" />}
@@ -1401,7 +1409,7 @@ function Wf(e) {
   return (
     <Lf
       items={artifacts}
-      getKey={qf}
+      getKey={getLocalConversationArtifactKey}
       listClassName="-mx-2 flex max-h-[28rem] flex-col gap-0.5 overflow-y-auto px-2"
       empty={f}
     >
@@ -1409,43 +1417,8 @@ function Wf(e) {
     </Lf>
   );
 }
-function Gf(e) {
-  return e.type === "generated-image";
-}
-function Kf(e) {
-  return e.type === "generated-image" ||
-    (e.type === "file" && Zf.test(wt(e.path)))
-    ? [e.path]
-    : [];
-}
-function qf(event) {
-  switch (event.type) {
-    case "file":
-    case "generated-image":
-      return event.path;
-    case "google-drive":
-      return `google-drive:${event.url}`;
-    case "appgen-app":
-      return `appgen-app:${event.projectId}`;
-    case "website":
-      return `website:${event.target}`;
-  }
-}
-function Jf(e) {
-  if (!yn(e)) {
-    let t = wt(e);
-    return t.length > 0 ? t : e.length > 0 ? e : null;
-  }
-  try {
-    let t = new URL(e);
-    return `${t.host}${t.pathname === "/" ? "" : t.pathname}${t.search}`;
-  } catch {
-    return e.length > 0 ? e : null;
-  }
-}
 var Yf,
   Xf,
-  Zf,
   Qf = once(() => {
     Yf = q();
     c();
@@ -1465,7 +1438,6 @@ var Yf,
     Uf();
     Pl();
     Xf = getJsxRuntime();
-    Zf = /^ig_[a-f0-9]{32,}\.(?:avif|gif|jpeg|jpg|png|webp)$/i;
   });
 function $f(e) {
   let {
