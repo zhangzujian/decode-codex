@@ -779,9 +779,11 @@ import {
   isWorkingBackgroundAgent,
 } from "./local-conversation-thread-parts/background-summary";
 import {
+  createBackgroundTerminalProcessRecord,
   createBackgroundTerminalSnapshot,
   hasBackgroundTerminalRow,
   hasMatchingBackgroundTerminal,
+  resolveBackgroundTerminalStatus,
 } from "./local-conversation-thread-parts/background-terminal-state";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
 import { createLatestTurnSubmitPlacementSnapshot } from "./local-conversation-thread-parts/latest-turn-submit-placement";
@@ -1835,7 +1837,7 @@ function _p(e) {
     {
       let o;
       o = (e) => {
-        let t = Ep({
+        let t = createBackgroundTerminalProcessRecord({
           conversationId,
           hostId,
           terminal: e,
@@ -1996,7 +1998,11 @@ function _p(e) {
   {
     let e;
     e = (e, t) => {
-      let n = Sp(e, ou(e, C), childProcesses != null);
+      let n = resolveBackgroundTerminalStatus(
+        e,
+        ou(e, C),
+        childProcesses != null,
+      );
       return (
         <Fl
           key={e.terminal.id}
@@ -2172,13 +2178,6 @@ function xp(e) {
           ? jp.notFoundStatus
           : jp.runningStatus;
 }
-function Sp(e, t, n) {
-  return t == null
-    ? !n || e.metrics != null
-      ? "running"
-      : "not-found"
-    : t.status;
-}
 function Cp(e, t) {
   if (t.length === 0) return e;
   let n = e.slice();
@@ -2201,23 +2200,6 @@ function Tp(e, t) {
     e.find((item) => item.metrics != null && bu(item.process, t.row.process)) ??
     null
   );
-}
-function Ep({ conversationId, hostId, terminal }) {
-  return {
-    chatTitle: null,
-    command: terminal.command,
-    conversationId,
-    cwd: terminal.cwd,
-    hostId,
-    id: `${conversationId}:${terminal.turnId ?? "unknown"}:${terminal.id}`,
-    itemId: terminal.id,
-    osPid: null,
-    processId: terminal.processId,
-    source: "background-terminal",
-    startedAtMs: terminal.startedAtMs,
-    stopAction: "kill-child-process",
-    turnId: terminal.turnId,
-  };
 }
 var Dp,
   Op,
