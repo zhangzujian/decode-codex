@@ -782,12 +782,11 @@ import {
   appendRegisteredBackgroundTerminalRows,
   createBackgroundTerminalProcessRecord,
   createBackgroundTerminalSnapshot,
-  hasBackgroundTerminalRow,
-  hasMatchingBackgroundTerminal,
   insertBackgroundTerminalActionRows,
   pruneSettledBackgroundTerminalActionStates,
   resolveBackgroundTerminalStatus,
 } from "./local-conversation-thread-parts/background-terminal-state";
+import { countBackgroundTerminalSummaryRows } from "./local-conversation-thread-parts/background-terminal-summary-count";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
 import { createLatestTurnSubmitPlacementSnapshot } from "./local-conversation-thread-parts/latest-turn-submit-placement";
 import {
@@ -1728,30 +1727,6 @@ var op,
     Pl();
     cp = getJsxRuntime();
   });
-function up({
-  actionStatesByProcessId,
-  backgroundTerminals,
-  conversationId,
-  processSnapshotTimeMs,
-  registeredRows,
-}) {
-  if (conversationId == null) return 0;
-  let a = new Set(backgroundTerminals.map((item) => item.id)),
-    o = backgroundTerminals.slice(),
-    s = backgroundTerminals.length;
-  for (let e of registeredRows)
-    a.has(e.terminal.id) ||
-      hasMatchingBackgroundTerminal(o, e.terminal) ||
-      (a.add(e.terminal.id), o.push(e.terminal), (s += 1));
-  for (let t of actionStatesByProcessId.values())
-    lu(t, null, processSnapshotTimeMs) ||
-      t.row.process.conversationId !== conversationId ||
-      !hasBackgroundTerminalRow(t.row) ||
-      a.has(t.row.terminal.id) ||
-      hasMatchingBackgroundTerminal(o, t.row.terminal) ||
-      (a.add(t.row.terminal.id), o.push(t.row.terminal), (s += 1));
-  return s;
-}
 function fp({
   childProcesses,
   conversationCwd,
@@ -7968,10 +7943,11 @@ function Sv(e) {
             conversationId: b,
           });
     _e = e;
-    G = up({
+    G = countBackgroundTerminalSummaryRows({
       actionStatesByProcessId: j,
       backgroundTerminals,
       conversationId: b,
+      isSettledActionState: lu,
       processSnapshotTimeMs: ge,
       registeredRows: ve,
     });
