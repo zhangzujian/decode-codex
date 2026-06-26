@@ -772,6 +772,7 @@ import {
   prependRecentLocalEnvironmentAction,
   type RecentLocalEnvironmentActionsByKey,
 } from "./local-conversation-thread-parts/local-environment-recent-actions";
+import { getConversationTurnsNotInParent } from "./local-conversation-thread-parts/parent-conversation-turns";
 import { shouldUseFullWidthRightPanelForRoute } from "./local-conversation-thread-parts/right-panel-route-state";
 import { shouldShowScrollToBottomButton } from "./local-conversation-thread-parts/scroll-to-bottom-state";
 import {
@@ -10266,23 +10267,6 @@ var nb,
     initLocalEnvironmentRecentActions();
     rb = getJsxRuntime();
   });
-function ab({ conversation, parentConversation }) {
-  let n = new Set();
-  for (let e of parentConversation.turns) e.turnId != null && n.add(e.turnId);
-  return conversation.turns.filter((item) =>
-    item.turnId != null && n.has(item.turnId)
-      ? false
-      : item.items.length === 0
-        ? true
-        : !parentConversation.turns.some(
-            (_item) =>
-              _item.items.length >= item.items.length &&
-              item.items.every((__item, index) =>
-                ob.default(__item, _item.items[index]),
-              ),
-          ),
-  );
-}
 var ob,
   sb = once(() => {
     ob = toEsModule(De(), 1);
@@ -10520,7 +10504,8 @@ function Eb({
   let c = groupConversationRequestsByTurnId(conversationRequests),
     l =
       hasConversation && subagentParentThreadId != null
-        ? ab({
+        ? getConversationTurnsNotInParent({
+            areTurnItemsEqual: ob.default,
             conversation: {
               turns: conversationTurns,
             },
@@ -14595,7 +14580,8 @@ export const initLocalConversationThreadChunk = once(() => {
     let r = get(I, e) ?? KS,
       i = get(I, n) ?? KS;
     return (
-      ab({
+      getConversationTurnsNotInParent({
+        areTurnItemsEqual: ob.default,
         conversation: {
           turns: r,
         },
