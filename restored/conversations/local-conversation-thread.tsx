@@ -757,11 +757,11 @@ import {
   x as Ad,
 } from "./pull-request-check-rows-Q1OJv6O3.js";
 import {
-  i as jd,
-  n as Md,
-  r as Nd,
-  t as Pd,
-} from "./thread-overflow-menu-CM-Eo7JH.js";
+  initOpenSideChatTabChunk as Nd,
+  initThreadOverflowMenuChunk as Md,
+  openSideChatTab as jd,
+  ThreadOverflowMenu as Pd,
+} from "../threads/thread-overflow-menu";
 function Fd(e) {
   let n = Ld.useRef(null),
     r = (t) => {

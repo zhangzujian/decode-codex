@@ -189,7 +189,10 @@ import {
   LocalConversationSideChatThread as hn,
   localConversationOutputArtifactsSignal as gn,
 } from "../conversations/local-conversation-thread";
-import { i as _n, r as vn } from "./thread-overflow-menu-CM-Eo7JH.js";
+import {
+  initOpenSideChatTabChunk as vn,
+  openSideChatTab as _n,
+} from "../threads/thread-overflow-menu";
 import {
   initUseMediaQueryChunk as bn,
   useMediaQuery as yn,
