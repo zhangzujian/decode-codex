@@ -10721,6 +10721,17 @@
       },
       "status": "draft",
       "notes": "Draft facade plus semantic preview helpers; full promotion is deferred until Walnut and dynamic preview producer chunks are split."
+    },
+    "app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~thread-app-shell-ch~oc6ebzsr-DX7Jokr-": {
+      "restored": "app-shell/thread-handoff-operations/index.ts",
+      "exports": {
+        "a": "getThreadHandoffOperationsState",
+        "i": "getThreadHandoffOperationForConversation",
+        "n": "createQueuedThreadHandoffOperation",
+        "r": "useThreadHandoffOperationActions",
+        "t": "initThreadHandoffOperationsChunk"
+      },
+      "status": "done"
     }
   }
 }
