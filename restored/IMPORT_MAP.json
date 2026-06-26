@@ -10444,7 +10444,7 @@
       "status": "done"
     },
     "thread-app-shell-chrome-D7ImdiWZ": {
-      "restored": "app-shell/thread-app-shell-chrome.tsx",
+      "restored": "app-shell/thread-app-shell-chrome/index.tsx",
       "exports": {
         "n": "initThreadAppShellChromeChunk",
         "r": "initThreadAppShellLocalConversationDependency",
