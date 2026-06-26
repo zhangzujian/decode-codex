@@ -38,7 +38,7 @@ const __vite__mapDeps = (
       "./conversation-markdown-BjFKV53f.js",
     ]),
 ) => i.map((item) => d[item]);
-import { once as e, toEsModule as t } from "../runtime/commonjs-interop";
+import { once, toEsModule } from "../runtime/commonjs-interop";
 import {
   $N as n,
   $P as r,
@@ -61,7 +61,7 @@ import {
   Ap as b,
   Au as x,
   BP as S,
-  BV as C,
+  BV as getJsxRuntime,
   Bh as w,
   Bn as T,
   CP as E,
@@ -293,7 +293,7 @@ import {
   rO as Ur,
   r_ as Wr,
   ra as Gr,
-  sF as J,
+  sF as FormattedMessage,
   sm as Kr,
   tP as qr,
   ta as Jr,
@@ -765,6 +765,7 @@ import {
   openSideChatTab as jd,
   ThreadOverflowMenu as Pd,
 } from "../threads/thread-overflow-menu";
+import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
 function Fd(e) {
   let n = Ld.useRef(null),
     r = (t) => {
@@ -785,9 +786,9 @@ function Fd(e) {
 }
 var Id,
   Ld,
-  Rd = e(() => {
+  Rd = once(() => {
     Id = q();
-    Ld = t(G(), 1);
+    Ld = toEsModule(G(), 1);
   });
 function useReviewSearchHighlights(e) {
   let { containerRef, contextId } = e,
@@ -867,10 +868,10 @@ function useReviewSearchHighlights(e) {
 var Bd,
   Vd,
   Hd,
-  initReviewSearchHighlighter = e(() => {
+  initReviewSearchHighlighter = once(() => {
     Bd = q();
     c();
-    Vd = t(G(), 1);
+    Vd = toEsModule(G(), 1);
     la();
     ea();
     Qa();
@@ -1111,7 +1112,7 @@ var af,
   pf,
   mf,
   hf,
-  gf = e(() => {
+  gf = once(() => {
     af = "codex-main-thread";
     of = "data-pip-anchor-host";
     sf = "data-pip-obstacle";
@@ -1269,7 +1270,7 @@ function Sf(e) {
 var Cf,
   wf,
   Tf,
-  Ef = e(() => {
+  Ef = once(() => {
     gf();
     Cf = `[${of}="${af}"]`;
     wf = `[${sf}]`;
@@ -1317,12 +1318,12 @@ var Of,
   kf,
   Af,
   jf,
-  initThreadFindNavigationRail = e(() => {
+  initThreadFindNavigationRail = once(() => {
     Of = q();
-    kf = t(G(), 1);
+    kf = toEsModule(G(), 1);
     ol();
     ae();
-    Af = C();
+    Af = getJsxRuntime();
     Qn();
     jf = al(
       async () =>
@@ -1345,12 +1346,12 @@ var Of,
         ).ThreadUserMessageNavigationRail,
     );
   }),
-  Nf = e(() => {}),
+  Nf = once(() => {}),
   Pf,
   Ff,
-  If = e(() => {
-    t(G());
-    Pf = C();
+  If = once(() => {
+    toEsModule(G());
+    Pf = getJsxRuntime();
     Ff = (e) => (
       <svg
         width={29}
@@ -1394,13 +1395,13 @@ function Lf(e) {
           u(Rf);
         },
         children: l ? (
-          <J
+          <FormattedMessage
             id="codex.localConversation.summaryPanelExpandableList.showLess"
             defaultMessage="Show less"
             description="Button label that collapses a long list in the conversation summary panel"
           />
         ) : (
-          <J
+          <FormattedMessage
             id="codex.localConversation.summaryPanelExpandableList.showMore"
             defaultMessage={"Show {count, number} more"}
             description="Button label that expands a long list in the conversation summary panel"
@@ -1425,12 +1426,12 @@ var zf,
   Bf,
   Vf,
   Hf,
-  Uf = e(() => {
+  Uf = once(() => {
     zf = q();
-    Bf = t(G(), 1);
+    Bf = toEsModule(G(), 1);
     Jn();
     Ye();
-    Vf = C();
+    Vf = getJsxRuntime();
     Hf = 6;
   });
 function Wf(e) {
@@ -1501,7 +1502,7 @@ function Wf(e) {
   let d = u,
     f = (
       <div className="py-1 text-base text-token-description-foreground">
-        <J
+        <FormattedMessage
           id="codex.localConversation.artifacts.empty"
           defaultMessage="No artifacts yet"
           description="Empty state for the artifacts section in the thread summary side panel"
@@ -1517,7 +1518,7 @@ function Wf(e) {
             icon={<Sr className="icon-sm shrink-0" />}
             label={
               t ?? (
-                <J
+                <FormattedMessage
                   id="codex.localConversation.artifacts.website"
                   defaultMessage="Web preview"
                   description="Label for a website artifact in the thread summary side panel"
@@ -1572,7 +1573,7 @@ function Wf(e) {
             n == null ? (
               t
             ) : (
-              <J
+              <FormattedMessage
                 id="codex.localConversation.artifacts.generatedImage"
                 defaultMessage={"Generated image {imageNumber}"}
                 description="Label for a generated image artifact in the thread summary side panel"
@@ -1661,7 +1662,7 @@ function Jf(e) {
 var Yf,
   Xf,
   Zf,
-  Qf = e(() => {
+  Qf = once(() => {
     Yf = q();
     c();
     gn();
@@ -1679,7 +1680,7 @@ var Yf,
     di();
     Uf();
     Pl();
-    Xf = C();
+    Xf = getJsxRuntime();
     Zf = /^ig_[a-f0-9]{32,}\.(?:avif|gif|jpeg|jpg|png|webp)$/i;
   });
 function $f(e) {
@@ -1757,7 +1758,7 @@ function $f(e) {
                   {e.terminal.command.length > 0 ? (
                     e.terminal.command
                   ) : (
-                    <J
+                    <FormattedMessage
                       id="codex.localConversation.backgroundTerminals.defaultLabel"
                       defaultMessage="Background terminal"
                       description="Fallback row label for a running background terminal when the command text is unavailable"
@@ -1768,7 +1769,7 @@ function $f(e) {
               actions={cp.jsx(jr, {
                 side: "top",
                 tooltipContent: (
-                  <J
+                  <FormattedMessage
                     id="codex.localConversation.backgroundTerminals.stopTooltip"
                     defaultMessage="Stop all background terminals"
                     description="Tooltip for button that stops all background terminals from the thread summary panel"
@@ -1860,7 +1861,7 @@ function tp(e) {
   let u =
     c.length > 0 ? (
       <span className="text-base whitespace-nowrap text-token-foreground">
-        <J
+        <FormattedMessage
           id="codex.localConversation.backgroundAgents.collapsedWorkingCount"
           defaultMessage={"{count, plural, one {# working} other {# working}}"}
           description="Number of multi-agent v2 subagents that are still working in the collapsed summary panel row"
@@ -1873,7 +1874,7 @@ function tp(e) {
   let d =
     i.length > 0 ? (
       <span className="text-base whitespace-nowrap text-token-text-tertiary">
-        <J
+        <FormattedMessage
           id="codex.localConversation.backgroundAgents.collapsedDoneCount"
           defaultMessage={"{count, plural, one {# done} other {# done}}"}
           description="Number of multi-agent v2 subagents that are done in the collapsed summary panel row"
@@ -1910,7 +1911,7 @@ function ip(e) {
           )}
           {backgroundAgent.spawnModel == null ? null : (
             <span>
-              <J
+              <FormattedMessage
                 id="codex.localConversation.backgroundAgents.modelTooltip"
                 defaultMessage={"Uses {model}"}
                 description="Tooltip line that shows the model used by a background subagent."
@@ -1939,7 +1940,7 @@ function ip(e) {
   let l =
     backgroundAgent.status === "active" ? (
       <span className="loading-shimmer-pure-text shrink-0 whitespace-nowrap text-token-description-foreground">
-        <J
+        <FormattedMessage
           id="codex.localConversation.backgroundAgents.activeLabel"
           defaultMessage="is working"
           description="Status label shown next to an active background subagent in the thread summary panel"
@@ -1970,9 +1971,9 @@ function ap(e) {
 var op,
   sp,
   cp,
-  lp = e(() => {
+  lp = once(() => {
     op = q();
-    sp = t(G(), 1);
+    sp = toEsModule(G(), 1);
     Jn();
     pn();
     d();
@@ -1985,7 +1986,7 @@ var op,
     Jc();
     Uf();
     Pl();
-    cp = C();
+    cp = getJsxRuntime();
   });
 function up({
   actionStatesByProcessId,
@@ -2087,7 +2088,7 @@ function hp(e) {
     turnId: e.turnId,
   };
 }
-var gp = e(() => {
+var gp = once(() => {
   Xl();
   cu();
 });
@@ -2301,7 +2302,7 @@ function _p(e) {
               {e.terminal.command.length > 0 ? (
                 e.terminal.command
               ) : (
-                <J {...jp.defaultLabel} />
+                <FormattedMessage {...jp.defaultLabel} />
               )}
             </span>
           }
@@ -2334,13 +2335,13 @@ function vp(e) {
     h = row.process.cwd != null && !u && !d && !m,
     g =
       row.process.cwd == null ? (
-        <J {...jp.restartMissingWorkspaceTooltip} />
+        <FormattedMessage {...jp.restartMissingWorkspaceTooltip} />
       ) : u ? (
-        <J {...jp.restartStartingTooltip} />
+        <FormattedMessage {...jp.restartStartingTooltip} />
       ) : d ? (
-        <J {...jp.restartStoppingTooltip} />
+        <FormattedMessage {...jp.restartStoppingTooltip} />
       ) : m ? (
-        <J {...jp.restartMissingProcessTooltip} />
+        <FormattedMessage {...jp.restartMissingProcessTooltip} />
       ) : undefined;
   let _ = g,
     v = f || p ? jp.start : jp.restart,
@@ -2361,7 +2362,7 @@ function vp(e) {
     </button>
   );
   let E = () => onOpen(row.terminal);
-  let D = <J {...jp.openOutput} />;
+  let D = <FormattedMessage {...jp.openOutput} />;
   let O = (
     <Br.Item LeftIcon={ds} leftIconClassName="icon-xs" onSelect={E}>
       {D}
@@ -2370,11 +2371,11 @@ function vp(e) {
   let k = row.metrics?.pid == null || u || d || f,
     A =
       row.metrics?.pid == null ? (
-        <J {...jp.stopMissingProcessTooltip} />
+        <FormattedMessage {...jp.stopMissingProcessTooltip} />
       ) : undefined;
   let j = row.metrics?.pid == null,
     M = () => onStop(row, rowIndex);
-  let N = <J {...jp.stop} />;
+  let N = <FormattedMessage {...jp.stop} />;
   let P = (
     <Br.Item
       LeftIcon={js}
@@ -2389,7 +2390,7 @@ function vp(e) {
   );
   let F = !h,
     I = _ != null,
-    L = <J {...v} />;
+    L = <FormattedMessage {...v} />;
   let R = (
     <Br.Item
       LeftIcon={cn}
@@ -2510,11 +2511,11 @@ var Dp,
   kp,
   Ap,
   jp,
-  Mp = e(() => {
+  Mp = once(() => {
     Dp = q();
     Ut();
     c();
-    Op = t(G(), 1);
+    Op = toEsModule(G(), 1);
     Jn();
     an();
     d();
@@ -2531,7 +2532,7 @@ var Dp,
     n();
     gp();
     Pl();
-    kp = C();
+    kp = getJsxRuntime();
     Ap = 1e4;
     jp = Hr({
       actions: {
@@ -2710,14 +2711,14 @@ function Np(e) {
 }
 var Pp,
   Fp,
-  Ip = e(() => {
+  Ip = once(() => {
     Pp = q();
     Ut();
     Zr();
     Gr();
     dc();
     Pl();
-    Fp = C();
+    Fp = getJsxRuntime();
   });
 function Lp(e, t) {
   return t?.trim() || zp(e);
@@ -2730,7 +2731,7 @@ function zp(e) {
     n = t.split("/").filter(Boolean);
   return n[n.length - 1] ?? t;
 }
-var Bp = e(() => {
+var Bp = once(() => {
   di();
 });
 function Vp(e) {
@@ -2751,7 +2752,7 @@ function Vp(e) {
       onSelectEnvironment(null);
     };
   let m = (
-    <J
+    <FormattedMessage
       id="codex.environmentSelector.noEnvironment"
       defaultMessage="No environment"
       description="No environment selected message"
@@ -2793,7 +2794,7 @@ function Vp(e) {
       </div>
     ) : localEnvironmentsError ? (
       <Br.Message compact={true} tone="error">
-        <J
+        <FormattedMessage
           id="composer.worktreeEnvironment.error"
           defaultMessage="Error loading environments"
           description="Error state for worktree environment dropdown"
@@ -2818,7 +2819,7 @@ function Vp(e) {
       ))
     ) : localEnvironments.length === 0 ? (
       <Br.Message compact={true}>
-        <J
+        <FormattedMessage
           id="codex.environments.noEnvironmentsFound"
           defaultMessage="No environments found"
           description="Message shown when no Codex environments were found"
@@ -2834,7 +2835,7 @@ function Vp(e) {
   );
   let y = <Zt />;
   let b = (
-    <J
+    <FormattedMessage
       id="threadPage.runAction.setup.editMore"
       defaultMessage="Environment settings"
       description="Edit more action label in run action setup popover"
@@ -2859,7 +2860,7 @@ function Vp(e) {
 }
 var Hp,
   Up,
-  Wp = e(() => {
+  Wp = once(() => {
     Hp = q();
     Jn();
     an();
@@ -2869,7 +2870,7 @@ var Hp,
     Fu();
     Bp();
     di();
-    Up = C();
+    Up = getJsxRuntime();
   });
 function Gp(e) {
   let {
@@ -2953,12 +2954,12 @@ function Gp(e) {
 var Kp,
   qp,
   Jp,
-  Yp = e(() => {
+  Yp = once(() => {
     Kp = q();
-    qp = t(G(), 1);
+    qp = toEsModule(G(), 1);
     Ye();
     h();
-    Jp = C();
+    Jp = getJsxRuntime();
   });
 function Xp(e) {
   let {
@@ -3080,7 +3081,7 @@ function Xp(e) {
     h = Gp;
     O = action.command;
     A = (
-      <J
+      <FormattedMessage
         id="threadPage.runAction.setup.commandLabel"
         defaultMessage="Command to run"
         description="Label for run action command input"
@@ -3092,7 +3093,7 @@ function Xp(e) {
       description: "Placeholder text for the run action command input",
     });
     x = (
-      <J
+      <FormattedMessage
         id="settings.localEnvironments.actions.add.description"
         defaultMessage="Create a new command to run from the toolbar."
         description="Description for adding a local environment action"
@@ -3101,7 +3102,7 @@ function Xp(e) {
     E = "flex w-full flex-col gap-2";
     let z;
     z = (
-      <J
+      <FormattedMessage
         id="settings.localEnvironments.actions.item.name"
         defaultMessage="Name"
         description="Label for local environment action name"
@@ -3182,7 +3183,7 @@ function Xp(e) {
       icon: I,
     });
   let R = (
-    <J
+    <FormattedMessage
       id="threadPage.runAction.setup.editMore"
       defaultMessage="Environment settings"
       description="Edit more action label in run action setup popover"
@@ -3197,14 +3198,14 @@ function Xp(e) {
     children: R,
   });
   let ee = (
-    <J
+    <FormattedMessage
       id="settings.localEnvironments.actions.add.save"
       defaultMessage="Save"
       description="Save button label for adding a local environment action"
     />
   );
   let B = (
-    <J
+    <FormattedMessage
       id="settings.localEnvironments.actions.add"
       defaultMessage="Add action"
       description="Button label to add a local environment action"
@@ -3233,7 +3234,7 @@ function Xp(e) {
 }
 var Zp,
   Qp,
-  $p = e(() => {
+  $p = once(() => {
     Zp = q();
     m();
     Jn();
@@ -3245,7 +3246,7 @@ var Zp,
     gl();
     n();
     Yp();
-    Qp = C();
+    Qp = getJsxRuntime();
   });
 function em(e, t) {
   return t ? (e[t] ?? []) : [];
@@ -3261,7 +3262,7 @@ function tm(e, t, n) {
   };
 }
 var nm,
-  rm = e(() => {
+  rm = once(() => {
     yi();
     nm = vn("local-env-recent-actions-by-key", {});
   });
@@ -3275,7 +3276,7 @@ function isRecentLocalEnvironmentAction(
   return recentActionsByKey != null && Ar(recentActionsByKey, environmentKey);
 }
 var am,
-  initLocalEnvironmentRecentActions = e(() => {
+  initLocalEnvironmentRecentActions = once(() => {
     am = q();
     gn();
     Re();
@@ -3378,7 +3379,7 @@ function lm(e) {
   return e.environment.type === "success" ? e.environment : null;
 }
 var um,
-  dm = e(() => {
+  dm = once(() => {
     um = q();
     c();
     gn();
@@ -3570,13 +3571,13 @@ function fm(e) {
     let w = (
       <Br.Title>
         {environment == null ? (
-          <J
+          <FormattedMessage
             id="settings.localEnvironments.actions.title"
             defaultMessage="Actions"
             description="Title for local environment actions section"
           />
         ) : (
-          <J
+          <FormattedMessage
             id="threadPage.runAction.dropdown.titleWithEnvironment"
             defaultMessage={"{environmentName} actions"}
             description="Title for the run action dropdown when an environment is selected"
@@ -3599,7 +3600,7 @@ function fm(e) {
         ),
       ),
       E = (
-        <J
+        <FormattedMessage
           id="settings.localEnvironments.actions.add"
           defaultMessage="Add action"
           description="Button label to add a local environment action"
@@ -3616,7 +3617,7 @@ function fm(e) {
         <Ce
           trigger={
             <Br.Item LeftIcon={Gt} leftIconClassName="icon-sm">
-              <J
+              <FormattedMessage
                 id="threadPage.runAction.changeEnvironment"
                 defaultMessage="Change environment"
                 description="Menu item to change the active local environment"
@@ -4058,12 +4059,12 @@ var Om,
   X,
   Am,
   jm,
-  Mm = e(() => {
+  Mm = once(() => {
     Om = q();
     Ca();
     xt();
     c();
-    km = t(G(), 1);
+    km = toEsModule(G(), 1);
     Jn();
     xr();
     Ei();
@@ -4098,7 +4099,7 @@ var Om,
     Mr();
     di();
     _n();
-    X = C();
+    X = getJsxRuntime();
     Am =
       "flex h-7 w-7 shrink-0 cursor-interaction items-center justify-center rounded-sm border-0 bg-transparent p-0 text-token-text-tertiary hover:bg-token-list-hover-background data-[state=open]:bg-token-list-hover-background";
     jm = [];
@@ -4292,20 +4293,20 @@ var Fm,
   Um,
   Wm,
   Gm,
-  Km = e(() => {
+  Km = once(() => {
     Fm = q();
     Ut();
     bt();
-    Im = t(un(), 1);
+    Im = toEsModule(un(), 1);
     c();
-    Lm = t(G(), 1);
+    Lm = toEsModule(G(), 1);
     an();
     Si();
     me();
     Oe();
     a();
     $n();
-    Rm = C();
+    Rm = getJsxRuntime();
     zm = 3e4;
     Bm = "thread-summary-panel-section-expanded-";
     Vm = null;
@@ -4330,7 +4331,7 @@ function qm(e) {
     className: "icon-sm shrink-0",
   });
   o = (
-    <J
+    <FormattedMessage
       id="codex.localConversation.gitSummary.branchChangesLabel"
       defaultMessage="Changes"
       description="Label for the branch changes row"
@@ -4359,14 +4360,14 @@ function qm(e) {
 }
 var Jm,
   Ym,
-  Xm = e(() => {
+  Xm = once(() => {
     Jm = q();
     Jn();
     d();
     Nl();
     pc();
     Pl();
-    Ym = C();
+    Ym = getJsxRuntime();
   });
 function Zm({ baseBranch, headBranch, number }) {
   return [
@@ -4440,7 +4441,7 @@ function th(e, t) {
   }
   return i ? n : e;
 }
-var nh = e(() => {
+var nh = once(() => {
   da();
   cs();
   Zo();
@@ -4454,7 +4455,7 @@ function rh(e) {
     case "missing-conversation": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="localConversation.pullRequest.comments.missingConversation"
           defaultMessage="Addressing PR comments is only available in an active chat"
           description="Tooltip shown when the PR comments action is disabled because there is no active conversation"
@@ -4464,7 +4465,7 @@ function rh(e) {
     case "missing-pr-info": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="localConversation.pullRequest.comments.missingPullRequestInfo"
           defaultMessage="Failed to parse the pull request info needed to address comments"
           description="Tooltip shown when the PR comments action is disabled because required pull request information is unavailable"
@@ -4480,7 +4481,7 @@ function ih(e) {
     case "branch-mismatch": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="localConversation.pullRequest.fix.branchMismatch"
           defaultMessage="Switch back to the chat branch to use Fix"
           description="Tooltip shown when Fix is disabled because the checked out branch differs from the thread branch"
@@ -4490,7 +4491,7 @@ function ih(e) {
     case "closed-pr": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="localConversation.pullRequest.fix.closedPullRequest"
           defaultMessage="Fix is only available for open pull requests"
           description="Tooltip shown when Fix is disabled because the pull request is closed"
@@ -4500,7 +4501,7 @@ function ih(e) {
     case "missing-branch-info": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="localConversation.pullRequest.fix.missingBranchInfo"
           defaultMessage="Fix requires both the head and base branch"
           description="Tooltip shown when Fix is disabled because the pull request branch metadata is unavailable"
@@ -4510,7 +4511,7 @@ function ih(e) {
     case "missing-pr-info": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="localConversation.pullRequest.fix.missingPullRequestInfo"
           defaultMessage="Failed to parse the pull request info needed for Fix"
           description="Tooltip shown when Fix is disabled because required pull request information is unavailable"
@@ -4520,7 +4521,7 @@ function ih(e) {
     case "missing-conversation": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="localConversation.pullRequest.fix.missingConversation"
           defaultMessage="Fix is only available in an active chat"
           description="Tooltip shown when Fix is disabled because there is no active conversation"
@@ -4531,10 +4532,10 @@ function ih(e) {
 }
 var ah,
   oh,
-  sh = e(() => {
+  sh = once(() => {
     ah = q();
     Jn();
-    oh = C();
+    oh = getJsxRuntime();
   });
 function ch({
   baseBranch,
@@ -4551,7 +4552,7 @@ function ch({
     (prNumber == null ? "missing-pr-info" : null)
   );
 }
-var lh = e(() => {});
+var lh = once(() => {});
 function uh({ baseBranch, headBranch, number }) {
   return [
     f,
@@ -4644,7 +4645,7 @@ function gh(e, t) {
     e.pullRequestMergeConflict = t;
   });
 }
-var _h = e(() => {
+var _h = once(() => {
   cs();
   Zo();
   at();
@@ -4688,10 +4689,10 @@ function yh(e) {
 }
 var bh,
   xh,
-  Sh = e(() => {
+  Sh = once(() => {
     bh = q();
     Gn();
-    xh = C();
+    xh = getJsxRuntime();
   });
 function Ch(e) {
   let {
@@ -4729,7 +4730,7 @@ function Ch(e) {
             onFixFailingChecks(c);
           },
           children: (
-            <J
+            <FormattedMessage
               id="codex.localConversation.gitSummary.fixFailingChecks"
               defaultMessage="Fix"
               description="Summary panel row action label for fixing failing pull request checks"
@@ -4825,7 +4826,7 @@ function Oh(e) {
     case "failing": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.checks.status.failed"
           defaultMessage="Failed"
           description="Status label for a failed check in the thread summary panel flyout"
@@ -4835,7 +4836,7 @@ function Oh(e) {
     case "passing": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.checks.status.succeeded"
           defaultMessage="Succeeded"
           description="Status label for a successful check in the thread summary panel flyout"
@@ -4845,7 +4846,7 @@ function Oh(e) {
     case "pending": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.checks.status.running"
           defaultMessage="Running"
           description="Status label for a pending check in the thread summary panel flyout"
@@ -4855,7 +4856,7 @@ function Oh(e) {
     case "skipped": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.checks.status.skipped"
           defaultMessage="Skipped"
           description="Status label for a skipped check in the thread summary panel flyout"
@@ -4865,7 +4866,7 @@ function Oh(e) {
     case "unknown": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.checks.status.unknown"
           defaultMessage="Unknown"
           description="Status label for an unknown check in the thread summary panel flyout"
@@ -4879,7 +4880,7 @@ function kh(e, t) {
     r = e.filter((item) => item.status === "pending").length;
   if (n > 0)
     return (
-      <J
+      <FormattedMessage
         id="codex.localConversation.gitSummary.failingChecks.count"
         defaultMessage={
           "{count, plural, one {# failing check} other {# failing checks}}"
@@ -4892,7 +4893,7 @@ function kh(e, t) {
     );
   if (r > 0)
     return (
-      <J
+      <FormattedMessage
         id="codex.localConversation.gitSummary.pendingChecks.count"
         defaultMessage={
           "{count, plural, one {# pending check} other {# pending checks}}"
@@ -4906,7 +4907,7 @@ function kh(e, t) {
   switch (t) {
     case "passing":
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.checksSuccessful"
           defaultMessage="Checks successful"
           description="Summary panel row label when all pull request checks have completed successfully"
@@ -4914,7 +4915,7 @@ function kh(e, t) {
       );
     case "none":
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.noChecks"
           defaultMessage="No CI checks"
           description="Summary panel row label when the pull request has no checks"
@@ -4922,7 +4923,7 @@ function kh(e, t) {
       );
     case "failing":
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.checksFailing"
           defaultMessage="Checks failing"
           description="Summary panel row label when pull request checks failed without individual failure details"
@@ -4930,7 +4931,7 @@ function kh(e, t) {
       );
     case "pending":
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.pendingChecks"
           defaultMessage="Pending checks"
           description="Summary panel row label when pull request checks are pending without individual pending details"
@@ -4941,7 +4942,7 @@ function kh(e, t) {
 var Ah,
   jh,
   Mh,
-  Nh = e(() => {
+  Nh = once(() => {
     Ah = q();
     Jn();
     ke();
@@ -4953,7 +4954,7 @@ var Ah,
     kd();
     Sh();
     Pl();
-    jh = C();
+    jh = getJsxRuntime();
     Mh = ["failing", "pending", "skipped", "unknown", "passing"];
   });
 function Ph(e) {
@@ -5083,7 +5084,7 @@ function Ph(e) {
               }),
         onClick: O,
         children: (
-          <J
+          <FormattedMessage
             id="codex.localConversation.gitSummary.fixMergeConflicts"
             defaultMessage="Fix"
             description="Summary panel row action label for resolving pull request merge conflicts"
@@ -5099,7 +5100,7 @@ function Ph(e) {
       interactive={true}
       labelClassName="text-token-text-tertiary"
       label={
-        <J
+        <FormattedMessage
           id="codex.localConversation.gitSummary.mergeConflicts"
           defaultMessage="Merge conflicts"
           description="Summary panel row label when the pull request has merge conflicts"
@@ -5157,7 +5158,7 @@ function Ph(e) {
                           }),
                     onClick: A,
                     children: (
-                      <J
+                      <FormattedMessage
                         id="codex.localConversation.gitSummary.fixComments"
                         defaultMessage="Fix"
                         description="Summary panel row action label for fixing pull request comments"
@@ -5175,7 +5176,7 @@ function Ph(e) {
             interactive={true}
             labelClassName="text-token-text-tertiary"
             label={
-              <J
+              <FormattedMessage
                 id="codex.localConversation.gitSummary.comments.count"
                 defaultMessage={
                   "{count, plural, one {# comment} other {# comments}}"
@@ -5206,7 +5207,7 @@ function Ih(e) {
 }
 var Lh,
   Rh,
-  zh = e(() => {
+  zh = once(() => {
     Lh = q();
     c();
     Jn();
@@ -5227,16 +5228,16 @@ var Lh,
     Sh();
     Pl();
     Nh();
-    Rh = C();
+    Rh = getJsxRuntime();
   });
 function Bh(e, t) {
   return e?.trim() || t;
 }
-var Vh = e(() => {});
+var Vh = once(() => {});
 function Hh(e) {
   let { description } = e,
     r = description ?? (
-      <J
+      <FormattedMessage
         id="pullRequestSidePanel.error.description"
         defaultMessage="Couldn’t load this pull request section"
         description="Fallback error description for pull request sections"
@@ -5246,10 +5247,10 @@ function Hh(e) {
 }
 var Uh,
   Wh,
-  Gh = e(() => {
+  Gh = once(() => {
     Uh = q();
     Jn();
-    Wh = C();
+    Wh = getJsxRuntime();
   });
 function Kh(e) {
   let { action, children } = e,
@@ -5284,10 +5285,10 @@ function Jh(event) {
 }
 var Yh,
   Xh,
-  Zh = e(() => {
+  Zh = once(() => {
     Yh = q();
     Si();
-    Xh = C();
+    Xh = getJsxRuntime();
   });
 function Qh(e) {
   let { label } = e,
@@ -5306,10 +5307,10 @@ function Qh(e) {
 }
 var $h,
   eg,
-  tg = e(() => {
+  tg = once(() => {
     $h = q();
     d();
-    eg = C();
+    eg = getJsxRuntime();
   });
 function ng(e) {
   let { data, error, fixDisabledReason, item, loading } = e,
@@ -5370,13 +5371,13 @@ function ng(e) {
               });
             },
             children: p ? (
-              <J
+              <FormattedMessage
                 id="pullRequestSidePanel.checks.removeAll"
                 defaultMessage="Remove"
                 description="Button label for removing all failing pull request checks from the chat"
               />
             ) : (
-              <J
+              <FormattedMessage
                 id="pullRequestSidePanel.checks.fixAll"
                 defaultMessage="Fix"
                 description="Button label for fixing all failing pull request checks"
@@ -5385,7 +5386,7 @@ function ng(e) {
           })
         : null;
   let _ = (
-    <J
+    <FormattedMessage
       id="pullRequestSidePanel.checks.title"
       defaultMessage="Checks"
       description="Checks section title in the pull request side panel"
@@ -5398,7 +5399,7 @@ function ng(e) {
         loading || data == null ? (
           <Qh
             label={
-              <J
+              <FormattedMessage
                 id="pullRequestSidePanel.checks.loading"
                 defaultMessage="Loading checks"
                 description="Loading label for pull request checks"
@@ -5431,7 +5432,7 @@ function ng(e) {
           />
         ) : (
           <Br.Message compact={true}>
-            <J
+            <FormattedMessage
               id="pullRequestSidePanel.checks.empty"
               defaultMessage="No checks reported"
               description="Empty pull request checks list"
@@ -5455,7 +5456,7 @@ function rg(e) {
 }
 var ig,
   ag,
-  og = e(() => {
+  og = once(() => {
     ig = q();
     c();
     Jn();
@@ -5469,7 +5470,7 @@ var ig,
     Gh();
     Zh();
     tg();
-    ag = C();
+    ag = getJsxRuntime();
   });
 function sg(e) {
   return e.filter((item) => item.type !== "event");
@@ -5497,8 +5498,8 @@ function lg(e, t) {
       : "waiting";
 }
 var ug,
-  dg = e(() => {
-    ug = t(be(), 1);
+  dg = once(() => {
+    ug = toEsModule(be(), 1);
   });
 function fg(e) {
   let { data, error, fixDisabledReason, item, loading } = e,
@@ -5560,13 +5561,13 @@ function fg(e) {
                 });
               },
               children: g ? (
-                <J
+                <FormattedMessage
                   id="pullRequestSidePanel.comments.removeAll"
                   defaultMessage="Remove"
                   description="Button label for removing all pull request comments from the chat"
                 />
               ) : (
-                <J
+                <FormattedMessage
                   id="pullRequestSidePanel.comments.fixAll"
                   defaultMessage="Fix"
                   description="Button label for fixing all pull request comments"
@@ -5575,7 +5576,7 @@ function fg(e) {
             })
           : null;
     let b = (
-      <J
+      <FormattedMessage
         id="pullRequestSidePanel.comments.title"
         defaultMessage="Comments"
         description="Comments section title in the pull request side panel"
@@ -5590,7 +5591,7 @@ function fg(e) {
           loading || data == null ? (
             <Qh
               label={
-                <J
+                <FormattedMessage
                   id="pullRequestSidePanel.comments.loading"
                   defaultMessage="Loading comments"
                   description="Loading label for pull request comments"
@@ -5636,13 +5637,13 @@ function fg(e) {
                               });
                             },
                             children: n ? (
-                              <J
+                              <FormattedMessage
                                 id="pullRequestSidePanel.comments.removeFromChat"
                                 defaultMessage="Remove"
                                 description="Button label for removing a pull request comment from the chat"
                               />
                             ) : (
-                              <J
+                              <FormattedMessage
                                 id="pullRequestSidePanel.comments.fixComment"
                                 defaultMessage="Fix"
                                 description="Button label for fixing an individual pull request comment"
@@ -5660,7 +5661,7 @@ function fg(e) {
             </div>
           ) : (
             <Br.Message compact={true}>
-              <J
+              <FormattedMessage
                 id="pullRequestSidePanel.comments.empty"
                 defaultMessage="No comments"
                 description="Empty pull request comments list"
@@ -5686,7 +5687,7 @@ function pg(e, t) {
 }
 var mg,
   hg,
-  gg = e(() => {
+  gg = once(() => {
     mg = q();
     c();
     Jn();
@@ -5702,13 +5703,13 @@ var mg,
     Zh();
     tg();
     dg();
-    hg = C();
+    hg = getJsxRuntime();
   }),
   _g,
   vg,
-  yg = e(() => {
-    t(G());
-    _g = C();
+  yg = once(() => {
+    toEsModule(G());
+    _g = getJsxRuntime();
     vg = (e) => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -5733,7 +5734,7 @@ function bg(e) {
     return (
       <Qh
         label={
-          <J
+          <FormattedMessage
             id="pullRequestSidePanel.conflicts.loading"
             defaultMessage="Loading changed files"
             description="Loading label for merge conflict files"
@@ -5746,7 +5747,7 @@ function bg(e) {
     let e;
     return (
       <Br.Message compact={true}>
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.conflicts.empty"
           defaultMessage="No changed files reported"
           description="Empty merge conflict file list"
@@ -5780,7 +5781,7 @@ function bg(e) {
 }
 var xg,
   Sg,
-  Cg = e(() => {
+  Cg = once(() => {
     xg = q();
     Jn();
     an();
@@ -5788,7 +5789,7 @@ var xg,
     xd();
     Gh();
     tg();
-    Sg = C();
+    Sg = getJsxRuntime();
   });
 function wg(e) {
   let { error, files, fixDisabledReason, hasError, item, loading, repo } = e,
@@ -5817,13 +5818,13 @@ function wg(e) {
       });
     };
   let g = u ? (
-    <J
+    <FormattedMessage
       id="pullRequestSidePanel.conflicts.remove"
       defaultMessage="Remove"
       description="Button label for removing pull request merge conflicts from the chat"
     />
   ) : (
-    <J
+    <FormattedMessage
       id="pullRequestSidePanel.conflicts.fix"
       defaultMessage="Fix"
       description="Button label for fixing pull request merge conflicts"
@@ -5838,7 +5839,7 @@ function wg(e) {
     children: g,
   });
   let v = (
-    <J
+    <FormattedMessage
       id="pullRequestSidePanel.conflicts.title"
       defaultMessage="Merge conflicts"
       description="Merge conflicts section title in the pull request side panel"
@@ -5865,7 +5866,7 @@ function wg(e) {
 }
 var Tg,
   Eg,
-  Dg = e(() => {
+  Dg = once(() => {
     Tg = q();
     c();
     Jn();
@@ -5876,13 +5877,13 @@ var Tg,
     _();
     Cg();
     Zh();
-    Eg = C();
+    Eg = getJsxRuntime();
   });
 function Og(e) {
   let { body, error, loading } = e,
     a = (
       <Kh>
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.description.title"
           defaultMessage="Description"
           description="Pull request description section title"
@@ -5897,7 +5898,7 @@ function Og(e) {
           loading || body == null ? (
             <Qh
               label={
-                <J
+                <FormattedMessage
                   id="pullRequestSidePanel.description.loading"
                   defaultMessage="Loading description"
                   description="Loading label for the pull request description"
@@ -5914,7 +5915,7 @@ function Og(e) {
             </Xo>
           ) : (
             <p className="py-2 text-base text-token-text-tertiary">
-              <J
+              <FormattedMessage
                 id="pullRequestSidePanel.description.empty"
                 defaultMessage="No description provided"
                 description="Empty pull request description in the side panel"
@@ -5930,7 +5931,7 @@ function Og(e) {
 }
 var kg,
   Ag,
-  jg = e(() => {
+  jg = once(() => {
     kg = q();
     Jn();
     Fo();
@@ -5938,13 +5939,13 @@ var kg,
     Gh();
     Zh();
     tg();
-    Ag = C();
+    Ag = getJsxRuntime();
   }),
   Mg,
   Ng,
-  Pg = e(() => {
-    t(G());
-    Mg = C();
+  Pg = once(() => {
+    toEsModule(G());
+    Mg = getJsxRuntime();
     Ng = (e) => (
       <svg
         width={21}
@@ -5964,7 +5965,7 @@ var kg,
     );
   }),
   Fg,
-  Ig = e(() => {
+  Ig = once(() => {
     r();
     Er();
     n();
@@ -6007,8 +6008,8 @@ function zg(e, t) {
   return n == null ? [...e, t] : e.filter((item) => item !== n);
 }
 var Bg,
-  Vg = e(() => {
-    Bg = t(Sn(), 1);
+  Vg = once(() => {
+    Bg = toEsModule(Sn(), 1);
   });
 function Hg(e) {
   let { hostId, item, pendingReviewerLogins, repo } = e,
@@ -6121,7 +6122,7 @@ function Hg(e) {
   let L = Jg.jsx(_r, {
     className: "sr-only",
     children: (
-      <J
+      <FormattedMessage
         id="pullRequestSidePanel.approvals.dialog.title"
         defaultMessage="Request approvals"
         description="Title for the dialog used to request pull request approvals"
@@ -6136,14 +6137,14 @@ function Hg(e) {
   let z = C.isPending,
     ee =
       g.length === 0 ? (
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.approvals.search.prompt"
           defaultMessage="Search by name or GitHub username"
           description="Prompt shown before searching for a pull request reviewer"
         />
       ) : isError && _ === g ? (
         <span className="flex items-center justify-between gap-3 text-token-error-foreground">
-          <J
+          <FormattedMessage
             id="pullRequestSidePanel.approvals.search.error"
             defaultMessage="Couldn’t search GitHub users"
             description="Error shown when pull request reviewer search fails"
@@ -6156,7 +6157,7 @@ function Hg(e) {
               refetch();
             },
             children: (
-              <J
+              <FormattedMessage
                 id="pullRequestSidePanel.approvals.search.retry"
                 defaultMessage="Retry"
                 description="Retry button for pull request reviewer search"
@@ -6165,7 +6166,7 @@ function Hg(e) {
           })}
         </span>
       ) : (
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.approvals.search.empty"
           defaultMessage="No users found"
           description="Empty state for pull request reviewer search"
@@ -6249,7 +6250,7 @@ function Hg(e) {
             onClick: M,
             children: (
               <span className="mx-auto">
-                <J
+                <FormattedMessage
                   id="pullRequestSidePanel.approvals.request"
                   defaultMessage="Request"
                   description="Button label for requesting pull request approval"
@@ -6294,10 +6295,10 @@ function Gg(e) {
 var Kg,
   qg,
   Jg,
-  Yg = e(() => {
+  Yg = once(() => {
     Kg = q();
     c();
-    qg = t(G(), 1);
+    qg = toEsModule(G(), 1);
     Jn();
     Ye();
     Hn();
@@ -6312,7 +6313,7 @@ var Kg,
     Vn();
     Ig();
     Vg();
-    Jg = C();
+    Jg = getJsxRuntime();
   });
 function Xg(e) {
   let {
@@ -6407,7 +6408,7 @@ function Zg(e) {
           className: "icon-sm shrink-0 text-token-charts-red",
         })}
         label={
-          <J
+          <FormattedMessage
             id="pullRequestSidePanel.overview.checks.error"
             defaultMessage="Couldn’t load checks"
             description="Checks error label in the pull request overview"
@@ -6425,7 +6426,7 @@ function Zg(e) {
           className: "icon-sm shrink-0",
         })}
         label={
-          <J
+          <FormattedMessage
             id="pullRequestSidePanel.overview.checks.loading"
             defaultMessage="Loading checks"
             description="Loading checks label in the pull request overview"
@@ -6449,7 +6450,7 @@ function Qg(e) {
           className: "icon-sm shrink-0 text-token-charts-red",
         })}
         label={
-          <J
+          <FormattedMessage
             id="pullRequestSidePanel.overview.comments.error"
             defaultMessage="Couldn’t load comments"
             description="Comments error label in the pull request overview"
@@ -6467,7 +6468,7 @@ function Qg(e) {
           className: "icon-sm shrink-0",
         })}
         label={
-          <J
+          <FormattedMessage
             id="pullRequestSidePanel.overview.comments.loading"
             defaultMessage="Loading comments"
             description="Loading comments label in the pull request overview"
@@ -6483,7 +6484,7 @@ function Qg(e) {
       density="comfortable"
       icon={a}
       label={
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.overview.comments"
           defaultMessage={
             "{count, plural, =0 {No comments} one {# comment} other {# comments}}"
@@ -6503,7 +6504,7 @@ function $g(e) {
     case "conflicts": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.overview.conflicts"
           defaultMessage="Merge conflicts need to be resolved"
           description="Merge conflict status in the pull request overview"
@@ -6513,7 +6514,7 @@ function $g(e) {
     case "unknown": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.overview.conflicts.unknown"
           defaultMessage="Checking for merge conflicts"
           description="Unknown merge conflict status in the pull request overview"
@@ -6523,7 +6524,7 @@ function $g(e) {
     case null: {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.overview.conflicts.none"
           defaultMessage="No merge conflicts"
           description="Clean merge status in the pull request overview"
@@ -6549,7 +6550,7 @@ function e_(e) {
     s = "flex min-w-0 flex-1 items-center gap-2";
     c = (
       <span className="shrink-0">
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.overview.reviewers"
           defaultMessage="Reviewers"
           description="Reviewer label in the pull request overview"
@@ -6621,19 +6622,19 @@ function t_(e) {
           >
             <span className="sr-only">
               {e.status === "approved" ? (
-                <J
+                <FormattedMessage
                   id="pullRequestSidePanel.overview.reviewer.approved"
                   defaultMessage="Approved"
                   description="Accessible status for an approved pull request reviewer"
                 />
               ) : e.status === "changes_requested" ? (
-                <J
+                <FormattedMessage
                   id="pullRequestSidePanel.overview.reviewer.changesRequested"
                   defaultMessage="Requested changes"
                   description="Accessible status for a pull request reviewer who requested changes"
                 />
               ) : (
-                <J
+                <FormattedMessage
                   id="pullRequestSidePanel.overview.reviewer.waiting"
                   defaultMessage="Waiting for review"
                   description="Accessible status for a pull request reviewer whose review is pending"
@@ -6649,7 +6650,7 @@ function t_(e) {
 }
 var n_,
   Z,
-  r_ = e(() => {
+  r_ = once(() => {
     n_ = q();
     Ut();
     Jn();
@@ -6667,7 +6668,7 @@ var n_,
     Pl();
     Yg();
     dg();
-    Z = C();
+    Z = getJsxRuntime();
   });
 function i_(e) {
   let { bodyError, bodyIsLoading, item, pullRequestBody, request } = e,
@@ -6809,7 +6810,7 @@ function a_(e) {
 }
 var o_,
   s_,
-  c_ = e(() => {
+  c_ = once(() => {
     o_ = q();
     c();
     en();
@@ -6825,7 +6826,7 @@ var o_,
     Dg();
     jg();
     r_();
-    s_ = C();
+    s_ = getJsxRuntime();
   });
 function l_(e) {
   let { hostId, item, pullRequestBody, request } = e,
@@ -6848,19 +6849,19 @@ function l_(e) {
   let l = (
     <div className="text-sm leading-5 text-token-text-tertiary">
       {s === "draft" ? (
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.state.draft"
           defaultMessage="Draft"
           description="Draft pull request state shown in the side panel header"
         />
       ) : s === "merged" ? (
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.state.merged"
           defaultMessage="Merged"
           description="Merged pull request state shown in the side panel header"
         />
       ) : (
-        <J
+        <FormattedMessage
           id="pullRequestSidePanel.state.open"
           defaultMessage="Open"
           description="Open pull request state shown in the side panel header"
@@ -6925,7 +6926,7 @@ function l_(e) {
 var u_,
   d_,
   f_,
-  p_ = e(() => {
+  p_ = once(() => {
     u_ = q();
     Jn();
     ke();
@@ -6934,7 +6935,7 @@ var u_,
     n();
     wd();
     c_();
-    d_ = C();
+    d_ = getJsxRuntime();
     f_ = function (e) {
       let { hostId, item, repo } = e,
         a = {
@@ -7014,8 +7015,8 @@ function m_(e, { hostId, item, repo }, i = true, a = "right") {
   );
 }
 var h_,
-  g_ = e(() => {
-    h_ = t(G(), 1);
+  g_ = once(() => {
+    h_ = toEsModule(G(), 1);
     Za();
     Js();
     p_();
@@ -7140,7 +7141,7 @@ function y_(e, t, n) {
 }
 var b_,
   x_,
-  S_ = e(() => {
+  S_ = once(() => {
     b_ = q();
     c();
     Jn();
@@ -7155,7 +7156,7 @@ var b_,
     o();
     g_();
     Pl();
-    x_ = C();
+    x_ = getJsxRuntime();
   });
 function C_(e) {
   let {
@@ -7233,7 +7234,7 @@ function C_(e) {
         className="!text-token-text-tertiary"
         icon={<O_ />}
         label={
-          <J
+          <FormattedMessage
             id="codex.localConversation.gitSummary.pullRequestUnavailable"
             defaultMessage="Pull request status unavailable"
             description="GitHub status row shown when PR status cannot be loaded"
@@ -7248,7 +7249,7 @@ function C_(e) {
       <Fl
         icon={<O_ />}
         label={
-          <J
+          <FormattedMessage
             id="codex.localConversation.gitSummary.checkingPullRequest"
             defaultMessage="Checking pull request"
             description="GitHub status row shown while loading PR data"
@@ -7333,7 +7334,7 @@ function T_(e) {
     s;
   o = <O_ />;
   s = (
-    <J
+    <FormattedMessage
       id="codex.localConversation.gitSummary.createPullRequest"
       defaultMessage="Create pull request"
       description="GitHub status row shown when no PR exists for the branch"
@@ -7349,7 +7350,7 @@ function E_(e) {
         <Fl
           icon={<O_ />}
           label={
-            <J
+            <FormattedMessage
               id="codex.localConversation.gitSummary.checkingPullRequest"
               defaultMessage="Checking pull request"
               description="GitHub status row shown while loading PR data"
@@ -7362,7 +7363,7 @@ function E_(e) {
         <Fl
           icon={<O_ />}
           label={
-            <J
+            <FormattedMessage
               id="codex.localConversation.gitSummary.githubCliUnavailable"
               defaultMessage="GitHub CLI unavailable"
               description="GitHub status row shown when gh is not installed"
@@ -7375,7 +7376,7 @@ function E_(e) {
         <Fl
           icon={<O_ />}
           label={
-            <J
+            <FormattedMessage
               id="codex.localConversation.gitSummary.githubCliSignedOut"
               defaultMessage="GitHub CLI not authenticated"
               description="GitHub status row shown when gh is not authenticated"
@@ -7404,7 +7405,7 @@ function O_() {
 var k_,
   A_,
   j_,
-  M_ = e(() => {
+  M_ = once(() => {
     k_ = q();
     c();
     Jn();
@@ -7423,7 +7424,7 @@ var k_,
     zh();
     Vh();
     S_();
-    A_ = C();
+    A_ = getJsxRuntime();
     j_ = "icon-sm shrink-0 text-token-text-tertiary";
   });
 function N_(e) {
@@ -7499,7 +7500,7 @@ function N_(e) {
 }
 var P_,
   F_,
-  I_ = e(() => {
+  I_ = once(() => {
     P_ = q();
     c();
     gn();
@@ -7516,7 +7517,7 @@ var P_,
     _();
     Ht();
     ae();
-    F_ = C();
+    F_ = getJsxRuntime();
   });
 function L_(e) {
   let {
@@ -7543,7 +7544,7 @@ function L_(e) {
           className: "icon-sm shrink-0",
         })}
         label={
-          <J
+          <FormattedMessage
             id="localConversation.gitActions.createBranch"
             defaultMessage="Create branch"
             description="Label for the create branch action in the git actions dropdown"
@@ -7624,7 +7625,7 @@ function L_(e) {
       );
     };
   let C = (
-    <J
+    <FormattedMessage
       id="codex.localConversation.environmentSummary.title"
       defaultMessage="Environment"
       description="Title for the thread summary side panel environment and branch details section"
@@ -7689,11 +7690,11 @@ function L_(e) {
 var R_,
   z_,
   B_,
-  V_ = e(() => {
+  V_ = once(() => {
     R_ = q();
     c();
     gn();
-    z_ = t(G(), 1);
+    z_ = toEsModule(G(), 1);
     Jn();
     d();
     Nl();
@@ -7710,7 +7711,7 @@ var R_,
     Xm();
     M_();
     I_();
-    B_ = C();
+    B_ = getJsxRuntime();
   });
 function H_(e) {
   let { automation } = e,
@@ -7786,7 +7787,7 @@ function H_(e) {
 }
 var U_,
   W_,
-  G_ = e(() => {
+  G_ = once(() => {
     U_ = q();
     c();
     Jn();
@@ -7796,7 +7797,7 @@ var U_,
     Cc();
     me();
     Pl();
-    W_ = C();
+    W_ = getJsxRuntime();
   });
 function K_(e) {
   let { sideChats, onOpen } = e,
@@ -7826,13 +7827,13 @@ function q_(e) {
 }
 var J_,
   Y_,
-  X_ = e(() => {
+  X_ = once(() => {
     J_ = q();
     d();
     Oo();
     Uf();
     Pl();
-    Y_ = C();
+    Y_ = getJsxRuntime();
   });
 function Z_(e) {
   let { onOpen, toolSources, webSources } = e,
@@ -7865,7 +7866,7 @@ function Z_(e) {
     let e;
     return (
       <div className="py-1 text-base text-token-description-foreground">
-        <J
+        <FormattedMessage
           id="codex.localConversation.sources.empty"
           defaultMessage="No sources yet"
           description="Empty state for the sources section in the thread summary side panel"
@@ -7992,7 +7993,7 @@ function tv(e) {
 }
 var nv,
   rv,
-  iv = e(() => {
+  iv = once(() => {
     nv = q();
     Jn();
     Or();
@@ -8001,7 +8002,7 @@ var nv,
     Gn();
     nn();
     Gr();
-    rv = C();
+    rv = getJsxRuntime();
   });
 function av(e) {
   let { children, shouldHideInlineImmediately, shouldShow } = e,
@@ -8109,7 +8110,7 @@ function lv(e) {
 var uv,
   dv,
   ThreadSummaryPanelChrome,
-  initThreadSummaryPanelChrome = e(() => {
+  initThreadSummaryPanelChrome = once(() => {
     uv = q();
     Ut();
     bt();
@@ -8120,7 +8121,7 @@ var uv,
     Oe();
     Nf();
     Km();
-    dv = C();
+    dv = getJsxRuntime();
     ThreadSummaryPanelChrome = {
       Content: sv,
       HeaderButton: cv,
@@ -8136,7 +8137,7 @@ function mv(e) {
     case "subagents": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.backgroundTasks.title.subagents"
           defaultMessage="Subagents"
           description="Title for the background subagents section in the thread summary side panel"
@@ -8146,7 +8147,7 @@ function mv(e) {
     case "tasks": {
       let e;
       return (
-        <J
+        <FormattedMessage
           id="codex.localConversation.backgroundTasks.title.tasks"
           defaultMessage="Tasks"
           description="Title for the background tasks section in the thread summary side panel"
@@ -8157,10 +8158,10 @@ function mv(e) {
 }
 var hv,
   gv,
-  _v = e(() => {
+  _v = once(() => {
     hv = q();
     Jn();
-    gv = C();
+    gv = getJsxRuntime();
   });
 function vv(e) {
   let {
@@ -8465,7 +8466,7 @@ function Sv(e) {
     Le = y.kind === "local" ? Tv : undefined,
     Re = () => {
       h.get(ti).danger(
-        <J
+        <FormattedMessage
           id="codex.localConversation.backgroundTerminals.cleanError"
           defaultMessage="Unable to stop background terminals"
           description="Toast shown when cleaning background terminals from the thread summary panel fails"
@@ -8475,7 +8476,7 @@ function Sv(e) {
   let ze = Y(Re),
     Be = () => {
       h.get(ti).danger(
-        <J
+        <FormattedMessage
           id="codex.localConversation.backgroundTerminals.restartError"
           defaultMessage="Unable to track restarted background terminal"
           description="Toast shown when tracking a restarted background terminal from the thread summary panel fails"
@@ -8502,7 +8503,7 @@ function Sv(e) {
       <Nm
         sectionKey="automation"
         title={
-          <J
+          <FormattedMessage
             id="codex.localConversation.heartbeatAutomation.title"
             defaultMessage="Scheduled"
             description="Title for the active scheduled task section in the thread summary side panel"
@@ -8548,7 +8549,7 @@ function Sv(e) {
     <Nm
       sectionKey="artifacts"
       title={
-        <J
+        <FormattedMessage
           id="codex.localConversation.outputs.title"
           defaultMessage="Outputs"
           description="Title for the outputs section in the local conversation summary panel"
@@ -8570,7 +8571,7 @@ function Sv(e) {
     <Nm
       sectionKey="side-chats"
       title={
-        <J
+        <FormattedMessage
           id="codex.localConversation.sideChats.title"
           defaultMessage="Side chats"
           description="Title for the side chats section in the thread summary side panel"
@@ -8666,7 +8667,7 @@ function Sv(e) {
         aria-label={we}
         icon={<Ff className="icon-xs shrink-0" />}
         label={
-          <J
+          <FormattedMessage
             id="codex.localConversation.remoteHostedPip.computerUse"
             defaultMessage="Computer Use"
             description="Label for the Computer Use PiP visibility control in the thread summary side panel"
@@ -8685,7 +8686,7 @@ function Sv(e) {
     <Nm
       sectionKey="browser-tabs"
       title={
-        <J
+        <FormattedMessage
           id="codex.localConversation.browserUse.title"
           defaultMessage="Browser"
           description="Title for the browser section in the thread summary side panel"
@@ -8706,7 +8707,7 @@ function Sv(e) {
     </Nm>
   );
   let $e = (
-    <J
+    <FormattedMessage
       id="codex.localConversation.sources.title"
       defaultMessage="Sources"
       description="Title for the thread summary side panel sources section"
@@ -8823,9 +8824,9 @@ function kv(e, t, n, r, i) {
 var Av,
   jv,
   Q,
-  initLocalConversationGitSummary = e(() => {
+  initLocalConversationGitSummary = once(() => {
     Av = q();
-    jv = t(De(), 1);
+    jv = toEsModule(De(), 1);
     c();
     gn();
     Jn();
@@ -8877,7 +8878,7 @@ var Av,
     _n();
     n();
     _v();
-    Q = C();
+    Q = getJsxRuntime();
   });
 function Nv(e) {
   let t = (e - 736) / 2;
@@ -8894,13 +8895,13 @@ function Fv({ displayMode, isPinned }) {
   return isPinned && displayMode === "shift" ? -(300 + Iv) / 2 : 0;
 }
 var Iv,
-  Lv = e(() => {
+  Lv = once(() => {
     Nf();
     Iv = 16;
   }),
   Rv,
   pinnedSummaryPanelState,
-  initPinnedSummaryPanelState = e(() => {
+  initPinnedSummaryPanelState = once(() => {
     c();
     r();
     Rv = {
@@ -9058,11 +9059,11 @@ function Kv(e, t, n) {
 }
 var qv,
   Jv,
-  initLocalConversationArtifacts = e(() => {
+  initLocalConversationArtifacts = once(() => {
     qv = q();
     bt();
     c();
-    Jv = t(G(), 1);
+    Jv = toEsModule(G(), 1);
     ua();
     Xa();
     Oe();
@@ -9219,7 +9220,7 @@ function ty(event) {
         : `path:${et(event.target)}`;
   }
 }
-var ny = e(() => {
+var ny = once(() => {
     gn();
     dt();
     Bt();
@@ -9233,7 +9234,7 @@ var ny = e(() => {
   iy,
   localConversationOutputArtifactsSignal,
   oy,
-  initLocalConversationArtifactSignals = e(() => {
+  initLocalConversationArtifactSignals = once(() => {
     c();
     nt();
     r();
@@ -9315,7 +9316,7 @@ function ly(e) {
     ? []
     : su([e]).filter((item) => item.source === "restored-process");
 }
-var uy = e(() => {
+var uy = once(() => {
   xs();
   Xl();
 });
@@ -9377,7 +9378,7 @@ function _y(e) {
   }
 }
 var vy,
-  yy = e(() => {
+  yy = once(() => {
     gn();
     vy = "about:blank#codex-browser-sidebar-attach-token=";
   });
@@ -9398,7 +9399,7 @@ function by(e) {
   }
   return null;
 }
-var xy = e(() => {
+var xy = once(() => {
   Ur();
 });
 function Sy(e, t) {
@@ -9416,7 +9417,7 @@ function Sy(e, t) {
   });
 }
 var Cy,
-  wy = e(() => {
+  wy = once(() => {
     gn();
     Cy = "sidechat:";
   });
@@ -9443,7 +9444,7 @@ function Ty(e) {
 function Ey(e) {
   return e?.trim().toLowerCase() ?? "";
 }
-var Dy = e(() => {
+var Dy = once(() => {
   Sl();
 });
 function Oy(e, t, n, r) {
@@ -9534,7 +9535,7 @@ function jy(e, t, n) {
     logoUrlDark: i?.logoUrlDark ?? null,
   };
 }
-var My = e(() => {
+var My = once(() => {
   Qi();
   wr();
   Dy();
@@ -9728,10 +9729,10 @@ var zy,
   By,
   Vy,
   Hy,
-  initLocalConversationSummaryPanelSignals = e(() => {
+  initLocalConversationSummaryPanelSignals = once(() => {
     zy = q();
     c();
-    By = t(G(), 1);
+    By = toEsModule(G(), 1);
     nt();
     Nt();
     Ka();
@@ -9850,19 +9851,19 @@ function Gy(e) {
   let b = w("restore-worktree", s, y);
   if (p?.kind !== "restorable" && p?.kind !== "gone" && !m) return null;
   let x = m ? (
-    <J
+    <FormattedMessage
       id="worktreeRestoreBanner.unavailable.title"
       defaultMessage="Couldn't check worktree status"
       description="Title for banner when Codex cannot verify whether a managed worktree exists"
     />
   ) : p?.kind === "gone" ? (
-    <J
+    <FormattedMessage
       id="worktreeRestoreBanner.missing.title"
       defaultMessage="Current working directory missing"
       description="Title for banner when the current working directory is missing and no snapshot exists"
     />
   ) : (
-    <J
+    <FormattedMessage
       id="worktreeRestoreBanner.title"
       defaultMessage="Worktree cleaned up"
       description="Title for banner when a Codex worktree was pruned but can be restored"
@@ -9870,19 +9871,19 @@ function Gy(e) {
   );
   let S = x,
     C = m ? (
-      <J
+      <FormattedMessage
         id="worktreeRestoreBanner.unavailable.body"
         defaultMessage="Retry to verify this chat's working directory"
         description="Body text for banner shown when Codex cannot inspect a managed worktree"
       />
     ) : p?.kind === "gone" ? (
-      <J
+      <FormattedMessage
         id="worktreeRestoreBanner.missing.body"
         defaultMessage="This chat's working directory no longer exists"
         description="Body text for banner shown when the current working directory is missing and no snapshot exists"
       />
     ) : (
-      <J
+      <FormattedMessage
         id="worktreeRestoreBanner.body"
         defaultMessage="This chat's worktree was removed to save disk space"
         description="Body text for banner that offers to restore a missing worktree snapshot"
@@ -9914,7 +9915,7 @@ function Gy(e) {
             g.mutate(cwd);
           },
           children: (
-            <J
+            <FormattedMessage
               id="worktreeRestoreBanner.retryCta"
               defaultMessage="Retry"
               description="Action to retry managed worktree inspection"
@@ -9934,7 +9935,7 @@ function Gy(e) {
               });
             },
             children: (
-              <J
+              <FormattedMessage
                 id="worktreeRestoreBanner.restoreCta"
                 defaultMessage="Restore worktree"
                 description="Primary call to action for restoring a missing worktree snapshot"
@@ -9951,7 +9952,7 @@ function Gy(e) {
 }
 var Ky,
   qy,
-  Jy = e(() => {
+  Jy = once(() => {
     Ky = q();
     m();
     c();
@@ -9971,7 +9972,7 @@ var Ky,
     Mr();
     Ns();
     Ys();
-    qy = C();
+    qy = getJsxRuntime();
   });
 function Yy(e, t) {
   for (let n = e.length - 1; n >= 0; --n) {
@@ -9981,7 +9982,7 @@ function Yy(e, t) {
   }
   return null;
 }
-var Xy = e(() => {});
+var Xy = once(() => {});
 function Zy(e) {
   let {
       canForkIntoWorktree,
@@ -10002,14 +10003,14 @@ function Zy(e) {
         className: "icon-sm text-token-foreground",
       })}
       title={
-        <J
+        <FormattedMessage
           id="localConversation.forkFromOlderTurnDialog.title"
           defaultMessage="Fork from earlier message?"
           description="Title for the confirmation dialog shown when forking from a non-latest user message"
         />
       }
       subtitle={
-        <J
+        <FormattedMessage
           id="localConversation.forkFromOlderTurnDialog.subtitle"
           defaultMessage="This keeps your current files and worktree state as-is. If later turns changed the filesystem, the new fork may not match what is currently on disk."
           description="Subtitle for the confirmation dialog shown when forking from a non-latest user message"
@@ -10029,19 +10030,19 @@ function Zy(e) {
   let p = isWorktreeThread ? fo.forkIntoSameWorktree : fo.forkIntoLocal,
     m = (
       <span className="text-sm font-medium electron:text-base">
-        <J {...p} />
+        <FormattedMessage {...p} />
       </span>
     );
   let h = (
     <span className="text-xs whitespace-normal text-token-description-foreground">
       {isWorktreeThread ? (
-        <J
+        <FormattedMessage
           id="localConversation.forkFromOlderTurnDialog.local.sameWorktreeDescription"
           defaultMessage="Continue from this message in the same worktree"
           description="Description for forking an older message within the same worktree"
         />
       ) : (
-        <J
+        <FormattedMessage
           id="localConversation.forkFromOlderTurnDialog.local.description"
           defaultMessage="Continue from this message in a new local chat"
           description="Description for forking an older message locally"
@@ -10079,17 +10080,17 @@ function Zy(e) {
       })}
       <span className="flex min-w-0 flex-col gap-0.5">
         <span className="text-sm font-medium electron:text-base">
-          <J {...fo.forkIntoWorktree} />
+          <FormattedMessage {...fo.forkIntoWorktree} />
         </span>
         <span className="text-xs whitespace-normal text-token-description-foreground">
           {canForkIntoWorktree ? (
-            <J
+            <FormattedMessage
               id="localConversation.forkFromOlderTurnDialog.worktree.description"
               defaultMessage="Continue from this message in a new worktree"
               description="Description for forking an older message into a new worktree"
             />
           ) : (
-            <J {...fo.forkThreadRequiresGitRepo} />
+            <FormattedMessage {...fo.forkThreadRequiresGitRepo} />
           )}
         </span>
       </span>
@@ -10102,7 +10103,7 @@ function Zy(e) {
     </div>
   );
   let b = (
-    <J
+    <FormattedMessage
       id="localConversation.forkFromOlderTurnDialog.cancel"
       defaultMessage="Cancel"
       description="Cancel button label for the older-turn fork confirmation dialog"
@@ -10132,7 +10133,7 @@ function Zy(e) {
 }
 var Qy,
   $y,
-  eb = e(() => {
+  eb = once(() => {
     Qy = q();
     Jn();
     Ye();
@@ -10142,7 +10143,7 @@ var Qy,
     Ni();
     Ra();
     Sa();
-    $y = C();
+    $y = getJsxRuntime();
   });
 function tb({
   conversationCwd,
@@ -10246,10 +10247,10 @@ function tb({
 }
 var nb,
   rb,
-  ib = e(() => {
+  ib = once(() => {
     c();
     gn();
-    nb = t(G(), 1);
+    nb = toEsModule(G(), 1);
     Jn();
     xr();
     wn();
@@ -10262,7 +10263,7 @@ var nb,
     za();
     Sa();
     initLocalEnvironmentRecentActions();
-    rb = C();
+    rb = getJsxRuntime();
   });
 function ab({ conversation, parentConversation }) {
   let n = new Set();
@@ -10282,8 +10283,8 @@ function ab({ conversation, parentConversation }) {
   );
 }
 var ob,
-  sb = e(() => {
-    ob = t(De(), 1);
+  sb = once(() => {
+    ob = toEsModule(De(), 1);
   });
 async function renderLocalConversationMarkdownForTurns({
   cwd,
@@ -10321,7 +10322,7 @@ async function renderLocalConversationMarkdownForTurns({
     turns: a,
   });
 }
-var initConversationMarkdownRenderer = e(() => {
+var initConversationMarkdownRenderer = once(() => {
   Ge();
   Qn();
 });
@@ -10337,7 +10338,7 @@ function formatBackgroundAgentDisplayName({
   let displayName = agentNickname?.trim() || fe(conversationId);
   return displayName.startsWith("@") ? displayName.slice(1) : displayName;
 }
-var initThreadScrollState = e(() => {
+var initThreadScrollState = once(() => {
   Vt();
 });
 function fb({
@@ -10350,7 +10351,7 @@ function fb({
     ? isScrolledFromBottom
     : scrollDistanceFromBottomPx > responseSpacerHeightPx + 24;
 }
-var pb = e(() => {
+var pb = once(() => {
   nd();
 });
 function createLocalConversationSearchAdapter({
@@ -10439,7 +10440,7 @@ function hb(e, t) {
   };
 }
 var gb,
-  initConversationSearchHelpers = e(() => {
+  initConversationSearchHelpers = once(() => {
     la();
     Ea();
     Aa();
@@ -10507,8 +10508,8 @@ function bb(e) {
   );
 }
 var xb,
-  Sb = e(() => {
-    xb = t(hn(), 1);
+  Sb = once(() => {
+    xb = toEsModule(hn(), 1);
     initConversationSearchHelpers();
     hi();
     Ge();
@@ -10521,7 +10522,7 @@ function Cb({ distanceFromBottomPx, responseSpacerHeightPx, scrollHeightPx }) {
   };
 }
 var wb,
-  Tb = e(() => {
+  Tb = once(() => {
     wb = 300;
   });
 function Eb({
@@ -10751,8 +10752,8 @@ var Ib,
   zb,
   Bb,
   localConversationVisibleTurnEntriesSignal,
-  initLocalConversationTurnSelectors = e(() => {
-    Ib = t(gi(), 1);
+  initLocalConversationTurnSelectors = once(() => {
+    Ib = toEsModule(gi(), 1);
     c();
     nt();
     r();
@@ -10800,7 +10801,7 @@ var Ib,
     );
   }),
   Ub,
-  Wb = e(() => {
+  Wb = once(() => {
     c();
     r();
     Ub = bn(ut, (e) => null);
@@ -10888,7 +10889,7 @@ function Yb(e, t) {
         followMode: t,
       };
 }
-var Xb = e(() => {
+var Xb = once(() => {
   nd();
 });
 function Zb({ entry, latestTurnFollowContentRef }) {
@@ -10992,7 +10993,7 @@ function Qb(e) {
   let { onRetry } = e,
     r = (
       <div className="mb-2 font-medium text-token-text-primary">
-        <J
+        <FormattedMessage
           id="localConversation.turnRenderError.title"
           defaultMessage="This turn couldn't render"
           description="Error message shown when an individual conversation turn fails to render"
@@ -11000,7 +11001,7 @@ function Qb(e) {
       </div>
     );
   let i = (
-    <J
+    <FormattedMessage
       id="localConversation.turnRenderError.retry"
       defaultMessage="Try again"
       description="Button label to retry rendering a failed conversation turn"
@@ -11021,17 +11022,17 @@ function Qb(e) {
 var $b,
   ex,
   tx,
-  nx = e(() => {
+  nx = once(() => {
     $b = q();
     c();
-    ex = t(G(), 1);
+    ex = toEsModule(G(), 1);
     Jn();
     Ye();
     Lo();
     me();
     _n();
     Dc();
-    tx = C();
+    tx = getJsxRuntime();
   });
 function rx({
   entries,
@@ -11846,18 +11847,18 @@ var gx,
   Sx,
   Cx,
   wx,
-  Tx = e(() => {
+  Tx = once(() => {
     gx = q();
     Ut();
-    _x = t(G(), 1);
-    vx = t(_i(), 1);
+    _x = toEsModule(G(), 1);
+    vx = toEsModule(_i(), 1);
     O();
     vl();
     nd();
     id();
     _n();
     Ju();
-    yx = C();
+    yx = getJsxRuntime();
     bx = 12;
     xx = 800;
     Sx = 2;
@@ -12502,11 +12503,11 @@ var Ix,
   Hx,
   Ux,
   Wx,
-  Gx = e(() => {
+  Gx = once(() => {
     Ix = q();
     bt();
     c();
-    Lx = t(G(), 1);
+    Lx = toEsModule(G(), 1);
     O();
     r();
     nd();
@@ -12517,7 +12518,7 @@ var Ix,
     Xb();
     nx();
     Tx();
-    Rx = C();
+    Rx = getJsxRuntime();
     zx = 0.6666666666666666;
     Bx = 240;
     Vx = 1;
@@ -12732,9 +12733,9 @@ function Yx(event, _event) {
     : event.type === _event.type && event.key === _event.key;
 }
 var Xx,
-  Zx = e(() => {
-    t(yr(), 1);
-    Xx = t(De(), 1);
+  Zx = once(() => {
+    toEsModule(yr(), 1);
+    Xx = toEsModule(De(), 1);
     qs();
     Ge();
     Jt();
@@ -12906,7 +12907,7 @@ var eS,
   tS,
   nS,
   rS,
-  iS = e(() => {
+  iS = once(() => {
     gn();
     la();
     zn();
@@ -12930,22 +12931,7 @@ var eS,
 function aS({ conversationId, isRightPanelFullWidth, routeConversationId }) {
   return isRightPanelFullWidth && conversationId === routeConversationId;
 }
-export interface InlineActivityPanelState {
-  activeTabId?: string | null;
-  isRightPanelExpanded: boolean;
-}
-
-export function shouldShowInlineActivityForRightPanel({
-  activeTabId,
-  isRightPanelExpanded,
-}: InlineActivityPanelState): boolean {
-  return (
-    isRightPanelExpanded &&
-    activeTabId?.startsWith("sidechat:") !== true &&
-    activeTabId?.startsWith("background-agent:") !== true
-  );
-}
-var initBackgroundAgentThreadTab = e(() => {});
+var initBackgroundAgentThreadTab = once(() => {});
 async function openBackgroundAgentThreadTab(
   e,
   { backgroundAgent, hostId, TabComponent },
@@ -12966,12 +12952,12 @@ async function openBackgroundAgentThreadTab(
     });
 }
 var lS,
-  initBackgroundAgentThreadTabs = e(() => {
+  initBackgroundAgentThreadTabs = once(() => {
     nt();
     pn();
     Yi();
     rs();
-    lS = C();
+    lS = getJsxRuntime();
   });
 function dS(e) {
   let { status } = e,
@@ -12986,13 +12972,13 @@ function dS(e) {
     >
       {r}
       {status === "loading" ? (
-        <J
+        <FormattedMessage
           id="localConversation.loadingThread"
           defaultMessage="Loading thread…"
           description="Status shown above the composer while loading a thread"
         />
       ) : (
-        <J
+        <FormattedMessage
           id="localConversation.reconnectingToCodex"
           defaultMessage="Reconnecting to Codex…"
           description="Status shown above the composer while reconnecting to the Codex app server"
@@ -13003,11 +12989,11 @@ function dS(e) {
 }
 var fS,
   pS,
-  mS = e(() => {
+  mS = once(() => {
     fS = q();
     Jn();
     d();
-    pS = C();
+    pS = getJsxRuntime();
   });
 function useMarkConversationReadOnVisibility(e, t) {
   let r = K(R, e) ?? false,
@@ -13045,10 +13031,10 @@ function useMarkConversationReadOnVisibility(e, t) {
 }
 var gS,
   _S,
-  initMarkConversationReadEffect = e(() => {
+  initMarkConversationReadEffect = once(() => {
     gS = q();
     c();
-    _S = t(G(), 1);
+    _S = toEsModule(G(), 1);
     nt();
     pn();
     bo();
@@ -13217,10 +13203,10 @@ function CS(e) {
 }
 var wS,
   TS,
-  initLocalConversationThreadRoute = e(() => {
+  initLocalConversationThreadRoute = once(() => {
     c();
     gn();
-    wS = t(G(), 1);
+    wS = toEsModule(G(), 1);
     Jn();
     nt();
     pn();
@@ -13232,7 +13218,7 @@ var wS,
     It();
     Ht();
     Mr();
-    TS = C();
+    TS = getJsxRuntime();
   });
 function DS(e) {
   return (
@@ -13391,7 +13377,7 @@ function AS(e) {
     };
   let g = h,
     _ = (
-      <J
+      <FormattedMessage
         id="localConversation.sideChat.expired.title"
         defaultMessage="Side chat expired"
         description="Title shown when an ephemeral side chat can no longer be continued"
@@ -13399,7 +13385,7 @@ function AS(e) {
     );
   let v = _,
     y = (
-      <J
+      <FormattedMessage
         id="localConversation.sideChat.expired.description"
         defaultMessage="This temporary side chat is no longer available; start a new side chat to continue"
         description="Description shown when an ephemeral side chat must be recreated"
@@ -13413,7 +13399,7 @@ function AS(e) {
             loading: p,
             onClick: g,
             children: (
-              <J
+              <FormattedMessage
                 id="localConversation.sideChat.expired.action"
                 defaultMessage="Start new side chat"
                 description="Button label to replace an expired side chat"
@@ -13652,7 +13638,7 @@ function PS(e) {
   };
   let a = (
     <div className="mb-2 font-medium text-token-text-primary">
-      <J
+      <FormattedMessage
         id="localConversation.summaryPanelRenderError.title"
         defaultMessage="Summary panel couldn't render"
         description="Error message shown when the conversation summary panel fails to render"
@@ -13660,7 +13646,7 @@ function PS(e) {
     </div>
   );
   let o = (
-    <J
+    <FormattedMessage
       id="localConversation.summaryPanelRenderError.retry"
       defaultMessage="Try again"
       description="Button label to retry rendering the conversation summary panel"
@@ -14581,14 +14567,14 @@ function US({
   );
 }
 var WS, GS, $, KS, qS, JS, YS;
-export const initLocalConversationThreadChunk = e(() => {
+export const initLocalConversationThreadChunk = once(() => {
   WS = q();
   bt();
   xt();
-  t(gi(), 1);
+  toEsModule(gi(), 1);
   c();
   gn();
-  GS = t(G(), 1);
+  GS = toEsModule(G(), 1);
   Jn();
   xr();
   gc();
@@ -14682,7 +14668,7 @@ export const initLocalConversationThreadChunk = e(() => {
   initMarkConversationReadEffect();
   initLocalConversationThreadRoute();
   Tx();
-  $ = C();
+  $ = getJsxRuntime();
   KS = [];
   qS = [];
   JS = Ze({});
