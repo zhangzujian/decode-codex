@@ -121,11 +121,11 @@ import {
   useCreateGitRepository as ot,
 } from "../git/git-review-primitives";
 import {
-  a as ct,
-  i as G,
-  n as K,
-  t as lt,
-} from "./app-initial~app-main~projects-index-page~hotkey-window-new-thread-page~hotkey-window-home-p~hswrsggc-D-_P9low.js";
+  ComposerFooterProjectButton as G,
+  ComposerProjectSelector as lt,
+  initComposerProjectFooterControls as ct,
+  initComposerProjectSelectorChunk as K,
+} from "./project-selector";
 import { n as q, t as ut } from "./worktree-environment-dropdown-Bohd1-E0.js";
 import {
   ComposerFooterBranchBadge as dt,

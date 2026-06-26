@@ -52,10 +52,10 @@ import {
   ct as me,
 } from "./app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CIs8dplf.js";
 import {
-  a as k,
-  i as he,
-  r as A,
-} from "./app-initial~app-main~projects-index-page~hotkey-window-new-thread-page~hotkey-window-home-p~hswrsggc-D-_P9low.js";
+  ComposerFooterProjectButton as he,
+  ComposerFooterStaticProjectControl as A,
+  initComposerProjectFooterControls as k,
+} from "./project-selector";
 import {
   gitBranchSearchQuery as _e,
   GitBranchSwitcher as M,

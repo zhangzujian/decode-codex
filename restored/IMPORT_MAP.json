@@ -10622,6 +10622,26 @@
       },
       "status": "draft",
       "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
+    },
+    "app-initial~app-main~projects-index-page~hotkey-window-new-thread-page~hotkey-window-home-p~hswrsggc-D-_P9low": {
+      "restored": "composer/project-selector.tsx",
+      "exports": {
+        "a": "initComposerProjectFooterControls",
+        "c": "ProjectIcon",
+        "d": "initProjectSelectorFeatureFlags",
+        "f": "AddProjectIcon",
+        "i": "ComposerFooterProjectButton",
+        "l": "initProjectIconChunk",
+        "n": "initComposerProjectSelectorChunk",
+        "o": "ClearProjectIcon",
+        "p": "initAddProjectIconChunk",
+        "r": "ComposerFooterStaticProjectControl",
+        "s": "initClearProjectIconChunk",
+        "t": "ComposerProjectSelector",
+        "u": "composerProjectSelectorFeatureFlagId"
+      },
+      "status": "draft",
+      "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
     }
   }
 }
