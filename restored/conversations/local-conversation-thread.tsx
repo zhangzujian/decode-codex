@@ -771,6 +771,13 @@ import {
   getLocalConversationArtifactKey,
   isGeneratedImageArtifact,
 } from "./local-conversation-thread-parts/artifact-summary";
+import {
+  createBackgroundSummaryItems,
+  getBackgroundSummaryItemKey,
+  getInlineActivityBackgroundAgents,
+  isDoneBackgroundAgent,
+  isWorkingBackgroundAgent,
+} from "./local-conversation-thread-parts/background-summary";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
 import { createLatestTurnSubmitPlacementSnapshot } from "./local-conversation-thread-parts/latest-turn-submit-placement";
 import {
@@ -1453,21 +1460,8 @@ function $f(e) {
     d,
     f;
   {
-    d = [];
-    let e;
-    e = backgroundAgents.filter(ep);
-    f = e;
-    for (let e of backgroundAgents)
-      e.showInlineActivity ||
-        d.push({
-          backgroundAgent: e,
-          type: "agent",
-        });
-    for (let e of backgroundTerminals)
-      d.push({
-        terminal: e,
-        type: "terminal",
-      });
+    f = getInlineActivityBackgroundAgents(backgroundAgents);
+    d = createBackgroundSummaryItems(backgroundAgents, backgroundTerminals);
   }
   let p = (e) => {
     conversationId == null ||
@@ -1561,7 +1555,7 @@ function $f(e) {
       }
     };
   let g = (
-    <Lf items={d} getKey={ap}>
+    <Lf items={d} getKey={getBackgroundSummaryItemKey}>
       {h}
     </Lf>
   );
@@ -1578,10 +1572,6 @@ function $f(e) {
     _
   );
 }
-function ep(e) {
-  let { showInlineActivity } = e;
-  return showInlineActivity;
-}
 function tp(e) {
   let { backgroundAgents, onOpenBackgroundAgent } = e,
     i,
@@ -1590,8 +1580,8 @@ function tp(e) {
     s,
     c;
   {
-    c = backgroundAgents.filter(rp);
-    i = backgroundAgents.filter(np);
+    c = backgroundAgents.filter(isWorkingBackgroundAgent);
+    i = backgroundAgents.filter(isDoneBackgroundAgent);
     let e = c.length > 0 ? c.slice(0, 4) : i.slice(-4);
     s = "flex min-h-8 items-center gap-2";
     a = "flex shrink-0 items-center gap-1.5";
@@ -1647,14 +1637,6 @@ function tp(e) {
       {d}
     </div>
   );
-}
-function np(e) {
-  let { status } = e;
-  return status === "done";
-}
-function rp(e) {
-  let { status } = e;
-  return status !== "done";
 }
 function ip(e) {
   let { backgroundAgent } = e,
@@ -1715,14 +1697,6 @@ function ip(e) {
     tooltipContent: i,
     children: u,
   });
-}
-function ap(e) {
-  switch (e.type) {
-    case "agent":
-      return `agent:${e.backgroundAgent.conversationId}`;
-    case "terminal":
-      return `terminal:${e.terminal.id}`;
-  }
 }
 var op,
   sp,
