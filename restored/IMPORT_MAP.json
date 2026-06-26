@@ -10642,6 +10642,22 @@
       },
       "status": "draft",
       "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
+    },
+    "app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~kyb0i2zb-B27VQcu6": {
+      "restored": "utils/use-resize-observer.tsx",
+      "exports": {
+        "a": "createSharedResizeObserver",
+        "c": "initResizeObserverContextChunk",
+        "i": "useElementWidth",
+        "l": "getResizeObserverEntrySize",
+        "n": "useElementSize",
+        "o": "initResizeObserverSymbolsChunk",
+        "r": "useResizeObserverRef",
+        "s": "ResizeObserverContext",
+        "t": "initResizeObserverHooksChunk",
+        "u": "initUseResizeObserverChunk"
+      },
+      "status": "done"
     }
   }
 }

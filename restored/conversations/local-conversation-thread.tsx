@@ -603,9 +603,9 @@ import {
   tn as gl,
 } from "./app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CIs8dplf.js";
 import {
-  l as _l,
-  u as vl,
-} from "./app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~kyb0i2zb-B27VQcu6.js";
+  getResizeObserverEntrySize as _l,
+  initUseResizeObserverChunk as vl,
+} from "../utils/use-resize-observer";
 import {
   i as yl,
   r as bl,

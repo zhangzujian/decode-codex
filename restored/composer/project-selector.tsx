@@ -104,9 +104,9 @@ import {
   rn as Je,
 } from "./app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CIs8dplf.js";
 import {
-  r as q,
-  t as Ye,
-} from "./app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~kyb0i2zb-B27VQcu6.js";
+  initResizeObserverHooksChunk as Ye,
+  useResizeObserverRef as q,
+} from "../utils/use-resize-observer";
 var J,
   Xe,
   Ze = e(() => {

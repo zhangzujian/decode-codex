@@ -168,9 +168,9 @@ import {
   sl as tn,
 } from "./app-initial~app-main~onboarding-page~profile-QLPeiknY.js";
 import {
-  n as nn,
-  t as rn,
-} from "./app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~kyb0i2zb-B27VQcu6.js";
+  initResizeObserverHooksChunk as rn,
+  useElementSize as nn,
+} from "../utils/use-resize-observer";
 import {
   P as an,
   V as on,
