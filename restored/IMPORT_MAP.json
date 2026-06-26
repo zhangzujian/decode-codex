@@ -10440,6 +10440,22 @@
     "rate-limit-reset-modal-bsUY5-t3": {
       "restored": "features/rate-limit-reset-modal/index.tsx",
       "status": "done"
+    },
+    "thread-app-shell-chrome-D7ImdiWZ": {
+      "restored": "app-shell/thread-app-shell-chrome.tsx",
+      "exports": {
+        "n": "initThreadAppShellChromeChunk",
+        "r": "initThreadAppShellLocalConversationDependency",
+        "t": "ThreadAppShellChrome"
+      },
+      "status": "done"
+    },
+    "thread-app-shell-chrome-DBT2t1lC": {
+      "restored": "app-shell/thread-app-shell-chrome-entry.ts",
+      "exports": {
+        "ThreadAppShellChrome": "ThreadAppShellChrome"
+      },
+      "status": "done"
     }
   }
 }
