@@ -3265,9 +3265,14 @@ var nm,
     yi();
     nm = vn("local-env-recent-actions-by-key", {});
   });
-function isRecentLocalEnvironmentAction(e, t) {
-  let r = We(t);
-  return e != null && Ar(e, r);
+type RecentLocalEnvironmentActionsByKey = Record<string, readonly unknown[]>;
+
+function isRecentLocalEnvironmentAction(
+  recentActionsByKey: RecentLocalEnvironmentActionsByKey | null | undefined,
+  hostId: string,
+): boolean {
+  let environmentKey = We(hostId);
+  return recentActionsByKey != null && Ar(recentActionsByKey, environmentKey);
 }
 var am,
   initLocalEnvironmentRecentActions = e(() => {
@@ -8198,7 +8203,26 @@ function vv(e) {
   });
 }
 function yv() {}
-export function LocalConversationSummaryPanel(e) {
+
+type RenderableThreadNode = unknown;
+type BackgroundAgentOpenHandler = (backgroundAgent: unknown) => void;
+
+export interface LocalConversationSummaryPanelProps {
+  artifacts: readonly unknown[];
+  sideChats: readonly unknown[];
+  toolSources: readonly unknown[];
+  webSources: readonly unknown[];
+  backgroundAgents: readonly unknown[];
+  backgroundTerminals: readonly unknown[];
+  browserUseSummaries: readonly unknown[];
+  restoredBackgroundProcesses: readonly unknown[];
+  plan: unknown;
+  onOpenBackgroundAgent?: BackgroundAgentOpenHandler;
+}
+
+export function LocalConversationSummaryPanel(
+  props: LocalConversationSummaryPanelProps,
+) {
   let {
     artifacts,
     sideChats,
@@ -8210,7 +8234,7 @@ export function LocalConversationSummaryPanel(e) {
     restoredBackgroundProcesses,
     plan,
     onOpenBackgroundAgent,
-  } = e;
+  } = props;
   return Q.jsx(ThreadSummaryPanelChrome.PopoverContent, {
     children: Q.jsx(ThreadSummaryPanelChrome.Content, {
       children: (
@@ -8885,37 +8909,59 @@ var Iv,
     };
     pinnedSummaryPanelState = bi(ut, Rv);
   });
-export function usePinnedSummaryPanelLayout(e) {
-  let n = W(Ga),
-    r = W(Pa),
-    i = Jv.useContext(so),
-    a = Xe(0),
-    o = i?.mainContentTargetWidth ?? a,
-    s;
-  s = (t) => {
-    Gv(e, t);
-  };
-  ar(o, "change", s);
-  let c = () => {
-    Gv(e, o.get());
-  };
-  let l;
-  l = [n, r, o, e];
-  Jv.useLayoutEffect(c, l);
-  let u, d;
-  u = () => () => {
-    e.set(pinnedSummaryPanelState, Hv);
-  };
-  d = [e];
-  Jv.useLayoutEffect(u, d);
+interface PinnedSummaryPanelState {
+  displayMode: "overlay" | "shift" | "gutter";
+  isPopoverOpen: boolean;
 }
-function Hv(e) {
-  return e.isPopoverOpen
+
+export interface PinnedSummaryPanelLayoutStore {
+  set: (
+    atom: typeof pinnedSummaryPanelState,
+    updater: (state: PinnedSummaryPanelState) => PinnedSummaryPanelState,
+  ) => void;
+}
+
+export function usePinnedSummaryPanelLayout(
+  store: PinnedSummaryPanelLayoutStore,
+): void {
+  let leftPanelSignal = W(Ga),
+    rightPanelSignal = W(Pa),
+    layoutContext = Jv.useContext(so),
+    fallbackTargetWidthSignal = Xe(0),
+    mainContentTargetWidthSignal =
+      layoutContext?.mainContentTargetWidth ?? fallbackTargetWidthSignal,
+    updatePinnedPanelLayout;
+  updatePinnedPanelLayout = (nextWidth: number) => {
+    Gv(store, nextWidth);
+  };
+  ar(mainContentTargetWidthSignal, "change", updatePinnedPanelLayout);
+  let syncPinnedPanelLayout = () => {
+    Gv(store, mainContentTargetWidthSignal.get());
+  };
+  let syncLayoutDependencies;
+  syncLayoutDependencies = [
+    leftPanelSignal,
+    rightPanelSignal,
+    mainContentTargetWidthSignal,
+    store,
+  ];
+  Jv.useLayoutEffect(syncPinnedPanelLayout, syncLayoutDependencies);
+  let closePopoverOnUnmount, closePopoverDependencies;
+  closePopoverOnUnmount = () => () => {
+    store.set(pinnedSummaryPanelState, closePinnedSummaryPanelPopover);
+  };
+  closePopoverDependencies = [store];
+  Jv.useLayoutEffect(closePopoverOnUnmount, closePopoverDependencies);
+}
+function closePinnedSummaryPanelPopover(
+  state: PinnedSummaryPanelState,
+): PinnedSummaryPanelState {
+  return state.isPopoverOpen
     ? {
-        ...e,
+        ...state,
         isPopoverOpen: false,
       }
-    : e;
+    : state;
 }
 function Uv(e) {
   let n = W(Va),
@@ -10279,9 +10325,17 @@ var initConversationMarkdownRenderer = e(() => {
   Ge();
   Qn();
 });
-function formatBackgroundAgentDisplayName({ agentNickname, conversationId }) {
-  let n = agentNickname?.trim() || fe(conversationId);
-  return n.startsWith("@") ? n.slice(1) : n;
+interface BackgroundAgentDisplayNameOptions {
+  agentNickname?: string | null;
+  conversationId: string;
+}
+
+function formatBackgroundAgentDisplayName({
+  agentNickname,
+  conversationId,
+}: BackgroundAgentDisplayNameOptions): string {
+  let displayName = agentNickname?.trim() || fe(conversationId);
+  return displayName.startsWith("@") ? displayName.slice(1) : displayName;
 }
 var initThreadScrollState = e(() => {
   Vt();
@@ -12876,10 +12930,15 @@ var eS,
 function aS({ conversationId, isRightPanelFullWidth, routeConversationId }) {
   return isRightPanelFullWidth && conversationId === routeConversationId;
 }
+export interface InlineActivityPanelState {
+  activeTabId?: string | null;
+  isRightPanelExpanded: boolean;
+}
+
 export function shouldShowInlineActivityForRightPanel({
   activeTabId,
   isRightPanelExpanded,
-}) {
+}: InlineActivityPanelState): boolean {
   return (
     isRightPanelExpanded &&
     activeTabId?.startsWith("sidechat:") !== true &&
@@ -13182,7 +13241,20 @@ function DS(e) {
     ) === true
   );
 }
-export function LocalConversationThread(e) {
+export interface LocalConversationThreadProps {
+  conversationId?: string | null;
+  shouldResume?: boolean;
+  allowMissingConversation?: boolean;
+  showExternalFooter?: boolean;
+  composerSurfaceClassName?: string;
+  footerContent?: RenderableThreadNode;
+  isReadOnly?: boolean;
+  showComposer?: boolean;
+  lockedCollaborationMode?: unknown;
+  onOpenBackgroundAgent?: BackgroundAgentOpenHandler;
+}
+
+export function LocalConversationThread(props: LocalConversationThreadProps) {
   let {
     conversationId,
     shouldResume = true,
@@ -13194,7 +13266,7 @@ export function LocalConversationThread(e) {
     showComposer = true,
     lockedCollaborationMode,
     onOpenBackgroundAgent,
-  } = e;
+  } = props;
   if (!conversationId) {
     let e;
     return $.jsx(xi, {
@@ -13391,8 +13463,16 @@ function LocalConversationMainThread(e) {
     </Me>
   );
 }
-export function LocalConversationSummaryThread(e) {
-  let { conversationId, header, onOpenBackgroundAgent } = e,
+export interface LocalConversationSummaryThreadProps {
+  conversationId: string;
+  header?: RenderableThreadNode;
+  onOpenBackgroundAgent?: BackgroundAgentOpenHandler;
+}
+
+export function LocalConversationSummaryThread(
+  props: LocalConversationSummaryThreadProps,
+) {
+  let { conversationId, header, onOpenBackgroundAgent } = props,
     a = B(Fe),
     o = K(Mt, conversationId),
     s = K(En, conversationId),

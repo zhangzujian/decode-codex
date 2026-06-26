@@ -10541,7 +10541,7 @@
         "z": "useReviewSearchHighlights"
       },
       "status": "draft",
-      "note": "Public draft organized for the updated ref chunk; not promoted until raw producer imports are restored and quality-gate passes."
+      "note": "Draft for the updated ref chunk. Current pass typed several exported APIs and generated a hidden split plan; promotion is blocked on full semantic split and import repair."
     },
     "thread-overflow-menu-CM-Eo7JH": {
       "restored": "threads/thread-overflow-menu.tsx",
