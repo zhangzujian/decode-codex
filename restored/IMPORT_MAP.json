@@ -10621,7 +10621,7 @@
       "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
     },
     "app-initial~app-main~projects-index-page~hotkey-window-new-thread-page~hotkey-window-home-p~hswrsggc-D-_P9low": {
-      "restored": "composer/project-selector.tsx",
+      "restored": "composer/project-selector/index.ts",
       "exports": {
         "a": "initComposerProjectFooterControls",
         "c": "ProjectIcon",
@@ -10637,8 +10637,7 @@
         "t": "ComposerProjectSelector",
         "u": "composerProjectSelectorFeatureFlagId"
       },
-      "status": "draft",
-      "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
+      "status": "done"
     },
     "app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~kyb0i2zb-B27VQcu6": {
       "restored": "utils/use-resize-observer.tsx",
