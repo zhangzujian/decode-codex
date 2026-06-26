@@ -124,9 +124,9 @@ import {
   h as at,
 } from "./app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~hc7acb17-o4mgW3b3.js";
 import {
-  n as ot,
-  t as J,
-} from "./app-initial~app-main~remote-conversation-page~pull-requests-page~projects-index-page~hotkey~ek7ayrmo-BLROoMi3.js";
+  getAttachedHeartbeatAutomationForThread as J,
+  initAttachedHeartbeatAutomationLookupChunk as ot,
+} from "../github/pull-request-checks-summary";
 import {
   n as st,
   t as ct,

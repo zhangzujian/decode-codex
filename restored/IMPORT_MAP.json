@@ -10658,6 +10658,21 @@
         "u": "initUseResizeObserverChunk"
       },
       "status": "done"
+    },
+    "app-initial~app-main~remote-conversation-page~pull-requests-page~projects-index-page~hotkey~ek7ayrmo-BLROoMi3": {
+      "restored": "github/pull-request-checks-summary.tsx",
+      "exports": {
+        "a": "initPullRequestChecksStatusLabelChunk",
+        "c": "HeartbeatAutomationCheckRing",
+        "i": "pullRequestChecksStatusLabel",
+        "l": "initHeartbeatAutomationCheckRingChunk",
+        "n": "initAttachedHeartbeatAutomationLookupChunk",
+        "o": "HeartbeatAutomationIcon",
+        "r": "PullRequestChecksSummary",
+        "s": "initHeartbeatAutomationIconChunk",
+        "t": "getAttachedHeartbeatAutomationForThread"
+      },
+      "status": "done"
     }
   }
 }
