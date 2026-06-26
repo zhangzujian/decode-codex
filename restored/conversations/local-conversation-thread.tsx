@@ -766,8 +766,10 @@ import {
   ThreadOverflowMenu as Pd,
 } from "../threads/thread-overflow-menu";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
+import { createLatestTurnSubmitPlacementSnapshot } from "./local-conversation-thread-parts/latest-turn-submit-placement";
 import { shouldUseFullWidthRightPanelForRoute } from "./local-conversation-thread-parts/right-panel-route-state";
 import { shouldShowScrollToBottomButton } from "./local-conversation-thread-parts/scroll-to-bottom-state";
+import { getLocalConversationTurnSearchKey } from "./local-conversation-thread-parts/turn-search-key";
 function Fd(e) {
   let n = Ld.useRef(null),
     r = (t) => {
@@ -10456,7 +10458,10 @@ function vb({
                 isBackgroundSubagentsEnabled: getIsBackgroundSubagentsEnabled(),
               })
                 ? {
-                    turnKey: yb(item.turnId, index),
+                    turnKey: getLocalConversationTurnSearchKey(
+                      item.turnId,
+                      index,
+                    ),
                     units: bb(
                       lt(item, [], {
                         isBackgroundSubagentsEnabled:
@@ -10470,9 +10475,6 @@ function vb({
     },
     scrollAdapter,
   });
-}
-function yb(e, t) {
-  return e ?? `turn-index-${t}`;
 }
 function bb(e) {
   let t = [],
@@ -10505,17 +10507,6 @@ var xb,
     initConversationSearchHelpers();
     hi();
     Ge();
-  });
-function Cb({ distanceFromBottomPx, responseSpacerHeightPx, scrollHeightPx }) {
-  return {
-    distanceFromBottomPx,
-    scrollHeightPx,
-    shouldPlaceLatestTurn: distanceFromBottomPx - responseSpacerHeightPx <= wb,
-  };
-}
-var wb,
-  Tb = once(() => {
-    wb = 300;
   });
 function Eb({
   conversationRequests,
@@ -10572,7 +10563,7 @@ function Eb({
           requests: i,
           turn,
           turnId,
-          turnSearchKey: yb(turnId, e.turnIndex),
+          turnSearchKey: getLocalConversationTurnSearchKey(turnId, e.turnIndex),
         }),
         (g = turnId)));
   }
@@ -13862,7 +13853,7 @@ function RS(e) {
     ue = (e) => {
       let { distanceFromBottomPx, scrollHeightPx } = e;
       hideThreadContent ||
-        (L.current = Cb({
+        (L.current = createLatestTurnSubmitPlacementSnapshot({
           distanceFromBottomPx,
           responseSpacerHeightPx: F?.getHeightPx() ?? 0,
           scrollHeightPx,
@@ -14639,7 +14630,6 @@ export const initLocalConversationThreadChunk = once(() => {
   pb();
   Sb();
   Nd();
-  Tb();
   initLocalConversationTurnSelectors();
   Wb();
   Gx();
