@@ -784,7 +784,11 @@ import {
   pruneSettledBackgroundTerminalActionStates,
   resolveBackgroundTerminalStatus,
 } from "./local-conversation-thread-parts/background-terminal-state";
-import { createBackgroundTerminalCurrentRows } from "./local-conversation-thread-parts/background-terminal-current-rows";
+import {
+  createBackgroundTerminalCurrentRows,
+  createBackgroundTerminalRestartRecord,
+  createStartingBackgroundTerminalRow,
+} from "./local-conversation-thread-parts/background-terminal-current-rows";
 import { createRestoredBackgroundTerminalRows } from "./local-conversation-thread-parts/background-terminal-restored-rows";
 import { countBackgroundTerminalSummaryRows } from "./local-conversation-thread-parts/background-terminal-summary-count";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
@@ -1784,85 +1788,65 @@ function _p(e) {
   };
   k = [f];
   Op.useEffect(O, k);
-  let A = (e, t) => {
-    let n = e.metrics?.pid;
-    n != null &&
-      (au(f, e.process.id, {
-        row: e,
-        rowIndex: t,
-        sortRow: e,
+  let A = (row, rowIndex) => {
+    let pid = row.metrics?.pid;
+    pid != null &&
+      (au(f, row.process.id, {
+        row,
+        rowIndex,
+        sortRow: row,
         status: "stopping",
       }),
       h
         .mutateAsync({
-          pid: n,
+          pid,
         })
         .then(
           (value) => {
             let { killed } = value;
             if (!killed) throw Error("Process is no longer running");
             if (p.current) {
-              au(f, e.process.id, {
-                row: e,
-                rowIndex: t,
-                sortRow: e,
+              au(f, row.process.id, {
+                row,
+                rowIndex,
+                sortRow: row,
                 status: "stopped",
               });
               return;
             }
-            vu(f, e.process.id);
+            vu(f, row.process.id);
           },
           () => {
             onStopError();
-            vu(f, e.process.id);
+            vu(f, row.process.id);
           },
         ));
   };
   let j = A,
-    M = (e, t) => {
-      let { process } = e;
+    M = (row, rowIndex) => {
+      let { process } = row;
       if (process.cwd == null) return;
-      let r = Date.now(),
-        i = _e.addSessionForConversation(process.conversationId),
-        a = {
-          metrics: null,
-          process: {
-            ...process,
-            commandExecutionStartedAtMs: r,
-            itemId: i,
-            osPid: null,
-            processId: null,
-            startedAtMs: r,
-          },
-          terminal: {
-            ...e.terminal,
-            id: i,
-            processId: null,
-            startedAtMs: r,
-          },
-        };
+      let startedAtMs = Date.now(),
+        sessionId = _e.addSessionForConversation(process.conversationId),
+        startingRow = createStartingBackgroundTerminalRow(
+          row,
+          sessionId,
+          startedAtMs,
+        );
       au(f, process.id, {
-        expiresAtMs: r + Ap,
-        row: a,
-        rowIndex: t,
-        sortRow: e,
+        expiresAtMs: startedAtMs + Ap,
+        row: startingRow,
+        rowIndex,
+        sortRow: row,
         status: "starting",
       });
       g.mutateAsync({
         persistIfUnmatched: true,
-        record: {
-          chatTitle: process.chatTitle,
-          command: process.command,
-          conversationId: process.conversationId,
-          cwd: process.cwd,
-          id: process.id,
-          itemId: i,
-          osPid: null,
-          processId: null,
-          startedAtMs: r,
-          turnId: process.turnId,
-          updatedAtMs: r,
-        },
+        record: createBackgroundTerminalRestartRecord(
+          process,
+          sessionId,
+          startedAtMs,
+        ),
       }).catch(onRestartError);
       _e.create({
         conversationId: process.conversationId,
@@ -1870,36 +1854,36 @@ function _p(e) {
         cwd: process.cwd,
         hostId: process.hostId,
         preserveOnOwnerDestroy: true,
-        sessionId: i,
+        sessionId,
       });
-      _e.runHeadlessAction(i, {
+      _e.runHeadlessAction(sessionId, {
         command: process.command,
         cwd: process.cwd,
       });
     };
   let N = M,
-    P = (e, t) => {
-      let n = e.metrics?.pid;
-      n != null &&
-        (au(f, e.process.id, {
-          row: e,
-          rowIndex: t,
-          sortRow: e,
+    P = (row, rowIndex) => {
+      let pid = row.metrics?.pid;
+      pid != null &&
+        (au(f, row.process.id, {
+          row,
+          rowIndex,
+          sortRow: row,
           status: "stopping",
         }),
         h
           .mutateAsync({
-            pid: n,
+            pid,
           })
           .then(
             (value) => {
               let { killed } = value;
               if (!killed) throw Error("Process is no longer running");
-              N(e, t);
+              N(row, rowIndex);
             },
             () => {
               onRestartError();
-              vu(f, e.process.id);
+              vu(f, row.process.id);
             },
           ));
     };
