@@ -780,6 +780,7 @@ import {
   type RecentLocalEnvironmentActionsByKey,
 } from "./local-conversation-thread-parts/local-environment-recent-actions";
 import { getConversationTurnsNotInParent } from "./local-conversation-thread-parts/parent-conversation-turns";
+import { createReviewSearchAnchorPlacement } from "./local-conversation-thread-parts/review-search-anchor-placement";
 import { shouldUseFullWidthRightPanelForRoute } from "./local-conversation-thread-parts/right-panel-route-state";
 import { shouldShowScrollToBottomButton } from "./local-conversation-thread-parts/scroll-to-bottom-state";
 import {
@@ -903,255 +904,13 @@ var Bd,
     Rd();
     Hd = 80;
   });
-function Wd({ hostId, hostRect, obstacleRects }) {
-  let r = obstacleRects.map((item) => Zd(hostRect, item));
-  return {
-    anchorRect: hostRect,
-    anchors: hf.map((item) => Gd(item, hostRect, r)),
-    animated: false,
-    hostId,
-    presentationScope: "thread",
-  };
-}
-function Gd(e, t, n) {
-  let r = Kd(e, t),
-    i = r;
-  for (let a = 0; a < df; a += 1) {
-    let a = Xd(i, n);
-    if (a == null) break;
-    i = qd({
-      alignment: e,
-      hostRect: t,
-      obstacle: a,
-      obstacles: n,
-      rect: i,
-      sourceRect: r,
-    });
-  }
-  return {
-    alignment: e,
-    point: Qd(e, t, i),
-  };
-}
-function Kd(e, t) {
-  switch (e) {
-    case "top-left":
-      return ef(cf, cf, uf);
-    case "top-right":
-      return ef(t.width - uf.width - cf, cf, uf);
-    case "bottom-left":
-      return ef(cf, t.height - uf.height - cf, uf);
-    case "bottom-right":
-      return ef(t.width - uf.width - cf, t.height - uf.height - cf, uf);
-  }
-}
-function qd({ alignment, hostRect, obstacle, obstacles, rect, sourceRect }) {
-  let o = Jd(alignment, rect, obstacle).map((item) => ({
-      priority: item.priority,
-      rect: $d(item.rect, hostRect),
-    })),
-    s = o[0],
-    c = s == null ? 1 / 0 : Yd(s, obstacles, sourceRect);
-  for (let e of o.slice(1)) {
-    let t = Yd(e, obstacles, sourceRect);
-    t < c && ((s = e), (c = t));
-  }
-  return s?.rect ?? rect;
-}
-function Jd(e, t, n) {
-  let r = ef(t.left, n.bottom, t),
-    i = ef(t.left, n.top - t.height, t),
-    a = ef(n.right, t.top, t),
-    o = ef(n.left - t.width, t.top, t);
-  switch (e) {
-    case "top-left":
-      return [
-        {
-          priority: 0,
-          rect: r,
-        },
-        {
-          priority: 1,
-          rect: a,
-        },
-        {
-          priority: 2,
-          rect: o,
-        },
-        {
-          priority: 3,
-          rect: i,
-        },
-      ];
-    case "top-right":
-      return [
-        {
-          priority: 0,
-          rect: r,
-        },
-        {
-          priority: 1,
-          rect: o,
-        },
-        {
-          priority: 2,
-          rect: a,
-        },
-        {
-          priority: 3,
-          rect: i,
-        },
-      ];
-    case "bottom-left":
-      return [
-        {
-          priority: 0,
-          rect: i,
-        },
-        {
-          priority: 1,
-          rect: a,
-        },
-        {
-          priority: 2,
-          rect: o,
-        },
-        {
-          priority: 3,
-          rect: r,
-        },
-      ];
-    case "bottom-right":
-      return [
-        {
-          priority: 0,
-          rect: i,
-        },
-        {
-          priority: 1,
-          rect: o,
-        },
-        {
-          priority: 2,
-          rect: a,
-        },
-        {
-          priority: 3,
-          rect: r,
-        },
-      ];
-  }
-}
-function Yd(e, t, n) {
-  let r = t.reduce(
-    (accumulator, current) => accumulator + nf(e.rect, current),
-    0,
-  );
-  return (
-    (r > 0 ? ff : 0) +
-    r * pf +
-    e.priority * mf +
-    (e.rect.left - n.left) ** 2 +
-    (e.rect.top - n.top) ** 2
-  );
-}
-function Xd(e, t) {
-  for (let n of t) if (nf(e, n) > 0) return n;
-  return null;
-}
-function Zd(e, t) {
-  return tf({
-    bottom: t.y - e.y + t.height + lf,
-    left: t.x - e.x - lf,
-    right: t.x - e.x + t.width + lf,
-    top: t.y - e.y - lf,
-  });
-}
-function Qd(e, t, n) {
-  switch (e) {
-    case "top-left":
-      return {
-        x: t.x + n.left,
-        y: t.y + n.top,
-      };
-    case "top-right":
-      return {
-        x: t.x + n.right,
-        y: t.y + n.top,
-      };
-    case "bottom-left":
-      return {
-        x: t.x + n.left,
-        y: t.y + n.bottom,
-      };
-    case "bottom-right":
-      return {
-        x: t.x + n.right,
-        y: t.y + n.bottom,
-      };
-  }
-}
-function $d(e, t) {
-  return ef(
-    rf(e.left, cf, Math.max(cf, t.width - e.width - cf)),
-    rf(e.top, cf, Math.max(cf, t.height - e.height - cf)),
-    e,
-  );
-}
-function ef(e, t, n) {
-  return {
-    bottom: t + n.height,
-    height: n.height,
-    left: e,
-    right: e + n.width,
-    top: t,
-    width: n.width,
-  };
-}
-function tf({ bottom, left, right, top }) {
-  return {
-    bottom,
-    height: bottom - top,
-    left,
-    right,
-    top,
-    width: right - left,
-  };
-}
-function nf(e, t) {
-  let n = Math.min(e.right, t.right) - Math.max(e.left, t.left),
-    r = Math.min(e.bottom, t.bottom) - Math.max(e.top, t.top);
-  return n <= 0 || r <= 0 ? 0 : n * r;
-}
-function rf(e, t, n) {
-  return Math.min(Math.max(e, t), n);
-}
 var af,
   of,
   sf,
-  cf,
-  lf,
-  uf,
-  df,
-  ff,
-  pf,
-  mf,
-  hf,
   gf = once(() => {
     af = "codex-main-thread";
     of = "data-pip-anchor-host";
     sf = "data-pip-obstacle";
-    cf = 24;
-    lf = 12;
-    uf = {
-      height: 250,
-      width: 250,
-    };
-    df = 6;
-    ff = 1e9;
-    pf = 1e4;
-    mf = 1e6;
-    hf = ["top-left", "top-right", "bottom-left", "bottom-right"];
   });
 function _f(e) {
   let t = window.electronBridge?.sendMessageFromView;
@@ -1216,7 +975,7 @@ function _f(e) {
       t != null && n.push(t);
     }
     u(
-      Wd({
+      createReviewSearchAnchorPlacement({
         hostId: af,
         hostRect: t,
         obstacleRects: n,
