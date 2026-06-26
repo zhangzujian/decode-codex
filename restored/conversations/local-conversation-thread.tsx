@@ -780,12 +780,12 @@ import {
 } from "./local-conversation-thread-parts/background-summary";
 import {
   appendRegisteredBackgroundTerminalRows,
-  createBackgroundTerminalProcessRecord,
-  createBackgroundTerminalSnapshot,
   insertBackgroundTerminalActionRows,
   pruneSettledBackgroundTerminalActionStates,
   resolveBackgroundTerminalStatus,
 } from "./local-conversation-thread-parts/background-terminal-state";
+import { createBackgroundTerminalCurrentRows } from "./local-conversation-thread-parts/background-terminal-current-rows";
+import { createRestoredBackgroundTerminalRows } from "./local-conversation-thread-parts/background-terminal-restored-rows";
 import { countBackgroundTerminalSummaryRows } from "./local-conversation-thread-parts/background-terminal-summary-count";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
 import { createLatestTurnSubmitPlacementSnapshot } from "./local-conversation-thread-parts/latest-turn-submit-placement";
@@ -1727,45 +1727,6 @@ var op,
     Pl();
     cp = getJsxRuntime();
   });
-function fp({
-  childProcesses,
-  conversationCwd,
-  conversationId,
-  enabled,
-  hostId,
-  processSnapshotTimeMs,
-  records,
-  restoredProcesses,
-}) {
-  return !enabled || conversationId == null
-    ? []
-    : _u(
-        ru(
-          restoredProcesses,
-          records == null || records.length === 0
-            ? []
-            : xu(
-                records.filter(
-                  (item) => item.conversationId === conversationId,
-                ),
-                [
-                  {
-                    cwd: conversationCwd,
-                    hostId,
-                    id: conversationId,
-                    title: null,
-                    turns: [],
-                  },
-                ],
-              ),
-        ),
-        childProcesses,
-        processSnapshotTimeMs,
-      ).map((item) => ({
-        ...item,
-        terminal: createBackgroundTerminalSnapshot(item.process),
-      }));
-}
 var gp = once(() => {
   Xl();
   cu();
@@ -1787,35 +1748,15 @@ function _p(e) {
     p = Op.useRef(isVisible),
     m = W(uu),
     h = qr("child-process-kill"),
-    g = qr("chat-process-register"),
-    _;
-  bb0: {
-    if (conversationId == null) {
-      let e;
-      e = [];
-      _ = e;
-      break bb0;
-    }
-    let e;
-    {
-      let o;
-      o = (e) => {
-        let t = createBackgroundTerminalProcessRecord({
-          conversationId,
-          hostId,
-          terminal: e,
-        });
-        return {
-          metrics: Su(t, childProcesses, processSnapshotTimeMs),
-          process: t,
-          terminal: e,
-        };
-      };
-      e = backgroundTerminals.map(o);
-    }
-    _ = e;
-  }
-  let v = _,
+    g = qr("chat-process-register");
+  let v = createBackgroundTerminalCurrentRows({
+      backgroundTerminals,
+      childProcesses,
+      conversationId,
+      hostId,
+      processSnapshotTimeMs,
+      resolveProcessMetrics: Su,
+    }),
     y = appendRegisteredBackgroundTerminalRows(v, registeredRows, bu);
   let b = y,
     x = pruneSettledBackgroundTerminalActionStates(
@@ -7923,12 +7864,15 @@ function Sv(e) {
     ve;
   {
     ve = C
-      ? fp({
+      ? createRestoredBackgroundTerminalRows({
+          attachChildProcessMetrics: _u,
           childProcesses: ___data?.processes,
           conversationCwd: O.cwd,
           conversationId: b,
+          createConversationProcessRecords: xu,
           enabled: isVisible,
           hostId: y.id,
+          mergeRestoredProcesses: ru,
           processSnapshotTimeMs: ge,
           records: _data?.processes,
           restoredProcesses: restoredBackgroundProcesses,
