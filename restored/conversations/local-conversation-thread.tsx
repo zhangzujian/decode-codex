@@ -252,7 +252,6 @@ import {
   gi as ka,
   hc as ja,
   ho as Ma,
-  jr as liveMcpAppFrameSignal,
   js as environmentTerminalControllerSignal,
   kc as diffStatsSignal,
   kn as Ra,
@@ -583,10 +582,6 @@ import {
 } from "./local-conversation-thread-parts/local-environment-recent-actions";
 import { getConversationTurnsNotInParent } from "./local-conversation-thread-parts/parent-conversation-turns";
 import {
-  MAIN_THREAD_PIP_HOST_ID,
-  RefreshSummaryPanelObstaclesEffect,
-} from "./local-conversation-thread-parts/pip-host-layout-observer";
-import {
   initPinnedSummaryPanelState,
   pinnedSummaryPanelState,
   usePinnedSummaryPanelDisplay,
@@ -634,21 +629,10 @@ import {
   initThreadFindItemsBuilder,
 } from "./local-conversation-thread-parts/thread-find-items";
 import {
-  initLocalConversationThreadFooterChunk,
-  LocalConversationThreadFooter,
-} from "./local-conversation-thread-parts/local-conversation-thread-footer";
-import {
-  initLocalConversationThreadLayoutShellChunk,
-  LocalConversationThreadLayoutShell,
-} from "./local-conversation-thread-parts/local-conversation-thread-layout-shell";
-import {
-  initLocalConversationThreadBodyLayoutChunk,
-  LocalConversationThreadBodyLayout,
-} from "./local-conversation-thread-parts/local-conversation-thread-body-layout";
-import {
-  initLocalConversationThreadScrollBehaviorChunk,
-  useLocalConversationThreadScrollBehavior,
-} from "./local-conversation-thread-parts/local-conversation-thread-scroll-behavior";
+  initLocalConversationThreadFrameChunk,
+  LocalConversationThreadFrame,
+  openBackgroundAgentFromThread,
+} from "./local-conversation-thread-parts/local-conversation-thread-frame";
 import {
   initLocalConversationAppShellSourceRegistrationChunk,
   LocalConversationAppShellSourceRegistration,
@@ -9145,6 +9129,10 @@ function LocalConversationSideChatThread(props) {
     showComposer = isExpiredSideChat !== true,
     threadFrame = (
       <LocalConversationThreadFrame
+        MainThreadComponent={LocalConversationMainThread}
+        SideChatThreadComponent={LocalConversationSideChatThread}
+        ThreadContentComponent={LocalConversationThreadContent}
+        WorktreeRestoreBannerComponent={ConnectedLocalWorktreeRestoreBanner}
         conversationId={conversationId}
         hasConversation={hasConversation}
         hostId={hostId}
@@ -9155,6 +9143,8 @@ function LocalConversationSideChatThread(props) {
         lockedCollaborationMode={lockedCollaborationMode}
         showComposer={showComposer}
         isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
+        subagentResponseInProgressSignal={subagentResponseInProgressSignal}
+        threadScrollStateSignal={threadScrollStateSignal}
       />
     );
   return (
@@ -9279,12 +9269,18 @@ function LocalConversationMainThread(props) {
     );
   let threadFrame = (
     <LocalConversationThreadFrame
+      MainThreadComponent={LocalConversationMainThread}
+      SideChatThreadComponent={LocalConversationSideChatThread}
+      ThreadContentComponent={LocalConversationThreadContent}
+      WorktreeRestoreBannerComponent={ConnectedLocalWorktreeRestoreBanner}
       conversationId={conversationId}
       hasConversation={hasConversation}
       hostId={hostId}
       isResuming={isResuming}
       showExternalFooter={false}
       isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
+      subagentResponseInProgressSignal={subagentResponseInProgressSignal}
+      threadScrollStateSignal={threadScrollStateSignal}
     />
   );
   return (
@@ -9313,6 +9309,10 @@ export function LocalConversationSummaryThread(
     );
   let threadFrame = (
     <LocalConversationThreadFrame
+      MainThreadComponent={LocalConversationMainThread}
+      SideChatThreadComponent={LocalConversationSideChatThread}
+      ThreadContentComponent={LocalConversationThreadContent}
+      WorktreeRestoreBannerComponent={ConnectedLocalWorktreeRestoreBanner}
       conversationId={conversationId}
       hasConversation={hasConversation}
       header={header}
@@ -9323,6 +9323,8 @@ export function LocalConversationSummaryThread(
       onOpenBackgroundAgent={onOpenBackgroundAgent}
       showComposer={false}
       showExternalFooter={false}
+      subagentResponseInProgressSignal={subagentResponseInProgressSignal}
+      threadScrollStateSignal={threadScrollStateSignal}
     />
   );
   return (
@@ -9403,6 +9405,7 @@ function LocalConversationThreadRoute(props) {
         hostId,
         backgroundAgent,
         onOpenBackgroundAgent,
+        LocalConversationMainThread,
       );
     };
   let onOpenBackgroundAgentFromSummary = useStableCallback(
@@ -9448,6 +9451,10 @@ function LocalConversationThreadRoute(props) {
   );
   return (
     <LocalConversationThreadFrame
+      MainThreadComponent={LocalConversationMainThread}
+      SideChatThreadComponent={LocalConversationSideChatThread}
+      ThreadContentComponent={LocalConversationThreadContent}
+      WorktreeRestoreBannerComponent={ConnectedLocalWorktreeRestoreBanner}
       key={conversationId}
       conversationId={conversationId}
       contentX={contentX}
@@ -9466,173 +9473,10 @@ function LocalConversationThreadRoute(props) {
       onVisibleThreadContentReady={onVisibleThreadContentReady}
       showComposer={showComposer}
       showExternalFooter={showExternalFooter}
+      subagentResponseInProgressSignal={subagentResponseInProgressSignal}
+      threadScrollStateSignal={threadScrollStateSignal}
     />
   );
-}
-function LocalConversationThreadFrame(props) {
-  let {
-      conversationId,
-      contentX,
-      floatingContent,
-      hasConversation,
-      header,
-      hideThreadContent = false,
-      hostId,
-      isBackgroundSubagentsEnabled,
-      isReadOnly = false,
-      isResuming,
-      lockedCollaborationMode,
-      composerSurfaceClassName,
-      footerContent,
-      onVisibleThreadContentReady,
-      onOpenBackgroundAgent,
-      showComposer = true,
-      showExternalFooter,
-    } = props,
-    scope = useScope(localConversationRouteScope),
-    visibleSubagentParentThreadId = useScopedValue(
-      subagentParentThreadIdSignal,
-      conversationId,
-    ),
-    isScrollToTopEnabled = useStatsigGate("1579719221"),
-    shouldShowSummaryPanelObstacles = useStatsigGate("3563904085"),
-    {
-      initialScrollOffset,
-      initialVirtualizedTurnListRestoreState,
-      loadOlderConversationHistory,
-      onClearPendingLatestTurnSubmitPlacement,
-      onConsumePendingLatestTurnSubmitPlacement,
-      onPrepareLatestTurnSubmitPlacement,
-      onScrollToBottom,
-      onThreadScroll,
-      onVirtualizedTurnListRestoreStateChange,
-      setResponseSpacerState,
-      showScrollToBottomButton,
-      threadScrollLayoutApiRef,
-    } = useLocalConversationThreadScrollBehavior({
-      conversationId,
-      hideThreadContent,
-      isScrollToTopEnabled,
-      scope,
-      threadScrollStateSignal,
-      visibleSubagentParentThreadId,
-    }),
-    markConversationReadOnThreadInteraction =
-      useMarkConversationReadOnVisibility(conversationId, hasConversation),
-    hasLiveMcpAppFrame = useSignalValue(liveMcpAppFrameSignal),
-    subagentResponseInProgress =
-      useScopedValue(subagentResponseInProgressSignal, conversationId) ?? false,
-    shouldMountSummaryPanelObstacles =
-      shouldShowSummaryPanelObstacles && hasConversation && !hideThreadContent,
-    handleOpenBackgroundAgent = (backgroundAgent) => {
-      openBackgroundAgentFromThread(
-        scope,
-        hostId,
-        backgroundAgent,
-        onOpenBackgroundAgent,
-      );
-    };
-  let onOpenBackgroundAgentFromSummary = useStableCallback(
-      handleOpenBackgroundAgent,
-    ),
-    summaryPanelObstaclesEffect = shouldMountSummaryPanelObstacles
-      ? localConversationThreadJsxRuntime.jsx(
-          RefreshSummaryPanelObstaclesEffect,
-          {},
-        )
-      : null;
-  let remoteHostedPipAnchorHostId = shouldMountSummaryPanelObstacles
-      ? MAIN_THREAD_PIP_HOST_ID
-      : undefined,
-    footer = (
-      <LocalConversationThreadFooter
-        conversationId={conversationId}
-        footerContent={footerContent}
-        hasConversation={hasConversation}
-        hostId={hostId}
-        isResuming={isResuming}
-        showExternalFooter={showExternalFooter}
-        composerSurfaceClassName={composerSurfaceClassName}
-        showScrollToBottomButton={showScrollToBottomButton}
-        onScrollToBottom={onScrollToBottom}
-        onPrepareLatestTurnSubmitPlacement={onPrepareLatestTurnSubmitPlacement}
-        onClearPendingLatestTurnSubmitPlacement={
-          onClearPendingLatestTurnSubmitPlacement
-        }
-        subagentResponseInProgress={subagentResponseInProgress}
-        isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
-        lockedCollaborationMode={lockedCollaborationMode}
-        isScrollToTopEnabled={isScrollToTopEnabled}
-        WorktreeRestoreBanner={ConnectedLocalWorktreeRestoreBanner}
-        SideChatThreadComponent={LocalConversationSideChatThread}
-        scope={scope}
-        showComposer={showComposer}
-      />
-    );
-  let threadContent = hideThreadContent ? null : (
-    <LocalConversationThreadContent
-      conversationId={conversationId}
-      isReadOnly={isReadOnly}
-      initialScrollOffset={initialScrollOffset}
-      initialVirtualizedTurnListRestoreState={
-        initialVirtualizedTurnListRestoreState
-      }
-      isResuming={isResuming}
-      isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
-      consumePendingLatestTurnSubmitPlacement={
-        onConsumePendingLatestTurnSubmitPlacement
-      }
-      onVisibleThreadContentReady={onVisibleThreadContentReady}
-      onResponseSpacerStateChange={setResponseSpacerState}
-      onVirtualizedTurnListRestoreStateChange={
-        onVirtualizedTurnListRestoreStateChange
-      }
-      showInProgressFixedContent={showComposer}
-      isScrollToTopEnabled={isScrollToTopEnabled}
-    />
-  );
-  let threadBody = (
-    <LocalConversationThreadBodyLayout
-      threadScrollLayoutApiRef={threadScrollLayoutApiRef}
-      hasLiveMcpAppFrame={hasLiveMcpAppFrame}
-      remoteHostedPipAnchorHostId={remoteHostedPipAnchorHostId}
-      contentX={contentX}
-      footer={footer}
-      initialScrollOffset={initialScrollOffset}
-      onThreadScroll={onThreadScroll}
-      loadOlderConversationHistory={loadOlderConversationHistory}
-      threadContent={threadContent}
-      floatingContent={floatingContent}
-      onOpenBackgroundAgentFromSummary={onOpenBackgroundAgentFromSummary}
-    />
-  );
-  return (
-    <LocalConversationThreadLayoutShell
-      header={header}
-      markConversationReadOnThreadInteraction={
-        markConversationReadOnThreadInteraction
-      }
-      summaryPanelObstaclesEffect={summaryPanelObstaclesEffect}
-      threadBody={threadBody}
-    />
-  );
-}
-function openBackgroundAgentFromThread(
-  scope,
-  hostId,
-  backgroundAgent,
-  onOpenBackgroundAgent,
-) {
-  if (onOpenBackgroundAgent != null) {
-    onOpenBackgroundAgent(backgroundAgent);
-    return;
-  }
-  backgroundAgent.showInlineActivity !== true &&
-    openBackgroundAgentThreadTab(scope, {
-      backgroundAgent,
-      hostId,
-      TabComponent: LocalConversationMainThread,
-    });
 }
 function LocalConversationThreadContent({
   conversationId,
@@ -10224,10 +10068,9 @@ export const initLocalConversationThreadChunk = once(() => {
   initHostConfigHelpers();
   initStatsigFeatureGateHooks();
   initConversationRouteSourceHelpers();
-  initLocalConversationThreadLayoutShellChunk();
+  initLocalConversationThreadFrameChunk();
   ho();
   id();
-  initLocalConversationThreadBodyLayoutChunk();
   initThreadFindNavigationRail();
   rs();
   initThreadFindNavigationRailNoopChunk();
@@ -10243,7 +10086,6 @@ export const initLocalConversationThreadChunk = once(() => {
   initDeepEqualModule();
   initConversationMarkdownRenderer();
   initThreadScrollState();
-  initLocalConversationThreadScrollBehaviorChunk();
   Qi();
   _o();
   mc();
@@ -10262,7 +10104,6 @@ export const initLocalConversationThreadChunk = once(() => {
   initBackgroundAgentThreadTab();
   fa();
   initBackgroundAgentThreadTabs();
-  initLocalConversationThreadFooterChunk();
   Sa();
   Md();
   qc();
