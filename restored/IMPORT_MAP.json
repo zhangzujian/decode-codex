@@ -12662,6 +12662,16 @@
       "status": "done",
       "note": "Synced current artifact annotation analytics chunk with semantic helpers and initializer export.",
       "lastUpdated": "2026-06-27T21:55:59.640Z"
+    },
+    "page-search-input-DLGrsDpo": {
+      "restored": "ui/page-search-input.tsx",
+      "exports": {
+        "n": "initPageSearchInputChunk",
+        "t": "PageSearchInput"
+      },
+      "status": "done",
+      "note": "Synced current page search input component with trailing control and initializer export.",
+      "lastUpdated": "2026-06-27T21:58:20.084Z"
     }
   }
 }
