@@ -17,6 +17,7 @@ import {
   za as openInBrowserFromEvent,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { FormattedMessage, useIntl } from "../../vendor/react-intl";
+import type { ThreadSummaryWebSource } from "./thread-summary-web-sources";
 
 type ThreadSummaryToolSource = {
   id: string;
@@ -25,12 +26,6 @@ type ThreadSummaryToolSource = {
   mcpAppId?: string | null;
   name: string;
   pluginDisplayNames: readonly string[];
-};
-
-type ThreadSummaryWebSource = {
-  label?: string;
-  type: string;
-  url?: string;
 };
 
 type ThreadSummarySourceItem =
@@ -96,7 +91,7 @@ export function ThreadSummarySourceRows({
       sourceItem.type === "tool"
         ? getToolSourceDisplayName(sourceItem.source)
         : sourceItem.source.type === "page"
-          ? (sourceItem.source.label as string)
+          ? sourceItem.source.label
           : webSearchLabel;
     return (
       <li key={getThreadSummarySourceKey(sourceItem)} className="flex">

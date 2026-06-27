@@ -829,6 +829,10 @@ import {
   ThreadSummarySourceRows,
 } from "./local-conversation-thread-parts/thread-summary-source-rows";
 import {
+  collectConversationWebSources,
+  initThreadSummaryWebSourcesChunk,
+} from "./local-conversation-thread-parts/thread-summary-web-sources";
+import {
   initThreadSummaryPanelChromePrimitives,
   ThreadSummaryPanelContent,
   ThreadSummaryPanelHeaderButton,
@@ -8369,51 +8373,6 @@ function collectConversationMcpToolSources(
   }
   return toolSources;
 }
-function collectConversationWebSources(turns) {
-  let webSources = [],
-    seenUrls = new Set(),
-    sawWebSearch = false;
-  for (let turnIndex = turns.length - 1; turnIndex >= 0; --turnIndex) {
-    let turn = turns[turnIndex];
-    for (let itemIndex = turn.items.length - 1; itemIndex >= 0; --itemIndex) {
-      let item = turn.items[itemIndex];
-      if (item.type !== "webSearch") continue;
-      sawWebSearch = true;
-      let webSource = getWebSourceFromBrowserAction(item.action);
-      webSource == null ||
-        seenUrls.has(webSource.url) ||
-        (seenUrls.add(webSource.url), webSources.push(webSource));
-    }
-  }
-  return webSources.length === 0 && sawWebSearch
-    ? [
-        {
-          type: "search",
-        },
-      ]
-    : webSources;
-}
-function getWebSourceFromBrowserAction(action) {
-  if (
-    (action?.type !== "openPage" && action?.type !== "findInPage") ||
-    action.url == null
-  )
-    return null;
-  try {
-    let url = new URL(action.url);
-    return (url.protocol !== "http:" && url.protocol !== "https:") ||
-      url.username !== "" ||
-      url.password !== ""
-      ? null
-      : {
-          label: `${url.host.replace(/^www\./u, "")}${url.pathname}`,
-          type: "page",
-          url: url.href,
-        };
-  } catch {
-    return null;
-  }
-}
 function getMcpToolSourceSummary(item, apps, serverMetadataByName) {
   let appToolSource = $r({
     apps: apps,
@@ -8445,6 +8404,7 @@ var initLocalConversationSummaryPanelModelDependencies = once(() => {
   initAppToolSourceMatcherCache();
   initMcpToolSourceMetadataHelpers();
   initIdentifierTitleFormatter();
+  initThreadSummaryWebSourcesChunk();
 });
 function useLocalConversationSummaryPanelModel(
   includeBackgroundActivity = true,
