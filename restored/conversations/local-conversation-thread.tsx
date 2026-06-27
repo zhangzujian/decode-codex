@@ -12842,7 +12842,7 @@ function shouldShowEmptyResumingThreadState({
 function getConversationNavigationPath(e) {
   return Fs() ? Ke(e) : l(e);
 }
-function LocalConversationThreadFrame(e) {
+function LocalConversationThreadFrame(props) {
   let {
       conversationId,
       contentX,
@@ -12859,200 +12859,244 @@ function LocalConversationThreadFrame(e) {
       footerContent,
       onVisibleThreadContentReady,
       onOpenBackgroundAgent,
-      showComposer: _ = true,
+      showComposer = true,
       showExternalFooter,
-    } = e,
-    S = B(Fe),
-    C = K(Ue, conversationId) ?? true,
-    w = K(oi, conversationId),
-    T = Vr("1579719221"),
-    E = Vr("3563904085"),
-    D = S.get(Ub, conversationId);
-  let O = D,
-    k = O?.distanceFromBottomPx ?? null,
-    A = O?.virtualizedTurnList ?? null,
-    [j, M] = GS.useState(false),
-    [N, P] = GS.useState(0),
-    [F, I] = GS.useState(null),
-    L = GS.useRef(null),
-    [R, z] = GS.useState(null),
-    ee = useNullAppShellRef("chatgpt.supportsNewChatKeyShortcut"),
-    V = useMarkConversationReadOnVisibility(conversationId, hasConversation),
-    te = async () => {
-      if (C) return "stop";
+    } = props,
+    scope = B(Fe),
+    isConversationHistoryComplete = K(Ue, conversationId) ?? true,
+    visibleSubagentParentThreadId = K(oi, conversationId),
+    isScrollToTopEnabled = Vr("1579719221"),
+    shouldShowSummaryPanelObstacles = Vr("3563904085"),
+    savedThreadScrollState = scope.get(Ub, conversationId);
+  let savedScrollState = savedThreadScrollState,
+    initialScrollOffset = savedScrollState?.distanceFromBottomPx ?? null,
+    initialVirtualizedTurnListRestoreState =
+      savedScrollState?.virtualizedTurnList ?? null,
+    [isScrolledFromBottom, setIsScrolledFromBottom] = GS.useState(false),
+    [scrollDistanceFromBottomPx, setScrollDistanceFromBottomPx] =
+      GS.useState(0),
+    [responseSpacerState, setResponseSpacerState] = GS.useState(null),
+    latestTurnSubmitPlacementRef = GS.useRef(null),
+    [threadLayoutContainer, setThreadLayoutContainer] = GS.useState(null),
+    newChatShortcutRef = useNullAppShellRef(
+      "chatgpt.supportsNewChatKeyShortcut",
+    ),
+    markConversationReadOnThreadInteraction =
+      useMarkConversationReadOnVisibility(conversationId, hasConversation),
+    loadOlderConversationHistoryPage = async () => {
+      if (isConversationHistoryComplete) return "stop";
       try {
         return (
           await Dr("load-older-conversation-history-page", {
             conversationId,
-            dependentConversationIds: w == null ? [] : [w],
+            dependentConversationIds:
+              visibleSubagentParentThreadId == null
+                ? []
+                : [visibleSubagentParentThreadId],
           }),
           await to(),
-          (S.get(Ue, conversationId) ?? true) ? "stop" : "continue"
+          (scope.get(Ue, conversationId) ?? true) ? "stop" : "continue"
         );
-      } catch (e) {
-        let t = e;
+      } catch (error) {
+        let loadError = error;
         return (
           gr.warning("Failed to load older thread history", {
             safe: {
               conversationId,
             },
             sensitive: {
-              error: t,
+              error: loadError,
             },
           }),
           "stop"
         );
       }
     };
-  let ne = Y(te),
-    re = GS.useRef(null),
-    ie = (e, t) => {
-      S.set(Ub, conversationId, (t) => ({
-        distanceFromBottomPx: e,
-        latestTurn: T ? (t?.latestTurn ?? null) : null,
-        virtualizedTurnList: t?.virtualizedTurnList ?? null,
+  let loadOlderConversationHistory = Y(loadOlderConversationHistoryPage),
+    threadScrollLayoutApiRef = GS.useRef(null),
+    handleThreadScroll = (distanceFromBottomPx, isAtBottom) => {
+      scope.set(Ub, conversationId, (previousScrollState) => ({
+        distanceFromBottomPx,
+        latestTurn: isScrollToTopEnabled
+          ? (previousScrollState?.latestTurn ?? null)
+          : null,
+        virtualizedTurnList: previousScrollState?.virtualizedTurnList ?? null,
       }));
-      P(e);
-      M(!t);
+      setScrollDistanceFromBottomPx(distanceFromBottomPx);
+      setIsScrolledFromBottom(!isAtBottom);
     };
-  let H = Y(ie),
-    ae = (e) => {
-      S.set(Ub, conversationId, (t) => ({
-        distanceFromBottomPx: t?.distanceFromBottomPx ?? 0,
-        latestTurn: T ? (t?.latestTurn ?? null) : null,
-        virtualizedTurnList: e,
+  let onThreadScroll = Y(handleThreadScroll),
+    handleVirtualizedTurnListRestoreStateChange = (
+      virtualizedTurnListRestoreState,
+    ) => {
+      scope.set(Ub, conversationId, (previousScrollState) => ({
+        distanceFromBottomPx: previousScrollState?.distanceFromBottomPx ?? 0,
+        latestTurn: isScrollToTopEnabled
+          ? (previousScrollState?.latestTurn ?? null)
+          : null,
+        virtualizedTurnList: virtualizedTurnListRestoreState,
       }));
     };
-  let U = Y(ae),
-    oe = shouldShowScrollToBottomButton({
-      isScrollToTopEnabled: T,
-      isScrolledFromBottom: j,
-      responseSpacerHeightPx: F?.getHeightPx() ?? null,
-      scrollDistanceFromBottomPx: N,
+  let onVirtualizedTurnListRestoreStateChange = Y(
+      handleVirtualizedTurnListRestoreStateChange,
+    ),
+    shouldShowScrollToBottomButtonNow = shouldShowScrollToBottomButton({
+      isScrollToTopEnabled: isScrollToTopEnabled,
+      isScrolledFromBottom: isScrolledFromBottom,
+      responseSpacerHeightPx: responseSpacerState?.getHeightPx() ?? null,
+      scrollDistanceFromBottomPx: scrollDistanceFromBottomPx,
     });
-  let se = oe,
-    ce = () => {
-      if (T && F != null) {
-        F.scrollToBottom();
+  let showScrollToBottomButton = shouldShowScrollToBottomButtonNow,
+    scrollToBottom = () => {
+      if (isScrollToTopEnabled && responseSpacerState != null) {
+        responseSpacerState.scrollToBottom();
         return;
       }
-      re.current?.scrollToBottom();
+      threadScrollLayoutApiRef.current?.scrollToBottom();
     };
-  let le = Y(ce),
-    ue = (e) => {
-      let { distanceFromBottomPx, scrollHeightPx } = e;
+  let onScrollToBottom = Y(scrollToBottom),
+    prepareLatestTurnSubmitPlacement = (placement) => {
+      let { distanceFromBottomPx, scrollHeightPx } = placement;
       hideThreadContent ||
-        (L.current = createLatestTurnSubmitPlacementSnapshot({
-          distanceFromBottomPx,
-          responseSpacerHeightPx: F?.getHeightPx() ?? 0,
-          scrollHeightPx,
-        }));
+        (latestTurnSubmitPlacementRef.current =
+          createLatestTurnSubmitPlacementSnapshot({
+            distanceFromBottomPx,
+            responseSpacerHeightPx: responseSpacerState?.getHeightPx() ?? 0,
+            scrollHeightPx,
+          }));
     };
-  let de = Y(ue),
-    fe = () => {
-      let e = L.current;
-      return ((L.current = null), e);
+  let onPrepareLatestTurnSubmitPlacement = Y(prepareLatestTurnSubmitPlacement),
+    consumePendingLatestTurnSubmitPlacement = () => {
+      let placementSnapshot = latestTurnSubmitPlacementRef.current;
+      return ((latestTurnSubmitPlacementRef.current = null), placementSnapshot);
     };
-  let pe = Y(fe),
-    me = () => {
-      L.current = null;
+  let onConsumePendingLatestTurnSubmitPlacement = Y(
+      consumePendingLatestTurnSubmitPlacement,
+    ),
+    clearPendingLatestTurnSubmitPlacement = () => {
+      latestTurnSubmitPlacementRef.current = null;
     };
-  let he = Y(me),
-    ge,
-    _e;
-  ge = () => {
-    hideThreadContent && he();
+  let onClearPendingLatestTurnSubmitPlacement = Y(
+      clearPendingLatestTurnSubmitPlacement,
+    ),
+    clearPlacementWhenThreadHidden,
+    clearPlacementEffectDeps;
+  clearPlacementWhenThreadHidden = () => {
+    hideThreadContent && onClearPendingLatestTurnSubmitPlacement();
   };
-  _e = [he, hideThreadContent];
-  GS.useEffect(ge, _e);
-  let G = (e) => {
-    ee.current = e;
-    z(e);
+  clearPlacementEffectDeps = [
+    onClearPendingLatestTurnSubmitPlacement,
+    hideThreadContent,
+  ];
+  GS.useEffect(clearPlacementWhenThreadHidden, clearPlacementEffectDeps);
+  let handleThreadLayoutContainerRef = (containerElement) => {
+    newChatShortcutRef.current = containerElement;
+    setThreadLayoutContainer(containerElement);
   };
-  let ve = Y(G),
-    ye = W(Fa),
-    be = E && hasConversation && !hideThreadContent,
-    xe = (e) => {
-      openBackgroundAgentFromThread(S, hostId, e, onOpenBackgroundAgent);
+  let threadLayoutContainerRef = Y(handleThreadLayoutContainerRef),
+    hasLiveMcpAppFrame = W(Fa),
+    shouldMountSummaryPanelObstacles =
+      shouldShowSummaryPanelObstacles && hasConversation && !hideThreadContent,
+    handleOpenBackgroundAgent = (backgroundAgent) => {
+      openBackgroundAgentFromThread(
+        scope,
+        hostId,
+        backgroundAgent,
+        onOpenBackgroundAgent,
+      );
     };
-  let Se = Y(xe),
-    Ce = be ? $.jsx(RefreshSummaryPanelObstaclesEffect, {}) : null;
-  let we = be ? af : undefined,
-    Te = hasConversation ? (
-      _ ? (
+  let onOpenBackgroundAgentFromSummary = Y(handleOpenBackgroundAgent),
+    summaryPanelObstaclesEffect = shouldMountSummaryPanelObstacles
+      ? $.jsx(RefreshSummaryPanelObstaclesEffect, {})
+      : null;
+  let remoteHostedPipAnchorHostId = shouldMountSummaryPanelObstacles
+      ? af
+      : undefined,
+    footer = hasConversation ? (
+      showComposer ? (
         <LocalConversationComposerFooter
           conversationId={conversationId}
           hostId={hostId}
           isResuming={isResuming}
           showExternalFooter={showExternalFooter}
           composerSurfaceClassName={composerSurfaceClassName}
-          showScrollToBottomButton={se}
-          onScrollToBottom={le}
-          onPrepareLatestTurnSubmitPlacement={de}
-          onClearPendingLatestTurnSubmitPlacement={he}
+          showScrollToBottomButton={showScrollToBottomButton}
+          onScrollToBottom={onScrollToBottom}
+          onPrepareLatestTurnSubmitPlacement={
+            onPrepareLatestTurnSubmitPlacement
+          }
+          onClearPendingLatestTurnSubmitPlacement={
+            onClearPendingLatestTurnSubmitPlacement
+          }
           isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
           lockedCollaborationMode={lockedCollaborationMode}
-          isScrollToTopEnabled={T}
+          isScrollToTopEnabled={isScrollToTopEnabled}
         />
       ) : footerContent == null ? null : (
         <div className="px-5 pb-2">{footerContent}</div>
       )
     ) : null;
-  let Ee = hideThreadContent ? null : (
+  let threadContent = hideThreadContent ? null : (
     <LocalConversationThreadContent
       conversationId={conversationId}
       isReadOnly={isReadOnly}
-      initialScrollOffset={k}
-      initialVirtualizedTurnListRestoreState={A}
+      initialScrollOffset={initialScrollOffset}
+      initialVirtualizedTurnListRestoreState={
+        initialVirtualizedTurnListRestoreState
+      }
       isResuming={isResuming}
       isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
-      consumePendingLatestTurnSubmitPlacement={pe}
+      consumePendingLatestTurnSubmitPlacement={
+        onConsumePendingLatestTurnSubmitPlacement
+      }
       onVisibleThreadContentReady={onVisibleThreadContentReady}
-      onResponseSpacerStateChange={I}
-      onVirtualizedTurnListRestoreStateChange={U}
-      showInProgressFixedContent={_}
-      isScrollToTopEnabled={T}
+      onResponseSpacerStateChange={setResponseSpacerState}
+      onVirtualizedTurnListRestoreStateChange={
+        onVirtualizedTurnListRestoreStateChange
+      }
+      showInProgressFixedContent={showComposer}
+      isScrollToTopEnabled={isScrollToTopEnabled}
     />
   );
-  let De = $.jsx(rd, {
-    ref: re,
-    hasLiveMcpAppFrame: ye,
-    remoteHostedPIPAnchorHostId: we,
+  let threadScrollLayout = $.jsx(rd, {
+    ref: threadScrollLayoutApiRef,
+    hasLiveMcpAppFrame: hasLiveMcpAppFrame,
+    remoteHostedPIPAnchorHostId: remoteHostedPipAnchorHostId,
     contentX,
-    footer: Te,
-    initialOffset: k,
-    onScroll: H,
-    onUserScrollToTop: ne,
-    children: Ee,
+    footer: footer,
+    initialOffset: initialScrollOffset,
+    onScroll: onThreadScroll,
+    onUserScrollToTop: loadOlderConversationHistory,
+    children: threadContent,
   });
-  let Oe = (
-    <Mo value={Se}>
-      {De}
+  let threadBody = (
+    <Mo value={onOpenBackgroundAgentFromSummary}>
+      {threadScrollLayout}
       {floatingContent}
     </Mo>
   );
-  let ke = $.jsx(ao, {});
-  let Ae = (
+  let appShellOverlayOutlet = $.jsx(ao, {});
+  let threadLayout = (
     <ThreadLayout
       className="min-h-0"
       bodyClassName="[&_[data-thread-find-target=conversation]]:scroll-mt-24"
-      containerRef={ve}
+      containerRef={threadLayoutContainerRef}
       data-vscode-context={'{"chatgpt.supportsNewChatMenu": true}'}
-      onKeyDownCapture={V}
-      onPointerDownCapture={V}
-      onWheelCapture={V}
+      onKeyDownCapture={markConversationReadOnThreadInteraction}
+      onPointerDownCapture={markConversationReadOnThreadInteraction}
+      onWheelCapture={markConversationReadOnThreadInteraction}
       header={header}
     >
-      {Ce}
-      {Oe}
-      {ke}
+      {summaryPanelObstaclesEffect}
+      {threadBody}
+      {appShellOverlayOutlet}
     </ThreadLayout>
   );
   return $.jsx(fs, {
     name: "LocalConversationPage",
     children: $.jsx(pl, {
-      value: R,
-      children: Ae,
+      value: threadLayoutContainer,
+      children: threadLayout,
     }),
   });
 }
@@ -13093,27 +13137,33 @@ function LocalConversationComposerFooter({
   lockedCollaborationMode,
   isScrollToTopEnabled,
 }) {
-  let p = B(Fe);
+  let scope = B(Fe);
   GS.useContext(rl);
   ci();
-  let m = K(Qr, hostId),
-    h = !!K(I, conversationId)?.length,
-    g = hostId !== Pt,
-    _ = null;
-  g &&
-    (m === "connecting" || m === "restarting"
-      ? (_ = "reconnecting")
-      : isResuming && !h && (_ = "loading"));
-  let v = K(ge, conversationId) ?? false,
-    y = K(oc, conversationId);
+  let hostConnectionStatus = K(Qr, hostId),
+    hasConversationTurns = !!K(I, conversationId)?.length,
+    isRemoteHost = hostId !== Pt,
+    footerConnectionStatus = null;
+  isRemoteHost &&
+    (hostConnectionStatus === "connecting" ||
+    hostConnectionStatus === "restarting"
+      ? (footerConnectionStatus = "reconnecting")
+      : isResuming &&
+        !hasConversationTurns &&
+        (footerConnectionStatus = "loading"));
+  let localResponseInProgress = K(ge, conversationId) ?? false,
+    localWorkspaceMaterialization = K(oc, conversationId);
   K(b, conversationId);
   K(s, conversationId);
-  let x = K(YS, conversationId) ?? false,
-    S = K(_c, isBackgroundSubagentsEnabled ? conversationId : null).some(
-      ({ status }) => status === "active",
-    ),
-    C = isBackgroundSubagentsEnabled ? x || S || false : v || false,
-    w =
+  let subagentResponseInProgress = K(YS, conversationId) ?? false,
+    hasActiveSubagent = K(
+      _c,
+      isBackgroundSubagentsEnabled ? conversationId : null,
+    ).some(({ status }) => status === "active"),
+    isResponseInProgress = isBackgroundSubagentsEnabled
+      ? subagentResponseInProgress || hasActiveSubagent || false
+      : localResponseInProgress || false,
+    composerModeAvailability =
       K(er, conversationId) === "projectless"
         ? {
             fallbackMode: "local",
@@ -13123,37 +13173,40 @@ function LocalConversationComposerFooter({
             isWorktreeAvailable: false,
           }
         : undefined,
-    T = ur(),
-    E = ad(),
-    D = Y(() => {
-      let e = E.getScrollElement();
+    intl = ur(),
+    scrollController = ad(),
+    handleLocalSubmitStart = Y(() => {
+      let e = scrollController.getScrollElement();
       onPrepareLatestTurnSubmitPlacement({
-        distanceFromBottomPx: E.getLastScrollDistanceFromBottomPx(),
+        distanceFromBottomPx:
+          scrollController.getLastScrollDistanceFromBottomPx(),
         scrollHeightPx: e?.scrollHeight ?? null,
       });
-      E.setFooterResizeViewportPreserveDisabled(true);
+      scrollController.setFooterResizeViewportPreserveDisabled(true);
     }),
-    O = Y(() => {
+    handleLocalSubmitError = Y(() => {
       onClearPendingLatestTurnSubmitPlacement();
-      E.setFooterResizeViewportPreserveDisabled(false);
+      scrollController.setFooterResizeViewportPreserveDisabled(false);
     }),
-    k = (
+    footer = (
       <>
         <ComposerWorkspaceDirectoryTree conversationId={conversationId} />
-        {_ == null
+        {footerConnectionStatus == null
           ? null
           : $.jsx(LocalConversationConnectionStatus, {
-              status: _,
+              status: footerConnectionStatus,
             })}
         {$.jsx(hl, {
           browserConversationId:
-            ot(p.value) === conversationId ? (Ot(p) ?? undefined) : undefined,
-          isResponseInProgress: C,
-          localWorkspaceMaterialization: y,
+            ot(scope.value) === conversationId
+              ? (Ot(scope) ?? undefined)
+              : undefined,
+          isResponseInProgress: isResponseInProgress,
+          localWorkspaceMaterialization: localWorkspaceMaterialization,
           showFooterBranchWhen: "always",
           showExternalFooter,
           surfaceClassName: composerSurfaceClassName,
-          composerModeAvailability: w,
+          composerModeAvailability: composerModeAvailability,
           lockedCollaborationMode,
           placeholderText: undefined,
           onCreateSideConversation: async ({
@@ -13163,16 +13216,20 @@ function LocalConversationComposerFooter({
             collaborationMode,
             displayTitle,
           }) =>
-            jd(p, LocalConversationSideChatThread, {
+            jd(scope, LocalConversationSideChatThread, {
               sourceConversationId,
               cwd,
               hostId: _hostId,
               collaborationMode,
               displayTitle,
-              intl: T,
+              intl: intl,
             }),
-          onLocalSubmitStart: isScrollToTopEnabled ? D : undefined,
-          onLocalSubmitError: isScrollToTopEnabled ? O : undefined,
+          onLocalSubmitStart: isScrollToTopEnabled
+            ? handleLocalSubmitStart
+            : undefined,
+          onLocalSubmitError: isScrollToTopEnabled
+            ? handleLocalSubmitError
+            : undefined,
         })}
       </>
     );
@@ -13181,16 +13238,16 @@ function LocalConversationComposerFooter({
       className="flex flex-col"
       data-thread-find-composer="true"
       onMouseDownCapture={() => {
-        Da(p, "conversation", `conversation:${conversationId}`);
+        Da(scope, "conversation", `conversation:${conversationId}`);
       }}
       onFocusCapture={() => {
-        Da(p, "conversation", `conversation:${conversationId}`);
+        Da(scope, "conversation", `conversation:${conversationId}`);
       }}
     >
       <div className="relative h-0">
         {$.jsx(zl, {
           className: "bottom-[calc(100%+6*var(--spacing))]",
-          label: T.formatMessage({
+          label: intl.formatMessage({
             id: "localConversation.scrollToBottomButton",
             defaultMessage: "Scroll to bottom",
             description: "Label for button that scrolls to the latest message",
@@ -13198,10 +13255,12 @@ function LocalConversationComposerFooter({
           onClick: onScrollToBottom,
           show: showScrollToBottomButton,
           showWorkingDots:
-            isScrollToTopEnabled && showScrollToBottomButton && C,
+            isScrollToTopEnabled &&
+            showScrollToBottomButton &&
+            isResponseInProgress,
         })}
       </div>
-      <div className="flex flex-col gap-2">{k}</div>
+      <div className="flex flex-col gap-2">{footer}</div>
     </div>
   );
 }
@@ -13219,20 +13278,20 @@ function LocalConversationThreadContent({
   showInProgressFixedContent,
   isScrollToTopEnabled,
 }) {
-  let m = B(Fe),
-    h = rt(),
-    g = Vo(),
-    _ = K(Mt, conversationId),
-    v = K(s, conversationId),
-    y = K(Wn, conversationId),
-    b = K(En, conversationId),
-    x = K(pr, conversationId) ?? "needs_resume",
-    S = K(Ue, conversationId) ?? false,
-    C = K(ct, conversationId),
-    w = K(Bn, conversationId),
-    T = K(er, conversationId) === "projectless",
-    E = K(Cr, conversationId),
-    O = K(zt, conversationId),
+  let scope = B(Fe),
+    navigate = rt(),
+    isAppgenEndCardEnabled = Vo(),
+    hasConversation = K(Mt, conversationId),
+    modelProvider = K(s, conversationId),
+    cwd = K(Wn, conversationId),
+    hostId = K(En, conversationId),
+    conversationResumeState = K(pr, conversationId) ?? "needs_resume",
+    isConversationHistoryComplete = K(Ue, conversationId) ?? false,
+    isResponseInProgress = K(ct, conversationId),
+    completedThreadGoal = K(Bn, conversationId),
+    isProjectlessConversation = K(er, conversationId) === "projectless",
+    projectlessOutputDirectory = K(Cr, conversationId),
+    collaborationMode = K(zt, conversationId),
     {
       conversationTurns,
       hasInheritedParentTurns,
@@ -13245,321 +13304,379 @@ function LocalConversationThreadContent({
       isBackgroundSubagentsEnabled,
     });
   visibleTurnEntries.at(-1)?.turn;
-  let F = w == null ? null : Yy(visibleTurnEntries, w.updatedAt * 1e3),
-    I = Pn(conversationId),
-    { data = qS } = Ti({
-      hostId: b,
+  let completedThreadGoalTurnKey =
+      completedThreadGoal == null
+        ? null
+        : Yy(visibleTurnEntries, completedThreadGoal.updatedAt * 1e3),
+    conversationHostApi = Pn(conversationId),
+    { data: resolvedApps = qS } = Ti({
+      hostId: hostId,
     }),
-    R = Qt("2138468235").get("enable_mcp_apps", false),
-    z = K(oi, conversationId),
-    ee = isBackgroundSubagentsEnabled ? z : null,
-    [V, te] = li(JS),
+    renderMcpApps = Qt("2138468235").get("enable_mcp_apps", false),
+    subagentParentThreadId = K(oi, conversationId),
+    visibleSubagentParentThreadId = isBackgroundSubagentsEnabled
+      ? subagentParentThreadId
+      : null,
+    [collapsedTurnsByConversationId, setCollapsedTurnsByConversationId] =
+      li(JS),
     { items, markRead } = Co(),
-    ie = _
+    matchingAutomationItem = hasConversation
       ? (items.find((item) => item.threadId === conversationId) ?? null)
       : null,
-    H = ie?.description ?? null,
-    ae = ie?.automationId != null && H != null && H.trim().length > 0;
+    automationDescription = matchingAutomationItem?.description ?? null,
+    shouldShowAutomationDescription =
+      matchingAutomationItem?.automationId != null &&
+      automationDescription != null &&
+      automationDescription.trim().length > 0;
   GS.useEffect(() => {
-    ie?.id == null || ie.readAt != null || markRead(ie.id);
-  }, [ie?.id, ie?.readAt, markRead]);
-  let U = ur(),
+    matchingAutomationItem?.id == null ||
+      matchingAutomationItem.readAt != null ||
+      markRead(matchingAutomationItem.id);
+  }, [matchingAutomationItem?.id, matchingAutomationItem?.readAt, markRead]);
+  let intl = ur(),
     { agentMode } = Xn({
       conversationId,
-      hostId: b,
+      hostId: hostId,
     }),
-    se = y ? D(y) : null,
-    ce = GS.useMemo(() => V[conversationId] ?? {}, [V, conversationId]),
-    le = GS.useRef(null),
-    ue = GS.useRef(conversationId),
-    de = GS.useRef([]),
-    fe = GS.useRef(null),
-    pe = GS.useRef(null);
-  ue.current !== conversationId &&
-    ((ue.current = conversationId), (le.current = null));
-  let me = _ && !C,
-    he = ee != null,
-    ge = shouldShowEmptyResumingThreadState({
+    resolvedCwd = cwd ? D(cwd) : null,
+    collapsedTurnsById = GS.useMemo(
+      () => collapsedTurnsByConversationId[conversationId] ?? {},
+      [collapsedTurnsByConversationId, conversationId],
+    ),
+    lastLatestVisibleTurnIdRef = GS.useRef(null),
+    currentConversationIdRef = GS.useRef(conversationId),
+    previousTurnEntriesRef = GS.useRef([]),
+    contentContainerRef = GS.useRef(null),
+    virtualizedTurnListApiRef = GS.useRef(null);
+  currentConversationIdRef.current !== conversationId &&
+    ((currentConversationIdRef.current = conversationId),
+    (lastLatestVisibleTurnIdRef.current = null));
+  let canEditLastTurnMessage = hasConversation && !isResponseInProgress,
+    isSubagentThread = visibleSubagentParentThreadId != null,
+    showEmptyResumingState = shouldShowEmptyResumingThreadState({
       conversationTurns,
       hasRenderableTurns,
       isResuming,
-      isSubagentThread: he,
+      isSubagentThread: isSubagentThread,
     }),
-    _e = GS.useRef(_),
-    G = GS.useRef(conversationTurns),
-    ve = GS.useRef(isBackgroundSubagentsEnabled);
-  _e.current = _;
-  G.current = conversationTurns;
-  ve.current = isBackgroundSubagentsEnabled;
-  let ye = W(Ya),
-    be =
+    hasConversationRef = GS.useRef(hasConversation),
+    conversationTurnsRef = GS.useRef(conversationTurns),
+    isBackgroundSubagentsEnabledRef = GS.useRef(isBackgroundSubagentsEnabled);
+  hasConversationRef.current = hasConversation;
+  conversationTurnsRef.current = conversationTurns;
+  isBackgroundSubagentsEnabledRef.current = isBackgroundSubagentsEnabled;
+  let diffSource = W(Ya),
+    routeContextId =
       conversationId == null ? "unavailable" : `conversation:${conversationId}`;
   useReviewSearchHighlights({
-    containerRef: fe,
-    contextId: be,
+    containerRef: contentContainerRef,
+    contextId: routeContextId,
   });
-  let xe = Y((e) => {
-      let t = fe.current;
-      t != null && zo(e, t);
+  let handleCopyCapture = Y((event) => {
+      let containerElement = contentContainerRef.current;
+      containerElement != null && zo(event, containerElement);
     }),
-    Se = GS.useCallback(
-      (e) => {
-        let t = fe.current;
-        t !== e &&
-          (t?.ownerDocument.removeEventListener("copy", xe, true),
-          (fe.current = e),
-          e?.ownerDocument.addEventListener("copy", xe, true));
+    setContentContainerRef = GS.useCallback(
+      (nextContainer) => {
+        let previousContainer = contentContainerRef.current;
+        previousContainer !== nextContainer &&
+          (previousContainer?.ownerDocument.removeEventListener(
+            "copy",
+            handleCopyCapture,
+            true,
+          ),
+          (contentContainerRef.current = nextContainer),
+          nextContainer?.ownerDocument.addEventListener(
+            "copy",
+            handleCopyCapture,
+            true,
+          ));
       },
-      [xe],
+      [handleCopyCapture],
     ),
-    Ce = Y(async (t, n) => {
+    editLastTurnMessage = Y(async (turnEntry, message) => {
       try {
         await Dr("edit-last-user-turn-for-host", {
-          hostId: I.getHostId(),
+          hostId: conversationHostApi.getHostId(),
           conversationId,
-          turnId: t.turnId,
-          message: n,
+          turnId: turnEntry.turnId,
+          message,
           agentMode,
-          serviceTier: await Ma(m, I.getHostId(), t.params.model ?? null),
+          serviceTier: await Ma(
+            scope,
+            conversationHostApi.getHostId(),
+            turnEntry.params.model ?? null,
+          ),
         });
-      } catch (e) {
+      } catch (error) {
         throw (
-          m.get(ti).danger(
-            U.formatMessage({
+          scope.get(ti).danger(
+            intl.formatMessage({
               id: "localConversation.editLastMessageFailed",
               defaultMessage: "Failed to edit message",
               description:
                 "Toast shown when editing the previous user message fails",
             }),
           ),
-          e
+          error
         );
       }
     }),
-    we = Y(async (t) => {
-      if (_)
+    forkConversationFromTurn = Y(async (targetTurnId) => {
+      if (hasConversation)
         try {
-          let n = await Dr("fork-conversation-from-turn", {
+          let forkedConversationId = await Dr("fork-conversation-from-turn", {
             conversationId,
-            targetTurnId: t,
-            cwd: y,
-            workspaceRoots: y == null ? undefined : [y],
-            collaborationMode: O,
+            targetTurnId,
+            cwd,
+            workspaceRoots: cwd == null ? undefined : [cwd],
+            collaborationMode,
           });
-          na(m, {
+          na(scope, {
             sourceConversationId: conversationId,
-            targetConversationId: n,
+            targetConversationId: forkedConversationId,
           });
-          h(getConversationNavigationPath(n), {
+          navigate(getConversationNavigationPath(forkedConversationId), {
             state: {
               focusComposerNonce: Date.now(),
             },
           });
-        } catch (e) {
+        } catch (error) {
           throw (
             gr.error("Error forking conversation from turn", {
               safe: {},
               sensitive: {
-                error: e,
+                error,
               },
             }),
-            m.get(ti).danger(U.formatMessage(fo.forkThreadError)),
-            e
+            scope.get(ti).danger(intl.formatMessage(fo.forkThreadError)),
+            error
           );
         }
     }),
-    Te = Y((t) => {
-      if (!_ || t.turnId == null) return;
-      if (t.turnId === latestVisibleTurnId) {
-        we(t.turnId);
+    handleForkTurnMessage = Y((turnEntry) => {
+      if (!hasConversation || turnEntry.turnId == null) return;
+      if (turnEntry.turnId === latestVisibleTurnId) {
+        forkConversationFromTurn(turnEntry.turnId);
         return;
       }
-      let n = t.turnId;
-      st(m, tb, {
-        conversationCwd: y,
+      let turnIdForFork = turnEntry.turnId;
+      st(scope, tb, {
+        conversationCwd: cwd,
         conversationId,
-        conversationLatestCollaborationMode: O,
-        hostId: b,
-        onForkIntoLocal: () => we(n),
-        turnId: n,
+        conversationLatestCollaborationMode: collaborationMode,
+        hostId,
+        onForkIntoLocal: () => forkConversationFromTurn(turnIdForFork),
+        turnId: turnIdForFork,
       });
     }),
-    Ee = Y((t, n) => {
-      te((r) =>
+    setTurnCollapsed = Y((turnId, collapsed) => {
+      setCollapsedTurnsByConversationId((currentCollapsedTurns) =>
         vc({
-          current: r,
+          current: currentCollapsedTurns,
           conversationId,
-          turnId: t,
-          collapsed: n,
+          turnId,
+          collapsed,
         }),
       );
     }),
-    De = Kx({
-      collapsedTurnsById: ce,
-      completedThreadGoal: w,
-      completedThreadGoalTurnKey: F,
+    turnListEntries = Kx({
+      collapsedTurnsById,
+      completedThreadGoal,
+      completedThreadGoalTurnKey,
       conversationId,
-      cwd: se,
+      cwd: resolvedCwd,
       hasInheritedParentTurns,
-      hostId: b,
+      hostId,
       isBackgroundSubagentsEnabled,
-      isProjectlessConversation: T,
+      isProjectlessConversation,
       isReadOnly,
-      modelProvider: v,
-      projectlessOutputDirectory: E,
-      onEditLastTurnMessage: !isReadOnly && me ? Ce : undefined,
-      onForkTurnMessage: !isReadOnly && _ ? Te : undefined,
-      onSetCollapsedForTurn: Ee,
-      previousEntries: de.current,
-      renderMcpApps: R,
-      resolvedApps: data,
+      modelProvider,
+      projectlessOutputDirectory,
+      onEditLastTurnMessage:
+        !isReadOnly && canEditLastTurnMessage ? editLastTurnMessage : undefined,
+      onForkTurnMessage:
+        !isReadOnly && hasConversation ? handleForkTurnMessage : undefined,
+      onSetCollapsedForTurn: setTurnCollapsed,
+      previousEntries: previousTurnEntriesRef.current,
+      renderMcpApps,
+      resolvedApps,
       showInProgressFixedContent,
-      visibleSubagentParentThreadId: ee,
+      visibleSubagentParentThreadId,
       visibleTurnEntries,
     });
-  de.current = De;
-  let Oe = GS.useMemo(() => {
-      let e = new Map();
-      for (let t of De)
-        e.has(t.turnSearchKey) || e.set(t.turnSearchKey, t.turnKey);
-      return e;
-    }, [De]),
-    ke = GS.useMemo(
+  previousTurnEntriesRef.current = turnListEntries;
+  let turnKeyBySearchKey = GS.useMemo(() => {
+      let turnKeyMap = new Map();
+      for (let entry of turnListEntries)
+        turnKeyMap.has(entry.turnSearchKey) ||
+          turnKeyMap.set(entry.turnSearchKey, entry.turnKey);
+      return turnKeyMap;
+    }, [turnListEntries]),
+    searchScrollAdapter = GS.useMemo(
       () => ({
-        scrollToTurn: async (t, n) => {
+        scrollToTurn: async (turnKey, options) => {
           if (
-            n?.signal?.aborted ||
-            (ce[t] === true &&
-              te((n) =>
+            options?.signal?.aborted ||
+            (collapsedTurnsById[turnKey] === true &&
+              setCollapsedTurnsByConversationId((currentCollapsedTurns) =>
                 vc({
-                  current: n,
+                  current: currentCollapsedTurns,
                   conversationId,
-                  turnId: t,
+                  turnId: turnKey,
                   collapsed: false,
                 }),
               ),
             await to(),
-            n?.signal?.aborted)
+            options?.signal?.aborted)
           )
             return;
-          let r = pe.current;
-          if (r == null)
+          let virtualizedTurnListApi = virtualizedTurnListApiRef.current;
+          if (virtualizedTurnListApi == null)
             throw Error(
               "Local conversation search scroll requested before VirtualizedTurnList API was ready",
             );
-          await r.scrollToKey(Oe.get(t) ?? t);
-          !n?.signal?.aborted && (await to());
+          await virtualizedTurnListApi.scrollToKey(
+            turnKeyBySearchKey.get(turnKey) ?? turnKey,
+          );
+          !options?.signal?.aborted && (await to());
         },
-        getTurnContainer: (e) => {
-          let t = fe.current;
-          return t == null
+        getTurnContainer: (turnSearchKey) => {
+          let containerElement = contentContainerRef.current;
+          return containerElement == null
             ? null
-            : (t.querySelector(`[data-content-search-turn-key="${e}"]`) ??
-                null);
+            : (containerElement.querySelector(
+                `[data-content-search-turn-key="${turnSearchKey}"]`,
+              ) ?? null);
         },
       }),
-      [ce, conversationId, Oe, te],
+      [
+        collapsedTurnsById,
+        conversationId,
+        turnKeyBySearchKey,
+        setCollapsedTurnsByConversationId,
+      ],
     ),
-    Ae = GS.useMemo(
+    conversationSource = GS.useMemo(
       () =>
         vb({
           getConversationState: () =>
-            _e.current
+            hasConversationRef.current
               ? {
-                  turns: G.current,
+                  turns: conversationTurnsRef.current,
                 }
               : null,
-          getIsBackgroundSubagentsEnabled: () => ve.current,
-          routeContextId: be,
-          scrollAdapter: ke,
+          getIsBackgroundSubagentsEnabled: () =>
+            isBackgroundSubagentsEnabledRef.current,
+          routeContextId: routeContextId,
+          scrollAdapter: searchScrollAdapter,
         }),
-      [ke, be],
+      [searchScrollAdapter, routeContextId],
     ),
-    je = () =>
+    getThreadFindItems = () =>
       Qx({
-        isConversationHistoryComplete: S,
-        isAppgenEndCardEnabled: g,
+        isConversationHistoryComplete: isConversationHistoryComplete,
+        isAppgenEndCardEnabled: isAppgenEndCardEnabled,
         isBackgroundSubagentsEnabled,
-        modelProvider: v,
-        projectlessOutputDirectory: E,
+        modelProvider: modelProvider,
+        projectlessOutputDirectory: projectlessOutputDirectory,
         visibleTurnEntries,
       }),
-    Me = Y(async ({ id: _id, turnKey }) => {
-      let n = pe.current;
-      if (n == null)
+    revealThreadFindItem = Y(async ({ id: _id, turnKey }) => {
+      let virtualizedTurnListApi = virtualizedTurnListApiRef.current;
+      if (virtualizedTurnListApi == null)
         throw Error(
           "Local conversation prompt rail scroll requested before VirtualizedTurnList API was ready",
         );
-      await n.scrollToKey(Oe.get(turnKey) ?? turnKey, (t) => {
-        for (let n of t.querySelectorAll("[data-content-search-unit-key]"))
-          if (n.dataset.contentSearchUnitKey === _id) return n;
-        return null;
-      });
+      await virtualizedTurnListApi.scrollToKey(
+        turnKeyBySearchKey.get(turnKey) ?? turnKey,
+        (turnContainer) => {
+          for (let contentUnit of turnContainer.querySelectorAll(
+            "[data-content-search-unit-key]",
+          ))
+            if (contentUnit.dataset.contentSearchUnitKey === _id)
+              return contentUnit;
+          return null;
+        },
+      );
     }),
-    Ne = Y(async ({ conversationId: _conversationId, itemId, turnKey }) => {
-      _conversationId === conversationId &&
-        (Ks(itemId, "smooth") ||
-          (te((t) =>
-            vc({
-              current: t,
-              conversationId,
-              turnId: turnKey,
-              collapsed: false,
-            }),
-          ),
-          await to(),
-          !Ks(itemId, "smooth") &&
-            (await ke.scrollToTurn(turnKey), await Xs(itemId, "auto"))));
-    });
+    revealContentSearchItem = Y(
+      async ({ conversationId: _conversationId, itemId, turnKey }) => {
+        _conversationId === conversationId &&
+          (Ks(itemId, "smooth") ||
+            (setCollapsedTurnsByConversationId((currentCollapsedTurns) =>
+              vc({
+                current: currentCollapsedTurns,
+                conversationId,
+                turnId: turnKey,
+                collapsed: false,
+              }),
+            ),
+            await to(),
+            !Ks(itemId, "smooth") &&
+              (await searchScrollAdapter.scrollToTurn(turnKey),
+              await Xs(itemId, "auto"))));
+      },
+    );
   GS.useEffect(
     () =>
-      Hs(m, conversationId, {
-        revealItem: Ne,
+      Hs(scope, conversationId, {
+        revealItem: revealContentSearchItem,
       }),
-    [conversationId, Ne, m],
+    [conversationId, revealContentSearchItem, scope],
   );
   GS.useEffect(() => {
-    let t = le.current,
-      n = visibleTurnEntries.find((item) => item.turnId === t),
-      r = new Set();
-    t != null &&
-      t !== latestVisibleTurnId &&
-      !turnHasMcpAppResource(n) &&
-      r.add(t);
-    let i = visibleTurnEntries.at(-4);
-    t != null &&
-      t !== latestVisibleTurnId &&
-      i?.turnId != null &&
-      turnHasMcpAppResource(i) &&
-      r.add(i.turnId);
-    r.size > 0 &&
-      te((t) => {
-        let n = t;
-        for (let t of r)
-          n = vc({
-            current: n,
+    let previousLatestVisibleTurnId = lastLatestVisibleTurnIdRef.current,
+      previousLatestVisibleEntry = visibleTurnEntries.find(
+        (item) => item.turnId === previousLatestVisibleTurnId,
+      ),
+      turnIdsToCollapse = new Set();
+    previousLatestVisibleTurnId != null &&
+      previousLatestVisibleTurnId !== latestVisibleTurnId &&
+      !turnHasMcpAppResource(previousLatestVisibleEntry) &&
+      turnIdsToCollapse.add(previousLatestVisibleTurnId);
+    let fourthFromLatestEntry = visibleTurnEntries.at(-4);
+    previousLatestVisibleTurnId != null &&
+      previousLatestVisibleTurnId !== latestVisibleTurnId &&
+      fourthFromLatestEntry?.turnId != null &&
+      turnHasMcpAppResource(fourthFromLatestEntry) &&
+      turnIdsToCollapse.add(fourthFromLatestEntry.turnId);
+    turnIdsToCollapse.size > 0 &&
+      setCollapsedTurnsByConversationId((currentCollapsedTurns) => {
+        let nextCollapsedTurns = currentCollapsedTurns;
+        for (let turnId of turnIdsToCollapse)
+          nextCollapsedTurns = vc({
+            current: nextCollapsedTurns,
             conversationId,
-            turnId: t,
+            turnId,
             collapsed: true,
           });
-        return n;
+        return nextCollapsedTurns;
       });
-    le.current = latestVisibleTurnId;
-  }, [conversationId, latestVisibleTurnId, te, visibleTurnEntries]);
-  let Pe = Y(() => {
+    lastLatestVisibleTurnIdRef.current = latestVisibleTurnId;
+  }, [
+    conversationId,
+    latestVisibleTurnId,
+    setCollapsedTurnsByConversationId,
+    visibleTurnEntries,
+  ]);
+  let notifyVisibleContentReady = Y(() => {
       setTimeout(() => {
         onVisibleThreadContentReady?.(conversationTurns.length);
       });
     }),
-    Ie = Y((e) => {
-      pe.current = e;
+    handleVirtualizedTurnListApiChange = Y((virtualizedTurnListApi) => {
+      virtualizedTurnListApiRef.current = virtualizedTurnListApi;
     }),
-    Le =
-      x === "resumed" && onVisibleThreadContentReady != null ? Pe : undefined;
-  return _ ? (
-    he && !hasRenderableTurns ? (
+    visibleContentReadyHandler =
+      conversationResumeState === "resumed" &&
+      onVisibleThreadContentReady != null
+        ? notifyVisibleContentReady
+        : undefined;
+  return hasConversation ? (
+    isSubagentThread && !hasRenderableTurns ? (
       <Os fillParent={true} debugName="LocalConversationThread.subagentTurns" />
-    ) : ge ? (
+    ) : showEmptyResumingState ? (
       <Os
         fillParent={true}
         showLogo={false}
@@ -13568,36 +13685,40 @@ function LocalConversationThreadContent({
     ) : (
       <>
         {$.jsx(ThreadAppShellSourceRegistration, {
-          conversationSource: Ae,
-          diffSource: ye,
-          orchestrationId: Ae.contextId,
-          isDefault: ot(m.value) === conversationId,
+          conversationSource: conversationSource,
+          diffSource: diffSource,
+          orchestrationId: conversationSource.contextId,
+          isDefault: ot(scope.value) === conversationId,
         })}
         {$.jsxs(p.div, {
-          ref: Se,
+          ref: setContentContainerRef,
           "data-thread-find-target": "conversation",
           className:
             "relative flex flex-col gap-3 electron:[--color-token-description-foreground:color-mix(in_srgb,var(--color-token-foreground)_70%,transparent)]",
           onMouseDownCapture: () => {
-            Da(m, "conversation", Ae.contextId);
+            Da(scope, "conversation", conversationSource.contextId);
           },
           onFocusCapture: () => {
-            Da(m, "conversation", Ae.contextId);
+            Da(scope, "conversation", conversationSource.contextId);
           },
           children: [
             <ThreadFindNavigationRail
-              enabled={S}
-              getItems={je}
-              onRevealItem={Me}
+              enabled={isConversationHistoryComplete}
+              getItems={getThreadFindItems}
+              onRevealItem={revealThreadFindItem}
             />,
-            !hasUserMessage && ae ? (
-              <Rc message={H ?? ""} sentAtMs={null} hostId={b} />
+            !hasUserMessage && shouldShowAutomationDescription ? (
+              <Rc
+                message={automationDescription ?? ""}
+                sentAtMs={null}
+                hostId={hostId}
+              />
             ) : null,
             isScrollToTopEnabled ? (
               <Ex
                 key={conversationId}
                 conversationId={conversationId}
-                entries={De}
+                entries={turnListEntries}
                 initialScrollOffset={initialScrollOffset}
                 initialVirtualizedTurnListRestoreState={
                   initialVirtualizedTurnListRestoreState
@@ -13606,8 +13727,8 @@ function LocalConversationThreadContent({
                   consumePendingLatestTurnSubmitPlacement
                 }
                 onResponseSpacerStateChange={onResponseSpacerStateChange}
-                onApiChange={Ie}
-                onVisibleContentReady={Le}
+                onApiChange={handleVirtualizedTurnListApiChange}
+                onVisibleContentReady={visibleContentReadyHandler}
                 onVirtualizedTurnListRestoreStateChange={
                   onVirtualizedTurnListRestoreStateChange
                 }
@@ -13617,10 +13738,10 @@ function LocalConversationThreadContent({
               $.jsx(
                 rx,
                 {
-                  entries: De,
+                  entries: turnListEntries,
                   initialRestoreState: initialVirtualizedTurnListRestoreState,
-                  onApiChange: Ie,
-                  onVisibleContentReady: Le,
+                  onApiChange: handleVirtualizedTurnListApiChange,
+                  onVisibleContentReady: visibleContentReadyHandler,
                   onRestoreStateChange: onVirtualizedTurnListRestoreStateChange,
                   preserveMeasuredTurnViewport: true,
                   RowComponent: Zb,
