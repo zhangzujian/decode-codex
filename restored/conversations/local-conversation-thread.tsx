@@ -569,6 +569,11 @@ import {
   initChromeExtensionConversationHeaderChunk,
 } from "./local-conversation-thread-parts/local-conversation-chrome-extension-header";
 import {
+  initBackgroundAgentThreadTab,
+  initBackgroundAgentThreadTabs,
+  openBackgroundAgentThreadTab,
+} from "./local-conversation-thread-parts/local-conversation-background-agent-thread-tab";
+import {
   initConversationMarkdownRenderer,
   renderLocalConversationMarkdownForTurns,
 } from "./local-conversation-thread-parts/local-conversation-markdown-renderer";
@@ -9034,34 +9039,6 @@ var autoFollowVirtualizedTurnListModule,
     autoFollowTurnListJsxRuntime = getJsxRuntime();
     LatestTurnMotionContext =
       autoFollowTurnListReactRuntime.createContext(null);
-  });
-var initBackgroundAgentThreadTab = once(() => {});
-async function openBackgroundAgentThreadTab(
-  e,
-  { backgroundAgent, hostId, TabComponent },
-) {
-  e.get(hasConversationSignal, backgroundAgent.conversationId) ||
-    (await sendAppServerRequest("hydrate-background-threads", {
-      hostId,
-      threadIds: [backgroundAgent.conversationId],
-    }));
-  e.get(hasConversationSignal, backgroundAgent.conversationId) &&
-    rightPanelTabsStore.openTab(e, TabComponent, {
-      icon: <Uo className="icon-sm" seed={backgroundAgent.conversationId} />,
-      props: {
-        conversationId: backgroundAgent.conversationId,
-      },
-      id: `background-agent:${backgroundAgent.conversationId}`,
-      title: backgroundAgent.displayName,
-    });
-}
-var backgroundAgentThreadTabsJsxRuntime,
-  initBackgroundAgentThreadTabs = once(() => {
-    initConversationStateSelectors();
-    initAppServerRequestBridge();
-    Yi();
-    rs();
-    backgroundAgentThreadTabsJsxRuntime = getJsxRuntime();
   });
 var localConversationThreadRouteJsxRuntime,
   initLocalConversationThreadRoute = once(() => {
