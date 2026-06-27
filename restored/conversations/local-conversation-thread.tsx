@@ -6306,148 +6306,162 @@ var n_,
     dg();
     Z = getJsxRuntime();
   });
-function i_(e) {
-  let { bodyError, bodyIsLoading, item, pullRequestBody, request } = e,
-    s = B(fi),
+function PullRequestSidePanelDetails(props) {
+  let { bodyError, bodyIsLoading, item, pullRequestBody, request } = props,
+    scope = B(fi),
     { data } = W(Mi),
-    l = xc({
+    fixDisabledReason = xc({
       currentBranch: data,
       storedThreadBranch: item.headBranch,
     }).hasThreadBranchMismatch
       ? "branch-mismatch"
       : null,
-    u = pullRequestBody?.hasOpenPr ?? null,
-    d = ch({
+    hasOpenPullRequest = pullRequestBody?.hasOpenPr ?? null,
+    mergeFixDisabledReason = ch({
       baseBranch: item.baseBranch,
-      conversationId: s.value.routeConversationId,
-      fixDisabledReason: l,
-      hasOpenPr: u,
+      conversationId: scope.value.routeConversationId,
+      fixDisabledReason,
+      hasOpenPr: hasOpenPullRequest,
       headBranch: item.headBranch,
       prNumber: item.number,
     });
-  let f = d,
-    p = {
-      intervalMs: ln.ONE_MINUTE,
-      staleTime: ln.ONE_MINUTE,
-    };
-  let m = {
-    source: "pull_request_board",
-    params: request,
-    queryConfig: p,
+  let checksQueryConfig = {
+    intervalMs: ln.ONE_MINUTE,
+    staleTime: ln.ONE_MINUTE,
   };
-  let { data: _data, error, isError: _, isLoading } = jn("gh-pr-checks", m),
-    y = {
-      intervalMs: ln.ONE_MINUTE,
-      staleTime: ln.ONE_MINUTE,
-    };
-  let b = {
+  let checksQueryOptions = {
     source: "pull_request_board",
     params: request,
-    queryConfig: y,
+    queryConfig: checksQueryConfig,
   };
   let {
-      data: __data,
-      error: _error,
-      isError,
-      isLoading: _isLoading,
-    } = jn("gh-pr-comments", b),
-    T =
+      data: checksResult,
+      error: checksError,
+      isError: checksHaveError,
+      isLoading: checksAreLoading,
+    } = jn("gh-pr-checks", checksQueryOptions),
+    commentsQueryConfig = {
+      intervalMs: ln.ONE_MINUTE,
+      staleTime: ln.ONE_MINUTE,
+    };
+  let commentsQueryOptions = {
+    source: "pull_request_board",
+    params: request,
+    queryConfig: commentsQueryConfig,
+  };
+  let {
+      data: commentsResult,
+      error: commentsError,
+      isError: commentsHaveError,
+      isLoading: commentsAreLoading,
+    } = jn("gh-pr-comments", commentsQueryOptions),
+    mergeBlocker =
       pullRequestBody == null
         ? item.mergeBlocker
         : pullRequestBody.mergeBlocker,
-    E = pullRequestBody?.repo ?? request.repo ?? null,
-    D = {
+    repo = pullRequestBody?.repo ?? request.repo ?? null,
+    diffRequest = {
       cwd: request.cwd,
       hostId: request.hostId,
       number: item.number,
-      repo: E,
+      repo,
     };
-  let O = T === "conflicts",
-    k = {
-      enabled: O,
+  let shouldLoadConflictDiff = mergeBlocker === "conflicts",
+    diffQueryConfig = {
+      enabled: shouldLoadConflictDiff,
       staleTime: ln.ONE_MINUTE,
     };
-  let A = {
+  let diffQueryOptions = {
     source: "pull_request_board",
-    params: D,
-    queryConfig: k,
+    params: diffRequest,
+    queryConfig: diffQueryConfig,
   };
   let {
-      data: ___data,
-      error: __error,
-      isError: _isError,
-      isLoading: __isLoading,
-    } = jn("gh-pr-diff", A),
-    F = _data?.status === "success" ? _data : null,
-    I = __data?.status === "success" ? __data : null,
-    L =
-      ___data?.status === "success"
-        ? yl(___data.unifiedDiff, {
+      data: diffResult,
+      error: diffError,
+      isError: diffHaveError,
+      isLoading: diffIsLoading,
+    } = jn("gh-pr-diff", diffQueryOptions),
+    checksData = checksResult?.status === "success" ? checksResult : null,
+    commentsData = commentsResult?.status === "success" ? commentsResult : null,
+    conflictFilePaths =
+      diffResult?.status === "success"
+        ? yl(diffResult.unifiedDiff, {
             maxFiles: 20,
-          }).map(a_)
+          }).map(getPullRequestDiffFileDisplayPath)
         : null;
-  let R = L,
-    z = (
-      <Xg
-        hostId={request.hostId}
-        item={item}
-        checks={F}
-        checksHaveError={_}
-        checksAreLoading={isLoading}
-        comments={I}
-        commentsHaveError={isError}
-        commentsAreLoading={_isLoading}
-        mergeBlocker={T}
-        repo={E}
+  let overviewSection = (
+    <Xg
+      hostId={request.hostId}
+      item={item}
+      checks={checksData}
+      checksHaveError={checksHaveError}
+      checksAreLoading={checksAreLoading}
+      comments={commentsData}
+      commentsHaveError={commentsHaveError}
+      commentsAreLoading={commentsAreLoading}
+      mergeBlocker={mergeBlocker}
+      repo={repo}
+    />
+  );
+  let pullRequestBodyText = pullRequestBody?.body ?? null,
+    bodySection = (
+      <Og
+        body={pullRequestBodyText}
+        error={bodyError}
+        loading={bodyIsLoading}
       />
     );
-  let ee = pullRequestBody?.body ?? null,
-    V = <Og body={ee} error={bodyError} loading={bodyIsLoading} />;
-  let te = error?.message,
-    ne = s_.jsx(ng, {
-      data: F,
-      error: te,
-      fixDisabledReason: f,
+  let checksErrorMessage = checksError?.message,
+    checksSection = pullRequestSidePanelDetailsJsxRuntime.jsx(ng, {
+      data: checksData,
+      error: checksErrorMessage,
+      fixDisabledReason: mergeFixDisabledReason,
       item,
-      loading: isLoading,
+      loading: checksAreLoading,
     });
-  let re =
-    T === "conflicts"
-      ? s_.jsx(wg, {
-          error: ___data?.status === "error" ? ___data.error : __error?.message,
-          files: R,
-          fixDisabledReason: f,
-          hasError: _isError || ___data?.status === "error",
+  let conflictSection =
+    mergeBlocker === "conflicts"
+      ? pullRequestSidePanelDetailsJsxRuntime.jsx(wg, {
+          error:
+            diffResult?.status === "error"
+              ? diffResult.error
+              : diffError?.message,
+          files: conflictFilePaths,
+          fixDisabledReason: mergeFixDisabledReason,
+          hasError: diffHaveError || diffResult?.status === "error",
           item,
-          loading: __isLoading,
-          repo: E,
+          loading: diffIsLoading,
+          repo,
         })
       : null;
-  let ie = _error?.message,
-    H = s_.jsx(fg, {
-      data: I,
-      error: ie,
-      fixDisabledReason: f,
+  let commentsErrorMessage = commentsError?.message,
+    commentsSection = pullRequestSidePanelDetailsJsxRuntime.jsx(fg, {
+      data: commentsData,
+      error: commentsErrorMessage,
+      fixDisabledReason: mergeFixDisabledReason,
       item,
-      loading: _isLoading,
+      loading: commentsAreLoading,
     });
   return (
     <>
-      {z}
-      {V}
-      {ne}
-      {re}
-      {H}
+      {overviewSection}
+      {bodySection}
+      {checksSection}
+      {conflictSection}
+      {commentsSection}
     </>
   );
 }
-function a_(e) {
-  return e.newPath === "/dev/null" ? e.oldPath : e.newPath;
+
+function getPullRequestDiffFileDisplayPath(diffFile) {
+  return diffFile.newPath === "/dev/null" ? diffFile.oldPath : diffFile.newPath;
 }
-var o_,
-  s_,
-  c_ = once(() => {
-    o_ = q();
+
+var pullRequestSidePanelDetailsModule,
+  pullRequestSidePanelDetailsJsxRuntime,
+  initPullRequestSidePanelDetailsChunk = once(() => {
+    pullRequestSidePanelDetailsModule = q();
     c();
     en();
     bl();
@@ -6462,12 +6476,13 @@ var o_,
     Dg();
     jg();
     r_();
-    s_ = getJsxRuntime();
+    pullRequestSidePanelDetailsJsxRuntime = getJsxRuntime();
   });
-function l_(e) {
-  let { hostId, item, pullRequestBody, request } = e,
-    o = ur(),
-    s =
+
+function PullRequestSidePanelHeader(props) {
+  let { hostId, item, pullRequestBody, request } = props,
+    intl = ur(),
+    pullRequestState =
       pullRequestBody == null
         ? item.state === "draft" || item.state === "merged"
           ? item.state
@@ -6477,20 +6492,20 @@ function l_(e) {
           : pullRequestBody.isDraft
             ? "draft"
             : "open",
-    c = (
+    titleNode = (
       <div className="truncate text-base leading-5 font-medium text-token-foreground">
         {item.title}
       </div>
     );
-  let l = (
+  let stateNode = (
     <div className="text-sm leading-5 text-token-text-tertiary">
-      {s === "draft" ? (
+      {pullRequestState === "draft" ? (
         <FormattedMessage
           id="pullRequestSidePanel.state.draft"
           defaultMessage="Draft"
           description="Draft pull request state shown in the side panel header"
         />
-      ) : s === "merged" ? (
+      ) : pullRequestState === "merged" ? (
         <FormattedMessage
           id="pullRequestSidePanel.state.merged"
           defaultMessage="Merged"
@@ -6505,136 +6520,150 @@ function l_(e) {
       )}
     </div>
   );
-  let u = (
+  let titleBlock = (
     <div className="flex min-w-0 flex-col">
-      {c}
-      {l}
+      {titleNode}
+      {stateNode}
     </div>
   );
-  let d = o.formatMessage({
+  let openPullRequestLabel = intl.formatMessage({
     id: "pullRequestSidePanel.openOnGitHub",
     defaultMessage: "Open pull request on GitHub",
     description:
       "Accessible label for opening a pull request from the side panel",
   });
-  let f, p;
-  f = (e) => {
+  let trackOpenOnGitHub = (event) => {
     wi({
-      event: e,
+      event,
       href: item.url,
       initiator: "pull_request_link",
     });
   };
-  p = <In className="icon-sm" href={item.url} />;
-  let m = (
+  let externalIcon = <In className="icon-sm" href={item.url} />;
+  let githubLink = (
     <a
-      aria-label={d}
+      aria-label={openPullRequestLabel}
       className="cursor-interaction rounded-lg p-1.5 text-token-foreground hover:bg-token-list-hover-background"
       href={item.url}
       rel="noreferrer"
       target="_blank"
-      onClick={f}
+      onClick={trackOpenOnGitHub}
     >
-      {p}
+      {externalIcon}
     </a>
   );
-  let h = d_.jsx(PullRequestMergeActions, {
-    hostId,
-    item,
-    pullRequestBody,
-    request,
-    surface: "thread_side_panel",
-    variant: "side-panel",
-  });
-  let g = (
+  let mergeActions = pullRequestSidePanelTabJsxRuntime.jsx(
+    PullRequestMergeActions,
+    {
+      hostId,
+      item,
+      pullRequestBody,
+      request,
+      surface: "thread_side_panel",
+      variant: "side-panel",
+    },
+  );
+  let actionGroup = (
     <div className="flex shrink-0 items-center gap-2">
-      {m}
-      {h}
+      {githubLink}
+      {mergeActions}
     </div>
   );
   return (
     <header className="flex h-[50px] items-start justify-between gap-4">
-      {u}
-      {g}
+      {titleBlock}
+      {actionGroup}
     </header>
   );
 }
-var u_,
-  d_,
-  f_,
-  p_ = once(() => {
-    u_ = q();
+
+var pullRequestSidePanelTabModule,
+  pullRequestSidePanelTabJsxRuntime,
+  PullRequestSidePanelTabContent,
+  initPullRequestSidePanelTabChunk = once(() => {
+    pullRequestSidePanelTabModule = q();
     Jn();
     ke();
     Xr();
     Er();
     n();
     initPullRequestMergeActionsChunk();
-    c_();
-    d_ = getJsxRuntime();
-    f_ = function (e) {
-      let { hostId, item, repo } = e,
-        a = {
+    initPullRequestSidePanelDetailsChunk();
+    pullRequestSidePanelTabJsxRuntime = getJsxRuntime();
+    PullRequestSidePanelTabContent = function (props) {
+      let { hostId, item, repo } = props,
+        request = {
           cwd: item.cwd,
           headBranch: item.headBranch,
           hostId,
           number: item.number,
           repo,
         };
-      let o = a,
-        s = {
-          intervalMs: ln.ONE_MINUTE,
-          staleTime: ln.ONE_MINUTE,
-        };
-      let c = {
-        source: "pull_request_board",
-        params: o,
-        queryConfig: s,
+      let bodyQueryConfig = {
+        intervalMs: ln.ONE_MINUTE,
+        staleTime: ln.ONE_MINUTE,
       };
-      let { data, error, isLoading } = jn("gh-pr-body", c),
-        f = data?.status === "success" ? data : null,
-        p = d_.jsx(l_, {
-          hostId,
-          item,
-          pullRequestBody: f,
-          request: o,
-        });
-      let m = error?.message,
-        h = d_.jsx(i_, {
-          bodyError: m,
-          bodyIsLoading: isLoading,
-          item,
-          pullRequestBody: f,
-          request: o,
-        });
+      let bodyQueryOptions = {
+        source: "pull_request_board",
+        params: request,
+        queryConfig: bodyQueryConfig,
+      };
+      let { data, error, isLoading } = jn("gh-pr-body", bodyQueryOptions),
+        pullRequestBody = data?.status === "success" ? data : null,
+        headerNode = pullRequestSidePanelTabJsxRuntime.jsx(
+          PullRequestSidePanelHeader,
+          {
+            hostId,
+            item,
+            pullRequestBody,
+            request,
+          },
+        );
+      let bodyError = error?.message,
+        detailsNode = pullRequestSidePanelTabJsxRuntime.jsx(
+          PullRequestSidePanelDetails,
+          {
+            bodyError,
+            bodyIsLoading: isLoading,
+            item,
+            pullRequestBody,
+            request,
+          },
+        );
       return (
         <div className="h-full min-h-0 overflow-y-auto bg-token-main-surface-primary">
           <main className="mx-auto flex w-full max-w-4xl flex-col gap-4 px-5 pb-4">
-            {p}
-            {h}
+            {headerNode}
+            {detailsNode}
           </main>
         </div>
       );
     };
   });
-function m_(e, { hostId, item, repo }, i = true, a = "right") {
-  let o = `pull-request:${item.url}`,
-    s = no(e, o) ?? a;
+
+function openPullRequestSidePanelTab(
+  scope,
+  { hostId, item, repo },
+  activate = true,
+  fallbackPosition = "right",
+) {
+  let tabId = `pull-request:${item.url}`,
+    targetPosition = no(scope, tabId) ?? fallbackPosition;
   return (
-    va(s).openTab(e, f_, {
-      activate: i,
+    va(targetPosition).openTab(scope, PullRequestSidePanelTabContent, {
+      activate,
       defaultState: () => ({}),
-      icon: h_.createElement(Ws, {
+      icon: pullRequestSidePanelTabReactRuntime.createElement(Ws, {
         className: "icon-xs shrink-0",
         state: item.state,
       }),
-      id: o,
+      id: tabId,
       props: {
         hostId,
         item,
         repo,
       },
-      title: e.get(Wa).formatMessage(
+      title: scope.get(Wa).formatMessage(
         {
           id: "thread.sidePanel.pullRequestTab.title",
           defaultMessage: "PR #{number}",
@@ -6646,16 +6675,17 @@ function m_(e, { hostId, item, repo }, i = true, a = "right") {
       ),
       tooltip: item.title,
     }),
-    i && wa(e, s),
+    activate && wa(scope, targetPosition),
     true
   );
 }
-var h_,
-  g_ = once(() => {
-    h_ = toEsModule(G(), 1);
+
+var pullRequestSidePanelTabReactRuntime,
+  initPullRequestSidePanelOpenerChunk = once(() => {
+    pullRequestSidePanelTabReactRuntime = toEsModule(G(), 1);
     Za();
     Js();
-    p_();
+    initPullRequestSidePanelTabChunk();
     ho();
   });
 function PullRequestSummaryRow(props) {
@@ -6689,7 +6719,7 @@ function PullRequestSummaryRow(props) {
             item: boardItem,
             surface: "thread_side_panel",
           });
-          m_(scope, {
+          openPullRequestSidePanelTab(scope, {
             hostId,
             item: boardItem,
             repo: pullRequestStatus.repo,
@@ -6803,7 +6833,7 @@ var b_,
     Js();
     me();
     o();
-    g_();
+    initPullRequestSidePanelOpenerChunk();
     initSummaryPanelRowChunk();
     x_ = getJsxRuntime();
   });
