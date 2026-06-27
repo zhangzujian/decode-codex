@@ -144,7 +144,6 @@ import {
   SV as initQueryRuntime,
   Sc as useConversationDetailMode,
   Sf as initConfigQueryRuntime,
-  Sk as normalizeMarkdownPlainText,
   Sm as threadSourceSignal,
   TM as initCheckmarkIcon,
   T_ as getRouteConversationId,
@@ -182,7 +181,6 @@ import {
   ag as fn,
   ak as initAppServerRequestBridge,
   ay as formatIdentifierTitle,
-  bA as loadFindLastIndexModule,
   bF as initPathHelpers,
   bM as initKeyboardShortcutLabel,
   bP as createPersistedSignal,
@@ -274,7 +272,6 @@ import {
   wp as storedThreadBranchSignal,
   xM as useStableCallback,
   xa as initAppDialog,
-  xk as hi,
   yA as loadFindLastModule,
   yF as loadReactDomModule,
   yM as initKeyboardShortcutKeycap,
@@ -314,7 +311,6 @@ import {
   Sa as aa,
   Sl as workspaceRouteStateSignal,
   So as ca,
-  Ss as la,
   Td as ua,
   Va as da,
   Wl as fa,
@@ -330,18 +326,14 @@ import {
   cs as Da,
   d as Oa,
   gi as ka,
-  gs as Aa,
   hc as ja,
   ho as Ma,
-  hs as Na,
   jr as liveMcpAppFrameSignal,
   js as environmentTerminalControllerSignal,
   kc as diffStatsSignal,
   kn as Ra,
   l as za,
-  ln as Ba,
   mo as Ha,
-  ms as Ua,
   nc as Wa,
   nu as Ka,
   pi as pullRequestStatusQuerySignal,
@@ -364,7 +356,6 @@ import {
   yc as ho,
   yd as rightPanelFullWidthSignal,
   yn as _o,
-  ys as vo,
   yu as yo,
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import {
@@ -768,6 +759,15 @@ import {
   ForkFromOlderTurnDialogController,
   initForkFromOlderTurnDialogControllerChunk,
 } from "./local-conversation-thread-parts/local-conversation-fork-dialog";
+import {
+  createLocalConversationSearchAdapter,
+  initConversationSearchHelpers,
+  initLocalConversationSearchAdapterChunk,
+} from "./local-conversation-thread-parts/local-conversation-search";
+import {
+  createLocalConversationSearchSource,
+  initConversationSearchUnitExtractor,
+} from "./local-conversation-thread-parts/local-conversation-search-source";
 import {
   collectGeneratedImagesForVisibleTurns,
   initVisibleTurnGeneratedImagesCollector,
@@ -8111,184 +8111,6 @@ function formatBackgroundAgentDisplayName({
 var initThreadScrollState = once(() => {
   initAgentMentionMap();
 });
-var initLocalConversationSearchAdapterChunk = once(() => {
-  nd();
-});
-function createLocalConversationSearchAdapter({
-  contextId,
-  getTurns,
-  scrollAdapter,
-}) {
-  return {
-    domain: "conversation",
-    contextId,
-    async search(searchRequest) {
-      return searchConversationTurns(searchRequest, getTurns());
-    },
-    async ensureVisible(location, options) {
-      if (
-        location.domain !== "conversation" ||
-        location.contextId !== contextId
-      )
-        return;
-      let turnContainer = scrollAdapter.getTurnContainer(location.turnKey);
-      if (turnContainer == null) {
-        if (
-          options?.signal?.aborted ||
-          (options?.signal == null
-            ? await scrollAdapter.scrollToTurn(location.turnKey)
-            : await scrollAdapter.scrollToTurn(location.turnKey, {
-                signal: options.signal,
-              }),
-          options?.signal?.aborted)
-        )
-          return;
-        turnContainer = scrollAdapter.getTurnContainer(location.turnKey);
-      }
-      turnContainer != null &&
-        (await Ba({
-          container: turnContainer,
-          matchId: vo(location),
-          includeShadowRoots: false,
-          signal: options?.signal,
-        }));
-    },
-  };
-}
-function searchConversationTurns(searchRequest, searchableTurns) {
-  let query = searchRequest.query.trim();
-  if (query.length === 0)
-    return {
-      domain: searchRequest.domain,
-      contextId: searchRequest.contextId,
-      query,
-      matches: [],
-      totalMatches: 0,
-      isCapped: false,
-    };
-  let matches = [],
-    totalMatchCount = 0,
-    matchOrdinal = 0,
-    isCapped = false;
-  for (let searchableTurn of searchableTurns)
-    for (let unit of searchableTurn.units) {
-      let unitText = unit.text;
-      if (unitText.length === 0) continue;
-      let {
-        offsets,
-        totalMatches,
-        isCapped: matchSearchIsCapped,
-      } = Na(unitText, query, MAX_CONVERSATION_SEARCH_MATCHES - matches.length);
-      totalMatchCount += totalMatches;
-      matchSearchIsCapped && (isCapped = true);
-      for (let { start, end } of offsets) {
-        matchOrdinal += 1;
-        matches.push({
-          id: `conversation:${searchableTurn.turnKey}:${unit.unitId}:${start}`,
-          ordinal: matchOrdinal,
-          location: {
-            domain: "conversation",
-            contextId: searchRequest.contextId,
-            turnKey: searchableTurn.turnKey,
-            unitId: unit.unitId,
-            start,
-            end,
-          },
-          snippet: Ua(unitText, start, end),
-        });
-      }
-    }
-  return {
-    domain: searchRequest.domain,
-    contextId: searchRequest.contextId,
-    query,
-    matches,
-    totalMatches: totalMatchCount,
-    isCapped,
-  };
-}
-var MAX_CONVERSATION_SEARCH_MATCHES,
-  initConversationSearchHelpers = once(() => {
-    la();
-    Ea();
-    Aa();
-    MAX_CONVERSATION_SEARCH_MATCHES = 250;
-  });
-function createLocalConversationSearchSource({
-  getConversationState,
-  getIsBackgroundSubagentsEnabled,
-  routeContextId,
-  scrollAdapter,
-}) {
-  return createLocalConversationSearchAdapter({
-    contextId: routeContextId,
-    getTurns: () => {
-      let conversationState = getConversationState();
-      return conversationState == null
-        ? []
-        : conversationState.turns
-            .map((item, index) =>
-              isRenderableConversationTurn(item, [], {
-                isBackgroundSubagentsEnabled: getIsBackgroundSubagentsEnabled(),
-              })
-                ? {
-                    turnKey: getLocalConversationTurnSearchKey(
-                      item.turnId,
-                      index,
-                    ),
-                    units: extractConversationSearchUnits(
-                      lt(item, [], {
-                        isBackgroundSubagentsEnabled:
-                          getIsBackgroundSubagentsEnabled(),
-                      }).items,
-                    ),
-                  }
-                : null,
-            )
-            .filter((item) => item != null);
-    },
-    scrollAdapter,
-  });
-}
-function extractConversationSearchUnits(items) {
-  let units = [],
-    latestAssistantMessageIndex = findLastIndexModule.default(
-      items,
-      (item) => item.type === "assistant-message",
-    );
-  return (
-    items.forEach((item, index) => {
-      if (item.type === "user-message") {
-        let messageText = item.message.trim();
-        if (messageText.length === 0) return;
-        units.push({
-          unitId: `${index}:user`,
-          text: messageText,
-        });
-        return;
-      }
-      if (
-        item.type !== "assistant-message" ||
-        index !== latestAssistantMessageIndex
-      )
-        return;
-      let assistantText = normalizeMarkdownPlainText(item.content);
-      assistantText.length !== 0 &&
-        units.push({
-          unitId: `${index}:assistant`,
-          text: assistantText,
-        });
-    }),
-    units
-  );
-}
-var findLastIndexModule,
-  initConversationSearchUnitExtractor = once(() => {
-    findLastIndexModule = toEsModule(loadFindLastIndexModule(), 1);
-    initConversationSearchHelpers();
-    hi();
-    initConversationArtifactRuntime();
-  });
 function buildLocalConversationVisibleTurnEntries({
   conversationRequests,
   mergeBerryDisplayTurnsForPIA = false,
