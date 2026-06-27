@@ -56,7 +56,6 @@ import {
   Al as initComposerScope,
   Am as conversationWorkspaceRootSignal,
   Ao as initGitBranchIcon,
-  Ap as needsResumeActiveThreadSignal,
   Au as initOsInfoQuery,
   BP as classNames,
   BV as getJsxRuntime,
@@ -268,7 +267,6 @@ import {
   va as AppDialog,
   vm as subagentParentThreadIdSignal,
   wM as CheckIcon,
-  wP as ci,
   wV as useSignalState,
   wi as DialogBody,
   wj as di,
@@ -460,7 +458,6 @@ import {
   Tu as rc,
   Ul as ic,
   Vl as ac,
-  Vn as localWorkspaceMaterializationSignal,
   Vu as sc,
   Xc as lc,
   Xd as uc,
@@ -506,17 +503,14 @@ import {
   zl as nl,
 } from "../boundaries/current-ref/profile-page-producer";
 import {
-  $ as rl,
   A as il,
   at as sl,
   en as cl,
-  et as ll,
   it as ul,
   k as dl,
   n as fl,
   rt as pl,
   st as ml,
-  t as hl,
   tn as gl,
 } from "../boundaries/current-ref/appgen-library-hot-producer";
 import {
@@ -554,10 +548,7 @@ import {
   initThreadSwitchTimingTrackerChunk,
   threadSwitchTimingTracker,
 } from "../automation/heartbeat-automation-eligibility";
-import {
-  m as Rl,
-  p as zl,
-} from "../boundaries/current-ref/pets-general-settings-producer";
+import { m as Rl } from "../boundaries/current-ref/pets-general-settings-producer";
 import {
   getAttachedHeartbeatAutomationForThread as Jl,
   HeartbeatAutomationCheckRing as Vl,
@@ -776,6 +767,10 @@ import {
   buildThreadFindItemsForVisibleTurns,
   initThreadFindItemsBuilder,
 } from "./local-conversation-thread-parts/thread-find-items";
+import {
+  initLocalConversationComposerFooterChunk,
+  LocalConversationComposerFooter,
+} from "./local-conversation-thread-parts/local-conversation-composer-footer";
 import {
   collectGeneratedImagesForVisibleTurns,
   initVisibleTurnGeneratedImagesCollector,
@@ -11341,42 +11336,6 @@ var backgroundAgentThreadTabsJsxRuntime,
     rs();
     backgroundAgentThreadTabsJsxRuntime = getJsxRuntime();
   });
-function LocalConversationConnectionStatus(props) {
-  let { status } = props,
-    spinnerIcon = localConversationConnectionStatusJsxRuntime.jsx(SpinnerIcon, {
-      className: "icon-xs",
-    });
-  return (
-    <div
-      aria-live="polite"
-      className="flex items-center justify-center gap-2 px-4 py-1 text-sm text-token-text-secondary"
-      role="status"
-    >
-      {spinnerIcon}
-      {status === "loading" ? (
-        <FormattedMessage
-          id="localConversation.loadingThread"
-          defaultMessage="Loading thread…"
-          description="Status shown above the composer while loading a thread"
-        />
-      ) : (
-        <FormattedMessage
-          id="localConversation.reconnectingToCodex"
-          defaultMessage="Reconnecting to Codex…"
-          description="Status shown above the composer while reconnecting to the Codex app server"
-        />
-      )}
-    </div>
-  );
-}
-var localConversationConnectionStatusModule,
-  localConversationConnectionStatusJsxRuntime,
-  initLocalConversationConnectionStatusChunk = once(() => {
-    localConversationConnectionStatusModule = getChunkModuleExports();
-    initIntlRuntime();
-    initSpinnerComponent();
-    localConversationConnectionStatusJsxRuntime = getJsxRuntime();
-  });
 function useMarkConversationReadOnVisibility(conversationId, hasConversation) {
   let isUnread =
       useScopedValue(conversationUnreadSignal, conversationId) ?? false,
@@ -12478,6 +12437,8 @@ function LocalConversationThreadFrame(props) {
       handleThreadLayoutContainerRef,
     ),
     hasLiveMcpAppFrame = useSignalValue(liveMcpAppFrameSignal),
+    subagentResponseInProgress =
+      useScopedValue(subagentResponseInProgressSignal, conversationId) ?? false,
     shouldMountSummaryPanelObstacles =
       shouldShowSummaryPanelObstacles && hasConversation && !hideThreadContent,
     handleOpenBackgroundAgent = (backgroundAgent) => {
@@ -12516,9 +12477,14 @@ function LocalConversationThreadFrame(props) {
           onClearPendingLatestTurnSubmitPlacement={
             onClearPendingLatestTurnSubmitPlacement
           }
+          subagentResponseInProgress={subagentResponseInProgress}
           isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
           lockedCollaborationMode={lockedCollaborationMode}
           isScrollToTopEnabled={isScrollToTopEnabled}
+          WorktreeRestoreBanner={ConnectedLocalWorktreeRestoreBanner}
+          onCreateSideConversation={(request) =>
+            jd(scope, LocalConversationSideChatThread, request)
+          }
         />
       ) : footerContent == null ? null : (
         <div className="px-5 pb-2">{footerContent}</div>
@@ -12619,169 +12585,6 @@ function openBackgroundAgentFromThread(
       hostId,
       TabComponent: LocalConversationMainThread,
     });
-}
-function ComposerWorkspaceDirectoryTree(props) {
-  let { conversationId } = props,
-    cwd = useScopedValue(conversationCwdSignal, conversationId);
-  return (
-    <ConnectedLocalWorktreeRestoreBanner
-      conversationId={conversationId}
-      cwd={cwd}
-    />
-  );
-}
-function LocalConversationComposerFooter({
-  conversationId,
-  hostId,
-  isResuming,
-  showExternalFooter,
-  composerSurfaceClassName,
-  showScrollToBottomButton,
-  onScrollToBottom,
-  onPrepareLatestTurnSubmitPlacement,
-  onClearPendingLatestTurnSubmitPlacement,
-  isBackgroundSubagentsEnabled,
-  lockedCollaborationMode,
-  isScrollToTopEnabled,
-}) {
-  let scope = useScope(localConversationRouteScope);
-  localConversationThreadReactRuntime.useContext(rl);
-  ci();
-  let hostConnectionStatus = useScopedValue(hostConnectionStatusSignal, hostId),
-    hasConversationTurns = !!useScopedValue(
-      conversationTurnsSignal,
-      conversationId,
-    )?.length,
-    isRemoteHost = hostId !== LOCAL_HOST_ID,
-    footerConnectionStatus = null;
-  isRemoteHost &&
-    (hostConnectionStatus === "connecting" ||
-    hostConnectionStatus === "restarting"
-      ? (footerConnectionStatus = "reconnecting")
-      : isResuming &&
-        !hasConversationTurns &&
-        (footerConnectionStatus = "loading"));
-  let localResponseInProgress =
-      useScopedValue(localResponseInProgressSignal, conversationId) ?? false,
-    localWorkspaceMaterialization = useScopedValue(
-      localWorkspaceMaterializationSignal,
-      conversationId,
-    );
-  useScopedValue(needsResumeActiveThreadSignal, conversationId);
-  useScopedValue(modelProviderSignal, conversationId);
-  let subagentResponseInProgress =
-      useScopedValue(subagentResponseInProgressSignal, conversationId) ?? false,
-    hasActiveSubagent = useScopedValue(
-      backgroundAgentsSignal,
-      isBackgroundSubagentsEnabled ? conversationId : null,
-    ).some(({ status }) => status === "active"),
-    isResponseInProgress = isBackgroundSubagentsEnabled
-      ? subagentResponseInProgress || hasActiveSubagent || false
-      : localResponseInProgress || false,
-    composerModeAvailability =
-      useScopedValue(conversationModeSignal, conversationId) === "projectless"
-        ? {
-            fallbackMode: "local",
-            isAvailabilityLoading: false,
-            isCloudAvailable: false,
-            isLocalAvailable: true,
-            isWorktreeAvailable: false,
-          }
-        : undefined,
-    intl = useIntl(),
-    scrollController = ad(),
-    handleLocalSubmitStart = useStableCallback(() => {
-      let scrollElement = scrollController.getScrollElement();
-      onPrepareLatestTurnSubmitPlacement({
-        distanceFromBottomPx:
-          scrollController.getLastScrollDistanceFromBottomPx(),
-        scrollHeightPx: scrollElement?.scrollHeight ?? null,
-      });
-      scrollController.setFooterResizeViewportPreserveDisabled(true);
-    }),
-    handleLocalSubmitError = useStableCallback(() => {
-      onClearPendingLatestTurnSubmitPlacement();
-      scrollController.setFooterResizeViewportPreserveDisabled(false);
-    }),
-    footer = (
-      <>
-        <ComposerWorkspaceDirectoryTree conversationId={conversationId} />
-        {footerConnectionStatus == null
-          ? null
-          : localConversationThreadJsxRuntime.jsx(
-              LocalConversationConnectionStatus,
-              {
-                status: footerConnectionStatus,
-              },
-            )}
-        {localConversationThreadJsxRuntime.jsx(hl, {
-          browserConversationId:
-            getLocalThreadConversationIdFromRoute(scope.value) ===
-            conversationId
-              ? (getRouteConversationId(scope) ?? undefined)
-              : undefined,
-          isResponseInProgress,
-          localWorkspaceMaterialization,
-          showFooterBranchWhen: "always",
-          showExternalFooter,
-          surfaceClassName: composerSurfaceClassName,
-          composerModeAvailability,
-          lockedCollaborationMode,
-          placeholderText: undefined,
-          onCreateSideConversation: async ({
-            sourceConversationId,
-            cwd,
-            hostId: _hostId,
-            collaborationMode,
-            displayTitle,
-          }) =>
-            jd(scope, LocalConversationSideChatThread, {
-              sourceConversationId,
-              cwd,
-              hostId: _hostId,
-              collaborationMode,
-              displayTitle,
-              intl,
-            }),
-          onLocalSubmitStart: isScrollToTopEnabled
-            ? handleLocalSubmitStart
-            : undefined,
-          onLocalSubmitError: isScrollToTopEnabled
-            ? handleLocalSubmitError
-            : undefined,
-        })}
-      </>
-    );
-  return (
-    <div
-      className="flex flex-col"
-      data-thread-find-composer="true"
-      onMouseDownCapture={() => {
-        Da(scope, "conversation", `conversation:${conversationId}`);
-      }}
-      onFocusCapture={() => {
-        Da(scope, "conversation", `conversation:${conversationId}`);
-      }}
-    >
-      <div className="relative h-0">
-        {localConversationThreadJsxRuntime.jsx(zl, {
-          className: "bottom-[calc(100%+6*var(--spacing))]",
-          label: intl.formatMessage({
-            id: "localConversation.scrollToBottomButton",
-            defaultMessage: "Scroll to bottom",
-            description: "Label for button that scrolls to the latest message",
-          }),
-          onClick: onScrollToBottom,
-          show: showScrollToBottomButton,
-          showWorkingDots:
-            isScrollToTopEnabled &&
-            showScrollToBottomButton &&
-            isResponseInProgress,
-        })}
-      </div>
-      <div className="flex flex-col gap-2">{footer}</div>
-    </div>
-  );
 }
 function LocalConversationThreadContent({
   conversationId,
@@ -13418,9 +13221,8 @@ export const initLocalConversationThreadChunk = once(() => {
   initBackgroundAgentThreadTab();
   fa();
   initBackgroundAgentThreadTabs();
-  ll();
+  initLocalConversationComposerFooterChunk();
   Sa();
-  initLocalConversationConnectionStatusChunk();
   Md();
   qc();
   initMarkConversationReadEffect();

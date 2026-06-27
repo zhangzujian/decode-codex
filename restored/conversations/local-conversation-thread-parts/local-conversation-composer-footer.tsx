@@ -1,0 +1,303 @@
+// Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
+// Composer footer surface for the local conversation thread.
+import React, { type ComponentType } from "react";
+import { once } from "../../runtime/commonjs-interop";
+import {
+  $P as initAppScope,
+  AB as initScopeRuntime,
+  Al as initComposerScope,
+  Em as conversationTurnsSignal,
+  FB as useScope,
+  I_ as initRouteScope,
+  M_ as localConversationRouteScope,
+  P_ as getLocalThreadConversationIdFromRoute,
+  PB as useScopedValue,
+  T_ as getRouteConversationId,
+  UE as LOCAL_HOST_ID,
+  gp as conversationCwdSignal,
+  Ip as localResponseInProgressSignal,
+  jm as conversationModeSignal,
+  $p as modelProviderSignal,
+  O_ as initConversationRouteSourceHelpers,
+  Op as initConversationStateSelectors,
+  iF as initIntlRuntime,
+  pp as shouldResumeConversationSignal,
+  tp as hostConnectionStatusSignal,
+  wP as initLocalConversationComposerBridge,
+  xM as useStableCallback,
+} from "../../boundaries/current-ref/appg-thread-shared-producer";
+import {
+  Vn as localWorkspaceMaterializationSignal,
+  cs as backgroundAgentsSignal,
+} from "../../boundaries/current-ref/profile-page-producer";
+import { cs as setConversationSourceContext } from "../../boundaries/current-ref/projects-app-shared-producer";
+import {
+  $ as threadComposerContext,
+  et as initThreadComposerFooterChunk,
+  t as ThreadComposerFooter,
+} from "../../boundaries/current-ref/appgen-library-hot-producer";
+import { p as ScrollToBottomButton } from "../../boundaries/current-ref/pets-general-settings-producer";
+import { FormattedMessage, useIntl } from "../../vendor/react-intl";
+import { SpinnerIcon } from "../../ui/spinner";
+import { useThreadScrollController } from "../../utils/thread-scroll-controller-context";
+
+type WorktreeRestoreBannerProps = {
+  conversationId: string;
+  cwd: string | null | undefined;
+};
+
+type CreateSideConversationRequest = {
+  collaborationMode: unknown;
+  cwd: string | null;
+  displayTitle: unknown;
+  hostId: string | null;
+  intl: unknown;
+  sourceConversationId: string;
+};
+
+type LocalSubmitPlacement = {
+  distanceFromBottomPx: number;
+  scrollHeightPx: number | null;
+};
+
+export type LocalConversationComposerFooterProps = {
+  WorktreeRestoreBanner: ComponentType<WorktreeRestoreBannerProps>;
+  composerSurfaceClassName?: string;
+  conversationId: string;
+  hostId: string;
+  isBackgroundSubagentsEnabled: boolean;
+  isResuming: boolean;
+  isScrollToTopEnabled: boolean;
+  lockedCollaborationMode?: unknown;
+  onClearPendingLatestTurnSubmitPlacement: () => void;
+  onCreateSideConversation: (
+    request: CreateSideConversationRequest,
+  ) => Promise<unknown> | unknown;
+  onPrepareLatestTurnSubmitPlacement: (placement: LocalSubmitPlacement) => void;
+  onScrollToBottom: () => void;
+  showExternalFooter: boolean;
+  showScrollToBottomButton: boolean;
+  subagentResponseInProgress: boolean;
+};
+
+function ComposerWorkspaceDirectoryTree({
+  WorktreeRestoreBanner,
+  conversationId,
+}: {
+  WorktreeRestoreBanner: ComponentType<WorktreeRestoreBannerProps>;
+  conversationId: string;
+}) {
+  let cwd = useScopedValue(conversationCwdSignal, conversationId);
+  return <WorktreeRestoreBanner conversationId={conversationId} cwd={cwd} />;
+}
+
+function LocalConversationConnectionStatus({
+  status,
+}: {
+  status: "loading" | "reconnecting";
+}) {
+  let spinnerIcon = <SpinnerIcon className="icon-xs" />;
+  return (
+    <div
+      aria-live="polite"
+      className="flex items-center justify-center gap-2 px-4 py-1 text-sm text-token-text-secondary"
+      role="status"
+    >
+      {spinnerIcon}
+      {status === "loading" ? (
+        <FormattedMessage
+          id="localConversation.loadingThread"
+          defaultMessage="Loading thread…"
+          description="Status shown above the composer while loading a thread"
+        />
+      ) : (
+        <FormattedMessage
+          id="localConversation.reconnectingToCodex"
+          defaultMessage="Reconnecting to Codex…"
+          description="Status shown above the composer while reconnecting to the Codex app server"
+        />
+      )}
+    </div>
+  );
+}
+
+export function LocalConversationComposerFooter({
+  WorktreeRestoreBanner,
+  conversationId,
+  hostId,
+  isResuming,
+  showExternalFooter,
+  composerSurfaceClassName,
+  showScrollToBottomButton,
+  onScrollToBottom,
+  onPrepareLatestTurnSubmitPlacement,
+  onClearPendingLatestTurnSubmitPlacement,
+  isBackgroundSubagentsEnabled,
+  lockedCollaborationMode,
+  isScrollToTopEnabled,
+  subagentResponseInProgress,
+  onCreateSideConversation,
+}: LocalConversationComposerFooterProps) {
+  let scope = useScope(localConversationRouteScope);
+  React.useContext(threadComposerContext);
+  initLocalConversationComposerBridge();
+
+  let hostConnectionStatus = useScopedValue(hostConnectionStatusSignal, hostId),
+    hasConversationTurns = !!useScopedValue(
+      conversationTurnsSignal,
+      conversationId,
+    )?.length,
+    isRemoteHost = hostId !== LOCAL_HOST_ID,
+    footerConnectionStatus: "loading" | "reconnecting" | null = null;
+
+  isRemoteHost &&
+    (hostConnectionStatus === "connecting" ||
+    hostConnectionStatus === "restarting"
+      ? (footerConnectionStatus = "reconnecting")
+      : isResuming &&
+        !hasConversationTurns &&
+        (footerConnectionStatus = "loading"));
+
+  let localResponseInProgress =
+      useScopedValue(localResponseInProgressSignal, conversationId) ?? false,
+    localWorkspaceMaterialization = useScopedValue(
+      localWorkspaceMaterializationSignal,
+      conversationId,
+    );
+
+  useScopedValue(shouldResumeConversationSignal, conversationId);
+  useScopedValue(modelProviderSignal, conversationId);
+
+  let hasActiveSubagent = useScopedValue(
+      backgroundAgentsSignal,
+      isBackgroundSubagentsEnabled ? conversationId : null,
+    ).some(({ status }) => status === "active"),
+    isResponseInProgress = isBackgroundSubagentsEnabled
+      ? subagentResponseInProgress || hasActiveSubagent || false
+      : localResponseInProgress || false,
+    composerModeAvailability =
+      useScopedValue(conversationModeSignal, conversationId) === "projectless"
+        ? {
+            fallbackMode: "local",
+            isAvailabilityLoading: false,
+            isCloudAvailable: false,
+            isLocalAvailable: true,
+            isWorktreeAvailable: false,
+          }
+        : undefined,
+    intl = useIntl(),
+    scrollController = useThreadScrollController(),
+    handleLocalSubmitStart = useStableCallback(() => {
+      let scrollElement = scrollController.getScrollElement();
+      onPrepareLatestTurnSubmitPlacement({
+        distanceFromBottomPx:
+          scrollController.getLastScrollDistanceFromBottomPx(),
+        scrollHeightPx: scrollElement?.scrollHeight ?? null,
+      });
+      scrollController.setFooterResizeViewportPreserveDisabled(true);
+    }),
+    handleLocalSubmitError = useStableCallback(() => {
+      onClearPendingLatestTurnSubmitPlacement();
+      scrollController.setFooterResizeViewportPreserveDisabled(false);
+    }),
+    footer = (
+      <>
+        <ComposerWorkspaceDirectoryTree
+          WorktreeRestoreBanner={WorktreeRestoreBanner}
+          conversationId={conversationId}
+        />
+        {footerConnectionStatus == null ? null : (
+          <LocalConversationConnectionStatus status={footerConnectionStatus} />
+        )}
+        <ThreadComposerFooter
+          browserConversationId={
+            getLocalThreadConversationIdFromRoute(scope.value) ===
+            conversationId
+              ? (getRouteConversationId(scope) ?? undefined)
+              : undefined
+          }
+          isResponseInProgress={isResponseInProgress}
+          localWorkspaceMaterialization={localWorkspaceMaterialization}
+          showFooterBranchWhen="always"
+          showExternalFooter={showExternalFooter}
+          surfaceClassName={composerSurfaceClassName}
+          composerModeAvailability={composerModeAvailability}
+          lockedCollaborationMode={lockedCollaborationMode}
+          placeholderText={undefined}
+          onCreateSideConversation={async ({
+            sourceConversationId,
+            cwd,
+            hostId: sideConversationHostId,
+            collaborationMode,
+            displayTitle,
+          }) =>
+            onCreateSideConversation({
+              sourceConversationId,
+              cwd,
+              hostId: sideConversationHostId,
+              collaborationMode,
+              displayTitle,
+              intl,
+            })
+          }
+          onLocalSubmitStart={
+            isScrollToTopEnabled ? handleLocalSubmitStart : undefined
+          }
+          onLocalSubmitError={
+            isScrollToTopEnabled ? handleLocalSubmitError : undefined
+          }
+        />
+      </>
+    );
+
+  return (
+    <div
+      className="flex flex-col"
+      data-thread-find-composer="true"
+      onMouseDownCapture={() => {
+        setConversationSourceContext(
+          scope,
+          "conversation",
+          `conversation:${conversationId}`,
+        );
+      }}
+      onFocusCapture={() => {
+        setConversationSourceContext(
+          scope,
+          "conversation",
+          `conversation:${conversationId}`,
+        );
+      }}
+    >
+      <div className="relative h-0">
+        <ScrollToBottomButton
+          className="bottom-[calc(100%+6*var(--spacing))]"
+          label={intl.formatMessage({
+            id: "localConversation.scrollToBottomButton",
+            defaultMessage: "Scroll to bottom",
+            description: "Label for button that scrolls to the latest message",
+          })}
+          onClick={onScrollToBottom}
+          show={showScrollToBottomButton}
+          showWorkingDots={
+            isScrollToTopEnabled &&
+            showScrollToBottomButton &&
+            isResponseInProgress
+          }
+        />
+      </div>
+      <div className="flex flex-col gap-2">{footer}</div>
+    </div>
+  );
+}
+
+export const initLocalConversationComposerFooterChunk = once(() => {
+  initScopeRuntime();
+  initAppScope();
+  initRouteScope();
+  initComposerScope();
+  initIntlRuntime();
+  initConversationStateSelectors();
+  initConversationRouteSourceHelpers();
+  initThreadComposerFooterChunk();
+});
