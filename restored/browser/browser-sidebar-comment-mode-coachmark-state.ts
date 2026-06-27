@@ -18,11 +18,13 @@ type BrowserSidebarCoachmarkInput = {
   profilesQuerySucceeded: boolean;
   serviceAvailable: boolean;
 };
-const browserSidebarCommentModeCoachmarkStateAState =
+const HAS_SEEN_BROWSER_PROFILE_IMPORT_NUX_KEY =
   "has-seen-browser-profile-import-nux-v1";
-export const browserSidebarCommentModeCoachmarkStateRState =
-  createPersistedSignal(browserSidebarCommentModeCoachmarkStateAState, false);
-export function browserSidebarCommentModeCoachmarkStateIState({
+export const hasSeenBrowserProfileImportNuxSignal = createPersistedSignal(
+  HAS_SEEN_BROWSER_PROFILE_IMPORT_NUX_KEY,
+  false,
+);
+export function shouldShowBrowserProfileImportCoachmark({
   baseGateEnabled,
   hasSeen,
   hasSettledOpen,
@@ -44,11 +46,11 @@ export function browserSidebarCommentModeCoachmarkStateIState({
 }
 const browserSidebarCommentModeCoachmarkDismissedKey =
   "browser-sidebar-comment-mode-coachmark-dismissed";
-export const browserSidebarCommentModeCoachmarkStateTState = persistedAtom(
+export const browserSidebarCommentModeCoachmarkDismissedAtom = persistedAtom(
   browserSidebarCommentModeCoachmarkDismissedKey,
   false,
 );
-export function browserSidebarCommentModeCoachmarkStateNState(): void {
+export function dismissBrowserSidebarCommentModeCoachmark(): void {
   setPersistedAtomItem(browserSidebarCommentModeCoachmarkDismissedKey, true);
 }
-export { browserSidebarCommentModeCoachmarkStateAState };
+export { HAS_SEEN_BROWSER_PROFILE_IMPORT_NUX_KEY };

@@ -8133,11 +8133,11 @@
     "browser-sidebar-comment-mode-coachmark-state-B5FxFSFk": {
       "restored": "browser/browser-sidebar-comment-mode-coachmark-state.ts",
       "exports": {
-        "a": "browserSidebarCommentModeCoachmarkStateRState",
-        "i": "browserSidebarCommentModeCoachmarkStateIState",
-        "n": "browserSidebarCommentModeCoachmarkStateTState",
-        "r": "browserSidebarCommentModeCoachmarkStateNState",
-        "t": "browserSidebarCommentModeCoachmarkStateAState"
+        "a": "hasSeenBrowserProfileImportNuxSignal",
+        "i": "shouldShowBrowserProfileImportCoachmark",
+        "n": "browserSidebarCommentModeCoachmarkDismissedAtom",
+        "r": "dismissBrowserSidebarCommentModeCoachmark",
+        "t": "HAS_SEEN_BROWSER_PROFILE_IMPORT_NUX_KEY"
       },
       "status": "done"
     },
