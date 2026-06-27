@@ -84,7 +84,6 @@ import {
   HO as getReviewCommentAttachmentKeyValue,
   Hh as initGitQueryKeyHelpers,
   Hi as initSettingsGearIcon,
-  Hx as getFallbackBackgroundAgentHandle,
   IB as useSignalValue,
   I_ as initRouteScope,
   Io as initConnectorAppsListQuery,
@@ -174,7 +173,6 @@ import {
   bV as createScopedSignal,
   bc as initConversationDetailModeConstants,
   bk as loadUniqByModule,
-  cA as getSubagentSourceMetadata,
   cM as initToastRuntime,
   cP as initVscodeMessageBridge,
   cm as conversationHostIdSignal,
@@ -191,7 +189,6 @@ import {
   fp as completedThreadGoalSignal,
   fu as initTaskWorkspaceQueryRuntime,
   gi as initPopoverPrimitives,
-  gm as backgroundAgentSnapshotSignal,
   gp as conversationCwdSignal,
   hM as initTooltipPrimitives,
   hi as PopoverTrigger,
@@ -551,10 +548,6 @@ import {
   getVisibleThreadRange as Ku,
   initThreadVirtualizerChunk as Ju,
 } from "../threads/thread-virtualizer";
-import {
-  ChromeExtensionHeader,
-  initChromeExtensionHeaderChunk,
-} from "../browser/chrome-extension-header";
 import { initTeamIconChunk as $u, TeamIcon as ed } from "../icons/team-icon";
 import {
   initThreadScrollLayoutChunk as td,
@@ -597,7 +590,6 @@ import {
   initOpenSideChatTabChunk as Nd,
   initThreadOverflowMenuChunk as Md,
   openSideChatTab as jd,
-  ThreadOverflowMenu as Pd,
 } from "../threads/thread-overflow-menu";
 import {
   createBackgroundSummaryItems,
@@ -624,6 +616,11 @@ import { createRestoredBackgroundTerminalRows } from "./local-conversation-threa
 import { countBackgroundTerminalSummaryRows } from "./local-conversation-thread-parts/background-terminal-summary-count";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
 import { createLatestTurnSubmitPlacementSnapshot } from "./local-conversation-thread-parts/latest-turn-submit-placement";
+import {
+  ChromeExtensionConversationHeader,
+  formatBackgroundAgentDisplayName,
+  initChromeExtensionConversationHeaderChunk,
+} from "./local-conversation-thread-parts/local-conversation-chrome-extension-header";
 import {
   initSummaryPanelErrorFallbackChunk,
   SummaryPanelErrorFallback,
@@ -7471,18 +7468,6 @@ var initConversationMarkdownRenderer = once(() => {
   initConversationArtifactRuntime();
   initModulePreloadRuntime();
 });
-interface BackgroundAgentDisplayNameOptions {
-  agentNickname?: string | null;
-  conversationId: string;
-}
-function formatBackgroundAgentDisplayName({
-  agentNickname,
-  conversationId,
-}: BackgroundAgentDisplayNameOptions): string {
-  let displayName =
-    agentNickname?.trim() || getFallbackBackgroundAgentHandle(conversationId);
-  return displayName.startsWith("@") ? displayName.slice(1) : displayName;
-}
 var initThreadScrollState = once(() => {
   initAgentMentionMap();
 });
@@ -9431,6 +9416,7 @@ var localConversationThreadRouteJsxRuntime,
     initResumeLocalConversationChunk();
     initLocalConversationNavigationHelpers();
     initSummaryPanelErrorFallbackChunk();
+    initChromeExtensionConversationHeaderChunk();
     initVscodeMessageBridge();
     initAppScope();
     initHostWorkspaceQueries();
@@ -9786,7 +9772,13 @@ function LocalConversationThreadRoute(props) {
       handleOpenBackgroundAgent,
     ),
     headerContent = (
-      <ChromeExtensionConversationHeader conversationId={conversationId} />
+      <ChromeExtensionConversationHeader
+        conversationId={conversationId}
+        renderLocalConversationMarkdownForTurns={
+          renderLocalConversationMarkdownForTurns
+        }
+        visibleTurnEntriesSignal={localConversationVisibleTurnEntriesSignal}
+      />
     ),
     contentX = hideThreadContent ? undefined : summaryPanelDisplay.contentShift,
     renderSummaryPanelErrorFallback = (errorBoundary) => (
@@ -9839,97 +9831,6 @@ function LocalConversationThreadRoute(props) {
       showExternalFooter={showExternalFooter}
     />
   );
-}
-function ChromeExtensionConversationHeader(props) {
-  let { conversationId } = props,
-    scope = useScope(appScope),
-    isBackgroundSubagentsEnabled = ns(),
-    parentConversationId = useScopedValue(
-      subagentParentThreadIdSignal,
-      conversationId,
-    ),
-    backgroundAgentSnapshot = useScopedValue(
-      backgroundAgentSnapshotSignal,
-      conversationId,
-    ),
-    backgroundAgentName = formatBackgroundAgentDisplayName({
-      agentNickname:
-        getSubagentSourceMetadata(backgroundAgentSnapshot)?.agentNickname ??
-        null,
-      conversationId,
-    });
-  let hasConversation = useScopedValue(hasConversationSignal, conversationId),
-    title = useScopedValue(conversationTitleSignal, conversationId),
-    cwd = useScopedValue(conversationCwdSignal, conversationId),
-    projectlessOutputDirectory = useScopedValue(
-      projectlessOutputDirectorySignal,
-      conversationId,
-    ),
-    navigate = useNavigate(),
-    getConversationMarkdown = () => {
-      let { visibleTurnEntries } = scope.get(
-        localConversationVisibleTurnEntriesSignal,
-        {
-          conversationId,
-          isBackgroundSubagentsEnabled,
-        },
-      );
-      return renderLocalConversationMarkdownForTurns({
-        cwd,
-        isBackgroundSubagentsEnabled,
-        projectlessOutputDirectory,
-        title,
-        visibleTurnEntries,
-      });
-    };
-  if (!hasConversation) return null;
-  let onBack =
-    parentConversationId == null
-      ? undefined
-      : () => {
-          navigate(getLocalConversationPath(parentConversationId));
-        };
-  let headerTitle =
-    parentConversationId == null ? (
-      title
-    ) : (
-      <span className="flex min-w-0 items-center gap-1">
-        <span className="truncate">{title}</span>
-        <span className="flex shrink-0 items-center gap-1 font-medium">
-          <Uo className="icon-2xs" seed={conversationId} aria-hidden={true} />
-          <span>{backgroundAgentName}</span>
-        </span>
-      </span>
-    );
-  let trailingActions = localConversationThreadJsxRuntime.jsx(
-    PlatformContentGate,
-    {
-      extension: true,
-      children: (
-        <Pd
-          conversationId={conversationId}
-          getConversationMarkdown={getConversationMarkdown}
-          markdownParentConversationId={parentConversationId}
-          cwd={cwd}
-          title={title}
-          canPin={false}
-          hideForkActions={true}
-        />
-      ),
-    },
-  );
-  return localConversationThreadJsxRuntime.jsx(PlatformContentGate, {
-    chromeExtension: true,
-    extension: true,
-    children: (
-      <ChromeExtensionHeader
-        desktopDeepLinkConversationId={conversationId}
-        onBack={onBack}
-        title={headerTitle}
-        trailing={trailingActions}
-      />
-    ),
-  });
 }
 function LocalConversationThreadFrame(props) {
   let {
@@ -10843,7 +10744,6 @@ export const initLocalConversationThreadChunk = once(() => {
   Qa();
   initReviewSearchHighlighter();
   Di();
-  initChromeExtensionHeaderChunk();
   Ao();
   initLauncherHotkeyStateChunk();
   Vc();
