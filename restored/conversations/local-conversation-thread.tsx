@@ -52,14 +52,14 @@ import {
   AN as initSpinnerComponent,
   AO as PULL_REQUEST_FIX_PROMPT_PREAMBLE,
   AP as motion,
-  AV as m,
+  AV as initReactQueryRuntime,
   Ai as initDialogLayoutComponents,
   Aj as resolveWorkspacePathFromCwd,
   Al as initComposerScope,
   Am as conversationWorkspaceRootSignal,
-  Ao as y,
-  Ap as b,
-  Au as x,
+  Ao as initGitBranchIcon,
+  Ap as needsResumeActiveThreadSignal,
+  Au as initOsInfoQuery,
   BP as classNames,
   BV as getJsxRuntime,
   Bh as useHostMutation,
@@ -81,23 +81,23 @@ import {
   FB as useScope,
   Fp as expiredSideChatSignal,
   Fx as initEnvironmentTerminalController,
-  GE as ne,
+  GE as initLocalHostConstants,
   G_ as multiBrowserTabsEnabledSignal,
-  Ga as ie,
+  Ga as initElectronPlatformContent,
   Gi as DropdownMenu,
   Gj as initStatsigFeatureGateHooks,
-  Gu as U,
+  Gu as initGlobalStateQueryRuntime,
   HE as useHostConfigById,
   HO as getReviewCommentAttachmentKeyValue,
   Hg as collectEndResourcePaths,
-  Hh as le,
-  Hi as ue,
+  Hh as initGitQueryKeyHelpers,
+  Hi as initSettingsGearIcon,
   Hv as collectTurnFileArtifacts,
   Hx as getFallbackBackgroundAgentHandle,
   IB as useSignalValue,
   IL as parseConfigLoadError,
   I_ as initRouteScope,
-  Io as he,
+  Io as initConnectorAppsListQuery,
   Ip as localResponseInProgressSignal,
   Ix as environmentTerminalControllerService,
   JV as loadReactModule,
@@ -105,49 +105,49 @@ import {
   Ji as DropdownMenuItem,
   Jo as be,
   Jt as ConnectedNodesIcon,
-  Kg as Se,
-  Ki as Ce,
+  Kg as initNormalizedPathUtilities,
+  Ki as DropdownMenuSubmenu,
   Kp as conversationReadStateSignal,
-  Ku as Te,
+  Ku as useGlobalStateQuery,
   LB as loadIsEqualModule,
   LN as initReducedMotionPreference,
-  La as ke,
+  La as initExternalUrlHelpers,
   Lj as PlusIcon,
-  Ln as je,
+  Ln as initKeyboardModifierState,
   MB as ScopeValueProvider,
   MP as AnimatePresence,
-  MV as Pe,
+  MV as useMutation,
   M_ as localConversationRouteScope,
-  Mi as Ie,
-  Mj as Le,
-  Mu as Re,
-  initLocalConversationGitSummary as ze,
+  Mi as initModalRegistrySignal,
+  Mj as getScrollDistanceFromBottomPx,
+  Mu as initHostCodexHomeQuery,
+  initLocalConversationGitSummary as isRenderableConversationTurn,
   NM as createPersistedScopedSignal,
-  Nh as Ve,
-  Nj as He,
+  Nh as initGitBranchQueryRuntime,
+  Nj as initReverseScrollUtilities,
   Np as conversationHistoryCompleteSignal,
-  Nu as We,
-  Nv as Ge,
-  OI as Ke,
-  OL as qe,
-  OM as Je,
-  ON as Ye,
-  OP as Xe,
-  OV as Ze,
-  O_ as Qe,
+  Nu as getHostCodexHome,
+  Nv as initConversationArtifactRuntime,
+  OI as getHotkeyWindowThreadPath,
+  OL as normalizeWorkspaceBrowserRoot,
+  OM as scaleCssPxByWindowZoom,
+  ON as initButtonComponentPrimitives,
+  OP as createMotionSignal,
+  OV as createAtomSignal,
+  O_ as initConversationRouteSourceHelpers,
   Oi as $e,
-  Oj as et,
+  Oj as normalizeArtifactPathKey,
   On as tt,
-  Op as nt,
-  Ov as rt,
+  Op as initConversationStateSelectors,
+  Ov as useNavigate,
   PB as useScopedValue,
-  PI as it,
+  PI as getHotkeyWindowFallbackPath,
   PO as at,
-  P_ as ot,
-  Pi as st,
+  P_ as getLocalThreadConversationIdFromRoute,
+  Pi as openScopedModal,
   Pp as responseInProgressSignal,
   Pv as lt,
-  QP as ut,
+  QP as appScope,
   Qg as dt,
   Qi as threadSummaryPanelSectionTransition,
   R as pt,
@@ -155,15 +155,15 @@ import {
   RP as ChevronIcon,
   Rf as workspaceRootsSignal,
   Rj as _t,
-  Rn as vt,
+  Rn as useCommandRegistration,
   Rv as yt,
-  SP as bt,
+  SP as initMotionRuntime,
   SV as xt,
-  Sc as St,
-  Sf as Ct,
-  Sj as wt,
-  Sk as Tt,
-  Sm as Et,
+  Sc as useConversationDetailMode,
+  Sf as initConfigQueryRuntime,
+  Sj as getPathBasename,
+  Sk as normalizeMarkdownPlainText,
+  Sm as threadSourceSignal,
   TM as Dt,
   T_ as Ot,
   Tf as mcpServersQuerySignal,
@@ -1313,7 +1313,7 @@ var summaryPanelExpandableListModule,
     summaryPanelExpandableListModule = getChunkModuleExports();
     summaryPanelExpandableListReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
-    Ye();
+    initButtonComponentPrimitives();
     summaryPanelExpandableListJsxRuntime = getJsxRuntime();
     DEFAULT_SUMMARY_PANEL_VISIBLE_ITEM_LIMIT = 6;
   });
@@ -1330,7 +1330,7 @@ function SummaryPanelArtifactsList(props) {
     generatedImagePreviews;
   {
     let generatedImageArtifactPaths = artifacts.flatMap((artifact) =>
-        getGeneratedImagePreviewArtifactPaths(artifact, wt),
+        getGeneratedImagePreviewArtifactPaths(artifact, getPathBasename),
       ),
       hasGeneratedImageArtifacts = artifacts.some(isGeneratedImageArtifact);
     generatedImageNumberByPath = new Map(
@@ -1350,7 +1350,7 @@ function SummaryPanelArtifactsList(props) {
           Wr(artifact.path) !== "always"
         )
           return [];
-        let fileName = wt(artifact.path),
+        let fileName = getPathBasename(artifact.path),
           imageNumber = generatedImageNumberByPath.get(artifact.path),
           previewAlt =
             imageNumber == null
@@ -1406,7 +1406,11 @@ function SummaryPanelArtifactsList(props) {
   let renderArtifactRow = (artifact) => {
     switch (artifact.type) {
       case "website": {
-        let targetLabel = formatArtifactTargetLabel(artifact.target, yn, wt);
+        let targetLabel = formatArtifactTargetLabel(
+          artifact.target,
+          yn,
+          getPathBasename,
+        );
         return (
           <SummaryPanelRow
             icon={<Sr className="icon-sm shrink-0" />}
@@ -1461,7 +1465,7 @@ function SummaryPanelArtifactsList(props) {
         );
       case "file":
       case "generated-image": {
-        let fileName = wt(artifact.path),
+        let fileName = getPathBasename(artifact.path),
           imageNumber = generatedImageNumberByPath.get(artifact.path),
           label =
             imageNumber == null ? (
@@ -1856,7 +1860,7 @@ function BackgroundTerminalSummaryRows(props) {
       onStopError,
       onOpen,
     } = props,
-    scope = useScope(ut),
+    scope = useScope(appScope),
     isVisibleRef = backgroundTerminalSummaryRowsReactRuntime.useRef(isVisible),
     pendingProcessRows = useSignalValue(pendingBackgroundProcessRowsSignal),
     killChildProcessMutation = qr("child-process-kill"),
@@ -2503,7 +2507,7 @@ var localEnvironmentSelectorContentModule,
     an();
     initSpinnerComponent();
     Dt();
-    ue();
+    initSettingsGearIcon();
     Fu();
     initLocalEnvironmentDisplayNameHelpers();
     di();
@@ -2617,7 +2621,7 @@ var localEnvironmentActionSetupFormModule,
       loadReactModule(),
       1,
     );
-    Ye();
+    initButtonComponentPrimitives();
     initDialogLayoutComponents();
     localEnvironmentActionSetupFormJsxRuntime = getJsxRuntime();
   });
@@ -2907,9 +2911,9 @@ var addLocalEnvironmentActionFormModule,
   addLocalEnvironmentActionFormJsxRuntime,
   initAddLocalEnvironmentActionFormChunk = once(() => {
     addLocalEnvironmentActionFormModule = getChunkModuleExports();
-    m();
+    initReactQueryRuntime();
     Jn();
-    Ye();
+    initButtonComponentPrimitives();
     an();
     fd();
     ud();
@@ -2931,17 +2935,17 @@ function isRecentLocalEnvironmentAction(
   recentActionsByKey: RecentLocalEnvironmentActionsByKey | null | undefined,
   hostId: string,
 ): boolean {
-  let environmentKey = We(hostId);
+  let environmentKey = getHostCodexHome(hostId);
   return recentActionsByKey != null && Ar(recentActionsByKey, environmentKey);
 }
 var localEnvironmentRecentActionsModule,
   initLocalEnvironmentRecentActions = once(() => {
     localEnvironmentRecentActionsModule = getChunkModuleExports();
     gn();
-    Re();
+    initHostCodexHomeQuery();
   });
 function useLocalConversationEnvironmentState(workspaceRoot, hostConfig) {
-  let scope = useScope(ut),
+  let scope = useScope(appScope),
     hostId = hostConfig.id,
     workspaceEnvironmentKey = workspaceRoot
       ? normalizeWorkspacePath(workspaceRoot)
@@ -3078,9 +3082,9 @@ var localConversationEnvironmentStateModule,
     localConversationEnvironmentStateModule = getChunkModuleExports();
     initScopeRuntime();
     gn();
-    Ve();
+    initGitBranchQueryRuntime();
     Au();
-    le();
+    initGitQueryKeyHelpers();
     za();
     initAppScope();
     di();
@@ -3097,10 +3101,10 @@ function LocalConversationEnvironmentActionControls(props) {
       onShowTerminal,
       registerCommands,
     } = props,
-    scope = useScope(ut),
+    scope = useScope(appScope),
     intl = ur(),
     location = useLocation(),
-    navigate = rt(),
+    navigate = useNavigate(),
     {
       environment,
       resolvedEnvironmentConfigPath,
@@ -3234,7 +3238,7 @@ function LocalConversationEnvironmentActionControls(props) {
         environment == null ||
         (setMenuOpen(false),
         onMenuOpenChange?.(false),
-        st(scope, AddLocalEnvironmentActionPopoverContent, {
+        openScopedModal(scope, AddLocalEnvironmentActionPopoverContent, {
           configPath: resolvedEnvironmentConfigPath,
           environment,
           hostConfig,
@@ -3361,7 +3365,7 @@ function LocalConversationEnvironmentActionControls(props) {
     let changeEnvironmentMenu = canChangeEnvironment ? (
       <>
         <Zt />
-        <Ce
+        <DropdownMenuSubmenu
           trigger={
             <Br.Item LeftIcon={Gt} leftIconClassName="icon-sm">
               <FormattedMessage
@@ -3387,7 +3391,7 @@ function LocalConversationEnvironmentActionControls(props) {
               onMenuOpenChange?.(false);
             }}
           />
-        </Ce>
+        </DropdownMenuSubmenu>
       </>
     ) : null;
     let actionsDropdown = (
@@ -3728,7 +3732,7 @@ function RegisterLocalEnvironmentActionCommand(props) {
   commandConfig = {
     enabled: enabled,
   };
-  vt(commandId, runAction, commandConfig);
+  useCommandRegistration(commandId, runAction, commandConfig);
   let actionName = actionItem?.action.name,
     actionCommand = actionItem?.action.command,
     actionIcon = actionItem?.action.icon,
@@ -3794,20 +3798,20 @@ var localEnvironmentActionControlsModule,
     xr();
     Ei();
     initThreadSidePanelTabRegistryChunk();
-    je();
-    Ye();
+    initKeyboardModifierState();
+    initButtonComponentPrimitives();
     mi();
     an();
     vi();
-    Ie();
+    initModalRegistrySignal();
     Gn();
-    ie();
+    initElectronPlatformContent();
     il();
-    le();
-    x();
+    initGitQueryKeyHelpers();
+    initOsInfoQuery();
     Dt();
     _t();
-    ue();
+    initSettingsGearIcon();
     Xi();
     initLocalEnvironmentDisplayNameHelpers();
     initLocalEnvironmentSelectorContentChunk();
@@ -4057,7 +4061,7 @@ var threadSummaryPanelSectionModule,
   initThreadSummaryPanelSectionChunk = once(() => {
     threadSummaryPanelSectionModule = getChunkModuleExports();
     Ut();
-    bt();
+    initMotionRuntime();
     isFunctionModule = toEsModule(un(), 1);
     initScopeRuntime();
     threadSummaryPanelSectionReactRuntime = toEsModule(loadReactModule(), 1);
@@ -4761,7 +4765,7 @@ var pullRequestStatusDetailRowsModule,
   initPullRequestStatusDetailRowsChunk = once(() => {
     pullRequestStatusDetailRowsModule = getChunkModuleExports();
     Jn();
-    ke();
+    initExternalUrlHelpers();
     tn();
     initPullRequestCheckStatusIconChunk();
     ql();
@@ -5068,7 +5072,7 @@ var pullRequestSummaryRowsModule,
     pullRequestSummaryRowsModule = getChunkModuleExports();
     initScopeRuntime();
     Jn();
-    nt();
+    initConversationStateSelectors();
     da();
     en();
     Oo();
@@ -5908,7 +5912,7 @@ var pullRequestDescriptionSectionModule,
     initAppScope();
     Er();
     initVscodeApiBridge();
-    githubUserSearchQuery = rn(ut, "gh-user-search", (queryParams) => ({
+    githubUserSearchQuery = rn(appScope, "gh-user-search", (queryParams) => ({
       enabled: queryParams.query.length > 0,
       params: queryParams,
       retry: false,
@@ -5964,7 +5968,7 @@ var uniqByModule,
   });
 function RequestPullRequestReviewersButton(props) {
   let { hostId, item, pendingReviewerLogins, repo } = props,
-    scope = useScope(ut),
+    scope = useScope(appScope),
     intl = ur(),
     [open, setOpen] = requestPullRequestReviewersReactRuntime.useState(false),
     [query, setQuery] = requestPullRequestReviewersReactRuntime.useState(""),
@@ -6261,7 +6265,7 @@ var requestPullRequestReviewersModule,
     initScopeRuntime();
     requestPullRequestReviewersReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
-    Ye();
+    initButtonComponentPrimitives();
     Hn();
     Nu();
     initSpinnerComponent();
@@ -6645,7 +6649,7 @@ var pullRequestOverviewSectionModule,
     initSpinnerComponent();
     Gn();
     Nl();
-    y();
+    initGitBranchIcon();
     Eu();
     initPullRequestReviewerPlaceholderIconChunk();
     $u();
@@ -6944,7 +6948,7 @@ var pullRequestSidePanelTabModule,
   initPullRequestSidePanelTabChunk = once(() => {
     pullRequestSidePanelTabModule = getChunkModuleExports();
     Jn();
-    ke();
+    initExternalUrlHelpers();
     Xr();
     Er();
     initVscodeApiBridge();
@@ -7188,7 +7192,7 @@ var pullRequestSummaryRowModule,
     Nt();
     Do();
     Yo();
-    ke();
+    initExternalUrlHelpers();
     Xr();
     initPullRequestAnalyticsChunk();
     Js();
@@ -7500,7 +7504,7 @@ var localConversationGitSummaryModule,
     localConversationGitSummaryModule = getChunkModuleExports();
     initScopeRuntime();
     Jn();
-    nt();
+    initConversationStateSelectors();
     initSpinnerComponent();
     jc();
     vr();
@@ -7529,8 +7533,8 @@ function ThreadSummaryEnvironmentModeControls(props) {
     threadHostId =
       useScopedValue(conversationHostIdSignal, conversationId) ?? "local",
     conversationCwd = useScopedValue(conversationCwdSignal, conversationId),
-    remoteHostConfig = We(conversationRemoteState.hostId),
-    isWorktreeConversation = Ar(conversationCwd, remoteHostConfig);
+    remoteCodexHome = getHostCodexHome(conversationRemoteState.hostId),
+    isWorktreeConversation = Ar(conversationCwd, remoteCodexHome);
   let isThreadHandoffSummaryEnabled = Vr("1115442235"),
     conversationTitle = useScopedValue(
       conversationDisplayTitleSignal,
@@ -7597,14 +7601,14 @@ var threadSummaryEnvironmentModeControlsModule,
     threadSummaryEnvironmentModeControlsModule = getChunkModuleExports();
     initScopeRuntime();
     gn();
-    nt();
+    initConversationStateSelectors();
     ca();
-    ie();
+    initElectronPlatformContent();
     initCloudEnvironmentDropdownChunk();
     cs();
     initThreadHandoffHelpersChunk();
     initLocalRemoteDropdownChunk();
-    Re();
+    initHostCodexHomeQuery();
     Fi();
     fa();
     initComposerScope();
@@ -7634,7 +7638,9 @@ function ThreadSummaryEnvironmentSection(props) {
     createPullRequestActionRef =
       threadSummaryEnvironmentSectionReactRuntime.useRef(null),
     workspaceGitRoot =
-      workspaceBrowserRoot == null ? null : qe(workspaceBrowserRoot);
+      workspaceBrowserRoot == null
+        ? null
+        : normalizeWorkspaceBrowserRoot(workspaceBrowserRoot);
   let emptyBranchControlRow = isCodexWorktree ? (
     <SummaryPanelRow
       icon={threadSummaryEnvironmentSectionJsxRuntime.jsx(sr, {
@@ -7817,7 +7823,7 @@ var threadSummaryEnvironmentSectionModule,
     Jn();
     initSpinnerComponent();
     Nl();
-    y();
+    initGitBranchIcon();
     Si();
     Lu();
     Ds();
@@ -8120,7 +8126,7 @@ var threadSummarySourceRowsModule,
     Jn();
     Or();
     Zr();
-    ke();
+    initExternalUrlHelpers();
     Gn();
     nn();
     Gr();
@@ -8246,9 +8252,9 @@ var threadSummaryPanelReactRuntime,
   initThreadSummaryPanelChrome = once(() => {
     threadSummaryPanelReactRuntime = getChunkModuleExports();
     Ut();
-    bt();
+    initMotionRuntime();
     initScopeRuntime();
-    Ye();
+    initButtonComponentPrimitives();
     Gn();
     initBackgroundTerminalIconChunk();
     initReducedMotionPreference();
@@ -8387,7 +8393,7 @@ function ThreadSummaryPanelSections(props) {
     } = props,
     scope = useScope(localConversationRouteScope),
     intl = ur(),
-    isElectronRuntime = St() === sn,
+    isElectronRuntime = useConversationDetailMode() === sn,
     hostConfig = useSignalValue(hostConfigSignal),
     conversationId =
       scope.value.routeKind === "local-thread"
@@ -8432,7 +8438,9 @@ function ThreadSummaryPanelSections(props) {
       conversationId,
     ),
     currentWorkspaceRoot = useSignalValue(currentWorkspaceRootSignal),
-    { data: threadWorkspaceRootHints } = Te(Xt.THREAD_WORKSPACE_ROOT_HINTS),
+    { data: threadWorkspaceRootHints } = useGlobalStateQuery(
+      Xt.THREAD_WORKSPACE_ROOT_HINTS,
+    ),
     isProjectlessConversation = conversationMode === "projectless",
     threadWorkspaceRootHint =
       conversationId == null
@@ -8951,18 +8959,18 @@ var localConversationSummaryPanelModule,
     initScopeRuntime();
     gn();
     Jn();
-    nt();
+    initConversationStateSelectors();
     El();
     Wl();
     Nt();
     initGlobalCommandHandlers();
     Yi();
-    ke();
+    initExternalUrlHelpers();
     wn();
-    ie();
+    initElectronPlatformContent();
     dn();
     Cl();
-    U();
+    initGlobalStateQueryRuntime();
     wc();
     Sc();
     pt();
@@ -9051,7 +9059,7 @@ var PINNED_SUMMARY_PANEL_GAP_PX,
       displayMode: "overlay",
       isPopoverOpen: false,
     };
-    pinnedSummaryPanelState = bi(ut, DEFAULT_PINNED_SUMMARY_PANEL_STATE);
+    pinnedSummaryPanelState = bi(appScope, DEFAULT_PINNED_SUMMARY_PANEL_STATE);
   });
 interface PinnedSummaryPanelState {
   displayMode: "overlay" | "shift" | "gutter";
@@ -9069,7 +9077,7 @@ export function usePinnedSummaryPanelLayout(
   let leftPanelSignal = useSignalValue(leftPanelStateSignal),
     rightPanelSignal = useSignalValue(rightPanelStateSignal),
     layoutContext = localConversationArtifactsReactRuntime.useContext(so),
-    fallbackTargetWidthSignal = Xe(0),
+    fallbackTargetWidthSignal = createMotionSignal(0),
     mainContentTargetWidthSignal =
       layoutContext?.mainContentTargetWidth ?? fallbackTargetWidthSignal,
     updatePinnedPanelLayout;
@@ -9121,14 +9129,14 @@ function usePinnedSummaryPanelDisplay(conversationId: unknown) {
     pinnedPanelState = useSignalValue(pinnedSummaryPanelState),
     animationsDisabled = useSignalValue(reducedMotionPreferenceSignal),
     layoutContext = localConversationArtifactsReactRuntime.useContext(so),
-    fallbackTargetWidthSignal = Xe(0),
+    fallbackTargetWidthSignal = createMotionSignal(0),
     mainContentTargetWidthSignal =
       layoutContext?.mainContentTargetWidth ?? fallbackTargetWidthSignal,
     initialContentShift = getTargetPinnedSummaryPanelContentShift({
       isPinned,
       mainContentTargetWidth: mainContentTargetWidthSignal.get(),
     });
-  let contentShiftSignal = Xe(initialContentShift),
+  let contentShiftSignal = createMotionSignal(initialContentShift),
     contentShiftAnimationRef =
       localConversationArtifactsReactRuntime.useRef(null),
     currentContentShift = contentShiftSignal.get();
@@ -9261,7 +9269,7 @@ var localConversationArtifactsModule,
   localConversationArtifactsReactRuntime,
   initLocalConversationArtifacts = once(() => {
     localConversationArtifactsModule = getChunkModuleExports();
-    bt();
+    initMotionRuntime();
     initScopeRuntime();
     localConversationArtifactsReactRuntime = toEsModule(loadReactModule(), 1);
     ua();
@@ -9434,7 +9442,7 @@ function getOutputArtifactKey(artifact) {
   switch (artifact.type) {
     case "file":
     case "generated-image":
-      return `path:${et(artifact.path)}`;
+      return `path:${normalizeArtifactPathKey(artifact.path)}`;
     case "google-drive":
       return `google-drive:${artifact.url}`;
     case "appgen-app":
@@ -9442,7 +9450,7 @@ function getOutputArtifactKey(artifact) {
     case "website":
       return yn(artifact.target)
         ? `url:${ii(artifact.target)}`
-        : `path:${et(artifact.target)}`;
+        : `path:${normalizeArtifactPathKey(artifact.target)}`;
   }
 }
 var initOutputArtifactCollectorDependencies = once(() => {
@@ -9450,9 +9458,9 @@ var initOutputArtifactCollectorDependencies = once(() => {
     dt();
     Bt();
     lr();
-    Ge();
+    initConversationArtifactRuntime();
     Jt();
-    Se();
+    initNormalizedPathUtilities();
     di();
   }),
   historicalOutputArtifactsSignal,
@@ -9461,12 +9469,12 @@ var initOutputArtifactCollectorDependencies = once(() => {
   localConversationSummaryArtifactsSignal,
   initLocalConversationArtifactSignals = once(() => {
     initScopeRuntime();
-    nt();
+    initConversationStateSelectors();
     initAppScope();
     initStatsigGateSignals();
     initOutputArtifactCollectorDependencies();
     historicalOutputArtifactsSignal = Rn(
-      ut,
+      appScope,
       ({ conversationId, includeGeneratedImages }, { get }) => {
         get(conversationResumeStateSignal, conversationId);
         get(jt, conversationId);
@@ -9483,7 +9491,7 @@ var initOutputArtifactCollectorDependencies = once(() => {
       },
     );
     mergedOutputArtifactsSignal = Rn(
-      ut,
+      appScope,
       ({ conversationId, includeGeneratedImages }, { get }) => {
         let currentTurn = get($t, conversationId);
         return mergeUniqueOutputArtifacts([
@@ -9503,14 +9511,16 @@ var initOutputArtifactCollectorDependencies = once(() => {
         ]);
       },
     );
-    localConversationOutputArtifactsSignal = Rn(ut, (conversationId, { get }) =>
-      get(mergedOutputArtifactsSignal, {
-        conversationId,
-        includeGeneratedImages: false,
-      }),
+    localConversationOutputArtifactsSignal = Rn(
+      appScope,
+      (conversationId, { get }) =>
+        get(mergedOutputArtifactsSignal, {
+          conversationId,
+          includeGeneratedImages: false,
+        }),
     );
     localConversationSummaryArtifactsSignal = Rn(
-      ut,
+      appScope,
       (conversationId, { get }) =>
         get(mergedOutputArtifactsSignal, {
           conversationId,
@@ -9837,7 +9847,7 @@ var localConversationSummaryPanelSignalsModule,
   initLocalConversationSummaryPanelSignals = once(() => {
     localConversationSummaryPanelSignalsModule = getChunkModuleExports();
     initScopeRuntime();
-    nt();
+    initConversationStateSelectors();
     Nt();
     Ka();
     yo();
@@ -9845,11 +9855,11 @@ var localConversationSummaryPanelSignalsModule,
     Ao();
     Qi();
     fa();
-    he();
-    Ct();
+    initConnectorAppsListQuery();
+    initConfigQueryRuntime();
     initRouteScope();
     Ki();
-    Qe();
+    initConversationRouteSourceHelpers();
     initLocalConversationArtifactSignals();
     Pc();
     initRestoredProcessRowsCollector();
@@ -9885,7 +9895,7 @@ function ConnectedLocalWorktreeRestoreBanner(props) {
 }
 function WorktreeRestoreBanner(props) {
   let { conversationId, cwd, threadHostId } = props,
-    scope = useScope(ut),
+    scope = useScope(appScope),
     host = useHostConfigById(threadHostId),
     hostKey = getHostConfigKey(host);
   let worktreeQueryKey = hostKey,
@@ -9906,7 +9916,7 @@ function WorktreeRestoreBanner(props) {
           hostId: threadHostId,
         }),
     };
-  let checkWorktreeMutation = Pe(checkWorktreeMutationOptions),
+  let checkWorktreeMutation = useMutation(checkWorktreeMutationOptions),
     handleRestoreSuccess = () => {
       gr.info("[worktree-restore] successfully restored");
       cwd != null &&
@@ -10091,19 +10101,19 @@ var worktreeRestoreBannerModule,
   worktreeRestoreBannerJsxRuntime,
   initWorktreeRestoreBannerChunk = once(() => {
     worktreeRestoreBannerModule = getChunkModuleExports();
-    m();
+    initReactQueryRuntime();
     initScopeRuntime();
     gn();
     Jn();
-    nt();
+    initConversationStateSelectors();
     vs();
-    Ye();
+    initButtonComponentPrimitives();
     wn();
-    Ve();
+    initGitBranchQueryRuntime();
     fn();
     Fn();
     initAppScope();
-    ne();
+    initLocalHostConstants();
     Ht();
     initEnvironmentTerminalController();
     Mr();
@@ -10286,10 +10296,10 @@ var olderTurnForkDialogModule,
   initOlderTurnForkDialogChunk = once(() => {
     olderTurnForkDialogModule = getChunkModuleExports();
     Jn();
-    Ye();
+    initButtonComponentPrimitives();
     mi();
     initDialogLayoutComponents();
-    y();
+    initGitBranchIcon();
     Ni();
     Ra();
     Sa();
@@ -10304,9 +10314,9 @@ function ForkFromOlderTurnDialogController({
   onForkIntoLocal,
   turnId,
 }) {
-  let scope = useScope(ut),
+  let scope = useScope(appScope),
     intl = ur(),
-    navigate = rt(),
+    navigate = useNavigate(),
     [isSubmitting, setIsSubmitting] =
       olderTurnForkDialogReactRuntime.useState(false),
     isWorktreeThread = isRecentLocalEnvironmentAction(
@@ -10459,7 +10469,7 @@ async function renderLocalConversationMarkdownForTurns({
   });
 }
 var initConversationMarkdownRenderer = once(() => {
-  Ge();
+  initConversationArtifactRuntime();
   Qn();
 });
 interface BackgroundAgentDisplayNameOptions {
@@ -10594,7 +10604,7 @@ function createLocalConversationSearchSource({
         ? []
         : conversationState.turns
             .map((item, index) =>
-              ze(item, [], {
+              isRenderableConversationTurn(item, [], {
                 isBackgroundSubagentsEnabled: getIsBackgroundSubagentsEnabled(),
               })
                 ? {
@@ -10638,7 +10648,7 @@ function extractConversationSearchUnits(items) {
         index !== latestAssistantMessageIndex
       )
         return;
-      let assistantText = Tt(item.content);
+      let assistantText = normalizeMarkdownPlainText(item.content);
       assistantText.length !== 0 &&
         units.push({
           unitId: `${index}:assistant`,
@@ -10653,7 +10663,7 @@ var findLastIndexModule,
     findLastIndexModule = toEsModule(hn(), 1);
     initConversationSearchHelpers();
     hi();
-    Ge();
+    initConversationArtifactRuntime();
   });
 function buildLocalConversationVisibleTurnEntries({
   conversationRequests,
@@ -10714,7 +10724,7 @@ function buildLocalConversationVisibleTurnEntries({
               EMPTY_CONVERSATION_REQUESTS,
             )
           : EMPTY_CONVERSATION_REQUESTS;
-    ze(turn, requests, {
+    isRenderableConversationTurn(turn, requests, {
       isBackgroundSubagentsEnabled,
     }) &&
       ((turnId != null &&
@@ -10887,11 +10897,11 @@ var findLastModule,
   initLocalConversationTurnSelectors = once(() => {
     findLastModule = toEsModule(gi(), 1);
     initScopeRuntime();
-    nt();
+    initConversationStateSelectors();
     initAppScope();
     initStatsigGateSignals();
     initDeepEqualModule();
-    Ge();
+    initConversationArtifactRuntime();
     initConversationSearchUnitExtractor();
     EMPTY_CONVERSATION_REQUESTS = [];
     EMPTY_CONVERSATION_TURNS = [];
@@ -10904,7 +10914,7 @@ var findLastModule,
       visibleTurnEntries: [],
     };
     localConversationVisibleTurnEntriesSignal = Rn(
-      ut,
+      appScope,
       ({ conversationId, isBackgroundSubagentsEnabled }, { get }) => {
         let hasConversation =
             get(hasConversationSignal, conversationId) ?? false,
@@ -10953,7 +10963,10 @@ var findLastModule,
   initThreadScrollStateSignal = once(() => {
     initScopeRuntime();
     initAppScope();
-    threadScrollStateSignal = createScopedSignal(ut, (_conversationId) => null);
+    threadScrollStateSignal = createScopedSignal(
+      appScope,
+      (_conversationId) => null,
+    );
   });
 function createLatestTurnScrollState({ followMode = "static" } = {}) {
   return {
@@ -11195,7 +11208,7 @@ var localConversationTurnRowModule,
     initScopeRuntime();
     localConversationTurnRowReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
-    Ye();
+    initButtonComponentPrimitives();
     Lo();
     initRouteScope();
     _n();
@@ -12232,7 +12245,7 @@ function measureTurnBottomViewportOverflow({
 }) {
   return scrollElement == null || turnElement == null
     ? 0
-    : Je(
+    : scaleCssPxByWindowZoom(
         turnElement.getBoundingClientRect().bottom -
           scrollElement.getBoundingClientRect().bottom,
         windowZoom,
@@ -12250,8 +12263,11 @@ function getDistanceFromBottomForTargetElement({
   if (turnIndex == null) return null;
   let turnRect = turnElement.getBoundingClientRect(),
     targetRect = targetElement.getBoundingClientRect(),
-    targetOffsetFromTurnTop = Je(targetRect.top - turnRect.top, windowZoom),
-    targetHeight = Je(targetRect.height, windowZoom);
+    targetOffsetFromTurnTop = scaleCssPxByWindowZoom(
+      targetRect.top - turnRect.top,
+      windowZoom,
+    ),
+    targetHeight = scaleCssPxByWindowZoom(targetRect.height, windowZoom);
   return Math.max(
     0,
     (layout.bottomOffsetsPx[turnIndex] ?? 0) +
@@ -12301,7 +12317,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
   onVirtualizedTurnListRestoreStateChange,
   synchronouslyMeasureLatestTurnUpdates = false,
 }) {
-  let scope = useScope(ut),
+  let scope = useScope(appScope),
     windowZoom = nr(),
     latestEntry = entries.at(-1),
     latestTurnKey = latestEntry?.turnKey ?? null,
@@ -12315,8 +12331,8 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       savedScrollState?.latestTurn?.turnKey === latestTurnKey
         ? savedScrollState.latestTurn
         : null,
-    responseSpacerHeightPx = Xe(0),
-    latestTurnOffsetY = Xe(0),
+    responseSpacerHeightPx = createMotionSignal(0),
+    latestTurnOffsetY = createMotionSignal(0),
     scrollController = ad(),
     scrollStateRef = autoFollowTurnListReactRuntime.useRef(
       createLatestTurnScrollState({
@@ -12446,7 +12462,12 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       }
       let scrollElement = scrollController.getScrollElement();
       if (scrollElement != null) {
-        if (Math.abs(Le(scrollElement) - initialScrollOffsetPx) <= 24) {
+        if (
+          Math.abs(
+            getScrollDistanceFromBottomPx(scrollElement) -
+              initialScrollOffsetPx,
+          ) <= 24
+        ) {
           hasRestoredInitialScrollRef.current = true;
           return;
         }
@@ -12454,8 +12475,9 @@ function LocalConversationAutoFollowVirtualizedTurnList({
           initialScrollOffsetPx,
           "instant",
         );
-        Math.abs(Le(scrollElement) - initialScrollOffsetPx) <= 24 &&
-          (hasRestoredInitialScrollRef.current = true);
+        Math.abs(
+          getScrollDistanceFromBottomPx(scrollElement) - initialScrollOffsetPx,
+        ) <= 24 && (hasRestoredInitialScrollRef.current = true);
       }
     }),
     handleRestoreStateChange = useStableCallback((restoreState) => {
@@ -12472,7 +12494,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
             distanceFromBottomPx:
               scrollElement == null
                 ? scrollController.getLastScrollDistanceFromBottomPx()
-                : Le(scrollElement),
+                : getScrollDistanceFromBottomPx(scrollElement),
             latestTurnPhase: latestTurnPhaseRef.current,
             responseSpacerHeightPx: responseSpacerHeightPx.get(),
             scrollPaddingBottomPx:
@@ -12562,7 +12584,9 @@ function LocalConversationAutoFollowVirtualizedTurnList({
         if (currentSpacerHeightPx - nextSpacerHeightPx <= 24) return;
         let scrollElement = scrollController.getScrollElement(),
           currentDistanceFromBottomPx =
-            scrollElement == null ? 0 : Le(scrollElement),
+            scrollElement == null
+              ? 0
+              : getScrollDistanceFromBottomPx(scrollElement),
           spacerHeightDeltaPx = nextSpacerHeightPx - currentSpacerHeightPx;
         latestTurnOffsetY.stop();
         latestTurnOffsetY.set(0);
@@ -12659,7 +12683,8 @@ function LocalConversationAutoFollowVirtualizedTurnList({
         shrinkResponseSpacerToDistance(
           Math.min(
             intersectionHeightPx,
-            responseSpacerHeightPx.get() - Le(scrollElement),
+            responseSpacerHeightPx.get() -
+              getScrollDistanceFromBottomPx(scrollElement),
           ),
         );
       },
@@ -12714,7 +12739,8 @@ function LocalConversationAutoFollowVirtualizedTurnList({
     responseSpacerHeightPx.stop();
     responseSpacerHeightPx.set(nextSpacerHeightPx);
     nextSpacerHeightPx <= 24 && onResponseSpacerStateChange(null);
-    let currentDistanceFromBottomPx = Le(scrollElement),
+    let currentDistanceFromBottomPx =
+        getScrollDistanceFromBottomPx(scrollElement),
       nextDistanceFromBottomPx = Math.max(
         0,
         currentDistanceFromBottomPx + spacerHeightDeltaPx,
@@ -13050,7 +13076,8 @@ function adjustScrollForLatestTurnHeightDelta({
   scrollController,
   scrollElement,
 }) {
-  let nextDistanceFromBottomPx = Le(scrollElement) + distanceDeltaPx;
+  let nextDistanceFromBottomPx =
+    getScrollDistanceFromBottomPx(scrollElement) + distanceDeltaPx;
   allowResponseSpacerGrowth &&
     nextDistanceFromBottomPx < 0 &&
     responseSpacerHeightPx.set(
@@ -13069,7 +13096,7 @@ function measureLatestTurnFollowContentOverflow({
 }) {
   return scrollElement == null || turnElement == null
     ? fallbackBottomViewportOverflowPx
-    : Je(
+    : scaleCssPxByWindowZoom(
         turnElement.getBoundingClientRect().bottom -
           scrollElement.getBoundingClientRect().bottom,
         windowZoom,
@@ -13163,14 +13190,14 @@ var autoFollowVirtualizedTurnListModule,
   LatestTurnMotionContext,
   initAutoFollowVirtualizedTurnListChunk = once(() => {
     autoFollowVirtualizedTurnListModule = getChunkModuleExports();
-    bt();
+    initMotionRuntime();
     initScopeRuntime();
     autoFollowTurnListReactRuntime = toEsModule(loadReactModule(), 1);
     initWindowZoomContext();
     initAppScope();
     nd();
     id();
-    He();
+    initReverseScrollUtilities();
     _n();
     initThreadScrollStateSignal();
     initLocalConversationTurnRowDependencies();
@@ -13435,7 +13462,7 @@ var turnListEntryDeepEqualModule,
     toEsModule(yr(), 1);
     turnListEntryDeepEqualModule = toEsModule(loadIsEqualModule(), 1);
     qs();
-    Ge();
+    initConversationArtifactRuntime();
     Jt();
     Fc();
   });
@@ -13562,7 +13589,7 @@ function buildThreadFindPreviewOutputs({
         break;
       case "file":
         addPreviewOutput({
-          label: wt(resource.path),
+          label: getPathBasename(resource.path),
           type: "file",
         });
         break;
@@ -13581,14 +13608,14 @@ function buildThreadFindPreviewOutputs({
     }
   for (let editedFilePath of turn.artifacts.editedFilePaths)
     addPreviewOutput({
-      label: wt(editedFilePath),
+      label: getPathBasename(editedFilePath),
       type: "file",
     });
   for (let generatedImageSource of generatedImageSources)
     addPreviewOutput(
       Ft(generatedImageSource)
         ? {
-            label: wt(generatedImageSource),
+            label: getPathBasename(generatedImageSource),
             type: "file",
           }
         : {
@@ -13630,7 +13657,7 @@ var EMPTY_THREAD_FIND_ITEMS,
     la();
     zn();
     di();
-    Ge();
+    initConversationArtifactRuntime();
     Jt();
     EMPTY_THREAD_FIND_ITEMS = [];
     EMPTY_THREAD_FIND_PREVIEW_OUTPUTS = [];
@@ -13668,7 +13695,7 @@ async function openBackgroundAgentThreadTab(
 }
 var backgroundAgentThreadTabsJsxRuntime,
   initBackgroundAgentThreadTabs = once(() => {
-    nt();
+    initConversationStateSelectors();
     pn();
     Yi();
     rs();
@@ -13769,13 +13796,13 @@ var markConversationReadEffectModule,
     markConversationReadEffectModule = getChunkModuleExports();
     initScopeRuntime();
     _S = toEsModule(loadReactModule(), 1);
-    nt();
+    initConversationStateSelectors();
     pn();
     bo();
     _n();
   });
 function useResumeLocalConversation(conversationId) {
-  let scope = useScope(ut),
+  let scope = useScope(appScope),
     intl = ur(),
     { activeMode } = Us(conversationId),
     { data } = useSignalValue(workspaceRootsSignal),
@@ -13989,7 +14016,7 @@ var localConversationThreadRouteReactRuntime,
     gn();
     localConversationThreadRouteReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
-    nt();
+    initConversationStateSelectors();
     pn();
     Ha();
     wn();
@@ -14060,7 +14087,7 @@ function LocalConversationSideChatThread(props) {
     hasConversation = useScopedValue(hasConversationSignal, conversationId),
     isExpiredSideChat = useScopedValue(expiredSideChatSignal, conversationId),
     hostId = useScopedValue(conversationHostIdSignal, conversationId),
-    sourceConversationId = ot(scope.value),
+    sourceConversationId = getLocalThreadConversationIdFromRoute(scope.value),
     isBackgroundSubagentsEnabled = ns();
   if (!hasConversation)
     return (
@@ -14222,7 +14249,7 @@ function LocalConversationMainThread(props) {
     threadRouteTarget = createLocalConversationRouteTarget(
       conversationId,
       "main",
-      ot(scope.value),
+      getLocalThreadConversationIdFromRoute(scope.value),
     );
   let threadFrame = (
     <LocalConversationThreadFrame
@@ -14256,7 +14283,7 @@ export function LocalConversationSummaryThread(
     threadRouteTarget = createLocalConversationRouteTarget(
       conversationId,
       "main",
-      ot(scope.value),
+      getLocalThreadConversationIdFromRoute(scope.value),
     );
   let threadFrame = (
     <LocalConversationThreadFrame
@@ -14295,11 +14322,13 @@ function LocalConversationThreadRoute(props) {
     isBackgroundSubagentsEnabled = ns(),
     { data } = useSignalValue(launcherHotkeyStateQuery),
     hasConfiguredLauncherHotkey = data == null || data.configuredHotkey != null,
-    launcherFallbackPath = it(hasConfiguredLauncherHotkey),
+    launcherFallbackPath = getHotkeyWindowFallbackPath(
+      hasConfiguredLauncherHotkey,
+    ),
     hasConversation = useScopedValue(hasConversationSignal, conversationId),
     hostId = useScopedValue(conversationHostIdSignal, conversationId);
   useScopedValue(conversationCwdSignal, conversationId);
-  useScopedValue(Et, conversationId);
+  useScopedValue(threadSourceSignal, conversationId);
   let resolvedAppsQueryOptions = {
     enabled: false,
     hostId,
@@ -14309,7 +14338,7 @@ function LocalConversationThreadRoute(props) {
     hideThreadContent = shouldUseFullWidthRightPanelForRoute({
       conversationId,
       isRightPanelFullWidth,
-      routeConversationId: ot(scope.value),
+      routeConversationId: getLocalThreadConversationIdFromRoute(scope.value),
     });
   let summaryPanelDisplay = usePinnedSummaryPanelDisplay(conversationId),
     summaryPanelModel = useLocalConversationSummaryPanelModel(
@@ -14326,7 +14355,7 @@ function LocalConversationThreadRoute(props) {
       ? subagentParentThreadId
       : null,
     intl = ur(),
-    navigate = rt(),
+    navigate = useNavigate(),
     hasSeenConversationRef = localConversationThreadReactRuntime.useRef(false),
     lastSubagentParentThreadIdRef =
       localConversationThreadReactRuntime.useRef(null),
@@ -14509,7 +14538,7 @@ function SummaryPanelErrorFallback(props) {
 }
 function ChromeExtensionConversationHeader(props) {
   let { conversationId } = props,
-    scope = useScope(ut),
+    scope = useScope(appScope),
     isBackgroundSubagentsEnabled = ns(),
     parentConversationId = useScopedValue(
       subagentParentThreadIdSignal,
@@ -14530,7 +14559,7 @@ function ChromeExtensionConversationHeader(props) {
       projectlessOutputDirectorySignal,
       conversationId,
     ),
-    navigate = rt(),
+    navigate = useNavigate(),
     getConversationMarkdown = () => {
       let { visibleTurnEntries } = scope.get(
         localConversationVisibleTurnEntriesSignal,
@@ -14611,7 +14640,9 @@ function shouldShowEmptyResumingThreadState({
   );
 }
 function getConversationNavigationPath(conversationId) {
-  return Fs() ? Ke(conversationId) : getLocalConversationPath(conversationId);
+  return Fs()
+    ? getHotkeyWindowThreadPath(conversationId)
+    : getLocalConversationPath(conversationId);
 }
 function LocalConversationThreadFrame(props) {
   let {
@@ -14982,7 +15013,7 @@ function LocalConversationComposerFooter({
       localWorkspaceMaterializationSignal,
       conversationId,
     );
-  useScopedValue(b, conversationId);
+  useScopedValue(needsResumeActiveThreadSignal, conversationId);
   useScopedValue(modelProviderSignal, conversationId);
   let subagentResponseInProgress =
       useScopedValue(subagentResponseInProgressSignal, conversationId) ?? false,
@@ -15031,7 +15062,8 @@ function LocalConversationComposerFooter({
             )}
         {localConversationThreadJsxRuntime.jsx(hl, {
           browserConversationId:
-            ot(scope.value) === conversationId
+            getLocalThreadConversationIdFromRoute(scope.value) ===
+            conversationId
               ? (Ot(scope) ?? undefined)
               : undefined,
           isResponseInProgress,
@@ -15112,7 +15144,7 @@ function LocalConversationThreadContent({
   isScrollToTopEnabled,
 }) {
   let scope = useScope(localConversationRouteScope),
-    navigate = rt(),
+    navigate = useNavigate(),
     isAppgenEndCardEnabled = Vo(),
     hasConversation = useScopedValue(hasConversationSignal, conversationId),
     modelProvider = useScopedValue(modelProviderSignal, conversationId),
@@ -15324,7 +15356,7 @@ function LocalConversationThreadContent({
         return;
       }
       let turnIdForFork = turnEntry.turnId;
-      st(scope, ForkFromOlderTurnDialogController, {
+      openScopedModal(scope, ForkFromOlderTurnDialogController, {
         conversationCwd: cwd,
         conversationId,
         conversationLatestCollaborationMode: collaborationMode,
@@ -15557,7 +15589,9 @@ function LocalConversationThreadContent({
             conversationSource,
             diffSource,
             orchestrationId: conversationSource.contextId,
-            isDefault: ot(scope.value) === conversationId,
+            isDefault:
+              getLocalThreadConversationIdFromRoute(scope.value) ===
+              conversationId,
           },
         )}
         {localConversationThreadJsxRuntime.jsxs(motion.div, {
@@ -15638,7 +15672,7 @@ var localConversationThreadModule,
   subagentResponseInProgressSignal;
 export const initLocalConversationThreadChunk = once(() => {
   localConversationThreadModule = getChunkModuleExports();
-  bt();
+  initMotionRuntime();
   xt();
   toEsModule(gi(), 1);
   initScopeRuntime();
@@ -15648,7 +15682,7 @@ export const initLocalConversationThreadChunk = once(() => {
   xr();
   gc();
   on();
-  nt();
+  initConversationStateSelectors();
   pn();
   cr();
   Ha();
@@ -15657,15 +15691,15 @@ export const initLocalConversationThreadChunk = once(() => {
   So();
   ro();
   vs();
-  Ye();
+  initButtonComponentPrimitives();
   Lo();
   rc();
   Po();
-  Ie();
+  initModalRegistrySignal();
   Rl();
   wn();
   Wc();
-  ie();
+  initElectronPlatformContent();
   fl();
   ul();
   Yr();
@@ -15680,7 +15714,7 @@ export const initLocalConversationThreadChunk = once(() => {
   Vc();
   Es();
   initThreadSwitchTimingTrackerChunk();
-  he();
+  initConnectorAppsListQuery();
   initThreadPipHostSelectors();
   initThreadPipHostAttributes();
   initAppScope();
@@ -15688,7 +15722,7 @@ export const initLocalConversationThreadChunk = once(() => {
   initRouteScope();
   Ht();
   initStatsigFeatureGateHooks();
-  Qe();
+  initConversationRouteSourceHelpers();
   initThreadLayoutChunk();
   ho();
   id();
@@ -15739,8 +15773,8 @@ export const initLocalConversationThreadChunk = once(() => {
   localConversationThreadJsxRuntime = getJsxRuntime();
   EMPTY_THREAD_TURNS = [];
   EMPTY_RESOLVED_APPS = [];
-  collapsedTurnsByConversationSignal = Ze({});
-  subagentResponseInProgressSignal = Rn(ut, (conversationId, { get }) => {
+  collapsedTurnsByConversationSignal = createAtomSignal({});
+  subagentResponseInProgressSignal = Rn(appScope, (conversationId, { get }) => {
     let parentConversationId = get(
       subagentParentThreadIdSignal,
       conversationId,
