@@ -8162,18 +8162,18 @@
     "right-panel-composer-overlay-scroll-reserve-Bv3fhxvQ": {
       "restored": "composer/right-panel-composer-overlay-scroll-reserve.ts",
       "exports": {
-        "a": "rightPanelComposerOverlayScrollReserveA",
-        "c": "rightPanelComposerOverlayScrollReserveC",
-        "d": "rightPanelComposerOverlayScrollReserveD",
-        "f": "rightPanelComposerOverlayScrollReserveF",
-        "i": "rightPanelComposerOverlayScrollReserveI",
-        "l": "rightPanelComposerOverlayScrollReserveL",
-        "n": "rightPanelComposerOverlayScrollReserveN",
-        "o": "rightPanelComposerOverlayScrollReserveO",
-        "r": "rightPanelComposerOverlayScrollReserveR",
-        "s": "rightPanelComposerOverlayScrollReserveS",
-        "t": "rightPanelComposerOverlayScrollReserveT",
-        "u": "rightPanelComposerOverlayScrollReserveU"
+        "a": "completeOverlayVisibilityTransition",
+        "c": "overlayRightInsetSignal",
+        "d": "setAnimatedOverlayReserve",
+        "f": "toggleRightPanelComposerOverlay",
+        "i": "cancelOverlayReserveAnimation",
+        "l": "overlayVisibilityStateSignal",
+        "n": "overlayReserveCssVariable",
+        "o": "getOverlayReservePx",
+        "r": "overlayReserveCssValue",
+        "s": "overlayAnimatedReserveSignal",
+        "t": "overlayHeightCssVariable",
+        "u": "overlayVisibleSignal"
       },
       "status": "done"
     },
