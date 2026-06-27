@@ -73,7 +73,6 @@ import {
   Dp as conversationRemoteHostIdSignal,
   Ei as DialogHeader,
   Em as conversationTurnsSignal,
-  En as toAppFsUrl,
   Ep as conversationUnreadSignal,
   Es as browserSidebarEnabledSignal,
   Ev as useLocation,
@@ -131,7 +130,6 @@ import {
   O_ as initConversationRouteSourceHelpers,
   Oi as $e,
   Oj as normalizeArtifactPathKey,
-  On as initAppFsUrlHelpers,
   Op as initConversationStateSelectors,
   Ov as useNavigate,
   PB as useScopedValue,
@@ -250,7 +248,6 @@ import {
   mi as _r,
   mo as initGitHubIcon,
   mr as loadGroupByModule,
-  ms as resolveInlineableLocalImagePath,
   mv as xr,
   na as GlobeIcon,
   nm as projectlessOutputDirectorySignal,
@@ -568,8 +565,6 @@ import {
 import {
   H as xl,
   U as Sl,
-  _ as Cl,
-  v as wl,
 } from "../boundaries/current-ref/appgen-publication-terms-producer";
 import {
   _ as automationDataSignal,
@@ -801,6 +796,10 @@ import {
   initThreadSummaryBrowserUseModelChunk,
   useThreadSummaryBrowserUseSummaries,
 } from "./local-conversation-thread-parts/thread-summary-browser-use-model";
+import {
+  initThreadSummaryOutputOpenHandlersChunk,
+  useThreadSummaryOutputOpenHandlers,
+} from "./local-conversation-thread-parts/thread-summary-output-open-handlers";
 import { BackgroundTaskSectionTitle } from "./local-conversation-thread-parts/background-task-section-title";
 import {
   initReviewSearchHighlighter,
@@ -7368,60 +7367,15 @@ function ThreadSummaryPanelSections(props) {
     defaultMessage: "Plan",
     description: "Title for the plan section in the thread summary panel",
   });
-  let openOutputArtifact = (artifact) => {
-    let { icon, path, title } = artifact;
-    wl({
-      scope,
-      path,
-      cwd: activeCwd,
-      browserSidebarEnabled: isBrowserSidebarEnabled,
-      hostConfig,
-      hostId: hostConfig.id,
-      icon,
-      openFile: openFileMutation.mutate,
-      openInSidePanel: true,
-      title,
-    });
-  };
-  let onOpenOutputArtifact = useStableCallback(openOutputArtifact),
-    handleOpenOutput = (resource, browserEvent) => {
-      switch (resource.type) {
-        case "file":
-        case "generated-image":
-          onOpenOutputArtifact({
-            path: resource.path,
-          });
-          return;
-        case "google-drive":
-        case "appgen-app":
-          openInBrowserFromEvent({
-            event: browserEvent,
-            href: resource.url,
-            originHostId: hostConfig.id,
-            initiator: "mcp_app_resource",
-          });
-          return;
-        case "website":
-          if (isFileUrlLikeTarget(resource.target)) {
-            openInBrowserFromEvent({
-              event: browserEvent,
-              href: resource.target,
-              initiator: "mcp_app_resource",
-              originHostId: hostConfig.id,
-            });
-            return;
-          }
-          wl({
-            path: resource.target,
-            cwd: activeCwd,
-            browserSidebarEnabled: isBrowserSidebarEnabled,
-            hostConfig,
-            hostId: hostConfig.id,
-            openFile: openFileMutation.mutate,
-          });
-      }
-    };
-  let onOpenOutput = useStableCallback(handleOpenOutput),
+  let { getImagePreviewSrc, onOpenOutput } = useThreadSummaryOutputOpenHandlers(
+      {
+        browserSidebarEnabled: isBrowserSidebarEnabled,
+        cwd: activeCwd,
+        hostConfig,
+        openFile: openFileMutation.mutate,
+        scope,
+      },
+    ),
     handleOpenSideChat = (sideChat) => {
       ja(scope, "right", sideChat.tabId);
     };
@@ -7437,8 +7391,6 @@ function ThreadSummaryPanelSections(props) {
         (rightPanelTabsStore.activateTab(scope, tabId), ma(scope));
     };
   let onOpenSource = useStableCallback(handleOpenSource),
-    getImagePreviewSrc =
-      hostConfig.kind === "local" ? getGeneratedImagePreviewSrc : undefined,
     showStopBackgroundTerminalError = () => {
       scope
         .get(toastSignal)
@@ -7749,12 +7701,6 @@ function ThreadSummaryPanelSections(props) {
 function openThreadSummaryProcessManager() {
   dispatchGlobalCommand("openProcessManager", "thread_summary_process_manager");
 }
-function getGeneratedImagePreviewSrc(generatedImage) {
-  return getImagePreviewDisplayMode(generatedImage) !== "always" ||
-    resolveInlineableLocalImagePath(generatedImage) == null
-    ? null
-    : toAppFsUrl(generatedImage);
-}
 var localConversationSummaryPanelModule,
   isEqualModule,
   localConversationSummaryPanelJsxRuntime,
@@ -7774,7 +7720,6 @@ var localConversationSummaryPanelModule,
     initToastRuntime();
     initElectronPlatformContent();
     initFileTypeDetectionHelpers();
-    Cl();
     initGlobalStateQueryRuntime();
     wc();
     Sc();
@@ -7803,11 +7748,11 @@ var localConversationSummaryPanelModule,
     initThreadSummarySideChatRowsChunk();
     initThreadSummarySourceRowsChunk();
     initThreadSummaryBrowserSectionsChunk();
+    initThreadSummaryOutputOpenHandlersChunk();
     initBackgroundTerminalSidePanelTabChunk();
     initSummaryPanelRowChunk();
     initThreadSummaryPanelSectionChunk();
     initThreadSummaryPanelChrome();
-    initAppFsUrlHelpers();
     initKeyboardShortcutLabel();
     initVscodeApiBridge();
     localConversationSummaryPanelJsxRuntime = getJsxRuntime();
