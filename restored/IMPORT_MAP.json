@@ -12449,6 +12449,34 @@
       "status": "done",
       "note": "Restored the current 16px plus-sm SVG icon as a distinct semantic icon module with runtime initializer export.",
       "lastUpdated": "2026-06-27T21:12:32.579Z"
+    },
+    "custom-avatars-query-Bodwj3U-": {
+      "restored": "features/custom-avatars-query.ts",
+      "exports": {
+        "i": "selectedCustomAvatarRefreshQuery",
+        "n": "customAvatarsQuery",
+        "r": "initCustomAvatarsQueryChunk",
+        "t": "CUSTOM_AVATARS_QUERY_KEY",
+        "CUSTOM_AVATARS_QUERY_KEY": "CUSTOM_AVATARS_QUERY_KEY",
+        "customAvatarsQuery": "customAvatarsQuery",
+        "selectedCustomAvatarRefreshQuery": "selectedCustomAvatarRefreshQuery",
+        "initCustomAvatarsQueryChunk": "initCustomAvatarsQueryChunk"
+      },
+      "status": "done",
+      "note": "Synced current custom avatar query chunk with semantic query key, query signals, and runtime initializer while preserving older helper exports in the shared feature module.",
+      "lastUpdated": "2026-06-27T21:15:59.158Z"
+    },
+    "use-avatar-options-B31DUULL": {
+      "restored": "utils/use-avatar-options.ts",
+      "exports": {
+        "n": "useAvatarOptions",
+        "t": "initUseAvatarOptionsChunk",
+        "useAvatarOptions": "useAvatarOptions",
+        "initUseAvatarOptionsChunk": "initUseAvatarOptionsChunk"
+      },
+      "status": "done",
+      "note": "Synced current avatar option hook with semantic hook and initializer exports, reusing the restored custom avatar query feature module.",
+      "lastUpdated": "2026-06-27T21:17:46.549Z"
     }
   }
 }
