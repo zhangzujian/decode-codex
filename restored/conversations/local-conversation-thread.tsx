@@ -9202,7 +9202,7 @@ function getOutputArtifactKey(artifact) {
         : `path:${et(artifact.target)}`;
   }
 }
-var ny = once(() => {
+var initOutputArtifactCollectorDependencies = once(() => {
     gn();
     dt();
     Bt();
@@ -9212,95 +9212,106 @@ var ny = once(() => {
     Se();
     di();
   }),
-  ry,
-  iy,
+  historicalOutputArtifactsSignal,
+  mergedOutputArtifactsSignal,
   localConversationOutputArtifactsSignal,
-  oy,
+  localConversationSummaryArtifactsSignal,
   initLocalConversationArtifactSignals = once(() => {
     c();
     nt();
     r();
     o();
-    ny();
-    ry = Rn(ut, ({ conversationId, includeGeneratedImages }, { get }) => {
-      get(pr, conversationId);
-      get(jt, conversationId);
-      let r = get(I, conversationId);
-      return r == null
-        ? []
-        : collectLocalConversationOutputArtifacts(r.slice(0, -1), {
-            includeGeneratedImages,
-            projectlessOutputDirectory: get(Cr, conversationId),
-          });
-    });
-    iy = Rn(ut, ({ conversationId, includeGeneratedImages }, { get }) => {
-      let r = get($t, conversationId);
-      return mergeUniqueOutputArtifacts([
-        r == null
+    initOutputArtifactCollectorDependencies();
+    historicalOutputArtifactsSignal = Rn(
+      ut,
+      ({ conversationId, includeGeneratedImages }, { get }) => {
+        get(pr, conversationId);
+        get(jt, conversationId);
+        let turns = get(I, conversationId);
+        return turns == null
           ? []
-          : collectLocalConversationOutputArtifacts([r], {
+          : collectLocalConversationOutputArtifacts(turns.slice(0, -1), {
               includeGeneratedImages,
               projectlessOutputDirectory: get(Cr, conversationId),
-            }),
-        get(ry, {
-          conversationId,
-          includeGeneratedImages,
-        }),
-      ]);
-    });
-    localConversationOutputArtifactsSignal = Rn(ut, (e, { get }) =>
-      get(iy, {
-        conversationId: e,
+            });
+      },
+    );
+    mergedOutputArtifactsSignal = Rn(
+      ut,
+      ({ conversationId, includeGeneratedImages }, { get }) => {
+        let currentTurn = get($t, conversationId);
+        return mergeUniqueOutputArtifacts([
+          currentTurn == null
+            ? []
+            : collectLocalConversationOutputArtifacts([currentTurn], {
+                includeGeneratedImages,
+                projectlessOutputDirectory: get(Cr, conversationId),
+              }),
+          get(historicalOutputArtifactsSignal, {
+            conversationId,
+            includeGeneratedImages,
+          }),
+        ]);
+      },
+    );
+    localConversationOutputArtifactsSignal = Rn(ut, (conversationId, { get }) =>
+      get(mergedOutputArtifactsSignal, {
+        conversationId,
         includeGeneratedImages: false,
       }),
     );
-    oy = Rn(ut, (e, { get }) =>
-      get(iy, {
-        conversationId: e,
-        includeGeneratedImages:
-          get(er, e) === "projectless" && get(An, "120995366"),
-      }),
+    localConversationSummaryArtifactsSignal = Rn(
+      ut,
+      (conversationId, { get }) =>
+        get(mergedOutputArtifactsSignal, {
+          conversationId,
+          includeGeneratedImages:
+            get(er, conversationId) === "projectless" && get(An, "120995366"),
+        }),
     );
   });
-function cy(e) {
-  let t = e.length - 1,
-    n = [];
-  for (let r = t; r >= 0; --r) {
-    let i = e[r];
-    if (i != null && !(r === t && i.status === "inProgress")) {
-      for (let e of i.items ?? [])
+function collectBackgroundTerminalRowsFromTurns(turns) {
+  let latestTurnIndex = turns.length - 1,
+    backgroundTerminalRows = [];
+  for (let turnIndex = latestTurnIndex; turnIndex >= 0; --turnIndex) {
+    let turn = turns[turnIndex];
+    if (
+      turn != null &&
+      !(turnIndex === latestTurnIndex && turn.status === "inProgress")
+    ) {
+      for (let item of turn.items ?? [])
         if (
-          e != null &&
-          e.type === "commandExecution" &&
-          e.status === "inProgress" &&
-          !i.interruptedCommandExecutionItemIds?.includes(e.id)
+          item != null &&
+          item.type === "commandExecution" &&
+          item.status === "inProgress" &&
+          !turn.interruptedCommandExecutionItemIds?.includes(item.id)
         ) {
-          let t = Mc(e);
-          n.push({
-            id: e.id,
-            command: t,
-            cwd: e.cwd ?? null,
-            processId: e.processId,
+          let command = Mc(item);
+          backgroundTerminalRows.push({
+            id: item.id,
+            command,
+            cwd: item.cwd ?? null,
+            processId: item.processId,
             startedAtMs:
-              i.commandExecutionStartedAtMsById?.[e.id] ??
-              i.firstTurnWorkItemStartedAtMs ??
-              i.turnStartedAtMs ??
+              turn.commandExecutionStartedAtMsById?.[item.id] ??
+              turn.firstTurnWorkItemStartedAtMs ??
+              turn.turnStartedAtMs ??
               null,
-            turnId: i.turnId,
+            turnId: turn.turnId,
           });
         }
     }
   }
-  return n;
+  return backgroundTerminalRows;
 }
-function ly(e) {
-  return e == null
+function collectRestoredBackgroundProcessRows(conversation) {
+  return conversation == null
     ? []
-    : collectConversationProcessRows([e]).filter(
+    : collectConversationProcessRows([conversation]).filter(
         (item) => item.source === "restored-process",
       );
 }
-var uy = once(() => {
+var initRestoredProcessRowsCollector = once(() => {
   xs();
   initActiveConversationProcessRowsChunk();
 });
@@ -9321,13 +9332,13 @@ function getLatestCompletedTurnPlanSummary(turns) {
   }
   return null;
 }
-var xy = once(() => {
+var initLatestCompletedPlanSummaryHelpers = once(() => {
   Ur();
 });
 function collectSideChatTabSummaries(tabs, isConversationResponseInProgress) {
   return tabs.flatMap((item) => {
-    if (!item.tabId.startsWith(Cy)) return [];
-    let conversationId = Rr(item.tabId.slice(9));
+    if (!item.tabId.startsWith(SIDE_CHAT_TAB_ID_PREFIX)) return [];
+    let conversationId = Rr(item.tabId.slice(SIDE_CHAT_TAB_ID_PREFIX.length));
     return [
       {
         conversationId: conversationId,
@@ -9338,10 +9349,10 @@ function collectSideChatTabSummaries(tabs, isConversationResponseInProgress) {
     ];
   });
 }
-var Cy,
-  wy = once(() => {
+var SIDE_CHAT_TAB_ID_PREFIX,
+  initSideChatTabSummaryHelpers = once(() => {
     gn();
-    Cy = "sidechat:";
+    SIDE_CHAT_TAB_ID_PREFIX = "sidechat:";
   });
 function buildMcpServerMetadataByName(mcpServersQuery) {
   let metadataByName = new Map();
@@ -9368,7 +9379,7 @@ function buildMcpServerMetadataByName(mcpServersQuery) {
 function normalizeMcpServerLookupKey(serverName) {
   return serverName?.trim().toLowerCase() ?? "";
 }
-var Dy = once(() => {
+var initMcpToolSourceMetadataHelpers = once(() => {
   Sl();
 });
 function collectConversationMcpToolSources(
@@ -9478,10 +9489,10 @@ function getMcpToolSourceSummary(item, apps, serverMetadataByName) {
     logoUrlDark: serverMetadata?.logoUrlDark ?? null,
   };
 }
-var My = once(() => {
+var initLocalConversationSummaryPanelModelDependencies = once(() => {
   Qi();
   wr();
-  Dy();
+  initMcpToolSourceMetadataHelpers();
   kr();
 });
 function useLocalConversationSummaryPanelModel(
@@ -9494,12 +9505,14 @@ function useLocalConversationSummaryPanelModel(
         : null,
     browserSummaryConversationId = Ot(routeSnapshot);
   let host = W(ra),
-    turns = useScopedValue(I, conversationId) ?? Hy,
+    turns = useScopedValue(I, conversationId) ?? EMPTY_SUMMARY_PANEL_TURNS,
     cwd = useScopedValue(Wn, conversationId),
     title = useScopedValue(Zi, conversationId),
-    backgroundTerminals = includeBackgroundActivity ? cy(turns) : [],
+    backgroundTerminals = includeBackgroundActivity
+      ? collectBackgroundTerminalRowsFromTurns(turns)
+      : [],
     restoredBackgroundProcesses = includeBackgroundActivity
-      ? ly(
+      ? collectRestoredBackgroundProcessRows(
           conversationId == null
             ? null
             : {
@@ -9511,8 +9524,11 @@ function useLocalConversationSummaryPanelModel(
               },
         )
       : [];
-  let artifacts = useScopedValue(oy, conversationId),
-    sideChats = W(Vy),
+  let artifacts = useScopedValue(
+      localConversationSummaryArtifactsSignal,
+      conversationId,
+    ),
+    sideChats = W(localConversationSideChatSummariesSignal),
     installedMcpAppIds = W(Vi),
     isMultiBrowserTabsGateEnabled = W(re),
     rightPanelTabs = W(ga.tabs$),
@@ -9558,11 +9574,11 @@ function turnHasExternalMcpToolCall(turn) {
 function isExternalMcpToolCallItem(item) {
   return item.type === "mcpToolCall" && item.server !== "node_repl";
 }
-var zy,
-  Vy,
-  Hy,
+var localConversationSummaryPanelSignalsModule,
+  localConversationSideChatSummariesSignal,
+  EMPTY_SUMMARY_PANEL_TURNS,
   initLocalConversationSummaryPanelSignals = once(() => {
-    zy = getChunkModuleExports();
+    localConversationSummaryPanelSignalsModule = getChunkModuleExports();
     c();
     nt();
     Nt();
@@ -9579,14 +9595,14 @@ var zy,
     Qe();
     initLocalConversationArtifactSignals();
     Pc();
-    uy();
-    xy();
-    wy();
-    My();
-    Vy = Dn(Fe, ({ get }) =>
+    initRestoredProcessRowsCollector();
+    initLatestCompletedPlanSummaryHelpers();
+    initSideChatTabSummaryHelpers();
+    initLocalConversationSummaryPanelModelDependencies();
+    localConversationSideChatSummariesSignal = Dn(Fe, ({ get }) =>
       collectSideChatTabSummaries(get(ga.tabs$), (t) => get(ge, t) ?? false),
     );
-    Hy = [];
+    EMPTY_SUMMARY_PANEL_TURNS = [];
   });
 function ConnectedLocalWorktreeRestoreBanner(props) {
   let { conversationId, cwd } = props,
@@ -9758,7 +9774,7 @@ function WorktreeRestoreBanner(props) {
   );
   let customCtas =
     isWorktreeStatusUnavailable && cwd != null
-      ? qy.jsx(k, {
+      ? worktreeRestoreBannerJsxRuntime.jsx(k, {
           loading:
             checkWorktreeMutation.isPending || worktreeStatusQuery.isFetching,
           onClick: () => {
@@ -9773,7 +9789,7 @@ function WorktreeRestoreBanner(props) {
           ),
         })
       : worktreeStatus?.kind === "restorable"
-        ? qy.jsx(k, {
+        ? worktreeRestoreBannerJsxRuntime.jsx(k, {
             color: "primary",
             loading: restoreWorktreeMutation.isPending,
             onClick: () => {
@@ -9793,17 +9809,17 @@ function WorktreeRestoreBanner(props) {
             ),
           })
         : null;
-  return qy.jsx($s, {
+  return worktreeRestoreBannerJsxRuntime.jsx($s, {
     type: bannerType,
     layout: "horizontal",
     content: content,
     customCtas: customCtas,
   });
 }
-var Ky,
-  qy,
-  Jy = once(() => {
-    Ky = getChunkModuleExports();
+var worktreeRestoreBannerModule,
+  worktreeRestoreBannerJsxRuntime,
+  initWorktreeRestoreBannerChunk = once(() => {
+    worktreeRestoreBannerModule = getChunkModuleExports();
     m();
     c();
     gn();
@@ -9822,17 +9838,28 @@ var Ky,
     Mr();
     Ns();
     Ys();
-    qy = getJsxRuntime();
+    worktreeRestoreBannerJsxRuntime = getJsxRuntime();
   });
-function Yy(e, t) {
-  for (let n = e.length - 1; n >= 0; --n) {
-    let r = e[n];
-    if (!(r.turn.turnStartedAtMs != null && r.turn.turnStartedAtMs > t))
-      return r.turn.status === "completed" ? r.turnSearchKey : null;
+function findCompletedTurnSearchKeyAtOrBefore(visibleTurnEntries, timestampMs) {
+  for (
+    let entryIndex = visibleTurnEntries.length - 1;
+    entryIndex >= 0;
+    --entryIndex
+  ) {
+    let visibleTurnEntry = visibleTurnEntries[entryIndex];
+    if (
+      !(
+        visibleTurnEntry.turn.turnStartedAtMs != null &&
+        visibleTurnEntry.turn.turnStartedAtMs > timestampMs
+      )
+    )
+      return visibleTurnEntry.turn.status === "completed"
+        ? visibleTurnEntry.turnSearchKey
+        : null;
   }
   return null;
 }
-var Xy = once(() => {});
+var initOlderTurnForkDialogStatics = once(() => {});
 function ForkFromOlderTurnDialog(props) {
   let {
       canForkIntoWorktree,
@@ -9849,7 +9876,7 @@ function ForkFromOlderTurnDialog(props) {
     };
   let dialogHeader = (
     <F
-      icon={$y.jsx(sr, {
+      icon={olderTurnForkDialogJsxRuntime.jsx(sr, {
         className: "icon-sm text-token-foreground",
       })}
       title={
@@ -9869,11 +9896,11 @@ function ForkFromOlderTurnDialog(props) {
     />
   );
   let localForkIcon = isWorktreeThread
-    ? $y.jsx(ta, {
+    ? olderTurnForkDialogJsxRuntime.jsx(ta, {
         className:
           "icon-xs shrink-0 opacity-75 group-hover:opacity-100 group-focus:opacity-100",
       })
-    : $y.jsx(sa, {
+    : olderTurnForkDialogJsxRuntime.jsx(sa, {
         className:
           "icon-xs shrink-0 opacity-75 group-hover:opacity-100 group-focus:opacity-100",
       });
@@ -9926,7 +9953,7 @@ function ForkFromOlderTurnDialog(props) {
       disabled={isSubmitting || !canForkIntoWorktree}
       onClick={onForkIntoWorktree}
     >
-      {$y.jsx(ta, {
+      {olderTurnForkDialogJsxRuntime.jsx(ta, {
         className:
           "icon-xs shrink-0 opacity-75 group-hover:opacity-100 group-focus:opacity-100",
       })}
@@ -9963,7 +9990,7 @@ function ForkFromOlderTurnDialog(props) {
   );
   let cancelAction = (
     <At>
-      {$y.jsx(k, {
+      {olderTurnForkDialogJsxRuntime.jsx(k, {
         color: "secondary",
         disabled: isSubmitting,
         onClick: onClose,
@@ -9971,11 +9998,11 @@ function ForkFromOlderTurnDialog(props) {
       })}
     </At>
   );
-  let dialogBody = $y.jsxs(ui, {
+  let dialogBody = olderTurnForkDialogJsxRuntime.jsxs(ui, {
     className: "gap-4",
     children: [dialogHeader, forkOptions, cancelAction],
   });
-  return $y.jsx(ai, {
+  return olderTurnForkDialogJsxRuntime.jsx(ai, {
     open,
     showDialogClose: false,
     size: "compact",
@@ -9983,10 +10010,10 @@ function ForkFromOlderTurnDialog(props) {
     children: dialogBody,
   });
 }
-var Qy,
-  $y,
-  eb = once(() => {
-    Qy = getChunkModuleExports();
+var olderTurnForkDialogModule,
+  olderTurnForkDialogJsxRuntime,
+  initOlderTurnForkDialogChunk = once(() => {
+    olderTurnForkDialogModule = getChunkModuleExports();
     Jn();
     Ye();
     mi();
@@ -9995,9 +10022,9 @@ var Qy,
     Ni();
     Ra();
     Sa();
-    $y = getJsxRuntime();
+    olderTurnForkDialogJsxRuntime = getJsxRuntime();
   });
-function tb({
+function ForkFromOlderTurnDialogController({
   conversationCwd,
   conversationId,
   conversationLatestCollaborationMode,
@@ -10006,11 +10033,12 @@ function tb({
   onForkIntoLocal,
   turnId,
 }) {
-  let s = B(ut),
-    c = ur(),
-    l = rt(),
-    [u, d] = nb.useState(false),
-    f = isRecentLocalEnvironmentAction(
+  let scope = B(ut),
+    intl = ur(),
+    navigate = rt(),
+    [isSubmitting, setIsSubmitting] =
+      olderTurnForkDialogReactRuntime.useState(false),
+    isWorktreeThread = isRecentLocalEnvironmentAction(
       conversationCwd ? D(conversationCwd) : null,
       hostId,
     ),
@@ -10019,90 +10047,90 @@ function tb({
       hostId,
       source: "local_conversation_thread",
     }),
-    m = gitRoot != null && true,
+    canForkIntoWorktree = gitRoot != null && true,
     { resolvedConfigPath } = Oa({
       hostId,
       workspaceRoot: conversationCwd,
     }),
-    g = () => {
-      u || onClose();
+    closeIfIdle = () => {
+      isSubmitting || onClose();
     },
-    _ = async () => {
-      d(true);
+    forkIntoLocal = async () => {
+      setIsSubmitting(true);
       try {
         await onForkIntoLocal();
         onClose();
       } finally {
-        d(false);
+        setIsSubmitting(false);
       }
     },
-    v = async () => {
-      if (!m || conversationCwd == null) {
-        s.get(ti).danger(c.formatMessage(fo.forkThreadRequiresGitRepo));
+    forkIntoWorktree = async () => {
+      if (!canForkIntoWorktree || conversationCwd == null) {
+        scope.get(ti).danger(intl.formatMessage(fo.forkThreadRequiresGitRepo));
         return;
       }
-      d(true);
+      setIsSubmitting(true);
       try {
-        let a = pa({
+        let pendingWorktreeId = pa({
           hostId,
-          label: c.formatMessage(fo.forkPendingWorktreeTitle),
+          label: intl.formatMessage(fo.forkPendingWorktreeTitle),
           sourceWorkspaceRoot: conversationCwd,
           startingState: {
             type: "working-tree",
           },
           localEnvironmentConfigPath: resolvedConfigPath,
           launchMode: "fork-conversation",
-          prompt: c.formatMessage(fo.forkPendingWorktreePrompt),
+          prompt: intl.formatMessage(fo.forkPendingWorktreePrompt),
           startConversationParamsInput: null,
           sourceConversationId: conversationId,
           sourceCollaborationMode: conversationLatestCollaborationMode,
           targetTurnId: turnId,
         });
-        Bi(s, {
-          pendingWorktreeId: a,
+        Bi(scope, {
+          pendingWorktreeId,
           sourceConversationId: conversationId,
           sourceWorkspaceRoot: conversationCwd,
         });
         onClose();
-        l(`/worktree-init-v2/${a}`);
-      } catch (e) {
+        navigate(`/worktree-init-v2/${pendingWorktreeId}`);
+      } catch (error) {
         throw (
           gr.error("Error creating worktree fork from turn", {
             safe: {},
             sensitive: {
-              error: e,
+              error,
             },
           }),
-          s.get(ti).danger(c.formatMessage(fo.forkThreadError)),
-          e
+          scope.get(ti).danger(intl.formatMessage(fo.forkThreadError)),
+          error
         );
       } finally {
-        d(false);
+        setIsSubmitting(false);
       }
     };
   return (
     <ForkFromOlderTurnDialog
-      canForkIntoWorktree={m}
-      isSubmitting={u}
-      isWorktreeThread={f}
+      canForkIntoWorktree={canForkIntoWorktree}
+      isSubmitting={isSubmitting}
+      isWorktreeThread={isWorktreeThread}
       open={true}
-      onClose={g}
+      onClose={closeIfIdle}
       onForkIntoLocal={() => {
-        _();
+        forkIntoLocal();
       }}
       onForkIntoWorktree={() => {
-        v();
+        forkIntoWorktree();
       }}
-      showWorktreeOption={m}
+      showWorktreeOption={canForkIntoWorktree}
     />
   );
 }
-var nb,
-  rb,
-  ib = once(() => {
+var olderTurnForkDialogReactRuntime,
+  forkDialogControllerJsxRuntime,
+  initForkFromOlderTurnDialogControllerChunk = once(() => {
     c();
     gn();
-    nb = toEsModule(G(), 1);
+    olderTurnForkDialogReactRuntime = toEsModule(G(), 1);
     Jn();
     xr();
     wn();
@@ -10111,15 +10139,15 @@ var nb,
     sl();
     Mr();
     _a();
-    eb();
+    initOlderTurnForkDialogChunk();
     za();
     Sa();
     initLocalEnvironmentRecentActions();
-    rb = getJsxRuntime();
+    forkDialogControllerJsxRuntime = getJsxRuntime();
   });
-var ob,
-  sb = once(() => {
-    ob = toEsModule(De(), 1);
+var deepEqualModule,
+  initDeepEqualModule = once(() => {
+    deepEqualModule = toEsModule(De(), 1);
   });
 async function renderLocalConversationMarkdownForTurns({
   cwd,
@@ -10177,7 +10205,7 @@ function formatBackgroundAgentDisplayName({
 var initThreadScrollState = once(() => {
   Vt();
 });
-var pb = once(() => {
+var initLocalConversationSearchAdapterChunk = once(() => {
   nd();
 });
 function createLocalConversationSearchAdapter({
@@ -10318,7 +10346,7 @@ function createLocalConversationSearchSource({
 }
 function extractConversationSearchUnits(items) {
   let units = [],
-    latestAssistantMessageIndex = xb.default(
+    latestAssistantMessageIndex = findLastIndexModule.default(
       items,
       (item) => item.type === "assistant-message",
     );
@@ -10348,9 +10376,9 @@ function extractConversationSearchUnits(items) {
     units
   );
 }
-var xb,
+var findLastIndexModule,
   initConversationSearchUnitExtractor = once(() => {
-    xb = toEsModule(hn(), 1);
+    findLastIndexModule = toEsModule(hn(), 1);
     initConversationSearchHelpers();
     hi();
     Ge();
@@ -10372,7 +10400,7 @@ function buildLocalConversationVisibleTurnEntries({
     visibleConversationTurns =
       hasConversation && subagentParentThreadId != null
         ? getConversationTurnsNotInParent({
-            areTurnItemsEqual: ob.default,
+            areTurnItemsEqual: deepEqualModule.default,
             conversation: {
               turns: conversationTurns,
             },
@@ -10590,7 +10618,7 @@ var findLastModule,
     nt();
     r();
     o();
-    sb();
+    initDeepEqualModule();
     Ge();
     initConversationSearchUnitExtractor();
     EMPTY_CONVERSATION_REQUESTS = [];
@@ -10606,40 +10634,49 @@ var findLastModule,
     localConversationVisibleTurnEntriesSignal = Rn(
       ut,
       ({ conversationId, isBackgroundSubagentsEnabled }, { get }) => {
-        let r = get(Mt, conversationId) ?? false,
-          i = get(Kr, conversationId) ?? EMPTY_CONVERSATION_REQUESTS;
+        let hasConversation = get(Mt, conversationId) ?? false,
+          conversationRequests =
+            get(Kr, conversationId) ?? EMPTY_CONVERSATION_REQUESTS;
         get(s, conversationId);
-        let a = get(pr, conversationId) ?? "needs_resume",
-          o = isBackgroundSubagentsEnabled
+        let conversationResumeState = get(pr, conversationId) ?? "needs_resume",
+          subagentParentThreadId = isBackgroundSubagentsEnabled
             ? (get(oi, conversationId) ?? null)
             : null,
-          c = get(An, "209459230"),
-          l = c ? get(kn, conversationId) : null,
-          u = c ? (o == null ? EMPTY_CONVERSATION_TURNS : get(kn, o)) : null,
-          d = l != null && u != null;
+          isBerryDisplayMergeEnabled = get(An, "209459230"),
+          berryDisplayConversationTurns = isBerryDisplayMergeEnabled
+            ? get(kn, conversationId)
+            : null,
+          parentBerryDisplayConversationTurns = isBerryDisplayMergeEnabled
+            ? subagentParentThreadId == null
+              ? EMPTY_CONVERSATION_TURNS
+              : get(kn, subagentParentThreadId)
+            : null,
+          shouldUseBerryDisplayTurns =
+            berryDisplayConversationTurns != null &&
+            parentBerryDisplayConversationTurns != null;
         return buildLocalConversationVisibleTurnEntries({
-          conversationRequests: i,
+          conversationRequests,
           mergeBerryDisplayTurnsForPIA: false,
           preserveServerUserMessages: false,
-          conversationResumeState: a,
-          conversationTurns: d
-            ? l
+          conversationResumeState,
+          conversationTurns: shouldUseBerryDisplayTurns
+            ? berryDisplayConversationTurns
             : (get(I, conversationId) ?? EMPTY_CONVERSATION_TURNS),
-          hasConversation: r,
+          hasConversation,
           isBackgroundSubagentsEnabled,
-          parentConversationTurns: d
-            ? u
-            : (get(I, o) ?? EMPTY_CONVERSATION_TURNS),
-          subagentParentThreadId: o,
+          parentConversationTurns: shouldUseBerryDisplayTurns
+            ? parentBerryDisplayConversationTurns
+            : (get(I, subagentParentThreadId) ?? EMPTY_CONVERSATION_TURNS),
+          subagentParentThreadId,
         });
       },
     );
   }),
-  Ub,
-  Wb = once(() => {
+  threadScrollStateSignal,
+  initThreadScrollStateSignal = once(() => {
     c();
     r();
-    Ub = bn(ut, (e) => null);
+    threadScrollStateSignal = bn(ut, (_conversationId) => null);
   });
 function createLatestTurnScrollState({ followMode = "static" } = {}) {
   return {
@@ -10740,7 +10777,7 @@ function setLatestTurnFollowMode(scrollState, followMode) {
         followMode,
       };
 }
-var Xb = once(() => {
+var initLocalConversationTurnRowDependencies = once(() => {
   nd();
 });
 function LocalConversationTurnRow({ entry, latestTurnFollowContentRef }) {
@@ -10784,7 +10821,7 @@ function LocalConversationTurnRow({ entry, latestTurnFollowContentRef }) {
       turnId == null || onSetCollapsedForTurn == null
         ? undefined
         : handleCollapsedChange,
-    parentThreadAttachment = ex.useMemo(
+    parentThreadAttachment = localConversationTurnRowReactRuntime.useMemo(
       () =>
         parentThreadAttachmentSourceConversationId == null
           ? undefined
@@ -10795,7 +10832,7 @@ function LocalConversationTurnRow({ entry, latestTurnFollowContentRef }) {
     );
   return (
     useStableCallback(() => {}),
-    tx.jsx(fs, {
+    localConversationTurnRowJsxRuntime.jsx(fs, {
       name: "LocalConversationTurn",
       resetKey: turnKey,
       fallback: (errorBoundary) => (
@@ -10864,7 +10901,7 @@ function LocalConversationTurnErrorFallback(props) {
   return (
     <div className="rounded-lg border border-token-border bg-token-main-surface-primary px-4 py-3 text-sm text-token-text-secondary">
       {titleNode}
-      {tx.jsx(k, {
+      {localConversationTurnRowJsxRuntime.jsx(k, {
         color: "secondary",
         size: "default",
         onClick: onRetry,
@@ -10873,20 +10910,20 @@ function LocalConversationTurnErrorFallback(props) {
     </div>
   );
 }
-var $b,
-  ex,
-  tx,
-  nx = once(() => {
-    $b = getChunkModuleExports();
+var localConversationTurnRowModule,
+  localConversationTurnRowReactRuntime,
+  localConversationTurnRowJsxRuntime,
+  initLocalConversationTurnRowChunk = once(() => {
+    localConversationTurnRowModule = getChunkModuleExports();
     c();
-    ex = toEsModule(G(), 1);
+    localConversationTurnRowReactRuntime = toEsModule(G(), 1);
     Jn();
     Ye();
     Lo();
     me();
     _n();
     Dc();
-    tx = getJsxRuntime();
+    localConversationTurnRowJsxRuntime = getJsxRuntime();
   });
 function VirtualizedTurnList({
   entries,
@@ -10907,38 +10944,51 @@ function VirtualizedTurnList({
 }) {
   let scrollController = ad(),
     windowZoom = nr(),
-    [measuredHeightsByKey, setMeasuredHeightsByKey] = _x.useState(
-      initialRestoreState?.turnHeightsByKey ?? emptyTurnHeightsByKey,
+    [measuredHeightsByKey, setMeasuredHeightsByKey] =
+      virtualizedTurnListReactRuntime.useState(
+        initialRestoreState?.turnHeightsByKey ?? emptyTurnHeightsByKey,
+      ),
+    [rootElement, setRootElement] =
+      virtualizedTurnListReactRuntime.useState(null),
+    [viewportState, setViewportState] =
+      virtualizedTurnListReactRuntime.useState(() => {
+        let bottomScrollPaddingPx = getBottomScrollPaddingPxValue(
+          getBottomScrollPaddingPx,
+        );
+        return createInitialVirtualizedTurnListState(
+          entries,
+          subtractBottomScrollPaddingPx(
+            scrollController.getLastScrollDistanceFromBottomPx(),
+            bottomScrollPaddingPx,
+          ),
+          gapPx,
+          initialRestoreState,
+        );
+      }),
+    [pendingScrollRequest, setPendingScrollRequest] =
+      virtualizedTurnListReactRuntime.useState(null),
+    pendingScrollRequestRef = virtualizedTurnListReactRuntime.useRef(null),
+    measuredHeightsByKeyRef =
+      virtualizedTurnListReactRuntime.useRef(measuredHeightsByKey),
+    viewportStateRef = virtualizedTurnListReactRuntime.useRef(viewportState),
+    observedElementMetadataRef = virtualizedTurnListReactRuntime.useRef(
+      new Map(),
     ),
-    [rootElement, setRootElement] = _x.useState(null),
-    [viewportState, setViewportState] = _x.useState(() => {
-      let bottomScrollPaddingPx = getBottomScrollPaddingPxValue(
-        getBottomScrollPaddingPx,
-      );
-      return createInitialVirtualizedTurnListState(
-        entries,
-        subtractBottomScrollPaddingPx(
-          scrollController.getLastScrollDistanceFromBottomPx(),
-          bottomScrollPaddingPx,
-        ),
-        gapPx,
-        initialRestoreState,
-      );
-    }),
-    [pendingScrollRequest, setPendingScrollRequest] = _x.useState(null),
-    pendingScrollRequestRef = _x.useRef(null),
-    measuredHeightsByKeyRef = _x.useRef(measuredHeightsByKey),
-    viewportStateRef = _x.useRef(viewportState),
-    observedElementMetadataRef = _x.useRef(new Map()),
-    turnElementByKeyRef = _x.useRef(new Map()),
-    pendingInitialMeasureElementsRef = _x.useRef(new Map()),
-    latestTurnFollowContentHeightsRef = _x.useRef(new Map()),
-    pendingResizeMeasurementsRef = _x.useRef(new Map()),
-    pendingMeasurementCommitRef = _x.useRef(null),
-    resizeFrameRef = _x.useRef(null),
-    resizeObserverRef = _x.useRef(null),
-    visibleContentReadyRef = _x.useRef(false),
-    virtualLayout = _x.useMemo(
+    turnElementByKeyRef = virtualizedTurnListReactRuntime.useRef(new Map()),
+    pendingInitialMeasureElementsRef = virtualizedTurnListReactRuntime.useRef(
+      new Map(),
+    ),
+    latestTurnFollowContentHeightsRef = virtualizedTurnListReactRuntime.useRef(
+      new Map(),
+    ),
+    pendingResizeMeasurementsRef = virtualizedTurnListReactRuntime.useRef(
+      new Map(),
+    ),
+    pendingMeasurementCommitRef = virtualizedTurnListReactRuntime.useRef(null),
+    resizeFrameRef = virtualizedTurnListReactRuntime.useRef(null),
+    resizeObserverRef = virtualizedTurnListReactRuntime.useRef(null),
+    visibleContentReadyRef = virtualizedTurnListReactRuntime.useRef(false),
+    virtualLayout = virtualizedTurnListReactRuntime.useMemo(
       () =>
         Xu({
           entries,
@@ -10947,8 +10997,8 @@ function VirtualizedTurnList({
         }),
       [entries, gapPx, measuredHeightsByKey],
     ),
-    virtualLayoutRef = _x.useRef(virtualLayout),
-    previousLayoutRef = _x.useRef(null),
+    virtualLayoutRef = virtualizedTurnListReactRuntime.useRef(virtualLayout),
+    previousLayoutRef = virtualizedTurnListReactRuntime.useRef(null),
     renderedRange = viewportState.renderedRange;
   if (pendingScrollRequest != null) {
     let pendingScrollDistanceFromBottomPx = Yu({
@@ -11252,7 +11302,7 @@ function VirtualizedTurnList({
             !shouldRestoreScrollDistance &&
             scrollController.preserveScrollPositionForNextLayout(),
           flushSync
-            ? vx.flushSync(commitMeasuredHeights)
+            ? reactDomModule.flushSync(commitMeasuredHeights)
             : commitMeasuredHeights(),
           true
         );
@@ -11366,7 +11416,7 @@ function VirtualizedTurnList({
       );
     });
   return (
-    _x.useLayoutEffect(() => {
+    virtualizedTurnListReactRuntime.useLayoutEffect(() => {
       let pendingInitialElements = pendingInitialMeasureElementsRef.current;
       if (pendingInitialElements.size === 0) return;
       pendingInitialMeasureElementsRef.current = new Map();
@@ -11389,17 +11439,17 @@ function VirtualizedTurnList({
           turnElementByKeyRef.current.get(turnKey) === element &&
             pendingInitialMeasureElementsRef.current.set(turnKey, element);
     }),
-    _x.useLayoutEffect(() => {
+    virtualizedTurnListReactRuntime.useLayoutEffect(() => {
       latestTurnSynchronousMeasurementKey != null && measureLatestTurnHeight();
     }, [latestTurnSynchronousMeasurementKey, measureLatestTurnHeight]),
-    _x.useLayoutEffect(() => {
+    virtualizedTurnListReactRuntime.useLayoutEffect(() => {
       let pendingCommit = pendingMeasurementCommitRef.current;
       pendingCommit == null ||
         pendingCommit.turnHeightsByKey !== measuredHeightsByKey ||
         ((pendingMeasurementCommitRef.current = null),
         applyPendingMeasurementCommit(pendingCommit));
     }, [applyPendingMeasurementCommit, measuredHeightsByKey]),
-    _x.useEffect(() => {
+    virtualizedTurnListReactRuntime.useEffect(() => {
       if (onApiChange != null)
         return (
           onApiChange({
@@ -11410,7 +11460,7 @@ function VirtualizedTurnList({
           }
         );
     }, [onApiChange, scrollToKey]),
-    _x.useEffect(() => {
+    virtualizedTurnListReactRuntime.useEffect(() => {
       if (
         onVisibleContentReady == null ||
         visibleContentReadyRef.current ||
@@ -11436,7 +11486,7 @@ function VirtualizedTurnList({
       restoreScrollDistanceFromBottom,
       rootElement,
     ]),
-    _x.useEffect(() => {
+    virtualizedTurnListReactRuntime.useEffect(() => {
       let observedMetadata = observedElementMetadataRef.current,
         turnElements = turnElementByKeyRef.current,
         followContentHeights = latestTurnFollowContentHeightsRef.current;
@@ -11455,7 +11505,7 @@ function VirtualizedTurnList({
         pendingScrollRequestRef.current = null;
       };
     }, []),
-    _x.useLayoutEffect(() => {
+    virtualizedTurnListReactRuntime.useLayoutEffect(() => {
       if (onRestoreStateChange != null)
         return () => {
           onRestoreStateChange(
@@ -11467,7 +11517,7 @@ function VirtualizedTurnList({
           );
         };
     }, [onRestoreStateChange]),
-    _x.useLayoutEffect(() => {
+    virtualizedTurnListReactRuntime.useLayoutEffect(() => {
       let scrollElement = scrollController.getScrollElement();
       if (scrollElement == null) return;
       let getViewportHeightPx = () =>
@@ -11527,7 +11577,7 @@ function VirtualizedTurnList({
       scrollController,
       syncViewportState,
     ]),
-    _x.useLayoutEffect(() => {
+    virtualizedTurnListReactRuntime.useLayoutEffect(() => {
       if (pendingScrollRequest == null) return;
       let scrollElement = scrollController.getScrollElement();
       if (scrollElement == null) return;
@@ -11597,7 +11647,7 @@ function VirtualizedTurnList({
       syncViewportState,
       windowZoom,
     ]),
-    _x.useLayoutEffect(() => {
+    virtualizedTurnListReactRuntime.useLayoutEffect(() => {
       if (pendingMeasurementCommitRef.current != null) return;
       let previousVirtualLayout = virtualLayoutRef.current,
         nextVirtualLayout = previousLayoutRef.current ?? virtualLayout;
@@ -11656,7 +11706,7 @@ function VirtualizedTurnList({
       scrollController,
       syncViewportState,
     ]),
-    _x.useLayoutEffect(() => {
+    virtualizedTurnListReactRuntime.useLayoutEffect(() => {
       pendingScrollRequest ??
         (syncViewportState(
           viewportStateRef.current.distanceFromBottomPx,
@@ -11688,7 +11738,7 @@ function VirtualizedTurnList({
             .slice(renderedRange.startIndex, renderedRange.endIndex)
             .map((item, index) => {
               let itemIndex = renderedRange.startIndex + index;
-              return yx.jsx(
+              return virtualizedTurnListJsxRuntime.jsx(
                 MemoizedVirtualizedTurnItem,
                 {
                   entry: item,
@@ -11934,32 +11984,33 @@ function getDistanceFromBottomForTargetElement({
       viewportHeightPx / 2,
   );
 }
-var gx,
-  _x,
-  vx,
-  yx,
+var virtualizedTurnListModule,
+  virtualizedTurnListReactRuntime,
+  reactDomModule,
+  virtualizedTurnListJsxRuntime,
   defaultVirtualTurnGapPx,
   defaultVirtualViewportHeightPx,
   virtualTurnOverscanCount,
   emptyTurnHeightsByKey,
   MemoizedVirtualizedTurnItem,
-  Tx = once(() => {
-    gx = getChunkModuleExports();
+  initVirtualizedTurnListChunk = once(() => {
+    virtualizedTurnListModule = getChunkModuleExports();
     Ut();
-    _x = toEsModule(G(), 1);
-    vx = toEsModule(_i(), 1);
+    virtualizedTurnListReactRuntime = toEsModule(G(), 1);
+    reactDomModule = toEsModule(_i(), 1);
     O();
     vl();
     nd();
     id();
     _n();
     Ju();
-    yx = getJsxRuntime();
+    virtualizedTurnListJsxRuntime = getJsxRuntime();
     defaultVirtualTurnGapPx = 12;
     defaultVirtualViewportHeightPx = 800;
     virtualTurnOverscanCount = 2;
     emptyTurnHeightsByKey = {};
-    MemoizedVirtualizedTurnItem = _x.memo(VirtualizedTurnItem);
+    MemoizedVirtualizedTurnItem =
+      virtualizedTurnListReactRuntime.memo(VirtualizedTurnItem);
   });
 function LocalConversationAutoFollowVirtualizedTurnList({
   conversationId,
@@ -11982,7 +12033,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
     latestTurnPhase =
       latestEntry == null ? "idle" : getLatestTurnPhase(latestEntry.turn),
     isLatestTurnInProgress = latestEntry?.turn.status === "inProgress",
-    savedScrollState = scope.get(Ub, conversationId),
+    savedScrollState = scope.get(threadScrollStateSignal, conversationId),
     savedLatestTurnState =
       savedScrollState?.latestTurn?.turnKey === latestTurnKey
         ? savedScrollState.latestTurn
@@ -11990,77 +12041,86 @@ function LocalConversationAutoFollowVirtualizedTurnList({
     responseSpacerHeightPx = Xe(0),
     latestTurnOffsetY = Xe(0),
     scrollController = ad(),
-    scrollStateRef = Lx.useRef(
+    scrollStateRef = autoFollowTurnListReactRuntime.useRef(
       createLatestTurnScrollState({
         followMode: savedLatestTurnState?.followMode ?? "static",
       }),
     ),
-    restoredPassiveLatestTurnHeightRef = Lx.useRef(
+    restoredPassiveLatestTurnHeightRef = autoFollowTurnListReactRuntime.useRef(
       savedLatestTurnState != null &&
         isPassiveLatestTurnFollowMode(savedLatestTurnState.followMode)
         ? savedLatestTurnState.latestTurnHeightPx
         : null,
     ),
-    latestTurnHeightRef = Lx.useRef(
+    latestTurnHeightRef = autoFollowTurnListReactRuntime.useRef(
       savedLatestTurnState?.latestTurnHeightPx ?? null,
     ),
-    latestTurnFollowContentHeightRef = Lx.useRef(
+    latestTurnFollowContentHeightRef = autoFollowTurnListReactRuntime.useRef(
       savedLatestTurnState?.latestTurnFollowContentHeightPx ?? null,
     ),
-    hasRestoredInitialScrollRef = Lx.useRef(false),
-    initialScrollOffsetRef = Lx.useRef(initialScrollOffset),
-    restoreStateRef = Lx.useRef(initialVirtualizedTurnListRestoreState),
-    responseSpacerElementRef = Lx.useRef(null),
-    isResponseSpacerAtViewportBottomRef = Lx.useRef(false),
-    latestTurnKeyRef = Lx.useRef(latestTurnKey),
-    latestTurnIdentityKeyRef = Lx.useRef(latestTurnIdentityKey),
-    previousLatestTurnPhaseRef = Lx.useRef(
+    hasRestoredInitialScrollRef = autoFollowTurnListReactRuntime.useRef(false),
+    initialScrollOffsetRef =
+      autoFollowTurnListReactRuntime.useRef(initialScrollOffset),
+    restoreStateRef = autoFollowTurnListReactRuntime.useRef(
+      initialVirtualizedTurnListRestoreState,
+    ),
+    responseSpacerElementRef = autoFollowTurnListReactRuntime.useRef(null),
+    isResponseSpacerAtViewportBottomRef =
+      autoFollowTurnListReactRuntime.useRef(false),
+    latestTurnKeyRef = autoFollowTurnListReactRuntime.useRef(latestTurnKey),
+    latestTurnIdentityKeyRef = autoFollowTurnListReactRuntime.useRef(
+      latestTurnIdentityKey,
+    ),
+    previousLatestTurnPhaseRef = autoFollowTurnListReactRuntime.useRef(
       savedLatestTurnState?.latestTurnPhase ?? latestTurnPhase,
     ),
-    latestTurnPhaseRef = Lx.useRef(latestTurnPhase),
-    wasLatestTurnInProgressRef = Lx.useRef(
+    latestTurnPhaseRef = autoFollowTurnListReactRuntime.useRef(latestTurnPhase),
+    wasLatestTurnInProgressRef = autoFollowTurnListReactRuntime.useRef(
       savedLatestTurnState?.isLatestTurnInProgress ?? isLatestTurnInProgress,
     ),
-    latestTurnInProgressRef = Lx.useRef(isLatestTurnInProgress),
-    latestTurnMotionContext = Lx.useMemo(
+    latestTurnInProgressRef = autoFollowTurnListReactRuntime.useRef(
+      isLatestTurnInProgress,
+    ),
+    latestTurnMotionContext = autoFollowTurnListReactRuntime.useMemo(
       () => ({
         turnKey: latestEntry?.turnKey ?? null,
         yPx: latestTurnOffsetY,
       }),
       [latestEntry?.turnKey, latestTurnOffsetY],
     ),
-    responseSpacerAdjustedScrollController = Lx.useMemo(() => {
-      let toSpacerAdjustedDistance = (distanceFromBottomPx) =>
-        Math.max(0, distanceFromBottomPx - responseSpacerHeightPx.get());
-      return {
-        ...scrollController,
-        addScrollListener: (listener) =>
-          scrollController.addScrollListener((distanceFromBottomPx) => {
-            listener(toSpacerAdjustedDistance(distanceFromBottomPx));
-          }),
-        addUserScrollListener: (listener) =>
-          scrollController.addUserScrollListener(
-            (distanceFromBottomPx, previousDistanceFromBottomPx) => {
-              listener(
-                toSpacerAdjustedDistance(distanceFromBottomPx),
-                previousDistanceFromBottomPx == null
-                  ? undefined
-                  : toSpacerAdjustedDistance(previousDistanceFromBottomPx),
-              );
-            },
-          ),
-        getLastScrollDistanceFromBottomPx: () =>
-          toSpacerAdjustedDistance(
-            scrollController.getLastScrollDistanceFromBottomPx(),
-          ),
-        scrollToDistanceFromBottomPx: (distanceFromBottomPx, behavior) => {
-          scrollController.scrollToDistanceFromBottomPx(
-            distanceFromBottomPx + responseSpacerHeightPx.get(),
-            behavior,
-          );
-        },
-      };
-    }, [responseSpacerHeightPx, scrollController]);
+    responseSpacerAdjustedScrollController =
+      autoFollowTurnListReactRuntime.useMemo(() => {
+        let toSpacerAdjustedDistance = (distanceFromBottomPx) =>
+          Math.max(0, distanceFromBottomPx - responseSpacerHeightPx.get());
+        return {
+          ...scrollController,
+          addScrollListener: (listener) =>
+            scrollController.addScrollListener((distanceFromBottomPx) => {
+              listener(toSpacerAdjustedDistance(distanceFromBottomPx));
+            }),
+          addUserScrollListener: (listener) =>
+            scrollController.addUserScrollListener(
+              (distanceFromBottomPx, previousDistanceFromBottomPx) => {
+                listener(
+                  toSpacerAdjustedDistance(distanceFromBottomPx),
+                  previousDistanceFromBottomPx == null
+                    ? undefined
+                    : toSpacerAdjustedDistance(previousDistanceFromBottomPx),
+                );
+              },
+            ),
+          getLastScrollDistanceFromBottomPx: () =>
+            toSpacerAdjustedDistance(
+              scrollController.getLastScrollDistanceFromBottomPx(),
+            ),
+          scrollToDistanceFromBottomPx: (distanceFromBottomPx, behavior) => {
+            scrollController.scrollToDistanceFromBottomPx(
+              distanceFromBottomPx + responseSpacerHeightPx.get(),
+              behavior,
+            );
+          },
+        };
+      }, [responseSpacerHeightPx, scrollController]);
   latestTurnPhaseRef.current = latestTurnPhase;
   latestTurnInProgressRef.current = isLatestTurnInProgress;
   latestTurnKeyRef.current = latestTurnKey;
@@ -12125,7 +12185,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       restoreStateRef.current = restoreState;
       onVirtualizedTurnListRestoreStateChange(restoreState);
     });
-  Lx.useLayoutEffect(
+  autoFollowTurnListReactRuntime.useLayoutEffect(
     () => (
       syncFooterResizePreserveDisabled(),
       () => {
@@ -12144,7 +12204,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
                 : getThreadScrollPaddingBottomPx(scrollElement),
             scrollState: scrollStateRef.current,
           });
-        scope.set(Ub, conversationId, {
+        scope.set(threadScrollStateSignal, conversationId, {
           distanceFromBottomPx: persistedScrollSnapshot.distanceFromBottomPx,
           latestTurn:
             persistedLatestTurnKey == null
@@ -12290,11 +12350,11 @@ function LocalConversationAutoFollowVirtualizedTurnList({
         }
       },
     );
-  Lx.useLayoutEffect(
+  autoFollowTurnListReactRuntime.useLayoutEffect(
     () => scrollController.addUserScrollListener(handleUserScroll),
     [handleUserScroll, scrollController],
   );
-  Lx.useLayoutEffect(() => {
+  autoFollowTurnListReactRuntime.useLayoutEffect(() => {
     let scrollElement = scrollController.getScrollElement(),
       responseSpacerElement = responseSpacerElementRef.current;
     if (
@@ -12328,7 +12388,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       },
       {
         root: scrollElement,
-        threshold: Hx,
+        threshold: responseSpacerIntersectionThresholds,
       },
     );
     return (
@@ -12342,7 +12402,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
     scrollController,
     shrinkResponseSpacerToDistance,
   ]);
-  Lx.useLayoutEffect(() => {
+  autoFollowTurnListReactRuntime.useLayoutEffect(() => {
     if (latestTurnIdentityKey == null) {
       onResponseSpacerStateChange(null);
       return;
@@ -12387,7 +12447,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       "instant",
     );
   });
-  Lx.useLayoutEffect(() => {
+  autoFollowTurnListReactRuntime.useLayoutEffect(() => {
     let scrollElement = scrollController.getScrollElement();
     if (scrollElement == null) return;
     clampResponseSpacerToViewport();
@@ -12442,7 +12502,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
               0,
               initialScrollOffsetRef.current + restoredHeightDeltaPx,
             )));
-          Ox({
+          adjustScrollForLatestTurnHeightDelta({
             allowResponseSpacerGrowth: latestTurnInProgressRef.current,
             distanceDeltaPx: restoredHeightDeltaPx,
             responseSpacerHeightPx: responseSpacerHeightPx,
@@ -12467,7 +12527,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
             heightDeltaPx != null &&
             heightDeltaPx !== 0 &&
             isPassiveLatestTurnFollowMode(scrollStateRef.current.followMode) &&
-            Ox({
+            adjustScrollForLatestTurnHeightDelta({
               allowResponseSpacerGrowth: latestTurnInProgressRef.current,
               distanceDeltaPx: heightDeltaPx,
               responseSpacerHeightPx: responseSpacerHeightPx,
@@ -12483,7 +12543,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
         )
           return;
         let followContentOverflowPx =
-            kx({
+            measureLatestTurnFollowContentOverflow({
               scrollElement: scrollElement,
               turnElement,
               fallbackBottomViewportOverflowPx: bottomViewportOverflowPx,
@@ -12529,11 +12589,11 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       });
     });
   return (
-    Lx.useLayoutEffect(
+    autoFollowTurnListReactRuntime.useLayoutEffect(
       () => scrollController.addScrollListener(handleScrollDistanceChanged),
       [handleScrollDistanceChanged, scrollController],
     ),
-    Lx.useLayoutEffect(() => {
+    autoFollowTurnListReactRuntime.useLayoutEffect(() => {
       let previousLatestTurnIdentityKey = latestTurnIdentityKeyRef.current,
         previousLatestTurnPhase = previousLatestTurnPhaseRef.current,
         wasLatestTurnInProgress = wasLatestTurnInProgressRef.current;
@@ -12602,10 +12662,17 @@ function LocalConversationAutoFollowVirtualizedTurnList({
         isResponseSpacerAtViewportBottomRef.current = false;
         latestTurnOffsetY.stop();
         latestTurnOffsetY.set(currentSpacerHeightPx);
-        scrollController.scrollToDistanceFromBottomPx(Vx, "instant");
-        E(latestTurnOffsetY, 0, Ux);
+        scrollController.scrollToDistanceFromBottomPx(
+          latestTurnPlacementDistancePx,
+          "instant",
+        );
+        E(latestTurnOffsetY, 0, responseSpacerSpringTransition);
         currentSpacerHeightPx !== maxSpacerHeightPx &&
-          E(responseSpacerHeightPx, maxSpacerHeightPx, Ux);
+          E(
+            responseSpacerHeightPx,
+            maxSpacerHeightPx,
+            responseSpacerSpringTransition,
+          );
       }
       let previousScrollState = scrollStateRef.current;
       dispatchScrollStateEvent({
@@ -12638,10 +12705,10 @@ function LocalConversationAutoFollowVirtualizedTurnList({
     ]),
     (
       <>
-        <Wx value={latestTurnMotionContext}>
-          {Rx.jsx(od, {
+        <LatestTurnMotionContext value={latestTurnMotionContext}>
+          {autoFollowTurnListJsxRuntime.jsx(od, {
             value: responseSpacerAdjustedScrollController,
-            children: Rx.jsx(VirtualizedTurnList, {
+            children: autoFollowTurnListJsxRuntime.jsx(VirtualizedTurnList, {
               entries,
               initialRestoreState: initialVirtualizedTurnListRestoreState,
               latestTurnSynchronousMeasurementKey:
@@ -12658,8 +12725,8 @@ function LocalConversationAutoFollowVirtualizedTurnList({
               RowComponent: LatestTurnAnimatedRow,
             }),
           })}
-        </Wx>
-        {Rx.jsx(p.div, {
+        </LatestTurnMotionContext>
+        {autoFollowTurnListJsxRuntime.jsx(p.div, {
           "aria-hidden": true,
           className: "shrink-0",
           ref: responseSpacerElementRef,
@@ -12673,7 +12740,9 @@ function LocalConversationAutoFollowVirtualizedTurnList({
 }
 function LatestTurnAnimatedRow(props) {
   let { entry, latestTurnFollowContentRef } = props,
-    latestTurnMotionContext = Lx.useContext(Wx),
+    latestTurnMotionContext = autoFollowTurnListReactRuntime.useContext(
+      LatestTurnMotionContext,
+    ),
     latestTurnY =
       latestTurnMotionContext?.turnKey === entry.turnKey
         ? latestTurnMotionContext.yPx
@@ -12687,12 +12756,12 @@ function LatestTurnAnimatedRow(props) {
       latestTurnFollowContentRef={latestTurnFollowContentRef}
     />
   );
-  return Rx.jsx(p.div, {
+  return autoFollowTurnListJsxRuntime.jsx(p.div, {
     style: rowStyle,
     children: rowNode,
   });
 }
-function Ox({
+function adjustScrollForLatestTurnHeightDelta({
   allowResponseSpacerGrowth,
   behavior = "instant",
   distanceDeltaPx,
@@ -12711,7 +12780,7 @@ function Ox({
     behavior,
   );
 }
-function kx({
+function measureLatestTurnFollowContentOverflow({
   scrollElement,
   turnElement,
   fallbackBottomViewportOverflowPx,
@@ -12735,7 +12804,10 @@ function getMaxResponseSpacerHeightPx({
   );
   return Math.max(
     0,
-    Math.min(availableViewportHeightPx * zx, availableViewportHeightPx - Bx),
+    Math.min(
+      availableViewportHeightPx * maxResponseSpacerViewportRatio,
+      availableViewportHeightPx - responseSpacerViewportReservePx,
+    ),
   );
 }
 function createPersistedScrollStateSnapshot({
@@ -12799,46 +12871,47 @@ function getLatestSteeringRestoreMessageId(entry) {
   }
   return null;
 }
-var Ix,
-  Lx,
-  Rx,
-  zx,
-  Bx,
-  Vx,
-  Hx,
-  Ux,
-  Wx,
-  Gx = once(() => {
-    Ix = getChunkModuleExports();
+var autoFollowVirtualizedTurnListModule,
+  autoFollowTurnListReactRuntime,
+  autoFollowTurnListJsxRuntime,
+  maxResponseSpacerViewportRatio,
+  responseSpacerViewportReservePx,
+  latestTurnPlacementDistancePx,
+  responseSpacerIntersectionThresholds,
+  responseSpacerSpringTransition,
+  LatestTurnMotionContext,
+  initAutoFollowVirtualizedTurnListChunk = once(() => {
+    autoFollowVirtualizedTurnListModule = getChunkModuleExports();
     bt();
     c();
-    Lx = toEsModule(G(), 1);
+    autoFollowTurnListReactRuntime = toEsModule(G(), 1);
     O();
     r();
     nd();
     id();
     He();
     _n();
-    Wb();
-    Xb();
-    nx();
-    Tx();
-    Rx = getJsxRuntime();
-    zx = 0.6666666666666666;
-    Bx = 240;
-    Vx = 1;
-    Hx = Array.from(
+    initThreadScrollStateSignal();
+    initLocalConversationTurnRowDependencies();
+    initLocalConversationTurnRowChunk();
+    initVirtualizedTurnListChunk();
+    autoFollowTurnListJsxRuntime = getJsxRuntime();
+    maxResponseSpacerViewportRatio = 0.6666666666666666;
+    responseSpacerViewportReservePx = 240;
+    latestTurnPlacementDistancePx = 1;
+    responseSpacerIntersectionThresholds = Array.from(
       {
         length: 101,
       },
-      (e, t) => t / 100,
+      (_unused, index) => index / 100,
     );
-    Ux = {
+    responseSpacerSpringTransition = {
       type: "spring",
       bounce: 0,
       duration: 0.5,
     };
-    Wx = Lx.createContext(null);
+    LatestTurnMotionContext =
+      autoFollowTurnListReactRuntime.createContext(null);
   });
 function buildLocalConversationTurnListEntries({
   collapsedTurnsById,
@@ -12872,7 +12945,7 @@ function buildLocalConversationTurnListEntries({
       projectlessOutputDirectory,
       visibleTurnEntries,
     }),
-    stableGeneratedImages = Xx.default(
+    stableGeneratedImages = turnListEntryDeepEqualModule.default(
       previousEntries[0]?.generatedImages,
       generatedImagesForVisibleEntries,
     )
@@ -13019,7 +13092,10 @@ function collectGeneratedImagesForVisibleTurns({
       },
     ),
   ];
-  return Xx.default(previousGeneratedImages, generatedImages)
+  return turnListEntryDeepEqualModule.default(
+    previousGeneratedImages,
+    generatedImages,
+  )
     ? previousGeneratedImages
     : generatedImages;
 }
@@ -13073,10 +13149,10 @@ function areTranscriptBlocksEquivalent(
     : previousTranscriptBlock.type === nextTranscriptBlock.type &&
         previousTranscriptBlock.key === nextTranscriptBlock.key;
 }
-var Xx,
-  Zx = once(() => {
+var turnListEntryDeepEqualModule,
+  initTurnListEntryComparisonChunk = once(() => {
     toEsModule(yr(), 1);
-    Xx = toEsModule(De(), 1);
+    turnListEntryDeepEqualModule = toEsModule(De(), 1);
     qs();
     Ge();
     Jt();
@@ -14206,7 +14282,7 @@ function LocalConversationThreadFrame(props) {
     visibleSubagentParentThreadId = useScopedValue(oi, conversationId),
     isScrollToTopEnabled = Vr("1579719221"),
     shouldShowSummaryPanelObstacles = Vr("3563904085"),
-    savedThreadScrollState = scope.get(Ub, conversationId);
+    savedThreadScrollState = scope.get(threadScrollStateSignal, conversationId);
   let savedScrollState = savedThreadScrollState,
     initialScrollOffset = savedScrollState?.distanceFromBottomPx ?? null,
     initialVirtualizedTurnListRestoreState =
@@ -14256,13 +14332,17 @@ function LocalConversationThreadFrame(props) {
     ),
     threadScrollLayoutApiRef = GS.useRef(null),
     handleThreadScroll = (distanceFromBottomPx, isAtBottom) => {
-      scope.set(Ub, conversationId, (previousScrollState) => ({
-        distanceFromBottomPx,
-        latestTurn: isScrollToTopEnabled
-          ? (previousScrollState?.latestTurn ?? null)
-          : null,
-        virtualizedTurnList: previousScrollState?.virtualizedTurnList ?? null,
-      }));
+      scope.set(
+        threadScrollStateSignal,
+        conversationId,
+        (previousScrollState) => ({
+          distanceFromBottomPx,
+          latestTurn: isScrollToTopEnabled
+            ? (previousScrollState?.latestTurn ?? null)
+            : null,
+          virtualizedTurnList: previousScrollState?.virtualizedTurnList ?? null,
+        }),
+      );
       setScrollDistanceFromBottomPx(distanceFromBottomPx);
       setIsScrolledFromBottom(!isAtBottom);
     };
@@ -14270,13 +14350,17 @@ function LocalConversationThreadFrame(props) {
     handleVirtualizedTurnListRestoreStateChange = (
       virtualizedTurnListRestoreState,
     ) => {
-      scope.set(Ub, conversationId, (previousScrollState) => ({
-        distanceFromBottomPx: previousScrollState?.distanceFromBottomPx ?? 0,
-        latestTurn: isScrollToTopEnabled
-          ? (previousScrollState?.latestTurn ?? null)
-          : null,
-        virtualizedTurnList: virtualizedTurnListRestoreState,
-      }));
+      scope.set(
+        threadScrollStateSignal,
+        conversationId,
+        (previousScrollState) => ({
+          distanceFromBottomPx: previousScrollState?.distanceFromBottomPx ?? 0,
+          latestTurn: isScrollToTopEnabled
+            ? (previousScrollState?.latestTurn ?? null)
+            : null,
+          virtualizedTurnList: virtualizedTurnListRestoreState,
+        }),
+      );
     };
   let onVirtualizedTurnListRestoreStateChange = useStableCallback(
       handleVirtualizedTurnListRestoreStateChange,
@@ -14672,7 +14756,10 @@ function LocalConversationThreadContent({
   let completedThreadGoalTurnKey =
       completedThreadGoal == null
         ? null
-        : Yy(visibleTurnEntries, completedThreadGoal.updatedAt * 1e3),
+        : findCompletedTurnSearchKeyAtOrBefore(
+            visibleTurnEntries,
+            completedThreadGoal.updatedAt * 1e3,
+          ),
     conversationHostApi = Pn(conversationId),
     { data: resolvedApps = qS } = Ti({
       hostId,
@@ -14826,7 +14913,7 @@ function LocalConversationThreadContent({
         return;
       }
       let turnIdForFork = turnEntry.turnId;
-      st(scope, tb, {
+      st(scope, ForkFromOlderTurnDialogController, {
         conversationCwd: cwd,
         conversationId,
         conversationLatestCollaborationMode: collaborationMode,
@@ -15197,10 +15284,10 @@ export const initLocalConversationThreadChunk = once(() => {
   _n();
   initThreadNullRefChunk();
   Ns();
-  Jy();
-  Xy();
-  ib();
-  sb();
+  initWorktreeRestoreBannerChunk();
+  initOlderTurnForkDialogStatics();
+  initForkFromOlderTurnDialogControllerChunk();
+  initDeepEqualModule();
   initConversationMarkdownRenderer();
   initThreadScrollState();
   Qi();
@@ -15209,14 +15296,14 @@ export const initLocalConversationThreadChunk = once(() => {
   yt();
   Wo();
   Ac();
-  pb();
+  initLocalConversationSearchAdapterChunk();
   initConversationSearchUnitExtractor();
   Nd();
   initLocalConversationTurnSelectors();
-  Wb();
-  Gx();
-  Zx();
-  nx();
+  initThreadScrollStateSignal();
+  initAutoFollowVirtualizedTurnListChunk();
+  initTurnListEntryComparisonChunk();
+  initLocalConversationTurnRowChunk();
   initThreadFindItemsBuilder();
   initBackgroundAgentThreadTab();
   fa();
@@ -15228,7 +15315,7 @@ export const initLocalConversationThreadChunk = once(() => {
   qc();
   initMarkConversationReadEffect();
   initLocalConversationThreadRoute();
-  Tx();
+  initVirtualizedTurnListChunk();
   $ = getJsxRuntime();
   KS = [];
   qS = [];
@@ -15240,7 +15327,7 @@ export const initLocalConversationThreadChunk = once(() => {
       parentConversationTurns = get(I, parentConversationId) ?? KS;
     return (
       getConversationTurnsNotInParent({
-        areTurnItemsEqual: ob.default,
+        areTurnItemsEqual: deepEqualModule.default,
         conversation: {
           turns: conversationTurns,
         },
