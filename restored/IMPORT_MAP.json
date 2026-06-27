@@ -141,6 +141,16 @@
       },
       "status": "done"
     },
+    "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-B_kSkG_X": {
+      "restored": "utils/hooks-settings-navigation.ts",
+      "exports": {
+        "n": "hooksSettingsNavigation",
+        "t": "initHooksSettingsNavigationChunk"
+      },
+      "status": "done",
+      "aliasOf": "hooks-settings-navigation-BjQMYS8c",
+      "note": "Current-ref shared route chunk adds a rolldown init export around the settings host navigation helper."
+    },
     "analyze_image_animation-C79AlwO6": {
       "restored": "animations/analyze-image-animation.ts",
       "exports": {
@@ -8256,10 +8266,21 @@
     "remote-connections-onboarding-signals-BDrBMO3c": {
       "restored": "onboarding/remote-connections-onboarding-signals.ts",
       "exports": {
-        "n": "remoteConnectionsOnboardingSignalsT",
-        "t": "remoteConnectionsOnboardingSignalsN"
+        "n": "remoteConnectionsHomeAnnouncementSeenSignal",
+        "t": "remoteConnectionsHomeAnnouncementVisibilitySignal"
       },
       "status": "done"
+    },
+    "app-initial~app-main~new-thread-panel-page~projects-index-page~debug-window-page~home-annou~i1bnl0q1-Cj3Tkgn6": {
+      "restored": "onboarding/remote-connections-onboarding-signals.ts",
+      "exports": {
+        "n": "initRemoteConnectionsOnboardingSignalsChunk",
+        "r": "remoteConnectionsHomeAnnouncementVisibilitySignal",
+        "t": "remoteConnectionsHomeAnnouncementSeenSignal"
+      },
+      "status": "done",
+      "aliasOf": "remote-connections-onboarding-signals-BDrBMO3c",
+      "note": "Current-ref shared home-announcements chunk adds a rolldown init export and keeps the remote connections announcement signals."
     },
     "ambient-suggestions-connected-apps-consent-DQgR2iFO": {
       "restored": "composer/ambient-suggestions-connected-apps-consent.ts",
@@ -10328,6 +10349,16 @@
         "t": "useNux"
       },
       "status": "done"
+    },
+    "app-initial~app-main~first-run~new-thread-panel-page-DDCPYhDR": {
+      "restored": "utils/use-nux.ts",
+      "exports": {
+        "n": "useNux",
+        "t": "initUseNuxChunk"
+      },
+      "status": "done",
+      "aliasOf": "use-nux-ChpUn11I",
+      "note": "Current-ref first-run/new-thread chunk wraps the same NUX hook with a rolldown init export."
     },
     "worktrees-settings-page-KeLyIYZM": {
       "restored": "settings/worktrees-settings-page/index.tsx",
