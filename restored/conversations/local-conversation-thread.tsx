@@ -81,7 +81,6 @@ import {
   Fp as expiredSideChatSignal,
   Fx as initEnvironmentTerminalController,
   GE as initLocalHostConstants,
-  G_ as multiBrowserTabsEnabledSignal,
   Ga as initElectronPlatformContent,
   Gi as DropdownMenu,
   Gj as initStatsigFeatureGateHooks,
@@ -287,7 +286,6 @@ import {
   ty as $r,
   uD as mapTurnStatusToOutputStatus,
   uM as toastSignal,
-  uz as NEW_TAB_TITLE,
   vM as KeyboardShortcutKeycap,
   vR as normalizeHref,
   va as AppDialog,
@@ -799,7 +797,10 @@ import {
   ThreadSummaryBrowserTabsSection,
   ThreadSummaryComputerUsePipSection,
 } from "./local-conversation-thread-parts/thread-summary-browser-sections";
-import { useBrowserUseSummaries } from "./local-conversation-thread-parts/browser-use-summary-store";
+import {
+  initThreadSummaryBrowserUseModelChunk,
+  useThreadSummaryBrowserUseSummaries,
+} from "./local-conversation-thread-parts/thread-summary-browser-use-model";
 import { BackgroundTaskSectionTitle } from "./local-conversation-thread-parts/background-task-section-title";
 import {
   initReviewSearchHighlighter,
@@ -8258,6 +8259,7 @@ var initLocalConversationSummaryPanelModelDependencies = once(() => {
   initMcpToolSourceMetadataHelpers();
   initIdentifierTitleFormatter();
   initThreadSummaryWebSourcesChunk();
+  initThreadSummaryBrowserUseModelChunk();
 });
 function useLocalConversationSummaryPanelModel(
   includeBackgroundActivity = true,
@@ -8266,8 +8268,7 @@ function useLocalConversationSummaryPanelModel(
     conversationId =
       routeSnapshot.value.routeKind === "local-thread"
         ? routeSnapshot.value.conversationId
-        : null,
-    browserSummaryConversationId = getRouteConversationId(routeSnapshot);
+        : null;
   let host = useSignalValue(hostConfigSignal),
     turns =
       useScopedValue(conversationTurnsSignal, conversationId) ??
@@ -8296,18 +8297,7 @@ function useLocalConversationSummaryPanelModel(
     ),
     sideChats = useSignalValue(localConversationSideChatSummariesSignal),
     installedMcpAppIds = useSignalValue(installedMcpAppIdsSignal),
-    isMultiBrowserTabsGateEnabled = useSignalValue(
-      multiBrowserTabsEnabledSignal,
-    ),
-    rightPanelTabs = useSignalValue(rightPanelTabsStore.tabs$),
-    bottomPanelTabs = useSignalValue(bottomPanelTabsStore.tabs$),
-    browserUseSummaries = useBrowserUseSummaries({
-      blankTitle: NEW_TAB_TITLE,
-      bottomPanelTabs,
-      conversationId: browserSummaryConversationId,
-      isMultiBrowserTabsGateEnabled,
-      rightPanelTabs,
-    });
+    browserUseSummaries = useThreadSummaryBrowserUseSummaries(routeSnapshot);
   let hasExternalMcpToolCalls = turns.some(turnHasExternalMcpToolCall),
     mcpAppsQueryInput = {
       enabled: hasExternalMcpToolCalls,
