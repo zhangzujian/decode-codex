@@ -4,7 +4,6 @@ import { once, toEsModule } from "../runtime/commonjs-interop";
 import {
   $N as initVscodeApiBridge,
   $P as initAppScope,
-  $h as getHostConfigKey,
   $j as initStatsigGateSignals,
   $p as modelProviderSignal,
   AB as initScopeRuntime,
@@ -34,12 +33,10 @@ import {
   FB as useScope,
   Fp as expiredSideChatSignal,
   Fx as initEnvironmentTerminalController,
-  GE as initLocalHostConstants,
   Ga as initElectronPlatformContent,
   Gi as DropdownMenu,
   Gj as initStatsigFeatureGateHooks,
   Gu as initGlobalStateQueryRuntime,
-  HE as useHostConfigById,
   HO as getReviewCommentAttachmentKeyValue,
   Hh as initGitQueryKeyHelpers,
   Hi as initSettingsGearIcon,
@@ -115,7 +112,6 @@ import {
   aM as RefreshIcon,
   aP as QUERY_DURATIONS,
   a_ as initFileTypeDetectionHelpers,
-  ag as fn,
   ak as initAppServerRequestBridge,
   bF as initPathHelpers,
   bM as initKeyboardShortcutLabel,
@@ -131,7 +127,6 @@ import {
   eM as featureGateSignal,
   eP as useHostQuery,
   ea as SearchIcon,
-  eg as Fn,
   en as ExternalLinkIcon,
   fV as createScopedSignalFamily,
   fh as initGitActionDirectiveRuntime,
@@ -176,7 +171,6 @@ import {
   ta as initSearchIcon,
   tc as Yr,
   tn as Xr,
-  tp as hostConnectionStatusSignal,
   uM as toastSignal,
   vM as KeyboardShortcutKeycap,
   va as AppDialog,
@@ -301,7 +295,6 @@ import {
   $n as vs,
   Al as ys,
   Bl as Ss,
-  Bn as worktreeStatusQuerySignal,
   Bu as ws,
   Du as Es,
   Eu as Os,
@@ -310,15 +303,12 @@ import {
   In as Ns,
   Jn as Ls,
   Km as zs,
-  Ln as Bs,
   Nl as Ws,
-  No as Gs,
   Pl as Js,
   Po as Ys,
   Qc as Zs,
   Ql as Qs,
   Qn as $s,
-  Rn as ec,
   St as tc,
   Tu as rc,
   Ul as ic,
@@ -666,6 +656,10 @@ import {
   initThreadSummaryPanelSectionChunk,
   ThreadSummaryPanelSection,
 } from "./local-conversation-thread-parts/thread-summary-panel-section";
+import {
+  ConnectedLocalWorktreeRestoreBanner,
+  initWorktreeRestoreBannerChunk,
+} from "./local-conversation-thread-parts/local-conversation-worktree-restore-banner";
 const joinLocalEnvironmentRepoPath = joinPath;
 function ThreadSummaryBackgroundActivityRows(props) {
   let {
@@ -6765,251 +6759,6 @@ var localConversationArtifactsModule,
     Xa();
     initReducedMotionPreference();
     initPinnedSummaryPanelState();
-  });
-function ConnectedLocalWorktreeRestoreBanner(props) {
-  let { conversationId, cwd } = props,
-    threadHostId = useScopedValue(conversationHostIdSignal, conversationId),
-    hostConnectionStatus = useScopedValue(
-      hostConnectionStatusSignal,
-      threadHostId,
-    );
-  if (threadHostId !== "local" && hostConnectionStatus !== "connected")
-    return null;
-  return (
-    <WorktreeRestoreBanner
-      conversationId={conversationId}
-      cwd={cwd}
-      threadHostId={threadHostId}
-    />
-  );
-}
-function WorktreeRestoreBanner(props) {
-  let { conversationId, cwd, threadHostId } = props,
-    scope = useScope(appScope),
-    host = useHostConfigById(threadHostId),
-    hostKey = getHostConfigKey(host);
-  let worktreeQueryKey = hostKey,
-    intl = useIntl(),
-    queryClient = useQueryClient(),
-    worktreeStatusQuery = useScopedValue(
-      worktreeStatusQuerySignal,
-      conversationId,
-    ),
-    worktreeStatus = worktreeStatusQuery.data,
-    isWorktreeStatusUnavailable =
-      worktreeStatusQuery.isError || worktreeStatus?.kind === "unavailable",
-    checkWorktreeMutationOptions = {
-      mutationFn: (nextCwd) =>
-        ec(scope, {
-          conversationId,
-          cwd: nextCwd,
-          hostId: threadHostId,
-        }),
-    };
-  let checkWorktreeMutation = useMutation(checkWorktreeMutationOptions),
-    handleRestoreSuccess = () => {
-      logger.info("[worktree-restore] successfully restored");
-      cwd != null &&
-        scope.query.invalidate(
-          Bs,
-          {
-            conversationId,
-            cwd: normalizeWorkspacePath(cwd),
-            hostId: threadHostId,
-          },
-          {
-            exact: true,
-          },
-        );
-      queryClient.invalidateQueries({
-        queryKey: Gs(worktreeQueryKey),
-      });
-      queryClient.invalidateQueries({
-        queryKey: ["git", "metadata", worktreeQueryKey],
-      });
-      let sessionId =
-        environmentTerminalControllerService.getSessionForConversation(
-          conversationId,
-        );
-      sessionId != null &&
-        cwd != null &&
-        environmentTerminalControllerService.attach({
-          sessionId: sessionId,
-          conversationId,
-          hostId: host.id,
-          cwd,
-          forceCwdSync: true,
-        });
-      scope.get(toastSignal).success(
-        intl.formatMessage({
-          id: "worktreeRestoreBanner.restore.success",
-          defaultMessage: "Worktree restored",
-          description: "Toast shown when a missing Codex worktree is restored",
-        }),
-      );
-    };
-  let handleRestoreError = (error) => {
-    let message = error.message;
-    logger.debug("[worktree-restore] restore failed for", {
-      safe: {},
-      sensitive: {
-        cwd: cwd ?? "unknown",
-        message: message,
-      },
-    });
-    scope.get(toastSignal).danger(
-      intl.formatMessage(
-        {
-          id: "worktreeRestoreBanner.restore.error",
-          defaultMessage: "Failed to restore worktree: {message}",
-          description:
-            "Toast shown when restoring a missing Codex worktree fails",
-        },
-        {
-          message: message,
-        },
-      ),
-    );
-  };
-  let restoreMutationOptions = {
-    onSuccess: handleRestoreSuccess,
-    onError: handleRestoreError,
-  };
-  let restoreWorktreeMutation = useHostMutation(
-    "restore-worktree",
-    host,
-    restoreMutationOptions,
-  );
-  if (
-    worktreeStatus?.kind !== "restorable" &&
-    worktreeStatus?.kind !== "gone" &&
-    !isWorktreeStatusUnavailable
-  )
-    return null;
-  let title = isWorktreeStatusUnavailable ? (
-    <FormattedMessage
-      id="worktreeRestoreBanner.unavailable.title"
-      defaultMessage="Couldn't check worktree status"
-      description="Title for banner when Codex cannot verify whether a managed worktree exists"
-    />
-  ) : worktreeStatus?.kind === "gone" ? (
-    <FormattedMessage
-      id="worktreeRestoreBanner.missing.title"
-      defaultMessage="Current working directory missing"
-      description="Title for banner when the current working directory is missing and no snapshot exists"
-    />
-  ) : (
-    <FormattedMessage
-      id="worktreeRestoreBanner.title"
-      defaultMessage="Worktree cleaned up"
-      description="Title for banner when a Codex worktree was pruned but can be restored"
-    />
-  );
-  let bannerTitle = title,
-    body = isWorktreeStatusUnavailable ? (
-      <FormattedMessage
-        id="worktreeRestoreBanner.unavailable.body"
-        defaultMessage="Retry to verify this chat's working directory"
-        description="Body text for banner shown when Codex cannot inspect a managed worktree"
-      />
-    ) : worktreeStatus?.kind === "gone" ? (
-      <FormattedMessage
-        id="worktreeRestoreBanner.missing.body"
-        defaultMessage="This chat's working directory no longer exists"
-        description="Body text for banner shown when the current working directory is missing and no snapshot exists"
-      />
-    ) : (
-      <FormattedMessage
-        id="worktreeRestoreBanner.body"
-        defaultMessage="This chat's worktree was removed to save disk space"
-        description="Body text for banner that offers to restore a missing worktree snapshot"
-      />
-    );
-  let bannerBody = body,
-    bannerType = isWorktreeStatusUnavailable ? "error" : "info",
-    titleNode = (
-      <span className="min-w-0 truncate font-semibold text-token-foreground">
-        {bannerTitle}
-      </span>
-    );
-  let bodyNode = (
-    <span className="hidden min-w-0 truncate text-token-description-foreground sm:inline">
-      {bannerBody}
-    </span>
-  );
-  let content = (
-    <span className="flex min-w-0 items-center gap-2">
-      {titleNode}
-      {bodyNode}
-    </span>
-  );
-  let customCtas =
-    isWorktreeStatusUnavailable && cwd != null
-      ? worktreeRestoreBannerJsxRuntime.jsx(Button, {
-          loading:
-            checkWorktreeMutation.isPending || worktreeStatusQuery.isFetching,
-          onClick: () => {
-            checkWorktreeMutation.mutate(cwd);
-          },
-          children: (
-            <FormattedMessage
-              id="worktreeRestoreBanner.retryCta"
-              defaultMessage="Retry"
-              description="Action to retry managed worktree inspection"
-            />
-          ),
-        })
-      : worktreeStatus?.kind === "restorable"
-        ? worktreeRestoreBannerJsxRuntime.jsx(Button, {
-            color: "primary",
-            loading: restoreWorktreeMutation.isPending,
-            onClick: () => {
-              restoreWorktreeMutation.mutateAsync({
-                repoRoot: worktreeStatus.snapshot.repoRoot,
-                worktreePath: worktreeStatus.worktreePath,
-                conversationId,
-                operationSource: "worktree_restore_banner",
-              });
-            },
-            children: (
-              <FormattedMessage
-                id="worktreeRestoreBanner.restoreCta"
-                defaultMessage="Restore worktree"
-                description="Primary call to action for restoring a missing worktree snapshot"
-              />
-            ),
-          })
-        : null;
-  return worktreeRestoreBannerJsxRuntime.jsx($s, {
-    type: bannerType,
-    layout: "horizontal",
-    content: content,
-    customCtas: customCtas,
-  });
-}
-var worktreeRestoreBannerModule,
-  worktreeRestoreBannerJsxRuntime,
-  initWorktreeRestoreBannerChunk = once(() => {
-    worktreeRestoreBannerModule = getChunkModuleExports();
-    initReactQueryRuntime();
-    initScopeRuntime();
-    initPathHelpers();
-    initIntlRuntime();
-    initConversationStateSelectors();
-    vs();
-    initButtonComponentPrimitives();
-    initToastRuntime();
-    initGitBranchQueryRuntime();
-    fn();
-    Fn();
-    initAppScope();
-    initLocalHostConstants();
-    initHostConfigHelpers();
-    initEnvironmentTerminalController();
-    initLoggerRuntime();
-    Ns();
-    Ys();
-    worktreeRestoreBannerJsxRuntime = getJsxRuntime();
   });
 var deepEqualModule,
   initDeepEqualModule = once(() => {
