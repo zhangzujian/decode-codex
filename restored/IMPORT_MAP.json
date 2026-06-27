@@ -3210,7 +3210,9 @@
         "DotLottieWorkerReact": "browserDotLottieWorkerReact",
         "setWasmUrl": "browserSetWasmUrl"
       },
-      "status": "done"
+      "status": "done",
+      "vendor": "runtime",
+      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals."
     },
     "browser-BUZask3G": {
       "restored": "vendor/dotlottie-react.tsx",
@@ -3219,7 +3221,9 @@
         "DotLottieWorkerReact": "DotLottieWorkerReact",
         "setWasmUrl": "setWasmUrl"
       },
-      "status": "done"
+      "status": "done",
+      "vendor": "runtime",
+      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals."
     },
     "chunk-ABZYJK2D-8WiwWXHe": {
       "restored": "vendor/katex-auto-render.ts",

@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/browser-BQH2qCja.js
-// Browser chunk restored from the Codex webview bundle.
+// Vendored boundary for the bundled @lottiefiles/dotlottie-web React runtime.
+// Vendored boundary.
 import React from "react";
 import { t as browserImport2 } from "react/jsx-runtime";
 var browserValue2 = browserImport2(),
