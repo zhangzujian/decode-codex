@@ -5809,12 +5809,12 @@ var pullRequestDescriptionSectionModule,
     initPullRequestSidePanelLoadingStateChunk();
     pullRequestDescriptionSectionJsxRuntime = getJsxRuntime();
   }),
-  Mg,
-  Ng,
-  Pg = once(() => {
+  pullRequestReviewerPlaceholderIconJsxRuntime,
+  PullRequestReviewerPlaceholderIcon,
+  initPullRequestReviewerPlaceholderIconChunk = once(() => {
     toEsModule(G());
-    Mg = getJsxRuntime();
-    Ng = (props) => (
+    pullRequestReviewerPlaceholderIconJsxRuntime = getJsxRuntime();
+    PullRequestReviewerPlaceholderIcon = (props) => (
       <svg
         width={21}
         height={21}
@@ -5832,12 +5832,12 @@ var pullRequestDescriptionSectionModule,
       </svg>
     );
   }),
-  Fg,
-  Ig = once(() => {
+  githubUserSearchQuery,
+  initGithubUserSearchQuery = once(() => {
     r();
     Er();
     n();
-    Fg = rn(ut, "gh-user-search", (queryParams) => ({
+    githubUserSearchQuery = rn(ut, "gh-user-search", (queryParams) => ({
       enabled: queryParams.query.length > 0,
       params: queryParams,
       retry: false,
@@ -5874,8 +5874,9 @@ function getReviewerSearchMenuOptions({
         : query.length === 0
           ? []
           : undefined
-      : Bg.default([...selectedReviewers, ...availableReviewers], ({ login }) =>
-          login.toLowerCase(),
+      : uniqByModule.default(
+          [...selectedReviewers, ...availableReviewers],
+          ({ login }) => login.toLowerCase(),
         );
 }
 function toggleSelectedReviewer(selectedReviewers, reviewer) {
@@ -5886,20 +5887,19 @@ function toggleSelectedReviewer(selectedReviewers, reviewer) {
     ? [...selectedReviewers, reviewer]
     : selectedReviewers.filter((item) => item !== existingReviewer);
 }
-var Bg,
-  Vg = once(() => {
-    Bg = toEsModule(Sn(), 1);
+var uniqByModule,
+  initReviewerSearchUniqByModule = once(() => {
+    uniqByModule = toEsModule(Sn(), 1);
   });
 function RequestPullRequestReviewersButton(props) {
   let { hostId, item, pendingReviewerLogins, repo } = props,
     scope = B(ut),
     intl = ur(),
-    [open, setOpen] = qg.useState(false),
-    [query, setQuery] = qg.useState(""),
+    [open, setOpen] = requestPullRequestReviewersReactRuntime.useState(false),
+    [query, setQuery] = requestPullRequestReviewersReactRuntime.useState(""),
     emptySelectedReviewers = [];
-  let [selectedReviewers, setSelectedReviewers] = qg.useState(
-      emptySelectedReviewers,
-    ),
+  let [selectedReviewers, setSelectedReviewers] =
+      requestPullRequestReviewersReactRuntime.useState(emptySelectedReviewers),
     trimmedQuery = query.trim();
   let currentQuery = trimmedQuery,
     debouncedQuery = Lr(currentQuery, 250),
@@ -5909,7 +5909,10 @@ function RequestPullRequestReviewersButton(props) {
       query: debouncedQuery,
       repo,
     };
-  let { data, isError, refetch } = useScopedValue(Fg, searchParams),
+  let { data, isError, refetch } = useScopedValue(
+      githubUserSearchQuery,
+      searchParams,
+    ),
     updateMutationParams = {
       cwd: item.cwd,
       headBranch: item.headBranch,
@@ -5993,7 +5996,7 @@ function RequestPullRequestReviewersButton(props) {
   let triggerIcon = <Ae aria-hidden={true} className="icon-2xs" />;
   let triggerButton = (
     <Kn asChild={true}>
-      {Jg.jsx(k, {
+      {requestPullRequestReviewersJsxRuntime.jsx(k, {
         "aria-label": triggerLabel,
         color: "secondary",
         size: "iconMd",
@@ -6001,7 +6004,7 @@ function RequestPullRequestReviewersButton(props) {
       })}
     </Kn>
   );
-  let dialogTitle = Jg.jsx(_r, {
+  let dialogTitle = requestPullRequestReviewersJsxRuntime.jsx(_r, {
     className: "sr-only",
     children: (
       <FormattedMessage
@@ -6031,7 +6034,7 @@ function RequestPullRequestReviewersButton(props) {
             defaultMessage="Couldn’t search GitHub users"
             description="Error shown when pull request reviewer search fails"
           />
-          {Jg.jsx(k, {
+          {requestPullRequestReviewersJsxRuntime.jsx(k, {
             color: "outline",
             size: "default",
             type: "button",
@@ -6126,12 +6129,12 @@ function RequestPullRequestReviewersButton(props) {
             className="flex items-center justify-center py-2"
             role="status"
           >
-            {Jg.jsx(rr, {
+            {requestPullRequestReviewersJsxRuntime.jsx(rr, {
               className: "icon-2xs",
             })}
           </span>
         ) : (
-          Jg.jsx(k, {
+          requestPullRequestReviewersJsxRuntime.jsx(k, {
             color: "secondary",
             size: "toolbar",
             onClick: handleRequestReviewers,
@@ -6179,13 +6182,13 @@ function toReviewerSearchOption(reviewer) {
     label: reviewer.login,
   };
 }
-var Kg,
-  qg,
-  Jg,
-  Yg = once(() => {
-    Kg = getChunkModuleExports();
+var requestPullRequestReviewersModule,
+  requestPullRequestReviewersReactRuntime,
+  requestPullRequestReviewersJsxRuntime,
+  initRequestPullRequestReviewersButtonChunk = once(() => {
+    requestPullRequestReviewersModule = getChunkModuleExports();
     c();
-    qg = toEsModule(G(), 1);
+    requestPullRequestReviewersReactRuntime = toEsModule(G(), 1);
     Jn();
     Ye();
     Hn();
@@ -6198,9 +6201,9 @@ var Kg,
     initPullRequestAnalyticsChunk();
     r();
     Vn();
-    Ig();
-    Vg();
-    Jg = getJsxRuntime();
+    initGithubUserSearchQuery();
+    initReviewerSearchUniqByModule();
+    requestPullRequestReviewersJsxRuntime = getJsxRuntime();
   });
 function PullRequestSidePanelOverviewSection(props) {
   let {
@@ -6215,7 +6218,7 @@ function PullRequestSidePanelOverviewSection(props) {
       mergeBlocker,
       repo,
     } = props,
-    branchIcon = Z.jsx(sr, {
+    branchIcon = pullRequestOverviewSectionJsxRuntime.jsx(sr, {
       className: "icon-sm shrink-0 text-token-text-tertiary",
     });
   let branchArrow = (
@@ -6264,9 +6267,12 @@ function PullRequestSidePanelOverviewSection(props) {
     mergeStatusIcon = (
       <Ws className="icon-sm shrink-0" state={mergeStatusState} />
     );
-  let mergeStatusLabel = Z.jsx(PullRequestOverviewMergeStatusLabel, {
-    mergeBlocker,
-  });
+  let mergeStatusLabel = pullRequestOverviewSectionJsxRuntime.jsx(
+    PullRequestOverviewMergeStatusLabel,
+    {
+      mergeBlocker,
+    },
+  );
   let mergeStatusRow = (
     <SummaryPanelRow
       density="comfortable"
@@ -6275,12 +6281,15 @@ function PullRequestSidePanelOverviewSection(props) {
     />
   );
   let reviewers = comments?.reviewers ?? null,
-    reviewersRow = Z.jsx(PullRequestOverviewReviewersRow, {
-      hostId,
-      item,
-      repo,
-      reviewers,
-    });
+    reviewersRow = pullRequestOverviewSectionJsxRuntime.jsx(
+      PullRequestOverviewReviewersRow,
+      {
+        hostId,
+        item,
+        repo,
+        reviewers,
+      },
+    );
   let commentsRow = (
     <PullRequestOverviewCommentsRow
       data={comments}
@@ -6304,7 +6313,7 @@ function PullRequestOverviewChecksRow(props) {
     return (
       <SummaryPanelRow
         density="comfortable"
-        icon={Z.jsx(zc, {
+        icon={pullRequestOverviewSectionJsxRuntime.jsx(zc, {
           className: "icon-sm shrink-0 text-token-charts-red",
         })}
         label={
@@ -6321,7 +6330,7 @@ function PullRequestOverviewChecksRow(props) {
     return (
       <SummaryPanelRow
         density="comfortable"
-        icon={Z.jsx(rr, {
+        icon={pullRequestOverviewSectionJsxRuntime.jsx(rr, {
           className: "icon-sm shrink-0",
         })}
         label={
@@ -6350,7 +6359,7 @@ function PullRequestOverviewCommentsRow(props) {
     return (
       <SummaryPanelRow
         density="comfortable"
-        icon={Z.jsx(zc, {
+        icon={pullRequestOverviewSectionJsxRuntime.jsx(zc, {
           className: "icon-sm shrink-0 text-token-charts-red",
         })}
         label={
@@ -6367,7 +6376,7 @@ function PullRequestOverviewCommentsRow(props) {
     return (
       <SummaryPanelRow
         density="comfortable"
-        icon={Z.jsx(rr, {
+        icon={pullRequestOverviewSectionJsxRuntime.jsx(rr, {
           className: "icon-sm shrink-0",
         })}
         label={
@@ -6451,7 +6460,9 @@ function PullRequestOverviewReviewersRow(props) {
       canRequestReviewers = item.isAuthor && item.state !== "merged";
     rowComponent = SummaryPanelRow;
     density = "comfortable";
-    icon = <Ng className="icon-sm shrink-0 text-token-text-tertiary" />;
+    icon = (
+      <PullRequestReviewerPlaceholderIcon className="icon-sm shrink-0 text-token-text-tertiary" />
+    );
     labelClassName = "flex min-w-0 flex-1 items-center gap-2";
     labelPrefix = (
       <span className="shrink-0">
@@ -6486,7 +6497,7 @@ function PullRequestOverviewReviewersRow(props) {
       {reviewerBadges}
     </span>
   );
-  return Z.jsx(rowComponent, {
+  return pullRequestOverviewSectionJsxRuntime.jsx(rowComponent, {
     density,
     icon,
     label,
@@ -6494,7 +6505,7 @@ function PullRequestOverviewReviewersRow(props) {
   });
 }
 function renderPullRequestOverviewReviewerBadge(reviewer) {
-  return Z.jsx(
+  return pullRequestOverviewSectionJsxRuntime.jsx(
     jr,
     {
       tooltipContent: reviewer.label,
@@ -6506,7 +6517,7 @@ function renderPullRequestOverviewReviewerBadge(reviewer) {
               className="flex size-full items-center justify-center text-token-text-secondary"
               role="img"
             >
-              {Z.jsx(ed, {
+              {pullRequestOverviewSectionJsxRuntime.jsx(ed, {
                 "aria-hidden": true,
                 className: "icon-xs",
               })}
@@ -6554,10 +6565,10 @@ function renderPullRequestOverviewReviewerBadge(reviewer) {
     `${reviewer.kind}:${reviewer.label}`,
   );
 }
-var n_,
-  Z,
-  r_ = once(() => {
-    n_ = getChunkModuleExports();
+var pullRequestOverviewSectionModule,
+  pullRequestOverviewSectionJsxRuntime,
+  initPullRequestSidePanelOverviewSectionChunk = once(() => {
+    pullRequestOverviewSectionModule = getChunkModuleExports();
     Ut();
     Jn();
     d();
@@ -6565,16 +6576,16 @@ var n_,
     Nl();
     y();
     Eu();
-    Pg();
+    initPullRequestReviewerPlaceholderIconChunk();
     $u();
     Kc();
     Bl();
     Js();
     ps();
     initSummaryPanelRowChunk();
-    Yg();
+    initRequestPullRequestReviewersButtonChunk();
     initPullRequestReviewerBadgeModelsChunk();
-    Z = getJsxRuntime();
+    pullRequestOverviewSectionJsxRuntime = getJsxRuntime();
   });
 function PullRequestSidePanelDetails(props) {
   let { bodyError, bodyIsLoading, item, pullRequestBody, request } = props,
@@ -6754,7 +6765,7 @@ var pullRequestSidePanelDetailsModule,
     initPullRequestSidePanelCommentsSectionChunk();
     initPullRequestSidePanelConflictsSectionChunk();
     initPullRequestSidePanelDescriptionSectionChunk();
-    r_();
+    initPullRequestSidePanelOverviewSectionChunk();
     pullRequestSidePanelDetailsJsxRuntime = getJsxRuntime();
   });
 
