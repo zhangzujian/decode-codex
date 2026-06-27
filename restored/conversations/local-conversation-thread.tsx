@@ -672,7 +672,7 @@ import {
   ArtifactFilePreviewIcon as Mu,
 } from "../utils/artifact-file-preview-icon";
 import { n as Nu, t as Pu } from "./share-invite-autocomplete-DUiU0DI5.js";
-import { n as Fu, t as Iu } from "./star-wM0A9s5z.js";
+import { initStarIconChunk as Fu, StarIcon as Iu } from "../icons/star-icon";
 import {
   GitBranchSwitcher as Ru,
   initGitBranchSwitcherChunk as Lu,
