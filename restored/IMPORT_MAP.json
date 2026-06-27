@@ -12547,6 +12547,22 @@
       "status": "done",
       "note": "Synced current Codex worktrees query hook with semantic hook and initializer exports.",
       "lastUpdated": "2026-06-27T21:36:04.728Z"
+    },
+    "keyboard-event-accelerator-DMT_0ZVa": {
+      "restored": "utils/keyboard-event-accelerator.ts",
+      "exports": {
+        "i": "releasedModifierAccelerator",
+        "n": "initKeyboardEventAcceleratorChunk",
+        "r": "pressedModifierAccelerator",
+        "t": "keyboardEventAccelerator",
+        "releasedModifierAccelerator": "releasedModifierAccelerator",
+        "initKeyboardEventAcceleratorChunk": "initKeyboardEventAcceleratorChunk",
+        "pressedModifierAccelerator": "pressedModifierAccelerator",
+        "keyboardEventAccelerator": "keyboardEventAccelerator"
+      },
+      "status": "done",
+      "note": "Synced current keyboard event accelerator chunk with semantic accelerator helpers and initializer export.",
+      "lastUpdated": "2026-06-27T21:40:03.560Z"
     }
   }
 }
