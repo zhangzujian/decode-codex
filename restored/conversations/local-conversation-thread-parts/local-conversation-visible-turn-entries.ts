@@ -1,10 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Builds the visible turn entry model for the local conversation thread.
-import { once, toEsModule } from "../../runtime/commonjs-interop";
-import {
-  yA as loadFindLastModule,
-  initLocalConversationGitSummary as isRenderableConversationTurn,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { once } from "../../runtime/commonjs-interop";
+import { initLocalConversationGitSummary as isRenderableConversationTurn } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { getConversationTurnsNotInParent } from "./parent-conversation-turns";
 import {
   collectConversationRequestsForTurnIds,
@@ -77,13 +74,6 @@ type BerryDisplayTurnGroup = {
       displayIndex: number;
     }
   >;
-};
-
-let findLastModule: {
-  default: <T>(
-    items: readonly T[],
-    predicate: (item: T, index: number) => boolean,
-  ) => T | undefined;
 };
 
 export function buildLocalConversationVisibleTurnEntries({
@@ -340,12 +330,17 @@ function getLastDefinedTurnField(
   fieldName: string,
 ) {
   return (
-    findLastModule.default(turns, (turn) => turn[fieldName] != null)?.[
-      fieldName
-    ] ?? null
+    findLast(turns, (turn) => turn[fieldName] != null)?.[fieldName] ?? null
   );
 }
 
-export const initLocalConversationVisibleTurnEntriesBuilder = once(() => {
-  findLastModule = toEsModule(loadFindLastModule(), 1);
-});
+function findLast<T>(
+  items: readonly T[],
+  predicate: (item: T, index: number) => boolean,
+): T | undefined {
+  for (let index = items.length - 1; index >= 0; index--)
+    if (predicate(items[index], index)) return items[index];
+  return undefined;
+}
+
+export const initLocalConversationVisibleTurnEntriesBuilder = once(() => {});

@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Scoped selectors for visible local-conversation turns and subagent response state.
-import { once, toEsModule } from "../../runtime/commonjs-interop";
+import { once } from "../../runtime/commonjs-interop";
+import { isEqualT as createIsEqual } from "../../vendor/lodash-is-equal";
 import {
   $P as initAppScope,
   $j as initStatsigGateSignals,
@@ -8,7 +9,6 @@ import {
   AB as initScopeRuntime,
   Em as conversationTurnsSignal,
   Ip as localResponseInProgressSignal,
-  LB as loadIsEqualModule,
   Nv as initConversationArtifactRuntime,
   Op as initConversationStateSelectors,
   QP as appScope,
@@ -30,10 +30,10 @@ type DeepEqualModule = {
   default: (left: unknown, right: unknown) => boolean;
 };
 
-let deepEqualModule: DeepEqualModule;
+let areValuesEqual: DeepEqualModule["default"];
 
 const initDeepEqualModule = once(() => {
-  deepEqualModule = toEsModule(loadIsEqualModule(), 1) as DeepEqualModule;
+  areValuesEqual = createIsEqual() as DeepEqualModule["default"];
 });
 
 let emptyConversationRequests: readonly unknown[];
@@ -90,7 +90,7 @@ export const initLocalConversationTurnSelectors = once(() => {
           parentBerryDisplayConversationTurns != null;
 
       return buildLocalConversationVisibleTurnEntries({
-        areTurnItemsEqual: deepEqualModule.default,
+        areTurnItemsEqual: areValuesEqual,
         conversationRequests,
         mergeBerryDisplayTurnsForPIA: false,
         preserveServerUserMessages: false,
@@ -130,7 +130,7 @@ export const initLocalConversationTurnSelectors = once(() => {
 
       return (
         getConversationTurnsNotInParent({
-          areTurnItemsEqual: deepEqualModule.default,
+          areTurnItemsEqual: areValuesEqual,
           conversation: {
             turns: conversationTurns,
           },

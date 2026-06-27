@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Initialization wiring for the local conversation public chunk.
-import { once, toEsModule } from "../../runtime/commonjs-interop";
+import { once } from "../../runtime/commonjs-interop";
 import {
   $P as initAppScope,
   AB as initScopeRuntime,
@@ -31,7 +31,6 @@ import {
   mv as xr,
   pP as initLoggerRuntime,
   qV as getChunkModuleExports,
-  yA as loadFindLastModule,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   A as Di,
@@ -128,7 +127,6 @@ export const initLocalConversationThreadChunk = once(() => {
   localConversationThreadModule = getChunkModuleExports();
   initMotionRuntime();
   initQueryRuntime();
-  toEsModule(loadFindLastModule(), 1);
   initScopeRuntime();
   initPathHelpers();
   initIntlRuntime();

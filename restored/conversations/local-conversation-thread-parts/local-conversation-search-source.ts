@@ -1,16 +1,13 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Builds searchable conversation turn units for local conversation search.
-import { once, toEsModule } from "../../runtime/commonjs-interop";
+import { once } from "../../runtime/commonjs-interop";
 import {
   Nv as initConversationArtifactRuntime,
   Pv as formatConversationTurnForSearch,
   Sk as normalizeMarkdownPlainText,
-  bA as loadFindLastIndexModule,
   initLocalConversationGitSummary as isRenderableConversationTurn,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
-import {
-  cn as initConversationSearchMatcher,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
+import { cn as initConversationSearchMatcher } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
   createLocalConversationSearchAdapter,
   initConversationSearchHelpers,
@@ -45,13 +42,6 @@ type ConversationSearchSourceOptions = {
   getIsBackgroundSubagentsEnabled: () => boolean;
   routeContextId: string;
   scrollAdapter: ConversationSearchScrollAdapter;
-};
-
-let findLastIndexModule: {
-  default: <T>(
-    items: readonly T[],
-    predicate: (item: T, index: number) => boolean,
-  ) => number;
 };
 
 export function createLocalConversationSearchSource({
@@ -95,7 +85,7 @@ function extractConversationSearchUnits(
   items: ConversationTurnItem[],
 ): ConversationSearchUnit[] {
   let units: ConversationSearchUnit[] = [];
-  let latestAssistantMessageIndex = findLastIndexModule.default(
+  let latestAssistantMessageIndex = findLastIndex(
     items,
     (item) => item.type === "assistant-message",
   );
@@ -127,8 +117,16 @@ function extractConversationSearchUnits(
   return units;
 }
 
+function findLastIndex<T>(
+  items: readonly T[],
+  predicate: (item: T, index: number) => boolean,
+): number {
+  for (let index = items.length - 1; index >= 0; index--)
+    if (predicate(items[index], index)) return index;
+  return -1;
+}
+
 export const initConversationSearchUnitExtractor = once(() => {
-  findLastIndexModule = toEsModule(loadFindLastIndexModule(), 1);
   initConversationSearchHelpers();
   initConversationSearchMatcher();
   initConversationArtifactRuntime();

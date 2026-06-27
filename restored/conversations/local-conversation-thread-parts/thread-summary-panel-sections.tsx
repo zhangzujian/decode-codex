@@ -1,7 +1,8 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Summary panel section assembly for outputs, background tasks, browser tabs, sources, plan, automation, and git environment state.
 import type { ComponentType } from "react";
-import { once, toEsModule } from "../../runtime/commonjs-interop";
+import { once } from "../../runtime/commonjs-interop";
+import { isEqualT as createIsEqual } from "../../vendor/lodash-is-equal";
 import {
   $N as initVscodeApiBridge,
   AB as initScopeRuntime,
@@ -16,7 +17,6 @@ import {
   IB as useSignalValue,
   I_ as initRouteScope,
   Ku as useGlobalStateQuery,
-  LB as loadIsEqualModule,
   La as initExternalUrlHelpers,
   M_ as localConversationRouteScope,
   Op as initConversationStateSelectors,
@@ -179,7 +179,7 @@ export type ThreadSummaryPanelSectionsProps = {
   onOpenBackgroundAgent?: (backgroundAgent: unknown) => void;
 };
 
-let deepEqualModule: DeepEqualModule;
+let areValuesEqual: DeepEqualModule["default"];
 
 export function ThreadSummaryPanelSections({
   artifacts,
@@ -281,7 +281,7 @@ export function ThreadSummaryPanelSections({
         actionStatesByProcessId: pendingBackgroundProcessRows,
         backgroundTerminals,
         conversationId,
-        isEqual: deepEqualModule.default,
+        isEqual: areValuesEqual,
         persistedProcesses: chatProcessRecords,
         restoredProcesses: restoredBackgroundProcesses,
       });
@@ -651,7 +651,7 @@ function openThreadSummaryProcessManager() {
 }
 
 const initDeepEqualModule = once(() => {
-  deepEqualModule = toEsModule(loadIsEqualModule(), 1) as DeepEqualModule;
+  areValuesEqual = createIsEqual() as DeepEqualModule["default"];
 });
 
 const initThreadSummaryPanelSectionsChunk = once(() => {

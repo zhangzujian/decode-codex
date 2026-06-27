@@ -1,9 +1,9 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Generated-image output collection for visible local conversation turns.
 import { once, toEsModule } from "../../runtime/commonjs-interop";
+import { isEqualT as createIsEqual } from "../../vendor/lodash-is-equal";
 import {
   Hg as collectEndResourcePaths,
-  LB as loadIsEqualModule,
   mr as loadGroupByModule,
   Nv as initConversationArtifactRuntime,
   Pv as renderConversationTurnForArtifacts,
@@ -51,9 +51,10 @@ export type VisibleTurnGeneratedImagesOptions = {
   visibleTurnEntries: readonly VisibleTurnEntryForGeneratedImages[];
 };
 
-let generatedImageDeepEqualModule: {
-  default: (leftValue: unknown, rightValue: unknown) => boolean;
-};
+let areGeneratedImageListsEqual: (
+  leftValue: unknown,
+  rightValue: unknown,
+) => boolean;
 
 export function collectGeneratedImagesForVisibleTurns({
   isBackgroundSubagentsEnabled,
@@ -123,17 +124,17 @@ export function collectGeneratedImagesForVisibleTurns({
   ];
 
   return previousGeneratedImages != null &&
-    generatedImageDeepEqualModule.default(
-      previousGeneratedImages,
-      generatedImages,
-    )
+    areGeneratedImageListsEqual(previousGeneratedImages, generatedImages)
     ? previousGeneratedImages
     : generatedImages;
 }
 
 export const initVisibleTurnGeneratedImagesCollector = once(() => {
   toEsModule(loadGroupByModule(), 1);
-  generatedImageDeepEqualModule = toEsModule(loadIsEqualModule(), 1);
+  areGeneratedImageListsEqual = createIsEqual() as (
+    leftValue: unknown,
+    rightValue: unknown,
+  ) => boolean;
   initVisibleGeneratedImageOutputChunk();
   initConversationArtifactRuntime();
   initMarkdownResourceHelpers();
