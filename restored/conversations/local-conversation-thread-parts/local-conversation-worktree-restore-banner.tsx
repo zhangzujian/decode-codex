@@ -76,6 +76,18 @@ type WorktreeStatus =
   | null
   | undefined;
 
+type WorktreeStatusQuery = {
+  data?: WorktreeStatus;
+  isError?: boolean;
+};
+
+type WorktreeRestoreScope = {
+  get<TValue = unknown>(signal: unknown): TValue;
+  query: {
+    invalidate(queryKey: unknown, variables?: unknown, options?: unknown): void;
+  };
+};
+
 export function ConnectedLocalWorktreeRestoreBanner({
   conversationId,
   cwd,
@@ -89,7 +101,10 @@ export function ConnectedLocalWorktreeRestoreBanner({
       threadHostId,
     );
 
-  if (threadHostId !== "local" && hostConnectionStatus !== "connected") {
+  if (
+    threadHostId == null ||
+    (threadHostId !== "local" && hostConnectionStatus !== "connected")
+  ) {
     return null;
   }
 
@@ -112,11 +127,11 @@ function WorktreeRestoreBanner({
     hostKey = getHostConfigKey(host),
     intl = useIntl(),
     queryClient = useQueryClient(),
-    worktreeStatusQuery = useScopedValue<any>(
+    worktreeStatusQuery = useScopedValue<WorktreeStatusQuery>(
       worktreeStatusQuerySignal,
       conversationId,
     ),
-    worktreeStatus = worktreeStatusQuery.data as WorktreeStatus,
+    worktreeStatus = worktreeStatusQuery.data,
     isWorktreeStatusUnavailable =
       worktreeStatusQuery.isError || worktreeStatus?.kind === "unavailable",
     checkWorktreeMutation = useMutationForWorktreeCheck({
@@ -307,7 +322,7 @@ function useMutationForWorktreeCheck({
 }: {
   conversationId: string;
   cwd: string | null;
-  scope: any;
+  scope: WorktreeRestoreScope;
   threadHostId: string;
 }) {
   return useMutation({

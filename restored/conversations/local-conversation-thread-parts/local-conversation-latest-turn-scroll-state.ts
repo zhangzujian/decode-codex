@@ -12,7 +12,7 @@ export type LatestTurnScrollState = {
   followMode: LatestTurnFollowMode;
 };
 
-type LatestTurnScrollStateEvent =
+export type LatestTurnScrollStateEvent =
   | {
       type: "latest_turn_follow_content_changed";
       followContentOverflowPx: number;
@@ -36,7 +36,7 @@ type LatestTurnScrollStateEvent =
       latestTurnPhase: LatestTurnPhase;
     };
 
-type ConversationTurnItem = {
+export type ConversationTurnItem = {
   phase?: string | null;
   restoreMessage?: {
     id: string;
@@ -44,14 +44,14 @@ type ConversationTurnItem = {
   type?: string | null;
 };
 
-type ConversationTurn = {
+export type ConversationTurn = {
   finalAssistantStartedAtMs?: number | null;
   firstTurnWorkItemStartedAtMs?: number | null;
   items: readonly ConversationTurnItem[];
   status: string;
 };
 
-type VisibleTurnEntry = {
+export type LatestTurnVisibleTurnEntry = {
   turn: ConversationTurn;
   turnKey: string;
 };
@@ -167,14 +167,14 @@ export function getLatestTurnPhase(turn: ConversationTurn): LatestTurnPhase {
       : "final_answer";
 }
 
-export function getLatestTurnIdentityKey(entry: VisibleTurnEntry) {
+export function getLatestTurnIdentityKey(entry: LatestTurnVisibleTurnEntry) {
   let restoreMessageId = getLatestSteeringRestoreMessageId(entry);
   return restoreMessageId == null
     ? entry.turnKey
     : `${entry.turnKey}:${restoreMessageId}`;
 }
 
-function getLatestSteeringRestoreMessageId(entry: VisibleTurnEntry) {
+function getLatestSteeringRestoreMessageId(entry: LatestTurnVisibleTurnEntry) {
   for (
     let itemIndex = entry.turn.items.length - 1;
     itemIndex >= 0;

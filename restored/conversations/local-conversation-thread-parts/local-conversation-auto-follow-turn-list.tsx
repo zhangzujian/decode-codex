@@ -26,10 +26,15 @@ import {
 } from "../../utils/thread-scroll-controller-context";
 import {
   createLatestTurnScrollState,
+  type ConversationTurnItem,
   getLatestTurnIdentityKey,
   getLatestTurnPhase,
   isPassiveLatestTurnFollowMode,
+  type LatestTurnPhase,
   reduceLatestTurnScrollState,
+  type LatestTurnScrollState,
+  type LatestTurnScrollStateEvent,
+  type LatestTurnVisibleTurnEntry,
 } from "./local-conversation-latest-turn-scroll-state";
 import {
   adjustScrollForLatestTurnHeightDelta,
@@ -46,6 +51,7 @@ import {
   initLocalConversationTurnRowChunk,
   initLocalConversationTurnRowDependencies,
   LocalConversationTurnRow,
+  type LocalConversationTurnRowProps,
 } from "./local-conversation-turn-row";
 import {
   initVirtualizedTurnListChunk,
@@ -66,6 +72,25 @@ type VirtualizedTurnListRestoreState =
 type LatestTurnMotionContextValue = {
   turnKey: string | null;
   yPx: unknown;
+};
+
+type AppScopeController = {
+  get<TValue = unknown>(signal: unknown, key?: unknown): TValue;
+  set(signal: unknown, key: unknown, value: unknown): void;
+};
+
+type PersistedLatestTurnState = LatestTurnScrollState & {
+  isLatestTurnInProgress?: boolean;
+  latestTurnFollowContentHeightPx?: number | null;
+  latestTurnHeightPx?: number | null;
+  latestTurnPhase?: LatestTurnPhase;
+  turnKey?: string | null;
+};
+
+type PersistedThreadScrollState = {
+  distanceFromBottomPx?: number | null;
+  latestTurn?: PersistedLatestTurnState | null;
+  virtualizedTurnList?: VirtualizedTurnListRestoreState;
 };
 
 type PendingLatestTurnSubmitPlacement = {
@@ -107,18 +132,25 @@ export function LocalConversationAutoFollowVirtualizedTurnList({
   onVirtualizedTurnListRestoreStateChange,
   synchronouslyMeasureLatestTurnUpdates = false,
 }: LocalConversationAutoFollowVirtualizedTurnListProps) {
-  let scope = useScope(appScope) as any,
+  let scope = useScope(appScope) as AppScopeController,
     windowZoom = useWindowZoom(),
     latestEntry = entries.at(-1),
+    latestTurnSnapshot =
+      latestEntry == null ? null : toLatestTurnVisibleEntry(latestEntry),
     latestTurnKey = latestEntry?.turnKey ?? null,
     latestTurnIdentityKey =
-      latestEntry == null ? null : getLatestTurnIdentityKey(latestEntry as any),
+      latestTurnSnapshot == null
+        ? null
+        : getLatestTurnIdentityKey(latestTurnSnapshot),
     latestTurnPhase =
-      latestEntry == null
+      latestTurnSnapshot == null
         ? "idle"
-        : getLatestTurnPhase(latestEntry.turn as any),
+        : getLatestTurnPhase(latestTurnSnapshot.turn),
     isLatestTurnInProgress = latestEntry?.turn?.status === "inProgress",
-    savedScrollState = scope.get(threadScrollStateSignal, conversationId),
+    savedScrollState = scope.get<PersistedThreadScrollState | null>(
+      threadScrollStateSignal,
+      conversationId,
+    ),
     savedLatestTurnState =
       savedScrollState?.latestTurn?.turnKey === latestTurnKey
         ? savedScrollState.latestTurn
@@ -214,12 +246,12 @@ export function LocalConversationAutoFollowVirtualizedTurnList({
   latestTurnKeyRef.current = latestTurnKey;
 
   let dispatchScrollStateEvent = useStableCallback(
-      (event: unknown, forceSync = false) => {
+      (event: LatestTurnScrollStateEvent, forceSync = false) => {
         let previousFollowMode = scrollStateRef.current.followMode;
         scrollStateRef.current = reduceLatestTurnScrollState(
-          scrollStateRef.current as any,
-          event as any,
-        ) as any;
+          scrollStateRef.current,
+          event,
+        );
         let { followMode } = scrollStateRef.current;
         if (forceSync || followMode !== previousFollowMode) {
           scrollController.setFooterResizeViewportPreserveDisabled(
@@ -304,7 +336,7 @@ export function LocalConversationAutoFollowVirtualizedTurnList({
               scrollElement == null
                 ? 0
                 : getThreadScrollPaddingBottomPx(scrollElement),
-            scrollState: scrollStateRef.current as any,
+            scrollState: scrollStateRef.current,
           });
         scope.set(threadScrollStateSignal, conversationId, {
           distanceFromBottomPx: persistedScrollSnapshot.distanceFromBottomPx,
@@ -884,11 +916,49 @@ function LatestTurnAnimatedRow({
       }}
     >
       <LocalConversationTurnRow
-        entry={entry as any}
+        entry={entry as LocalConversationTurnRowProps["entry"]}
         latestTurnFollowContentRef={latestTurnFollowContentRef}
       />
     </motion.div>
   );
+}
+
+function toLatestTurnVisibleEntry(
+  entry: VirtualizedTurnEntry,
+): LatestTurnVisibleTurnEntry {
+  let turn = entry.turn;
+  return {
+    turnKey: entry.turnKey,
+    turn: {
+      finalAssistantStartedAtMs: turn?.finalAssistantStartedAtMs ?? null,
+      firstTurnWorkItemStartedAtMs: turn?.firstTurnWorkItemStartedAtMs ?? null,
+      items: coerceConversationTurnItems(turn?.items),
+      status: turn?.status ?? "idle",
+    },
+  };
+}
+
+function coerceConversationTurnItems(
+  items: readonly unknown[] | undefined,
+): readonly ConversationTurnItem[] {
+  return (items ?? []).map((item) => {
+    if (item == null || typeof item !== "object") return {};
+    let record = item as Record<string, unknown>,
+      restoreMessage = record.restoreMessage;
+    return {
+      phase: typeof record.phase === "string" ? record.phase : null,
+      restoreMessage:
+        restoreMessage != null && typeof restoreMessage === "object"
+          ? {
+              id:
+                typeof (restoreMessage as { id?: unknown }).id === "string"
+                  ? (restoreMessage as { id: string }).id
+                  : "",
+            }
+          : null,
+      type: typeof record.type === "string" ? record.type : null,
+    };
+  });
 }
 
 export const initAutoFollowVirtualizedTurnListChunk = once(() => {

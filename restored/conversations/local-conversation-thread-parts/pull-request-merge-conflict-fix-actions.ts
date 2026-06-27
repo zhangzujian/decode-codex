@@ -21,6 +21,10 @@ type PullRequestMergeConflict = {
   url: string;
 };
 
+type PullRequestChatContext = {
+  pullRequestMergeConflict?: PullRequestMergeConflict | null;
+};
+
 function buildPullRequestMergeConflictFixPrompt({
   baseBranch,
   headBranch,
@@ -64,9 +68,12 @@ export function setPullRequestMergeConflictAttachment(
   scope: unknown,
   mergeConflict?: PullRequestMergeConflict | null,
 ) {
-  updatePullRequestChatContext(scope, (pullRequestContext: any) => {
-    pullRequestContext.pullRequestMergeConflict = mergeConflict;
-  });
+  updatePullRequestChatContext(
+    scope,
+    (pullRequestContext: PullRequestChatContext) => {
+      pullRequestContext.pullRequestMergeConflict = mergeConflict;
+    },
+  );
 }
 
 export const initPullRequestFixActionHelpersChunk = once(() => {

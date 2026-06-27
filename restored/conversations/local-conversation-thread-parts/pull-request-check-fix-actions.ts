@@ -18,6 +18,10 @@ type PullRequestCheck = {
   workflow?: string | null;
 };
 
+type PullRequestChatContext = {
+  pullRequestChecks?: PullRequestCheck[];
+};
+
 export const initPullRequestFailingChecksPromptChunk = once(() => {});
 
 function buildPullRequestFailingChecksFixPrompt({
@@ -54,30 +58,32 @@ export function setPullRequestFailingChecksAttached(
   let failingChecks = checks.filter((item) => item.status === "failing");
   return failingChecks.length === 0
     ? false
-    : (updatePullRequestChatContext(scope, (pullRequestContext: any) => {
-        if (!attached) {
-          let failingCheckKeys = new Set(
-            failingChecks.map(getPullRequestCheckAttachmentKey),
-          );
-          pullRequestContext.pullRequestChecks =
-            pullRequestContext.pullRequestChecks.filter(
-              (item: PullRequestCheck) =>
+    : (updatePullRequestChatContext(
+        scope,
+        (pullRequestContext: PullRequestChatContext) => {
+          let pullRequestChecks = pullRequestContext.pullRequestChecks ?? [];
+          if (!attached) {
+            let failingCheckKeys = new Set(
+              failingChecks.map(getPullRequestCheckAttachmentKey),
+            );
+            pullRequestContext.pullRequestChecks = pullRequestChecks.filter(
+              (item) =>
                 !failingCheckKeys.has(getPullRequestCheckAttachmentKey(item)),
             );
-          return;
-        }
-        let attachedCheckKeys = new Set(
-          pullRequestContext.pullRequestChecks.map(
-            getPullRequestCheckAttachmentKey,
-          ),
-        );
-        pullRequestContext.pullRequestChecks.push(
-          ...failingChecks.filter(
-            (item) =>
-              !attachedCheckKeys.has(getPullRequestCheckAttachmentKey(item)),
-          ),
-        );
-      }),
+            return;
+          }
+          let attachedCheckKeys = new Set(
+            pullRequestChecks.map(getPullRequestCheckAttachmentKey),
+          );
+          pullRequestContext.pullRequestChecks = [
+            ...pullRequestChecks,
+            ...failingChecks.filter(
+              (item) =>
+                !attachedCheckKeys.has(getPullRequestCheckAttachmentKey(item)),
+            ),
+          ];
+        },
+      ),
       true);
 }
 

@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // App-shell route entry components for main, summary, and side-chat local conversation threads.
-import React, { useState, type ComponentType, type ReactNode } from "react";
+import React, { useState, type ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
   $P as initAppScope,
@@ -60,6 +60,7 @@ import {
 import {
   initLocalConversationThreadContentChunk,
   LocalConversationThreadContentCore,
+  type LocalConversationThreadContentCoreProps,
 } from "./local-conversation-thread-content";
 import {
   initAutoFollowVirtualizedTurnListChunk,
@@ -82,9 +83,13 @@ import {
   localConversationVisibleTurnEntriesSignal,
   subagentResponseInProgressSignal,
 } from "./local-conversation-turn-selectors";
+import type { LocalConversationThreadContentComponentProps } from "./local-conversation-thread-frame-types";
 
 type BackgroundAgentOpenHandler = (backgroundAgent: unknown) => void;
-type AnyComponent = ComponentType<any>;
+type AutomationDescriptionComponent =
+  LocalConversationThreadContentCoreProps["AutomationDescriptionComponent"];
+type EmptyConversationStateComponent =
+  LocalConversationThreadContentCoreProps["EmptyStateComponent"];
 
 type LocalConversationSideChatThreadProps = {
   conversationId: string;
@@ -361,15 +366,21 @@ function LocalConversationSummaryThread({
   );
 }
 
-function LocalConversationThreadContent(props: Record<string, unknown>) {
+function LocalConversationThreadContent(
+  props: LocalConversationThreadContentComponentProps,
+) {
   return (
     <LocalConversationThreadContentCore
       {...props}
-      AutomationDescriptionComponent={AutomationDescription as AnyComponent}
+      AutomationDescriptionComponent={
+        AutomationDescription as AutomationDescriptionComponent
+      }
       AutoFollowVirtualizedTurnListComponent={
         LocalConversationAutoFollowVirtualizedTurnList
       }
-      EmptyStateComponent={EmptyConversationState as AnyComponent}
+      EmptyStateComponent={
+        EmptyConversationState as EmptyConversationStateComponent
+      }
       TurnRowComponent={LocalConversationTurnRow}
       VirtualizedTurnListComponent={VirtualizedTurnList}
       localConversationVisibleTurnEntriesSignal={

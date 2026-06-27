@@ -5,6 +5,8 @@ import type React from "react";
 type VirtualizedTurnEntry = {
   turnKey: string;
   turn?: {
+    finalAssistantStartedAtMs?: number | null;
+    firstTurnWorkItemStartedAtMs?: number | null;
     items?: readonly unknown[];
     status?: string;
   } | null;

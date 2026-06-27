@@ -310,7 +310,7 @@ export function useLocalConversationSummaryPanelModel(
       mcpServersQuerySignal,
       host.id,
     ) as {
-      data?: { data?: Array<{ name: string; serverInfo?: any }> };
+      data?: { data?: Array<{ name: string; serverInfo?: unknown }> };
     },
     toolSources = collectConversationMcpToolSources(
       turns,
