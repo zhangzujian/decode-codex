@@ -1258,7 +1258,11 @@
     },
     "modulepreload-polyfill-Cf3xff8G": {
       "restored": "runtime/modulepreload-polyfill.ts",
-      "status": "done"
+      "exports": {
+        "t": "installModulepreloadPolyfill"
+      },
+      "status": "done",
+      "note": "Previous modulepreload polyfill hash now shares the explicit initializer surface used by the current synced chunk."
     },
     "app-window-BkmniFLd": {
       "restored": "icons/app-window-icon.tsx",
@@ -11260,6 +11264,23 @@
         "default": "webSearchIcon"
       },
       "status": "done"
+    },
+    "animated-icon-vdVLnP6G": {
+      "restored": "ui/animated-icon.tsx",
+      "exports": {
+        "n": "initAnimatedIconModule",
+        "t": "AnimatedIcon"
+      },
+      "status": "done",
+      "note": "Current synced animated icon chunk restored into the existing semantic animated icon module with lazy lottie loading and main/worker dotLottie renderer support."
+    },
+    "modulepreload-polyfill-D8LKdSkT": {
+      "restored": "runtime/modulepreload-polyfill.ts",
+      "exports": {
+        "t": "installModulepreloadPolyfill"
+      },
+      "status": "done",
+      "note": "Current synced Rolldown modulepreload polyfill initializer restored as an explicit install function."
     }
   }
 }
