@@ -1,0 +1,171 @@
+// Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
+// Navigation and missing-conversation state helpers for local conversation threads.
+import { once, toEsModule } from "../../runtime/commonjs-interop";
+import {
+  AB as initScopeRuntime,
+  AI as getLocalConversationPath,
+  FB as useScope,
+  I_ as initRouteScope,
+  JV as loadReactModule,
+  M_ as localConversationRouteScope,
+  OI as getHotkeyWindowThreadPath,
+  Ov as useNavigate,
+  bF as initPathHelpers,
+  cM as initToastRuntime,
+  iF as initIntlRuntime,
+  lF as useIntl,
+  uM as toastSignal,
+} from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { Ja as isHotkeyWindowRoute } from "../../boundaries/current-ref/profile-page-producer";
+
+type ReactRuntime = {
+  useEffect(effect: () => void, deps: readonly unknown[]): void;
+  useRef<TValue>(initialValue: TValue): {
+    current: TValue;
+  };
+};
+
+type LocalConversationTurnItem = {
+  mcpAppResourceUri?: string | null;
+  type?: string | null;
+};
+
+type LocalConversationTurn = {
+  error?: unknown | null;
+  items: readonly LocalConversationTurnItem[];
+  status?: string | null;
+  turnId?: string | null;
+};
+
+type LocalConversationTurnEntry = {
+  turn: {
+    items: readonly LocalConversationTurnItem[];
+  };
+};
+
+type MissingConversationRedirectOptions = {
+  allowMissingConversation: boolean;
+  hasConversation: boolean;
+  isResuming: boolean | null | undefined;
+  launcherFallbackPath: string;
+  subagentParentThreadId: string | null | undefined;
+  visibleSubagentParentThreadId: string | null | undefined;
+};
+
+let localConversationNavigationReactRuntime: ReactRuntime;
+
+export function turnHasMcpAppResource(
+  entry: LocalConversationTurnEntry | null | undefined,
+) {
+  return (
+    entry?.turn.items.some(
+      (item) =>
+        item.type === "mcpToolCall" && item.mcpAppResourceUri != null,
+    ) === true
+  );
+}
+
+export function shouldShowEmptyResumingThreadState({
+  conversationTurns,
+  hasRenderableTurns,
+  isResuming,
+  isSubagentThread,
+}: {
+  conversationTurns: readonly LocalConversationTurn[];
+  hasRenderableTurns: boolean;
+  isResuming: boolean | null | undefined;
+  isSubagentThread: boolean;
+}) {
+  return (
+    !isSubagentThread &&
+    isResuming &&
+    (!hasRenderableTurns ||
+      (conversationTurns.length === 1 &&
+        conversationTurns[0]?.turnId == null &&
+        conversationTurns[0]?.status === "completed" &&
+        conversationTurns[0]?.error == null &&
+        conversationTurns[0]?.items.length === 0))
+  );
+}
+
+export function getConversationNavigationPath(conversationId: string) {
+  return isHotkeyWindowRoute()
+    ? getHotkeyWindowThreadPath(conversationId)
+    : getLocalConversationPath(conversationId);
+}
+
+export function useMissingLocalConversationRedirect({
+  allowMissingConversation,
+  hasConversation,
+  isResuming,
+  launcherFallbackPath,
+  subagentParentThreadId,
+  visibleSubagentParentThreadId,
+}: MissingConversationRedirectOptions) {
+  let scope = useScope(localConversationRouteScope),
+    intl = useIntl(),
+    navigate = useNavigate(),
+    hasSeenConversationRef =
+      localConversationNavigationReactRuntime.useRef(false),
+    lastSubagentParentThreadIdRef =
+      localConversationNavigationReactRuntime.useRef<string | null>(null);
+
+  localConversationNavigationReactRuntime.useEffect(() => {
+    visibleSubagentParentThreadId != null &&
+      (lastSubagentParentThreadIdRef.current = visibleSubagentParentThreadId);
+  }, [visibleSubagentParentThreadId]);
+
+  localConversationNavigationReactRuntime.useEffect(() => {
+    if (!allowMissingConversation) {
+      if (hasConversation) {
+        hasSeenConversationRef.current = true;
+        return;
+      }
+      if (!isResuming) {
+        if (hasSeenConversationRef.current) {
+          let lastSubagentParentThreadId =
+            lastSubagentParentThreadIdRef.current;
+          if (lastSubagentParentThreadId != null) {
+            navigate(getConversationNavigationPath(lastSubagentParentThreadId), {
+              replace: true,
+            });
+            return;
+          }
+          navigate(isHotkeyWindowRoute() ? launcherFallbackPath : "/", {
+            replace: true,
+          });
+          return;
+        }
+        scope.get(toastSignal).danger(
+          intl.formatMessage({
+            id: "localConversationPage.error.toast",
+            defaultMessage: "Conversation not found",
+            description:
+              "Error message for when the local conversation is not found",
+          }),
+        );
+      }
+    }
+  }, [
+    allowMissingConversation,
+    hasConversation,
+    isResuming,
+    subagentParentThreadId,
+    launcherFallbackPath,
+    scope,
+    intl,
+    navigate,
+  ]);
+}
+
+export const initLocalConversationNavigationHelpers = once(() => {
+  initScopeRuntime();
+  initPathHelpers();
+  initIntlRuntime();
+  initRouteScope();
+  initToastRuntime();
+  localConversationNavigationReactRuntime = toEsModule(
+    loadReactModule(),
+    1,
+  ) as ReactRuntime;
+});

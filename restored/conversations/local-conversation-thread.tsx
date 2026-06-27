@@ -111,7 +111,6 @@ import {
   Nj as initReverseScrollUtilities,
   Np as conversationHistoryCompleteSignal,
   Nv as initConversationArtifactRuntime,
-  OI as getHotkeyWindowThreadPath,
   ON as initButtonComponentPrimitives,
   OP as createMotionSignal,
   OV as createAtomSignal,
@@ -386,7 +385,6 @@ import {
   Hl as Ms,
   In as Ns,
   Ir as Ps,
-  Ja as Fs,
   Jn as Ls,
   Km as zs,
   Ln as Bs,
@@ -627,6 +625,10 @@ import { countBackgroundTerminalSummaryRows } from "./local-conversation-thread-
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
 import { createLatestTurnSubmitPlacementSnapshot } from "./local-conversation-thread-parts/latest-turn-submit-placement";
 import {
+  initSummaryPanelErrorFallbackChunk,
+  SummaryPanelErrorFallback,
+} from "./local-conversation-thread-parts/local-conversation-summary-panel-error";
+import {
   createLocalEnvironmentActionRunId,
   getLocalEnvironmentActionItems,
   resolveLocalEnvironmentActionCwd,
@@ -713,6 +715,13 @@ import {
   initResumeLocalConversationChunk,
   useResumeLocalConversation,
 } from "./local-conversation-thread-parts/local-conversation-resume";
+import {
+  getConversationNavigationPath,
+  initLocalConversationNavigationHelpers,
+  shouldShowEmptyResumingThreadState,
+  turnHasMcpAppResource,
+  useMissingLocalConversationRedirect,
+} from "./local-conversation-thread-parts/local-conversation-navigation";
 import { initVisibleTurnGeneratedImagesCollector } from "./local-conversation-thread-parts/visible-turn-generated-images";
 import {
   initLocalConversationSummaryPanelSignals,
@@ -9420,6 +9429,8 @@ var localConversationThreadRouteJsxRuntime,
     initAppServerRequestBridge();
     initToastRuntime();
     initResumeLocalConversationChunk();
+    initLocalConversationNavigationHelpers();
+    initSummaryPanelErrorFallbackChunk();
     initVscodeMessageBridge();
     initAppScope();
     initHostWorkspaceQueries();
@@ -9427,13 +9438,6 @@ var localConversationThreadRouteJsxRuntime,
     initLoggerRuntime();
     localConversationThreadRouteJsxRuntime = getJsxRuntime();
   });
-function turnHasMcpAppResource(entry) {
-  return (
-    entry?.turn.items.some(
-      (e) => e.type === "mcpToolCall" && e.mcpAppResourceUri != null,
-    ) === true
-  );
-}
 export interface LocalConversationThreadProps {
   conversationId?: string | null;
   shouldResume?: boolean;
@@ -9752,73 +9756,15 @@ function LocalConversationThreadRoute(props) {
     ),
     visibleSubagentParentThreadId = isBackgroundSubagentsEnabled
       ? subagentParentThreadId
-      : null,
-    intl = useIntl(),
-    navigate = useNavigate(),
-    hasSeenConversationRef = localConversationThreadReactRuntime.useRef(false),
-    lastSubagentParentThreadIdRef =
-      localConversationThreadReactRuntime.useRef(null),
-    rememberSubagentParentThreadId,
-    rememberSubagentParentThreadIdDeps;
-  rememberSubagentParentThreadId = () => {
-    visibleSubagentParentThreadId != null &&
-      (lastSubagentParentThreadIdRef.current = visibleSubagentParentThreadId);
-  };
-  rememberSubagentParentThreadIdDeps = [visibleSubagentParentThreadId];
-  localConversationThreadReactRuntime.useEffect(
-    rememberSubagentParentThreadId,
-    rememberSubagentParentThreadIdDeps,
-  );
-  let handleMissingConversation = () => {
-    if (!allowMissingConversation) {
-      if (hasConversation) {
-        hasSeenConversationRef.current = true;
-        return;
-      }
-      if (!isResuming) {
-        if (hasSeenConversationRef.current) {
-          let lastSubagentParentThreadId =
-            lastSubagentParentThreadIdRef.current;
-          if (lastSubagentParentThreadId != null) {
-            navigate(
-              getConversationNavigationPath(lastSubagentParentThreadId),
-              {
-                replace: true,
-              },
-            );
-            return;
-          }
-          navigate(Fs() ? launcherFallbackPath : "/", {
-            replace: true,
-          });
-          return;
-        }
-        scope.get(toastSignal).danger(
-          intl.formatMessage({
-            id: "localConversationPage.error.toast",
-            defaultMessage: "Conversation not found",
-            description:
-              "Error message for when the local conversation is not found",
-          }),
-        );
-      }
-    }
-  };
-  let missingConversationEffectDeps;
-  missingConversationEffectDeps = [
+      : null;
+  useMissingLocalConversationRedirect({
     allowMissingConversation,
     hasConversation,
     isResuming,
     subagentParentThreadId,
     launcherFallbackPath,
-    scope,
-    intl,
-    navigate,
-  ];
-  localConversationThreadReactRuntime.useEffect(
-    handleMissingConversation,
-    missingConversationEffectDeps,
-  );
+    visibleSubagentParentThreadId,
+  });
   let handleVisibleThreadContentReady = (turnCount) => {
     threadSwitchTimingTracker.complete(scope, "thread_switch_completed", {
       conversationId,
@@ -9892,50 +9838,6 @@ function LocalConversationThreadRoute(props) {
       showComposer={showComposer}
       showExternalFooter={showExternalFooter}
     />
-  );
-}
-function SummaryPanelErrorFallback(props) {
-  let { display, onRetry } = props;
-  if (!display.shouldShow) return null;
-  let panelStyle = {
-    width: 300,
-  };
-  let title = (
-    <div className="mb-2 font-medium text-token-text-primary">
-      <FormattedMessage
-        id="localConversation.summaryPanelRenderError.title"
-        defaultMessage="Summary panel couldn't render"
-        description="Error message shown when the conversation summary panel fails to render"
-      />
-    </div>
-  );
-  let retryLabel = (
-    <FormattedMessage
-      id="localConversation.summaryPanelRenderError.retry"
-      defaultMessage="Try again"
-      description="Button label to retry rendering the conversation summary panel"
-    />
-  );
-  return (
-    <div className="pointer-events-none absolute top-(--thread-floating-content-top-inset) right-0 bottom-(--thread-floating-content-bottom-inset) z-40">
-      <div className="relative flex max-h-full">
-        <div className="max-h-full min-h-0 pe-4">
-          <div
-            data-pip-obstacle="thread-summary-panel"
-            className="pointer-events-auto rounded-lg border border-token-border bg-token-main-surface-primary px-4 py-3 text-sm text-token-text-secondary shadow-lg"
-            style={panelStyle}
-          >
-            {title}
-            {localConversationThreadJsxRuntime.jsx(Button, {
-              color: "secondary",
-              size: "default",
-              onClick: onRetry,
-              children: retryLabel,
-            })}
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 function ChromeExtensionConversationHeader(props) {
@@ -10028,28 +9930,6 @@ function ChromeExtensionConversationHeader(props) {
       />
     ),
   });
-}
-function shouldShowEmptyResumingThreadState({
-  conversationTurns,
-  hasRenderableTurns,
-  isResuming,
-  isSubagentThread,
-}) {
-  return (
-    !isSubagentThread &&
-    isResuming &&
-    (!hasRenderableTurns ||
-      (conversationTurns.length === 1 &&
-        conversationTurns[0]?.turnId == null &&
-        conversationTurns[0]?.status === "completed" &&
-        conversationTurns[0]?.error == null &&
-        conversationTurns[0]?.items.length === 0))
-  );
-}
-function getConversationNavigationPath(conversationId) {
-  return Fs()
-    ? getHotkeyWindowThreadPath(conversationId)
-    : getLocalConversationPath(conversationId);
 }
 function LocalConversationThreadFrame(props) {
   let {
