@@ -648,9 +648,9 @@ import {
   initThreadFindItemsBuilder,
 } from "./local-conversation-thread-parts/thread-find-items";
 import {
-  initLocalConversationComposerFooterChunk,
-  LocalConversationComposerFooter,
-} from "./local-conversation-thread-parts/local-conversation-composer-footer";
+  initLocalConversationThreadFooterChunk,
+  LocalConversationThreadFooter,
+} from "./local-conversation-thread-parts/local-conversation-thread-footer";
 import {
   ForkFromOlderTurnDialogController,
   initForkFromOlderTurnDialogControllerChunk,
@@ -9671,35 +9671,31 @@ function LocalConversationThreadFrame(props) {
   let remoteHostedPipAnchorHostId = shouldMountSummaryPanelObstacles
       ? MAIN_THREAD_PIP_HOST_ID
       : undefined,
-    footer = hasConversation ? (
-      showComposer ? (
-        <LocalConversationComposerFooter
-          conversationId={conversationId}
-          hostId={hostId}
-          isResuming={isResuming}
-          showExternalFooter={showExternalFooter}
-          composerSurfaceClassName={composerSurfaceClassName}
-          showScrollToBottomButton={showScrollToBottomButton}
-          onScrollToBottom={onScrollToBottom}
-          onPrepareLatestTurnSubmitPlacement={
-            onPrepareLatestTurnSubmitPlacement
-          }
-          onClearPendingLatestTurnSubmitPlacement={
-            onClearPendingLatestTurnSubmitPlacement
-          }
-          subagentResponseInProgress={subagentResponseInProgress}
-          isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
-          lockedCollaborationMode={lockedCollaborationMode}
-          isScrollToTopEnabled={isScrollToTopEnabled}
-          WorktreeRestoreBanner={ConnectedLocalWorktreeRestoreBanner}
-          onCreateSideConversation={(request) =>
-            jd(scope, LocalConversationSideChatThread, request)
-          }
-        />
-      ) : footerContent == null ? null : (
-        <div className="px-5 pb-2">{footerContent}</div>
-      )
-    ) : null;
+    footer = (
+      <LocalConversationThreadFooter
+        conversationId={conversationId}
+        footerContent={footerContent}
+        hasConversation={hasConversation}
+        hostId={hostId}
+        isResuming={isResuming}
+        showExternalFooter={showExternalFooter}
+        composerSurfaceClassName={composerSurfaceClassName}
+        showScrollToBottomButton={showScrollToBottomButton}
+        onScrollToBottom={onScrollToBottom}
+        onPrepareLatestTurnSubmitPlacement={onPrepareLatestTurnSubmitPlacement}
+        onClearPendingLatestTurnSubmitPlacement={
+          onClearPendingLatestTurnSubmitPlacement
+        }
+        subagentResponseInProgress={subagentResponseInProgress}
+        isBackgroundSubagentsEnabled={isBackgroundSubagentsEnabled}
+        lockedCollaborationMode={lockedCollaborationMode}
+        isScrollToTopEnabled={isScrollToTopEnabled}
+        WorktreeRestoreBanner={ConnectedLocalWorktreeRestoreBanner}
+        SideChatThreadComponent={LocalConversationSideChatThread}
+        scope={scope}
+        showComposer={showComposer}
+      />
+    );
   let threadContent = hideThreadContent ? null : (
     <LocalConversationThreadContent
       conversationId={conversationId}
@@ -10414,7 +10410,7 @@ export const initLocalConversationThreadChunk = once(() => {
   initBackgroundAgentThreadTab();
   fa();
   initBackgroundAgentThreadTabs();
-  initLocalConversationComposerFooterChunk();
+  initLocalConversationThreadFooterChunk();
   Sa();
   Md();
   qc();
