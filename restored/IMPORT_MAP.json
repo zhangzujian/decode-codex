@@ -12720,6 +12720,17 @@
       },
       "status": "done",
       "note": "Current onboarding/appgen icon chunk matches the shared circle play/pause SVG bundle; restored through icons/play-circle with explicit play/pause component names and chunk initializers."
+    },
+    "app-initial~app-main~remote-conversation-page~new-thread-panel-page~onboarding-page~appgen-~d8kqmdjz-CVODqLRv": {
+      "restored": "features/workspace-dependencies/index.tsx",
+      "exports": {
+        "i": "initImageWithFallbackIconChunk",
+        "n": "hasWorkspaceDependenciesFeature",
+        "r": "ImageWithFallbackIcon",
+        "t": "initWorkspaceDependenciesFeatureChunk"
+      },
+      "status": "done",
+      "note": "Restored the shared image-with-fallback component and workspace_dependencies feature predicate used by onboarding, appgen, and automations surfaces."
     }
   }
 }
