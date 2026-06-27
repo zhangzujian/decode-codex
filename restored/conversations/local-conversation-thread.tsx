@@ -16,7 +16,6 @@ import {
   Bn as initGlobalCommandHandlers,
   DL as normalizeWorkspacePath,
   DM as initWindowZoomContext,
-  DN as Button,
   Dl as createLocalConversationRouteTarget,
   FB as useScope,
   Fx as initEnvironmentTerminalController,
@@ -24,7 +23,6 @@ import {
   Gi as DropdownMenu,
   Gj as initStatsigFeatureGateHooks,
   Gu as initGlobalStateQueryRuntime,
-  HO as getReviewCommentAttachmentKeyValue,
   IB as useSignalValue,
   I_ as initRouteScope,
   Io as initConnectorAppsListQuery,
@@ -34,7 +32,6 @@ import {
   LB as loadIsEqualModule,
   LN as initReducedMotionPreference,
   La as initExternalUrlHelpers,
-  Lj as PlusIcon,
   Ln as initKeyboardModifierState,
   MB as ScopeValueProvider,
   MV as useMutation,
@@ -71,9 +68,6 @@ import {
   Vn as dispatchGlobalCommand,
   Wa as PlatformContentGate,
   Wg as initMarkdownResourceHelpers,
-  YO as initPullRequestReviewCommentHelpers,
-  ZN as createHostQuerySignal,
-  Zi as initDropdownMenuPrimitives,
   Zu as on,
   _c as CONVERSATION_DETAIL_STEPS_PROSE,
   aM as RefreshIcon,
@@ -84,20 +78,14 @@ import {
   bM as initKeyboardShortcutLabel,
   bV as createScopedSignal,
   bc as initConversationDetailModeConstants,
-  bk as loadUniqByModule,
   cM as initToastRuntime,
   cP as initVscodeMessageBridge,
   cm as conversationHostIdSignal,
-  di as PopoverRoot,
   eP as useHostQuery,
-  ea as SearchIcon,
   en as ExternalLinkIcon,
   fh as initGitActionDirectiveRuntime,
-  fu as initTaskWorkspaceQueryRuntime,
-  gi as initPopoverPrimitives,
   gp as conversationCwdSignal,
   hM as initTooltipPrimitives,
-  hi as PopoverTrigger,
   hs as initLocalImageInliningHelpers,
   iF as initIntlRuntime,
   jM as $n,
@@ -109,7 +97,6 @@ import {
   lD as lr,
   lF as useIntl,
   mP as logger,
-  mi as _r,
   mo as initGitHubIcon,
   mv as xr,
   oM as initRefreshIcon,
@@ -117,19 +104,14 @@ import {
   ok as sendAppServerRequest,
   pM as Tooltip,
   pP as initLoggerRuntime,
-  pi as PopoverContent,
   po as GitHubIcon,
-  pu as useDebouncedValue,
   qV as getChunkModuleExports,
-  qi as MenuChrome,
   qj as useStatsigGate,
   rF as defineMessages,
   sF as FormattedMessage,
   tP as useAppServerMutation,
-  ta as initSearchIcon,
   tc as Yr,
   tn as Xr,
-  uM as toastSignal,
   vm as subagentParentThreadIdSignal,
   wj as di,
   wl as composerScope,
@@ -144,7 +126,6 @@ import {
 import {
   $i as Ei,
   A as Di,
-  Ba as pullRequestReviewCommentAttachmentsSignal,
   Cl as pullRequestCurrentBranchSignal,
   Ds as openEnvironmentTerminalSession,
   Ga as MoreHorizontalIcon,
@@ -155,7 +136,6 @@ import {
   Mr as Qi,
   Od as $i,
   Td as ua,
-  Va as da,
   Wl as fa,
   _c as va,
   _i as githubCliAvailabilitySignal,
@@ -196,14 +176,11 @@ import {
   Ja as Lo,
   Ma as Bo,
   Ot as Wo,
-  Qo as attachedPullRequestChecksSignal,
   W as Xo,
-  a as Qo,
   ji as useBackgroundSubagentsEnabled,
   l as is,
   m as os,
   ns as cs,
-  o as ls,
   p as us,
   qa as fs,
   u as ps,
@@ -288,10 +265,6 @@ import {
   launcherHotkeyStateQuery,
 } from "../features/hotkey-window-state";
 import {
-  initShareInviteAutocompleteChunk as Nu,
-  ShareInviteAutocomplete as Pu,
-} from "../collaboration/share-invite-autocomplete";
-import {
   initThreadSidePanelTabRegistryChunk,
   registerThreadSidePanelTab,
 } from "../app-shell/thread-background-processes";
@@ -299,14 +272,8 @@ import { initTeamIconChunk as $u, TeamIcon as ed } from "../icons/team-icon";
 import { initThreadScrollControllerContextChunk as id } from "../utils/thread-scroll-controller-context";
 import {
   C as PullRequestInlineActionButton,
-  _ as initPullRequestAnalyticsChunk,
   a as PullRequestMergeActions,
-  m as usePullRequestUpdateMutation,
-  n as initPullRequestCheckRowsChunk,
   o as initPullRequestMergeActionsChunk,
-  p as initPullRequestUpdateMutationChunk,
-  t as PullRequestCheckRows,
-  v as trackPullRequestAction,
   w as initPullRequestInlineActionButtonChunk,
 } from "../boundaries/current-ref/pull-request-check-rows-producer";
 import { initThreadOverflowMenuChunk as Md } from "../threads/thread-overflow-menu";
@@ -407,17 +374,7 @@ import {
   PullRequestSidePanelErrorMessage,
   PullRequestSidePanelLoadingState,
 } from "./local-conversation-thread-parts/pull-request-side-panel-primitives";
-import {
-  attachFailingPullRequestChecksAndPromptFix,
-  getPullRequestCheckAttachmentKey,
-  initPullRequestFailingChecksPromptChunk,
-  setPullRequestFailingChecksAttached,
-} from "./local-conversation-thread-parts/pull-request-check-fix-actions";
-import {
-  attachPullRequestCommentsAndPromptFix,
-  initPullRequestCommentFixHelpersChunk,
-  setPullRequestCommentsAttached,
-} from "./local-conversation-thread-parts/pull-request-comment-fix-actions";
+import { attachFailingPullRequestChecksAndPromptFix } from "./local-conversation-thread-parts/pull-request-check-fix-actions";
 import {
   getPullRequestFixDisabledReason,
   initPullRequestFixDisabledTooltipChunk,
@@ -432,6 +389,19 @@ import {
   initPullRequestStatusDetailRowsChunk,
   PullRequestStatusDetailRows,
 } from "./local-conversation-thread-parts/pull-request-status-detail-rows";
+import {
+  initRequestPullRequestReviewersButtonChunk,
+  RequestPullRequestReviewersButton,
+} from "./local-conversation-thread-parts/pull-request-reviewer-request-button";
+import {
+  initPullRequestSidePanelChecksSectionChunk,
+  PullRequestSidePanelChecksSection,
+} from "./local-conversation-thread-parts/pull-request-side-panel-checks-section";
+import {
+  initPullRequestSidePanelCommentsSectionChunk,
+  PullRequestSidePanelCommentsSection,
+} from "./local-conversation-thread-parts/pull-request-side-panel-comments-section";
+import { getPullRequestCommentActivityItems } from "./local-conversation-thread-parts/pull-request-comment-activity-items";
 import {
   initThreadSummaryPanelChromePrimitives,
   ThreadSummaryPanelContent,
@@ -507,455 +477,6 @@ function getPullRequestTitleOrFallback(title, fallbackTitle) {
   return title?.trim() || fallbackTitle;
 }
 var initPullRequestTitleFallbackChunk = once(() => {});
-function PullRequestSidePanelChecksSection(props) {
-  let { data, error, fixDisabledReason, item, loading } = props,
-    intl = useIntl(),
-    scope = useScope(composerScope),
-    attachedChecks = useSignalValue(attachedPullRequestChecksSignal),
-    failingChecks = data?.checks.filter(isFailingPullRequestCheck),
-    attachedCheckKeys = new Set(
-      attachedChecks.map(getPullRequestCheckAttachmentKey),
-    ),
-    allFailingChecksAttached =
-      failingChecks != null &&
-      failingChecks.length > 0 &&
-      failingChecks.every((check) =>
-        attachedCheckKeys.has(getPullRequestCheckAttachmentKey(check)),
-      );
-  let fixDisabledTooltip =
-      fixDisabledReason == null
-        ? undefined
-        : pullRequestChecksSectionJsxRuntime.jsx(
-            PullRequestFixDisabledTooltip,
-            {
-              reason: fixDisabledReason,
-            },
-          ),
-    headerAction =
-      failingChecks != null && failingChecks.length > 0
-        ? pullRequestChecksSectionJsxRuntime.jsx(
-            PullRequestInlineActionButton,
-            {
-              color: "secondary",
-              ariaLabel: allFailingChecksAttached
-                ? intl.formatMessage({
-                    id: "pullRequestSidePanel.checks.removeAllAccessible",
-                    defaultMessage: "Remove all",
-                    description:
-                      "Accessible label for removing all failing pull request checks from the chat",
-                  })
-                : intl.formatMessage({
-                    id: "pullRequestSidePanel.checks.fixAllAccessible",
-                    defaultMessage: "Fix all",
-                    description:
-                      "Accessible label for fixing all failing pull request checks",
-                  }),
-              disabled: !allFailingChecksAttached && fixDisabledReason != null,
-              inset: true,
-              tooltipContent: allFailingChecksAttached
-                ? undefined
-                : fixDisabledTooltip,
-              onClick: () => {
-                if (allFailingChecksAttached) {
-                  setPullRequestFailingChecksAttached(scope, {
-                    attached: false,
-                    checks: failingChecks,
-                  });
-                  return;
-                }
-                attachFailingPullRequestChecksAndPromptFix(scope, {
-                  baseBranch: item.baseBranch,
-                  checks: failingChecks,
-                  headBranch: item.headBranch,
-                  number: item.number,
-                });
-              },
-              children: allFailingChecksAttached ? (
-                <FormattedMessage
-                  id="pullRequestSidePanel.checks.removeAll"
-                  defaultMessage="Remove"
-                  description="Button label for removing all failing pull request checks from the chat"
-                />
-              ) : (
-                <FormattedMessage
-                  id="pullRequestSidePanel.checks.fixAll"
-                  defaultMessage="Fix"
-                  description="Button label for fixing all failing pull request checks"
-                />
-              ),
-            },
-          )
-        : null;
-  let title = (
-    <FormattedMessage
-      id="pullRequestSidePanel.checks.title"
-      defaultMessage="Checks"
-      description="Checks section title in the pull request side panel"
-    />
-  );
-  let header = (
-    <PullRequestSidePanelDetailsSummary action={headerAction}>
-      {title}
-    </PullRequestSidePanelDetailsSummary>
-  );
-  let body = (
-    <div className="rounded-xl bg-token-main-surface-primary py-1 ps-4 shadow-sm">
-      {error == null ? (
-        loading || data == null ? (
-          <PullRequestSidePanelLoadingState
-            label={
-              <FormattedMessage
-                id="pullRequestSidePanel.checks.loading"
-                defaultMessage="Loading checks"
-                description="Loading label for pull request checks"
-              />
-            }
-          />
-        ) : data.checks.length > 0 ? (
-          <PullRequestCheckRows
-            canFix={fixDisabledReason == null}
-            checks={data.checks}
-            density="comfortable"
-            fixTooltipContent={fixDisabledTooltip}
-            insetFixButtons={true}
-            labelTone="primary"
-            isCheckAttached={(check) =>
-              attachedCheckKeys.has(getPullRequestCheckAttachmentKey(check))
-            }
-            onFixCheck={(check) => {
-              attachFailingPullRequestChecksAndPromptFix(scope, {
-                baseBranch: item.baseBranch,
-                checks: [check],
-                headBranch: item.headBranch,
-                number: item.number,
-              });
-            }}
-            onRemoveCheck={(check) => {
-              setPullRequestFailingChecksAttached(scope, {
-                attached: false,
-                checks: [check],
-              });
-            }}
-          />
-        ) : (
-          <MenuChrome.Message compact={true}>
-            <FormattedMessage
-              id="pullRequestSidePanel.checks.empty"
-              defaultMessage="No checks reported"
-              description="Empty pull request checks list"
-            />
-          </MenuChrome.Message>
-        )
-      ) : (
-        <PullRequestSidePanelErrorMessage description={error} />
-      )}
-    </div>
-  );
-  return (
-    <details open={true} className="group flex flex-col gap-1">
-      {header}
-      {body}
-    </details>
-  );
-}
-function isFailingPullRequestCheck(check) {
-  return check.status === "failing";
-}
-var pullRequestChecksSectionModule,
-  pullRequestChecksSectionJsxRuntime,
-  initPullRequestSidePanelChecksSectionChunk = once(() => {
-    pullRequestChecksSectionModule = getChunkModuleExports();
-    initScopeRuntime();
-    initIntlRuntime();
-    initDropdownMenuPrimitives();
-    cs();
-    initPullRequestFixDisabledTooltipChunk();
-    initPullRequestInlineActionButtonChunk();
-    initPullRequestFixActionHelpersChunk();
-    initPullRequestCheckRowsChunk();
-    initComposerScope();
-    initPullRequestSidePanelErrorMessageChunk();
-    initPullRequestSidePanelDetailsSummaryChunk();
-    initPullRequestSidePanelLoadingStateChunk();
-    pullRequestChecksSectionJsxRuntime = getJsxRuntime();
-  });
-function getPullRequestCommentActivityItems(activityItems) {
-  return activityItems.filter((item) => item.type !== "event");
-}
-function getPullRequestReviewerBadgeModels(reviewers) {
-  return pullRequestReviewerBadgeUniqBy
-    .default([
-      ...reviewers.requested,
-      ...reviewers.requestedTeams,
-      ...reviewers.approved,
-      ...reviewers.changesRequested,
-      ...reviewers.commented,
-    ])
-    .map((item) => ({
-      kind: reviewers.requestedTeams.includes(item) ? "team" : "user",
-      label: item,
-      status: getPullRequestReviewerStatus(reviewers, item),
-    }));
-}
-function getPullRequestReviewerStatus(reviewers, login) {
-  return reviewers.changesRequested.includes(login)
-    ? "changes_requested"
-    : reviewers.approved.includes(login)
-      ? "approved"
-      : "waiting";
-}
-var pullRequestReviewerBadgeUniqBy,
-  initPullRequestReviewerBadgeModelsChunk = once(() => {
-    pullRequestReviewerBadgeUniqBy = toEsModule(be(), 1);
-  });
-function PullRequestSidePanelCommentsSection(props) {
-  let { data, error, fixDisabledReason, item, loading } = props,
-    intl = useIntl(),
-    scope = useScope(composerScope),
-    conversationId = scope.value.routeConversationId,
-    attachedCommentAttachments = useScopedValue(
-      pullRequestReviewCommentAttachmentsSignal,
-      conversationId,
-    ),
-    content;
-  {
-    let commentActivityItems =
-        data == null
-          ? null
-          : getPullRequestCommentActivityItems(data.activityItems),
-      commentAttachments = data?.commentAttachments,
-      attachedCommentAttachmentKeys = new Set(
-        attachedCommentAttachments.map(getReviewCommentAttachmentKeyValue),
-      );
-    let allCommentsAttached =
-        commentAttachments != null &&
-        commentAttachments.length > 0 &&
-        commentAttachments.every((attachment) =>
-          attachedCommentAttachmentKeys.has(
-            getReviewCommentAttachmentKeyValue(attachment),
-          ),
-        ),
-      fixDisabledTooltip =
-        fixDisabledReason == null
-          ? undefined
-          : pullRequestCommentsSectionJsxRuntime.jsx(
-              PullRequestFixDisabledTooltip,
-              {
-                reason: fixDisabledReason,
-              },
-            );
-    let headerAction =
-      commentAttachments != null && commentAttachments.length > 0
-        ? pullRequestCommentsSectionJsxRuntime.jsx(
-            PullRequestInlineActionButton,
-            {
-              color: "secondary",
-              ariaLabel: allCommentsAttached
-                ? intl.formatMessage({
-                    id: "pullRequestSidePanel.comments.removeAllAccessible",
-                    defaultMessage: "Remove all",
-                    description:
-                      "Accessible label for removing all pull request comments from the chat",
-                  })
-                : intl.formatMessage({
-                    id: "pullRequestSidePanel.comments.fixAllAccessible",
-                    defaultMessage: "Fix all",
-                    description:
-                      "Accessible label for fixing all pull request comments",
-                  }),
-              disabled: !allCommentsAttached && fixDisabledReason != null,
-              inset: true,
-              tooltipContent: allCommentsAttached
-                ? undefined
-                : fixDisabledTooltip,
-              onClick: () => {
-                if (allCommentsAttached) {
-                  setPullRequestCommentsAttached(scope, {
-                    attached: false,
-                    commentAttachments,
-                    conversationId,
-                  });
-                  return;
-                }
-                attachPullRequestCommentsAndPromptFix(scope, {
-                  baseBranch: item.baseBranch,
-                  commentAttachments,
-                  conversationId,
-                  focusComposer: true,
-                  headBranch: item.headBranch,
-                  number: item.number,
-                });
-              },
-              children: allCommentsAttached ? (
-                <FormattedMessage
-                  id="pullRequestSidePanel.comments.removeAll"
-                  defaultMessage="Remove"
-                  description="Button label for removing all pull request comments from the chat"
-                />
-              ) : (
-                <FormattedMessage
-                  id="pullRequestSidePanel.comments.fixAll"
-                  defaultMessage="Fix"
-                  description="Button label for fixing all pull request comments"
-                />
-              ),
-            },
-          )
-        : null;
-    let title = (
-      <FormattedMessage
-        id="pullRequestSidePanel.comments.title"
-        defaultMessage="Comments"
-        description="Comments section title in the pull request side panel"
-      />
-    );
-    let header;
-    header = (
-      <PullRequestSidePanelDetailsSummary action={headerAction}>
-        {title}
-      </PullRequestSidePanelDetailsSummary>
-    );
-    content = (
-      <details open={true} className="group flex flex-col pb-8">
-        {header}
-        {error == null ? (
-          loading || data == null ? (
-            <PullRequestSidePanelLoadingState
-              label={
-                <FormattedMessage
-                  id="pullRequestSidePanel.comments.loading"
-                  defaultMessage="Loading comments"
-                  description="Loading label for pull request comments"
-                />
-              }
-            />
-          ) : commentActivityItems != null &&
-            commentActivityItems.length > 0 ? (
-            <div className="flex flex-col gap-1">
-              {commentActivityItems.map((activityItem) => {
-                let commentAttachment = findCommentAttachmentForActivityItem(
-                    activityItem,
-                    commentAttachments,
-                  ),
-                  commentIsAttached =
-                    commentAttachment != null &&
-                    attachedCommentAttachmentKeys.has(
-                      getReviewCommentAttachmentKeyValue(commentAttachment),
-                    );
-                return (
-                  <Qo
-                    key={activityItem.id}
-                    authorAvatarUrl={activityItem.authorAvatarUrl}
-                    authorLogin={activityItem.authorLogin}
-                    body={activityItem.body}
-                    createdAt={activityItem.createdAt}
-                    defaultCollapsed={true}
-                    metadataAccessory={
-                      commentAttachment == null
-                        ? null
-                        : pullRequestCommentsSectionJsxRuntime.jsx(
-                            PullRequestInlineActionButton,
-                            {
-                              disabled:
-                                !commentIsAttached && fixDisabledReason != null,
-                              inset: true,
-                              tooltipContent: commentIsAttached
-                                ? undefined
-                                : fixDisabledTooltip,
-                              onClick: () => {
-                                if (!commentIsAttached) {
-                                  attachPullRequestCommentsAndPromptFix(scope, {
-                                    baseBranch: item.baseBranch,
-                                    commentAttachments: [commentAttachment],
-                                    conversationId,
-                                    focusComposer: true,
-                                    headBranch: item.headBranch,
-                                    number: item.number,
-                                  });
-                                  return;
-                                }
-                                setPullRequestCommentsAttached(scope, {
-                                  attached: false,
-                                  commentAttachments: [commentAttachment],
-                                  conversationId,
-                                });
-                              },
-                              children: commentIsAttached ? (
-                                <FormattedMessage
-                                  id="pullRequestSidePanel.comments.removeFromChat"
-                                  defaultMessage="Remove"
-                                  description="Button label for removing a pull request comment from the chat"
-                                />
-                              ) : (
-                                <FormattedMessage
-                                  id="pullRequestSidePanel.comments.fixComment"
-                                  defaultMessage="Fix"
-                                  description="Button label for fixing an individual pull request comment"
-                                />
-                              ),
-                            },
-                          )
-                    }
-                    metadataTooltipContent={
-                      activityItem.path ?? commentAttachment?.position.path
-                    }
-                    replies={activityItem.replies}
-                    surface="timeline"
-                    url={activityItem.url}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <MenuChrome.Message compact={true}>
-              <FormattedMessage
-                id="pullRequestSidePanel.comments.empty"
-                defaultMessage="No comments"
-                description="Empty pull request comments list"
-              />
-            </MenuChrome.Message>
-          )
-        ) : (
-          <PullRequestSidePanelErrorMessage description={error} />
-        )}
-      </details>
-    );
-  }
-  return content;
-}
-function findCommentAttachmentForActivityItem(
-  activityItem,
-  commentAttachments,
-) {
-  return (
-    commentAttachments?.find(
-      (attachment) =>
-        (activityItem.reviewThreadId != null &&
-          attachment.reviewThreadId === activityItem.reviewThreadId) ||
-        (activityItem.url != null && attachment.url === activityItem.url),
-    ) ?? null
-  );
-}
-var pullRequestCommentsSectionModule,
-  pullRequestCommentsSectionJsxRuntime,
-  initPullRequestSidePanelCommentsSectionChunk = once(() => {
-    pullRequestCommentsSectionModule = getChunkModuleExports();
-    initScopeRuntime();
-    initIntlRuntime();
-    da();
-    initDropdownMenuPrimitives();
-    initPullRequestReviewCommentHelpers();
-    initPullRequestCommentFixHelpersChunk();
-    initPullRequestFixDisabledTooltipChunk();
-    initPullRequestInlineActionButtonChunk();
-    ls();
-    initComposerScope();
-    initPullRequestSidePanelErrorMessageChunk();
-    initPullRequestSidePanelDetailsSummaryChunk();
-    initPullRequestSidePanelLoadingStateChunk();
-    initPullRequestReviewerBadgeModelsChunk();
-    pullRequestCommentsSectionJsxRuntime = getJsxRuntime();
-  });
 function PullRequestSidePanelConflictsSection(props) {
   let { error, files, fixDisabledReason, hasError, item, loading, repo } =
       props,
@@ -1106,6 +627,32 @@ function PullRequestSidePanelDescriptionSection(props) {
     </details>
   );
 }
+function getPullRequestReviewerBadgeModels(reviewers) {
+  return pullRequestReviewerBadgeUniqBy
+    .default([
+      ...reviewers.requested,
+      ...reviewers.requestedTeams,
+      ...reviewers.approved,
+      ...reviewers.changesRequested,
+      ...reviewers.commented,
+    ])
+    .map((item) => ({
+      kind: reviewers.requestedTeams.includes(item) ? "team" : "user",
+      label: item,
+      status: getPullRequestReviewerStatus(reviewers, item),
+    }));
+}
+function getPullRequestReviewerStatus(reviewers, login) {
+  return reviewers.changesRequested.includes(login)
+    ? "changes_requested"
+    : reviewers.approved.includes(login)
+      ? "approved"
+      : "waiting";
+}
+var pullRequestReviewerBadgeUniqBy,
+  initPullRequestReviewerBadgeModelsChunk = once(() => {
+    pullRequestReviewerBadgeUniqBy = toEsModule(be(), 1);
+  });
 var pullRequestDescriptionSectionModule,
   pullRequestDescriptionSectionJsxRuntime,
   initPullRequestSidePanelDescriptionSectionChunk = once(() => {
@@ -1140,383 +687,6 @@ var pullRequestDescriptionSectionModule,
         />
       </svg>
     );
-  }),
-  githubUserSearchQuery,
-  initGithubUserSearchQuery = once(() => {
-    initAppScope();
-    initQueryDurationConstants();
-    initVscodeApiBridge();
-    githubUserSearchQuery = createHostQuerySignal(
-      appScope,
-      "gh-user-search",
-      (queryParams) => ({
-        enabled: queryParams.query.length > 0,
-        params: queryParams,
-        retry: false,
-        select: (response) => {
-          if (response.status === "error") throw Error(response.error);
-          return response.users;
-        },
-        staleTime: QUERY_DURATIONS.ONE_MINUTE,
-      }),
-    );
-  });
-function filterAlreadyPendingReviewers({
-  pendingReviewerLogins,
-  searchResults,
-}) {
-  let pendingReviewerLoginSet = new Set(
-    pendingReviewerLogins.map((item) => item.toLowerCase()),
-  );
-  return searchResults.filter(
-    ({ login }) => !pendingReviewerLoginSet.has(login.toLowerCase()),
-  );
-}
-function getReviewerSearchMenuOptions({
-  availableReviewers,
-  isCurrentQuery,
-  query,
-  searchHasError,
-  selectedReviewers,
-}) {
-  if (searchHasError && isCurrentQuery) return [];
-  if (!(query.length > 0 && !isCurrentQuery))
-    return availableReviewers == null
-      ? selectedReviewers.length > 0
-        ? selectedReviewers
-        : query.length === 0
-          ? []
-          : undefined
-      : uniqByModule.default(
-          [...selectedReviewers, ...availableReviewers],
-          ({ login }) => login.toLowerCase(),
-        );
-}
-function toggleSelectedReviewer(selectedReviewers, reviewer) {
-  let existingReviewer = selectedReviewers.find(
-    ({ login }) => login.toLowerCase() === reviewer.login.toLowerCase(),
-  );
-  return existingReviewer == null
-    ? [...selectedReviewers, reviewer]
-    : selectedReviewers.filter((item) => item !== existingReviewer);
-}
-var uniqByModule,
-  initReviewerSearchUniqByModule = once(() => {
-    uniqByModule = toEsModule(loadUniqByModule(), 1);
-  });
-function RequestPullRequestReviewersButton(props) {
-  let { hostId, item, pendingReviewerLogins, repo } = props,
-    scope = useScope(appScope),
-    intl = useIntl(),
-    [open, setOpen] = requestPullRequestReviewersReactRuntime.useState(false),
-    [query, setQuery] = requestPullRequestReviewersReactRuntime.useState(""),
-    emptySelectedReviewers = [];
-  let [selectedReviewers, setSelectedReviewers] =
-      requestPullRequestReviewersReactRuntime.useState(emptySelectedReviewers),
-    trimmedQuery = query.trim();
-  let currentQuery = trimmedQuery,
-    debouncedQuery = useDebouncedValue(currentQuery, 250),
-    searchParams = {
-      cwd: item.cwd,
-      hostId,
-      query: debouncedQuery,
-      repo,
-    };
-  let { data, isError, refetch } = useScopedValue(
-      githubUserSearchQuery,
-      searchParams,
-    ),
-    updateMutationParams = {
-      cwd: item.cwd,
-      headBranch: item.headBranch,
-      hostId,
-      operationSource: "pull_request_board",
-    };
-  let updatePullRequestMutation =
-      usePullRequestUpdateMutation(updateMutationParams),
-    reviewerOptions = getReviewerSearchMenuOptions({
-      availableReviewers:
-        data == null
-          ? undefined
-          : filterAlreadyPendingReviewers({
-              pendingReviewerLogins,
-              searchResults: data,
-            }),
-      isCurrentQuery: debouncedQuery === currentQuery,
-      query: currentQuery,
-      searchHasError: isError,
-      selectedReviewers: selectedReviewers,
-    })?.map(toReviewerSearchOption);
-  let menuOptions = reviewerOptions,
-    selectedOptionIdsSet = new Set(selectedReviewers.map(getReviewerOptionId));
-  let selectedOptionIds = selectedOptionIdsSet,
-    resetReviewerPicker = () => {
-      setQuery("");
-      setSelectedReviewers([]);
-      updatePullRequestMutation.reset();
-    };
-  let clearReviewerPicker = resetReviewerPicker,
-    requestSelectedReviewers = () => {
-      selectedReviewers.length !== 0 &&
-        (updatePullRequestMutation.reset(),
-        trackPullRequestAction(scope, {
-          action: "request_approvals",
-          item,
-          surface: "thread_side_panel",
-        }),
-        updatePullRequestMutation.mutate(
-          {
-            action: "request-reviewers",
-            cwd: item.cwd,
-            number: item.number,
-            repo,
-            reviewers: selectedReviewers.map(getReviewerLogin),
-          },
-          {
-            onSuccess: (result) => {
-              result.status === "success" &&
-                (scope.get(toastSignal).success(
-                  intl.formatMessage(
-                    {
-                      id: "pullRequestSidePanel.approvals.request.successReviewers",
-                      defaultMessage:
-                        "{count, plural, one {Requested approval from one reviewer} other {Requested approval from # reviewers}}",
-                      description:
-                        "Toast shown after requesting a pull request approval",
-                    },
-                    {
-                      count: selectedReviewers.length,
-                    },
-                  ),
-                ),
-                setOpen(false),
-                clearReviewerPicker());
-            },
-          },
-        ));
-    };
-  let handleRequestReviewers = requestSelectedReviewers,
-    handleOpenChange = (nextOpen) => {
-      setOpen(nextOpen);
-      nextOpen || clearReviewerPicker();
-    };
-  let triggerLabel = intl.formatMessage({
-    id: "pullRequestSidePanel.approvals.open",
-    defaultMessage: "Request reviewers",
-    description:
-      "Accessible label for opening the pull request reviewer picker",
-  });
-  let triggerIcon = <PlusIcon aria-hidden={true} className="icon-2xs" />;
-  let triggerButton = (
-    <PopoverTrigger asChild={true}>
-      {requestPullRequestReviewersJsxRuntime.jsx(Button, {
-        "aria-label": triggerLabel,
-        color: "secondary",
-        size: "iconMd",
-        children: triggerIcon,
-      })}
-    </PopoverTrigger>
-  );
-  let dialogTitle = requestPullRequestReviewersJsxRuntime.jsx(_r, {
-    className: "sr-only",
-    children: (
-      <FormattedMessage
-        id="pullRequestSidePanel.approvals.dialog.title"
-        defaultMessage="Request approvals"
-        description="Title for the dialog used to request pull request approvals"
-      />
-    ),
-  });
-  let searchAriaLabel = intl.formatMessage({
-    id: "pullRequestSidePanel.approvals.search.ariaLabel",
-    defaultMessage: "Search GitHub users",
-    description: "Accessible label for searching pull request reviewers",
-  });
-  let requestPending = updatePullRequestMutation.isPending,
-    emptyMessage =
-      currentQuery.length === 0 ? (
-        <FormattedMessage
-          id="pullRequestSidePanel.approvals.search.prompt"
-          defaultMessage="Search by name or GitHub username"
-          description="Prompt shown before searching for a pull request reviewer"
-        />
-      ) : isError && debouncedQuery === currentQuery ? (
-        <span className="flex items-center justify-between gap-3 text-token-error-foreground">
-          <FormattedMessage
-            id="pullRequestSidePanel.approvals.search.error"
-            defaultMessage="Couldn’t search GitHub users"
-            description="Error shown when pull request reviewer search fails"
-          />
-          {requestPullRequestReviewersJsxRuntime.jsx(Button, {
-            color: "outline",
-            size: "default",
-            type: "button",
-            onClick: () => {
-              refetch();
-            },
-            children: (
-              <FormattedMessage
-                id="pullRequestSidePanel.approvals.search.retry"
-                defaultMessage="Retry"
-                description="Retry button for pull request reviewer search"
-              />
-            ),
-          })}
-        </span>
-      ) : (
-        <FormattedMessage
-          id="pullRequestSidePanel.approvals.search.empty"
-          defaultMessage="No users found"
-          description="Empty state for pull request reviewer search"
-        />
-      );
-  let loadingLabel = intl.formatMessage({
-    id: "pullRequestSidePanel.approvals.search.loading",
-    defaultMessage: "Searching…",
-    description: "Loading message while searching pull request reviewers",
-  });
-  let placeholder = intl.formatMessage({
-    id: "pullRequestSidePanel.approvals.search.placeholder",
-    defaultMessage: "Request review from…",
-    description: "Placeholder for searching pull request reviewers",
-  });
-  let leadingSearchIcon = (
-    <SearchIcon
-      aria-hidden={true}
-      className="icon-sm shrink-0 text-token-text-tertiary"
-    />
-  );
-  let closePicker = () => {
-    setOpen(false);
-    clearReviewerPicker();
-  };
-  let handleQueryChange, handleOptionSelect;
-  handleQueryChange = (nextQuery) => {
-    setQuery(nextQuery);
-  };
-  handleOptionSelect = (reviewer) => {
-    setSelectedReviewers((currentReviewers) =>
-      toggleSelectedReviewer(currentReviewers, reviewer),
-    );
-  };
-  let reviewerSearchMenu = (
-    <Pu
-      ariaLabel={searchAriaLabel}
-      disabled={requestPending}
-      emptyMessage={emptyMessage}
-      loadingLabel={loadingLabel}
-      options={menuOptions}
-      loadingSize="compact"
-      placeholder={placeholder}
-      query={query}
-      selectedOptionIds={selectedOptionIds}
-      variant="menu"
-      leadingContent={leadingSearchIcon}
-      onEscape={closePicker}
-      onQueryChange={handleQueryChange}
-      onSelectOption={handleOptionSelect}
-    />
-  );
-  let requestErrorMessage =
-    updatePullRequestMutation.data?.status === "error" ||
-    updatePullRequestMutation.isError ? (
-      <div className="px-2 py-1.5 text-sm" aria-live="polite">
-        <span className="text-token-error-foreground">
-          {updatePullRequestMutation.data?.status === "error"
-            ? updatePullRequestMutation.data.error
-            : updatePullRequestMutation.error?.message}
-        </span>
-      </div>
-    ) : null;
-  let requestFooter =
-    selectedReviewers.length > 0 || updatePullRequestMutation.isPending ? (
-      <div className="grid pt-1">
-        {updatePullRequestMutation.isPending ? (
-          <span
-            aria-label={intl.formatMessage({
-              id: "pullRequestSidePanel.approvals.request.pending",
-              defaultMessage: "Requesting approval…",
-              description:
-                "Loading message while requesting pull request approval",
-            })}
-            className="flex items-center justify-center py-2"
-            role="status"
-          >
-            {requestPullRequestReviewersJsxRuntime.jsx(SpinnerIcon, {
-              className: "icon-2xs",
-            })}
-          </span>
-        ) : (
-          requestPullRequestReviewersJsxRuntime.jsx(Button, {
-            color: "secondary",
-            size: "toolbar",
-            onClick: handleRequestReviewers,
-            children: (
-              <span className="mx-auto">
-                <FormattedMessage
-                  id="pullRequestSidePanel.approvals.request"
-                  defaultMessage="Request"
-                  description="Button label for requesting pull request approval"
-                />
-              </span>
-            ),
-          })
-        )}
-      </div>
-    ) : null;
-  let popoverContent = (
-    <PopoverContent align="end">
-      {dialogTitle}
-      {reviewerSearchMenu}
-      {requestErrorMessage}
-      {requestFooter}
-    </PopoverContent>
-  );
-  return (
-    <PopoverRoot open={open} onOpenChange={handleOpenChange}>
-      {triggerButton}
-      {popoverContent}
-    </PopoverRoot>
-  );
-}
-function getReviewerLogin(reviewer) {
-  let { login } = reviewer;
-  return login;
-}
-function getReviewerOptionId(reviewer) {
-  let { login } = reviewer;
-  return login.toLowerCase();
-}
-function toReviewerSearchOption(reviewer) {
-  return {
-    ...reviewer,
-    id: reviewer.login.toLowerCase(),
-    imageUrl: reviewer.avatarUrl,
-    label: reviewer.login,
-  };
-}
-var requestPullRequestReviewersModule,
-  requestPullRequestReviewersReactRuntime,
-  requestPullRequestReviewersJsxRuntime,
-  initRequestPullRequestReviewersButtonChunk = once(() => {
-    requestPullRequestReviewersModule = getChunkModuleExports();
-    initScopeRuntime();
-    requestPullRequestReviewersReactRuntime = toEsModule(loadReactModule(), 1);
-    initIntlRuntime();
-    initButtonComponentPrimitives();
-    initPopoverPrimitives();
-    Nu();
-    initSpinnerComponent();
-    initToastRuntime();
-    _t();
-    initSearchIcon();
-    initPullRequestUpdateMutationChunk();
-    initPullRequestAnalyticsChunk();
-    initAppScope();
-    initTaskWorkspaceQueryRuntime();
-    initGithubUserSearchQuery();
-    initReviewerSearchUniqByModule();
-    requestPullRequestReviewersJsxRuntime = getJsxRuntime();
   });
 function PullRequestSidePanelOverviewSection(props) {
   let {
@@ -2066,10 +1236,8 @@ var pullRequestSidePanelDetailsModule,
   initPullRequestSidePanelDetailsChunk = once(() => {
     pullRequestSidePanelDetailsModule = getChunkModuleExports();
     initScopeRuntime();
-    initPullRequestReviewCommentHelpers();
     bl();
     Yc();
-    initPullRequestFailingChecksPromptChunk();
     po();
     initComposerScope();
     initQueryDurationConstants();
