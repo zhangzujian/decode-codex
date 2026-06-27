@@ -1,0 +1,94 @@
+// Restored from ref/webview/assets/absolutely-light-DwFCI8bO.js
+// AbsolutelyLight theme data restored from the current Codex webview bundle.
+var absolutelyLightBg = `#f9f9f7`,
+  absolutelyLightColors = {
+    "activityBar.activeBorder": `#cc7d5e`,
+    "activityBar.background": `#f4f4f2`,
+    "activityBarBadge.background": `#cc7d5e`,
+    "button.background": `#cc7d5e`,
+    "editor.background": `#f9f9f7`,
+    "editor.foreground": `#2d2d2b`,
+    "editorCursor.foreground": `#cc7d5e`,
+    "editorGroupHeader.tabsBackground": `#f4f4f2`,
+    focusBorder: `#cc7d5e`,
+    foreground: `#2d2d2b`,
+    "panel.background": `#f4f4f2`,
+    "sideBar.background": `#f4f4f2`,
+    "sideBar.foreground": `#2d2d2b`,
+    "sideBarTitle.foreground": `#2d2d2b`,
+    "textLink.foreground": `#cc7d5e`,
+  },
+  absolutelyLightFg = `#2d2d2b`,
+  absolutelyLightName = `Absolutely Light`,
+  absolutelyLightSettings = [
+    {
+      scope: [`comment`, `punctuation.definition.comment`],
+      settings: {
+        foreground: `#939391`,
+      },
+    },
+    {
+      scope: [`string`, `constant.other.symbol`],
+      settings: {
+        foreground: `#00c853`,
+      },
+    },
+    {
+      scope: [`constant.numeric`, `constant.language.boolean`],
+      settings: {
+        foreground: `#ff5f38`,
+      },
+    },
+    {
+      scope: [
+        `keyword`,
+        `keyword.control`,
+        `storage`,
+        `storage.type`,
+        `storage.modifier`,
+      ],
+      settings: {
+        foreground: `#ff5f38`,
+      },
+    },
+    {
+      scope: [
+        `entity.name.type`,
+        `entity.other.inherited-class`,
+        `support.class`,
+        `support.type`,
+      ],
+      settings: {
+        foreground: `#bc7559`,
+      },
+    },
+    {
+      scope: [
+        `entity.name.function`,
+        `support.function`,
+        `variable.function`,
+        `meta.function-call`,
+      ],
+      settings: {
+        foreground: `#2d2d2b`,
+      },
+    },
+  ],
+  absolutelyLightType = `light`;
+export const absolutelyLightDefault = {
+  bg: absolutelyLightBg,
+  colors: absolutelyLightColors,
+  fg: absolutelyLightFg,
+  name: absolutelyLightName,
+  settings: absolutelyLightSettings,
+  type: absolutelyLightType,
+};
+export const AbsolutelyLightTheme = absolutelyLightDefault;
+export {
+  absolutelyLightBg as bg,
+  absolutelyLightColors as colors,
+  absolutelyLightFg,
+  absolutelyLightName as name,
+  absolutelyLightSettings as settings,
+  absolutelyLightType as type,
+};

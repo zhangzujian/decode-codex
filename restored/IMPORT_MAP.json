@@ -388,28 +388,30 @@
     "absolutely-dark-Bxu0QJJD": {
       "restored": "themes/absolutely-dark.ts",
       "exports": {
-        "bg": "absolutelyDarkDefault",
-        "colors": "bg",
-        "default": "colors",
+        "bg": "bg",
+        "colors": "colors",
+        "default": "absolutelyDarkDefault",
         "fg": "absolutelyDarkFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "absolutely-light-BPRjNNJr": {
       "restored": "themes/absolutely-light.ts",
       "exports": {
-        "bg": "absolutelyLightDefault",
-        "colors": "bg",
-        "default": "colors",
+        "bg": "bg",
+        "colors": "colors",
+        "default": "absolutelyLightDefault",
         "fg": "absolutelyLightFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "am-D5soOju5": {
       "restored": "locales/am.ts",
@@ -638,43 +640,46 @@
     "linear-dark-BLNhFjHH": {
       "restored": "themes/linear-dark.ts",
       "exports": {
-        "bg": "linearDarkDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "linearDarkDefault",
         "fg": "linearDarkFg",
         "name": "name",
         "settings": "settings"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "linear-light-CoqC4_Eg": {
       "restored": "themes/linear-light.ts",
       "exports": {
-        "bg": "linearLightDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "linearLightDefault",
         "fg": "linearLightFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "lobster-dark-CzHMFiJk": {
       "restored": "themes/lobster-dark.ts",
       "exports": {
-        "bg": "lobsterDarkDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "lobsterDarkDefault",
         "fg": "lobsterDarkFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "lt-l593wJhl": {
       "restored": "locales/lt.ts",
@@ -695,16 +700,17 @@
     "matrix-dark-O9PYcTYh": {
       "restored": "themes/matrix-dark.ts",
       "exports": {
-        "bg": "matrixDarkDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "matrixDarkDefault",
         "fg": "matrixDarkFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "ml-ChjUUzhv": {
       "restored": "locales/ml.ts",
@@ -757,30 +763,32 @@
     "notion-dark-XdXSGu6c": {
       "restored": "themes/notion-dark.ts",
       "exports": {
-        "bg": "notionDarkDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "notionDarkDefault",
         "fg": "notionDarkFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "notion-light-CWCqCl25": {
       "restored": "themes/notion-light.ts",
       "exports": {
-        "bg": "notionLightDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "notionLightDefault",
         "fg": "notionLightFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "pa-BhjR_BW_": {
       "restored": "locales/pa.ts",
@@ -801,16 +809,17 @@
     "proof-light-6h_OypMu": {
       "restored": "themes/proof-light.ts",
       "exports": {
-        "bg": "proofLightDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "proofLightDefault",
         "fg": "proofLightFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "pt-BR-BWE6erAK": {
       "restored": "locales/pt-br.ts",
@@ -847,16 +856,17 @@
     "sentry-dark-B5ZGgYpd": {
       "restored": "themes/sentry-dark.ts",
       "exports": {
-        "bg": "sentryDarkDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "sentryDarkDefault",
         "fg": "sentryDarkFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "sk-SK-D6qDDlQS": {
       "restored": "locales/sk-sk.ts",
@@ -925,15 +935,16 @@
     "temple-dark-DnH5dVLm": {
       "restored": "themes/temple-dark.ts",
       "exports": {
-        "bg": "templeDarkDefault",
-        "colors": "bg",
-        "default": "colors",
+        "bg": "bg",
+        "colors": "colors",
+        "default": "templeDarkDefault",
         "fg": "templeDarkFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "th-TH-BPpx5F0e": {
       "restored": "locales/th-th.ts",
@@ -978,29 +989,31 @@
     "vercel-dark-mgZsw42P": {
       "restored": "themes/vercel-dark.ts",
       "exports": {
-        "bg": "vercelDarkDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "vercelDarkDefault",
         "fg": "vercelDarkFg",
         "name": "name",
         "settings": "settings"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "vercel-light-C2_H1SoG": {
       "restored": "themes/vercel-light.ts",
       "exports": {
-        "bg": "vercelLightDefault",
-        "chromeTheme": "bg",
-        "colors": "chromeTheme",
-        "default": "colors",
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "vercelLightDefault",
         "fg": "vercelLightFg",
         "name": "name",
         "settings": "settings",
         "type": "type"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Previous theme-data hash shares the semantic theme module; export map corrected to the real public ESM surface."
     },
     "vi-VN-C7fQc0PZ": {
       "restored": "locales/vi-vn.ts",
@@ -11281,6 +11294,196 @@
       },
       "status": "done",
       "note": "Current synced Rolldown modulepreload polyfill initializer restored as an explicit install function."
+    },
+    "absolutely-dark-Bm5q476E": {
+      "restored": "themes/absolutely-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "colors": "colors",
+        "default": "absolutelyDarkDefault",
+        "fg": "absolutelyDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "absolutely-light-DwFCI8bO": {
+      "restored": "themes/absolutely-light.ts",
+      "exports": {
+        "bg": "bg",
+        "colors": "colors",
+        "default": "absolutelyLightDefault",
+        "fg": "absolutelyLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "linear-dark-C4bjD9c7": {
+      "restored": "themes/linear-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "linearDarkDefault",
+        "fg": "linearDarkFg",
+        "name": "name",
+        "settings": "settings"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "linear-light-NGsibIX1": {
+      "restored": "themes/linear-light.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "linearLightDefault",
+        "fg": "linearLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "lobster-dark-DM2463ba": {
+      "restored": "themes/lobster-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "lobsterDarkDefault",
+        "fg": "lobsterDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "matrix-dark-20LfShwG": {
+      "restored": "themes/matrix-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "matrixDarkDefault",
+        "fg": "matrixDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "notion-dark-8RJId8TA": {
+      "restored": "themes/notion-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "notionDarkDefault",
+        "fg": "notionDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "notion-light-DvDlXhXF": {
+      "restored": "themes/notion-light.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "notionLightDefault",
+        "fg": "notionLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "proof-light-S3dC_C2J": {
+      "restored": "themes/proof-light.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "proofLightDefault",
+        "fg": "proofLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "sentry-dark-CqVGlz9V": {
+      "restored": "themes/sentry-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "sentryDarkDefault",
+        "fg": "sentryDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "temple-dark-CYlGfqCb": {
+      "restored": "themes/temple-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "colors": "colors",
+        "default": "templeDarkDefault",
+        "fg": "templeDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "vercel-dark-AMgwvbBL": {
+      "restored": "themes/vercel-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "vercelDarkDefault",
+        "fg": "vercelDarkFg",
+        "name": "name",
+        "settings": "settings"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
+    },
+    "vercel-light-nmt3r7fB": {
+      "restored": "themes/vercel-light.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "vercelLightDefault",
+        "fg": "vercelLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current synced theme-data hash restored through the existing semantic theme module; export surface verified against the ref chunk."
     }
   }
 }
