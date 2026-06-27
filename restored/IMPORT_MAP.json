@@ -7311,8 +7311,8 @@
         "y": "useComposerControllerY"
       },
       "status": "done",
-      "note": "Typed and semantically renamed exported composer controller helpers H/N/O: replace placement search, transaction event plugin factory, and useSyncExternalStore selector hook.",
-      "lastUpdated": "2026-06-27T02:57:05.000Z"
+      "note": "Composer-facing wrapper now delegates the bundled ProseMirror model/transform/state runtime to restored/vendor/prosemirror-composer-runtime.ts, which preserves the faithful vendored implementation while keeping the composer surface small and typed.",
+      "lastUpdated": "2026-06-27T03:07:35.000Z"
     },
     "PopcornPageNumberNavigation-VRpKM1l8": {
       "restored": "features/popcorn-page-number-navigation.tsx",
