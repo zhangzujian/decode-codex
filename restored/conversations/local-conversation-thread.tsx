@@ -4019,7 +4019,7 @@ var threadSummaryPanelSectionModule,
   });
 function BranchChangesSummaryRow(props) {
   let { onOpenReviewTab, diffStats, isDiffStatsLoading } = props,
-    branchIcon = Ym.jsx(uc, {
+    branchIcon = branchChangesSummaryRowJsxRuntime.jsx(uc, {
       className: "icon-sm shrink-0",
     }),
     changesLabel = (
@@ -4030,7 +4030,7 @@ function BranchChangesSummaryRow(props) {
       />
     );
   let trailingDiffStats = isDiffStatsLoading ? (
-    Ym.jsx(rr, {
+    branchChangesSummaryRowJsxRuntime.jsx(rr, {
       className: "icon-xs text-token-text-tertiary",
     })
   ) : diffStats == null ? null : (
@@ -4050,18 +4050,18 @@ function BranchChangesSummaryRow(props) {
     />
   );
 }
-var Jm,
-  Ym,
-  Xm = once(() => {
-    Jm = q();
+var branchChangesSummaryRowModule,
+  branchChangesSummaryRowJsxRuntime,
+  initBranchChangesSummaryRowChunk = once(() => {
+    branchChangesSummaryRowModule = q();
     Jn();
     d();
     Nl();
     pc();
     initSummaryPanelRowChunk();
-    Ym = getJsxRuntime();
+    branchChangesSummaryRowJsxRuntime = getJsxRuntime();
   });
-function Zm({ baseBranch, headBranch, number }) {
+function buildPullRequestCommentsFixPrompt({ baseBranch, headBranch, number }) {
   return [
     "## Pull request comments:",
     `Review ${`PR ${number}`}${` (${headBranch} -> ${baseBranch})`} and address the attached outstanding PR comments with the smallest safe changes.`,
@@ -4072,26 +4072,42 @@ function Zm({ baseBranch, headBranch, number }) {
     "Address all actionable attached PR feedback.",
   ].join("\n");
 }
-function Qm({ baseBranch, conversationId, headBranch, prNumber }) {
+function getPullRequestCommentsFixDisabledReason({
+  baseBranch,
+  conversationId,
+  headBranch,
+  prNumber,
+}) {
   return (
     (conversationId == null ? "missing-conversation" : null) ??
     (baseBranch == null || headBranch == null ? "missing-pr-info" : null) ??
     (prNumber == null ? "missing-pr-info" : null)
   );
 }
-function $m(e, { attached, commentAttachments, conversationId }) {
+function setPullRequestCommentsAttached(
+  scope,
+  { attached, commentAttachments, conversationId },
+) {
   return conversationId == null || commentAttachments.length === 0
     ? false
-    : (Wi(e, conversationId, (e) => {
-        if (attached) return th(e, commentAttachments);
-        let r = new Set(commentAttachments.map(se)),
-          i = e.filter((item) => !r.has(se(item)));
-        return i.length === e.length ? e : i;
+    : (Wi(scope, conversationId, (currentAttachments) => {
+        if (attached)
+          return appendMissingReviewCommentAttachments(
+            currentAttachments,
+            commentAttachments,
+          );
+        let removedAttachmentKeys = new Set(commentAttachments.map(se)),
+          nextAttachments = currentAttachments.filter(
+            (item) => !removedAttachmentKeys.has(se(item)),
+          );
+        return nextAttachments.length === currentAttachments.length
+          ? currentAttachments
+          : nextAttachments;
       }),
       true);
 }
-function eh(
-  e,
+function attachPullRequestCommentsAndPromptFix(
+  scope,
   {
     baseBranch,
     commentAttachments,
@@ -4107,14 +4123,14 @@ function eh(
     number == null ||
     commentAttachments.length === 0
     ? false
-    : ($m(e, {
+    : (setPullRequestCommentsAttached(scope, {
         attached: true,
         commentAttachments,
         conversationId,
       }),
       as(
-        e,
-        Zm({
+        scope,
+        buildPullRequestCommentsFixPrompt({
           baseBranch,
           headBranch,
           number,
@@ -4123,29 +4139,34 @@ function eh(
       focusComposer && ts(),
       true);
 }
-function th(e, t) {
-  let n = [...e],
-    r = new Set(e.map(se)),
-    i = false;
-  for (let e of t) {
-    let t = se(e);
-    r.has(t) || (r.add(t), n.push(e), (i = true));
+function appendMissingReviewCommentAttachments(
+  currentAttachments,
+  attachmentsToAdd,
+) {
+  let nextAttachments = [...currentAttachments],
+    existingAttachmentKeys = new Set(currentAttachments.map(se)),
+    didAppend = false;
+  for (let attachment of attachmentsToAdd) {
+    let attachmentKey = se(attachment);
+    existingAttachmentKeys.has(attachmentKey) ||
+      (existingAttachmentKeys.add(attachmentKey),
+      nextAttachments.push(attachment),
+      (didAppend = true));
   }
-  return i ? n : e;
+  return didAppend ? nextAttachments : currentAttachments;
 }
-var nh = once(() => {
+var initPullRequestCommentFixHelpersChunk = once(() => {
   da();
   cs();
   Zo();
   en();
   at();
 });
-function rh(e) {
-  let { reason } = e;
+function PullRequestCommentsFixDisabledTooltip(props) {
+  let { reason } = props;
   if (reason == null) return null;
   switch (reason) {
     case "missing-conversation": {
-      let e;
       return (
         <FormattedMessage
           id="localConversation.pullRequest.comments.missingConversation"
@@ -4155,7 +4176,6 @@ function rh(e) {
       );
     }
     case "missing-pr-info": {
-      let e;
       return (
         <FormattedMessage
           id="localConversation.pullRequest.comments.missingPullRequestInfo"
@@ -4166,12 +4186,11 @@ function rh(e) {
     }
   }
 }
-function ih(e) {
-  let { reason } = e;
+function PullRequestFixDisabledTooltip(props) {
+  let { reason } = props;
   if (reason == null) return null;
   switch (reason) {
     case "branch-mismatch": {
-      let e;
       return (
         <FormattedMessage
           id="localConversation.pullRequest.fix.branchMismatch"
@@ -4181,7 +4200,6 @@ function ih(e) {
       );
     }
     case "closed-pr": {
-      let e;
       return (
         <FormattedMessage
           id="localConversation.pullRequest.fix.closedPullRequest"
@@ -4191,7 +4209,6 @@ function ih(e) {
       );
     }
     case "missing-branch-info": {
-      let e;
       return (
         <FormattedMessage
           id="localConversation.pullRequest.fix.missingBranchInfo"
@@ -4201,7 +4218,6 @@ function ih(e) {
       );
     }
     case "missing-pr-info": {
-      let e;
       return (
         <FormattedMessage
           id="localConversation.pullRequest.fix.missingPullRequestInfo"
@@ -4211,7 +4227,6 @@ function ih(e) {
       );
     }
     case "missing-conversation": {
-      let e;
       return (
         <FormattedMessage
           id="localConversation.pullRequest.fix.missingConversation"
@@ -4222,14 +4237,14 @@ function ih(e) {
     }
   }
 }
-var ah,
-  oh,
-  sh = once(() => {
-    ah = q();
+var pullRequestFixDisabledTooltipModule,
+  pullRequestFixDisabledTooltipJsxRuntime,
+  initPullRequestFixDisabledTooltipChunk = once(() => {
+    pullRequestFixDisabledTooltipModule = q();
     Jn();
-    oh = getJsxRuntime();
+    pullRequestFixDisabledTooltipJsxRuntime = getJsxRuntime();
   });
-function ch({
+function getPullRequestFixDisabledReason({
   baseBranch,
   conversationId,
   fixDisabledReason,
@@ -4244,8 +4259,12 @@ function ch({
     (prNumber == null ? "missing-pr-info" : null)
   );
 }
-var lh = once(() => {});
-function uh({ baseBranch, headBranch, number }) {
+var initPullRequestFailingChecksPromptChunk = once(() => {});
+function buildPullRequestFailingChecksFixPrompt({
+  baseBranch,
+  headBranch,
+  number,
+}) {
   return [
     f,
     `Review ${`PR ${number}`}${` (${headBranch} -> ${baseBranch})`} and make the smallest safe fix for the attached failing CI.`,
@@ -4266,38 +4285,54 @@ function uh({ baseBranch, headBranch, number }) {
     "Use gh to inspect the failing CI and make the smallest safe fix. Once everything is fixed, commit and push it.",
   ].join("\n");
 }
-function dh(e) {
-  return e.link ?? `${e.workflow ?? ""}:${e.name}`;
+function getPullRequestCheckAttachmentKey(check) {
+  return check.link ?? `${check.workflow ?? ""}:${check.name}`;
 }
-function fh(e, { attached, checks }) {
-  let r = checks.filter((item) => item.status === "failing");
-  return r.length === 0
+function setPullRequestFailingChecksAttached(scope, { attached, checks }) {
+  let failingChecks = checks.filter((item) => item.status === "failing");
+  return failingChecks.length === 0
     ? false
-    : (ms(e, (e) => {
+    : (ms(scope, (pullRequestContext) => {
         if (!attached) {
-          let t = new Set(r.map(dh));
-          e.pullRequestChecks = e.pullRequestChecks.filter(
-            (item) => !t.has(dh(item)),
+          let failingCheckKeys = new Set(
+            failingChecks.map(getPullRequestCheckAttachmentKey),
           );
+          pullRequestContext.pullRequestChecks =
+            pullRequestContext.pullRequestChecks.filter(
+              (item) =>
+                !failingCheckKeys.has(getPullRequestCheckAttachmentKey(item)),
+            );
           return;
         }
-        let n = new Set(e.pullRequestChecks.map(dh));
-        e.pullRequestChecks.push(...r.filter((item) => !n.has(dh(item))));
+        let attachedCheckKeys = new Set(
+          pullRequestContext.pullRequestChecks.map(
+            getPullRequestCheckAttachmentKey,
+          ),
+        );
+        pullRequestContext.pullRequestChecks.push(
+          ...failingChecks.filter(
+            (item) =>
+              !attachedCheckKeys.has(getPullRequestCheckAttachmentKey(item)),
+          ),
+        );
       }),
       true);
 }
-function ph(e, { baseBranch, checks, headBranch, number }) {
+function attachFailingPullRequestChecksAndPromptFix(
+  scope,
+  { baseBranch, checks, headBranch, number },
+) {
   return baseBranch == null ||
     headBranch == null ||
     number == null ||
-    !fh(e, {
+    !setPullRequestFailingChecksAttached(scope, {
       attached: true,
       checks,
     })
     ? false
     : (as(
-        e,
-        uh({
+        scope,
+        buildPullRequestFailingChecksFixPrompt({
           baseBranch,
           headBranch,
           number,
@@ -4306,7 +4341,11 @@ function ph(e, { baseBranch, checks, headBranch, number }) {
       ts(),
       true);
 }
-function mh({ baseBranch, headBranch, number }) {
+function buildPullRequestMergeConflictFixPrompt({
+  baseBranch,
+  headBranch,
+  number,
+}) {
   return [
     f,
     `Review ${`PR ${number}`}${` (${headBranch} -> ${baseBranch})`} and resolve the attached merge conflict blocker with the smallest safe changes.`,
@@ -4317,40 +4356,40 @@ function mh({ baseBranch, headBranch, number }) {
     "Resolve the PR merge conflicts, then commit and push the fix.",
   ].join("\n");
 }
-function hh(e, t) {
-  return t == null
+function attachPullRequestMergeConflictAndPromptFix(scope, mergeConflict) {
+  return mergeConflict == null
     ? false
     : (as(
-        e,
-        mh({
-          baseBranch: t.baseBranch,
-          headBranch: t.headBranch,
-          number: t.number,
+        scope,
+        buildPullRequestMergeConflictFixPrompt({
+          baseBranch: mergeConflict.baseBranch,
+          headBranch: mergeConflict.headBranch,
+          number: mergeConflict.number,
         }),
       ),
-      gh(e, t),
+      setPullRequestMergeConflictAttachment(scope, mergeConflict),
       ts(),
       true);
 }
-function gh(e, t) {
-  ms(e, (e) => {
-    e.pullRequestMergeConflict = t;
+function setPullRequestMergeConflictAttachment(scope, mergeConflict) {
+  ms(scope, (pullRequestContext) => {
+    pullRequestContext.pullRequestMergeConflict = mergeConflict;
   });
 }
-var _h = once(() => {
+var initPullRequestFixActionHelpersChunk = once(() => {
   cs();
   Zo();
   at();
 });
-function vh(e) {
-  let { children, content, triggerAsChild = false } = e,
-    o = xh.jsx(hr, {
+function PullRequestRichTooltip(props) {
+  let { children, content, triggerAsChild = false } = props,
+    tooltipContent = pullRequestRichTooltipJsxRuntime.jsx(hr, {
       children: content,
     });
-  let s = xh.jsx(hr, {
+  let triggerContent = pullRequestRichTooltipJsxRuntime.jsx(hr, {
     children,
   });
-  return xh.jsx(jr, {
+  return pullRequestRichTooltipJsxRuntime.jsx(jr, {
     align: "start",
     className: "w-full border-0 bg-transparent p-0 text-left",
     delayDuration: 0,
@@ -4358,16 +4397,16 @@ function vh(e) {
     side: "right",
     sideOffset: 4,
     variant: "rich",
-    tooltipContent: o,
+    tooltipContent: tooltipContent,
     tooltipMaxWidth:
       "min(24rem, var(--radix-tooltip-content-available-width), calc(100vw - 16px))",
     triggerAsChild: triggerAsChild,
-    children: s,
+    children: triggerContent,
   });
 }
-function yh(e) {
-  let { children } = e,
-    r =
+function PullRequestFlyoutContent(props) {
+  let { children } = props,
+    body =
       children == null ? null : (
         <div className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto px-3">
           {children}
@@ -4375,16 +4414,16 @@ function yh(e) {
       );
   return (
     <div className="flex max-h-96 min-h-0 w-96 max-w-full flex-1 flex-col overflow-hidden rounded-xl py-1">
-      {r}
+      {body}
     </div>
   );
 }
-var bh,
-  xh,
-  Sh = once(() => {
-    bh = q();
+var pullRequestRichTooltipModule,
+  pullRequestRichTooltipJsxRuntime,
+  initPullRequestRichTooltipChunk = once(() => {
+    pullRequestRichTooltipModule = q();
     Gn();
-    xh = getJsxRuntime();
+    pullRequestRichTooltipJsxRuntime = getJsxRuntime();
   });
 function PullRequestChecksSummaryRow(props) {
   let {
@@ -4405,7 +4444,7 @@ function PullRequestChecksSummaryRow(props) {
       pullRequestStatus.checks.filter((item) => item.status === status),
     orderedChecks = Mh.flatMap(getChecksByStatus),
     checkRows = orderedChecks.map(PullRequestCheckFlyoutRowItem);
-  let popoverContent = jh.jsx(yh, {
+  let popoverContent = jh.jsx(PullRequestFlyoutContent, {
     children: checkRows,
   });
   let fixFailingChecksAction = hasFixableFailingChecks
@@ -4441,7 +4480,7 @@ function PullRequestChecksSummaryRow(props) {
       label={checksLabel}
     />
   );
-  return jh.jsx(vh, {
+  return jh.jsx(PullRequestRichTooltip, {
     triggerAsChild: hasFixableFailingChecks,
     content: popoverContent,
     children: summaryRow,
@@ -4644,7 +4683,7 @@ var Ah,
     Kc();
     Ul();
     initPullRequestInlineActionButtonChunk();
-    Sh();
+    initPullRequestRichTooltipChunk();
     initSummaryPanelRowChunk();
     jh = getJsxRuntime();
     Mh = ["failing", "pending", "skipped", "unknown", "passing"];
@@ -4693,7 +4732,7 @@ function PullRequestStatusDetailRows(props) {
             : null
         : null,
     failingChecksFixDisabledReason = canShowFailingChecksFix
-      ? ch({
+      ? getPullRequestFixDisabledReason({
           baseBranch: baseBranch,
           conversationId,
           fixDisabledReason: fixDisabledReason,
@@ -4704,7 +4743,7 @@ function PullRequestStatusDetailRows(props) {
       : null;
   let checksFixDisabledReason = failingChecksFixDisabledReason,
     mergeConflictFixDisabledReason = hasMergeConflicts
-      ? ch({
+      ? getPullRequestFixDisabledReason({
           baseBranch: baseBranch,
           conversationId,
           fixDisabledReason: fixDisabledReason,
@@ -4715,7 +4754,7 @@ function PullRequestStatusDetailRows(props) {
       : null;
   let conflictFixDisabledReason = mergeConflictFixDisabledReason,
     commentsFixDisabledReason = hasNewCommentAttachments
-      ? Qm({
+      ? getPullRequestCommentsFixDisabledReason({
           baseBranch: baseBranch,
           conversationId,
           headBranch: pullRequestHeadBranch,
@@ -4724,7 +4763,7 @@ function PullRequestStatusDetailRows(props) {
       : null;
   let reviewCommentsFixDisabledReason = commentsFixDisabledReason,
     openMergeConflictsFix = () => {
-      hh(
+      attachPullRequestMergeConflictAndPromptFix(
         scope,
         baseBranch == null ||
           pullRequestHeadBranch == null ||
@@ -4742,7 +4781,7 @@ function PullRequestStatusDetailRows(props) {
     };
   let handleFixMergeConflicts = openMergeConflictsFix,
     openReviewCommentsFix = () => {
-      eh(scope, {
+      attachPullRequestCommentsAndPromptFix(scope, {
         baseBranch: baseBranch,
         commentAttachments: pullRequestStatus.commentAttachments,
         conversationId,
@@ -4756,11 +4795,11 @@ function PullRequestStatusDetailRows(props) {
     failingChecksTooltipContent =
       checksFixDisabledReason == null
         ? undefined
-        : Rh.jsx(ih, {
+        : Rh.jsx(PullRequestFixDisabledTooltip, {
             reason: checksFixDisabledReason,
           });
   let handleFixFailingChecks = (checks) => {
-    ph(scope, {
+    attachFailingPullRequestChecksAndPromptFix(scope, {
       baseBranch: baseBranch,
       checks: checks,
       headBranch: pullRequestHeadBranch,
@@ -4783,7 +4822,7 @@ function PullRequestStatusDetailRows(props) {
         tooltipContent:
           conflictFixDisabledReason == null
             ? undefined
-            : Rh.jsx(ih, {
+            : Rh.jsx(PullRequestFixDisabledTooltip, {
                 reason: conflictFixDisabledReason,
               }),
         onClick: handleFixMergeConflicts,
@@ -4813,9 +4852,9 @@ function PullRequestStatusDetailRows(props) {
     />
   ) : null;
   let commentsRow = hasCommentAttachments
-    ? Rh.jsx(vh, {
+    ? Rh.jsx(PullRequestRichTooltip, {
         triggerAsChild: true,
-        content: Rh.jsx(yh, {
+        content: Rh.jsx(PullRequestFlyoutContent, {
           children: (
             <div className="flex flex-col gap-2 py-1">
               {pullRequestStatus.commentAttachments.map((item, index) => {
@@ -4857,7 +4896,7 @@ function PullRequestStatusDetailRows(props) {
                     tooltipContent:
                       reviewCommentsFixDisabledReason == null
                         ? undefined
-                        : Rh.jsx(rh, {
+                        : Rh.jsx(PullRequestCommentsFixDisabledTooltip, {
                             reason: reviewCommentsFixDisabledReason,
                           }),
                     onClick: handleFixReviewComments,
@@ -4903,11 +4942,11 @@ function PullRequestStatusDetailRows(props) {
     </>
   );
 }
-function isFailingPullRequestCheckStatus(e) {
-  return e.status === "failing";
+function isFailingPullRequestCheckStatus(check) {
+  return check.status === "failing";
 }
-function getReviewCommentAttachmentKey(e) {
-  return se(e);
+function getReviewCommentAttachmentKey(commentAttachment) {
+  return se(commentAttachment);
 }
 var Lh,
   Rh,
@@ -4921,82 +4960,90 @@ var Lh,
     Oo();
     tl();
     Yc();
-    nh();
-    sh();
-    lh();
+    initPullRequestCommentFixHelpersChunk();
+    initPullRequestFixDisabledTooltipChunk();
+    initPullRequestFailingChecksPromptChunk();
     initPullRequestInlineActionButtonChunk();
-    _h();
+    initPullRequestFixActionHelpersChunk();
     ls();
     _();
     lc();
-    Sh();
+    initPullRequestRichTooltipChunk();
     initSummaryPanelRowChunk();
     Nh();
     Rh = getJsxRuntime();
   });
-function Bh(e, t) {
-  return e?.trim() || t;
+function getPullRequestTitleOrFallback(title, fallbackTitle) {
+  return title?.trim() || fallbackTitle;
 }
-var Vh = once(() => {});
-function Hh(e) {
-  let { description } = e,
-    r = description ?? (
+var initPullRequestTitleFallbackChunk = once(() => {});
+function PullRequestSidePanelErrorMessage(props) {
+  let { description } = props,
+    errorDescription = description ?? (
       <FormattedMessage
         id="pullRequestSidePanel.error.description"
         defaultMessage="Couldn’t load this pull request section"
         description="Fallback error description for pull request sections"
       />
     );
-  return <div className="px-2 py-3 text-base text-token-charts-red">{r}</div>;
+  return (
+    <div className="px-2 py-3 text-base text-token-charts-red">
+      {errorDescription}
+    </div>
+  );
 }
-var Uh,
-  Wh,
-  Gh = once(() => {
-    Uh = q();
+var pullRequestSidePanelErrorMessageModule,
+  pullRequestSidePanelErrorMessageJsxRuntime,
+  initPullRequestSidePanelErrorMessageChunk = once(() => {
+    pullRequestSidePanelErrorMessageModule = q();
     Jn();
-    Wh = getJsxRuntime();
+    pullRequestSidePanelErrorMessageJsxRuntime = getJsxRuntime();
   });
-function Kh(e) {
-  let { action, children } = e,
-    i = Xh.jsx(ht, {
+function PullRequestSidePanelDetailsSummary(props) {
+  let { action, children } = props,
+    chevronIcon = pullRequestSidePanelDetailsSummaryJsxRuntime.jsx(ht, {
       className: "icon-2xs rotate-180 transition-transform group-open:rotate-0",
     });
-  let a = (
+  let titleNode = (
     <span className="flex min-w-0 items-center gap-1">
       {children}
-      {i}
+      {chevronIcon}
     </span>
   );
-  let o =
+  let actionNode =
     action == null ? null : (
-      <span className="flex shrink-0" onClick={Jh} onKeyDown={qh}>
+      <span
+        className="flex shrink-0"
+        onClick={stopDetailsSummaryActionClick}
+        onKeyDown={stopDetailsSummaryActionKeyDown}
+      >
         {action}
       </span>
     );
   return (
     <summary className="flex min-h-9 cursor-interaction list-none items-center justify-between gap-2 text-base text-token-text-tertiary marker:hidden">
-      {a}
-      {o}
+      {titleNode}
+      {actionNode}
     </summary>
   );
 }
-function qh(event) {
+function stopDetailsSummaryActionKeyDown(event) {
   event.stopPropagation();
 }
-function Jh(event) {
+function stopDetailsSummaryActionClick(event) {
   event.preventDefault();
   event.stopPropagation();
 }
-var Yh,
-  Xh,
-  Zh = once(() => {
-    Yh = q();
+var pullRequestSidePanelDetailsSummaryModule,
+  pullRequestSidePanelDetailsSummaryJsxRuntime,
+  initPullRequestSidePanelDetailsSummaryChunk = once(() => {
+    pullRequestSidePanelDetailsSummaryModule = q();
     Si();
-    Xh = getJsxRuntime();
+    pullRequestSidePanelDetailsSummaryJsxRuntime = getJsxRuntime();
   });
-function Qh(e) {
-  let { label } = e,
-    r = eg.jsx(rr, {
+function PullRequestSidePanelLoadingState(props) {
+  let { label } = props,
+    spinnerIcon = pullRequestSidePanelLoadingStateJsxRuntime.jsx(rr, {
       className: "icon-sm",
     });
   return (
@@ -5004,17 +5051,17 @@ function Qh(e) {
       aria-busy="true"
       className="flex min-h-16 items-center justify-center text-token-text-tertiary"
     >
-      {r}
+      {spinnerIcon}
       <span className="sr-only">{label}</span>
     </div>
   );
 }
-var $h,
-  eg,
-  tg = once(() => {
-    $h = q();
+var pullRequestSidePanelLoadingStateModule,
+  pullRequestSidePanelLoadingStateJsxRuntime,
+  initPullRequestSidePanelLoadingStateChunk = once(() => {
+    pullRequestSidePanelLoadingStateModule = q();
     d();
-    eg = getJsxRuntime();
+    pullRequestSidePanelLoadingStateJsxRuntime = getJsxRuntime();
   });
 function PullRequestSidePanelChecksSection(props) {
   let { data, error, fixDisabledReason, item, loading } = props,
@@ -5022,17 +5069,24 @@ function PullRequestSidePanelChecksSection(props) {
     scope = B(fi),
     attachedChecks = W(qo),
     failingChecks = data?.checks.filter(isFailingPullRequestCheck),
-    attachedCheckKeys = new Set(attachedChecks.map(dh)),
+    attachedCheckKeys = new Set(
+      attachedChecks.map(getPullRequestCheckAttachmentKey),
+    ),
     allFailingChecksAttached =
       failingChecks != null &&
       failingChecks.length > 0 &&
-      failingChecks.every((check) => attachedCheckKeys.has(dh(check)));
+      failingChecks.every((check) =>
+        attachedCheckKeys.has(getPullRequestCheckAttachmentKey(check)),
+      );
   let fixDisabledTooltip =
       fixDisabledReason == null
         ? undefined
-        : pullRequestChecksSectionJsxRuntime.jsx(ih, {
-            reason: fixDisabledReason,
-          }),
+        : pullRequestChecksSectionJsxRuntime.jsx(
+            PullRequestFixDisabledTooltip,
+            {
+              reason: fixDisabledReason,
+            },
+          ),
     headerAction =
       failingChecks != null && failingChecks.length > 0
         ? pullRequestChecksSectionJsxRuntime.jsx(
@@ -5059,13 +5113,13 @@ function PullRequestSidePanelChecksSection(props) {
                 : fixDisabledTooltip,
               onClick: () => {
                 if (allFailingChecksAttached) {
-                  fh(scope, {
+                  setPullRequestFailingChecksAttached(scope, {
                     attached: false,
                     checks: failingChecks,
                   });
                   return;
                 }
-                ph(scope, {
+                attachFailingPullRequestChecksAndPromptFix(scope, {
                   baseBranch: item.baseBranch,
                   checks: failingChecks,
                   headBranch: item.headBranch,
@@ -5095,12 +5149,16 @@ function PullRequestSidePanelChecksSection(props) {
       description="Checks section title in the pull request side panel"
     />
   );
-  let header = <Kh action={headerAction}>{title}</Kh>;
+  let header = (
+    <PullRequestSidePanelDetailsSummary action={headerAction}>
+      {title}
+    </PullRequestSidePanelDetailsSummary>
+  );
   let body = (
     <div className="rounded-xl bg-token-main-surface-primary py-1 ps-4 shadow-sm">
       {error == null ? (
         loading || data == null ? (
-          <Qh
+          <PullRequestSidePanelLoadingState
             label={
               <FormattedMessage
                 id="pullRequestSidePanel.checks.loading"
@@ -5117,9 +5175,11 @@ function PullRequestSidePanelChecksSection(props) {
             fixTooltipContent={fixDisabledTooltip}
             insetFixButtons={true}
             labelTone="primary"
-            isCheckAttached={(check) => attachedCheckKeys.has(dh(check))}
+            isCheckAttached={(check) =>
+              attachedCheckKeys.has(getPullRequestCheckAttachmentKey(check))
+            }
             onFixCheck={(check) => {
-              ph(scope, {
+              attachFailingPullRequestChecksAndPromptFix(scope, {
                 baseBranch: item.baseBranch,
                 checks: [check],
                 headBranch: item.headBranch,
@@ -5127,7 +5187,7 @@ function PullRequestSidePanelChecksSection(props) {
               });
             }}
             onRemoveCheck={(check) => {
-              fh(scope, {
+              setPullRequestFailingChecksAttached(scope, {
                 attached: false,
                 checks: [check],
               });
@@ -5143,7 +5203,7 @@ function PullRequestSidePanelChecksSection(props) {
           </Br.Message>
         )
       ) : (
-        <Hh description={error} />
+        <PullRequestSidePanelErrorMessage description={error} />
       )}
     </div>
   );
@@ -5165,14 +5225,14 @@ var pullRequestChecksSectionModule,
     Jn();
     an();
     cs();
-    sh();
+    initPullRequestFixDisabledTooltipChunk();
     initPullRequestInlineActionButtonChunk();
-    _h();
+    initPullRequestFixActionHelpersChunk();
     initPullRequestCheckRowsChunk();
     _();
-    Gh();
-    Zh();
-    tg();
+    initPullRequestSidePanelErrorMessageChunk();
+    initPullRequestSidePanelDetailsSummaryChunk();
+    initPullRequestSidePanelLoadingStateChunk();
     pullRequestChecksSectionJsxRuntime = getJsxRuntime();
   });
 function getPullRequestCommentActivityItems(activityItems) {
@@ -5229,9 +5289,12 @@ function PullRequestSidePanelCommentsSection(props) {
       fixDisabledTooltip =
         fixDisabledReason == null
           ? undefined
-          : pullRequestCommentsSectionJsxRuntime.jsx(ih, {
-              reason: fixDisabledReason,
-            });
+          : pullRequestCommentsSectionJsxRuntime.jsx(
+              PullRequestFixDisabledTooltip,
+              {
+                reason: fixDisabledReason,
+              },
+            );
     let headerAction =
       commentAttachments != null && commentAttachments.length > 0
         ? pullRequestCommentsSectionJsxRuntime.jsx(
@@ -5258,14 +5321,14 @@ function PullRequestSidePanelCommentsSection(props) {
                 : fixDisabledTooltip,
               onClick: () => {
                 if (allCommentsAttached) {
-                  $m(scope, {
+                  setPullRequestCommentsAttached(scope, {
                     attached: false,
                     commentAttachments,
                     conversationId,
                   });
                   return;
                 }
-                eh(scope, {
+                attachPullRequestCommentsAndPromptFix(scope, {
                   baseBranch: item.baseBranch,
                   commentAttachments,
                   conversationId,
@@ -5298,13 +5361,17 @@ function PullRequestSidePanelCommentsSection(props) {
       />
     );
     let header;
-    header = <Kh action={headerAction}>{title}</Kh>;
+    header = (
+      <PullRequestSidePanelDetailsSummary action={headerAction}>
+        {title}
+      </PullRequestSidePanelDetailsSummary>
+    );
     content = (
       <details open={true} className="group flex flex-col pb-8">
         {header}
         {error == null ? (
           loading || data == null ? (
-            <Qh
+            <PullRequestSidePanelLoadingState
               label={
                 <FormattedMessage
                   id="pullRequestSidePanel.comments.loading"
@@ -5346,7 +5413,7 @@ function PullRequestSidePanelCommentsSection(props) {
                                 : fixDisabledTooltip,
                               onClick: () => {
                                 if (!commentIsAttached) {
-                                  eh(scope, {
+                                  attachPullRequestCommentsAndPromptFix(scope, {
                                     baseBranch: item.baseBranch,
                                     commentAttachments: [commentAttachment],
                                     conversationId,
@@ -5356,7 +5423,7 @@ function PullRequestSidePanelCommentsSection(props) {
                                   });
                                   return;
                                 }
-                                $m(scope, {
+                                setPullRequestCommentsAttached(scope, {
                                   attached: false,
                                   commentAttachments: [commentAttachment],
                                   conversationId,
@@ -5398,7 +5465,7 @@ function PullRequestSidePanelCommentsSection(props) {
             </Br.Message>
           )
         ) : (
-          <Hh description={error} />
+          <PullRequestSidePanelErrorMessage description={error} />
         )}
       </details>
     );
@@ -5427,30 +5494,30 @@ var pullRequestCommentsSectionModule,
     da();
     an();
     en();
-    nh();
-    sh();
+    initPullRequestCommentFixHelpersChunk();
+    initPullRequestFixDisabledTooltipChunk();
     initPullRequestInlineActionButtonChunk();
     ls();
     _();
-    Gh();
-    Zh();
-    tg();
+    initPullRequestSidePanelErrorMessageChunk();
+    initPullRequestSidePanelDetailsSummaryChunk();
+    initPullRequestSidePanelLoadingStateChunk();
     initPullRequestReviewerBadgeModelsChunk();
     pullRequestCommentsSectionJsxRuntime = getJsxRuntime();
   }),
-  _g,
-  vg,
-  yg = once(() => {
+  mergeConflictFileIconJsxRuntime,
+  MergeConflictFileIcon,
+  initMergeConflictFileIconChunk = once(() => {
     toEsModule(G());
-    _g = getJsxRuntime();
-    vg = (e) => (
+    mergeConflictFileIconJsxRuntime = getJsxRuntime();
+    MergeConflictFileIcon = (props) => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={20}
         height={20}
         fill="currentColor"
         viewBox="0 0 20 20"
-        {...e}
+        {...props}
       >
         <path d="M10 2.085a7.915 7.915 0 1 1 0 15.83 7.915 7.915 0 0 1 0-15.83Z" />
       </svg>
@@ -5459,11 +5526,11 @@ var pullRequestCommentsSectionModule,
 function PullRequestConflictFileRows(props) {
   let { error, files, hasError, loading, repository } = props;
   if (hasError) {
-    return <Hh description={error} />;
+    return <PullRequestSidePanelErrorMessage description={error} />;
   }
   if (loading || files == null) {
     return (
-      <Qh
+      <PullRequestSidePanelLoadingState
         label={
           <FormattedMessage
             id="pullRequestSidePanel.conflicts.loading"
@@ -5490,7 +5557,7 @@ function PullRequestConflictFileRows(props) {
     let toConflictFileRow = (filePath) => ({
       icon: (
         <span className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center">
-          {pullRequestConflictFileRowsJsxRuntime.jsx(vg, {
+          {pullRequestConflictFileRowsJsxRuntime.jsx(MergeConflictFileIcon, {
             className: "icon-3xs text-token-text-tertiary",
           })}
         </span>
@@ -5520,10 +5587,10 @@ var pullRequestConflictFileRowsModule,
     pullRequestConflictFileRowsModule = q();
     Jn();
     an();
-    yg();
+    initMergeConflictFileIconChunk();
     initPullRequestMetadataRowsChunk();
-    Gh();
-    tg();
+    initPullRequestSidePanelErrorMessageChunk();
+    initPullRequestSidePanelLoadingStateChunk();
     pullRequestConflictFileRowsJsxRuntime = getJsxRuntime();
   });
 function PullRequestSidePanelConflictsSection(props) {
@@ -5534,17 +5601,20 @@ function PullRequestSidePanelConflictsSection(props) {
     fixDisabledTooltip =
       fixDisabledReason == null
         ? undefined
-        : pullRequestConflictsSectionJsxRuntime.jsx(ih, {
-            reason: fixDisabledReason,
-          });
+        : pullRequestConflictsSectionJsxRuntime.jsx(
+            PullRequestFixDisabledTooltip,
+            {
+              reason: fixDisabledReason,
+            },
+          );
   let actionDisabled = !conflictsAreAttached && fixDisabledReason != null,
     actionTooltip = conflictsAreAttached ? undefined : fixDisabledTooltip,
     handleToggleConflictsFix = () => {
       if (conflictsAreAttached) {
-        gh(scope, null);
+        setPullRequestMergeConflictAttachment(scope, null);
         return;
       }
-      hh(scope, {
+      attachPullRequestMergeConflictAndPromptFix(scope, {
         baseBranch: item.baseBranch,
         headBranch: item.headBranch,
         number: item.number,
@@ -5583,7 +5653,11 @@ function PullRequestSidePanelConflictsSection(props) {
       description="Merge conflicts section title in the pull request side panel"
     />
   );
-  let header = <Kh action={headerAction}>{title}</Kh>;
+  let header = (
+    <PullRequestSidePanelDetailsSummary action={headerAction}>
+      {title}
+    </PullRequestSidePanelDetailsSummary>
+  );
   let body = (
     <div className="rounded-xl bg-token-main-surface-primary px-4 py-1 shadow-sm">
       {pullRequestConflictsSectionJsxRuntime.jsx(PullRequestConflictFileRows, {
@@ -5609,24 +5683,24 @@ var pullRequestConflictsSectionModule,
     c();
     Jn();
     cs();
-    sh();
+    initPullRequestFixDisabledTooltipChunk();
     initPullRequestInlineActionButtonChunk();
-    _h();
+    initPullRequestFixActionHelpersChunk();
     _();
     initPullRequestConflictFileRowsChunk();
-    Zh();
+    initPullRequestSidePanelDetailsSummaryChunk();
     pullRequestConflictsSectionJsxRuntime = getJsxRuntime();
   });
 function PullRequestSidePanelDescriptionSection(props) {
   let { body, error, loading } = props,
     header = (
-      <Kh>
+      <PullRequestSidePanelDetailsSummary>
         <FormattedMessage
           id="pullRequestSidePanel.description.title"
           defaultMessage="Description"
           description="Pull request description section title"
         />
-      </Kh>
+      </PullRequestSidePanelDetailsSummary>
     );
   return (
     <details open={true} className="group flex flex-col">
@@ -5634,7 +5708,7 @@ function PullRequestSidePanelDescriptionSection(props) {
       <div className="group-open:pt-2">
         {error == null ? (
           loading || body == null ? (
-            <Qh
+            <PullRequestSidePanelLoadingState
               label={
                 <FormattedMessage
                   id="pullRequestSidePanel.description.loading"
@@ -5661,7 +5735,7 @@ function PullRequestSidePanelDescriptionSection(props) {
             </p>
           )
         ) : (
-          <Hh description={error} />
+          <PullRequestSidePanelErrorMessage description={error} />
         )}
       </div>
     </details>
@@ -5674,9 +5748,9 @@ var pullRequestDescriptionSectionModule,
     Jn();
     Fo();
     us();
-    Gh();
-    Zh();
-    tg();
+    initPullRequestSidePanelErrorMessageChunk();
+    initPullRequestSidePanelDetailsSummaryChunk();
+    initPullRequestSidePanelLoadingStateChunk();
     pullRequestDescriptionSectionJsxRuntime = getJsxRuntime();
   }),
   Mg,
@@ -5684,14 +5758,14 @@ var pullRequestDescriptionSectionModule,
   Pg = once(() => {
     toEsModule(G());
     Mg = getJsxRuntime();
-    Ng = (e) => (
+    Ng = (props) => (
       <svg
         width={21}
         height={21}
         viewBox="0 0 21 21"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        {...e}
+        {...props}
       >
         <path
           fillRule="evenodd"
@@ -5707,13 +5781,13 @@ var pullRequestDescriptionSectionModule,
     r();
     Er();
     n();
-    Fg = rn(ut, "gh-user-search", (e) => ({
-      enabled: e.query.length > 0,
-      params: e,
+    Fg = rn(ut, "gh-user-search", (queryParams) => ({
+      enabled: queryParams.query.length > 0,
+      params: queryParams,
       retry: false,
-      select: (e) => {
-        if (e.status === "error") throw Error(e.error);
-        return e.users;
+      select: (response) => {
+        if (response.status === "error") throw Error(response.error);
+        return response.users;
       },
       staleTime: ln.ONE_MINUTE,
     }));
@@ -6457,7 +6531,7 @@ function PullRequestSidePanelDetails(props) {
       ? "branch-mismatch"
       : null,
     hasOpenPullRequest = pullRequestBody?.hasOpenPr ?? null,
-    mergeFixDisabledReason = ch({
+    mergeFixDisabledReason = getPullRequestFixDisabledReason({
       baseBranch: item.baseBranch,
       conversationId: scope.value.routeConversationId,
       fixDisabledReason,
@@ -6615,7 +6689,7 @@ var pullRequestSidePanelDetailsModule,
     en();
     bl();
     Yc();
-    lh();
+    initPullRequestFailingChecksPromptChunk();
     po();
     _();
     Er();
@@ -7008,7 +7082,10 @@ function LocalConversationGitSummary(props) {
     };
   let createPullRequestActionState = K(_s, createPullRequestActionParams),
     headBranchName = headBranchQuery.data?.trim() ?? "",
-    normalizedHeadBranchName = Bh(storedThreadBranch, headBranchName);
+    normalizedHeadBranchName = getPullRequestTitleOrFallback(
+      storedThreadBranch,
+      headBranchName,
+    );
   let headBranch = normalizedHeadBranchName,
     hasEmptyHeadBranch =
       headBranchQuery.isSuccess && headBranchName.length === 0,
@@ -7277,7 +7354,7 @@ var k_,
     ka();
     initSummaryPanelRowChunk();
     zh();
-    Vh();
+    initPullRequestTitleFallbackChunk();
     S_();
     A_ = getJsxRuntime();
     j_ = "icon-sm shrink-0 text-token-text-tertiary";
@@ -7567,7 +7644,7 @@ var R_,
     Mm();
     initSummaryPanelRowChunk();
     initThreadSummaryPanelSectionChunk();
-    Xm();
+    initBranchChangesSummaryRowChunk();
     M_();
     I_();
     B_ = getJsxRuntime();
@@ -8946,59 +9023,70 @@ var localConversationArtifactsModule,
     initPinnedSummaryPanelContentShiftConstants();
     initPinnedSummaryPanelState();
   });
-function Xv(
-  e,
+function collectLocalConversationOutputArtifacts(
+  turns,
   { includeGeneratedImages = false, projectlessOutputDirectory = null } = {},
 ) {
-  let r = [];
-  for (let i = e.length - 1; i >= 0; --i)
-    r.push(Qv(e[i], projectlessOutputDirectory, includeGeneratedImages));
-  return Zv(r);
+  let artifactGroups = [];
+  for (let turnIndex = turns.length - 1; turnIndex >= 0; --turnIndex)
+    artifactGroups.push(
+      collectOutputArtifactsForTurn(
+        turns[turnIndex],
+        projectlessOutputDirectory,
+        includeGeneratedImages,
+      ),
+    );
+  return mergeUniqueOutputArtifacts(artifactGroups);
 }
-function Zv(e) {
-  let t = [],
-    n = new Map();
-  for (let r of e)
-    for (let e of r) {
-      let r = ty(e),
-        i = n.get(r);
-      if (i != null) {
-        let n = t[i];
-        n?.type === "file" &&
-          e.type === "generated-image" &&
-          (t[i] = {
-            ...n,
+function mergeUniqueOutputArtifacts(artifactGroups) {
+  let mergedArtifacts = [],
+    artifactIndexByKey = new Map();
+  for (let artifactGroup of artifactGroups)
+    for (let artifact of artifactGroup) {
+      let artifactKey = getOutputArtifactKey(artifact),
+        existingIndex = artifactIndexByKey.get(artifactKey);
+      if (existingIndex != null) {
+        let existingArtifact = mergedArtifacts[existingIndex];
+        existingArtifact?.type === "file" &&
+          artifact.type === "generated-image" &&
+          (mergedArtifacts[existingIndex] = {
+            ...existingArtifact,
             type: "generated-image",
           });
         continue;
       }
-      n.set(r, t.length);
-      t.push(e);
+      artifactIndexByKey.set(artifactKey, mergedArtifacts.length);
+      mergedArtifacts.push(artifact);
     }
-  return t;
+  return mergedArtifacts;
 }
-function Qv(e, t, n) {
-  let r = ei(e.status),
-    i = de(e),
-    a = e.params.cwd == null ? null : D(e.params.cwd);
-  return ey({
-    assistantContent: r === "complete" ? $v(e) : null,
-    cwd: a,
-    includeGeneratedImages: n,
-    projectlessOutputDirectory: t,
-    status: r,
-    turn: e,
-    turnArtifacts: i,
+function collectOutputArtifactsForTurn(
+  turn,
+  projectlessOutputDirectory,
+  includeGeneratedImages,
+) {
+  let status = ei(turn.status),
+    turnArtifacts = de(turn),
+    cwd = turn.params.cwd == null ? null : D(turn.params.cwd);
+  return collectOutputArtifactsFromTurnDetails({
+    assistantContent:
+      status === "complete" ? getLatestAgentMessageText(turn) : null,
+    cwd,
+    includeGeneratedImages,
+    projectlessOutputDirectory,
+    status,
+    turn,
+    turnArtifacts,
   });
 }
-function $v(e) {
-  for (let t = e.items.length - 1; t >= 0; --t) {
-    let n = e.items[t];
-    if (n?.type === "agentMessage") return n.text;
+function getLatestAgentMessageText(turn) {
+  for (let itemIndex = turn.items.length - 1; itemIndex >= 0; --itemIndex) {
+    let item = turn.items[itemIndex];
+    if (item?.type === "agentMessage") return item.text;
   }
   return null;
 }
-function ey({
+function collectOutputArtifactsFromTurnDetails({
   assistantContent,
   cwd,
   includeGeneratedImages,
@@ -9007,48 +9095,51 @@ function ey({
   turn,
   turnArtifacts,
 }) {
-  let s = [],
-    c = new Map(),
-    l = (e) => {
-      let t = ty(e),
-        n = c.get(t);
-      if (n == null) {
-        c.set(t, s.length);
-        s.push(e);
+  let artifacts = [],
+    artifactIndexByKey = new Map(),
+    addArtifact = (artifact) => {
+      let artifactKey = getOutputArtifactKey(artifact),
+        existingIndex = artifactIndexByKey.get(artifactKey);
+      if (existingIndex == null) {
+        artifactIndexByKey.set(artifactKey, artifacts.length);
+        artifacts.push(artifact);
         return;
       }
-      (s[n]?.type === "file" || s[n]?.type === "generated-image") &&
-        (e.type === "website" || e.type === "generated-image") &&
-        (s[n] = e);
+      (artifacts[existingIndex]?.type === "file" ||
+        artifacts[existingIndex]?.type === "generated-image") &&
+        (artifact.type === "website" || artifact.type === "generated-image") &&
+        (artifacts[existingIndex] = artifact);
     };
-  for (let e of turnArtifacts.referencedFilePaths)
-    Mn(e) &&
+  for (let referencedFilePath of turnArtifacts.referencedFilePaths)
+    Mn(referencedFilePath) &&
       zr({
         cwd,
         projectlessOutputDirectory,
-        resourcePath: e,
+        resourcePath: referencedFilePath,
       }) &&
-      l({
+      addArtifact({
         type: "file",
-        path: cwd == null ? e : g(cwd, e),
+        path: cwd == null ? referencedFilePath : g(cwd, referencedFilePath),
       });
-  let u = includeGeneratedImages ? turn.items.slice().reverse() : turn.items;
-  for (let e of u)
-    e?.type === "imageGeneration" &&
-      e.src != null &&
-      Mn(e.src) &&
+  let itemsToScan = includeGeneratedImages
+    ? turn.items.slice().reverse()
+    : turn.items;
+  for (let item of itemsToScan)
+    item?.type === "imageGeneration" &&
+      item.src != null &&
+      Mn(item.src) &&
       (includeGeneratedImages ||
         zr({
           cwd,
           projectlessOutputDirectory,
-          resourcePath: e.src,
+          resourcePath: item.src,
         })) &&
-      l({
+      addArtifact({
         type: includeGeneratedImages ? "generated-image" : "file",
-        path: cwd == null ? e.src : g(cwd, e.src),
+        path: cwd == null ? item.src : g(cwd, item.src),
       });
-  if (status !== "complete") return s;
-  let d = Lt({
+  if (status !== "complete") return artifacts;
+  let renderedArtifacts = Lt({
     assistantContent,
     isAppgenEndCardEnabled: true,
     projectlessOutputDirectory,
@@ -9060,40 +9151,43 @@ function ey({
       status,
     },
   });
-  for (let e of d)
-    switch (e.type) {
+  for (let artifact of renderedArtifacts)
+    switch (artifact.type) {
       case "file":
-        l({
+        addArtifact({
           type: "file",
-          path: cwd == null ? e.path : g(cwd, e.path),
+          path: cwd == null ? artifact.path : g(cwd, artifact.path),
         });
         break;
       case "google-drive":
       case "appgen-app":
-        l(e);
+        addArtifact(artifact);
         break;
       case "website":
-        l({
+        addArtifact({
           type: "website",
-          target: yn(e.target) || cwd == null ? e.target : g(cwd, e.target),
+          target:
+            yn(artifact.target) || cwd == null
+              ? artifact.target
+              : g(cwd, artifact.target),
         });
         break;
     }
-  return s;
+  return artifacts;
 }
-function ty(event) {
-  switch (event.type) {
+function getOutputArtifactKey(artifact) {
+  switch (artifact.type) {
     case "file":
     case "generated-image":
-      return `path:${et(event.path)}`;
+      return `path:${et(artifact.path)}`;
     case "google-drive":
-      return `google-drive:${event.url}`;
+      return `google-drive:${artifact.url}`;
     case "appgen-app":
-      return `appgen-app:${event.projectId}`;
+      return `appgen-app:${artifact.projectId}`;
     case "website":
-      return yn(event.target)
-        ? `url:${ii(event.target)}`
-        : `path:${et(event.target)}`;
+      return yn(artifact.target)
+        ? `url:${ii(artifact.target)}`
+        : `path:${et(artifact.target)}`;
   }
 }
 var ny = once(() => {
@@ -9122,17 +9216,17 @@ var ny = once(() => {
       let r = get(I, conversationId);
       return r == null
         ? []
-        : Xv(r.slice(0, -1), {
+        : collectLocalConversationOutputArtifacts(r.slice(0, -1), {
             includeGeneratedImages,
             projectlessOutputDirectory: get(Cr, conversationId),
           });
     });
     iy = Rn(ut, ({ conversationId, includeGeneratedImages }, { get }) => {
       let r = get($t, conversationId);
-      return Zv([
+      return mergeUniqueOutputArtifacts([
         r == null
           ? []
-          : Xv([r], {
+          : collectLocalConversationOutputArtifacts([r], {
               includeGeneratedImages,
               projectlessOutputDirectory: get(Cr, conversationId),
             }),
