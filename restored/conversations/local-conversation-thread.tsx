@@ -141,7 +141,7 @@ import {
   On as tt,
   Op as nt,
   Ov as rt,
-  PB as K,
+  PB as useScopedValue,
   PI as it,
   PO as at,
   P_ as ot,
@@ -283,7 +283,7 @@ import {
   pp as Ir,
   pu as Lr,
   pz as Rr,
-  qV as q,
+  qV as getChunkModuleExports,
   qg as zr,
   qi as Br,
   qj as Vr,
@@ -314,7 +314,7 @@ import {
   wj as di,
   wl as fi,
   wp as pi,
-  xM as Y,
+  xM as useStableCallback,
   xa as mi,
   xk as hi,
   yA as gi,
@@ -855,7 +855,7 @@ function useReviewSearchHighlightScheduler(delayMs: number) {
 var reviewSearchSchedulerModule,
   reviewSearchSchedulerReactRuntime,
   initReviewSearchHighlightScheduler = once(() => {
-    reviewSearchSchedulerModule = q();
+    reviewSearchSchedulerModule = getChunkModuleExports();
     reviewSearchSchedulerReactRuntime = toEsModule(G(), 1);
   });
 
@@ -967,7 +967,7 @@ var reviewSearchHighlighterModule,
   reviewSearchReactRuntime,
   REVIEW_SEARCH_HIGHLIGHT_MUTATION_DELAY_MS,
   initReviewSearchHighlighter = once(() => {
-    reviewSearchHighlighterModule = q();
+    reviewSearchHighlighterModule = getChunkModuleExports();
     c();
     reviewSearchReactRuntime = toEsModule(G(), 1);
     la();
@@ -1214,7 +1214,7 @@ var threadFindNavigationRailModule,
   threadFindNavigationRailJsxRuntime,
   LazyThreadUserMessageNavigationRail,
   initThreadFindNavigationRail = once(() => {
-    threadFindNavigationRailModule = q();
+    threadFindNavigationRailModule = getChunkModuleExports();
     threadFindNavigationRailReactRuntime = toEsModule(G(), 1);
     ol();
     ae();
@@ -1311,7 +1311,7 @@ var summaryPanelExpandableListModule,
   summaryPanelExpandableListJsxRuntime,
   DEFAULT_SUMMARY_PANEL_VISIBLE_ITEM_LIMIT,
   initSummaryPanelExpandableList = once(() => {
-    summaryPanelExpandableListModule = q();
+    summaryPanelExpandableListModule = getChunkModuleExports();
     summaryPanelExpandableListReactRuntime = toEsModule(G(), 1);
     Jn();
     Ye();
@@ -1526,7 +1526,7 @@ function SummaryPanelArtifactsList(props) {
 var summaryPanelArtifactsModule,
   summaryPanelArtifactsJsxRuntime,
   initSummaryPanelArtifactsListChunk = once(() => {
-    summaryPanelArtifactsModule = q();
+    summaryPanelArtifactsModule = getChunkModuleExports();
     c();
     gn();
     Jn();
@@ -1821,7 +1821,7 @@ var threadSummaryBackgroundActivityModule,
   threadSummaryBackgroundActivityReactRuntime,
   threadSummaryBackgroundActivityJsxRuntime,
   initThreadSummaryBackgroundActivityRowsChunk = once(() => {
-    threadSummaryBackgroundActivityModule = q();
+    threadSummaryBackgroundActivityModule = getChunkModuleExports();
     threadSummaryBackgroundActivityReactRuntime = toEsModule(G(), 1);
     Jn();
     pn();
@@ -2214,7 +2214,7 @@ var backgroundTerminalSummaryRowsModule,
   BACKGROUND_TERMINAL_STARTING_ROW_TTL_MS,
   backgroundTerminalMessages,
   initBackgroundTerminalSummaryRowsChunk = once(() => {
-    backgroundTerminalSummaryRowsModule = q();
+    backgroundTerminalSummaryRowsModule = getChunkModuleExports();
     Ut();
     c();
     backgroundTerminalSummaryRowsReactRuntime = toEsModule(G(), 1);
@@ -2487,7 +2487,7 @@ function LocalEnvironmentSelectorContent(props) {
 var localEnvironmentSelectorContentModule,
   localEnvironmentSelectorContentJsxRuntime,
   initLocalEnvironmentSelectorContentChunk = once(() => {
-    localEnvironmentSelectorContentModule = q();
+    localEnvironmentSelectorContentModule = getChunkModuleExports();
     Jn();
     an();
     d();
@@ -2586,7 +2586,7 @@ var localEnvironmentActionSetupFormModule,
   localEnvironmentActionSetupFormReactRuntime,
   localEnvironmentActionSetupFormJsxRuntime,
   initLocalEnvironmentActionSetupFormChunk = once(() => {
-    localEnvironmentActionSetupFormModule = q();
+    localEnvironmentActionSetupFormModule = getChunkModuleExports();
     localEnvironmentActionSetupFormReactRuntime = toEsModule(G(), 1);
     Ye();
     h();
@@ -2874,7 +2874,7 @@ function AddLocalEnvironmentActionForm(props) {
 var addLocalEnvironmentActionFormModule,
   addLocalEnvironmentActionFormJsxRuntime,
   initAddLocalEnvironmentActionFormChunk = once(() => {
-    addLocalEnvironmentActionFormModule = q();
+    addLocalEnvironmentActionFormModule = getChunkModuleExports();
     m();
     Jn();
     Ye();
@@ -2904,7 +2904,7 @@ function isRecentLocalEnvironmentAction(
 }
 var localEnvironmentRecentActionsModule,
   initLocalEnvironmentRecentActions = once(() => {
-    localEnvironmentRecentActionsModule = q();
+    localEnvironmentRecentActionsModule = getChunkModuleExports();
     gn();
     Re();
   });
@@ -3041,7 +3041,7 @@ function selectSuccessfulLocalEnvironment(environmentResponse) {
 }
 var localConversationEnvironmentStateModule,
   initLocalConversationEnvironmentStateChunk = once(() => {
-    localConversationEnvironmentStateModule = q();
+    localConversationEnvironmentStateModule = getChunkModuleExports();
     c();
     gn();
     Ve();
@@ -3123,9 +3123,9 @@ function LocalConversationEnvironmentActionControls(props) {
             )
           : actionItems,
     primaryActionItem = sortedActionItems?.[0] ?? null,
-    primaryShortcut = K(ha, primaryActionItem?.commandId ?? aa[0]),
+    primaryShortcut = useScopedValue(ha, primaryActionItem?.commandId ?? aa[0]),
     commandActionItems = actionItems ?? jm,
-    runEnvironmentAction = Y((actionRunRequest) => {
+    runEnvironmentAction = useStableCallback((actionRunRequest) => {
       let { action } = actionRunRequest,
         actionCwd = resolveLocalEnvironmentActionCwd({
           joinPath: joinLocalEnvironmentRepoPath,
@@ -3161,7 +3161,7 @@ function LocalConversationEnvironmentActionControls(props) {
       setMenuOpen(open);
       onMenuOpenChange?.(open);
     };
-  let handleMenuOpenChange = Y(setMenuOpenAndNotify),
+  let handleMenuOpenChange = useStableCallback(setMenuOpenAndNotify),
     openEnvironmentSettings = () => {
       setMenuOpen(false);
       onMenuOpenChange?.(false);
@@ -3173,7 +3173,7 @@ function LocalConversationEnvironmentActionControls(props) {
         searchParams.set("configPath", resolvedEnvironmentConfigPath);
       navigate(`/settings/local-environments?${searchParams.toString()}`);
     };
-  let openSettings = Y(openEnvironmentSettings),
+  let openSettings = useStableCallback(openEnvironmentSettings),
     openCreateEnvironmentPage = () => {
       setMenuOpen(false);
       onMenuOpenChange?.(false);
@@ -3190,7 +3190,7 @@ function LocalConversationEnvironmentActionControls(props) {
         },
       );
     };
-  let createEnvironment = Y(openCreateEnvironmentPage),
+  let createEnvironment = useStableCallback(openCreateEnvironmentPage),
     openAddActionPopover = () => {
       resolvedEnvironmentConfigPath == null ||
         environment == null ||
@@ -3570,7 +3570,7 @@ function LocalEnvironmentActionMenuItem(props) {
 }
 function LocalEnvironmentActionMenuItemWithShortcut(props) {
   let { actionItem, commandId, isPrimaryAction, onRunAction } = props,
-    shortcut = K(ha, commandId);
+    shortcut = useScopedValue(ha, commandId);
   return X.jsx(LocalEnvironmentActionMenuRow, {
     actionItem,
     isPrimaryAction,
@@ -3703,7 +3703,7 @@ function RegisterLocalEnvironmentActionCommand(props) {
 }
 function LocalEnvironmentActionShortcutBadge(props) {
   let { commandId } = props,
-    shortcut = K(ha, commandId);
+    shortcut = useScopedValue(ha, commandId);
   return shortcut
     ? X.jsx(ri, {
         keysLabel: shortcut,
@@ -3716,7 +3716,7 @@ var Om,
   Am,
   jm,
   Mm = once(() => {
-    Om = q();
+    Om = getChunkModuleExports();
     Ca();
     xt();
     c();
@@ -3775,11 +3775,14 @@ function ThreadSummaryPanelSection(props) {
       onChange,
     } = props,
     scope = B(Fe),
-    autoCollapseState = K(
+    autoCollapseState = useScopedValue(
       threadSummaryPanelSectionAutoCollapseState,
       sectionKey,
     ),
-    persistedIsExpanded = K(threadSummaryPanelSectionExpandedState, sectionKey),
+    persistedIsExpanded = useScopedValue(
+      threadSummaryPanelSectionExpandedState,
+      sectionKey,
+    ),
     shouldHandleAutoCollapse =
       autoCollapse != null && autoCollapseState !== "canceled",
     isExpanded =
@@ -3983,7 +3986,7 @@ var threadSummaryPanelSectionModule,
   threadSummaryPanelSectionExpandedState,
   threadSummaryPanelSectionAutoCollapseState,
   initThreadSummaryPanelSectionChunk = once(() => {
-    threadSummaryPanelSectionModule = q();
+    threadSummaryPanelSectionModule = getChunkModuleExports();
     Ut();
     bt();
     isFunctionModule = toEsModule(un(), 1);
@@ -4053,7 +4056,7 @@ function BranchChangesSummaryRow(props) {
 var branchChangesSummaryRowModule,
   branchChangesSummaryRowJsxRuntime,
   initBranchChangesSummaryRowChunk = once(() => {
-    branchChangesSummaryRowModule = q();
+    branchChangesSummaryRowModule = getChunkModuleExports();
     Jn();
     d();
     Nl();
@@ -4240,7 +4243,7 @@ function PullRequestFixDisabledTooltip(props) {
 var pullRequestFixDisabledTooltipModule,
   pullRequestFixDisabledTooltipJsxRuntime,
   initPullRequestFixDisabledTooltipChunk = once(() => {
-    pullRequestFixDisabledTooltipModule = q();
+    pullRequestFixDisabledTooltipModule = getChunkModuleExports();
     Jn();
     pullRequestFixDisabledTooltipJsxRuntime = getJsxRuntime();
   });
@@ -4421,7 +4424,7 @@ function PullRequestFlyoutContent(props) {
 var pullRequestRichTooltipModule,
   pullRequestRichTooltipJsxRuntime,
   initPullRequestRichTooltipChunk = once(() => {
-    pullRequestRichTooltipModule = q();
+    pullRequestRichTooltipModule = getChunkModuleExports();
     Gn();
     pullRequestRichTooltipJsxRuntime = getJsxRuntime();
   });
@@ -4674,7 +4677,7 @@ var Ah,
   jh,
   Mh,
   Nh = once(() => {
-    Ah = q();
+    Ah = getChunkModuleExports();
     Jn();
     ke();
     tn();
@@ -4691,8 +4694,8 @@ var Ah,
 function PullRequestStatusDetailRows(props) {
   let { conversationId, headBranch, pullRequestStatus } = props,
     scope = B(fi),
-    storedThreadBranch = K(pi, conversationId),
-    reviewCommentAttachments = K(ki, conversationId);
+    storedThreadBranch = useScopedValue(pi, conversationId),
+    reviewCommentAttachments = useScopedValue(ki, conversationId);
   if (pullRequestStatus == null || !pullRequestStatus.hasOpenPr) return null;
   let baseBranch = pullRequestStatus.boardItem?.baseBranch ?? null,
     pullRequestHeadBranch =
@@ -4951,7 +4954,7 @@ function getReviewCommentAttachmentKey(commentAttachment) {
 var Lh,
   Rh,
   zh = once(() => {
-    Lh = q();
+    Lh = getChunkModuleExports();
     c();
     Jn();
     nt();
@@ -4995,7 +4998,7 @@ function PullRequestSidePanelErrorMessage(props) {
 var pullRequestSidePanelErrorMessageModule,
   pullRequestSidePanelErrorMessageJsxRuntime,
   initPullRequestSidePanelErrorMessageChunk = once(() => {
-    pullRequestSidePanelErrorMessageModule = q();
+    pullRequestSidePanelErrorMessageModule = getChunkModuleExports();
     Jn();
     pullRequestSidePanelErrorMessageJsxRuntime = getJsxRuntime();
   });
@@ -5037,7 +5040,7 @@ function stopDetailsSummaryActionClick(event) {
 var pullRequestSidePanelDetailsSummaryModule,
   pullRequestSidePanelDetailsSummaryJsxRuntime,
   initPullRequestSidePanelDetailsSummaryChunk = once(() => {
-    pullRequestSidePanelDetailsSummaryModule = q();
+    pullRequestSidePanelDetailsSummaryModule = getChunkModuleExports();
     Si();
     pullRequestSidePanelDetailsSummaryJsxRuntime = getJsxRuntime();
   });
@@ -5059,7 +5062,7 @@ function PullRequestSidePanelLoadingState(props) {
 var pullRequestSidePanelLoadingStateModule,
   pullRequestSidePanelLoadingStateJsxRuntime,
   initPullRequestSidePanelLoadingStateChunk = once(() => {
-    pullRequestSidePanelLoadingStateModule = q();
+    pullRequestSidePanelLoadingStateModule = getChunkModuleExports();
     d();
     pullRequestSidePanelLoadingStateJsxRuntime = getJsxRuntime();
   });
@@ -5220,7 +5223,7 @@ function isFailingPullRequestCheck(check) {
 var pullRequestChecksSectionModule,
   pullRequestChecksSectionJsxRuntime,
   initPullRequestSidePanelChecksSectionChunk = once(() => {
-    pullRequestChecksSectionModule = q();
+    pullRequestChecksSectionModule = getChunkModuleExports();
     c();
     Jn();
     an();
@@ -5269,7 +5272,7 @@ function PullRequestSidePanelCommentsSection(props) {
     intl = ur(),
     scope = B(fi),
     conversationId = scope.value.routeConversationId,
-    attachedCommentAttachments = K(ki, conversationId),
+    attachedCommentAttachments = useScopedValue(ki, conversationId),
     content;
   {
     let commentActivityItems =
@@ -5488,7 +5491,7 @@ function findCommentAttachmentForActivityItem(
 var pullRequestCommentsSectionModule,
   pullRequestCommentsSectionJsxRuntime,
   initPullRequestSidePanelCommentsSectionChunk = once(() => {
-    pullRequestCommentsSectionModule = q();
+    pullRequestCommentsSectionModule = getChunkModuleExports();
     c();
     Jn();
     da();
@@ -5584,7 +5587,7 @@ function PullRequestConflictFileRows(props) {
 var pullRequestConflictFileRowsModule,
   pullRequestConflictFileRowsJsxRuntime,
   initPullRequestConflictFileRowsChunk = once(() => {
-    pullRequestConflictFileRowsModule = q();
+    pullRequestConflictFileRowsModule = getChunkModuleExports();
     Jn();
     an();
     initMergeConflictFileIconChunk();
@@ -5679,7 +5682,7 @@ function PullRequestSidePanelConflictsSection(props) {
 var pullRequestConflictsSectionModule,
   pullRequestConflictsSectionJsxRuntime,
   initPullRequestSidePanelConflictsSectionChunk = once(() => {
-    pullRequestConflictsSectionModule = q();
+    pullRequestConflictsSectionModule = getChunkModuleExports();
     c();
     Jn();
     cs();
@@ -5744,7 +5747,7 @@ function PullRequestSidePanelDescriptionSection(props) {
 var pullRequestDescriptionSectionModule,
   pullRequestDescriptionSectionJsxRuntime,
   initPullRequestSidePanelDescriptionSectionChunk = once(() => {
-    pullRequestDescriptionSectionModule = q();
+    pullRequestDescriptionSectionModule = getChunkModuleExports();
     Jn();
     Fo();
     us();
@@ -5853,7 +5856,7 @@ function RequestPullRequestReviewersButton(props) {
       query: debouncedQuery,
       repo,
     };
-  let { data, isError, refetch } = K(Fg, searchParams),
+  let { data, isError, refetch } = useScopedValue(Fg, searchParams),
     updateMutationParams = {
       cwd: item.cwd,
       headBranch: item.headBranch,
@@ -6127,7 +6130,7 @@ var Kg,
   qg,
   Jg,
   Yg = once(() => {
-    Kg = q();
+    Kg = getChunkModuleExports();
     c();
     qg = toEsModule(G(), 1);
     Jn();
@@ -6501,7 +6504,7 @@ function renderPullRequestOverviewReviewerBadge(reviewer) {
 var n_,
   Z,
   r_ = once(() => {
-    n_ = q();
+    n_ = getChunkModuleExports();
     Ut();
     Jn();
     d();
@@ -6684,7 +6687,7 @@ function getPullRequestDiffFileDisplayPath(diffFile) {
 var pullRequestSidePanelDetailsModule,
   pullRequestSidePanelDetailsJsxRuntime,
   initPullRequestSidePanelDetailsChunk = once(() => {
-    pullRequestSidePanelDetailsModule = q();
+    pullRequestSidePanelDetailsModule = getChunkModuleExports();
     c();
     en();
     bl();
@@ -6804,7 +6807,7 @@ var pullRequestSidePanelTabModule,
   pullRequestSidePanelTabJsxRuntime,
   PullRequestSidePanelTabContent,
   initPullRequestSidePanelTabChunk = once(() => {
-    pullRequestSidePanelTabModule = q();
+    pullRequestSidePanelTabModule = getChunkModuleExports();
     Jn();
     ke();
     Xr();
@@ -6916,7 +6919,7 @@ function PullRequestSummaryRow(props) {
     scope = B(Fe),
     intl = ur(),
     isBrowserSidebarEnabled = W(z),
-    canOpenInSidePanel = K(An, "1590905736"),
+    canOpenInSidePanel = useScopedValue(An, "1590905736"),
     { boardItem } = pullRequestStatus,
     shouldOpenInSidePanel = canOpenInSidePanel && boardItem != null,
     pullRequestUrl = pullRequestStatus.url ?? boardItem?.url ?? null,
@@ -7044,7 +7047,7 @@ function formatPullRequestSummaryTitle(number, title, intl) {
 var b_,
   x_,
   S_ = once(() => {
-    b_ = q();
+    b_ = getChunkModuleExports();
     c();
     Jn();
     Nt();
@@ -7068,8 +7071,8 @@ function LocalConversationGitSummary(props) {
       workspaceBrowserRoot,
       onCreatePullRequest,
     } = props,
-    threadWorkspaceBrowserRoot = K(Wn, conversationId),
-    storedThreadBranch = K(pi, conversationId),
+    threadWorkspaceBrowserRoot = useScopedValue(Wn, conversationId),
+    storedThreadBranch = useScopedValue(pi, conversationId),
     workspaceRoot = threadWorkspaceBrowserRoot ?? workspaceBrowserRoot,
     headBranchQuery = ys(
       workspaceRoot,
@@ -7080,7 +7083,10 @@ function LocalConversationGitSummary(props) {
       cwd,
       hostConfig,
     };
-  let createPullRequestActionState = K(_s, createPullRequestActionParams),
+  let createPullRequestActionState = useScopedValue(
+      _s,
+      createPullRequestActionParams,
+    ),
     headBranchName = headBranchQuery.data?.trim() ?? "",
     normalizedHeadBranchName = getPullRequestTitleOrFallback(
       storedThreadBranch,
@@ -7093,17 +7099,17 @@ function LocalConversationGitSummary(props) {
       cwd,
       hostId: hostConfig.id,
     };
-  let activeWorkflow = K(Oc, workflowParams),
+  let activeWorkflow = useScopedValue(Oc, workflowParams),
     workflowPhase = activeWorkflow?.phase ?? null,
     isCreatePrWorkflow = activeWorkflow?.workflow === "create-pr",
-    ghCliAvailability = K(ya, hostConfig.id),
+    ghCliAvailability = useScopedValue(ya, hostConfig.id),
     pullRequestStatusParams = {
       cwd: workspaceRoot,
       headBranch: headBranch,
       hostId: hostConfig.id,
       operationSource: "local_conversation_git_summary",
     };
-  let pullRequestStatusQuery = K(qa, pullRequestStatusParams);
+  let pullRequestStatusQuery = useScopedValue(qa, pullRequestStatusParams);
   if (
     workspaceRoot == null ||
     (!hasEmptyHeadBranch && headBranchName.length === 0)
@@ -7338,7 +7344,7 @@ var k_,
   A_,
   j_,
   M_ = once(() => {
-    k_ = q();
+    k_ = getChunkModuleExports();
     c();
     Jn();
     nt();
@@ -7367,12 +7373,12 @@ function ThreadSummaryEnvironmentModeControls(props) {
       $o(scope, null, nextMode);
     };
   let conversationRemoteState = $i(conversationId),
-    threadHostId = K(En, conversationId) ?? "local",
-    conversationCwd = K(Wn, conversationId),
+    threadHostId = useScopedValue(En, conversationId) ?? "local",
+    conversationCwd = useScopedValue(Wn, conversationId),
     remoteHostConfig = We(conversationRemoteState.hostId),
     isWorktreeConversation = Ar(conversationCwd, remoteHostConfig);
   let isThreadHandoffSummaryEnabled = Vr("1115442235"),
-    conversationTitle = K(Ui, conversationId),
+    conversationTitle = useScopedValue(Ui, conversationId),
     threadHandoff =
       isThreadHandoffSummaryEnabled &&
       shouldShowThreadHandoffInSummary({
@@ -7428,7 +7434,7 @@ function ThreadSummaryEnvironmentModeControls(props) {
 var P_,
   F_,
   I_ = once(() => {
-    P_ = q();
+    P_ = getChunkModuleExports();
     c();
     gn();
     nt();
@@ -7627,7 +7633,7 @@ var R_,
   z_,
   B_,
   V_ = once(() => {
-    R_ = q();
+    R_ = getChunkModuleExports();
     c();
     gn();
     z_ = toEsModule(G(), 1);
@@ -7725,7 +7731,7 @@ function ThreadSummaryAutomationRow(props) {
 var threadSummaryAutomationRowModule,
   threadSummaryAutomationRowJsxRuntime,
   initThreadSummaryAutomationRowChunk = once(() => {
-    threadSummaryAutomationRowModule = q();
+    threadSummaryAutomationRowModule = getChunkModuleExports();
     c();
     Jn();
     Ol();
@@ -7768,7 +7774,7 @@ function getSideChatSummaryKey(sideChat) {
 var threadSummarySideChatRowsModule,
   threadSummarySideChatRowsJsxRuntime,
   initThreadSummarySideChatRowsChunk = once(() => {
-    threadSummarySideChatRowsModule = q();
+    threadSummarySideChatRowsModule = getChunkModuleExports();
     d();
     Oo();
     initSummaryPanelExpandableList();
@@ -7933,7 +7939,7 @@ function getThreadSummarySourceKey(sourceItem) {
 var threadSummarySourceRowsModule,
   threadSummarySourceRowsJsxRuntime,
   initThreadSummarySourceRowsChunk = once(() => {
-    threadSummarySourceRowsModule = q();
+    threadSummarySourceRowsModule = getChunkModuleExports();
     Jn();
     Or();
     Zr();
@@ -8061,7 +8067,7 @@ var threadSummaryPanelReactRuntime,
   threadSummaryPanelJsxRuntime,
   ThreadSummaryPanelChrome,
   initThreadSummaryPanelChrome = once(() => {
-    threadSummaryPanelReactRuntime = q();
+    threadSummaryPanelReactRuntime = getChunkModuleExports();
     Ut();
     bt();
     c();
@@ -8198,14 +8204,14 @@ function ThreadSummaryPanelSections(props) {
       scope.value.routeKind === "local-thread"
         ? scope.value.conversationId
         : null,
-    conversationTitle = K(Zi, conversationId),
+    conversationTitle = useScopedValue(Zi, conversationId),
     isBrowserSidebarEnabled = W(z),
     isBackgroundProcessTrackingEnabled = Vr("3264431617"),
     isComputerUsePipAvailable = W(computerUsePictureInPictureAvailableSignal),
     isComputerUsePipVisible = W(computerUsePictureInPictureVisibleSignal),
     openFileMutation = qr("open-file"),
     workspaceRouteState = W(oa),
-    conversationMode = K(er, conversationId),
+    conversationMode = useScopedValue(er, conversationId),
     { data: automationData } = W(Tl),
     pendingBackgroundProcessRows = W(pendingBackgroundProcessRowsSignal),
     hasInlineBackgroundAgent = backgroundAgents.some(
@@ -8226,7 +8232,7 @@ function ThreadSummaryPanelSections(props) {
       "chat-processes",
       chatProcessesQueryOptions,
     ),
-    conversationWorkspaceRoot = K(v, conversationId),
+    conversationWorkspaceRoot = useScopedValue(v, conversationId),
     currentWorkspaceRoot = W(co),
     { data: threadWorkspaceRootHints } = Te(Xt.THREAD_WORKSPACE_ROOT_HINTS),
     isProjectlessConversation = conversationMode === "projectless",
@@ -8352,7 +8358,7 @@ function ThreadSummaryPanelSections(props) {
       title,
     });
   };
-  let onOpenOutputArtifact = Y(openOutputArtifact),
+  let onOpenOutputArtifact = useStableCallback(openOutputArtifact),
     handleOpenOutput = (resource, browserEvent) => {
       switch (resource.type) {
         case "file":
@@ -8390,11 +8396,11 @@ function ThreadSummaryPanelSections(props) {
           });
       }
     };
-  let onOpenOutput = Y(handleOpenOutput),
+  let onOpenOutput = useStableCallback(handleOpenOutput),
     handleOpenSideChat = (sideChat) => {
       ja(scope, "right", sideChat.tabId);
     };
-  let onOpenSideChat = Y(handleOpenSideChat),
+  let onOpenSideChat = useStableCallback(handleOpenSideChat),
     handleOpenSource = (source) => {
       qi(scope, source, {
         isFullScreen: true,
@@ -8403,7 +8409,7 @@ function ThreadSummaryPanelSections(props) {
       scope.get(ga.tabs$).some((item) => item.tabId === tabId) &&
         (ga.activateTab(scope, tabId), ma(scope));
     };
-  let onOpenSource = Y(handleOpenSource),
+  let onOpenSource = useStableCallback(handleOpenSource),
     getImagePreviewSrc =
       hostConfig.kind === "local" ? getGeneratedImagePreviewSrc : undefined,
     showStopBackgroundTerminalError = () => {
@@ -8417,7 +8423,9 @@ function ThreadSummaryPanelSections(props) {
           />,
         );
     };
-  let onStopBackgroundTerminalError = Y(showStopBackgroundTerminalError),
+  let onStopBackgroundTerminalError = useStableCallback(
+      showStopBackgroundTerminalError,
+    ),
     showRestartBackgroundTerminalError = () => {
       scope
         .get(ti)
@@ -8429,7 +8437,9 @@ function ThreadSummaryPanelSections(props) {
           />,
         );
     };
-  let onRestartBackgroundTerminalError = Y(showRestartBackgroundTerminalError),
+  let onRestartBackgroundTerminalError = useStableCallback(
+      showRestartBackgroundTerminalError,
+    ),
     handleOpenBackgroundTerminal = (backgroundTerminal) => {
       conversationId != null &&
         openBackgroundTerminalSidePanelTab({
@@ -8444,7 +8454,9 @@ function ThreadSummaryPanelSections(props) {
           }),
         });
     };
-  let onOpenBackgroundTerminal = Y(handleOpenBackgroundTerminal),
+  let onOpenBackgroundTerminal = useStableCallback(
+      handleOpenBackgroundTerminal,
+    ),
     automationSection = matchingAutomation != null && (
       <ThreadSummaryPanelSection
         sectionKey="automation"
@@ -8699,7 +8711,7 @@ var Av,
   jv,
   Q,
   initLocalConversationGitSummary = once(() => {
-    Av = q();
+    Av = getChunkModuleExports();
     jv = toEsModule(De(), 1);
     c();
     gn();
@@ -9013,7 +9025,7 @@ function setOrAnimatePinnedSummaryPanelContentShift(
 var localConversationArtifactsModule,
   localConversationArtifactsReactRuntime,
   initLocalConversationArtifacts = once(() => {
-    localConversationArtifactsModule = q();
+    localConversationArtifactsModule = getChunkModuleExports();
     bt();
     c();
     localConversationArtifactsReactRuntime = toEsModule(G(), 1);
@@ -9482,9 +9494,9 @@ function useLocalConversationSummaryPanelModel(
         : null,
     browserSummaryConversationId = Ot(routeSnapshot);
   let host = W(ra),
-    turns = K(I, conversationId) ?? Hy,
-    cwd = K(Wn, conversationId),
-    title = K(Zi, conversationId),
+    turns = useScopedValue(I, conversationId) ?? Hy,
+    cwd = useScopedValue(Wn, conversationId),
+    title = useScopedValue(Zi, conversationId),
     backgroundTerminals = includeBackgroundActivity ? cy(turns) : [],
     restoredBackgroundProcesses = includeBackgroundActivity
       ? ly(
@@ -9499,7 +9511,7 @@ function useLocalConversationSummaryPanelModel(
               },
         )
       : [];
-  let artifacts = K(oy, conversationId),
+  let artifacts = useScopedValue(oy, conversationId),
     sideChats = W(Vy),
     installedMcpAppIds = W(Vi),
     isMultiBrowserTabsGateEnabled = W(re),
@@ -9518,7 +9530,7 @@ function useLocalConversationSummaryPanelModel(
       hostId: host.id,
     };
   let { data: apps = [] } = Ti(mcpAppsQueryInput),
-    { data: mcpServersQuery } = K(kt, host.id),
+    { data: mcpServersQuery } = useScopedValue(kt, host.id),
     toolSources = collectConversationMcpToolSources(
       turns,
       apps,
@@ -9527,7 +9539,7 @@ function useLocalConversationSummaryPanelModel(
     ),
     webSources = collectConversationWebSources(turns),
     plan = getLatestCompletedTurnPlanSummary(turns),
-    backgroundAgents = K(_c, ns() ? conversationId : null);
+    backgroundAgents = useScopedValue(_c, ns() ? conversationId : null);
   return {
     artifacts,
     sideChats,
@@ -9550,7 +9562,7 @@ var zy,
   Vy,
   Hy,
   initLocalConversationSummaryPanelSignals = once(() => {
-    zy = q();
+    zy = getChunkModuleExports();
     c();
     nt();
     Nt();
@@ -9578,8 +9590,8 @@ var zy,
   });
 function ConnectedLocalWorktreeRestoreBanner(props) {
   let { conversationId, cwd } = props,
-    threadHostId = K(En, conversationId),
-    hostConnectionStatus = K(Qr, threadHostId);
+    threadHostId = useScopedValue(En, conversationId),
+    hostConnectionStatus = useScopedValue(Qr, threadHostId);
   if (threadHostId !== "local" && hostConnectionStatus !== "connected")
     return null;
   return (
@@ -9598,7 +9610,7 @@ function WorktreeRestoreBanner(props) {
   let worktreeQueryKey = hostKey,
     intl = ur(),
     queryClient = Ci(),
-    worktreeStatusQuery = K(Cs, conversationId),
+    worktreeStatusQuery = useScopedValue(Cs, conversationId),
     worktreeStatus = worktreeStatusQuery.data,
     isWorktreeStatusUnavailable =
       worktreeStatusQuery.isError || worktreeStatus?.kind === "unavailable",
@@ -9791,7 +9803,7 @@ function WorktreeRestoreBanner(props) {
 var Ky,
   qy,
   Jy = once(() => {
-    Ky = q();
+    Ky = getChunkModuleExports();
     m();
     c();
     gn();
@@ -9974,7 +9986,7 @@ function ForkFromOlderTurnDialog(props) {
 var Qy,
   $y,
   eb = once(() => {
-    Qy = q();
+    Qy = getChunkModuleExports();
     Jn();
     Ye();
     mi();
@@ -10765,7 +10777,7 @@ function LocalConversationTurnRow({ entry, latestTurnFollowContentRef }) {
     includeTranscriptTurnExtras,
   } = entry;
   B(Fe);
-  let handleCollapsedChange = Y((collapsed) => {
+  let handleCollapsedChange = useStableCallback((collapsed) => {
       turnId != null && onSetCollapsedForTurn?.(turnId, collapsed);
     }),
     onSetCollapsed =
@@ -10782,7 +10794,7 @@ function LocalConversationTurnRow({ entry, latestTurnFollowContentRef }) {
       [parentThreadAttachmentSourceConversationId],
     );
   return (
-    Y(() => {}),
+    useStableCallback(() => {}),
     tx.jsx(fs, {
       name: "LocalConversationTurn",
       resetKey: turnKey,
@@ -10865,7 +10877,7 @@ var $b,
   ex,
   tx,
   nx = once(() => {
-    $b = q();
+    $b = getChunkModuleExports();
     c();
     ex = toEsModule(G(), 1);
     Jn();
@@ -10964,11 +10976,11 @@ function VirtualizedTurnList({
           previousRange: renderedRange,
         }) ?? renderedRange);
   }
-  let restoreScrollDistanceFromBottom = Y(() => {
+  let restoreScrollDistanceFromBottom = useStableCallback(() => {
       pendingMeasurementCommitRef.current ??
         restoreScrollDistanceFromBottomPx?.();
     }),
-    applyPendingMeasurementCommit = Y((pendingCommit) => {
+    applyPendingMeasurementCommit = useStableCallback((pendingCommit) => {
       pendingCommit.latestTurnHeightChange != null &&
         onLatestTurnHeightChange?.(pendingCommit.latestTurnHeightChange);
       pendingCommit.restoreScrollDistanceFromBottom
@@ -10979,19 +10991,21 @@ function VirtualizedTurnList({
             "instant",
           );
     }),
-    syncViewportState = Y((distanceFromBottomPx, viewportHeightPx) => {
-      if (pendingMeasurementCommitRef.current != null) return;
-      let nextViewportState = updateVirtualizedTurnListViewportState({
-        current: viewportStateRef.current,
-        distanceFromBottomPx: distanceFromBottomPx,
-        layout: virtualLayout,
-        viewportHeightPx: viewportHeightPx,
-      });
-      nextViewportState !== viewportStateRef.current &&
-        ((viewportStateRef.current = nextViewportState),
-        setViewportState(nextViewportState));
-    }),
-    notifyViewportChange = Y(
+    syncViewportState = useStableCallback(
+      (distanceFromBottomPx, viewportHeightPx) => {
+        if (pendingMeasurementCommitRef.current != null) return;
+        let nextViewportState = updateVirtualizedTurnListViewportState({
+          current: viewportStateRef.current,
+          distanceFromBottomPx: distanceFromBottomPx,
+          layout: virtualLayout,
+          viewportHeightPx: viewportHeightPx,
+        });
+        nextViewportState !== viewportStateRef.current &&
+          ((viewportStateRef.current = nextViewportState),
+          setViewportState(nextViewportState));
+      },
+    ),
+    notifyViewportChange = useStableCallback(
       (
         distanceFromBottomPx,
         viewportHeightPx,
@@ -11040,7 +11054,7 @@ function VirtualizedTurnList({
         });
       },
     ),
-    finishPendingScrollRequest = Y((request) => {
+    finishPendingScrollRequest = useStableCallback((request) => {
       queueMicrotask(() => {
         pendingScrollRequestRef.current === request &&
           (request.complete(), (pendingScrollRequestRef.current = null));
@@ -11049,7 +11063,7 @@ function VirtualizedTurnList({
         );
       });
     }),
-    scrollToKey = Y(
+    scrollToKey = useStableCallback(
       (turnKey, getTargetElement) => (
         pendingScrollRequestRef.current?.complete(),
         new Promise((complete) => {
@@ -11063,7 +11077,7 @@ function VirtualizedTurnList({
         })
       ),
     ),
-    publishLatestTurnFollowContentHeight = Y(() => {
+    publishLatestTurnFollowContentHeight = useStableCallback(() => {
       let followContentHeightPx = 0,
         lastFollowContentElement = null;
       for (let [
@@ -11090,155 +11104,161 @@ function VirtualizedTurnList({
           followContentHeightPx,
         });
     }),
-    applyMeasuredTurnHeights = Y((measurementsByTurnKey, flushSync = true) => {
-      let pendingCommit = pendingMeasurementCommitRef.current,
-        currentHeightsByKey = measuredHeightsByKeyRef.current,
-        nextHeightsByKey = currentHeightsByKey,
-        latestTurnHeightDeltaPx = 0,
-        didLatestTurnHeightChange = false,
-        latestTurnElement = null,
-        totalLayoutHeightDeltaPx = 0,
-        preservedDistanceDeltaPx = 0,
-        rawDistanceFromBottomPx =
-          scrollController.getLastScrollDistanceFromBottomPx(),
-        bottomScrollPaddingPx = getBottomScrollPaddingPxValue(
-          getBottomScrollPaddingPx,
-        ),
-        paddedDistanceFromBottomPx = subtractBottomScrollPaddingPx(
-          rawDistanceFromBottomPx,
-          bottomScrollPaddingPx,
-        ),
-        pendingRestoreDistanceFromBottomPx = preserveMeasuredTurnViewport
-          ? null
-          : (getPendingRestoreScrollDistanceFromBottomPx?.() ?? null),
-        viewportDistanceFromBottomPx =
-          pendingCommit == null
-            ? paddedDistanceFromBottomPx
-            : viewportStateRef.current.distanceFromBottomPx;
-      for (let [
-        turnKey,
-        { element, firstHeightPx, heightPx },
-      ] of measurementsByTurnKey) {
-        let currentElement = turnElementByKeyRef.current.get(turnKey);
-        if (currentElement !== element) continue;
-        let measuredHeightPx = Math.max(1, heightPx),
-          previousHeightPx = currentHeightsByKey[turnKey];
-        if (previousHeightPx === measuredHeightPx) continue;
-        nextHeightsByKey === currentHeightsByKey &&
-          (nextHeightsByKey = {
-            ...currentHeightsByKey,
-          });
-        nextHeightsByKey[turnKey] = measuredHeightPx;
-        let heightDeltaPx =
-            measuredHeightPx - (previousHeightPx ?? Math.max(1, firstHeightPx)),
-          turnIndex = virtualLayout.turnIndexByKey.get(turnKey);
-        if (turnIndex == null) continue;
-        let isLatestTurn = turnIndex === virtualLayout.turnKeys.length - 1;
-        isLatestTurn &&
-          ((didLatestTurnHeightChange = true),
-          (latestTurnHeightDeltaPx += heightDeltaPx),
-          (latestTurnElement = currentElement));
-        let layoutHeightDeltaPx =
-          measuredHeightPx -
-          (virtualLayout.heightsPx[turnIndex] ?? measuredHeightPx);
-        totalLayoutHeightDeltaPx += layoutHeightDeltaPx;
-        let turnBottomOffsetPx = virtualLayout.bottomOffsetsPx[turnIndex] ?? 0;
-        layoutHeightDeltaPx !== 0 &&
-          turnBottomOffsetPx <= viewportDistanceFromBottomPx &&
-          (preserveMeasuredTurnViewport ||
-            (getPendingRestoreScrollDistanceFromBottomPx != null &&
-              !isLatestTurn)) &&
-          (preservedDistanceDeltaPx += layoutHeightDeltaPx);
-      }
-      if (nextHeightsByKey === currentHeightsByKey) return false;
-      let isAtBottom =
-          preserveMeasuredTurnViewport &&
-          isAtBottomAfterPadding(
+    applyMeasuredTurnHeights = useStableCallback(
+      (measurementsByTurnKey, flushSync = true) => {
+        let pendingCommit = pendingMeasurementCommitRef.current,
+          currentHeightsByKey = measuredHeightsByKeyRef.current,
+          nextHeightsByKey = currentHeightsByKey,
+          latestTurnHeightDeltaPx = 0,
+          didLatestTurnHeightChange = false,
+          latestTurnElement = null,
+          totalLayoutHeightDeltaPx = 0,
+          preservedDistanceDeltaPx = 0,
+          rawDistanceFromBottomPx =
+            scrollController.getLastScrollDistanceFromBottomPx(),
+          bottomScrollPaddingPx = getBottomScrollPaddingPxValue(
+            getBottomScrollPaddingPx,
+          ),
+          paddedDistanceFromBottomPx = subtractBottomScrollPaddingPx(
             rawDistanceFromBottomPx,
             bottomScrollPaddingPx,
           ),
-        shouldRestoreScrollDistance =
-          pendingCommit?.restoreScrollDistanceFromBottom ||
-          pendingRestoreDistanceFromBottomPx != null,
-        nextScrollDistanceFromBottomPx = null;
-      shouldRestoreScrollDistance ||
-        (nextScrollDistanceFromBottomPx = isAtBottom
-          ? 0
-          : preservedDistanceDeltaPx === 0
-            ? (pendingCommit?.scrollDistanceFromBottomPx ?? null)
-            : (pendingCommit?.scrollDistanceFromBottomPx ??
-                rawDistanceFromBottomPx) + preservedDistanceDeltaPx);
-      let nextViewportDistanceFromBottomPx =
-        viewportStateRef.current.distanceFromBottomPx;
-      shouldRestoreScrollDistance
-        ? (nextViewportDistanceFromBottomPx =
-            pendingRestoreDistanceFromBottomPx ??
-            nextViewportDistanceFromBottomPx)
-        : nextScrollDistanceFromBottomPx != null &&
-          (nextViewportDistanceFromBottomPx = subtractBottomScrollPaddingPx(
-            nextScrollDistanceFromBottomPx,
-            bottomScrollPaddingPx,
-          ));
-      let nextVirtualLayout = Xu({
-        entries,
-        gapPx,
-        measuredHeightsByKey: nextHeightsByKey,
-      });
-      previousLayoutRef.current ??= virtualLayout;
-      let nextViewportState = updateVirtualizedTurnListViewportState({
-          current: viewportStateRef.current,
-          distanceFromBottomPx: nextViewportDistanceFromBottomPx,
-          layout: nextVirtualLayout,
-          viewportHeightPx: viewportStateRef.current.viewportHeightPx,
-        }),
-        pendingLatestTurnHeightChange = pendingCommit?.latestTurnHeightChange,
-        measuredLatestTurnElement =
-          latestTurnElement ??
-          pendingLatestTurnHeightChange?.turnElement ??
-          null,
-        measurementCommit = {
-          latestTurnHeightChange:
-            didLatestTurnHeightChange || pendingLatestTurnHeightChange != null
-              ? {
-                  heightDeltaPx:
-                    (pendingLatestTurnHeightChange?.heightDeltaPx ?? 0) +
-                    latestTurnHeightDeltaPx,
-                  heightPx: nextVirtualLayout.heightsPx.at(-1) ?? null,
-                  bottomViewportOverflowPx: measureTurnBottomViewportOverflow({
-                    scrollElement: scrollController.getScrollElement(),
+          pendingRestoreDistanceFromBottomPx = preserveMeasuredTurnViewport
+            ? null
+            : (getPendingRestoreScrollDistanceFromBottomPx?.() ?? null),
+          viewportDistanceFromBottomPx =
+            pendingCommit == null
+              ? paddedDistanceFromBottomPx
+              : viewportStateRef.current.distanceFromBottomPx;
+        for (let [
+          turnKey,
+          { element, firstHeightPx, heightPx },
+        ] of measurementsByTurnKey) {
+          let currentElement = turnElementByKeyRef.current.get(turnKey);
+          if (currentElement !== element) continue;
+          let measuredHeightPx = Math.max(1, heightPx),
+            previousHeightPx = currentHeightsByKey[turnKey];
+          if (previousHeightPx === measuredHeightPx) continue;
+          nextHeightsByKey === currentHeightsByKey &&
+            (nextHeightsByKey = {
+              ...currentHeightsByKey,
+            });
+          nextHeightsByKey[turnKey] = measuredHeightPx;
+          let heightDeltaPx =
+              measuredHeightPx -
+              (previousHeightPx ?? Math.max(1, firstHeightPx)),
+            turnIndex = virtualLayout.turnIndexByKey.get(turnKey);
+          if (turnIndex == null) continue;
+          let isLatestTurn = turnIndex === virtualLayout.turnKeys.length - 1;
+          isLatestTurn &&
+            ((didLatestTurnHeightChange = true),
+            (latestTurnHeightDeltaPx += heightDeltaPx),
+            (latestTurnElement = currentElement));
+          let layoutHeightDeltaPx =
+            measuredHeightPx -
+            (virtualLayout.heightsPx[turnIndex] ?? measuredHeightPx);
+          totalLayoutHeightDeltaPx += layoutHeightDeltaPx;
+          let turnBottomOffsetPx =
+            virtualLayout.bottomOffsetsPx[turnIndex] ?? 0;
+          layoutHeightDeltaPx !== 0 &&
+            turnBottomOffsetPx <= viewportDistanceFromBottomPx &&
+            (preserveMeasuredTurnViewport ||
+              (getPendingRestoreScrollDistanceFromBottomPx != null &&
+                !isLatestTurn)) &&
+            (preservedDistanceDeltaPx += layoutHeightDeltaPx);
+        }
+        if (nextHeightsByKey === currentHeightsByKey) return false;
+        let isAtBottom =
+            preserveMeasuredTurnViewport &&
+            isAtBottomAfterPadding(
+              rawDistanceFromBottomPx,
+              bottomScrollPaddingPx,
+            ),
+          shouldRestoreScrollDistance =
+            pendingCommit?.restoreScrollDistanceFromBottom ||
+            pendingRestoreDistanceFromBottomPx != null,
+          nextScrollDistanceFromBottomPx = null;
+        shouldRestoreScrollDistance ||
+          (nextScrollDistanceFromBottomPx = isAtBottom
+            ? 0
+            : preservedDistanceDeltaPx === 0
+              ? (pendingCommit?.scrollDistanceFromBottomPx ?? null)
+              : (pendingCommit?.scrollDistanceFromBottomPx ??
+                  rawDistanceFromBottomPx) + preservedDistanceDeltaPx);
+        let nextViewportDistanceFromBottomPx =
+          viewportStateRef.current.distanceFromBottomPx;
+        shouldRestoreScrollDistance
+          ? (nextViewportDistanceFromBottomPx =
+              pendingRestoreDistanceFromBottomPx ??
+              nextViewportDistanceFromBottomPx)
+          : nextScrollDistanceFromBottomPx != null &&
+            (nextViewportDistanceFromBottomPx = subtractBottomScrollPaddingPx(
+              nextScrollDistanceFromBottomPx,
+              bottomScrollPaddingPx,
+            ));
+        let nextVirtualLayout = Xu({
+          entries,
+          gapPx,
+          measuredHeightsByKey: nextHeightsByKey,
+        });
+        previousLayoutRef.current ??= virtualLayout;
+        let nextViewportState = updateVirtualizedTurnListViewportState({
+            current: viewportStateRef.current,
+            distanceFromBottomPx: nextViewportDistanceFromBottomPx,
+            layout: nextVirtualLayout,
+            viewportHeightPx: viewportStateRef.current.viewportHeightPx,
+          }),
+          pendingLatestTurnHeightChange = pendingCommit?.latestTurnHeightChange,
+          measuredLatestTurnElement =
+            latestTurnElement ??
+            pendingLatestTurnHeightChange?.turnElement ??
+            null,
+          measurementCommit = {
+            latestTurnHeightChange:
+              didLatestTurnHeightChange || pendingLatestTurnHeightChange != null
+                ? {
+                    heightDeltaPx:
+                      (pendingLatestTurnHeightChange?.heightDeltaPx ?? 0) +
+                      latestTurnHeightDeltaPx,
+                    heightPx: nextVirtualLayout.heightsPx.at(-1) ?? null,
+                    bottomViewportOverflowPx: measureTurnBottomViewportOverflow(
+                      {
+                        scrollElement: scrollController.getScrollElement(),
+                        turnElement: measuredLatestTurnElement,
+                        windowZoom: windowZoom,
+                      },
+                    ),
                     turnElement: measuredLatestTurnElement,
-                    windowZoom: windowZoom,
-                  }),
-                  turnElement: measuredLatestTurnElement,
-                  followContentHeightPx: null,
-                }
-              : null,
-          restoreScrollDistanceFromBottom: shouldRestoreScrollDistance,
-          scrollDistanceFromBottomPx: nextScrollDistanceFromBottomPx,
-          turnHeightsByKey: nextHeightsByKey,
-        },
-        commitMeasuredHeights = () => {
-          measuredHeightsByKeyRef.current = nextHeightsByKey;
-          setMeasuredHeightsByKey(nextHeightsByKey);
-          nextViewportState !== viewportStateRef.current &&
-            ((viewportStateRef.current = nextViewportState),
-            setViewportState(nextViewportState));
-        };
-      return (
-        (pendingMeasurementCommitRef.current = measurementCommit),
-        preserveMeasuredTurnViewport &&
-          totalLayoutHeightDeltaPx !== 0 &&
-          preservedDistanceDeltaPx === 0 &&
-          !isAtBottom &&
-          !shouldRestoreScrollDistance &&
-          scrollController.preserveScrollPositionForNextLayout(),
-        flushSync
-          ? vx.flushSync(commitMeasuredHeights)
-          : commitMeasuredHeights(),
-        true
-      );
-    }),
-    getResizeObserver = Y(() => {
+                    followContentHeightPx: null,
+                  }
+                : null,
+            restoreScrollDistanceFromBottom: shouldRestoreScrollDistance,
+            scrollDistanceFromBottomPx: nextScrollDistanceFromBottomPx,
+            turnHeightsByKey: nextHeightsByKey,
+          },
+          commitMeasuredHeights = () => {
+            measuredHeightsByKeyRef.current = nextHeightsByKey;
+            setMeasuredHeightsByKey(nextHeightsByKey);
+            nextViewportState !== viewportStateRef.current &&
+              ((viewportStateRef.current = nextViewportState),
+              setViewportState(nextViewportState));
+          };
+        return (
+          (pendingMeasurementCommitRef.current = measurementCommit),
+          preserveMeasuredTurnViewport &&
+            totalLayoutHeightDeltaPx !== 0 &&
+            preservedDistanceDeltaPx === 0 &&
+            !isAtBottom &&
+            !shouldRestoreScrollDistance &&
+            scrollController.preserveScrollPositionForNextLayout(),
+          flushSync
+            ? vx.flushSync(commitMeasuredHeights)
+            : commitMeasuredHeights(),
+          true
+        );
+      },
+    ),
+    getResizeObserver = useStableCallback(() => {
       if (resizeObserverRef.current != null) return resizeObserverRef.current;
       let didLatestFollowContentResize = false,
         resizeObserver = new ResizeObserver((resizeEntries) => {
@@ -11286,7 +11306,7 @@ function VirtualizedTurnList({
         });
       return ((resizeObserverRef.current = resizeObserver), resizeObserver);
     }),
-    observeTurnElement = Y((turnKey, element) => {
+    observeTurnElement = useStableCallback((turnKey, element) => {
       if (element == null) return;
       observedElementMetadataRef.current.set(element, {
         kind: "turn",
@@ -11307,7 +11327,7 @@ function VirtualizedTurnList({
         }
       );
     }),
-    measureLatestTurnHeight = Y(() => {
+    measureLatestTurnHeight = useStableCallback(() => {
       let latestTurnKey = entries.at(-1)?.turnKey;
       if (latestTurnKey == null) return;
       let latestTurnElement = turnElementByKeyRef.current.get(latestTurnKey);
@@ -11328,7 +11348,7 @@ function VirtualizedTurnList({
           false,
         );
     }),
-    observeLatestTurnFollowContent = Y((element) => {
+    observeLatestTurnFollowContent = useStableCallback((element) => {
       if (element == null) return;
       observedElementMetadataRef.current.set(element, {
         element: element,
@@ -11704,7 +11724,7 @@ function VirtualizedTurnItem(props) {
     } = props,
     { turnKey } = entry,
     setObservedElement = (element) => observeTurnElement(turnKey, element);
-  let observedElementRef = Y(setObservedElement),
+  let observedElementRef = useStableCallback(setObservedElement),
     constrainedStyle =
       constrainedHeightPx == null
         ? undefined
@@ -11924,7 +11944,7 @@ var gx,
   emptyTurnHeightsByKey,
   MemoizedVirtualizedTurnItem,
   Tx = once(() => {
-    gx = q();
+    gx = getChunkModuleExports();
     Ut();
     _x = toEsModule(G(), 1);
     vx = toEsModule(_i(), 1);
@@ -12044,30 +12064,32 @@ function LocalConversationAutoFollowVirtualizedTurnList({
   latestTurnPhaseRef.current = latestTurnPhase;
   latestTurnInProgressRef.current = isLatestTurnInProgress;
   latestTurnKeyRef.current = latestTurnKey;
-  let dispatchScrollStateEvent = Y((event, forceSync = false) => {
-      let previousFollowMode = scrollStateRef.current.followMode;
-      scrollStateRef.current = reduceLatestTurnScrollState(
-        scrollStateRef.current,
-        event,
-      );
-      let { followMode } = scrollStateRef.current;
-      return (
-        (forceSync || followMode !== previousFollowMode) &&
-          scrollController.setFooterResizeViewportPreserveDisabled(
-            latestTurnInProgressRef.current &&
-              isPassiveLatestTurnFollowMode(followMode),
-          ),
-        scrollStateRef.current
-      );
-    }),
-    syncFooterResizePreserveDisabled = Y(() => {
+  let dispatchScrollStateEvent = useStableCallback(
+      (event, forceSync = false) => {
+        let previousFollowMode = scrollStateRef.current.followMode;
+        scrollStateRef.current = reduceLatestTurnScrollState(
+          scrollStateRef.current,
+          event,
+        );
+        let { followMode } = scrollStateRef.current;
+        return (
+          (forceSync || followMode !== previousFollowMode) &&
+            scrollController.setFooterResizeViewportPreserveDisabled(
+              latestTurnInProgressRef.current &&
+                isPassiveLatestTurnFollowMode(followMode),
+            ),
+          scrollStateRef.current
+        );
+      },
+    ),
+    syncFooterResizePreserveDisabled = useStableCallback(() => {
       let { followMode } = scrollStateRef.current;
       scrollController.setFooterResizeViewportPreserveDisabled(
         latestTurnInProgressRef.current &&
           isPassiveLatestTurnFollowMode(followMode),
       );
     }),
-    getPendingInitialRestoreDistanceFromBottom = Y(() => {
+    getPendingInitialRestoreDistanceFromBottom = useStableCallback(() => {
       let initialScrollOffsetPx = initialScrollOffsetRef.current;
       return hasRestoredInitialScrollRef.current ||
         initialScrollOffsetPx == null ||
@@ -12075,7 +12097,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
         ? null
         : Math.max(0, initialScrollOffsetPx - responseSpacerHeightPx.get());
     }),
-    restoreInitialScrollOffset = Y(() => {
+    restoreInitialScrollOffset = useStableCallback(() => {
       if (hasRestoredInitialScrollRef.current) return;
       let initialScrollOffsetPx = initialScrollOffsetRef.current;
       if (
@@ -12099,7 +12121,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
           (hasRestoredInitialScrollRef.current = true);
       }
     }),
-    handleRestoreStateChange = Y((restoreState) => {
+    handleRestoreStateChange = useStableCallback((restoreState) => {
       restoreStateRef.current = restoreState;
       onVirtualizedTurnListRestoreStateChange(restoreState);
     });
@@ -12153,12 +12175,12 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       syncFooterResizePreserveDisabled,
     ],
   );
-  let clearResponseSpacer = Y(() => {
+  let clearResponseSpacer = useStableCallback(() => {
       responseSpacerHeightPx.stop();
       responseSpacerHeightPx.set(0);
       isResponseSpacerAtViewportBottomRef.current = false;
     }),
-    scrollToBottomAndClearSpacer = Y(() => {
+    scrollToBottomAndClearSpacer = useStableCallback(() => {
       hasRestoredInitialScrollRef.current = true;
       latestTurnOffsetY.stop();
       latestTurnOffsetY.set(0);
@@ -12166,7 +12188,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       onResponseSpacerStateChange(null);
       scrollController.scrollToDistanceFromBottomPx(0, "instant");
     }),
-    scrollToLatestTurnBottom = Y(() => {
+    scrollToLatestTurnBottom = useStableCallback(() => {
       if (
         ((hasRestoredInitialScrollRef.current = true),
         latestTurnInProgressRef.current)
@@ -12193,29 +12215,31 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       }
       scrollController.scrollToBottom();
     }),
-    shrinkResponseSpacerToDistance = Y((targetDistanceFromBottomPx) => {
-      let currentSpacerHeightPx = responseSpacerHeightPx.get(),
-        nextSpacerHeightPx =
-          targetDistanceFromBottomPx <= 24
-            ? 0
-            : Math.min(currentSpacerHeightPx, targetDistanceFromBottomPx);
-      if (currentSpacerHeightPx - nextSpacerHeightPx <= 24) return;
-      let scrollElement = scrollController.getScrollElement(),
-        currentDistanceFromBottomPx =
-          scrollElement == null ? 0 : Le(scrollElement),
-        spacerHeightDeltaPx = nextSpacerHeightPx - currentSpacerHeightPx;
-      latestTurnOffsetY.stop();
-      latestTurnOffsetY.set(0);
-      responseSpacerHeightPx.stop();
-      responseSpacerHeightPx.set(nextSpacerHeightPx);
-      nextSpacerHeightPx <= 24 && onResponseSpacerStateChange(null);
-      scrollElement != null &&
-        scrollController.scrollToDistanceFromBottomPx(
-          Math.max(0, currentDistanceFromBottomPx + spacerHeightDeltaPx),
-          "instant",
-        );
-    }),
-    handleUserScroll = Y(
+    shrinkResponseSpacerToDistance = useStableCallback(
+      (targetDistanceFromBottomPx) => {
+        let currentSpacerHeightPx = responseSpacerHeightPx.get(),
+          nextSpacerHeightPx =
+            targetDistanceFromBottomPx <= 24
+              ? 0
+              : Math.min(currentSpacerHeightPx, targetDistanceFromBottomPx);
+        if (currentSpacerHeightPx - nextSpacerHeightPx <= 24) return;
+        let scrollElement = scrollController.getScrollElement(),
+          currentDistanceFromBottomPx =
+            scrollElement == null ? 0 : Le(scrollElement),
+          spacerHeightDeltaPx = nextSpacerHeightPx - currentSpacerHeightPx;
+        latestTurnOffsetY.stop();
+        latestTurnOffsetY.set(0);
+        responseSpacerHeightPx.stop();
+        responseSpacerHeightPx.set(nextSpacerHeightPx);
+        nextSpacerHeightPx <= 24 && onResponseSpacerStateChange(null);
+        scrollElement != null &&
+          scrollController.scrollToDistanceFromBottomPx(
+            Math.max(0, currentDistanceFromBottomPx + spacerHeightDeltaPx),
+            "instant",
+          );
+      },
+    ),
+    handleUserScroll = useStableCallback(
       (distanceFromBottomPx, previousDistanceFromBottomPx) => {
         hasRestoredInitialScrollRef.current = true;
         let currentSpacerHeightPx = responseSpacerHeightPx.get();
@@ -12338,7 +12362,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
     onResponseSpacerStateChange,
     responseSpacerHeightPx,
   ]);
-  let clampResponseSpacerToViewport = Y(() => {
+  let clampResponseSpacerToViewport = useStableCallback(() => {
     let scrollElement = scrollController.getScrollElement();
     if (scrollElement == null) return;
     let maxSpacerHeightPx = getMaxResponseSpacerHeightPx({
@@ -12390,7 +12414,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
       }
     );
   }, [clampResponseSpacerToViewport, scrollController]);
-  let handleLatestTurnHeightChange = Y(
+  let handleLatestTurnHeightChange = useStableCallback(
       ({
         heightDeltaPx,
         heightPx,
@@ -12482,7 +12506,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
           scrollController.scrollToDistanceFromBottomPx(0, "instant"));
       },
     ),
-    handleScrollDistanceChanged = Y((distanceFromBottomPx) => {
+    handleScrollDistanceChanged = useStableCallback((distanceFromBottomPx) => {
       if (distanceFromBottomPx <= 24) return;
       let currentSpacerHeightPx = responseSpacerHeightPx.get(),
         scrollElement = scrollController.getScrollElement(),
@@ -12785,7 +12809,7 @@ var Ix,
   Ux,
   Wx,
   Gx = once(() => {
-    Ix = q();
+    Ix = getChunkModuleExports();
     bt();
     c();
     Lx = toEsModule(G(), 1);
@@ -13324,16 +13348,16 @@ function LocalConversationConnectionStatus(props) {
 var fS,
   pS,
   mS = once(() => {
-    fS = q();
+    fS = getChunkModuleExports();
     Jn();
     d();
     pS = getJsxRuntime();
   });
 function useMarkConversationReadOnVisibility(conversationId, hasConversation) {
-  let isUnread = K(R, conversationId) ?? false,
+  let isUnread = useScopedValue(R, conversationId) ?? false,
     isWindowVisible = W(xo),
-    conversationReadMarker = K($t, conversationId),
-    conversationReadState = K(we, conversationId),
+    conversationReadMarker = useScopedValue($t, conversationId),
+    conversationReadState = useScopedValue(we, conversationId),
     lastMarkedConversationIdRef = _S.useRef(null),
     lastConversationReadStateRef = _S.useRef(null),
     lastConversationReadMarkerRef = _S.useRef(null),
@@ -13346,7 +13370,7 @@ function useMarkConversationReadOnVisibility(conversationId, hasConversation) {
           conversationId,
         });
     };
-  let markConversationReadEvent = Y(markConversationRead),
+  let markConversationReadEvent = useStableCallback(markConversationRead),
     markConversationReadHandler = () => {
       markConversationReadEvent();
     };
@@ -13381,7 +13405,7 @@ function useMarkConversationReadOnVisibility(conversationId, hasConversation) {
 var gS,
   _S,
   initMarkConversationReadEffect = once(() => {
-    gS = q();
+    gS = getChunkModuleExports();
     c();
     _S = toEsModule(G(), 1);
     nt();
@@ -13395,8 +13419,8 @@ function useResumeLocalConversation(conversationId) {
     { activeMode } = Us(conversationId),
     { data } = W(gt),
     workspaceRoots = data?.roots,
-    shouldResumeConversation = K(Ir, conversationId);
-  K(En, conversationId);
+    shouldResumeConversation = useScopedValue(Ir, conversationId);
+  useScopedValue(En, conversationId);
   let [isResuming, setIsResuming] = wS.useState(shouldResumeConversation),
     activeResumeConversationIdRef = wS.useRef(null),
     retryTimerRef = wS.useRef(null),
@@ -13639,9 +13663,9 @@ export function LocalConversationThread(props: LocalConversationThreadProps) {
 function LocalConversationSideChatThread(props) {
   let { conversationId, lockedCollaborationMode, target } = props,
     scope = B(Fe),
-    hasConversation = K(Mt, conversationId),
-    isExpiredSideChat = K(V, conversationId),
-    hostId = K(En, conversationId),
+    hasConversation = useScopedValue(Mt, conversationId),
+    isExpiredSideChat = useScopedValue(V, conversationId),
+    hostId = useScopedValue(En, conversationId),
     sourceConversationId = ot(scope.value),
     isBackgroundSubagentsEnabled = ns();
   if (!hasConversation)
@@ -13700,10 +13724,13 @@ function ExpiredSideChatState(props) {
     } = props,
     scope = B(Fe),
     intl = ur(),
-    sourceCwd = K(Wn, sourceConversationId),
-    sourceHostId = K(En, sourceConversationId),
-    sourceCollaborationMode = K(zt, sourceConversationId),
-    displayTitle = K(va(target).tabById$, `sidechat:${conversationId}`)?.title,
+    sourceCwd = useScopedValue(Wn, sourceConversationId),
+    sourceHostId = useScopedValue(En, sourceConversationId),
+    sourceCollaborationMode = useScopedValue(zt, sourceConversationId),
+    displayTitle = useScopedValue(
+      va(target).tabById$,
+      `sidechat:${conversationId}`,
+    )?.title,
     [isRecreatingSideChat, setIsRecreatingSideChat] = GS.useState(false),
     recreateSideChat = () => {
       sourceConversationId == null ||
@@ -13783,8 +13810,8 @@ function ExpiredSideChatState(props) {
 function LocalConversationMainThread(props) {
   let { conversationId } = props,
     scope = B(Fe),
-    hasConversation = K(Mt, conversationId),
-    hostId = K(En, conversationId),
+    hasConversation = useScopedValue(Mt, conversationId),
+    hostId = useScopedValue(En, conversationId),
     isBackgroundSubagentsEnabled = ns(),
     { isResuming } = useResumeLocalConversation(conversationId),
     threadScopeKey = N(conversationId, "main", ot(scope.value));
@@ -13814,8 +13841,8 @@ export function LocalConversationSummaryThread(
 ) {
   let { conversationId, header, onOpenBackgroundAgent } = props,
     scope = B(Fe),
-    hasConversation = K(Mt, conversationId),
-    hostId = K(En, conversationId),
+    hasConversation = useScopedValue(Mt, conversationId),
+    hostId = useScopedValue(En, conversationId),
     isBackgroundSubagentsEnabled = ns(),
     threadScopeKey = N(conversationId, "main", ot(scope.value));
   let threadFrame = (
@@ -13856,10 +13883,10 @@ function LocalConversationThreadRoute(props) {
     { data } = W(launcherHotkeyStateQuery),
     hasConfiguredLauncherHotkey = data == null || data.configuredHotkey != null,
     launcherFallbackPath = it(hasConfiguredLauncherHotkey),
-    hasConversation = K(Mt, conversationId),
-    hostId = K(En, conversationId);
-  K(Wn, conversationId);
-  K(Et, conversationId);
+    hasConversation = useScopedValue(Mt, conversationId),
+    hostId = useScopedValue(En, conversationId);
+  useScopedValue(Wn, conversationId);
+  useScopedValue(Et, conversationId);
   let resolvedAppsQueryOptions = {
     enabled: false,
     hostId,
@@ -13878,7 +13905,7 @@ function LocalConversationThreadRoute(props) {
     { isResuming } = useResumeLocalConversation(
       shouldResume ? (conversationId ?? null) : null,
     ),
-    subagentParentThreadId = K(oi, conversationId),
+    subagentParentThreadId = useScopedValue(oi, conversationId),
     visibleSubagentParentThreadId = isBackgroundSubagentsEnabled
       ? subagentParentThreadId
       : null,
@@ -13950,7 +13977,9 @@ function LocalConversationThreadRoute(props) {
       turnCount,
     });
   };
-  let onVisibleThreadContentReady = Y(handleVisibleThreadContentReady),
+  let onVisibleThreadContentReady = useStableCallback(
+      handleVisibleThreadContentReady,
+    ),
     handleOpenBackgroundAgent = (backgroundAgent) => {
       openBackgroundAgentFromThread(
         scope,
@@ -13959,7 +13988,9 @@ function LocalConversationThreadRoute(props) {
         onOpenBackgroundAgent,
       );
     };
-  let onOpenBackgroundAgentFromSummary = Y(handleOpenBackgroundAgent),
+  let onOpenBackgroundAgentFromSummary = useStableCallback(
+      handleOpenBackgroundAgent,
+    ),
     headerContent = (
       <ChromeExtensionConversationHeader conversationId={conversationId} />
     ),
@@ -14057,16 +14088,16 @@ function ChromeExtensionConversationHeader(props) {
   let { conversationId } = props,
     scope = B(ut),
     isBackgroundSubagentsEnabled = ns(),
-    parentConversationId = K(oi, conversationId),
-    backgroundAgentSnapshot = K(Un, conversationId),
+    parentConversationId = useScopedValue(oi, conversationId),
+    backgroundAgentSnapshot = useScopedValue(Un, conversationId),
     backgroundAgentName = formatBackgroundAgentDisplayName({
       agentNickname: Cn(backgroundAgentSnapshot)?.agentNickname ?? null,
       conversationId,
     });
-  let hasConversation = K(Mt, conversationId),
-    title = K(Zi, conversationId),
-    cwd = K(Wn, conversationId),
-    projectlessOutputDirectory = K(Cr, conversationId),
+  let hasConversation = useScopedValue(Mt, conversationId),
+    title = useScopedValue(Zi, conversationId),
+    cwd = useScopedValue(Wn, conversationId),
+    projectlessOutputDirectory = useScopedValue(Cr, conversationId),
     navigate = rt(),
     getConversationMarkdown = () => {
       let { visibleTurnEntries } = scope.get(
@@ -14171,8 +14202,8 @@ function LocalConversationThreadFrame(props) {
       showExternalFooter,
     } = props,
     scope = B(Fe),
-    isConversationHistoryComplete = K(Ue, conversationId) ?? true,
-    visibleSubagentParentThreadId = K(oi, conversationId),
+    isConversationHistoryComplete = useScopedValue(Ue, conversationId) ?? true,
+    visibleSubagentParentThreadId = useScopedValue(oi, conversationId),
     isScrollToTopEnabled = Vr("1579719221"),
     shouldShowSummaryPanelObstacles = Vr("3563904085"),
     savedThreadScrollState = scope.get(Ub, conversationId);
@@ -14220,7 +14251,9 @@ function LocalConversationThreadFrame(props) {
         );
       }
     };
-  let loadOlderConversationHistory = Y(loadOlderConversationHistoryPage),
+  let loadOlderConversationHistory = useStableCallback(
+      loadOlderConversationHistoryPage,
+    ),
     threadScrollLayoutApiRef = GS.useRef(null),
     handleThreadScroll = (distanceFromBottomPx, isAtBottom) => {
       scope.set(Ub, conversationId, (previousScrollState) => ({
@@ -14233,7 +14266,7 @@ function LocalConversationThreadFrame(props) {
       setScrollDistanceFromBottomPx(distanceFromBottomPx);
       setIsScrolledFromBottom(!isAtBottom);
     };
-  let onThreadScroll = Y(handleThreadScroll),
+  let onThreadScroll = useStableCallback(handleThreadScroll),
     handleVirtualizedTurnListRestoreStateChange = (
       virtualizedTurnListRestoreState,
     ) => {
@@ -14245,7 +14278,7 @@ function LocalConversationThreadFrame(props) {
         virtualizedTurnList: virtualizedTurnListRestoreState,
       }));
     };
-  let onVirtualizedTurnListRestoreStateChange = Y(
+  let onVirtualizedTurnListRestoreStateChange = useStableCallback(
       handleVirtualizedTurnListRestoreStateChange,
     ),
     shouldShowScrollToBottomButtonNow = shouldShowScrollToBottomButton({
@@ -14262,7 +14295,7 @@ function LocalConversationThreadFrame(props) {
       }
       threadScrollLayoutApiRef.current?.scrollToBottom();
     };
-  let onScrollToBottom = Y(scrollToBottom),
+  let onScrollToBottom = useStableCallback(scrollToBottom),
     prepareLatestTurnSubmitPlacement = (placement) => {
       let { distanceFromBottomPx, scrollHeightPx } = placement;
       hideThreadContent ||
@@ -14273,18 +14306,20 @@ function LocalConversationThreadFrame(props) {
             scrollHeightPx,
           }));
     };
-  let onPrepareLatestTurnSubmitPlacement = Y(prepareLatestTurnSubmitPlacement),
+  let onPrepareLatestTurnSubmitPlacement = useStableCallback(
+      prepareLatestTurnSubmitPlacement,
+    ),
     consumePendingLatestTurnSubmitPlacement = () => {
       let placementSnapshot = latestTurnSubmitPlacementRef.current;
       return ((latestTurnSubmitPlacementRef.current = null), placementSnapshot);
     };
-  let onConsumePendingLatestTurnSubmitPlacement = Y(
+  let onConsumePendingLatestTurnSubmitPlacement = useStableCallback(
       consumePendingLatestTurnSubmitPlacement,
     ),
     clearPendingLatestTurnSubmitPlacement = () => {
       latestTurnSubmitPlacementRef.current = null;
     };
-  let onClearPendingLatestTurnSubmitPlacement = Y(
+  let onClearPendingLatestTurnSubmitPlacement = useStableCallback(
       clearPendingLatestTurnSubmitPlacement,
     ),
     clearPlacementWhenThreadHidden,
@@ -14301,7 +14336,9 @@ function LocalConversationThreadFrame(props) {
     newChatShortcutRef.current = containerElement;
     setThreadLayoutContainer(containerElement);
   };
-  let threadLayoutContainerRef = Y(handleThreadLayoutContainerRef),
+  let threadLayoutContainerRef = useStableCallback(
+      handleThreadLayoutContainerRef,
+    ),
     hasLiveMcpAppFrame = W(Fa),
     shouldMountSummaryPanelObstacles =
       shouldShowSummaryPanelObstacles && hasConversation && !hideThreadContent,
@@ -14313,7 +14350,9 @@ function LocalConversationThreadFrame(props) {
         onOpenBackgroundAgent,
       );
     };
-  let onOpenBackgroundAgentFromSummary = Y(handleOpenBackgroundAgent),
+  let onOpenBackgroundAgentFromSummary = useStableCallback(
+      handleOpenBackgroundAgent,
+    ),
     summaryPanelObstaclesEffect = shouldMountSummaryPanelObstacles
       ? $.jsx(RefreshSummaryPanelObstaclesEffect, {})
       : null;
@@ -14439,7 +14478,7 @@ function openBackgroundAgentFromThread(
 }
 function ComposerWorkspaceDirectoryTree(props) {
   let { conversationId } = props,
-    cwd = K(Wn, conversationId);
+    cwd = useScopedValue(Wn, conversationId);
   return (
     <ConnectedLocalWorktreeRestoreBanner
       conversationId={conversationId}
@@ -14464,8 +14503,8 @@ function LocalConversationComposerFooter({
   let scope = B(Fe);
   GS.useContext(rl);
   ci();
-  let hostConnectionStatus = K(Qr, hostId),
-    hasConversationTurns = !!K(I, conversationId)?.length,
+  let hostConnectionStatus = useScopedValue(Qr, hostId),
+    hasConversationTurns = !!useScopedValue(I, conversationId)?.length,
     isRemoteHost = hostId !== Pt,
     footerConnectionStatus = null;
   isRemoteHost &&
@@ -14475,12 +14514,12 @@ function LocalConversationComposerFooter({
       : isResuming &&
         !hasConversationTurns &&
         (footerConnectionStatus = "loading"));
-  let localResponseInProgress = K(ge, conversationId) ?? false,
-    localWorkspaceMaterialization = K(oc, conversationId);
-  K(b, conversationId);
-  K(s, conversationId);
-  let subagentResponseInProgress = K(YS, conversationId) ?? false,
-    hasActiveSubagent = K(
+  let localResponseInProgress = useScopedValue(ge, conversationId) ?? false,
+    localWorkspaceMaterialization = useScopedValue(oc, conversationId);
+  useScopedValue(b, conversationId);
+  useScopedValue(s, conversationId);
+  let subagentResponseInProgress = useScopedValue(YS, conversationId) ?? false,
+    hasActiveSubagent = useScopedValue(
       _c,
       isBackgroundSubagentsEnabled ? conversationId : null,
     ).some(({ status }) => status === "active"),
@@ -14488,7 +14527,7 @@ function LocalConversationComposerFooter({
       ? subagentResponseInProgress || hasActiveSubagent || false
       : localResponseInProgress || false,
     composerModeAvailability =
-      K(er, conversationId) === "projectless"
+      useScopedValue(er, conversationId) === "projectless"
         ? {
             fallbackMode: "local",
             isAvailabilityLoading: false,
@@ -14499,7 +14538,7 @@ function LocalConversationComposerFooter({
         : undefined,
     intl = ur(),
     scrollController = ad(),
-    handleLocalSubmitStart = Y(() => {
+    handleLocalSubmitStart = useStableCallback(() => {
       let scrollElement = scrollController.getScrollElement();
       onPrepareLatestTurnSubmitPlacement({
         distanceFromBottomPx:
@@ -14508,7 +14547,7 @@ function LocalConversationComposerFooter({
       });
       scrollController.setFooterResizeViewportPreserveDisabled(true);
     }),
-    handleLocalSubmitError = Y(() => {
+    handleLocalSubmitError = useStableCallback(() => {
       onClearPendingLatestTurnSubmitPlacement();
       scrollController.setFooterResizeViewportPreserveDisabled(false);
     }),
@@ -14605,17 +14644,19 @@ function LocalConversationThreadContent({
   let scope = B(Fe),
     navigate = rt(),
     isAppgenEndCardEnabled = Vo(),
-    hasConversation = K(Mt, conversationId),
-    modelProvider = K(s, conversationId),
-    cwd = K(Wn, conversationId),
-    hostId = K(En, conversationId),
-    conversationResumeState = K(pr, conversationId) ?? "needs_resume",
-    isConversationHistoryComplete = K(Ue, conversationId) ?? false,
-    isResponseInProgress = K(ct, conversationId),
-    completedThreadGoal = K(Bn, conversationId),
-    isProjectlessConversation = K(er, conversationId) === "projectless",
-    projectlessOutputDirectory = K(Cr, conversationId),
-    collaborationMode = K(zt, conversationId),
+    hasConversation = useScopedValue(Mt, conversationId),
+    modelProvider = useScopedValue(s, conversationId),
+    cwd = useScopedValue(Wn, conversationId),
+    hostId = useScopedValue(En, conversationId),
+    conversationResumeState =
+      useScopedValue(pr, conversationId) ?? "needs_resume",
+    isConversationHistoryComplete = useScopedValue(Ue, conversationId) ?? false,
+    isResponseInProgress = useScopedValue(ct, conversationId),
+    completedThreadGoal = useScopedValue(Bn, conversationId),
+    isProjectlessConversation =
+      useScopedValue(er, conversationId) === "projectless",
+    projectlessOutputDirectory = useScopedValue(Cr, conversationId),
+    collaborationMode = useScopedValue(zt, conversationId),
     {
       conversationTurns,
       hasInheritedParentTurns,
@@ -14623,7 +14664,7 @@ function LocalConversationThreadContent({
       hasUserMessage,
       latestVisibleTurnId,
       visibleTurnEntries,
-    } = K(localConversationVisibleTurnEntriesSignal, {
+    } = useScopedValue(localConversationVisibleTurnEntriesSignal, {
       conversationId,
       isBackgroundSubagentsEnabled,
     });
@@ -14637,7 +14678,7 @@ function LocalConversationThreadContent({
       hostId,
     }),
     renderMcpApps = Qt("2138468235").get("enable_mcp_apps", false),
-    subagentParentThreadId = K(oi, conversationId),
+    subagentParentThreadId = useScopedValue(oi, conversationId),
     visibleSubagentParentThreadId = isBackgroundSubagentsEnabled
       ? subagentParentThreadId
       : null,
@@ -14696,7 +14737,7 @@ function LocalConversationThreadContent({
     containerRef: contentContainerRef,
     contextId: routeContextId,
   });
-  let handleCopyCapture = Y((event) => {
+  let handleCopyCapture = useStableCallback((event) => {
       let containerElement = contentContainerRef.current;
       containerElement != null && zo(event, containerElement);
     }),
@@ -14718,7 +14759,7 @@ function LocalConversationThreadContent({
       },
       [handleCopyCapture],
     ),
-    editLastTurnMessage = Y(async (turnEntry, message) => {
+    editLastTurnMessage = useStableCallback(async (turnEntry, message) => {
       try {
         await Dr("edit-last-user-turn-for-host", {
           hostId: conversationHostApi.getHostId(),
@@ -14746,7 +14787,7 @@ function LocalConversationThreadContent({
         );
       }
     }),
-    forkConversationFromTurn = Y(async (targetTurnId) => {
+    forkConversationFromTurn = useStableCallback(async (targetTurnId) => {
       if (hasConversation)
         try {
           let forkedConversationId = await Dr("fork-conversation-from-turn", {
@@ -14778,7 +14819,7 @@ function LocalConversationThreadContent({
           );
         }
     }),
-    handleForkTurnMessage = Y((turnEntry) => {
+    handleForkTurnMessage = useStableCallback((turnEntry) => {
       if (!hasConversation || turnEntry.turnId == null) return;
       if (turnEntry.turnId === latestVisibleTurnId) {
         forkConversationFromTurn(turnEntry.turnId);
@@ -14794,7 +14835,7 @@ function LocalConversationThreadContent({
         turnId: turnIdForFork,
       });
     }),
-    setTurnCollapsed = Y((turnId, collapsed) => {
+    setTurnCollapsed = useStableCallback((turnId, collapsed) => {
       setCollapsedTurnsByConversationId((currentCollapsedTurns) =>
         vc({
           current: currentCollapsedTurns,
@@ -14906,25 +14947,27 @@ function LocalConversationThreadContent({
         projectlessOutputDirectory,
         visibleTurnEntries,
       }),
-    revealThreadFindItem = Y(async ({ id: contentUnitId, turnKey }) => {
-      let virtualizedTurnListApi = virtualizedTurnListApiRef.current;
-      if (virtualizedTurnListApi == null)
-        throw Error(
-          "Local conversation prompt rail scroll requested before VirtualizedTurnList API was ready",
+    revealThreadFindItem = useStableCallback(
+      async ({ id: contentUnitId, turnKey }) => {
+        let virtualizedTurnListApi = virtualizedTurnListApiRef.current;
+        if (virtualizedTurnListApi == null)
+          throw Error(
+            "Local conversation prompt rail scroll requested before VirtualizedTurnList API was ready",
+          );
+        await virtualizedTurnListApi.scrollToKey(
+          turnKeyBySearchKey.get(turnKey) ?? turnKey,
+          (turnContainer) => {
+            for (let contentUnit of turnContainer.querySelectorAll(
+              "[data-content-search-unit-key]",
+            ))
+              if (contentUnit.dataset.contentSearchUnitKey === contentUnitId)
+                return contentUnit;
+            return null;
+          },
         );
-      await virtualizedTurnListApi.scrollToKey(
-        turnKeyBySearchKey.get(turnKey) ?? turnKey,
-        (turnContainer) => {
-          for (let contentUnit of turnContainer.querySelectorAll(
-            "[data-content-search-unit-key]",
-          ))
-            if (contentUnit.dataset.contentSearchUnitKey === contentUnitId)
-              return contentUnit;
-          return null;
-        },
-      );
-    }),
-    revealContentSearchItem = Y(
+      },
+    ),
+    revealContentSearchItem = useStableCallback(
       async ({ conversationId: _conversationId, itemId, turnKey }) => {
         _conversationId === conversationId &&
           (Ks(itemId, "smooth") ||
@@ -14984,14 +15027,16 @@ function LocalConversationThreadContent({
     setCollapsedTurnsByConversationId,
     visibleTurnEntries,
   ]);
-  let notifyVisibleContentReady = Y(() => {
+  let notifyVisibleContentReady = useStableCallback(() => {
       setTimeout(() => {
         onVisibleThreadContentReady?.(conversationTurns.length);
       });
     }),
-    handleVirtualizedTurnListApiChange = Y((virtualizedTurnListApi) => {
-      virtualizedTurnListApiRef.current = virtualizedTurnListApi;
-    }),
+    handleVirtualizedTurnListApiChange = useStableCallback(
+      (virtualizedTurnListApi) => {
+        virtualizedTurnListApiRef.current = virtualizedTurnListApi;
+      },
+    ),
     visibleContentReadyHandler =
       conversationResumeState === "resumed" &&
       onVisibleThreadContentReady != null
@@ -15085,7 +15130,7 @@ function LocalConversationThreadContent({
 }
 var WS, GS, $, KS, qS, JS, YS;
 export const initLocalConversationThreadChunk = once(() => {
-  WS = q();
+  WS = getChunkModuleExports();
   bt();
   xt();
   toEsModule(gi(), 1);
