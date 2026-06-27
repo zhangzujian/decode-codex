@@ -292,12 +292,10 @@ import {
   Ar as parseMcpAppIdFromToolCallId,
   Ba as pullRequestReviewCommentAttachmentsSignal,
   Cl as pullRequestCurrentBranchSignal,
-  Cn as Ni,
   Dd as Fi,
   Ds as openEnvironmentTerminalSession,
   Ec as Ri,
   Es as zi,
-  F as recordPendingWorktreeForkSourceState,
   Fr as installedMcpAppIdsSignal,
   Ga as MoreHorizontalIcon,
   Gl as conversationDisplayTitleSignal,
@@ -310,23 +308,19 @@ import {
   Kl as conversationTitleSignal,
   Mr as Qi,
   Od as $i,
-  On as ta,
   P as na,
   Rl as hostConfigSignal,
   Rr as ia,
   Sa as aa,
   Sl as workspaceRouteStateSignal,
-  Sn as sa,
   So as ca,
   Ss as la,
   Td as ua,
   Va as da,
   Wl as fa,
-  Xa as pa,
   Ya as ma,
   Yi as localEnvironmentActionShortcutSignal,
   Yl as rightPanelTabsStore,
-  Za as _a,
   _c as va,
   _i as githubCliAvailabilitySignal,
   b as Sa,
@@ -504,13 +498,11 @@ import {
 } from "../boundaries/current-ref/profile-page-producer";
 import {
   A as il,
-  at as sl,
   en as cl,
   it as ul,
   k as dl,
   n as fl,
   rt as pl,
-  st as ml,
   tn as gl,
 } from "../boundaries/current-ref/appgen-library-hot-producer";
 import {
@@ -708,6 +700,7 @@ import {
 } from "./local-conversation-thread-parts/local-environment-action-items";
 import {
   getRecentLocalEnvironmentActions,
+  isRecentLocalEnvironmentAction,
   prependRecentLocalEnvironmentAction,
   type RecentLocalEnvironmentActionsByKey,
 } from "./local-conversation-thread-parts/local-environment-recent-actions";
@@ -771,6 +764,10 @@ import {
   initLocalConversationComposerFooterChunk,
   LocalConversationComposerFooter,
 } from "./local-conversation-thread-parts/local-conversation-composer-footer";
+import {
+  ForkFromOlderTurnDialogController,
+  initForkFromOlderTurnDialogControllerChunk,
+} from "./local-conversation-thread-parts/local-conversation-fork-dialog";
 import {
   collectGeneratedImagesForVisibleTurns,
   initVisibleTurnGeneratedImagesCollector,
@@ -2197,16 +2194,6 @@ var recentLocalEnvironmentActionsByKeySignal,
       {},
     );
   });
-function isRecentLocalEnvironmentAction(
-  recentActionsByKey: RecentLocalEnvironmentActionsByKey | null | undefined,
-  hostId: string,
-): boolean {
-  let environmentKey = getHostCodexHome(hostId);
-  return (
-    recentActionsByKey != null &&
-    isPathInCodexWorktree(recentActionsByKey, environmentKey)
-  );
-}
 var localEnvironmentRecentActionsModule,
   initLocalEnvironmentRecentActions = once(() => {
     localEnvironmentRecentActionsModule = getChunkModuleExports();
@@ -8063,294 +8050,6 @@ function findCompletedTurnSearchKeyAtOrBefore(visibleTurnEntries, timestampMs) {
   }
   return null;
 }
-var initOlderTurnForkDialogStatics = once(() => {});
-function ForkFromOlderTurnDialog(props) {
-  let {
-      canForkIntoWorktree,
-      isSubmitting,
-      isWorktreeThread,
-      onClose,
-      onForkIntoLocal,
-      onForkIntoWorktree,
-      open,
-      showWorktreeOption,
-    } = props,
-    handleOpenChange = (nextOpen) => {
-      nextOpen || onClose();
-    };
-  let dialogHeader = (
-    <DialogHeader
-      icon={olderTurnForkDialogJsxRuntime.jsx(GitBranchIcon, {
-        className: "icon-sm text-token-foreground",
-      })}
-      title={
-        <FormattedMessage
-          id="localConversation.forkFromOlderTurnDialog.title"
-          defaultMessage="Fork from earlier message?"
-          description="Title for the confirmation dialog shown when forking from a non-latest user message"
-        />
-      }
-      subtitle={
-        <FormattedMessage
-          id="localConversation.forkFromOlderTurnDialog.subtitle"
-          defaultMessage="This keeps your current files and worktree state as-is. If later turns changed the filesystem, the new fork may not match what is currently on disk."
-          description="Subtitle for the confirmation dialog shown when forking from a non-latest user message"
-        />
-      }
-    />
-  );
-  let localForkIcon = isWorktreeThread
-    ? olderTurnForkDialogJsxRuntime.jsx(ta, {
-        className:
-          "icon-xs shrink-0 opacity-75 group-hover:opacity-100 group-focus:opacity-100",
-      })
-    : olderTurnForkDialogJsxRuntime.jsx(sa, {
-        className:
-          "icon-xs shrink-0 opacity-75 group-hover:opacity-100 group-focus:opacity-100",
-      });
-  let localForkMessageDescriptor = isWorktreeThread
-      ? fo.forkIntoSameWorktree
-      : fo.forkIntoLocal,
-    localForkTitle = (
-      <span className="text-sm font-medium electron:text-base">
-        <FormattedMessage {...localForkMessageDescriptor} />
-      </span>
-    );
-  let localForkDescription = (
-    <span className="text-xs whitespace-normal text-token-description-foreground">
-      {isWorktreeThread ? (
-        <FormattedMessage
-          id="localConversation.forkFromOlderTurnDialog.local.sameWorktreeDescription"
-          defaultMessage="Continue from this message in the same worktree"
-          description="Description for forking an older message within the same worktree"
-        />
-      ) : (
-        <FormattedMessage
-          id="localConversation.forkFromOlderTurnDialog.local.description"
-          defaultMessage="Continue from this message in a new local chat"
-          description="Description for forking an older message locally"
-        />
-      )}
-    </span>
-  );
-  let localForkLabel = (
-    <span className="flex min-w-0 flex-col gap-0.5">
-      {localForkTitle}
-      {localForkDescription}
-    </span>
-  );
-  let localForkButton = (
-    <button
-      type="button"
-      className="group flex w-full items-center gap-3 rounded-lg px-[var(--padding-row-x)] py-2 text-left text-token-foreground outline-hidden enabled:cursor-interaction enabled:hover:bg-token-list-hover-background enabled:focus:bg-token-list-hover-background disabled:cursor-not-allowed disabled:opacity-50"
-      disabled={isSubmitting}
-      onClick={onForkIntoLocal}
-    >
-      {localForkIcon}
-      {localForkLabel}
-    </button>
-  );
-  let worktreeForkButton = showWorktreeOption ? (
-    <button
-      type="button"
-      className="group flex w-full items-center gap-3 rounded-lg px-[var(--padding-row-x)] py-2 text-left text-token-foreground outline-hidden enabled:cursor-interaction enabled:hover:bg-token-list-hover-background enabled:focus:bg-token-list-hover-background disabled:cursor-not-allowed disabled:opacity-50"
-      disabled={isSubmitting || !canForkIntoWorktree}
-      onClick={onForkIntoWorktree}
-    >
-      {olderTurnForkDialogJsxRuntime.jsx(ta, {
-        className:
-          "icon-xs shrink-0 opacity-75 group-hover:opacity-100 group-focus:opacity-100",
-      })}
-      <span className="flex min-w-0 flex-col gap-0.5">
-        <span className="text-sm font-medium electron:text-base">
-          <FormattedMessage {...fo.forkIntoWorktree} />
-        </span>
-        <span className="text-xs whitespace-normal text-token-description-foreground">
-          {canForkIntoWorktree ? (
-            <FormattedMessage
-              id="localConversation.forkFromOlderTurnDialog.worktree.description"
-              defaultMessage="Continue from this message in a new worktree"
-              description="Description for forking an older message into a new worktree"
-            />
-          ) : (
-            <FormattedMessage {...fo.forkThreadRequiresGitRepo} />
-          )}
-        </span>
-      </span>
-    </button>
-  ) : null;
-  let forkOptions = (
-    <div className="flex flex-col gap-1">
-      {localForkButton}
-      {worktreeForkButton}
-    </div>
-  );
-  let cancelLabel = (
-    <FormattedMessage
-      id="localConversation.forkFromOlderTurnDialog.cancel"
-      defaultMessage="Cancel"
-      description="Cancel button label for the older-turn fork confirmation dialog"
-    />
-  );
-  let cancelAction = (
-    <DialogFooterActions>
-      {olderTurnForkDialogJsxRuntime.jsx(Button, {
-        color: "secondary",
-        disabled: isSubmitting,
-        onClick: onClose,
-        children: cancelLabel,
-      })}
-    </DialogFooterActions>
-  );
-  let dialogBody = olderTurnForkDialogJsxRuntime.jsxs(DialogBody, {
-    className: "gap-4",
-    children: [dialogHeader, forkOptions, cancelAction],
-  });
-  return olderTurnForkDialogJsxRuntime.jsx(AppDialog, {
-    open,
-    showDialogClose: false,
-    size: "compact",
-    onOpenChange: handleOpenChange,
-    children: dialogBody,
-  });
-}
-var olderTurnForkDialogModule,
-  olderTurnForkDialogJsxRuntime,
-  initOlderTurnForkDialogChunk = once(() => {
-    olderTurnForkDialogModule = getChunkModuleExports();
-    initIntlRuntime();
-    initButtonComponentPrimitives();
-    initAppDialog();
-    initDialogLayoutComponents();
-    initGitBranchIcon();
-    Ni();
-    Ra();
-    Sa();
-    olderTurnForkDialogJsxRuntime = getJsxRuntime();
-  });
-function ForkFromOlderTurnDialogController({
-  conversationCwd,
-  conversationId,
-  conversationLatestCollaborationMode,
-  hostId,
-  onClose,
-  onForkIntoLocal,
-  turnId,
-}) {
-  let scope = useScope(appScope),
-    intl = useIntl(),
-    navigate = useNavigate(),
-    [isSubmitting, setIsSubmitting] =
-      olderTurnForkDialogReactRuntime.useState(false),
-    isWorktreeThread = isRecentLocalEnvironmentAction(
-      conversationCwd ? normalizeWorkspacePath(conversationCwd) : null,
-      hostId,
-    ),
-    { gitRoot } = ml(conversationCwd, {
-      enabled: conversationCwd != null,
-      hostId,
-      source: "local_conversation_thread",
-    }),
-    canForkIntoWorktree = gitRoot != null && true,
-    { resolvedConfigPath } = Oa({
-      hostId,
-      workspaceRoot: conversationCwd,
-    }),
-    closeIfIdle = () => {
-      isSubmitting || onClose();
-    },
-    forkIntoLocal = async () => {
-      setIsSubmitting(true);
-      try {
-        await onForkIntoLocal();
-        onClose();
-      } finally {
-        setIsSubmitting(false);
-      }
-    },
-    forkIntoWorktree = async () => {
-      if (!canForkIntoWorktree || conversationCwd == null) {
-        scope
-          .get(toastSignal)
-          .danger(intl.formatMessage(fo.forkThreadRequiresGitRepo));
-        return;
-      }
-      setIsSubmitting(true);
-      try {
-        let pendingWorktreeId = pa({
-          hostId,
-          label: intl.formatMessage(fo.forkPendingWorktreeTitle),
-          sourceWorkspaceRoot: conversationCwd,
-          startingState: {
-            type: "working-tree",
-          },
-          localEnvironmentConfigPath: resolvedConfigPath,
-          launchMode: "fork-conversation",
-          prompt: intl.formatMessage(fo.forkPendingWorktreePrompt),
-          startConversationParamsInput: null,
-          sourceConversationId: conversationId,
-          sourceCollaborationMode: conversationLatestCollaborationMode,
-          targetTurnId: turnId,
-        });
-        recordPendingWorktreeForkSourceState(scope, {
-          pendingWorktreeId,
-          sourceConversationId: conversationId,
-          sourceWorkspaceRoot: conversationCwd,
-        });
-        onClose();
-        navigate(`/worktree-init-v2/${pendingWorktreeId}`);
-      } catch (error) {
-        throw (
-          logger.error("Error creating worktree fork from turn", {
-            safe: {},
-            sensitive: {
-              error,
-            },
-          }),
-          scope.get(toastSignal).danger(intl.formatMessage(fo.forkThreadError)),
-          error
-        );
-      } finally {
-        setIsSubmitting(false);
-      }
-    };
-  return (
-    <ForkFromOlderTurnDialog
-      canForkIntoWorktree={canForkIntoWorktree}
-      isSubmitting={isSubmitting}
-      isWorktreeThread={isWorktreeThread}
-      open={true}
-      onClose={closeIfIdle}
-      onForkIntoLocal={() => {
-        forkIntoLocal();
-      }}
-      onForkIntoWorktree={() => {
-        forkIntoWorktree();
-      }}
-      showWorktreeOption={canForkIntoWorktree}
-    />
-  );
-}
-var olderTurnForkDialogReactRuntime,
-  forkDialogControllerJsxRuntime,
-  initForkFromOlderTurnDialogControllerChunk = once(() => {
-    initScopeRuntime();
-    initPathHelpers();
-    olderTurnForkDialogReactRuntime = toEsModule(loadReactModule(), 1);
-    initIntlRuntime();
-    xr();
-    initToastRuntime();
-    Di();
-    initAppScope();
-    sl();
-    initLoggerRuntime();
-    _a();
-    initOlderTurnForkDialogChunk();
-    za();
-    Sa();
-    initLocalEnvironmentRecentActions();
-    forkDialogControllerJsxRuntime = getJsxRuntime();
-  });
 var deepEqualModule,
   initDeepEqualModule = once(() => {
     deepEqualModule = toEsModule(loadIsEqualModule(), 1);
@@ -13198,7 +12897,6 @@ export const initLocalConversationThreadChunk = once(() => {
   initThreadNullRefChunk();
   Ns();
   initWorktreeRestoreBannerChunk();
-  initOlderTurnForkDialogStatics();
   initForkFromOlderTurnDialogControllerChunk();
   initDeepEqualModule();
   initConversationMarkdownRenderer();

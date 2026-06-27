@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Recent local-environment action list helpers.
+import {
+  Nu as getHostCodexHome,
+  pI as isPathInCodexWorktree,
+} from "../../boundaries/current-ref/appg-thread-shared-producer";
 
 export type RecentLocalEnvironmentActionsByKey = Record<
   string,
@@ -31,4 +35,15 @@ export function prependRecentLocalEnvironmentAction(
     ...actionsByKey,
     [actionKey]: recentActionNames,
   };
+}
+
+export function isRecentLocalEnvironmentAction(
+  workspacePath: string | null | undefined,
+  hostId: string,
+): boolean {
+  let environmentKey = getHostCodexHome(hostId);
+  return (
+    workspacePath != null &&
+    isPathInCodexWorktree(workspacePath, environmentKey)
+  );
 }
