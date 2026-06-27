@@ -789,6 +789,7 @@ import {
   createBackgroundTerminalRestartRecord,
   createStartingBackgroundTerminalRow,
 } from "./local-conversation-thread-parts/background-terminal-current-rows";
+import { createBackgroundTerminalProcessSnapshotSelector } from "./local-conversation-thread-parts/background-terminal-process-snapshot";
 import { createRestoredBackgroundTerminalRows } from "./local-conversation-thread-parts/background-terminal-restored-rows";
 import { countBackgroundTerminalSummaryRows } from "./local-conversation-thread-parts/background-terminal-summary-count";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
@@ -7829,7 +7830,14 @@ function Sv(e) {
       se;
   _data?.processes;
   let le = _data?.processes,
-    ue = kv(backgroundTerminals, restoredBackgroundProcesses, le, j, b);
+    ue = createBackgroundTerminalProcessSnapshotSelector({
+      actionStatesByProcessId: j,
+      backgroundTerminals,
+      conversationId: b,
+      isEqual: jv.default,
+      persistedProcesses: le,
+      restoredProcesses: restoredBackgroundProcesses,
+    });
   let de = ue,
     fe = I && ce,
     pe = {
@@ -8284,55 +8292,6 @@ function Ov(e) {
       {i}
     </span>
   );
-}
-function kv(e, t, n, r, i) {
-  let a = null;
-  return (o) => {
-    let s = Date.now(),
-      c = Array.from(r.values()).filter(
-        (item) =>
-          item.status === "starting" && item.row.process.conversationId === i,
-      ),
-      l = c.reduce(
-        (accumulator, current) =>
-          current.expiresAtMs != null && current.expiresAtMs <= s
-            ? Math.max(accumulator, current.expiresAtMs)
-            : accumulator,
-        0,
-      ),
-      u = c.some((item) => item.expiresAtMs == null || item.expiresAtMs > s),
-      d = o.processes.some((item) => item.ageSeconds == null)
-        ? [...e, ...t, ...(n ?? [])].reduce(
-            (accumulator, current) =>
-              current.startedAtMs == null
-                ? accumulator
-                : Math.max(accumulator, current.startedAtMs + 3e3),
-            0,
-          )
-        : 0,
-      f = {
-        processSnapshotTimeMs: u || d > s ? s : Math.max(l, d),
-        processes: o.processes.map((item) => ({
-          ...item,
-          ageSeconds:
-            item.ageSeconds == null ? null : Math.min(item.ageSeconds, 3),
-          cpuPercent: null,
-          rssKb: null,
-        })),
-      };
-    if (a != null && jv.default(a.comparison, f)) return a.selected;
-    let p = {
-      processSnapshotTimeMs: s,
-      processes: o.processes,
-    };
-    return (
-      (a = {
-        comparison: f,
-        selected: p,
-      }),
-      p
-    );
-  };
 }
 var Av,
   jv,
