@@ -5,7 +5,7 @@ const __vite__mapDeps = (
   m = __vite__mapDeps,
   d = m.f ||
     (m.f = [
-      "./thread-user-message-navigation-rail-Mi2GE36I.js",
+      "../utils/thread-user-message-navigation-rail",
       "./app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js",
       "./rolldown-runtime-Czos8NxU.js",
       "./app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-Dlqz5rpw.css",
@@ -1149,7 +1149,7 @@ var Of,
           await u(
             async () => {
               let { ThreadUserMessageNavigationRail } = await import(
-                "./thread-user-message-navigation-rail-Mi2GE36I.js"
+                "../utils/thread-user-message-navigation-rail"
               );
               return {
                 ThreadUserMessageNavigationRail,

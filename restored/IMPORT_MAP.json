@@ -8405,6 +8405,13 @@
       "restored": "utils/thread-user-message-navigation-rail/index.tsx",
       "status": "done"
     },
+    "thread-user-message-navigation-rail-Mi2GE36I": {
+      "restored": "utils/thread-user-message-navigation-rail/index.tsx",
+      "exports": {
+        "ThreadUserMessageNavigationRail": "ThreadUserMessageNavigationRail"
+      },
+      "status": "done"
+    },
     "plugin-prefill-prompt-Ba9YzNzQ": {
       "restored": "plugins/plugin-prefill-prompt.ts",
       "exports": {
