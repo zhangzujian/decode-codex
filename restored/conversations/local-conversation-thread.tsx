@@ -51,7 +51,7 @@ import {
   AL as u,
   AN as d,
   AO as f,
-  AP as p,
+  AP as motion,
   AV as m,
   Ai as h,
   Aj as g,
@@ -60,7 +60,7 @@ import {
   Ao as y,
   Ap as b,
   Au as x,
-  BP as S,
+  BP as classNames,
   BV as getJsxRuntime,
   Bh as w,
   Bn as T,
@@ -85,7 +85,7 @@ import {
   GE as ne,
   G_ as re,
   Ga as ie,
-  Gi as H,
+  Gi as DropdownMenu,
   Gj as ae,
   Gu as U,
   HE as oe,
@@ -103,7 +103,7 @@ import {
   Ix as _e,
   JV as G,
   Ja as ve,
-  Ji as ye,
+  Ji as DropdownMenuItem,
   Jo as be,
   Jt as xe,
   Kg as Se,
@@ -116,9 +116,9 @@ import {
   Lj as Ae,
   Ln as je,
   MB as Me,
-  MP as Ne,
+  MP as AnimatePresence,
   MV as Pe,
-  M_ as Fe,
+  M_ as localConversationRouteScope,
   Mi as Ie,
   Mj as Le,
   Mu as Re,
@@ -150,10 +150,10 @@ import {
   Pv as lt,
   QP as ut,
   Qg as dt,
-  Qi as ft,
+  Qi as threadSummaryPanelSectionTransition,
   R as pt,
-  RN as mt,
-  RP as ht,
+  RN as reducedMotionPreferenceSignal,
+  RP as ChevronIcon,
   Rf as gt,
   Rj as _t,
   Rn as vt,
@@ -1325,7 +1325,7 @@ function SummaryPanelArtifactsList(props) {
       getImagePreviewSrc,
       onOpen,
     } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     intl = ur(),
     generatedImageNumberByPath,
     generatedImagePreviews;
@@ -2011,7 +2011,7 @@ function BackgroundTerminalSummaryRows(props) {
         )}
         label={
           <span
-            className={S(
+            className={classNames(
               "block min-w-0 truncate text-sm leading-5",
               status === "starting" && "loading-shimmer-pure-text",
               (status === "stopped" || status === "not-found") &&
@@ -2087,7 +2087,10 @@ function BackgroundTerminalRowActionMenu(props) {
       onRestart(row, rowIndex);
     };
   let actionsLabel = intl.formatMessage(backgroundTerminalMessages.actions);
-  let triggerClassName = S(ac, "data-[state=open]:text-token-foreground");
+  let triggerClassName = classNames(
+    ac,
+    "data-[state=open]:text-token-foreground",
+  );
   let triggerIcon = <Hi className="icon-2xs" />;
   let triggerButton = (
     <button
@@ -2153,7 +2156,7 @@ function BackgroundTerminalRowActionMenu(props) {
     </Br.Item>
   );
   return (
-    <H
+    <DropdownMenu
       align="end"
       animateExit={false}
       contentClassName="!animate-none"
@@ -2163,7 +2166,7 @@ function BackgroundTerminalRowActionMenu(props) {
       {openOutputItem}
       {stopItem}
       {startOrRestartItem}
-    </H>
+    </DropdownMenu>
   );
 }
 function stopBackgroundTerminalActionTriggerPropagation(event) {
@@ -2753,7 +2756,7 @@ function AddLocalEnvironmentActionForm(props) {
       </label>
     );
     nameRowClassName = "flex items-center gap-2";
-    DropdownComponent = H;
+    DropdownComponent = DropdownMenu;
     iconDropdownAlign = "start";
     iconDropdownContentWidth = "icon";
     iconDropdownTriggerButton = addLocalEnvironmentActionFormJsxRuntime.jsx(k, {
@@ -3354,7 +3357,7 @@ function LocalConversationEnvironmentActionControls(props) {
       </>
     ) : null;
     let actionsDropdown = (
-      <H
+      <DropdownMenu
         align="end"
         contentWidth="workspace"
         open={isMenuOpen}
@@ -3366,7 +3369,7 @@ function LocalConversationEnvironmentActionControls(props) {
         {actionMenuItems}
         {addActionItem}
         {changeEnvironmentMenu}
-      </H>
+      </DropdownMenu>
     );
     let primaryActionButton =
       primaryActionItem != null && primaryActionTitle != null
@@ -3509,7 +3512,7 @@ function LocalEnvironmentSelectorDropdown(props) {
     children: triggerButton,
   });
   return (
-    <H
+    <DropdownMenu
       align="end"
       contentWidth="workspace"
       disabled={isDisabled}
@@ -3519,7 +3522,7 @@ function LocalEnvironmentSelectorDropdown(props) {
       onOpenChange={onOpenChange}
     >
       {children}
-    </H>
+    </DropdownMenu>
   );
 }
 function AddLocalEnvironmentActionPopoverContent(props) {
@@ -3803,7 +3806,7 @@ function ThreadSummaryPanelSection(props) {
       titleSuffix,
       onChange,
     } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     autoCollapseState = useScopedValue(
       threadSummaryPanelSectionAutoCollapseState,
       sectionKey,
@@ -3817,7 +3820,7 @@ function ThreadSummaryPanelSection(props) {
     isExpanded =
       !(autoCollapse === true && autoCollapseState === "collapsed") &&
       (persistedIsExpanded ?? !defaultCollapsed),
-    shouldUseReducedMotion = W(mt),
+    shouldUseReducedMotion = W(reducedMotionPreferenceSignal),
     setIsExpanded = (nextIsExpanded) => {
       scope.set(
         threadSummaryPanelSectionExpandedState,
@@ -3907,15 +3910,15 @@ function ThreadSummaryPanelSection(props) {
   let sectionContent = shouldUseReducedMotion ? (
     shouldRenderContent && staticContent
   ) : (
-    <Ne initial={false}>
+    <AnimatePresence initial={false}>
       {shouldRenderContent &&
         threadSummaryPanelSectionJsxRuntime.jsx(
-          p.div,
+          motion.div,
           {
             initial: collapsedSectionMotionState,
             animate: expandedSectionMotionState,
             exit: collapsedSectionMotionState,
-            transition: ft,
+            transition: threadSummaryPanelSectionTransition,
             className: "relative z-0 overflow-hidden",
             children: (
               <div className="flex flex-col gap-0.5 px-4">{children}</div>
@@ -3923,7 +3926,7 @@ function ThreadSummaryPanelSection(props) {
           },
           "content",
         )}
-    </Ne>
+    </AnimatePresence>
   );
   return (
     <section
@@ -3955,9 +3958,9 @@ function ThreadSummaryPanelSectionHeader(props) {
   let collapsedTitleSuffix = isExpanded ? null : titleSuffix,
     chevronIcon =
       (mode === "accordion" || hasMultipleSectionOptions) &&
-      threadSummaryPanelSectionJsxRuntime.jsx(ht, {
+      threadSummaryPanelSectionJsxRuntime.jsx(ChevronIcon, {
         "aria-hidden": "true",
-        className: S(
+        className: classNames(
           "icon-2xs shrink-0 group-hover/section-toggle:opacity-100 group-focus-visible/section-toggle:opacity-100",
           !shouldUseReducedMotion && "transition-transform",
           isExpanded ? "opacity-0" : "opacity-100",
@@ -3978,10 +3981,10 @@ function ThreadSummaryPanelSectionHeader(props) {
   );
   let headerControl =
     mode === "dropdown" && hasMultipleSectionOptions ? (
-      <H triggerButton={toggleButton}>
+      <DropdownMenu triggerButton={toggleButton}>
         {sectionOptions?.map((option) =>
           threadSummaryPanelSectionJsxRuntime.jsx(
-            ye,
+            DropdownMenuItem,
             {
               onSelect: () => onChange?.(option),
               children: option,
@@ -3989,7 +3992,7 @@ function ThreadSummaryPanelSectionHeader(props) {
             option,
           ),
         )}
-      </H>
+      </DropdownMenu>
     ) : (
       toggleButton
     );
@@ -4047,7 +4050,10 @@ var threadSummaryPanelSectionModule,
         `${THREAD_SUMMARY_PANEL_SECTION_EXPANDED_STATE_PREFIX}${sectionKey}`,
       DEFAULT_THREAD_SUMMARY_PANEL_SECTION_EXPANDED_STATE,
     );
-    threadSummaryPanelSectionAutoCollapseState = bn(Fe, () => "pending");
+    threadSummaryPanelSectionAutoCollapseState = bn(
+      localConversationRouteScope,
+      () => "pending",
+    );
   });
 function BranchChangesSummaryRow(props) {
   let { onOpenReviewTab, diffStats, isDiffStatsLoading } = props,
@@ -5057,9 +5063,13 @@ var pullRequestSidePanelErrorMessageModule,
   });
 function PullRequestSidePanelDetailsSummary(props) {
   let { action, children } = props,
-    chevronIcon = pullRequestSidePanelDetailsSummaryJsxRuntime.jsx(ht, {
-      className: "icon-2xs rotate-180 transition-transform group-open:rotate-0",
-    });
+    chevronIcon = pullRequestSidePanelDetailsSummaryJsxRuntime.jsx(
+      ChevronIcon,
+      {
+        className:
+          "icon-2xs rotate-180 transition-transform group-open:rotate-0",
+      },
+    );
   let titleNode = (
     <span className="flex min-w-0 items-center gap-1">
       {children}
@@ -6530,7 +6540,7 @@ function renderPullRequestOverviewReviewerBadge(reviewer) {
             />
           )}
           <span
-            className={S(
+            className={classNames(
               "absolute end-[-2px] bottom-[-2px] size-2 rounded-full border border-token-bg-primary",
               reviewer.status === "approved" && "bg-token-charts-green",
               reviewer.status === "waiting" && "bg-token-charts-yellow",
@@ -6980,7 +6990,7 @@ var pullRequestSidePanelTabReactRuntime,
   });
 function PullRequestSummaryRow(props) {
   let { conversationId, hostId, pullRequestStatus, visualState } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     intl = ur(),
     isBrowserSidebarEnabled = W(z),
     canOpenInSidePanel = useScopedValue(An, "1590905736"),
@@ -7108,10 +7118,10 @@ function formatPullRequestSummaryTitle(number, title, intl) {
     },
   );
 }
-var b_,
-  x_,
-  S_ = once(() => {
-    b_ = getChunkModuleExports();
+var pullRequestSummaryRowModule,
+  pullRequestSummaryRowJsxRuntime,
+  initPullRequestSummaryRowChunk = once(() => {
+    pullRequestSummaryRowModule = getChunkModuleExports();
     c();
     Jn();
     Nt();
@@ -7125,7 +7135,7 @@ var b_,
     o();
     initPullRequestSidePanelOpenerChunk();
     initSummaryPanelRowChunk();
-    x_ = getJsxRuntime();
+    pullRequestSummaryRowJsxRuntime = getJsxRuntime();
   });
 function LocalConversationGitSummary(props) {
   let {
@@ -7198,12 +7208,15 @@ function LocalConversationGitSummary(props) {
         />
       );
     }
-    return A_.jsx(CreatePullRequestSummaryAction, {
-      createPullRequestActionState: createPullRequestActionState,
-      ghCliAvailability: ghCliAvailability,
-      onCreatePullRequest,
-      workflowPhase: workflowPhase,
-    });
+    return localConversationGitSummaryJsxRuntime.jsx(
+      CreatePullRequestSummaryAction,
+      {
+        createPullRequestActionState: createPullRequestActionState,
+        ghCliAvailability: ghCliAvailability,
+        onCreatePullRequest,
+        workflowPhase: workflowPhase,
+      },
+    );
   }
   if (
     isCreatePrWorkflow &&
@@ -7277,12 +7290,15 @@ function LocalConversationGitSummary(props) {
       hasMergeConflicts: pullRequestStatus.mergeBlocker === "conflicts",
       status: visualState,
     }),
-    pullRequestSummaryRow = A_.jsx(PullRequestSummaryRow, {
-      conversationId,
-      hostId: hostConfig.id,
-      pullRequestStatus: pullRequestStatus,
-      visualState: mergeVisualState,
-    });
+    pullRequestSummaryRow = localConversationGitSummaryJsxRuntime.jsx(
+      PullRequestSummaryRow,
+      {
+        conversationId,
+        hostId: hostConfig.id,
+        pullRequestStatus: pullRequestStatus,
+        visualState: mergeVisualState,
+      },
+    );
   let detailRows = (
     <PullRequestStatusDetailRows
       conversationId={conversationId}
@@ -7385,10 +7401,10 @@ function getGithubCliStatusSummaryRow(ghCliAvailability) {
 }
 function CreatePullRequestProgressSummaryRow(props) {
   let { phase, onCancel } = props,
-    spinnerIcon = A_.jsx(rr, {
-      className: j_,
+    spinnerIcon = localConversationGitSummaryJsxRuntime.jsx(rr, {
+      className: GITHUB_STATUS_ICON_CLASS_NAME,
     });
-  let phaseLabel = A_.jsx(nl, {
+  let phaseLabel = localConversationGitSummaryJsxRuntime.jsx(nl, {
     phase,
   });
   let cancelButton = <Ms onCancel={onCancel} />;
@@ -7402,13 +7418,13 @@ function CreatePullRequestProgressSummaryRow(props) {
   );
 }
 function GithubStatusPlaceholderIcon() {
-  return <Fr className={j_} />;
+  return <Fr className={GITHUB_STATUS_ICON_CLASS_NAME} />;
 }
-var k_,
-  A_,
-  j_,
-  M_ = once(() => {
-    k_ = getChunkModuleExports();
+var localConversationGitSummaryModule,
+  localConversationGitSummaryJsxRuntime,
+  GITHUB_STATUS_ICON_CLASS_NAME,
+  initLocalConversationGitSummaryChunk = once(() => {
+    localConversationGitSummaryModule = getChunkModuleExports();
     c();
     Jn();
     nt();
@@ -7425,9 +7441,9 @@ var k_,
     initSummaryPanelRowChunk();
     initPullRequestSummaryRowsChunk();
     initPullRequestTitleFallbackChunk();
-    S_();
-    A_ = getJsxRuntime();
-    j_ = "icon-sm shrink-0 text-token-text-tertiary";
+    initPullRequestSummaryRowChunk();
+    localConversationGitSummaryJsxRuntime = getJsxRuntime();
+    GITHUB_STATUS_ICON_CLASS_NAME = "icon-sm shrink-0 text-token-text-tertiary";
   });
 function ThreadSummaryEnvironmentModeControls(props) {
   let { conversationId, onOpenChange } = props,
@@ -7477,16 +7493,19 @@ function ThreadSummaryEnvironmentModeControls(props) {
   );
   let cloudEnvironmentDropdown =
     composerMode === "cloud" &&
-    F_.jsx(qt, {
+    threadSummaryEnvironmentModeControlsJsxRuntime.jsx(qt, {
       electron: true,
       browser: true,
-      children: F_.jsx(CloudEnvironmentDropdown, {
-        composerMode,
-        conversationId,
-        disabled: isWorktreeConversation,
-        setComposerMode,
-        side: "left",
-      }),
+      children: threadSummaryEnvironmentModeControlsJsxRuntime.jsx(
+        CloudEnvironmentDropdown,
+        {
+          composerMode,
+          conversationId,
+          disabled: isWorktreeConversation,
+          setComposerMode,
+          side: "left",
+        },
+      ),
     });
   return (
     <div className="relative flex w-full items-center gap-2">
@@ -7495,10 +7514,10 @@ function ThreadSummaryEnvironmentModeControls(props) {
     </div>
   );
 }
-var P_,
-  F_,
-  I_ = once(() => {
-    P_ = getChunkModuleExports();
+var threadSummaryEnvironmentModeControlsModule,
+  threadSummaryEnvironmentModeControlsJsxRuntime,
+  initThreadSummaryEnvironmentModeControlsChunk = once(() => {
+    threadSummaryEnvironmentModeControlsModule = getChunkModuleExports();
     c();
     gn();
     nt();
@@ -7514,7 +7533,7 @@ var P_,
     _();
     Ht();
     ae();
-    F_ = getJsxRuntime();
+    threadSummaryEnvironmentModeControlsJsxRuntime = getJsxRuntime();
   });
 function ThreadSummaryEnvironmentSection(props) {
   let {
@@ -7527,17 +7546,19 @@ function ThreadSummaryEnvironmentSection(props) {
       registerEnvironmentActionCommands,
       workspaceBrowserRoot,
     } = props,
-    routeScope = B(Fe),
+    routeScope = B(localConversationRouteScope),
     diffStatsQuery = W(La),
     environmentTerminalController = W(Ia),
     diffStats = diffStatsQuery.metrics,
-    createBranchActionRef = z_.useRef(null),
-    createPullRequestActionRef = z_.useRef(null),
+    createBranchActionRef =
+      threadSummaryEnvironmentSectionReactRuntime.useRef(null),
+    createPullRequestActionRef =
+      threadSummaryEnvironmentSectionReactRuntime.useRef(null),
     workspaceGitRoot =
       workspaceBrowserRoot == null ? null : qe(workspaceBrowserRoot);
   let emptyBranchControlRow = isCodexWorktree ? (
     <SummaryPanelRow
-      icon={B_.jsx(sr, {
+      icon={threadSummaryEnvironmentSectionJsxRuntime.jsx(sr, {
         className: "icon-sm shrink-0",
       })}
       label={
@@ -7569,7 +7590,7 @@ function ThreadSummaryEnvironmentSection(props) {
           ) : (
             <SummaryPanelRow
               disabled={disabled}
-              icon={B_.jsx(sr, {
+              icon={threadSummaryEnvironmentSectionJsxRuntime.jsx(sr, {
                 className: "icon-sm shrink-0",
               })}
               label={
@@ -7577,16 +7598,20 @@ function ThreadSummaryEnvironmentSection(props) {
                   <span className="min-w-0 truncate">{currentBranch}</span>
                   {disabled
                     ? null
-                    : B_.jsx(ht, {
-                        className: "icon-2xs shrink-0 text-token-text-tertiary",
-                      })}
+                    : threadSummaryEnvironmentSectionJsxRuntime.jsx(
+                        ChevronIcon,
+                        {
+                          className:
+                            "icon-2xs shrink-0 text-token-text-tertiary",
+                        },
+                      )}
                 </span>
               }
               labelClassName="flex min-w-0 items-center"
               title={switchTooltipText}
               trailing={
                 isPending
-                  ? B_.jsx(rr, {
+                  ? threadSummaryEnvironmentSectionJsxRuntime.jsx(rr, {
                       className: "icon-xs text-token-text-tertiary",
                     })
                   : null
@@ -7608,17 +7633,20 @@ function ThreadSummaryEnvironmentSection(props) {
             linesRemoved={diffStats.deletions}
           />
         )}
-        {B_.jsx(LocalConversationEnvironmentActionControls, {
-          conversationId,
-          hostConfig,
-          onMenuOpenChange: onForceShow,
-          onOpenChange: onForceShow,
-          onShowTerminal: (terminalId) => {
-            Li(routeScope, terminalId, environmentTerminalController);
+        {threadSummaryEnvironmentSectionJsxRuntime.jsx(
+          LocalConversationEnvironmentActionControls,
+          {
+            conversationId,
+            hostConfig,
+            onMenuOpenChange: onForceShow,
+            onOpenChange: onForceShow,
+            onShowTerminal: (terminalId) => {
+              Li(routeScope, terminalId, environmentTerminalController);
+            },
+            registerCommands: registerEnvironmentActionCommands,
+            workspaceRoot: cwd,
           },
-          registerCommands: registerEnvironmentActionCommands,
-          workspaceRoot: cwd,
-        })}
+        )}
       </span>
     );
   };
@@ -7629,11 +7657,14 @@ function ThreadSummaryEnvironmentSection(props) {
       description="Title for the thread summary side panel environment and branch details section"
     />
   );
-  let branchChangesRow = B_.jsx(BranchChangesSummaryRow, {
-    onOpenReviewTab,
-    diffStats,
-    isDiffStatsLoading: diffStatsQuery.isLoading,
-  });
+  let branchChangesRow = threadSummaryEnvironmentSectionJsxRuntime.jsx(
+    BranchChangesSummaryRow,
+    {
+      onOpenReviewTab,
+      diffStats,
+      isDiffStatsLoading: diffStatsQuery.isLoading,
+    },
+  );
   let environmentModeControls =
     conversationId == null ? null : (
       <ThreadSummaryEnvironmentModeControls
@@ -7651,7 +7682,7 @@ function ThreadSummaryEnvironmentSection(props) {
   handleCreatePullRequestActionReady = (action) => {
     createPullRequestActionRef.current = action;
   };
-  let pullRequestControls = B_.jsx(
+  let pullRequestControls = threadSummaryEnvironmentSectionJsxRuntime.jsx(
     nc,
     {
       codexWorktree: isCodexWorktree,
@@ -7693,14 +7724,14 @@ function ThreadSummaryEnvironmentSection(props) {
     </ThreadSummaryPanelSection>
   );
 }
-var R_,
-  z_,
-  B_,
-  V_ = once(() => {
-    R_ = getChunkModuleExports();
+var threadSummaryEnvironmentSectionModule,
+  threadSummaryEnvironmentSectionReactRuntime,
+  threadSummaryEnvironmentSectionJsxRuntime,
+  initThreadSummaryEnvironmentSectionChunk = once(() => {
+    threadSummaryEnvironmentSectionModule = getChunkModuleExports();
     c();
     gn();
-    z_ = toEsModule(G(), 1);
+    threadSummaryEnvironmentSectionReactRuntime = toEsModule(G(), 1);
     Jn();
     d();
     Nl();
@@ -7715,14 +7746,14 @@ var R_,
     initSummaryPanelRowChunk();
     initThreadSummaryPanelSectionChunk();
     initBranchChangesSummaryRowChunk();
-    M_();
-    I_();
-    B_ = getJsxRuntime();
+    initLocalConversationGitSummaryChunk();
+    initThreadSummaryEnvironmentModeControlsChunk();
+    threadSummaryEnvironmentSectionJsxRuntime = getJsxRuntime();
   });
 function ThreadSummaryAutomationRow(props) {
   let { automation } = props,
     intl = ur(),
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     nextRunTooltip;
   {
     let nextRunLabel = ks({
@@ -8015,9 +8046,9 @@ var threadSummarySourceRowsModule,
   });
 function ThreadSummaryPanelRoot(props) {
   let { children, shouldHideInlineImmediately, shouldShow } = props,
-    animationsDisabled = W(mt),
+    animationsDisabled = W(reducedMotionPreferenceSignal),
     invisibleClassName = shouldHideInlineImmediately && "invisible",
-    motionContainerClassName = S(
+    motionContainerClassName = classNames(
       "pointer-events-none pe-4 max-h-full min-h-0 origin-top-right",
       invisibleClassName,
     );
@@ -8043,7 +8074,7 @@ function ThreadSummaryPanelRoot(props) {
     pointerEventsClassName = shouldShow
       ? "pointer-events-auto"
       : "pointer-events-none",
-    panelClassName = S(
+    panelClassName = classNames(
       "flex max-h-full min-h-0 flex-col",
       pointerEventsClassName,
     );
@@ -8062,7 +8093,7 @@ function ThreadSummaryPanelRoot(props) {
   return (
     <div className="pointer-events-none absolute top-(--thread-floating-content-top-inset) right-0 bottom-(--thread-floating-content-bottom-inset) z-40">
       <div className="relative flex max-h-full">
-        {threadSummaryPanelJsxRuntime.jsx(p.div, {
+        {threadSummaryPanelJsxRuntime.jsx(motion.div, {
           initial: false,
           className: motionContainerClassName,
           animate: animateState,
@@ -8166,30 +8197,36 @@ function FloatingLocalConversationSummaryPanel(props) {
       shouldShow,
       onOpenBackgroundAgent,
     } = props,
-    contentNode = Q.jsx(ThreadSummaryPanelChrome.Content, {
-      children: (
-        <ThreadSummaryPanelSections
-          artifacts={artifacts}
-          sideChats={sideChats}
-          toolSources={toolSources}
-          webSources={webSources}
-          isVisible={shouldShow}
-          backgroundAgents={backgroundAgents}
-          backgroundTerminals={backgroundTerminals}
-          browserUseSummaries={browserUseSummaries}
-          restoredBackgroundProcesses={restoredBackgroundProcesses}
-          plan={plan}
-          registerEnvironmentActionCommands={true}
-          onOpenBackgroundAgent={onOpenBackgroundAgent}
-          onForceShow={noopForceShowFloatingSummaryPanel}
-        />
-      ),
-    });
-  return Q.jsx(ThreadSummaryPanelChrome.Root, {
-    shouldHideInlineImmediately,
-    shouldShow,
-    children: contentNode,
-  });
+    contentNode = localConversationSummaryPanelJsxRuntime.jsx(
+      ThreadSummaryPanelChrome.Content,
+      {
+        children: (
+          <ThreadSummaryPanelSections
+            artifacts={artifacts}
+            sideChats={sideChats}
+            toolSources={toolSources}
+            webSources={webSources}
+            isVisible={shouldShow}
+            backgroundAgents={backgroundAgents}
+            backgroundTerminals={backgroundTerminals}
+            browserUseSummaries={browserUseSummaries}
+            restoredBackgroundProcesses={restoredBackgroundProcesses}
+            plan={plan}
+            registerEnvironmentActionCommands={true}
+            onOpenBackgroundAgent={onOpenBackgroundAgent}
+            onForceShow={noopForceShowFloatingSummaryPanel}
+          />
+        ),
+      },
+    );
+  return localConversationSummaryPanelJsxRuntime.jsx(
+    ThreadSummaryPanelChrome.Root,
+    {
+      shouldHideInlineImmediately,
+      shouldShow,
+      children: contentNode,
+    },
+  );
 }
 function noopForceShowFloatingSummaryPanel() {}
 type RenderableThreadNode = unknown;
@@ -8221,27 +8258,33 @@ export function LocalConversationSummaryPanel(
     plan,
     onOpenBackgroundAgent,
   } = props;
-  return Q.jsx(ThreadSummaryPanelChrome.PopoverContent, {
-    children: Q.jsx(ThreadSummaryPanelChrome.Content, {
-      children: (
-        <ThreadSummaryPanelSections
-          artifacts={artifacts}
-          sideChats={sideChats}
-          toolSources={toolSources}
-          webSources={webSources}
-          isVisible={true}
-          backgroundAgents={backgroundAgents}
-          backgroundTerminals={backgroundTerminals}
-          browserUseSummaries={browserUseSummaries}
-          restoredBackgroundProcesses={restoredBackgroundProcesses}
-          plan={plan}
-          registerEnvironmentActionCommands={false}
-          onOpenBackgroundAgent={onOpenBackgroundAgent}
-          onForceShow={noopForceShowPopoverSummaryPanel}
-        />
+  return localConversationSummaryPanelJsxRuntime.jsx(
+    ThreadSummaryPanelChrome.PopoverContent,
+    {
+      children: localConversationSummaryPanelJsxRuntime.jsx(
+        ThreadSummaryPanelChrome.Content,
+        {
+          children: (
+            <ThreadSummaryPanelSections
+              artifacts={artifacts}
+              sideChats={sideChats}
+              toolSources={toolSources}
+              webSources={webSources}
+              isVisible={true}
+              backgroundAgents={backgroundAgents}
+              backgroundTerminals={backgroundTerminals}
+              browserUseSummaries={browserUseSummaries}
+              restoredBackgroundProcesses={restoredBackgroundProcesses}
+              plan={plan}
+              registerEnvironmentActionCommands={false}
+              onOpenBackgroundAgent={onOpenBackgroundAgent}
+              onForceShow={noopForceShowPopoverSummaryPanel}
+            />
+          ),
+        },
       ),
-    }),
-  });
+    },
+  );
 }
 function noopForceShowPopoverSummaryPanel() {}
 function ThreadSummaryPanelSections(props) {
@@ -8260,7 +8303,7 @@ function ThreadSummaryPanelSections(props) {
       registerEnvironmentActionCommands,
       onOpenBackgroundAgent,
     } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     intl = ur(),
     isElectronRuntime = St() === sn,
     hostConfig = W(ra),
@@ -8328,7 +8371,7 @@ function ThreadSummaryPanelSections(props) {
         actionStatesByProcessId: pendingBackgroundProcessRows,
         backgroundTerminals,
         conversationId,
-        isEqual: jv.default,
+        isEqual: isEqualModule.default,
         persistedProcesses: chatProcessRecords,
         restoredProcesses: restoredBackgroundProcesses,
       });
@@ -8577,9 +8620,12 @@ function ThreadSummaryPanelSections(props) {
           description="Title for the outputs section in the local conversation summary panel"
         />
       }
-      titleSuffix={Q.jsx(ThreadSummaryPanelChrome.SectionCount, {
-        count: artifacts.length,
-      })}
+      titleSuffix={localConversationSummaryPanelJsxRuntime.jsx(
+        ThreadSummaryPanelChrome.SectionCount,
+        {
+          count: artifacts.length,
+        },
+      )}
     >
       <SummaryPanelArtifactsList
         onOpen={onOpenOutput}
@@ -8599,9 +8645,12 @@ function ThreadSummaryPanelSections(props) {
           description="Title for the side chats section in the thread summary side panel"
         />
       }
-      titleSuffix={Q.jsx(ThreadSummaryPanelChrome.SectionCount, {
-        count: sideChats.length,
-      })}
+      titleSuffix={localConversationSummaryPanelJsxRuntime.jsx(
+        ThreadSummaryPanelChrome.SectionCount,
+        {
+          count: sideChats.length,
+        },
+      )}
     >
       <ThreadSummarySideChatRows
         sideChats={sideChats}
@@ -8616,25 +8665,34 @@ function ThreadSummaryPanelSections(props) {
         backgroundAgents.every(isDoneBackgroundAgent)
       }
       sectionKey="background-subagents"
-      title={Q.jsx(BackgroundTaskSectionTitle, {
-        type: "subagents",
-      })}
+      title={localConversationSummaryPanelJsxRuntime.jsx(
+        BackgroundTaskSectionTitle,
+        {
+          type: "subagents",
+        },
+      )}
       titleSuffix={
         hasInlineBackgroundAgent
           ? null
-          : Q.jsx(ThreadSummaryPanelChrome.SectionCount, {
-              count: hiddenBackgroundAgents.length,
-            })
+          : localConversationSummaryPanelJsxRuntime.jsx(
+              ThreadSummaryPanelChrome.SectionCount,
+              {
+                count: hiddenBackgroundAgents.length,
+              },
+            )
       }
     >
-      {Q.jsx(ThreadSummaryBackgroundActivityRows, {
-        backgroundAgents,
-        backgroundTerminals: [],
-        conversationId,
-        onOpenBackgroundAgent,
-        onOpenTerminal: onOpenBackgroundTerminal,
-        onStopError: onStopBackgroundTerminalError,
-      })}
+      {localConversationSummaryPanelJsxRuntime.jsx(
+        ThreadSummaryBackgroundActivityRows,
+        {
+          backgroundAgents,
+          backgroundTerminals: [],
+          conversationId,
+          onOpenBackgroundAgent,
+          onOpenTerminal: onOpenBackgroundTerminal,
+          onStopError: onStopBackgroundTerminalError,
+        },
+      )}
     </ThreadSummaryPanelSection>
   );
   let backgroundTasksSection = showBackgroundTasksSection && (
@@ -8653,39 +8711,51 @@ function ThreadSummaryPanelSections(props) {
         ) : null
       }
       sectionKey="background-tasks"
-      title={Q.jsx(BackgroundTaskSectionTitle, {
-        type: "tasks",
-      })}
-      titleSuffix={Q.jsx(ThreadSummaryPanelChrome.SectionCount, {
-        count: backgroundTaskCount,
-      })}
+      title={localConversationSummaryPanelJsxRuntime.jsx(
+        BackgroundTaskSectionTitle,
+        {
+          type: "tasks",
+        },
+      )}
+      titleSuffix={localConversationSummaryPanelJsxRuntime.jsx(
+        ThreadSummaryPanelChrome.SectionCount,
+        {
+          count: backgroundTaskCount,
+        },
+      )}
     >
-      {Q.jsx(qt, {
+      {localConversationSummaryPanelJsxRuntime.jsx(qt, {
         electron: true,
-        children: Q.jsx(BackgroundTerminalSummaryRows, {
-          backgroundTerminals,
-          childProcesses: childProcessesData?.processes,
-          conversationId,
-          hostId: hostConfig.id,
-          isVisible,
-          processSnapshotTimeMs,
-          registeredRows: backgroundTerminalRows,
-          onOpen: onOpenBackgroundTerminal,
-          onRestartError: onRestartBackgroundTerminalError,
-          onStopError: onStopBackgroundTerminalError,
-        }),
+        children: localConversationSummaryPanelJsxRuntime.jsx(
+          BackgroundTerminalSummaryRows,
+          {
+            backgroundTerminals,
+            childProcesses: childProcessesData?.processes,
+            conversationId,
+            hostId: hostConfig.id,
+            isVisible,
+            processSnapshotTimeMs,
+            registeredRows: backgroundTerminalRows,
+            onOpen: onOpenBackgroundTerminal,
+            onRestartError: onRestartBackgroundTerminalError,
+            onStopError: onStopBackgroundTerminalError,
+          },
+        ),
       })}
       {backgroundTerminals.length > 0 &&
-        Q.jsx(qt, {
+        localConversationSummaryPanelJsxRuntime.jsx(qt, {
           extension: true,
-          children: Q.jsx(ThreadSummaryBackgroundActivityRows, {
-            backgroundAgents: [],
-            backgroundTerminals,
-            conversationId,
-            onOpenBackgroundAgent,
-            onOpenTerminal: onOpenBackgroundTerminal,
-            onStopError: onStopBackgroundTerminalError,
-          }),
+          children: localConversationSummaryPanelJsxRuntime.jsx(
+            ThreadSummaryBackgroundActivityRows,
+            {
+              backgroundAgents: [],
+              backgroundTerminals,
+              conversationId,
+              onOpenBackgroundAgent,
+              onOpenTerminal: onOpenBackgroundTerminal,
+              onStopError: onStopBackgroundTerminalError,
+            },
+          ),
         })}
     </ThreadSummaryPanelSection>
   );
@@ -8707,9 +8777,12 @@ function ThreadSummaryPanelSections(props) {
     <ThreadSummaryPanelSection
       sectionKey="browser-tabs"
       title={<BrowserUseSummarySectionTitle />}
-      titleSuffix={Q.jsx(ThreadSummaryPanelChrome.SectionCount, {
-        count: browserUseSummaries.length,
-      })}
+      titleSuffix={localConversationSummaryPanelJsxRuntime.jsx(
+        ThreadSummaryPanelChrome.SectionCount,
+        {
+          count: browserUseSummaries.length,
+        },
+      )}
     >
       <BrowserUseSummarySectionContent
         browserUseSummaries={browserUseSummaries}
@@ -8729,9 +8802,12 @@ function ThreadSummaryPanelSections(props) {
     />
   );
   let sourceCount = toolSources.length + webSources.length,
-    sourceCountSuffix = Q.jsx(ThreadSummaryPanelChrome.SectionCount, {
-      count: sourceCount,
-    });
+    sourceCountSuffix = localConversationSummaryPanelJsxRuntime.jsx(
+      ThreadSummaryPanelChrome.SectionCount,
+      {
+        count: sourceCount,
+      },
+    );
   let sourcesContent = (
     <ThreadSummarySourceRows
       onOpen={onOpenSource}
@@ -8771,12 +8847,12 @@ function getGeneratedImagePreviewSrc(generatedImage) {
     ? null
     : L(generatedImage);
 }
-var Av,
-  jv,
-  Q,
+var localConversationSummaryPanelModule,
+  isEqualModule,
+  localConversationSummaryPanelJsxRuntime,
   initLocalConversationGitSummary = once(() => {
-    Av = getChunkModuleExports();
-    jv = toEsModule(De(), 1);
+    localConversationSummaryPanelModule = getChunkModuleExports();
+    isEqualModule = toEsModule(De(), 1);
     c();
     gn();
     Jn();
@@ -8814,7 +8890,7 @@ var Av,
     initThreadSummaryBackgroundActivityRowsChunk();
     initBackgroundTerminalSummaryRowsSupportChunk();
     initBackgroundTerminalSummaryRowsChunk();
-    V_();
+    initThreadSummaryEnvironmentSectionChunk();
     initThreadSummaryAutomationRowChunk();
     initThreadSummarySideChatRowsChunk();
     initThreadSummarySourceRowsChunk();
@@ -8825,7 +8901,7 @@ var Av,
     tt();
     _n();
     n();
-    Q = getJsxRuntime();
+    localConversationSummaryPanelJsxRuntime = getJsxRuntime();
   });
 function getPinnedSummaryPanelDisplayMode(
   mainContentTargetWidth: number,
@@ -8948,7 +9024,7 @@ function usePinnedSummaryPanelDisplay(conversationId: unknown) {
     leftPanelState = W(Ga),
     rightPanelState = W(Pa),
     pinnedPanelState = W(pinnedSummaryPanelState),
-    animationsDisabled = W(mt),
+    animationsDisabled = W(reducedMotionPreferenceSignal),
     layoutContext = localConversationArtifactsReactRuntime.useContext(so),
     fallbackTargetWidthSignal = Xe(0),
     mainContentTargetWidthSignal =
@@ -9562,7 +9638,7 @@ var initLocalConversationSummaryPanelModelDependencies = once(() => {
 function useLocalConversationSummaryPanelModel(
   includeBackgroundActivity = true,
 ) {
-  let routeSnapshot = B(Fe),
+  let routeSnapshot = B(localConversationRouteScope),
     conversationId =
       routeSnapshot.value.routeKind === "local-thread"
         ? routeSnapshot.value.conversationId
@@ -9663,8 +9739,10 @@ var localConversationSummaryPanelSignalsModule,
     initLatestCompletedPlanSummaryHelpers();
     initSideChatTabSummaryHelpers();
     initLocalConversationSummaryPanelModelDependencies();
-    localConversationSideChatSummariesSignal = Dn(Fe, ({ get }) =>
-      collectSideChatTabSummaries(get(ga.tabs$), (t) => get(ge, t) ?? false),
+    localConversationSideChatSummariesSignal = Dn(
+      localConversationRouteScope,
+      ({ get }) =>
+        collectSideChatTabSummaries(get(ga.tabs$), (t) => get(ge, t) ?? false),
     );
     EMPTY_SUMMARY_PANEL_TURNS = [];
   });
@@ -10877,7 +10955,7 @@ function LocalConversationTurnRow({ entry, latestTurnFollowContentRef }) {
     transcriptBlock,
     includeTranscriptTurnExtras,
   } = entry;
-  B(Fe);
+  B(localConversationRouteScope);
   let handleCollapsedChange = useStableCallback((collapsed) => {
       turnId != null && onSetCollapsedForTurn?.(turnId, collapsed);
     }),
@@ -11786,7 +11864,7 @@ function VirtualizedTurnList({
     (
       <div
         ref={setRootElement}
-        className={S("relative shrink-0", className)}
+        className={classNames("relative shrink-0", className)}
         style={{
           height: `${virtualLayout.totalHeightPx}px`,
         }}
@@ -12790,7 +12868,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
             }),
           })}
         </LatestTurnMotionContext>
-        {autoFollowTurnListJsxRuntime.jsx(p.div, {
+        {autoFollowTurnListJsxRuntime.jsx(motion.div, {
           "aria-hidden": true,
           className: "shrink-0",
           ref: responseSpacerElementRef,
@@ -12820,7 +12898,7 @@ function LatestTurnAnimatedRow(props) {
       latestTurnFollowContentRef={latestTurnFollowContentRef}
     />
   );
-  return autoFollowTurnListJsxRuntime.jsx(p.div, {
+  return autoFollowTurnListJsxRuntime.jsx(motion.div, {
     style: rowStyle,
     children: rowNode,
   });
@@ -13825,7 +13903,7 @@ export function LocalConversationThread(props: LocalConversationThreadProps) {
 }
 function LocalConversationSideChatThread(props) {
   let { conversationId, lockedCollaborationMode, target } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     hasConversation = useScopedValue(Mt, conversationId),
     isExpiredSideChat = useScopedValue(V, conversationId),
     hostId = useScopedValue(En, conversationId),
@@ -13885,7 +13963,7 @@ function ExpiredSideChatState(props) {
       sourceConversationId,
       target,
     } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     intl = ur(),
     sourceCwd = useScopedValue(Wn, sourceConversationId),
     sourceHostId = useScopedValue(En, sourceConversationId),
@@ -13973,7 +14051,7 @@ function ExpiredSideChatState(props) {
 }
 function LocalConversationMainThread(props) {
   let { conversationId } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     hasConversation = useScopedValue(Mt, conversationId),
     hostId = useScopedValue(En, conversationId),
     isBackgroundSubagentsEnabled = ns(),
@@ -14004,7 +14082,7 @@ export function LocalConversationSummaryThread(
   props: LocalConversationSummaryThreadProps,
 ) {
   let { conversationId, header, onOpenBackgroundAgent } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     hasConversation = useScopedValue(Mt, conversationId),
     hostId = useScopedValue(En, conversationId),
     isBackgroundSubagentsEnabled = ns(),
@@ -14042,7 +14120,7 @@ function LocalConversationThreadRoute(props) {
       lockedCollaborationMode,
       onOpenBackgroundAgent,
     } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     isBackgroundSubagentsEnabled = ns(),
     { data } = W(launcherHotkeyStateQuery),
     hasConfiguredLauncherHotkey = data == null || data.configuredHotkey != null,
@@ -14372,7 +14450,7 @@ function LocalConversationThreadFrame(props) {
       showComposer = true,
       showExternalFooter,
     } = props,
-    scope = B(Fe),
+    scope = B(localConversationRouteScope),
     isConversationHistoryComplete = useScopedValue(Ue, conversationId) ?? true,
     visibleSubagentParentThreadId = useScopedValue(oi, conversationId),
     isScrollToTopEnabled = Vr("1579719221"),
@@ -14692,7 +14770,7 @@ function LocalConversationComposerFooter({
   lockedCollaborationMode,
   isScrollToTopEnabled,
 }) {
-  let scope = B(Fe);
+  let scope = B(localConversationRouteScope);
   localConversationThreadReactRuntime.useContext(rl);
   ci();
   let hostConnectionStatus = useScopedValue(Qr, hostId),
@@ -14837,7 +14915,7 @@ function LocalConversationThreadContent({
   showInProgressFixedContent,
   isScrollToTopEnabled,
 }) {
-  let scope = B(Fe),
+  let scope = B(localConversationRouteScope),
     navigate = rt(),
     isAppgenEndCardEnabled = Vo(),
     hasConversation = useScopedValue(Mt, conversationId),
@@ -15268,7 +15346,7 @@ function LocalConversationThreadContent({
             isDefault: ot(scope.value) === conversationId,
           },
         )}
-        {localConversationThreadJsxRuntime.jsxs(p.div, {
+        {localConversationThreadJsxRuntime.jsxs(motion.div, {
           ref: setContentContainerRef,
           "data-thread-find-target": "conversation",
           className:
