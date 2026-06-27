@@ -249,7 +249,6 @@ import {
   kM as useWindowZoom,
   kN as SpinnerIcon,
   kO as MY_REQUEST_PROMPT_HEADER,
-  kP as useMotionValueEvent,
   kj as or,
   ko as GitBranchIcon,
   lA as cr,
@@ -333,7 +332,6 @@ import {
   Ar as parseMcpAppIdFromToolCallId,
   Ba as pullRequestReviewCommentAttachmentsSignal,
   Bo as conversationSearchResultSignal,
-  Cd as pinnedSummaryPanelSpringTransition,
   Cl as pullRequestCurrentBranchSignal,
   Cn as Ni,
   Cs as setContentSearchMatchIdAttribute,
@@ -389,18 +387,15 @@ import {
   hc as ja,
   ho as Ma,
   hs as Na,
-  id as rightPanelStateSignal,
   jr as liveMcpAppFrameSignal,
   js as environmentTerminalControllerSignal,
   kc as diffStatsSignal,
   kn as Ra,
   l as za,
   ln as Ba,
-  md as pinnedSummaryPanelPinnedSignal,
   mo as Ha,
   ms as Ua,
   nc as Wa,
-  nd as leftPanelStateSignal,
   nu as Ka,
   pi as pullRequestStatusQuerySignal,
   ql as bottomPanelTabsStore,
@@ -416,7 +411,6 @@ import {
   vi as io,
   vn as ao,
   vs as clearContentSearchHighlights,
-  wd as so,
   wl as currentWorkspaceRootSignal,
   wo as lo,
   ws as uo,
@@ -817,6 +811,13 @@ import {
   MAIN_THREAD_PIP_HOST_ID,
   startRemoteHostedPipHostLayoutObserver,
 } from "./local-conversation-thread-parts/pip-host-layout-observer";
+import {
+  initPinnedSummaryPanelState,
+  pinnedSummaryPanelState,
+  usePinnedSummaryPanelDisplay,
+  usePinnedSummaryPanelLayout,
+} from "./local-conversation-thread-parts/pinned-summary-panel-layout";
+export type { PinnedSummaryPanelLayoutStore } from "./local-conversation-thread-parts/pinned-summary-panel-layout";
 import { shouldUseFullWidthRightPanelForRoute } from "./local-conversation-thread-parts/right-panel-route-state";
 import { shouldShowScrollToBottomButton } from "./local-conversation-thread-parts/scroll-to-bottom-state";
 import {
@@ -8870,291 +8871,14 @@ var localConversationSummaryPanelModule,
     initVscodeApiBridge();
     localConversationSummaryPanelJsxRuntime = getJsxRuntime();
   });
-function getPinnedSummaryPanelDisplayMode(
-  mainContentTargetWidth: number,
-): PinnedSummaryPanelState["displayMode"] {
-  let sideGutterWidth = (mainContentTargetWidth - 736) / 2;
-  return sideGutterWidth < 180
-    ? "overlay"
-    : sideGutterWidth < 400
-      ? "shift"
-      : "gutter";
-}
-
-function getPinnedSummaryPanelVisibility({
-  displayMode,
-  isPinned,
-  isPopoverOpen,
-}: {
-  displayMode: PinnedSummaryPanelState["displayMode"];
-  isPinned: boolean;
-  isPopoverOpen: boolean;
-}) {
-  return {
-    displayMode,
-    shouldHideInlineImmediately: displayMode === "overlay" && isPopoverOpen,
-    shouldShow: isPinned && displayMode !== "overlay",
-  };
-}
-
-function getPinnedSummaryPanelContentShift({
-  displayMode,
-  isPinned,
-}: {
-  displayMode: PinnedSummaryPanelState["displayMode"];
-  isPinned: boolean;
-}) {
-  return isPinned && displayMode === "shift"
-    ? -(300 + PINNED_SUMMARY_PANEL_GAP_PX) / 2
-    : 0;
-}
-
-var PINNED_SUMMARY_PANEL_GAP_PX,
-  initPinnedSummaryPanelContentShiftConstants = once(() => {
-    initThreadFindNavigationRailNoopChunk();
-    PINNED_SUMMARY_PANEL_GAP_PX = 16;
-  }),
-  DEFAULT_PINNED_SUMMARY_PANEL_STATE,
-  pinnedSummaryPanelState,
-  initPinnedSummaryPanelState = once(() => {
-    initScopeRuntime();
-    initAppScope();
-    DEFAULT_PINNED_SUMMARY_PANEL_STATE = {
-      displayMode: "overlay",
-      isPopoverOpen: false,
-    };
-    pinnedSummaryPanelState = createSignal(
-      appScope,
-      DEFAULT_PINNED_SUMMARY_PANEL_STATE,
-    );
-  });
-interface PinnedSummaryPanelState {
-  displayMode: "overlay" | "shift" | "gutter";
-  isPopoverOpen: boolean;
-}
-export interface PinnedSummaryPanelLayoutStore {
-  set: (
-    atom: typeof pinnedSummaryPanelState,
-    updater: (state: PinnedSummaryPanelState) => PinnedSummaryPanelState,
-  ) => void;
-}
-export function usePinnedSummaryPanelLayout(
-  store: PinnedSummaryPanelLayoutStore,
-): void {
-  let leftPanelSignal = useSignalValue(leftPanelStateSignal),
-    rightPanelSignal = useSignalValue(rightPanelStateSignal),
-    layoutContext = localConversationArtifactsReactRuntime.useContext(so),
-    fallbackTargetWidthSignal = createMotionSignal(0),
-    mainContentTargetWidthSignal =
-      layoutContext?.mainContentTargetWidth ?? fallbackTargetWidthSignal,
-    updatePinnedPanelLayout;
-  updatePinnedPanelLayout = (nextWidth: number) => {
-    syncPinnedSummaryPanelStateForWidth(store, nextWidth);
-  };
-  useMotionValueEvent(
-    mainContentTargetWidthSignal,
-    "change",
-    updatePinnedPanelLayout,
-  );
-  let syncPinnedPanelLayout = () => {
-    syncPinnedSummaryPanelStateForWidth(
-      store,
-      mainContentTargetWidthSignal.get(),
-    );
-  };
-  let syncLayoutDependencies;
-  syncLayoutDependencies = [
-    leftPanelSignal,
-    rightPanelSignal,
-    mainContentTargetWidthSignal,
-    store,
-  ];
-  localConversationArtifactsReactRuntime.useLayoutEffect(
-    syncPinnedPanelLayout,
-    syncLayoutDependencies,
-  );
-  let closePopoverOnUnmount, closePopoverDependencies;
-  closePopoverOnUnmount = () => () => {
-    store.set(pinnedSummaryPanelState, closePinnedSummaryPanelPopover);
-  };
-  closePopoverDependencies = [store];
-  localConversationArtifactsReactRuntime.useLayoutEffect(
-    closePopoverOnUnmount,
-    closePopoverDependencies,
-  );
-}
-function closePinnedSummaryPanelPopover(
-  state: PinnedSummaryPanelState,
-): PinnedSummaryPanelState {
-  return state.isPopoverOpen
-    ? {
-        ...state,
-        isPopoverOpen: false,
-      }
-    : state;
-}
-function usePinnedSummaryPanelDisplay(conversationId: unknown) {
-  let isPinned = useSignalValue(pinnedSummaryPanelPinnedSignal),
-    leftPanelState = useSignalValue(leftPanelStateSignal),
-    rightPanelState = useSignalValue(rightPanelStateSignal),
-    pinnedPanelState = useSignalValue(pinnedSummaryPanelState),
-    animationsDisabled = useSignalValue(reducedMotionPreferenceSignal),
-    layoutContext = localConversationArtifactsReactRuntime.useContext(so),
-    fallbackTargetWidthSignal = createMotionSignal(0),
-    mainContentTargetWidthSignal =
-      layoutContext?.mainContentTargetWidth ?? fallbackTargetWidthSignal,
-    initialContentShift = getTargetPinnedSummaryPanelContentShift({
-      isPinned,
-      mainContentTargetWidth: mainContentTargetWidthSignal.get(),
-    });
-  let contentShiftSignal = createMotionSignal(initialContentShift),
-    contentShiftAnimationRef =
-      localConversationArtifactsReactRuntime.useRef(null),
-    currentContentShift = contentShiftSignal.get();
-  let targetContentShiftRef =
-      localConversationArtifactsReactRuntime.useRef(currentContentShift),
-    conversationIdRef =
-      localConversationArtifactsReactRuntime.useRef(conversationId),
-    visibility = getPinnedSummaryPanelVisibility({
-      displayMode: pinnedPanelState.displayMode,
-      isPinned,
-      isPopoverOpen: pinnedPanelState.isPopoverOpen,
-    });
-  let resetShiftAfterConversationChange = () => {
-    if (conversationIdRef.current === conversationId) return;
-    conversationIdRef.current = conversationId;
-    let nextContentShift = getTargetPinnedSummaryPanelContentShift({
-      isPinned,
-      mainContentTargetWidth: mainContentTargetWidthSignal.get(),
-    });
-    targetContentShiftRef.current = nextContentShift;
-    contentShiftAnimationRef.current?.stop();
-    contentShiftSignal.set(nextContentShift);
-  };
-  let resetShiftAfterConversationChangeDeps = [
-    contentShiftSignal,
-    isPinned,
-    mainContentTargetWidthSignal,
-    conversationId,
-  ];
-  localConversationArtifactsReactRuntime.useLayoutEffect(
-    resetShiftAfterConversationChange,
-    resetShiftAfterConversationChangeDeps,
-  );
-  let syncShiftForTargetWidth = (nextMainContentTargetWidth) => {
-    let nextContentShift = getTargetPinnedSummaryPanelContentShift({
-      isPinned,
-      mainContentTargetWidth: nextMainContentTargetWidth,
-    });
-    if (targetContentShiftRef.current === nextContentShift) return;
-    targetContentShiftRef.current = nextContentShift;
-    contentShiftAnimationRef.current?.stop();
-    contentShiftAnimationRef.current =
-      setOrAnimatePinnedSummaryPanelContentShift(
-        contentShiftSignal,
-        nextContentShift,
-        animationsDisabled,
-      );
-  };
-  useMotionValueEvent(
-    mainContentTargetWidthSignal,
-    "change",
-    syncShiftForTargetWidth,
-  );
-  let syncAnimatedContentShift = () => {
-    let nextContentShift = getTargetPinnedSummaryPanelContentShift({
-      isPinned,
-      mainContentTargetWidth: mainContentTargetWidthSignal.get(),
-    });
-    if (targetContentShiftRef.current === nextContentShift) return;
-    targetContentShiftRef.current = nextContentShift;
-    contentShiftAnimationRef.current?.stop();
-    contentShiftAnimationRef.current =
-      setOrAnimatePinnedSummaryPanelContentShift(
-        contentShiftSignal,
-        nextContentShift,
-        animationsDisabled,
-      );
-  };
-  let syncAnimatedContentShiftDeps = [
-    contentShiftSignal,
-    isPinned,
-    leftPanelState,
-    rightPanelState,
-    mainContentTargetWidthSignal,
-    animationsDisabled,
-  ];
-  localConversationArtifactsReactRuntime.useEffect(
-    syncAnimatedContentShift,
-    syncAnimatedContentShiftDeps,
-  );
-  let stopShiftAnimationOnUnmount = () => () => {
-    contentShiftAnimationRef.current?.stop();
-  };
-  localConversationArtifactsReactRuntime.useEffect(
-    stopShiftAnimationOnUnmount,
-    [],
-  );
-  return {
-    contentShift: contentShiftSignal,
-    shouldHideInlineImmediately: visibility.shouldHideInlineImmediately,
-    shouldShow: visibility.shouldShow,
-  };
-}
-
-function getTargetPinnedSummaryPanelContentShift({
-  isPinned,
-  mainContentTargetWidth,
-}) {
-  return getPinnedSummaryPanelContentShift({
-    displayMode: getPinnedSummaryPanelDisplayMode(mainContentTargetWidth),
-    isPinned,
-  });
-}
-
-function syncPinnedSummaryPanelStateForWidth(
-  store: PinnedSummaryPanelLayoutStore,
-  mainContentTargetWidth: number,
-) {
-  let displayMode = getPinnedSummaryPanelDisplayMode(mainContentTargetWidth);
-  store.set(pinnedSummaryPanelState, (state) => {
-    let shouldKeepPopoverOpen =
-      displayMode === "overlay" && state.isPopoverOpen;
-    return state.displayMode === displayMode &&
-      state.isPopoverOpen === shouldKeepPopoverOpen
-      ? state
-      : {
-          displayMode,
-          isPopoverOpen: shouldKeepPopoverOpen,
-        };
-  });
-}
-
-function setOrAnimatePinnedSummaryPanelContentShift(
-  contentShiftSignal,
-  nextContentShift,
-  animationsDisabled,
-) {
-  return animationsDisabled
-    ? (contentShiftSignal.set(nextContentShift), null)
-    : animateSignalValue(
-        contentShiftSignal,
-        nextContentShift,
-        pinnedSummaryPanelSpringTransition,
-      );
-}
-
 var localConversationArtifactsModule,
-  localConversationArtifactsReactRuntime,
   initLocalConversationArtifacts = once(() => {
     localConversationArtifactsModule = getChunkModuleExports();
     initMotionRuntime();
     initScopeRuntime();
-    localConversationArtifactsReactRuntime = toEsModule(loadReactModule(), 1);
     ua();
     Xa();
     initReducedMotionPreference();
-    initPinnedSummaryPanelContentShiftConstants();
     initPinnedSummaryPanelState();
   });
 function collectLocalConversationOutputArtifacts(
