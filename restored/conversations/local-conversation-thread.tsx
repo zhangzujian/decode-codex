@@ -16,16 +16,13 @@ import {
   Au as initOsInfoQuery,
   BP as classNames,
   BV as getJsxRuntime,
-  Bh as useHostMutation,
   Bn as initGlobalCommandHandlers,
   DL as normalizeWorkspacePath,
   DM as initWindowZoomContext,
   DN as Button,
-  Dj as joinPath,
   Dl as createLocalConversationRouteTarget,
   Em as conversationTurnsSignal,
   Es as browserSidebarEnabledSignal,
-  Ev as useLocation,
   FB as useScope,
   Fp as expiredSideChatSignal,
   Fx as initEnvironmentTerminalController,
@@ -34,8 +31,6 @@ import {
   Gj as initStatsigFeatureGateHooks,
   Gu as initGlobalStateQueryRuntime,
   HO as getReviewCommentAttachmentKeyValue,
-  Hh as initGitQueryKeyHelpers,
-  Hi as initSettingsGearIcon,
   IB as useSignalValue,
   I_ as initRouteScope,
   Io as initConnectorAppsListQuery,
@@ -44,7 +39,6 @@ import {
   JV as loadReactModule,
   Ja as CheckCircleIcon,
   Jo as be,
-  Ki as DropdownMenuSubmenu,
   Ku as useGlobalStateQuery,
   LB as loadIsEqualModule,
   LN as initReducedMotionPreference,
@@ -62,23 +56,19 @@ import {
   ON as initButtonComponentPrimitives,
   O_ as initConversationRouteSourceHelpers,
   Op as initConversationStateSelectors,
-  Ov as useNavigate,
   PB as useScopedValue,
   PI as getHotkeyWindowFallbackPath,
   PO as at,
   P_ as getLocalThreadConversationIdFromRoute,
-  Pi as openScopedModal,
   QP as appScope,
   R as initSlashIcon,
   Rj as _t,
-  Rn as useCommandRegistration,
   Rv as initMarkdownUtilityNoop,
   SP as initMotionRuntime,
   SV as initQueryRuntime,
   Sc as useConversationDetailMode,
   Sf as initConfigQueryRuntime,
   Sm as threadSourceSignal,
-  TM as initCheckmarkIcon,
   T_ as getRouteConversationId,
   Tp as hasConversationSignal,
   Ts as initBrowserFeatureAvailabilitySignals,
@@ -90,12 +80,10 @@ import {
   Ux as initAgentMentionMap,
   VE as initHostConfigHelpers,
   VP as initClassNameRuntime,
-  Vi as SettingsGearIcon,
   Vn as dispatchGlobalCommand,
   Wa as PlatformContentGate,
   Wg as initMarkdownResourceHelpers,
   XR as GLOBAL_STATE_KEYS,
-  Xi as MenuSeparator,
   YO as initPullRequestReviewCommentHelpers,
   Ya as initCheckCircleFilledIcon,
   ZN as createHostQuerySignal,
@@ -108,7 +96,6 @@ import {
   ak as initAppServerRequestBridge,
   bF as initPathHelpers,
   bM as initKeyboardShortcutLabel,
-  bP as createPersistedSignal,
   bV as createScopedSignal,
   bc as initConversationDetailModeConstants,
   bk as loadUniqByModule,
@@ -135,12 +122,10 @@ import {
   ju as useOsInfo,
   kN as SpinnerIcon,
   kO as MY_REQUEST_PROMPT_HEADER,
-  kj as or,
   ko as GitBranchIcon,
   lA as cr,
   lD as lr,
   lF as useIntl,
-  lL as LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,
   mM as TooltipProvider,
   mP as logger,
   mi as _r,
@@ -165,17 +150,12 @@ import {
   tc as Yr,
   tn as Xr,
   uM as toastSignal,
-  vM as KeyboardShortcutKeycap,
   vm as subagentParentThreadIdSignal,
-  wM as CheckIcon,
-  wV as useSignalState,
   wj as di,
   wl as composerScope,
   wp as storedThreadBranchSignal,
   xM as useStableCallback,
   yA as loadFindLastModule,
-  yM as initKeyboardShortcutKeycap,
-  yP as yi,
   yV as createSignal,
   yv as Navigate,
   za as openInBrowserFromEvent,
@@ -199,21 +179,17 @@ import {
   Od as $i,
   Rl as hostConfigSignal,
   Rr as ia,
-  Sa as aa,
   Sl as workspaceRouteStateSignal,
   Td as ua,
   Va as da,
   Wl as fa,
   Ya as ma,
-  Yi as localEnvironmentActionShortcutSignal,
   Yl as rightPanelTabsStore,
   _c as va,
   _i as githubCliAvailabilitySignal,
   b as Sa,
-  ba as Ca,
   bc as wa,
   cn as Ea,
-  d as Oa,
   gi as ka,
   hc as ja,
   js as environmentTerminalControllerSignal,
@@ -229,7 +205,6 @@ import {
   tc as Za,
   ts as Qa,
   tu as $a,
-  u as eo,
   vc as no,
   vd as ro,
   vi as io,
@@ -241,11 +216,7 @@ import {
   yn as _o,
   yu as yo,
 } from "../boundaries/current-ref/projects-app-shared-producer";
-import {
-  dn as So,
-  jn as wo,
-  kn as To,
-} from "../boundaries/current-ref/automations-page-producer";
+import { dn as So } from "../boundaries/current-ref/automations-page-producer";
 import {
   $ as Oo,
   $o as pullRequestMergeConflictAttachmentSignal,
@@ -258,11 +229,9 @@ import {
   Ot as Wo,
   Q as CommentBubbleIcon,
   Qo as attachedPullRequestChecksSignal,
-  Qt as Jo,
   W as Xo,
   _o as Zo,
   a as Qo,
-  en as es,
   ho as ts,
   ji as ns,
   ki as rs,
@@ -284,7 +253,6 @@ import {
   $n as vs,
   Al as ys,
   Bl as Ss,
-  Bu as ws,
   Du as Es,
   Eu as Os,
   Gm as js,
@@ -302,7 +270,6 @@ import {
   Tu as rc,
   Ul as ic,
   Vl as ac,
-  Vu as sc,
   Xc as lc,
   Xd as uc,
   Yd as dc,
@@ -340,9 +307,7 @@ import {
   zl as nl,
 } from "../boundaries/current-ref/profile-page-producer";
 import {
-  A as il,
   it as ul,
-  k as dl,
   n as fl,
 } from "../boundaries/current-ref/appgen-library-hot-producer";
 import {
@@ -391,10 +356,6 @@ import {
   launcherHotkeyStateQuery,
 } from "../features/hotkey-window-state";
 import {
-  initUseGitConfigValueChunk as Au,
-  useGitConfigValue as ku,
-} from "../utils/use-git-config-value";
-import {
   initShareInviteAutocompleteChunk as Nu,
   ShareInviteAutocomplete as Pu,
 } from "../collaboration/share-invite-autocomplete";
@@ -423,11 +384,6 @@ import {
 } from "../app-shell/thread-background-processes";
 import { initTeamIconChunk as $u, TeamIcon as ed } from "../icons/team-icon";
 import { initThreadScrollControllerContextChunk as id } from "../utils/thread-scroll-controller-context";
-import {
-  initLocalEnvironmentActionIconChunk as fd,
-  initLocalEnvironmentDefaultsChunk as dd,
-  LocalEnvironmentActionIcon as md,
-} from "../environments/local-environments-utils";
 import {
   C as PullRequestInlineActionButton,
   S as initPullRequestCheckStatusIconChunk,
@@ -489,28 +445,11 @@ import {
   initSummaryPanelErrorFallbackChunk,
   SummaryPanelErrorFallback,
 } from "./local-conversation-thread-parts/local-conversation-summary-panel-error";
+import { isRecentLocalEnvironmentAction } from "./local-conversation-thread-parts/local-environment-recent-actions";
 import {
-  createLocalEnvironmentActionRunId,
-  getLocalEnvironmentActionItems,
-  resolveLocalEnvironmentActionCwd,
-  resolveLocalEnvironmentActionKey,
-  sortLocalEnvironmentActionItemsByRecentActionNames,
-} from "./local-conversation-thread-parts/local-environment-action-items";
-import {
-  getRecentLocalEnvironmentActions,
-  isRecentLocalEnvironmentAction,
-  prependRecentLocalEnvironmentAction,
-  type RecentLocalEnvironmentActionsByKey,
-} from "./local-conversation-thread-parts/local-environment-recent-actions";
-import {
-  AddLocalEnvironmentActionPopoverContent,
-  initAddLocalEnvironmentActionFormChunk,
-} from "./local-conversation-thread-parts/local-environment-action-form";
-import {
-  getLocalEnvironmentResultDisplayName,
-  initLocalEnvironmentSelectorContentChunk,
-  LocalEnvironmentSelectorContent,
-} from "./local-conversation-thread-parts/local-environment-selector-content";
+  initLocalEnvironmentActionControlsChunk,
+  LocalConversationEnvironmentActionControls,
+} from "./local-conversation-thread-parts/local-environment-action-controls";
 import { getConversationTurnsNotInParent } from "./local-conversation-thread-parts/parent-conversation-turns";
 import {
   initPinnedSummaryPanelState,
@@ -649,7 +588,6 @@ import {
   ConnectedLocalWorktreeRestoreBanner,
   initWorktreeRestoreBannerChunk,
 } from "./local-conversation-thread-parts/local-conversation-worktree-restore-banner";
-const joinLocalEnvironmentRepoPath = joinPath;
 function ThreadSummaryBackgroundActivityRows(props) {
   let {
       backgroundAgents,
@@ -1458,864 +1396,11 @@ var backgroundTerminalSummaryRowsModule,
       },
     });
   });
-var recentLocalEnvironmentActionsByKeySignal,
-  initRecentLocalEnvironmentActionsSignal = once(() => {
-    yi();
-    recentLocalEnvironmentActionsByKeySignal = createPersistedSignal(
-      "local-env-recent-actions-by-key",
-      {},
-    );
-  });
 var localEnvironmentRecentActionsModule,
   initLocalEnvironmentRecentActions = once(() => {
     localEnvironmentRecentActionsModule = getChunkModuleExports();
     initPathHelpers();
     initHostCodexHomeQuery();
-  });
-function useLocalConversationEnvironmentState(workspaceRoot, hostConfig) {
-  let scope = useScope(appScope),
-    hostId = hostConfig.id,
-    workspaceEnvironmentKey = workspaceRoot
-      ? normalizeWorkspacePath(workspaceRoot)
-      : null;
-  let recentEnvironmentKey = workspaceEnvironmentKey,
-    localEnvironmentParams = {
-      hostId: hostId,
-      workspaceRoot: workspaceRoot,
-    };
-  let localEnvironmentState = Oa(localEnvironmentParams),
-    isCodexWorktree = isRecentLocalEnvironmentAction(
-      recentEnvironmentKey,
-      hostConfig.id,
-    ),
-    { data } = useGitAvailabilityQuery(
-      workspaceRoot,
-      hostConfig,
-      "use_local_conversation_environment",
-    ),
-    localEnvironments = localEnvironmentState.environments,
-    localEnvironmentsLoading = localEnvironmentState.isLoading,
-    localEnvironmentsFetching = localEnvironmentState.isFetching,
-    localEnvironmentsError = localEnvironmentState.error != null,
-    setConfigMutationOptions = {
-      onSuccess: (result, variables) => {
-        result.success &&
-          data?.root &&
-          eo(
-            scope,
-            data,
-            hostConfig,
-            variables.value,
-            "use_local_conversation_environment",
-          );
-      },
-    };
-  let setConfigValueMutation = useHostMutation(
-      "set-config-value",
-      hostConfig,
-      setConfigMutationOptions,
-    ),
-    { data: selectedEnvironmentConfigValue } = ku(
-      isCodexWorktree ? recentEnvironmentKey : null,
-      hostConfig,
-      LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,
-      "worktree",
-      "use_local_conversation_environment",
-    ),
-    selectedConfigPath =
-      selectedEnvironmentConfigValue === "__none__"
-        ? null
-        : selectedEnvironmentConfigValue,
-    normalizedSelectedConfigPath = selectedConfigPath
-      ? or(selectedConfigPath)
-      : null;
-  let selectedNormalizedConfigPath = normalizedSelectedConfigPath,
-    resolvedConfigPath = isCodexWorktree
-      ? selectedConfigPath
-      : localEnvironmentState.resolvedConfigPath,
-    normalizedResolvedConfigPath = isCodexWorktree
-      ? selectedNormalizedConfigPath
-      : (localEnvironmentState.normalizedResolvedConfigPath ?? null),
-    queryConfigPath = resolvedConfigPath ?? "",
-    environmentQueryParams = {
-      configPath: queryConfigPath,
-      hostId: hostId,
-    };
-  let isEnvironmentQueryEnabled = resolvedConfigPath != null,
-    environmentQueryConfig = {
-      enabled: isEnvironmentQueryEnabled,
-    };
-  let environmentQueryOptions = {
-    params: environmentQueryParams,
-    select: selectSuccessfulLocalEnvironment,
-    queryConfig: environmentQueryConfig,
-  };
-  let { data: _data = null } = useHostQuery(
-      "local-environment",
-      environmentQueryOptions,
-    ),
-    hasSavedActions =
-      (_data?.environment.actions ?? []).length > 0 ||
-      localEnvironments.some(hasSuccessfulLocalEnvironmentActions);
-  let hasAnySavedActions = hasSavedActions,
-    canChangeEnvironment =
-      localEnvironmentState.workspaceKey != null &&
-      (!isCodexWorktree || data?.root != null),
-    selectEnvironment = (configPath) => {
-      if (isCodexWorktree) {
-        if (!data?.root) return;
-        let storedValue = configPath ?? "__none__";
-        setConfigValueMutation.mutate({
-          root: data.root,
-          key: LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,
-          operationSource: "use_local_conversation_environment",
-          value: storedValue,
-          scope: "worktree",
-        });
-        return;
-      }
-      localEnvironmentState.updateSelection(configPath);
-    };
-  let setEnvironmentSelection = selectEnvironment,
-    resolvedEnvironmentConfigPath = resolvedConfigPath ?? null,
-    isLocalEnvironmentsLoading =
-      localEnvironmentsLoading || localEnvironmentsFetching;
-  return {
-    workspaceRoot: workspaceRoot,
-    codexWorktree: isCodexWorktree,
-    environment: _data,
-    resolvedEnvironmentConfigPath: resolvedEnvironmentConfigPath,
-    localEnvironments: localEnvironments,
-    localEnvironmentsLoading: isLocalEnvironmentsLoading,
-    localEnvironmentsError: localEnvironmentsError,
-    defaultEnvironment: localEnvironmentState.defaultEnvironment,
-    defaultEnvironmentNormalized:
-      localEnvironmentState.defaultEnvironmentNormalized,
-    availableEnvironments: localEnvironmentState.availableEnvironments,
-    normalizedResolvedConfigPath: normalizedResolvedConfigPath,
-    canChangeEnvironment: canChangeEnvironment,
-    setEnvironmentSelection: setEnvironmentSelection,
-    hasSavedActions: hasAnySavedActions,
-  };
-}
-function hasSuccessfulLocalEnvironmentActions(environmentResult) {
-  return environmentResult.type === "success"
-    ? (environmentResult.environment.actions ?? []).length > 0
-    : false;
-}
-function selectSuccessfulLocalEnvironment(environmentResponse) {
-  return environmentResponse.environment.type === "success"
-    ? environmentResponse.environment
-    : null;
-}
-var localConversationEnvironmentStateModule,
-  initLocalConversationEnvironmentStateChunk = once(() => {
-    localConversationEnvironmentStateModule = getChunkModuleExports();
-    initScopeRuntime();
-    initPathHelpers();
-    initGitBranchQueryRuntime();
-    Au();
-    initGitQueryKeyHelpers();
-    za();
-    initAppScope();
-    di();
-    initVscodeApiBridge();
-    initLocalEnvironmentRecentActions();
-  });
-function LocalConversationEnvironmentActionControls(props) {
-  let {
-      conversationId,
-      hostConfig,
-      onMenuOpenChange,
-      workspaceRoot,
-      onOpenChange,
-      onShowTerminal,
-      registerCommands,
-    } = props,
-    scope = useScope(appScope),
-    intl = useIntl(),
-    location = useLocation(),
-    navigate = useNavigate(),
-    {
-      environment,
-      resolvedEnvironmentConfigPath,
-      localEnvironmentsLoading,
-      localEnvironmentsError,
-      localEnvironments: localEnvironments,
-      availableEnvironments,
-      defaultEnvironment,
-      defaultEnvironmentNormalized,
-      normalizedResolvedConfigPath,
-      canChangeEnvironment,
-      setEnvironmentSelection,
-    } = useLocalConversationEnvironmentState(workspaceRoot, hostConfig),
-    hasNoLocalEnvironments =
-      !localEnvironmentsLoading &&
-      !localEnvironmentsError &&
-      localEnvironments.length === 0,
-    { data } = useGitAvailabilityQuery(
-      workspaceRoot,
-      hostConfig,
-      "local_conversation_action_compound_button",
-    ),
-    { data: _data } = useOsInfo(),
-    [recentActionsByKey, setRecentActionsByKey] = useSignalState(
-      recentLocalEnvironmentActionsByKeySignal,
-    ),
-    [isMenuOpen, setMenuOpen] =
-      localEnvironmentActionControlsReactRuntime.useState(false),
-    repoRoot = data?.root ?? null,
-    platform = _data?.platform ?? null,
-    environmentActions = environment?.environment.actions,
-    actionItems = getLocalEnvironmentActionItems(
-      environmentActions,
-      platform,
-      aa,
-    ),
-    environmentActionKey = resolveLocalEnvironmentActionKey({
-      configPath: environment?.configPath ?? null,
-      joinPath: joinLocalEnvironmentRepoPath,
-      relativePath: environment?.cwdRelativeToGitRoot ?? null,
-      repoRoot: repoRoot,
-      workspaceRoot,
-    }),
-    recentActionNames = getRecentLocalEnvironmentActions(
-      recentActionsByKey,
-      environmentActionKey,
-    ),
-    sortedActionItems =
-      actionItems == null
-        ? null
-        : recentActionNames.length > 0
-          ? sortLocalEnvironmentActionItemsByRecentActionNames(
-              actionItems,
-              recentActionNames,
-            )
-          : actionItems,
-    primaryActionItem = sortedActionItems?.[0] ?? null,
-    primaryShortcut = useScopedValue(
-      localEnvironmentActionShortcutSignal,
-      primaryActionItem?.commandId ?? aa[0],
-    ),
-    commandActionItems = actionItems ?? EMPTY_LOCAL_ENVIRONMENT_ACTION_ITEMS,
-    runEnvironmentAction = useStableCallback((actionRunRequest) => {
-      let { action } = actionRunRequest,
-        actionCwd = resolveLocalEnvironmentActionCwd({
-          joinPath: joinLocalEnvironmentRepoPath,
-          relativePath: environment?.cwdRelativeToGitRoot ?? null,
-          repoRoot: repoRoot,
-          workspaceRoot,
-        });
-      if (actionCwd == null || !conversationId) {
-        logger.error("Can not run action. Cwd is not set");
-        return;
-      }
-      setRecentActionsByKey(
-        prependRecentLocalEnvironmentAction(
-          recentActionsByKey,
-          environmentActionKey ?? actionCwd,
-          action.name,
-        ),
-      );
-      let runId = createLocalEnvironmentActionRunId({
-        conversationId,
-        encodeEnvironmentKey: Jo,
-        environmentKey: environmentActionKey ?? actionCwd,
-        runId: actionRunRequest.runId,
-      });
-      onShowTerminal(runId);
-      environmentTerminalControllerService.runAction(runId, {
-        command: action.command,
-        cwd: actionCwd,
-        title: action.name,
-      });
-    }),
-    setMenuOpenAndNotify = (open) => {
-      setMenuOpen(open);
-      onMenuOpenChange?.(open);
-    };
-  let handleMenuOpenChange = useStableCallback(setMenuOpenAndNotify),
-    openEnvironmentSettings = () => {
-      setMenuOpen(false);
-      onMenuOpenChange?.(false);
-      sc(scope, hostConfig.id);
-      let searchParams = new URLSearchParams({
-        workspaceRoot,
-      });
-      resolvedEnvironmentConfigPath != null &&
-        searchParams.set("configPath", resolvedEnvironmentConfigPath);
-      navigate(`/settings/local-environments?${searchParams.toString()}`);
-    };
-  let openSettings = useStableCallback(openEnvironmentSettings),
-    openCreateEnvironmentPage = () => {
-      setMenuOpen(false);
-      onMenuOpenChange?.(false);
-      sc(scope, hostConfig.id);
-      navigate(
-        To({
-          workspaceRoot,
-        }),
-        {
-          state: {
-            hostId: hostConfig.id,
-            returnTo: `${location.pathname}${location.search}${location.hash}`,
-          },
-        },
-      );
-    };
-  let createEnvironment = useStableCallback(openCreateEnvironmentPage),
-    openAddActionPopover = () => {
-      resolvedEnvironmentConfigPath == null ||
-        environment == null ||
-        (setMenuOpen(false),
-        onMenuOpenChange?.(false),
-        openScopedModal(scope, AddLocalEnvironmentActionPopoverContent, {
-          configPath: resolvedEnvironmentConfigPath,
-          environment,
-          hostConfig,
-          onOpenSettings: openSettings,
-          onRunAction: (action) => {
-            runEnvironmentAction({
-              action: action,
-              commandId: null,
-              runId: `environmentAction${(environment.environment.actions ?? []).length + 1}`,
-            });
-          },
-          workspaceRoot,
-        }));
-    };
-  let openAddAction = openAddActionPopover;
-  if (
-    conversationId != null &&
-    environment != null &&
-    resolvedEnvironmentConfigPath != null
-  ) {
-    let actionsTitleText = intl.formatMessage({
-      id: "settings.localEnvironments.actions.title",
-      defaultMessage: "Actions",
-      description: "Title for local environment actions section",
-    });
-    let actionsTitle = actionsTitleText,
-      primaryAction = primaryActionItem?.action ?? null,
-      primaryActionTitle = primaryAction
-        ? intl.formatMessage(
-            {
-              id: "threadPage.runAction.summaryRow.primaryActionTitle",
-              defaultMessage: "Run: {actionName}",
-              description:
-                "Tooltip and accessible label for the primary run action row in the summary panel",
-            },
-            {
-              actionName: primaryAction.name,
-            },
-          )
-        : null,
-      runPrimaryAction = () => {
-        primaryActionItem != null &&
-          (setMenuOpen(false),
-          onMenuOpenChange?.(false),
-          runEnvironmentAction(primaryActionItem));
-      },
-      commandRegistration = registerCommands
-        ? localEnvironmentActionControlsJsxRuntime.jsx(
-            RegisterLocalEnvironmentActionCommands,
-            {
-              actions: commandActionItems,
-              conversationId,
-              onRunAction: runEnvironmentAction,
-            },
-          )
-        : null,
-      actionsIcon = <MoreHorizontalIcon className="icon-xs" />;
-    let actionsButton = (
-      <button
-        aria-label={actionsTitle}
-        className={localEnvironmentActionIconButtonClassName}
-        title={actionsTitle}
-        type="button"
-      >
-        {actionsIcon}
-      </button>
-    );
-    let actionsTriggerButton = localEnvironmentActionControlsJsxRuntime.jsx(
-      Tooltip,
-      {
-        tooltipContent: actionsTitle,
-        delayOpen: true,
-        children: actionsButton,
-      },
-    );
-    let menuTitle = (
-      <MenuChrome.Title>
-        {environment == null ? (
-          <FormattedMessage
-            id="settings.localEnvironments.actions.title"
-            defaultMessage="Actions"
-            description="Title for local environment actions section"
-          />
-        ) : (
-          <FormattedMessage
-            id="threadPage.runAction.dropdown.titleWithEnvironment"
-            defaultMessage={"{environmentName} actions"}
-            description="Title for the run action dropdown when an environment is selected"
-            values={{
-              environmentName:
-                getLocalEnvironmentResultDisplayName(environment),
-            }}
-          />
-        )}
-      </MenuChrome.Title>
-    );
-    let actionMenuItems = sortedActionItems?.map((actionItem) =>
-        localEnvironmentActionControlsJsxRuntime.jsx(
-          LocalEnvironmentActionMenuItem,
-          {
-            actionItem: actionItem,
-            isPrimaryAction: actionItem === primaryActionItem,
-            onRunAction: runEnvironmentAction,
-          },
-          actionItem.action.name,
-        ),
-      ),
-      addActionLabel = (
-        <FormattedMessage
-          id="settings.localEnvironments.actions.add"
-          defaultMessage="Add action"
-          description="Button label to add a local environment action"
-        />
-      );
-    let addActionItem = (
-      <MenuChrome.Item
-        LeftIcon={PlusIcon}
-        leftIconClassName="icon-sm"
-        onSelect={openAddAction}
-      >
-        {addActionLabel}
-      </MenuChrome.Item>
-    );
-    let changeEnvironmentMenu = canChangeEnvironment ? (
-      <>
-        <MenuSeparator />
-        <DropdownMenuSubmenu
-          trigger={
-            <MenuChrome.Item
-              LeftIcon={SettingsGearIcon}
-              leftIconClassName="icon-sm"
-            >
-              <FormattedMessage
-                id="threadPage.runAction.changeEnvironment"
-                defaultMessage="Change environment"
-                description="Menu item to change the active local environment"
-              />
-            </MenuChrome.Item>
-          }
-        >
-          <LocalEnvironmentSelectorContent
-            availableEnvironments={availableEnvironments}
-            defaultEnvironment={defaultEnvironment}
-            defaultEnvironmentNormalized={defaultEnvironmentNormalized}
-            localEnvironments={localEnvironments}
-            localEnvironmentsError={localEnvironmentsError}
-            localEnvironmentsLoading={localEnvironmentsLoading}
-            normalizedResolvedConfigPath={normalizedResolvedConfigPath}
-            onOpenSettings={openSettings}
-            onSelectEnvironment={(configPath) => {
-              setEnvironmentSelection(configPath);
-              setMenuOpen(false);
-              onMenuOpenChange?.(false);
-            }}
-          />
-        </DropdownMenuSubmenu>
-      </>
-    ) : null;
-    let actionsDropdown = (
-      <DropdownMenu
-        align="end"
-        contentWidth="workspace"
-        open={isMenuOpen}
-        side="bottom"
-        onOpenChange={handleMenuOpenChange}
-        triggerButton={actionsTriggerButton}
-      >
-        {menuTitle}
-        {actionMenuItems}
-        {addActionItem}
-        {changeEnvironmentMenu}
-      </DropdownMenu>
-    );
-    let primaryActionButton =
-      primaryActionItem != null && primaryActionTitle != null
-        ? localEnvironmentActionControlsJsxRuntime.jsx(Tooltip, {
-            tooltipContent: primaryActionTitle,
-            shortcut:
-              primaryActionItem.commandId == null ? null : primaryShortcut,
-            delayOpen: true,
-            children: (
-              <button
-                aria-label={primaryActionTitle}
-                className={localEnvironmentActionIconButtonClassName}
-                title={primaryActionTitle}
-                type="button"
-                onClick={runPrimaryAction}
-              >
-                {localEnvironmentActionControlsJsxRuntime.jsx(md, {
-                  icon: primaryActionItem.action.icon ?? "tool",
-                })}
-              </button>
-            ),
-          })
-        : null;
-    return (
-      <div className="ms-auto flex min-w-0 items-center">
-        {commandRegistration}
-        {actionsDropdown}
-        {primaryActionButton}
-      </div>
-    );
-  }
-  let createEnvironmentLabel = intl.formatMessage({
-    id: "threadPage.runAction.environment.create",
-    defaultMessage: "Create environment",
-    description: "CTA to create a local environment from a thread",
-  });
-  let environmentSelectorLabel = intl.formatMessage({
-    id: "threadPage.runAction.environmentSelector.label",
-    defaultMessage: "Choose environment",
-    description:
-      "Tooltip and aria label for the environment selector button when no environment is selected",
-  });
-  let environmentSelectorTitle = environmentSelectorLabel,
-    handleEnvironmentSelect = (configPath) => {
-      setEnvironmentSelection(configPath);
-      setMenuOpen(false);
-      onOpenChange?.(false);
-    };
-  let environmentSelectorContent = (
-    <LocalEnvironmentSelectorContent
-      localEnvironmentsLoading={localEnvironmentsLoading}
-      localEnvironmentsError={localEnvironmentsError}
-      localEnvironments={localEnvironments}
-      availableEnvironments={availableEnvironments}
-      defaultEnvironment={defaultEnvironment}
-      defaultEnvironmentNormalized={defaultEnvironmentNormalized}
-      normalizedResolvedConfigPath={normalizedResolvedConfigPath}
-      onSelectEnvironment={handleEnvironmentSelect}
-      onOpenSettings={openSettings}
-    />
-  );
-  let selectorContent = environmentSelectorContent,
-    handleSelectorOpenChangeRaw = (open) => {
-      setMenuOpen(open);
-      onOpenChange?.(open);
-    };
-  let handleSelectorOpenChange = handleSelectorOpenChangeRaw,
-    electronEnvironmentControls = localEnvironmentActionControlsJsxRuntime.jsx(
-      PlatformContentGate,
-      {
-        electron: true,
-        children: hasNoLocalEnvironments
-          ? localEnvironmentActionControlsJsxRuntime.jsx(Tooltip, {
-              tooltipContent: createEnvironmentLabel,
-              delayOpen: true,
-              children: localEnvironmentActionControlsJsxRuntime.jsx(Button, {
-                "aria-label": createEnvironmentLabel,
-                className: "ms-auto",
-                color: "ghost",
-                disabled: !canChangeEnvironment,
-                size: "icon",
-                type: "button",
-                onClick: createEnvironment,
-                children: <PlusIcon className="icon-sm" />,
-              }),
-            })
-          : localEnvironmentActionControlsJsxRuntime.jsx(
-              LocalEnvironmentSelectorDropdown,
-              {
-                canChangeEnvironment,
-                open: isMenuOpen,
-                title: environmentSelectorTitle,
-                onOpenChange: handleSelectorOpenChange,
-                children: selectorContent,
-              },
-            ),
-      },
-    );
-  let browserEnvironmentControls = localEnvironmentActionControlsJsxRuntime.jsx(
-    PlatformContentGate,
-    {
-      browser: true,
-      chromeExtension: true,
-      extension: true,
-      children: localEnvironmentActionControlsJsxRuntime.jsx(
-        LocalEnvironmentSelectorDropdown,
-        {
-          canChangeEnvironment,
-          open: isMenuOpen,
-          title: environmentSelectorTitle,
-          onOpenChange: handleSelectorOpenChange,
-          children: selectorContent,
-        },
-      ),
-    },
-  );
-  return (
-    <>
-      {electronEnvironmentControls}
-      {browserEnvironmentControls}
-    </>
-  );
-}
-function LocalEnvironmentSelectorDropdown(props) {
-  let { canChangeEnvironment, children, open, title, onOpenChange } = props,
-    isDisabled = !canChangeEnvironment,
-    triggerDisabled = !canChangeEnvironment,
-    triggerIcon = <SettingsGearIcon className="icon-sm" />;
-  let triggerButton = localEnvironmentActionControlsJsxRuntime.jsx(Button, {
-    "aria-label": title,
-    className: "ms-auto",
-    color: "ghost",
-    disabled: triggerDisabled,
-    size: "icon",
-    children: triggerIcon,
-  });
-  let tooltipTrigger = localEnvironmentActionControlsJsxRuntime.jsx(Tooltip, {
-    tooltipContent: title,
-    delayOpen: true,
-    children: triggerButton,
-  });
-  return (
-    <DropdownMenu
-      align="end"
-      contentWidth="workspace"
-      disabled={isDisabled}
-      open={open}
-      side="bottom"
-      triggerButton={tooltipTrigger}
-      onOpenChange={onOpenChange}
-    >
-      {children}
-    </DropdownMenu>
-  );
-}
-function LocalEnvironmentActionMenuItem(props) {
-  let { actionItem, isPrimaryAction, onRunAction } = props,
-    { commandId } = actionItem;
-  if (commandId == null) {
-    return localEnvironmentActionControlsJsxRuntime.jsx(
-      LocalEnvironmentActionMenuRow,
-      {
-        actionItem,
-        isPrimaryAction,
-        shortcut: null,
-        onRunAction,
-      },
-    );
-  }
-  return localEnvironmentActionControlsJsxRuntime.jsx(
-    LocalEnvironmentActionMenuItemWithShortcut,
-    {
-      actionItem,
-      commandId,
-      isPrimaryAction,
-      onRunAction,
-    },
-  );
-}
-function LocalEnvironmentActionMenuItemWithShortcut(props) {
-  let { actionItem, commandId, isPrimaryAction, onRunAction } = props,
-    shortcut = useScopedValue(localEnvironmentActionShortcutSignal, commandId);
-  return localEnvironmentActionControlsJsxRuntime.jsx(
-    LocalEnvironmentActionMenuRow,
-    {
-      actionItem,
-      isPrimaryAction,
-      shortcut: shortcut,
-      onRunAction,
-    },
-  );
-}
-function LocalEnvironmentActionMenuRow(props) {
-  let { actionItem, isPrimaryAction, shortcut, onRunAction } = props,
-    { action } = actionItem,
-    handleSelect = () => {
-      onRunAction(actionItem);
-    };
-  let iconName = action.icon ?? "tool",
-    iconNode = (
-      <MenuChrome.ItemIcon>
-        {localEnvironmentActionControlsJsxRuntime.jsx(md, {
-          icon: iconName,
-        })}
-      </MenuChrome.ItemIcon>
-    );
-  let labelNode = (
-    <span className="min-w-0 flex-1 truncate">{action.name}</span>
-  );
-  let primaryMarker = isPrimaryAction
-    ? localEnvironmentActionControlsJsxRuntime.jsx(CheckIcon, {
-        className: "icon-xs shrink-0 text-token-description-foreground",
-      })
-    : null;
-  let shortcutNode = shortcut ? (
-    <span className="shrink-0 text-xs text-token-description-foreground">
-      {shortcut}
-    </span>
-  ) : null;
-  let contentNode = (
-    <span className="flex w-full min-w-0 items-center gap-2">
-      {labelNode}
-      {primaryMarker}
-      {shortcutNode}
-    </span>
-  );
-  return (
-    <MenuChrome.Item key={action.name} onSelect={handleSelect}>
-      {iconNode}
-      {contentNode}
-    </MenuChrome.Item>
-  );
-}
-function RegisterLocalEnvironmentActionCommands(props) {
-  let { actions, conversationId, onRunAction } = props,
-    registeredCommandItems = aa.map((item, index) =>
-      localEnvironmentActionControlsJsxRuntime.jsx(
-        RegisterLocalEnvironmentActionCommand,
-        {
-          actionItem: actions[index],
-          commandId: item,
-          conversationId,
-          index,
-          onRunAction,
-        },
-        item,
-      ),
-    );
-  return <>{registeredCommandItems}</>;
-}
-function RegisterLocalEnvironmentActionCommand(props) {
-  let { actionItem, commandId, conversationId, index, onRunAction } = props,
-    intl = useIntl(),
-    enabled = actionItem != null && conversationId != null,
-    commandTitle =
-      actionItem == null
-        ? ""
-        : intl.formatMessage(
-            {
-              id: "threadPage.runAction.commandMenu.title",
-              defaultMessage: "Run: {actionName}",
-              description:
-                "Command menu item title for a local environment action",
-            },
-            {
-              actionName: actionItem.action.name,
-            },
-          );
-  let title = commandTitle,
-    runAction = () => {
-      actionItem != null && onRunAction(actionItem);
-    };
-  let commandConfig;
-  commandConfig = {
-    enabled: enabled,
-  };
-  useCommandRegistration(commandId, runAction, commandConfig);
-  let actionName = actionItem?.action.name,
-    actionCommand = actionItem?.action.command,
-    actionIcon = actionItem?.action.icon,
-    dependencies = [actionName, actionCommand, actionIcon, commandId];
-  let renderCommandItem = (closeMenu) => {
-    if (actionItem == null) return null;
-    let { action } = actionItem;
-    return localEnvironmentActionControlsJsxRuntime.jsx(dl, {
-      value: title,
-      keywords: ["environment", "action"],
-      title: title,
-      leftAccessory: localEnvironmentActionControlsJsxRuntime.jsx(md, {
-        className: "icon-xs shrink-0",
-        icon: action.icon ?? "tool",
-      }),
-      rightAccessory: (
-        <LocalEnvironmentActionShortcutBadge commandId={commandId} />
-      ),
-      onSelect: () => {
-        onRunAction(actionItem);
-        closeMenu();
-      },
-    });
-  };
-  let registration;
-  return (
-    (registration = {
-      id: commandId,
-      groupKey: "workspace",
-      enabled: enabled,
-      order: index,
-      dependencies: dependencies,
-      render: renderCommandItem,
-    }),
-    registerThreadSidePanelTab(registration),
-    null
-  );
-}
-function LocalEnvironmentActionShortcutBadge(props) {
-  let { commandId } = props,
-    shortcut = useScopedValue(localEnvironmentActionShortcutSignal, commandId);
-  return shortcut
-    ? localEnvironmentActionControlsJsxRuntime.jsx(KeyboardShortcutKeycap, {
-        keysLabel: shortcut,
-      })
-    : null;
-}
-var localEnvironmentActionControlsModule,
-  localEnvironmentActionControlsReactRuntime,
-  localEnvironmentActionControlsJsxRuntime,
-  localEnvironmentActionIconButtonClassName,
-  EMPTY_LOCAL_ENVIRONMENT_ACTION_ITEMS,
-  initLocalEnvironmentActionControlsChunk = once(() => {
-    localEnvironmentActionControlsModule = getChunkModuleExports();
-    Ca();
-    initQueryRuntime();
-    initScopeRuntime();
-    localEnvironmentActionControlsReactRuntime = toEsModule(
-      loadReactModule(),
-      1,
-    );
-    initIntlRuntime();
-    xr();
-    Ei();
-    initThreadSidePanelTabRegistryChunk();
-    initKeyboardModifierState();
-    initButtonComponentPrimitives();
-    initDropdownMenuPrimitives();
-    initKeyboardShortcutKeycap();
-    initModalRegistrySignal();
-    initTooltipPrimitives();
-    initElectronPlatformContent();
-    il();
-    initGitQueryKeyHelpers();
-    initOsInfoQuery();
-    initCheckmarkIcon();
-    _t();
-    initSettingsGearIcon();
-    initMoreHorizontalIcon();
-    initLocalEnvironmentSelectorContentChunk();
-    initAddLocalEnvironmentActionFormChunk();
-    initRecentLocalEnvironmentActionsSignal();
-    initLocalConversationEnvironmentStateChunk();
-    initAppScope();
-    fd();
-    wo();
-    dd();
-    ws();
-    initEnvironmentTerminalController();
-    es();
-    initLoggerRuntime();
-    di();
-    initKeyboardShortcutLabel();
-    localEnvironmentActionControlsJsxRuntime = getJsxRuntime();
-    localEnvironmentActionIconButtonClassName =
-      "flex h-7 w-7 shrink-0 cursor-interaction items-center justify-center rounded-sm border-0 bg-transparent p-0 text-token-text-tertiary hover:bg-token-list-hover-background data-[state=open]:bg-token-list-hover-background";
-    EMPTY_LOCAL_ENVIRONMENT_ACTION_ITEMS = [];
   });
 function BranchChangesSummaryRow(props) {
   let { onOpenReviewTab, diffStats, isDiffStatsLoading } = props,
