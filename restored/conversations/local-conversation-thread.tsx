@@ -718,10 +718,7 @@ import {
   createLocalConversationSearchSource,
   initConversationSearchUnitExtractor,
 } from "./local-conversation-thread-parts/local-conversation-search-source";
-import {
-  collectGeneratedImagesForVisibleTurns,
-  initVisibleTurnGeneratedImagesCollector,
-} from "./local-conversation-thread-parts/visible-turn-generated-images";
+import { initVisibleTurnGeneratedImagesCollector } from "./local-conversation-thread-parts/visible-turn-generated-images";
 import {
   initLocalConversationSummaryPanelSignals,
   useLocalConversationSummaryPanelModel,
@@ -766,6 +763,7 @@ import {
   buildLocalConversationVisibleTurnEntries,
   initLocalConversationVisibleTurnEntriesBuilder,
 } from "./local-conversation-thread-parts/local-conversation-visible-turn-entries";
+import { buildLocalConversationTurnListEntries } from "./local-conversation-thread-parts/local-conversation-turn-list-entries";
 import {
   initSummaryPanelExpandableList,
   SummaryPanelExpandableList,
@@ -9390,167 +9388,6 @@ var autoFollowVirtualizedTurnListModule,
     LatestTurnMotionContext =
       autoFollowTurnListReactRuntime.createContext(null);
   });
-function buildLocalConversationTurnListEntries({
-  collapsedTurnsById,
-  completedThreadGoal,
-  completedThreadGoalTurnKey,
-  conversationId,
-  cwd,
-  hasInheritedParentTurns,
-  hostId,
-  isBackgroundSubagentsEnabled,
-  isProjectlessConversation,
-  isReadOnly,
-  modelProvider,
-  projectlessOutputDirectory = null,
-  onEditLastTurnMessage,
-  onForkTurnMessage,
-  onSetCollapsedForTurn,
-  previousEntries,
-  renderMcpApps,
-  resolvedApps,
-  showInProgressFixedContent,
-  visibleSubagentParentThreadId,
-  visibleTurnEntries,
-}) {
-  let previousEntriesByTurnKey = new Map(
-      previousEntries.map((item) => [item.turnKey, item]),
-    ),
-    generatedImagesForVisibleEntries = collectGeneratedImagesForVisibleTurns({
-      isBackgroundSubagentsEnabled,
-      previousEntries,
-      projectlessOutputDirectory,
-      visibleTurnEntries,
-    }),
-    didEntriesChange = false,
-    nextEntries = [];
-  if (
-    (visibleTurnEntries.forEach((item, index) => {
-      let turnId = item.turnId,
-        renderMcpAppsMode;
-      renderMcpApps &&
-        (renderMcpAppsMode =
-          index >= visibleTurnEntries.length - 3 ? "auto-expand" : "default");
-      let candidateEntries = [
-        {
-          conversationId,
-          cwd,
-          hostId,
-          isCollapsed: turnId == null ? undefined : collapsedTurnsById[turnId],
-          isMostRecentTurn: index === visibleTurnEntries.length - 1,
-          isReadOnly,
-          totalTurnCount: visibleTurnEntries.length,
-          turnNumber: index + 1,
-          isProjectlessConversation,
-          modelProvider,
-          projectlessOutputDirectory,
-          onEditLastTurnMessage,
-          onForkTurnMessage,
-          completedThreadGoal:
-            completedThreadGoalTurnKey === item.turnSearchKey
-              ? completedThreadGoal
-              : null,
-          generatedImages: generatedImagesForVisibleEntries,
-          onSetCollapsedForTurn:
-            turnId == null ? undefined : onSetCollapsedForTurn,
-          parentThreadAttachmentSourceConversationId:
-            index === 0 &&
-            hasInheritedParentTurns &&
-            visibleSubagentParentThreadId != null
-              ? visibleSubagentParentThreadId
-              : undefined,
-          preserveServerUserMessages: item.preserveServerUserMessages,
-          renderMcpApps: renderMcpAppsMode,
-          requests: item.requests,
-          resolvedApps,
-          showInProgressFixedContent:
-            showInProgressFixedContent &&
-            index === visibleTurnEntries.length - 1,
-          turn: item.turn,
-          turnId,
-          turnKey: item.turnSearchKey,
-          turnSearchKey: item.turnSearchKey,
-          isBackgroundSubagentsEnabled,
-        },
-      ];
-      for (let candidateEntry of candidateEntries) {
-        let previousEntry = previousEntriesByTurnKey.get(
-          candidateEntry.turnKey,
-        );
-        if (
-          previousEntry != null &&
-          areTurnListEntriesEquivalent(previousEntry, candidateEntry)
-        ) {
-          nextEntries.push(previousEntry);
-          continue;
-        }
-        didEntriesChange = true;
-        nextEntries.push(candidateEntry);
-      }
-    }),
-    !didEntriesChange &&
-      previousEntries.length !== nextEntries.length &&
-      (didEntriesChange = true),
-    !didEntriesChange)
-  ) {
-    for (let [entryIndex, candidateEntry] of nextEntries.entries())
-      if (previousEntries[entryIndex] !== candidateEntry) {
-        didEntriesChange = true;
-        break;
-      }
-  }
-  return didEntriesChange ? nextEntries : previousEntries;
-}
-function areTurnListEntriesEquivalent(previousEntry, nextEntry) {
-  return (
-    previousEntry.conversationId === nextEntry.conversationId &&
-    previousEntry.cwd === nextEntry.cwd &&
-    previousEntry.hostId === nextEntry.hostId &&
-    previousEntry.isCollapsed === nextEntry.isCollapsed &&
-    previousEntry.isMostRecentTurn === nextEntry.isMostRecentTurn &&
-    previousEntry.isReadOnly === nextEntry.isReadOnly &&
-    previousEntry.totalTurnCount === nextEntry.totalTurnCount &&
-    previousEntry.turnNumber === nextEntry.turnNumber &&
-    previousEntry.isProjectlessConversation ===
-      nextEntry.isProjectlessConversation &&
-    previousEntry.modelProvider === nextEntry.modelProvider &&
-    previousEntry.onEditLastTurnMessage === nextEntry.onEditLastTurnMessage &&
-    previousEntry.onForkTurnMessage === nextEntry.onForkTurnMessage &&
-    previousEntry.completedThreadGoal === nextEntry.completedThreadGoal &&
-    previousEntry.generatedImages === nextEntry.generatedImages &&
-    previousEntry.onSetCollapsedForTurn === nextEntry.onSetCollapsedForTurn &&
-    previousEntry.parentThreadAttachmentSourceConversationId ===
-      nextEntry.parentThreadAttachmentSourceConversationId &&
-    previousEntry.preserveServerUserMessages ===
-      nextEntry.preserveServerUserMessages &&
-    previousEntry.renderMcpApps === nextEntry.renderMcpApps &&
-    previousEntry.requests === nextEntry.requests &&
-    previousEntry.resolvedApps === nextEntry.resolvedApps &&
-    previousEntry.showInProgressFixedContent ===
-      nextEntry.showInProgressFixedContent &&
-    previousEntry.turn === nextEntry.turn &&
-    previousEntry.turnId === nextEntry.turnId &&
-    previousEntry.turnKey === nextEntry.turnKey &&
-    previousEntry.turnSearchKey === nextEntry.turnSearchKey &&
-    areTranscriptBlocksEquivalent(
-      previousEntry.transcriptBlock,
-      nextEntry.transcriptBlock,
-    ) &&
-    previousEntry.includeTranscriptTurnExtras ===
-      nextEntry.includeTranscriptTurnExtras &&
-    previousEntry.isBackgroundSubagentsEnabled ===
-      nextEntry.isBackgroundSubagentsEnabled
-  );
-}
-function areTranscriptBlocksEquivalent(
-  previousTranscriptBlock,
-  nextTranscriptBlock,
-) {
-  return previousTranscriptBlock == null || nextTranscriptBlock == null
-    ? previousTranscriptBlock === nextTranscriptBlock
-    : previousTranscriptBlock.type === nextTranscriptBlock.type &&
-        previousTranscriptBlock.key === nextTranscriptBlock.key;
-}
 var initBackgroundAgentThreadTab = once(() => {});
 async function openBackgroundAgentThreadTab(
   e,
