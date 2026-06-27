@@ -8,7 +8,6 @@ import {
   AB as initScopeRuntime,
   AI as getLocalConversationPath,
   AN as initSpinnerComponent,
-  AO as PULL_REQUEST_FIX_PROMPT_PREAMBLE,
   Al as initComposerScope,
   Ao as initGitBranchIcon,
   Au as initOsInfoQuery,
@@ -31,7 +30,6 @@ import {
   Io as initConnectorAppsListQuery,
   Ix as environmentTerminalControllerService,
   JV as loadReactModule,
-  Ja as CheckCircleIcon,
   Jo as be,
   LB as loadIsEqualModule,
   LN as initReducedMotionPreference,
@@ -51,7 +49,6 @@ import {
   Op as initConversationStateSelectors,
   PB as useScopedValue,
   PI as getHotkeyWindowFallbackPath,
-  PO as at,
   P_ as getLocalThreadConversationIdFromRoute,
   QP as appScope,
   R as initSlashIcon,
@@ -75,7 +72,6 @@ import {
   Wa as PlatformContentGate,
   Wg as initMarkdownResourceHelpers,
   YO as initPullRequestReviewCommentHelpers,
-  Ya as initCheckCircleFilledIcon,
   ZN as createHostQuerySignal,
   Zi as initDropdownMenuPrimitives,
   Zu as on,
@@ -108,12 +104,10 @@ import {
   jm as conversationModeSignal,
   ju as useOsInfo,
   kN as SpinnerIcon,
-  kO as MY_REQUEST_PROMPT_HEADER,
   ko as GitBranchIcon,
   lA as cr,
   lD as lr,
   lF as useIntl,
-  mM as TooltipProvider,
   mP as logger,
   mi as _r,
   mo as initGitHubIcon,
@@ -154,7 +148,6 @@ import {
   Cl as pullRequestCurrentBranchSignal,
   Ds as openEnvironmentTerminalSession,
   Ga as MoreHorizontalIcon,
-  Ha as updatePullRequestReviewCommentAttachments,
   Il as Ki,
   Ir as setThreadSourceFrameState,
   Ja as Ji,
@@ -196,7 +189,6 @@ import {
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import { dn as So } from "../boundaries/current-ref/automations-page-producer";
 import {
-  $ as Oo,
   $o as pullRequestMergeConflictAttachmentSignal,
   Ai as Ao,
   Gt as Po,
@@ -204,22 +196,17 @@ import {
   Ja as Lo,
   Ma as Bo,
   Ot as Wo,
-  Q as CommentBubbleIcon,
   Qo as attachedPullRequestChecksSignal,
   W as Xo,
-  _o as Zo,
   a as Qo,
-  ho as ts,
   ji as useBackgroundSubagentsEnabled,
   l as is,
-  ls as as,
   m as os,
   ns as cs,
   o as ls,
   p as us,
   qa as fs,
   u as ps,
-  us as ms,
 } from "../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   $l as createPullRequestActionStateSignal,
@@ -231,12 +218,10 @@ import {
   Nl as Ws,
   Pl as Js,
   Po as Ys,
-  Qc as Zs,
   Ql as Qs,
   St as tc,
   Tu as rc,
   Ul as ic,
-  Xc as lc,
   Xd as uc,
   Yd as dc,
   Yn as fc,
@@ -260,7 +245,6 @@ import {
   tu as Yc,
   vc as Qc,
   xt as el,
-  yc as tl,
   zl as nl,
 } from "../boundaries/current-ref/profile-page-producer";
 import {
@@ -291,10 +275,6 @@ import {
 } from "../automation/heartbeat-automation-eligibility";
 import { m as Rl } from "../boundaries/current-ref/pets-general-settings-producer";
 import {
-  HeartbeatAutomationCheckRing as Vl,
-  HeartbeatAutomationIcon as Gl,
-  initHeartbeatAutomationCheckRingChunk as Ul,
-  initHeartbeatAutomationIconChunk as ql,
   initPullRequestChecksStatusLabelChunk as Bl,
   PullRequestChecksSummary as Kl,
   pullRequestChecksStatusLabel as Hl,
@@ -319,7 +299,6 @@ import { initTeamIconChunk as $u, TeamIcon as ed } from "../icons/team-icon";
 import { initThreadScrollControllerContextChunk as id } from "../utils/thread-scroll-controller-context";
 import {
   C as PullRequestInlineActionButton,
-  S as initPullRequestCheckStatusIconChunk,
   _ as initPullRequestAnalyticsChunk,
   a as PullRequestMergeActions,
   m as usePullRequestUpdateMutation,
@@ -329,7 +308,6 @@ import {
   t as PullRequestCheckRows,
   v as trackPullRequestAction,
   w as initPullRequestInlineActionButtonChunk,
-  x as PullRequestUnknownCheckIcon,
 } from "../boundaries/current-ref/pull-request-check-rows-producer";
 import { initThreadOverflowMenuChunk as Md } from "../threads/thread-overflow-menu";
 import { shouldShowInlineActivityForRightPanel } from "./local-conversation-thread-parts/inline-activity-panel";
@@ -430,6 +408,31 @@ import {
   PullRequestSidePanelLoadingState,
 } from "./local-conversation-thread-parts/pull-request-side-panel-primitives";
 import {
+  attachFailingPullRequestChecksAndPromptFix,
+  getPullRequestCheckAttachmentKey,
+  initPullRequestFailingChecksPromptChunk,
+  setPullRequestFailingChecksAttached,
+} from "./local-conversation-thread-parts/pull-request-check-fix-actions";
+import {
+  attachPullRequestCommentsAndPromptFix,
+  initPullRequestCommentFixHelpersChunk,
+  setPullRequestCommentsAttached,
+} from "./local-conversation-thread-parts/pull-request-comment-fix-actions";
+import {
+  getPullRequestFixDisabledReason,
+  initPullRequestFixDisabledTooltipChunk,
+  PullRequestFixDisabledTooltip,
+} from "./local-conversation-thread-parts/pull-request-fix-tooltips";
+import {
+  attachPullRequestMergeConflictAndPromptFix,
+  initPullRequestFixActionHelpersChunk,
+  setPullRequestMergeConflictAttachment,
+} from "./local-conversation-thread-parts/pull-request-merge-conflict-fix-actions";
+import {
+  initPullRequestStatusDetailRowsChunk,
+  PullRequestStatusDetailRows,
+} from "./local-conversation-thread-parts/pull-request-status-detail-rows";
+import {
   initThreadSummaryPanelChromePrimitives,
   ThreadSummaryPanelContent,
   ThreadSummaryPanelHeaderButton,
@@ -499,961 +502,6 @@ var branchChangesSummaryRowModule,
     pc();
     initSummaryPanelRowChunk();
     branchChangesSummaryRowJsxRuntime = getJsxRuntime();
-  });
-function buildPullRequestCommentsFixPrompt({ baseBranch, headBranch, number }) {
-  return [
-    "## Pull request comments:",
-    `Review ${`PR ${number}`}${` (${headBranch} -> ${baseBranch})`} and address the attached outstanding PR comments with the smallest safe changes.`,
-    "Start from the attached unresolved review threads and comments.",
-    "Address every actionable comment without asking the user which ones to handle.",
-    "If a comment needs clarification, is already outdated, or should not be changed, explain that clearly instead of guessing.",
-    MY_REQUEST_PROMPT_HEADER,
-    "Address all actionable attached PR feedback.",
-  ].join("\n");
-}
-function getPullRequestCommentsFixDisabledReason({
-  baseBranch,
-  conversationId,
-  headBranch,
-  prNumber,
-}) {
-  return (
-    (conversationId == null ? "missing-conversation" : null) ??
-    (baseBranch == null || headBranch == null ? "missing-pr-info" : null) ??
-    (prNumber == null ? "missing-pr-info" : null)
-  );
-}
-function setPullRequestCommentsAttached(
-  scope,
-  { attached, commentAttachments, conversationId },
-) {
-  return conversationId == null || commentAttachments.length === 0
-    ? false
-    : (updatePullRequestReviewCommentAttachments(
-        scope,
-        conversationId,
-        (currentAttachments) => {
-          if (attached)
-            return appendMissingReviewCommentAttachments(
-              currentAttachments,
-              commentAttachments,
-            );
-          let removedAttachmentKeys = new Set(
-              commentAttachments.map(getReviewCommentAttachmentKeyValue),
-            ),
-            nextAttachments = currentAttachments.filter(
-              (item) =>
-                !removedAttachmentKeys.has(
-                  getReviewCommentAttachmentKeyValue(item),
-                ),
-            );
-          return nextAttachments.length === currentAttachments.length
-            ? currentAttachments
-            : nextAttachments;
-        },
-      ),
-      true);
-}
-function attachPullRequestCommentsAndPromptFix(
-  scope,
-  {
-    baseBranch,
-    commentAttachments,
-    conversationId,
-    focusComposer,
-    headBranch,
-    number,
-  },
-) {
-  return baseBranch == null ||
-    conversationId == null ||
-    headBranch == null ||
-    number == null ||
-    commentAttachments.length === 0
-    ? false
-    : (setPullRequestCommentsAttached(scope, {
-        attached: true,
-        commentAttachments,
-        conversationId,
-      }),
-      as(
-        scope,
-        buildPullRequestCommentsFixPrompt({
-          baseBranch,
-          headBranch,
-          number,
-        }),
-      ),
-      focusComposer && ts(),
-      true);
-}
-function appendMissingReviewCommentAttachments(
-  currentAttachments,
-  attachmentsToAdd,
-) {
-  let nextAttachments = [...currentAttachments],
-    existingAttachmentKeys = new Set(
-      currentAttachments.map(getReviewCommentAttachmentKeyValue),
-    ),
-    didAppend = false;
-  for (let attachment of attachmentsToAdd) {
-    let attachmentKey = getReviewCommentAttachmentKeyValue(attachment);
-    existingAttachmentKeys.has(attachmentKey) ||
-      (existingAttachmentKeys.add(attachmentKey),
-      nextAttachments.push(attachment),
-      (didAppend = true));
-  }
-  return didAppend ? nextAttachments : currentAttachments;
-}
-var initPullRequestCommentFixHelpersChunk = once(() => {
-  da();
-  cs();
-  Zo();
-  initPullRequestReviewCommentHelpers();
-  at();
-});
-function PullRequestCommentsFixDisabledTooltip(props) {
-  let { reason } = props;
-  if (reason == null) return null;
-  switch (reason) {
-    case "missing-conversation": {
-      return (
-        <FormattedMessage
-          id="localConversation.pullRequest.comments.missingConversation"
-          defaultMessage="Addressing PR comments is only available in an active chat"
-          description="Tooltip shown when the PR comments action is disabled because there is no active conversation"
-        />
-      );
-    }
-    case "missing-pr-info": {
-      return (
-        <FormattedMessage
-          id="localConversation.pullRequest.comments.missingPullRequestInfo"
-          defaultMessage="Failed to parse the pull request info needed to address comments"
-          description="Tooltip shown when the PR comments action is disabled because required pull request information is unavailable"
-        />
-      );
-    }
-  }
-}
-function PullRequestFixDisabledTooltip(props) {
-  let { reason } = props;
-  if (reason == null) return null;
-  switch (reason) {
-    case "branch-mismatch": {
-      return (
-        <FormattedMessage
-          id="localConversation.pullRequest.fix.branchMismatch"
-          defaultMessage="Switch back to the chat branch to use Fix"
-          description="Tooltip shown when Fix is disabled because the checked out branch differs from the thread branch"
-        />
-      );
-    }
-    case "closed-pr": {
-      return (
-        <FormattedMessage
-          id="localConversation.pullRequest.fix.closedPullRequest"
-          defaultMessage="Fix is only available for open pull requests"
-          description="Tooltip shown when Fix is disabled because the pull request is closed"
-        />
-      );
-    }
-    case "missing-branch-info": {
-      return (
-        <FormattedMessage
-          id="localConversation.pullRequest.fix.missingBranchInfo"
-          defaultMessage="Fix requires both the head and base branch"
-          description="Tooltip shown when Fix is disabled because the pull request branch metadata is unavailable"
-        />
-      );
-    }
-    case "missing-pr-info": {
-      return (
-        <FormattedMessage
-          id="localConversation.pullRequest.fix.missingPullRequestInfo"
-          defaultMessage="Failed to parse the pull request info needed for Fix"
-          description="Tooltip shown when Fix is disabled because required pull request information is unavailable"
-        />
-      );
-    }
-    case "missing-conversation": {
-      return (
-        <FormattedMessage
-          id="localConversation.pullRequest.fix.missingConversation"
-          defaultMessage="Fix is only available in an active chat"
-          description="Tooltip shown when Fix is disabled because there is no active conversation"
-        />
-      );
-    }
-  }
-}
-var pullRequestFixDisabledTooltipModule,
-  pullRequestFixDisabledTooltipJsxRuntime,
-  initPullRequestFixDisabledTooltipChunk = once(() => {
-    pullRequestFixDisabledTooltipModule = getChunkModuleExports();
-    initIntlRuntime();
-    pullRequestFixDisabledTooltipJsxRuntime = getJsxRuntime();
-  });
-function getPullRequestFixDisabledReason({
-  baseBranch,
-  conversationId,
-  fixDisabledReason,
-  hasOpenPr,
-  headBranch,
-  prNumber,
-}) {
-  return (
-    (hasOpenPr === false ? "closed-pr" : fixDisabledReason) ??
-    (conversationId == null ? "missing-conversation" : null) ??
-    (baseBranch == null || headBranch == null ? "missing-branch-info" : null) ??
-    (prNumber == null ? "missing-pr-info" : null)
-  );
-}
-var initPullRequestFailingChecksPromptChunk = once(() => {});
-function buildPullRequestFailingChecksFixPrompt({
-  baseBranch,
-  headBranch,
-  number,
-}) {
-  return [
-    PULL_REQUEST_FIX_PROMPT_PREAMBLE,
-    `Review ${`PR ${number}`}${` (${headBranch} -> ${baseBranch})`} and make the smallest safe fix for the attached failing CI.`,
-    "Start from the attached failing-check context. Then use `gh` to inspect the latest runs, annotations, and logs for those failures before changing code.",
-    "Treat `gh` as the primary source of truth for workflow runs, job logs, annotations, and links to any external CI.",
-    "Resolve the PR with `gh pr view` or `gh pr checks` and inspect failing GitHub Actions runs with `gh run view`, including logs.",
-    "If `gh pr checks` rejects a requested JSON field, retry with the available fields instead of guessing.",
-    "If a GitHub Actions run log is incomplete because the run is still in progress, fall back to the per-job logs that GitHub exposes.",
-    "If the failure can be diagnosed from GitHub, fix it directly.",
-    "If the failure requires external CI logs (for example Buildkite):",
-    "- first use `gh` to locate the external run or job URL and linked details",
-    "- then check whether any installed skills or tools can access that CI system",
-    "- then check whether the required credentials, permissions, tokens, or MCP or tool access are actually available",
-    "- if anything is missing, stop and tell the user exactly what is missing and exactly what they can provide to unblock you",
-    "- otherwise fetch the external logs, diagnose the issue, and make the smallest safe fix",
-    "Do not guess without logs. Do not do unrelated refactors. Be explicit if blocked. After fixing, run the narrowest relevant verification, commit and push the fix, and summarize the root cause, fix, and result.",
-    MY_REQUEST_PROMPT_HEADER,
-    "Use gh to inspect the failing CI and make the smallest safe fix. Once everything is fixed, commit and push it.",
-  ].join("\n");
-}
-function getPullRequestCheckAttachmentKey(check) {
-  return check.link ?? `${check.workflow ?? ""}:${check.name}`;
-}
-function setPullRequestFailingChecksAttached(scope, { attached, checks }) {
-  let failingChecks = checks.filter((item) => item.status === "failing");
-  return failingChecks.length === 0
-    ? false
-    : (ms(scope, (pullRequestContext) => {
-        if (!attached) {
-          let failingCheckKeys = new Set(
-            failingChecks.map(getPullRequestCheckAttachmentKey),
-          );
-          pullRequestContext.pullRequestChecks =
-            pullRequestContext.pullRequestChecks.filter(
-              (item) =>
-                !failingCheckKeys.has(getPullRequestCheckAttachmentKey(item)),
-            );
-          return;
-        }
-        let attachedCheckKeys = new Set(
-          pullRequestContext.pullRequestChecks.map(
-            getPullRequestCheckAttachmentKey,
-          ),
-        );
-        pullRequestContext.pullRequestChecks.push(
-          ...failingChecks.filter(
-            (item) =>
-              !attachedCheckKeys.has(getPullRequestCheckAttachmentKey(item)),
-          ),
-        );
-      }),
-      true);
-}
-function attachFailingPullRequestChecksAndPromptFix(
-  scope,
-  { baseBranch, checks, headBranch, number },
-) {
-  return baseBranch == null ||
-    headBranch == null ||
-    number == null ||
-    !setPullRequestFailingChecksAttached(scope, {
-      attached: true,
-      checks,
-    })
-    ? false
-    : (as(
-        scope,
-        buildPullRequestFailingChecksFixPrompt({
-          baseBranch,
-          headBranch,
-          number,
-        }),
-      ),
-      ts(),
-      true);
-}
-function buildPullRequestMergeConflictFixPrompt({
-  baseBranch,
-  headBranch,
-  number,
-}) {
-  return [
-    PULL_REQUEST_FIX_PROMPT_PREAMBLE,
-    `Review ${`PR ${number}`}${` (${headBranch} -> ${baseBranch})`} and resolve the attached merge conflict blocker with the smallest safe changes.`,
-    "Start from the attached merge conflict context. Then use `gh pr view` and local git state to confirm the current merge blocker before changing code.",
-    "Fetch the latest base branch, merge or rebase as appropriate for this repository, resolve the conflicts, and avoid unrelated refactors.",
-    "After resolving conflicts, run the narrowest relevant verification, commit and push the resolution, and summarize the conflict and result.",
-    MY_REQUEST_PROMPT_HEADER,
-    "Resolve the PR merge conflicts, then commit and push the fix.",
-  ].join("\n");
-}
-function attachPullRequestMergeConflictAndPromptFix(scope, mergeConflict) {
-  return mergeConflict == null
-    ? false
-    : (as(
-        scope,
-        buildPullRequestMergeConflictFixPrompt({
-          baseBranch: mergeConflict.baseBranch,
-          headBranch: mergeConflict.headBranch,
-          number: mergeConflict.number,
-        }),
-      ),
-      setPullRequestMergeConflictAttachment(scope, mergeConflict),
-      ts(),
-      true);
-}
-function setPullRequestMergeConflictAttachment(scope, mergeConflict) {
-  ms(scope, (pullRequestContext) => {
-    pullRequestContext.pullRequestMergeConflict = mergeConflict;
-  });
-}
-var initPullRequestFixActionHelpersChunk = once(() => {
-  cs();
-  Zo();
-  at();
-});
-function PullRequestRichTooltip(props) {
-  let { children, content, triggerAsChild = false } = props,
-    tooltipContent = pullRequestRichTooltipJsxRuntime.jsx(TooltipProvider, {
-      children: content,
-    });
-  let triggerContent = pullRequestRichTooltipJsxRuntime.jsx(TooltipProvider, {
-    children,
-  });
-  return pullRequestRichTooltipJsxRuntime.jsx(Tooltip, {
-    align: "start",
-    className: "w-full border-0 bg-transparent p-0 text-left",
-    delayDuration: 0,
-    interactive: true,
-    side: "right",
-    sideOffset: 4,
-    variant: "rich",
-    tooltipContent: tooltipContent,
-    tooltipMaxWidth:
-      "min(24rem, var(--radix-tooltip-content-available-width), calc(100vw - 16px))",
-    triggerAsChild: triggerAsChild,
-    children: triggerContent,
-  });
-}
-function PullRequestFlyoutContent(props) {
-  let { children } = props,
-    body =
-      children == null ? null : (
-        <div className="flex min-h-0 flex-1 flex-col gap-0.5 overflow-y-auto px-3">
-          {children}
-        </div>
-      );
-  return (
-    <div className="flex max-h-96 min-h-0 w-96 max-w-full flex-1 flex-col overflow-hidden rounded-xl py-1">
-      {body}
-    </div>
-  );
-}
-var pullRequestRichTooltipModule,
-  pullRequestRichTooltipJsxRuntime,
-  initPullRequestRichTooltipChunk = once(() => {
-    pullRequestRichTooltipModule = getChunkModuleExports();
-    initTooltipPrimitives();
-    pullRequestRichTooltipJsxRuntime = getJsxRuntime();
-  });
-function PullRequestChecksSummaryRow(props) {
-  let {
-    canFixFailingChecks = false,
-    fixTooltipContent,
-    onFixFailingChecks,
-    pullRequestStatus,
-  } = props;
-  if (pullRequestStatus == null || pullRequestStatus.checks.length === 0)
-    return null;
-  let failingChecks = pullRequestStatus.checks.filter(
-    isFailingPullRequestCheck,
-  );
-  let checksToFix = failingChecks,
-    hasFixableFailingChecks =
-      checksToFix.length > 0 && onFixFailingChecks != null,
-    getChecksByStatus = (status) =>
-      pullRequestStatus.checks.filter((item) => item.status === status),
-    orderedChecks = PULL_REQUEST_CHECK_STATUS_ORDER.flatMap(getChecksByStatus),
-    checkRows = orderedChecks.map(PullRequestCheckFlyoutRowItem);
-  let popoverContent = pullRequestStatusDetailRowsJsxRuntime.jsx(
-    PullRequestFlyoutContent,
-    {
-      children: checkRows,
-    },
-  );
-  let fixFailingChecksAction = hasFixableFailingChecks
-    ? pullRequestStatusDetailRowsJsxRuntime.jsx(PullRequestInlineActionButton, {
-        color: "ghostTertiary",
-        disabled: !canFixFailingChecks,
-        tooltipContent: fixTooltipContent,
-        onClick: () => {
-          onFixFailingChecks(checksToFix);
-        },
-        children: (
-          <FormattedMessage
-            id="codex.localConversation.gitSummary.fixFailingChecks"
-            defaultMessage="Fix"
-            description="Summary panel row action label for fixing failing pull request checks"
-          />
-        ),
-      })
-    : undefined;
-  let actionsVisible = hasFixableFailingChecks,
-    checksIcon = <Vl checks={pullRequestStatus.checks} />;
-  let checksLabel = getPullRequestChecksSummaryLabel(
-    pullRequestStatus.checks,
-    pullRequestStatus.ciStatus,
-  );
-  let summaryRow = (
-    <SummaryPanelRow
-      actions={fixFailingChecksAction}
-      actionsVisible={actionsVisible}
-      icon={checksIcon}
-      interactive={true}
-      labelClassName="text-token-text-tertiary"
-      label={checksLabel}
-    />
-  );
-  return pullRequestStatusDetailRowsJsxRuntime.jsx(PullRequestRichTooltip, {
-    triggerAsChild: hasFixableFailingChecks,
-    content: popoverContent,
-    children: summaryRow,
-  });
-}
-function PullRequestCheckFlyoutRowItem(check, index) {
-  return (
-    <PullRequestCheckFlyoutRow
-      key={`${check.name}-${check.workflow ?? ""}-${index}`}
-      check={check}
-    />
-  );
-}
-function isFailingPullRequestCheck(check) {
-  return check.status === "failing";
-}
-function PullRequestCheckFlyoutRow(props) {
-  let { check } = props,
-    checkLink = check.link,
-    statusIcon = <PullRequestCheckStatusIcon status={check.status} />;
-  let isInteractive = checkLink != null,
-    statusLabel = (
-      <span className="text-sm text-token-description-foreground">
-        <PullRequestCheckStatusLabel status={check.status} />
-      </span>
-    );
-  let handleClick =
-    checkLink == null
-      ? undefined
-      : (event) => {
-          openInBrowserFromEvent({
-            event: event,
-            href: checkLink,
-            initiator: "pull_request_link",
-          });
-        };
-  return (
-    <SummaryPanelRow
-      icon={statusIcon}
-      interactive={isInteractive}
-      label={check.name}
-      trailing={statusLabel}
-      trailingVisible={true}
-      onClick={handleClick}
-    />
-  );
-}
-function PullRequestCheckStatusIcon(props) {
-  let { status } = props;
-  switch (status) {
-    case "failing": {
-      return pullRequestStatusDetailRowsJsxRuntime.jsx(zc, {
-        className: "icon-sm shrink-0 text-token-charts-red",
-      });
-    }
-    case "passing": {
-      return pullRequestStatusDetailRowsJsxRuntime.jsx(CheckCircleIcon, {
-        className: "icon-sm shrink-0 text-token-charts-green",
-      });
-    }
-    case "pending": {
-      return <Gl className="icon-sm shrink-0 text-token-charts-yellow" />;
-    }
-    case "skipped":
-    case "unknown": {
-      return (
-        <PullRequestUnknownCheckIcon className="icon-sm shrink-0 text-token-text-tertiary" />
-      );
-    }
-  }
-}
-function PullRequestCheckStatusLabel(props) {
-  let { status } = props;
-  switch (status) {
-    case "failing": {
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.checks.status.failed"
-          defaultMessage="Failed"
-          description="Status label for a failed check in the thread summary panel flyout"
-        />
-      );
-    }
-    case "passing": {
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.checks.status.succeeded"
-          defaultMessage="Succeeded"
-          description="Status label for a successful check in the thread summary panel flyout"
-        />
-      );
-    }
-    case "pending": {
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.checks.status.running"
-          defaultMessage="Running"
-          description="Status label for a pending check in the thread summary panel flyout"
-        />
-      );
-    }
-    case "skipped": {
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.checks.status.skipped"
-          defaultMessage="Skipped"
-          description="Status label for a skipped check in the thread summary panel flyout"
-        />
-      );
-    }
-    case "unknown": {
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.checks.status.unknown"
-          defaultMessage="Unknown"
-          description="Status label for an unknown check in the thread summary panel flyout"
-        />
-      );
-    }
-  }
-}
-function getPullRequestChecksSummaryLabel(checks, ciStatus) {
-  let failingCheckCount = checks.filter(
-      (item) => item.status === "failing",
-    ).length,
-    pendingCheckCount = checks.filter(
-      (item) => item.status === "pending",
-    ).length;
-  if (failingCheckCount > 0)
-    return (
-      <FormattedMessage
-        id="codex.localConversation.gitSummary.failingChecks.count"
-        defaultMessage={
-          "{count, plural, one {# failing check} other {# failing checks}}"
-        }
-        description="Summary panel row label when pull request checks are failing"
-        values={{
-          count: failingCheckCount,
-        }}
-      />
-    );
-  if (pendingCheckCount > 0)
-    return (
-      <FormattedMessage
-        id="codex.localConversation.gitSummary.pendingChecks.count"
-        defaultMessage={
-          "{count, plural, one {# pending check} other {# pending checks}}"
-        }
-        description="Summary panel row label when pull request checks are pending"
-        values={{
-          count: pendingCheckCount,
-        }}
-      />
-    );
-  switch (ciStatus) {
-    case "passing":
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.checksSuccessful"
-          defaultMessage="Checks successful"
-          description="Summary panel row label when all pull request checks have completed successfully"
-        />
-      );
-    case "none":
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.noChecks"
-          defaultMessage="No CI checks"
-          description="Summary panel row label when the pull request has no checks"
-        />
-      );
-    case "failing":
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.checksFailing"
-          defaultMessage="Checks failing"
-          description="Summary panel row label when pull request checks failed without individual failure details"
-        />
-      );
-    case "pending":
-      return (
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.pendingChecks"
-          defaultMessage="Pending checks"
-          description="Summary panel row label when pull request checks are pending without individual pending details"
-        />
-      );
-  }
-}
-var pullRequestStatusDetailRowsModule,
-  pullRequestStatusDetailRowsJsxRuntime,
-  PULL_REQUEST_CHECK_STATUS_ORDER,
-  initPullRequestStatusDetailRowsChunk = once(() => {
-    pullRequestStatusDetailRowsModule = getChunkModuleExports();
-    initIntlRuntime();
-    initExternalUrlHelpers();
-    initCheckCircleFilledIcon();
-    initPullRequestCheckStatusIconChunk();
-    ql();
-    Kc();
-    Ul();
-    initPullRequestInlineActionButtonChunk();
-    initPullRequestRichTooltipChunk();
-    initSummaryPanelRowChunk();
-    pullRequestStatusDetailRowsJsxRuntime = getJsxRuntime();
-    PULL_REQUEST_CHECK_STATUS_ORDER = [
-      "failing",
-      "pending",
-      "skipped",
-      "unknown",
-      "passing",
-    ];
-  });
-function PullRequestStatusDetailRows(props) {
-  let { conversationId, headBranch, pullRequestStatus } = props,
-    scope = useScope(composerScope),
-    storedThreadBranch = useScopedValue(
-      storedThreadBranchSignal,
-      conversationId,
-    ),
-    reviewCommentAttachments = useScopedValue(
-      pullRequestReviewCommentAttachmentsSignal,
-      conversationId,
-    );
-  if (pullRequestStatus == null || !pullRequestStatus.hasOpenPr) return null;
-  let baseBranch = pullRequestStatus.boardItem?.baseBranch ?? null,
-    pullRequestHeadBranch =
-      pullRequestStatus.boardItem?.headBranch ?? headBranch,
-    pullRequestNumber = pullRequestStatus.number,
-    pullRequestUrl =
-      pullRequestStatus.url ?? pullRequestStatus.boardItem?.url ?? null,
-    existingReviewCommentKeySet = new Set(
-      reviewCommentAttachments.map(getReviewCommentAttachmentKey),
-    );
-  let reviewCommentKeySet = existingReviewCommentKeySet,
-    hasUnresolvedReviewComments;
-  {
-    let isNewCommentAttachment;
-    isNewCommentAttachment = (commentAttachment) =>
-      !reviewCommentKeySet.has(
-        getReviewCommentAttachmentKeyValue(commentAttachment),
-      );
-    hasUnresolvedReviewComments = pullRequestStatus.commentAttachments.some(
-      isNewCommentAttachment,
-    );
-  }
-  let hasNewCommentAttachments = hasUnresolvedReviewComments,
-    hasFailingChecks = pullRequestStatus.checks.some(
-      isFailingPullRequestCheckStatus,
-    );
-  let canShowFailingChecksFix = hasFailingChecks,
-    hasMergeConflicts = pullRequestStatus.mergeBlocker === "conflicts",
-    hasCommentAttachments = pullRequestStatus.commentAttachments.length > 0,
-    fixDisabledReason =
-      canShowFailingChecksFix || hasMergeConflicts || hasNewCommentAttachments
-        ? conversationId == null
-          ? "missing-conversation"
-          : xc({
-                currentBranch: headBranch,
-                storedThreadBranch: storedThreadBranch,
-              }).hasThreadBranchMismatch
-            ? "branch-mismatch"
-            : null
-        : null,
-    failingChecksFixDisabledReason = canShowFailingChecksFix
-      ? getPullRequestFixDisabledReason({
-          baseBranch: baseBranch,
-          conversationId,
-          fixDisabledReason: fixDisabledReason,
-          hasOpenPr: pullRequestStatus.hasOpenPr,
-          headBranch: pullRequestHeadBranch,
-          prNumber: pullRequestNumber,
-        })
-      : null;
-  let checksFixDisabledReason = failingChecksFixDisabledReason,
-    mergeConflictFixDisabledReason = hasMergeConflicts
-      ? getPullRequestFixDisabledReason({
-          baseBranch: baseBranch,
-          conversationId,
-          fixDisabledReason: fixDisabledReason,
-          hasOpenPr: pullRequestStatus.hasOpenPr,
-          headBranch: pullRequestHeadBranch,
-          prNumber: pullRequestUrl == null ? null : pullRequestNumber,
-        })
-      : null;
-  let conflictFixDisabledReason = mergeConflictFixDisabledReason,
-    commentsFixDisabledReason = hasNewCommentAttachments
-      ? getPullRequestCommentsFixDisabledReason({
-          baseBranch: baseBranch,
-          conversationId,
-          headBranch: pullRequestHeadBranch,
-          prNumber: pullRequestNumber,
-        })
-      : null;
-  let reviewCommentsFixDisabledReason = commentsFixDisabledReason,
-    openMergeConflictsFix = () => {
-      attachPullRequestMergeConflictAndPromptFix(
-        scope,
-        baseBranch == null ||
-          pullRequestHeadBranch == null ||
-          pullRequestNumber == null ||
-          pullRequestUrl == null
-          ? null
-          : {
-              baseBranch: baseBranch,
-              headBranch: pullRequestHeadBranch,
-              number: pullRequestNumber,
-              repo: pullRequestStatus.repo,
-              url: pullRequestUrl,
-            },
-      );
-    };
-  let handleFixMergeConflicts = openMergeConflictsFix,
-    openReviewCommentsFix = () => {
-      attachPullRequestCommentsAndPromptFix(scope, {
-        baseBranch: baseBranch,
-        commentAttachments: pullRequestStatus.commentAttachments,
-        conversationId,
-        focusComposer: true,
-        headBranch: pullRequestHeadBranch,
-        number: pullRequestNumber,
-      });
-    };
-  let handleFixReviewComments = openReviewCommentsFix,
-    canFixFailingChecks = checksFixDisabledReason == null,
-    failingChecksTooltipContent =
-      checksFixDisabledReason == null
-        ? undefined
-        : pullRequestSummaryRowsJsxRuntime.jsx(PullRequestFixDisabledTooltip, {
-            reason: checksFixDisabledReason,
-          });
-  let handleFixFailingChecks = (checks) => {
-    attachFailingPullRequestChecksAndPromptFix(scope, {
-      baseBranch: baseBranch,
-      checks: checks,
-      headBranch: pullRequestHeadBranch,
-      number: pullRequestNumber,
-    });
-  };
-  let checksRow = (
-    <PullRequestChecksSummaryRow
-      canFixFailingChecks={canFixFailingChecks}
-      fixTooltipContent={failingChecksTooltipContent}
-      onFixFailingChecks={handleFixFailingChecks}
-      pullRequestStatus={pullRequestStatus}
-    />
-  );
-  let mergeConflictsRow = hasMergeConflicts ? (
-    <SummaryPanelRow
-      actions={pullRequestSummaryRowsJsxRuntime.jsx(
-        PullRequestInlineActionButton,
-        {
-          color: "ghostTertiary",
-          disabled: conflictFixDisabledReason != null,
-          tooltipContent:
-            conflictFixDisabledReason == null
-              ? undefined
-              : pullRequestSummaryRowsJsxRuntime.jsx(
-                  PullRequestFixDisabledTooltip,
-                  {
-                    reason: conflictFixDisabledReason,
-                  },
-                ),
-          onClick: handleFixMergeConflicts,
-          children: (
-            <FormattedMessage
-              id="codex.localConversation.gitSummary.fixMergeConflicts"
-              defaultMessage="Fix"
-              description="Summary panel row action label for resolving pull request merge conflicts"
-            />
-          ),
-        },
-      )}
-      actionsVisible={true}
-      icon={
-        <span className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center">
-          <Qc className="icon-xs text-token-charts-red" />
-        </span>
-      }
-      interactive={true}
-      labelClassName="text-token-text-tertiary"
-      label={
-        <FormattedMessage
-          id="codex.localConversation.gitSummary.mergeConflicts"
-          defaultMessage="Merge conflicts"
-          description="Summary panel row label when the pull request has merge conflicts"
-        />
-      }
-    />
-  ) : null;
-  let commentsRow = hasCommentAttachments
-    ? pullRequestSummaryRowsJsxRuntime.jsx(PullRequestRichTooltip, {
-        triggerAsChild: true,
-        content: pullRequestSummaryRowsJsxRuntime.jsx(
-          PullRequestFlyoutContent,
-          {
-            children: (
-              <div className="flex flex-col gap-2 py-1">
-                {pullRequestStatus.commentAttachments.map((item, index) => {
-                  let activityItem =
-                    item.reviewThreadId == null
-                      ? null
-                      : pullRequestStatus.activityItems.find(
-                          (_item) =>
-                            _item.type === "review_comment" &&
-                            _item.reviewThreadId === item.reviewThreadId,
-                        );
-                  return (
-                    <Qo
-                      key={`${item.url ?? ""}-${index}`}
-                      authorAvatarUrl={activityItem?.authorAvatarUrl}
-                      authorLogin={activityItem?.authorLogin}
-                      bodyPreview={true}
-                      comment={item}
-                      createdAt={activityItem?.createdAt}
-                      onOpenInReview={() => {
-                        Zs(scope, {
-                          comment: item,
-                        });
-                      }}
-                      url={item.url ?? null}
-                    />
-                  );
-                })}
-              </div>
-            ),
-          },
-        ),
-        children: (
-          <SummaryPanelRow
-            actions={
-              hasNewCommentAttachments
-                ? pullRequestSummaryRowsJsxRuntime.jsx(
-                    PullRequestInlineActionButton,
-                    {
-                      color: "ghostTertiary",
-                      disabled: reviewCommentsFixDisabledReason != null,
-                      tooltipContent:
-                        reviewCommentsFixDisabledReason == null
-                          ? undefined
-                          : pullRequestSummaryRowsJsxRuntime.jsx(
-                              PullRequestCommentsFixDisabledTooltip,
-                              {
-                                reason: reviewCommentsFixDisabledReason,
-                              },
-                            ),
-                      onClick: handleFixReviewComments,
-                      children: (
-                        <FormattedMessage
-                          id="codex.localConversation.gitSummary.fixComments"
-                          defaultMessage="Fix"
-                          description="Summary panel row action label for fixing pull request comments"
-                        />
-                      ),
-                    },
-                  )
-                : undefined
-            }
-            actionsVisible={hasNewCommentAttachments}
-            icon={
-              <span className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center">
-                <CommentBubbleIcon className="icon-xs text-token-text-tertiary" />
-              </span>
-            }
-            interactive={true}
-            labelClassName="text-token-text-tertiary"
-            label={
-              <FormattedMessage
-                id="codex.localConversation.gitSummary.comments.count"
-                defaultMessage={
-                  "{count, plural, one {# comment} other {# comments}}"
-                }
-                description="Summary panel row label for pull request comments"
-                values={{
-                  count: pullRequestStatus.commentAttachments.length,
-                }}
-              />
-            }
-          />
-        ),
-      })
-    : null;
-  return (
-    <>
-      {checksRow}
-      {mergeConflictsRow}
-      {commentsRow}
-    </>
-  );
-}
-function isFailingPullRequestCheckStatus(check) {
-  return check.status === "failing";
-}
-function getReviewCommentAttachmentKey(commentAttachment) {
-  return getReviewCommentAttachmentKeyValue(commentAttachment);
-}
-var pullRequestSummaryRowsModule,
-  pullRequestSummaryRowsJsxRuntime,
-  initPullRequestSummaryRowsChunk = once(() => {
-    pullRequestSummaryRowsModule = getChunkModuleExports();
-    initScopeRuntime();
-    initIntlRuntime();
-    initConversationStateSelectors();
-    da();
-    initPullRequestReviewCommentHelpers();
-    Oo();
-    tl();
-    Yc();
-    initPullRequestCommentFixHelpersChunk();
-    initPullRequestFixDisabledTooltipChunk();
-    initPullRequestFailingChecksPromptChunk();
-    initPullRequestInlineActionButtonChunk();
-    initPullRequestFixActionHelpersChunk();
-    ls();
-    initComposerScope();
-    lc();
-    initPullRequestRichTooltipChunk();
-    initSummaryPanelRowChunk();
-    initPullRequestStatusDetailRowsChunk();
-    pullRequestSummaryRowsJsxRuntime = getJsxRuntime();
   });
 function getPullRequestTitleOrFallback(title, fallbackTitle) {
   return title?.trim() || fallbackTitle;
@@ -3568,7 +2616,6 @@ var localConversationGitSummaryModule,
     io();
     ka();
     initSummaryPanelRowChunk();
-    initPullRequestSummaryRowsChunk();
     initPullRequestTitleFallbackChunk();
     initPullRequestSummaryRowChunk();
     initPullRequestSidePanelOpenerChunk();
