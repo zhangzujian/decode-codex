@@ -11110,6 +11110,39 @@
       "status": "done",
       "note": "Project hover card support for sidebar project groups, including remote host color assignment, pinning, source rows, and connection status labels.",
       "lastUpdated": "2026-06-27T18:34:48.968Z"
+    },
+    "app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~hc7acb17-o4mgW3b3": {
+      "restored": "boundaries/current-ref/project-appearance-producer.ts",
+      "status": "boundary",
+      "note": "Current ref passthrough boundary for local-conversation-page; project appearance helpers are pending deep semantic restoration.",
+      "lastUpdated": "2026-06-27T18:51:20.705Z"
+    },
+    "app-initial~app-main~appgen-page~remote-conversation-page~projects-index-page~appgen-librar~i4jkvfhy-Cz2rgy0h": {
+      "restored": "boundaries/current-ref/appgen-project-header-producer.ts",
+      "status": "boundary",
+      "note": "Current ref passthrough boundary for local-conversation-page; Appgen pending-thread header is pending deep semantic restoration.",
+      "lastUpdated": "2026-06-27T18:51:20.705Z"
+    },
+    "use-debug-panel-BOtarLIY": {
+      "restored": "boundaries/current-ref/debug-panel-producer.ts",
+      "status": "boundary",
+      "note": "Current ref passthrough boundary for local-conversation-page debug-panel source registration.",
+      "lastUpdated": "2026-06-27T18:51:20.705Z"
+    },
+    "worktree-init-v2-page-BAfwy1p_": {
+      "restored": "boundaries/current-ref/worktree-init-v2-page-producer.ts",
+      "status": "boundary",
+      "note": "Current ref passthrough boundary for local-conversation-page pending worktree routing.",
+      "lastUpdated": "2026-06-27T18:51:20.705Z"
+    },
+    "local-conversation-page-D7JrTtqP": {
+      "restored": "conversations/local-conversation-page.tsx",
+      "exports": {
+        "ea": "LocalConversationPage"
+      },
+      "status": "done",
+      "note": "Restored local conversation page container: workspace tab remapping, local header chrome, summary panel toggle, latest-turn preview, background subagent panel, composer shell, pending client/worktree routes, and debug panel reporter.",
+      "lastUpdated": "2026-06-27T18:51:20.705Z"
     }
   }
 }
