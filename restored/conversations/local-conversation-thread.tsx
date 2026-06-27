@@ -260,7 +260,6 @@ import {
   lL as dr,
   lP as fr,
   lm as pr,
-  lz as mr,
   mM as hr,
   mP as gr,
   mi as _r,
@@ -380,7 +379,6 @@ import {
   _c as va,
   _i as ya,
   _s as ba,
-  _u as xa,
   b as Sa,
   ba as Ca,
   bc as wa,
@@ -827,6 +825,11 @@ import {
   parseBerryDisplayTurnId,
 } from "./local-conversation-thread-parts/turn-request-index";
 import { getLocalConversationTurnSearchKey } from "./local-conversation-thread-parts/turn-search-key";
+import {
+  createBrowserUseSummaryRows,
+  createBrowserUseSummarySyncKey,
+  subscribeToBrowserUseSummaryChanges,
+} from "./local-conversation-thread-parts/browser-use-summary";
 const joinLocalEnvironmentRepoPath = M;
 
 function Fd(e) {
@@ -8822,68 +8825,6 @@ var uy = once(() => {
   xs();
   initActiveConversationProcessRowsChunk();
 });
-function dy({ browserTabId, browserSnapshot, isAgentWorking }) {
-  let r = browserSnapshot?.url.trim() ?? "",
-    i = py(r) ? null : _y(r),
-    a =
-      i == null
-        ? hy(browserSnapshot?.title ?? "")
-        : gy(browserSnapshot?.title ?? "", i);
-  return {
-    browserTabId,
-    displayUrl: i,
-    faviconUrl: browserSnapshot?.faviconUrl ?? null,
-    isAgentWorking,
-    title: a,
-    url: my(r) ? "" : r,
-  };
-}
-function fy({ browserTabId, browserSnapshot, isAgentWorking }) {
-  if (browserSnapshot?.tabType !== mr.WEB) return null;
-  let r = browserSnapshot.url.trim();
-  if (py(r)) return null;
-  let i = _y(r);
-  return {
-    browserTabId,
-    displayUrl: i,
-    faviconUrl: browserSnapshot.faviconUrl,
-    isAgentWorking,
-    title: gy(browserSnapshot.title, i),
-    url: r,
-  };
-}
-function py(e) {
-  return e.length === 0 || e === "about:blank" || my(e);
-}
-function my(e) {
-  return e.startsWith(vy);
-}
-function hy(e) {
-  let t = e.trim();
-  return t.length === 0 || t === "about:blank" || t.startsWith(vy) ? ni : t;
-}
-function gy(e, t) {
-  let n = e.trim();
-  return n.length === 0 ||
-    n === "New tab" ||
-    n === "about:blank" ||
-    n.startsWith(vy)
-    ? t
-    : n;
-}
-function _y(e) {
-  try {
-    let { host } = new URL(e);
-    return host.replace(/^www\./, "");
-  } catch {
-    return e.replace(/^https?:\/\//, "");
-  }
-}
-var vy,
-  yy = once(() => {
-    gn();
-    vy = "about:blank#codex-browser-sidebar-attach-token=";
-  });
 function by(e) {
   for (let t = e.length - 1; t >= 0; --t) {
     let n = e[t];
@@ -9080,7 +9021,7 @@ function useLocalConversationSummaryPanelModel(e) {
   x = () =>
     o == null
       ? ""
-      : Ly({
+      : createBrowserUseSummarySyncKey({
           bottomPanelTabs: b,
           conversationId: o,
           isMultiBrowserTabsGateEnabled: v,
@@ -9089,14 +9030,15 @@ function useLocalConversationSummaryPanelModel(e) {
   S = () =>
     o == null
       ? ""
-      : Ly({
+      : createBrowserUseSummarySyncKey({
           bottomPanelTabs: b,
           conversationId: o,
           isMultiBrowserTabsGateEnabled: v,
           rightPanelTabs: y,
         });
-  let C = By.useSyncExternalStore($a.subscribe, x, S),
-    w = Iy({
+  let C = By.useSyncExternalStore(subscribeToBrowserUseSummaryChanges, x, S),
+    w = createBrowserUseSummaryRows({
+      blankTitle: ni,
       bottomPanelTabs: b,
       browserUseSummarySyncKey: C,
       conversationId: o,
@@ -9138,95 +9080,6 @@ function Py(e) {
 function Fy(e) {
   return e.type === "mcpToolCall" && e.server !== "node_repl";
 }
-function Iy({
-  bottomPanelTabs,
-  browserUseSummarySyncKey,
-  conversationId,
-  isMultiBrowserTabsGateEnabled,
-  rightPanelTabs,
-}) {
-  if (conversationId == null) return [];
-  if (!isMultiBrowserTabsGateEnabled) {
-    if (browserUseSummarySyncKey.length === 0) return [];
-    let e = $a.getBrowserUseSummaryBrowserTabId(conversationId);
-    if (e == null) return [];
-    let r = fy({
-      browserTabId: e,
-      browserSnapshot: $a.getSnapshot(conversationId, e),
-      isAgentWorking: $a.isBrowserUseActive(conversationId, e),
-    });
-    return r == null ? [] : [r];
-  }
-  return browserUseSummarySyncKey.length === 0
-    ? []
-    : Ry({
-        bottomPanelTabs,
-        conversationId,
-        rightPanelTabs,
-      }).map((item) =>
-        dy({
-          browserTabId: item,
-          browserSnapshot: $a.getSnapshot(conversationId, item),
-          isAgentWorking: $a.isBrowserUseActive(conversationId, item),
-        }),
-      );
-}
-function Ly({
-  bottomPanelTabs,
-  conversationId,
-  isMultiBrowserTabsGateEnabled,
-  rightPanelTabs,
-}) {
-  if (!isMultiBrowserTabsGateEnabled) {
-    let e = $a.getBrowserUseSummaryBrowserTabId(conversationId),
-      n = $a.getBrowserUseBrowserTabSummarySyncKey(conversationId);
-    return e == null || n.length === 0
-      ? ""
-      : [
-          n,
-          e,
-          $a.isBrowserUseActive(conversationId, e) ? "active" : "inactive",
-        ].join("\t");
-  }
-  return Ry({
-    bottomPanelTabs,
-    conversationId,
-    rightPanelTabs,
-  })
-    .map((item) => {
-      let n = $a.getSnapshot(conversationId, item),
-        r = "user";
-      return (
-        $a.isBrowserUseTab(conversationId, item) && (r = "inactive"),
-        $a.isBrowserUseActive(conversationId, item) && (r = "active"),
-        [
-          item,
-          r,
-          n?.tabType ?? "",
-          n?.title ?? "",
-          n?.url ?? "",
-          n?.faviconUrl ?? "",
-        ].join("\t")
-      );
-    })
-    .join("\n");
-}
-function Ry({ bottomPanelTabs, conversationId, rightPanelTabs }) {
-  let r = [],
-    i = new Set(),
-    a = (e) => {
-      i.has(e) || (i.add(e), r.push(e));
-    };
-  for (let r of [rightPanelTabs, bottomPanelTabs])
-    for (let e of r) {
-      let n = A(e, conversationId);
-      n != null && a(n);
-    }
-  for (let e of xa(conversationId)) a(e);
-  for (let e of $a.getConversationBrowserTabIds(conversationId))
-    $a.isBrowserUseTab(conversationId, e) && a(e);
-  return r;
-}
 var zy,
   By,
   Vy,
@@ -9251,7 +9104,6 @@ var zy,
     initLocalConversationArtifactSignals();
     Pc();
     uy();
-    yy();
     xy();
     wy();
     My();
