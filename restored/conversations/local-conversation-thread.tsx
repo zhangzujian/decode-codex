@@ -487,7 +487,7 @@ import {
   zt as hs,
 } from "./app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~new-~kvpgbdy1-mhRp2VYQ.js";
 import {
-  $c as gs,
+  $c as openBrowserSummaryTab,
   $l as _s,
   $n as vs,
   Al as ys,
@@ -8126,7 +8126,7 @@ function Sv(e) {
       <BrowserUseSummarySectionContent
         browserUseSummaries={browserUseSummaries}
         onOpenBrowserTab={(browserTabId) => {
-          gs(h, true, {
+          openBrowserSummaryTab(h, true, {
             browserTabId,
           });
         }}
