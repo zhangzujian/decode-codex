@@ -166,8 +166,12 @@ function remapWorkspacePathBetweenRoots(
     return value;
   }
   const normalizedValue = normalizeConfigPath(normalizeWorkspacePath(value));
-  const normalizedSource = normalizeConfigPath(normalizeWorkspacePath(sourceRoot));
-  const normalizedTarget = normalizeConfigPath(normalizeWorkspacePath(targetRoot));
+  const normalizedSource = normalizeConfigPath(
+    normalizeWorkspacePath(sourceRoot),
+  );
+  const normalizedTarget = normalizeConfigPath(
+    normalizeWorkspacePath(targetRoot),
+  );
   if (normalizedValue === normalizedSource) {
     return normalizedTarget;
   }
@@ -194,13 +198,21 @@ function remapPanelTab(
     source: tab.source
       ? {
           ...tab.source,
-          path: remapWorkspacePathBetweenRoots(tab.source.path, sourceRoot, targetRoot),
+          path: remapWorkspacePathBetweenRoots(
+            tab.source.path,
+            sourceRoot,
+            targetRoot,
+          ),
           originalPath: remapWorkspacePathBetweenRoots(
             tab.source.originalPath,
             sourceRoot,
             targetRoot,
           ),
-          cwd: remapWorkspacePathBetweenRoots(tab.source.cwd, sourceRoot, targetRoot),
+          cwd: remapWorkspacePathBetweenRoots(
+            tab.source.cwd,
+            sourceRoot,
+            targetRoot,
+          ),
         }
       : tab.source,
   };
@@ -215,7 +227,9 @@ function remapOpenWorkspaceTabsAfterRootChange(
     return;
   }
 
-  const remapTabsForController = (controller: typeof rightPanelController): void => {
+  const remapTabsForController = (
+    controller: typeof rightPanelController,
+  ): void => {
     const activeTab = scope.get<PanelTab | null>(controller.activeTab$);
     const tabs = scope.get<PanelTab[]>(controller.tabs$);
     for (const tab of tabs) {
@@ -230,7 +244,11 @@ function remapOpenWorkspaceTabsAfterRootChange(
       }
     }
     if (activeTab) {
-      const remappedActiveTab = remapPanelTab(activeTab, sourceRoot, targetRoot);
+      const remappedActiveTab = remapPanelTab(
+        activeTab,
+        sourceRoot,
+        targetRoot,
+      );
       if (activeTab.tabKind === appShellTabIds.DIFF) {
         openWorkspaceDiffPanelTab(scope, remappedActiveTab, controller);
       } else {
@@ -325,7 +343,8 @@ function SummaryPanelOverlayPopover({
 
 function toggleSummaryPanel(scope: Scope, force?: boolean): void {
   const nextPinned =
-    force ?? !scope.get<boolean>(summaryPanelPinnedSignal, scope.value?.conversationId);
+    force ??
+    !scope.get<boolean>(summaryPanelPinnedSignal, scope.value?.conversationId);
   scope.set(summaryPanelPinnedSignal, nextPinned, scope.value?.conversationId);
   if (nextPinned) {
     scope.set(rightPanelOpenSignal, true);
@@ -346,7 +365,9 @@ function LocalConversationHeader({
     | null;
   const intl = useIntl() as IntlShape;
   const projectAppearance = projectId ? getProjectAppearance(projectId) : null;
-  const model = useScopedValue(conversationModelSignal, conversationId) as string | null;
+  const model = useScopedValue(conversationModelSignal, conversationId) as
+    | string
+    | null;
   const overrideModel = useScopedValue(
     conversationModelOverrideSignal,
     conversationId,
@@ -389,7 +410,9 @@ function LocalConversationHeader({
               })}
           </div>
           <div className="truncate text-xs text-token-text-tertiary">
-            {[overrideModel ?? model, reasoningEffort].filter(Boolean).join(" · ")}
+            {[overrideModel ?? model, reasoningEffort]
+              .filter(Boolean)
+              .join(" · ")}
           </div>
         </div>
       </div>
@@ -466,12 +489,14 @@ type LatestTurnComposerPreviewProps = { conversationId: string };
 function LatestTurnComposerPreviewContainer({
   conversationId,
 }: LatestTurnComposerPreviewProps): React.ReactElement | null {
-  const latestTurn = useScopedValue(latestConversationTurnSignal, conversationId) as
-    | { id?: string; items?: unknown[]; status?: string }
-    | null;
-  const requests = useScopedValue(conversationRequestsSignal, conversationId) as
-    | Array<{ turnId?: string; items?: unknown[]; status?: string }>
-    | null;
+  const latestTurn = useScopedValue(
+    latestConversationTurnSignal,
+    conversationId,
+  ) as { id?: string; items?: unknown[]; status?: string } | null;
+  const requests = useScopedValue(
+    conversationRequestsSignal,
+    conversationId,
+  ) as Array<{ turnId?: string; items?: unknown[]; status?: string }> | null;
   const hostId = useScopedValue(conversationHostIdSignal, conversationId) as
     | string
     | null;
@@ -516,7 +541,10 @@ function LatestTurnComposerPreview({
 }: LatestTurnComposerPreviewInnerProps): React.ReactElement | null {
   const [isOpen, setIsOpen] = React.useState(true);
   const normalizedItems = getRenderableTurnItems(latestTurn.items ?? []);
-  const agentGroups = getTurnAgentItemGroups(normalizedItems, latestTurn.status);
+  const agentGroups = getTurnAgentItemGroups(
+    normalizedItems,
+    latestTurn.status,
+  );
   const renderableAgents = resolveRenderableAgentItems(agentGroups);
   const previewSummary = getLatestTurnPreviewSummary(renderableAgents);
   const collapsedCount = countCollapsedRenderableAgentItems(renderableAgents);
@@ -587,14 +615,18 @@ type LocalConversationDiffSummaryProps = { conversationId: string };
 function LocalConversationDiffSummary({
   conversationId,
 }: LocalConversationDiffSummaryProps): React.ReactElement | null {
-  const cwd = useScopedValue(lastTurnCwdSignal, conversationId) as string | null;
+  const cwd = useScopedValue(lastTurnCwdSignal, conversationId) as
+    | string
+    | null;
   const diff = useScopedValue(lastTurnDiffSignal, conversationId) as unknown;
 
   if (!cwd || !diff) {
     return null;
   }
 
-  return <LocalConversationDiffSummaryView lastTurnCwd={cwd} lastTurnDiff={diff} />;
+  return (
+    <LocalConversationDiffSummaryView lastTurnCwd={cwd} lastTurnDiff={diff} />
+  );
 }
 
 function MarkLocalConversationReadOnVisibility(): null {
@@ -608,9 +640,9 @@ function LocalConversationThreadPage({
   conversationId,
 }: LocalConversationThreadPageProps): React.ReactElement {
   const scope = useScope(localConversationRouteScope) as Scope;
-  const activeDiff = useSignalValue(activeWorkspaceDiffSignal) as
-    | { kind?: string }
-    | null;
+  const activeDiff = useSignalValue(activeWorkspaceDiffSignal) as {
+    kind?: string;
+  } | null;
   const pinnedSummaryPanel = useScopedValue(
     summaryPanelPinnedSignal,
     conversationId,
@@ -628,7 +660,9 @@ function LocalConversationThreadPage({
       header={<LocalConversationThreadHeader conversationId={conversationId} />}
       rightPanel={
         pinnedSummaryPanel ? (
-          <LocalConversationSummaryPanelContent conversationId={conversationId} />
+          <LocalConversationSummaryPanelContent
+            conversationId={conversationId}
+          />
         ) : (
           <BackgroundSubagentsPanel conversationId={conversationId} />
         )
@@ -645,7 +679,10 @@ function LocalConversationThreadPage({
 function SummaryPanelHeaderAction(): React.ReactElement {
   const scope = useScope(localConversationRouteScope) as Scope;
   const conversationId = scope.value?.conversationId as string | undefined;
-  const pinned = useScopedValue(summaryPanelPinnedSignal, conversationId) as boolean;
+  const pinned = useScopedValue(
+    summaryPanelPinnedSignal,
+    conversationId,
+  ) as boolean;
 
   const button = (
     <ThreadSummaryPanelChrome.HeaderButton
@@ -682,9 +719,10 @@ type LocalConversationThreadHeaderProps = { conversationId: string };
 function LocalConversationThreadHeader({
   conversationId,
 }: LocalConversationThreadHeaderProps): React.ReactElement {
-  const projectId = useScopedValue(subagentParentThreadIdSignal, conversationId) as
-    | string
-    | null;
+  const projectId = useScopedValue(
+    subagentParentThreadIdSignal,
+    conversationId,
+  ) as string | null;
 
   return (
     <>
@@ -704,11 +742,16 @@ function LocalConversationComposer({
 }: LocalConversationComposerProps): React.ReactElement {
   const scope = useScope(localConversationRouteScope) as Scope;
   const browserConversationId = getRouteConversationId(scope) ?? undefined;
-  const cwd = useScopedValue(conversationCwdSignal, conversationId) as string | null;
-  const mode = useScopedValue(conversationModeSignal, conversationId) as string | null;
-  const resumeState = useScopedValue(conversationResumeStateSignal, conversationId) as
+  const cwd = useScopedValue(conversationCwdSignal, conversationId) as
     | string
     | null;
+  const mode = useScopedValue(conversationModeSignal, conversationId) as
+    | string
+    | null;
+  const resumeState = useScopedValue(
+    conversationResumeStateSignal,
+    conversationId,
+  ) as string | null;
   const responseInProgress = useScopedValue(
     localResponseInProgressSignal,
     conversationId,
@@ -747,9 +790,16 @@ export function LocalConversationPage(): React.ReactElement {
 
 type LocalThreadRouteProps = { conversationId: string };
 
-function LocalThreadRoute({ conversationId }: LocalThreadRouteProps): React.ReactElement {
-  const hasConversation = useScopedValue(hasConversationSignal, conversationId) as boolean;
-  const rolloutPath = useScopedValue(rolloutPathSignal, conversationId) as string | null;
+function LocalThreadRoute({
+  conversationId,
+}: LocalThreadRouteProps): React.ReactElement {
+  const hasConversation = useScopedValue(
+    hasConversationSignal,
+    conversationId,
+  ) as boolean;
+  const rolloutPath = useScopedValue(rolloutPathSignal, conversationId) as
+    | string
+    | null;
   const shouldResumeLocalConversation = useStatsigGate("567837310");
   useResumeLocalConversation(
     shouldResumeLocalConversation ? conversationId : null,
@@ -768,7 +818,9 @@ function LocalThreadRoute({ conversationId }: LocalThreadRouteProps): React.Reac
   return (
     <>
       <LocalConversationDebugPanelReporter conversationId={conversationId} />
-      <LocalConversationStreamRoleProductEventReporter conversationId={conversationId} />
+      <LocalConversationStreamRoleProductEventReporter
+        conversationId={conversationId}
+      />
       <LocalConversationThreadPage conversationId={conversationId} />
     </>
   );

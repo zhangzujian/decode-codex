@@ -1,129 +1,108 @@
 // Restored from ref/webview/assets/thread-overflow-menu-CM-Eo7JH.js
-// Thread overflow menu and side-chat helpers from the Codex webview bundle.
-import { once as e, toEsModule as t } from "../../runtime/commonjs-interop";
+// Thread overflow menu component and chunk initializer.
+import React from "react";
+
+import { once } from "../../runtime/commonjs-interop";
 import {
-  $N as n,
-  $j as r,
-  AB as i,
-  Ao as a,
-  BV as o,
-  DN as s,
-  Db as c,
-  FB as l,
-  Ga as u,
-  Gi as d,
-  IB as f,
-  I_ as p,
-  JV as m,
-  Ln as h,
-  M_ as ee,
-  ON as te,
-  Ob as ne,
-  Op as g,
-  Ov as re,
-  PB as _,
-  Rn as ie,
-  SV as v,
-  Si as ae,
-  Sm as oe,
-  TV as se,
-  Up as ce,
-  Wa as le,
-  Wp as ue,
-  YN as de,
-  Zi as y,
-  ak as b,
-  cM as x,
-  cP as S,
-  cm as fe,
-  iF as C,
-  ii as pe,
-  ko as me,
-  lF as he,
-  mP as w,
-  mv as T,
-  ok as E,
-  pP as D,
-  qV as O,
-  qi as k,
-  ri as A,
-  sF as j,
-  tM as ge,
-  ti as _e,
-  uM as ve,
-  uP as M,
-  xi as ye,
+  $N as initDeveloperInstructionsProducer,
+  AB as initScopeRuntime,
+  Ao as initGitBranchIcon,
+  DN as Button,
+  FB as useScope,
+  Ga as initElectronPlatformContent,
+  Gi as DropdownMenu,
+  IB as useSignalValue,
+  I_ as initRouteScope,
+  JV as initReactRuntime,
+  Ln as initKeyboardModifierState,
+  M_ as localConversationRouteScope,
+  ON as initButtonComponentPrimitives,
+  Op as initHostConversationActionsProducer,
+  Ov as useNavigate,
+  PB as useScopedValue,
+  Rn as useCommandRegistration,
+  SV as initQueryRuntime,
+  Si as initThreadOverflowQueryRuntime,
+  Sm as threadSourceSignal,
+  TV as useSignalSnapshot,
+  Up as conversationCollaborationModeSignal,
+  Wa as PlatformContentGate,
+  YN as sendHostRequest,
+  Zi as initDropdownMenuPrimitives,
+  cM as initToastRuntime,
+  cP as initThreadActionMenuRuntime,
+  cm as conversationHostIdSignal,
+  iF as initIntlRuntime,
+  ko as GitBranchIcon,
+  lF as useIntl,
+  mP as logger,
+  mv as initCurrentRefViewRuntime,
+  pP as initLoggerRuntime,
+  qi as MenuChrome,
+  sF as FormattedMessage,
+  uM as toastSignal,
+  uP as useThreadCommandHandler,
+  xi as RenameThreadDialog,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  $i as N,
-  C as be,
-  Cn as P,
-  Ga as xe,
-  Ka as Se,
-  On as Ce,
-  S as we,
-  Sn as Te,
-  So as F,
-  Yi as I,
-  _c as L,
-  a as Ee,
-  b as De,
-  c as Oe,
-  ed as ke,
-  kn as Ae,
-  l as je,
-  n as R,
-  o as Me,
-  rd as Ne,
-  s as Pe,
-  sd as Fe,
-  t as z,
-  wo as Ie,
-  x as B,
-  yc as Le,
+  C as useThreadActions,
+  Cn as initForkDialogLocalIcon,
+  Ga as MoreHorizontalIcon,
+  Ka as initMoreHorizontalIcon,
+  On as WorktreeForkIcon,
+  S as useThreadPinControls,
+  Sn as LocalForkIcon,
+  So as initWorkspaceRouteHelpers,
+  Yi as threadActionShortcutSignal,
+  a as forkConversationFromLatest,
+  b as initForkThreadMessages,
+  c as localEnvironmentSelectionsByWorkspaceSignal,
+  kn as initForkDialogWorktreeIcon,
+  l as initPendingWorktreeNavigationRoute,
+  n as initProjectsAppProducer,
+  o as createForkConversationPendingWorktree,
+  s as initThreadActionMessages,
+  t as SideChatIcon,
+  wo as isSideChatUnavailable,
+  x as threadActionMessages,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
-  Dn as V,
-  En as Re,
-  ct as H,
-  lt as ze,
+  Dn as initPullRequestThreadActionsRuntime,
+  En as RenameThreadIcon,
+  ct as CopyIcon,
+  lt as initCopyIconChunk,
 } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
-  Ar as U,
-  Du as Be,
-  Eu as W,
-  Jm as Ve,
-  Mr as He,
-  gm as Ue,
-  hm as G,
-  jr as We,
+  Ar as initAutomationPanelRuntime,
+  Jm as initCreateHeartbeatAutomationRuntime,
+  Mr as openCreateHeartbeatAutomationTab,
+  gm as initHeartbeatAutomationTabsRuntime,
+  hm as HeartbeatAutomationIcon,
+  jr as openExistingHeartbeatAutomationTab,
 } from "../../boundaries/current-ref/profile-page-producer";
 import {
-  _ as K,
-  g as Ge,
+  _ as heartbeatAutomationsQuerySignal,
+  g as initHeartbeatAutomationsQueryChunk,
 } from "../../boundaries/current-ref/projects-pull-requests-producer";
 import {
-  ArchiveThreadConfirmDialog as Ke,
-  heartbeatAutomationEligibilitySignal as tt,
-  initArchiveThreadConfirmDialogChunk as Ze,
-  initHeartbeatAutomationEligibilityChunk as Xe,
-  initOpenThreadInNewWindowChunk as $e,
-  initThreadPinControlsChunk as qe,
-  initThreadPinIconChunk as q,
-  pinThreadMessage as Je,
-  ThreadPinIcon as et,
-  unpinThreadMessage as Qe,
-  useOpenThreadInNewWindow as Ye,
+  ArchiveThreadConfirmDialog,
+  heartbeatAutomationEligibilitySignal,
+  initArchiveThreadConfirmDialogChunk,
+  initHeartbeatAutomationEligibilityChunk,
+  initOpenThreadInNewWindowChunk,
+  initThreadPinControlsChunk,
+  initThreadPinIconChunk,
+  pinThreadMessage,
+  ThreadPinIcon,
+  unpinThreadMessage,
+  useOpenThreadInNewWindow,
 } from "../../automation/heartbeat-automation-eligibility";
-import { initPinIconChunk, PinIcon } from "../../icons/pin-icon";
 import {
-  ArchiveIcon as at,
-  initArchiveIconChunk as it,
-} from "../../icons/archive-icon";
-import {
-  getAttachedHeartbeatAutomationForThread as J,
-  initAttachedHeartbeatAutomationLookupChunk as ot,
+  getAttachedHeartbeatAutomationForThread,
+  initAttachedHeartbeatAutomationLookupChunk,
 } from "../../github/pull-request-checks-summary";
+import { ArchiveIcon, initArchiveIconChunk } from "../../icons/archive-icon";
+import { initPinIconChunk, PinIcon } from "../../icons/pin-icon";
 import {
   initPopInMacIconChunk,
   PopInMacIcon,
@@ -132,7 +111,68 @@ import {
   initOpenSideChatTabChunk,
   openSideChatTab,
 } from "./open-side-chat-tab";
-function mt({
+
+type ScopeRuntime = {
+  value?: {
+    pathname?: string;
+    search?: string;
+  };
+  get<T = unknown>(signal: unknown, key?: unknown): T;
+};
+
+type IntlShape = {
+  formatMessage(
+    descriptor: Record<string, unknown>,
+    values?: Record<string, unknown>,
+  ): string;
+};
+
+type ThreadActions = {
+  archiveThread(input: {
+    conversationId: string;
+    source: string;
+    onArchiveStart?: () => void;
+  }): void;
+  renameThread(input: { conversationId: string; title: string }): void;
+  copyAppLink(conversationId: string): void;
+  copyConversationMarkdown(input: {
+    conversationId: string;
+    parentConversationId: string | null;
+    getMarkdown: () => string | Promise<string>;
+  }): void;
+  copySessionId(conversationId: string): void;
+  copyWorkingDirectory(cwd?: string | null): void;
+};
+
+type ThreadOverflowMenuProps = {
+  conversationId?: string | null;
+  getConversationMarkdown?: (() => string | Promise<string>) | null;
+  markdownParentConversationId?: string | null;
+  sideChatTab?: unknown;
+  cwd?: string | null;
+  title?: string | null;
+  canPin?: boolean;
+  hideForkActions?: boolean;
+  isWorktreeThread?: boolean;
+  archiveNavigation?: "home" | string;
+  archiveSource?: string;
+  dropdownAlign?: "start" | "center" | "end" | string;
+  triggerButtonClassName?: string;
+  triggerButtonColor?: string;
+  triggerIconClassName?: string;
+};
+
+type HeartbeatAutomation = {
+  id: string;
+  name: string;
+};
+
+type HeartbeatEligibility = {
+  isEligible?: boolean;
+  reason?: string;
+};
+
+export function ThreadOverflowMenu({
   conversationId,
   getConversationMarkdown,
   markdownParentConversationId,
@@ -148,101 +188,166 @@ function mt({
   triggerButtonClassName,
   triggerButtonColor = "ghost",
   triggerIconClassName = "icon-sm",
-}) {
-  let g = l(ee),
-    v = he(),
-    {
-      archiveThread,
-      renameThread,
-      copyAppLink,
-      copyConversationMarkdown,
-      copySessionId,
-      copyWorkingDirectory,
-    } = be(),
-    C = re(),
-    [pe, T] = Q.useState(false),
-    [E, D] = Q.useState(null),
-    [O, A] = Q.useState(null),
-    [ge, _e] = Q.useState(null),
-    [N, P] = Q.useState(false),
-    Se = _(fe, conversationId);
-  _(oe, conversationId);
-  let { isPinned, togglePin } = we(conversationId, {
-      canPin,
-    }),
-    De = _(I, "toggleThreadPin"),
-    ke = canPin ? De : null,
-    Ae = _(I, "renameThread"),
-    je = _(I, "archiveThread"),
-    R = _(I, "copyWorkingDirectory"),
-    Ne = _(I, "copySessionId"),
-    Pe = _(I, "copyDeeplink"),
-    Fe = _(I, "copyConversationMarkdown"),
-    Le = _(I, "openSideChat"),
-    { canOpenThreadInNewWindow, openThreadInNewWindow } = Ye({
-      conversationId,
-    }),
-    U = _(tt, conversationId),
-    Be = U.isEligible,
-    W = sideChatTab != null && !Ie(),
-    Ve = _(ce, conversationId),
-    Ue = se(Oe),
-    G = (t) => {
-      conversationId != null &&
-        archiveThread({
-          conversationId,
-          source: t,
-          onArchiveStart:
-            archiveNavigation === "home"
-              ? () => {
-                  C("/", {
-                    replace: true,
-                    state: {
-                      focusComposerNonce: Date.now(),
-                      prefillCwd: cwd,
-                    },
-                  });
-                }
-              : undefined,
-        });
+}: ThreadOverflowMenuProps): React.ReactElement | null {
+  const scope = useScope(localConversationRouteScope) as ScopeRuntime;
+  const intl = useIntl() as IntlShape;
+  const {
+    archiveThread,
+    renameThread,
+    copyAppLink,
+    copyConversationMarkdown,
+    copySessionId,
+    copyWorkingDirectory,
+  } = useThreadActions() as ThreadActions;
+  const navigate = useNavigate() as (
+    path: string,
+    options?: Record<string, unknown>,
+  ) => void;
+
+  const [archiveConfirmOpen, setArchiveConfirmOpen] = React.useState(false);
+  const [pendingArchiveSource, setPendingArchiveSource] = React.useState<
+    string | null
+  >(null);
+  const [renameInitialTitle, setRenameInitialTitle] = React.useState<
+    string | null
+  >(null);
+  const [heartbeatAutomationName, setHeartbeatAutomationName] = React.useState<
+    string | null
+  >(null);
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const hostId = useScopedValue(conversationHostIdSignal, conversationId) as
+    | string
+    | null;
+  useScopedValue(threadSourceSignal, conversationId);
+
+  const { isPinned, togglePin } = useThreadPinControls(conversationId, {
+    canPin,
+  }) as { isPinned: boolean; togglePin: () => void };
+  const togglePinShortcut = useScopedValue(
+    threadActionShortcutSignal,
+    "toggleThreadPin",
+  );
+  const pinKeyboardShortcut = canPin ? togglePinShortcut : null;
+  const renameKeyboardShortcut = useScopedValue(
+    threadActionShortcutSignal,
+    "renameThread",
+  );
+  const archiveKeyboardShortcut = useScopedValue(
+    threadActionShortcutSignal,
+    "archiveThread",
+  );
+  const copyWorkingDirectoryShortcut = useScopedValue(
+    threadActionShortcutSignal,
+    "copyWorkingDirectory",
+  );
+  const copySessionIdShortcut = useScopedValue(
+    threadActionShortcutSignal,
+    "copySessionId",
+  );
+  const copyAppLinkShortcut = useScopedValue(
+    threadActionShortcutSignal,
+    "copyDeeplink",
+  );
+  const copyConversationMarkdownShortcut = useScopedValue(
+    threadActionShortcutSignal,
+    "copyConversationMarkdown",
+  );
+  const openSideChatShortcut = useScopedValue(
+    threadActionShortcutSignal,
+    "openSideChat",
+  );
+  const { canOpenThreadInNewWindow, openThreadInNewWindow } =
+    useOpenThreadInNewWindow({ conversationId }) as {
+      canOpenThreadInNewWindow: boolean;
+      openThreadInNewWindow: () => void;
+    };
+  const heartbeatEligibility = useScopedValue(
+    heartbeatAutomationEligibilitySignal,
+    conversationId,
+  ) as HeartbeatEligibility;
+  const canOpenSideChat = sideChatTab != null && !isSideChatUnavailable();
+  const collaborationMode = useScopedValue(
+    conversationCollaborationModeSignal,
+    conversationId,
+  );
+  const localEnvironmentSelectionsByWorkspace = useSignalSnapshot(
+    localEnvironmentSelectionsByWorkspaceSignal,
+  );
+
+  const archiveThreadWithSource = React.useCallback(
+    (source: string) => {
+      if (conversationId == null) {
+        return;
+      }
+
+      archiveThread({
+        conversationId,
+        source,
+        onArchiveStart:
+          archiveNavigation === "home"
+            ? () => {
+                navigate("/", {
+                  replace: true,
+                  state: {
+                    focusComposerNonce: Date.now(),
+                    prefillCwd: cwd,
+                  },
+                });
+              }
+            : undefined,
+      });
     },
-    K = (t) => {
-      (async () => {
-        let n = null;
+    [archiveNavigation, archiveThread, conversationId, cwd, navigate],
+  );
+
+  const requestArchiveThread = React.useCallback(
+    (source: string) => {
+      if (conversationId == null) {
+        return;
+      }
+
+      void (async () => {
+        let attachedAutomation: HeartbeatAutomation | null = null;
         try {
-          n = J({
-            automations: (await de("list-automations")).items,
+          attachedAutomation = getAttachedHeartbeatAutomationForThread({
+            automations: (await sendHostRequest("list-automations")).items,
             conversationId,
             includePausedAutomations: true,
-          });
-        } catch (e) {
-          w.error("Error checking heartbeat automation before archive", {
+          }) as HeartbeatAutomation | null;
+        } catch (error) {
+          logger.error("Error checking heartbeat automation before archive", {
             safe: {},
-            sensitive: {
-              error: e,
-            },
+            sensitive: { error },
           });
         }
-        if (n == null) {
-          G(t);
+
+        if (attachedAutomation == null) {
+          archiveThreadWithSource(source);
           return;
         }
-        D(t);
-        _e(n.name);
-        T(true);
+
+        setPendingArchiveSource(source);
+        setHeartbeatAutomationName(attachedAutomation.name);
+        setArchiveConfirmOpen(true);
       })();
     },
-    Ge = (t) => {
-      if (t != null) {
-        We({
-          scope: g,
-          automationId: t.id,
-          title: t.name,
+    [archiveThreadWithSource, conversationId],
+  );
+
+  const openHeartbeatAutomation = React.useCallback(
+    (automation: HeartbeatAutomation | null) => {
+      if (automation != null) {
+        openExistingHeartbeatAutomationTab({
+          scope,
+          automationId: automation.id,
+          title: automation.name,
         });
         return;
       }
-      He({
-        scope: g,
+
+      openCreateHeartbeatAutomationTab({
+        scope,
         seed: {
           directiveKey: `thread-overflow-${conversationId}`,
           mode: null,
@@ -261,7 +366,7 @@ function mt({
         },
         title:
           title ??
-          v.formatMessage({
+          intl.formatMessage({
             id: "localConversation.automation.newTabTitle",
             defaultMessage: "New scheduled task",
             description:
@@ -269,396 +374,432 @@ function mt({
           }),
       });
     },
-    q = () => {
-      conversationId == null ||
-        sideChatTab == null ||
-        openSideChatTab(g, sideChatTab, {
-          sourceConversationId: conversationId,
-          cwd,
-          hostId: Se,
-          collaborationMode: Ve,
-          intl: v,
-        }).catch((error) => {
-          w.error("Error opening side chat", {
-            safe: {},
-            sensitive: {
-              error,
-            },
-          });
-          g.get(ve).danger(
-            v.formatMessage({
-              id: "threadHeader.openSideChatError",
-              defaultMessage: "Failed to open side chat",
-              description: "Error message shown when opening a side chat fails",
-            }),
-          );
+    [conversationId, intl, scope, title],
+  );
+
+  const openSideChat = React.useCallback(() => {
+    if (conversationId == null || sideChatTab == null) {
+      return;
+    }
+
+    openSideChatTab(scope, sideChatTab, {
+      sourceConversationId: conversationId,
+      cwd,
+      hostId,
+      collaborationMode,
+      intl,
+    }).catch((error: unknown) => {
+      logger.error("Error opening side chat", {
+        safe: {},
+        sensitive: { error },
+      });
+      scope.get<{ danger(message: string): void }>(toastSignal).danger(
+        intl.formatMessage({
+          id: "threadHeader.openSideChatError",
+          defaultMessage: "Failed to open side chat",
+          description: "Error message shown when opening a side chat fails",
+        }),
+      );
+    });
+  }, [
+    collaborationMode,
+    conversationId,
+    cwd,
+    hostId,
+    intl,
+    scope,
+    sideChatTab,
+  ]);
+
+  useCommandRegistration(
+    "copyConversationMarkdown",
+    () => {
+      if (conversationId != null && getConversationMarkdown != null) {
+        copyConversationMarkdown({
+          conversationId,
+          parentConversationId: markdownParentConversationId ?? null,
+          getMarkdown: getConversationMarkdown,
         });
-    };
-  if (
-    (ie(
-      "copyConversationMarkdown",
-      () => {
-        conversationId != null &&
-          getConversationMarkdown != null &&
-          copyConversationMarkdown({
-            conversationId,
-            parentConversationId: markdownParentConversationId ?? null,
-            getMarkdown: getConversationMarkdown,
-          });
-      },
-      {
-        enabled: conversationId != null && getConversationMarkdown != null,
-      },
-    ),
-    ie("openSideChat", q, {
-      enabled: conversationId != null && W,
-    }),
-    M(
-      "toggle-thread-pin",
-      () => {
-        canPin && togglePin();
-      },
-      [canPin, togglePin],
-    ),
-    M(
-      "rename-thread",
-      () => {
-        conversationId && A(title ?? "");
-      },
-      [conversationId, title],
-    ),
-    M(
-      "archive-thread",
-      ({ source }) => {
-        K(source);
-      },
-      [K],
-    ),
-    M(
-      "copy-conversation-path",
-      () => {
-        copyWorkingDirectory(cwd);
-      },
-      [cwd],
-    ),
-    M(
-      "copy-working-directory",
-      () => {
-        copyWorkingDirectory(cwd);
-      },
-      [cwd],
-    ),
-    M(
-      "copy-session-id",
-      () => {
-        conversationId && copySessionId(conversationId);
-      },
-      [conversationId],
-    ),
-    M(
-      "copy-deeplink",
-      () => {
-        conversationId && copyAppLink(conversationId);
-      },
-      [conversationId],
-    ),
-    !conversationId)
-  )
+      }
+    },
+    {
+      enabled: conversationId != null && getConversationMarkdown != null,
+    },
+  );
+  useCommandRegistration("openSideChat", openSideChat, {
+    enabled: conversationId != null && canOpenSideChat,
+  });
+  useThreadCommandHandler(
+    "toggle-thread-pin",
+    () => {
+      if (canPin) {
+        togglePin();
+      }
+    },
+    [canPin, togglePin],
+  );
+  useThreadCommandHandler(
+    "rename-thread",
+    () => {
+      if (conversationId != null) {
+        setRenameInitialTitle(title ?? "");
+      }
+    },
+    [conversationId, title],
+  );
+  useThreadCommandHandler(
+    "archive-thread",
+    ({ source }: { source: string }) => {
+      requestArchiveThread(source);
+    },
+    [requestArchiveThread],
+  );
+  useThreadCommandHandler(
+    "copy-conversation-path",
+    () => {
+      copyWorkingDirectory(cwd);
+    },
+    [cwd],
+  );
+  useThreadCommandHandler(
+    "copy-working-directory",
+    () => {
+      copyWorkingDirectory(cwd);
+    },
+    [cwd],
+  );
+  useThreadCommandHandler(
+    "copy-session-id",
+    () => {
+      if (conversationId != null) {
+        copySessionId(conversationId);
+      }
+    },
+    [conversationId],
+  );
+  useThreadCommandHandler(
+    "copy-deeplink",
+    () => {
+      if (conversationId != null) {
+        copyAppLink(conversationId);
+      }
+    },
+    [conversationId],
+  );
+
+  if (conversationId == null) {
     return null;
-  let qe = cwd != null,
-    Xe = async () => {
-      let t = await Ee(g, {
+  }
+
+  const canForkIntoWorktree = cwd != null;
+  const forkIntoLocal = async () => {
+    const forkedConversationId = await forkConversationFromLatest(scope, {
+      sourceConversationId: conversationId,
+      sourceWorkspaceRoot: cwd,
+    });
+    if (forkedConversationId != null) {
+      navigate(`/local/${forkedConversationId}`);
+    }
+  };
+  const forkIntoWorktree = async () => {
+    const pendingWorktreeId = await createForkConversationPendingWorktree(
+      scope,
+      {
+        localEnvironmentSelectionsByWorkspace,
         sourceConversationId: conversationId,
         sourceWorkspaceRoot: cwd,
-      });
-      t != null && C(`/local/${t}`);
-    },
-    Ze = async () => {
-      let t = await Me(g, {
-        localEnvironmentSelectionsByWorkspace: Ue,
-        sourceConversationId: conversationId,
-        sourceWorkspaceRoot: cwd,
-      });
-      t != null && cwd != null && C(`/worktree-init-v2/${t}`);
-    },
-    $e = () => {
-      E != null && (T(false), G(E));
-    },
-    nt = isPinned ? Qe : Je,
-    it = isPinned ? et : PinIcon,
-    ot = v.formatMessage(B.moreActions),
-    lt = !hideForkActions && true,
-    ut = canOpenThreadInNewWindow,
-    Y = U.reason === "turn_in_progress";
+      },
+    );
+    if (pendingWorktreeId != null && cwd != null) {
+      navigate(`/worktree-init-v2/${pendingWorktreeId}`);
+    }
+  };
+  const confirmArchiveAfterAutomationWarning = () => {
+    if (pendingArchiveSource != null) {
+      setArchiveConfirmOpen(false);
+      archiveThreadWithSource(pendingArchiveSource);
+    }
+  };
+
+  const pinMessage = isPinned ? unpinThreadMessage : pinThreadMessage;
+  const PinMenuIcon = isPinned ? ThreadPinIcon : PinIcon;
+  const moreActionsLabel = intl.formatMessage(threadActionMessages.moreActions);
+  const showForkActions = !hideForkActions;
+  const showOpenInNewWindowAction = canOpenThreadInNewWindow;
+  const showDisabledHeartbeatAutomationAction =
+    heartbeatEligibility.reason === "turn_in_progress";
+
   return (
     <>
-      {$.jsxs(d, {
-        open: N,
-        onOpenChange: P,
-        triggerButton: $.jsx(s, {
-          size: "icon",
-          color: triggerButtonColor,
-          className: triggerButtonClassName ?? "no-drag",
-          "aria-label": ot,
-          children: $.jsx(xe, {
-            className: triggerIconClassName,
-          }),
-        }),
-        align: dropdownAlign,
-        contentWidth: "menu",
-        children: [
-          canPin
-            ? $.jsx(k.Item, {
-                onSelect: togglePin,
-                LeftIcon: it,
-                keyboardShortcut: ke,
-                children: $.jsx(j, {
-                  ...nt,
-                }),
-              })
-            : null,
-          $.jsx(k.Item, {
-            onSelect: () => A(title ?? ""),
-            LeftIcon: Re,
-            keyboardShortcut: Ae,
-            children: $.jsx(j, {
-              ...B.renameThread,
-            }),
-          }),
-          $.jsx(k.Item, {
-            onSelect: () => K(archiveSource),
-            LeftIcon: at,
-            keyboardShortcut: je,
-            children: $.jsx(j, {
-              ...B.archiveThread,
-            }),
-          }),
-          null,
-          $.jsx(k.Separator, {}),
-          W
-            ? $.jsx(k.Item, {
-                onSelect: q,
-                LeftIcon: z,
-                keyboardShortcut: Le,
-                children: $.jsx(j, {
-                  id: "threadHeader.openSideChat",
-                  defaultMessage: "Open side chat",
-                  description:
-                    "Menu item to fork a local thread into an ephemeral right panel side chat",
-                }),
-              })
-            : null,
-          $.jsxs(k.FlyoutSubmenuItem, {
-            LeftIcon: H,
-            label: $.jsx(j, {
-              id: "threadHeader.copyActions",
-              defaultMessage: "Copy",
-              description: "Menu item that opens chat copy actions",
-            }),
-            children: [
-              $.jsx(k.Item, {
-                onSelect: () => copyWorkingDirectory(cwd),
-                LeftIcon: H,
-                keyboardShortcut: R,
-                disabled: !cwd,
-                children: $.jsx(j, {
-                  ...B.copyWorkingDirectory,
-                }),
-              }),
-              $.jsx(k.Item, {
-                onSelect: () => copySessionId(conversationId),
-                LeftIcon: H,
-                keyboardShortcut: Ne,
-                children: $.jsx(j, {
-                  ...B.copySessionId,
-                }),
-              }),
-              $.jsx(k.Item, {
-                onSelect: () => copyAppLink(conversationId),
-                LeftIcon: H,
-                keyboardShortcut: Pe,
-                children: $.jsx(j, {
-                  ...B.copyAppLink,
-                }),
-              }),
-              conversationId != null && getConversationMarkdown != null
-                ? $.jsx(k.Item, {
-                    onSelect: () =>
-                      copyConversationMarkdown({
-                        conversationId,
-                        parentConversationId:
-                          markdownParentConversationId ?? null,
-                        getMarkdown: getConversationMarkdown,
-                      }),
-                    LeftIcon: H,
-                    keyboardShortcut: Fe,
-                    children: $.jsx(j, {
-                      ...B.copyConversationMarkdown,
-                    }),
-                  })
-                : null,
-            ],
-          }),
-          lt
-            ? $.jsxs(k.FlyoutSubmenuItem, {
-                LeftIcon: me,
-                label: $.jsx(j, {
-                  id: "threadHeader.forkActions",
-                  defaultMessage: "Fork",
-                  description: "Menu item that opens chat fork actions",
-                }),
-                children: [
-                  $.jsx(k.Item, {
-                    onSelect: () => {
-                      Xe();
-                    },
-                    LeftIcon: isWorktreeThread ? Ce : Te,
-                    children: $.jsx(j, {
-                      ...(isWorktreeThread
-                        ? B.forkIntoSameWorktree
-                        : B.forkIntoLocal),
-                    }),
-                  }),
-                  $.jsx(k.Item, {
-                    onSelect: () => {
-                      Ze();
-                    },
-                    LeftIcon: Ce,
-                    disabled: !qe,
-                    children: $.jsx(j, {
-                      ...B.forkIntoWorktree,
-                    }),
-                  }),
-                ],
-              })
-            : null,
-          $.jsx(le, {
-            electron: true,
-            children: N
-              ? $.jsx(ht, {
-                  canAddHeartbeatAutomation: Be,
+      <DropdownMenu
+        open={menuOpen}
+        onOpenChange={setMenuOpen}
+        triggerButton={
+          <Button
+            size="icon"
+            color={triggerButtonColor}
+            className={triggerButtonClassName ?? "no-drag"}
+            aria-label={moreActionsLabel}
+          >
+            <MoreHorizontalIcon className={triggerIconClassName} />
+          </Button>
+        }
+        align={dropdownAlign}
+        contentWidth="menu"
+      >
+        {canPin ? (
+          <MenuChrome.Item
+            onSelect={togglePin}
+            LeftIcon={PinMenuIcon}
+            keyboardShortcut={pinKeyboardShortcut}
+          >
+            <FormattedMessage {...pinMessage} />
+          </MenuChrome.Item>
+        ) : null}
+        <MenuChrome.Item
+          onSelect={() => setRenameInitialTitle(title ?? "")}
+          LeftIcon={RenameThreadIcon}
+          keyboardShortcut={renameKeyboardShortcut}
+        >
+          <FormattedMessage {...threadActionMessages.renameThread} />
+        </MenuChrome.Item>
+        <MenuChrome.Item
+          onSelect={() => requestArchiveThread(archiveSource)}
+          LeftIcon={ArchiveIcon}
+          keyboardShortcut={archiveKeyboardShortcut}
+        >
+          <FormattedMessage {...threadActionMessages.archiveThread} />
+        </MenuChrome.Item>
+        <MenuChrome.Separator />
+        {canOpenSideChat ? (
+          <MenuChrome.Item
+            onSelect={openSideChat}
+            LeftIcon={SideChatIcon}
+            keyboardShortcut={openSideChatShortcut}
+          >
+            <FormattedMessage
+              id="threadHeader.openSideChat"
+              defaultMessage="Open side chat"
+              description="Menu item to fork a local thread into an ephemeral right panel side chat"
+            />
+          </MenuChrome.Item>
+        ) : null}
+        <MenuChrome.FlyoutSubmenuItem
+          LeftIcon={CopyIcon}
+          label={
+            <FormattedMessage
+              id="threadHeader.copyActions"
+              defaultMessage="Copy"
+              description="Menu item that opens chat copy actions"
+            />
+          }
+        >
+          <MenuChrome.Item
+            onSelect={() => copyWorkingDirectory(cwd)}
+            LeftIcon={CopyIcon}
+            keyboardShortcut={copyWorkingDirectoryShortcut}
+            disabled={!cwd}
+          >
+            <FormattedMessage {...threadActionMessages.copyWorkingDirectory} />
+          </MenuChrome.Item>
+          <MenuChrome.Item
+            onSelect={() => copySessionId(conversationId)}
+            LeftIcon={CopyIcon}
+            keyboardShortcut={copySessionIdShortcut}
+          >
+            <FormattedMessage {...threadActionMessages.copySessionId} />
+          </MenuChrome.Item>
+          <MenuChrome.Item
+            onSelect={() => copyAppLink(conversationId)}
+            LeftIcon={CopyIcon}
+            keyboardShortcut={copyAppLinkShortcut}
+          >
+            <FormattedMessage {...threadActionMessages.copyAppLink} />
+          </MenuChrome.Item>
+          {getConversationMarkdown != null ? (
+            <MenuChrome.Item
+              onSelect={() =>
+                copyConversationMarkdown({
                   conversationId,
-                  onSelect: Ge,
-                  showDisabledAddHeartbeatAutomation: Y,
+                  parentConversationId: markdownParentConversationId ?? null,
+                  getMarkdown: getConversationMarkdown,
                 })
-              : null,
-          }),
-          ut ? $.jsx(k.Separator, {}) : null,
-          canOpenThreadInNewWindow
-            ? $.jsx(k.Item, {
-                onSelect: openThreadInNewWindow,
-                LeftIcon: PopInMacIcon,
-                children: $.jsx(j, {
-                  ...B.openInNewWindow,
-                }),
-              })
-            : null,
-        ],
-      })}
-      {O == null
-        ? null
-        : $.jsx(ye, {
-            initialValue: O,
-            onClose: () => A(null),
-            onSave: (t) => {
-              renameThread({
-                conversationId,
-                title: t,
-              });
-            },
-          })}
-      <Ke
-        heartbeatAutomationName={ge}
-        open={pe}
-        onOpenChange={T}
-        onConfirm={$e}
+              }
+              LeftIcon={CopyIcon}
+              keyboardShortcut={copyConversationMarkdownShortcut}
+            >
+              <FormattedMessage
+                {...threadActionMessages.copyConversationMarkdown}
+              />
+            </MenuChrome.Item>
+          ) : null}
+        </MenuChrome.FlyoutSubmenuItem>
+        {showForkActions ? (
+          <MenuChrome.FlyoutSubmenuItem
+            LeftIcon={GitBranchIcon}
+            label={
+              <FormattedMessage
+                id="threadHeader.forkActions"
+                defaultMessage="Fork"
+                description="Menu item that opens chat fork actions"
+              />
+            }
+          >
+            <MenuChrome.Item
+              onSelect={() => {
+                void forkIntoLocal();
+              }}
+              LeftIcon={isWorktreeThread ? WorktreeForkIcon : LocalForkIcon}
+            >
+              <FormattedMessage
+                {...(isWorktreeThread
+                  ? threadActionMessages.forkIntoSameWorktree
+                  : threadActionMessages.forkIntoLocal)}
+              />
+            </MenuChrome.Item>
+            <MenuChrome.Item
+              onSelect={() => {
+                void forkIntoWorktree();
+              }}
+              LeftIcon={WorktreeForkIcon}
+              disabled={!canForkIntoWorktree}
+            >
+              <FormattedMessage {...threadActionMessages.forkIntoWorktree} />
+            </MenuChrome.Item>
+          </MenuChrome.FlyoutSubmenuItem>
+        ) : null}
+        <PlatformContentGate electron={true}>
+          {menuOpen ? (
+            <HeartbeatAutomationMenuItem
+              canAddHeartbeatAutomation={Boolean(
+                heartbeatEligibility.isEligible,
+              )}
+              conversationId={conversationId}
+              onSelect={openHeartbeatAutomation}
+              showDisabledAddHeartbeatAutomation={
+                showDisabledHeartbeatAutomationAction
+              }
+            />
+          ) : null}
+        </PlatformContentGate>
+        {showOpenInNewWindowAction ? <MenuChrome.Separator /> : null}
+        {showOpenInNewWindowAction ? (
+          <MenuChrome.Item
+            onSelect={openThreadInNewWindow}
+            LeftIcon={PopInMacIcon}
+          >
+            <FormattedMessage {...threadActionMessages.openInNewWindow} />
+          </MenuChrome.Item>
+        ) : null}
+      </DropdownMenu>
+      {renameInitialTitle == null ? null : (
+        <RenameThreadDialog
+          initialValue={renameInitialTitle}
+          onClose={() => setRenameInitialTitle(null)}
+          onSave={(nextTitle: string) => {
+            renameThread({
+              conversationId,
+              title: nextTitle,
+            });
+          }}
+        />
+      )}
+      <ArchiveThreadConfirmDialog
+        heartbeatAutomationName={heartbeatAutomationName}
+        open={archiveConfirmOpen}
+        onOpenChange={setArchiveConfirmOpen}
+        onConfirm={confirmArchiveAfterAutomationWarning}
       />
     </>
   );
 }
-function ht(e) {
-  let {
-      canAddHeartbeatAutomation,
-      conversationId,
-      onSelect,
-      showDisabledAddHeartbeatAutomation,
-    } = e,
-    { data } = f(K),
-    s = J({
-      automations: data?.items ?? [],
-      conversationId,
-      includePausedAutomations: true,
-    });
-  let c = s,
-    l = c != null;
-  if (!(l || canAddHeartbeatAutomation || showDisabledAddHeartbeatAutomation))
+
+type HeartbeatAutomationMenuItemProps = {
+  canAddHeartbeatAutomation: boolean;
+  conversationId: string;
+  onSelect: (automation: HeartbeatAutomation | null) => void;
+  showDisabledAddHeartbeatAutomation: boolean;
+};
+
+function HeartbeatAutomationMenuItem({
+  canAddHeartbeatAutomation,
+  conversationId,
+  onSelect,
+  showDisabledAddHeartbeatAutomation,
+}: HeartbeatAutomationMenuItemProps): React.ReactElement | null {
+  const { data } = useSignalValue(heartbeatAutomationsQuerySignal) as {
+    data?: { items?: unknown[] };
+  };
+  const attachedAutomation = getAttachedHeartbeatAutomationForThread({
+    automations: data?.items ?? [],
+    conversationId,
+    includePausedAutomations: true,
+  }) as HeartbeatAutomation | null;
+
+  const hasAttachedAutomation = attachedAutomation != null;
+  if (
+    !hasAttachedAutomation &&
+    !canAddHeartbeatAutomation &&
+    !showDisabledAddHeartbeatAutomation
+  ) {
     return null;
-  let u = () => onSelect(c);
-  let d = !l && !canAddHeartbeatAutomation,
-    p = l ? B.editAutomation : B.addAutomation,
-    m = $.jsx(j, {
-      ...p,
-    });
-  return $.jsx(k.Item, {
-    onSelect: u,
-    LeftIcon: G,
-    disabled: d,
-    children: m,
-  });
+  }
+
+  const disabled = !hasAttachedAutomation && !canAddHeartbeatAutomation;
+  const label = hasAttachedAutomation
+    ? threadActionMessages.editAutomation
+    : threadActionMessages.addAutomation;
+
+  return (
+    <MenuChrome.Item
+      onSelect={() => onSelect(attachedAutomation)}
+      LeftIcon={HeartbeatAutomationIcon}
+      disabled={disabled}
+    >
+      <FormattedMessage {...label} />
+    </MenuChrome.Item>
+  );
 }
-var gt, Q, $;
-const _t = e(() => {
-  gt = O();
-  v();
-  i();
-  Q = t(m(), 1);
-  C();
-  T();
-  g();
-  Ge();
-  ot();
-  Xe();
-  U();
-  N();
-  h();
-  F();
-  te();
-  y();
-  x();
-  u();
-  it();
-  a();
-  R();
-  Ue();
-  ze();
-  V();
-  P();
-  Ve();
-  q();
+
+export const initThreadOverflowMenuChunk = once(() => {
+  initQueryRuntime();
+  initScopeRuntime();
+  initReactRuntime();
+  initIntlRuntime();
+  initCurrentRefViewRuntime();
+  initHostConversationActionsProducer();
+  initHeartbeatAutomationsQueryChunk();
+  initAttachedHeartbeatAutomationLookupChunk();
+  initHeartbeatAutomationEligibilityChunk();
+  initAutomationPanelRuntime();
+  initDeveloperInstructionsProducer();
+  initKeyboardModifierState();
+  initWorkspaceRouteHelpers();
+  initButtonComponentPrimitives();
+  initDropdownMenuPrimitives();
+  initThreadActionMenuRuntime();
+  initElectronPlatformContent();
+  initArchiveIconChunk();
+  initGitBranchIcon();
+  initProjectsAppProducer();
+  initHeartbeatAutomationTabsRuntime();
+  initCopyIconChunk();
+  initPullRequestThreadActionsRuntime();
+  initForkDialogLocalIcon();
+  initCreateHeartbeatAutomationRuntime();
+  initThreadPinIconChunk();
   initPinIconChunk();
   initPopInMacIconChunk();
-  Se();
-  Ae();
-  De();
-  S();
-  p();
-  qe();
-  ae();
-  D();
-  n();
-  Ze();
-  Pe();
+  initMoreHorizontalIcon();
+  initForkDialogWorktreeIcon();
+  initForkThreadMessages();
+  initThreadActionMessages();
+  initRouteScope();
+  initThreadPinControlsChunk();
+  initThreadOverflowQueryRuntime();
+  initLoggerRuntime();
+  initArchiveThreadConfirmDialogChunk();
   initOpenSideChatTabChunk();
-  je();
-  $e();
-  $ = o();
+  initPendingWorktreeNavigationRoute();
+  initOpenThreadInNewWindowChunk();
 });
-const ThreadOverflowMenu = mt;
-const initThreadOverflowMenuChunk = _t;
-
-export {
-  initOpenSideChatTabChunk,
-  initThreadOverflowMenuChunk,
-  openSideChatTab,
-  ThreadOverflowMenu,
-};

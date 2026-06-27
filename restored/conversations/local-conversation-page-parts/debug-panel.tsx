@@ -34,8 +34,15 @@ export function LocalConversationDebugPanelReporter({
     if (!enabled) {
       return undefined;
     }
-    const sourceId = createDebugPanelSourceId("local-conversation", conversationId);
-    registerDebugPanelSource(scope, sourceId, localConversationDebugPanelSource);
+    const sourceId = createDebugPanelSourceId(
+      "local-conversation",
+      conversationId,
+    );
+    registerDebugPanelSource(
+      scope,
+      sourceId,
+      localConversationDebugPanelSource,
+    );
     return () => {
       unregisterDebugPanelSource(scope, sourceId);
     };
@@ -59,7 +66,10 @@ const localConversationDebugPanelSource = createDerivedSignal(
       hostId: get<string | null>(conversationHostIdSignal, conversationId),
       mode: get<string | null>(conversationModeSignal, conversationId),
       referencedFiles: getReferencedFilesFromTurns(turns),
-      resumeState: get<string | null>(conversationResumeStateSignal, conversationId),
+      resumeState: get<string | null>(
+        conversationResumeStateSignal,
+        conversationId,
+      ),
       rolloutPath: get<string | null>(rolloutPathSignal, conversationId),
     };
   },

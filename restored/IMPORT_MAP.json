@@ -10803,9 +10803,9 @@
         "r": "initOpenSideChatTabChunk",
         "t": "ThreadOverflowMenu"
       },
-      "status": "draft",
-      "note": "Public barrel split for the updated ref chunk. Runtime imports now resolve through current-ref boundaries and semantic icon modules; implementation lives in threads/thread-overflow-menu-parts/thread-overflow-menu-impl.tsx, with the side-chat tab opener split into threads/thread-overflow-menu-parts/open-side-chat-tab.tsx. Remaining work is semantic rename and JSX runtime cleanup inside the menu impl before promotion.",
-      "lastUpdated": "2026-06-27T17:11:52.061Z"
+      "status": "done",
+      "note": "Promoted semantic split for the updated thread overflow menu. The menu impl now uses semantic imports, direct TSX, typed props, and a separate side-chat opener module; thread-overflow-menu-parts passes quality-gate --check-format.",
+      "lastUpdated": "2026-06-27T19:18:00.000Z"
     },
     "above-composer-suggestions-CAXbkE_4": {
       "restored": "composer/above-composer-suggestions.tsx",

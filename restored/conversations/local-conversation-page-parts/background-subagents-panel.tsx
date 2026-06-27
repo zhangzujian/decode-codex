@@ -31,9 +31,7 @@ export function BackgroundSubagentsPanel({
   ) as { threads?: SubagentThread[]; selectedThreadId?: string | null } | null;
   const selectedThread = React.useMemo(() => {
     const threadId = selectedThreadId ?? subagentSnapshot?.selectedThreadId;
-    return subagentSnapshot?.threads?.find(
-      (thread) => thread.id === threadId,
-    );
+    return subagentSnapshot?.threads?.find((thread) => thread.id === threadId);
   }, [selectedThreadId, subagentSnapshot]);
 
   if (!subagentSnapshot?.threads?.length) {
@@ -106,7 +104,9 @@ function isCompletedSubagent(thread: SubagentThread): boolean {
 }
 
 function isActiveSubagent(thread: SubagentThread): boolean {
-  return shouldShowInlineActivitySubagent(thread) && !isCompletedSubagent(thread);
+  return (
+    shouldShowInlineActivitySubagent(thread) && !isCompletedSubagent(thread)
+  );
 }
 
 type BackgroundSubagentsSectionProps = {
@@ -169,7 +169,9 @@ function SelectedBackgroundSubagentHeader({
           {thread.title || thread.id}
         </div>
         {thread.status ? (
-          <div className="truncate text-xs text-token-text-tertiary">{thread.status}</div>
+          <div className="truncate text-xs text-token-text-tertiary">
+            {thread.status}
+          </div>
         ) : null}
       </div>
     </div>

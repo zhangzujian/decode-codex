@@ -2,8 +2,10 @@
 // Public barrel for the thread overflow menu feature chunk. Implementation remains split into thread-overflow-menu-parts while the current-ref producers are restored.
 
 export {
-  initOpenSideChatTabChunk,
   initThreadOverflowMenuChunk,
-  openSideChatTab,
   ThreadOverflowMenu,
 } from "./thread-overflow-menu-parts/thread-overflow-menu-impl";
+export {
+  initOpenSideChatTabChunk,
+  openSideChatTab,
+} from "./thread-overflow-menu-parts/open-side-chat-tab";
