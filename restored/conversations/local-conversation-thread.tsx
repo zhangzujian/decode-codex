@@ -9489,91 +9489,99 @@ function createLocalConversationSearchAdapter({
   return {
     domain: "conversation",
     contextId,
-    async search(e) {
-      return hb(e, getTurns());
+    async search(searchRequest) {
+      return searchConversationTurns(searchRequest, getTurns());
     },
-    async ensureVisible(t, r) {
-      if (t.domain !== "conversation" || t.contextId !== contextId) return;
-      let i = scrollAdapter.getTurnContainer(t.turnKey);
-      if (i == null) {
+    async ensureVisible(location, options) {
+      if (
+        location.domain !== "conversation" ||
+        location.contextId !== contextId
+      )
+        return;
+      let turnContainer = scrollAdapter.getTurnContainer(location.turnKey);
+      if (turnContainer == null) {
         if (
-          r?.signal?.aborted ||
-          (r?.signal == null
-            ? await scrollAdapter.scrollToTurn(t.turnKey)
-            : await scrollAdapter.scrollToTurn(t.turnKey, {
-                signal: r.signal,
+          options?.signal?.aborted ||
+          (options?.signal == null
+            ? await scrollAdapter.scrollToTurn(location.turnKey)
+            : await scrollAdapter.scrollToTurn(location.turnKey, {
+                signal: options.signal,
               }),
-          r?.signal?.aborted)
+          options?.signal?.aborted)
         )
           return;
-        i = scrollAdapter.getTurnContainer(t.turnKey);
+        turnContainer = scrollAdapter.getTurnContainer(location.turnKey);
       }
-      i != null &&
+      turnContainer != null &&
         (await Ba({
-          container: i,
-          matchId: vo(t),
+          container: turnContainer,
+          matchId: vo(location),
           includeShadowRoots: false,
-          signal: r?.signal,
+          signal: options?.signal,
         }));
     },
   };
 }
-function hb(e, t) {
-  let n = e.query.trim();
-  if (n.length === 0)
+function searchConversationTurns(searchRequest, searchableTurns) {
+  let query = searchRequest.query.trim();
+  if (query.length === 0)
     return {
-      domain: e.domain,
-      contextId: e.contextId,
-      query: n,
+      domain: searchRequest.domain,
+      contextId: searchRequest.contextId,
+      query,
       matches: [],
       totalMatches: 0,
       isCapped: false,
     };
-  let r = [],
-    i = 0,
-    a = 0,
-    o = false;
-  for (let s of t)
-    for (let t of s.units) {
-      let c = t.text;
-      if (c.length === 0) continue;
-      let { offsets, totalMatches, isCapped } = Na(c, n, gb - r.length);
-      i += totalMatches;
-      isCapped && (o = true);
+  let matches = [],
+    totalMatchCount = 0,
+    matchOrdinal = 0,
+    isCapped = false;
+  for (let searchableTurn of searchableTurns)
+    for (let unit of searchableTurn.units) {
+      let unitText = unit.text;
+      if (unitText.length === 0) continue;
+      let {
+        offsets,
+        totalMatches,
+        isCapped: matchSearchIsCapped,
+      } = Na(unitText, query, MAX_CONVERSATION_SEARCH_MATCHES - matches.length);
+      totalMatchCount += totalMatches;
+      matchSearchIsCapped && (isCapped = true);
       for (let { start, end } of offsets) {
-        a += 1;
-        r.push({
-          id: `conversation:${s.turnKey}:${t.unitId}:${start}`,
-          ordinal: a,
+        matchOrdinal += 1;
+        matches.push({
+          id: `conversation:${searchableTurn.turnKey}:${unit.unitId}:${start}`,
+          ordinal: matchOrdinal,
           location: {
             domain: "conversation",
-            contextId: e.contextId,
-            turnKey: s.turnKey,
-            unitId: t.unitId,
+            contextId: searchRequest.contextId,
+            turnKey: searchableTurn.turnKey,
+            unitId: unit.unitId,
             start,
             end,
           },
-          snippet: Ua(c, start, end),
+          snippet: Ua(unitText, start, end),
         });
       }
     }
   return {
-    domain: e.domain,
-    contextId: e.contextId,
-    query: n,
-    matches: r,
-    totalMatches: i,
-    isCapped: o,
+    domain: searchRequest.domain,
+    contextId: searchRequest.contextId,
+    query,
+    matches,
+    totalMatches: totalMatchCount,
+    isCapped,
   };
 }
-var gb,
+var MAX_CONVERSATION_SEARCH_MATCHES,
   initConversationSearchHelpers = once(() => {
     la();
     Ea();
     Aa();
-    gb = 250;
+    MAX_CONVERSATION_SEARCH_MATCHES = 250;
   });
-function vb({
+function createLocalConversationSearchSource({
   getConversationState,
   getIsBackgroundSubagentsEnabled,
   routeContextId,
@@ -9582,10 +9590,10 @@ function vb({
   return createLocalConversationSearchAdapter({
     contextId: routeContextId,
     getTurns: () => {
-      let n = getConversationState();
-      return n == null
+      let conversationState = getConversationState();
+      return conversationState == null
         ? []
-        : n.turns
+        : conversationState.turns
             .map((item, index) =>
               ze(item, [], {
                 isBackgroundSubagentsEnabled: getIsBackgroundSubagentsEnabled(),
@@ -9595,7 +9603,7 @@ function vb({
                       item.turnId,
                       index,
                     ),
-                    units: bb(
+                    units: extractConversationSearchUnits(
                       lt(item, [], {
                         isBackgroundSubagentsEnabled:
                           getIsBackgroundSubagentsEnabled(),
@@ -9609,39 +9617,46 @@ function vb({
     scrollAdapter,
   });
 }
-function bb(e) {
-  let t = [],
-    n = xb.default(e, (e) => e.type === "assistant-message");
+function extractConversationSearchUnits(items) {
+  let units = [],
+    latestAssistantMessageIndex = xb.default(
+      items,
+      (item) => item.type === "assistant-message",
+    );
   return (
-    e.forEach((item, index) => {
+    items.forEach((item, index) => {
       if (item.type === "user-message") {
-        let n = item.message.trim();
-        if (n.length === 0) return;
-        t.push({
+        let messageText = item.message.trim();
+        if (messageText.length === 0) return;
+        units.push({
           unitId: `${index}:user`,
-          text: n,
+          text: messageText,
         });
         return;
       }
-      if (item.type !== "assistant-message" || index !== n) return;
-      let i = Tt(item.content);
-      i.length !== 0 &&
-        t.push({
+      if (
+        item.type !== "assistant-message" ||
+        index !== latestAssistantMessageIndex
+      )
+        return;
+      let assistantText = Tt(item.content);
+      assistantText.length !== 0 &&
+        units.push({
           unitId: `${index}:assistant`,
-          text: i,
+          text: assistantText,
         });
     }),
-    t
+    units
   );
 }
 var xb,
-  Sb = once(() => {
+  initConversationSearchUnitExtractor = once(() => {
     xb = toEsModule(hn(), 1);
     initConversationSearchHelpers();
     hi();
     Ge();
   });
-function Eb({
+function buildLocalConversationVisibleTurnEntries({
   conversationRequests,
   mergeBerryDisplayTurnsForPIA = false,
   preserveServerUserMessages = false,
@@ -9652,9 +9667,10 @@ function Eb({
   subagentParentThreadId,
 }) {
   if (conversationTurns.length === 0 && conversationRequests.length === 0)
-    return zb;
-  let c = groupConversationRequestsByTurnId(conversationRequests),
-    l =
+    return EMPTY_VISIBLE_TURN_ENTRIES;
+  let requestsByTurnId =
+      groupConversationRequestsByTurnId(conversationRequests),
+    visibleConversationTurns =
       hasConversation && subagentParentThreadId != null
         ? getConversationTurnsNotInParent({
             areTurnItemsEqual: ob.default,
@@ -9666,164 +9682,222 @@ function Eb({
             },
           })
         : conversationTurns,
-    u = new Set(
-      l.flatMap((item) => (item.turnId == null ? [] : [item.turnId])),
+    visibleTurnIds = new Set(
+      visibleConversationTurns.flatMap((item) =>
+        item.turnId == null ? [] : [item.turnId],
+      ),
     ),
-    d = new Set(l),
-    f = createPhysicalTurnEntries(conversationTurns);
-  mergeBerryDisplayTurnsForPIA && (f = Ob(conversationTurns));
-  let p = [],
-    m = l.length < conversationTurns.length,
-    h = false,
-    g = null;
-  for (let e of conversationTurns)
-    !h &&
-      e.items.some(
+    visibleTurnsSet = new Set(visibleConversationTurns),
+    physicalTurnEntries = createPhysicalTurnEntries(conversationTurns);
+  mergeBerryDisplayTurnsForPIA &&
+    (physicalTurnEntries =
+      mergeBerryDisplayPhysicalTurnEntries(conversationTurns));
+  let visibleTurnEntries = [],
+    hasInheritedParentTurns =
+      visibleConversationTurns.length < conversationTurns.length,
+    hasUserMessage = false,
+    latestVisibleTurnId = null;
+  for (let conversationTurn of conversationTurns)
+    !hasUserMessage &&
+      conversationTurn.items.some(
         (item) =>
           (item.type === "userMessage" && true) ||
           item.type === "steeringUserMessage",
       ) &&
-      (h = true);
-  for (let e of f) {
-    let { turn, turnId } = e,
-      i =
-        e.physicalTurnIds.length > 0
-          ? collectConversationRequestsForTurnIds(e.physicalTurnIds, c, Lb)
-          : Lb;
-    ze(turn, i, {
+      (hasUserMessage = true);
+  for (let physicalTurnEntry of physicalTurnEntries) {
+    let { turn, turnId } = physicalTurnEntry,
+      requests =
+        physicalTurnEntry.physicalTurnIds.length > 0
+          ? collectConversationRequestsForTurnIds(
+              physicalTurnEntry.physicalTurnIds,
+              requestsByTurnId,
+              EMPTY_CONVERSATION_REQUESTS,
+            )
+          : EMPTY_CONVERSATION_REQUESTS;
+    ze(turn, requests, {
       isBackgroundSubagentsEnabled,
     }) &&
-      ((turnId != null && !e.physicalTurnIds.some((item) => u.has(item))) ||
-        (turnId == null && !d.has(turn)) ||
-        (p.push({
+      ((turnId != null &&
+        !physicalTurnEntry.physicalTurnIds.some((item) =>
+          visibleTurnIds.has(item),
+        )) ||
+        (turnId == null && !visibleTurnsSet.has(turn)) ||
+        (visibleTurnEntries.push({
           preserveServerUserMessages,
-          requests: i,
+          requests,
           turn,
           turnId,
-          turnSearchKey: getLocalConversationTurnSearchKey(turnId, e.turnIndex),
+          turnSearchKey: getLocalConversationTurnSearchKey(
+            turnId,
+            physicalTurnEntry.turnIndex,
+          ),
         }),
-        (g = turnId)));
+        (latestVisibleTurnId = turnId)));
   }
   return {
     conversationTurns,
-    hasInheritedParentTurns: m,
-    hasRenderableTurns: p.length > 0,
-    hasUserMessage: h,
-    latestVisibleTurnId: g,
-    visibleTurnEntries: p,
+    hasInheritedParentTurns,
+    hasRenderableTurns: visibleTurnEntries.length > 0,
+    hasUserMessage,
+    latestVisibleTurnId,
+    visibleTurnEntries,
   };
 }
-function Ob(e) {
-  let t = new Map(),
-    n = new Map(),
-    r = new Map();
-  for (let [i, a] of e.entries()) {
-    let e = a.turnId;
-    if (e == null) continue;
-    let o = {
-      turn: a,
-      turnIndex: i,
+function mergeBerryDisplayPhysicalTurnEntries(conversationTurns) {
+  let physicalTurnById = new Map(),
+    displayGroupByControlTurnId = new Map(),
+    controlTurnIdByDisplayTurnId = new Map();
+  for (let [turnIndex, turn] of conversationTurns.entries()) {
+    let turnId = turn.turnId;
+    if (turnId == null) continue;
+    let physicalTurnEntry = {
+      turn,
+      turnIndex,
     };
-    t.set(e, o);
-    let s = parseBerryDisplayTurnId(e);
-    if (s == null) continue;
-    let c = n.get(s.controlTurnId);
-    c ??
-      ((c = {
-        controlTurnId: s.controlTurnId,
+    physicalTurnById.set(turnId, physicalTurnEntry);
+    let berryDisplayTurnId = parseBerryDisplayTurnId(turnId);
+    if (berryDisplayTurnId == null) continue;
+    let displayGroup = displayGroupByControlTurnId.get(
+      berryDisplayTurnId.controlTurnId,
+    );
+    displayGroup ??
+      ((displayGroup = {
+        controlTurnId: berryDisplayTurnId.controlTurnId,
         displayTurns: [],
       }),
-      n.set(s.controlTurnId, c));
-    c.displayTurns.push({
-      displayIndex: s.displayIndex,
-      ...o,
+      displayGroupByControlTurnId.set(
+        berryDisplayTurnId.controlTurnId,
+        displayGroup,
+      ));
+    displayGroup.displayTurns.push({
+      displayIndex: berryDisplayTurnId.displayIndex,
+      ...physicalTurnEntry,
     });
-    r.set(e, s.controlTurnId);
+    controlTurnIdByDisplayTurnId.set(turnId, berryDisplayTurnId.controlTurnId);
   }
-  let i = new Set(),
-    a = [];
-  for (let [o, s] of e.entries()) {
-    let e = s.turnId,
-      c = e == null ? null : (r.get(e) ?? e),
-      l = c == null ? null : n.get(c);
-    if (l != null) {
-      if (i.has(l.controlTurnId)) continue;
-      i.add(l.controlTurnId);
-      a.push(Ab(l, t.get(l.controlTurnId) ?? null));
+  let emittedControlTurnIds = new Set(),
+    physicalTurnEntries = [];
+  for (let [turnIndex, turn] of conversationTurns.entries()) {
+    let turnId = turn.turnId,
+      controlTurnId =
+        turnId == null
+          ? null
+          : (controlTurnIdByDisplayTurnId.get(turnId) ?? turnId),
+      displayGroup =
+        controlTurnId == null
+          ? null
+          : displayGroupByControlTurnId.get(controlTurnId);
+    if (displayGroup != null) {
+      if (emittedControlTurnIds.has(displayGroup.controlTurnId)) continue;
+      emittedControlTurnIds.add(displayGroup.controlTurnId);
+      physicalTurnEntries.push(
+        createBerryDisplayTurnEntry(
+          displayGroup,
+          physicalTurnById.get(displayGroup.controlTurnId) ?? null,
+        ),
+      );
       continue;
     }
-    a.push({
-      physicalTurnIds: e == null ? [] : [e],
-      turn: s,
-      turnId: e,
-      turnIndex: o,
+    physicalTurnEntries.push({
+      physicalTurnIds: turnId == null ? [] : [turnId],
+      turn,
+      turnId,
+      turnIndex,
     });
   }
-  return a;
+  return physicalTurnEntries;
 }
-function Ab(e, t) {
-  let n = [...e.displayTurns].sort((e, t) => e.displayIndex - t.displayIndex),
-    r = [...(t == null ? [] : [t]), ...n].sort(
-      (e, t) => e.turnIndex - t.turnIndex,
+function createBerryDisplayTurnEntry(displayTurnGroup, controlTurnEntry) {
+  let sortedDisplayTurns = [...displayTurnGroup.displayTurns].sort(
+      (leftDisplayTurn, rightDisplayTurn) =>
+        leftDisplayTurn.displayIndex - rightDisplayTurn.displayIndex,
     ),
-    i = r.map(({ turn }) => turn),
-    a = n.map(({ turn }) => turn),
-    o = t?.turn ?? a[0];
-  if (o == null) throw Error("Berry display turn group must contain a turn");
+    mergedTurnEntries = [
+      ...(controlTurnEntry == null ? [] : [controlTurnEntry]),
+      ...sortedDisplayTurns,
+    ].sort(
+      (leftTurnEntry, rightTurnEntry) =>
+        leftTurnEntry.turnIndex - rightTurnEntry.turnIndex,
+    ),
+    mergedTurns = mergedTurnEntries.map(({ turn }) => turn),
+    displayTurns = sortedDisplayTurns.map(({ turn }) => turn),
+    baseTurn = controlTurnEntry?.turn ?? displayTurns[0];
+  if (baseTurn == null)
+    throw Error("Berry display turn group must contain a turn");
   return {
-    physicalTurnIds: i.flatMap((item) =>
+    physicalTurnIds: mergedTurns.flatMap((item) =>
       item.turnId == null ? [] : [item.turnId],
     ),
     turn: {
-      params: o.params,
-      turnId: e.controlTurnId,
-      turnStartedAtMs: t?.turn.turnStartedAtMs ?? Mb(i, "turnStartedAtMs"),
-      durationMs: t?.turn.durationMs ?? Nb(i, "durationMs"),
-      firstTurnWorkItemStartedAtMs: Mb(i, "firstTurnWorkItemStartedAtMs"),
-      finalAssistantStartedAtMs: Nb(i, "finalAssistantStartedAtMs"),
-      status: jb(i),
-      error: i.find((item) => item.error != null)?.error ?? null,
-      diff: Nb(i, "diff"),
-      interruptedCommandExecutionItemIds: i.flatMap(
+      params: baseTurn.params,
+      turnId: displayTurnGroup.controlTurnId,
+      turnStartedAtMs:
+        controlTurnEntry?.turn.turnStartedAtMs ??
+        getFirstDefinedTurnField(mergedTurns, "turnStartedAtMs"),
+      durationMs:
+        controlTurnEntry?.turn.durationMs ??
+        getLastDefinedTurnField(mergedTurns, "durationMs"),
+      firstTurnWorkItemStartedAtMs: getFirstDefinedTurnField(
+        mergedTurns,
+        "firstTurnWorkItemStartedAtMs",
+      ),
+      finalAssistantStartedAtMs: getLastDefinedTurnField(
+        mergedTurns,
+        "finalAssistantStartedAtMs",
+      ),
+      status: getMergedTurnStatus(mergedTurns),
+      error: mergedTurns.find((item) => item.error != null)?.error ?? null,
+      diff: getLastDefinedTurnField(mergedTurns, "diff"),
+      interruptedCommandExecutionItemIds: mergedTurns.flatMap(
         (item) => item.interruptedCommandExecutionItemIds ?? [],
       ),
-      hookRuns: i.flatMap((item) => item.hookRuns ?? []),
-      items: [...(t?.turn.items ?? []), ...a.flatMap((item) => item.items)],
+      hookRuns: mergedTurns.flatMap((item) => item.hookRuns ?? []),
+      items: [
+        ...(controlTurnEntry?.turn.items ?? []),
+        ...displayTurns.flatMap((item) => item.items),
+      ],
     },
-    turnId: e.controlTurnId,
-    turnIndex: r[0]?.turnIndex ?? 0,
+    turnId: displayTurnGroup.controlTurnId,
+    turnIndex: mergedTurnEntries[0]?.turnIndex ?? 0,
   };
 }
-function jb(e) {
-  let t = e.find((item) => item.status === "failed");
-  if (t != null) return t.status;
-  let n = e.find((item) => item.status === "inProgress");
-  return n == null ? (e.at(-1)?.status ?? "completed") : n.status;
+function getMergedTurnStatus(turns) {
+  let failedTurn = turns.find((item) => item.status === "failed");
+  if (failedTurn != null) return failedTurn.status;
+  let inProgressTurn = turns.find((item) => item.status === "inProgress");
+  return inProgressTurn == null
+    ? (turns.at(-1)?.status ?? "completed")
+    : inProgressTurn.status;
 }
-function Mb(e, t) {
-  return e.find((item) => item[t] != null)?.[t] ?? null;
+function getFirstDefinedTurnField(turns, fieldName) {
+  return turns.find((item) => item[fieldName] != null)?.[fieldName] ?? null;
 }
-function Nb(e, t) {
-  return Ib.default(e, (e) => e[t] != null)?.[t] ?? null;
+function getLastDefinedTurnField(turns, fieldName) {
+  return (
+    findLastModule.default(turns, (turn) => turn[fieldName] != null)?.[
+      fieldName
+    ] ?? null
+  );
 }
-var Ib,
-  Lb,
-  Rb,
-  zb,
+var findLastModule,
+  EMPTY_CONVERSATION_REQUESTS,
+  EMPTY_CONVERSATION_TURNS,
+  EMPTY_VISIBLE_TURN_ENTRIES,
   localConversationVisibleTurnEntriesSignal,
   initLocalConversationTurnSelectors = once(() => {
-    Ib = toEsModule(gi(), 1);
+    findLastModule = toEsModule(gi(), 1);
     c();
     nt();
     r();
     o();
     sb();
     Ge();
-    Sb();
-    Lb = [];
-    Rb = [];
-    zb = {
-      conversationTurns: Rb,
+    initConversationSearchUnitExtractor();
+    EMPTY_CONVERSATION_REQUESTS = [];
+    EMPTY_CONVERSATION_TURNS = [];
+    EMPTY_VISIBLE_TURN_ENTRIES = {
+      conversationTurns: EMPTY_CONVERSATION_TURNS,
       hasInheritedParentTurns: false,
       hasRenderableTurns: false,
       hasUserMessage: false,
@@ -9834,7 +9908,7 @@ var Ib,
       ut,
       ({ conversationId, isBackgroundSubagentsEnabled }, { get }) => {
         let r = get(Mt, conversationId) ?? false,
-          i = get(Kr, conversationId) ?? Lb;
+          i = get(Kr, conversationId) ?? EMPTY_CONVERSATION_REQUESTS;
         get(s, conversationId);
         let a = get(pr, conversationId) ?? "needs_resume",
           o = isBackgroundSubagentsEnabled
@@ -9842,17 +9916,21 @@ var Ib,
             : null,
           c = get(An, "209459230"),
           l = c ? get(kn, conversationId) : null,
-          u = c ? (o == null ? Rb : get(kn, o)) : null,
+          u = c ? (o == null ? EMPTY_CONVERSATION_TURNS : get(kn, o)) : null,
           d = l != null && u != null;
-        return Eb({
+        return buildLocalConversationVisibleTurnEntries({
           conversationRequests: i,
           mergeBerryDisplayTurnsForPIA: false,
           preserveServerUserMessages: false,
           conversationResumeState: a,
-          conversationTurns: d ? l : (get(I, conversationId) ?? Rb),
+          conversationTurns: d
+            ? l
+            : (get(I, conversationId) ?? EMPTY_CONVERSATION_TURNS),
           hasConversation: r,
           isBackgroundSubagentsEnabled,
-          parentConversationTurns: d ? u : (get(I, o) ?? Rb),
+          parentConversationTurns: d
+            ? u
+            : (get(I, o) ?? EMPTY_CONVERSATION_TURNS),
           subagentParentThreadId: o,
         });
       },
@@ -11593,7 +11671,7 @@ var Ix,
     };
     Wx = Lx.createContext(null);
   });
-function Kx({
+function buildLocalConversationTurnListEntries({
   collapsedTurnsById,
   completedThreadGoal,
   completedThreadGoalTurnKey,
@@ -11611,36 +11689,41 @@ function Kx({
   onSetCollapsedForTurn,
   previousEntries,
   renderMcpApps,
-  resolvedApps: _,
+  resolvedApps,
   showInProgressFixedContent,
   visibleSubagentParentThreadId,
   visibleTurnEntries,
 }) {
-  let x = new Map(previousEntries.map((item) => [item.turnKey, item])),
-    S = qx({
+  let previousEntriesByTurnKey = new Map(
+      previousEntries.map((item) => [item.turnKey, item]),
+    ),
+    generatedImagesForVisibleEntries = collectGeneratedImagesForVisibleTurns({
       isBackgroundSubagentsEnabled,
       previousEntries,
       projectlessOutputDirectory,
       visibleTurnEntries,
     }),
-    C = Xx.default(previousEntries[0]?.generatedImages, S)
+    stableGeneratedImages = Xx.default(
+      previousEntries[0]?.generatedImages,
+      generatedImagesForVisibleEntries,
+    )
       ? previousEntries[0].generatedImages
-      : S,
-    w = false,
-    T = [];
+      : generatedImagesForVisibleEntries,
+    didEntriesChange = false,
+    nextEntries = [];
   if (
     (visibleTurnEntries.forEach((item, index) => {
-      let E = item.turnId,
-        D;
+      let turnId = item.turnId,
+        renderMcpAppsMode;
       renderMcpApps &&
-        (D =
+        (renderMcpAppsMode =
           index >= visibleTurnEntries.length - 3 ? "auto-expand" : "default");
-      let O = [
+      let candidateEntries = [
         {
           conversationId,
           cwd,
           hostId,
-          isCollapsed: E == null ? undefined : collapsedTurnsById[E],
+          isCollapsed: turnId == null ? undefined : collapsedTurnsById[turnId],
           isMostRecentTurn: index === visibleTurnEntries.length - 1,
           isReadOnly,
           totalTurnCount: visibleTurnEntries.length,
@@ -11654,8 +11737,9 @@ function Kx({
             completedThreadGoalTurnKey === item.turnSearchKey
               ? completedThreadGoal
               : null,
-          generatedImages: C,
-          onSetCollapsedForTurn: E == null ? undefined : onSetCollapsedForTurn,
+          generatedImages: stableGeneratedImages,
+          onSetCollapsedForTurn:
+            turnId == null ? undefined : onSetCollapsedForTurn,
           parentThreadAttachmentSourceConversationId:
             index === 0 &&
             hasInheritedParentTurns &&
@@ -11663,132 +11747,162 @@ function Kx({
               ? visibleSubagentParentThreadId
               : undefined,
           preserveServerUserMessages: item.preserveServerUserMessages,
-          renderMcpApps: D,
+          renderMcpApps: renderMcpAppsMode,
           requests: item.requests,
-          resolvedApps: _,
+          resolvedApps,
           showInProgressFixedContent:
             showInProgressFixedContent &&
             index === visibleTurnEntries.length - 1,
           turn: item.turn,
-          turnId: E,
+          turnId,
           turnKey: item.turnSearchKey,
           turnSearchKey: item.turnSearchKey,
           isBackgroundSubagentsEnabled,
         },
       ];
-      for (let e of O) {
-        let t = x.get(e.turnKey);
-        if (t != null && Jx(t, e)) {
-          T.push(t);
+      for (let candidateEntry of candidateEntries) {
+        let previousEntry = previousEntriesByTurnKey.get(
+          candidateEntry.turnKey,
+        );
+        if (
+          previousEntry != null &&
+          areTurnListEntriesEquivalent(previousEntry, candidateEntry)
+        ) {
+          nextEntries.push(previousEntry);
           continue;
         }
-        w = true;
-        T.push(e);
+        didEntriesChange = true;
+        nextEntries.push(candidateEntry);
       }
     }),
-    !w && previousEntries.length !== T.length && (w = true),
-    !w)
+    !didEntriesChange &&
+      previousEntries.length !== nextEntries.length &&
+      (didEntriesChange = true),
+    !didEntriesChange)
   ) {
-    for (let [e, t] of T.entries())
-      if (previousEntries[e] !== t) {
-        w = true;
+    for (let [entryIndex, candidateEntry] of nextEntries.entries())
+      if (previousEntries[entryIndex] !== candidateEntry) {
+        didEntriesChange = true;
         break;
       }
   }
-  return w ? T : previousEntries;
+  return didEntriesChange ? nextEntries : previousEntries;
 }
-function qx({
+function collectGeneratedImagesForVisibleTurns({
   isBackgroundSubagentsEnabled,
   previousEntries,
   projectlessOutputDirectory,
   visibleTurnEntries,
 }) {
-  let i = previousEntries[0]?.generatedImages,
-    a = 0,
-    o = null;
-  for (let e of previousEntries)
-    if (e.turnSearchKey !== o) {
-      if (((o = e.turnSearchKey), visibleTurnEntries[a]?.turn !== e.turn)) {
-        a = null;
+  let previousGeneratedImages = previousEntries[0]?.generatedImages,
+    matchingEntryCount = 0,
+    lastMatchedTurnSearchKey = null;
+  for (let previousEntry of previousEntries)
+    if (previousEntry.turnSearchKey !== lastMatchedTurnSearchKey) {
+      if (
+        ((lastMatchedTurnSearchKey = previousEntry.turnSearchKey),
+        visibleTurnEntries[matchingEntryCount]?.turn !== previousEntry.turn)
+      ) {
+        matchingEntryCount = null;
         break;
       }
-      a++;
+      matchingEntryCount++;
     }
-  let s = [],
-    c = visibleTurnEntries;
-  a != null &&
-    a > 0 &&
-    i != null &&
-    ((s = i), (c = visibleTurnEntries.slice(a)));
-  let l = [
-    ...s,
-    ...c.flatMap(({ preserveServerUserMessages, requests, turn }) => {
-      if (
-        !turn.items.some(
-          (item) => item.type === "imageGeneration" && item.src != null,
+  let reusedGeneratedImages = [],
+    entriesNeedingImageScan = visibleTurnEntries;
+  matchingEntryCount != null &&
+    matchingEntryCount > 0 &&
+    previousGeneratedImages != null &&
+    ((reusedGeneratedImages = previousGeneratedImages),
+    (entriesNeedingImageScan = visibleTurnEntries.slice(matchingEntryCount)));
+  let generatedImages = [
+    ...reusedGeneratedImages,
+    ...entriesNeedingImageScan.flatMap(
+      ({ preserveServerUserMessages, requests, turn }) => {
+        if (
+          !turn.items.some(
+            (item) => item.type === "imageGeneration" && item.src != null,
+          )
         )
-      )
-        return [];
-      let a = lt(turn, requests, {
-          isBackgroundSubagentsEnabled,
-          preserveServerUserMessages,
-        }),
-        { assistantItem, toolOutputItems } = Zc(a.items, a.status),
-        c = ce(
-          Lt({
-            assistantContent: assistantItem?.content ?? null,
-            projectlessOutputDirectory,
-            turn: a,
+          return [];
+        let renderedTurn = lt(turn, requests, {
+            isBackgroundSubagentsEnabled,
+            preserveServerUserMessages,
           }),
-        );
-      return Ts({
-        completedGeneratedImages: toolOutputItems.filter(
-          (item) => item.src != null,
-        ),
-        endResourcePaths: c,
-        hasPendingGeneratedImages: false,
-      }).visibleCompletedGeneratedImages;
-    }),
+          { assistantItem, toolOutputItems } = Zc(
+            renderedTurn.items,
+            renderedTurn.status,
+          ),
+          endResourcePaths = ce(
+            Lt({
+              assistantContent: assistantItem?.content ?? null,
+              projectlessOutputDirectory,
+              turn: renderedTurn,
+            }),
+          );
+        return Ts({
+          completedGeneratedImages: toolOutputItems.filter(
+            (item) => item.src != null,
+          ),
+          endResourcePaths,
+          hasPendingGeneratedImages: false,
+        }).visibleCompletedGeneratedImages;
+      },
+    ),
   ];
-  return Xx.default(i, l) ? i : l;
+  return Xx.default(previousGeneratedImages, generatedImages)
+    ? previousGeneratedImages
+    : generatedImages;
 }
-function Jx(e, t) {
+function areTurnListEntriesEquivalent(previousEntry, nextEntry) {
   return (
-    e.conversationId === t.conversationId &&
-    e.cwd === t.cwd &&
-    e.hostId === t.hostId &&
-    e.isCollapsed === t.isCollapsed &&
-    e.isMostRecentTurn === t.isMostRecentTurn &&
-    e.isReadOnly === t.isReadOnly &&
-    e.totalTurnCount === t.totalTurnCount &&
-    e.turnNumber === t.turnNumber &&
-    e.isProjectlessConversation === t.isProjectlessConversation &&
-    e.modelProvider === t.modelProvider &&
-    e.onEditLastTurnMessage === t.onEditLastTurnMessage &&
-    e.onForkTurnMessage === t.onForkTurnMessage &&
-    e.completedThreadGoal === t.completedThreadGoal &&
-    e.generatedImages === t.generatedImages &&
-    e.onSetCollapsedForTurn === t.onSetCollapsedForTurn &&
-    e.parentThreadAttachmentSourceConversationId ===
-      t.parentThreadAttachmentSourceConversationId &&
-    e.preserveServerUserMessages === t.preserveServerUserMessages &&
-    e.renderMcpApps === t.renderMcpApps &&
-    e.requests === t.requests &&
-    e.resolvedApps === t.resolvedApps &&
-    e.showInProgressFixedContent === t.showInProgressFixedContent &&
-    e.turn === t.turn &&
-    e.turnId === t.turnId &&
-    e.turnKey === t.turnKey &&
-    e.turnSearchKey === t.turnSearchKey &&
-    Yx(e.transcriptBlock, t.transcriptBlock) &&
-    e.includeTranscriptTurnExtras === t.includeTranscriptTurnExtras &&
-    e.isBackgroundSubagentsEnabled === t.isBackgroundSubagentsEnabled
+    previousEntry.conversationId === nextEntry.conversationId &&
+    previousEntry.cwd === nextEntry.cwd &&
+    previousEntry.hostId === nextEntry.hostId &&
+    previousEntry.isCollapsed === nextEntry.isCollapsed &&
+    previousEntry.isMostRecentTurn === nextEntry.isMostRecentTurn &&
+    previousEntry.isReadOnly === nextEntry.isReadOnly &&
+    previousEntry.totalTurnCount === nextEntry.totalTurnCount &&
+    previousEntry.turnNumber === nextEntry.turnNumber &&
+    previousEntry.isProjectlessConversation ===
+      nextEntry.isProjectlessConversation &&
+    previousEntry.modelProvider === nextEntry.modelProvider &&
+    previousEntry.onEditLastTurnMessage === nextEntry.onEditLastTurnMessage &&
+    previousEntry.onForkTurnMessage === nextEntry.onForkTurnMessage &&
+    previousEntry.completedThreadGoal === nextEntry.completedThreadGoal &&
+    previousEntry.generatedImages === nextEntry.generatedImages &&
+    previousEntry.onSetCollapsedForTurn === nextEntry.onSetCollapsedForTurn &&
+    previousEntry.parentThreadAttachmentSourceConversationId ===
+      nextEntry.parentThreadAttachmentSourceConversationId &&
+    previousEntry.preserveServerUserMessages ===
+      nextEntry.preserveServerUserMessages &&
+    previousEntry.renderMcpApps === nextEntry.renderMcpApps &&
+    previousEntry.requests === nextEntry.requests &&
+    previousEntry.resolvedApps === nextEntry.resolvedApps &&
+    previousEntry.showInProgressFixedContent ===
+      nextEntry.showInProgressFixedContent &&
+    previousEntry.turn === nextEntry.turn &&
+    previousEntry.turnId === nextEntry.turnId &&
+    previousEntry.turnKey === nextEntry.turnKey &&
+    previousEntry.turnSearchKey === nextEntry.turnSearchKey &&
+    areTranscriptBlocksEquivalent(
+      previousEntry.transcriptBlock,
+      nextEntry.transcriptBlock,
+    ) &&
+    previousEntry.includeTranscriptTurnExtras ===
+      nextEntry.includeTranscriptTurnExtras &&
+    previousEntry.isBackgroundSubagentsEnabled ===
+      nextEntry.isBackgroundSubagentsEnabled
   );
 }
-function Yx(event, _event) {
-  return event == null || _event == null
-    ? event === _event
-    : event.type === _event.type && event.key === _event.key;
+function areTranscriptBlocksEquivalent(
+  previousTranscriptBlock,
+  nextTranscriptBlock,
+) {
+  return previousTranscriptBlock == null || nextTranscriptBlock == null
+    ? previousTranscriptBlock === nextTranscriptBlock
+    : previousTranscriptBlock.type === nextTranscriptBlock.type &&
+        previousTranscriptBlock.key === nextTranscriptBlock.key;
 }
 var Xx,
   Zx = once(() => {
@@ -11799,7 +11913,7 @@ var Xx,
     Jt();
     Fc();
   });
-function Qx({
+function buildThreadFindItemsForVisibleTurns({
   isConversationHistoryComplete,
   isAppgenEndCardEnabled,
   isBackgroundSubagentsEnabled,
@@ -11809,130 +11923,146 @@ function Qx({
 }) {
   return isConversationHistoryComplete
     ? visibleTurnEntries.flatMap((item) => {
-        let a = rS.get(item.turn);
+        let cachedThreadFindItems = threadFindItemsCache.get(item.turn);
         if (
-          a?.isAppgenEndCardEnabled === isAppgenEndCardEnabled &&
-          a.isBackgroundSubagentsEnabled === isBackgroundSubagentsEnabled &&
-          a.modelProvider === modelProvider &&
-          a.preserveServerUserMessages === item.preserveServerUserMessages &&
-          a.projectlessOutputDirectory === projectlessOutputDirectory &&
-          a.requests === item.requests &&
-          a.turnSearchKey === item.turnSearchKey
+          cachedThreadFindItems?.isAppgenEndCardEnabled ===
+            isAppgenEndCardEnabled &&
+          cachedThreadFindItems.isBackgroundSubagentsEnabled ===
+            isBackgroundSubagentsEnabled &&
+          cachedThreadFindItems.modelProvider === modelProvider &&
+          cachedThreadFindItems.preserveServerUserMessages ===
+            item.preserveServerUserMessages &&
+          cachedThreadFindItems.projectlessOutputDirectory ===
+            projectlessOutputDirectory &&
+          cachedThreadFindItems.requests === item.requests &&
+          cachedThreadFindItems.turnSearchKey === item.turnSearchKey
         )
-          return a.items;
-        let o = lt(item.turn, item.requests, {
+          return cachedThreadFindItems.items;
+        let renderedTurn = lt(item.turn, item.requests, {
             isBackgroundSubagentsEnabled,
             preserveServerUserMessages: item.preserveServerUserMessages,
           }),
-          s = o.items,
-          c = new Map(),
-          l = null,
-          u = "";
-        for (let [e, t] of s.entries())
-          t.type === "user-message"
-            ? (l = e)
-            : t.type === "assistant-message" &&
-              ((u = t.content), l != null && c.set(l, t.content));
-        let d = $x({
-            assistantContent: u,
-            generatedImageSources: s.flatMap((_item) =>
-              _item.type === "generated-image" && _item.src != null
-                ? [_item.src]
+          renderedItems = renderedTurn.items,
+          assistantResponseByUserItemIndex = new Map(),
+          latestUserMessageIndex = null,
+          latestAssistantContent = "";
+        for (let [itemIndex, renderedItem] of renderedItems.entries())
+          renderedItem.type === "user-message"
+            ? (latestUserMessageIndex = itemIndex)
+            : renderedItem.type === "assistant-message" &&
+              ((latestAssistantContent = renderedItem.content),
+              latestUserMessageIndex != null &&
+                assistantResponseByUserItemIndex.set(
+                  latestUserMessageIndex,
+                  renderedItem.content,
+                ));
+        let previewOutputs = buildThreadFindPreviewOutputs({
+            assistantContent: latestAssistantContent,
+            generatedImageSources: renderedItems.flatMap((renderedItem) =>
+              renderedItem.type === "generated-image" &&
+              renderedItem.src != null
+                ? [renderedItem.src]
                 : [],
             ),
             isAppgenEndCardEnabled,
             projectlessOutputDirectory,
-            turn: o,
+            turn: renderedTurn,
           }),
-          f = new Map(),
-          p = s.flatMap((_item, index) => {
-            let r = index === l ? d : tS;
-            return _item.type === "user-message"
+          turnKeyByItem = new Map(),
+          threadFindItems = renderedItems.flatMap((renderedItem, index) => {
+            let previewOutputsForItem =
+              index === latestUserMessageIndex
+                ? previewOutputs
+                : EMPTY_THREAD_FIND_PREVIEW_OUTPUTS;
+            return renderedItem.type === "user-message"
               ? [
                   {
                     getPreview: () => ({
-                      outputs: r,
-                      response: c.get(index) ?? "",
+                      outputs: previewOutputsForItem,
+                      response:
+                        assistantResponseByUserItemIndex.get(index) ?? "",
                     }),
                     id: Ta(item.turnSearchKey, `${index}:user`),
-                    getLabel: () => _item.message.trim(),
-                    isHeartbeat: _item.heartbeatTrigger != null,
-                    turnKey: f.get(_item) ?? item.turnSearchKey,
+                    getLabel: () => renderedItem.message.trim(),
+                    isHeartbeat: renderedItem.heartbeatTrigger != null,
+                    turnKey:
+                      turnKeyByItem.get(renderedItem) ?? item.turnSearchKey,
                   },
                 ]
               : [];
           });
         return (
-          rS.set(item.turn, {
+          threadFindItemsCache.set(item.turn, {
             isAppgenEndCardEnabled,
             isBackgroundSubagentsEnabled,
-            items: p,
+            items: threadFindItems,
             modelProvider,
             preserveServerUserMessages: item.preserveServerUserMessages,
             projectlessOutputDirectory,
             requests: item.requests,
             turnSearchKey: item.turnSearchKey,
           }),
-          p
+          threadFindItems
         );
       })
-    : eS;
+    : EMPTY_THREAD_FIND_ITEMS;
 }
-function $x({
+function buildThreadFindPreviewOutputs({
   assistantContent,
   generatedImageSources,
   isAppgenEndCardEnabled,
   projectlessOutputDirectory,
   turn,
 }) {
-  let a = [],
-    o = new Set(),
-    s = (e) => {
-      let t = `${e.type}:${e.label ?? ""}`;
-      o.has(t) || (o.add(t), a.push(e));
+  let previewOutputs = [],
+    seenPreviewKeys = new Set(),
+    addPreviewOutput = (previewOutput) => {
+      let previewKey = `${previewOutput.type}:${previewOutput.label ?? ""}`;
+      seenPreviewKeys.has(previewKey) ||
+        (seenPreviewKeys.add(previewKey), previewOutputs.push(previewOutput));
     };
-  for (let t of Lt({
+  for (let resource of Lt({
     assistantContent,
     isAppgenEndCardEnabled,
     projectlessOutputDirectory,
     turn,
   }))
-    switch (t.type) {
+    switch (resource.type) {
       case "appgen-app":
-        s({
-          label: t.title,
+        addPreviewOutput({
+          label: resource.title,
           type: "app",
         });
         break;
       case "file":
-        s({
-          label: wt(t.path),
+        addPreviewOutput({
+          label: wt(resource.path),
           type: "file",
         });
         break;
       case "google-drive":
-        s({
-          label: t.title,
+        addPreviewOutput({
+          label: resource.title,
           type: "google-drive",
         });
         break;
       case "website":
-        s({
+        addPreviewOutput({
           label: null,
           type: "website",
         });
         break;
     }
-  for (let e of turn.artifacts.editedFilePaths)
-    s({
-      label: wt(e),
+  for (let editedFilePath of turn.artifacts.editedFilePaths)
+    addPreviewOutput({
+      label: wt(editedFilePath),
       type: "file",
     });
-  for (let e of generatedImageSources)
-    s(
-      Ft(e)
+  for (let generatedImageSource of generatedImageSources)
+    addPreviewOutput(
+      Ft(generatedImageSource)
         ? {
-            label: wt(e),
+            label: wt(generatedImageSource),
             type: "file",
           }
         : {
@@ -11940,16 +12070,16 @@ function $x({
             type: "image",
           },
     );
-  for (let t of Nr(assistantContent))
-    switch (t.type) {
+  for (let commandReference of Nr(assistantContent))
+    switch (commandReference.type) {
       case "commit":
-        s({
+        addPreviewOutput({
           label: null,
           type: "commit",
         });
         break;
       case "create-pr":
-        s({
+        addPreviewOutput({
           label: null,
           type: "pull-request",
         });
@@ -11959,22 +12089,26 @@ function $x({
       case "stage":
         break;
     }
-  return a.sort((e, t) => nS[e.type] - nS[t.type]);
+  return previewOutputs.sort(
+    (leftOutput, rightOutput) =>
+      THREAD_FIND_PREVIEW_OUTPUT_SORT_ORDER[leftOutput.type] -
+      THREAD_FIND_PREVIEW_OUTPUT_SORT_ORDER[rightOutput.type],
+  );
 }
-var eS,
-  tS,
-  nS,
-  rS,
-  iS = once(() => {
+var EMPTY_THREAD_FIND_ITEMS,
+  EMPTY_THREAD_FIND_PREVIEW_OUTPUTS,
+  THREAD_FIND_PREVIEW_OUTPUT_SORT_ORDER,
+  threadFindItemsCache,
+  initThreadFindItemsBuilder = once(() => {
     gn();
     la();
     zn();
     di();
     Ge();
     Jt();
-    eS = [];
-    tS = [];
-    nS = {
+    EMPTY_THREAD_FIND_ITEMS = [];
+    EMPTY_THREAD_FIND_PREVIEW_OUTPUTS = [];
+    THREAD_FIND_PREVIEW_OUTPUT_SORT_ORDER = {
       app: 0,
       website: 0,
       "google-drive": 1,
@@ -11984,7 +12118,7 @@ var eS,
       "pull-request": 2,
       review: 2,
     };
-    rS = new WeakMap();
+    threadFindItemsCache = new WeakMap();
   });
 var initBackgroundAgentThreadTab = once(() => {});
 async function openBackgroundAgentThreadTab(
@@ -13480,7 +13614,7 @@ function LocalConversationThreadContent({
         }),
       );
     }),
-    turnListEntries = Kx({
+    turnListEntries = buildLocalConversationTurnListEntries({
       collapsedTurnsById,
       completedThreadGoal,
       completedThreadGoalTurnKey,
@@ -13559,7 +13693,7 @@ function LocalConversationThreadContent({
     ),
     conversationSource = GS.useMemo(
       () =>
-        vb({
+        createLocalConversationSearchSource({
           getConversationState: () =>
             hasConversationRef.current
               ? {
@@ -13574,7 +13708,7 @@ function LocalConversationThreadContent({
       [searchScrollAdapter, routeContextId],
     ),
     getThreadFindItems = () =>
-      Qx({
+      buildThreadFindItemsForVisibleTurns({
         isConversationHistoryComplete: isConversationHistoryComplete,
         isAppgenEndCardEnabled: isAppgenEndCardEnabled,
         isBackgroundSubagentsEnabled,
@@ -13841,14 +13975,14 @@ export const initLocalConversationThreadChunk = once(() => {
   Wo();
   Ac();
   pb();
-  Sb();
+  initConversationSearchUnitExtractor();
   Nd();
   initLocalConversationTurnSelectors();
   Wb();
   Gx();
   Zx();
   nx();
-  iS();
+  initThreadFindItemsBuilder();
   initBackgroundAgentThreadTab();
   fa();
   initBackgroundAgentThreadTabs();
