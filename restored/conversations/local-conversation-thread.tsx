@@ -823,7 +823,10 @@ import {
 } from "./local-conversation-thread-parts/turn-request-index";
 import { getLocalConversationTurnSearchKey } from "./local-conversation-thread-parts/turn-search-key";
 import type { BrowserUseSummary } from "./local-conversation-thread-parts/browser-use-summary";
-import { BrowserUseSummaryList } from "./local-conversation-thread-parts/browser-use-summary-list";
+import {
+  BrowserUseSummarySectionContent,
+  BrowserUseSummarySectionTitle,
+} from "./local-conversation-thread-parts/browser-use-summary-section";
 import { useBrowserUseSummaries } from "./local-conversation-thread-parts/browser-use-summary-store";
 import { ComputerUsePictureInPictureRow } from "./local-conversation-thread-parts/computer-use-pip-row";
 const joinLocalEnvironmentRepoPath = M;
@@ -8115,22 +8118,16 @@ function Sv(e) {
   let Qe = browserUseSummaries.length > 0 && (
     <Nm
       sectionKey="browser-tabs"
-      title={
-        <FormattedMessage
-          id="codex.localConversation.browserUse.title"
-          defaultMessage="Browser"
-          description="Title for the browser section in the thread summary side panel"
-        />
-      }
+      title={<BrowserUseSummarySectionTitle />}
       titleSuffix={Q.jsx(ThreadSummaryPanelChrome.SectionCount, {
         count: browserUseSummaries.length,
       })}
     >
-      <BrowserUseSummaryList
+      <BrowserUseSummarySectionContent
         browserUseSummaries={browserUseSummaries}
-        onOpen={(e) => {
+        onOpenBrowserTab={(browserTabId) => {
           gs(h, true, {
-            browserTabId: e.browserTabId,
+            browserTabId,
           });
         }}
       />
