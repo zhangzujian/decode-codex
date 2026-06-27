@@ -411,7 +411,6 @@ import {
   initShareInviteAutocompleteChunk as Nu,
   ShareInviteAutocomplete as Pu,
 } from "../collaboration/share-invite-autocomplete";
-import { initStarIconChunk as Fu, StarIcon as Iu } from "../icons/star-icon";
 import {
   clearStoppedPendingProcessRows,
   computerUsePictureInPictureAvailableSignal,
@@ -522,6 +521,11 @@ import {
   prependRecentLocalEnvironmentAction,
   type RecentLocalEnvironmentActionsByKey,
 } from "./local-conversation-thread-parts/local-environment-recent-actions";
+import {
+  getLocalEnvironmentResultDisplayName,
+  initLocalEnvironmentSelectorContentChunk,
+  LocalEnvironmentSelectorContent,
+} from "./local-conversation-thread-parts/local-environment-selector-content";
 import { getConversationTurnsNotInParent } from "./local-conversation-thread-parts/parent-conversation-turns";
 import {
   initPinnedSummaryPanelState,
@@ -1468,169 +1472,6 @@ var backgroundTerminalSummaryRowsModule,
           "Tooltip explaining why a background terminal cannot be stopped from the thread summary panel",
       },
     });
-  });
-function getLocalEnvironmentDisplayName(configPath, environmentName) {
-  return environmentName?.trim() || getConfigPathDisplayName(configPath);
-}
-function getLocalEnvironmentResultDisplayName(environmentResult) {
-  return getLocalEnvironmentDisplayName(
-    environmentResult.configPath,
-    environmentResult.type === "success"
-      ? environmentResult.environment.name
-      : null,
-  );
-}
-function getConfigPathDisplayName(configPath) {
-  let normalizedConfigPath = or(configPath),
-    pathParts = normalizedConfigPath.split("/").filter(Boolean);
-  return pathParts[pathParts.length - 1] ?? normalizedConfigPath;
-}
-var initLocalEnvironmentDisplayNameHelpers = once(() => {
-  di();
-});
-function LocalEnvironmentSelectorContent(props) {
-  let {
-      localEnvironmentsLoading,
-      localEnvironmentsError,
-      localEnvironments,
-      availableEnvironments,
-      defaultEnvironment,
-      defaultEnvironmentNormalized,
-      normalizedResolvedConfigPath,
-      onSelectEnvironment,
-      onOpenSettings,
-    } = props,
-    intl = useIntl(),
-    noEnvironmentCheckIcon =
-      normalizedResolvedConfigPath == null ? CheckIcon : undefined,
-    clearEnvironmentSelection = () => {
-      onSelectEnvironment(null);
-    };
-  let noEnvironmentLabel = (
-    <FormattedMessage
-      id="codex.environmentSelector.noEnvironment"
-      defaultMessage="No environment"
-      description="No environment selected message"
-    />
-  );
-  let noEnvironmentItem = (
-    <MenuChrome.Item
-      RightIcon={noEnvironmentCheckIcon}
-      onSelect={clearEnvironmentSelection}
-    >
-      {noEnvironmentLabel}
-    </MenuChrome.Item>
-  );
-  let defaultEnvironmentItem = defaultEnvironment ? (
-    <MenuChrome.Item
-      LeftIcon={Iu}
-      leftIconClassName="icon-xxs text-token-description-foreground"
-      RightIcon={
-        defaultEnvironmentNormalized != null &&
-        defaultEnvironmentNormalized === normalizedResolvedConfigPath
-          ? CheckIcon
-          : undefined
-      }
-      tooltipText={intl.formatMessage({
-        id: "composer.worktreeEnvironment.default",
-        defaultMessage: "Default environment",
-        description: "Tooltip for default local environment icon",
-      })}
-      onSelect={() => {
-        onSelectEnvironment(defaultEnvironment.configPath);
-      }}
-    >
-      {getLocalEnvironmentResultDisplayName(defaultEnvironment)}
-    </MenuChrome.Item>
-  ) : null;
-  let environmentItems =
-    localEnvironmentsLoading && localEnvironments.length === 0 ? (
-      <div className="flex items-center justify-center py-3">
-        {localEnvironmentSelectorContentJsxRuntime.jsx(SpinnerIcon, {
-          className: "icon-xxs",
-        })}
-      </div>
-    ) : localEnvironmentsError ? (
-      <MenuChrome.Message compact={true} tone="error">
-        <FormattedMessage
-          id="composer.worktreeEnvironment.error"
-          defaultMessage="Error loading environments"
-          description="Error state for worktree environment dropdown"
-        />
-      </MenuChrome.Message>
-    ) : availableEnvironments.length > 0 ? (
-      availableEnvironments.map((item) => (
-        <MenuChrome.Item
-          key={item.configPath}
-          RightIcon={
-            normalizedResolvedConfigPath != null &&
-            or(item.configPath) === normalizedResolvedConfigPath
-              ? CheckIcon
-              : undefined
-          }
-          onSelect={() => {
-            onSelectEnvironment(item.configPath);
-          }}
-        >
-          <span className="min-w-0 truncate">
-            {getLocalEnvironmentResultDisplayName(item)}
-          </span>
-        </MenuChrome.Item>
-      ))
-    ) : localEnvironments.length === 0 ? (
-      <MenuChrome.Message compact={true}>
-        <FormattedMessage
-          id="codex.environments.noEnvironmentsFound"
-          defaultMessage="No environments found"
-          description="Message shown when no Codex environments were found"
-        />
-      </MenuChrome.Message>
-    ) : null;
-  let environmentList = (
-    <div className="vertical-scroll-fade-mask flex max-h-[200px] flex-col gap-0.5 overflow-y-auto pr-1">
-      {noEnvironmentItem}
-      {defaultEnvironmentItem}
-      {environmentItems}
-    </div>
-  );
-  let separator = <MenuSeparator />;
-  let settingsLabel = (
-    <FormattedMessage
-      id="threadPage.runAction.setup.editMore"
-      defaultMessage="Environment settings"
-      description="Edit more action label in run action setup popover"
-    />
-  );
-  let settingsItem = (
-    <MenuChrome.Item
-      LeftIcon={SettingsGearIcon}
-      leftIconClassName="icon-sm"
-      onSelect={onOpenSettings}
-    >
-      {settingsLabel}
-    </MenuChrome.Item>
-  );
-  return (
-    <div className="flex flex-col gap-0.5 pb-1">
-      {environmentList}
-      {separator}
-      {settingsItem}
-    </div>
-  );
-}
-var localEnvironmentSelectorContentModule,
-  localEnvironmentSelectorContentJsxRuntime,
-  initLocalEnvironmentSelectorContentChunk = once(() => {
-    localEnvironmentSelectorContentModule = getChunkModuleExports();
-    initIntlRuntime();
-    initDropdownMenuPrimitives();
-    initSpinnerComponent();
-    initCheckmarkIcon();
-    initSettingsGearIcon();
-    Fu();
-    initLocalEnvironmentDisplayNameHelpers();
-    di();
-    localEnvironmentSelectorContentJsxRuntime = getJsxRuntime();
   });
 function LocalEnvironmentActionSetupForm(props) {
   let {
@@ -2931,7 +2772,6 @@ var localEnvironmentActionControlsModule,
     _t();
     initSettingsGearIcon();
     initMoreHorizontalIcon();
-    initLocalEnvironmentDisplayNameHelpers();
     initLocalEnvironmentSelectorContentChunk();
     initAddLocalEnvironmentActionFormChunk();
     initRecentLocalEnvironmentActionsSignal();
