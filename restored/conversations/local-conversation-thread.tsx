@@ -3817,21 +3817,19 @@ var Fm,
     Wm = Be((e) => `${Bm}${e}`, Vm);
     Gm = bn(Fe, (e) => "pending");
   });
-function qm(e) {
-  let { onOpenReviewTab, diffStats, isDiffStatsLoading } = e,
-    a,
-    o;
-  a = Ym.jsx(uc, {
-    className: "icon-sm shrink-0",
-  });
-  o = (
-    <FormattedMessage
-      id="codex.localConversation.gitSummary.branchChangesLabel"
-      defaultMessage="Changes"
-      description="Label for the branch changes row"
-    />
-  );
-  let s = isDiffStatsLoading ? (
+function BranchChangesSummaryRow(props) {
+  let { onOpenReviewTab, diffStats, isDiffStatsLoading } = props,
+    branchIcon = Ym.jsx(uc, {
+      className: "icon-sm shrink-0",
+    }),
+    changesLabel = (
+      <FormattedMessage
+        id="codex.localConversation.gitSummary.branchChangesLabel"
+        defaultMessage="Changes"
+        description="Label for the branch changes row"
+      />
+    );
+  let trailingDiffStats = isDiffStatsLoading ? (
     Ym.jsx(rr, {
       className: "icon-xs text-token-text-tertiary",
     })
@@ -3844,10 +3842,10 @@ function qm(e) {
   );
   return (
     <SummaryPanelRow
-      icon={a}
-      label={o}
+      icon={branchIcon}
+      label={changesLabel}
       onClick={onOpenReviewTab}
-      trailing={s}
+      trailing={trailingDiffStats}
       trailingVisible={true}
     />
   );
@@ -6998,74 +6996,69 @@ var k_,
     A_ = getJsxRuntime();
     j_ = "icon-sm shrink-0 text-token-text-tertiary";
   });
-function N_(e) {
-  let { conversationId, onOpenChange } = e,
-    i = B(fi),
-    a = W(Ro),
-    o = (e) => {
-      $o(i, null, e);
+function ThreadSummaryEnvironmentModeControls(props) {
+  let { conversationId, onOpenChange } = props,
+    scope = B(fi),
+    composerMode = W(Ro),
+    setComposerMode = (nextMode) => {
+      $o(scope, null, nextMode);
     };
-  let s = o,
-    c = $i(conversationId),
-    l = K(En, conversationId) ?? "local",
-    u = K(Wn, conversationId),
-    d = We(c.hostId),
-    f = Ar(u, d);
-  let p = f,
-    m = Vr("1115442235"),
-    h = K(Ui, conversationId),
-    g =
-      m &&
+  let conversationRemoteState = $i(conversationId),
+    threadHostId = K(En, conversationId) ?? "local",
+    conversationCwd = K(Wn, conversationId),
+    remoteHostConfig = We(conversationRemoteState.hostId),
+    isWorktreeConversation = Ar(conversationCwd, remoteHostConfig);
+  let isThreadHandoffSummaryEnabled = Vr("1115442235"),
+    conversationTitle = K(Ui, conversationId),
+    threadHandoff =
+      isThreadHandoffSummaryEnabled &&
       shouldShowThreadHandoffInSummary({
         isCompactWindow: lo(),
       }) &&
-      c.cwd != null
+      conversationRemoteState.cwd != null
         ? {
-            conversationTitle: h,
-            cwd: D(c.cwd),
-            isWorktreeConversation: p,
+            conversationTitle,
+            cwd: D(conversationRemoteState.cwd),
+            isWorktreeConversation,
           }
         : null;
-  let _ = g,
-    v = {
-      isAttachedToStartedTask: true,
-      existingRemoteThreadState: {
-        hostId: l,
-      },
-    };
-  let y = v,
-    b = p,
-    x = (
-      <LocalRemoteDropdown
-        composerMode={a}
-        setComposerMode={s}
-        conversationId={conversationId}
-        footerRemoteState={y}
-        side="left"
-        disabled={b}
-        threadHandoff={_}
-        worktreeLabelOnly={b}
-        triggerVariant="summary-panel"
-        onOpenChange={onOpenChange}
-      />
-    );
-  let S =
-    a === "cloud" &&
+  let footerRemoteState = {
+    isAttachedToStartedTask: true,
+    existingRemoteThreadState: {
+      hostId: threadHostId,
+    },
+  };
+  let localRemoteDropdown = (
+    <LocalRemoteDropdown
+      composerMode={composerMode}
+      setComposerMode={setComposerMode}
+      conversationId={conversationId}
+      footerRemoteState={footerRemoteState}
+      side="left"
+      disabled={isWorktreeConversation}
+      threadHandoff={threadHandoff}
+      worktreeLabelOnly={isWorktreeConversation}
+      triggerVariant="summary-panel"
+      onOpenChange={onOpenChange}
+    />
+  );
+  let cloudEnvironmentDropdown =
+    composerMode === "cloud" &&
     F_.jsx(qt, {
       electron: true,
       browser: true,
       children: F_.jsx(CloudEnvironmentDropdown, {
-        composerMode: a,
+        composerMode,
         conversationId,
-        disabled: b,
-        setComposerMode: s,
+        disabled: isWorktreeConversation,
+        setComposerMode,
         side: "left",
       }),
     });
   return (
     <div className="relative flex w-full items-center gap-2">
-      {x}
-      {S}
+      {localRemoteDropdown}
+      {cloudEnvironmentDropdown}
     </div>
   );
 }
@@ -7090,7 +7083,7 @@ var P_,
     ae();
     F_ = getJsxRuntime();
   });
-function L_(e) {
+function ThreadSummaryEnvironmentSection(props) {
   let {
       cwd,
       conversationId,
@@ -7100,127 +7093,129 @@ function L_(e) {
       onForceShow,
       registerEnvironmentActionCommands,
       workspaceBrowserRoot,
-    } = e,
-    u = B(Fe),
-    d = W(La),
-    f = W(Ia),
-    p = d.metrics,
-    m = z_.useRef(null),
-    h = z_.useRef(null),
-    g = workspaceBrowserRoot == null ? null : qe(workspaceBrowserRoot);
-  let _ = g,
-    v = isCodexWorktree ? (
-      <SummaryPanelRow
-        icon={B_.jsx(sr, {
-          className: "icon-sm shrink-0",
-        })}
-        label={
-          <FormattedMessage
-            id="localConversation.gitActions.createBranch"
-            defaultMessage="Create branch"
-            description="Label for the create branch action in the git actions dropdown"
-          />
-        }
-        onClick={() => {
-          m.current?.();
-        }}
-      />
-    ) : null;
-  let y = v,
-    b =
-      _ == null ? null : (
-        <Ru
-          gitRoot={_}
-          hostConfig={hostConfig}
-          localConversationId={conversationId}
-          shouldShow={true}
-          side="left"
-          align="start"
-          renderControl={(e) => {
-            let { currentBranch, disabled, isPending, switchTooltipText } = e;
-            return currentBranch == null ? (
-              y
-            ) : (
-              <SummaryPanelRow
-                disabled={disabled}
-                icon={B_.jsx(sr, {
-                  className: "icon-sm shrink-0",
-                })}
-                label={
-                  <span className="flex min-w-0 items-center gap-1 text-token-foreground">
-                    <span className="min-w-0 truncate">{currentBranch}</span>
-                    {disabled
-                      ? null
-                      : B_.jsx(ht, {
-                          className:
-                            "icon-2xs shrink-0 text-token-text-tertiary",
-                        })}
-                  </span>
-                }
-                labelClassName="flex min-w-0 items-center"
-                title={switchTooltipText}
-                trailing={
-                  isPending
-                    ? B_.jsx(rr, {
-                        className: "icon-xs text-token-text-tertiary",
-                      })
-                    : null
-                }
-                trailingVisible={isPending}
-              />
-            );
-          }}
-          onOpenChange={onForceShow}
+    } = props,
+    routeScope = B(Fe),
+    diffStatsQuery = W(La),
+    environmentTerminalController = W(Ia),
+    diffStats = diffStatsQuery.metrics,
+    createBranchActionRef = z_.useRef(null),
+    createPullRequestActionRef = z_.useRef(null),
+    workspaceGitRoot =
+      workspaceBrowserRoot == null ? null : qe(workspaceBrowserRoot);
+  let emptyBranchControlRow = isCodexWorktree ? (
+    <SummaryPanelRow
+      icon={B_.jsx(sr, {
+        className: "icon-sm shrink-0",
+      })}
+      label={
+        <FormattedMessage
+          id="localConversation.gitActions.createBranch"
+          defaultMessage="Create branch"
+          description="Label for the create branch action in the git actions dropdown"
         />
-      );
-  let x = b,
-    S = (e) => {
-      let { isExpanded } = e;
-      return (
-        <span className="ms-auto flex items-center justify-end gap-0.5">
-          {p && !isExpanded && (
-            <Ml linesAdded={p.additions} linesRemoved={p.deletions} />
-          )}
-          {B_.jsx(LocalConversationEnvironmentActionControls, {
-            conversationId,
-            hostConfig,
-            onMenuOpenChange: onForceShow,
-            onOpenChange: onForceShow,
-            onShowTerminal: (e) => {
-              Li(u, e, f);
-            },
-            registerCommands: registerEnvironmentActionCommands,
-            workspaceRoot: cwd,
-          })}
-        </span>
-      );
-    };
-  let C = (
+      }
+      onClick={() => {
+        createBranchActionRef.current?.();
+      }}
+    />
+  ) : null;
+  let branchControlRow =
+    workspaceGitRoot == null ? null : (
+      <Ru
+        gitRoot={workspaceGitRoot}
+        hostConfig={hostConfig}
+        localConversationId={conversationId}
+        shouldShow={true}
+        side="left"
+        align="start"
+        renderControl={(controlState) => {
+          let { currentBranch, disabled, isPending, switchTooltipText } =
+            controlState;
+          return currentBranch == null ? (
+            emptyBranchControlRow
+          ) : (
+            <SummaryPanelRow
+              disabled={disabled}
+              icon={B_.jsx(sr, {
+                className: "icon-sm shrink-0",
+              })}
+              label={
+                <span className="flex min-w-0 items-center gap-1 text-token-foreground">
+                  <span className="min-w-0 truncate">{currentBranch}</span>
+                  {disabled
+                    ? null
+                    : B_.jsx(ht, {
+                        className:
+                          "icon-2xs shrink-0 text-token-text-tertiary",
+                      })}
+                </span>
+              }
+              labelClassName="flex min-w-0 items-center"
+              title={switchTooltipText}
+              trailing={
+                isPending
+                  ? B_.jsx(rr, {
+                      className: "icon-xs text-token-text-tertiary",
+                    })
+                  : null
+              }
+              trailingVisible={isPending}
+            />
+          );
+        }}
+        onOpenChange={onForceShow}
+      />
+    );
+  let renderSectionActions = (summaryState) => {
+    let { isExpanded } = summaryState;
+    return (
+      <span className="ms-auto flex items-center justify-end gap-0.5">
+        {diffStats && !isExpanded && (
+          <Ml
+            linesAdded={diffStats.additions}
+            linesRemoved={diffStats.deletions}
+          />
+        )}
+        {B_.jsx(LocalConversationEnvironmentActionControls, {
+          conversationId,
+          hostConfig,
+          onMenuOpenChange: onForceShow,
+          onOpenChange: onForceShow,
+          onShowTerminal: (terminalId) => {
+            Li(routeScope, terminalId, environmentTerminalController);
+          },
+          registerCommands: registerEnvironmentActionCommands,
+          workspaceRoot: cwd,
+        })}
+      </span>
+    );
+  };
+  let sectionTitle = (
     <FormattedMessage
       id="codex.localConversation.environmentSummary.title"
       defaultMessage="Environment"
       description="Title for the thread summary side panel environment and branch details section"
     />
   );
-  let w = B_.jsx(qm, {
+  let branchChangesRow = B_.jsx(BranchChangesSummaryRow, {
     onOpenReviewTab,
-    diffStats: p,
-    isDiffStatsLoading: d.isLoading,
+    diffStats,
+    isDiffStatsLoading: diffStatsQuery.isLoading,
   });
-  let T =
+  let environmentModeControls =
     conversationId == null ? null : (
-      <N_ conversationId={conversationId} onOpenChange={onForceShow} />
+      <ThreadSummaryEnvironmentModeControls conversationId={conversationId} onOpenChange={onForceShow} />
     );
-  let E = isCodexWorktree && _ != null,
-    D,
-    O;
-  O = (e) => {
-    m.current = e;
+  let branchControlOwnsDetachedSetup = isCodexWorktree && workspaceGitRoot != null,
+    handleCreatePullRequestActionReady,
+    handleCreateBranchActionReady;
+  handleCreateBranchActionReady = (action) => {
+    createBranchActionRef.current = action;
   };
-  D = (e) => {
-    h.current = e;
+  handleCreatePullRequestActionReady = (action) => {
+    createPullRequestActionRef.current = action;
   };
-  let k = B_.jsx(
+  let pullRequestControls = B_.jsx(
     nc,
     {
       codexWorktree: isCodexWorktree,
@@ -7230,31 +7225,31 @@ function L_(e) {
       hidePullRequestSection: true,
       hideCreatePullRequestAction: true,
       surface: "summary-panel",
-      branchControlOwnsDetachedSetup: E,
-      onCreateBranchActionReady: O,
-      onCreatePullRequestActionReady: D,
+      branchControlOwnsDetachedSetup,
+      onCreateBranchActionReady: handleCreateBranchActionReady,
+      onCreatePullRequestActionReady: handleCreatePullRequestActionReady,
     },
     cwd,
   );
-  let A = () => {
-    h.current?.();
+  let handleCreatePullRequest = () => {
+    createPullRequestActionRef.current?.();
   };
-  let j = (
+  let gitSummary = (
     <LocalConversationGitSummary
       conversationId={conversationId}
       cwd={cwd}
       hostConfig={hostConfig}
       workspaceBrowserRoot={workspaceBrowserRoot}
-      onCreatePullRequest={A}
+      onCreatePullRequest={handleCreatePullRequest}
     />
   );
   return (
-    <Nm sectionKey="environment" after={S} title={C}>
-      {w}
-      {T}
-      {x}
-      {k}
-      {j}
+    <Nm sectionKey="environment" after={renderSectionActions} title={sectionTitle}>
+      {branchChangesRow}
+      {environmentModeControls}
+      {branchControlRow}
+      {pullRequestControls}
+      {gitSummary}
     </Nm>
   );
 }
@@ -8092,7 +8087,7 @@ function ThreadSummaryPanelSections(props) {
       </Nm>
     );
   let gitSummarySection = !isElectronRuntime && isGitWorkspace && activeCwd && (
-    <L_
+    <ThreadSummaryEnvironmentSection
       cwd={activeCwd}
       conversationId={conversationId}
       hostConfig={hostConfig}
