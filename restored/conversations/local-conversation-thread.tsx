@@ -727,7 +727,7 @@ import {
   initThreadVirtualizerChunk as Ju,
 } from "../threads/thread-virtualizer";
 import { n as Zu, t as Qu } from "./header-CT44CGhD.js";
-import { n as $u, t as ed } from "./team-DKjbhg1P.js";
+import { initTeamIconChunk as $u, TeamIcon as ed } from "../icons/team-icon";
 import { n as td, r as nd, t as rd } from "./thread-scroll-layout-BNp7nttn.js";
 import {
   initThreadScrollControllerContextChunk as id,
@@ -735,16 +735,16 @@ import {
   useThreadScrollController as ad,
 } from "../utils/thread-scroll-controller-context";
 import {
-  a as sd,
-  c as cd,
-  d as ld,
-  f as ud,
-  l as dd,
-  m as fd,
-  o as pd,
-  p as md,
-  s as hd,
-} from "./local-environments-utils-CkypnJBW.js";
+  cloneLocalEnvironmentActions as hd,
+  createLocalEnvironmentAction as pd,
+  initLocalEnvironmentActionIconChunk as fd,
+  initLocalEnvironmentActionIconOptionsChunk as ud,
+  initLocalEnvironmentDefaultsChunk as dd,
+  LocalEnvironmentActionIcon as md,
+  LOCAL_ENVIRONMENT_ACTION_ICON_OPTIONS as ld,
+  normalizePlatformScripts as cd,
+  serializeLocalEnvironmentConfig as sd,
+} from "../environments/local-environments-utils";
 import {
   C as gd,
   S as _d,

@@ -6218,7 +6218,7 @@
       "status": "done"
     },
     "local-environments-utils-BZSdDG8Z": {
-      "restored": "environments/local-environments-utils.tsx",
+      "restored": "environments/local-environments-utils/index.ts",
       "exports": {
         "a": "serializeLocalEnvironmentConfig",
         "c": "normalizePlatformScripts",
@@ -10551,8 +10551,8 @@
         "z": "useReviewSearchHighlights"
       },
       "status": "draft",
-      "note": "Draft for the updated ref chunk. Current pass extracted right-panel route, inline activity, scroll helpers, review-search PIP anchor placement, turn search-key, turn request-index, artifact summary key/preview/target-label helpers, background summary item/filter/key helpers, background terminal row/match/snapshot/process/status/merge/prune/insert/count/current-row/restored-row/restart-row/register-record/process-snapshot helpers, terminal/process app-shell helper import repair including the thread-background-processes hash import removal, star icon hash import repair, use-git-config-value/thread-virtualizer/thread-scroll-controller hash import repair, local-environment recent-action/action-item/path/run-id, and parent conversation turn-filter helpers; promotion is blocked on full semantic split and import repair.",
-      "lastUpdated": "2026-06-27T00:22:11.000Z"
+      "note": "Draft for the updated ref chunk. Current pass extracted right-panel route, inline activity, scroll helpers, review-search PIP anchor placement, turn search-key, turn request-index, artifact summary key/preview/target-label helpers, background summary item/filter/key helpers, background terminal row/match/snapshot/process/status/merge/prune/insert/count/current-row/restored-row/restart-row/register-record/process-snapshot helpers, terminal/process app-shell helper import repair including the thread-background-processes hash import removal, star icon hash import repair, use-git-config-value/thread-virtualizer/thread-scroll-controller hash import repair, local-environments-utils/team icon hash import repair, local-environment recent-action/action-item/path/run-id, and parent conversation turn-filter helpers; promotion is blocked on full semantic split and import repair.",
+      "lastUpdated": "2026-06-27T00:28:33.000Z"
     },
     "thread-overflow-menu-CM-Eo7JH": {
       "restored": "threads/thread-overflow-menu.tsx",
@@ -10807,6 +10807,35 @@
         "n": "initThreadScrollControllerContextChunk",
         "r": "useThreadScrollController",
         "t": "threadScrollControllerContext"
+      },
+      "status": "done"
+    },
+    "local-environments-utils-CkypnJBW": {
+      "restored": "environments/local-environments-utils/index.ts",
+      "exports": {
+        "a": "serializeLocalEnvironmentConfig",
+        "c": "normalizePlatformScripts",
+        "d": "LOCAL_ENVIRONMENT_ACTION_ICON_OPTIONS",
+        "f": "initLocalEnvironmentActionIconOptionsChunk",
+        "i": "DEFAULT_SETUP_SCRIPT",
+        "l": "initLocalEnvironmentDefaultsChunk",
+        "m": "initLocalEnvironmentActionIconChunk",
+        "n": "DEFAULT_CLEANUP_SCRIPT",
+        "o": "createLocalEnvironmentAction",
+        "p": "LocalEnvironmentActionIcon",
+        "r": "LOCAL_ENVIRONMENT_PLATFORMS",
+        "s": "cloneLocalEnvironmentActions",
+        "t": "DEFAULT_RUN_COMMAND",
+        "u": "selectLocalEnvironmentAfterRefresh"
+      },
+      "status": "done"
+    },
+    "team-DKjbhg1P": {
+      "restored": "icons/team-icon.tsx",
+      "exports": {
+        "n": "initTeamIconChunk",
+        "t": "TeamIcon",
+        "TeamIcon": "TeamIcon"
       },
       "status": "done"
     }
