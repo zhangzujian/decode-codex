@@ -5960,7 +5960,7 @@ function e_(e) {
   {
     let e = reviewers == null ? [] : cg(reviewers),
       f = item.isAuthor && item.state !== "merged";
-    o = Fl;
+    o = SummaryPanelRow;
     u = "comfortable";
     d = <Ng className="icon-sm shrink-0 text-token-text-tertiary" />;
     s = "flex min-w-0 flex-1 items-center gap-2";
@@ -7690,9 +7690,9 @@ function ThreadSummaryPanelSections(props) {
     k = K(er, b),
     { data } = W(Tl),
     j = W(pendingBackgroundProcessRowsSignal),
-    M = backgroundAgents.some(Dv);
+    M = backgroundAgents.some(shouldShowInlineActivityAgent);
   let N = M,
-    P = backgroundAgents.filter(Ev);
+    P = backgroundAgents.filter(shouldHideInlineActivityAgent);
   let F = P,
     I = C && isVisible && b != null,
     L = {
@@ -7874,7 +7874,7 @@ function ThreadSummaryPanelSections(props) {
         (ga.activateTab(h, t), ma(h));
     };
   let Ie = Y(Pe),
-    Le = y.kind === "local" ? Tv : undefined,
+    Le = y.kind === "local" ? getGeneratedImagePreviewSrc : undefined,
     Re = () => {
       h.get(ti).danger(
         <FormattedMessage
@@ -7997,7 +7997,7 @@ function ThreadSummaryPanelSections(props) {
   );
   let Ye = backgroundAgents.length > 0 && (
     <Nm
-      autoCollapse={!N && backgroundAgents.every(wv)}
+      autoCollapse={!N && backgroundAgents.every(isBackgroundAgentDone)}
       sectionKey="background-subagents"
       title={Q.jsx(BackgroundTaskSectionTitle, {
         type: "subagents",
@@ -8029,7 +8029,7 @@ function ThreadSummaryPanelSections(props) {
             aria-label={Se}
             className="ms-auto inline-flex size-6 cursor-interaction items-center justify-center rounded-sm text-token-text-tertiary hover:text-token-foreground focus-visible:outline-2 focus-visible:outline-offset-2"
             title={Se}
-            onClick={Cv}
+            onClick={openThreadSummaryProcessManager}
           >
             <Ec className="icon-xs" />
           </button>
@@ -8133,21 +8133,21 @@ function ThreadSummaryPanelSections(props) {
     </>
   );
 }
-function Cv() {
+function openThreadSummaryProcessManager() {
   Kt("openProcessManager", "thread_summary_process_manager");
 }
-function wv(e) {
+function isBackgroundAgentDone(e) {
   let { status } = e;
   return status === "done";
 }
-function Tv(e) {
+function getGeneratedImagePreviewSrc(e) {
   return Wr(e) !== "always" || br(e) == null ? null : L(e);
 }
-function Ev(e) {
+function shouldHideInlineActivityAgent(e) {
   let { showInlineActivity } = e;
   return !showInlineActivity;
 }
-function Dv(e) {
+function shouldShowInlineActivityAgent(e) {
   let { showInlineActivity } = e;
   return showInlineActivity;
 }

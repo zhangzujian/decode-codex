@@ -6,6 +6,7 @@ import { homedir } from "node:os";
 import path from "node:path";
 
 const DEFAULT_ASAR_PATH = "/Applications/Codex.app/Contents/Resources/app.asar";
+const PRETTIER_IGNORE_PATH = "/dev/null";
 
 function usage() {
   console.log(`Usage: node refresh-codex-ref.mjs [--dry-run] [--skip-format]
@@ -78,7 +79,7 @@ function formatWithPrettier(files) {
     if (batch.length === 0) {
       return;
     }
-    run("npx", ["-y", "prettier", "--write", ...batch]);
+    run("npx", ["-y", "prettier", "--write", "--ignore-path", PRETTIER_IGNORE_PATH, ...batch]);
     batch.length = 0;
     batchLength = 0;
   }
@@ -140,7 +141,9 @@ if (skipFormat) {
 }
 
 const files = walkFormatTargets(refDir);
-console.log(`Formatting ${files.length} JS/CSS file(s) with Prettier...`);
+console.log(
+  `Formatting ${files.length} JS/CSS file(s) with Prettier, ignoring git/prettier ignore files...`,
+);
 
 if (files.length > 0) {
   formatWithPrettier(files);
