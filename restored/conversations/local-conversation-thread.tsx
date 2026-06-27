@@ -71,7 +71,6 @@ import {
   Dp as conversationRemoteHostIdSignal,
   Ei as DialogHeader,
   Em as conversationTurnsSignal,
-  Ep as conversationUnreadSignal,
   Es as browserSidebarEnabledSignal,
   Ev as useLocation,
   FB as useScope,
@@ -88,7 +87,6 @@ import {
   Hi as initSettingsGearIcon,
   Hx as getFallbackBackgroundAgentHandle,
   IB as useSignalValue,
-  IL as parseConfigLoadError,
   I_ as initRouteScope,
   Io as initConnectorAppsListQuery,
   Ip as localResponseInProgressSignal,
@@ -97,7 +95,6 @@ import {
   Ja as CheckCircleIcon,
   Jo as be,
   Ki as DropdownMenuSubmenu,
-  Kp as conversationReadStateSignal,
   Ku as useGlobalStateQuery,
   LB as loadIsEqualModule,
   LN as initReducedMotionPreference,
@@ -155,7 +152,6 @@ import {
   Ux as initAgentMentionMap,
   VE as initHostConfigHelpers,
   VP as initClassNameRuntime,
-  VR as getErrorMessage,
   Vi as SettingsGearIcon,
   Vn as dispatchGlobalCommand,
   Wa as PlatformContentGate,
@@ -164,7 +160,6 @@ import {
   XR as GLOBAL_STATE_KEYS,
   Xi as MenuSeparator,
   Xj as useStatsigLayer,
-  Xp as latestConversationTurnSignal,
   YO as initPullRequestReviewCommentHelpers,
   Ya as initCheckCircleFilledIcon,
   ZN as createHostQuerySignal,
@@ -339,8 +334,6 @@ import {
   yu as yo,
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import {
-  G as bo,
-  W as windowVisibleSignal,
   dn as So,
   fn as Co,
   jn as wo,
@@ -718,6 +711,15 @@ import {
   createLocalConversationSearchSource,
   initConversationSearchUnitExtractor,
 } from "./local-conversation-thread-parts/local-conversation-search-source";
+import {
+  initMarkConversationReadEffect,
+  useMarkConversationReadOnVisibility,
+} from "./local-conversation-thread-parts/local-conversation-read-state";
+import {
+  formatResumeConversationError,
+  shouldAutoRetryResumeError,
+  shouldShowResumeErrorToast,
+} from "./local-conversation-thread-parts/local-conversation-resume-errors";
 import { initVisibleTurnGeneratedImagesCollector } from "./local-conversation-thread-parts/visible-turn-generated-images";
 import {
   initLocalConversationSummaryPanelSignals,
@@ -9416,73 +9418,6 @@ var backgroundAgentThreadTabsJsxRuntime,
     rs();
     backgroundAgentThreadTabsJsxRuntime = getJsxRuntime();
   });
-function useMarkConversationReadOnVisibility(conversationId, hasConversation) {
-  let isUnread =
-      useScopedValue(conversationUnreadSignal, conversationId) ?? false,
-    isWindowVisible = useSignalValue(windowVisibleSignal),
-    conversationReadMarker = useScopedValue(
-      latestConversationTurnSignal,
-      conversationId,
-    ),
-    conversationReadState = useScopedValue(
-      conversationReadStateSignal,
-      conversationId,
-    ),
-    lastMarkedConversationIdRef = _S.useRef(null),
-    lastConversationReadStateRef = _S.useRef(null),
-    lastConversationReadMarkerRef = _S.useRef(null),
-    markConversationRead = () => {
-      lastMarkedConversationIdRef.current = conversationId;
-      lastConversationReadStateRef.current = conversationReadState;
-      lastConversationReadMarkerRef.current = conversationReadMarker;
-      !(!hasConversation || !isUnread) &&
-        sendAppServerRequest("mark-conversation-as-read", {
-          conversationId,
-        });
-    };
-  let markConversationReadEvent = useStableCallback(markConversationRead),
-    markConversationReadHandler = () => {
-      markConversationReadEvent();
-    };
-  let markConversationReadEffectEvent = _S.useEffectEvent(
-      markConversationReadHandler,
-    ),
-    markVisibleConversationReadEffect = () => {
-      if (!(!hasConversation || isWindowVisible !== true)) {
-        if (lastMarkedConversationIdRef.current !== conversationId) {
-          markConversationReadEffectEvent();
-          return;
-        }
-        (lastConversationReadStateRef.current === conversationReadState &&
-          lastConversationReadMarkerRef.current === conversationReadMarker) ||
-          markConversationReadEffectEvent();
-      }
-    };
-  let markReadEffectDeps;
-  return (
-    (markReadEffectDeps = [
-      conversationId,
-      hasConversation,
-      isUnread,
-      isWindowVisible,
-      conversationReadState,
-      conversationReadMarker,
-    ]),
-    _S.useEffect(markVisibleConversationReadEffect, markReadEffectDeps),
-    markConversationReadEvent
-  );
-}
-var markConversationReadEffectModule,
-  _S,
-  initMarkConversationReadEffect = once(() => {
-    markConversationReadEffectModule = getChunkModuleExports();
-    initScopeRuntime();
-    _S = toEsModule(loadReactModule(), 1);
-    initConversationStateSelectors();
-    initAppServerRequestBridge();
-    bo();
-    initKeyboardShortcutLabel();
-  });
 function useResumeLocalConversation(conversationId) {
   let scope = useScope(appScope),
     intl = useIntl(),
@@ -9640,59 +9575,6 @@ function useResumeLocalConversation(conversationId) {
       isResuming: shouldResumeConversation && isResuming,
     }
   );
-}
-function formatResumeConversationError(intl, error) {
-  let configErrorDetails = getResumeConfigErrorDetails(error);
-  return configErrorDetails == null
-    ? intl.formatMessage(
-        {
-          id: "localTaskRow.resumeError.v2",
-          defaultMessage: "Failed to resume chat{br}{error}",
-          description: "Error shown when resuming a local Codex task fails",
-        },
-        {
-          br: <br />,
-          error: getErrorMessage(error),
-        },
-      )
-    : intl.formatMessage(
-        {
-          id: "localTaskRow.resumeConfigError",
-          defaultMessage:
-            "Codex can't load config.toml, so this thread can't resume.{br}Fix {location}: {detail}. After saving the file, reopen the thread.",
-          description:
-            "Error shown when a local Codex thread cannot resume because config.toml is invalid",
-        },
-        {
-          br: <br />,
-          location: configErrorDetails.location,
-          detail: configErrorDetails.detail,
-        },
-      );
-}
-function shouldAutoRetryResumeError(error) {
-  return getResumeConfigErrorDetails(error) == null;
-}
-function shouldShowResumeErrorToast({
-  hasShownResumeError,
-  isSubagentChildThread,
-  shouldAutoRetry,
-}) {
-  return !isSubagentChildThread && (!hasShownResumeError || !shouldAutoRetry);
-}
-function getResumeConfigErrorDetails(error) {
-  let configError = parseConfigLoadError(error);
-  return configError == null
-    ? null
-    : {
-        location:
-          configError.filePath == null
-            ? "config.toml"
-            : configError.line == null || configError.column == null
-              ? configError.filePath
-              : `${configError.filePath}:${configError.line}:${configError.column}`,
-        detail: configError.detail,
-      };
 }
 var localConversationThreadRouteReactRuntime,
   localConversationThreadRouteJsxRuntime,
