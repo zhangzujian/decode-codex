@@ -54,7 +54,7 @@ import {
   AP as motion,
   AV as m,
   Ai as h,
-  Aj as g,
+  Aj as resolveWorkspacePathFromCwd,
   Al as _,
   Am as conversationWorkspaceRootSignal,
   Ao as y,
@@ -63,22 +63,21 @@ import {
   BP as classNames,
   BV as getJsxRuntime,
   Bh as useHostMutation,
-  Bn as T,
+  Bn as initGlobalCommandHandlers,
   CP as animateSignalValue,
   DL as normalizeWorkspacePath,
-  DM as O,
+  DM as initWindowZoomContext,
   DN as Button,
-  D_ as A,
-  Di as j,
-  Dj as M,
-  Dl as N,
-  Dp as P,
-  Ei as F,
+  Di as DialogSection,
+  Dj as joinPath,
+  Dl as createLocalConversationRouteTarget,
+  Dp as conversationRemoteHostIdSignal,
+  Ei as DialogHeader,
   Em as conversationTurnsSignal,
-  En as L,
+  En as toAppFsUrl,
   Ep as conversationUnreadSignal,
   Es as browserSidebarEnabledSignal,
-  Ev as ee,
+  Ev as useLocation,
   FB as useScope,
   Fp as expiredSideChatSignal,
   Fx as te,
@@ -89,7 +88,7 @@ import {
   Gj as ae,
   Gu as U,
   HE as oe,
-  HO as se,
+  HO as getReviewCommentAttachmentKeyValue,
   Hg as ce,
   Hh as le,
   Hi as ue,
@@ -100,7 +99,7 @@ import {
   I_ as me,
   Io as he,
   Ip as localResponseInProgressSignal,
-  Ix as _e,
+  Ix as environmentTerminalControllerService,
   JV as loadReactModule,
   Ja as ve,
   Ji as DropdownMenuItem,
@@ -115,7 +114,7 @@ import {
   La as ke,
   Lj as Ae,
   Ln as je,
-  MB as Me,
+  MB as ScopeValueProvider,
   MP as AnimatePresence,
   MV as Pe,
   M_ as localConversationRouteScope,
@@ -832,7 +831,7 @@ import {
 import { useBrowserUseSummaries } from "./local-conversation-thread-parts/browser-use-summary-store";
 import { ComputerUsePictureInPictureRow } from "./local-conversation-thread-parts/computer-use-pip-row";
 import { BackgroundTaskSectionTitle } from "./local-conversation-thread-parts/background-task-section-title";
-const joinLocalEnvironmentRepoPath = M;
+const joinLocalEnvironmentRepoPath = joinPath;
 function useReviewSearchHighlightScheduler(delayMs: number) {
   let timeoutIdRef = reviewSearchSchedulerReactRuntime.useRef(null),
     schedule = (callback: () => void) => {
@@ -1936,7 +1935,10 @@ function BackgroundTerminalSummaryRows(props) {
     let { process } = row;
     if (process.cwd == null) return;
     let startedAtMs = Date.now(),
-      sessionId = _e.addSessionForConversation(process.conversationId),
+      sessionId =
+        environmentTerminalControllerService.addSessionForConversation(
+          process.conversationId,
+        ),
       startingRow = createStartingBackgroundTerminalRow(
         row,
         sessionId,
@@ -1959,7 +1961,7 @@ function BackgroundTerminalSummaryRows(props) {
         ),
       })
       .catch(onRestartError);
-    _e.create({
+    environmentTerminalControllerService.create({
       conversationId: process.conversationId,
       conversationTitle: process.chatTitle,
       cwd: process.cwd,
@@ -1967,7 +1969,7 @@ function BackgroundTerminalSummaryRows(props) {
       preserveOnOwnerDestroy: true,
       sessionId,
     });
-    _e.runHeadlessAction(sessionId, {
+    environmentTerminalControllerService.runHeadlessAction(sessionId, {
       command: process.command,
       cwd: process.cwd,
     });
@@ -2524,11 +2526,20 @@ function LocalEnvironmentActionSetupForm(props) {
       onSubmit,
     } = props,
     commandInputId = localEnvironmentActionSetupFormReactRuntime.useId(),
-    headerSection = localEnvironmentActionSetupFormJsxRuntime.jsx(j, {
-      children: <F icon={headerIcon} subtitle={description} title={title} />,
-    });
+    headerSection = localEnvironmentActionSetupFormJsxRuntime.jsx(
+      DialogSection,
+      {
+        children: (
+          <DialogHeader
+            icon={headerIcon}
+            subtitle={description}
+            title={title}
+          />
+        ),
+      },
+    );
   let extraFieldsSection = extraFields
-    ? localEnvironmentActionSetupFormJsxRuntime.jsx(j, {
+    ? localEnvironmentActionSetupFormJsxRuntime.jsx(DialogSection, {
         children: localEnvironmentActionSetupFormJsxRuntime.jsx($e, {
           className: "gap-3",
           children: extraFields,
@@ -2555,12 +2566,15 @@ function LocalEnvironmentActionSetupForm(props) {
       onChange={handleCommandInputChange}
     />
   );
-  let commandFieldSection = localEnvironmentActionSetupFormJsxRuntime.jsx(j, {
-    children: localEnvironmentActionSetupFormJsxRuntime.jsxs($e, {
-      className: "gap-2",
-      children: [commandLabelNode, commandTextarea],
-    }),
-  });
+  let commandFieldSection = localEnvironmentActionSetupFormJsxRuntime.jsx(
+    DialogSection,
+    {
+      children: localEnvironmentActionSetupFormJsxRuntime.jsxs($e, {
+        className: "gap-2",
+        children: [commandLabelNode, commandTextarea],
+      }),
+    },
+  );
   let submitButton = localEnvironmentActionSetupFormJsxRuntime.jsx(Button, {
     color: "primary",
     disabled: submitDisabled,
@@ -2568,14 +2582,17 @@ function LocalEnvironmentActionSetupForm(props) {
     type: "submit",
     children: submitLabel,
   });
-  let footerSection = localEnvironmentActionSetupFormJsxRuntime.jsx(j, {
-    children: (
-      <At className="justify-between">
-        {leftAction}
-        {submitButton}
-      </At>
-    ),
-  });
+  let footerSection = localEnvironmentActionSetupFormJsxRuntime.jsx(
+    DialogSection,
+    {
+      children: (
+        <At className="justify-between">
+          {leftAction}
+          {submitButton}
+        </At>
+      ),
+    },
+  );
   let formContent = localEnvironmentActionSetupFormJsxRuntime.jsxs(ui, {
     className: "gap-3",
     children: [
@@ -3082,7 +3099,7 @@ function LocalConversationEnvironmentActionControls(props) {
     } = props,
     scope = useScope(ut),
     intl = ur(),
-    location = ee(),
+    location = useLocation(),
     navigate = rt(),
     {
       environment,
@@ -3172,7 +3189,7 @@ function LocalConversationEnvironmentActionControls(props) {
         runId: actionRunRequest.runId,
       });
       onShowTerminal(runId);
-      _e.runAction(runId, {
+      environmentTerminalControllerService.runAction(runId, {
         command: action.command,
         cwd: actionCwd,
         title: action.name,
@@ -4154,9 +4171,14 @@ function setPullRequestCommentsAttached(
             currentAttachments,
             commentAttachments,
           );
-        let removedAttachmentKeys = new Set(commentAttachments.map(se)),
+        let removedAttachmentKeys = new Set(
+            commentAttachments.map(getReviewCommentAttachmentKeyValue),
+          ),
           nextAttachments = currentAttachments.filter(
-            (item) => !removedAttachmentKeys.has(se(item)),
+            (item) =>
+              !removedAttachmentKeys.has(
+                getReviewCommentAttachmentKeyValue(item),
+              ),
           );
         return nextAttachments.length === currentAttachments.length
           ? currentAttachments
@@ -4202,10 +4224,12 @@ function appendMissingReviewCommentAttachments(
   attachmentsToAdd,
 ) {
   let nextAttachments = [...currentAttachments],
-    existingAttachmentKeys = new Set(currentAttachments.map(se)),
+    existingAttachmentKeys = new Set(
+      currentAttachments.map(getReviewCommentAttachmentKeyValue),
+    ),
     didAppend = false;
   for (let attachment of attachmentsToAdd) {
-    let attachmentKey = se(attachment);
+    let attachmentKey = getReviewCommentAttachmentKeyValue(attachment);
     existingAttachmentKeys.has(attachmentKey) ||
       (existingAttachmentKeys.add(attachmentKey),
       nextAttachments.push(attachment),
@@ -4781,7 +4805,9 @@ function PullRequestStatusDetailRows(props) {
   {
     let isNewCommentAttachment;
     isNewCommentAttachment = (commentAttachment) =>
-      !reviewCommentKeySet.has(se(commentAttachment));
+      !reviewCommentKeySet.has(
+        getReviewCommentAttachmentKeyValue(commentAttachment),
+      );
     hasUnresolvedReviewComments = pullRequestStatus.commentAttachments.some(
       isNewCommentAttachment,
     );
@@ -5034,7 +5060,7 @@ function isFailingPullRequestCheckStatus(check) {
   return check.status === "failing";
 }
 function getReviewCommentAttachmentKey(commentAttachment) {
-  return se(commentAttachment);
+  return getReviewCommentAttachmentKeyValue(commentAttachment);
 }
 var pullRequestSummaryRowsModule,
   pullRequestSummaryRowsJsxRuntime,
@@ -5373,13 +5399,15 @@ function PullRequestSidePanelCommentsSection(props) {
           : getPullRequestCommentActivityItems(data.activityItems),
       commentAttachments = data?.commentAttachments,
       attachedCommentAttachmentKeys = new Set(
-        attachedCommentAttachments.map(se),
+        attachedCommentAttachments.map(getReviewCommentAttachmentKeyValue),
       );
     let allCommentsAttached =
         commentAttachments != null &&
         commentAttachments.length > 0 &&
         commentAttachments.every((attachment) =>
-          attachedCommentAttachmentKeys.has(se(attachment)),
+          attachedCommentAttachmentKeys.has(
+            getReviewCommentAttachmentKeyValue(attachment),
+          ),
         ),
       fixDisabledTooltip =
         fixDisabledReason == null
@@ -5485,7 +5513,9 @@ function PullRequestSidePanelCommentsSection(props) {
                   ),
                   commentIsAttached =
                     commentAttachment != null &&
-                    attachedCommentAttachmentKeys.has(se(commentAttachment));
+                    attachedCommentAttachmentKeys.has(
+                      getReviewCommentAttachmentKeyValue(commentAttachment),
+                    );
                 return (
                   <Qo
                     key={activityItem.id}
@@ -8910,7 +8940,7 @@ function openThreadSummaryProcessManager() {
 function getGeneratedImagePreviewSrc(generatedImage) {
   return Wr(generatedImage) !== "always" || br(generatedImage) == null
     ? null
-    : L(generatedImage);
+    : toAppFsUrl(generatedImage);
 }
 var localConversationSummaryPanelModule,
   isEqualModule,
@@ -8925,7 +8955,7 @@ var localConversationSummaryPanelModule,
     El();
     Wl();
     Nt();
-    T();
+    initGlobalCommandHandlers();
     Yi();
     ke();
     wn();
@@ -9337,7 +9367,10 @@ function collectOutputArtifactsFromTurnDetails({
       }) &&
       addArtifact({
         type: "file",
-        path: cwd == null ? referencedFilePath : g(cwd, referencedFilePath),
+        path:
+          cwd == null
+            ? referencedFilePath
+            : resolveWorkspacePathFromCwd(cwd, referencedFilePath),
       });
   let itemsToScan = includeGeneratedImages
     ? turn.items.slice().reverse()
@@ -9354,7 +9387,8 @@ function collectOutputArtifactsFromTurnDetails({
         })) &&
       addArtifact({
         type: includeGeneratedImages ? "generated-image" : "file",
-        path: cwd == null ? item.src : g(cwd, item.src),
+        path:
+          cwd == null ? item.src : resolveWorkspacePathFromCwd(cwd, item.src),
       });
   if (status !== "complete") return artifacts;
   let renderedArtifacts = Lt({
@@ -9374,7 +9408,10 @@ function collectOutputArtifactsFromTurnDetails({
       case "file":
         addArtifact({
           type: "file",
-          path: cwd == null ? artifact.path : g(cwd, artifact.path),
+          path:
+            cwd == null
+              ? artifact.path
+              : resolveWorkspacePathFromCwd(cwd, artifact.path),
         });
         break;
       case "google-drive":
@@ -9387,7 +9424,7 @@ function collectOutputArtifactsFromTurnDetails({
           target:
             yn(artifact.target) || cwd == null
               ? artifact.target
-              : g(cwd, artifact.target),
+              : resolveWorkspacePathFromCwd(cwd, artifact.target),
         });
         break;
     }
@@ -9890,10 +9927,13 @@ function WorktreeRestoreBanner(props) {
       queryClient.invalidateQueries({
         queryKey: ["git", "metadata", worktreeQueryKey],
       });
-      let sessionId = _e.getSessionForConversation(conversationId);
+      let sessionId =
+        environmentTerminalControllerService.getSessionForConversation(
+          conversationId,
+        );
       sessionId != null &&
         cwd != null &&
-        _e.attach({
+        environmentTerminalControllerService.attach({
           sessionId: sessionId,
           conversationId,
           hostId: host.id,
@@ -10106,7 +10146,7 @@ function ForkFromOlderTurnDialog(props) {
       nextOpen || onClose();
     };
   let dialogHeader = (
-    <F
+    <DialogHeader
       icon={olderTurnForkDialogJsxRuntime.jsx(sr, {
         className: "icon-sm text-token-foreground",
       })}
@@ -12234,7 +12274,7 @@ var virtualizedTurnListModule,
     Ut();
     virtualizedTurnListReactRuntime = toEsModule(loadReactModule(), 1);
     reactDomModule = toEsModule(_i(), 1);
-    O();
+    initWindowZoomContext();
     vl();
     nd();
     id();
@@ -13125,7 +13165,7 @@ var autoFollowVirtualizedTurnListModule,
     bt();
     c();
     autoFollowTurnListReactRuntime = toEsModule(loadReactModule(), 1);
-    O();
+    initWindowZoomContext();
     r();
     nd();
     id();
@@ -13793,7 +13833,10 @@ function useResumeLocalConversation(conversationId) {
               activeResumeConversationIdRef.current !== resumeConversationId)
             )
               return;
-            let hostId = scope.get(P, resumeConversationId),
+            let hostId = scope.get(
+                conversationRemoteHostIdSignal,
+                resumeConversationId,
+              ),
               isArchiving =
                 hostId == null
                   ? false
@@ -13857,7 +13900,7 @@ function useResumeLocalConversation(conversationId) {
     localConversationThreadRouteReactRuntime.useEffect(() => {
       if (conversationId != null)
         return scope.watch(({ get }) => {
-          let hostId = get(P, conversationId);
+          let hostId = get(conversationRemoteHostIdSignal, conversationId);
           hostId != null &&
             get(subagentParentThreadIdSignal, conversationId) != null &&
             fr.dispatchMessage("subagent-thread-opened", {
@@ -14030,7 +14073,11 @@ function LocalConversationSideChatThread(props) {
     isExpiredSideChat === true ? null : (
       <Gc conversationId={conversationId} hostId={hostId} />
     );
-  let threadScopeKey = N(conversationId, "side", sourceConversationId),
+  let threadRouteTarget = createLocalConversationRouteTarget(
+      conversationId,
+      "side",
+      sourceConversationId,
+    ),
     expiredSideChatBanner =
       isExpiredSideChat === true ? (
         <ExpiredSideChatState
@@ -14059,9 +14106,9 @@ function LocalConversationSideChatThread(props) {
   return (
     <>
       {sideChatHeader}
-      <Me scope={fi} value={threadScopeKey}>
+      <ScopeValueProvider scope={fi} value={threadRouteTarget}>
         {threadFrame}
-      </Me>
+      </ScopeValueProvider>
     </>
   );
 }
@@ -14171,7 +14218,11 @@ function LocalConversationMainThread(props) {
     hostId = useScopedValue(conversationHostIdSignal, conversationId),
     isBackgroundSubagentsEnabled = ns(),
     { isResuming } = useResumeLocalConversation(conversationId),
-    threadScopeKey = N(conversationId, "main", ot(scope.value));
+    threadRouteTarget = createLocalConversationRouteTarget(
+      conversationId,
+      "main",
+      ot(scope.value),
+    );
   let threadFrame = (
     <LocalConversationThreadFrame
       conversationId={conversationId}
@@ -14183,9 +14234,9 @@ function LocalConversationMainThread(props) {
     />
   );
   return (
-    <Me scope={fi} value={threadScopeKey}>
+    <ScopeValueProvider scope={fi} value={threadRouteTarget}>
       {threadFrame}
-    </Me>
+    </ScopeValueProvider>
   );
 }
 export interface LocalConversationSummaryThreadProps {
@@ -14201,7 +14252,11 @@ export function LocalConversationSummaryThread(
     hasConversation = useScopedValue(hasConversationSignal, conversationId),
     hostId = useScopedValue(conversationHostIdSignal, conversationId),
     isBackgroundSubagentsEnabled = ns(),
-    threadScopeKey = N(conversationId, "main", ot(scope.value));
+    threadRouteTarget = createLocalConversationRouteTarget(
+      conversationId,
+      "main",
+      ot(scope.value),
+    );
   let threadFrame = (
     <LocalConversationThreadFrame
       conversationId={conversationId}
@@ -14217,9 +14272,9 @@ export function LocalConversationSummaryThread(
     />
   );
   return (
-    <Me scope={fi} value={threadScopeKey}>
+    <ScopeValueProvider scope={fi} value={threadRouteTarget}>
       {threadFrame}
-    </Me>
+    </ScopeValueProvider>
   );
 }
 function LocalConversationThreadRoute(props) {
@@ -15596,7 +15651,7 @@ export const initLocalConversationThreadChunk = once(() => {
   pn();
   cr();
   Ha();
-  O();
+  initWindowZoomContext();
   Bo();
   So();
   ro();
