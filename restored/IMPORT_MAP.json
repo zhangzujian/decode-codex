@@ -11220,10 +11220,20 @@
       "lastUpdated": "2026-06-27T03:16:46.000Z"
     },
     "app-initial~app-main~worktree-init-v2-page~appgen-publication-terms-route~remote-conversati~oykv7gy7-B4ar2dlW": {
-      "restored": "boundaries/current-ref/appgen-publication-terms-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
-      "lastUpdated": "2026-06-27T03:16:46.000Z"
+      "restored": "appgen/publication-terms/index.ts",
+      "splitDirectory": "appgen/publication-terms",
+      "exports": {
+        "A": "initPublicationTermsHandlerRegistryChunk",
+        "H": "getMcpServerLogo",
+        "U": "initMcpServerLogoHelpers",
+        "_": "initWorkspaceResourceOpenerChunk",
+        "j": "registerPublicationTermsSidePanelHandler",
+        "v": "openWorkspaceResource"
+      },
+      "status": "partial",
+      "boundary": "boundaries/current-ref/appgen-publication-terms-producer.ts",
+      "note": "Partial semantic restore for app-shell/local-conversation/sidebar consumers: handler registry, MCP server logo selection, and workspace resource opener now live under appgen/publication-terms; unused exports remain available through the current-ref compatibility boundary.",
+      "lastUpdated": "2026-06-27T23:40:56.000Z"
     },
     "app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~projects-i~easvi6ps-Cs84X9Ip": {
       "restored": "automation/automation-schedule/index.ts",

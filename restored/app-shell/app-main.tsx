@@ -35,9 +35,9 @@ import {
   uo as initDesktopNotificationRuntime,
 } from "../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
-  A as initAppgenPublicationTermsChunk,
-  j as registerAppgenPublicationTermsHandler,
-} from "../boundaries/current-ref/appgen-publication-terms-producer";
+  initPublicationTermsHandlerRegistryChunk,
+  registerPublicationTermsSidePanelHandler,
+} from "../appgen/publication-terms";
 import {
   initRegisterAppActionsChunk,
   registerWindowsTabsOpenHandler,
@@ -125,7 +125,7 @@ const initAppMainChunk = once(() => {
   initPullRequestThreadActionsChunk();
   initAppFallbackChunk();
   initProjectsSharedRuntimeChunk();
-  initAppgenPublicationTermsChunk();
+  initPublicationTermsHandlerRegistryChunk();
   initAutomationsRuntimeChunk();
   initAppLoggingChunk();
   initAutomationsStateChunk();
@@ -137,7 +137,7 @@ const initAppMainChunk = once(() => {
 
   const urlSearchParams = new URL(window.location.href).searchParams;
   const codexOs = detectCodexOs();
-  registerAppgenPublicationTermsHandler(appgenPublicationTermsHandler);
+  registerPublicationTermsSidePanelHandler(appgenPublicationTermsHandler);
   registerWindowsTabsOpenHandler(windowsTabsOpenHandler);
 
   document.documentElement.dataset.codexWindowType = "electron";

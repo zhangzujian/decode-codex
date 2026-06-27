@@ -48,9 +48,9 @@ import {
   si as initRemoteProjectIconChunk,
 } from "../../boundaries/current-ref/appgen-library-hot-producer";
 import {
-  _ as initPublicationTermsChunk,
-  v as openProjectSource,
-} from "../../boundaries/current-ref/appgen-publication-terms-producer";
+  initWorkspaceResourceOpenerChunk,
+  openWorkspaceResource,
+} from "../../appgen/publication-terms";
 import { $ as initPullRequestThreadActionsChunk } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import { Gd as initProfileIconsChunk } from "../../boundaries/current-ref/profile-page-producer";
 import {
@@ -243,7 +243,7 @@ function buildRenderableSourceRows({
       kind: row.kind,
       onClick: isOpenableLocalPath
         ? () => {
-            openProjectSource({
+            openWorkspaceResource({
               path: row.value,
               cwd: normalizeWorkspacePath(row.value),
               target: "fileManager",
@@ -287,7 +287,7 @@ export const initProjectHoverCardChunk = once(() => {
   initRemoteConnectionStatusMessagesChunk();
   initRemoteHostGlobeIconChunk();
   initSpinnerComponent();
-  initPublicationTermsChunk();
+  initWorkspaceResourceOpenerChunk();
   initGlobalSettingsRuntime();
   initCodexAppFrameRuntime();
   initProfileIconsChunk();

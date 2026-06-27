@@ -12,9 +12,9 @@ import {
   Mr as initMcpAppIdHelpers,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
-  H as getMcpServerLogo,
-  U as initMcpServerLogoHelpers,
-} from "../../boundaries/current-ref/appgen-publication-terms-producer";
+  getMcpServerLogo,
+  initMcpServerLogoHelpers,
+} from "../../appgen/publication-terms";
 
 type ConversationTurnItem = {
   id: string;

@@ -14,9 +14,9 @@ import {
   za as openInBrowserFromEvent,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  _ as initOutputResourceOpenerChunk,
-  v as openOutputResourceInWorkspace,
-} from "../../boundaries/current-ref/appgen-publication-terms-producer";
+  initWorkspaceResourceOpenerChunk,
+  openWorkspaceResource,
+} from "../../appgen/publication-terms";
 
 type HostConfigForOutputOpen = {
   id: string;
@@ -77,7 +77,7 @@ export function useThreadSummaryOutputOpenHandlers({
   let openOutputArtifact = useStableCallback(
       (artifact: OutputFileOpenRequest) => {
         let { icon, path, title } = artifact;
-        openOutputResourceInWorkspace({
+        openWorkspaceResource({
           scope,
           path,
           cwd,
@@ -122,7 +122,7 @@ export function useThreadSummaryOutputOpenHandlers({
               });
               return;
             }
-            openOutputResourceInWorkspace({
+            openWorkspaceResource({
               path: resource.target,
               cwd,
               browserSidebarEnabled,
@@ -152,5 +152,5 @@ export const initThreadSummaryOutputOpenHandlersChunk = once(() => {
   initExternalUrlHelpers();
   initAppFsUrlHelpers();
   initFileTypeDetectionHelpers();
-  initOutputResourceOpenerChunk();
+  initWorkspaceResourceOpenerChunk();
 });
