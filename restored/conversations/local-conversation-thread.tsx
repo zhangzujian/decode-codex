@@ -709,12 +709,6 @@ import {
 export type { PinnedSummaryPanelLayoutStore } from "./local-conversation-thread-parts/pinned-summary-panel-layout";
 import { shouldUseFullWidthRightPanelForRoute } from "./local-conversation-thread-parts/right-panel-route-state";
 import { shouldShowScrollToBottomButton } from "./local-conversation-thread-parts/scroll-to-bottom-state";
-import {
-  collectConversationRequestsForTurnIds,
-  createPhysicalTurnEntries,
-  groupConversationRequestsByTurnId,
-  parseBerryDisplayTurnId,
-} from "./local-conversation-thread-parts/turn-request-index";
 import { getLocalConversationTurnSearchKey } from "./local-conversation-thread-parts/turn-search-key";
 import type { BrowserUseSummary } from "./local-conversation-thread-parts/browser-use-summary";
 import {
@@ -772,6 +766,10 @@ import {
   collectGeneratedImagesForVisibleTurns,
   initVisibleTurnGeneratedImagesCollector,
 } from "./local-conversation-thread-parts/visible-turn-generated-images";
+import {
+  buildLocalConversationVisibleTurnEntries,
+  initLocalConversationVisibleTurnEntriesBuilder,
+} from "./local-conversation-thread-parts/local-conversation-visible-turn-entries";
 import {
   initSummaryPanelExpandableList,
   SummaryPanelExpandableList,
@@ -8111,237 +8109,11 @@ function formatBackgroundAgentDisplayName({
 var initThreadScrollState = once(() => {
   initAgentMentionMap();
 });
-function buildLocalConversationVisibleTurnEntries({
-  conversationRequests,
-  mergeBerryDisplayTurnsForPIA = false,
-  preserveServerUserMessages = false,
-  conversationTurns,
-  hasConversation,
-  isBackgroundSubagentsEnabled,
-  parentConversationTurns,
-  subagentParentThreadId,
-}) {
-  if (conversationTurns.length === 0 && conversationRequests.length === 0)
-    return EMPTY_VISIBLE_TURN_ENTRIES;
-  let requestsByTurnId =
-      groupConversationRequestsByTurnId(conversationRequests),
-    visibleConversationTurns =
-      hasConversation && subagentParentThreadId != null
-        ? getConversationTurnsNotInParent({
-            areTurnItemsEqual: deepEqualModule.default,
-            conversation: {
-              turns: conversationTurns,
-            },
-            parentConversation: {
-              turns: parentConversationTurns,
-            },
-          })
-        : conversationTurns,
-    visibleTurnIds = new Set(
-      visibleConversationTurns.flatMap((item) =>
-        item.turnId == null ? [] : [item.turnId],
-      ),
-    ),
-    visibleTurnsSet = new Set(visibleConversationTurns),
-    physicalTurnEntries = createPhysicalTurnEntries(conversationTurns);
-  mergeBerryDisplayTurnsForPIA &&
-    (physicalTurnEntries =
-      mergeBerryDisplayPhysicalTurnEntries(conversationTurns));
-  let visibleTurnEntries = [],
-    hasInheritedParentTurns =
-      visibleConversationTurns.length < conversationTurns.length,
-    hasUserMessage = false,
-    latestVisibleTurnId = null;
-  for (let conversationTurn of conversationTurns)
-    !hasUserMessage &&
-      conversationTurn.items.some(
-        (item) =>
-          (item.type === "userMessage" && true) ||
-          item.type === "steeringUserMessage",
-      ) &&
-      (hasUserMessage = true);
-  for (let physicalTurnEntry of physicalTurnEntries) {
-    let { turn, turnId } = physicalTurnEntry,
-      requests =
-        physicalTurnEntry.physicalTurnIds.length > 0
-          ? collectConversationRequestsForTurnIds(
-              physicalTurnEntry.physicalTurnIds,
-              requestsByTurnId,
-              EMPTY_CONVERSATION_REQUESTS,
-            )
-          : EMPTY_CONVERSATION_REQUESTS;
-    isRenderableConversationTurn(turn, requests, {
-      isBackgroundSubagentsEnabled,
-    }) &&
-      ((turnId != null &&
-        !physicalTurnEntry.physicalTurnIds.some((item) =>
-          visibleTurnIds.has(item),
-        )) ||
-        (turnId == null && !visibleTurnsSet.has(turn)) ||
-        (visibleTurnEntries.push({
-          preserveServerUserMessages,
-          requests,
-          turn,
-          turnId,
-          turnSearchKey: getLocalConversationTurnSearchKey(
-            turnId,
-            physicalTurnEntry.turnIndex,
-          ),
-        }),
-        (latestVisibleTurnId = turnId)));
-  }
-  return {
-    conversationTurns,
-    hasInheritedParentTurns,
-    hasRenderableTurns: visibleTurnEntries.length > 0,
-    hasUserMessage,
-    latestVisibleTurnId,
-    visibleTurnEntries,
-  };
-}
-function mergeBerryDisplayPhysicalTurnEntries(conversationTurns) {
-  let physicalTurnById = new Map(),
-    displayGroupByControlTurnId = new Map(),
-    controlTurnIdByDisplayTurnId = new Map();
-  for (let [turnIndex, turn] of conversationTurns.entries()) {
-    let turnId = turn.turnId;
-    if (turnId == null) continue;
-    let physicalTurnEntry = {
-      turn,
-      turnIndex,
-    };
-    physicalTurnById.set(turnId, physicalTurnEntry);
-    let berryDisplayTurnId = parseBerryDisplayTurnId(turnId);
-    if (berryDisplayTurnId == null) continue;
-    let displayGroup = displayGroupByControlTurnId.get(
-      berryDisplayTurnId.controlTurnId,
-    );
-    displayGroup ??
-      ((displayGroup = {
-        controlTurnId: berryDisplayTurnId.controlTurnId,
-        displayTurns: [],
-      }),
-      displayGroupByControlTurnId.set(
-        berryDisplayTurnId.controlTurnId,
-        displayGroup,
-      ));
-    displayGroup.displayTurns.push({
-      displayIndex: berryDisplayTurnId.displayIndex,
-      ...physicalTurnEntry,
-    });
-    controlTurnIdByDisplayTurnId.set(turnId, berryDisplayTurnId.controlTurnId);
-  }
-  let emittedControlTurnIds = new Set(),
-    physicalTurnEntries = [];
-  for (let [turnIndex, turn] of conversationTurns.entries()) {
-    let turnId = turn.turnId,
-      controlTurnId =
-        turnId == null
-          ? null
-          : (controlTurnIdByDisplayTurnId.get(turnId) ?? turnId),
-      displayGroup =
-        controlTurnId == null
-          ? null
-          : displayGroupByControlTurnId.get(controlTurnId);
-    if (displayGroup != null) {
-      if (emittedControlTurnIds.has(displayGroup.controlTurnId)) continue;
-      emittedControlTurnIds.add(displayGroup.controlTurnId);
-      physicalTurnEntries.push(
-        createBerryDisplayTurnEntry(
-          displayGroup,
-          physicalTurnById.get(displayGroup.controlTurnId) ?? null,
-        ),
-      );
-      continue;
-    }
-    physicalTurnEntries.push({
-      physicalTurnIds: turnId == null ? [] : [turnId],
-      turn,
-      turnId,
-      turnIndex,
-    });
-  }
-  return physicalTurnEntries;
-}
-function createBerryDisplayTurnEntry(displayTurnGroup, controlTurnEntry) {
-  let sortedDisplayTurns = [...displayTurnGroup.displayTurns].sort(
-      (leftDisplayTurn, rightDisplayTurn) =>
-        leftDisplayTurn.displayIndex - rightDisplayTurn.displayIndex,
-    ),
-    mergedTurnEntries = [
-      ...(controlTurnEntry == null ? [] : [controlTurnEntry]),
-      ...sortedDisplayTurns,
-    ].sort(
-      (leftTurnEntry, rightTurnEntry) =>
-        leftTurnEntry.turnIndex - rightTurnEntry.turnIndex,
-    ),
-    mergedTurns = mergedTurnEntries.map(({ turn }) => turn),
-    displayTurns = sortedDisplayTurns.map(({ turn }) => turn),
-    baseTurn = controlTurnEntry?.turn ?? displayTurns[0];
-  if (baseTurn == null)
-    throw Error("Berry display turn group must contain a turn");
-  return {
-    physicalTurnIds: mergedTurns.flatMap((item) =>
-      item.turnId == null ? [] : [item.turnId],
-    ),
-    turn: {
-      params: baseTurn.params,
-      turnId: displayTurnGroup.controlTurnId,
-      turnStartedAtMs:
-        controlTurnEntry?.turn.turnStartedAtMs ??
-        getFirstDefinedTurnField(mergedTurns, "turnStartedAtMs"),
-      durationMs:
-        controlTurnEntry?.turn.durationMs ??
-        getLastDefinedTurnField(mergedTurns, "durationMs"),
-      firstTurnWorkItemStartedAtMs: getFirstDefinedTurnField(
-        mergedTurns,
-        "firstTurnWorkItemStartedAtMs",
-      ),
-      finalAssistantStartedAtMs: getLastDefinedTurnField(
-        mergedTurns,
-        "finalAssistantStartedAtMs",
-      ),
-      status: getMergedTurnStatus(mergedTurns),
-      error: mergedTurns.find((item) => item.error != null)?.error ?? null,
-      diff: getLastDefinedTurnField(mergedTurns, "diff"),
-      interruptedCommandExecutionItemIds: mergedTurns.flatMap(
-        (item) => item.interruptedCommandExecutionItemIds ?? [],
-      ),
-      hookRuns: mergedTurns.flatMap((item) => item.hookRuns ?? []),
-      items: [
-        ...(controlTurnEntry?.turn.items ?? []),
-        ...displayTurns.flatMap((item) => item.items),
-      ],
-    },
-    turnId: displayTurnGroup.controlTurnId,
-    turnIndex: mergedTurnEntries[0]?.turnIndex ?? 0,
-  };
-}
-function getMergedTurnStatus(turns) {
-  let failedTurn = turns.find((item) => item.status === "failed");
-  if (failedTurn != null) return failedTurn.status;
-  let inProgressTurn = turns.find((item) => item.status === "inProgress");
-  return inProgressTurn == null
-    ? (turns.at(-1)?.status ?? "completed")
-    : inProgressTurn.status;
-}
-function getFirstDefinedTurnField(turns, fieldName) {
-  return turns.find((item) => item[fieldName] != null)?.[fieldName] ?? null;
-}
-function getLastDefinedTurnField(turns, fieldName) {
-  return (
-    findLastModule.default(turns, (turn) => turn[fieldName] != null)?.[
-      fieldName
-    ] ?? null
-  );
-}
-var findLastModule,
-  EMPTY_CONVERSATION_REQUESTS,
+var EMPTY_CONVERSATION_REQUESTS,
   EMPTY_CONVERSATION_TURNS,
   EMPTY_VISIBLE_TURN_ENTRIES,
   localConversationVisibleTurnEntriesSignal,
   initLocalConversationTurnSelectors = once(() => {
-    findLastModule = toEsModule(loadFindLastModule(), 1);
     initScopeRuntime();
     initConversationStateSelectors();
     initAppScope();
@@ -8349,6 +8121,7 @@ var findLastModule,
     initDeepEqualModule();
     initConversationArtifactRuntime();
     initConversationSearchUnitExtractor();
+    initLocalConversationVisibleTurnEntriesBuilder();
     EMPTY_CONVERSATION_REQUESTS = [];
     EMPTY_CONVERSATION_TURNS = [];
     EMPTY_VISIBLE_TURN_ENTRIES = {
@@ -8368,10 +8141,7 @@ var findLastModule,
             get(conversationRequestsSignal, conversationId) ??
             EMPTY_CONVERSATION_REQUESTS;
         get(modelProviderSignal, conversationId);
-        let conversationResumeState =
-            get(conversationResumeStateSignal, conversationId) ??
-            "needs_resume",
-          subagentParentThreadId = isBackgroundSubagentsEnabled
+        let subagentParentThreadId = isBackgroundSubagentsEnabled
             ? (get(subagentParentThreadIdSignal, conversationId) ?? null)
             : null,
           isBerryDisplayMergeEnabled = get(featureGateSignal, "209459230"),
@@ -8387,14 +8157,16 @@ var findLastModule,
             berryDisplayConversationTurns != null &&
             parentBerryDisplayConversationTurns != null;
         return buildLocalConversationVisibleTurnEntries({
+          areTurnItemsEqual: deepEqualModule.default,
           conversationRequests,
           mergeBerryDisplayTurnsForPIA: false,
           preserveServerUserMessages: false,
-          conversationResumeState,
           conversationTurns: shouldUseBerryDisplayTurns
             ? berryDisplayConversationTurns
             : (get(conversationTurnsSignal, conversationId) ??
               EMPTY_CONVERSATION_TURNS),
+          emptyConversationRequests: EMPTY_CONVERSATION_REQUESTS,
+          emptyVisibleTurnEntries: EMPTY_VISIBLE_TURN_ENTRIES,
           hasConversation,
           isBackgroundSubagentsEnabled,
           parentConversationTurns: shouldUseBerryDisplayTurns
