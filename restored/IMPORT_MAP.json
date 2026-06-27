@@ -10592,7 +10592,8 @@
         "t": "ThreadOverflowMenu"
       },
       "status": "draft",
-      "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
+      "note": "Public draft organized for the updated ref chunk. Pin and pop-in/new-window icon imports now resolve to semantic icon modules; remaining current-ref producer imports, JSX runtime cleanup, and split/rename work remain open before promotion.",
+      "lastUpdated": "2026-06-27T16:57:21.039Z"
     },
     "above-composer-suggestions-CAXbkE_4": {
       "restored": "composer/above-composer-suggestions.tsx",
@@ -11032,6 +11033,26 @@
       "status": "boundary",
       "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
       "lastUpdated": "2026-06-27T03:16:46.000Z"
+    },
+    "app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~hngpswmm-DIEMgkYM": {
+      "restored": "icons/pin-icon.tsx",
+      "exports": {
+        "n": "initPinIconChunk",
+        "t": "PinIcon"
+      },
+      "status": "done",
+      "note": "Current ref duplicate of the pin icon chunk; mapped to the existing semantic PinIcon module with a no-op init export for bundle compatibility.",
+      "lastUpdated": "2026-06-27T16:57:21.039Z"
+    },
+    "app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~o5l7nhuo-CRoJfHHc": {
+      "restored": "icons/pop-in-mac-icon.tsx",
+      "exports": {
+        "n": "initPopInMacIconChunk",
+        "t": "PopInMacIcon"
+      },
+      "status": "done",
+      "note": "Current ref duplicate of the pop-in/new-window icon chunk; mapped to the existing semantic PopInMacIcon module with a no-op init export for bundle compatibility.",
+      "lastUpdated": "2026-06-27T16:57:21.039Z"
     }
   }
 }

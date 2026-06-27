@@ -115,10 +115,7 @@ import {
   s as et,
   t as tt,
 } from "./app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~ki4n9fl3-Dgn7MiTN.js";
-import {
-  n as nt,
-  t as rt,
-} from "./app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~hngpswmm-DIEMgkYM.js";
+import { initPinIconChunk, PinIcon } from "../icons/pin-icon";
 import {
   g as it,
   h as at,
@@ -127,10 +124,7 @@ import {
   getAttachedHeartbeatAutomationForThread as J,
   initAttachedHeartbeatAutomationLookupChunk as ot,
 } from "../github/pull-request-checks-summary";
-import {
-  n as st,
-  t as ct,
-} from "./app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~o5l7nhuo-CRoJfHHc.js";
+import { initPopInMacIconChunk, PopInMacIcon } from "../icons/pop-in-mac-icon";
 async function lt({
   sourceConversationId,
   cwd,
@@ -545,7 +539,7 @@ function mt({
       E != null && (T(false), G(E));
     },
     nt = isPinned ? Qe : Je,
-    it = isPinned ? et : rt,
+    it = isPinned ? et : PinIcon,
     ot = v.formatMessage(B.moreActions),
     lt = !hideForkActions && true,
     ut = canOpenThreadInNewWindow,
@@ -707,7 +701,7 @@ function mt({
           canOpenThreadInNewWindow
             ? $.jsx(k.Item, {
                 onSelect: openThreadInNewWindow,
-                LeftIcon: ct,
+                LeftIcon: PopInMacIcon,
                 children: $.jsx(j, {
                   ...B.openInNewWindow,
                 }),
@@ -795,8 +789,8 @@ const _t = e(() => {
   P();
   Ve();
   q();
-  nt();
-  st();
+  initPinIconChunk();
+  initPopInMacIconChunk();
   Se();
   Ae();
   De();
