@@ -12744,6 +12744,12 @@
       },
       "status": "done",
       "note": "App-main registration entry for window app actions; delegates windows.tabs.open to the restored runtime module."
+    },
+    "app-main-lwTO-JL9": {
+      "restored": "app-shell/app-main.tsx",
+      "exports": {},
+      "status": "done",
+      "note": "Electron main-window bootstrap: initializes app producers, registers window app-action handlers, sets document window metadata, forwards global errors, and mounts the React root."
     }
   }
 }
