@@ -628,6 +628,19 @@ function isLottieAnimationDataModule(file: string, source: string): boolean {
   );
 }
 
+function isLocaleMessageDataModule(file: string, source: string): boolean {
+  const normalized = file.replace(/\\/g, "/");
+  if (!/(?:^|\/)locales\/[a-z0-9-]+\.ts$/i.test(normalized)) {
+    return false;
+  }
+
+  return (
+    hasRestorationProvenanceHeader(source) &&
+    /\bexport\s+const\s+[A-Za-z0-9]+Default\s*=\s*\{/.test(source) &&
+    /\bexport\s*\{\s*[A-Za-z0-9]+Greeting\s+as\s+greeting\s*\}\s*;/.test(source)
+  );
+}
+
 function isBundlerInteropRuntimeModule(file: string, source: string): boolean {
   const normalized = file.replace(/\\/g, "/");
   if (
@@ -653,6 +666,7 @@ function isVendoredDataModule(file: string, source: string): boolean {
   return (
     /(?:^|[/\\])grammars[/\\][^/\\]+\.ts$/i.test(file) ||
     /(?:^|[/\\])i18n[/\\](?:locales[/\\])?[A-Za-z][A-Za-z]+\.ts$/i.test(file) ||
+    isLocaleMessageDataModule(file, source) ||
     isLottieAnimationDataModule(file, source) ||
     isBundlerInteropRuntimeModule(file, source)
   );
@@ -853,8 +867,7 @@ function isIndexFile(filePath: string): boolean {
  */
 function isGeneratedBarrelFile(filePath: string): boolean {
   return (
-    isIndexFile(filePath) ||
-    /^types\.[cm]?tsx?$/i.test(path.basename(filePath))
+    isIndexFile(filePath) || /^types\.[cm]?tsx?$/i.test(path.basename(filePath))
   );
 }
 
@@ -1896,7 +1909,11 @@ export function analyzeSource(
       detail: astFacts.unboundIdentifiers,
     });
   }
-  if (!vendored && !options.allowUntyped && astFacts.untypedComponentProps.length > 0) {
+  if (
+    !vendored &&
+    !options.allowUntyped &&
+    astFacts.untypedComponentProps.length > 0
+  ) {
     issues.push({
       code: "untyped-component-props",
       message: `Exported component props need explicit TS types: ${astFacts.untypedComponentProps.join(", ")}`,

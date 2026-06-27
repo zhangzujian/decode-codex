@@ -1865,6 +1865,31 @@ describe("vendored / facade relaxation", () => {
     );
     expect(codes(asset)).not.toContain("split-required");
   });
+
+  test("restored locale message data modules are auto-relaxed", () => {
+    const entries = Array.from(
+      { length: 12 },
+      (_, i) => `  "message.${i}": "Message ${i}",`,
+    ).join("\n");
+    const localeData =
+      `// Restored from ref/webview/assets/am-CjqvPkLf.js\n` +
+      `// Am locale messages restored from the current Codex webview bundle.\n` +
+      `const amGreeting = "Fallback";\n` +
+      `export const amDefault = {\n${entries}\n};\n` +
+      `export { amGreeting as greeting };\n`;
+
+    const ordinary = analyzeSource(localeData, "widgets/am.ts", {
+      ...DEFAULT_OPTIONS,
+      maxFlatLines: 5,
+    });
+    expect(codes(ordinary)).toContain("split-required");
+
+    const locale = analyzeSource(localeData, "restored/locales/am.ts", {
+      ...DEFAULT_OPTIONS,
+      maxFlatLines: 5,
+    });
+    expect(codes(locale)).not.toContain("split-required");
+  });
 });
 
 describe("kebab filename gate", () => {
