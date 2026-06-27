@@ -11081,6 +11081,35 @@
       "status": "done",
       "note": "Restored side-effect reporters for heartbeat automation thread state host messages and stream-role product-event properties.",
       "lastUpdated": "2026-06-27T18:01:48.013Z"
+    },
+    "app-initial~app-main~projects-index-page~local-conversation-page-4SURv8Cr": {
+      "restored": "sidebar/project-hover-card.tsx",
+      "exports": {
+        "_": "initRemoteHostGlobeIconChunk",
+        "a": "setProjectPinned",
+        "b": "initRemoteHostGlobeColorSignal",
+        "c": "ProjectSourceFolderIcon",
+        "d": "initRemoteConnectionStatusMessagesChunk",
+        "f": "formatAppServerConnectionErrorMessage",
+        "g": "RemoteHostGlobeIcon",
+        "h": "initProjectPinButtonChunk",
+        "i": "initPinnedProjectRuntime",
+        "l": "initProjectSourceFolderIconChunk",
+        "m": "ProjectPinButton",
+        "n": "initProjectHoverCardChunk",
+        "o": "collapseHomeDirectoryInPath",
+        "p": "initRemoteConnectionStatusModelChunk",
+        "r": "replacePinnedProjectOrder",
+        "s": "initProjectHoverCardSourceHelpers",
+        "t": "ProjectHoverCard",
+        "u": "getRemoteConnectionStatusBadgeModel",
+        "v": "buildRemoteHostGlobeColors",
+        "x": "remoteHostGlobeColorByHostIdSignal",
+        "y": "initRemoteHostGlobeColorMath"
+      },
+      "status": "done",
+      "note": "Project hover card support for sidebar project groups, including remote host color assignment, pinning, source rows, and connection status labels.",
+      "lastUpdated": "2026-06-27T18:34:48.968Z"
     }
   }
 }
