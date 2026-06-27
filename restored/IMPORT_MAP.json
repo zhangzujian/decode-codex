@@ -12696,6 +12696,19 @@
       "status": "done",
       "note": "Synced current worktree path helpers with case-insensitive Windows/UNC prefix handling and initializer export.",
       "lastUpdated": "2026-06-27T22:05:09.125Z"
+    },
+    "app-initial~app-main~remote-conversation-page~new-thread-panel-page~settings-page~appgen-li~oiv69xe5-CEvW0yvK": {
+      "restored": "features/appshot/index.ts",
+      "exports": {
+        "a": "appshotAvailabilityByHost",
+        "i": "selectedHostAppshotAvailability",
+        "n": "initAppshotLogoChunk",
+        "r": "initAppshotAvailabilityChunk",
+        "t": "appshotLogo"
+      },
+      "status": "done",
+      "note": "Synced current Appshot availability/logo aggregate chunk with split semantic modules.",
+      "lastUpdated": "2026-06-27T22:07:43.292Z"
     }
   }
 }
