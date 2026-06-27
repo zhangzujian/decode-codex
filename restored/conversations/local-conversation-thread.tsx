@@ -48,9 +48,9 @@ import {
   $p as s,
   AB as c,
   AI as l,
-  AL as u,
+  AL as preloadDynamicImport,
   AN as d,
-  AO as f,
+  AO as PULL_REQUEST_FIX_PROMPT_PREAMBLE,
   AP as motion,
   AV as m,
   Ai as h,
@@ -62,12 +62,12 @@ import {
   Au as x,
   BP as classNames,
   BV as getJsxRuntime,
-  Bh as w,
+  Bh as useHostMutation,
   Bn as T,
-  CP as E,
-  DL as D,
+  CP as animateSignalValue,
+  DL as normalizeWorkspacePath,
   DM as O,
-  DN as k,
+  DN as Button,
   D_ as A,
   Di as j,
   Dj as M,
@@ -79,7 +79,7 @@ import {
   Ep as R,
   Es as z,
   Ev as ee,
-  FB as B,
+  FB as useScope,
   Fp as V,
   Fx as te,
   GE as ne,
@@ -95,13 +95,13 @@ import {
   Hi as ue,
   Hv as de,
   Hx as fe,
-  IB as W,
+  IB as useSignalValue,
   IL as pe,
   I_ as me,
   Io as he,
   Ip as ge,
   Ix as _e,
-  JV as G,
+  JV as loadReactModule,
   Ja as ve,
   Ji as DropdownMenuItem,
   Jo as be,
@@ -123,7 +123,7 @@ import {
   Mj as Le,
   Mu as Re,
   initLocalConversationGitSummary as ze,
-  NM as Be,
+  NM as createPersistedScopedSignal,
   Nh as Ve,
   Nj as He,
   Np as Ue,
@@ -211,7 +211,7 @@ import {
   bM as _n,
   bP as vn,
   bR as yn,
-  bV as bn,
+  bV as createScopedSignal,
   bc as xn,
   bk as Sn,
   cA as Cn,
@@ -856,13 +856,13 @@ var reviewSearchSchedulerModule,
   reviewSearchSchedulerReactRuntime,
   initReviewSearchHighlightScheduler = once(() => {
     reviewSearchSchedulerModule = getChunkModuleExports();
-    reviewSearchSchedulerReactRuntime = toEsModule(G(), 1);
+    reviewSearchSchedulerReactRuntime = toEsModule(loadReactModule(), 1);
   });
 
 function useReviewSearchHighlights(props) {
   let { containerRef, contextId } = props,
-    reviewSearchRun = W(Ai),
-    activeReviewSearchMatch = W(Gi),
+    reviewSearchRun = useSignalValue(Ai),
+    activeReviewSearchMatch = useSignalValue(Gi),
     activeReviewSearchRun =
       reviewSearchRun?.contextId === contextId ? reviewSearchRun : null,
     activeMatchId =
@@ -969,7 +969,7 @@ var reviewSearchHighlighterModule,
   initReviewSearchHighlighter = once(() => {
     reviewSearchHighlighterModule = getChunkModuleExports();
     c();
-    reviewSearchReactRuntime = toEsModule(G(), 1);
+    reviewSearchReactRuntime = toEsModule(loadReactModule(), 1);
     la();
     ea();
     Qa();
@@ -1215,7 +1215,7 @@ var threadFindNavigationRailModule,
   LazyThreadUserMessageNavigationRail,
   initThreadFindNavigationRail = once(() => {
     threadFindNavigationRailModule = getChunkModuleExports();
-    threadFindNavigationRailReactRuntime = toEsModule(G(), 1);
+    threadFindNavigationRailReactRuntime = toEsModule(loadReactModule(), 1);
     ol();
     ae();
     threadFindNavigationRailJsxRuntime = getJsxRuntime();
@@ -1223,7 +1223,7 @@ var threadFindNavigationRailModule,
     LazyThreadUserMessageNavigationRail = al(
       async () =>
         (
-          await u(
+          await preloadDynamicImport(
             async () => {
               let { ThreadUserMessageNavigationRail } = await import(
                 "../utils/thread-user-message-navigation-rail"
@@ -1268,7 +1268,7 @@ function SummaryPanelExpandableList(props) {
       <div className={listClassName}>{renderedItems}</div>
     );
   let toggleButton = hasHiddenItems
-    ? summaryPanelExpandableListJsxRuntime.jsx(k, {
+    ? summaryPanelExpandableListJsxRuntime.jsx(Button, {
         className:
           "!px-0 !py-0 text-token-text-tertiary hover:text-token-text-secondary",
         color: "ghostMuted",
@@ -1312,7 +1312,7 @@ var summaryPanelExpandableListModule,
   DEFAULT_SUMMARY_PANEL_VISIBLE_ITEM_LIMIT,
   initSummaryPanelExpandableList = once(() => {
     summaryPanelExpandableListModule = getChunkModuleExports();
-    summaryPanelExpandableListReactRuntime = toEsModule(G(), 1);
+    summaryPanelExpandableListReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
     Ye();
     summaryPanelExpandableListJsxRuntime = getJsxRuntime();
@@ -1325,7 +1325,7 @@ function SummaryPanelArtifactsList(props) {
       getImagePreviewSrc,
       onOpen,
     } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     intl = ur(),
     generatedImageNumberByPath,
     generatedImagePreviews;
@@ -1822,7 +1822,10 @@ var threadSummaryBackgroundActivityModule,
   threadSummaryBackgroundActivityJsxRuntime,
   initThreadSummaryBackgroundActivityRowsChunk = once(() => {
     threadSummaryBackgroundActivityModule = getChunkModuleExports();
-    threadSummaryBackgroundActivityReactRuntime = toEsModule(G(), 1);
+    threadSummaryBackgroundActivityReactRuntime = toEsModule(
+      loadReactModule(),
+      1,
+    );
     Jn();
     pn();
     d();
@@ -1854,9 +1857,9 @@ function BackgroundTerminalSummaryRows(props) {
       onStopError,
       onOpen,
     } = props,
-    scope = B(ut),
+    scope = useScope(ut),
     isVisibleRef = backgroundTerminalSummaryRowsReactRuntime.useRef(isVisible),
-    pendingProcessRows = W(pendingBackgroundProcessRowsSignal),
+    pendingProcessRows = useSignalValue(pendingBackgroundProcessRowsSignal),
     killChildProcessMutation = qr("child-process-kill"),
     registerProcessMutation = qr("chat-process-register");
   let currentRows = createBackgroundTerminalCurrentRows({
@@ -2220,7 +2223,10 @@ var backgroundTerminalSummaryRowsModule,
     backgroundTerminalSummaryRowsModule = getChunkModuleExports();
     Ut();
     c();
-    backgroundTerminalSummaryRowsReactRuntime = toEsModule(G(), 1);
+    backgroundTerminalSummaryRowsReactRuntime = toEsModule(
+      loadReactModule(),
+      1,
+    );
     Jn();
     an();
     d();
@@ -2555,7 +2561,7 @@ function LocalEnvironmentActionSetupForm(props) {
       children: [commandLabelNode, commandTextarea],
     }),
   });
-  let submitButton = localEnvironmentActionSetupFormJsxRuntime.jsx(k, {
+  let submitButton = localEnvironmentActionSetupFormJsxRuntime.jsx(Button, {
     color: "primary",
     disabled: submitDisabled,
     loading: submitLoading,
@@ -2590,7 +2596,10 @@ var localEnvironmentActionSetupFormModule,
   localEnvironmentActionSetupFormJsxRuntime,
   initLocalEnvironmentActionSetupFormChunk = once(() => {
     localEnvironmentActionSetupFormModule = getChunkModuleExports();
-    localEnvironmentActionSetupFormReactRuntime = toEsModule(G(), 1);
+    localEnvironmentActionSetupFormReactRuntime = toEsModule(
+      loadReactModule(),
+      1,
+    );
     Ye();
     h();
     localEnvironmentActionSetupFormJsxRuntime = getJsxRuntime();
@@ -2759,14 +2768,17 @@ function AddLocalEnvironmentActionForm(props) {
     DropdownComponent = DropdownMenu;
     iconDropdownAlign = "start";
     iconDropdownContentWidth = "icon";
-    iconDropdownTriggerButton = addLocalEnvironmentActionFormJsxRuntime.jsx(k, {
-      id: `local-env-action-icon-${action.id}`,
-      "aria-label": selectedIconOption.ariaLabel,
-      className: "w-12 justify-center text-sm",
-      color: "secondary",
-      size: "toolbar",
-      children: selectedIconOption.icon,
-    });
+    iconDropdownTriggerButton = addLocalEnvironmentActionFormJsxRuntime.jsx(
+      Button,
+      {
+        id: `local-env-action-icon-${action.id}`,
+        "aria-label": selectedIconOption.ariaLabel,
+        className: "w-12 justify-center text-sm",
+        color: "secondary",
+        size: "toolbar",
+        children: selectedIconOption.icon,
+      },
+    );
     let renderIconOption;
     renderIconOption = (iconOption) => (
       <Br.Item
@@ -2831,7 +2843,7 @@ function AddLocalEnvironmentActionForm(props) {
       description="Edit more action label in run action setup popover"
     />
   );
-  let settingsButton = addLocalEnvironmentActionFormJsxRuntime.jsx(k, {
+  let settingsButton = addLocalEnvironmentActionFormJsxRuntime.jsx(Button, {
     className: "px-0",
     color: "ghost",
     size: "toolbar",
@@ -2912,9 +2924,11 @@ var localEnvironmentRecentActionsModule,
     Re();
   });
 function useLocalConversationEnvironmentState(workspaceRoot, hostConfig) {
-  let scope = B(ut),
+  let scope = useScope(ut),
     hostId = hostConfig.id,
-    workspaceEnvironmentKey = workspaceRoot ? D(workspaceRoot) : null;
+    workspaceEnvironmentKey = workspaceRoot
+      ? normalizeWorkspacePath(workspaceRoot)
+      : null;
   let recentEnvironmentKey = workspaceEnvironmentKey,
     localEnvironmentParams = {
       hostId: hostId,
@@ -2947,7 +2961,7 @@ function useLocalConversationEnvironmentState(workspaceRoot, hostConfig) {
           );
       },
     };
-  let setConfigValueMutation = w(
+  let setConfigValueMutation = useHostMutation(
       "set-config-value",
       hostConfig,
       setConfigMutationOptions,
@@ -3066,7 +3080,7 @@ function LocalConversationEnvironmentActionControls(props) {
       onShowTerminal,
       registerCommands,
     } = props,
-    scope = B(ut),
+    scope = useScope(ut),
     intl = ur(),
     location = ee(),
     navigate = rt(),
@@ -3445,7 +3459,7 @@ function LocalConversationEnvironmentActionControls(props) {
           ? localEnvironmentActionControlsJsxRuntime.jsx(jr, {
               tooltipContent: createEnvironmentLabel,
               delayOpen: true,
-              children: localEnvironmentActionControlsJsxRuntime.jsx(k, {
+              children: localEnvironmentActionControlsJsxRuntime.jsx(Button, {
                 "aria-label": createEnvironmentLabel,
                 className: "ms-auto",
                 color: "ghost",
@@ -3498,7 +3512,7 @@ function LocalEnvironmentSelectorDropdown(props) {
     isDisabled = !canChangeEnvironment,
     triggerDisabled = !canChangeEnvironment,
     triggerIcon = <Gt className="icon-sm" />;
-  let triggerButton = localEnvironmentActionControlsJsxRuntime.jsx(k, {
+  let triggerButton = localEnvironmentActionControlsJsxRuntime.jsx(Button, {
     "aria-label": title,
     className: "ms-auto",
     color: "ghost",
@@ -3752,7 +3766,10 @@ var localEnvironmentActionControlsModule,
     Ca();
     xt();
     c();
-    localEnvironmentActionControlsReactRuntime = toEsModule(G(), 1);
+    localEnvironmentActionControlsReactRuntime = toEsModule(
+      loadReactModule(),
+      1,
+    );
     Jn();
     xr();
     Ei();
@@ -3806,7 +3823,7 @@ function ThreadSummaryPanelSection(props) {
       titleSuffix,
       onChange,
     } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     autoCollapseState = useScopedValue(
       threadSummaryPanelSectionAutoCollapseState,
       sectionKey,
@@ -3820,7 +3837,7 @@ function ThreadSummaryPanelSection(props) {
     isExpanded =
       !(autoCollapse === true && autoCollapseState === "collapsed") &&
       (persistedIsExpanded ?? !defaultCollapsed),
-    shouldUseReducedMotion = W(reducedMotionPreferenceSignal),
+    shouldUseReducedMotion = useSignalValue(reducedMotionPreferenceSignal),
     setIsExpanded = (nextIsExpanded) => {
       scope.set(
         threadSummaryPanelSectionExpandedState,
@@ -4023,7 +4040,7 @@ var threadSummaryPanelSectionModule,
     bt();
     isFunctionModule = toEsModule(un(), 1);
     c();
-    threadSummaryPanelSectionReactRuntime = toEsModule(G(), 1);
+    threadSummaryPanelSectionReactRuntime = toEsModule(loadReactModule(), 1);
     an();
     Si();
     me();
@@ -4045,12 +4062,12 @@ var threadSummaryPanelSectionModule,
       opacity: 1,
       marginTop: 2,
     };
-    threadSummaryPanelSectionExpandedState = Be(
+    threadSummaryPanelSectionExpandedState = createPersistedScopedSignal(
       (sectionKey) =>
         `${THREAD_SUMMARY_PANEL_SECTION_EXPANDED_STATE_PREFIX}${sectionKey}`,
       DEFAULT_THREAD_SUMMARY_PANEL_SECTION_EXPANDED_STATE,
     );
-    threadSummaryPanelSectionAutoCollapseState = bn(
+    threadSummaryPanelSectionAutoCollapseState = createScopedSignal(
       localConversationRouteScope,
       () => "pending",
     );
@@ -4304,7 +4321,7 @@ function buildPullRequestFailingChecksFixPrompt({
   number,
 }) {
   return [
-    f,
+    PULL_REQUEST_FIX_PROMPT_PREAMBLE,
     `Review ${`PR ${number}`}${` (${headBranch} -> ${baseBranch})`} and make the smallest safe fix for the attached failing CI.`,
     "Start from the attached failing-check context. Then use `gh` to inspect the latest runs, annotations, and logs for those failures before changing code.",
     "Treat `gh` as the primary source of truth for workflow runs, job logs, annotations, and links to any external CI.",
@@ -4385,7 +4402,7 @@ function buildPullRequestMergeConflictFixPrompt({
   number,
 }) {
   return [
-    f,
+    PULL_REQUEST_FIX_PROMPT_PREAMBLE,
     `Review ${`PR ${number}`}${` (${headBranch} -> ${baseBranch})`} and resolve the attached merge conflict blocker with the smallest safe changes.`,
     "Start from the attached merge conflict context. Then use `gh pr view` and local git state to confirm the current merge blocker before changing code.",
     "Fetch the latest base branch, merge or rebase as appropriate for this repository, resolve the conflicts, and avoid unrelated refactors.",
@@ -4737,7 +4754,7 @@ var pullRequestStatusDetailRowsModule,
   });
 function PullRequestStatusDetailRows(props) {
   let { conversationId, headBranch, pullRequestStatus } = props,
-    scope = B(fi),
+    scope = useScope(fi),
     storedThreadBranch = useScopedValue(pi, conversationId),
     reviewCommentAttachments = useScopedValue(ki, conversationId);
   if (pullRequestStatus == null || !pullRequestStatus.hasOpenPr) return null;
@@ -5132,8 +5149,8 @@ var pullRequestSidePanelLoadingStateModule,
 function PullRequestSidePanelChecksSection(props) {
   let { data, error, fixDisabledReason, item, loading } = props,
     intl = ur(),
-    scope = B(fi),
-    attachedChecks = W(qo),
+    scope = useScope(fi),
+    attachedChecks = useSignalValue(qo),
     failingChecks = data?.checks.filter(isFailingPullRequestCheck),
     attachedCheckKeys = new Set(
       attachedChecks.map(getPullRequestCheckAttachmentKey),
@@ -5333,7 +5350,7 @@ var pullRequestReviewerBadgeUniqBy,
 function PullRequestSidePanelCommentsSection(props) {
   let { data, error, fixDisabledReason, item, loading } = props,
     intl = ur(),
-    scope = B(fi),
+    scope = useScope(fi),
     conversationId = scope.value.routeConversationId,
     attachedCommentAttachments = useScopedValue(ki, conversationId),
     content;
@@ -5574,7 +5591,7 @@ var pullRequestCommentsSectionModule,
   mergeConflictFileIconJsxRuntime,
   MergeConflictFileIcon,
   initMergeConflictFileIconChunk = once(() => {
-    toEsModule(G());
+    toEsModule(loadReactModule());
     mergeConflictFileIconJsxRuntime = getJsxRuntime();
     MergeConflictFileIcon = (props) => (
       <svg
@@ -5662,8 +5679,8 @@ var pullRequestConflictFileRowsModule,
 function PullRequestSidePanelConflictsSection(props) {
   let { error, files, fixDisabledReason, hasError, item, loading, repo } =
       props,
-    scope = B(fi),
-    conflictsAreAttached = W(ko)?.url === item.url,
+    scope = useScope(fi),
+    conflictsAreAttached = useSignalValue(ko)?.url === item.url,
     fixDisabledTooltip =
       fixDisabledReason == null
         ? undefined
@@ -5822,7 +5839,7 @@ var pullRequestDescriptionSectionModule,
   pullRequestReviewerPlaceholderIconJsxRuntime,
   PullRequestReviewerPlaceholderIcon,
   initPullRequestReviewerPlaceholderIconChunk = once(() => {
-    toEsModule(G());
+    toEsModule(loadReactModule());
     pullRequestReviewerPlaceholderIconJsxRuntime = getJsxRuntime();
     PullRequestReviewerPlaceholderIcon = (props) => (
       <svg
@@ -5903,7 +5920,7 @@ var uniqByModule,
   });
 function RequestPullRequestReviewersButton(props) {
   let { hostId, item, pendingReviewerLogins, repo } = props,
-    scope = B(ut),
+    scope = useScope(ut),
     intl = ur(),
     [open, setOpen] = requestPullRequestReviewersReactRuntime.useState(false),
     [query, setQuery] = requestPullRequestReviewersReactRuntime.useState(""),
@@ -6006,7 +6023,7 @@ function RequestPullRequestReviewersButton(props) {
   let triggerIcon = <Ae aria-hidden={true} className="icon-2xs" />;
   let triggerButton = (
     <Kn asChild={true}>
-      {requestPullRequestReviewersJsxRuntime.jsx(k, {
+      {requestPullRequestReviewersJsxRuntime.jsx(Button, {
         "aria-label": triggerLabel,
         color: "secondary",
         size: "iconMd",
@@ -6044,7 +6061,7 @@ function RequestPullRequestReviewersButton(props) {
             defaultMessage="Couldn’t search GitHub users"
             description="Error shown when pull request reviewer search fails"
           />
-          {requestPullRequestReviewersJsxRuntime.jsx(k, {
+          {requestPullRequestReviewersJsxRuntime.jsx(Button, {
             color: "outline",
             size: "default",
             type: "button",
@@ -6144,7 +6161,7 @@ function RequestPullRequestReviewersButton(props) {
             })}
           </span>
         ) : (
-          requestPullRequestReviewersJsxRuntime.jsx(k, {
+          requestPullRequestReviewersJsxRuntime.jsx(Button, {
             color: "secondary",
             size: "toolbar",
             onClick: handleRequestReviewers,
@@ -6198,7 +6215,7 @@ var requestPullRequestReviewersModule,
   initRequestPullRequestReviewersButtonChunk = once(() => {
     requestPullRequestReviewersModule = getChunkModuleExports();
     c();
-    requestPullRequestReviewersReactRuntime = toEsModule(G(), 1);
+    requestPullRequestReviewersReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
     Ye();
     Hn();
@@ -6599,8 +6616,8 @@ var pullRequestOverviewSectionModule,
   });
 function PullRequestSidePanelDetails(props) {
   let { bodyError, bodyIsLoading, item, pullRequestBody, request } = props,
-    scope = B(fi),
-    { data } = W(Mi),
+    scope = useScope(fi),
+    { data } = useSignalValue(Mi),
     fixDisabledReason = xc({
       currentBranch: data,
       storedThreadBranch: item.headBranch,
@@ -6982,7 +6999,7 @@ function openPullRequestSidePanelTab(
 
 var pullRequestSidePanelTabReactRuntime,
   initPullRequestSidePanelOpenerChunk = once(() => {
-    pullRequestSidePanelTabReactRuntime = toEsModule(G(), 1);
+    pullRequestSidePanelTabReactRuntime = toEsModule(loadReactModule(), 1);
     Za();
     Js();
     initPullRequestSidePanelTabChunk();
@@ -6990,9 +7007,9 @@ var pullRequestSidePanelTabReactRuntime,
   });
 function PullRequestSummaryRow(props) {
   let { conversationId, hostId, pullRequestStatus, visualState } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     intl = ur(),
-    isBrowserSidebarEnabled = W(z),
+    isBrowserSidebarEnabled = useSignalValue(z),
     canOpenInSidePanel = useScopedValue(An, "1590905736"),
     { boardItem } = pullRequestStatus,
     shouldOpenInSidePanel = canOpenInSidePanel && boardItem != null,
@@ -7447,8 +7464,8 @@ var localConversationGitSummaryModule,
   });
 function ThreadSummaryEnvironmentModeControls(props) {
   let { conversationId, onOpenChange } = props,
-    scope = B(fi),
-    composerMode = W(Ro),
+    scope = useScope(fi),
+    composerMode = useSignalValue(Ro),
     setComposerMode = (nextMode) => {
       $o(scope, null, nextMode);
     };
@@ -7467,7 +7484,7 @@ function ThreadSummaryEnvironmentModeControls(props) {
       conversationRemoteState.cwd != null
         ? {
             conversationTitle,
-            cwd: D(conversationRemoteState.cwd),
+            cwd: normalizeWorkspacePath(conversationRemoteState.cwd),
             isWorktreeConversation,
           }
         : null;
@@ -7546,9 +7563,9 @@ function ThreadSummaryEnvironmentSection(props) {
       registerEnvironmentActionCommands,
       workspaceBrowserRoot,
     } = props,
-    routeScope = B(localConversationRouteScope),
-    diffStatsQuery = W(La),
-    environmentTerminalController = W(Ia),
+    routeScope = useScope(localConversationRouteScope),
+    diffStatsQuery = useSignalValue(La),
+    environmentTerminalController = useSignalValue(Ia),
     diffStats = diffStatsQuery.metrics,
     createBranchActionRef =
       threadSummaryEnvironmentSectionReactRuntime.useRef(null),
@@ -7731,7 +7748,10 @@ var threadSummaryEnvironmentSectionModule,
     threadSummaryEnvironmentSectionModule = getChunkModuleExports();
     c();
     gn();
-    threadSummaryEnvironmentSectionReactRuntime = toEsModule(G(), 1);
+    threadSummaryEnvironmentSectionReactRuntime = toEsModule(
+      loadReactModule(),
+      1,
+    );
     Jn();
     d();
     Nl();
@@ -7753,7 +7773,7 @@ var threadSummaryEnvironmentSectionModule,
 function ThreadSummaryAutomationRow(props) {
   let { automation } = props,
     intl = ur(),
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     nextRunTooltip;
   {
     let nextRunLabel = ks({
@@ -8046,7 +8066,7 @@ var threadSummarySourceRowsModule,
   });
 function ThreadSummaryPanelRoot(props) {
   let { children, shouldHideInlineImmediately, shouldShow } = props,
-    animationsDisabled = W(reducedMotionPreferenceSignal),
+    animationsDisabled = useSignalValue(reducedMotionPreferenceSignal),
     invisibleClassName = shouldHideInlineImmediately && "invisible",
     motionContainerClassName = classNames(
       "pointer-events-none pe-4 max-h-full min-h-0 origin-top-right",
@@ -8132,7 +8152,7 @@ function ThreadSummaryPanelHeaderButton(props) {
   let { label, onClick, pressed, shortcut, ...rest } = props;
   let buttonColor = pressed ? "secondary" : "ghost",
     iconNode = <BackgroundTerminalIcon className="icon-sm" />;
-  let buttonNode = threadSummaryPanelJsxRuntime.jsx(k, {
+  let buttonNode = threadSummaryPanelJsxRuntime.jsx(Button, {
     size: "toolbar",
     color: buttonColor,
     "aria-label": label,
@@ -8303,24 +8323,30 @@ function ThreadSummaryPanelSections(props) {
       registerEnvironmentActionCommands,
       onOpenBackgroundAgent,
     } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     intl = ur(),
     isElectronRuntime = St() === sn,
-    hostConfig = W(ra),
+    hostConfig = useSignalValue(ra),
     conversationId =
       scope.value.routeKind === "local-thread"
         ? scope.value.conversationId
         : null,
     conversationTitle = useScopedValue(Zi, conversationId),
-    isBrowserSidebarEnabled = W(z),
+    isBrowserSidebarEnabled = useSignalValue(z),
     isBackgroundProcessTrackingEnabled = Vr("3264431617"),
-    isComputerUsePipAvailable = W(computerUsePictureInPictureAvailableSignal),
-    isComputerUsePipVisible = W(computerUsePictureInPictureVisibleSignal),
+    isComputerUsePipAvailable = useSignalValue(
+      computerUsePictureInPictureAvailableSignal,
+    ),
+    isComputerUsePipVisible = useSignalValue(
+      computerUsePictureInPictureVisibleSignal,
+    ),
     openFileMutation = qr("open-file"),
-    workspaceRouteState = W(oa),
+    workspaceRouteState = useSignalValue(oa),
     conversationMode = useScopedValue(er, conversationId),
-    { data: automationData } = W(Tl),
-    pendingBackgroundProcessRows = W(pendingBackgroundProcessRowsSignal),
+    { data: automationData } = useSignalValue(Tl),
+    pendingBackgroundProcessRows = useSignalValue(
+      pendingBackgroundProcessRowsSignal,
+    ),
     hasInlineBackgroundAgent = backgroundAgents.some(
       shouldShowInlineBackgroundAgent,
     );
@@ -8340,7 +8366,7 @@ function ThreadSummaryPanelSections(props) {
       chatProcessesQueryOptions,
     ),
     conversationWorkspaceRoot = useScopedValue(v, conversationId),
-    currentWorkspaceRoot = W(co),
+    currentWorkspaceRoot = useSignalValue(co),
     { data: threadWorkspaceRootHints } = Te(Xt.THREAD_WORKSPACE_ROOT_HINTS),
     isProjectlessConversation = conversationMode === "projectless",
     threadWorkspaceRootHint =
@@ -8353,7 +8379,9 @@ function ThreadSummaryPanelSections(props) {
     isGitWorkspace =
       !isProjectlessConversation && workspaceRouteState.kind === "git",
     resolvedWorkspaceCwd =
-      workspaceRouteState.cwd == null ? null : D(workspaceRouteState.cwd);
+      workspaceRouteState.cwd == null
+        ? null
+        : normalizeWorkspacePath(workspaceRouteState.cwd);
   let activeCwd = resolvedWorkspaceCwd,
     hasTrackedConversationProcesses =
       chatProcessesData?.processes.some(
@@ -8971,8 +8999,8 @@ export interface PinnedSummaryPanelLayoutStore {
 export function usePinnedSummaryPanelLayout(
   store: PinnedSummaryPanelLayoutStore,
 ): void {
-  let leftPanelSignal = W(Ga),
-    rightPanelSignal = W(Pa),
+  let leftPanelSignal = useSignalValue(Ga),
+    rightPanelSignal = useSignalValue(Pa),
     layoutContext = localConversationArtifactsReactRuntime.useContext(so),
     fallbackTargetWidthSignal = Xe(0),
     mainContentTargetWidthSignal =
@@ -9020,11 +9048,11 @@ function closePinnedSummaryPanelPopover(
     : state;
 }
 function usePinnedSummaryPanelDisplay(conversationId: unknown) {
-  let isPinned = W(Va),
-    leftPanelState = W(Ga),
-    rightPanelState = W(Pa),
-    pinnedPanelState = W(pinnedSummaryPanelState),
-    animationsDisabled = W(reducedMotionPreferenceSignal),
+  let isPinned = useSignalValue(Va),
+    leftPanelState = useSignalValue(Ga),
+    rightPanelState = useSignalValue(Pa),
+    pinnedPanelState = useSignalValue(pinnedSummaryPanelState),
+    animationsDisabled = useSignalValue(reducedMotionPreferenceSignal),
     layoutContext = localConversationArtifactsReactRuntime.useContext(so),
     fallbackTargetWidthSignal = Xe(0),
     mainContentTargetWidthSignal =
@@ -9159,7 +9187,7 @@ function setOrAnimatePinnedSummaryPanelContentShift(
 ) {
   return animationsDisabled
     ? (contentShiftSignal.set(nextContentShift), null)
-    : E(contentShiftSignal, nextContentShift, ji);
+    : animateSignalValue(contentShiftSignal, nextContentShift, ji);
 }
 
 var localConversationArtifactsModule,
@@ -9168,7 +9196,7 @@ var localConversationArtifactsModule,
     localConversationArtifactsModule = getChunkModuleExports();
     bt();
     c();
-    localConversationArtifactsReactRuntime = toEsModule(G(), 1);
+    localConversationArtifactsReactRuntime = toEsModule(loadReactModule(), 1);
     ua();
     Xa();
     Oe();
@@ -9219,7 +9247,8 @@ function collectOutputArtifactsForTurn(
 ) {
   let status = ei(turn.status),
     turnArtifacts = de(turn),
-    cwd = turn.params.cwd == null ? null : D(turn.params.cwd);
+    cwd =
+      turn.params.cwd == null ? null : normalizeWorkspacePath(turn.params.cwd);
   return collectOutputArtifactsFromTurnDetails({
     assistantContent:
       status === "complete" ? getLatestAgentMessageText(turn) : null,
@@ -9638,13 +9667,13 @@ var initLocalConversationSummaryPanelModelDependencies = once(() => {
 function useLocalConversationSummaryPanelModel(
   includeBackgroundActivity = true,
 ) {
-  let routeSnapshot = B(localConversationRouteScope),
+  let routeSnapshot = useScope(localConversationRouteScope),
     conversationId =
       routeSnapshot.value.routeKind === "local-thread"
         ? routeSnapshot.value.conversationId
         : null,
     browserSummaryConversationId = Ot(routeSnapshot);
-  let host = W(ra),
+  let host = useSignalValue(ra),
     turns = useScopedValue(I, conversationId) ?? EMPTY_SUMMARY_PANEL_TURNS,
     cwd = useScopedValue(Wn, conversationId),
     title = useScopedValue(Zi, conversationId),
@@ -9668,11 +9697,11 @@ function useLocalConversationSummaryPanelModel(
       localConversationSummaryArtifactsSignal,
       conversationId,
     ),
-    sideChats = W(localConversationSideChatSummariesSignal),
-    installedMcpAppIds = W(Vi),
-    isMultiBrowserTabsGateEnabled = W(re),
-    rightPanelTabs = W(ga.tabs$),
-    bottomPanelTabs = W(Ja.tabs$),
+    sideChats = useSignalValue(localConversationSideChatSummariesSignal),
+    installedMcpAppIds = useSignalValue(Vi),
+    isMultiBrowserTabsGateEnabled = useSignalValue(re),
+    rightPanelTabs = useSignalValue(ga.tabs$),
+    bottomPanelTabs = useSignalValue(Ja.tabs$),
     browserUseSummaries = useBrowserUseSummaries({
       blankTitle: ni,
       bottomPanelTabs,
@@ -9762,7 +9791,7 @@ function ConnectedLocalWorktreeRestoreBanner(props) {
 }
 function WorktreeRestoreBanner(props) {
   let { conversationId, cwd, threadHostId } = props,
-    scope = B(ut),
+    scope = useScope(ut),
     host = oe(threadHostId),
     hostKey = i(host);
   let worktreeQueryKey = hostKey,
@@ -9788,7 +9817,7 @@ function WorktreeRestoreBanner(props) {
           Bs,
           {
             conversationId,
-            cwd: D(cwd),
+            cwd: normalizeWorkspacePath(cwd),
             hostId: threadHostId,
           },
           {
@@ -9846,7 +9875,7 @@ function WorktreeRestoreBanner(props) {
     onSuccess: handleRestoreSuccess,
     onError: handleRestoreError,
   };
-  let restoreWorktreeMutation = w(
+  let restoreWorktreeMutation = useHostMutation(
     "restore-worktree",
     host,
     restoreMutationOptions,
@@ -9916,7 +9945,7 @@ function WorktreeRestoreBanner(props) {
   );
   let customCtas =
     isWorktreeStatusUnavailable && cwd != null
-      ? worktreeRestoreBannerJsxRuntime.jsx(k, {
+      ? worktreeRestoreBannerJsxRuntime.jsx(Button, {
           loading:
             checkWorktreeMutation.isPending || worktreeStatusQuery.isFetching,
           onClick: () => {
@@ -9931,7 +9960,7 @@ function WorktreeRestoreBanner(props) {
           ),
         })
       : worktreeStatus?.kind === "restorable"
-        ? worktreeRestoreBannerJsxRuntime.jsx(k, {
+        ? worktreeRestoreBannerJsxRuntime.jsx(Button, {
             color: "primary",
             loading: restoreWorktreeMutation.isPending,
             onClick: () => {
@@ -10132,7 +10161,7 @@ function ForkFromOlderTurnDialog(props) {
   );
   let cancelAction = (
     <At>
-      {olderTurnForkDialogJsxRuntime.jsx(k, {
+      {olderTurnForkDialogJsxRuntime.jsx(Button, {
         color: "secondary",
         disabled: isSubmitting,
         onClick: onClose,
@@ -10175,13 +10204,13 @@ function ForkFromOlderTurnDialogController({
   onForkIntoLocal,
   turnId,
 }) {
-  let scope = B(ut),
+  let scope = useScope(ut),
     intl = ur(),
     navigate = rt(),
     [isSubmitting, setIsSubmitting] =
       olderTurnForkDialogReactRuntime.useState(false),
     isWorktreeThread = isRecentLocalEnvironmentAction(
-      conversationCwd ? D(conversationCwd) : null,
+      conversationCwd ? normalizeWorkspacePath(conversationCwd) : null,
       hostId,
     ),
     { gitRoot } = ml(conversationCwd, {
@@ -10272,7 +10301,7 @@ var olderTurnForkDialogReactRuntime,
   initForkFromOlderTurnDialogControllerChunk = once(() => {
     c();
     gn();
-    olderTurnForkDialogReactRuntime = toEsModule(G(), 1);
+    olderTurnForkDialogReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
     xr();
     wn();
@@ -10306,7 +10335,7 @@ async function renderLocalConversationMarkdownForTurns({
       }),
   );
   if (a.length === 0) return null;
-  let { renderConversationMarkdown } = await u(
+  let { renderConversationMarkdown } = await preloadDynamicImport(
     async () => {
       let { renderConversationMarkdown: _renderConversationMarkdown } =
         await import(
@@ -10818,7 +10847,7 @@ var findLastModule,
   initThreadScrollStateSignal = once(() => {
     c();
     r();
-    threadScrollStateSignal = bn(ut, (_conversationId) => null);
+    threadScrollStateSignal = createScopedSignal(ut, (_conversationId) => null);
   });
 function createLatestTurnScrollState({ followMode = "static" } = {}) {
   return {
@@ -10955,7 +10984,7 @@ function LocalConversationTurnRow({ entry, latestTurnFollowContentRef }) {
     transcriptBlock,
     includeTranscriptTurnExtras,
   } = entry;
-  B(localConversationRouteScope);
+  useScope(localConversationRouteScope);
   let handleCollapsedChange = useStableCallback((collapsed) => {
       turnId != null && onSetCollapsedForTurn?.(turnId, collapsed);
     }),
@@ -11043,7 +11072,7 @@ function LocalConversationTurnErrorFallback(props) {
   return (
     <div className="rounded-lg border border-token-border bg-token-main-surface-primary px-4 py-3 text-sm text-token-text-secondary">
       {titleNode}
-      {localConversationTurnRowJsxRuntime.jsx(k, {
+      {localConversationTurnRowJsxRuntime.jsx(Button, {
         color: "secondary",
         size: "default",
         onClick: onRetry,
@@ -11058,7 +11087,7 @@ var localConversationTurnRowModule,
   initLocalConversationTurnRowChunk = once(() => {
     localConversationTurnRowModule = getChunkModuleExports();
     c();
-    localConversationTurnRowReactRuntime = toEsModule(G(), 1);
+    localConversationTurnRowReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
     Ye();
     Lo();
@@ -12138,7 +12167,7 @@ var virtualizedTurnListModule,
   initVirtualizedTurnListChunk = once(() => {
     virtualizedTurnListModule = getChunkModuleExports();
     Ut();
-    virtualizedTurnListReactRuntime = toEsModule(G(), 1);
+    virtualizedTurnListReactRuntime = toEsModule(loadReactModule(), 1);
     reactDomModule = toEsModule(_i(), 1);
     O();
     vl();
@@ -12166,7 +12195,7 @@ function LocalConversationAutoFollowVirtualizedTurnList({
   onVirtualizedTurnListRestoreStateChange,
   synchronouslyMeasureLatestTurnUpdates = false,
 }) {
-  let scope = B(ut),
+  let scope = useScope(ut),
     windowZoom = nr(),
     latestEntry = entries.at(-1),
     latestTurnKey = latestEntry?.turnKey ?? null,
@@ -12808,9 +12837,13 @@ function LocalConversationAutoFollowVirtualizedTurnList({
           latestTurnPlacementDistancePx,
           "instant",
         );
-        E(latestTurnOffsetY, 0, responseSpacerSpringTransition);
+        animateSignalValue(
+          latestTurnOffsetY,
+          0,
+          responseSpacerSpringTransition,
+        );
         currentSpacerHeightPx !== maxSpacerHeightPx &&
-          E(
+          animateSignalValue(
             responseSpacerHeightPx,
             maxSpacerHeightPx,
             responseSpacerSpringTransition,
@@ -13026,7 +13059,7 @@ var autoFollowVirtualizedTurnListModule,
     autoFollowVirtualizedTurnListModule = getChunkModuleExports();
     bt();
     c();
-    autoFollowTurnListReactRuntime = toEsModule(G(), 1);
+    autoFollowTurnListReactRuntime = toEsModule(loadReactModule(), 1);
     O();
     r();
     nd();
@@ -13573,7 +13606,7 @@ var localConversationConnectionStatusModule,
   });
 function useMarkConversationReadOnVisibility(conversationId, hasConversation) {
   let isUnread = useScopedValue(R, conversationId) ?? false,
-    isWindowVisible = W(xo),
+    isWindowVisible = useSignalValue(xo),
     conversationReadMarker = useScopedValue($t, conversationId),
     conversationReadState = useScopedValue(we, conversationId),
     lastMarkedConversationIdRef = _S.useRef(null),
@@ -13625,17 +13658,17 @@ var markConversationReadEffectModule,
   initMarkConversationReadEffect = once(() => {
     markConversationReadEffectModule = getChunkModuleExports();
     c();
-    _S = toEsModule(G(), 1);
+    _S = toEsModule(loadReactModule(), 1);
     nt();
     pn();
     bo();
     _n();
   });
 function useResumeLocalConversation(conversationId) {
-  let scope = B(ut),
+  let scope = useScope(ut),
     intl = ur(),
     { activeMode } = Us(conversationId),
-    { data } = W(gt),
+    { data } = useSignalValue(gt),
     workspaceRoots = data?.roots,
     shouldResumeConversation = useScopedValue(Ir, conversationId);
   useScopedValue(En, conversationId);
@@ -13834,7 +13867,7 @@ var localConversationThreadRouteReactRuntime,
   initLocalConversationThreadRoute = once(() => {
     c();
     gn();
-    localConversationThreadRouteReactRuntime = toEsModule(G(), 1);
+    localConversationThreadRouteReactRuntime = toEsModule(loadReactModule(), 1);
     Jn();
     nt();
     pn();
@@ -13903,7 +13936,7 @@ export function LocalConversationThread(props: LocalConversationThreadProps) {
 }
 function LocalConversationSideChatThread(props) {
   let { conversationId, lockedCollaborationMode, target } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     hasConversation = useScopedValue(Mt, conversationId),
     isExpiredSideChat = useScopedValue(V, conversationId),
     hostId = useScopedValue(En, conversationId),
@@ -13963,7 +13996,7 @@ function ExpiredSideChatState(props) {
       sourceConversationId,
       target,
     } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     intl = ur(),
     sourceCwd = useScopedValue(Wn, sourceConversationId),
     sourceHostId = useScopedValue(En, sourceConversationId),
@@ -14021,7 +14054,7 @@ function ExpiredSideChatState(props) {
     actionButton =
       sourceConversationId == null
         ? null
-        : localConversationThreadJsxRuntime.jsx(k, {
+        : localConversationThreadJsxRuntime.jsx(Button, {
             loading: isRecreatingSideChat,
             onClick: recreateSideChat,
             children: (
@@ -14051,7 +14084,7 @@ function ExpiredSideChatState(props) {
 }
 function LocalConversationMainThread(props) {
   let { conversationId } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     hasConversation = useScopedValue(Mt, conversationId),
     hostId = useScopedValue(En, conversationId),
     isBackgroundSubagentsEnabled = ns(),
@@ -14082,7 +14115,7 @@ export function LocalConversationSummaryThread(
   props: LocalConversationSummaryThreadProps,
 ) {
   let { conversationId, header, onOpenBackgroundAgent } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     hasConversation = useScopedValue(Mt, conversationId),
     hostId = useScopedValue(En, conversationId),
     isBackgroundSubagentsEnabled = ns(),
@@ -14120,9 +14153,9 @@ function LocalConversationThreadRoute(props) {
       lockedCollaborationMode,
       onOpenBackgroundAgent,
     } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     isBackgroundSubagentsEnabled = ns(),
-    { data } = W(launcherHotkeyStateQuery),
+    { data } = useSignalValue(launcherHotkeyStateQuery),
     hasConfiguredLauncherHotkey = data == null || data.configuredHotkey != null,
     launcherFallbackPath = it(hasConfiguredLauncherHotkey),
     hasConversation = useScopedValue(Mt, conversationId),
@@ -14134,7 +14167,7 @@ function LocalConversationThreadRoute(props) {
     hostId,
   };
   Ti(resolvedAppsQueryOptions);
-  let isRightPanelFullWidth = W(go),
+  let isRightPanelFullWidth = useSignalValue(go),
     hideThreadContent = shouldUseFullWidthRightPanelForRoute({
       conversationId,
       isRightPanelFullWidth,
@@ -14321,7 +14354,7 @@ function SummaryPanelErrorFallback(props) {
             style={panelStyle}
           >
             {title}
-            {localConversationThreadJsxRuntime.jsx(k, {
+            {localConversationThreadJsxRuntime.jsx(Button, {
               color: "secondary",
               size: "default",
               onClick: onRetry,
@@ -14335,7 +14368,7 @@ function SummaryPanelErrorFallback(props) {
 }
 function ChromeExtensionConversationHeader(props) {
   let { conversationId } = props,
-    scope = B(ut),
+    scope = useScope(ut),
     isBackgroundSubagentsEnabled = ns(),
     parentConversationId = useScopedValue(oi, conversationId),
     backgroundAgentSnapshot = useScopedValue(Un, conversationId),
@@ -14450,7 +14483,7 @@ function LocalConversationThreadFrame(props) {
       showComposer = true,
       showExternalFooter,
     } = props,
-    scope = B(localConversationRouteScope),
+    scope = useScope(localConversationRouteScope),
     isConversationHistoryComplete = useScopedValue(Ue, conversationId) ?? true,
     visibleSubagentParentThreadId = useScopedValue(oi, conversationId),
     isScrollToTopEnabled = Vr("1579719221"),
@@ -14603,7 +14636,7 @@ function LocalConversationThreadFrame(props) {
   let threadLayoutContainerRef = useStableCallback(
       handleThreadLayoutContainerRef,
     ),
-    hasLiveMcpAppFrame = W(Fa),
+    hasLiveMcpAppFrame = useSignalValue(Fa),
     shouldMountSummaryPanelObstacles =
       shouldShowSummaryPanelObstacles && hasConversation && !hideThreadContent,
     handleOpenBackgroundAgent = (backgroundAgent) => {
@@ -14770,7 +14803,7 @@ function LocalConversationComposerFooter({
   lockedCollaborationMode,
   isScrollToTopEnabled,
 }) {
-  let scope = B(localConversationRouteScope);
+  let scope = useScope(localConversationRouteScope);
   localConversationThreadReactRuntime.useContext(rl);
   ci();
   let hostConnectionStatus = useScopedValue(Qr, hostId),
@@ -14915,7 +14948,7 @@ function LocalConversationThreadContent({
   showInProgressFixedContent,
   isScrollToTopEnabled,
 }) {
-  let scope = B(localConversationRouteScope),
+  let scope = useScope(localConversationRouteScope),
     navigate = rt(),
     isAppgenEndCardEnabled = Vo(),
     hasConversation = useScopedValue(Mt, conversationId),
@@ -14981,7 +15014,7 @@ function LocalConversationThreadContent({
       conversationId,
       hostId,
     }),
-    resolvedCwd = cwd ? D(cwd) : null,
+    resolvedCwd = cwd ? normalizeWorkspacePath(cwd) : null,
     collapsedTurnsById = localConversationThreadReactRuntime.useMemo(
       () => collapsedTurnsByConversationId[conversationId] ?? {},
       [collapsedTurnsByConversationId, conversationId],
@@ -15014,7 +15047,7 @@ function LocalConversationThreadContent({
   hasConversationRef.current = hasConversation;
   conversationTurnsRef.current = conversationTurns;
   isBackgroundSubagentsEnabledRef.current = isBackgroundSubagentsEnabled;
-  let diffSource = W(Ya),
+  let diffSource = useSignalValue(Ya),
     routeContextId =
       conversationId == null ? "unavailable" : `conversation:${conversationId}`;
   useReviewSearchHighlights({
@@ -15429,7 +15462,7 @@ export const initLocalConversationThreadChunk = once(() => {
   toEsModule(gi(), 1);
   c();
   gn();
-  localConversationThreadReactRuntime = toEsModule(G(), 1);
+  localConversationThreadReactRuntime = toEsModule(loadReactModule(), 1);
   Jn();
   xr();
   gc();
