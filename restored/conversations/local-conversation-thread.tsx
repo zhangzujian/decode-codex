@@ -69,11 +69,9 @@ import {
   initLocalConversationGitSummary as isRenderableConversationTurn,
   Nh as initGitBranchQueryRuntime,
   Nj as initReverseScrollUtilities,
-  Np as conversationHistoryCompleteSignal,
   Nv as initConversationArtifactRuntime,
   ON as initButtonComponentPrimitives,
   OP as createMotionSignal,
-  OV as createAtomSignal,
   O_ as initConversationRouteSourceHelpers,
   Oi as $e,
   Op as initConversationStateSelectors,
@@ -83,7 +81,6 @@ import {
   PO as at,
   P_ as getLocalThreadConversationIdFromRoute,
   Pi as openScopedModal,
-  Pp as responseInProgressSignal,
   QP as appScope,
   R as initSlashIcon,
   Rj as _t,
@@ -114,7 +111,6 @@ import {
   XN as createQueryKey,
   XR as GLOBAL_STATE_KEYS,
   Xi as MenuSeparator,
-  Xj as useStatsigLayer,
   YO as initPullRequestReviewCommentHelpers,
   Ya as initCheckCircleFilledIcon,
   ZN as createHostQuerySignal,
@@ -140,12 +136,10 @@ import {
   eM as featureGateSignal,
   eP as useHostQuery,
   ea as SearchIcon,
-  ed as useConversationHostApi,
   eg as Fn,
   en as ExternalLinkIcon,
   fV as createScopedSignalFamily,
   fh as initGitActionDirectiveRuntime,
-  fp as completedThreadGoalSignal,
   fu as initTaskWorkspaceQueryRuntime,
   gi as initPopoverPrimitives,
   gp as conversationCwdSignal,
@@ -153,7 +147,6 @@ import {
   hi as PopoverTrigger,
   hs as initLocalImageInliningHelpers,
   iF as initIntlRuntime,
-  ic as useConversationAgentMode,
   jM as $n,
   jm as conversationModeSignal,
   ju as useOsInfo,
@@ -166,13 +159,11 @@ import {
   lD as lr,
   lF as useIntl,
   lL as LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,
-  lm as conversationResumeStateSignal,
   mM as TooltipProvider,
   mP as logger,
   mi as _r,
   mo as initGitHubIcon,
   mv as xr,
-  nm as projectlessOutputDirectorySignal,
   oM as initRefreshIcon,
   oP as initQueryDurationConstants,
   ok as sendAppServerRequest,
@@ -230,7 +221,6 @@ import {
   Kl as conversationTitleSignal,
   Mr as Qi,
   Od as $i,
-  P as na,
   Rl as hostConfigSignal,
   Rr as ia,
   Sa as aa,
@@ -247,11 +237,9 @@ import {
   ba as Ca,
   bc as wa,
   cn as Ea,
-  cs as Da,
   d as Oa,
   gi as ka,
   hc as ja,
-  ho as Ma,
   js as environmentTerminalControllerSignal,
   kc as diffStatsSignal,
   kn as Ra,
@@ -261,19 +249,16 @@ import {
   nu as Ka,
   pi as pullRequestStatusQuerySignal,
   ql as bottomPanelTabsStore,
-  qo as diffSourceSignal,
   sd as Xa,
   tc as Za,
   ts as Qa,
   tu as $a,
   u as eo,
-  un as to,
   vc as no,
   vd as ro,
   vi as io,
   wl as currentWorkspaceRootSignal,
   wo as lo,
-  x as fo,
   xl as po,
   yc as ho,
   yd as rightPanelFullWidthSignal,
@@ -282,7 +267,6 @@ import {
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import {
   dn as So,
-  fn as Co,
   jn as wo,
   kn as To,
 } from "../boundaries/current-ref/automations-page-producer";
@@ -293,9 +277,7 @@ import {
   Gt as Po,
   H as Fo,
   Ja as Lo,
-  Kt as zo,
   Ma as Bo,
-  Na as Vo,
   Oi as Uo,
   Ot as Wo,
   Q as CommentBubbleIcon,
@@ -336,13 +318,10 @@ import {
   Jn as Ls,
   Km as zs,
   Ln as Bs,
-  Mt as Hs,
   Nl as Ws,
   No as Gs,
-  Nt as Ks,
   Pl as Js,
   Po as Ys,
-  Pt as Xs,
   Qc as Zs,
   Ql as Qs,
   Qn as $s,
@@ -361,7 +340,6 @@ import {
   au as hc,
   cc as gc,
   cs as backgroundAgentsSignal,
-  ct as vc,
   er as bc,
   eu as xc,
   fl as Sc,
@@ -625,31 +603,20 @@ import {
   useReviewSearchHighlights,
 } from "./local-conversation-thread-parts/review-search-highlights";
 import {
-  buildThreadFindItemsForVisibleTurns,
-  initThreadFindItemsBuilder,
-} from "./local-conversation-thread-parts/thread-find-items";
-import {
   initLocalConversationThreadFrameChunk,
   LocalConversationThreadFrame,
   openBackgroundAgentFromThread,
 } from "./local-conversation-thread-parts/local-conversation-thread-frame";
 import {
-  initLocalConversationAppShellSourceRegistrationChunk,
-  LocalConversationAppShellSourceRegistration,
-} from "./local-conversation-thread-parts/local-conversation-app-shell-source-registration";
-import {
-  ForkFromOlderTurnDialogController,
-  initForkFromOlderTurnDialogControllerChunk,
-} from "./local-conversation-thread-parts/local-conversation-fork-dialog";
+  initLocalConversationThreadContentChunk,
+  LocalConversationThreadContentCore,
+} from "./local-conversation-thread-parts/local-conversation-thread-content";
 import {
   createLocalConversationSearchAdapter,
   initConversationSearchHelpers,
   initLocalConversationSearchAdapterChunk,
 } from "./local-conversation-thread-parts/local-conversation-search";
-import {
-  createLocalConversationSearchSource,
-  initConversationSearchUnitExtractor,
-} from "./local-conversation-thread-parts/local-conversation-search-source";
+import { initConversationSearchUnitExtractor } from "./local-conversation-thread-parts/local-conversation-search-source";
 import {
   initMarkConversationReadEffect,
   useMarkConversationReadOnVisibility,
@@ -659,10 +626,7 @@ import {
   useResumeLocalConversation,
 } from "./local-conversation-thread-parts/local-conversation-resume";
 import {
-  getConversationNavigationPath,
   initLocalConversationNavigationHelpers,
-  shouldShowEmptyResumingThreadState,
-  turnHasMcpAppResource,
   useMissingLocalConversationRedirect,
 } from "./local-conversation-thread-parts/local-conversation-navigation";
 import { initVisibleTurnGeneratedImagesCollector } from "./local-conversation-thread-parts/visible-turn-generated-images";
@@ -710,7 +674,6 @@ import {
   buildLocalConversationVisibleTurnEntries,
   initLocalConversationVisibleTurnEntriesBuilder,
 } from "./local-conversation-thread-parts/local-conversation-visible-turn-entries";
-import { buildLocalConversationTurnListEntries } from "./local-conversation-thread-parts/local-conversation-turn-list-entries";
 import {
   initSummaryPanelExpandableList,
   SummaryPanelExpandableList,
@@ -7094,25 +7057,6 @@ var worktreeRestoreBannerModule,
     Ys();
     worktreeRestoreBannerJsxRuntime = getJsxRuntime();
   });
-function findCompletedTurnSearchKeyAtOrBefore(visibleTurnEntries, timestampMs) {
-  for (
-    let entryIndex = visibleTurnEntries.length - 1;
-    entryIndex >= 0;
-    --entryIndex
-  ) {
-    let visibleTurnEntry = visibleTurnEntries[entryIndex];
-    if (
-      !(
-        visibleTurnEntry.turn.turnStartedAtMs != null &&
-        visibleTurnEntry.turn.turnStartedAtMs > timestampMs
-      )
-    )
-      return visibleTurnEntry.turn.status === "completed"
-        ? visibleTurnEntry.turnSearchKey
-        : null;
-  }
-  return null;
-}
 var deepEqualModule,
   initDeepEqualModule = once(() => {
     deepEqualModule = toEsModule(loadIsEqualModule(), 1);
@@ -9478,545 +9422,27 @@ function LocalConversationThreadRoute(props) {
     />
   );
 }
-function LocalConversationThreadContent({
-  conversationId,
-  isReadOnly,
-  initialScrollOffset,
-  initialVirtualizedTurnListRestoreState,
-  isResuming,
-  isBackgroundSubagentsEnabled,
-  consumePendingLatestTurnSubmitPlacement,
-  onVisibleThreadContentReady,
-  onResponseSpacerStateChange,
-  onVirtualizedTurnListRestoreStateChange,
-  showInProgressFixedContent,
-  isScrollToTopEnabled,
-}) {
-  let scope = useScope(localConversationRouteScope),
-    navigate = useNavigate(),
-    isAppgenEndCardEnabled = Vo(),
-    hasConversation = useScopedValue(hasConversationSignal, conversationId),
-    modelProvider = useScopedValue(modelProviderSignal, conversationId),
-    cwd = useScopedValue(conversationCwdSignal, conversationId),
-    hostId = useScopedValue(conversationHostIdSignal, conversationId),
-    conversationResumeState =
-      useScopedValue(conversationResumeStateSignal, conversationId) ??
-      "needs_resume",
-    isConversationHistoryComplete =
-      useScopedValue(conversationHistoryCompleteSignal, conversationId) ??
-      false,
-    isResponseInProgress = useScopedValue(
-      responseInProgressSignal,
-      conversationId,
-    ),
-    completedThreadGoal = useScopedValue(
-      completedThreadGoalSignal,
-      conversationId,
-    ),
-    isProjectlessConversation =
-      useScopedValue(conversationModeSignal, conversationId) === "projectless",
-    projectlessOutputDirectory = useScopedValue(
-      projectlessOutputDirectorySignal,
-      conversationId,
-    ),
-    collaborationMode = useScopedValue(
-      conversationCollaborationModeSignal,
-      conversationId,
-    ),
-    {
-      conversationTurns,
-      hasInheritedParentTurns,
-      hasRenderableTurns,
-      hasUserMessage,
-      latestVisibleTurnId,
-      visibleTurnEntries,
-    } = useScopedValue(localConversationVisibleTurnEntriesSignal, {
-      conversationId,
-      isBackgroundSubagentsEnabled,
-    });
-  visibleTurnEntries.at(-1)?.turn;
-  let completedThreadGoalTurnKey =
-      completedThreadGoal == null
-        ? null
-        : findCompletedTurnSearchKeyAtOrBefore(
-            visibleTurnEntries,
-            completedThreadGoal.updatedAt * 1e3,
-          ),
-    conversationHostApi = useConversationHostApi(conversationId),
-    { data: resolvedApps = EMPTY_RESOLVED_APPS } = useAppsQuery({
-      hostId,
-    }),
-    renderMcpApps = useStatsigLayer("2138468235").get("enable_mcp_apps", false),
-    subagentParentThreadId = useScopedValue(
-      subagentParentThreadIdSignal,
-      conversationId,
-    ),
-    visibleSubagentParentThreadId = isBackgroundSubagentsEnabled
-      ? subagentParentThreadId
-      : null,
-    [collapsedTurnsByConversationId, setCollapsedTurnsByConversationId] =
-      useSignalState(collapsedTurnsByConversationSignal),
-    { items, markRead } = Co(),
-    matchingAutomationItem = hasConversation
-      ? (items.find((item) => item.threadId === conversationId) ?? null)
-      : null,
-    automationDescription = matchingAutomationItem?.description ?? null,
-    shouldShowAutomationDescription =
-      matchingAutomationItem?.automationId != null &&
-      automationDescription != null &&
-      automationDescription.trim().length > 0;
-  localConversationThreadReactRuntime.useEffect(() => {
-    matchingAutomationItem?.id == null ||
-      matchingAutomationItem.readAt != null ||
-      markRead(matchingAutomationItem.id);
-  }, [matchingAutomationItem?.id, matchingAutomationItem?.readAt, markRead]);
-  let intl = useIntl(),
-    { agentMode } = useConversationAgentMode({
-      conversationId,
-      hostId,
-    }),
-    resolvedCwd = cwd ? normalizeWorkspacePath(cwd) : null,
-    collapsedTurnsById = localConversationThreadReactRuntime.useMemo(
-      () => collapsedTurnsByConversationId[conversationId] ?? {},
-      [collapsedTurnsByConversationId, conversationId],
-    ),
-    lastLatestVisibleTurnIdRef =
-      localConversationThreadReactRuntime.useRef(null),
-    currentConversationIdRef =
-      localConversationThreadReactRuntime.useRef(conversationId),
-    previousTurnEntriesRef = localConversationThreadReactRuntime.useRef([]),
-    contentContainerRef = localConversationThreadReactRuntime.useRef(null),
-    virtualizedTurnListApiRef =
-      localConversationThreadReactRuntime.useRef(null);
-  currentConversationIdRef.current !== conversationId &&
-    ((currentConversationIdRef.current = conversationId),
-    (lastLatestVisibleTurnIdRef.current = null));
-  let canEditLastTurnMessage = hasConversation && !isResponseInProgress,
-    isSubagentThread = visibleSubagentParentThreadId != null,
-    showEmptyResumingState = shouldShowEmptyResumingThreadState({
-      conversationTurns,
-      hasRenderableTurns,
-      isResuming,
-      isSubagentThread,
-    }),
-    hasConversationRef =
-      localConversationThreadReactRuntime.useRef(hasConversation),
-    conversationTurnsRef =
-      localConversationThreadReactRuntime.useRef(conversationTurns),
-    isBackgroundSubagentsEnabledRef =
-      localConversationThreadReactRuntime.useRef(isBackgroundSubagentsEnabled);
-  hasConversationRef.current = hasConversation;
-  conversationTurnsRef.current = conversationTurns;
-  isBackgroundSubagentsEnabledRef.current = isBackgroundSubagentsEnabled;
-  let diffSource = useSignalValue(diffSourceSignal),
-    routeContextId =
-      conversationId == null ? "unavailable" : `conversation:${conversationId}`;
-  useReviewSearchHighlights({
-    containerRef: contentContainerRef,
-    contextId: routeContextId,
-  });
-  let handleCopyCapture = useStableCallback((event) => {
-      let containerElement = contentContainerRef.current;
-      containerElement != null && zo(event, containerElement);
-    }),
-    setContentContainerRef = localConversationThreadReactRuntime.useCallback(
-      (nextContainer) => {
-        let previousContainer = contentContainerRef.current;
-        previousContainer !== nextContainer &&
-          (previousContainer?.ownerDocument.removeEventListener(
-            "copy",
-            handleCopyCapture,
-            true,
-          ),
-          (contentContainerRef.current = nextContainer),
-          nextContainer?.ownerDocument.addEventListener(
-            "copy",
-            handleCopyCapture,
-            true,
-          ));
-      },
-      [handleCopyCapture],
-    ),
-    editLastTurnMessage = useStableCallback(async (turnEntry, message) => {
-      try {
-        await sendAppServerRequest("edit-last-user-turn-for-host", {
-          hostId: conversationHostApi.getHostId(),
-          conversationId,
-          turnId: turnEntry.turnId,
-          message,
-          agentMode,
-          serviceTier: await Ma(
-            scope,
-            conversationHostApi.getHostId(),
-            turnEntry.params.model ?? null,
-          ),
-        });
-      } catch (error) {
-        throw (
-          scope.get(toastSignal).danger(
-            intl.formatMessage({
-              id: "localConversation.editLastMessageFailed",
-              defaultMessage: "Failed to edit message",
-              description:
-                "Toast shown when editing the previous user message fails",
-            }),
-          ),
-          error
-        );
+function LocalConversationThreadContent(props) {
+  return (
+    <LocalConversationThreadContentCore
+      {...props}
+      AutomationDescriptionComponent={Rc}
+      AutoFollowVirtualizedTurnListComponent={
+        LocalConversationAutoFollowVirtualizedTurnList
       }
-    }),
-    forkConversationFromTurn = useStableCallback(async (targetTurnId) => {
-      if (hasConversation)
-        try {
-          let forkedConversationId = await sendAppServerRequest(
-            "fork-conversation-from-turn",
-            {
-              conversationId,
-              targetTurnId,
-              cwd,
-              workspaceRoots: cwd == null ? undefined : [cwd],
-              collaborationMode,
-            },
-          );
-          na(scope, {
-            sourceConversationId: conversationId,
-            targetConversationId: forkedConversationId,
-          });
-          navigate(getConversationNavigationPath(forkedConversationId), {
-            state: {
-              focusComposerNonce: Date.now(),
-            },
-          });
-        } catch (error) {
-          throw (
-            logger.error("Error forking conversation from turn", {
-              safe: {},
-              sensitive: {
-                error,
-              },
-            }),
-            scope
-              .get(toastSignal)
-              .danger(intl.formatMessage(fo.forkThreadError)),
-            error
-          );
-        }
-    }),
-    handleForkTurnMessage = useStableCallback((turnEntry) => {
-      if (!hasConversation || turnEntry.turnId == null) return;
-      if (turnEntry.turnId === latestVisibleTurnId) {
-        forkConversationFromTurn(turnEntry.turnId);
-        return;
+      EmptyStateComponent={Os}
+      TurnRowComponent={LocalConversationTurnRow}
+      VirtualizedTurnListComponent={VirtualizedTurnList}
+      localConversationVisibleTurnEntriesSignal={
+        localConversationVisibleTurnEntriesSignal
       }
-      let turnIdForFork = turnEntry.turnId;
-      openScopedModal(scope, ForkFromOlderTurnDialogController, {
-        conversationCwd: cwd,
-        conversationId,
-        conversationLatestCollaborationMode: collaborationMode,
-        hostId,
-        onForkIntoLocal: () => forkConversationFromTurn(turnIdForFork),
-        turnId: turnIdForFork,
-      });
-    }),
-    setTurnCollapsed = useStableCallback((turnId, collapsed) => {
-      setCollapsedTurnsByConversationId((currentCollapsedTurns) =>
-        vc({
-          current: currentCollapsedTurns,
-          conversationId,
-          turnId,
-          collapsed,
-        }),
-      );
-    }),
-    turnListEntries = buildLocalConversationTurnListEntries({
-      collapsedTurnsById,
-      completedThreadGoal,
-      completedThreadGoalTurnKey,
-      conversationId,
-      cwd: resolvedCwd,
-      hasInheritedParentTurns,
-      hostId,
-      isBackgroundSubagentsEnabled,
-      isProjectlessConversation,
-      isReadOnly,
-      modelProvider,
-      projectlessOutputDirectory,
-      onEditLastTurnMessage:
-        !isReadOnly && canEditLastTurnMessage ? editLastTurnMessage : undefined,
-      onForkTurnMessage:
-        !isReadOnly && hasConversation ? handleForkTurnMessage : undefined,
-      onSetCollapsedForTurn: setTurnCollapsed,
-      previousEntries: previousTurnEntriesRef.current,
-      renderMcpApps,
-      resolvedApps,
-      showInProgressFixedContent,
-      visibleSubagentParentThreadId,
-      visibleTurnEntries,
-    });
-  previousTurnEntriesRef.current = turnListEntries;
-  let turnKeyBySearchKey = localConversationThreadReactRuntime.useMemo(() => {
-      let turnKeyMap = new Map();
-      for (let entry of turnListEntries)
-        turnKeyMap.has(entry.turnSearchKey) ||
-          turnKeyMap.set(entry.turnSearchKey, entry.turnKey);
-      return turnKeyMap;
-    }, [turnListEntries]),
-    searchScrollAdapter = localConversationThreadReactRuntime.useMemo(
-      () => ({
-        scrollToTurn: async (turnKey, options) => {
-          if (
-            options?.signal?.aborted ||
-            (collapsedTurnsById[turnKey] === true &&
-              setCollapsedTurnsByConversationId((currentCollapsedTurns) =>
-                vc({
-                  current: currentCollapsedTurns,
-                  conversationId,
-                  turnId: turnKey,
-                  collapsed: false,
-                }),
-              ),
-            await to(),
-            options?.signal?.aborted)
-          )
-            return;
-          let virtualizedTurnListApi = virtualizedTurnListApiRef.current;
-          if (virtualizedTurnListApi == null)
-            throw Error(
-              "Local conversation search scroll requested before VirtualizedTurnList API was ready",
-            );
-          await virtualizedTurnListApi.scrollToKey(
-            turnKeyBySearchKey.get(turnKey) ?? turnKey,
-          );
-          !options?.signal?.aborted && (await to());
-        },
-        getTurnContainer: (turnSearchKey) => {
-          let containerElement = contentContainerRef.current;
-          return containerElement == null
-            ? null
-            : (containerElement.querySelector(
-                `[data-content-search-turn-key="${turnSearchKey}"]`,
-              ) ?? null);
-        },
-      }),
-      [
-        collapsedTurnsById,
-        conversationId,
-        turnKeyBySearchKey,
-        setCollapsedTurnsByConversationId,
-      ],
-    ),
-    conversationSource = localConversationThreadReactRuntime.useMemo(
-      () =>
-        createLocalConversationSearchSource({
-          getConversationState: () =>
-            hasConversationRef.current
-              ? {
-                  turns: conversationTurnsRef.current,
-                }
-              : null,
-          getIsBackgroundSubagentsEnabled: () =>
-            isBackgroundSubagentsEnabledRef.current,
-          routeContextId,
-          scrollAdapter: searchScrollAdapter,
-        }),
-      [searchScrollAdapter, routeContextId],
-    ),
-    getThreadFindItems = () =>
-      buildThreadFindItemsForVisibleTurns({
-        isConversationHistoryComplete,
-        isAppgenEndCardEnabled,
-        isBackgroundSubagentsEnabled,
-        modelProvider,
-        projectlessOutputDirectory,
-        visibleTurnEntries,
-      }),
-    revealThreadFindItem = useStableCallback(
-      async ({ id: contentUnitId, turnKey }) => {
-        let virtualizedTurnListApi = virtualizedTurnListApiRef.current;
-        if (virtualizedTurnListApi == null)
-          throw Error(
-            "Local conversation prompt rail scroll requested before VirtualizedTurnList API was ready",
-          );
-        await virtualizedTurnListApi.scrollToKey(
-          turnKeyBySearchKey.get(turnKey) ?? turnKey,
-          (turnContainer) => {
-            for (let contentUnit of turnContainer.querySelectorAll(
-              "[data-content-search-unit-key]",
-            ))
-              if (contentUnit.dataset.contentSearchUnitKey === contentUnitId)
-                return contentUnit;
-            return null;
-          },
-        );
-      },
-    ),
-    revealContentSearchItem = useStableCallback(
-      async ({ conversationId: _conversationId, itemId, turnKey }) => {
-        _conversationId === conversationId &&
-          (Ks(itemId, "smooth") ||
-            (setCollapsedTurnsByConversationId((currentCollapsedTurns) =>
-              vc({
-                current: currentCollapsedTurns,
-                conversationId,
-                turnId: turnKey,
-                collapsed: false,
-              }),
-            ),
-            await to(),
-            !Ks(itemId, "smooth") &&
-              (await searchScrollAdapter.scrollToTurn(turnKey),
-              await Xs(itemId, "auto"))));
-      },
-    );
-  localConversationThreadReactRuntime.useEffect(
-    () =>
-      Hs(scope, conversationId, {
-        revealItem: revealContentSearchItem,
-      }),
-    [conversationId, revealContentSearchItem, scope],
-  );
-  localConversationThreadReactRuntime.useEffect(() => {
-    let previousLatestVisibleTurnId = lastLatestVisibleTurnIdRef.current,
-      previousLatestVisibleEntry = visibleTurnEntries.find(
-        (item) => item.turnId === previousLatestVisibleTurnId,
-      ),
-      turnIdsToCollapse = new Set();
-    previousLatestVisibleTurnId != null &&
-      previousLatestVisibleTurnId !== latestVisibleTurnId &&
-      !turnHasMcpAppResource(previousLatestVisibleEntry) &&
-      turnIdsToCollapse.add(previousLatestVisibleTurnId);
-    let fourthFromLatestEntry = visibleTurnEntries.at(-4);
-    previousLatestVisibleTurnId != null &&
-      previousLatestVisibleTurnId !== latestVisibleTurnId &&
-      fourthFromLatestEntry?.turnId != null &&
-      turnHasMcpAppResource(fourthFromLatestEntry) &&
-      turnIdsToCollapse.add(fourthFromLatestEntry.turnId);
-    turnIdsToCollapse.size > 0 &&
-      setCollapsedTurnsByConversationId((currentCollapsedTurns) => {
-        let nextCollapsedTurns = currentCollapsedTurns;
-        for (let turnId of turnIdsToCollapse)
-          nextCollapsedTurns = vc({
-            current: nextCollapsedTurns,
-            conversationId,
-            turnId,
-            collapsed: true,
-          });
-        return nextCollapsedTurns;
-      });
-    lastLatestVisibleTurnIdRef.current = latestVisibleTurnId;
-  }, [
-    conversationId,
-    latestVisibleTurnId,
-    setCollapsedTurnsByConversationId,
-    visibleTurnEntries,
-  ]);
-  let notifyVisibleContentReady = useStableCallback(() => {
-      setTimeout(() => {
-        onVisibleThreadContentReady?.(conversationTurns.length);
-      });
-    }),
-    handleVirtualizedTurnListApiChange = useStableCallback(
-      (virtualizedTurnListApi) => {
-        virtualizedTurnListApiRef.current = virtualizedTurnListApi;
-      },
-    ),
-    visibleContentReadyHandler =
-      conversationResumeState === "resumed" &&
-      onVisibleThreadContentReady != null
-        ? notifyVisibleContentReady
-        : undefined;
-  return hasConversation ? (
-    isSubagentThread && !hasRenderableTurns ? (
-      <Os fillParent={true} debugName="LocalConversationThread.subagentTurns" />
-    ) : showEmptyResumingState ? (
-      <Os
-        fillParent={true}
-        showLogo={false}
-        debugName="LocalConversationThread.resume"
-      />
-    ) : (
-      <>
-        <LocalConversationAppShellSourceRegistration
-          conversationId={conversationId}
-          conversationSource={conversationSource}
-          diffSource={diffSource}
-          routeScopeValue={scope.value}
-        />
-        {localConversationThreadJsxRuntime.jsxs(motion.div, {
-          ref: setContentContainerRef,
-          "data-thread-find-target": "conversation",
-          className:
-            "relative flex flex-col gap-3 electron:[--color-token-description-foreground:color-mix(in_srgb,var(--color-token-foreground)_70%,transparent)]",
-          onMouseDownCapture: () => {
-            Da(scope, "conversation", conversationSource.contextId);
-          },
-          onFocusCapture: () => {
-            Da(scope, "conversation", conversationSource.contextId);
-          },
-          children: [
-            <ThreadFindNavigationRail
-              enabled={isConversationHistoryComplete}
-              getItems={getThreadFindItems}
-              onRevealItem={revealThreadFindItem}
-            />,
-            !hasUserMessage && shouldShowAutomationDescription ? (
-              <Rc
-                message={automationDescription ?? ""}
-                sentAtMs={null}
-                hostId={hostId}
-              />
-            ) : null,
-            isScrollToTopEnabled ? (
-              <LocalConversationAutoFollowVirtualizedTurnList
-                key={conversationId}
-                conversationId={conversationId}
-                entries={turnListEntries}
-                initialScrollOffset={initialScrollOffset}
-                initialVirtualizedTurnListRestoreState={
-                  initialVirtualizedTurnListRestoreState
-                }
-                consumePendingLatestTurnSubmitPlacement={
-                  consumePendingLatestTurnSubmitPlacement
-                }
-                onResponseSpacerStateChange={onResponseSpacerStateChange}
-                onApiChange={handleVirtualizedTurnListApiChange}
-                onVisibleContentReady={visibleContentReadyHandler}
-                onVirtualizedTurnListRestoreStateChange={
-                  onVirtualizedTurnListRestoreStateChange
-                }
-                synchronouslyMeasureLatestTurnUpdates={false}
-              />
-            ) : (
-              localConversationThreadJsxRuntime.jsx(
-                VirtualizedTurnList,
-                {
-                  entries: turnListEntries,
-                  initialRestoreState: initialVirtualizedTurnListRestoreState,
-                  onApiChange: handleVirtualizedTurnListApiChange,
-                  onVisibleContentReady: visibleContentReadyHandler,
-                  onRestoreStateChange: onVirtualizedTurnListRestoreStateChange,
-                  preserveMeasuredTurnViewport: true,
-                  RowComponent: LocalConversationTurnRow,
-                },
-                conversationId,
-              )
-            ),
-          ],
-        })}
-        {null}
-        {null}
-      </>
-    )
-  ) : (
-    <Os fillParent={true} debugName="LocalConversationThread.state" />
+    />
   );
 }
 var localConversationThreadModule,
   localConversationThreadReactRuntime,
   localConversationThreadJsxRuntime,
   EMPTY_THREAD_TURNS,
-  EMPTY_RESOLVED_APPS,
-  collapsedTurnsByConversationSignal,
   subagentResponseInProgressSignal;
 export const initLocalConversationThreadChunk = once(() => {
   localConversationThreadModule = getChunkModuleExports();
@@ -10052,7 +9478,6 @@ export const initLocalConversationThreadChunk = once(() => {
   ul();
   Yr();
   Ea();
-  initLocalConversationAppShellSourceRegistrationChunk();
   Qa();
   initReviewSearchHighlighter();
   Di();
@@ -10069,6 +9494,7 @@ export const initLocalConversationThreadChunk = once(() => {
   initStatsigFeatureGateHooks();
   initConversationRouteSourceHelpers();
   initLocalConversationThreadFrameChunk();
+  initLocalConversationThreadContentChunk();
   ho();
   id();
   initThreadFindNavigationRail();
@@ -10082,7 +9508,6 @@ export const initLocalConversationThreadChunk = once(() => {
   initKeyboardShortcutLabel();
   Ns();
   initWorktreeRestoreBannerChunk();
-  initForkFromOlderTurnDialogControllerChunk();
   initDeepEqualModule();
   initConversationMarkdownRenderer();
   initThreadScrollState();
@@ -10100,7 +9525,6 @@ export const initLocalConversationThreadChunk = once(() => {
   initAutoFollowVirtualizedTurnListChunk();
   initVisibleTurnGeneratedImagesCollector();
   initLocalConversationTurnRowChunk();
-  initThreadFindItemsBuilder();
   initBackgroundAgentThreadTab();
   fa();
   initBackgroundAgentThreadTabs();
@@ -10112,8 +9536,6 @@ export const initLocalConversationThreadChunk = once(() => {
   initVirtualizedTurnListChunk();
   localConversationThreadJsxRuntime = getJsxRuntime();
   EMPTY_THREAD_TURNS = [];
-  EMPTY_RESOLVED_APPS = [];
-  collapsedTurnsByConversationSignal = createAtomSignal({});
   subagentResponseInProgressSignal = createScopedSignalFamily(
     appScope,
     (conversationId, { get }) => {
