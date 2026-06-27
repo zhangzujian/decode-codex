@@ -12649,6 +12649,19 @@
       "status": "done",
       "note": "Synced current Popcorn page number navigation chunk with semantic component and initializer export.",
       "lastUpdated": "2026-06-27T21:51:45.787Z"
+    },
+    "artifact-analytics-D0odHltv": {
+      "restored": "features/artifact-analytics.ts",
+      "exports": {
+        "a": "trackArtifactAnnotationCanceled",
+        "i": "trackArtifactAnnotationSubmitted",
+        "n": "trackArtifactAnnotationSaved",
+        "r": "trackArtifactAnnotationStarted",
+        "t": "initArtifactAnalyticsChunk"
+      },
+      "status": "done",
+      "note": "Synced current artifact annotation analytics chunk with semantic helpers and initializer export.",
+      "lastUpdated": "2026-06-27T21:55:59.640Z"
     }
   }
 }
