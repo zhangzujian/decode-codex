@@ -674,7 +674,10 @@ import {
   initArtifactFilePreviewIconChunk as ju,
   ArtifactFilePreviewIcon as Mu,
 } from "../utils/artifact-file-preview-icon";
-import { n as Nu, t as Pu } from "./share-invite-autocomplete-DUiU0DI5.js";
+import {
+  initShareInviteAutocompleteChunk as Nu,
+  ShareInviteAutocomplete as Pu,
+} from "../collaboration/share-invite-autocomplete";
 import { initStarIconChunk as Fu, StarIcon as Iu } from "../icons/star-icon";
 import {
   GitBranchSwitcher as Ru,

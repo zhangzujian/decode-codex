@@ -8412,6 +8412,14 @@
       },
       "status": "done"
     },
+    "share-invite-autocomplete-DUiU0DI5": {
+      "restored": "collaboration/share-invite-autocomplete.tsx",
+      "exports": {
+        "n": "initShareInviteAutocompleteChunk",
+        "t": "ShareInviteAutocomplete"
+      },
+      "status": "done"
+    },
     "plugin-prefill-prompt-Ba9YzNzQ": {
       "restored": "plugins/plugin-prefill-prompt.ts",
       "exports": {
