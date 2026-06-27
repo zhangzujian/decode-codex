@@ -342,17 +342,17 @@ import {
   Ds as openEnvironmentTerminalSession,
   Ec as Ri,
   Es as zi,
-  F as Bi,
+  F as recordPendingWorktreeForkSourceState,
   Fr as installedMcpAppIdsSignal,
   Ga as MoreHorizontalIcon,
   Gl as conversationDisplayTitleSignal,
   Ha as updatePullRequestReviewCommentAttachments,
   Ho as activeConversationSearchMatchSignal,
   Il as Ki,
-  Ir as qi,
+  Ir as setThreadSourceFrameState,
   Ja as Ji,
   Jl as Yi,
-  Ka as Xi,
+  Ka as initMoreHorizontalIcon,
   Kl as conversationTitleSignal,
   Mr as Qi,
   Od as $i,
@@ -813,7 +813,10 @@ import {
   type RecentLocalEnvironmentActionsByKey,
 } from "./local-conversation-thread-parts/local-environment-recent-actions";
 import { getConversationTurnsNotInParent } from "./local-conversation-thread-parts/parent-conversation-turns";
-import { createReviewSearchAnchorPlacement } from "./local-conversation-thread-parts/review-search-anchor-placement";
+import {
+  MAIN_THREAD_PIP_HOST_ID,
+  startRemoteHostedPipHostLayoutObserver,
+} from "./local-conversation-thread-parts/pip-host-layout-observer";
 import { shouldUseFullWidthRightPanelForRoute } from "./local-conversation-thread-parts/right-panel-route-state";
 import { shouldShowScrollToBottomButton } from "./local-conversation-thread-parts/scroll-to-bottom-state";
 import {
@@ -983,193 +986,6 @@ var reviewSearchHighlighterModule,
     REVIEW_SEARCH_HIGHLIGHT_MUTATION_DELAY_MS = 80;
   });
 
-var MAIN_THREAD_PIP_HOST_ID,
-  PIP_ANCHOR_HOST_ATTRIBUTE,
-  PIP_OBSTACLE_ATTRIBUTE,
-  initThreadPipHostAttributes = once(() => {
-    MAIN_THREAD_PIP_HOST_ID = "codex-main-thread";
-    PIP_ANCHOR_HOST_ATTRIBUTE = "data-pip-anchor-host";
-    PIP_OBSTACLE_ATTRIBUTE = "data-pip-obstacle";
-  });
-
-function startRemoteHostedPipHostLayoutObserver(windowZoom) {
-  let sendMessageFromView = window.electronBridge?.sendMessageFromView;
-  if (sendMessageFromView == null || document.body == null) return () => {};
-  let normalizedWindowZoom =
-      Number.isFinite(windowZoom) && windowZoom > 0 ? windowZoom : 1,
-    animationFrameId = null,
-    previousLayout = null,
-    previousLayoutKey = null,
-    resizeObserver = new ResizeObserver(scheduleLayoutMeasure),
-    bodyMutationObserver = new MutationObserver((mutationRecords) => {
-      mutationRecords.some(shouldRefreshPipLayoutObservers) &&
-        (refreshObservedLayoutElements(), scheduleLayoutMeasure());
-    }),
-    layoutElementMutationObserver = new MutationObserver(scheduleLayoutMeasure);
-  function publishLayoutIfChanged(layout) {
-    let layoutKey = serializePipHostLayout(layout);
-    if (layoutKey === previousLayoutKey) return;
-    let shouldAnimate =
-        previousLayout?.anchorRect != null &&
-        layout.anchorRect != null &&
-        arePipRectsEqual(layout.anchorRect, previousLayout.anchorRect),
-      nextLayout = {
-        ...layout,
-        animated: shouldAnimate,
-      };
-    previousLayout = nextLayout;
-    previousLayoutKey = layoutKey;
-    sendMessageFromView({
-      layout: nextLayout,
-      type: "remote-hosted-pip-host-layout-changed",
-    });
-  }
-
-  function publishEmptyLayout() {
-    publishLayoutIfChanged({
-      anchors: null,
-      anchorRect: null,
-      animated: false,
-      hostId: MAIN_THREAD_PIP_HOST_ID,
-      presentationScope: "thread",
-    });
-  }
-
-  function scheduleLayoutMeasure() {
-    animationFrameId ??= window.requestAnimationFrame(() => {
-      animationFrameId = null;
-      measureAndPublishLayout();
-    });
-  }
-
-  function measureAndPublishLayout() {
-    let anchorHostElement = document.querySelector(
-      MAIN_THREAD_PIP_HOST_SELECTOR,
-    );
-    if (anchorHostElement == null) {
-      publishEmptyLayout();
-      return;
-    }
-    let hostRect = getScaledElementClientRect(
-      anchorHostElement,
-      normalizedWindowZoom,
-    );
-    if (hostRect == null) {
-      publishEmptyLayout();
-      return;
-    }
-    let obstacleRects = [];
-    for (let obstacleElement of document.querySelectorAll(
-      PIP_OBSTACLE_SELECTOR,
-    )) {
-      let obstacleRect = getScaledElementClientRect(
-        obstacleElement,
-        normalizedWindowZoom,
-      );
-      obstacleRect != null && obstacleRects.push(obstacleRect);
-    }
-    publishLayoutIfChanged(
-      createReviewSearchAnchorPlacement({
-        hostId: MAIN_THREAD_PIP_HOST_ID,
-        hostRect,
-        obstacleRects,
-      }),
-    );
-  }
-
-  function refreshObservedLayoutElements() {
-    resizeObserver.disconnect();
-    layoutElementMutationObserver.disconnect();
-    for (let layoutElement of document.querySelectorAll(
-      PIP_LAYOUT_ELEMENT_SELECTOR,
-    )) {
-      resizeObserver.observe(layoutElement);
-      layoutElementMutationObserver.observe(layoutElement, {
-        attributeFilter: ["class", "hidden", "style"],
-        attributes: true,
-      });
-    }
-  }
-  return (
-    bodyMutationObserver.observe(document.body, {
-      attributeFilter: [PIP_ANCHOR_HOST_ATTRIBUTE, PIP_OBSTACLE_ATTRIBUTE],
-      attributes: true,
-      childList: true,
-      subtree: true,
-    }),
-    window.addEventListener("resize", scheduleLayoutMeasure),
-    document.addEventListener("scroll", scheduleLayoutMeasure, true),
-    refreshObservedLayoutElements(),
-    scheduleLayoutMeasure(),
-    () => {
-      animationFrameId != null && window.cancelAnimationFrame(animationFrameId);
-      resizeObserver.disconnect();
-      bodyMutationObserver.disconnect();
-      layoutElementMutationObserver.disconnect();
-      window.removeEventListener("resize", scheduleLayoutMeasure);
-      document.removeEventListener("scroll", scheduleLayoutMeasure, true);
-      publishEmptyLayout();
-    }
-  );
-}
-
-function getScaledElementClientRect(element, windowZoom) {
-  if (element.hidden) return null;
-  let rect = element.getBoundingClientRect();
-  return rect.width <= 0 || rect.height <= 0
-    ? null
-    : {
-        height: rect.height / windowZoom,
-        width: rect.width / windowZoom,
-        x: rect.left / windowZoom,
-        y: rect.top / windowZoom,
-      };
-}
-
-function serializePipHostLayout(layout) {
-  return JSON.stringify({
-    anchors: layout.anchors,
-    anchorRect: layout.anchorRect,
-    hostId: layout.hostId,
-    presentationScope: layout.presentationScope,
-  });
-}
-
-function arePipRectsEqual(leftRect, rightRect) {
-  return (
-    leftRect.x === rightRect.x &&
-    leftRect.y === rightRect.y &&
-    leftRect.width === rightRect.width &&
-    leftRect.height === rightRect.height
-  );
-}
-
-function shouldRefreshPipLayoutObservers(mutationRecord) {
-  if (mutationRecord.type === "attributes") return true;
-  for (let addedNode of mutationRecord.addedNodes)
-    if (nodeContainsPipLayoutElement(addedNode)) return true;
-  for (let removedNode of mutationRecord.removedNodes)
-    if (nodeContainsPipLayoutElement(removedNode)) return true;
-  return false;
-}
-
-function nodeContainsPipLayoutElement(node) {
-  return (
-    node instanceof HTMLElement &&
-    (node.matches(PIP_LAYOUT_ELEMENT_SELECTOR) ||
-      node.querySelector(PIP_LAYOUT_ELEMENT_SELECTOR) != null)
-  );
-}
-
-var MAIN_THREAD_PIP_HOST_SELECTOR,
-  PIP_OBSTACLE_SELECTOR,
-  PIP_LAYOUT_ELEMENT_SELECTOR,
-  initThreadPipHostSelectors = once(() => {
-    initThreadPipHostAttributes();
-    MAIN_THREAD_PIP_HOST_SELECTOR = `[${PIP_ANCHOR_HOST_ATTRIBUTE}="${MAIN_THREAD_PIP_HOST_ID}"]`;
-    PIP_OBSTACLE_SELECTOR = `[${PIP_OBSTACLE_ATTRIBUTE}]`;
-    PIP_LAYOUT_ELEMENT_SELECTOR = `${MAIN_THREAD_PIP_HOST_SELECTOR},${PIP_OBSTACLE_SELECTOR}`;
-  });
 function ThreadFindNavigationRail(props) {
   let { enabled = true, getItems, onRevealItem } = props,
     [shouldRenderLazyRail, setShouldRenderLazyRail] =
@@ -2252,7 +2068,7 @@ var backgroundTerminalSummaryRowsModule,
     initRefreshIcon();
     zs();
     ss();
-    Xi();
+    initMoreHorizontalIcon();
     ic();
     initActiveConversationProcessRowsChunk();
     initPendingBackgroundProcessRowsChunk();
@@ -3834,7 +3650,7 @@ var localEnvironmentActionControlsModule,
     initCheckmarkIcon();
     _t();
     initSettingsGearIcon();
-    Xi();
+    initMoreHorizontalIcon();
     initLocalEnvironmentDisplayNameHelpers();
     initLocalEnvironmentSelectorContentChunk();
     initAddLocalEnvironmentActionFormChunk();
@@ -8657,7 +8473,7 @@ function ThreadSummaryPanelSections(props) {
     };
   let onOpenSideChat = useStableCallback(handleOpenSideChat),
     handleOpenSource = (source) => {
-      qi(scope, source, {
+      setThreadSourceFrameState(scope, source, {
         isFullScreen: true,
       });
       let tabId = ia(source);
@@ -10437,7 +10253,7 @@ function ForkFromOlderTurnDialogController({
           sourceCollaborationMode: conversationLatestCollaborationMode,
           targetTurnId: turnId,
         });
-        Bi(scope, {
+        recordPendingWorktreeForkSourceState(scope, {
           pendingWorktreeId,
           sourceConversationId: conversationId,
           sourceWorkspaceRoot: conversationCwd,
@@ -15804,8 +15620,6 @@ export const initLocalConversationThreadChunk = once(() => {
   Es();
   initThreadSwitchTimingTrackerChunk();
   initConnectorAppsListQuery();
-  initThreadPipHostSelectors();
-  initThreadPipHostAttributes();
   initAppScope();
   initComposerScope();
   initRouteScope();
