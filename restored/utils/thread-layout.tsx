@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/thread-layout-4YZWZt2v.js
 // thread-layout-4YZWZt2v chunk restored from the Codex webview bundle.
+// Also covers ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~a~hqj10sd5-DiinfLhP.js.
 import React from "react";
 import clsx from "clsx";
 export const threadContentClassName = clsx(
@@ -12,6 +13,8 @@ export type ThreadLayoutProps = React.HTMLAttributes<HTMLDivElement> & {
   bodyClassName?: string;
   containerRef?: React.Ref<HTMLDivElement>;
 };
+export function initThreadLayoutChunk(): void {}
+
 export function ThreadLayout({
   header,
   banner,

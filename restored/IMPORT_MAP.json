@@ -10874,6 +10874,43 @@
         "t": "ThreadScrollLayout"
       },
       "status": "done"
+    },
+    "app-initial~app-main~remote-conversation-page~hotkey-window-worktree-init-page~hotkey-windo~kjl2gxhu-Dg7uZJVh": {
+      "restored": "features/hotkey-window-state.ts",
+      "exports": {
+        "n": "launcherHotkeyStateQuery",
+        "r": "initLauncherHotkeyStateChunk",
+        "t": "launcherHotkeyStateQueryKey"
+      },
+      "status": "done"
+    },
+    "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~a~hqj10sd5-DiinfLhP": {
+      "restored": "utils/thread-layout.tsx",
+      "exports": {
+        "n": "ThreadLayout",
+        "r": "initThreadLayoutChunk",
+        "t": "threadContentClassName"
+      },
+      "status": "done"
+    },
+    "app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~l5ab2ey0-8q2fQ40X": {
+      "restored": "utils/pull-request-visual-state.ts",
+      "exports": {
+        "a": "initPullRequestStatusTooltipChunk",
+        "i": "PullRequestStatusTooltip",
+        "n": "getPullRequestMergeVisualState",
+        "r": "initPullRequestVisualStateChunk",
+        "t": "getPullRequestVisualState"
+      },
+      "status": "done"
+    },
+    "app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~hotkey-win~bgpm80n3-Br-I5tHC": {
+      "restored": "utils/summary-panel-row.tsx",
+      "exports": {
+        "n": "initSummaryPanelRowChunk",
+        "t": "SummaryPanelRow"
+      },
+      "status": "done"
     }
   }
 }

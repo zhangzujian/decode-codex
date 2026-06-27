@@ -623,18 +623,18 @@ import {
   u as Ol,
 } from "./app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~projects-i~easvi6ps-Cs84X9Ip.js";
 import {
-  n as kl,
-  r as Al,
-  t as jl,
-} from "./app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~l5ab2ey0-8q2fQ40X.js";
+  getPullRequestMergeVisualState,
+  getPullRequestVisualState,
+  initPullRequestVisualStateChunk,
+} from "../utils/pull-request-visual-state";
 import {
   DiffStats as Ml,
   initDiffStatsChunk as Nl,
 } from "../git/git-review-primitives";
 import {
-  n as Pl,
-  t as Fl,
-} from "./app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~hotkey-win~bgpm80n3-Br-I5tHC.js";
+  initSummaryPanelRowChunk,
+  SummaryPanelRow,
+} from "../utils/summary-panel-row";
 import {
   h as Il,
   m as Ll,
@@ -654,18 +654,15 @@ import {
   PullRequestChecksSummary as Kl,
   pullRequestChecksStatusLabel as Hl,
 } from "../github/pull-request-checks-summary";
-import {
-  n as Cu,
-  r as wu,
-} from "./app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~a~hqj10sd5-DiinfLhP.js";
+import { initThreadLayoutChunk, ThreadLayout } from "../utils/thread-layout";
 import {
   M as Tu,
   N as Eu,
 } from "./app-initial~app-main~onboarding-page~appearance-settings~general-settings-Dkbr2b2v.js";
 import {
-  n as Du,
-  r as Ou,
-} from "./app-initial~app-main~remote-conversation-page~hotkey-window-worktree-init-page~hotkey-windo~kjl2gxhu-Dg7uZJVh.js";
+  initLauncherHotkeyStateChunk,
+  launcherHotkeyStateQuery,
+} from "../features/hotkey-window-state";
 import {
   initUseGitConfigValueChunk as Au,
   useGitConfigValue as ku,
@@ -1337,7 +1334,7 @@ function Wf(e) {
       case "website": {
         let t = formatArtifactTargetLabel(event.target, yn, wt);
         return (
-          <Fl
+          <SummaryPanelRow
             icon={<Sr className="icon-sm shrink-0" />}
             label={
               t ?? (
@@ -1355,7 +1352,7 @@ function Wf(e) {
       }
       case "google-drive":
         return (
-          <Fl
+          <SummaryPanelRow
             icon={
               <Bc
                 className="icon-sm shrink-0"
@@ -1369,7 +1366,7 @@ function Wf(e) {
         );
       case "appgen-app":
         return (
-          <Fl
+          <SummaryPanelRow
             icon={<No className="icon-sm shrink-0" />}
             label={
               <span className="flex min-w-0 items-center gap-1">
@@ -1406,7 +1403,7 @@ function Wf(e) {
               />
             );
         return (
-          <Fl
+          <SummaryPanelRow
             icon={
               <Mu
                 getImagePreviewSrc={getImagePreviewSrc}
@@ -1467,7 +1464,7 @@ var Yf,
     me();
     di();
     Uf();
-    Pl();
+    initSummaryPanelRowChunk();
     Xf = getJsxRuntime();
   });
 function $f(e) {
@@ -1502,7 +1499,7 @@ function $f(e) {
       switch (e.type) {
         case "agent":
           return (
-            <Fl
+            <SummaryPanelRow
               icon={null}
               label={cp.jsx(ip, {
                 backgroundAgent: e.backgroundAgent,
@@ -1523,7 +1520,7 @@ function $f(e) {
           );
         case "terminal":
           return (
-            <Fl
+            <SummaryPanelRow
               icon={cp.jsx(ds, {
                 className: "icon-sm shrink-0 text-token-text-secondary",
               })}
@@ -1739,7 +1736,7 @@ var op,
     rs();
     Jc();
     Uf();
-    Pl();
+    initSummaryPanelRowChunk();
     cp = getJsxRuntime();
   });
 var gp = once(() => {
@@ -1910,7 +1907,7 @@ function _p(e) {
         childProcesses != null,
       );
       return (
-        <Fl
+        <SummaryPanelRow
           key={e.terminal.id}
           icon={kp.jsx(bp, {
             status: n,
@@ -2109,7 +2106,7 @@ var Dp,
     te();
     n();
     gp();
-    Pl();
+    initSummaryPanelRowChunk();
     kp = getJsxRuntime();
     Ap = 1e4;
     jp = Hr({
@@ -2224,7 +2221,7 @@ function Np(e) {
         n = t == null ? e.title : `${e.title} ${t}`,
         i = e.url.length === 0 ? e.title : `${e.title}\n${e.url}`;
       return (
-        <Fl
+        <SummaryPanelRow
           key={e.browserTabId}
           aria-label={n}
           icon={
@@ -2295,7 +2292,7 @@ var Pp,
     Zr();
     Gr();
     dc();
-    Pl();
+    initSummaryPanelRowChunk();
     Fp = getJsxRuntime();
   });
 function Lp(e, t) {
@@ -3870,7 +3867,7 @@ function qm(e) {
     />
   );
   return (
-    <Fl
+    <SummaryPanelRow
       icon={a}
       label={o}
       onClick={onOpenReviewTab}
@@ -3887,7 +3884,7 @@ var Jm,
     d();
     Nl();
     pc();
-    Pl();
+    initSummaryPanelRowChunk();
     Ym = getJsxRuntime();
   });
 function Zm({ baseBranch, headBranch, number }) {
@@ -4263,7 +4260,7 @@ function Ch(e) {
     g = <Vl checks={pullRequestStatus.checks} />;
   let _ = kh(pullRequestStatus.checks, pullRequestStatus.ciStatus);
   let v = (
-    <Fl
+    <SummaryPanelRow
       actions={m}
       actionsVisible={h}
       icon={g}
@@ -4305,7 +4302,7 @@ function Eh(e) {
           });
         };
   return (
-    <Fl
+    <SummaryPanelRow
       icon={i}
       interactive={a}
       label={check.name}
@@ -4474,7 +4471,7 @@ var Ah,
     Ul();
     kd();
     Sh();
-    Pl();
+    initSummaryPanelRowChunk();
     jh = getJsxRuntime();
     Mh = ["failing", "pending", "skipped", "unknown", "passing"];
   });
@@ -4593,7 +4590,7 @@ function Ph(e) {
     />
   );
   let F = v ? (
-    <Fl
+    <SummaryPanelRow
       actions={Rh.jsx(gd, {
         color: "ghostTertiary",
         disabled: w != null,
@@ -4665,7 +4662,7 @@ function Ph(e) {
           ),
         }),
         children: (
-          <Fl
+          <SummaryPanelRow
             actions={
               h
                 ? Rh.jsx(gd, {
@@ -4747,7 +4744,7 @@ var Lh,
     _();
     lc();
     Sh();
-    Pl();
+    initSummaryPanelRowChunk();
     Nh();
     Rh = getJsxRuntime();
   });
@@ -5868,7 +5865,7 @@ function Xg(e) {
     />
   );
   let g = (
-    <Fl
+    <SummaryPanelRow
       density="comfortable"
       icon={f}
       label={
@@ -5893,7 +5890,7 @@ function Xg(e) {
   let b = Z.jsx($g, {
     mergeBlocker,
   });
-  let x = <Fl density="comfortable" icon={y} label={b} />;
+  let x = <SummaryPanelRow density="comfortable" icon={y} label={b} />;
   let S = comments?.reviewers ?? null,
     C = Z.jsx(e_, {
       hostId,
@@ -5923,7 +5920,7 @@ function Zg(e) {
   if (hasError) {
     let e;
     return (
-      <Fl
+      <SummaryPanelRow
         density="comfortable"
         icon={Z.jsx(zc, {
           className: "icon-sm shrink-0 text-token-charts-red",
@@ -5941,7 +5938,7 @@ function Zg(e) {
   if (loading || data == null) {
     let e;
     return (
-      <Fl
+      <SummaryPanelRow
         density="comfortable"
         icon={Z.jsx(rr, {
           className: "icon-sm shrink-0",
@@ -5958,14 +5955,14 @@ function Zg(e) {
   }
   let a = Kl(data);
   let o = Hl(data.ciStatus);
-  return <Fl density="comfortable" icon={a} label={o} />;
+  return <SummaryPanelRow density="comfortable" icon={a} label={o} />;
 }
 function Qg(e) {
   let { data, hasError, loading } = e;
   if (hasError) {
     let e;
     return (
-      <Fl
+      <SummaryPanelRow
         density="comfortable"
         icon={Z.jsx(zc, {
           className: "icon-sm shrink-0 text-token-charts-red",
@@ -5983,7 +5980,7 @@ function Qg(e) {
   if (loading || data == null) {
     let e;
     return (
-      <Fl
+      <SummaryPanelRow
         density="comfortable"
         icon={Z.jsx(rr, {
           className: "icon-sm shrink-0",
@@ -6001,7 +5998,7 @@ function Qg(e) {
   let a = <Tu className="icon-sm shrink-0 text-token-text-tertiary" />;
   let o = sg(data.activityItems);
   return (
-    <Fl
+    <SummaryPanelRow
       density="comfortable"
       icon={a}
       label={
@@ -6186,7 +6183,7 @@ var n_,
     Bl();
     Js();
     ps();
-    Pl();
+    initSummaryPanelRowChunk();
     Yg();
     dg();
     Z = getJsxRuntime();
@@ -6617,7 +6614,15 @@ function __(e) {
       <In className="icon-xs text-token-text-tertiary" href={f} />
     );
   let x = f == null ? undefined : g,
-    S = <Fl aria-label={v} icon={y} label={v} trailing={b} onClick={x} />;
+    S = (
+      <SummaryPanelRow
+        aria-label={v}
+        icon={y}
+        label={v}
+        trailing={b}
+        onClick={x}
+      />
+    );
   let C = S;
   if (
     conversationId == null ||
@@ -6676,7 +6681,7 @@ var b_,
     me();
     o();
     g_();
-    Pl();
+    initSummaryPanelRowChunk();
     x_ = getJsxRuntime();
   });
 function C_(e) {
@@ -6751,7 +6756,7 @@ function C_(e) {
   if (C.type === "error") {
     let e;
     return (
-      <Fl
+      <SummaryPanelRow
         className="!text-token-text-tertiary"
         icon={<O_ />}
         label={
@@ -6767,7 +6772,7 @@ function C_(e) {
   if (C.type === "loading") {
     let e;
     return (
-      <Fl
+      <SummaryPanelRow
         icon={<O_ />}
         label={
           <FormattedMessage
@@ -6794,7 +6799,7 @@ function C_(e) {
     A;
   A = Symbol.for("react.early_return_sentinel");
   bb0: {
-    let e = jl({
+    let e = getPullRequestVisualState({
       hasOpenPr: O.hasOpenPr,
       isDraft: O.isDraft,
       url: O.url,
@@ -6803,7 +6808,7 @@ function C_(e) {
       A = D;
       break bb0;
     }
-    k = kl({
+    k = getPullRequestMergeVisualState({
       canMerge: O.canMerge,
       ciStatus: O.ciStatus,
       hasMergeConflicts: O.mergeBlocker === "conflicts",
@@ -6861,14 +6866,21 @@ function T_(e) {
       description="GitHub status row shown when no PR exists for the branch"
     />
   );
-  return <Fl disabled={a} onClick={onCreatePullRequest} icon={o} label={s} />;
+  return (
+    <SummaryPanelRow
+      disabled={a}
+      onClick={onCreatePullRequest}
+      icon={o}
+      label={s}
+    />
+  );
 }
 function E_(e) {
   switch (e) {
     case "loading":
     case "error":
       return (
-        <Fl
+        <SummaryPanelRow
           icon={<O_ />}
           label={
             <FormattedMessage
@@ -6881,7 +6893,7 @@ function E_(e) {
       );
     case "missing":
       return (
-        <Fl
+        <SummaryPanelRow
           icon={<O_ />}
           label={
             <FormattedMessage
@@ -6894,7 +6906,7 @@ function E_(e) {
       );
     case "unauthenticated":
       return (
-        <Fl
+        <SummaryPanelRow
           icon={<O_ />}
           label={
             <FormattedMessage
@@ -6918,7 +6930,9 @@ function D_(e) {
     phase,
   });
   let o = <Ms onCancel={onCancel} />;
-  return <Fl icon={i} label={a} trailing={o} trailingVisible={true} />;
+  return (
+    <SummaryPanelRow icon={i} label={a} trailing={o} trailingVisible={true} />
+  );
 }
 function O_() {
   return <Fr className={j_} />;
@@ -6938,10 +6952,10 @@ var k_,
     ic();
     Qs();
     Ss();
-    Al();
+    initPullRequestVisualStateChunk();
     io();
     ka();
-    Pl();
+    initSummaryPanelRowChunk();
     zh();
     Vh();
     S_();
@@ -7060,7 +7074,7 @@ function L_(e) {
     g = workspaceBrowserRoot == null ? null : qe(workspaceBrowserRoot);
   let _ = g,
     v = isCodexWorktree ? (
-      <Fl
+      <SummaryPanelRow
         icon={B_.jsx(sr, {
           className: "icon-sm shrink-0",
         })}
@@ -7091,7 +7105,7 @@ function L_(e) {
             return currentBranch == null ? (
               y
             ) : (
-              <Fl
+              <SummaryPanelRow
                 disabled={disabled}
                 icon={B_.jsx(sr, {
                   className: "icon-sm shrink-0",
@@ -7227,7 +7241,7 @@ var R_,
     me();
     zi();
     Mm();
-    Pl();
+    initSummaryPanelRowChunk();
     Km();
     Xm();
     M_();
@@ -7296,7 +7310,7 @@ function H_(e) {
     });
   };
   return (
-    <Fl
+    <SummaryPanelRow
       aria-label={l}
       icon={u}
       label={p}
@@ -7317,13 +7331,13 @@ var U_,
     bs();
     Cc();
     me();
-    Pl();
+    initSummaryPanelRowChunk();
     W_ = getJsxRuntime();
   });
 function K_(e) {
   let { sideChats, onOpen } = e,
     i = (e) => (
-      <Fl
+      <SummaryPanelRow
         icon={
           e.isResponseInProgress ? (
             Y_.jsx(rr, {
@@ -7353,7 +7367,7 @@ var J_,
     d();
     Oo();
     Uf();
-    Pl();
+    initSummaryPanelRowChunk();
     Y_ = getJsxRuntime();
   });
 function Z_(e) {
@@ -8060,7 +8074,7 @@ function Sv(e) {
   let Ke =
     plan != null && b != null ? (
       <Nm sectionKey="plan" title={De}>
-        <Fl
+        <SummaryPanelRow
           icon={<Ls className="icon-xs shrink-0" />}
           label={plan.title ?? De}
           labelClassName="min-w-0 truncate"
@@ -8195,7 +8209,7 @@ function Sv(e) {
   );
   let Ze = w && (
     <Nm mode="headerless" sectionKey="computer-use-pip">
-      <Fl
+      <SummaryPanelRow
         aria-label={we}
         icon={<Ff className="icon-xs shrink-0" />}
         label={
@@ -8354,7 +8368,7 @@ var Av,
     X_();
     iv();
     initBackgroundTerminalSidePanelTabChunk();
-    Pl();
+    initSummaryPanelRowChunk();
     Km();
     initThreadSummaryPanelChrome();
     tt();
@@ -12885,7 +12899,7 @@ function NS(e) {
     } = e,
     _ = B(Fe),
     v = ns(),
-    { data } = W(Du),
+    { data } = W(launcherHotkeyStateQuery),
     b = data == null || data.configuredHotkey != null,
     x = it(b);
   let S = x,
@@ -13350,7 +13364,7 @@ function RS(e) {
   );
   let ke = $.jsx(ao, {});
   let Ae = (
-    <Cu
+    <ThreadLayout
       className="min-h-0"
       bodyClassName="[&_[data-thread-find-target=conversation]]:scroll-mt-24"
       containerRef={ve}
@@ -13363,7 +13377,7 @@ function RS(e) {
       {Ce}
       {Oe}
       {ke}
-    </Cu>
+    </ThreadLayout>
   );
   return $.jsx(fs, {
     name: "LocalConversationPage",
@@ -13993,7 +14007,7 @@ export const initLocalConversationThreadChunk = once(() => {
   Di();
   Zu();
   Ao();
-  Ou();
+  initLauncherHotkeyStateChunk();
   Vc();
   Es();
   Ll();
@@ -14006,7 +14020,7 @@ export const initLocalConversationThreadChunk = once(() => {
   Ht();
   ae();
   Qe();
-  wu();
+  initThreadLayoutChunk();
   ho();
   id();
   td();
