@@ -17,9 +17,12 @@ type ConversationTurnForGeneratedImages = {
     src?: string | null;
     type: string;
   }[];
+  params?: { model?: unknown } | null;
+  status?: string;
+  turnStartedAtMs?: number | null;
 };
 
-type VisibleTurnEntryForTurnList = {
+export type VisibleTurnEntryForTurnList = {
   preserveServerUserMessages?: boolean;
   requests: readonly unknown[];
   turn: ConversationTurnForGeneratedImages;
@@ -27,7 +30,7 @@ type VisibleTurnEntryForTurnList = {
   turnSearchKey: string;
 };
 
-type LocalConversationTurnListEntry = {
+export type LocalConversationTurnListEntry = {
   completedThreadGoal?: unknown;
   conversationId: string;
   cwd: string | null;

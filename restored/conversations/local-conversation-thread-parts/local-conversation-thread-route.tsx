@@ -42,10 +42,8 @@ import {
   initChromeExtensionConversationHeaderChunk,
 } from "./local-conversation-chrome-extension-header";
 import { LocalConversationMainThread } from "./local-conversation-thread-entry-components";
-import {
-  LocalConversationThreadFrame,
-  openBackgroundAgentFromThread,
-} from "./local-conversation-thread-frame";
+import { LocalConversationThreadFrame } from "./local-conversation-thread-frame";
+import { openBackgroundAgentFromThread } from "./local-conversation-background-agent-open";
 import {
   localConversationVisibleTurnEntriesSignal,
   subagentResponseInProgressSignal,

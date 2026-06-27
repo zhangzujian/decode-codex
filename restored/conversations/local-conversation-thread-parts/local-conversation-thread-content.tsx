@@ -65,7 +65,7 @@ import {
   Pt as revealContentSearchItemElement,
   ct as updateCollapsedTurnsByConversation,
 } from "../../boundaries/current-ref/profile-page-producer";
-import type { LocalConversationThreadContentComponentProps } from "./local-conversation-thread-frame";
+import type { LocalConversationThreadContentComponentProps } from "./local-conversation-thread-frame-types";
 import {
   initLocalConversationAppShellSourceRegistrationChunk,
   LocalConversationAppShellSourceRegistration,
@@ -94,9 +94,60 @@ import {
   buildThreadFindItemsForVisibleTurns,
   initThreadFindItemsBuilder,
 } from "./thread-find-items";
-import { buildLocalConversationTurnListEntries } from "./local-conversation-turn-list-entries";
+import {
+  buildLocalConversationTurnListEntries,
+  type LocalConversationTurnListEntry,
+  type VisibleTurnEntryForTurnList,
+} from "./local-conversation-turn-list-entries";
+import type { VirtualizedTurnListContracts } from "./local-conversation-virtualized-turn-list-types";
 
-type AnyComponent = ComponentType<any>;
+type VirtualizedTurnListApi = VirtualizedTurnListContracts["api"];
+type VirtualizedTurnListRestoreState =
+  VirtualizedTurnListContracts["restoreState"];
+type VirtualizedTurnListRowProps = VirtualizedTurnListContracts["rowProps"];
+
+type AutomationDescriptionProps = {
+  hostId: string | null;
+  message: string;
+  sentAtMs: number | null;
+};
+
+type EmptyStateProps = {
+  debugName: string;
+  fillParent?: boolean;
+  showLogo?: boolean;
+};
+
+type PendingLatestTurnSubmitPlacement = {
+  distanceFromBottomPx: number;
+  scrollHeightPx?: number | null;
+  shouldPlaceLatestTurn?: boolean;
+};
+
+type AutoFollowVirtualizedTurnListProps = {
+  consumePendingLatestTurnSubmitPlacement?:
+    | (() => PendingLatestTurnSubmitPlacement | null)
+    | null;
+  conversationId: string;
+  entries: readonly LocalConversationTurnListEntry[];
+  initialScrollOffset?: number | null;
+  initialVirtualizedTurnListRestoreState?: VirtualizedTurnListRestoreState;
+  onApiChange?: ((api: VirtualizedTurnListApi | null) => void) | null;
+  onResponseSpacerStateChange(state: unknown): void;
+  onVisibleContentReady?: (() => void) | null;
+  onVirtualizedTurnListRestoreStateChange(
+    state: VirtualizedTurnListRestoreState,
+  ): void;
+  synchronouslyMeasureLatestTurnUpdates?: boolean;
+};
+
+type VirtualizedTurnListComponentProps = Omit<
+  VirtualizedTurnListContracts["props"],
+  "entries" | "RowComponent"
+> & {
+  entries: readonly LocalConversationTurnListEntry[];
+  RowComponent: ComponentType<VirtualizedTurnListRowProps>;
+};
 
 type VisibleTurnEntry = {
   turnId?: string | null;
@@ -107,13 +158,41 @@ type VisibleTurnEntry = {
   } | null;
 };
 
+type LocalConversationTurnForResuming = {
+  error?: unknown | null;
+  items: readonly { mcpAppResourceUri?: string | null; type?: string | null }[];
+  status?: string | null;
+  turnId?: string | null;
+};
+
+type CompletedThreadGoal = {
+  updatedAt: number;
+};
+
+type VisibleTurnEntriesState = {
+  conversationTurns: readonly LocalConversationTurnForResuming[];
+  hasInheritedParentTurns: boolean;
+  hasRenderableTurns: boolean;
+  hasUserMessage: boolean;
+  latestVisibleTurnId: string | null;
+  visibleTurnEntries: readonly VisibleTurnEntryForTurnList[];
+};
+
+type AutomationItem = {
+  automationId?: string | null;
+  description?: string | null;
+  id?: string | null;
+  readAt?: unknown;
+  threadId?: string | null;
+};
+
 export type LocalConversationThreadContentCoreProps =
   LocalConversationThreadContentComponentProps & {
-    AutomationDescriptionComponent: AnyComponent;
-    AutoFollowVirtualizedTurnListComponent: AnyComponent;
-    EmptyStateComponent: AnyComponent;
-    TurnRowComponent: AnyComponent;
-    VirtualizedTurnListComponent: AnyComponent;
+    AutomationDescriptionComponent: ComponentType<AutomationDescriptionProps>;
+    AutoFollowVirtualizedTurnListComponent: ComponentType<AutoFollowVirtualizedTurnListProps>;
+    EmptyStateComponent: ComponentType<EmptyStateProps>;
+    TurnRowComponent: ComponentType<VirtualizedTurnListRowProps>;
+    VirtualizedTurnListComponent: ComponentType<VirtualizedTurnListComponentProps>;
     localConversationVisibleTurnEntriesSignal: unknown;
   };
 
@@ -185,7 +264,7 @@ export function LocalConversationThreadContentCore({
       responseInProgressSignal,
       conversationId,
     ),
-    completedThreadGoal = useScopedValue<any>(
+    completedThreadGoal = useScopedValue<CompletedThreadGoal | null>(
       completedThreadGoalSignal,
       conversationId,
     ),
@@ -206,10 +285,13 @@ export function LocalConversationThreadContentCore({
       hasUserMessage,
       latestVisibleTurnId,
       visibleTurnEntries,
-    } = useScopedValue<any>(localConversationVisibleTurnEntriesSignal, {
-      conversationId,
-      isBackgroundSubagentsEnabled,
-    });
+    } = useScopedValue<VisibleTurnEntriesState>(
+      localConversationVisibleTurnEntriesSignal,
+      {
+        conversationId,
+        isBackgroundSubagentsEnabled,
+      },
+    );
 
   visibleTurnEntries.at(-1)?.turn;
   let completedThreadGoalTurnKey =
@@ -232,10 +314,14 @@ export function LocalConversationThreadContentCore({
       ? subagentParentThreadId
       : null,
     [collapsedTurnsByConversationId, setCollapsedTurnsByConversationId] =
-      useSignalState<any>(collapsedTurnsByConversationSignal),
+      useSignalState<Record<string, Record<string, boolean | undefined>>>(
+        collapsedTurnsByConversationSignal,
+      ),
     { items, markRead } = useAutomationItems(),
     matchingAutomationItem = hasConversation
-      ? (items.find((item: any) => item.threadId === conversationId) ?? null)
+      ? ((items as readonly AutomationItem[]).find(
+          (item) => item.threadId === conversationId,
+        ) ?? null)
       : null,
     automationDescription = matchingAutomationItem?.description ?? null,
     shouldShowAutomationDescription =
@@ -263,9 +349,13 @@ export function LocalConversationThreadContentCore({
     ),
     lastLatestVisibleTurnIdRef = React.useRef<string | null>(null),
     currentConversationIdRef = React.useRef(conversationId),
-    previousTurnEntriesRef = React.useRef<readonly unknown[]>([]),
+    previousTurnEntriesRef = React.useRef<
+      readonly LocalConversationTurnListEntry[]
+    >([]),
     contentContainerRef = React.useRef<HTMLElement | null>(null),
-    virtualizedTurnListApiRef = React.useRef<any>(null);
+    virtualizedTurnListApiRef = React.useRef<VirtualizedTurnListApi | null>(
+      null,
+    );
 
   if (currentConversationIdRef.current !== conversationId) {
     currentConversationIdRef.current = conversationId;
@@ -323,7 +413,7 @@ export function LocalConversationThreadContentCore({
       [handleCopyCapture],
     ),
     editLastTurnMessage = useStableCallback(
-      async (turnEntry: any, message: string) => {
+      async (turnEntry: LocalConversationTurnListEntry, message: string) => {
         try {
           await sendAppServerRequest("edit-last-user-turn-for-host", {
             hostId: conversationHostApi.getHostId(),
@@ -334,7 +424,7 @@ export function LocalConversationThreadContentCore({
             serviceTier: await resolveServiceTierForModel(
               scope,
               conversationHostApi.getHostId(),
-              turnEntry.params.model ?? null,
+              getTurnEntryModel(turnEntry),
             ),
           });
         } catch (error) {
@@ -389,22 +479,24 @@ export function LocalConversationThreadContentCore({
         }
       },
     ),
-    handleForkTurnMessage = useStableCallback((turnEntry: any) => {
-      if (!hasConversation || turnEntry.turnId == null) return;
-      if (turnEntry.turnId === latestVisibleTurnId) {
-        forkConversationFromTurn(turnEntry.turnId);
-        return;
-      }
-      let turnIdForFork = turnEntry.turnId;
-      openScopedModal(scope, ForkFromOlderTurnDialogController, {
-        conversationCwd: cwd,
-        conversationId,
-        conversationLatestCollaborationMode: collaborationMode,
-        hostId,
-        onForkIntoLocal: () => forkConversationFromTurn(turnIdForFork),
-        turnId: turnIdForFork,
-      });
-    }),
+    handleForkTurnMessage = useStableCallback(
+      (turnEntry: LocalConversationTurnListEntry) => {
+        if (!hasConversation || turnEntry.turnId == null) return;
+        if (turnEntry.turnId === latestVisibleTurnId) {
+          forkConversationFromTurn(turnEntry.turnId);
+          return;
+        }
+        let turnIdForFork = turnEntry.turnId;
+        openScopedModal(scope, ForkFromOlderTurnDialogController, {
+          conversationCwd: cwd,
+          conversationId,
+          conversationLatestCollaborationMode: collaborationMode,
+          hostId,
+          onForkIntoLocal: () => forkConversationFromTurn(turnIdForFork),
+          turnId: turnIdForFork,
+        });
+      },
+    ),
     setTurnCollapsed = useStableCallback(
       (turnId: string, collapsed: boolean) => {
         setCollapsedTurnsByConversationId((currentCollapsedTurns: unknown) =>
@@ -447,7 +539,7 @@ export function LocalConversationThreadContentCore({
 
   let turnKeyBySearchKey = React.useMemo(() => {
       let turnKeyMap = new Map<string, string>();
-      for (let entry of turnListEntries as any[])
+      for (let entry of turnListEntries)
         if (!turnKeyMap.has(entry.turnSearchKey))
           turnKeyMap.set(entry.turnSearchKey, entry.turnKey);
       return turnKeyMap;
@@ -526,7 +618,7 @@ export function LocalConversationThreadContentCore({
         visibleTurnEntries,
       }),
     revealThreadFindItem = useStableCallback(
-      async ({ id: contentUnitId, turnKey }: any) => {
+      async ({ id: contentUnitId, turnKey }: ThreadFindRevealRequest) => {
         let virtualizedTurnListApi = virtualizedTurnListApiRef.current;
         if (virtualizedTurnListApi == null)
           throw Error(
@@ -553,7 +645,7 @@ export function LocalConversationThreadContentCore({
         conversationId: targetConversationId,
         itemId,
         turnKey,
-      }: any) => {
+      }: ContentSearchRevealRequest) => {
         if (targetConversationId !== conversationId) return;
         if (scrollContentSearchItemIntoView(itemId, "smooth")) return;
         setCollapsedTurnsByConversationId((currentCollapsedTurns: unknown) =>
@@ -583,7 +675,7 @@ export function LocalConversationThreadContentCore({
   React.useEffect(() => {
     let previousLatestVisibleTurnId = lastLatestVisibleTurnIdRef.current,
       previousLatestVisibleEntry = visibleTurnEntries.find(
-        (item: any) => item.turnId === previousLatestVisibleTurnId,
+        (item) => item.turnId === previousLatestVisibleTurnId,
       ),
       turnIdsToCollapse = new Set<string>();
     if (
@@ -628,7 +720,7 @@ export function LocalConversationThreadContentCore({
       });
     }),
     handleVirtualizedTurnListApiChange = useStableCallback(
-      (virtualizedTurnListApi: unknown) => {
+      (virtualizedTurnListApi: VirtualizedTurnListApi | null) => {
         virtualizedTurnListApiRef.current = virtualizedTurnListApi;
       },
     ),
@@ -733,10 +825,23 @@ export function LocalConversationThreadContentCore({
           />
         )}
       </motion.div>
-      {null}
-      {null}
     </>
   );
+}
+
+type ThreadFindRevealRequest = {
+  id: string;
+  turnKey: string;
+};
+
+type ContentSearchRevealRequest = {
+  conversationId: string;
+  itemId: string;
+  turnKey: string;
+};
+
+function getTurnEntryModel(turnEntry: LocalConversationTurnListEntry) {
+  return turnEntry.turn.params?.model ?? null;
 }
 
 export const initLocalConversationThreadContentChunk = once(() => {

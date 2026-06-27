@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Frame-level app-shell, composer footer, scroll layout, and background-agent wiring for local conversation threads.
-import React, { type ComponentType, type ReactNode } from "react";
+import React from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
   AB as initScopeRuntime,
@@ -15,10 +15,8 @@ import {
   xM as useStableCallback,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { jr as liveMcpAppFrameSignal } from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  initBackgroundAgentThreadTab,
-  openBackgroundAgentThreadTab,
-} from "./local-conversation-background-agent-thread-tab";
+import { initBackgroundAgentThreadTab } from "./local-conversation-background-agent-thread-tab";
+import { openBackgroundAgentFromThread } from "./local-conversation-background-agent-open";
 import {
   initMarkConversationReadEffect,
   useMarkConversationReadOnVisibility,
@@ -43,85 +41,11 @@ import {
   initLocalConversationThreadScrollBehaviorChunk,
   useLocalConversationThreadScrollBehavior,
 } from "./local-conversation-thread-scroll-behavior";
-
-type ThreadRouteScope = unknown;
-
-type BackgroundAgent = {
-  showInlineActivity?: boolean;
-};
-
-type BackgroundAgentOpenHandler = (backgroundAgent: BackgroundAgent) => void;
-
-type WorktreeRestoreBannerProps = {
-  conversationId: string;
-  cwd: string | null | undefined;
-};
-
-type LatestTurnSubmitPlacement = {
-  distanceFromBottomPx: number;
-  scrollHeightPx: number | null;
-};
-
-export type LocalConversationThreadContentComponentProps = {
-  consumePendingLatestTurnSubmitPlacement: () => unknown;
-  conversationId: string;
-  initialScrollOffset: number | null;
-  initialVirtualizedTurnListRestoreState: unknown;
-  isBackgroundSubagentsEnabled: boolean;
-  isReadOnly: boolean;
-  isResuming: boolean;
-  isScrollToTopEnabled: boolean;
-  onResponseSpacerStateChange: (responseSpacerState: unknown) => void;
-  onVisibleThreadContentReady?: (turnCount: number) => void;
-  onVirtualizedTurnListRestoreStateChange: (restoreState: unknown) => void;
-  showInProgressFixedContent: boolean;
-};
-
-export type LocalConversationThreadFrameProps = {
-  MainThreadComponent: ComponentType<Record<string, unknown>>;
-  SideChatThreadComponent: ComponentType<Record<string, unknown>>;
-  ThreadContentComponent: ComponentType<LocalConversationThreadContentComponentProps>;
-  WorktreeRestoreBannerComponent: ComponentType<WorktreeRestoreBannerProps>;
-  composerSurfaceClassName?: string;
-  contentX?: unknown;
-  conversationId: string;
-  floatingContent?: ReactNode;
-  footerContent?: ReactNode;
-  hasConversation: boolean;
-  header?: ReactNode;
-  hideThreadContent?: boolean;
-  hostId: string | null | undefined;
-  isBackgroundSubagentsEnabled: boolean;
-  isReadOnly?: boolean;
-  isResuming: boolean;
-  lockedCollaborationMode?: unknown;
-  onOpenBackgroundAgent?: BackgroundAgentOpenHandler;
-  onVisibleThreadContentReady?: (turnCount: number) => void;
-  showComposer?: boolean;
-  showExternalFooter: boolean;
-  subagentResponseInProgressSignal: unknown;
-  threadScrollStateSignal: unknown;
-};
-
-export function openBackgroundAgentFromThread(
-  scope: ThreadRouteScope,
-  hostId: string | null | undefined,
-  backgroundAgent: BackgroundAgent,
-  onOpenBackgroundAgent: BackgroundAgentOpenHandler | undefined,
-  MainThreadComponent: ComponentType<Record<string, unknown>>,
-) {
-  if (onOpenBackgroundAgent != null) {
-    onOpenBackgroundAgent(backgroundAgent);
-    return;
-  }
-  if (backgroundAgent.showInlineActivity !== true) {
-    openBackgroundAgentThreadTab(scope, {
-      backgroundAgent,
-      hostId,
-      TabComponent: MainThreadComponent,
-    });
-  }
-}
+import type {
+  BackgroundAgent,
+  LatestTurnSubmitPlacement,
+  LocalConversationThreadFrameProps,
+} from "./local-conversation-thread-frame-types";
 
 export function LocalConversationThreadFrame({
   MainThreadComponent,
