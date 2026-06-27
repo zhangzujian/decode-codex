@@ -12535,6 +12535,18 @@
       "status": "done",
       "note": "Synced current git submodule paths query chunk to the semantic query helpers and initializer export.",
       "lastUpdated": "2026-06-27T21:30:04.717Z"
+    },
+    "use-codex-worktrees-CPZNHmi3": {
+      "restored": "utils/use-codex-worktrees.ts",
+      "exports": {
+        "n": "useCodexWorktrees",
+        "t": "initUseCodexWorktreesChunk",
+        "useCodexWorktrees": "useCodexWorktrees",
+        "initUseCodexWorktreesChunk": "initUseCodexWorktreesChunk"
+      },
+      "status": "done",
+      "note": "Synced current Codex worktrees query hook with semantic hook and initializer exports.",
+      "lastUpdated": "2026-06-27T21:36:04.728Z"
     }
   }
 }
