@@ -3093,7 +3093,8 @@ function LocalConversationEnvironmentActionControls(props) {
     [recentActionsByKey, setRecentActionsByKey] = li(
       recentLocalEnvironmentActionsByKeySignal,
     ),
-    [isMenuOpen, setMenuOpen] = km.useState(false),
+    [isMenuOpen, setMenuOpen] =
+      localEnvironmentActionControlsReactRuntime.useState(false),
     repoRoot = data?.root ?? null,
     platform = _data?.platform ?? null,
     environmentActions = environment?.environment.actions,
@@ -3124,7 +3125,7 @@ function LocalConversationEnvironmentActionControls(props) {
           : actionItems,
     primaryActionItem = sortedActionItems?.[0] ?? null,
     primaryShortcut = useScopedValue(ha, primaryActionItem?.commandId ?? aa[0]),
-    commandActionItems = actionItems ?? jm,
+    commandActionItems = actionItems ?? EMPTY_LOCAL_ENVIRONMENT_ACTION_ITEMS,
     runEnvironmentAction = useStableCallback((actionRunRequest) => {
       let { action } = actionRunRequest,
         actionCwd = resolveLocalEnvironmentActionCwd({
@@ -3244,28 +3245,34 @@ function LocalConversationEnvironmentActionControls(props) {
           runEnvironmentAction(primaryActionItem));
       },
       commandRegistration = registerCommands
-        ? X.jsx(RegisterLocalEnvironmentActionCommands, {
-            actions: commandActionItems,
-            conversationId,
-            onRunAction: runEnvironmentAction,
-          })
+        ? localEnvironmentActionControlsJsxRuntime.jsx(
+            RegisterLocalEnvironmentActionCommands,
+            {
+              actions: commandActionItems,
+              conversationId,
+              onRunAction: runEnvironmentAction,
+            },
+          )
         : null,
       actionsIcon = <Hi className="icon-xs" />;
     let actionsButton = (
       <button
         aria-label={actionsTitle}
-        className={Am}
+        className={localEnvironmentActionIconButtonClassName}
         title={actionsTitle}
         type="button"
       >
         {actionsIcon}
       </button>
     );
-    let actionsTriggerButton = X.jsx(jr, {
-      tooltipContent: actionsTitle,
-      delayOpen: true,
-      children: actionsButton,
-    });
+    let actionsTriggerButton = localEnvironmentActionControlsJsxRuntime.jsx(
+      jr,
+      {
+        tooltipContent: actionsTitle,
+        delayOpen: true,
+        children: actionsButton,
+      },
+    );
     let menuTitle = (
       <Br.Title>
         {environment == null ? (
@@ -3288,7 +3295,7 @@ function LocalConversationEnvironmentActionControls(props) {
       </Br.Title>
     );
     let actionMenuItems = sortedActionItems?.map((actionItem) =>
-        X.jsx(
+        localEnvironmentActionControlsJsxRuntime.jsx(
           LocalEnvironmentActionMenuItem,
           {
             actionItem: actionItem,
@@ -3363,7 +3370,7 @@ function LocalConversationEnvironmentActionControls(props) {
     );
     let primaryActionButton =
       primaryActionItem != null && primaryActionTitle != null
-        ? X.jsx(jr, {
+        ? localEnvironmentActionControlsJsxRuntime.jsx(jr, {
             tooltipContent: primaryActionTitle,
             shortcut:
               primaryActionItem.commandId == null ? null : primaryShortcut,
@@ -3371,12 +3378,12 @@ function LocalConversationEnvironmentActionControls(props) {
             children: (
               <button
                 aria-label={primaryActionTitle}
-                className={Am}
+                className={localEnvironmentActionIconButtonClassName}
                 title={primaryActionTitle}
                 type="button"
                 onClick={runPrimaryAction}
               >
-                {X.jsx(md, {
+                {localEnvironmentActionControlsJsxRuntime.jsx(md, {
                   icon: primaryActionItem.action.icon ?? "tool",
                 })}
               </button>
@@ -3427,43 +3434,55 @@ function LocalConversationEnvironmentActionControls(props) {
       onOpenChange?.(open);
     };
   let handleSelectorOpenChange = handleSelectorOpenChangeRaw,
-    electronEnvironmentControls = X.jsx(qt, {
-      electron: true,
-      children: hasNoLocalEnvironments
-        ? X.jsx(jr, {
-            tooltipContent: createEnvironmentLabel,
-            delayOpen: true,
-            children: X.jsx(k, {
-              "aria-label": createEnvironmentLabel,
-              className: "ms-auto",
-              color: "ghost",
-              disabled: !canChangeEnvironment,
-              size: "icon",
-              type: "button",
-              onClick: createEnvironment,
-              children: <Ae className="icon-sm" />,
-            }),
-          })
-        : X.jsx(LocalEnvironmentSelectorDropdown, {
-            canChangeEnvironment,
-            open: isMenuOpen,
-            title: environmentSelectorTitle,
-            onOpenChange: handleSelectorOpenChange,
-            children: selectorContent,
-          }),
-    });
-  let browserEnvironmentControls = X.jsx(qt, {
-    browser: true,
-    chromeExtension: true,
-    extension: true,
-    children: X.jsx(LocalEnvironmentSelectorDropdown, {
-      canChangeEnvironment,
-      open: isMenuOpen,
-      title: environmentSelectorTitle,
-      onOpenChange: handleSelectorOpenChange,
-      children: selectorContent,
-    }),
-  });
+    electronEnvironmentControls = localEnvironmentActionControlsJsxRuntime.jsx(
+      qt,
+      {
+        electron: true,
+        children: hasNoLocalEnvironments
+          ? localEnvironmentActionControlsJsxRuntime.jsx(jr, {
+              tooltipContent: createEnvironmentLabel,
+              delayOpen: true,
+              children: localEnvironmentActionControlsJsxRuntime.jsx(k, {
+                "aria-label": createEnvironmentLabel,
+                className: "ms-auto",
+                color: "ghost",
+                disabled: !canChangeEnvironment,
+                size: "icon",
+                type: "button",
+                onClick: createEnvironment,
+                children: <Ae className="icon-sm" />,
+              }),
+            })
+          : localEnvironmentActionControlsJsxRuntime.jsx(
+              LocalEnvironmentSelectorDropdown,
+              {
+                canChangeEnvironment,
+                open: isMenuOpen,
+                title: environmentSelectorTitle,
+                onOpenChange: handleSelectorOpenChange,
+                children: selectorContent,
+              },
+            ),
+      },
+    );
+  let browserEnvironmentControls = localEnvironmentActionControlsJsxRuntime.jsx(
+    qt,
+    {
+      browser: true,
+      chromeExtension: true,
+      extension: true,
+      children: localEnvironmentActionControlsJsxRuntime.jsx(
+        LocalEnvironmentSelectorDropdown,
+        {
+          canChangeEnvironment,
+          open: isMenuOpen,
+          title: environmentSelectorTitle,
+          onOpenChange: handleSelectorOpenChange,
+          children: selectorContent,
+        },
+      ),
+    },
+  );
   return (
     <>
       {electronEnvironmentControls}
@@ -3476,7 +3495,7 @@ function LocalEnvironmentSelectorDropdown(props) {
     isDisabled = !canChangeEnvironment,
     triggerDisabled = !canChangeEnvironment,
     triggerIcon = <Gt className="icon-sm" />;
-  let triggerButton = X.jsx(k, {
+  let triggerButton = localEnvironmentActionControlsJsxRuntime.jsx(k, {
     "aria-label": title,
     className: "ms-auto",
     color: "ghost",
@@ -3484,7 +3503,7 @@ function LocalEnvironmentSelectorDropdown(props) {
     size: "icon",
     children: triggerIcon,
   });
-  let tooltipTrigger = X.jsx(jr, {
+  let tooltipTrigger = localEnvironmentActionControlsJsxRuntime.jsx(jr, {
     tooltipContent: title,
     delayOpen: true,
     children: triggerButton,
@@ -3513,9 +3532,10 @@ function AddLocalEnvironmentActionPopoverContent(props) {
       onRunAction,
       workspaceRoot,
     } = props,
-    [draftAction, setDraftAction] = km.useState(
-      createEmptyLocalEnvironmentActionDraft,
-    ),
+    [draftAction, setDraftAction] =
+      localEnvironmentActionControlsReactRuntime.useState(
+        createEmptyLocalEnvironmentActionDraft,
+      ),
     openSettingsAndClose = () => {
       onClose();
       onOpenSettings();
@@ -3539,7 +3559,7 @@ function AddLocalEnvironmentActionPopoverContent(props) {
       workspaceRoot={workspaceRoot}
     />
   );
-  return X.jsx(ai, {
+  return localEnvironmentActionControlsJsxRuntime.jsx(ai, {
     open: true,
     contentClassName:
       "!w-[379px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-4rem)] !p-0",
@@ -3554,29 +3574,38 @@ function LocalEnvironmentActionMenuItem(props) {
   let { actionItem, isPrimaryAction, onRunAction } = props,
     { commandId } = actionItem;
   if (commandId == null) {
-    return X.jsx(LocalEnvironmentActionMenuRow, {
-      actionItem,
-      isPrimaryAction,
-      shortcut: null,
-      onRunAction,
-    });
+    return localEnvironmentActionControlsJsxRuntime.jsx(
+      LocalEnvironmentActionMenuRow,
+      {
+        actionItem,
+        isPrimaryAction,
+        shortcut: null,
+        onRunAction,
+      },
+    );
   }
-  return X.jsx(LocalEnvironmentActionMenuItemWithShortcut, {
-    actionItem,
-    commandId,
-    isPrimaryAction,
-    onRunAction,
-  });
+  return localEnvironmentActionControlsJsxRuntime.jsx(
+    LocalEnvironmentActionMenuItemWithShortcut,
+    {
+      actionItem,
+      commandId,
+      isPrimaryAction,
+      onRunAction,
+    },
+  );
 }
 function LocalEnvironmentActionMenuItemWithShortcut(props) {
   let { actionItem, commandId, isPrimaryAction, onRunAction } = props,
     shortcut = useScopedValue(ha, commandId);
-  return X.jsx(LocalEnvironmentActionMenuRow, {
-    actionItem,
-    isPrimaryAction,
-    shortcut: shortcut,
-    onRunAction,
-  });
+  return localEnvironmentActionControlsJsxRuntime.jsx(
+    LocalEnvironmentActionMenuRow,
+    {
+      actionItem,
+      isPrimaryAction,
+      shortcut: shortcut,
+      onRunAction,
+    },
+  );
 }
 function LocalEnvironmentActionMenuRow(props) {
   let { actionItem, isPrimaryAction, shortcut, onRunAction } = props,
@@ -3587,7 +3616,7 @@ function LocalEnvironmentActionMenuRow(props) {
   let iconName = action.icon ?? "tool",
     iconNode = (
       <Br.ItemIcon>
-        {X.jsx(md, {
+        {localEnvironmentActionControlsJsxRuntime.jsx(md, {
           icon: iconName,
         })}
       </Br.ItemIcon>
@@ -3596,7 +3625,7 @@ function LocalEnvironmentActionMenuRow(props) {
     <span className="min-w-0 flex-1 truncate">{action.name}</span>
   );
   let primaryMarker = isPrimaryAction
-    ? X.jsx(si, {
+    ? localEnvironmentActionControlsJsxRuntime.jsx(si, {
         className: "icon-xs shrink-0 text-token-description-foreground",
       })
     : null;
@@ -3622,7 +3651,7 @@ function LocalEnvironmentActionMenuRow(props) {
 function RegisterLocalEnvironmentActionCommands(props) {
   let { actions, conversationId, onRunAction } = props,
     registeredCommandItems = aa.map((item, index) =>
-      X.jsx(
+      localEnvironmentActionControlsJsxRuntime.jsx(
         RegisterLocalEnvironmentActionCommand,
         {
           actionItem: actions[index],
@@ -3670,11 +3699,11 @@ function RegisterLocalEnvironmentActionCommand(props) {
   let renderCommandItem = (closeMenu) => {
     if (actionItem == null) return null;
     let { action } = actionItem;
-    return X.jsx(dl, {
+    return localEnvironmentActionControlsJsxRuntime.jsx(dl, {
       value: title,
       keywords: ["environment", "action"],
       title: title,
-      leftAccessory: X.jsx(md, {
+      leftAccessory: localEnvironmentActionControlsJsxRuntime.jsx(md, {
         className: "icon-xs shrink-0",
         icon: action.icon ?? "tool",
       }),
@@ -3705,22 +3734,22 @@ function LocalEnvironmentActionShortcutBadge(props) {
   let { commandId } = props,
     shortcut = useScopedValue(ha, commandId);
   return shortcut
-    ? X.jsx(ri, {
+    ? localEnvironmentActionControlsJsxRuntime.jsx(ri, {
         keysLabel: shortcut,
       })
     : null;
 }
-var Om,
-  km,
-  X,
-  Am,
-  jm,
-  Mm = once(() => {
-    Om = getChunkModuleExports();
+var localEnvironmentActionControlsModule,
+  localEnvironmentActionControlsReactRuntime,
+  localEnvironmentActionControlsJsxRuntime,
+  localEnvironmentActionIconButtonClassName,
+  EMPTY_LOCAL_ENVIRONMENT_ACTION_ITEMS,
+  initLocalEnvironmentActionControlsChunk = once(() => {
+    localEnvironmentActionControlsModule = getChunkModuleExports();
     Ca();
     xt();
     c();
-    km = toEsModule(G(), 1);
+    localEnvironmentActionControlsReactRuntime = toEsModule(G(), 1);
     Jn();
     xr();
     Ei();
@@ -3755,10 +3784,10 @@ var Om,
     Mr();
     di();
     _n();
-    X = getJsxRuntime();
-    Am =
+    localEnvironmentActionControlsJsxRuntime = getJsxRuntime();
+    localEnvironmentActionIconButtonClassName =
       "flex h-7 w-7 shrink-0 cursor-interaction items-center justify-center rounded-sm border-0 bg-transparent p-0 text-token-text-tertiary hover:bg-token-list-hover-background data-[state=open]:bg-token-list-hover-background";
-    jm = [];
+    EMPTY_LOCAL_ENVIRONMENT_ACTION_ITEMS = [];
   });
 function ThreadSummaryPanelSection(props) {
   let {
@@ -4445,13 +4474,16 @@ function PullRequestChecksSummaryRow(props) {
       checksToFix.length > 0 && onFixFailingChecks != null,
     getChecksByStatus = (status) =>
       pullRequestStatus.checks.filter((item) => item.status === status),
-    orderedChecks = Mh.flatMap(getChecksByStatus),
+    orderedChecks = PULL_REQUEST_CHECK_STATUS_ORDER.flatMap(getChecksByStatus),
     checkRows = orderedChecks.map(PullRequestCheckFlyoutRowItem);
-  let popoverContent = jh.jsx(PullRequestFlyoutContent, {
-    children: checkRows,
-  });
+  let popoverContent = pullRequestStatusDetailRowsJsxRuntime.jsx(
+    PullRequestFlyoutContent,
+    {
+      children: checkRows,
+    },
+  );
   let fixFailingChecksAction = hasFixableFailingChecks
-    ? jh.jsx(PullRequestInlineActionButton, {
+    ? pullRequestStatusDetailRowsJsxRuntime.jsx(PullRequestInlineActionButton, {
         color: "ghostTertiary",
         disabled: !canFixFailingChecks,
         tooltipContent: fixTooltipContent,
@@ -4483,7 +4515,7 @@ function PullRequestChecksSummaryRow(props) {
       label={checksLabel}
     />
   );
-  return jh.jsx(PullRequestRichTooltip, {
+  return pullRequestStatusDetailRowsJsxRuntime.jsx(PullRequestRichTooltip, {
     triggerAsChild: hasFixableFailingChecks,
     content: popoverContent,
     children: summaryRow,
@@ -4535,12 +4567,12 @@ function PullRequestCheckStatusIcon(props) {
   let { status } = props;
   switch (status) {
     case "failing": {
-      return jh.jsx(zc, {
+      return pullRequestStatusDetailRowsJsxRuntime.jsx(zc, {
         className: "icon-sm shrink-0 text-token-charts-red",
       });
     }
     case "passing": {
-      return jh.jsx(ve, {
+      return pullRequestStatusDetailRowsJsxRuntime.jsx(ve, {
         className: "icon-sm shrink-0 text-token-charts-green",
       });
     }
@@ -4673,11 +4705,11 @@ function getPullRequestChecksSummaryLabel(checks, ciStatus) {
       );
   }
 }
-var Ah,
-  jh,
-  Mh,
-  Nh = once(() => {
-    Ah = getChunkModuleExports();
+var pullRequestStatusDetailRowsModule,
+  pullRequestStatusDetailRowsJsxRuntime,
+  PULL_REQUEST_CHECK_STATUS_ORDER,
+  initPullRequestStatusDetailRowsChunk = once(() => {
+    pullRequestStatusDetailRowsModule = getChunkModuleExports();
     Jn();
     ke();
     tn();
@@ -4688,8 +4720,14 @@ var Ah,
     initPullRequestInlineActionButtonChunk();
     initPullRequestRichTooltipChunk();
     initSummaryPanelRowChunk();
-    jh = getJsxRuntime();
-    Mh = ["failing", "pending", "skipped", "unknown", "passing"];
+    pullRequestStatusDetailRowsJsxRuntime = getJsxRuntime();
+    PULL_REQUEST_CHECK_STATUS_ORDER = [
+      "failing",
+      "pending",
+      "skipped",
+      "unknown",
+      "passing",
+    ];
   });
 function PullRequestStatusDetailRows(props) {
   let { conversationId, headBranch, pullRequestStatus } = props,
@@ -4798,7 +4836,7 @@ function PullRequestStatusDetailRows(props) {
     failingChecksTooltipContent =
       checksFixDisabledReason == null
         ? undefined
-        : Rh.jsx(PullRequestFixDisabledTooltip, {
+        : pullRequestSummaryRowsJsxRuntime.jsx(PullRequestFixDisabledTooltip, {
             reason: checksFixDisabledReason,
           });
   let handleFixFailingChecks = (checks) => {
@@ -4819,24 +4857,30 @@ function PullRequestStatusDetailRows(props) {
   );
   let mergeConflictsRow = hasMergeConflicts ? (
     <SummaryPanelRow
-      actions={Rh.jsx(PullRequestInlineActionButton, {
-        color: "ghostTertiary",
-        disabled: conflictFixDisabledReason != null,
-        tooltipContent:
-          conflictFixDisabledReason == null
-            ? undefined
-            : Rh.jsx(PullRequestFixDisabledTooltip, {
-                reason: conflictFixDisabledReason,
-              }),
-        onClick: handleFixMergeConflicts,
-        children: (
-          <FormattedMessage
-            id="codex.localConversation.gitSummary.fixMergeConflicts"
-            defaultMessage="Fix"
-            description="Summary panel row action label for resolving pull request merge conflicts"
-          />
-        ),
-      })}
+      actions={pullRequestSummaryRowsJsxRuntime.jsx(
+        PullRequestInlineActionButton,
+        {
+          color: "ghostTertiary",
+          disabled: conflictFixDisabledReason != null,
+          tooltipContent:
+            conflictFixDisabledReason == null
+              ? undefined
+              : pullRequestSummaryRowsJsxRuntime.jsx(
+                  PullRequestFixDisabledTooltip,
+                  {
+                    reason: conflictFixDisabledReason,
+                  },
+                ),
+          onClick: handleFixMergeConflicts,
+          children: (
+            <FormattedMessage
+              id="codex.localConversation.gitSummary.fixMergeConflicts"
+              defaultMessage="Fix"
+              description="Summary panel row action label for resolving pull request merge conflicts"
+            />
+          ),
+        },
+      )}
       actionsVisible={true}
       icon={
         <span className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center">
@@ -4855,62 +4899,71 @@ function PullRequestStatusDetailRows(props) {
     />
   ) : null;
   let commentsRow = hasCommentAttachments
-    ? Rh.jsx(PullRequestRichTooltip, {
+    ? pullRequestSummaryRowsJsxRuntime.jsx(PullRequestRichTooltip, {
         triggerAsChild: true,
-        content: Rh.jsx(PullRequestFlyoutContent, {
-          children: (
-            <div className="flex flex-col gap-2 py-1">
-              {pullRequestStatus.commentAttachments.map((item, index) => {
-                let activityItem =
-                  item.reviewThreadId == null
-                    ? null
-                    : pullRequestStatus.activityItems.find(
-                        (_item) =>
-                          _item.type === "review_comment" &&
-                          _item.reviewThreadId === item.reviewThreadId,
-                      );
-                return (
-                  <Qo
-                    key={`${item.url ?? ""}-${index}`}
-                    authorAvatarUrl={activityItem?.authorAvatarUrl}
-                    authorLogin={activityItem?.authorLogin}
-                    bodyPreview={true}
-                    comment={item}
-                    createdAt={activityItem?.createdAt}
-                    onOpenInReview={() => {
-                      Zs(scope, {
-                        comment: item,
-                      });
-                    }}
-                    url={item.url ?? null}
-                  />
-                );
-              })}
-            </div>
-          ),
-        }),
+        content: pullRequestSummaryRowsJsxRuntime.jsx(
+          PullRequestFlyoutContent,
+          {
+            children: (
+              <div className="flex flex-col gap-2 py-1">
+                {pullRequestStatus.commentAttachments.map((item, index) => {
+                  let activityItem =
+                    item.reviewThreadId == null
+                      ? null
+                      : pullRequestStatus.activityItems.find(
+                          (_item) =>
+                            _item.type === "review_comment" &&
+                            _item.reviewThreadId === item.reviewThreadId,
+                        );
+                  return (
+                    <Qo
+                      key={`${item.url ?? ""}-${index}`}
+                      authorAvatarUrl={activityItem?.authorAvatarUrl}
+                      authorLogin={activityItem?.authorLogin}
+                      bodyPreview={true}
+                      comment={item}
+                      createdAt={activityItem?.createdAt}
+                      onOpenInReview={() => {
+                        Zs(scope, {
+                          comment: item,
+                        });
+                      }}
+                      url={item.url ?? null}
+                    />
+                  );
+                })}
+              </div>
+            ),
+          },
+        ),
         children: (
           <SummaryPanelRow
             actions={
               hasNewCommentAttachments
-                ? Rh.jsx(PullRequestInlineActionButton, {
-                    color: "ghostTertiary",
-                    disabled: reviewCommentsFixDisabledReason != null,
-                    tooltipContent:
-                      reviewCommentsFixDisabledReason == null
-                        ? undefined
-                        : Rh.jsx(PullRequestCommentsFixDisabledTooltip, {
-                            reason: reviewCommentsFixDisabledReason,
-                          }),
-                    onClick: handleFixReviewComments,
-                    children: (
-                      <FormattedMessage
-                        id="codex.localConversation.gitSummary.fixComments"
-                        defaultMessage="Fix"
-                        description="Summary panel row action label for fixing pull request comments"
-                      />
-                    ),
-                  })
+                ? pullRequestSummaryRowsJsxRuntime.jsx(
+                    PullRequestInlineActionButton,
+                    {
+                      color: "ghostTertiary",
+                      disabled: reviewCommentsFixDisabledReason != null,
+                      tooltipContent:
+                        reviewCommentsFixDisabledReason == null
+                          ? undefined
+                          : pullRequestSummaryRowsJsxRuntime.jsx(
+                              PullRequestCommentsFixDisabledTooltip,
+                              {
+                                reason: reviewCommentsFixDisabledReason,
+                              },
+                            ),
+                      onClick: handleFixReviewComments,
+                      children: (
+                        <FormattedMessage
+                          id="codex.localConversation.gitSummary.fixComments"
+                          defaultMessage="Fix"
+                          description="Summary panel row action label for fixing pull request comments"
+                        />
+                      ),
+                    },
+                  )
                 : undefined
             }
             actionsVisible={hasNewCommentAttachments}
@@ -4951,10 +5004,10 @@ function isFailingPullRequestCheckStatus(check) {
 function getReviewCommentAttachmentKey(commentAttachment) {
   return se(commentAttachment);
 }
-var Lh,
-  Rh,
-  zh = once(() => {
-    Lh = getChunkModuleExports();
+var pullRequestSummaryRowsModule,
+  pullRequestSummaryRowsJsxRuntime,
+  initPullRequestSummaryRowsChunk = once(() => {
+    pullRequestSummaryRowsModule = getChunkModuleExports();
     c();
     Jn();
     nt();
@@ -4973,8 +5026,8 @@ var Lh,
     lc();
     initPullRequestRichTooltipChunk();
     initSummaryPanelRowChunk();
-    Nh();
-    Rh = getJsxRuntime();
+    initPullRequestStatusDetailRowsChunk();
+    pullRequestSummaryRowsJsxRuntime = getJsxRuntime();
   });
 function getPullRequestTitleOrFallback(title, fallbackTitle) {
   return title?.trim() || fallbackTitle;
@@ -7359,7 +7412,7 @@ var k_,
     io();
     ka();
     initSummaryPanelRowChunk();
-    zh();
+    initPullRequestSummaryRowsChunk();
     initPullRequestTitleFallbackChunk();
     S_();
     A_ = getJsxRuntime();
@@ -7647,7 +7700,7 @@ var R_,
     Ri();
     me();
     zi();
-    Mm();
+    initLocalEnvironmentActionControlsChunk();
     initSummaryPanelRowChunk();
     initThreadSummaryPanelSectionChunk();
     initBranchChangesSummaryRowChunk();
@@ -13385,17 +13438,17 @@ async function openBackgroundAgentThreadTab(
       title: backgroundAgent.displayName,
     });
 }
-var lS,
+var backgroundAgentThreadTabsJsxRuntime,
   initBackgroundAgentThreadTabs = once(() => {
     nt();
     pn();
     Yi();
     rs();
-    lS = getJsxRuntime();
+    backgroundAgentThreadTabsJsxRuntime = getJsxRuntime();
   });
 function LocalConversationConnectionStatus(props) {
   let { status } = props,
-    spinnerIcon = pS.jsx(rr, {
+    spinnerIcon = localConversationConnectionStatusJsxRuntime.jsx(rr, {
       className: "icon-xs",
     });
   return (
@@ -13421,13 +13474,13 @@ function LocalConversationConnectionStatus(props) {
     </div>
   );
 }
-var fS,
-  pS,
-  mS = once(() => {
-    fS = getChunkModuleExports();
+var localConversationConnectionStatusModule,
+  localConversationConnectionStatusJsxRuntime,
+  initLocalConversationConnectionStatusChunk = once(() => {
+    localConversationConnectionStatusModule = getChunkModuleExports();
     Jn();
     d();
-    pS = getJsxRuntime();
+    localConversationConnectionStatusJsxRuntime = getJsxRuntime();
   });
 function useMarkConversationReadOnVisibility(conversationId, hasConversation) {
   let isUnread = useScopedValue(R, conversationId) ?? false,
@@ -13478,10 +13531,10 @@ function useMarkConversationReadOnVisibility(conversationId, hasConversation) {
     markConversationReadEvent
   );
 }
-var gS,
+var markConversationReadEffectModule,
   _S,
   initMarkConversationReadEffect = once(() => {
-    gS = getChunkModuleExports();
+    markConversationReadEffectModule = getChunkModuleExports();
     c();
     _S = toEsModule(G(), 1);
     nt();
@@ -13497,77 +13550,100 @@ function useResumeLocalConversation(conversationId) {
     workspaceRoots = data?.roots,
     shouldResumeConversation = useScopedValue(Ir, conversationId);
   useScopedValue(En, conversationId);
-  let [isResuming, setIsResuming] = wS.useState(shouldResumeConversation),
-    activeResumeConversationIdRef = wS.useRef(null),
-    retryTimerRef = wS.useRef(null),
-    hasShownResumeErrorRef = wS.useRef(false),
-    blockedAutoRetryConversationIdRef = wS.useRef(null),
-    [retryTick, setRetryTick] = wS.useState(0),
-    resumeConversation = wS.useEffectEvent(async (e) => {
-      try {
-        setIsResuming(true);
-        activeResumeConversationIdRef.current = e;
-        let n = scope.get(En, e);
-        await Dr("maybe-resume-conversation", {
-          hostId: n,
-          conversationId: e,
-          model: null,
-          serviceTier: await Ma(scope, n, activeMode?.settings.model ?? null),
-          reasoningEffort: null,
-          workspaceRoots: workspaceRoots ?? [],
-          collaborationMode: activeMode,
-          showThreadGoalResumeConfirmation: false,
-        });
-      } catch (r) {
-        if (
-          (gr.error("Failed to resume conversation", {
-            safe: {},
-            sensitive: {
-              conversationId: e,
-              error: r,
-            },
-          }),
-          activeResumeConversationIdRef.current !== e)
-        )
-          return;
-        let i = scope.get(P, e),
-          a =
-            i == null
-              ? false
-              : await Dr("get-is-conversation-archiving-for-host", {
-                  hostId: i,
-                  conversationId: e,
-                });
-        if (i == null || a || !scope.get(Ir, e)) {
-          hasShownResumeErrorRef.current = false;
-          return;
-        }
-        let o = scope.get(oi, e) != null,
-          s = shouldAutoRetryResumeError(r);
-        s || (blockedAutoRetryConversationIdRef.current = e);
-        shouldShowResumeErrorToast({
-          hasShownResumeError: hasShownResumeErrorRef.current,
-          isSubagentChildThread: o,
-          shouldAutoRetry: s,
-        }) &&
-          (scope.get(ti).danger(formatResumeConversationError(intl, r), {
-            id: `resume-task-error-${e}`,
-          }),
-          (hasShownResumeErrorRef.current = true));
-        s &&
-          retryTimerRef.current == null &&
-          (retryTimerRef.current = setTimeout(() => {
-            retryTimerRef.current = null;
-            setRetryTick((e) => e + 1);
-          }, 750));
-      } finally {
-        activeResumeConversationIdRef.current === e &&
-          ((activeResumeConversationIdRef.current = null),
-          setIsResuming(false));
-      }
-    });
+  let [isResuming, setIsResuming] =
+      localConversationThreadRouteReactRuntime.useState(
+        shouldResumeConversation,
+      ),
+    activeResumeConversationIdRef =
+      localConversationThreadRouteReactRuntime.useRef(null),
+    retryTimerRef = localConversationThreadRouteReactRuntime.useRef(null),
+    hasShownResumeErrorRef =
+      localConversationThreadRouteReactRuntime.useRef(false),
+    blockedAutoRetryConversationIdRef =
+      localConversationThreadRouteReactRuntime.useRef(null),
+    [retryTick, setRetryTick] =
+      localConversationThreadRouteReactRuntime.useState(0),
+    resumeConversation =
+      localConversationThreadRouteReactRuntime.useEffectEvent(
+        async (resumeConversationId) => {
+          try {
+            setIsResuming(true);
+            activeResumeConversationIdRef.current = resumeConversationId;
+            let resumeHostId = scope.get(En, resumeConversationId);
+            await Dr("maybe-resume-conversation", {
+              hostId: resumeHostId,
+              conversationId: resumeConversationId,
+              model: null,
+              serviceTier: await Ma(
+                scope,
+                resumeHostId,
+                activeMode?.settings.model ?? null,
+              ),
+              reasoningEffort: null,
+              workspaceRoots: workspaceRoots ?? [],
+              collaborationMode: activeMode,
+              showThreadGoalResumeConfirmation: false,
+            });
+          } catch (error) {
+            if (
+              (gr.error("Failed to resume conversation", {
+                safe: {},
+                sensitive: {
+                  conversationId: resumeConversationId,
+                  error,
+                },
+              }),
+              activeResumeConversationIdRef.current !== resumeConversationId)
+            )
+              return;
+            let hostId = scope.get(P, resumeConversationId),
+              isArchiving =
+                hostId == null
+                  ? false
+                  : await Dr("get-is-conversation-archiving-for-host", {
+                      hostId,
+                      conversationId: resumeConversationId,
+                    });
+            if (
+              hostId == null ||
+              isArchiving ||
+              !scope.get(Ir, resumeConversationId)
+            ) {
+              hasShownResumeErrorRef.current = false;
+              return;
+            }
+            let isSubagentChildThread =
+                scope.get(oi, resumeConversationId) != null,
+              shouldAutoRetry = shouldAutoRetryResumeError(error);
+            shouldAutoRetry ||
+              (blockedAutoRetryConversationIdRef.current =
+                resumeConversationId);
+            shouldShowResumeErrorToast({
+              hasShownResumeError: hasShownResumeErrorRef.current,
+              isSubagentChildThread,
+              shouldAutoRetry,
+            }) &&
+              (scope
+                .get(ti)
+                .danger(formatResumeConversationError(intl, error), {
+                  id: `resume-task-error-${resumeConversationId}`,
+                }),
+              (hasShownResumeErrorRef.current = true));
+            shouldAutoRetry &&
+              retryTimerRef.current == null &&
+              (retryTimerRef.current = setTimeout(() => {
+                retryTimerRef.current = null;
+                setRetryTick((currentRetryTick) => currentRetryTick + 1);
+              }, 750));
+          } finally {
+            activeResumeConversationIdRef.current === resumeConversationId &&
+              ((activeResumeConversationIdRef.current = null),
+              setIsResuming(false));
+          }
+        },
+      );
   return (
-    wS.useEffect(() => {
+    localConversationThreadRouteReactRuntime.useEffect(() => {
       shouldResumeConversation ||
         ((activeResumeConversationIdRef.current = null),
         (hasShownResumeErrorRef.current = false),
@@ -13577,29 +13653,29 @@ function useResumeLocalConversation(conversationId) {
           (clearTimeout(retryTimerRef.current),
           (retryTimerRef.current = null)));
     }, [conversationId, shouldResumeConversation]),
-    wS.useEffect(() => {
+    localConversationThreadRouteReactRuntime.useEffect(() => {
       blockedAutoRetryConversationIdRef.current = null;
     }, [conversationId]),
-    wS.useEffect(() => {
+    localConversationThreadRouteReactRuntime.useEffect(() => {
       if (conversationId != null)
         return scope.watch(({ get }) => {
-          let n = get(P, conversationId);
-          n != null &&
+          let hostId = get(P, conversationId);
+          hostId != null &&
             get(oi, conversationId) != null &&
             fr.dispatchMessage("subagent-thread-opened", {
-              hostId: n,
+              hostId,
               conversationId: conversationId,
             });
         });
     }, [conversationId, scope]),
-    wS.useEffect(() => {
+    localConversationThreadRouteReactRuntime.useEffect(() => {
       conversationId &&
         shouldResumeConversation &&
         conversationId !== activeResumeConversationIdRef.current &&
         conversationId !== blockedAutoRetryConversationIdRef.current &&
         resumeConversation(conversationId);
     }, [shouldResumeConversation, conversationId, retryTick]),
-    wS.useEffect(
+    localConversationThreadRouteReactRuntime.useEffect(
       () => () => {
         retryTimerRef.current != null &&
           (clearTimeout(retryTimerRef.current), (retryTimerRef.current = null));
@@ -13664,12 +13740,12 @@ function getResumeConfigErrorDetails(error) {
         detail: configError.detail,
       };
 }
-var wS,
-  TS,
+var localConversationThreadRouteReactRuntime,
+  localConversationThreadRouteJsxRuntime,
   initLocalConversationThreadRoute = once(() => {
     c();
     gn();
-    wS = toEsModule(G(), 1);
+    localConversationThreadRouteReactRuntime = toEsModule(G(), 1);
     Jn();
     nt();
     pn();
@@ -13681,7 +13757,7 @@ var wS,
     It();
     Ht();
     Mr();
-    TS = getJsxRuntime();
+    localConversationThreadRouteJsxRuntime = getJsxRuntime();
   });
 function turnHasMcpAppResource(entry) {
   return (
@@ -13717,7 +13793,7 @@ export function LocalConversationThread(props: LocalConversationThreadProps) {
   } = props;
   if (!conversationId) {
     let e;
-    return $.jsx(xi, {
+    return localConversationThreadJsxRuntime.jsx(xi, {
       to: "/",
     });
   }
@@ -13807,7 +13883,8 @@ function ExpiredSideChatState(props) {
       va(target).tabById$,
       `sidechat:${conversationId}`,
     )?.title,
-    [isRecreatingSideChat, setIsRecreatingSideChat] = GS.useState(false),
+    [isRecreatingSideChat, setIsRecreatingSideChat] =
+      localConversationThreadReactRuntime.useState(false),
     recreateSideChat = () => {
       sourceConversationId == null ||
         isRecreatingSideChat ||
@@ -13855,7 +13932,7 @@ function ExpiredSideChatState(props) {
     actionButton =
       sourceConversationId == null
         ? null
-        : $.jsx(k, {
+        : localConversationThreadJsxRuntime.jsx(k, {
             loading: isRecreatingSideChat,
             onClick: recreateSideChat,
             children: (
@@ -13867,7 +13944,7 @@ function ExpiredSideChatState(props) {
             ),
           });
   if (presentation === "banner") {
-    return $.jsx($s, {
+    return localConversationThreadJsxRuntime.jsx($s, {
       type: "info",
       layout: "vertical",
       title: expiredTitle,
@@ -13875,7 +13952,7 @@ function ExpiredSideChatState(props) {
       customCtas: actionButton,
     });
   }
-  return $.jsx($c, {
+  return localConversationThreadJsxRuntime.jsx($c, {
     className: "h-full",
     spacing: "compact",
     title: expiredTitle,
@@ -13987,8 +14064,9 @@ function LocalConversationThreadRoute(props) {
       : null,
     intl = ur(),
     navigate = rt(),
-    hasSeenConversationRef = GS.useRef(false),
-    lastSubagentParentThreadIdRef = GS.useRef(null),
+    hasSeenConversationRef = localConversationThreadReactRuntime.useRef(false),
+    lastSubagentParentThreadIdRef =
+      localConversationThreadReactRuntime.useRef(null),
     rememberSubagentParentThreadId,
     rememberSubagentParentThreadIdDeps;
   rememberSubagentParentThreadId = () => {
@@ -13996,7 +14074,7 @@ function LocalConversationThreadRoute(props) {
       (lastSubagentParentThreadIdRef.current = visibleSubagentParentThreadId);
   };
   rememberSubagentParentThreadIdDeps = [visibleSubagentParentThreadId];
-  GS.useEffect(
+  localConversationThreadReactRuntime.useEffect(
     rememberSubagentParentThreadId,
     rememberSubagentParentThreadIdDeps,
   );
@@ -14046,7 +14124,10 @@ function LocalConversationThreadRoute(props) {
     intl,
     navigate,
   ];
-  GS.useEffect(handleMissingConversation, missingConversationEffectDeps);
+  localConversationThreadReactRuntime.useEffect(
+    handleMissingConversation,
+    missingConversationEffectDeps,
+  );
   let handleVisibleThreadContentReady = (turnCount) => {
     threadSwitchTimingTracker.complete(scope, "thread_switch_completed", {
       conversationId,
@@ -14079,15 +14160,18 @@ function LocalConversationThreadRoute(props) {
         }}
       />
     );
-  let summaryPanel = $.jsx(FloatingLocalConversationSummaryPanel, {
-    ...summaryPanelDisplay,
-    ...summaryPanelModel,
-    onOpenBackgroundAgent: onOpenBackgroundAgentFromSummary,
-  });
-  let floatingSummaryPanel = $.jsx(qt, {
+  let summaryPanel = localConversationThreadJsxRuntime.jsx(
+    FloatingLocalConversationSummaryPanel,
+    {
+      ...summaryPanelDisplay,
+      ...summaryPanelModel,
+      onOpenBackgroundAgent: onOpenBackgroundAgentFromSummary,
+    },
+  );
+  let floatingSummaryPanel = localConversationThreadJsxRuntime.jsx(qt, {
     browser: true,
     electron: true,
-    children: $.jsx(fs, {
+    children: localConversationThreadJsxRuntime.jsx(fs, {
       name: "ThreadSummaryPanel",
       fallback: renderSummaryPanelErrorFallback,
       children: summaryPanel,
@@ -14148,7 +14232,7 @@ function SummaryPanelErrorFallback(props) {
             style={panelStyle}
           >
             {title}
-            {$.jsx(k, {
+            {localConversationThreadJsxRuntime.jsx(k, {
               color: "secondary",
               size: "default",
               onClick: onRetry,
@@ -14210,7 +14294,7 @@ function ChromeExtensionConversationHeader(props) {
         </span>
       </span>
     );
-  let trailingActions = $.jsx(qt, {
+  let trailingActions = localConversationThreadJsxRuntime.jsx(qt, {
     extension: true,
     children: (
       <Pd
@@ -14224,7 +14308,7 @@ function ChromeExtensionConversationHeader(props) {
       />
     ),
   });
-  return $.jsx(qt, {
+  return localConversationThreadJsxRuntime.jsx(qt, {
     chromeExtension: true,
     extension: true,
     children: (
@@ -14287,12 +14371,16 @@ function LocalConversationThreadFrame(props) {
     initialScrollOffset = savedScrollState?.distanceFromBottomPx ?? null,
     initialVirtualizedTurnListRestoreState =
       savedScrollState?.virtualizedTurnList ?? null,
-    [isScrolledFromBottom, setIsScrolledFromBottom] = GS.useState(false),
+    [isScrolledFromBottom, setIsScrolledFromBottom] =
+      localConversationThreadReactRuntime.useState(false),
     [scrollDistanceFromBottomPx, setScrollDistanceFromBottomPx] =
-      GS.useState(0),
-    [responseSpacerState, setResponseSpacerState] = GS.useState(null),
-    latestTurnSubmitPlacementRef = GS.useRef(null),
-    [threadLayoutContainer, setThreadLayoutContainer] = GS.useState(null),
+      localConversationThreadReactRuntime.useState(0),
+    [responseSpacerState, setResponseSpacerState] =
+      localConversationThreadReactRuntime.useState(null),
+    latestTurnSubmitPlacementRef =
+      localConversationThreadReactRuntime.useRef(null),
+    [threadLayoutContainer, setThreadLayoutContainer] =
+      localConversationThreadReactRuntime.useState(null),
     newChatShortcutRef = useNullAppShellRef(
       "chatgpt.supportsNewChatKeyShortcut",
     ),
@@ -14330,7 +14418,7 @@ function LocalConversationThreadFrame(props) {
   let loadOlderConversationHistory = useStableCallback(
       loadOlderConversationHistoryPage,
     ),
-    threadScrollLayoutApiRef = GS.useRef(null),
+    threadScrollLayoutApiRef = localConversationThreadReactRuntime.useRef(null),
     handleThreadScroll = (distanceFromBottomPx, isAtBottom) => {
       scope.set(
         threadScrollStateSignal,
@@ -14415,7 +14503,10 @@ function LocalConversationThreadFrame(props) {
     onClearPendingLatestTurnSubmitPlacement,
     hideThreadContent,
   ];
-  GS.useEffect(clearPlacementWhenThreadHidden, clearPlacementEffectDeps);
+  localConversationThreadReactRuntime.useEffect(
+    clearPlacementWhenThreadHidden,
+    clearPlacementEffectDeps,
+  );
   let handleThreadLayoutContainerRef = (containerElement) => {
     newChatShortcutRef.current = containerElement;
     setThreadLayoutContainer(containerElement);
@@ -14438,7 +14529,10 @@ function LocalConversationThreadFrame(props) {
       handleOpenBackgroundAgent,
     ),
     summaryPanelObstaclesEffect = shouldMountSummaryPanelObstacles
-      ? $.jsx(RefreshSummaryPanelObstaclesEffect, {})
+      ? localConversationThreadJsxRuntime.jsx(
+          RefreshSummaryPanelObstaclesEffect,
+          {},
+        )
       : null;
   let remoteHostedPipAnchorHostId = shouldMountSummaryPanelObstacles
       ? MAIN_THREAD_PIP_HOST_ID
@@ -14489,7 +14583,7 @@ function LocalConversationThreadFrame(props) {
       isScrollToTopEnabled={isScrollToTopEnabled}
     />
   );
-  let threadScrollLayout = $.jsx(rd, {
+  let threadScrollLayout = localConversationThreadJsxRuntime.jsx(rd, {
     ref: threadScrollLayoutApiRef,
     hasLiveMcpAppFrame,
     remoteHostedPIPAnchorHostId: remoteHostedPipAnchorHostId,
@@ -14506,7 +14600,7 @@ function LocalConversationThreadFrame(props) {
       {floatingContent}
     </Mo>
   );
-  let appShellOverlayOutlet = $.jsx(ao, {});
+  let appShellOverlayOutlet = localConversationThreadJsxRuntime.jsx(ao, {});
   let threadLayout = (
     <ThreadLayout
       className="min-h-0"
@@ -14523,9 +14617,9 @@ function LocalConversationThreadFrame(props) {
       {appShellOverlayOutlet}
     </ThreadLayout>
   );
-  return $.jsx(fs, {
+  return localConversationThreadJsxRuntime.jsx(fs, {
     name: "LocalConversationPage",
-    children: $.jsx(pl, {
+    children: localConversationThreadJsxRuntime.jsx(pl, {
       value: threadLayoutContainer,
       children: threadLayout,
     }),
@@ -14539,7 +14633,10 @@ function RefreshSummaryPanelObstaclesEffect() {
     (refreshObstacles = () =>
       startRemoteHostedPipHostLayoutObserver(windowZoom)),
     (refreshObstaclesEffectDeps = [windowZoom]),
-    GS.useEffect(refreshObstacles, refreshObstaclesEffectDeps),
+    localConversationThreadReactRuntime.useEffect(
+      refreshObstacles,
+      refreshObstaclesEffectDeps,
+    ),
     null
   );
 }
@@ -14585,7 +14682,7 @@ function LocalConversationComposerFooter({
   isScrollToTopEnabled,
 }) {
   let scope = B(Fe);
-  GS.useContext(rl);
+  localConversationThreadReactRuntime.useContext(rl);
   ci();
   let hostConnectionStatus = useScopedValue(Qr, hostId),
     hasConversationTurns = !!useScopedValue(I, conversationId)?.length,
@@ -14602,7 +14699,8 @@ function LocalConversationComposerFooter({
     localWorkspaceMaterialization = useScopedValue(oc, conversationId);
   useScopedValue(b, conversationId);
   useScopedValue(s, conversationId);
-  let subagentResponseInProgress = useScopedValue(YS, conversationId) ?? false,
+  let subagentResponseInProgress =
+      useScopedValue(subagentResponseInProgressSignal, conversationId) ?? false,
     hasActiveSubagent = useScopedValue(
       _c,
       isBackgroundSubagentsEnabled ? conversationId : null,
@@ -14640,10 +14738,13 @@ function LocalConversationComposerFooter({
         <ComposerWorkspaceDirectoryTree conversationId={conversationId} />
         {footerConnectionStatus == null
           ? null
-          : $.jsx(LocalConversationConnectionStatus, {
-              status: footerConnectionStatus,
-            })}
-        {$.jsx(hl, {
+          : localConversationThreadJsxRuntime.jsx(
+              LocalConversationConnectionStatus,
+              {
+                status: footerConnectionStatus,
+              },
+            )}
+        {localConversationThreadJsxRuntime.jsx(hl, {
           browserConversationId:
             ot(scope.value) === conversationId
               ? (Ot(scope) ?? undefined)
@@ -14692,7 +14793,7 @@ function LocalConversationComposerFooter({
       }}
     >
       <div className="relative h-0">
-        {$.jsx(zl, {
+        {localConversationThreadJsxRuntime.jsx(zl, {
           className: "bottom-[calc(100%+6*var(--spacing))]",
           label: intl.formatMessage({
             id: "localConversation.scrollToBottomButton",
@@ -14761,7 +14862,7 @@ function LocalConversationThreadContent({
             completedThreadGoal.updatedAt * 1e3,
           ),
     conversationHostApi = Pn(conversationId),
-    { data: resolvedApps = qS } = Ti({
+    { data: resolvedApps = EMPTY_RESOLVED_APPS } = Ti({
       hostId,
     }),
     renderMcpApps = Qt("2138468235").get("enable_mcp_apps", false),
@@ -14769,8 +14870,9 @@ function LocalConversationThreadContent({
     visibleSubagentParentThreadId = isBackgroundSubagentsEnabled
       ? subagentParentThreadId
       : null,
-    [collapsedTurnsByConversationId, setCollapsedTurnsByConversationId] =
-      li(JS),
+    [collapsedTurnsByConversationId, setCollapsedTurnsByConversationId] = li(
+      collapsedTurnsByConversationSignal,
+    ),
     { items, markRead } = Co(),
     matchingAutomationItem = hasConversation
       ? (items.find((item) => item.threadId === conversationId) ?? null)
@@ -14780,7 +14882,7 @@ function LocalConversationThreadContent({
       matchingAutomationItem?.automationId != null &&
       automationDescription != null &&
       automationDescription.trim().length > 0;
-  GS.useEffect(() => {
+  localConversationThreadReactRuntime.useEffect(() => {
     matchingAutomationItem?.id == null ||
       matchingAutomationItem.readAt != null ||
       markRead(matchingAutomationItem.id);
@@ -14791,15 +14893,18 @@ function LocalConversationThreadContent({
       hostId,
     }),
     resolvedCwd = cwd ? D(cwd) : null,
-    collapsedTurnsById = GS.useMemo(
+    collapsedTurnsById = localConversationThreadReactRuntime.useMemo(
       () => collapsedTurnsByConversationId[conversationId] ?? {},
       [collapsedTurnsByConversationId, conversationId],
     ),
-    lastLatestVisibleTurnIdRef = GS.useRef(null),
-    currentConversationIdRef = GS.useRef(conversationId),
-    previousTurnEntriesRef = GS.useRef([]),
-    contentContainerRef = GS.useRef(null),
-    virtualizedTurnListApiRef = GS.useRef(null);
+    lastLatestVisibleTurnIdRef =
+      localConversationThreadReactRuntime.useRef(null),
+    currentConversationIdRef =
+      localConversationThreadReactRuntime.useRef(conversationId),
+    previousTurnEntriesRef = localConversationThreadReactRuntime.useRef([]),
+    contentContainerRef = localConversationThreadReactRuntime.useRef(null),
+    virtualizedTurnListApiRef =
+      localConversationThreadReactRuntime.useRef(null);
   currentConversationIdRef.current !== conversationId &&
     ((currentConversationIdRef.current = conversationId),
     (lastLatestVisibleTurnIdRef.current = null));
@@ -14811,9 +14916,12 @@ function LocalConversationThreadContent({
       isResuming,
       isSubagentThread,
     }),
-    hasConversationRef = GS.useRef(hasConversation),
-    conversationTurnsRef = GS.useRef(conversationTurns),
-    isBackgroundSubagentsEnabledRef = GS.useRef(isBackgroundSubagentsEnabled);
+    hasConversationRef =
+      localConversationThreadReactRuntime.useRef(hasConversation),
+    conversationTurnsRef =
+      localConversationThreadReactRuntime.useRef(conversationTurns),
+    isBackgroundSubagentsEnabledRef =
+      localConversationThreadReactRuntime.useRef(isBackgroundSubagentsEnabled);
   hasConversationRef.current = hasConversation;
   conversationTurnsRef.current = conversationTurns;
   isBackgroundSubagentsEnabledRef.current = isBackgroundSubagentsEnabled;
@@ -14828,7 +14936,7 @@ function LocalConversationThreadContent({
       let containerElement = contentContainerRef.current;
       containerElement != null && zo(event, containerElement);
     }),
-    setContentContainerRef = GS.useCallback(
+    setContentContainerRef = localConversationThreadReactRuntime.useCallback(
       (nextContainer) => {
         let previousContainer = contentContainerRef.current;
         previousContainer !== nextContainer &&
@@ -14958,14 +15066,14 @@ function LocalConversationThreadContent({
       visibleTurnEntries,
     });
   previousTurnEntriesRef.current = turnListEntries;
-  let turnKeyBySearchKey = GS.useMemo(() => {
+  let turnKeyBySearchKey = localConversationThreadReactRuntime.useMemo(() => {
       let turnKeyMap = new Map();
       for (let entry of turnListEntries)
         turnKeyMap.has(entry.turnSearchKey) ||
           turnKeyMap.set(entry.turnSearchKey, entry.turnKey);
       return turnKeyMap;
     }, [turnListEntries]),
-    searchScrollAdapter = GS.useMemo(
+    searchScrollAdapter = localConversationThreadReactRuntime.useMemo(
       () => ({
         scrollToTurn: async (turnKey, options) => {
           if (
@@ -15009,7 +15117,7 @@ function LocalConversationThreadContent({
         setCollapsedTurnsByConversationId,
       ],
     ),
-    conversationSource = GS.useMemo(
+    conversationSource = localConversationThreadReactRuntime.useMemo(
       () =>
         createLocalConversationSearchSource({
           getConversationState: () =>
@@ -15072,14 +15180,14 @@ function LocalConversationThreadContent({
               await Xs(itemId, "auto"))));
       },
     );
-  GS.useEffect(
+  localConversationThreadReactRuntime.useEffect(
     () =>
       Hs(scope, conversationId, {
         revealItem: revealContentSearchItem,
       }),
     [conversationId, revealContentSearchItem, scope],
   );
-  GS.useEffect(() => {
+  localConversationThreadReactRuntime.useEffect(() => {
     let previousLatestVisibleTurnId = lastLatestVisibleTurnIdRef.current,
       previousLatestVisibleEntry = visibleTurnEntries.find(
         (item) => item.turnId === previousLatestVisibleTurnId,
@@ -15140,13 +15248,16 @@ function LocalConversationThreadContent({
       />
     ) : (
       <>
-        {$.jsx(ThreadAppShellSourceRegistration, {
-          conversationSource,
-          diffSource,
-          orchestrationId: conversationSource.contextId,
-          isDefault: ot(scope.value) === conversationId,
-        })}
-        {$.jsxs(p.div, {
+        {localConversationThreadJsxRuntime.jsx(
+          ThreadAppShellSourceRegistration,
+          {
+            conversationSource,
+            diffSource,
+            orchestrationId: conversationSource.contextId,
+            isDefault: ot(scope.value) === conversationId,
+          },
+        )}
+        {localConversationThreadJsxRuntime.jsxs(p.div, {
           ref: setContentContainerRef,
           "data-thread-find-target": "conversation",
           className:
@@ -15191,7 +15302,7 @@ function LocalConversationThreadContent({
                 synchronouslyMeasureLatestTurnUpdates={false}
               />
             ) : (
-              $.jsx(
+              localConversationThreadJsxRuntime.jsx(
                 VirtualizedTurnList,
                 {
                   entries: turnListEntries,
@@ -15215,15 +15326,21 @@ function LocalConversationThreadContent({
     <Os fillParent={true} debugName="LocalConversationThread.state" />
   );
 }
-var WS, GS, $, KS, qS, JS, YS;
+var localConversationThreadModule,
+  localConversationThreadReactRuntime,
+  localConversationThreadJsxRuntime,
+  EMPTY_THREAD_TURNS,
+  EMPTY_RESOLVED_APPS,
+  collapsedTurnsByConversationSignal,
+  subagentResponseInProgressSignal;
 export const initLocalConversationThreadChunk = once(() => {
-  WS = getChunkModuleExports();
+  localConversationThreadModule = getChunkModuleExports();
   bt();
   xt();
   toEsModule(gi(), 1);
   c();
   gn();
-  GS = toEsModule(G(), 1);
+  localConversationThreadReactRuntime = toEsModule(G(), 1);
   Jn();
   xr();
   gc();
@@ -15310,21 +15427,22 @@ export const initLocalConversationThreadChunk = once(() => {
   initBackgroundAgentThreadTabs();
   ll();
   Sa();
-  mS();
+  initLocalConversationConnectionStatusChunk();
   Md();
   qc();
   initMarkConversationReadEffect();
   initLocalConversationThreadRoute();
   initVirtualizedTurnListChunk();
-  $ = getJsxRuntime();
-  KS = [];
-  qS = [];
-  JS = Ze({});
-  YS = Rn(ut, (conversationId, { get }) => {
+  localConversationThreadJsxRuntime = getJsxRuntime();
+  EMPTY_THREAD_TURNS = [];
+  EMPTY_RESOLVED_APPS = [];
+  collapsedTurnsByConversationSignal = Ze({});
+  subagentResponseInProgressSignal = Rn(ut, (conversationId, { get }) => {
     let parentConversationId = get(oi, conversationId);
     if (parentConversationId == null) return get(ge, conversationId) ?? false;
-    let conversationTurns = get(I, conversationId) ?? KS,
-      parentConversationTurns = get(I, parentConversationId) ?? KS;
+    let conversationTurns = get(I, conversationId) ?? EMPTY_THREAD_TURNS,
+      parentConversationTurns =
+        get(I, parentConversationId) ?? EMPTY_THREAD_TURNS;
     return (
       getConversationTurnsNotInParent({
         areTurnItemsEqual: deepEqualModule.default,
