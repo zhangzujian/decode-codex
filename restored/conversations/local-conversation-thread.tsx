@@ -666,7 +666,10 @@ import {
   n as Du,
   r as Ou,
 } from "./app-initial~app-main~remote-conversation-page~hotkey-window-worktree-init-page~hotkey-windo~kjl2gxhu-Dg7uZJVh.js";
-import { n as ku, t as Au } from "./use-git-config-value-DPgOVHFb.js";
+import {
+  initUseGitConfigValueChunk as Au,
+  useGitConfigValue as ku,
+} from "../utils/use-git-config-value";
 import {
   initArtifactFilePreviewIconChunk as ju,
   ArtifactFilePreviewIcon as Mu,
@@ -716,21 +719,21 @@ import {
   t as Wu,
 } from "./local-remote-dropdown-BcmhHtfg.js";
 import {
-  a as Gu,
-  i as Ku,
-  n as qu,
-  o as Ju,
-  r as Yu,
-  t as Xu,
-} from "./thread-virtualizer-Cf6Pz8xO.js";
+  buildThreadVirtualizerLayout as Xu,
+  getDistanceFromBottomForCenteredTurn as Yu,
+  getDistanceFromBottomForPreservedAnchor as qu,
+  getRangeAnchoredAtTurn as Gu,
+  getVisibleThreadRange as Ku,
+  initThreadVirtualizerChunk as Ju,
+} from "../threads/thread-virtualizer";
 import { n as Zu, t as Qu } from "./header-CT44CGhD.js";
 import { n as $u, t as ed } from "./team-DKjbhg1P.js";
 import { n as td, r as nd, t as rd } from "./thread-scroll-layout-BNp7nttn.js";
 import {
-  n as id,
-  r as ad,
-  t as od,
-} from "./thread-scroll-controller-context-value-Cl6S6mDJ.js";
+  initThreadScrollControllerContextChunk as id,
+  threadScrollControllerContext as od,
+  useThreadScrollController as ad,
+} from "../utils/thread-scroll-controller-context";
 import {
   a as sd,
   c as cd,
