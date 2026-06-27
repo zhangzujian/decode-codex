@@ -445,7 +445,7 @@ import {
   Oi as Uo,
   Ot as Wo,
   Pi as Go,
-  Q as Ko,
+  Q as CommentBubbleIcon,
   Qo as attachedPullRequestChecksSignal,
   Qt as Jo,
   Vt as Yo,
@@ -835,6 +835,10 @@ import {
   initSummaryPanelExpandableList,
   SummaryPanelExpandableList,
 } from "./local-conversation-thread-parts/summary-panel-expandable-list";
+import {
+  initThreadSummarySideChatRowsChunk,
+  ThreadSummarySideChatRows,
+} from "./local-conversation-thread-parts/thread-summary-side-chat-rows";
 const joinLocalEnvironmentRepoPath = joinPath;
 function SummaryPanelArtifactsList(props) {
   let {
@@ -4569,7 +4573,7 @@ function PullRequestStatusDetailRows(props) {
             actionsVisible={hasNewCommentAttachments}
             icon={
               <span className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center">
-                <Ko className="icon-xs text-token-text-tertiary" />
+                <CommentBubbleIcon className="icon-xs text-token-text-tertiary" />
               </span>
             }
             interactive={true}
@@ -7482,45 +7486,6 @@ var threadSummaryAutomationRowModule,
     initRouteScope();
     initSummaryPanelRowChunk();
     threadSummaryAutomationRowJsxRuntime = getJsxRuntime();
-  });
-function ThreadSummarySideChatRows(props) {
-  let { sideChats, onOpen } = props,
-    renderSideChatRow = (sideChat) => (
-      <SummaryPanelRow
-        icon={
-          sideChat.isResponseInProgress ? (
-            threadSummarySideChatRowsJsxRuntime.jsx(SpinnerIcon, {
-              className: "icon-sm shrink-0",
-            })
-          ) : (
-            <Ko className="icon-sm shrink-0" />
-          )
-        }
-        label={sideChat.title}
-        onClick={() => onOpen(sideChat)}
-      />
-    );
-  return (
-    <SummaryPanelExpandableList
-      items={sideChats}
-      getKey={getSideChatSummaryKey}
-    >
-      {renderSideChatRow}
-    </SummaryPanelExpandableList>
-  );
-}
-function getSideChatSummaryKey(sideChat) {
-  return sideChat.tabId;
-}
-var threadSummarySideChatRowsModule,
-  threadSummarySideChatRowsJsxRuntime,
-  initThreadSummarySideChatRowsChunk = once(() => {
-    threadSummarySideChatRowsModule = getChunkModuleExports();
-    initSpinnerComponent();
-    Oo();
-    initSummaryPanelExpandableList();
-    initSummaryPanelRowChunk();
-    threadSummarySideChatRowsJsxRuntime = getJsxRuntime();
   });
 function ThreadSummarySourceRows(props) {
   let { onOpen, toolSources, webSources } = props,
