@@ -5,7 +5,7 @@ import {
   Nv as initConversationArtifactRuntime,
   Pv as formatConversationTurnForSearch,
   Sk as normalizeMarkdownPlainText,
-  initLocalConversationGitSummary as isRenderableConversationTurn,
+  Mv as isRenderableConversationTurn,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { cn as initConversationSearchMatcher } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
