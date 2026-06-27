@@ -12672,6 +12672,19 @@
       "status": "done",
       "note": "Synced current page search input component with trailing control and initializer export.",
       "lastUpdated": "2026-06-27T21:58:20.084Z"
+    },
+    "feature-catalog-CkClCF_S": {
+      "restored": "features/feature-catalog.tsx",
+      "exports": {
+        "a": "initFeatureCatalogFindBarChunk",
+        "i": "FeatureCatalogFindBar",
+        "n": "getFeatureCatalogRows",
+        "r": "initFeatureCatalogDataChunk",
+        "t": "getFeatureCatalogItems"
+      },
+      "status": "done",
+      "note": "Synced current feature catalog chunk with find bar and data initializer exports.",
+      "lastUpdated": "2026-06-27T22:00:14.694Z"
     }
   }
 }
