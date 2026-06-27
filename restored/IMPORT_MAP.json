@@ -10947,8 +10947,9 @@
         "primeBrowserTabTransfers": "primeBrowserTabTransfers",
         "toggleThreadSidePanel": "toggleThreadSidePanel"
       },
-      "status": "draft",
-      "note": "Semantic passthrough barrel for the updated side-panel tab API; not promoted until the large producer chunks are restored locally."
+      "status": "done",
+      "note": "Restored the current side-panel tab API as semantic boundary imports, preserving the profile producer initializer side effect without re-exporting the raw hash chunk.",
+      "lastUpdated": "2026-06-27T21:33:36.552Z"
     },
     "selectable-list-row-Bm082MDr": {
       "restored": "ui/selectable-list-row.tsx",
