@@ -10580,8 +10580,8 @@
         "z": "useReviewSearchHighlights"
       },
       "status": "draft",
-      "note": "Draft for the updated ref chunk. Current checkpoint named current-ref appg producer aliases for global-state/query/signal factories, menu/popover/dialog primitives, Statsig hooks, conversation host API, browser/local-image helpers, prompt/settings constants, query/mutation/toast/logging bridge helpers, app/server request hooks, icons, tooltip/dialog/body/menu chrome, React Query/app query hooks, open-in-browser handlers, output artifact preview helpers, conversation requests/Berry display selectors, and local-conversation UI runtime helpers. Quality gate cryptic bindings are now 294. Full semantic split, producer restores, import repair, and JSX runtime residue cleanup remain open before promotion.",
-      "lastUpdated": "2026-06-27T07:57:37.000Z"
+      "note": "Draft for the updated ref chunk. Current checkpoint now names a first pass of review-search content helpers, MCP app id parsing, PR review-comment attachment updates, environment terminal opening, path-in-Codex-worktree checks, summary-panel motion transition, background-terminal messages, and more-menu icon producer aliases. Quality gate cryptic bindings are now 280. Full semantic split, producer restores, import repair, and JSX runtime residue cleanup remain open before promotion.",
+      "lastUpdated": "2026-06-27T08:36:20.000Z"
     },
     "thread-overflow-menu-CM-Eo7JH": {
       "restored": "threads/thread-overflow-menu.tsx",

@@ -273,7 +273,7 @@ import {
   ok as sendAppServerRequest,
   oo as initKnownAppIconRegistry,
   oy as initIdentifierTitleFormatter,
-  pI as Ar,
+  pI as isPathInCodexWorktree,
   pM as Tooltip,
   pP as initLoggerRuntime,
   ph as parseGitActionDirectives,
@@ -286,7 +286,7 @@ import {
   qg as isResourcePathInsideProjectlessOutput,
   qi as MenuChrome,
   qj as useStatsigGate,
-  rF as Hr,
+  rF as defineMessages,
   rO as Ur,
   r_ as getImagePreviewDisplayMode,
   ra as initGlobeIcon,
@@ -330,24 +330,24 @@ import {
 import {
   $i as Ei,
   A as Di,
-  Ar as Oi,
+  Ar as parseMcpAppIdFromToolCallId,
   Ba as pullRequestReviewCommentAttachmentsSignal,
-  Bo as Ai,
-  Cd as ji,
+  Bo as conversationSearchResultSignal,
+  Cd as pinnedSummaryPanelSpringTransition,
   Cl as pullRequestCurrentBranchSignal,
   Cn as Ni,
-  Cs as Pi,
+  Cs as setContentSearchMatchIdAttribute,
   Dd as Fi,
-  Di as Ii,
-  Ds as Li,
+  Di as groupConversationSearchMatchesByContentUnitKey,
+  Ds as openEnvironmentTerminalSession,
   Ec as Ri,
   Es as zi,
   F as Bi,
   Fr as installedMcpAppIdsSignal,
-  Ga as Hi,
+  Ga as MoreHorizontalIcon,
   Gl as conversationDisplayTitleSignal,
-  Ha as Wi,
-  Ho as Gi,
+  Ha as updatePullRequestReviewCommentAttachments,
+  Ho as activeConversationSearchMatchSignal,
   Il as Ki,
   Ir as qi,
   Ja as Ji,
@@ -376,7 +376,7 @@ import {
   Za as _a,
   _c as va,
   _i as githubCliAvailabilitySignal,
-  _s as ba,
+  _s as activeContentSearchMatchClassName,
   b as Sa,
   ba as Ca,
   bc as wa,
@@ -415,14 +415,14 @@ import {
   vd as ro,
   vi as io,
   vn as ao,
-  vs as oo,
+  vs as clearContentSearchHighlights,
   wd as so,
   wl as currentWorkspaceRootSignal,
   wo as lo,
   ws as uo,
   x as fo,
   xl as po,
-  xs as mo,
+  xs as highlightContentSearchMatches,
   yc as ho,
   yd as rightPanelFullWidthSignal,
   yn as _o,
@@ -860,8 +860,10 @@ var reviewSearchSchedulerModule,
 
 function useReviewSearchHighlights(props) {
   let { containerRef, contextId } = props,
-    reviewSearchRun = useSignalValue(Ai),
-    activeReviewSearchMatch = useSignalValue(Gi),
+    reviewSearchRun = useSignalValue(conversationSearchResultSignal),
+    activeReviewSearchMatch = useSignalValue(
+      activeConversationSearchMatchSignal,
+    ),
     activeReviewSearchRun =
       reviewSearchRun?.contextId === contextId ? reviewSearchRun : null,
     activeMatchId =
@@ -875,18 +877,23 @@ function useReviewSearchHighlights(props) {
     applySearchHighlights = () => {
       let containerElement = containerRef.current;
       if (containerElement == null) return;
-      oo(containerElement, {
+      clearContentSearchHighlights(containerElement, {
         includeShadowRoots: false,
       });
       let previousActiveMatchElement = activeMatchElementRef.current;
       if (
         (previousActiveMatchElement != null &&
-          (previousActiveMatchElement.classList.remove(ba),
+          (previousActiveMatchElement.classList.remove(
+            activeContentSearchMatchClassName,
+          ),
           (activeMatchElementRef.current = null)),
         activeReviewSearchRun == null)
       )
         return;
-      let matchesByContentUnitKey = Ii(activeReviewSearchRun.matches),
+      let matchesByContentUnitKey =
+          groupConversationSearchMatchesByContentUnitKey(
+            activeReviewSearchRun.matches,
+          ),
         elementByMatchId = new Map();
       if (
         (containerElement
@@ -898,7 +905,7 @@ function useReviewSearchHighlights(props) {
             let unitMatches = matchesByContentUnitKey.get(contentUnitKey);
             unitMatches == null ||
               unitMatches.length === 0 ||
-              mo({
+              highlightContentSearchMatches({
                 target: contentUnitElement,
                 query: activeReviewSearchRun.query,
                 maxMatches: unitMatches.length,
@@ -906,7 +913,7 @@ function useReviewSearchHighlights(props) {
               }).matches.forEach((matchElement, index) => {
                 let unitMatch = unitMatches[index];
                 unitMatch != null &&
-                  (Pi({
+                  (setContentSearchMatchIdAttribute({
                     element: matchElement,
                     matchId: unitMatch.id,
                   }),
@@ -918,7 +925,7 @@ function useReviewSearchHighlights(props) {
         return;
       let activeMatchElement = elementByMatchId.get(activeMatchId);
       activeMatchElement != null &&
-        (activeMatchElement.classList.add(ba),
+        (activeMatchElement.classList.add(activeContentSearchMatchClassName),
         (activeMatchElementRef.current = activeMatchElement));
     };
   let applySearchHighlightsEffectEvent =
@@ -2103,7 +2110,7 @@ function BackgroundTerminalRowActionMenu(props) {
     ac,
     "data-[state=open]:text-token-foreground",
   );
-  let triggerIcon = <Hi className="icon-2xs" />;
+  let triggerIcon = <MoreHorizontalIcon className="icon-2xs" />;
   let triggerButton = (
     <button
       type="button"
@@ -2257,7 +2264,7 @@ var backgroundTerminalSummaryRowsModule,
     initSummaryPanelRowChunk();
     backgroundTerminalSummaryRowsJsxRuntime = getJsxRuntime();
     BACKGROUND_TERMINAL_STARTING_ROW_TTL_MS = 1e4;
-    backgroundTerminalMessages = Hr({
+    backgroundTerminalMessages = defineMessages({
       actions: {
         id: "codex.localConversation.backgroundTerminals.actions",
         defaultMessage: "Background terminal actions",
@@ -2942,7 +2949,10 @@ function isRecentLocalEnvironmentAction(
   hostId: string,
 ): boolean {
   let environmentKey = getHostCodexHome(hostId);
-  return recentActionsByKey != null && Ar(recentActionsByKey, environmentKey);
+  return (
+    recentActionsByKey != null &&
+    isPathInCodexWorktree(recentActionsByKey, environmentKey)
+  );
 }
 var localEnvironmentRecentActionsModule,
   initLocalEnvironmentRecentActions = once(() => {
@@ -3304,7 +3314,7 @@ function LocalConversationEnvironmentActionControls(props) {
             },
           )
         : null,
-      actionsIcon = <Hi className="icon-xs" />;
+      actionsIcon = <MoreHorizontalIcon className="icon-xs" />;
     let actionsButton = (
       <button
         aria-label={actionsTitle}
@@ -4181,25 +4191,29 @@ function setPullRequestCommentsAttached(
 ) {
   return conversationId == null || commentAttachments.length === 0
     ? false
-    : (Wi(scope, conversationId, (currentAttachments) => {
-        if (attached)
-          return appendMissingReviewCommentAttachments(
-            currentAttachments,
-            commentAttachments,
-          );
-        let removedAttachmentKeys = new Set(
-            commentAttachments.map(getReviewCommentAttachmentKeyValue),
-          ),
-          nextAttachments = currentAttachments.filter(
-            (item) =>
-              !removedAttachmentKeys.has(
-                getReviewCommentAttachmentKeyValue(item),
-              ),
-          );
-        return nextAttachments.length === currentAttachments.length
-          ? currentAttachments
-          : nextAttachments;
-      }),
+    : (updatePullRequestReviewCommentAttachments(
+        scope,
+        conversationId,
+        (currentAttachments) => {
+          if (attached)
+            return appendMissingReviewCommentAttachments(
+              currentAttachments,
+              commentAttachments,
+            );
+          let removedAttachmentKeys = new Set(
+              commentAttachments.map(getReviewCommentAttachmentKeyValue),
+            ),
+            nextAttachments = currentAttachments.filter(
+              (item) =>
+                !removedAttachmentKeys.has(
+                  getReviewCommentAttachmentKeyValue(item),
+                ),
+            );
+          return nextAttachments.length === currentAttachments.length
+            ? currentAttachments
+            : nextAttachments;
+        },
+      ),
       true);
 }
 function attachPullRequestCommentsAndPromptFix(
@@ -7556,7 +7570,10 @@ function ThreadSummaryEnvironmentModeControls(props) {
       useScopedValue(conversationHostIdSignal, conversationId) ?? "local",
     conversationCwd = useScopedValue(conversationCwdSignal, conversationId),
     remoteCodexHome = getHostCodexHome(conversationRemoteState.hostId),
-    isWorktreeConversation = Ar(conversationCwd, remoteCodexHome);
+    isWorktreeConversation = isPathInCodexWorktree(
+      conversationCwd,
+      remoteCodexHome,
+    );
   let isThreadHandoffSummaryEnabled = useStatsigGate("1115442235"),
     conversationTitle = useScopedValue(
       conversationDisplayTitleSignal,
@@ -7751,7 +7768,11 @@ function ThreadSummaryEnvironmentSection(props) {
             onMenuOpenChange: onForceShow,
             onOpenChange: onForceShow,
             onShowTerminal: (terminalId) => {
-              Li(routeScope, terminalId, environmentTerminalController);
+              openEnvironmentTerminalSession(
+                routeScope,
+                terminalId,
+                environmentTerminalController,
+              );
             },
             registerCommands: registerEnvironmentActionCommands,
             workspaceRoot: cwd,
@@ -9300,7 +9321,11 @@ function setOrAnimatePinnedSummaryPanelContentShift(
 ) {
   return animationsDisabled
     ? (contentShiftSignal.set(nextContentShift), null)
-    : animateSignalValue(contentShiftSignal, nextContentShift, ji);
+    : animateSignalValue(
+        contentShiftSignal,
+        nextContentShift,
+        pinnedSummaryPanelSpringTransition,
+      );
 }
 
 var localConversationArtifactsModule,
@@ -9704,7 +9729,7 @@ function collectConversationMcpToolSources(
           apps,
           serverMetadataByName,
         ),
-        mcpAppId = Oi(item.id),
+        mcpAppId = parseMcpAppIdFromToolCallId(item.id),
         installedMcpAppId =
           installedMcpAppIds?.has(mcpAppId) === true ? mcpAppId : undefined,
         existingToolSource = toolSourcesById.get(toolSource.id);
