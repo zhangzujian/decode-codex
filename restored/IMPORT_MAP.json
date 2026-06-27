@@ -10660,8 +10660,9 @@
         "s": "initCreateGitRepositoryChunk",
         "t": "GitReviewPrimitives"
       },
-      "status": "draft",
-      "note": "Public draft organized for the updated ref chunk; not promoted until shared app-initial producer imports are restored and quality-gate passes."
+      "status": "done",
+      "note": "Promoted split git review primitives barrel backed by dedicated diff-stat and action-popover primitive modules.",
+      "lastUpdated": "2026-06-27T19:04:08.718Z"
     },
     "app-initial~app-main~projects-index-page~hotkey-window-new-thread-page~hotkey-window-home-p~hswrsggc-D-_P9low": {
       "restored": "composer/project-selector/index.ts",
