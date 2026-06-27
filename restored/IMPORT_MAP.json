@@ -12520,6 +12520,20 @@
       "status": "done",
       "note": "Restored wrapper entry that initializes pet install state before re-exporting the public API.",
       "lastUpdated": "2026-06-27T21:28:13.878Z"
+    },
+    "git-submodule-paths-query-CONsZjeg": {
+      "restored": "github/git-submodule-paths-query.tsx",
+      "exports": {
+        "n": "gitSubmodulePathsSignal",
+        "r": "initGitSubmodulePathsQueryChunk",
+        "t": "gitSubmodulePathsQuerySignal",
+        "gitSubmodulePathsSignal": "gitSubmodulePathsSignal",
+        "initGitSubmodulePathsQueryChunk": "initGitSubmodulePathsQueryChunk",
+        "gitSubmodulePathsQuerySignal": "gitSubmodulePathsQuerySignal"
+      },
+      "status": "done",
+      "note": "Synced current git submodule paths query chunk to the semantic query helpers and initializer export.",
+      "lastUpdated": "2026-06-27T21:30:04.717Z"
     }
   }
 }
