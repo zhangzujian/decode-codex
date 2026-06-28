@@ -2,19 +2,15 @@
 // Persisted scroll-state signal for local conversation thread layouts.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  $P as initAppScope,
-  AB as initScopeRuntime,
-  QP as appScope,
-  bV as createScopedSignal,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  createLocalConversationScopedSignal,
+  initLocalConversationScopeRuntime,
+} from "./local-conversation-scope-runtime";
 
 export let threadScrollStateSignal: unknown;
 
 export const initThreadScrollStateSignal = once(() => {
-  initScopeRuntime();
-  initAppScope();
-  threadScrollStateSignal = createScopedSignal(
-    appScope,
+  initLocalConversationScopeRuntime();
+  threadScrollStateSignal = createLocalConversationScopedSignal(
     (_conversationId: string) => null,
   );
 });
