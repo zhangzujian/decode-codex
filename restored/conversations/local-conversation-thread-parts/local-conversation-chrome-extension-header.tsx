@@ -27,9 +27,7 @@ import {
 import { Kl as conversationTitleSignal } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
   Ai as initPullRequestConversationHelpers,
-  Oi as BackgroundAgentAvatar,
   ji as isBackgroundSubagentsEnabled,
-  ki as initBackgroundAgentAvatarChunk,
 } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   ChromeExtensionHeader,
@@ -39,6 +37,10 @@ import {
   initThreadOverflowMenuChunk,
   ThreadOverflowMenu,
 } from "../../threads/thread-overflow-menu";
+import {
+  BackgroundAgentAvatar,
+  initBackgroundAgentAvatarChunk,
+} from "../../ui/background-agent-avatar";
 
 type ScopeRuntime = {
   get<TValue = unknown>(signal: unknown, key?: unknown): TValue;

@@ -13,9 +13,9 @@ import {
   Yl as rightPanelTabsStore,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
-  Oi as BackgroundAgentAvatar,
-  ki as initBackgroundAgentAvatarChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+  BackgroundAgentAvatar,
+  initBackgroundAgentAvatarChunk,
+} from "../../ui/background-agent-avatar";
 
 type BackgroundAgentThreadScope = {
   get<Value = unknown>(signal: unknown, key?: unknown): Value;

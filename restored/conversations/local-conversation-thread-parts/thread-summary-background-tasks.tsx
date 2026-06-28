@@ -31,9 +31,9 @@ import {
   tP as useAppServerMutation,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  Oi as BackgroundAgentAvatar,
-  ki as initBackgroundAgentAvatarChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+  BackgroundAgentAvatar,
+  initBackgroundAgentAvatarChunk,
+} from "../../ui/background-agent-avatar";
 import {
   er as BackgroundAgentIdenticon,
   tr as initBackgroundAgentIdenticonChunk,
