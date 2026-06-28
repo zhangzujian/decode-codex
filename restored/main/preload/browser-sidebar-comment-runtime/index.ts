@@ -176,6 +176,15 @@ export {
   getBrowserSidebarWheelDelta,
   scrollBrowserSidebarElementAtPoint,
 } from "./scroll-passthrough";
+export {
+  createBrowserSidebarCommentScreenshotReadyMessage,
+  getBrowserSidebarScreenshotAnnotationId,
+  getBrowserSidebarScreenshotViewportRect,
+  resolveBrowserSidebarScreenshotAnnotation,
+  retainPreparedBrowserSidebarScreenshotId,
+  shouldSendBrowserSidebarScreenshotReady,
+  shouldSkipBrowserSidebarScreenshotCapture,
+} from "./screenshot";
 export { buildBrowserSidebarTextAnchorState } from "./text-anchor-builder";
 export {
   captureBrowserSidebarActiveTextAnchorState,
@@ -234,6 +243,11 @@ export type {
   BrowserSidebarRegionDragState,
   BrowserSidebarViewportSizeWindow,
 } from "./region-drag";
+export type {
+  BrowserSidebarCommentScreenshotReadyMessage,
+  BrowserSidebarScreenshotAnnotation,
+  BrowserSidebarScreenshotAnnotationBase,
+} from "./screenshot";
 export type {
   BrowserSidebarAnchorState,
   BrowserSidebarCommentItem,
