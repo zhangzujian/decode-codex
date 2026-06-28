@@ -8,17 +8,19 @@ import {
 } from "../../utils/reverse-scroll-distance";
 import { useStableCallback } from "../../utils/use-stable-callback";
 import {
+  initWindowZoomContext,
+  useWindowZoom,
+} from "../../utils/window-zoom-context";
+import {
   $P as initAppScope,
   AB as initScopeRuntime,
   AP as motion,
   CP as animateSignalValue,
-  DM as initWindowZoomContext,
   FB as useScope,
   OP as createMotionSignal,
   QP as appScope,
   SP as initMotionRuntime,
   bM as initKeyboardShortcutLabel,
-  kM as useWindowZoom,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { initThreadScrollLayoutStyleChunk } from "../../utils/thread-scroll-layout";
 import {

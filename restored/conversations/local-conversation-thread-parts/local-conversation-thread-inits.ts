@@ -1,11 +1,11 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Initialization wiring for the local conversation public chunk.
 import { once } from "../../runtime/commonjs-interop";
+import { initWindowZoomContext } from "../../utils/window-zoom-context";
 import {
   $P as initAppScope,
   AB as initScopeRuntime,
   Al as initComposerScope,
-  DM as initWindowZoomContext,
   Ga as initElectronPlatformContent,
   Gj as initStatsigFeatureGateHooks,
   I_ as initRouteScope,

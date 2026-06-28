@@ -5,11 +5,13 @@ import { flushSync as flushSyncReactUpdates } from "react-dom";
 import { once } from "../../runtime/commonjs-interop";
 import { useStableCallback } from "../../utils/use-stable-callback";
 import {
+  initWindowZoomContext,
+  useWindowZoom,
+} from "../../utils/window-zoom-context";
+import {
   BP as classNames,
-  DM as initWindowZoomContext,
   VP as initClassNameRuntime,
   bM as initKeyboardShortcutLabel,
-  kM as useWindowZoom,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   buildThreadVirtualizerLayout,

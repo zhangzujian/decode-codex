@@ -2,7 +2,7 @@
 // Remote-hosted picture-in-picture layout observer for local conversation threads.
 
 import { useEffect } from "react";
-import { kM as useWindowZoom } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { useWindowZoom } from "../../utils/window-zoom-context";
 import {
   createReviewSearchAnchorPlacement,
   type ViewportRectLike,
