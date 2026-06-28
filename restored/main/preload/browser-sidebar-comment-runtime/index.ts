@@ -8,7 +8,23 @@ export {
   parseGoogleDocsDocumentUrl,
   parseGoogleSheetsDocumentId,
 } from "./google-workspace-urls";
+export {
+  clampNumber,
+  computeCommentEditorRect,
+  hasPointMovedPastThreshold,
+  inverseViewportScale,
+  isPointInsideViewportSize,
+  rectBetweenPoints,
+  scaleRect,
+  spreadCoincidentMarkerPoints,
+} from "./geometry";
 export { normalizeBrowserSidebarText } from "./text";
+export type {
+  BrowserSidebarCommentEditorLayoutOptions,
+  BrowserSidebarPoint,
+  BrowserSidebarRect,
+  BrowserSidebarSize,
+} from "./geometry";
 export type {
   BrowserSidebarAnchorLike,
   BrowserSidebarDocumentContextInput,
