@@ -9,18 +9,35 @@ import {
 } from "../boundaries/current-ref/appg-thread-shared-producer";
 import {
   Cd as pinnedSummaryPanelSpringTransition,
+  Fr as installedMcpAppIdsSignal,
+  Il as initRightPanelTabSignalsRaw,
+  Jl as initInstalledMcpAppSignalsRaw,
+  nu as initThreadSummaryPanelSignalsRuntimeRaw,
   id as rightPanelStateSignal,
   md as pinnedSummaryPanelPinnedSignal,
   nd as leftPanelStateSignal,
+  Rl as hostConfigSignal,
+  Wl as initConversationDisplayTitleSignalsRaw,
   wd as threadLayoutContext,
+  yu as initWorkspaceRouteStateSignalsRaw,
 } from "../boundaries/current-ref/projects-app-shared-producer";
+import {
+  At as initRestoredProcessRowsCollectorDependenciesRaw,
+  cs as backgroundAgentsSignal,
+  kt as formatCommandExecutionItemCommand,
+  ls as initSummaryPanelSourceHelpersRaw,
+} from "../boundaries/current-ref/profile-page-producer";
 import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
 } from "./local-conversation-route-runtime";
 
 export {
+  backgroundAgentsSignal,
+  formatCommandExecutionItemCommand,
+  hostConfigSignal,
   leftPanelStateSignal,
+  installedMcpAppIdsSignal,
   pinnedSummaryPanelPinnedSignal,
   pinnedSummaryPanelSpringTransition,
   rightPanelStateSignal,
@@ -47,4 +64,14 @@ export function initThreadSummaryPanelSectionRuntime(): void {
   initLocalConversationRouteRuntime();
   initSummaryPanelAnimationConfig();
   initScopedSignalRuntime();
+}
+
+export function initThreadSummaryPanelModelRuntime(): void {
+  initThreadSummaryPanelSignalsRuntimeRaw();
+  initWorkspaceRouteStateSignalsRaw();
+  initInstalledMcpAppSignalsRaw();
+  initConversationDisplayTitleSignalsRaw();
+  initRightPanelTabSignalsRaw();
+  initSummaryPanelSourceHelpersRaw();
+  initRestoredProcessRowsCollectorDependenciesRaw();
 }

@@ -37,23 +37,15 @@ import {
   localConversationRouteScope,
 } from "../../runtime/local-conversation-route-runtime";
 import {
-  Fr as installedMcpAppIdsSignal,
-  Il as initRightPanelTabSignals,
-  Jl as initInstalledMcpAppSignals,
-  nu as initThreadSummaryPanelSignalsRuntime,
-  Rl as hostConfigSignal,
-  Wl as initConversationDisplayTitleSignals,
-  yu as initWorkspaceRouteStateSignals,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
+  backgroundAgentsSignal,
+  formatCommandExecutionItemCommand,
+  hostConfigSignal,
+  initThreadSummaryPanelModelRuntime,
+  installedMcpAppIdsSignal,
+} from "../../runtime/thread-summary-panel-runtime";
 import { conversationTitleSignal } from "../../runtime/local-conversation-state";
 import { rightPanelTabsStore } from "../../runtime/thread-panel-tabs-store";
 import { useIsBackgroundSubagentsEnabled as isBackgroundSubagentsEnabled } from "../../utils/use-is-background-subagents-enabled";
-import {
-  At as initRestoredProcessRowsCollectorDependencies,
-  cs as backgroundAgentsSignal,
-  kt as formatCommandExecutionItemCommand,
-  ls as initSummaryPanelSourceHelpers,
-} from "../../boundaries/current-ref/profile-page-producer";
 import {
   collectConversationProcessRows,
   initActiveConversationProcessRowsChunk,
@@ -352,20 +344,14 @@ export const initLocalConversationSummaryPanelSignals = once(() => {
   initAppScopeSignalRuntime();
   initConversationStateRuntime();
   initBrowserFeatureAvailabilityRuntime();
-  initThreadSummaryPanelSignalsRuntime();
-  initWorkspaceRouteStateSignals();
-  initInstalledMcpAppSignals();
+  initThreadSummaryPanelModelRuntime();
   initStatsigFeatureGateRuntime();
-  initConversationDisplayTitleSignals();
   initThreadSummaryPanelSignalsChunk();
   initConnectorAppsRuntime();
   initConfigQueryRuntime();
   initLocalConversationRouteRuntime();
-  initRightPanelTabSignals();
   initConversationRouteSourceRuntime();
   initLocalConversationArtifactSignals();
-  initSummaryPanelSourceHelpers();
-  initRestoredProcessRowsCollectorDependencies();
   initActiveConversationProcessRowsChunk();
   initConversationTitleRuntime();
   initLocalConversationSummaryPanelMcpSources();
