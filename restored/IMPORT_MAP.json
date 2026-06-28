@@ -11179,7 +11179,7 @@
     "app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b": {
       "restored": "vendor/appg-thread-shared-runtime.ts",
       "status": "partial",
-      "note": "Compatibility facade moved out of current-ref direct passthrough. Explicit appg/thread shared aliases in the current-ref producer are backed by restored runtime/utils/ui/app-shell/icon/vendor modules where available; remaining mixed app/thread shared exports stay isolated behind vendor/appg-thread-shared-runtime.ts until deep-restored.",
+      "note": "Compatibility facade moved out of current-ref direct passthrough. Explicit appg/thread shared aliases in the current-ref producer are backed by restored runtime/utils/ui/app-shell/icon/vendor modules where available; the local conversation composer bridge now uses semantic host config and app-server connection signals for LOCAL_HOST_ID/tp. Remaining mixed app/thread shared exports stay isolated behind vendor/appg-thread-shared-runtime.ts until deep-restored.",
       "lastUpdated": "2026-06-28T00:00:00.000Z",
       "boundary": "boundaries/current-ref/appg-thread-shared-producer.ts"
     },
