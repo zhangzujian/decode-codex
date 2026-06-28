@@ -11242,9 +11242,14 @@
       "boundary": "boundaries/current-ref/profile-page-producer.ts"
     },
     "app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CIs8dplf": {
-      "restored": "vendor/appgen-library-hot-runtime.ts",
+      "restored": "composer/thread-composer-footer.tsx",
+      "exports": {
+        "$": "threadComposerContext",
+        "et": "initThreadComposerContextChunk",
+        "t": "ThreadComposerFooter"
+      },
       "status": "partial",
-      "note": "Compatibility facade moved out of current-ref direct passthrough: runtime consumers already wrap the needed appgen-library hot-path symbols semantically, while the full mixed UI/runtime chunk remains isolated behind vendor/appgen-library-hot-runtime.ts until it is deep-restored.",
+      "note": "Composer-facing thread footer exports now have a semantic wrapper with stable context initialization; remaining appgen-library hot-path UI/runtime exports stay isolated behind vendor/appgen-library-hot-runtime.ts until the full mixed chunk is deep-restored.",
       "lastUpdated": "2026-06-28T00:00:00.000Z",
       "boundary": "boundaries/current-ref/appgen-library-hot-producer.ts"
     },
