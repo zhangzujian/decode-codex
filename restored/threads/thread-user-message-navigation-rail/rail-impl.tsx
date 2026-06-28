@@ -7,16 +7,16 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useAppScopeValue } from "../../boundaries/app-scope";
 import { useIntl } from "../../vendor/react-intl";
-import { useReducedMotion } from "../use-reduced-motion";
-import { useStableCallback } from "../use-stable-callback";
+import { useReducedMotion } from "../../utils/use-reduced-motion";
+import { useStableCallback } from "../../utils/use-stable-callback";
 import { Tooltip } from "../../ui/tooltip-b";
-import { findLastIndex } from "../markdown-to-search-text";
+import { findLastIndex } from "../../utils/markdown-to-search-text";
 import {
   _r as productLogger,
   productLoggerZn as userMessageNavigationRailEvent,
 } from "../../generated/product-logger";
 import { appShellElementContext } from "../../app-shell/app-shell-ref";
-import { useThreadScrollController } from "../../threads/thread-scroll-layout/scroll-controller-context";
+import { useThreadScrollController } from "../thread-scroll-layout/scroll-controller-context";
 import {
   renderNavigationTooltipPreview,
   type NavigationRailItem,

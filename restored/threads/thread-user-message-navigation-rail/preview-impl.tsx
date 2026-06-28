@@ -10,25 +10,25 @@ import { CommitIcon } from "../../icons/commit-icon";
 import { PullRequestIcon } from "../../icons/pull-request-icon";
 import { ImagesIcon } from "../../icons/images-icon";
 import { GlobeIcon } from "../../icons/globe-icon";
-import { ExternalLinkFavicon } from "../external-link-favicon";
+import { ExternalLinkFavicon } from "../../utils/external-link-favicon";
 import { getKnownAppIconByName } from "../../icons/known-app-icon";
-import { getFileIcon } from "../get-file-icon";
+import { getFileIcon } from "../../utils/get-file-icon";
 import { getSkillsMentionIcon } from "../../ui/mention-icons";
-import { InlineMentionContent } from "../inline-mention-content";
-import { markdownToSearchText } from "../markdown-to-search-text";
+import { InlineMentionContent } from "../../utils/inline-mention-content";
+import { markdownToSearchText } from "../../utils/markdown-to-search-text";
 import {
   parseDirectivesA,
   parseDirectivesG,
   parseDirectivesN,
   parseDirectivesU,
   parseDirectivesUnderscore,
-} from "../parse-directives";
+} from "../../utils/parse-directives";
 import {
   isAppMentionHref,
   isPluginMentionHref,
   stripMentionTriggerSyntax,
 } from "../../composer/mention-item";
-import { externalLinkSource } from "../external-link-source";
+import { externalLinkSource } from "../../utils/external-link-source";
 import { normalizeRichLinkHref } from "../../ui/rich-link-g-oum-tm-pc";
 type NavigationRailOutput = {
   label?: string | null;

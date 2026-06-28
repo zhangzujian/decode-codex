@@ -11,7 +11,7 @@ import {
 } from "./local-conversation-artifact-runtime";
 
 const CONVERSATION_MARKDOWN_PRELOAD_DEPENDENCIES = [
-  "../utils/thread-user-message-navigation-rail",
+  "../../threads/thread-user-message-navigation-rail",
   "./app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js",
   "./rolldown-runtime-Czos8NxU.js",
   "./app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-Dlqz5rpw.css",

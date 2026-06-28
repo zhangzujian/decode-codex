@@ -8601,11 +8601,13 @@
       "status": "done"
     },
     "thread-user-message-navigation-rail-DwC5A8DL": {
-      "restored": "utils/thread-user-message-navigation-rail/index.tsx",
+      "restored": "threads/thread-user-message-navigation-rail/index.tsx",
+      "note": "Moved the public thread user-message navigation rail into threads/thread-user-message-navigation-rail; utils/thread-user-message-navigation-rail/index.tsx remains as a compatibility barrel.",
       "status": "done"
     },
     "thread-user-message-navigation-rail-Mi2GE36I": {
-      "restored": "utils/thread-user-message-navigation-rail/index.tsx",
+      "restored": "threads/thread-user-message-navigation-rail/index.tsx",
+      "note": "Shares the semantic thread user-message navigation rail with thread-user-message-navigation-rail-DwC5A8DL; utils/thread-user-message-navigation-rail/index.tsx remains as a compatibility barrel.",
       "exports": {
         "ThreadUserMessageNavigationRail": "ThreadUserMessageNavigationRail"
       },
