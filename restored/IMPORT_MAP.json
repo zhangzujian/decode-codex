@@ -10825,8 +10825,8 @@
         "t": "ThreadOverflowMenu"
       },
       "status": "done",
-      "note": "Promoted semantic split for the updated thread overflow menu. The menu impl now uses semantic imports, direct TSX, typed props, and a separate side-chat opener module; thread-overflow-menu-parts passes quality-gate --check-format.",
-      "lastUpdated": "2026-06-27T19:18:00.000Z"
+      "note": "Promoted semantic split for the updated thread overflow menu. The menu impl now uses semantic imports, direct TSX, typed props, and a separate side-chat opener module. Thread overflow runtime bindings now live in threads/thread-overflow-menu-runtime.ts, with runtime/thread-overflow-menu-runtime.ts kept as a compatibility barrel; thread-overflow-menu-parts passes quality-gate --check-format.",
+      "lastUpdated": "2026-06-28T16:47:03.000Z"
     },
     "above-composer-suggestions-CAXbkE_4": {
       "restored": "composer/above-composer-suggestions.tsx",

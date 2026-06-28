@@ -73,7 +73,7 @@ import {
   useThreadCommandHandler,
   useThreadPinControls,
   WorktreeForkIcon,
-} from "../../runtime/thread-overflow-menu-runtime";
+} from "../thread-overflow-menu-runtime";
 import { initPullRequestThreadActionsRuntime } from "../../conversations/pull-request-thread-actions-runtime";
 import {
   automationsQuerySignal as heartbeatAutomationsQuerySignal,

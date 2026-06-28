@@ -27,7 +27,7 @@ import {
   runConversationAction,
   sendHostRequest,
   SideChatIcon,
-} from "../../runtime/thread-overflow-menu-runtime";
+} from "../thread-overflow-menu-runtime";
 
 type SideChatOpenTarget = "right" | "bottom";
 
