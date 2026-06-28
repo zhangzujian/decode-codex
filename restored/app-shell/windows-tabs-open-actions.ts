@@ -1,14 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~ovcriy74-KTK3czaX.js
-// Semantic wrappers for app-shell tab actions still backed by the shared producer.
-import {
-  Ds as openTerminalPanelTab,
-  Ts as isTerminalPanelTabAvailable,
-  dl as setReviewBaseBranchForThread,
-  js as defaultTerminalPanelPlacementSignal,
-  ko as focusReviewFilePath,
-  vl as setReviewPanelView,
-  zl as activeThreadHostIdSignal,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+// Semantic wrappers for app-shell tab actions.
 import {
   findBrowserPanelTab,
   getBrowserPanelTabs,
@@ -16,17 +7,25 @@ import {
 import {
   activateThreadPanelTab,
   findPanelForTab,
-  getThreadPanelController,
-  THREAD_PANEL_IDS,
 } from "../runtime/thread-panel-state";
+import {
+  focusThreadReviewPath,
+  selectThreadReviewBaseBranch,
+  selectThreadReviewView,
+  type ThreadReviewPanelView,
+} from "../runtime/thread-review-panel-state";
+import { getActiveThreadHostId as getRouteActiveThreadHostId } from "../runtime/thread-route-context";
+import {
+  getDefaultThreadTerminalPanelPlacement,
+  getOpenThreadTerminalPanelTabIds,
+  getThreadTerminalPanelTabId,
+  isThreadTerminalPanelTabAvailable,
+  openThreadTerminalPanelTab,
+} from "../runtime/thread-terminal-tabs";
 import type { AppShellStore } from "../runtime/app-shell-tab-controller/types";
 
 export type WindowsTabsOpenPlacement = "right" | "bottom";
-export type WindowsTabsOpenReviewView =
-  | "last-turn"
-  | "branch"
-  | "unstaged"
-  | "staged";
+export type WindowsTabsOpenReviewView = ThreadReviewPanelView;
 
 type AppShellActionScope = {
   get: <TValue>(state: unknown, key?: unknown) => TValue;
@@ -40,7 +39,7 @@ type BrowserPanelTabMatch = {
 export function getActiveThreadHostId(
   scope: AppShellActionScope,
 ): string | null | undefined {
-  return scope.get<string | null | undefined>(activeThreadHostIdSignal);
+  return getRouteActiveThreadHostId(scope);
 }
 
 export function getBrowserPanelTabsForThread(
@@ -76,17 +75,17 @@ export function getBrowserPanelTabForThread(
 export function getDefaultTerminalPanelPlacement(
   scope: AppShellActionScope,
 ): WindowsTabsOpenPlacement {
-  return scope.get<WindowsTabsOpenPlacement>(
-    defaultTerminalPanelPlacementSignal,
-  );
+  return getDefaultThreadTerminalPanelPlacement(scope);
 }
 
 export function getExistingTerminalTabIds(
   scope: AppShellActionScope,
 ): string[] {
-  return THREAD_PANEL_IDS.flatMap((panel) =>
-    scope.get<string[]>(getThreadPanelController(panel).tabIds$),
-  );
+  return getOpenThreadTerminalPanelTabIds(scope);
+}
+
+export function getTerminalPanelTabId(sessionId: string): string {
+  return getThreadTerminalPanelTabId(sessionId);
 }
 
 export function getPanelPlacementForTab(
@@ -107,7 +106,7 @@ export function activateExistingPanelTab(
 export function isTerminalTabAvailableForThread(
   scope: AppShellActionScope,
 ): boolean {
-  return isTerminalPanelTabAvailable(scope);
+  return isThreadTerminalPanelTabAvailable(scope);
 }
 
 export function openTerminalTabForThread(
@@ -115,7 +114,7 @@ export function openTerminalTabForThread(
   sessionId: string | undefined,
   placement: WindowsTabsOpenPlacement,
 ): string | null {
-  return openTerminalPanelTab(scope, sessionId, placement);
+  return openThreadTerminalPanelTab(scope, sessionId, placement);
 }
 
 export function selectReviewBaseBranch(
@@ -123,21 +122,21 @@ export function selectReviewBaseBranch(
   threadId: string | null,
   baseBranch: string,
 ): void {
-  setReviewBaseBranchForThread(scope, threadId, baseBranch);
+  selectThreadReviewBaseBranch(scope, threadId, baseBranch);
 }
 
 export function selectReviewView(
   scope: AppShellActionScope,
   view: WindowsTabsOpenReviewView,
 ): void {
-  setReviewPanelView(scope, view);
+  selectThreadReviewView(scope, view);
 }
 
 export function focusReviewPath(
   scope: AppShellActionScope,
   path: string,
 ): void {
-  focusReviewFilePath(scope, path);
+  focusThreadReviewPath(scope, path);
 }
 
 function asAppShellStore(scope: AppShellActionScope): AppShellStore {

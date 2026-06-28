@@ -19,6 +19,7 @@ import {
   getDefaultTerminalPanelPlacement,
   getExistingTerminalTabIds,
   getPanelPlacementForTab,
+  getTerminalPanelTabId,
   isTerminalTabAvailableForThread,
   openTerminalTabForThread,
   selectReviewBaseBranch,
@@ -169,7 +170,7 @@ export function windowsTabsOpenHandler(
       if (terminalSessionId == null) {
         throw Error("Terminal tab could not be opened");
       }
-      const tabId = `terminal:${terminalSessionId}`;
+      const tabId = getTerminalPanelTabId(terminalSessionId);
       return {
         threadId: requestedThreadId,
         type: target.type,
