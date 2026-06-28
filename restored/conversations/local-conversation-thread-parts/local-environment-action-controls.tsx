@@ -76,7 +76,7 @@ import {
   useScope,
   useScopedValue,
   useSignalState,
-} from "../../runtime/local-environment-action-controls-runtime";
+} from "./local-environment-action-controls-runtime";
 import {
   initThreadSidePanelTabRegistryChunk,
   registerThreadSidePanelTab,
