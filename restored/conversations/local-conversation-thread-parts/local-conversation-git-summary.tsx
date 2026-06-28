@@ -6,15 +6,16 @@ import {
 } from "../../icons/github-mark-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
+import { useScope, useScopedValue } from "../../runtime/app-scope-hooks";
 import {
-  AB as initScopeRuntime,
-  FB as useScope,
-  M_ as localConversationRouteScope,
-  Op as initConversationStateSelectors,
-  PB as useScopedValue,
-  gp as conversationCwdSignal,
-  wp as storedThreadBranchSignal,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  conversationCwdSignal,
+  initConversationStateRuntime,
+  storedThreadBranchSignal,
+} from "../../runtime/conversation-state-runtime";
+import {
+  initLocalConversationRouteRuntime,
+  localConversationRouteScope,
+} from "../../runtime/local-conversation-route-runtime";
 import {
   _i as githubCliAvailabilitySignal,
   gi as initGithubCliAvailabilitySignalChunk,
@@ -516,9 +517,9 @@ const initBranchChangesSummaryRowChunk = once(() => {
 
 const initLocalConversationGitSummaryChunk = once(() => {
   initBranchChangesSummaryRowChunk();
-  initScopeRuntime();
+  initLocalConversationRouteRuntime();
   initIntlRuntime();
-  initConversationStateSelectors();
+  initConversationStateRuntime();
   initSpinnerComponent();
   initCreatePullRequestWorkflowRuntimeChunk();
   initGitHubIcon();
