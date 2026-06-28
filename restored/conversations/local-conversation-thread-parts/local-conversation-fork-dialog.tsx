@@ -1,13 +1,13 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Dialog and controller for forking a local conversation from an older turn.
 import React from "react";
+import { GitBranchIcon, initGitBranchIcon } from "../../icons/git-branch-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   $P as initAppScope,
   AB as initScopeRuntime,
   Ai as initDialogLayoutComponents,
-  Ao as initGitBranchIcon,
   DL as normalizeWorkspacePath,
   Ei as DialogHeader,
   FB as useScope,
@@ -17,7 +17,6 @@ import {
   bF as initPathHelpers,
   cM as initToastRuntime,
   iF as initIntlRuntime,
-  ko as GitBranchIcon,
   lF as useIntl,
   mP as logger,
   mv as initLocalEnvironmentConfigQueryRuntime,

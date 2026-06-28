@@ -3,6 +3,7 @@
 import type { ComponentType } from "react";
 import { useRef } from "react";
 import { ChevronIcon, initChevronDownIcon } from "../../icons/chevron-icon";
+import { GitBranchIcon, initGitBranchIcon } from "../../icons/git-branch-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
@@ -18,7 +19,6 @@ import {
   IB as useSignalValue,
   iF as initIntlRuntime,
   I_ as initRouteScope,
-  ko as GitBranchIcon,
   M_ as localConversationRouteScope,
   Mu as initHostCodexHomeQuery,
   Nu as getHostCodexHome,
@@ -30,7 +30,6 @@ import {
   VE as initHostConfigHelpers,
   Wa as PlatformContentGate,
   wl as composerScope,
-  Ao as initGitBranchIcon,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   $i as getConversationRemoteState,

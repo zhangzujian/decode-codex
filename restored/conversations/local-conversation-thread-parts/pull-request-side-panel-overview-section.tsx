@@ -1,16 +1,15 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Pull request side-panel overview section and reviewer badges.
 import type { ReactElement, SVGProps } from "react";
+import { GitBranchIcon, initGitBranchIcon } from "../../icons/git-branch-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import { classNames, initClassNameRuntime } from "../../utils/class-names";
 import {
   iF as initIntlRuntime,
   hM as initTooltipPrimitives,
-  ko as GitBranchIcon,
   mo as initGitHubIcon,
   pM as Tooltip,
-  Ao as initGitBranchIcon,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   l as getGithubAvatarUrl,

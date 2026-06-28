@@ -2,11 +2,11 @@
 // Thread overflow menu component and chunk initializer.
 import React from "react";
 
+import { GitBranchIcon, initGitBranchIcon } from "../../icons/git-branch-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
   $N as initDeveloperInstructionsProducer,
   AB as initScopeRuntime,
-  Ao as initGitBranchIcon,
   DN as Button,
   FB as useScope,
   Ga as initElectronPlatformContent,
@@ -33,7 +33,6 @@ import {
   cP as initThreadActionMenuRuntime,
   cm as conversationHostIdSignal,
   iF as initIntlRuntime,
-  ko as GitBranchIcon,
   lF as useIntl,
   mP as logger,
   mv as initCurrentRefViewRuntime,

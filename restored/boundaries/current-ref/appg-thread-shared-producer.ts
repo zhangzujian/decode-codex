@@ -22,6 +22,10 @@ export {
   initChevronDownIcon as zP,
 } from "../../icons/chevron-icon";
 export {
+  GitBranchIcon as ko,
+  initGitBranchIcon as Ao,
+} from "../../icons/git-branch-icon";
+export {
   classNames as BP,
   initClassNameRuntime as VP,
 } from "../../utils/class-names";
