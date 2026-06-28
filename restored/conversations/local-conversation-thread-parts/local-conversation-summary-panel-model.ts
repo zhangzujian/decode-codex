@@ -6,6 +6,7 @@ import {
   dV as createDerivedSignal,
   Em as conversationTurnsSignal,
   FB as useScope,
+  Gj as initStatsigFeatureGateHooks,
   gp as conversationCwdSignal,
   IB as useSignalValue,
   Io as initConnectorAppsListQuery,
@@ -34,7 +35,6 @@ import {
   Yl as rightPanelTabsStore,
   yu as initWorkspaceRouteStateSignals,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
-import { Ai as initPullRequestConversationHelpers } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import { useIsBackgroundSubagentsEnabled as isBackgroundSubagentsEnabled } from "../../utils/use-is-background-subagents-enabled";
 import {
   At as initRestoredProcessRowsCollectorDependencies,
@@ -343,7 +343,7 @@ export const initLocalConversationSummaryPanelSignals = once(() => {
   initThreadSummaryPanelSignalsRuntime();
   initWorkspaceRouteStateSignals();
   initInstalledMcpAppSignals();
-  initPullRequestConversationHelpers();
+  initStatsigFeatureGateHooks();
   initConversationDisplayTitleSignals();
   initThreadSummaryPanelSignalsChunk();
   initConnectorAppsListQuery();

@@ -8,6 +8,7 @@ import {
   AI as getLocalConversationPath,
   FB as useScope,
   Ga as initElectronPlatformContent,
+  Gj as initStatsigFeatureGateHooks,
   Hx as getFallbackBackgroundAgentHandle,
   I_ as initRouteScope,
   O_ as initConversationRouteSourceHelpers,
@@ -25,7 +26,6 @@ import {
   vm as subagentParentThreadIdSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { Kl as conversationTitleSignal } from "../../boundaries/current-ref/projects-app-shared-producer";
-import { Ai as initPullRequestConversationHelpers } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   ChromeExtensionHeader,
   initChromeExtensionHeaderChunk,
@@ -187,7 +187,7 @@ export const initChromeExtensionConversationHeaderChunk = once(() => {
   initRouteScope();
   initAppScope();
   initElectronPlatformContent();
-  initPullRequestConversationHelpers();
+  initStatsigFeatureGateHooks();
   initBackgroundAgentAvatarChunk();
   initChromeExtensionHeaderChunk();
   initThreadOverflowMenuChunk();
