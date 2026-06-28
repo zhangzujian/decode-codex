@@ -39,7 +39,7 @@ import {
   initLocalConversationThreadEntryRuntime,
   SideChatHeader,
   SummaryPanelBanner,
-} from "../../runtime/local-conversation-thread-entry-runtime";
+} from "./local-conversation-thread-entry-runtime";
 import {
   initOpenSideChatTabChunk,
   openSideChatTab,
