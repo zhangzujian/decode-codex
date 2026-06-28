@@ -1,11 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Thread-find navigation items for visible local conversation turns.
 import { once } from "../../runtime/commonjs-interop";
-import {
-  bF as initPathHelpers,
-  fh as initGitActionDirectiveRuntime,
-  wj as initThreadFindResourcePreviewHelpers,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { initThreadFindPreviewRuntime } from "../../runtime/conversation-content-runtime";
 import {
   bs as joinThreadFindItemId,
   Ss as initThreadFindItemIdHelpers,
@@ -186,10 +182,8 @@ export function buildThreadFindItemsForVisibleTurns({
 }
 
 export const initThreadFindItemsBuilder = once(() => {
-  initPathHelpers();
+  initThreadFindPreviewRuntime();
   initThreadFindItemIdHelpers();
-  initGitActionDirectiveRuntime();
-  initThreadFindResourcePreviewHelpers();
   initLocalConversationArtifactRuntime();
   initLocalConversationMarkdownResourceRuntime();
   EMPTY_THREAD_FIND_ITEMS = [];

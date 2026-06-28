@@ -1,22 +1,23 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Semantic renderability and search-format helpers for local conversation turns.
 import {
-  Mv as isRenderableConversationTurn,
-  Sk as normalizeMarkdownPlainText,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  isRenderableConversationTurn,
+  normalizeMarkdownPlainText,
+  type RenderableConversationTurnOptions,
+} from "../../runtime/conversation-content-runtime";
 import {
   initLocalConversationArtifactRuntime,
   renderLocalConversationTurn,
 } from "./local-conversation-artifact-runtime";
 
-export type RenderableConversationTurnOptions = {
+export type LocalRenderableConversationTurnOptions = {
   isBackgroundSubagentsEnabled: boolean;
-};
+} & RenderableConversationTurnOptions;
 
 export function isRenderableLocalConversationTurn(
   turn: unknown,
   requests: readonly unknown[],
-  options: RenderableConversationTurnOptions,
+  options: LocalRenderableConversationTurnOptions,
 ): boolean {
   return isRenderableConversationTurn(turn, requests, options);
 }
@@ -24,7 +25,7 @@ export function isRenderableLocalConversationTurn(
 export function formatLocalConversationTurnForSearch<TItem = unknown>(
   turn: unknown,
   requests: readonly unknown[],
-  options: RenderableConversationTurnOptions,
+  options: LocalRenderableConversationTurnOptions,
 ): { items: TItem[] } {
   return renderLocalConversationTurn<{ items: TItem[] }>(
     turn,

@@ -1,10 +1,11 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Source helpers for prompt-rail preview outputs in thread find.
 import {
-  ph as parseGitActionDirectives,
-  Sj as getPathBasename,
-  UR as isAbsoluteOrWindowsPath,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  getPathBasename,
+  isAbsoluteOrWindowsPath,
+  parseGitActionDirectives,
+  type GitActionDirective,
+} from "../../runtime/conversation-content-runtime";
 import { collectLocalAssistantOutputArtifacts } from "./local-conversation-artifact-runtime";
 
 type AssistantOutputArtifact =
@@ -27,14 +28,6 @@ type AssistantOutputArtifactsOptions = {
   turn: unknown;
 };
 
-type GitActionDirective =
-  | {
-      type: "commit" | "create-pr";
-    }
-  | {
-      type: "create-branch" | "push" | "stage";
-    };
-
 export function collectThreadFindAssistantOutputArtifacts(
   options: AssistantOutputArtifactsOptions,
 ): AssistantOutputArtifact[] {
@@ -52,5 +45,5 @@ export function isAbsoluteGeneratedImagePath(path: string): boolean {
 export function parseThreadFindGitActionDirectives(
   assistantContent: string | null,
 ): GitActionDirective[] {
-  return parseGitActionDirectives(assistantContent) as GitActionDirective[];
+  return parseGitActionDirectives(assistantContent);
 }
