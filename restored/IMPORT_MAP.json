@@ -11503,8 +11503,8 @@
         "t": "LocalConversationStreamRoleProductEventReporter"
       },
       "status": "done",
-      "note": "Restored side-effect reporters for heartbeat automation thread state host messages and stream-role product-event properties.",
-      "lastUpdated": "2026-06-27T18:01:48.013Z"
+      "note": "Restored side-effect reporters for heartbeat automation thread state host messages and stream-role product-event properties. Local conversation product-event runtime bindings now live in conversations/local-conversation-product-event-runtime.ts, with runtime/local-conversation-product-event-runtime.ts kept as a compatibility barrel.",
+      "lastUpdated": "2026-06-28T16:32:46.000Z"
     },
     "app-initial~app-main~projects-index-page~local-conversation-page-4SURv8Cr": {
       "restored": "sidebar/project-hover-card.tsx",

@@ -26,7 +26,7 @@ import {
   useSignalValue,
   useStatsigGate,
   vscodeMessageBridge,
-} from "../runtime/local-conversation-product-event-runtime";
+} from "./local-conversation-product-event-runtime";
 import {
   heartbeatAutomationEligibilitySignal,
   initHeartbeatAutomationEligibilityChunk,
