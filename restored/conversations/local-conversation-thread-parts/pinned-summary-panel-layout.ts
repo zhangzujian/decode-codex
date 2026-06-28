@@ -19,7 +19,7 @@ import {
   pinnedSummaryPanelSpringTransition,
   rightPanelStateSignal,
   threadLayoutContext,
-} from "../../runtime/thread-summary-panel-runtime";
+} from "./thread-summary-panel-runtime";
 
 const PINNED_SUMMARY_PANEL_WIDTH_PX = 300;
 const PINNED_SUMMARY_PANEL_GAP_PX = 16;

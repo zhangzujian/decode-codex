@@ -6,15 +6,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { once } from "../../runtime/commonjs-interop";
 import { useScope, useScopedValue } from "../../runtime/app-scope-hooks";
-import {
-  localConversationRouteScope,
-} from "../../runtime/local-conversation-route-runtime";
+import { localConversationRouteScope } from "../../runtime/local-conversation-route-runtime";
 import {
   createLocalConversationRouteScopedSignal,
   createPersistedScopedSignal,
   initThreadSummaryPanelSectionRuntime,
   threadSummaryPanelSectionTransition,
-} from "../../runtime/thread-summary-panel-runtime";
+} from "./thread-summary-panel-runtime";
 import { ChevronIcon } from "../../icons/chevron-icon";
 import { DropdownItem, DropdownMenu } from "../../ui/dropdown";
 import { useReducedMotion } from "../../utils/use-reduced-motion";

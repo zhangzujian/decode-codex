@@ -80,7 +80,7 @@ import {
   setThreadSourceFrameState,
   showRightPanel,
   workspaceRouteStateSignal,
-} from "../../runtime/thread-summary-panel-runtime";
+} from "./thread-summary-panel-runtime";
 import { conversationTitleSignal } from "./local-conversation-state";
 import { rightPanelTabsStore } from "../../app-shell/thread-panel-tabs-store";
 import {
