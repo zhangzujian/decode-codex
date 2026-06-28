@@ -9,7 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "../../ui/popover";
-import { classNames } from "../../utils/class-names";
+import { classNames, initClassNameRuntime } from "../../utils/class-names";
 import {
   initUseStableCallback,
   useStableCallback,
@@ -39,7 +39,6 @@ import {
   T_ as getRouteConversationId,
   Tp as hasConversationSignal,
   VE as initGlobalStateQueryRuntime,
-  VP as initInlinePopoverRuntime,
   Wp as conversationModelOverrideSignal,
   Xp as latestConversationTurnSignal,
   ak as initAppServerRequestBridge,
@@ -902,7 +901,7 @@ const initLocalConversationPageChunk = once(() => {
   initMotionRuntime();
   initButtonComponentPrimitives();
   initPopoverPrimitives();
-  initInlinePopoverRuntime();
+  initClassNameRuntime();
   initUseStableCallback();
   initGlobalStateQueryRuntime();
   initCurrentRefViewRuntime();
