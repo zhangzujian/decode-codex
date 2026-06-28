@@ -16,7 +16,7 @@ import {
   uM as toastSignal,
   yv as Navigate,
 } from "../vendor/appg-thread-shared-runtime";
-import { Ja as isHotkeyWindowRouteRaw } from "../vendor/profile-page-runtime";
+import { isHotkeyWindowContext } from "../utils/is-hotkey-window-context";
 
 export type NavigateOptions = {
   replace?: boolean;
@@ -60,7 +60,7 @@ export function getHotkeyWindowFallbackPath(
 }
 
 export function isHotkeyWindowRoute(): boolean {
-  return isHotkeyWindowRouteRaw();
+  return isHotkeyWindowContext();
 }
 
 export function useNavigate(): Navigate {
