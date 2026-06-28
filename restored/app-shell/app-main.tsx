@@ -4,25 +4,22 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { once } from "../runtime/commonjs-interop";
 import {
-  GA as refreshStatsigDiagnostics,
-  WA as initAppRuntimeChunk,
-  cP as initAppLoggingChunk,
-  lP as hostMessageBridge,
-  mP as appMainLogger,
-  pP as initAppFeatureRuntimeChunk,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
-import {
-  So as initProjectsAppEntryChunk,
-  bo as getCodexWindowChrome,
-  wo as readCompactWindowPreference,
-  xo as initProjectsSharedRuntimeChunk,
-} from "../boundaries/current-ref/projects-app-shared-producer";
-import {
-  c as initAutomationsRuntimeChunk,
-  r as initAutomationsStateChunk,
-  s as CodexApp,
-  t as initCodexAppChunk,
-} from "../boundaries/current-ref/automations-page-producer";
+  CodexApp,
+  dispatchRendererLogMessage,
+  getElectronWindowChrome,
+  initAppFeatureRuntimeChunk,
+  initAppLoggingChunk,
+  initAppRuntimeChunk,
+  initAutomationsRuntimeChunk,
+  initAutomationsStateChunk,
+  initCodexAppChunk,
+  initProjectsAppEntryChunk,
+  initProjectsSharedRuntimeChunk,
+  isCompactWindowPreferred,
+  logAppMainStatsigRenderRequest,
+  refreshStatsigDiagnostics,
+  type CodexOs,
+} from "./app-main-runtime";
 import { AppFallback, initAppFallbackChunk } from "./app-fallback";
 import { initEmptyAppChunk } from "./empty-app-initializer";
 import {
@@ -41,8 +38,6 @@ import {
 } from "./register-app-actions";
 import { windowsTabsOpenHandler } from "./windows-tabs-open-handler";
 
-type CodexOs = "win32" | "darwin" | "linux" | "unknown";
-
 type ReactRoot = ReturnType<typeof createRoot>;
 
 type CodexWindow = Window &
@@ -55,12 +50,7 @@ let codexRoot: ReactRoot;
 async function renderElectronAppRoot(): Promise<void> {
   await prepareAppMainRender();
   await refreshStatsigDiagnostics();
-  appMainLogger.info(
-    "[statsig-refresh-diagnostics] React root render requested",
-    {
-      safe: { windowType: "electron" },
-    },
-  );
+  logAppMainStatsigRenderRequest();
   codexRoot.render(
     <React.StrictMode>
       <ErrorBoundary name="App" fallback={<AppFallback />}>
@@ -107,16 +97,16 @@ function installGlobalErrorForwarders(): void {
       event?.error?.message ??
       event?.message ??
       "Unknown error";
-    hostMessageBridge.dispatchMessage("log-message", {
-      level: "error",
-      message: `[desktop-notifications][global-error] ${String(message)}`,
-    });
+    dispatchRendererLogMessage(
+      "error",
+      `[desktop-notifications][global-error] ${String(message)}`,
+    );
   });
   window.addEventListener("unhandledrejection", (event) => {
-    hostMessageBridge.dispatchMessage("log-message", {
-      level: "error",
-      message: `[desktop-notifications][unhandled-rejection] ${stringifyUnhandledRejection(event.reason)}`,
-    });
+    dispatchRendererLogMessage(
+      "error",
+      `[desktop-notifications][unhandled-rejection] ${stringifyUnhandledRejection(event.reason)}`,
+    );
   });
 }
 
@@ -145,14 +135,12 @@ const initAppMainChunk = once(() => {
   document.documentElement.dataset.codexWindowType = "electron";
   document.documentElement.dataset.windowType = "electron";
   document.documentElement.dataset.codexOs = codexOs;
-  document.documentElement.dataset.codexWindowChrome = getCodexWindowChrome(
-    "electron",
-    codexOs,
-  );
+  document.documentElement.dataset.codexWindowChrome =
+    getElectronWindowChrome(codexOs);
   if (urlSearchParams.get("mcpAppSandboxDevtools") === "1") {
     document.documentElement.dataset.mcpAppSandboxDevtools = "true";
   }
-  if (readCompactWindowPreference()) {
+  if (isCompactWindowPreferred()) {
     document.documentElement.classList.add("compact-window");
   }
 
