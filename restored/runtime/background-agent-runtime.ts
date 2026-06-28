@@ -4,7 +4,7 @@ import {
   Hx as getFallbackBackgroundAgentHandleRaw,
   cA as getSubagentSourceMetadataRaw,
   gm as backgroundAgentSnapshotSignal,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export { backgroundAgentSnapshotSignal };
 

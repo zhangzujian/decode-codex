@@ -4,7 +4,7 @@ import {
   Kl as conversationTitleSignal,
   cs as setConversationSourceContext,
   un as refreshConversationHistorySignals,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 
 type ConversationSourceScope = unknown;
 

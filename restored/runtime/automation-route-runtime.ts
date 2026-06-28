@@ -5,7 +5,7 @@ import {
   Fr as formatAutomationNextRunLabelRaw,
   Ir as initAutomationNextRunLabelChunkRaw,
   jr as openAutomationRouteRaw,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../vendor/profile-page-runtime";
 
 export type OpenAutomationRouteRequest = {
   automationId: string;

@@ -4,7 +4,7 @@ import {
   $N as initVscodeApiBridge,
   Ga as initElectronPlatformContent,
   Wa as PlatformContentGate,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export { PlatformContentGate };
 

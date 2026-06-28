@@ -30,7 +30,7 @@ import {
   zV as useQueryClient,
   bT as pullRequestActionEvent,
   xT as pullRequestKindActionEvent,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export {
   Button,

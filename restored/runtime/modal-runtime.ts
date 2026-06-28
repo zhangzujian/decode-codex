@@ -4,7 +4,7 @@ import type { ComponentType } from "react";
 import {
   Mi as initModalRegistrySignalRaw,
   Pi as openScopedModalRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export function initModalRuntime(): void {
   initModalRegistrySignalRaw();

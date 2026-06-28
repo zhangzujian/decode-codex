@@ -4,7 +4,7 @@ import {
   iO as formatConversationTitleTextRaw,
   pz as toConversationIdRaw,
   rO as initConversationTitleFormatterRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export function initConversationTitleRuntime(): void {
   initConversationTitleFormatterRaw();

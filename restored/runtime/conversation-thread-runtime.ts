@@ -6,7 +6,7 @@ import {
   Zu as initThreadInternalStateRaw,
   lA as initThreadAuxiliaryRuntimeRaw,
   qV as getChunkModuleExportsRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export function getChunkModuleExports(chunkName?: string): unknown {
   return chunkName === undefined

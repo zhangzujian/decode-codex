@@ -5,7 +5,7 @@ import {
   GE as initLocalHostConstantsRaw,
   HE as useHostConfigByIdRaw,
   VE as initHostConfigHelpersRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type HostConfigRecord = {
   id: string;

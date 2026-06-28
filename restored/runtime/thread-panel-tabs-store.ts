@@ -4,7 +4,7 @@ import {
   Jl as initRightPanelTabsStoreChunk,
   Yl as rightPanelTabsStore,
   ql as bottomPanelTabsStore,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   bottomPanelTabsStore,

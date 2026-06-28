@@ -12,7 +12,7 @@ import {
   QP as appScopeRoot,
   rC as automationKindValues,
   tC as executionEnvironmentValues,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export {
   appScopeRoot,

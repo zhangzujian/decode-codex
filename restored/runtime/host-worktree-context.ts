@@ -4,7 +4,7 @@ import {
   Mu as initHostCodexHomeQuery,
   Nu as getHostCodexHome,
   pI as isPathInCodexWorktree,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export { getHostCodexHome, isPathInCodexWorktree };
 

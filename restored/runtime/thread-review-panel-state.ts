@@ -4,7 +4,7 @@ import {
   dl as setReviewBaseBranchForThread,
   ko as focusReviewFilePath,
   vl as setReviewPanelView,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 
 type ThreadReviewPanelScope = unknown;
 

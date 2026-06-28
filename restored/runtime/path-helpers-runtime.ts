@@ -4,7 +4,7 @@ import {
   OL as normalizeWorkspaceBrowserRootRaw,
   bF as initPathHelpersRaw,
   Dj as joinPathRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export function initPathHelpersRuntime(): void {
   initPathHelpersRaw();

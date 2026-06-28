@@ -6,7 +6,7 @@ import {
   Xj as useStatsigLayerRaw,
   eM as featureGateSignal,
   qj as useStatsigGateRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export { featureGateSignal };
 

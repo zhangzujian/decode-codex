@@ -4,7 +4,7 @@ import {
   Gu as initGlobalStateQueryRuntimeRaw,
   Ku as useGlobalStateQueryRaw,
   XR as GLOBAL_STATE_KEYS,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export { GLOBAL_STATE_KEYS };
 

@@ -2,7 +2,7 @@
 // Persisted-signal runtime initializer.
 import {
   yP as initPersistedSignalRuntimeRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export function initPersistedSignalRuntime(): void {
   initPersistedSignalRuntimeRaw();

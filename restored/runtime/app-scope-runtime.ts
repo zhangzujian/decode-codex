@@ -7,7 +7,7 @@ import {
   bV as createScopedSignalRaw,
   dV as createDerivedSignalRaw,
   fV as createScopedSignalFamilyRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type ScopedSignalGetter = {
   get<TValue = unknown>(signal: unknown, key?: unknown): TValue;

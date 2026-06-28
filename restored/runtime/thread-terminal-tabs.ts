@@ -4,7 +4,7 @@ import {
   Ds as openTerminalPanelTab,
   Ts as isTerminalPanelTabAvailable,
   js as defaultTerminalPanelPlacementSignal,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 import {
   getThreadPanelController,
   THREAD_PANEL_IDS,

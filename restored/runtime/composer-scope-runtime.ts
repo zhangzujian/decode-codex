@@ -4,7 +4,7 @@ import {
   AB as initScopeRuntime,
   Al as initComposerScope,
   wl as composerScope,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export { composerScope };
 

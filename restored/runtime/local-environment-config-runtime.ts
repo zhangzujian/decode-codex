@@ -3,7 +3,7 @@
 import {
   lL as LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,
   mv as initLocalEnvironmentConfigQueryRuntimeRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export { LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY };
 

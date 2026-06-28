@@ -20,7 +20,7 @@ import {
   ws as shouldRefreshSearchHighlightMutationsRaw,
   xs as highlightContentSearchMatchesRaw,
   ys as getConversationSearchMatchIdRaw,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 import {
   createLazyNavigationRailComponent as createLazyNavigationRailComponentRaw,
   initLazyNavigationRailRuntime as initLazyNavigationRailRuntimeRaw,

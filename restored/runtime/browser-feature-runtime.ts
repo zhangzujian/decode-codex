@@ -6,7 +6,7 @@ import {
   T_ as getRouteConversationIdRaw,
   Ts as initBrowserFeatureAvailabilitySignals,
   uz as NEW_TAB_TITLE,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export {
   browserSidebarEnabledSignal,

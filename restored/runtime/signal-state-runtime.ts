@@ -4,7 +4,7 @@ import {
   OV as createAtomSignalRaw,
   SV as initSignalStateRuntimeRaw,
   wV as useSignalStateRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type SignalStateUpdater<TValue> =
   | TValue

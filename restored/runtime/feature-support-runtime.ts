@@ -15,7 +15,7 @@ import {
   WA as initAppServicesRuntime,
   yV as createSignal,
   YN as sendHostRequest,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export {
   appScopeRoot,

@@ -9,7 +9,7 @@ import {
   SP as initMotionRuntime,
   kP as useMotionValueEvent,
   yV as createSignal,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 import { initAppScopeSignalRuntime } from "./app-scope-runtime";
 
 export {

@@ -12,4 +12,4 @@ export {
   WS as ArtifactAnnotationSubmitMode,
   kE as initProductLoggerRuntime,
   qS as ArtifactKind,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";

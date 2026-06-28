@@ -29,7 +29,7 @@ import {
   sm as conversationRequestsSignal,
   vm as subagentParentThreadIdSignal,
   wp as storedThreadBranchSignal,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export {
   berryDisplayConversationTurnsSignal,

@@ -6,7 +6,7 @@ import {
   IB as useSignalValueRaw,
   MB as ScopeValueProviderRaw,
   PB as useScopedValueRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type ScopeValueProviderProps = {
   children?: ReactNode;

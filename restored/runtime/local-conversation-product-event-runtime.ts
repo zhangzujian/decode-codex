@@ -24,7 +24,7 @@ import {
   Up as conversationCollaborationModeSignal,
   Xp as latestConversationTurnSignal,
   _m as conversationStreamRoleSignal,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export {
   appScope,

@@ -3,7 +3,7 @@
 import {
   ed as useConversationHostApiRaw,
   ic as useConversationAgentModeRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type ConversationHostApi = {
   getHostId(): string;

@@ -24,7 +24,7 @@ import {
   XB as createIsArguments,
   _r as createDefineProperty,
   _u as createBaseAt,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export {
   createArrayPush,

@@ -3,7 +3,7 @@
 import {
   cP as initVscodeMessageBridgeRaw,
   lP as vscodeMessageBridge,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type VscodeMessageBridge = {
   dispatchMessage(type: string, payload?: unknown): void;

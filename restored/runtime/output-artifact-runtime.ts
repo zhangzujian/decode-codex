@@ -16,7 +16,7 @@ import {
   uD as mapTurnStatusToOutputStatusRaw,
   vR as normalizeHrefRaw,
   wj as initArtifactPreviewRuntime,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type ProjectlessResourcePathOptions = {
   cwd: string | null;

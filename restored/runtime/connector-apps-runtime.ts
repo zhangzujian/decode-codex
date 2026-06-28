@@ -3,7 +3,7 @@
 import {
   Io as initConnectorAppsListQueryRaw,
   zo as useAppsQueryRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type ConnectorAppsQueryResult<TApp = unknown> = {
   data?: TApp[];

@@ -3,7 +3,7 @@
 import {
   AL as preloadDynamicImportRaw,
   jL as initModulePreloadRuntimeRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export function initDynamicModulePreloadRuntime(): void {
   initModulePreloadRuntimeRaw();

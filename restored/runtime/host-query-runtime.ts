@@ -7,7 +7,7 @@ import {
   fu as initTaskWorkspaceQueryRuntime,
   oP as initQueryDurationConstants,
   pu as useDebouncedValueRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export { QUERY_DURATIONS };
 

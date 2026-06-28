@@ -6,7 +6,7 @@ import {
   tP as useAppServerMutationRaw,
   XN as createQueryKeyRaw,
   zV as useQueryClientRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 import { initVscodeBridgeRuntime } from "./platform-content-runtime";
 
 export type AppServerMutationOptions<TData, TVariables> = {

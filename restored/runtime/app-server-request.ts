@@ -3,7 +3,7 @@
 import {
   ak as initAppServerRequestBridge,
   ok as sendAppServerRequestRaw,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export type AppServerRequestParams = Record<string, unknown>;
 

@@ -14,7 +14,7 @@ import {
   d as useResolvedLocalEnvironmentConfigPathRaw,
   l as initPendingWorktreeNavigationRouteRaw,
   x as forkThreadMessagesRaw,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 import {
   initGitRootQueryRuntime,
   useGitRootQuery as useGitRootQueryRaw,
