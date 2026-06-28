@@ -3,6 +3,14 @@
 // startup order, but the service constructors it calls still require semantic
 // restoration before this entry point can be made runnable.
 
+import {
+  createComputerUseCaptureMainRpcHandler,
+  createExecutionHostMainRpcHandler,
+  createOpenInShortcutMainRpcHandler,
+  invokeWorkerMainRpcHandler,
+  isWorkerMainRpcRequest,
+} from "./workers/worker-main-rpc";
+
 type MainStartupPhase = {
   key: string;
   sourceLines: string;
@@ -413,7 +421,7 @@ function shouldHandleStateDatabaseOpenError(error: unknown): boolean {
 function createMainStartupOpenBoundaryError(): Error {
   return Object.assign(
     Error(
-      "main--VWTbRdF remains an open restoration boundary: the startup phase map and updater bridge helpers are recovered, but window services, app-server lifecycle, worker handlers, tray/menu assembly, IPC registration, and telemetry still require semantic restoration.",
+      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, and worker main-RPC helper contracts are recovered, but window services, app-server lifecycle, worker manager construction, tray/menu assembly, IPC registration, and telemetry still require semantic restoration.",
     ),
     {
       code: OPEN_RESTORATION_BOUNDARY_CODE,
@@ -424,7 +432,23 @@ function createMainStartupOpenBoundaryError(): Error {
         key: phase.key,
         sourceLines: phase.sourceLines,
       })),
+      appUpdateHelpers: {
+        applyElectronSparkleGateChange,
+        createAppUpdateActions,
+        createAppUpdateViewState,
+        createCheckForUpdatesMenuItem,
+        createInitialUpdateInstallRequestHandler,
+        createPostAppServerUpdateInstallRequestHandler,
+        createSparkleBridgeHandlers,
+      },
       shouldHandleStateDatabaseOpenError,
+      workerMainRpcHelpers: {
+        createComputerUseCaptureMainRpcHandler,
+        createExecutionHostMainRpcHandler,
+        createOpenInShortcutMainRpcHandler,
+        invokeWorkerMainRpcHandler,
+        isWorkerMainRpcRequest,
+      },
     },
   );
 }
