@@ -2,10 +2,12 @@
 // Boundary facade for automation schedule analytics and query state.
 import {
   $N as initVscodeApiBridge,
-  aP as queryDurations,
-  oP as initQueryDurationConstants,
   QN as createVscodeQueryOptions,
 } from "../vendor/appg-thread-shared-runtime";
+import {
+  initQueryDurationConstants,
+  queryDurations,
+} from "./host-query-runtime";
 import {
   cC as automationStatusValues,
   iC as reasoningEffortValues,

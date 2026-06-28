@@ -4,7 +4,7 @@ import {
   ZN as createHostQuerySignalRaw,
   aP as QUERY_DURATIONS,
   eP as useHostQueryRaw,
-  oP as initQueryDurationConstants,
+  oP as initQueryDurationConstantsRaw,
 } from "../vendor/appg-thread-shared-runtime";
 import {
   fu as initTaskWorkspaceQueryRuntime,
@@ -12,9 +12,14 @@ import {
 } from "../vendor/pull-request-thread-actions-runtime";
 
 export { QUERY_DURATIONS };
+export const queryDurations = QUERY_DURATIONS;
 
 export function initHostQueryRuntime(): void {
   initQueryDurationConstants();
+}
+
+export function initQueryDurationConstants(): void {
+  initQueryDurationConstantsRaw();
 }
 
 export function initTaskWorkspaceHostQueryRuntime(): void {

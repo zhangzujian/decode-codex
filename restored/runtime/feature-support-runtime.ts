@@ -4,12 +4,12 @@ import {
   $N as initPetInstallSignalRuntime,
   BV as getJsxRuntime,
   JV as initReactRuntime,
-  oP as initQueryDurationConstants,
   qV as getChunkModuleExports,
   WA as initAppServicesRuntime,
   yV as createSignal,
   YN as sendHostRequest,
 } from "../vendor/appg-thread-shared-runtime";
+import { initQueryDurationConstants } from "./host-query-runtime";
 import {
   GlobeIcon as FallbackGlobeIcon,
   initClassNameRuntime,
