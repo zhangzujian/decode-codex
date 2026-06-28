@@ -33,23 +33,16 @@ import {
   normalizeWorkspacePath,
 } from "../../runtime/output-artifact-runtime";
 import {
-  A as initPendingWorktreeFactory,
-  Cn as initForkDialogLocalIcon,
-  F as recordPendingWorktreeForkSourceState,
-  kn as initForkDialogWorktreeIcon,
-  On as WorktreeForkIcon,
-  Sn as LocalForkIcon,
-  Xa as createPendingWorktree,
-  Za as initResolvedLocalEnvironmentConfigPathHook,
-  b as initForkThreadMessages,
-  d as useResolvedLocalEnvironmentConfigPath,
-  l as initPendingWorktreeNavigationRoute,
-  x as forkThreadMessages,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  at as initGitRootQueryHook,
-  st as useGitRootQuery,
-} from "../../boundaries/current-ref/appgen-library-hot-producer";
+  createPendingWorktree,
+  forkThreadMessages,
+  initConversationForkControllerRuntime,
+  initConversationForkDialogUiRuntime,
+  LocalForkIcon,
+  recordPendingWorktreeForkSourceState,
+  useGitRootQuery,
+  useResolvedLocalEnvironmentConfigPath,
+  WorktreeForkIcon,
+} from "../../runtime/conversation-fork-runtime";
 import { isRecentLocalEnvironmentAction } from "./local-environment-recent-actions";
 import {
   initIntlRuntime,
@@ -313,9 +306,7 @@ const initForkFromOlderTurnDialogChunk = once(() => {
   initAppDialog();
   initDialogLayoutComponents();
   initGitBranchIcon();
-  initForkDialogLocalIcon();
-  initForkDialogWorktreeIcon();
-  initForkThreadMessages();
+  initConversationForkDialogUiRuntime();
 });
 
 export const initForkFromOlderTurnDialogControllerChunk = once(() => {
@@ -324,12 +315,8 @@ export const initForkFromOlderTurnDialogControllerChunk = once(() => {
   initIntlRuntime();
   initLocalEnvironmentConfigRuntime();
   initLocalConversationNavigationRuntime();
-  initPendingWorktreeFactory();
-  initGitRootQueryHook();
+  initConversationForkControllerRuntime();
   initAppLoggerRuntime();
-  initResolvedLocalEnvironmentConfigPathHook();
   initForkFromOlderTurnDialogChunk();
-  initPendingWorktreeNavigationRoute();
-  initForkThreadMessages();
   initHostWorktreeContextRuntime();
 });
