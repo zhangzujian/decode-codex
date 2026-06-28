@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Entry-thread UI components and side-panel helpers used by local conversation routes.
 import type { ComponentType } from "react";
-import { _c as getSidePanelTargetStoreRaw } from "../boundaries/current-ref/projects-app-shared-producer";
+import { _c as getSidePanelTargetStoreRaw } from "../vendor/projects-app-shared-runtime";
 import {
   Eu as EmptyConversationStateRaw,
   Ql as initSummaryPanelBannerChunkRaw,
@@ -11,7 +11,7 @@ import {
   sc as SideChatHeaderRaw,
   st as initSideChatHeaderChunkRaw,
   wu as EmptyPageStateRaw,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../vendor/profile-page-runtime";
 
 export type SidePanelTargetStore = {
   tabById$: unknown;

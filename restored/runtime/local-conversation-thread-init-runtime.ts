@@ -13,7 +13,7 @@ import {
   vd as initConversationReadStateRuntime,
   yc as initThreadSidePanelSupportRuntime,
   yn as initThreadSourceSupportRuntime,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 import {
   $n as initProfileThreadSearchRuntime,
   In as initProfileThreadRenderSupportRuntime,
@@ -25,7 +25,7 @@ import {
   ls as initSummaryPanelSourceHelpersRuntime,
   qa as initProfileHotkeyThreadRuntime,
   sa as initPlatformContentBridgeRuntime,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../vendor/profile-page-runtime";
 import { initAppShellElementContextChunk } from "../app-shell/app-shell-element-context";
 import { initThreadComposerFooterChunk } from "../composer/thread-composer-footer";
 
