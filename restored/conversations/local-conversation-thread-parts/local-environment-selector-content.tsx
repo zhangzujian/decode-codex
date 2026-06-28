@@ -16,9 +16,9 @@ import {
   initDropdownMenuPrimitives,
 } from "../../ui/dropdown";
 import {
-  kj as normalizeConfigPath,
-  wj as initConfigPathHelpers,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  initConfigPathRuntime,
+  normalizeConfigPath,
+} from "../../runtime/config-path-runtime";
 import { initStarIconChunk, StarIcon } from "../../icons/star-icon";
 import {
   FormattedMessage,
@@ -207,5 +207,5 @@ export const initLocalEnvironmentSelectorContentChunk = once(() => {
   initCheckmarkIcon();
   initSettingsGearIcon();
   initStarIconChunk();
-  initConfigPathHelpers();
+  initConfigPathRuntime();
 });
