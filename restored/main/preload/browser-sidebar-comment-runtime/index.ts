@@ -14,6 +14,27 @@ export {
   serializeDesignDraftStyles,
 } from "./design-css";
 export {
+  getElementOwnerWindow,
+  getVisibleElementViewportRect,
+  isBrowserSidebarElement,
+  isElementVisibleForBrowserSidebar,
+} from "./element-geometry";
+export {
+  BROWSER_SIDEBAR_BASE_DESIGN_STYLE_PROPERTIES,
+  BROWSER_SIDEBAR_FLEX_DESIGN_STYLE_PROPERTIES,
+  getBrowserSidebarElementSnapshot,
+  readBrowserSidebarElementDesignStyleDeclarations,
+} from "./element-metadata";
+export {
+  getBrowserSidebarElementAccessibleName,
+  getBrowserSidebarElementImmediateText,
+  getBrowserSidebarElementPath,
+  getBrowserSidebarElementTargetLabel,
+  getBrowserSidebarElementTitle,
+  getBrowserSidebarNearbyElementText,
+  readBrowserSidebarElementTextDraft,
+} from "./element-text";
+export {
   createGoogleDocsDocumentContext,
   isGoogleWorkspaceDocumentUrl,
   parseGoogleDocsDocumentUrl,
@@ -54,6 +75,8 @@ export type {
   BrowserSidebarDesignStyleDeclaration,
   BrowserSidebarDesignStyleDraft,
 } from "./design-css";
+export type { BrowserSidebarElementSnapshot } from "./element-metadata";
+export type { BrowserSidebarTextDraft } from "./element-text";
 export type {
   BrowserSidebarAnchorLike,
   BrowserSidebarDocumentContextInput,
