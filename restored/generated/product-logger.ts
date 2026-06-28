@@ -27,6 +27,7 @@ export const codexThreadSwitchCompletedEvent = event(
   "codex_thread_switch_completed",
 );
 export const productLoggerZn = event("codex_prompt_rail_navigation_clicked");
+export const _productLoggerVr = event("codex_thread_side_panel_tab_viewed");
 export const codexThreadSwitchKind = {
   CODEX_THREAD_SWITCH_KIND_COLD: "CODEX_THREAD_SWITCH_KIND_COLD",
   CODEX_THREAD_SWITCH_KIND_HOT: "CODEX_THREAD_SWITCH_KIND_HOT",
@@ -34,6 +35,13 @@ export const codexThreadSwitchKind = {
   UNRECOGNIZED: "UNRECOGNIZED",
 };
 export const _productLoggerUr = codexThreadSwitchKind;
+export const codexRemoteSshThreadActionKind = {
+  CODEX_REMOTE_SSH_THREAD_ACTION_FORK: "CODEX_REMOTE_SSH_THREAD_ACTION_FORK",
+  CODEX_REMOTE_SSH_THREAD_ACTION_START: "CODEX_REMOTE_SSH_THREAD_ACTION_START",
+  CODEX_REMOTE_SSH_THREAD_ACTION_UNSPECIFIED:
+    "CODEX_REMOTE_SSH_THREAD_ACTION_UNSPECIFIED",
+  UNRECOGNIZED: "UNRECOGNIZED",
+};
 
 export function logProductEvent(
   scope: ProductLoggerScope,

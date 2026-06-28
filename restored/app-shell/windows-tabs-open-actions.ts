@@ -3,18 +3,23 @@
 import {
   Ds as openTerminalPanelTab,
   Ts as isTerminalPanelTabAvailable,
-  _c as getSidePanelController,
-  ac as getBrowserPanelTabFromProducer,
   dl as setReviewBaseBranchForThread,
-  hc as activatePanelTabFromProducer,
   js as defaultTerminalPanelPlacementSignal,
   ko as focusReviewFilePath,
-  mc as sidePanelPlacements,
-  oc as getBrowserPanelTabsForThreadFromProducer,
-  vc as getPanelTabPlacementFromProducer,
   vl as setReviewPanelView,
   zl as activeThreadHostIdSignal,
 } from "../boundaries/current-ref/projects-app-shared-producer";
+import {
+  findBrowserPanelTab,
+  getBrowserPanelTabs,
+} from "../runtime/thread-browser-panel-tabs";
+import {
+  activateThreadPanelTab,
+  findPanelForTab,
+  getThreadPanelController,
+  THREAD_PANEL_IDS,
+} from "../runtime/thread-panel-state";
+import type { AppShellStore } from "../runtime/app-shell-tab-controller/types";
 
 export type WindowsTabsOpenPlacement = "right" | "bottom";
 export type WindowsTabsOpenReviewView =
@@ -42,7 +47,12 @@ export function getBrowserPanelTabsForThread(
   scope: AppShellActionScope,
   threadId: string,
 ): BrowserPanelTabMatch[] {
-  return getBrowserPanelTabsForThreadFromProducer(scope, threadId);
+  return getBrowserPanelTabs(asAppShellStore(scope), threadId).map(
+    ({ browserTabId, target }) => ({
+      browserTabId,
+      target,
+    }),
+  );
 }
 
 export function getBrowserPanelTabForThread(
@@ -50,20 +60,32 @@ export function getBrowserPanelTabForThread(
   threadId: string,
   browserTabId: string,
 ): BrowserPanelTabMatch | null {
-  return getBrowserPanelTabFromProducer(scope, threadId, browserTabId) ?? null;
+  let browserPanelTab = findBrowserPanelTab(
+    asAppShellStore(scope),
+    threadId,
+    browserTabId,
+  );
+  return browserPanelTab == null
+    ? null
+    : {
+        browserTabId: browserPanelTab.browserTabId,
+        target: browserPanelTab.target,
+      };
 }
 
 export function getDefaultTerminalPanelPlacement(
   scope: AppShellActionScope,
 ): WindowsTabsOpenPlacement {
-  return scope.get<WindowsTabsOpenPlacement>(defaultTerminalPanelPlacementSignal);
+  return scope.get<WindowsTabsOpenPlacement>(
+    defaultTerminalPanelPlacementSignal,
+  );
 }
 
 export function getExistingTerminalTabIds(
   scope: AppShellActionScope,
 ): string[] {
-  return (sidePanelPlacements as readonly WindowsTabsOpenPlacement[]).flatMap(
-    (panel) => scope.get<string[]>(getSidePanelController(panel).tabIds$),
+  return THREAD_PANEL_IDS.flatMap((panel) =>
+    scope.get<string[]>(getThreadPanelController(panel).tabIds$),
   );
 }
 
@@ -71,7 +93,7 @@ export function getPanelPlacementForTab(
   scope: AppShellActionScope,
   tabId: string,
 ): WindowsTabsOpenPlacement | null {
-  return getPanelTabPlacementFromProducer(scope, tabId) ?? null;
+  return findPanelForTab(asAppShellStore(scope), tabId);
 }
 
 export function activateExistingPanelTab(
@@ -79,7 +101,7 @@ export function activateExistingPanelTab(
   placement: WindowsTabsOpenPlacement,
   tabId: string,
 ): boolean {
-  return activatePanelTabFromProducer(scope, placement, tabId);
+  return activateThreadPanelTab(asAppShellStore(scope), placement, tabId);
 }
 
 export function isTerminalTabAvailableForThread(
@@ -116,4 +138,8 @@ export function focusReviewPath(
   path: string,
 ): void {
   focusReviewFilePath(scope, path);
+}
+
+function asAppShellStore(scope: AppShellActionScope): AppShellStore {
+  return scope as AppShellStore;
 }
