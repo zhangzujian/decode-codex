@@ -13,6 +13,8 @@ import { CloudIcon } from "../icons/cloud-icon";
 import { LaptopIcon } from "../icons/laptop-icon";
 import { WorktreeIcon } from "../icons/worktree-icon";
 import {
+  type LocalRemoteCommandContentProps,
+  type LocalRemoteCommandRegistration,
   useCodexCloudAccess,
   useRegisterPromptLocalRemoteCommand,
 } from "../remote/local-remote-selection";
@@ -80,17 +82,6 @@ type DropdownOption = {
   disabled?: boolean;
   id: ComposerMode;
   label: ReactNode;
-};
-
-type LocalRemoteSlashCommand = {
-  Icon?: React.ComponentType<{ className?: string }>;
-  dependencies?: React.DependencyList;
-  description?: ReactNode;
-  enabled?: boolean;
-  id: string;
-  onSelect?: () => void | Promise<void>;
-  requiresEmptyComposer?: boolean;
-  title: string;
 };
 
 type QueryResult<TData> = {
@@ -184,6 +175,39 @@ export function LocalRemoteDropdown({
       hasGitRepository &&
       (allowWorktree || worktreeLabelOnly || threadHandoff != null);
 
+  let composerScopeStore = useAppScopeStore(composerPromptScope) as ScopeStore,
+    selectedEnvironment =
+      useSignalValue<CloudEnvironmentRecord | null>(
+        selectedEnvironmentSignal,
+      ) ?? null,
+    selectedEnvironmentId = getCloudEnvironmentId(selectedEnvironment),
+    setSelectedEnvironment = React.useCallback(
+      (environment: CloudEnvironmentRecord | null) => {
+        composerScopeStore.set(selectedEnvironmentSignal, environment);
+      },
+      [composerScopeStore],
+    ),
+    selectLocalMode = React.useCallback(
+      () => setComposerMode("local"),
+      [setComposerMode],
+    ),
+    selectWorktreeMode = React.useCallback(
+      () => setComposerMode("worktree"),
+      [setComposerMode],
+    ),
+    selectCloudMode = React.useCallback(
+      () => setComposerMode("cloud"),
+      [setComposerMode],
+    ),
+    defaultEnvironmentOptions = useCloudEnvironmentOptions({
+      enabled:
+        canRunInCloud &&
+        composerMode === "cloud" &&
+        selectedEnvironment == null,
+      searchQuery: "",
+      selectedEnvironmentId,
+    });
+
   let updateOpen = React.useCallback(
     (nextOpen: boolean) => {
       if (!canOpen && nextOpen) return;
@@ -192,6 +216,37 @@ export function LocalRemoteDropdown({
     },
     [canOpen, onOpenChange],
   );
+
+  let CloudEnvironmentCommandContent = React.useCallback(
+    ({ onClose, search }: LocalRemoteCommandContentProps) => (
+      <CloudEnvironmentSlashCommandContent
+        onClose={onClose}
+        searchQuery={search ?? ""}
+        selectedEnvironmentId={selectedEnvironmentId}
+        setComposerMode={setComposerMode}
+        setSelectedEnvironment={setSelectedEnvironment}
+      />
+    ),
+    [selectedEnvironmentId, setComposerMode, setSelectedEnvironment],
+  );
+
+  React.useEffect(() => {
+    if (
+      !canRunInCloud ||
+      composerMode !== "cloud" ||
+      selectedEnvironment != null ||
+      defaultEnvironmentOptions.environments.length === 0
+    ) {
+      return;
+    }
+    setSelectedEnvironment(defaultEnvironmentOptions.environments[0]);
+  }, [
+    canRunInCloud,
+    composerMode,
+    defaultEnvironmentOptions.environments,
+    selectedEnvironment,
+    setSelectedEnvironment,
+  ]);
 
   useLocalRemoteSlashCommand({
     Icon: isRemoteThread ? CloudIcon : LaptopIcon,
@@ -202,7 +257,7 @@ export function LocalRemoteDropdown({
     }),
     enabled: canOpen && composerMode !== "local",
     id: "local",
-    onSelect: () => setComposerMode("local"),
+    onSelect: selectLocalMode,
     title: intl.formatMessage({
       id: isRemoteThread ? "composer.mode.remote" : "composer.mode.workLocally",
       defaultMessage: isRemoteThread ? "Remote" : "Work locally",
@@ -219,7 +274,7 @@ export function LocalRemoteDropdown({
     }),
     enabled: canOpen && canRunInWorktree && composerMode !== "worktree",
     id: "worktree",
-    onSelect: () => setComposerMode("worktree"),
+    onSelect: selectWorktreeMode,
     title: intl.formatMessage({
       id: isRemoteThread
         ? "composer.mode.remoteWorktree"
@@ -238,12 +293,34 @@ export function LocalRemoteDropdown({
     }),
     enabled: canOpen && canRunInCloud && composerMode !== "cloud",
     id: "cloud",
-    onSelect: () => setComposerMode("cloud"),
+    onSelect: selectCloudMode,
     title: intl.formatMessage({
       id: "composer.mode.runInCloud",
       defaultMessage: "Cloud",
       description:
         "Remote mode label when a Codex task will be run in the cloud",
+    }),
+  });
+
+  useLocalRemoteSlashCommand({
+    Content: CloudEnvironmentCommandContent,
+    Icon: CloudIcon,
+    dependencies: [selectedEnvironmentId],
+    description:
+      selectedEnvironment?.label ??
+      intl.formatMessage({
+        id: "composer.slashCommands.cloudEnvironment.description",
+        defaultMessage: "Choose the cloud environment",
+        description:
+          "Description for the cloud environment slash command when no environment is selected",
+      }),
+    enabled: canOpen && canRunInCloud && composerMode === "cloud",
+    id: "cloud-environment",
+    title: intl.formatMessage({
+      id: "composer.slashCommands.cloudEnvironment.title",
+      defaultMessage: "Cloud environment",
+      description:
+        "Title for a composer slash command that makes Codex run in the cloud with a specific environment.",
     }),
   });
 
@@ -397,51 +474,14 @@ export function CloudEnvironmentDropdown({
       ) ?? null,
     [isOpen, setIsOpen] = React.useState(false),
     [searchQuery, setSearchQuery] = React.useState(""),
-    trimmedSearchQuery = searchQuery.trim(),
-    shouldQuery = isOpen && composerMode === "cloud";
+    shouldQuery = isOpen && composerMode === "cloud",
+    selectedEnvironmentId = getCloudEnvironmentId(selectedEnvironment);
 
-  let allEnvironmentsQuery = useCloudEnvironmentsQuery({
+  let { environments, isError, isLoading } = useCloudEnvironmentOptions({
       enabled: shouldQuery,
-    }) as QueryResult<CloudEnvironmentRecord[]>,
-    workspaceEnvironmentsQuery = useWorkspaceEnvironmentsByRepositoryQuery({
-      enabled: shouldQuery,
-    }) as QueryResult<CloudEnvironmentRecord[]>,
-    environmentSearchQuery = useWorkspaceEnvironmentSearchQuery(searchQuery, {
-      enabled: shouldQuery && trimmedSearchQuery.length > 0,
-    }) as QueryResult<CloudEnvironmentRecord[]>;
-
-  let selectedEnvironmentId = getCloudEnvironmentId(selectedEnvironment),
-    environments = React.useMemo(
-      () =>
-        trimmedSearchQuery.length > 0
-          ? sortCloudEnvironments(
-              environmentSearchQuery.data ?? [],
-              selectedEnvironmentId,
-            )
-          : mergeCloudEnvironmentLists(
-              workspaceEnvironmentsQuery.data ?? [],
-              allEnvironmentsQuery.data ?? [],
-              selectedEnvironmentId,
-            ),
-      [
-        allEnvironmentsQuery.data,
-        environmentSearchQuery.data,
-        selectedEnvironmentId,
-        trimmedSearchQuery.length,
-        workspaceEnvironmentsQuery.data,
-      ],
-    ),
-    isLoading =
-      (trimmedSearchQuery.length > 0
-        ? environmentSearchQuery.isLoading || environmentSearchQuery.isFetching
-        : allEnvironmentsQuery.isLoading ||
-          allEnvironmentsQuery.isFetching ||
-          workspaceEnvironmentsQuery.isLoading ||
-          workspaceEnvironmentsQuery.isFetching) ?? false,
-    isError =
-      (trimmedSearchQuery.length > 0
-        ? environmentSearchQuery.isError
-        : allEnvironmentsQuery.isError) ?? false,
+      searchQuery,
+      selectedEnvironmentId,
+    }),
     selectedEnvironmentLabel =
       selectedEnvironment == null ? (
         <FormattedMessage
@@ -522,12 +562,102 @@ export function CloudEnvironmentDropdown({
 function useLocalRemoteSlashCommand({
   dependencies = [],
   ...command
-}: LocalRemoteSlashCommand): void {
+}: LocalRemoteCommandRegistration): void {
   useRegisterPromptLocalRemoteCommand({
     requiresEmptyComposer: false,
     ...command,
-    dependencies: [command.onSelect, ...dependencies],
-  } as Parameters<typeof useRegisterPromptLocalRemoteCommand>[0]);
+    dependencies,
+  });
+}
+
+function CloudEnvironmentSlashCommandContent({
+  onClose,
+  searchQuery,
+  selectedEnvironmentId,
+  setComposerMode,
+  setSelectedEnvironment,
+}: {
+  onClose: () => void;
+  searchQuery: string;
+  selectedEnvironmentId: string | null;
+  setComposerMode: (mode: ComposerMode) => void | Promise<void>;
+  setSelectedEnvironment: (environment: CloudEnvironmentRecord) => void;
+}): JSX.Element {
+  let { environments, isError, isLoading } = useCloudEnvironmentOptions({
+    enabled: true,
+    searchQuery,
+    selectedEnvironmentId,
+  });
+
+  if (isLoading) {
+    return (
+      <CloudEnvironmentMessage>
+        <FormattedMessage
+          id="composer.environmentSelector.loading"
+          defaultMessage="Loading environments..."
+          description="Loading state for the cloud environment dropdown"
+        />
+      </CloudEnvironmentMessage>
+    );
+  }
+  if (isError) {
+    return (
+      <CloudEnvironmentMessage>
+        <FormattedMessage
+          id="composer.environmentSelector.error"
+          defaultMessage="Error loading environments"
+          description="Error state for the cloud environment dropdown"
+        />
+      </CloudEnvironmentMessage>
+    );
+  }
+  if (environments.length === 0) {
+    return (
+      <CloudEnvironmentMessage>
+        <FormattedMessage
+          id="codex.environments.noEnvironmentsFound"
+          defaultMessage="No environments found"
+          description="Message shown when no Codex environments were found"
+        />
+      </CloudEnvironmentMessage>
+    );
+  }
+
+  return (
+    <div className="flex max-h-72 flex-col overflow-y-auto py-1 text-sm">
+      {environments.slice(0, 100).map((environment) => {
+        let environmentId = getCloudEnvironmentId(environment),
+          isSelected =
+            environmentId != null && environmentId === selectedEnvironmentId;
+        return (
+          <button
+            key={environmentId ?? environment.label}
+            type="button"
+            className="flex min-w-0 w-full items-center justify-between gap-2 px-3 py-2 text-left text-token-foreground hover:bg-token-list-hover-background"
+            onClick={() => {
+              setSelectedEnvironment(environment);
+              void setComposerMode("cloud");
+              onClose();
+            }}
+          >
+            <span className="min-w-0">
+              <span className="block truncate">{environment.label}</span>
+              {environment.repos?.length ? (
+                <span className="block truncate text-xs text-token-text-secondary">
+                  {environment.repos.join(", ")}
+                </span>
+              ) : null}
+            </span>
+            {isSelected ? (
+              <span className="text-token-text-tertiary" aria-hidden={true}>
+                *
+              </span>
+            ) : null}
+          </button>
+        );
+      })}
+    </div>
+  );
 }
 
 function CloudEnvironmentMenu({
@@ -656,6 +786,69 @@ function CloudEnvironmentMessage({
       {children}
     </div>
   );
+}
+
+function useCloudEnvironmentOptions({
+  enabled,
+  searchQuery,
+  selectedEnvironmentId,
+}: {
+  enabled: boolean;
+  searchQuery: string;
+  selectedEnvironmentId: string | null;
+}): {
+  environments: CloudEnvironmentRecord[];
+  isError: boolean;
+  isLoading: boolean;
+} {
+  let trimmedSearchQuery = searchQuery.trim(),
+    allEnvironmentsQuery = useCloudEnvironmentsQuery({
+      enabled,
+    }) as QueryResult<CloudEnvironmentRecord[]>,
+    workspaceEnvironmentsQuery = useWorkspaceEnvironmentsByRepositoryQuery({
+      enabled,
+    }) as QueryResult<CloudEnvironmentRecord[]>,
+    environmentSearchQuery = useWorkspaceEnvironmentSearchQuery(searchQuery, {
+      enabled: enabled && trimmedSearchQuery.length > 0,
+    }) as QueryResult<CloudEnvironmentRecord[]>;
+
+  let environments = React.useMemo(
+      () =>
+        trimmedSearchQuery.length > 0
+          ? sortCloudEnvironments(
+              environmentSearchQuery.data ?? [],
+              selectedEnvironmentId,
+            )
+          : mergeCloudEnvironmentLists(
+              workspaceEnvironmentsQuery.data ?? [],
+              allEnvironmentsQuery.data ?? [],
+              selectedEnvironmentId,
+            ),
+      [
+        allEnvironmentsQuery.data,
+        environmentSearchQuery.data,
+        selectedEnvironmentId,
+        trimmedSearchQuery.length,
+        workspaceEnvironmentsQuery.data,
+      ],
+    ),
+    isLoading =
+      (trimmedSearchQuery.length > 0
+        ? environmentSearchQuery.isLoading || environmentSearchQuery.isFetching
+        : allEnvironmentsQuery.isLoading ||
+          allEnvironmentsQuery.isFetching ||
+          workspaceEnvironmentsQuery.isLoading ||
+          workspaceEnvironmentsQuery.isFetching) ?? false,
+    isError =
+      (trimmedSearchQuery.length > 0
+        ? environmentSearchQuery.isError
+        : allEnvironmentsQuery.isError) ?? false;
+
+  return {
+    environments,
+    isError,
+    isLoading,
+  };
 }
 
 function RunLocationMenu({
