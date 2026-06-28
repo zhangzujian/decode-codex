@@ -5,6 +5,14 @@ export {
   initAppFallbackChunk as Rn,
 } from "../../app-shell/app-fallback";
 export {
+  initAutomationHistoryItemsChunk as dn,
+  useAutomationItems as fn,
+} from "../../utils/use-automation-history-items";
+export {
+  initWindowVisibilitySignal as G,
+  windowVisibleSignal as W,
+} from "../../runtime/window-focus-state";
+export {
   Bt as LocalConversationDiffSummaryView,
   Jt as ComposerDismissableLayer,
   Wt as AutomationTooltipSurface,

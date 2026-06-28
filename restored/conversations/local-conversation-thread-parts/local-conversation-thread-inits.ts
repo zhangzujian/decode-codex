@@ -46,7 +46,6 @@ import {
   yc as ho,
   yn as _o,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
-import { dn as initAutomationsPageProducer } from "../../boundaries/current-ref/automations-page-producer";
 import {
   Ai as Ao,
   Gt as Po,
@@ -73,6 +72,7 @@ import {
 import { initThreadSwitchTimingTrackerChunk } from "../../automation/heartbeat-automation-eligibility";
 import { initLauncherHotkeyStateChunk } from "../../features/hotkey-window-state";
 import { initScrollToBottomButtonChunk } from "../../utils/scroll-to-bottom-buton";
+import { initAutomationHistoryItemsChunk } from "../../utils/use-automation-history-items";
 import { initThreadScrollControllerContextChunk } from "../../utils/thread-scroll-controller-context";
 import { initThreadOverflowMenuChunk } from "../../threads/thread-overflow-menu";
 import {
@@ -139,7 +139,7 @@ export const initLocalConversationThreadChunk = once(() => {
   Ha();
   initWindowZoomContext();
   Bo();
-  initAutomationsPageProducer();
+  initAutomationHistoryItemsChunk();
   ro();
   vs();
   initButtonComponentPrimitives();

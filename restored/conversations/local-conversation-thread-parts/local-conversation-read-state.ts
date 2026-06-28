@@ -1,10 +1,10 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Mark local conversations as read when visible and their read marker changes.
 import React from "react";
+import { useAppScopeValue } from "../../boundaries/app-scope";
 import { once } from "../../runtime/commonjs-interop";
 import {
   Ep as conversationUnreadSignal,
-  IB as useSignalValue,
   Kp as conversationReadStateSignal,
   Op as initConversationStateSelectors,
   PB as useScopedValue,
@@ -16,9 +16,9 @@ import {
   AB as initScopeRuntime,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  G as initWindowVisibilitySignal,
-  W as windowVisibleSignal,
-} from "../../boundaries/current-ref/automations-page-producer";
+  initWindowVisibilitySignal,
+  windowVisibleSignal,
+} from "../../runtime/window-focus-state";
 
 export function useMarkConversationReadOnVisibility(
   conversationId: string,
@@ -26,7 +26,7 @@ export function useMarkConversationReadOnVisibility(
 ) {
   let isUnread =
       useScopedValue(conversationUnreadSignal, conversationId) ?? false,
-    isWindowVisible = useSignalValue(windowVisibleSignal),
+    isWindowVisible = useAppScopeValue<boolean | null>(windowVisibleSignal),
     conversationReadMarker = useScopedValue(
       latestConversationTurnSignal,
       conversationId,

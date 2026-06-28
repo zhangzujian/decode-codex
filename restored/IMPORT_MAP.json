@@ -11188,13 +11188,17 @@
     "app-initial~app-main~automations-page-bHJfYUGr": {
       "restored": "app-shell/app-fallback.tsx",
       "exports": {
+        "G": "initWindowVisibilitySignal",
         "Ln": "AppFallback",
-        "Rn": "initAppFallbackChunk"
+        "Rn": "initAppFallbackChunk",
+        "W": "windowVisibleSignal",
+        "dn": "initAutomationHistoryItemsChunk",
+        "fn": "useAutomationItems"
       },
       "status": "partial",
       "boundary": "boundaries/current-ref/automations-page-producer.ts",
-      "note": "Partial app-shell restore: Electron root fallback component and initializer now live in app-shell/app-fallback.tsx; app shell handlers, CodexApp, automation state, and remaining route/UI exports continue through the current-ref compatibility boundary.",
-      "lastUpdated": "2026-06-27T23:46:28.000Z"
+      "note": "Partial app-shell/local-thread restore: Electron root fallback lives in app-shell/app-fallback.tsx; local-thread window focus state lives in runtime/window-focus-state.ts; automation inbox hook/init lives in utils/use-automation-history-items.ts. App shell handlers, CodexApp, automation state, and remaining route/UI exports continue through the current-ref compatibility boundary.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-CQrj7g91": {
       "restored": "ui/browser-sidebar-menu.tsx",

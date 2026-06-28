@@ -54,7 +54,7 @@ import {
   u as localConversationMessages,
   un as waitForThreadLayoutTick,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
-import { fn as useAutomationItems } from "../../boundaries/current-ref/automations-page-producer";
+import { useAutomationItems } from "../../utils/use-automation-history-items";
 import {
   Kt as captureConversationCopy,
   Na as useAppgenEndCardEnabled,
