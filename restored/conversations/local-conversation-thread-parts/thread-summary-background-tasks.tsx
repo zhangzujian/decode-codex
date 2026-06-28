@@ -8,6 +8,11 @@ import {
 } from "react";
 import { initRefreshIcon, RefreshIcon } from "../../icons/refresh-icon";
 import { once } from "../../runtime/commonjs-interop";
+import {
+  Dropdown as MenuChrome,
+  DropdownMenu,
+  initDropdownMenuPrimitives,
+} from "../../ui/dropdown";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import { classNames, initClassNameRuntime } from "../../utils/class-names";
 import {
@@ -15,7 +20,6 @@ import {
   $P as initAppScope,
   AB as initScopeRuntime,
   Fx as initEnvironmentTerminalController,
-  Gi as DropdownMenu,
   IB as useSignalValue,
   Ix as environmentTerminalControllerService,
   QP as appScope,
@@ -25,9 +29,7 @@ import {
   hM as initTooltipPrimitives,
   ok as sendAppServerRequest,
   pM as Tooltip,
-  qi as MenuChrome,
   tP as useAppServerMutation,
-  Zi as initDropdownMenuPrimitives,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   Oi as BackgroundAgentAvatar,

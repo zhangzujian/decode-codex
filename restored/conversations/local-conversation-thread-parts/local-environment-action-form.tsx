@@ -10,16 +10,19 @@ import {
 import { once } from "../../runtime/commonjs-interop";
 import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
+  Dropdown as MenuChrome,
+  DropdownMenu,
+  initDropdownMenuPrimitives,
+} from "../../ui/dropdown";
+import {
   $N as initVscodeApiBridge,
   Ai as initDialogLayoutComponents,
   AV as initReactQueryRuntime,
   Di as DialogSection,
   Ei as DialogHeader,
-  Gi as DropdownMenu,
   iF as initIntlRuntime,
   lF as useIntl,
   Oi as DialogFieldStack,
-  qi as MenuChrome,
   tP as useAppServerMutation,
   Ti as DialogFooterActions,
   va as AppDialog,
@@ -27,7 +30,6 @@ import {
   XN as createQueryKey,
   xa as initAppDialog,
   zV as useQueryClient,
-  Zi as initDropdownMenuPrimitives,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   en as getWorkspaceRootDisplayName,

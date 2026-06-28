@@ -22,6 +22,9 @@ export { DropdownMenu } from "./menu";
 export { DropdownSearchIcon, DropdownSearchInput } from "./search";
 export { DropdownSubmenuItem } from "./submenu";
 export { DropdownSeparator } from "./content";
+
+export function initDropdownMenuPrimitives(): void {}
+
 export const Dropdown = {
   Trigger: DropdownTrigger,
   Content: DropdownContent,
@@ -37,3 +40,5 @@ export const Dropdown = {
   FlyoutSubmenuItem: DropdownFlyoutSubmenuItem,
   Section: DropdownSection,
 };
+
+export const MenuChrome = Dropdown;

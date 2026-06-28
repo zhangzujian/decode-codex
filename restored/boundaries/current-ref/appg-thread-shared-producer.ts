@@ -43,6 +43,13 @@ export {
   initSearchIcon as ta,
 } from "../../ui/dropdown/search";
 export {
+  Dropdown as qi,
+  DropdownMenu as Gi,
+  DropdownSeparator as Xi,
+  DropdownSubmenuItem as Ki,
+  initDropdownMenuPrimitives as Zi,
+} from "../../ui/dropdown";
+export {
   FormattedMessage as sF,
   initIntlRuntime as iF,
   useIntl as lF,

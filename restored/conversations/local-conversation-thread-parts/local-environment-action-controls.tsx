@@ -16,6 +16,13 @@ import {
 } from "../../ui/keyboard-shortcut-keycap";
 import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
+  Dropdown as MenuChrome,
+  DropdownMenu,
+  DropdownSeparator as MenuSeparator,
+  DropdownSubmenuItem as DropdownMenuSubmenu,
+  initDropdownMenuPrimitives,
+} from "../../ui/dropdown";
+import {
   initUseStableCallback,
   useStableCallback,
 } from "../../utils/use-stable-callback";
@@ -33,11 +40,9 @@ import {
   FB as useScope,
   Fx as initEnvironmentTerminalController,
   Ga as initElectronPlatformContent,
-  Gi as DropdownMenu,
   Hh as initGitQueryKeyHelpers,
   hM as initTooltipPrimitives,
   Ix as environmentTerminalControllerService,
-  Ki as DropdownMenuSubmenu,
   kj as normalizeConfigPath,
   lL as LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,
   Ln as initKeyboardModifierState,
@@ -51,7 +56,6 @@ import {
   Pi as openScopedModal,
   pM as Tooltip,
   pP as initLoggerRuntime,
-  qi as MenuChrome,
   QP as appScope,
   Rj as initCommandMenuItemRuntime,
   Rn as useCommandRegistration,
@@ -61,9 +65,7 @@ import {
   Wa as PlatformContentGate,
   wV as useSignalState,
   wj as initConfigPathHelpers,
-  Xi as MenuSeparator,
   yP as initPersistedSignalRuntime,
-  Zi as initDropdownMenuPrimitives,
   ju as useOsInfo,
   eP as useHostQuery,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";

@@ -3,12 +3,12 @@
 import type { KeyboardEvent, MouseEvent, ReactNode, SVGProps } from "react";
 import { ChevronIcon, initChevronDownIcon } from "../../icons/chevron-icon";
 import { once } from "../../runtime/commonjs-interop";
-import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
-  Gi as initDropdownMenuPrimitives,
-  iF as initIntlRuntime,
-  qi as MenuChrome,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  Dropdown as MenuChrome,
+  initDropdownMenuPrimitives,
+} from "../../ui/dropdown";
+import { initSpinnerComponent, Spinner } from "../../ui/spinner";
+import { iF as initIntlRuntime } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   PullRequestMetadataRows,
   initPullRequestMetadataRowsChunk,

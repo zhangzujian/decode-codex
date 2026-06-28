@@ -3,12 +3,14 @@
 import type { ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
+  Dropdown as MenuChrome,
+  initDropdownMenuPrimitives,
+} from "../../ui/dropdown";
+import {
   AB as initScopeRuntime,
   FB as useScope,
-  Gi as initDropdownMenuPrimitives,
   IB as useSignalValue,
   iF as initIntlRuntime,
-  qi as MenuChrome,
   wl as composerScope,
   Al as initComposerScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";

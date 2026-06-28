@@ -5,12 +5,16 @@ import React from "react";
 import { GitBranchIcon, initGitBranchIcon } from "../../icons/git-branch-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
+  Dropdown as MenuChrome,
+  DropdownMenu,
+  initDropdownMenuPrimitives,
+} from "../../ui/dropdown";
+import {
   $N as initDeveloperInstructionsProducer,
   AB as initScopeRuntime,
   DN as Button,
   FB as useScope,
   Ga as initElectronPlatformContent,
-  Gi as DropdownMenu,
   IB as useSignalValue,
   I_ as initRouteScope,
   JV as initReactRuntime,
@@ -28,7 +32,6 @@ import {
   Up as conversationCollaborationModeSignal,
   Wa as PlatformContentGate,
   YN as sendHostRequest,
-  Zi as initDropdownMenuPrimitives,
   cM as initToastRuntime,
   cP as initThreadActionMenuRuntime,
   cm as conversationHostIdSignal,
@@ -37,7 +40,6 @@ import {
   mP as logger,
   mv as initCurrentRefViewRuntime,
   pP as initLoggerRuntime,
-  qi as MenuChrome,
   sF as FormattedMessage,
   uM as toastSignal,
   uP as useThreadCommandHandler,

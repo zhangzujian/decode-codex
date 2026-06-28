@@ -11,11 +11,13 @@ import {
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
+  Dropdown as MenuChrome,
+  DropdownSeparator as MenuSeparator,
+  initDropdownMenuPrimitives,
+} from "../../ui/dropdown";
+import {
   kj as normalizeConfigPath,
-  qi as MenuChrome,
   wj as initConfigPathHelpers,
-  Xi as MenuSeparator,
-  Zi as initDropdownMenuPrimitives,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { initStarIconChunk, StarIcon } from "../../icons/star-icon";
 import {

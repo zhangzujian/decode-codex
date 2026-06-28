@@ -8,6 +8,7 @@ import {
   DropdownSearchIcon as SearchIcon,
   initSearchIcon,
 } from "../../ui/dropdown/search";
+import { initDropdownMenuPrimitives } from "../../ui/dropdown";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
   $N as initVscodeApiBridge,
@@ -16,7 +17,6 @@ import {
   QP as appScope,
   Rj as initScreenReaderTitleChunk,
   ZN as createHostQuerySignal,
-  Zi as initDropdownMenuPrimitives,
   aP as QUERY_DURATIONS,
   cM as initToastRuntime,
   di as PopoverRoot,

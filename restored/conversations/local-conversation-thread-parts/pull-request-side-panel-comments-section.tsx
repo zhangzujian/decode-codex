@@ -3,15 +3,17 @@
 import type { ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
+  Dropdown as MenuChrome,
+  initDropdownMenuPrimitives,
+} from "../../ui/dropdown";
+import {
   AB as initScopeRuntime,
   Al as initComposerScope,
   FB as useScope,
-  Gi as initDropdownMenuPrimitives,
   HO as getReviewCommentAttachmentKeyValue,
   PB as useScopedValue,
   YO as initPullRequestReviewCommentHelpers,
   iF as initIntlRuntime,
-  qi as MenuChrome,
   wl as composerScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
