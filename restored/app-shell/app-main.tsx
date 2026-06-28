@@ -25,10 +25,9 @@ import {
 } from "../boundaries/current-ref/automations-page-producer";
 import { AppFallback, initAppFallbackChunk } from "./app-fallback";
 import { initEmptyAppChunk } from "./empty-app-initializer";
+import { ErrorBoundary } from "../runtime/error-boundary";
 import {
   Ja as initPullRequestThreadActionsChunk,
-  do as initPullRequestErrorBoundaryChunk,
-  qa as ErrorBoundary,
   uo as initDesktopNotificationRuntime,
 } from "../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
@@ -134,7 +133,6 @@ const initAppMainChunk = once(() => {
   initAppLoggingChunk();
   initAutomationsStateChunk();
   initAppRuntimeChunk();
-  initPullRequestErrorBoundaryChunk();
   initCodexAppChunk();
   initAppFeatureRuntimeChunk();
   initEmptyAppChunk();

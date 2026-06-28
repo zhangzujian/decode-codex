@@ -13,10 +13,7 @@ import {
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
-import {
-  Ja as initTurnErrorBoundarySupport,
-  qa as ErrorBoundary,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+import { ErrorBoundary } from "../../runtime/error-boundary";
 import {
   it as initConversationTurnRendererChunk,
   rt as ConversationTurnRenderer,
@@ -209,7 +206,6 @@ export const initLocalConversationTurnRowChunk = once(() => {
   initScopeRuntime();
   initIntlRuntime();
   initButtonComponentPrimitives();
-  initTurnErrorBoundarySupport();
   initRouteScope();
   initUseStableCallback();
   initConversationTurnRendererChunk();
