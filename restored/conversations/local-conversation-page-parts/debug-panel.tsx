@@ -17,7 +17,7 @@ import {
   unregisterDebugPanelSource,
   useIsDebugPanelEnabled,
   useScope,
-} from "../../runtime/local-conversation-page-runtime";
+} from "../local-conversation-page-runtime";
 import type { Scope } from "./types";
 
 type LocalConversationDebugPanelReporterProps = { conversationId: string };

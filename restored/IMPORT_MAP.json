@@ -11591,8 +11591,8 @@
         "ea": "LocalConversationPage"
       },
       "status": "done",
-      "note": "Restored local conversation page container: workspace tab remapping, local header chrome, summary panel toggle, latest-turn preview, background subagent panel, composer shell, pending client/worktree routes, and debug panel reporter.",
-      "lastUpdated": "2026-06-27T18:51:20.705Z"
+      "note": "Restored local conversation page container: workspace tab remapping, local header chrome, summary panel toggle, latest-turn preview, background subagent panel, composer shell, pending client/worktree routes, and debug panel reporter. Page runtime bindings now live in conversations/local-conversation-page-runtime.ts, with runtime/local-conversation-page-runtime.ts kept as a compatibility barrel.",
+      "lastUpdated": "2026-06-28T16:37:54.000Z"
     },
     "analyze_image_animation-BUMQPx3-": {
       "restored": "animations/analyze-image-animation.ts",

@@ -95,7 +95,7 @@ import {
   useSignalValue,
   useStatsigGate,
   WorkedForCollapsedAgentsLabel,
-} from "../../runtime/local-conversation-page-runtime";
+} from "../local-conversation-page-runtime";
 import {
   getAttachedHeartbeatAutomationForThread,
   initAttachedHeartbeatAutomationLookupChunk,

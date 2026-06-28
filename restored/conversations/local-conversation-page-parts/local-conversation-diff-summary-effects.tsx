@@ -36,7 +36,7 @@ import {
   toConversationId,
   useScope,
   useSignalValue,
-} from "../../runtime/local-conversation-page-runtime";
+} from "../local-conversation-page-runtime";
 
 type ScopeAccessor = {
   get<TValue>(signal: unknown, key?: unknown): TValue;

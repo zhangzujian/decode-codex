@@ -9,7 +9,7 @@ import {
   sendAppServerRequest,
   useScope,
   useScopedValue,
-} from "../../runtime/local-conversation-page-runtime";
+} from "../local-conversation-page-runtime";
 import { LocalConversationThread } from "../local-conversation-thread";
 import type { IntlShape, Scope, SubagentThread } from "./types";
 import { FormattedMessage } from "../../vendor/react-intl";
