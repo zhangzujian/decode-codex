@@ -6,16 +6,18 @@ import {
   AB as initScopeRuntime,
   BV as getJsxRuntime,
   JV as initReactRuntime,
-  na as FallbackGlobeIcon,
   oP as initQueryDurationConstants,
   qV as getChunkModuleExports,
   QP as appScopeRoot,
-  ra as initGlobeIconChunk,
-  VP as initClassNameRuntime,
   WA as initAppServicesRuntime,
   yV as createSignal,
   YN as sendHostRequest,
 } from "../vendor/appg-thread-shared-runtime";
+import {
+  GlobeIcon as FallbackGlobeIcon,
+  initClassNameRuntime,
+  initGlobeIcon as initGlobeIconChunk,
+} from "../boundaries/current-ref/appg-thread-shared-producer";
 
 export {
   appScopeRoot,
