@@ -2,6 +2,7 @@
 // Latest-turn auto-follow wrapper for the local conversation virtualized turn list.
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
+import { getScrollDistanceFromBottomPx } from "../../utils/reverse-scroll-distance";
 import { useStableCallback } from "../../utils/use-stable-callback";
 import {
   $P as initAppScope,
@@ -10,7 +11,6 @@ import {
   CP as animateSignalValue,
   DM as initWindowZoomContext,
   FB as useScope,
-  Mj as getScrollDistanceFromBottomPx,
   Nj as initReverseScrollUtilities,
   OP as createMotionSignal,
   QP as appScope,

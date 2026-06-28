@@ -2,6 +2,12 @@
 // Shared helpers for the thread scroll layout restored from the Codex webview bundle.
 import React from "react";
 import clsx from "clsx";
+import {
+  getScrollDistanceFromBottomPx,
+  setScrollDistanceFromBottomPx,
+} from "./reverse-scroll-distance";
+
+export { getScrollDistanceFromBottomPx, setScrollDistanceFromBottomPx };
 
 type MotionLikeValue = {
   get(): unknown;
@@ -39,15 +45,14 @@ export function getThreadScrollViewportClassName(
 }
 
 export function getDistanceFromBottom(element: HTMLElement): number {
-  return Math.max(0, -element.scrollTop);
+  return getScrollDistanceFromBottomPx(element);
 }
 
 export function setDistanceFromBottom(
   element: HTMLElement,
   distancePx: number,
 ): void {
-  const normalizedDistance = Math.max(0, distancePx);
-  element.scrollTop = normalizedDistance === 0 ? 0 : -normalizedDistance;
+  setScrollDistanceFromBottomPx(element, distancePx);
 }
 
 export function isScrolledToBottom(element: HTMLElement): boolean {

@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Response-spacer constants and scroll measurement helpers for latest-turn follow mode.
-import { Mj as getScrollDistanceFromBottomPx } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { getScrollDistanceFromBottomPx } from "../../utils/reverse-scroll-distance";
 import { scaleCssPxByWindowZoom } from "../../utils/window-zoom-scale";
 import {
   type LatestTurnPhase,
