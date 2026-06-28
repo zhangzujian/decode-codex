@@ -14,9 +14,9 @@ import {
   Al as initComposerScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  Qo as attachedPullRequestChecksSignal,
-  ns as initPullRequestComposerContextChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+  pullRequestChecksState as attachedPullRequestChecksSignal,
+} from "../../composer/composer-view-state";
+import { initPullRequestComposerContextChunk } from "../../composer/pull-request-prompt-actions";
 import {
   PullRequestInlineActionButton,
   PullRequestCheckRows,

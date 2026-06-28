@@ -10,9 +10,9 @@ import {
   wl as composerScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  $o as pullRequestMergeConflictAttachmentSignal,
-  ns as initPullRequestComposerContextChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+  pullRequestMergeConflictState as pullRequestMergeConflictAttachmentSignal,
+} from "../../composer/composer-view-state";
+import { initPullRequestComposerContextChunk } from "../../composer/pull-request-prompt-actions";
 import {
   PullRequestInlineActionButton,
   initPullRequestInlineActionButtonChunk,
