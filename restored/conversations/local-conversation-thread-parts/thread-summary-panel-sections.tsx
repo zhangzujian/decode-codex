@@ -59,10 +59,10 @@ import {
   Sl as workspaceRouteStateSignal,
   Wl as initCurrentWorkspaceRootSignalChunk,
   Ya as showRightPanel,
-  Yl as rightPanelTabsStore,
   wl as currentWorkspaceRootSignal,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
 import { conversationTitleSignal } from "../../runtime/local-conversation-state";
+import { rightPanelTabsStore } from "../../runtime/thread-panel-tabs-store";
 import {
   Jn as PlanIcon,
   St as openPlanSidePanelTab,

@@ -31,10 +31,10 @@ import {
   nu as initThreadSummaryPanelSignalsRuntime,
   Rl as hostConfigSignal,
   Wl as initConversationDisplayTitleSignals,
-  Yl as rightPanelTabsStore,
   yu as initWorkspaceRouteStateSignals,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
 import { conversationTitleSignal } from "../../runtime/local-conversation-state";
+import { rightPanelTabsStore } from "../../runtime/thread-panel-tabs-store";
 import { useIsBackgroundSubagentsEnabled as isBackgroundSubagentsEnabled } from "../../utils/use-is-background-subagents-enabled";
 import {
   At as initRestoredProcessRowsCollectorDependencies,

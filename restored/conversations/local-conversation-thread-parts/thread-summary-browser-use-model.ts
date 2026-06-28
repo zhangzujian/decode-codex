@@ -9,9 +9,9 @@ import {
   uz as NEW_TAB_TITLE,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  Yl as rightPanelTabsStore,
-  ql as bottomPanelTabsStore,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
+  bottomPanelTabsStore,
+  rightPanelTabsStore,
+} from "../../runtime/thread-panel-tabs-store";
 import type { BrowserUseSummary } from "./browser-use-summary";
 import { useBrowserUseSummaries } from "./browser-use-summary-store";
 

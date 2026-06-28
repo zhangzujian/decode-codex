@@ -9,9 +9,9 @@ import {
   ok as sendAppServerRequest,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  Jl as initRightPanelTabsStoreChunk,
-  Yl as rightPanelTabsStore,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
+  initRightPanelTabsStoreChunk,
+  rightPanelTabsStore,
+} from "../../runtime/thread-panel-tabs-store";
 import {
   BackgroundAgentAvatar,
   initBackgroundAgentAvatarChunk,
