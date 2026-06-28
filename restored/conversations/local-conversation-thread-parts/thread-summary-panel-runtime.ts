@@ -47,7 +47,7 @@ import {
   xl as initThreadSummaryPanelSignalsSupportChunkRaw,
   yc as initLocalConversationSummaryPanelSupportChunkRaw,
 } from "../../vendor/profile-page-runtime";
-import { backgroundAgentsSignal } from "../../runtime/background-subagents-runtime";
+import { backgroundAgentsSignal } from "../background-subagents-runtime";
 import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,

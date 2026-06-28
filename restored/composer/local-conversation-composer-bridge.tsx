@@ -2,7 +2,7 @@
 // Local conversation composer bridge and host connection signals.
 import { appServerConnectionStateSignal as hostConnectionStatusSignal } from "../boundaries/thread-context-inputs.facade";
 import { LOCAL_HOST_ID } from "../boundaries/use-host-config.facade";
-import { backgroundAgentsSignal } from "../runtime/background-subagents-runtime";
+import { backgroundAgentsSignal } from "../conversations/background-subagents-runtime";
 import { useSystemPrefersReducedMotion } from "../utils/reduced-motion-preference";
 
 import {
