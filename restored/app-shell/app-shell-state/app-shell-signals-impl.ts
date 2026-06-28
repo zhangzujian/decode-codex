@@ -285,13 +285,13 @@ function appShellStateDState(appShellStateInput81) {
     : 300;
 }
 var appShellStateState18 = `app-shell-bottom-panel-launcher-visible`,
-  appShellStateState19 = 100,
-  _appShellStateUState = appScopeG(appScopeT, !0),
-  _appShellStateFState = appScopeG(appScopeT, !1),
-  _appShellStateLState = appScopeG(appScopeT, !1),
-  appShellStateSState = appScopeG(appScopeT, !1),
-  appShellStateState20 = appScopeG(appScopeT, 0),
-  appShellStateCState = appScopeG(appScopeT, () => new MotionValue(1)),
+  sidebarHoverLauncherDelayMs = 100,
+  sidebarOpenSignal = appScopeG(appScopeT, !0),
+  sidebarHoverSignal = appScopeG(appScopeT, !1),
+  sidebarHoverOpenSuppressedSignal = appScopeG(appScopeT, !1),
+  sidebarAnimatingSignal = appScopeG(appScopeT, !1),
+  sidebarAnimationSequenceSignal = appScopeG(appScopeT, 0),
+  sidebarOpenAnimationSignal = appScopeG(appScopeT, () => new MotionValue(1)),
   _appShellStateNState = persistedSignalT(appShellStateState18, !0),
   _appShellStateRState = appScopeG(persistedSignalG, !1),
   appShellStateTState = appScopeG(persistedSignalG, () => new MotionValue(0)),
@@ -305,75 +305,74 @@ var appShellStateState18 = `app-shell-bottom-panel-launcher-visible`,
     () => new MotionValue(0),
   );
 const _appShellStatePState = appScopeG(appScopeT, appShellStateEState);
-const _appShellStateMState = appScopeG(appScopeT, !1, {
-  onMount: (appShellStateInput17, appShellStateInput18) => {
-    let appShellStateState71 = null,
-      appShellStateState72 = () => {
-        appShellStateState71 != null &&
-          (window.clearTimeout(appShellStateState71),
-          (appShellStateState71 = null));
+const sidebarHoverLauncherVisibleSignal = appScopeG(appScopeT, !1, {
+  onMount: (setHoverLauncherVisible, sidebarScope) => {
+    let hoverLauncherTimerId: ReturnType<typeof window.setTimeout> | null =
+        null,
+      clearHoverLauncherTimer = () => {
+        hoverLauncherTimerId != null &&
+          (window.clearTimeout(hoverLauncherTimerId),
+          (hoverLauncherTimerId = null));
       },
-      appShellStateState73 = appShellStateInput18.watch(({ get: get }) => {
-        if (get(_appShellStateUState) || !get(_appShellStateFState)) {
-          (appShellStateState72(), appShellStateInput17(!1));
+      unsubscribe = sidebarScope.watch(({ get: get }) => {
+        if (get(sidebarOpenSignal) || !get(sidebarHoverSignal)) {
+          (clearHoverLauncherTimer(), setHoverLauncherVisible(!1));
           return;
         }
-        appShellStateState71 ??= window.setTimeout(() => {
-          ((appShellStateState71 = null), appShellStateInput17(!0));
-        }, appShellStateState19);
+        hoverLauncherTimerId ??= window.setTimeout(() => {
+          ((hoverLauncherTimerId = null), setHoverLauncherVisible(!0));
+        }, sidebarHoverLauncherDelayMs);
       });
     return () => {
-      (appShellStateState72(), appShellStateState73());
+      (clearHoverLauncherTimer(), unsubscribe());
     };
   },
 });
 const _appShellStateDState = appScopeG(appScopeT, !1);
 const appShellStateUnderscoreState = appScopeG(appScopeT, 250);
 const _appShellStateTState = appScopeG(appScopeT, !0);
-function _appShellStateCState(
-  appShellStateInput13: any,
-  appShellStateInput14: boolean,
-  appShellStateInput15: any = {},
+function setSidebarOpen(
+  appScope: any,
+  isOpen: boolean,
+  options: any = {},
 ): void {
-  let appShellStateState58 = appShellStateInput13.get(appShellStateCState),
-    appShellStateState59 = appShellStateInput14 ? 1 : 0,
-    appShellStateState60 =
-      !appShellStateInput14 && appShellStateInput15.suppressHoverOpen !== !1;
+  let openMotionValue = appScope.get(sidebarOpenAnimationSignal),
+    targetValue = isOpen ? 1 : 0,
+    shouldSuppressHoverOpen = !isOpen && options.suppressHoverOpen !== !1;
   if (
-    appShellStateInput13.get(_appShellStateUState) === appShellStateInput14 &&
-    appShellStateState58.get() === appShellStateState59
+    appScope.get(sidebarOpenSignal) === isOpen &&
+    openMotionValue.get() === targetValue
   ) {
-    (appShellStateInput13.set(_appShellStateFState, !1),
-      appShellStateInput13.set(_appShellStateLState, appShellStateState60),
-      appShellStateInput13.set(appShellStateSState, !1));
+    (appScope.set(sidebarHoverSignal, !1),
+      appScope.set(sidebarHoverOpenSuppressedSignal, shouldSuppressHoverOpen),
+      appScope.set(sidebarAnimatingSignal, !1));
     return;
   }
-  let appShellStateState61 =
-      appShellStateInput15.animate !== !1 &&
-      !appShellStateInput13.get(reducedMotionPreferenceR),
-    appShellStateState62 = appShellStateInput13.get(appShellStateState20) + 1;
+  let shouldAnimate =
+      options.animate !== !1 && !appScope.get(reducedMotionPreferenceR),
+    animationSequence = appScope.get(sidebarAnimationSequenceSignal) + 1;
   if (
-    (appShellStateInput13.set(appShellStateState20, appShellStateState62),
-    appShellStateInput13.set(_appShellStateFState, !1),
-    appShellStateInput13.set(_appShellStateLState, appShellStateState60),
-    appShellStateInput13.set(appShellStateSState, appShellStateState61),
-    appShellStateInput13.set(_appShellStateUState, appShellStateInput14),
-    appShellStateState58.stop(),
-    !appShellStateState61)
+    (appScope.set(sidebarAnimationSequenceSignal, animationSequence),
+    appScope.set(sidebarHoverSignal, !1),
+    appScope.set(sidebarHoverOpenSuppressedSignal, shouldSuppressHoverOpen),
+    appScope.set(sidebarAnimatingSignal, shouldAnimate),
+    appScope.set(sidebarOpenSignal, isOpen),
+    openMotionValue.stop(),
+    !shouldAnimate)
   ) {
-    appShellStateState58.set(appShellStateState59);
+    openMotionValue.set(targetValue);
     return;
   }
-  let appShellStateState63 = appShellStateMtState(
-      appShellStateState58,
-      appShellStateState59,
+  let openAnimation = appShellStateMtState(
+      openMotionValue,
+      targetValue,
       appShellStateItState,
     ),
-    appShellStateState64 = () => {
-      appShellStateInput13.get(appShellStateState20) === appShellStateState62 &&
-        appShellStateInput13.set(appShellStateSState, !1);
+    clearAnimatingIfCurrent = () => {
+      appScope.get(sidebarAnimationSequenceSignal) === animationSequence &&
+        appScope.set(sidebarAnimatingSignal, !1);
     };
-  appShellStateState63.then(appShellStateState64, appShellStateState64);
+  openAnimation.then(clearAnimatingIfCurrent, clearAnimatingIfCurrent);
 }
 function _appShellStateYState(
   appShellStateInput129: any,
@@ -481,7 +480,7 @@ export {
   appShellStateDollarState,
   appShellStateAState,
   appShellStateBState,
-  appShellStateCState,
+  sidebarOpenAnimationSignal as appShellStateCState,
   appShellStateDState,
   appShellStateEState,
   appShellStateFState,
@@ -497,7 +496,7 @@ export {
   appShellStatePState,
   appShellStateQState,
   appShellStateRState,
-  appShellStateSState,
+  sidebarAnimatingSignal as appShellStateSState,
   appShellStateTState,
   appShellStateUState,
   appShellStateVState,
@@ -527,6 +526,13 @@ export {
   _appShellStateJState as activeAppShellFocusAreaSignal,
   _appShellStateXState as setRightPanelOpenWithOptions,
   _appShellStateAState as rightPanelExpandedSignal,
+  setSidebarOpen,
+  sidebarOpenSignal,
+  sidebarOpenAnimationSignal,
+  sidebarHoverSignal,
+  sidebarHoverOpenSuppressedSignal,
+  sidebarHoverLauncherVisibleSignal,
+  sidebarAnimatingSignal,
   reviewFileTreeOpenSignal,
   reviewFileTreeOpenAnimationSignal,
   setReviewFileTreeOpen,
