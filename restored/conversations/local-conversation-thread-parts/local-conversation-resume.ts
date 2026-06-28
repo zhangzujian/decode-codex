@@ -27,6 +27,11 @@ import {
   subagentParentThreadIdSignal,
   workspaceRootsSignal,
 } from "../../runtime/conversation-state-runtime";
+import {
+  initConversationResumeRuntime,
+  resolveConversationServiceTier,
+  useProfileConversationAgentMode,
+} from "../../runtime/conversation-resume-runtime";
 import { initHostWorkspaceQueries } from "../../runtime/git-query-runtime";
 import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
 import {
@@ -37,14 +42,6 @@ import {
   initVscodeMessageRuntime,
   vscodeMessageBridge,
 } from "../../runtime/vscode-message-runtime";
-import {
-  ho as resolveConversationServiceTier,
-  mo as initProjectsAppSharedProducer,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  initThreadFindNavigationRail as initProfilePageProducer,
-  Nf as useProfileConversationAgentMode,
-} from "../../boundaries/current-ref/profile-page-producer";
 import {
   formatResumeConversationError,
   shouldAutoRetryResumeError,
@@ -239,9 +236,8 @@ export const initResumeLocalConversationChunk = once(() => {
   initIntlRuntime();
   initConversationStateRuntime();
   initAppServerRequestRuntime();
-  initProjectsAppSharedProducer();
+  initConversationResumeRuntime();
   initToastSignalRuntime();
-  initProfilePageProducer();
   initVscodeMessageRuntime();
   initAppScopeSignalRuntime();
   initHostWorkspaceQueries();
