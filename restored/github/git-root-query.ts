@@ -7,7 +7,7 @@ import {
 import {
   initOutputArtifactRuntime,
   normalizeWorkspacePath,
-} from "../runtime/output-artifact-runtime";
+} from "../conversations/output-artifact-runtime";
 
 export type GitOrigin = {
   dir?: string | null;

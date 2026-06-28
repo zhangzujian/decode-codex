@@ -11291,7 +11291,7 @@
         "tn": "initWorkspaceRootDisplayNameRuntime"
       },
       "status": "partial",
-      "note": "Composer-facing thread footer/component initializer, app-shell element context, thread lazy navigation rail, git-root query, remote connection state/icon, command menu item, and workspace root display-name exports now have semantic wrappers; lazy navigation rail lives at threads/lazy-navigation-rail.tsx with utils/lazy-navigation-rail.tsx as a compatibility barrel. Remaining appgen-library hot-path UI/runtime exports stay isolated behind vendor/appgen-library-hot-runtime.ts until the full mixed chunk is deep-restored.",
+      "note": "Composer-facing thread footer/component initializer, app-shell element context, thread lazy navigation rail, git-root query, remote connection state/icon, command menu item, and workspace root display-name exports now have semantic wrappers; git-root query imports normalized workspace path helpers from conversations/output-artifact-runtime.ts instead of the runtime compatibility barrel, and lazy navigation rail lives at threads/lazy-navigation-rail.tsx with utils/lazy-navigation-rail.tsx as a compatibility barrel. Remaining appgen-library hot-path UI/runtime exports stay isolated behind vendor/appgen-library-hot-runtime.ts until the full mixed chunk is deep-restored.",
       "lastUpdated": "2026-06-28T00:00:00.000Z",
       "boundary": "boundaries/current-ref/appgen-library-hot-producer.ts"
     },
@@ -11585,7 +11585,7 @@
       },
       "status": "done",
       "boundary": "boundaries/current-ref/debug-panel-producer.ts",
-      "note": "Deep-restored the debug panel source registry, internal-build gating, and local-conversation edited/referenced file aggregation. The boundary now only preserves original minified export aliases.",
+      "note": "Deep-restored the debug panel source registry, internal-build gating, and local-conversation edited/referenced file aggregation. Debug panel aggregation now imports output artifact helpers from conversations/output-artifact-runtime.ts instead of the runtime compatibility barrel. The boundary now only preserves original minified export aliases.",
       "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "worktree-init-v2-page-BAfwy1p_": {

@@ -11,7 +11,7 @@ import {
 import {
   collectTurnFileArtifacts,
   initOutputArtifactRuntime,
-} from "../runtime/output-artifact-runtime";
+} from "../conversations/output-artifact-runtime";
 import { useSignalValue } from "../runtime/app-scope-hooks";
 import { getBuildFlavor } from "../plugins/use-plugins/marketplace-constants";
 
@@ -86,7 +86,9 @@ export function registerDebugPanelSource(
   scope.set<RegisteredDebugPanelSource>(
     debugPanelSourcesSignal,
     (currentSources) => [
-      ...currentSources.filter((currentSource) => currentSource.id !== sourceId),
+      ...currentSources.filter(
+        (currentSource) => currentSource.id !== sourceId,
+      ),
       serializedSource,
     ],
   );
@@ -105,7 +107,10 @@ export function unregisterDebugPanelSource(
 }
 
 export function createDebugPanelSourceId(): string {
-  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+  if (
+    typeof crypto !== "undefined" &&
+    typeof crypto.randomUUID === "function"
+  ) {
     return crypto.randomUUID();
   }
   const sourceId = debugPanelSourceCounter;
@@ -117,7 +122,9 @@ export function getEditedFilesFromTurns(turns: readonly unknown[]): string[] {
   return collectUniqueTurnArtifactPaths(turns, "editedFilePaths");
 }
 
-export function getReferencedFilesFromTurns(turns: readonly unknown[]): string[] {
+export function getReferencedFilesFromTurns(
+  turns: readonly unknown[],
+): string[] {
   return collectUniqueTurnArtifactPaths(turns, "referencedFilePaths");
 }
 
@@ -147,7 +154,9 @@ function collectUniqueTurnArtifactPaths(
   const seenPaths = new Set<string>();
 
   for (const turn of turns) {
-    for (const path of collectTurnFileArtifacts<TurnFileArtifacts>(turn)[field]) {
+    for (const path of collectTurnFileArtifacts<TurnFileArtifacts>(turn)[
+      field
+    ]) {
       if (!seenPaths.has(path)) {
         seenPaths.add(path);
         paths.push(path);
