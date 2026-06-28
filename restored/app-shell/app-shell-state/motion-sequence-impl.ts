@@ -15,6 +15,7 @@ const mixMotionNumber = motionRuntime["singleValueIt"];
 const MotionValue = motionRuntime["singleValueK"];
 const ObjectVisualElement = motionRuntime["singleValueL"];
 const animateVisualElement = motionRuntime["singleValueN"];
+const removeMotionItem = motionRuntime["singleValueDt"];
 const createSpringGenerator = motionRuntime["singleValueNt"];
 const createGeneratorDurationConfig = motionRuntime["singleValueRt"];
 const animateSingleMotionValue = motionRuntime["__singleValueT"];

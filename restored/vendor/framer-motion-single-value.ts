@@ -17,7 +17,10 @@ type AnimationControls = {
   stop(): void;
 };
 
-const scheduledFrames = new Map<Function, ReturnType<typeof setTimeout> | number>();
+const scheduledFrames = new Map<
+  Function,
+  ReturnType<typeof setTimeout> | number
+>();
 export const _singleValueQ: { current?: Array<singleValueK> } = {};
 
 export class singleValueK<T = unknown> {
@@ -90,15 +93,17 @@ export function __singleValueT(
 }
 
 export function singleValueN(
-  visualElement: { getValue?: (key: string, initial?: unknown) => singleValueK },
+  visualElement: {
+    getValue?: (key: string, initial?: unknown) => singleValueK;
+  },
   definition: Record<string, unknown>,
 ): AnimationControls[] {
   let transition = definition.transition as { duration?: number } | undefined;
   for (let [key, value] of Object.entries(definition)) {
     if (key === "transition") continue;
-    visualElement.getValue?.(key, Array.isArray(value) ? value[0] : value).set(
-      Array.isArray(value) ? value.at(-1) : value,
-    );
+    visualElement
+      .getValue?.(key, Array.isArray(value) ? value[0] : value)
+      .set(Array.isArray(value) ? value.at(-1) : value);
   }
   return [createAnimationControls(transition?.duration ?? 0)];
 }
@@ -108,7 +113,9 @@ export class _singleValueU {
   latestValues: Record<string, unknown>;
   values = new Map<string, singleValueK>();
 
-  constructor(options: { visualState?: { latestValues?: Record<string, unknown> } } = {}) {
+  constructor(
+    options: { visualState?: { latestValues?: Record<string, unknown> } } = {},
+  ) {
     this.latestValues = options.visualState?.latestValues ?? {};
   }
 
@@ -125,7 +132,10 @@ export class _singleValueU {
     return value;
   }
 
-  readValueFromInstance(instance: Record<string, unknown>, key: string): unknown {
+  readValueFromInstance(
+    instance: Record<string, unknown>,
+    key: string,
+  ): unknown {
     return instance?.[key] ?? this.latestValues[key];
   }
 
@@ -151,11 +161,15 @@ export const singleValueU = (value: unknown): boolean =>
   typeof Element !== "undefined" && value instanceof Element;
 export const singleValueW = (value: unknown): boolean =>
   typeof HTMLElement !== "undefined" && value instanceof HTMLElement;
-export const singleValueZ = (value: unknown): boolean => typeof value === "function";
+export const singleValueZ = (value: unknown): boolean =>
+  typeof value === "function";
 export const singleValueVt = (seconds: number): number => seconds * 1000;
 export const _t = (milliseconds: number): number => milliseconds / 1000;
-export const singleValueBt = (from: number, to: number, progress: number): number =>
-  from + (to - from) * progress;
+export const singleValueBt = (
+  from: number,
+  to: number,
+  progress: number,
+): number => from + (to - from) * progress;
 export const singleValueIt = singleValueBt;
 export const singleValueF = () => ({
   x: { min: 0, max: 0 },
@@ -181,7 +195,8 @@ export function _singleValueTt(
 ) {
   return (input: number) => {
     let index = 0;
-    while (index < inputRange.length - 2 && input > inputRange[index + 1]) index++;
+    while (index < inputRange.length - 2 && input > inputRange[index + 1])
+      index++;
     let start = inputRange[index] ?? 0;
     let end = inputRange[index + 1] ?? start;
     let progress = end === start ? 0 : (input - start) / (end - start);
@@ -195,7 +210,11 @@ export function _singleValueTt(
   };
 }
 export const _singleValueDt = {
-  preRender(callback: () => void, _keepAlive?: boolean, immediate?: boolean): void {
+  preRender(
+    callback: () => void,
+    _keepAlive?: boolean,
+    immediate?: boolean,
+  ): void {
     if (immediate) callback();
     singleValueUt(callback);
     let handle =
@@ -205,6 +224,10 @@ export const _singleValueDt = {
     scheduledFrames.set(callback, handle);
   },
 };
+export function singleValueDt<T>(array: T[], item: T): void {
+  let index = array.indexOf(item);
+  if (index !== -1) array.splice(index, 1);
+}
 export function singleValueUt(callback: Function): void {
   let handle = scheduledFrames.get(callback);
   if (handle == null) return;
@@ -213,7 +236,10 @@ export function singleValueUt(callback: Function): void {
     : clearTimeout(handle as ReturnType<typeof setTimeout>);
   scheduledFrames.delete(callback);
 }
-export function singleValueY(selector: string, root: ParentNode = document): Element[] {
+export function singleValueY(
+  selector: string,
+  root: ParentNode = document,
+): Element[] {
   return Array.from(root.querySelectorAll(selector));
 }
 export const singleValueNt = (options: Record<string, unknown>) => options;
