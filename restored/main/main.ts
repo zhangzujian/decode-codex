@@ -81,6 +81,17 @@ import {
   SYSTEM_THEME_VARIANT_UPDATED_CHANNEL,
 } from "./ipc/preload-state-ipc";
 import {
+  BROWSER_SIDEBAR_RUNTIME_MESSAGE_CHANNEL,
+  GET_FAST_MODE_ROLLOUT_METRICS_CHANNEL,
+  MESSAGE_FROM_VIEW_CHANNEL,
+  registerBrowserSidebarRuntimeMessageIpcHandler,
+  registerDesktopViewIpcHandlers,
+  registerFastModeRolloutMetricsIpcHandler,
+  registerSentryTestIpcHandler,
+  registerViewMessageIpcHandler,
+  TRIGGER_SENTRY_TEST_CHANNEL,
+} from "./ipc/view-message-ipc";
+import {
   createMainWorkerBusController,
   MainWorkerAppEventBus,
   MainWorkerThreadManager,
@@ -494,7 +505,7 @@ function shouldHandleStateDatabaseOpenError(error: unknown): boolean {
 function createMainStartupOpenBoundaryError(): Error {
   return Object.assign(
     Error(
-      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, temporary quit-state controller, app lifecycle/quit handlers, worker main-RPC helper contracts, main-side worker bus manager, desktop tray controller, Windows shell integration helpers, About dialog/app icon helpers, native menu IPC handlers, and preload state/theme IPC handlers are recovered, but window services, app-server lifecycle, application menu assembly, remaining view-message IPC registration, and telemetry still require semantic restoration.",
+      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, temporary quit-state controller, app lifecycle/quit handlers, worker main-RPC helper contracts, main-side worker bus manager, desktop tray controller, Windows shell integration helpers, About dialog/app icon helpers, native menu IPC handlers, preload state/theme IPC handlers, and renderer view-message IPC routing are recovered, but window services, app-server lifecycle, application menu assembly, app-host connection IPC, and telemetry still require semantic restoration.",
     ),
     {
       code: OPEN_RESTORATION_BOUNDARY_CODE,
@@ -597,6 +608,17 @@ function createMainStartupOpenBoundaryError(): Error {
         registerPreloadStateSyncIpcHandlers,
         registerSystemThemeVariantIpcHandlers,
         SYSTEM_THEME_VARIANT_UPDATED_CHANNEL,
+      },
+      viewMessageIpcHelpers: {
+        BROWSER_SIDEBAR_RUNTIME_MESSAGE_CHANNEL,
+        GET_FAST_MODE_ROLLOUT_METRICS_CHANNEL,
+        MESSAGE_FROM_VIEW_CHANNEL,
+        registerBrowserSidebarRuntimeMessageIpcHandler,
+        registerDesktopViewIpcHandlers,
+        registerFastModeRolloutMetricsIpcHandler,
+        registerSentryTestIpcHandler,
+        registerViewMessageIpcHandler,
+        TRIGGER_SENTRY_TEST_CHANNEL,
       },
     },
   );

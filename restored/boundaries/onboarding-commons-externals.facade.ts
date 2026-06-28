@@ -1,39 +1,126 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
-// Boundary facade for cross-chunk / cross-slice symbols referenced by the
-// thread + composer modules restored from the onboarding-commons chunk.
-// Every export is a typed `any` placeholder; replace with the real binding
-// (or a --name-map entry) once the owning chunk is restored.
+// Boundary facade for cross-chunk / cross-slice (non-exported) symbols referenced
+// by modules restored from the onboarding-commons chunk. Each export is a typed
+// `any` placeholder (open boundary) to be replaced with the real binding once the
+// owning chunk/module is restored. Auto-generated from actual imports across restored/.
 
-// Thread / conversation identity + app-server plumbing.
-export const parseConversationId: any = undefined as any;
-export const getServiceTierForModel: any = undefined as any;
-export const labelFromConversationInput: any = undefined as any;
-export const buildDelegationInput: any = undefined as any;
-export const parseCodexDelegation: any = undefined as any;
-export const sanitizeThreadConfig: any = undefined as any;
+export const ConnectorLogoImage: any = undefined as any;
+export const FileTree: any = undefined as any;
+export const ImagePreviewTabContent: any = undefined as any;
+export const ImagePreviewTabIcon: any = undefined as any;
 export const LOCAL_HOST_ID: any = undefined as any;
-
-// Project resolution helpers.
-export const resolveProjectContext: any = undefined as any;
-export const buildProjectAssignment: any = undefined as any;
-export const resolveProjectlessThreadContext: any = undefined as any;
-
-// App-scope signals consumed via `scope.get(signal, ...)`.
-export const hostConfigSignal: any = undefined as any;
-export const threadHostIdSignal: any = undefined as any;
-export const threadPermissionsSignal: any = undefined as any;
-export const threadCwdSignal: any = undefined as any;
-export const threadManagerListSignal: any = undefined as any;
-export const hostConnectionStatusSignal: any = undefined as any;
-
-// Permission / agent-mode helpers.
+export const McpServerIcon: any = undefined as any;
+export const activeConversationCwdAtom: any = undefined as any;
+export const activeReviewFilePathAtom: any = undefined as any;
 export const agentModeFromPermissions: any = undefined as any;
+export const appRootScope: any = undefined as any;
+export const appStoreScope: any = undefined as any;
+export const azureBlobStorageClient: any = undefined as any;
+export const azureBlobUploadHeaderName: any = undefined as any;
+export const buildArtifactContextMenuItems: any = undefined as any;
+export const buildCommentImageInputItems: any = undefined as any;
+export const buildDelegationInput: any = undefined as any;
+export const buildImageInputItem: any = undefined as any;
+export const buildProjectAssignment: any = undefined as any;
+export const buildQueryKey: any = undefined as any;
 export const buildThreadPermissions: any = undefined as any;
+export const collapseSidePanelLayout: any = undefined as any;
+export const collectWorkspaceFileTabDescriptors: any = undefined as any;
+export const conversationCwdAtom: any = undefined as any;
+export const conversationHeadBranchAtom: any = undefined as any;
+export const conversationHostIdAtom: any = undefined as any;
+export const createParametricAtom: any = undefined as any;
+export const createScopedAtom: any = undefined as any;
+export const createWritableSignalAtom: any = undefined as any;
+export const cssTransform: any = undefined as any;
+export const defaultAnimateLayoutChanges: any = undefined as any;
+export const defaultGetNewIndex: any = undefined as any;
+export const derivedTransformTransition: any = undefined as any;
+export const dispatchHostRequest: any = undefined as any;
+export const evaluateFeatureGate: any = undefined as any;
+export const filesApiClient: any = undefined as any;
+export const findActiveOrchestrationAtom: any = undefined as any;
+export const findDefaultOrchestrationAtom: any = undefined as any;
+export const findPreferredDomainAtom: any = undefined as any;
+export const findTabPanelId: any = undefined as any;
+export const flattenReviewFileEntries: any = undefined as any;
+export const focusPreviewTabComposer: any = undefined as any;
+export const focusSidePanelLayout: any = undefined as any;
+export const formatWorkspacePathLabel: any = undefined as any;
+export const generateId: any = undefined as any;
+export const getArtifactIconComponent: any = undefined as any;
+export const getArtifactTitle: any = undefined as any;
+export const getAutomationSuggestionTabId: any = undefined as any;
+export const getClientRect: any = undefined as any;
+export const getFeatureGateValue: any = undefined as any;
+export const getGitActionMessageGenerationKey: any = undefined as any;
+export const getRpcClient: any = undefined as any;
+export const getRpcRequester: any = undefined as any;
+export const getServiceTierForModel: any = undefined as any;
+export const getSidePanelController: any = undefined as any;
+export const getTerminalPanelTarget: any = undefined as any;
+export const getThreadFindController: any = undefined as any;
+export const getWorktreeStatusToastMessage: any = undefined as any;
+export const gitActionMessageGenerationControllers: any = undefined as any;
+export const hostConfigSignal: any = undefined as any;
+export const hostConnectionStatusSignal: any = undefined as any;
+export const isAbsolutePath: any = undefined as any;
+export const isKeyboardEvent: any = undefined as any;
+export const labelFromConversationInput: any = undefined as any;
+export const logger: any = undefined as any;
 export const mergeRuntimeWorkspaceRoots: any = undefined as any;
 export const mergeSandboxPolicyRoots: any = undefined as any;
+export const normalizePath: any = undefined as any;
+export const normalizeSortableDisabled: any = undefined as any;
+export const openAutomationSidePanelTab: any = undefined as any;
+export const openExternalLink: any = undefined as any;
+export const parseCodexDelegation: any = undefined as any;
+export const parseConversationId: any = undefined as any;
+export const parseTurnItems: any = undefined as any;
+export const pendingReviewCommentAtom: any = undefined as any;
+export const prefetchArtifactFileQueries: any = undefined as any;
+export const previewTabManager: any = undefined as any;
+export const processManagerScope: any = undefined as any;
+export const pullRequestStatusAtom: any = undefined as any;
 export const readHostConfigValue: any = undefined as any;
-
-// RPC + feature gates + sidebar.
-export const getRpcClient: any = undefined as any;
-export const getFeatureGateValue: any = undefined as any;
+export const readPersistedSignalSnapshot: any = undefined as any;
+export const readScopedSignal: any = undefined as any;
+export const rectSortingStrategy: any = undefined as any;
+export const registerTerminalPanelSubscription: any = undefined as any;
+export const relativizePath: any = undefined as any;
+export const resolveArtifactDescriptor: any = undefined as any;
+export const resolveHostConfigId: any = undefined as any;
+export const resolveProjectContext: any = undefined as any;
+export const resolveProjectlessThreadContext: any = undefined as any;
+export const resolveTreeRowEventTarget: any = undefined as any;
+export const reviewBottomPadding: any = undefined as any;
+export const rightPanelExpandedAtom: any = undefined as any;
+export const sanitizeThreadConfig: any = undefined as any;
+export const scrollReviewFileIntoView: any = undefined as any;
+export const setMainSidebarLayout: any = undefined as any;
+export const setReviewFileFilterQuery: any = undefined as any;
 export const setSidebarPanelForSide: any = undefined as any;
+export const sidePanelTabController: any = undefined as any;
+export const startComposerTurn: any = undefined as any;
+export const syncTerminalPanelTabs: any = undefined as any;
+export const tabKindIds: any = undefined as any;
+export const terminalSessionManager: any = undefined as any;
+export const threadCwdSignal: any = undefined as any;
+export const threadHostIdSignal: any = undefined as any;
+export const threadManagerListSignal: any = undefined as any;
+export const threadPermissionsSignal: any = undefined as any;
+export const toConversationKey: any = undefined as any;
+export const toastControllerAtom: any = undefined as any;
+export const updateSharedObjectState: any = undefined as any;
+export const useCombinedRefs: any = undefined as any;
+export const useConversationComments: any = undefined as any;
+export const useDndContext: any = undefined as any;
+export const useDraggable: any = undefined as any;
+export const useDroppable: any = undefined as any;
+export const useIsomorphicLayoutEffect: any = undefined as any;
+export const useMutation: any = undefined as any;
+export const useQueryClient: any = undefined as any;
+export const useScopedStore: any = undefined as any;
+export const useStableCallback: any = undefined as any;
+export const useThreadsQuery: any = undefined as any;
+export const useUniqueId: any = undefined as any;
