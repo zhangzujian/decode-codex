@@ -20,7 +20,7 @@ import {
 import {
   useConversationAgentMode,
   useConversationHostApi,
-} from "../../runtime/conversation-host-runtime";
+} from "./conversation-host-runtime";
 import {
   diffSourceSignal,
   focusThreadSourceFrame,

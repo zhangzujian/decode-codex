@@ -29,7 +29,7 @@ import {
   formatConversationTitleText,
   initConversationTitleRuntime,
   toConversationId,
-} from "../../runtime/conversation-title-runtime";
+} from "./conversation-title-runtime";
 import { initStatsigFeatureGateRuntime } from "../../runtime/feature-gate-runtime";
 import {
   initConversationRouteSourceRuntime,

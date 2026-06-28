@@ -27,7 +27,7 @@ import {
   CONVERSATION_DETAIL_STEPS_PROSE,
   initConversationDetailModeRuntime,
   useConversationDetailMode,
-} from "../../runtime/conversation-detail-runtime";
+} from "./conversation-detail-runtime";
 import {
   conversationModeSignal,
   conversationWorkspaceRootSignal,
