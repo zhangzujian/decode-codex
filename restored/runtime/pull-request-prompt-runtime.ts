@@ -11,11 +11,26 @@ import {
   Ha as updatePullRequestReviewCommentAttachmentsRaw,
   Va as initPullRequestReviewCommentAttachmentStateChunkRaw,
 } from "../boundaries/current-ref/projects-app-shared-producer";
+import {
+  $ as initPullRequestCommentCardPrimitivesChunkRaw,
+  a as PullRequestCommentCard,
+  o as initPullRequestCommentCardChunkRaw,
+} from "../boundaries/current-ref/pull-request-thread-actions-producer";
+import {
+  Qc as openPullRequestReviewCommentInReviewPanel,
+  eu as getThreadBranchMismatchState,
+  tu as initThreadBranchComparisonChunkRaw,
+  yc as initPullRequestReviewCommentNavigationChunkRaw,
+  Xc as initPullRequestCommentCardSupportChunkRaw,
+} from "../boundaries/current-ref/profile-page-producer";
 
 export {
+  getThreadBranchMismatchState,
   getReviewCommentAttachmentKeyValue,
   MY_REQUEST_PROMPT_HEADER,
+  openPullRequestReviewCommentInReviewPanel,
   PULL_REQUEST_FIX_PROMPT_PREAMBLE,
+  PullRequestCommentCard,
   pullRequestReviewCommentAttachmentsSignal,
 };
 
@@ -37,4 +52,18 @@ export function initPullRequestReviewCommentRuntime(): void {
 
 export function initPullRequestReviewCommentAttachmentStateRuntime(): void {
   initPullRequestReviewCommentAttachmentStateChunkRaw();
+}
+
+export function initPullRequestCommentCardRuntime(): void {
+  initPullRequestCommentCardPrimitivesChunkRaw();
+  initPullRequestCommentCardChunkRaw();
+  initPullRequestCommentCardSupportChunkRaw();
+}
+
+export function initPullRequestReviewCommentNavigationRuntime(): void {
+  initPullRequestReviewCommentNavigationChunkRaw();
+}
+
+export function initThreadBranchComparisonRuntime(): void {
+  initThreadBranchComparisonChunkRaw();
 }

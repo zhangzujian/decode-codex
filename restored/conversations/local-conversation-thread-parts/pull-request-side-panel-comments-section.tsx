@@ -13,17 +13,12 @@ import {
 } from "../../runtime/composer-scope-runtime";
 import {
   getReviewCommentAttachmentKeyValue,
+  initPullRequestCommentCardRuntime,
+  initPullRequestReviewCommentAttachmentStateRuntime,
   initPullRequestReviewCommentRuntime,
+  PullRequestCommentCard,
+  pullRequestReviewCommentAttachmentsSignal,
 } from "../../runtime/pull-request-prompt-runtime";
-import {
-  Ba as pullRequestReviewCommentAttachmentsSignal,
-  Va as initPullRequestReviewCommentAttachmentStateChunk,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  $ as initPullRequestCommentCardPrimitivesChunk,
-  a as PullRequestCommentCard,
-  o as initPullRequestCommentCardChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   PullRequestInlineActionButton,
   initPullRequestInlineActionButtonChunk,
@@ -338,15 +333,14 @@ function findCommentAttachmentForActivityItem(
 export const initPullRequestSidePanelCommentsSectionChunk = once(() => {
   initComposerScopeRuntime();
   initIntlRuntime();
-  initPullRequestReviewCommentAttachmentStateChunk();
+  initPullRequestReviewCommentAttachmentStateRuntime();
   initDropdownMenuPrimitives();
   initPullRequestReviewCommentRuntime();
   initPullRequestCommentFixHelpersChunk();
   initPullRequestFixDisabledTooltipChunk();
   initPullRequestInlineActionButtonChunk();
-  initPullRequestCommentCardChunk();
+  initPullRequestCommentCardRuntime();
   initPullRequestSidePanelErrorMessageChunk();
   initPullRequestSidePanelDetailsSummaryChunk();
   initPullRequestSidePanelLoadingStateChunk();
-  initPullRequestCommentCardPrimitivesChunk();
 });

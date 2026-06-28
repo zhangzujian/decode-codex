@@ -11,28 +11,21 @@ import {
   storedThreadBranchSignal,
 } from "../../runtime/conversation-state-runtime";
 import {
+  getThreadBranchMismatchState,
   getReviewCommentAttachmentKeyValue,
+  initPullRequestCommentCardRuntime,
+  initPullRequestReviewCommentAttachmentStateRuntime,
+  initPullRequestReviewCommentNavigationRuntime,
   initPullRequestReviewCommentRuntime,
+  initThreadBranchComparisonRuntime,
+  openPullRequestReviewCommentInReviewPanel,
+  PullRequestCommentCard,
+  pullRequestReviewCommentAttachmentsSignal,
 } from "../../runtime/pull-request-prompt-runtime";
-import {
-  Ba as pullRequestReviewCommentAttachmentsSignal,
-  Va as initPullRequestReviewCommentAttachmentStateChunk,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  $ as initPullRequestCommentCardPrimitivesChunk,
-  a as PullRequestCommentCard,
-  o as initPullRequestCommentCardChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import { ChatIcon as CommentBubbleIcon } from "../../icons/chat-icon";
 import {
-  Qc as openPullRequestReviewCommentInReviewPanel,
-  eu as getThreadBranchMismatchState,
-  os as PullRequestFailedCheckIcon,
-  ss as initPullRequestFailedCheckIconChunk,
-  tu as initThreadBranchComparisonChunk,
-  yc as initPullRequestReviewCommentNavigationChunk,
-  Xc as initPullRequestCommentCardSupportChunk,
-} from "../../boundaries/current-ref/profile-page-producer";
+  XCircleFilledIcon as PullRequestFailedCheckIcon,
+} from "../../icons/x-circle-filled-icon";
 import {
   PullRequestInlineActionButton,
   initPullRequestInlineActionButtonChunk,
@@ -132,19 +125,16 @@ export const initPullRequestStatusDetailRowsChunk = once(() => {
   initComposerScopeRuntime();
   initIntlRuntime();
   initConversationStateRuntime();
-  initPullRequestReviewCommentAttachmentStateChunk();
+  initPullRequestReviewCommentAttachmentStateRuntime();
   initPullRequestReviewCommentRuntime();
-  initPullRequestCommentCardPrimitivesChunk();
-  initPullRequestReviewCommentNavigationChunk();
-  initThreadBranchComparisonChunk();
+  initPullRequestCommentCardRuntime();
+  initPullRequestReviewCommentNavigationRuntime();
+  initThreadBranchComparisonRuntime();
   initPullRequestCommentFixHelpersChunk();
   initPullRequestFixDisabledTooltipChunk();
   initPullRequestFailingChecksPromptChunk();
   initPullRequestInlineActionButtonChunk();
   initPullRequestFixActionHelpersChunk();
-  initPullRequestCommentCardChunk();
-  initPullRequestCommentCardSupportChunk();
-  initPullRequestFailedCheckIconChunk();
   (
     PullRequestChecksSummaryRow as typeof PullRequestChecksSummaryRow & {
       initChunk: () => void;
