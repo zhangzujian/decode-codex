@@ -3,22 +3,22 @@
 import { once } from "../../runtime/commonjs-interop";
 import { isEqualT as createIsEqual } from "../../vendor/lodash-is-equal";
 import {
-  $P as initAppScope,
   $j as initStatsigGateSignals,
   $p as modelProviderSignal,
-  AB as initScopeRuntime,
   Em as conversationTurnsSignal,
   Ip as localResponseInProgressSignal,
   Op as initConversationStateSelectors,
-  QP as appScope,
   Tp as hasConversationSignal,
   dp as berryDisplayConversationTurnsSignal,
   eM as featureGateSignal,
-  fV as createScopedSignalFamily,
   sm as conversationRequestsSignal,
   vm as subagentParentThreadIdSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { initLocalConversationArtifactRuntime } from "./local-conversation-artifact-runtime";
+import {
+  createLocalConversationScopedSignalFamily,
+  initLocalConversationScopeRuntime,
+} from "./local-conversation-scope-runtime";
 import { getConversationTurnsNotInParent } from "./parent-conversation-turns";
 import {
   buildLocalConversationVisibleTurnEntries,
@@ -44,9 +44,8 @@ export let localConversationVisibleTurnEntriesSignal: unknown;
 export let subagentResponseInProgressSignal: unknown;
 
 export const initLocalConversationTurnSelectors = once(() => {
-  initScopeRuntime();
+  initLocalConversationScopeRuntime();
   initConversationStateSelectors();
-  initAppScope();
   initStatsigGateSignals();
   initDeepEqualModule();
   initLocalConversationArtifactRuntime();
@@ -64,55 +63,55 @@ export const initLocalConversationTurnSelectors = once(() => {
     visibleTurnEntries: [],
   };
 
-  localConversationVisibleTurnEntriesSignal = createScopedSignalFamily(
-    appScope,
-    ({ conversationId, isBackgroundSubagentsEnabled }, { get }) => {
-      let hasConversation = get(hasConversationSignal, conversationId) ?? false,
-        conversationRequests =
-          get(conversationRequestsSignal, conversationId) ??
-          emptyConversationRequests;
-      get(modelProviderSignal, conversationId);
+  localConversationVisibleTurnEntriesSignal =
+    createLocalConversationScopedSignalFamily(
+      ({ conversationId, isBackgroundSubagentsEnabled }, { get }) => {
+        let hasConversation =
+            get(hasConversationSignal, conversationId) ?? false,
+          conversationRequests =
+            get(conversationRequestsSignal, conversationId) ??
+            emptyConversationRequests;
+        get(modelProviderSignal, conversationId);
 
-      let subagentParentThreadId = isBackgroundSubagentsEnabled
-          ? (get(subagentParentThreadIdSignal, conversationId) ?? null)
-          : null,
-        isBerryDisplayMergeEnabled = get(featureGateSignal, "209459230"),
-        berryDisplayConversationTurns = isBerryDisplayMergeEnabled
-          ? get(berryDisplayConversationTurnsSignal, conversationId)
-          : null,
-        parentBerryDisplayConversationTurns = isBerryDisplayMergeEnabled
-          ? subagentParentThreadId == null
-            ? emptyConversationTurns
-            : get(berryDisplayConversationTurnsSignal, subagentParentThreadId)
-          : null,
-        shouldUseBerryDisplayTurns =
-          berryDisplayConversationTurns != null &&
-          parentBerryDisplayConversationTurns != null;
+        let subagentParentThreadId = isBackgroundSubagentsEnabled
+            ? (get(subagentParentThreadIdSignal, conversationId) ?? null)
+            : null,
+          isBerryDisplayMergeEnabled = get(featureGateSignal, "209459230"),
+          berryDisplayConversationTurns = isBerryDisplayMergeEnabled
+            ? get(berryDisplayConversationTurnsSignal, conversationId)
+            : null,
+          parentBerryDisplayConversationTurns = isBerryDisplayMergeEnabled
+            ? subagentParentThreadId == null
+              ? emptyConversationTurns
+              : get(berryDisplayConversationTurnsSignal, subagentParentThreadId)
+            : null,
+          shouldUseBerryDisplayTurns =
+            berryDisplayConversationTurns != null &&
+            parentBerryDisplayConversationTurns != null;
 
-      return buildLocalConversationVisibleTurnEntries({
-        areTurnItemsEqual: areValuesEqual,
-        conversationRequests,
-        mergeBerryDisplayTurnsForPIA: false,
-        preserveServerUserMessages: false,
-        conversationTurns: shouldUseBerryDisplayTurns
-          ? berryDisplayConversationTurns
-          : (get(conversationTurnsSignal, conversationId) ??
-            emptyConversationTurns),
-        emptyConversationRequests,
-        emptyVisibleTurnEntries,
-        hasConversation,
-        isBackgroundSubagentsEnabled,
-        parentConversationTurns: shouldUseBerryDisplayTurns
-          ? parentBerryDisplayConversationTurns
-          : (get(conversationTurnsSignal, subagentParentThreadId) ??
-            emptyConversationTurns),
-        subagentParentThreadId,
-      });
-    },
-  );
+        return buildLocalConversationVisibleTurnEntries({
+          areTurnItemsEqual: areValuesEqual,
+          conversationRequests,
+          mergeBerryDisplayTurnsForPIA: false,
+          preserveServerUserMessages: false,
+          conversationTurns: shouldUseBerryDisplayTurns
+            ? berryDisplayConversationTurns
+            : (get(conversationTurnsSignal, conversationId) ??
+              emptyConversationTurns),
+          emptyConversationRequests,
+          emptyVisibleTurnEntries,
+          hasConversation,
+          isBackgroundSubagentsEnabled,
+          parentConversationTurns: shouldUseBerryDisplayTurns
+            ? parentBerryDisplayConversationTurns
+            : (get(conversationTurnsSignal, subagentParentThreadId) ??
+              emptyConversationTurns),
+          subagentParentThreadId,
+        });
+      },
+    );
 
-  subagentResponseInProgressSignal = createScopedSignalFamily(
-    appScope,
+  subagentResponseInProgressSignal = createLocalConversationScopedSignalFamily(
     (conversationId, { get }) => {
       let parentConversationId = get(
         subagentParentThreadIdSignal,
