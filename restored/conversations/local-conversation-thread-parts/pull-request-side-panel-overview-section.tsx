@@ -25,9 +25,9 @@ import {
   ss as initErrorStatusIconChunk,
 } from "../../boundaries/current-ref/profile-page-producer";
 import {
-  M as PullRequestCommentIcon,
-  N as initPullRequestCommentIconChunk,
-} from "../../boundaries/current-ref/onboarding-general-settings-producer";
+  initPullRequestCommentIconChunk,
+  PullRequestCommentIcon,
+} from "../../icons/pull-request-comment-icon";
 import {
   initPullRequestChecksStatusLabelChunk,
   PullRequestChecksSummary,

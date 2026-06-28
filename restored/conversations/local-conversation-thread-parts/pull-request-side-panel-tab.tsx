@@ -46,9 +46,9 @@ import {
   initPullRequestMergeActionsChunk,
 } from "../../github/pull-request-actions";
 import {
-  i as parseUnifiedDiffFileSummaries,
-  r as initUnifiedDiffFileSummariesChunk,
-} from "../../boundaries/current-ref/thread-hotkey-shell-producer";
+  initUnifiedDiffFileSummariesChunk,
+  parseUnifiedDiffFileSummaries,
+} from "../../utils/unified-diff-file-summaries";
 import { FormattedMessage } from "../../vendor/react-intl";
 import {
   getPullRequestFixDisabledReason,

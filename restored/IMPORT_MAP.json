@@ -11221,10 +11221,14 @@
       "lastUpdated": "2026-06-27T03:16:46.000Z"
     },
     "app-initial~app-main~remote-conversation-page~onboarding-page~hotkey-window-thread-page~thr~jv7rs281-DxRnxRkd": {
-      "restored": "boundaries/current-ref/thread-hotkey-shell-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
-      "lastUpdated": "2026-06-27T03:16:46.000Z"
+      "restored": "utils/unified-diff-file-summaries.ts",
+      "exports": {
+        "i": "parseUnifiedDiffFileSummaries",
+        "r": "initUnifiedDiffFileSummariesChunk"
+      },
+      "status": "partial",
+      "note": "Deep-restored the unified-diff summary exports used by pull-request-side-panel-tab via the restored parse-diff runtime; remaining hotkey/thread-shell exports still need semantic restoration.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "app-initial~app-main~worktree-init-v2-page~appgen-publication-terms-route~remote-conversati~oykv7gy7-B4ar2dlW": {
       "restored": "appgen/publication-terms/index.ts",
@@ -11282,10 +11286,14 @@
       "lastUpdated": "2026-06-27T03:16:46.000Z"
     },
     "app-initial~app-main~onboarding-page~appearance-settings~general-settings-Dkbr2b2v": {
-      "restored": "boundaries/current-ref/onboarding-general-settings-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
-      "lastUpdated": "2026-06-27T03:16:46.000Z"
+      "restored": "icons/pull-request-comment-icon.tsx",
+      "exports": {
+        "M": "PullRequestCommentIcon",
+        "N": "initPullRequestCommentIconChunk"
+      },
+      "status": "partial",
+      "note": "Deep-restored the local-conversation PR comment icon exports used by pull-request-side-panel-overview; remaining general-settings exports still require a producer restore before this chunk is complete.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "local-remote-dropdown-BcmhHtfg": {
       "restored": "boundaries/current-ref/local-remote-dropdown-producer.ts",
