@@ -4,9 +4,9 @@
 import type { SVGProps } from "react";
 import { once } from "../runtime/commonjs-interop";
 import {
-  BV as getJsxRuntime,
-  JV as initReactRuntime,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  getJsxRuntime,
+  initReactRuntime,
+} from "../runtime/shared-utility-runtime";
 
 export type PlusSmIconProps = SVGProps<SVGSVGElement>;
 

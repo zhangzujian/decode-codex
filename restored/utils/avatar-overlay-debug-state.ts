@@ -3,9 +3,9 @@
 
 import { once } from "../runtime/commonjs-interop";
 import {
-  MM as createPersistentSignal,
-  jM as initPersistentSignalRuntime,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  createPersistentSignal,
+  initPersistentSignalRuntime,
+} from "../runtime/shared-utility-runtime";
 
 export let avatarOverlayResizeButtonHiddenSignal: unknown;
 

@@ -1,18 +1,18 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~page~remote-conversation-page~pull-requests-page~iwrno211-6533k2dw.js
 // Lodash-style path selection helpers shared by conversation and pull request chunks.
 import {
-  JB as createIsIndex,
-  VB as createIsArrayLike,
-  XB as createIsArguments,
-  _r as createDefineProperty,
-  _u as createBaseAt,
-  cV as createSymbolConstructor,
-  nV as createArrayPush,
-  oV as createIsObject,
-  tV as createIsArray,
-  uV as createEq,
-  wA as createIdentity,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  createArrayPush,
+  createBaseAt,
+  createDefineProperty,
+  createEq,
+  createIdentity,
+  createIsArguments,
+  createIsArray,
+  createIsArrayLike,
+  createIsIndex,
+  createIsObject,
+  createSymbolConstructor,
+} from "../runtime/shared-utility-runtime";
 
 type RestTransform = (values: unknown[]) => unknown;
 type VariadicFunction = (this: unknown, ...args: unknown[]) => unknown;

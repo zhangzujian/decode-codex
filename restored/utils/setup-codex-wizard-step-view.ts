@@ -8,15 +8,15 @@ import {
   appScopeRoot,
 } from "../boundaries/app-scope";
 import {
-  $P as initAppScope,
-  AB as initScopeRuntime,
-  JV as initReactRuntime,
-  kE as initProductEventRuntime,
-  qV as getChunkModuleExports,
-  ub as initOnboardingWizardTrackingRuntime,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  getChunkModuleExports,
+  initAppScope,
+  initOnboardingWizardTrackingRuntime,
+  initProductEventRuntime,
+  initReactRuntime,
+  initScopeRuntime,
+  onboardingWizardAction,
+} from "../runtime/shared-utility-runtime";
 import { trackOnboardingWizardAction } from "../boundaries/thread-context-inputs.facade";
-import { onboardingWizardAction } from "../generated/product-logger";
 
 export const initSetupCodexWizardStepViewChunk = once(() => {
   getChunkModuleExports();

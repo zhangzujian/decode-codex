@@ -3,9 +3,9 @@
 
 import { _appScopeA as useScopedSignalValue } from "../boundaries/app-scope";
 import {
-  AB as initScopeRuntime,
-  Uf as initHostWorkspaceQueries,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  initHostWorkspaceQueries,
+  initScopeRuntime,
+} from "../runtime/shared-utility-runtime";
 import { homeDirectoryQuery } from "../boundaries/thread-context-inputs.facade";
 
 type HomeDirectoryQueryResult = {

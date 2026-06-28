@@ -4,9 +4,9 @@
 import React from "react";
 import { once } from "../runtime/commonjs-interop";
 import {
-  JV as initReactRuntime,
-  qV as getChunkModuleExports,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  getChunkModuleExports,
+  initReactRuntime,
+} from "../runtime/shared-utility-runtime";
 
 export type UseElementInViewOptions = {
   container: Element | null | undefined;

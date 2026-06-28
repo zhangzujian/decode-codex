@@ -2,9 +2,9 @@
 import { _appScopeS as useSignalValue } from "../boundaries/app-scope";
 import { once } from "../runtime/commonjs-interop";
 import {
-  AB as initScopeRuntime,
-  qV as getChunkModuleExports,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  getChunkModuleExports,
+  initScopeRuntime,
+} from "../runtime/shared-utility-runtime";
 import {
   buildAvatarDefinitions,
   customAvatarsQuery,

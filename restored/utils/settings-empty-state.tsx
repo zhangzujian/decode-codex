@@ -5,10 +5,10 @@ import type { ReactNode } from "react";
 import clsx from "clsx";
 import { once } from "../runtime/commonjs-interop";
 import {
-  BV as getJsxRuntime,
-  VP as initClassNameRuntime,
-  qV as getChunkModuleExports,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  getChunkModuleExports,
+  getJsxRuntime,
+  initClassNameRuntime,
+} from "../runtime/shared-utility-runtime";
 
 export type SettingsEmptyStateProps = {
   children?: ReactNode;
