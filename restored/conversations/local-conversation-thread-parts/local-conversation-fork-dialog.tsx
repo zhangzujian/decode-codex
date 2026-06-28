@@ -42,7 +42,7 @@ import {
   useGitRootQuery,
   useResolvedLocalEnvironmentConfigPath,
   WorktreeForkIcon,
-} from "../../runtime/conversation-fork-runtime";
+} from "./conversation-fork-runtime";
 import { isRecentLocalEnvironmentAction } from "./local-environment-recent-actions";
 import {
   initIntlRuntime,
