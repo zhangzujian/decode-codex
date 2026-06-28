@@ -3,9 +3,9 @@
 import { once } from "../../runtime/commonjs-interop";
 import { initThreadFindPreviewRuntime } from "../../runtime/conversation-content-runtime";
 import {
-  bs as joinThreadFindItemId,
-  Ss as initThreadFindItemIdHelpers,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
+  initThreadFindItemIdRuntime,
+  joinThreadFindItemId,
+} from "../../runtime/conversation-search-runtime";
 import {
   buildThreadFindPreviewOutputs,
   EMPTY_THREAD_FIND_PREVIEW_OUTPUTS,
@@ -183,7 +183,7 @@ export function buildThreadFindItemsForVisibleTurns({
 
 export const initThreadFindItemsBuilder = once(() => {
   initThreadFindPreviewRuntime();
-  initThreadFindItemIdHelpers();
+  initThreadFindItemIdRuntime();
   initLocalConversationArtifactRuntime();
   initLocalConversationMarkdownResourceRuntime();
   EMPTY_THREAD_FIND_ITEMS = [];

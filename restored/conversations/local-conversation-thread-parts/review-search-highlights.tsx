@@ -27,7 +27,7 @@ import {
   setContentSearchMatchIdAttribute,
   shouldRefreshSearchHighlightMutations,
   type ContentSearchMatch,
-} from "../../runtime/conversation-content-runtime";
+} from "../../runtime/conversation-search-runtime";
 import { threadUserMessageNavigationRailDeps } from "./thread-user-message-navigation-rail-deps";
 
 const REVIEW_SEARCH_HIGHLIGHT_MUTATION_DELAY_MS = 80;
