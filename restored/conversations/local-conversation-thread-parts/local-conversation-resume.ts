@@ -18,8 +18,6 @@ import {
   cM as initToastRuntime,
   cP as initVscodeMessageBridge,
   cm as conversationHostIdSignal,
-  iF as initIntlRuntime,
-  lF as useIntl,
   lP as vscodeMessageBridge,
   mP as logger,
   ok as sendAppServerRequest,
@@ -41,6 +39,7 @@ import {
   shouldAutoRetryResumeError,
   shouldShowResumeErrorToast,
 } from "./local-conversation-resume-errors";
+import { initIntlRuntime, useIntl } from "../../vendor/react-intl";
 
 type ConversationId = string | null | undefined;
 

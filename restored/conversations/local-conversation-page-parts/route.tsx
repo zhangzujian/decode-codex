@@ -47,16 +47,13 @@ import {
   cm as conversationHostIdSignal,
   cv as sourceWorkspaceRootAfterRestoreSignal,
   gp as conversationCwdSignal,
-  iF as initReactIntlRuntime,
   jm as conversationModeSignal,
   kj as normalizeConfigPath,
-  lF as useIntl,
   li as ProjectAvatar,
   lm as conversationResumeStateSignal,
   mv as initCurrentRefViewRuntime,
   qV as getChunkModuleExports,
   qj as useStatsigGate,
-  sF as FormattedMessage,
   sm as conversationRequestsSignal,
   sv as pendingProjectlessLocalConversationSignal,
   um as rolloutPathSignal,
@@ -162,6 +159,11 @@ import {
   LocalConversationDiffSummaryView,
 } from "./local-conversation-diff-summary-effects";
 import type { IntlShape, PanelTab, Scope } from "./types";
+import {
+  initIntlRuntime as initReactIntlRuntime,
+  useIntl,
+  FormattedMessage,
+} from "../../vendor/react-intl";
 
 function remapWorkspacePathBetweenRoots(
   value: string | null | undefined,

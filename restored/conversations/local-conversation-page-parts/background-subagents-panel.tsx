@@ -7,7 +7,6 @@ import {
   PB as useScopedValue,
   gm as backgroundAgentSnapshotSignal,
   ok as sendAppServerRequest,
-  sF as FormattedMessage,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   appShellIntlSignal,
@@ -15,6 +14,7 @@ import {
 } from "../../boundaries/current-ref/projects-app-shared-producer";
 import { LocalConversationThread } from "../local-conversation-thread";
 import type { IntlShape, Scope, SubagentThread } from "./types";
+import { FormattedMessage } from "../../vendor/react-intl";
 
 type BackgroundSubagentsPanelProps = {
   conversationId: string;

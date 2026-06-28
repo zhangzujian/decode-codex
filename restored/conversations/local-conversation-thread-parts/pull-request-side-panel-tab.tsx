@@ -12,8 +12,6 @@ import {
   aP as QUERY_DURATIONS,
   eP as useHostQuery,
   en as ExternalLinkIcon,
-  iF as initIntlRuntime,
-  lF as useIntl,
   oP as initQueryDurationConstants,
   tn as initExternalLinkIconChunk,
   wl as composerScope,
@@ -49,7 +47,11 @@ import {
   initUnifiedDiffFileSummariesChunk,
   parseUnifiedDiffFileSummaries,
 } from "../../utils/unified-diff-file-summaries";
-import { FormattedMessage } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  initIntlRuntime,
+  useIntl,
+} from "../../vendor/react-intl";
 import {
   getPullRequestFixDisabledReason,
   type PullRequestFixDisabledReason,

@@ -6,10 +6,7 @@ import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import { initTooltipPrimitives, Tooltip } from "../../ui/tooltip-b";
 import { classNames, initClassNameRuntime } from "../../utils/class-names";
-import {
-  mo as initGitHubIcon,
-  iF as initIntlRuntime,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { mo as initGitHubIcon } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   l as getGithubAvatarUrl,
   u as initGithubAvatarHelpersChunk,
@@ -31,7 +28,7 @@ import {
 } from "../../github/pull-request-checks-summary";
 import { DiffStats, initDiffStatsChunk } from "../../git/git-review-primitives";
 import { initTeamIconChunk, TeamIcon } from "../../icons/team-icon";
-import { FormattedMessage } from "../../vendor/react-intl";
+import { FormattedMessage, initIntlRuntime } from "../../vendor/react-intl";
 import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,

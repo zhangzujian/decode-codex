@@ -21,7 +21,6 @@ import {
   cP as initVscodeMessageBridge,
   cm as conversationHostIdSignal,
   gp as conversationCwdSignal,
-  iF as initIntlRuntime,
   mP as logger,
   Tp as hasConversationSignal,
   uM as toastSignal,
@@ -44,7 +43,11 @@ import {
   initOpenSideChatTabChunk,
   openSideChatTab,
 } from "../../threads/thread-overflow-menu";
-import { FormattedMessage, useIntl } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  useIntl,
+  initIntlRuntime,
+} from "../../vendor/react-intl";
 import {
   initResumeLocalConversationChunk,
   useResumeLocalConversation,

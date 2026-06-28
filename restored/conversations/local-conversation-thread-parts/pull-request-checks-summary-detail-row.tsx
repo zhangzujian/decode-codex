@@ -10,7 +10,6 @@ import {
   Ja as CheckCircleIcon,
   La as initExternalUrlHelpers,
   Ya as initCheckCircleFilledIcon,
-  iF as initIntlRuntime,
   za as openInBrowserFromEvent,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
@@ -33,7 +32,7 @@ import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,
 } from "../../utils/summary-panel-row";
-import { FormattedMessage } from "../../vendor/react-intl";
+import { FormattedMessage, initIntlRuntime } from "../../vendor/react-intl";
 
 type PullRequestCheck = {
   link?: string | null;

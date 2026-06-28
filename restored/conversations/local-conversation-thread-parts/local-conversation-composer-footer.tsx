@@ -20,7 +20,6 @@ import {
   $p as modelProviderSignal,
   O_ as initConversationRouteSourceHelpers,
   Op as initConversationStateSelectors,
-  iF as initIntlRuntime,
   pp as shouldResumeConversationSignal,
   tp as hostConnectionStatusSignal,
   wP as initLocalConversationComposerBridge,
@@ -36,7 +35,11 @@ import {
   et as initThreadComposerFooterChunk,
   t as ThreadComposerFooter,
 } from "../../boundaries/current-ref/appgen-library-hot-producer";
-import { FormattedMessage, useIntl } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  useIntl,
+  initIntlRuntime,
+} from "../../vendor/react-intl";
 import { SpinnerIcon } from "../../ui/spinner";
 import { ScrollToBottomButton } from "../../utils/scroll-to-bottom-buton";
 import { useThreadScrollController } from "../../utils/thread-scroll-controller-context";

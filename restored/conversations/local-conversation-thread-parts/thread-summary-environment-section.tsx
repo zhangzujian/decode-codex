@@ -17,7 +17,6 @@ import {
   Gj as initStatsigFeatureGateHooks,
   gp as conversationCwdSignal,
   IB as useSignalValue,
-  iF as initIntlRuntime,
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
   Mu as initHostCodexHomeQuery,
@@ -70,7 +69,7 @@ import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,
 } from "../../utils/summary-panel-row";
-import { FormattedMessage } from "../../vendor/react-intl";
+import { FormattedMessage, initIntlRuntime } from "../../vendor/react-intl";
 import {
   initThreadSummaryPanelSectionChunk,
   ThreadSummaryPanelSection,

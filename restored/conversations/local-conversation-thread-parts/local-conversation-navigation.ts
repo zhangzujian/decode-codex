@@ -12,11 +12,10 @@ import {
   Ov as useNavigate,
   bF as initPathHelpers,
   cM as initToastRuntime,
-  iF as initIntlRuntime,
-  lF as useIntl,
   uM as toastSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { Ja as isHotkeyWindowRoute } from "../../boundaries/current-ref/profile-page-producer";
+import { initIntlRuntime, useIntl } from "../../vendor/react-intl";
 
 type LocalConversationTurnItem = {
   mcpAppResourceUri?: string | null;

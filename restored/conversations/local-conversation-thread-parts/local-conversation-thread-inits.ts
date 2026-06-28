@@ -26,7 +26,6 @@ import {
   ak as initAppServerRequestBridge,
   bF as initPathHelpers,
   cM as initToastRuntime,
-  iF as initIntlRuntime,
   lA as cr,
   mv as xr,
   pP as initLoggerRuntime,
@@ -98,6 +97,7 @@ import { initVisibleTurnGeneratedImagesCollector } from "./visible-turn-generate
 import { initWorktreeRestoreBannerChunk } from "./local-conversation-worktree-restore-banner";
 import { initLocalConversationGitSummary } from "./local-conversation-summary-panel";
 import { initLocalConversationThreadFrameChunk } from "./local-conversation-thread-frame";
+import { initIntlRuntime } from "../../vendor/react-intl";
 
 let localEnvironmentRecentActionsModule: unknown;
 let localConversationArtifactsModule: unknown;

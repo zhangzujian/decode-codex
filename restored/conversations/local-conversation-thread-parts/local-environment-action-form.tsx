@@ -27,8 +27,6 @@ import {
 import {
   $N as initVscodeApiBridge,
   AV as initReactQueryRuntime,
-  iF as initIntlRuntime,
-  lF as useIntl,
   tP as useAppServerMutation,
   XN as createQueryKey,
   zV as useQueryClient,
@@ -49,7 +47,11 @@ import {
   serializeLocalEnvironmentConfig,
   type LocalEnvironmentAction,
 } from "../../environments/local-environments-utils";
-import { FormattedMessage } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  initIntlRuntime,
+  useIntl,
+} from "../../vendor/react-intl";
 
 type HostConfigForLocalEnvironmentAction = {
   id: string;

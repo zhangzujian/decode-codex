@@ -13,7 +13,6 @@ import {
   HO as getReviewCommentAttachmentKeyValue,
   PB as useScopedValue,
   YO as initPullRequestReviewCommentHelpers,
-  iF as initIntlRuntime,
   wl as composerScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
@@ -29,7 +28,11 @@ import {
   PullRequestInlineActionButton,
   initPullRequestInlineActionButtonChunk,
 } from "../../github/pull-request-actions";
-import { FormattedMessage, useIntl } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  useIntl,
+  initIntlRuntime,
+} from "../../vendor/react-intl";
 import {
   attachPullRequestCommentsAndPromptFix,
   initPullRequestCommentFixHelpersChunk,

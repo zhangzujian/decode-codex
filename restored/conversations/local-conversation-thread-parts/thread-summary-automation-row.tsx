@@ -4,7 +4,6 @@ import { once } from "../../runtime/commonjs-interop";
 import {
   AB as initScopeRuntime,
   FB as useScope,
-  iF as initIntlRuntime,
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
@@ -24,7 +23,7 @@ import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,
 } from "../../utils/summary-panel-row";
-import { useIntl } from "../../vendor/react-intl";
+import { useIntl, initIntlRuntime } from "../../vendor/react-intl";
 
 type ThreadSummaryAutomation = {
   id: string;

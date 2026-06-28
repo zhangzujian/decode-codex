@@ -22,12 +22,9 @@ import {
   QP as appScope,
   bF as initPathHelpers,
   cM as initToastRuntime,
-  iF as initIntlRuntime,
-  lF as useIntl,
   mP as logger,
   mv as initLocalEnvironmentConfigQueryRuntime,
   pP as initLoggerRuntime,
-  sF as FormattedMessage,
   uM as toastSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
@@ -49,6 +46,11 @@ import {
   st as useGitRootQuery,
 } from "../../boundaries/current-ref/appgen-library-hot-producer";
 import { isRecentLocalEnvironmentAction } from "./local-environment-recent-actions";
+import {
+  initIntlRuntime,
+  useIntl,
+  FormattedMessage,
+} from "../../vendor/react-intl";
 
 type ForkFromOlderTurnDialogProps = {
   canForkIntoWorktree: boolean;

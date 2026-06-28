@@ -21,7 +21,6 @@ import {
   cP as initVscodeMessageBridge,
   cm as conversationHostIdSignal,
   gp as conversationCwdSignal,
-  iF as initIntlRuntime,
   pP as initLoggerRuntime,
   Sm as threadSourceSignal,
   vm as subagentParentThreadIdSignal,
@@ -66,6 +65,7 @@ import { useLocalConversationSummaryPanelModel } from "./local-conversation-summ
 import { usePinnedSummaryPanelDisplay } from "./pinned-summary-panel-layout";
 import { shouldUseFullWidthRightPanelForRoute } from "./right-panel-route-state";
 import { threadScrollStateSignal } from "./local-conversation-thread-scroll-state-signal";
+import { initIntlRuntime } from "../../vendor/react-intl";
 
 type RenderableThreadNode = unknown;
 export type BackgroundAgentOpenHandler = (backgroundAgent: unknown) => void;

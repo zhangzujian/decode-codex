@@ -10,7 +10,6 @@ import {
   AB as initScopeRuntime,
   FB as useScope,
   IB as useSignalValue,
-  iF as initIntlRuntime,
   wl as composerScope,
   Al as initComposerScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
@@ -24,7 +23,11 @@ import {
   initPullRequestCheckRowsChunk,
   initPullRequestInlineActionButtonChunk,
 } from "../../github/pull-request-actions";
-import { FormattedMessage, useIntl } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  useIntl,
+  initIntlRuntime,
+} from "../../vendor/react-intl";
 import {
   attachFailingPullRequestChecksAndPromptFix,
   getPullRequestCheckAttachmentKey,

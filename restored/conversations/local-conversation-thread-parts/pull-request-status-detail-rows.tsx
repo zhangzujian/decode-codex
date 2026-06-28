@@ -9,7 +9,6 @@ import {
   Op as initConversationStateSelectors,
   PB as useScopedValue,
   YO as initPullRequestReviewCommentHelpers,
-  iF as initIntlRuntime,
   wl as composerScope,
   wp as storedThreadBranchSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
@@ -40,7 +39,7 @@ import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,
 } from "../../utils/summary-panel-row";
-import { FormattedMessage } from "../../vendor/react-intl";
+import { FormattedMessage, initIntlRuntime } from "../../vendor/react-intl";
 import {
   PullRequestChecksSummaryRow,
   PullRequestRichFlyout,

@@ -9,7 +9,6 @@ import {
   Op as initConversationStateSelectors,
   PB as useScopedValue,
   gp as conversationCwdSignal,
-  iF as initIntlRuntime,
   mo as initGitHubIcon,
   po as GitHubIcon,
   wp as storedThreadBranchSignal,
@@ -45,7 +44,7 @@ import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,
 } from "../../utils/summary-panel-row";
-import { FormattedMessage } from "../../vendor/react-intl";
+import { FormattedMessage, initIntlRuntime } from "../../vendor/react-intl";
 import {
   initPullRequestSummaryRowChunk,
   PullRequestSummaryRow,

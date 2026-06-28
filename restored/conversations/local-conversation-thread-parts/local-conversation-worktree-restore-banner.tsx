@@ -27,11 +27,8 @@ import {
   cM as initToastRuntime,
   cm as conversationHostIdSignal,
   eg as initWorktreeRestoreMutationRuntime,
-  iF as initIntlRuntime,
-  lF as useIntl,
   mP as logger,
   pP as initLoggerRuntime,
-  sF as FormattedMessage,
   tp as hostConnectionStatusSignal,
   uM as toastSignal,
   zV as useQueryClient,
@@ -46,6 +43,11 @@ import {
   Qn as SummaryPanelBanner,
   Rn as checkManagedWorktree,
 } from "../../boundaries/current-ref/profile-page-producer";
+import {
+  initIntlRuntime,
+  useIntl,
+  FormattedMessage,
+} from "../../vendor/react-intl";
 
 type ConnectedLocalWorktreeRestoreBannerProps = {
   conversationId: string;

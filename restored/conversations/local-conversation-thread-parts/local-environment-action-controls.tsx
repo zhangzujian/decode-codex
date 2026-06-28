@@ -4,7 +4,7 @@ import {
   CheckMdIcon as CheckIcon,
   initCheckmarkIcon,
 } from "../../icons/check-md-icon";
-import { PlusIcon } from "../../icons/plus-icon";
+import { initPlusIcon, PlusIcon } from "../../icons/plus-icon";
 import {
   initSettingsGearIcon,
   SettingsGearIcon,
@@ -56,7 +56,6 @@ import {
   Pi as openScopedModal,
   pP as initLoggerRuntime,
   QP as appScope,
-  Rj as initCommandMenuItemRuntime,
   Rn as useCommandRegistration,
   SV as initQueryRuntime,
   Uf as initHostWorkspaceQueries,
@@ -985,7 +984,7 @@ export const initLocalEnvironmentActionControlsChunk = once(() => {
   initGitQueryKeyHelpers();
   initOsInfoQuery();
   initCheckmarkIcon();
-  initCommandMenuItemRuntime();
+  initPlusIcon();
   initSettingsGearIcon();
   initMoreHorizontalIcon();
   initLocalEnvironmentSelectorContentChunk();

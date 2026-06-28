@@ -8,12 +8,12 @@ import {
   initDropdownMenuPrimitives,
 } from "../../ui/dropdown";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
-import { iF as initIntlRuntime } from "../../boundaries/current-ref/appg-thread-shared-producer";
+
 import {
   PullRequestMetadataRows,
   initPullRequestMetadataRowsChunk,
 } from "../../github/pull-request-actions";
-import { FormattedMessage } from "../../vendor/react-intl";
+import { FormattedMessage, initIntlRuntime } from "../../vendor/react-intl";
 
 export type PullRequestSidePanelErrorMessageProps = {
   description?: ReactNode;

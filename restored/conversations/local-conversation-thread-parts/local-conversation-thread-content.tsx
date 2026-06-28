@@ -33,10 +33,8 @@ import {
   ed as useConversationHostApi,
   fp as completedThreadGoalSignal,
   gp as conversationCwdSignal,
-  iF as initIntlRuntime,
   ic as useConversationAgentMode,
   jm as conversationModeSignal,
-  lF as useIntl,
   lm as conversationResumeStateSignal,
   mP as logger,
   nm as projectlessOutputDirectorySignal,
@@ -100,6 +98,7 @@ import {
   type VisibleTurnEntryForTurnList,
 } from "./local-conversation-turn-list-entries";
 import type { VirtualizedTurnListContracts } from "./local-conversation-virtualized-turn-list-types";
+import { initIntlRuntime, useIntl } from "../../vendor/react-intl";
 
 type VirtualizedTurnListApi = VirtualizedTurnListContracts["api"];
 type VirtualizedTurnListRestoreState =

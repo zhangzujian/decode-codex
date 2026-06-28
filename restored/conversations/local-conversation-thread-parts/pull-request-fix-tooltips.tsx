@@ -1,8 +1,8 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Disabled-state labels and reason helpers for pull request fix actions.
 import { once } from "../../runtime/commonjs-interop";
-import { iF as initIntlRuntime } from "../../boundaries/current-ref/appg-thread-shared-producer";
-import { FormattedMessage } from "../../vendor/react-intl";
+
+import { FormattedMessage, initIntlRuntime } from "../../vendor/react-intl";
 
 export type PullRequestFixDisabledReason =
   | "branch-mismatch"

@@ -38,7 +38,6 @@ import {
   bc as initConversationDetailModeConstants,
   cM as initToastRuntime,
   hs as initLocalImageInliningHelpers,
-  iF as initIntlRuntime,
   jm as conversationModeSignal,
   pP as initLoggerRuntime,
   qj as useStatsigGate,
@@ -103,7 +102,11 @@ import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,
 } from "../../utils/summary-panel-row";
-import { FormattedMessage, useIntl } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  useIntl,
+  initIntlRuntime,
+} from "../../vendor/react-intl";
 import {
   isDoneBackgroundAgent,
   shouldHideInlineBackgroundAgent,

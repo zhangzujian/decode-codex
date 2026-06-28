@@ -12,8 +12,6 @@ import {
   FB as useScope,
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
-  iF as initIntlRuntime,
-  sF as FormattedMessage,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   Ja as initTurnErrorBoundarySupport,
@@ -24,6 +22,7 @@ import {
   rt as ConversationTurnRenderer,
 } from "../../boundaries/current-ref/profile-page-producer";
 import { initThreadScrollLayoutStyleChunk } from "../../utils/thread-scroll-layout";
+import { initIntlRuntime, FormattedMessage } from "../../vendor/react-intl";
 
 type LocalConversationTurnRowEntry = {
   completedThreadGoal?: unknown;

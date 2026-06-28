@@ -7,7 +7,6 @@ import {
   Al as initComposerScope,
   FB as useScope,
   IB as useSignalValue,
-  iF as initIntlRuntime,
   wl as composerScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
@@ -18,7 +17,7 @@ import {
   PullRequestInlineActionButton,
   initPullRequestInlineActionButtonChunk,
 } from "../../github/pull-request-actions";
-import { FormattedMessage } from "../../vendor/react-intl";
+import { FormattedMessage, initIntlRuntime } from "../../vendor/react-intl";
 import {
   attachPullRequestMergeConflictAndPromptFix,
   initPullRequestFixActionHelpersChunk,
