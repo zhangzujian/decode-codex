@@ -3,12 +3,12 @@
 import { once } from "../../runtime/commonjs-interop";
 import { isEqualT as createIsEqual } from "../../vendor/lodash-is-equal";
 import {
-  Hg as collectEndResourcePaths,
-  Nv as initConversationArtifactRuntime,
-  Pv as renderConversationTurnForArtifacts,
-  Ug as collectAssistantOutputArtifacts,
-  Wg as initMarkdownResourceHelpers,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  collectLocalAssistantOutputArtifacts,
+  collectLocalConversationEndResourcePaths,
+  initLocalConversationArtifactRuntime,
+  initLocalConversationMarkdownResourceRuntime,
+  renderLocalConversationTurnForArtifacts,
+} from "./local-conversation-artifact-runtime";
 import {
   Dt as resolveVisibleGeneratedImageOutputs,
   lt as initRenderedTurnOutputItemGrouping,
@@ -96,21 +96,24 @@ export function collectGeneratedImagesForVisibleTurns({
         )
           return [];
 
-        let renderedTurn = renderConversationTurnForArtifacts(turn, requests, {
-            isBackgroundSubagentsEnabled,
-            preserveServerUserMessages,
+        let renderedTurn = renderLocalConversationTurnForArtifacts<{
+          items: readonly unknown[];
+          status: string;
+        }>(turn, requests, {
+          isBackgroundSubagentsEnabled,
+          preserveServerUserMessages,
+        });
+        let { assistantItem, toolOutputItems } = collectRenderedTurnOutputItems(
+          renderedTurn.items,
+          renderedTurn.status,
+        );
+        let endResourcePaths = collectLocalConversationEndResourcePaths(
+          collectLocalAssistantOutputArtifacts({
+            assistantContent: assistantItem?.content ?? null,
+            projectlessOutputDirectory,
+            turn: renderedTurn,
           }),
-          { assistantItem, toolOutputItems } = collectRenderedTurnOutputItems(
-            renderedTurn.items,
-            renderedTurn.status,
-          ),
-          endResourcePaths = collectEndResourcePaths(
-            collectAssistantOutputArtifacts({
-              assistantContent: assistantItem?.content ?? null,
-              projectlessOutputDirectory,
-              turn: renderedTurn,
-            }),
-          );
+        );
         return resolveVisibleGeneratedImageOutputs({
           completedGeneratedImages: toolOutputItems.filter(
             (item) => item.src != null,
@@ -134,7 +137,7 @@ export const initVisibleTurnGeneratedImagesCollector = once(() => {
     rightValue: unknown,
   ) => boolean;
   initVisibleGeneratedImageOutputChunk();
-  initConversationArtifactRuntime();
-  initMarkdownResourceHelpers();
+  initLocalConversationArtifactRuntime();
+  initLocalConversationMarkdownResourceRuntime();
   initRenderedTurnOutputItemGrouping();
 });

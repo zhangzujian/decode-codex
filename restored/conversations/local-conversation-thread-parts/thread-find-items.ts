@@ -4,9 +4,6 @@ import { once } from "../../runtime/commonjs-interop";
 import {
   bF as initPathHelpers,
   fh as initGitActionDirectiveRuntime,
-  Nv as initConversationArtifactRuntime,
-  Pv as renderConversationTurnForArtifacts,
-  Wg as initMarkdownResourceHelpers,
   wj as initThreadFindResourcePreviewHelpers,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
@@ -18,6 +15,11 @@ import {
   EMPTY_THREAD_FIND_PREVIEW_OUTPUTS,
   type ThreadFindPreviewOutput,
 } from "./thread-find-preview-outputs";
+import {
+  initLocalConversationArtifactRuntime,
+  initLocalConversationMarkdownResourceRuntime,
+  renderLocalConversationTurnForArtifacts,
+} from "./local-conversation-artifact-runtime";
 
 type RenderedConversationItem = {
   content: string;
@@ -104,15 +106,16 @@ export function buildThreadFindItemsForVisibleTurns({
         )
           return cachedThreadFindItems.items;
 
-        let renderedTurn = renderConversationTurnForArtifacts(
+        let renderedTurn =
+          renderLocalConversationTurnForArtifacts<RenderedConversationTurn>(
             item.turn,
             item.requests,
             {
               isBackgroundSubagentsEnabled,
               preserveServerUserMessages: item.preserveServerUserMessages,
             },
-          ) as RenderedConversationTurn,
-          renderedItems = renderedTurn.items,
+          );
+        let renderedItems = renderedTurn.items,
           assistantResponseByUserItemIndex = new Map<number, string>(),
           latestUserMessageIndex: number | null = null,
           latestAssistantContent = "";
@@ -187,8 +190,8 @@ export const initThreadFindItemsBuilder = once(() => {
   initThreadFindItemIdHelpers();
   initGitActionDirectiveRuntime();
   initThreadFindResourcePreviewHelpers();
-  initConversationArtifactRuntime();
-  initMarkdownResourceHelpers();
+  initLocalConversationArtifactRuntime();
+  initLocalConversationMarkdownResourceRuntime();
   EMPTY_THREAD_FIND_ITEMS = [];
   threadFindItemsCache = new WeakMap();
 });

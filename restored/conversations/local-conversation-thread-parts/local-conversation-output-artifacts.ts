@@ -6,13 +6,9 @@ import {
   DL as normalizeWorkspacePath,
   Hv as collectTurnFileArtifacts,
   Kg as initNormalizedPathUtilities,
-  Nv as initConversationArtifactRuntime,
   Oj as normalizeArtifactPathKey,
-  Pv as renderConversationTurnForArtifacts,
   Qg as initArtifactPathDetectionHelpers,
-  Ug as collectAssistantOutputArtifacts,
   Uv as initMarkdownArtifactHelpers,
-  Wg as initMarkdownResourceHelpers,
   bF as initPathHelpers,
   bR as isFileUrlLikeTarget,
   e_ as isFileReferencePath,
@@ -23,6 +19,12 @@ import {
   wj as initArtifactPreviewRuntime,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import type { LocalConversationOutputArtifact } from "./artifact-summary";
+import {
+  collectLocalAssistantOutputArtifacts,
+  initLocalConversationArtifactRuntime,
+  initLocalConversationMarkdownResourceRuntime,
+  renderLocalConversationTurnForArtifacts,
+} from "./local-conversation-artifact-runtime";
 
 type ConversationTurnItemLike = {
   id?: string;
@@ -200,18 +202,22 @@ function collectOutputArtifactsFromTurnDetails({
 
   if (status !== "complete") return artifacts;
 
-  let renderedArtifacts = collectAssistantOutputArtifacts({
-    assistantContent,
-    isAppgenEndCardEnabled: true,
-    projectlessOutputDirectory,
-    turn: {
-      artifacts: turnArtifacts,
-      collaborationMode: turn.params.collaborationMode ?? null,
-      cwd,
-      items: renderConversationTurnForArtifacts(turn, []).items,
-      status,
-    },
-  }) as AssistantRenderedArtifact[];
+  let renderedArtifacts =
+    collectLocalAssistantOutputArtifacts<AssistantRenderedArtifact>({
+      assistantContent,
+      isAppgenEndCardEnabled: true,
+      projectlessOutputDirectory,
+      turn: {
+        artifacts: turnArtifacts,
+        collaborationMode: turn.params.collaborationMode ?? null,
+        cwd,
+        items: renderLocalConversationTurnForArtifacts<{ items: unknown[] }>(
+          turn,
+          [],
+        ).items,
+        status,
+      },
+    });
 
   for (let artifact of renderedArtifacts)
     switch (artifact.type) {
@@ -277,8 +283,8 @@ export const initOutputArtifactCollectorDependencies = once(() => {
   initArtifactPathDetectionHelpers();
   initMarkdownArtifactHelpers();
   initMarkdownArtifactRenderingHelpers();
-  initConversationArtifactRuntime();
-  initMarkdownResourceHelpers();
+  initLocalConversationArtifactRuntime();
+  initLocalConversationMarkdownResourceRuntime();
   initNormalizedPathUtilities();
   initArtifactPreviewRuntime();
 });

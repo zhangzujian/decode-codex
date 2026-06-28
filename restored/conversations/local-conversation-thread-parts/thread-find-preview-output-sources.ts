@@ -3,9 +3,9 @@
 import {
   ph as parseGitActionDirectives,
   Sj as getPathBasename,
-  Ug as collectAssistantOutputArtifacts,
   UR as isAbsoluteOrWindowsPath,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { collectLocalAssistantOutputArtifacts } from "./local-conversation-artifact-runtime";
 
 type AssistantOutputArtifact =
   | {
@@ -38,7 +38,7 @@ type GitActionDirective =
 export function collectThreadFindAssistantOutputArtifacts(
   options: AssistantOutputArtifactsOptions,
 ): AssistantOutputArtifact[] {
-  return collectAssistantOutputArtifacts(options) as AssistantOutputArtifact[];
+  return collectLocalAssistantOutputArtifacts<AssistantOutputArtifact>(options);
 }
 
 export function getPreviewPathBasename(path: string): string {
