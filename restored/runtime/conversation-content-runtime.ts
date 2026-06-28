@@ -9,7 +9,7 @@ import {
   fh as initGitActionDirectiveRuntime,
   ph as parseGitActionDirectivesRaw,
   wj as initThreadFindResourcePreviewRuntime,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 import {
   P as recordForkedConversationSourceRaw,
   cs as focusThreadSourceFrameRaw,
@@ -17,7 +17,7 @@ import {
   qo as diffSourceSignal,
   u as localConversationMessages,
   un as waitForThreadLayoutTickRaw,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 import {
   it as initConversationTurnRendererChunkRaw,
   Mt as registerContentSearchRevealHandlerRaw,
@@ -25,7 +25,7 @@ import {
   Pt as revealContentSearchItemElementRaw,
   rt as ConversationTurnRenderer,
   ct as updateCollapsedTurnsByConversationRaw,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../vendor/profile-page-runtime";
 
 export type RenderableConversationTurnOptions = {
   isBackgroundSubagentsEnabled?: boolean;
