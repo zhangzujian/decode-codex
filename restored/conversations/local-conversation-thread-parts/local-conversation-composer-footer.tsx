@@ -29,7 +29,7 @@ import {
   Vn as localWorkspaceMaterializationSignal,
   cs as backgroundAgentsSignal,
 } from "../../boundaries/current-ref/profile-page-producer";
-import { cs as setConversationSourceContext } from "../../boundaries/current-ref/projects-app-shared-producer";
+import { setActiveConversationSourceContext } from "../../runtime/local-conversation-state";
 import {
   $ as threadComposerContext,
   et as initThreadComposerFooterChunk,
@@ -258,18 +258,10 @@ export function LocalConversationComposerFooter({
       className="flex flex-col"
       data-thread-find-composer="true"
       onMouseDownCapture={() => {
-        setConversationSourceContext(
-          scope,
-          "conversation",
-          `conversation:${conversationId}`,
-        );
+        setActiveConversationSourceContext(scope, conversationId);
       }}
       onFocusCapture={() => {
-        setConversationSourceContext(
-          scope,
-          "conversation",
-          `conversation:${conversationId}`,
-        );
+        setActiveConversationSourceContext(scope, conversationId);
       }}
     >
       <div className="relative h-0">

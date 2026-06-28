@@ -52,7 +52,6 @@ import {
   Ir as setThreadSourceFrameState,
   Ja as initThreadSourceFrameStateChunk,
   Jl as initThreadSourceTabHelpersChunk,
-  Kl as conversationTitleSignal,
   Mr as initRightPanelTabsRuntime,
   Qc as openPullRequestReviewTab,
   Rl as hostConfigSignal,
@@ -63,6 +62,7 @@ import {
   Yl as rightPanelTabsStore,
   wl as currentWorkspaceRootSignal,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
+import { conversationTitleSignal } from "../../runtime/local-conversation-state";
 import {
   Jn as PlanIcon,
   St as openPlanSidePanelTab,

@@ -12,7 +12,7 @@ import {
   ok as sendAppServerRequest,
   pP as initLoggerRuntime,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
-import { un as refreshConversationHistorySignals } from "../../boundaries/current-ref/projects-app-shared-producer";
+import { refreshConversationHistorySignals } from "../../runtime/local-conversation-state";
 import { createLatestTurnSubmitPlacementSnapshot } from "./latest-turn-submit-placement";
 import { shouldShowScrollToBottomButton } from "./scroll-to-bottom-state";
 

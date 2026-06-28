@@ -25,7 +25,7 @@ import {
   nm as projectlessOutputDirectorySignal,
   vm as subagentParentThreadIdSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
-import { Kl as conversationTitleSignal } from "../../boundaries/current-ref/projects-app-shared-producer";
+import { conversationTitleSignal } from "../../runtime/local-conversation-state";
 import {
   ChromeExtensionHeader,
   initChromeExtensionHeaderChunk,
