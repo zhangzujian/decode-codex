@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Scroll padding and DOM measurement helpers for the local conversation turn list.
-import { OM as scaleCssPxByWindowZoom } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { scaleCssPxByWindowZoom } from "../../utils/window-zoom-scale";
 
 type TurnListLayout = {
   bottomOffsetsPx: readonly number[];
