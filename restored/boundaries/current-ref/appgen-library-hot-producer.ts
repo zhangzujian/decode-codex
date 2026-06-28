@@ -12,4 +12,8 @@ export {
   createLazyNavigationRailComponent as Dr,
   initLazyNavigationRailRuntime as Er,
 } from "../../utils/lazy-navigation-rail";
+export {
+  initGitRootQueryRuntime as at,
+  useGitRootQuery as st,
+} from "../../github/git-root-query";
 export * from "../../vendor/appgen-library-hot-runtime";

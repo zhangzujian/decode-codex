@@ -16,9 +16,9 @@ import {
   x as forkThreadMessagesRaw,
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import {
-  at as initGitRootQueryHookRaw,
-  st as useGitRootQueryRaw,
-} from "../boundaries/current-ref/appgen-library-hot-producer";
+  initGitRootQueryRuntime,
+  useGitRootQuery as useGitRootQueryRaw,
+} from "../github/git-root-query";
 
 export type ForkIconProps = {
   className?: string;
@@ -81,7 +81,7 @@ export function initConversationForkDialogUiRuntime(): void {
 
 export function initConversationForkControllerRuntime(): void {
   initPendingWorktreeFactoryRaw();
-  initGitRootQueryHookRaw();
+  initGitRootQueryRuntime();
   initResolvedLocalEnvironmentConfigPathHookRaw();
   initPendingWorktreeNavigationRouteRaw();
   initConversationForkDialogUiRuntime();
