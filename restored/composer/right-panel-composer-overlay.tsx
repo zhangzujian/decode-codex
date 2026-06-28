@@ -7,8 +7,8 @@ import {
   _appScopeO as useScopedStore,
   useAppScopeValue,
 } from "../boundaries/app-scope";
-import { appShellStateExportG as rightPanelComposerOverlayEnabledSignal } from "../runtime/app-shell-state";
-import { rightAppShellTabController } from "../runtime/app-shell-tab-controller";
+import { appShellStateExportG as rightPanelComposerOverlayEnabledSignal } from "../app-shell/app-shell-state";
+import { rightAppShellTabController } from "../app-shell/app-shell-tab-controller";
 import {
   isBrowserPanelLocation,
   routeScope,

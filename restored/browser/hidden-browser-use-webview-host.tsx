@@ -16,11 +16,11 @@ import {
   appShellStateExportOAlias as rightPanelOpenSignal,
   appShellStateExportRAlias as bottomPanelOpenSignal,
   appShellStateExportTAlias as bottomPanelHeightMotionSignal,
-} from "../runtime/app-shell-state";
+} from "../app-shell/app-shell-state";
 import {
   bottomAppShellTabController,
   rightAppShellTabController,
-} from "../runtime/app-shell-tab-controller";
+} from "../app-shell/app-shell-tab-controller";
 import type { BrowserPanelLocation } from "../runtime/persisted-signal";
 import { getBrowserTabIdsForEnabledPanels } from "../runtime/thread-browser-panel-tabs";
 import { useWindowZoom } from "../utils/window-zoom-context";

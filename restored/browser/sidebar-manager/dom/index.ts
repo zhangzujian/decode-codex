@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/browser-sidebar-manager-DZM0wpKX.js
 // browser-sidebar-manager-DZM0wpKX chunk restored from the Codex webview bundle.
-import { appShellStateExportKAlias as APP_SHELL_FOCUS_AREA_ATTRIBUTE } from "../../../runtime/app-shell-state";
+import { appShellStateExportKAlias as APP_SHELL_FOCUS_AREA_ATTRIBUTE } from "../../../app-shell/app-shell-state";
 import { constants as MAX_Z_INDEX } from "../../../utils/constants";
 import type {
   BrowserSidebarBounds,

@@ -19,7 +19,7 @@ import {
   isThreadTerminalPanelTabAvailable,
   openThreadTerminalPanelTab,
 } from "./thread-terminal-tabs";
-import type { AppShellStore } from "../runtime/app-shell-tab-controller/types";
+import type { AppShellStore } from "./app-shell-tab-controller/types";
 
 export type WindowsTabsOpenPlacement = "right" | "bottom";
 export type WindowsTabsOpenReviewView = ThreadReviewPanelView;

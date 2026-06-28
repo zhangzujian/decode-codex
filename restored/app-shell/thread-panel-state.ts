@@ -7,16 +7,16 @@ import {
   appShellStateExportS as setRightPanelOpen,
   appShellStateExportTt as setActiveAppShellFocusArea,
   appShellStateExportXAlias as setRightPanelOpenWithOptions,
-} from "../runtime/app-shell-state";
+} from "./app-shell-state";
 import {
   bottomAppShellTabController,
   rightAppShellTabController,
-} from "../runtime/app-shell-tab-controller";
+} from "./app-shell-tab-controller";
 import { focusComposerInput } from "../composer/focus-composer";
 import type {
   AppShellStore,
   AppShellTabController,
-} from "../runtime/app-shell-tab-controller/types";
+} from "./app-shell-tab-controller/types";
 type ThreadPanelId = "bottom" | "right";
 type OpenThreadPanelOptions = {
   activateFallbackTab?: boolean;

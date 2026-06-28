@@ -5,7 +5,7 @@ import {
   jr as liveMcpAppFrameSignal,
   vn as RawAppShellOverlayOutlet,
 } from "../vendor/projects-app-shared-runtime";
-import { appShellStateExportAAlias as rightPanelFullWidthSignal } from "../runtime/app-shell-state";
+import { appShellStateExportAAlias as rightPanelFullWidthSignal } from "./app-shell-state";
 import { AppShellElementContext } from "./app-shell-element-context";
 
 export type AppShellOverlayOutletProps = {

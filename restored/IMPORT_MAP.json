@@ -8480,7 +8480,7 @@
       "status": "done"
     },
     "app-shell-state-QDRlZ5bT": {
-      "restored": "runtime/app-shell-state/index.ts",
+      "restored": "app-shell/app-shell-state/index.ts",
       "exports": {
         "$": "appShellStateExportDollar",
         "A": "appShellStateExportA",
@@ -8551,7 +8551,9 @@
         "y": "appShellStateExportYAlias",
         "z": "appShellStateExportZAlias"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Grouped the app shell state implementation under app-shell/app-shell-state, with runtime/app-shell-state kept as compatibility barrels for older restored consumers.",
+      "lastUpdated": "2026-06-28T19:10:00.000Z"
     },
     "mention-item-Cs3Au6lU": {
       "restored": "composer/mention-item/index.ts",
@@ -8648,7 +8650,7 @@
       }
     },
     "app-shell-tab-controller-CVKUvgYM": {
-      "restored": "runtime/app-shell-tab-controller/index.ts",
+      "restored": "app-shell/app-shell-tab-controller/index.ts",
       "exports": {
         "a": "logAppShellTabSelection",
         "i": "getTabInsertionIndex",
@@ -8658,7 +8660,9 @@
         "s": "getRouteKindForTabAnalytics",
         "t": "bottomAppShellTabController"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Grouped the app shell tab controller implementation under app-shell/app-shell-tab-controller, updated restored consumers to semantic app-shell imports, and kept runtime/app-shell-tab-controller as compatibility barrels.",
+      "lastUpdated": "2026-06-28T19:10:00.000Z"
     },
     "thread-panel-state-_Pmf_86i": {
       "restored": "app-shell/thread-panel-state.ts",

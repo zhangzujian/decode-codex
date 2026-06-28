@@ -7,12 +7,12 @@ import {
   appShellStateExportIAlias as rightPanelWidthMotionSignal,
   appShellStateExportRAlias as bottomPanelOpenSignal,
   appShellStateExportTAlias as bottomPanelHeightMotionSignal,
-} from "../runtime/app-shell-state";
+} from "../app-shell/app-shell-state";
 import {
   bottomAppShellTabController,
   rightAppShellTabController,
-} from "../runtime/app-shell-tab-controller";
-import type { AppShellTabRecord } from "../runtime/app-shell-tab-controller/types";
+} from "../app-shell/app-shell-tab-controller";
+import type { AppShellTabRecord } from "../app-shell/app-shell-tab-controller/types";
 import {
   getBrowserTabConversationKey,
   type BrowserPanelLocation,

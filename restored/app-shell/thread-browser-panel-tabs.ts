@@ -15,7 +15,7 @@ import type {
   AppShellStore,
   AppShellTabController,
   AppShellTabRecord,
-} from "../runtime/app-shell-tab-controller/types";
+} from "./app-shell-tab-controller/types";
 type ThreadPanelId = "bottom" | "right";
 type PanelPair<TValue> = {
   bottom: TValue;
