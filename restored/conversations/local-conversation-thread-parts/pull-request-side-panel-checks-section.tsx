@@ -6,13 +6,11 @@ import {
   Dropdown as MenuChrome,
   initDropdownMenuPrimitives,
 } from "../../ui/dropdown";
+import { useScope, useSignalValue } from "../../runtime/app-scope-hooks";
 import {
-  AB as initScopeRuntime,
-  FB as useScope,
-  IB as useSignalValue,
-  wl as composerScope,
-  Al as initComposerScope,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  composerScope,
+  initComposerScopeRuntime,
+} from "../../runtime/composer-scope-runtime";
 import {
   pullRequestChecksState as attachedPullRequestChecksSignal,
 } from "../../composer/composer-view-state";
@@ -229,7 +227,7 @@ function isFailingPullRequestCheck(check: PullRequestCheck) {
 }
 
 export const initPullRequestSidePanelChecksSectionChunk = once(() => {
-  initScopeRuntime();
+  initComposerScopeRuntime();
   initIntlRuntime();
   initDropdownMenuPrimitives();
   initPullRequestComposerContextChunk();
@@ -237,7 +235,6 @@ export const initPullRequestSidePanelChecksSectionChunk = once(() => {
   initPullRequestInlineActionButtonChunk();
   initPullRequestFailingChecksPromptChunk();
   initPullRequestCheckRowsChunk();
-  initComposerScope();
   initPullRequestSidePanelErrorMessageChunk();
   initPullRequestSidePanelDetailsSummaryChunk();
   initPullRequestSidePanelLoadingStateChunk();

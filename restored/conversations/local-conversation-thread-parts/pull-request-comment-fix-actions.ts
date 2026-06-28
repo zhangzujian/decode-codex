@@ -2,10 +2,10 @@
 // Chat attachment and prompt helpers for pull request review comments.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  HO as getReviewCommentAttachmentKeyValue,
-  YO as initPullRequestReviewCommentHelpers,
-  kO as MY_REQUEST_PROMPT_HEADER,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  getReviewCommentAttachmentKeyValue,
+  initPullRequestReviewCommentRuntime,
+  MY_REQUEST_PROMPT_HEADER,
+} from "../../runtime/pull-request-prompt-runtime";
 import {
   Ha as updatePullRequestReviewCommentAttachments,
   Va as initPullRequestReviewCommentAttachmentStateChunk,
@@ -146,5 +146,5 @@ export const initPullRequestCommentFixHelpersChunk = once(() => {
   initPullRequestReviewCommentAttachmentStateChunk();
   initPullRequestComposerContextChunk();
   initPullRequestPromptActionsChunk();
-  initPullRequestReviewCommentHelpers();
+  initPullRequestReviewCommentRuntime();
 });

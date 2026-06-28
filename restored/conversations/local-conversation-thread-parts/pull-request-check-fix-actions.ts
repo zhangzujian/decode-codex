@@ -2,9 +2,9 @@
 // Chat attachment and prompt helpers for failing pull request checks.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  AO as PULL_REQUEST_FIX_PROMPT_PREAMBLE,
-  kO as MY_REQUEST_PROMPT_HEADER,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  MY_REQUEST_PROMPT_HEADER,
+  PULL_REQUEST_FIX_PROMPT_PREAMBLE,
+} from "../../runtime/pull-request-prompt-runtime";
 import {
   focusComposerAfterPullRequestPrompt,
   submitPullRequestPrompt,

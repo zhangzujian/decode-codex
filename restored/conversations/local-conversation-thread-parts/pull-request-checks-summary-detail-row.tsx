@@ -11,9 +11,9 @@ import {
   TooltipProvider,
 } from "../../ui/tooltip-b";
 import {
-  La as initExternalUrlHelpers,
-  za as openInBrowserFromEvent,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  initResourceOpenRuntime,
+  openInBrowserFromEvent,
+} from "../../runtime/resource-open-runtime";
 import {
   os as PullRequestFailedCheckIcon,
   ss as initPullRequestFailedCheckIconChunk,
@@ -385,7 +385,7 @@ function getPullRequestChecksSummaryLabel(
 
 const initPullRequestChecksSummaryRowChunk = once(() => {
   initIntlRuntime();
-  initExternalUrlHelpers();
+  initResourceOpenRuntime();
   initCheckCircleFilledIcon();
   initPullRequestCheckStatusIconChunk();
   initHeartbeatAutomationIconChunk();
