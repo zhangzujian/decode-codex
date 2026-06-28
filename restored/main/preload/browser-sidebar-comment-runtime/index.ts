@@ -92,6 +92,13 @@ export {
   parseBrowserSidebarPageUrl,
 } from "./page-urls";
 export {
+  BROWSER_SIDEBAR_REGION_DRAG_THRESHOLD,
+  hasBrowserSidebarRegionDragStarted,
+  isPointInsideCurrentBrowserSidebarViewport,
+  rectBetweenBrowserSidebarRegionDragPoints,
+  updateBrowserSidebarRegionDragState,
+} from "./region-drag";
+export {
   clampNumber,
   computeCommentEditorRect,
   hasPointMovedPastThreshold,
@@ -116,6 +123,10 @@ export type {
   BrowserSidebarViewportScrollState,
   BrowserSidebarViewportWindow,
 } from "./overlay-layout";
+export type {
+  BrowserSidebarRegionDragState,
+  BrowserSidebarViewportSizeWindow,
+} from "./region-drag";
 export type {
   BrowserSidebarAnchorPoint,
   BrowserSidebarCommentAnchor,
