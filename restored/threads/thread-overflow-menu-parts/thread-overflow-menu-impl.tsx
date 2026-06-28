@@ -2,6 +2,8 @@
 // Thread overflow menu component and chunk initializer.
 import React from "react";
 
+import { CopyIcon } from "../../icons/copy-icon";
+import { EditIcon as RenameThreadIcon } from "../../icons/edit-icon";
 import { GitBranchIcon, initGitBranchIcon } from "../../icons/git-branch-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
@@ -68,12 +70,7 @@ import {
   wo as isSideChatUnavailable,
   x as threadActionMessages,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  Dn as initPullRequestThreadActionsRuntime,
-  En as RenameThreadIcon,
-  ct as CopyIcon,
-  lt as initCopyIconChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+import { Dn as initPullRequestThreadActionsRuntime } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   Ar as initAutomationPanelRuntime,
   Jm as initCreateHeartbeatAutomationRuntime,
@@ -785,7 +782,6 @@ export const initThreadOverflowMenuChunk = once(() => {
   initGitBranchIcon();
   initProjectsAppProducer();
   initHeartbeatAutomationTabsRuntime();
-  initCopyIconChunk();
   initPullRequestThreadActionsRuntime();
   initForkDialogLocalIcon();
   initCreateHeartbeatAutomationRuntime();
