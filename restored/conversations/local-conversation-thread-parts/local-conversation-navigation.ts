@@ -1,19 +1,16 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Navigation and missing-conversation state helpers for local conversation threads.
 import React from "react";
+import { useScope } from "../../runtime/app-scope-hooks";
 import { once } from "../../runtime/commonjs-interop";
 import {
-  AB as initScopeRuntime,
-  AI as getLocalConversationPath,
-  FB as useScope,
-  I_ as initRouteScope,
-  M_ as localConversationRouteScope,
-  OI as getHotkeyWindowThreadPath,
-  Ov as useNavigate,
-  bF as initPathHelpers,
-  cM as initToastRuntime,
-  uM as toastSignal,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  getHotkeyWindowThreadPath,
+  getLocalConversationPath,
+  initLocalConversationNavigationRuntime,
+  localConversationRouteScope,
+  toastSignal,
+  useNavigate,
+} from "../../runtime/local-conversation-route-runtime";
 import { Ja as isHotkeyWindowRoute } from "../../boundaries/current-ref/profile-page-producer";
 import { initIntlRuntime, useIntl } from "../../vendor/react-intl";
 
@@ -149,9 +146,6 @@ export function useMissingLocalConversationRedirect({
 }
 
 export const initLocalConversationNavigationHelpers = once(() => {
-  initScopeRuntime();
-  initPathHelpers();
+  initLocalConversationNavigationRuntime();
   initIntlRuntime();
-  initRouteScope();
-  initToastRuntime();
 });

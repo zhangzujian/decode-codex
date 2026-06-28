@@ -1,18 +1,17 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Local conversation turn row renderer and per-turn error fallback.
 import React from "react";
+import { useScope } from "../../runtime/app-scope-hooks";
 import { once } from "../../runtime/commonjs-interop";
+import {
+  initLocalConversationRouteRuntime,
+  localConversationRouteScope,
+} from "../../runtime/local-conversation-route-runtime";
 import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   initUseStableCallback,
   useStableCallback,
 } from "../../utils/use-stable-callback";
-import {
-  AB as initScopeRuntime,
-  FB as useScope,
-  I_ as initRouteScope,
-  M_ as localConversationRouteScope,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { ErrorBoundary } from "../../runtime/error-boundary";
 import {
   it as initConversationTurnRendererChunk,
@@ -203,10 +202,9 @@ export const initLocalConversationTurnRowDependencies = once(() => {
 });
 
 export const initLocalConversationTurnRowChunk = once(() => {
-  initScopeRuntime();
+  initLocalConversationRouteRuntime();
   initIntlRuntime();
   initButtonComponentPrimitives();
-  initRouteScope();
   initUseStableCallback();
   initConversationTurnRendererChunk();
 });

@@ -1,12 +1,11 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Scheduled automation row for the local conversation summary panel.
 import { once } from "../../runtime/commonjs-interop";
+import { useScope } from "../../runtime/app-scope-hooks";
 import {
-  AB as initScopeRuntime,
-  FB as useScope,
-  I_ as initRouteScope,
-  M_ as localConversationRouteScope,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  initLocalConversationRouteRuntime,
+  localConversationRouteScope,
+} from "../../runtime/local-conversation-route-runtime";
 import {
   formatAutomationScheduleSummary,
   initAutomationScheduleSummaryFormatter,
@@ -103,12 +102,11 @@ export function ThreadSummaryAutomationRow({
 }
 
 export const initThreadSummaryAutomationRowChunk = once(() => {
-  initScopeRuntime();
+  initLocalConversationRouteRuntime();
   initIntlRuntime();
   initAutomationScheduleSummaryFormatter();
   initAutomationNextRunLabelChunk();
   initAutomationRouteHelpers();
   initAutomationIconChunk();
-  initRouteScope();
   initSummaryPanelRowChunk();
 });
