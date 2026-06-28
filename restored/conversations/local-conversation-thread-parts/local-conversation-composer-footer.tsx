@@ -11,7 +11,6 @@ import {
   FB as useScope,
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
-  P_ as getLocalThreadConversationIdFromRoute,
   PB as useScopedValue,
   T_ as getRouteConversationId,
   UE as LOCAL_HOST_ID,
@@ -26,6 +25,7 @@ import {
   tp as hostConnectionStatusSignal,
   wP as initLocalConversationComposerBridge,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";
 import {
   Vn as localWorkspaceMaterializationSignal,
   cs as backgroundAgentsSignal,

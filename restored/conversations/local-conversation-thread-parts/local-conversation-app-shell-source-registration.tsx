@@ -1,7 +1,10 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // App-shell source registration for the visible local conversation content.
 import { once } from "../../runtime/commonjs-interop";
-import { P_ as getLocalThreadConversationIdFromRoute } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import {
+  getLocalThreadConversationIdFromRoute,
+  type LocalThreadRouteValue,
+} from "../../runtime/local-thread-route";
 import {
   initThreadAppShellSourcesChunk,
   ThreadAppShellSourceRegistration,
@@ -15,7 +18,7 @@ export type LocalConversationAppShellSourceRegistrationProps = {
   conversationId: string;
   conversationSource: ConversationSource;
   diffSource: unknown;
-  routeScopeValue: unknown;
+  routeScopeValue: LocalThreadRouteValue;
 };
 
 export function LocalConversationAppShellSourceRegistration({

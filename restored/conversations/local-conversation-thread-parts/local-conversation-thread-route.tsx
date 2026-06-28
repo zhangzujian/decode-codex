@@ -11,7 +11,6 @@ import {
   Op as initConversationStateSelectors,
   PB as useScopedValue,
   PI as getHotkeyWindowFallbackPath,
-  P_ as getLocalThreadConversationIdFromRoute,
   Tp as hasConversationSignal,
   Uf as initHostWorkspaceQueries,
   VE as initHostConfigHelpers,
@@ -29,6 +28,7 @@ import {
   yv as Navigate,
   zo as useAppsQuery,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";
 import { yd as rightPanelFullWidthSignal } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
   ji as useBackgroundSubagentsEnabled,

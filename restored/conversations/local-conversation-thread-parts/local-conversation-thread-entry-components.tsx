@@ -13,7 +13,6 @@ import {
   MB as ScopeValueProvider,
   Op as initConversationStateSelectors,
   PB as useScopedValue,
-  P_ as getLocalThreadConversationIdFromRoute,
   Up as conversationCollaborationModeSignal,
   VE as initHostConfigHelpers,
   ak as initAppServerRequestBridge,
@@ -28,6 +27,7 @@ import {
   uM as toastSignal,
   wl as composerScope,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";
 import { _c as getSidePanelTargetStore } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
   Eu as EmptyConversationState,
