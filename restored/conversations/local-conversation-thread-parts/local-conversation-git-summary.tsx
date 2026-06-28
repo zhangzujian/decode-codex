@@ -17,26 +17,18 @@ import {
   localConversationRouteScope,
 } from "../../runtime/local-conversation-route-runtime";
 import {
-  _i as githubCliAvailabilitySignal,
-  gi as initGithubCliAvailabilitySignalChunk,
-  pi as pullRequestStatusQuerySignal,
-  vi as initPullRequestStatusQueryChunk,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  $l as createPullRequestActionStateSignal,
-  Al as useHeadBranchQuery,
-  Bl as initCreatePullRequestActionStateChunk,
-  Hl as CancelCreatePullRequestButton,
-  Ql as initCreatePullRequestControlsChunk,
-  Ul as initCreatePullRequestWorkflowPhaseLabelChunk,
-  Xd as BranchChangesIcon,
-  Zd as initBranchChangesIconChunk,
-  au as initCreatePullRequestWorkflowCancelChunk,
-  iu as activeWorkflowSignal,
-  kl as initCreatePullRequestWorkflowRuntimeChunk,
-  nu as cancelCreatePullRequestWorkflow,
-  zl as CreatePullRequestWorkflowPhaseLabel,
-} from "../../boundaries/current-ref/profile-page-producer";
+  activeWorkflowSignal,
+  BranchChangesIcon,
+  CancelCreatePullRequestButton,
+  cancelCreatePullRequestWorkflow,
+  createPullRequestActionStateSignal,
+  CreatePullRequestWorkflowPhaseLabel,
+  githubCliAvailabilitySignal,
+  initBranchChangesIconRuntime,
+  initPullRequestGitSummaryRuntime,
+  pullRequestStatusQuerySignal,
+  useHeadBranchQuery,
+} from "../../runtime/pull-request-git-summary-runtime";
 import {
   getPullRequestMergeVisualState,
   getPullRequestVisualState,
@@ -511,7 +503,7 @@ const initBranchChangesSummaryRowChunk = once(() => {
   initIntlRuntime();
   initSpinnerComponent();
   initDiffStatsChunk();
-  initBranchChangesIconChunk();
+  initBranchChangesIconRuntime();
   initSummaryPanelRowChunk();
 });
 
@@ -521,15 +513,9 @@ const initLocalConversationGitSummaryChunk = once(() => {
   initIntlRuntime();
   initConversationStateRuntime();
   initSpinnerComponent();
-  initCreatePullRequestWorkflowRuntimeChunk();
   initGitHubIcon();
-  initCreatePullRequestWorkflowCancelChunk();
-  initCreatePullRequestWorkflowPhaseLabelChunk();
-  initCreatePullRequestControlsChunk();
-  initCreatePullRequestActionStateChunk();
+  initPullRequestGitSummaryRuntime();
   initPullRequestVisualStateChunk();
-  initPullRequestStatusQueryChunk();
-  initGithubCliAvailabilitySignalChunk();
   initSummaryPanelRowChunk();
   initPullRequestTitleFallbackChunk();
   initPullRequestSummaryRowChunk();
