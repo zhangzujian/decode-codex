@@ -13,7 +13,7 @@ import {
   selectThreadReviewBaseBranch,
   selectThreadReviewView,
   type ThreadReviewPanelView,
-} from "../runtime/thread-review-panel-state";
+} from "./thread-review-panel-state";
 import { getActiveThreadHostId as getRouteActiveThreadHostId } from "./thread-route-context";
 import {
   getDefaultThreadTerminalPanelPlacement,
