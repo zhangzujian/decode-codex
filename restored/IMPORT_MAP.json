@@ -11502,10 +11502,15 @@
       "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "worktree-init-v2-page-BAfwy1p_": {
-      "restored": "boundaries/current-ref/worktree-init-v2-page-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-page pending worktree routing.",
-      "lastUpdated": "2026-06-27T18:51:20.705Z"
+      "restored": "vendor/worktree-init-v2-page-runtime.ts",
+      "status": "partial",
+      "note": "Pending worktree route compatibility facade moved out of current-ref direct passthrough. The route UI remains isolated behind vendor/worktree-init-v2-page-runtime.ts until it is deep-restored against the restored pending-worktree store.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z",
+      "exports": {
+        "n": "initPendingWorktreeChunk",
+        "t": "PendingWorktreeConversation"
+      },
+      "boundary": "boundaries/current-ref/worktree-init-v2-page-producer.ts"
     },
     "local-conversation-page-D7JrTtqP": {
       "restored": "conversations/local-conversation-page.tsx",
