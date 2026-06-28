@@ -6,25 +6,25 @@ import {
   type AppViewRouteForThreadId,
 } from "./app-view-route-helpers";
 import {
-  Ds as openTerminalTab,
-  Ts as isTerminalTabAvailable,
-  _c as getSidePanelController,
-  ac as getBrowserPanelTab,
-  dl as setReviewBaseBranch,
-  hc as activatePanelTab,
-  js as defaultTerminalPanelPlacementSignal,
-  ko as focusReviewFilePath,
-  mc as sidePanelPlacements,
-  oc as getBrowserPanelTabsForThread,
-  vc as getPanelTabPlacement,
-  vl as setReviewView,
-  zl as activeThreadHostIdSignal,
-} from "../boundaries/current-ref/projects-app-shared-producer";
-import {
-  el as openBrowserPanelTab,
-  rl as openReviewPanel,
-} from "../boundaries/current-ref/profile-page-producer";
+  openThreadBrowserSidePanelTabWithPendingState as openBrowserPanelTab,
+  openThreadReviewSidePanelTab as openReviewPanel,
+} from "../runtime/thread-side-panel-tabs";
 import { openPublicationTermsSidePanelResource } from "../appgen/publication-terms";
+import {
+  activateExistingPanelTab,
+  focusReviewPath,
+  getActiveThreadHostId,
+  getBrowserPanelTabForThread,
+  getBrowserPanelTabsForThread,
+  getDefaultTerminalPanelPlacement,
+  getExistingTerminalTabIds,
+  getPanelPlacementForTab,
+  isTerminalTabAvailableForThread,
+  openTerminalTabForThread,
+  selectReviewBaseBranch,
+  selectReviewView,
+  type WindowsTabsOpenPlacement,
+} from "./windows-tabs-open-actions";
 
 type AppViewScope = {
   get: <TValue>(state: unknown, key?: unknown) => TValue;
@@ -36,8 +36,6 @@ type WindowsTabsOpenContext = {
   sourceHostId?: string | null;
   sourceThreadId?: string | null;
 };
-
-type WindowsTabsOpenPlacement = "right" | "bottom";
 
 type WindowsTabsOpenTarget =
   | {
@@ -100,7 +98,7 @@ export function windowsTabsOpenHandler(
   const sourceHostId =
     context.sourceThreadId === requestedThreadId && context.sourceHostId != null
       ? context.sourceHostId
-      : appViewScope.get(activeThreadHostIdSignal);
+      : getActiveThreadHostId(appViewScope);
 
   switch (target.type) {
     case "file": {
@@ -141,7 +139,7 @@ export function windowsTabsOpenHandler(
       if (browserTabId == null) {
         throw Error("Browser tab could not be opened");
       }
-      const panelTab = getBrowserPanelTab(
+      const panelTab = getBrowserPanelTabForThread(
         appViewScope,
         requestedThreadId,
         browserTabId,
@@ -157,15 +155,13 @@ export function windowsTabsOpenHandler(
       };
     }
     case "terminal": {
-      if (!isTerminalTabAvailable(appViewScope)) {
+      if (!isTerminalTabAvailableForThread(appViewScope)) {
         throw Error("Terminal tab is unavailable for this thread");
       }
       const targetPlacement =
-        placement ?? appViewScope.get(defaultTerminalPanelPlacementSignal);
-      const existingTerminalTabIds = sidePanelPlacements.flatMap((panel) =>
-        appViewScope.get<string[]>(getSidePanelController(panel).tabIds$),
-      );
-      const terminalSessionId = openTerminalTab(
+        placement ?? getDefaultTerminalPanelPlacement(appViewScope);
+      const existingTerminalTabIds = getExistingTerminalTabIds(appViewScope);
+      const terminalSessionId = openTerminalTabForThread(
         appViewScope,
         target.sessionId,
         targetPlacement,
@@ -177,34 +173,35 @@ export function windowsTabsOpenHandler(
       return {
         threadId: requestedThreadId,
         type: target.type,
-        placement: getPanelTabPlacement(appViewScope, tabId) ?? targetPlacement,
+        placement:
+          getPanelPlacementForTab(appViewScope, tabId) ?? targetPlacement,
         status: existingTerminalTabIds.includes(tabId) ? "existing" : "opened",
         tabId,
       };
     }
     case "review": {
       const targetPlacement = placement ?? "right";
-      const previousPlacement = getPanelTabPlacement(appViewScope, "diff");
+      const previousPlacement = getPanelPlacementForTab(appViewScope, "diff");
       if ("baseBranch" in target && target.baseBranch != null) {
-        setReviewBaseBranch(
+        selectReviewBaseBranch(
           appViewScope,
           getRouteThreadId(appViewScope.value),
           target.baseBranch,
         );
-        setReviewView(appViewScope, "branch");
+        selectReviewView(appViewScope, "branch");
       } else if (target.view != null) {
-        setReviewView(appViewScope, target.view);
+        selectReviewView(appViewScope, target.view);
       }
 
       const didOpenReview =
         previousPlacement == null
           ? openReviewPanel(appViewScope, true, targetPlacement)
-          : activatePanelTab(appViewScope, previousPlacement, "diff");
+          : activateExistingPanelTab(appViewScope, previousPlacement, "diff");
       if (!didOpenReview) {
         throw Error("Review tab could not be opened");
       }
 
-      if (target.path != null) focusReviewFilePath(appViewScope, target.path);
+      if (target.path != null) focusReviewPath(appViewScope, target.path);
       return {
         threadId: requestedThreadId,
         type: target.type,
