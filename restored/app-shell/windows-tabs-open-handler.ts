@@ -1,9 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~automations-page-bHJfYUGr.js
 // Main-window implementation for the windows.tabs.open app action.
 import {
-  F_ as getRouteThreadId,
-  bz as normalizeBrowserTabId,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+  getRouteThreadId,
+  normalizeBrowserTabId,
+  type AppViewRouteForThreadId,
+} from "./app-view-route-helpers";
 import {
   Ds as openTerminalTab,
   Ts as isTerminalTabAvailable,
@@ -25,26 +26,9 @@ import {
 } from "../boundaries/current-ref/profile-page-producer";
 import { openPublicationTermsSidePanelResource } from "../appgen/publication-terms";
 
-type AppViewRoute =
-  | {
-      routeKind: "client-local-thread";
-      clientThreadId: string;
-    }
-  | {
-      routeKind: "local-thread" | "chatgpt-thread";
-      conversationId: string;
-    }
-  | {
-      routeKind: "remote-thread";
-      taskId: string;
-    }
-  | {
-      routeKind: "home" | "new-thread-panel" | "other";
-    };
-
 type AppViewScope = {
   get: <TValue>(state: unknown, key?: unknown) => TValue;
-  value: AppViewRoute;
+  value: AppViewRouteForThreadId;
 };
 
 type WindowsTabsOpenContext = {
@@ -232,7 +216,7 @@ export function windowsTabsOpenHandler(
   }
 }
 
-function getVisibleThreadId(route: AppViewRoute): string | null {
+function getVisibleThreadId(route: AppViewRouteForThreadId): string | null {
   switch (route.routeKind) {
     case "client-local-thread":
       return route.clientThreadId;
