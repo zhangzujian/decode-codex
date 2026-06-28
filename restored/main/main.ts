@@ -16,6 +16,82 @@ const DISABLED_CHRONICLE_SIDECAR_CONTROL_STATE = {
   state: "disabled",
 } as const;
 
+type UpdateLifecycleState =
+  | "idle"
+  | "checking"
+  | "downloading"
+  | "ready"
+  | "installing";
+type RelaunchNotice = {
+  deadlineAtMs: number;
+  dismissable: boolean;
+  reportedAtMs: number;
+};
+type InstallUpdatesRequest = { quitImmediately?: boolean } | undefined;
+type SparkleBridgeHandlers = {
+  onDownloadProgressChanged(): void;
+  onInstallProgressChanged(): void;
+  onInstallUpdatesRequested(request?: InstallUpdatesRequest): void;
+  onRelaunchNoticeChanged(): void;
+  onUpdateLifecycleStateChanged(): void;
+  onUpdateReadyChanged(): void;
+  isTrustedIpcEvent(event: unknown): boolean;
+};
+type SparkleManagerBoundary = {
+  checkForUpdates(): Promise<void> | void;
+  getDownloadProgressPercent(): number | null;
+  getInstallProgressPercent(): number | null;
+  getIsUpdateReady(): boolean;
+  getRelaunchNotice(): RelaunchNotice | null;
+  getUnavailableReason(): string | null;
+  getUpdateLifecycleState(): UpdateLifecycleState;
+  hasUpdater(): boolean;
+  installUpdatesIfAvailable(): Promise<boolean> | Promise<void> | void;
+  setAutomaticBackgroundDownloadsEnabled(enabled: boolean): void;
+};
+type AppUpdateViewState = {
+  downloadProgressPercent: number | null;
+  installProgressPercent: number | null;
+  isUpdateReady: boolean;
+  lifecycleState: UpdateLifecycleState;
+  relaunchNotice: RelaunchNotice | null;
+};
+type QuitStateBoundary = {
+  allowQuitTemporarilyForUpdateInstall(options?: {
+    allowWithoutPrompt?: boolean;
+    skipDrainBeforeQuit?: boolean;
+  }): void;
+};
+type AppQuitBoundary = {
+  isPackaged?: boolean;
+  quit(): void;
+  exit(code: number): void;
+};
+type LoggerBoundary = {
+  info(message: string, details?: unknown): void;
+  warning(message: string, details?: unknown): void;
+};
+type DialogBoundary = {
+  showMessageBox(options: {
+    type: "info" | "warning";
+    title?: string;
+    message: string;
+    detail?: string;
+    buttons?: string[];
+    defaultId?: number;
+    cancelId?: number;
+    noLink?: boolean;
+  }): Promise<{ response: number }> | { response: number } | void;
+};
+type BrowserWindowBoundary = unknown;
+type NativeIntlBoundary = {
+  formatMessage(message: {
+    messageId: string;
+    defaultMessage: string;
+    values?: Record<string, unknown>;
+  }): string;
+};
+
 const MAIN_STARTUP_PHASES: readonly MainStartupPhase[] = [
   {
     key: "bootstrap-handoff",
@@ -117,6 +193,211 @@ const MAIN_STARTUP_PHASES: readonly MainStartupPhase[] = [
   },
 ];
 
+function createAppUpdateViewState(
+  sparkleManager: SparkleManagerBoundary,
+): AppUpdateViewState {
+  return {
+    downloadProgressPercent: sparkleManager.getDownloadProgressPercent(),
+    installProgressPercent: sparkleManager.getInstallProgressPercent(),
+    isUpdateReady: sparkleManager.getIsUpdateReady(),
+    lifecycleState: sparkleManager.getUpdateLifecycleState(),
+    relaunchNotice: sparkleManager.getRelaunchNotice(),
+  };
+}
+
+function createSparkleBridgeHandlers({
+  broadcastAppUpdateState,
+  isTrustedIpcEvent,
+  isWindows,
+  requestInstallUpdates,
+}: {
+  broadcastAppUpdateState(): void;
+  isTrustedIpcEvent(event: unknown): boolean;
+  isWindows: boolean;
+  requestInstallUpdates(request?: InstallUpdatesRequest): void;
+}): SparkleBridgeHandlers {
+  return {
+    onDownloadProgressChanged: broadcastAppUpdateState,
+    onInstallProgressChanged: () => {
+      if (isWindows) broadcastAppUpdateState();
+    },
+    onInstallUpdatesRequested: requestInstallUpdates,
+    onRelaunchNoticeChanged: broadcastAppUpdateState,
+    onUpdateLifecycleStateChanged: broadcastAppUpdateState,
+    onUpdateReadyChanged: broadcastAppUpdateState,
+    isTrustedIpcEvent,
+  };
+}
+
+function createInitialUpdateInstallRequestHandler({
+  app,
+  quitState,
+}: {
+  app: Pick<AppQuitBoundary, "quit">;
+  quitState: Pick<QuitStateBoundary, "allowQuitTemporarilyForUpdateInstall">;
+}): (request?: InstallUpdatesRequest) => void {
+  return (request) => {
+    quitState.allowQuitTemporarilyForUpdateInstall();
+    if (request?.quitImmediately === false) return;
+    app.quit();
+  };
+}
+
+function createPostAppServerUpdateInstallRequestHandler({
+  app,
+  cleanupBeforeImmediateExit,
+  isWindows,
+  markAppQuitting,
+  quitState,
+}: {
+  app: AppQuitBoundary;
+  cleanupBeforeImmediateExit(): void;
+  isWindows: boolean;
+  markAppQuitting(): void;
+  quitState: Pick<QuitStateBoundary, "allowQuitTemporarilyForUpdateInstall">;
+}): (request?: InstallUpdatesRequest) => void {
+  return (request) => {
+    if (request?.quitImmediately === false) {
+      quitState.allowQuitTemporarilyForUpdateInstall({
+        allowWithoutPrompt: true,
+        skipDrainBeforeQuit: true,
+      });
+      return;
+    }
+    if (isWindows && app.isPackaged) {
+      markAppQuitting();
+      cleanupBeforeImmediateExit();
+      app.exit(0);
+      return;
+    }
+    quitState.allowQuitTemporarilyForUpdateInstall();
+    app.quit();
+  };
+}
+
+function applyElectronSparkleGateChange({
+  disableSparkleAutodownload,
+  setAutomaticBackgroundDownloadsEnabled,
+}: {
+  disableSparkleAutodownload: boolean;
+  setAutomaticBackgroundDownloadsEnabled(enabled: boolean): void;
+}): void {
+  setAutomaticBackgroundDownloadsEnabled(!disableSparkleAutodownload);
+}
+
+function createCheckForUpdatesMenuItem({
+  dialog,
+  logger,
+  sparkleManager,
+}: {
+  dialog: DialogBoundary;
+  logger: LoggerBoundary;
+  sparkleManager: Pick<
+    SparkleManagerBoundary,
+    "checkForUpdates" | "getUnavailableReason" | "hasUpdater"
+  >;
+}): { label: string; enabled: true; click(): void } {
+  return {
+    label: "Check for Updates...",
+    enabled: true,
+    click: () => {
+      logger.info("Check for updates requested via menu.");
+      if (!sparkleManager.hasUpdater()) {
+        const reason = sparkleManager.getUnavailableReason() ?? "unknown";
+        logger.warning("Desktop updater unavailable; init likely skipped.", {
+          safe: { reason },
+          sensitive: {},
+        });
+        void dialog.showMessageBox({
+          type: "info",
+          title: "Updates Unavailable",
+          message: "Automatic updates are unavailable right now.",
+          detail: `Updater initialization skipped: ${reason}`,
+        });
+        return;
+      }
+      void sparkleManager.checkForUpdates();
+    },
+  };
+}
+
+function createAppUpdateActions({
+  confirmInstallOnMac,
+  dialog,
+  getPrimaryWindow,
+  intl,
+  isMacOS,
+  isQuitConfirmationRequired,
+  runtimeAppName,
+  sparkleManager,
+}: {
+  confirmInstallOnMac: boolean;
+  dialog: DialogBoundary & {
+    showMessageBox(
+      window: BrowserWindowBoundary,
+      options: Parameters<DialogBoundary["showMessageBox"]>[0],
+    ): Promise<{ response: number }> | { response: number } | void;
+  };
+  getPrimaryWindow(): BrowserWindowBoundary | null;
+  intl: NativeIntlBoundary;
+  isMacOS: boolean;
+  isQuitConfirmationRequired(): boolean;
+  runtimeAppName: string;
+  sparkleManager: Pick<
+    SparkleManagerBoundary,
+    "checkForUpdates" | "installUpdatesIfAvailable"
+  >;
+}): {
+  checkForUpdates(): void;
+  installUpdate(originWindow?: BrowserWindowBoundary | null): Promise<void>;
+} {
+  return {
+    checkForUpdates: () => {
+      void sparkleManager.checkForUpdates();
+    },
+    installUpdate: async (originWindow = null) => {
+      if (isMacOS && confirmInstallOnMac && isQuitConfirmationRequired()) {
+        const window = originWindow ?? getPrimaryWindow();
+        const title = intl.formatMessage({
+          messageId: "appHeader.installUpdate.confirmTitle",
+          defaultMessage: "Update {appName} now?",
+          values: { appName: runtimeAppName },
+        });
+        const options = {
+          type: "warning" as const,
+          buttons: [
+            intl.formatMessage({
+              messageId: "appHeader.installUpdate.confirmInstall",
+              defaultMessage: "Update",
+            }),
+            intl.formatMessage({
+              messageId: "appHeader.installUpdate.confirmCancel",
+              defaultMessage: "Cancel",
+            }),
+          ],
+          defaultId: 0,
+          cancelId: 1,
+          noLink: true,
+          title,
+          message: title,
+          detail: intl.formatMessage({
+            messageId: "appHeader.installUpdate.confirmSubtitle",
+            defaultMessage:
+              "{appName} will quit to install the update, which will interrupt active local sessions on this machine",
+            values: { appName: runtimeAppName },
+          }),
+        };
+        const result =
+          window == null
+            ? await dialog.showMessageBox(options)
+            : await dialog.showMessageBox(window, options);
+        if (result && result.response !== 0) return;
+      }
+      void sparkleManager.installUpdatesIfAvailable();
+    },
+  };
+}
+
 function shouldHandleStateDatabaseOpenError(error: unknown): boolean {
   const message = (
     error instanceof Error ? error.message : String(error)
@@ -132,7 +413,7 @@ function shouldHandleStateDatabaseOpenError(error: unknown): boolean {
 function createMainStartupOpenBoundaryError(): Error {
   return Object.assign(
     Error(
-      "main--VWTbRdF remains an open restoration boundary: the startup phase map is recovered, but window services, app-server lifecycle, worker handlers, tray/menu/updater wiring, IPC registration, and telemetry still require semantic restoration.",
+      "main--VWTbRdF remains an open restoration boundary: the startup phase map and updater bridge helpers are recovered, but window services, app-server lifecycle, worker handlers, tray/menu assembly, IPC registration, and telemetry still require semantic restoration.",
     ),
     {
       code: OPEN_RESTORATION_BOUNDARY_CODE,

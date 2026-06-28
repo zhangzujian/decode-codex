@@ -102,7 +102,7 @@
       "boundary": true,
       "vendor": "runtime",
       "openBoundary": true,
-      "note": "Startup phase map, SQLite recovery routing predicate, and open-boundary metadata restored; window services, app-server lifecycle, worker handlers, IPC, updater/tray/menu wiring, and telemetry still require semantic restoration."
+      "note": "Startup phase map, SQLite recovery routing predicate, open-boundary metadata, updater state snapshot/bridge helpers, Sparkle gate handling, update install quit handling, and check-for-updates menu action restored; window services, app-server lifecycle, worker handlers, tray/menu assembly, IPC registration, and telemetry still require semantic restoration."
     },
     "codex-micro-service-DMYylm8w": {
       "restored": "devices/codex-micro-service.ts",
