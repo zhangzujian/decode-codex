@@ -3,6 +3,7 @@
 import {
   AB as initScopeRuntime,
   AI as getLocalConversationPathRaw,
+  Dl as createLocalConversationRouteTargetRaw,
   Ev as useLocationRaw,
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
@@ -30,6 +31,18 @@ export type RouteLocation = {
 };
 
 export { localConversationRouteScope, Navigate, toastSignal };
+
+export function createLocalConversationRouteTarget(
+  conversationId: string,
+  surface: "main" | "side" | string,
+  sourceConversationId?: string | null,
+): unknown {
+  return createLocalConversationRouteTargetRaw(
+    conversationId,
+    surface,
+    sourceConversationId,
+  );
+}
 
 export function getLocalConversationPath(conversationId: string): string {
   return getLocalConversationPathRaw(conversationId);

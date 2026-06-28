@@ -4,28 +4,32 @@ import React, { useState, type ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import { Button } from "../../ui/button";
 import {
-  $P as initAppScope,
-  AB as initScopeRuntime,
-  Dl as createLocalConversationRouteTarget,
-  FB as useScope,
-  Fp as expiredSideChatSignal,
-  M_ as localConversationRouteScope,
-  MB as ScopeValueProvider,
-  Op as initConversationStateSelectors,
-  PB as useScopedValue,
-  Up as conversationCollaborationModeSignal,
-  VE as initHostConfigHelpers,
-  ak as initAppServerRequestBridge,
-  bF as initPathHelpers,
-  cM as initToastRuntime,
-  cP as initVscodeMessageBridge,
-  cm as conversationHostIdSignal,
-  gp as conversationCwdSignal,
-  mP as logger,
-  Tp as hasConversationSignal,
-  uM as toastSignal,
-  wl as composerScope,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  ScopeValueProvider,
+  useScope,
+  useScopedValue,
+} from "../../runtime/app-scope-hooks";
+import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
+import { initAppServerRequestRuntime } from "../../runtime/app-server-request";
+import { appLogger as logger } from "../../runtime/app-logger";
+import { composerScope } from "../../runtime/composer-scope-runtime";
+import {
+  conversationCollaborationModeSignal,
+  conversationCwdSignal,
+  conversationHostIdSignal,
+  expiredSideChatSignal,
+  hasConversationSignal,
+  initConversationStateRuntime,
+} from "../../runtime/conversation-state-runtime";
+import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
+import {
+  createLocalConversationRouteTarget,
+  initLocalConversationRouteRuntime,
+  initToastSignalRuntime,
+  localConversationRouteScope,
+  toastSignal,
+} from "../../runtime/local-conversation-route-runtime";
+import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
+import { initVscodeMessageRuntime } from "../../runtime/vscode-message-runtime";
 import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";
 import { _c as getSidePanelTargetStore } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
@@ -394,16 +398,16 @@ function LocalConversationThreadContent(
 }
 
 const initLocalConversationThreadEntryComponentsChunk = once(() => {
-  initScopeRuntime();
-  initPathHelpers();
+  initLocalConversationRouteRuntime();
+  initPathHelpersRuntime();
   initIntlRuntime();
-  initConversationStateSelectors();
-  initAppServerRequestBridge();
-  initToastRuntime();
+  initConversationStateRuntime();
+  initAppServerRequestRuntime();
+  initToastSignalRuntime();
   initResumeLocalConversationChunk();
-  initVscodeMessageBridge();
-  initAppScope();
-  initHostConfigHelpers();
+  initVscodeMessageRuntime();
+  initAppScopeSignalRuntime();
+  initHostConfigRuntime();
   initOpenSideChatTabChunk();
   initLocalConversationThreadFrameChunk();
   initLocalConversationThreadContentChunk();
