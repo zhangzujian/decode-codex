@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-page-D7JrTtqP.js
 // Local conversation page container runtime bindings and side-effect helpers.
-import { bF as initIntlMessageRuntime } from "../vendor/appg-thread-shared-runtime";
+import { initIntlMessageRuntime } from "../runtime/intl-message-runtime";
+
 import { initMotionRuntime } from "../utils/motion-signal-runtime";
 
 import { initGlobalStateQueryRuntime } from "../runtime/global-state-runtime";

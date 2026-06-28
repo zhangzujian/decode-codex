@@ -5,7 +5,6 @@ import {
   normalizeWorkspacePath,
 } from "../boundaries/src-l0hb-mz-p";
 import {
-  bF as initIntlMessageRuntime,
   HI as parseProjectWritableRoots,
   KE as initKeyboardShortcutRuntime,
   qE as useRemoteHostConfigs,
@@ -14,6 +13,8 @@ import {
   VI as getProjectWritableRootsForDisplay,
   wj as initStringNormalizeRuntime,
 } from "../vendor/appg-thread-shared-runtime";
+import { initIntlMessageRuntime } from "./intl-message-runtime";
+
 import { initModalRuntime } from "./modal-runtime";
 
 import { useHostConfigById } from "./host-config-runtime";

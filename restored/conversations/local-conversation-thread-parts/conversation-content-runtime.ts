@@ -1,9 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
 // Conversation rendering helpers shared by local conversation thread modules.
-import {
-  Sk as normalizeMarkdownPlainTextRaw,
-  Sj as getPathBasenameRaw,
-} from "../../vendor/appg-thread-shared-runtime";
+import { Sk as normalizeMarkdownPlainTextRaw } from "../../vendor/appg-thread-shared-runtime";
+import { getPathBasename as getPathBasenameRaw } from "../../runtime/path-basename-runtime";
+
 import { initConversationPromptContextRuntime } from "../../runtime/conversation-prompt-context-runtime";
 import { initArtifactPreviewRuntime as initThreadFindResourcePreviewRuntime } from "../../runtime/artifact-preview-runtime";
 

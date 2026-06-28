@@ -4,10 +4,11 @@ import {
   DE as openFileOutcomeEvent,
   kL as readFileContentSampleByteLimit,
   MD as renderMcpCapabilityIcon,
-  Sj as getPathBasename,
   xL as isRemoteHostConfig,
   yR as isUrlLikePath,
 } from "../vendor/appg-thread-shared-runtime";
+import { getPathBasename } from "./path-basename-runtime";
+
 import { initArtifactPreviewRuntime } from "./artifact-preview-runtime";
 
 import { resolveWorkspacePathFromCwd } from "../conversations/output-artifact-runtime";
