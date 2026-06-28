@@ -11291,8 +11291,8 @@
         "tn": "initWorkspaceRootDisplayNameRuntime"
       },
       "status": "partial",
-      "note": "Composer-facing thread footer/component initializer, app-shell element context, thread lazy navigation rail, git-root query, remote connection state/icon, command menu item, and workspace root display-name exports now have semantic wrappers; git-root query imports normalized workspace path helpers from conversations/output-artifact-runtime.ts instead of the runtime compatibility barrel, and lazy navigation rail lives at threads/lazy-navigation-rail.tsx with utils/lazy-navigation-rail.tsx as a compatibility barrel. Remaining appgen-library hot-path UI/runtime exports stay isolated behind vendor/appgen-library-hot-runtime.ts until the full mixed chunk is deep-restored.",
-      "lastUpdated": "2026-06-28T00:00:00.000Z",
+      "note": "Composer-facing thread footer/component initializer, app-shell element context, thread lazy navigation rail, git-root query, remote connection state/icon, command menu item, and workspace root display-name exports now have semantic wrappers. Remaining appgen-library hot-path runtime exports are routed through vendor/appgen-library-hot-runtime.ts, synced to current ref djo67r4n-CFm41aDU instead of the stale CIs8dplf hash, until the full mixed chunk is deep-restored.",
+      "lastUpdated": "2026-06-28T21:20:00.000Z",
       "boundary": "boundaries/current-ref/appgen-library-hot-producer.ts"
     },
     "app-initial~app-main~remote-conversation-page~onboarding-page~hotkey-window-thread-page~thr~jv7rs281-DxRnxRkd": {
@@ -11418,8 +11418,8 @@
     "local-remote-dropdown-BcmhHtfg": {
       "restored": "thread-summary/local-remote-dropdown.tsx",
       "status": "partial",
-      "note": "Partial thread-summary/composer restore: all raw aliases now resolve to semantic exports in thread-summary/local-remote-dropdown.tsx, the current-ref producer no longer routes through the vendor facade, CloudEnvironmentDropdown now gates on Codex cloud access plus git-root availability before loading/searching/selecting environments through restored codex-api hooks, and LocalRemoteDropdown registers the base local/worktree/cloud plus per-environment cloud prompt slash commands. Cross-host handoff dialog parity remains pending.",
-      "lastUpdated": "2026-06-28T00:00:00.000Z",
+      "note": "Partial thread-summary/composer restore: all raw aliases resolve to semantic exports in thread-summary/local-remote-dropdown.tsx, while vendor/local-remote-dropdown-runtime.ts now exposes semantic names only. The current-ref producer preserves original short aliases for compatibility. Cross-host handoff dialog parity remains pending.",
+      "lastUpdated": "2026-06-28T21:20:00.000Z",
       "exports": {
         "a": "CloudEnvironmentDropdown",
         "c": "isComposerModeVisibleInLocalRemoteDropdown",
@@ -13145,6 +13145,14 @@
       "status": "partial",
       "note": "Current app-main automations/root app producer facade for the Electron CodexApp bootstrap aliases; full app router producer remains an open partial boundary.",
       "lastUpdated": "2026-06-28T21:05:00.000Z"
+    },
+    "app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CFm41aDU": {
+      "restored": "vendor/appgen-library-hot-runtime.ts",
+      "status": "partial",
+      "aliasOf": "app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CIs8dplf",
+      "boundary": "boundaries/current-ref/appgen-library-hot-producer.ts",
+      "note": "Current synced appgen-library hot-path producer. The semantic aliases used by restored composer/app-shell modules remain exposed through current-ref/appgen-library-hot-producer.ts; residual raw aliases stay in vendor/appgen-library-hot-runtime.ts as an open boundary.",
+      "lastUpdated": "2026-06-28T21:20:00.000Z"
     }
   }
 }
