@@ -2,6 +2,10 @@
 // Browser sidebar comment runtime document-context public surface.
 
 export { BrowserSidebarDocumentContextResolver } from "./document-context-resolver";
+export {
+  areBrowserSidebarAnchorsEqual,
+  areScrollContainerSnapshotsEqual,
+} from "./anchors";
 export { normalizeCssColorValue } from "./colors";
 export {
   DEFAULT_DESIGN_GROUP_ATTRIBUTE,
@@ -32,6 +36,15 @@ export type {
   BrowserSidebarRect,
   BrowserSidebarSize,
 } from "./geometry";
+export type {
+  BrowserSidebarAnchorPoint,
+  BrowserSidebarCommentAnchor,
+  BrowserSidebarElementAnchor,
+  BrowserSidebarRegionAnchor,
+  BrowserSidebarScrollContainerSnapshot,
+  BrowserSidebarTextAnchor,
+  BrowserSidebarTextLocator,
+} from "./anchors";
 export type {
   BrowserSidebarDesignStyleDeclaration,
   BrowserSidebarDesignStyleDraft,
