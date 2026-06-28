@@ -137,8 +137,11 @@ export function usePendingWorktreeStore(): PendingWorktreeStoreActions {
           item.id === id
             ? {
                 ...item,
+                attempt: item.attempt + 1,
                 phase: "queued",
                 outputText: "",
+                worktreeOutputText: "",
+                setupOutputText: "",
                 errorMessage: null,
                 worktreeWorkspaceRoot: null,
                 worktreeGitRoot: null,

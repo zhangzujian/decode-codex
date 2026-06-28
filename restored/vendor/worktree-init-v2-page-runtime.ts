@@ -1,9 +1,10 @@
 // Restored from ref/webview/assets/worktree-init-v2-page-BAfwy1p_.js
-// Vendored compatibility facade for the pending worktree route UI.
+// Compatibility facade preserving the original short exports.
 export {
-  n as initPendingWorktreeChunk,
-  t as PendingWorktreeConversation,
-} from "../../ref/webview/assets/worktree-init-v2-page-BAfwy1p_.js";
+  initPendingWorktreeChunk,
+  initPendingWorktreeChunk as n,
+  PendingWorktreeConversation,
+  PendingWorktreeConversation as t,
+} from "../worktree/pending-worktree-conversation-ui";
 
-export { n, t } from "../../ref/webview/assets/worktree-init-v2-page-BAfwy1p_.js";
-export * from "../../ref/webview/assets/worktree-init-v2-page-BAfwy1p_.js";
+export * from "../worktree/pending-worktree-conversation-ui";

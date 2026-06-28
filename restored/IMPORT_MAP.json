@@ -11528,14 +11528,13 @@
     },
     "worktree-init-v2-page-BAfwy1p_": {
       "restored": "worktree/pending-worktree-conversation-ui.tsx",
-      "status": "partial",
-      "note": "Pending worktree route compatibility entry moved to a semantic worktree module. The route UI remains isolated behind vendor/worktree-init-v2-page-runtime.ts until it is deep-restored against the restored pending-worktree store.",
+      "status": "done",
+      "note": "Deep-restored the pending worktree route UI, activity status model, local fallback conversation flow, edit-environment routing, and auto-fix repair thread creation against the restored pending-worktree store. The boundary and vendor facade now preserve original short exports only.",
       "lastUpdated": "2026-06-28T00:00:00.000Z",
       "exports": {
         "n": "initPendingWorktreeChunk",
         "t": "PendingWorktreeConversation"
-      },
-      "boundary": "boundaries/current-ref/worktree-init-v2-page-producer.ts"
+      }
     },
     "local-conversation-page-D7JrTtqP": {
       "restored": "conversations/local-conversation-page.tsx",
