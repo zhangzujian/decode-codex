@@ -1,6 +1,7 @@
 // Restored from ref/.vite/build/comment-preload.js
 // Browser sidebar comment preload: IPC bridge, host message queue, and navigation hooks.
 import { contextBridge, ipcRenderer } from "electron";
+import { BrowserSidebarDocumentContextResolver } from "./browser-sidebar-comment-runtime";
 
 type BrowserSidebarInteractionMode = "browse" | "comment";
 type BrowserSidebarAnnotationMode = "comment" | "design";
@@ -53,6 +54,9 @@ type BrowserSidebarHostMessage =
 type BrowserSidebarRuntimeMessage = Record<string, unknown> & { type: string };
 type BrowserSidebarRuntimeHost = {
   initialState: BrowserSidebarRuntimeState;
+  createDocumentContextResolver(
+    pageUrl: string,
+  ): BrowserSidebarDocumentContextResolver;
   sendMessageToHost(message: BrowserSidebarRuntimeMessage): void;
   subscribeToHostMessages(
     listener: (message: BrowserSidebarHostMessage) => void,
@@ -172,6 +176,9 @@ function mountOpenRuntimeBoundary(
 function createRuntimeHost(): BrowserSidebarRuntimeHost {
   return {
     initialState: runtimeState,
+    createDocumentContextResolver(pageUrl) {
+      return new BrowserSidebarDocumentContextResolver(pageUrl);
+    },
     sendMessageToHost(message) {
       void ipcRenderer.invoke(RUNTIME_MESSAGE_CHANNEL, message);
     },
