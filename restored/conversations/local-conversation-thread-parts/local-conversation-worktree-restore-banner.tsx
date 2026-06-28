@@ -37,7 +37,7 @@ import { useHostMutation } from "../../runtime/host-mutation-runtime";
 import {
   hostConnectionStatusSignal,
   initLocalConversationComposerRuntime,
-} from "../../runtime/local-conversation-composer-runtime";
+} from "../../composer/local-conversation-composer-runtime";
 import {
   initToastSignalRuntime,
   toastSignal,

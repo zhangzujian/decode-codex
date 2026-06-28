@@ -29,7 +29,7 @@ import {
   threadComposerContext,
   ThreadComposerFooter,
   useLocalConversationComposerRuntime,
-} from "../../runtime/local-conversation-composer-runtime";
+} from "../../composer/local-conversation-composer-runtime";
 import {
   initConversationRouteSourceRuntime,
   initLocalConversationRouteRuntime,
