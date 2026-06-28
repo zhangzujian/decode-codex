@@ -7,31 +7,43 @@ import { GitBranchIcon, initGitBranchIcon } from "../../icons/git-branch-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
-  AB as initScopeRuntime,
-  Al as initComposerScope,
-  bF as initPathHelpers,
-  cm as conversationHostIdSignal,
-  DL as normalizeWorkspacePath,
-  FB as useScope,
-  Ga as initElectronPlatformContent,
-  Gj as initStatsigFeatureGateHooks,
-  gp as conversationCwdSignal,
-  IB as useSignalValue,
-  I_ as initRouteScope,
-  M_ as localConversationRouteScope,
-  Mu as initHostCodexHomeQuery,
-  OL as normalizeWorkspaceBrowserRoot,
-  Op as initConversationStateSelectors,
-  PB as useScopedValue,
-  qj as useStatsigGate,
-  VE as initHostConfigHelpers,
-  Wa as PlatformContentGate,
-  wl as composerScope,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  useScope,
+  useScopedValue,
+  useSignalValue,
+} from "../../runtime/app-scope-hooks";
+import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
+import {
+  composerScope,
+  initComposerScopeRuntime,
+} from "../../runtime/composer-scope-runtime";
+import {
+  conversationCwdSignal,
+  conversationHostIdSignal,
+  initConversationStateRuntime,
+} from "../../runtime/conversation-state-runtime";
+import {
+  initStatsigFeatureGateRuntime,
+  useStatsigGate,
+} from "../../runtime/feature-gate-runtime";
 import {
   getHostCodexHome,
+  initHostWorktreeContextRuntime,
   isPathInCodexWorktree,
 } from "../../runtime/host-worktree-context";
+import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
+import {
+  initLocalConversationRouteRuntime,
+  localConversationRouteScope,
+} from "../../runtime/local-conversation-route-runtime";
+import { normalizeWorkspacePath } from "../../runtime/output-artifact-runtime";
+import {
+  initPathHelpersRuntime,
+  normalizeWorkspaceBrowserRoot,
+} from "../../runtime/path-helpers-runtime";
+import {
+  PlatformContentGate,
+  initPlatformContentRuntime,
+} from "../../runtime/platform-content-runtime";
 import {
   $i as getConversationRemoteState,
   Dd as initConversationRemoteStateHelpers,
@@ -385,8 +397,8 @@ export function ThreadSummaryEnvironmentSection({
 }
 
 export const initThreadSummaryEnvironmentSectionChunk = once(() => {
-  initScopeRuntime();
-  initPathHelpers();
+  initAppScopeSignalRuntime();
+  initPathHelpersRuntime();
   initIntlRuntime();
   initSpinnerComponent();
   initDiffStatsChunk();
@@ -395,21 +407,21 @@ export const initThreadSummaryEnvironmentSectionChunk = once(() => {
   initGitBranchSwitcherChunk();
   initSummaryPanelPullRequestControlsChunk();
   initEnvironmentTerminalSessionHelpers();
-  initRouteScope();
+  initLocalConversationRouteRuntime();
   initWorkspaceRouteStateHelpers();
   initSummaryPanelRowChunk();
   initThreadSummaryPanelSectionChunk();
-  initConversationStateSelectors();
-  initElectronPlatformContent();
+  initConversationStateRuntime();
+  initPlatformContentRuntime();
   initCloudEnvironmentDropdownChunk();
   initComposerModeRuntime();
   initThreadHandoffHelpersChunk();
   initLocalRemoteDropdownChunk();
-  initHostCodexHomeQuery();
+  initHostWorktreeContextRuntime();
   initConversationRemoteStateHelpers();
   initConversationDisplayTitleSignals();
-  initComposerScope();
-  initHostConfigHelpers();
-  initStatsigFeatureGateHooks();
+  initComposerScopeRuntime();
+  initHostConfigRuntime();
+  initStatsigFeatureGateRuntime();
   initWorkspaceRouteHelpers();
 });
