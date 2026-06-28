@@ -2,6 +2,7 @@
 // Environment, branch, and composer-mode section for the local conversation summary panel.
 import type { ComponentType } from "react";
 import { useRef } from "react";
+import { ChevronIcon, initChevronDownIcon } from "../../icons/chevron-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
@@ -26,11 +27,9 @@ import {
   PB as useScopedValue,
   pI as isPathInCodexWorktree,
   qj as useStatsigGate,
-  RP as ChevronIcon,
   VE as initHostConfigHelpers,
   Wa as PlatformContentGate,
   wl as composerScope,
-  zP as initChevronDownIcon,
   Ao as initGitBranchIcon,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {

@@ -22,4 +22,7 @@ export function ChevronIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function initChevronDownIcon(): void {}
+
 export default ChevronIcon;

@@ -18,6 +18,10 @@ export {
   initKeyboardShortcutKeycap as yM,
 } from "../../ui/keyboard-shortcut-keycap";
 export {
+  ChevronIcon as RP,
+  initChevronDownIcon as zP,
+} from "../../icons/chevron-icon";
+export {
   classNames as BP,
   initClassNameRuntime as VP,
 } from "../../utils/class-names";
