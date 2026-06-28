@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
 // Conversation rendering/search helpers shared by local conversation thread modules.
+import type { ComponentType } from "react";
 import {
   Mv as isRenderableConversationTurnRaw,
   Sk as normalizeMarkdownPlainTextRaw,
@@ -17,6 +18,17 @@ import {
   qo as diffSourceSignal,
   u as localConversationMessages,
   un as waitForThreadLayoutTickRaw,
+  Bo as conversationSearchResultSignal,
+  Cs as setContentSearchMatchIdAttributeRaw,
+  Di as groupConversationSearchMatchesByContentUnitKeyRaw,
+  Ho as activeConversationSearchMatchSignal,
+  Oi as initContentSearchMatchAttributeRuntimeRaw,
+  Ss as initContentSearchRuntimeRaw,
+  _s as activeContentSearchMatchClassName,
+  ts as initConversationSearchSignalsRaw,
+  vs as clearContentSearchHighlightsRaw,
+  ws as shouldRefreshSearchHighlightMutationsRaw,
+  xs as highlightContentSearchMatchesRaw,
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import {
   Mt as registerContentSearchRevealHandlerRaw,
@@ -24,6 +36,10 @@ import {
   Pt as revealContentSearchItemElementRaw,
   ct as updateCollapsedTurnsByConversationRaw,
 } from "../boundaries/current-ref/profile-page-producer";
+import {
+  Dr as createLazyNavigationRailComponentRaw,
+  Er as initLazyNavigationRailRuntimeRaw,
+} from "../boundaries/current-ref/appgen-library-hot-producer";
 
 export type RenderableConversationTurnOptions = {
   isBackgroundSubagentsEnabled?: boolean;
@@ -59,12 +75,36 @@ export type ContentSearchRevealHandler = {
   revealItem(request: ContentSearchRevealRequest): Promise<void> | void;
 };
 
-export { diffSourceSignal, localConversationMessages };
+export type ContentSearchMatch = {
+  id: string;
+};
+
+export type ContentSearchHighlightResult = {
+  matches: Element[];
+};
+
+export {
+  activeContentSearchMatchClassName,
+  activeConversationSearchMatchSignal,
+  conversationSearchResultSignal,
+  diffSourceSignal,
+  localConversationMessages,
+};
 
 export function initThreadFindPreviewRuntime(): void {
   initConversationPromptContextRuntime();
   initGitActionDirectiveRuntime();
   initThreadFindResourcePreviewRuntime();
+}
+
+export function initConversationContentSearchRuntime(): void {
+  initContentSearchRuntimeRaw();
+  initConversationSearchSignalsRaw();
+  initContentSearchMatchAttributeRuntimeRaw();
+}
+
+export function initLazyNavigationRailRuntime(): void {
+  initLazyNavigationRailRuntimeRaw();
 }
 
 export function isRenderableConversationTurn(
@@ -154,4 +194,48 @@ export function updateCollapsedTurnsByConversation(
   update: CollapsedTurnsUpdate,
 ): unknown {
   return updateCollapsedTurnsByConversationRaw(update);
+}
+
+export function clearContentSearchHighlights(
+  target: Element,
+  options: { includeShadowRoots: boolean },
+): void {
+  clearContentSearchHighlightsRaw(target, options);
+}
+
+export function groupConversationSearchMatchesByContentUnitKey(
+  matches: readonly ContentSearchMatch[],
+): Map<string, ContentSearchMatch[]> {
+  return groupConversationSearchMatchesByContentUnitKeyRaw(matches) as Map<
+    string,
+    ContentSearchMatch[]
+  >;
+}
+
+export function highlightContentSearchMatches(options: {
+  includeShadowRoots: boolean;
+  maxMatches: number;
+  query: string;
+  target: Element;
+}): ContentSearchHighlightResult {
+  return highlightContentSearchMatchesRaw(options) as ContentSearchHighlightResult;
+}
+
+export function setContentSearchMatchIdAttribute(options: {
+  element: Element;
+  matchId: string;
+}): void {
+  setContentSearchMatchIdAttributeRaw(options);
+}
+
+export function shouldRefreshSearchHighlightMutations(
+  mutationRecords: readonly MutationRecord[],
+): boolean {
+  return shouldRefreshSearchHighlightMutationsRaw(mutationRecords);
+}
+
+export function createLazyNavigationRailComponent<TProps>(
+  loader: () => Promise<ComponentType<TProps>>,
+): ComponentType<TProps> {
+  return createLazyNavigationRailComponentRaw(loader) as ComponentType<TProps>;
 }
