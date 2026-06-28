@@ -54,7 +54,7 @@ import {
   initToastSignalRuntime,
   localConversationRouteScope,
   toastSignal,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { normalizeWorkspacePath } from "../output-artifact-runtime";
 import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
 import {

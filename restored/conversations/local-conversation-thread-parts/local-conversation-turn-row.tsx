@@ -6,7 +6,7 @@ import { once } from "../../runtime/commonjs-interop";
 import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   initUseStableCallback,

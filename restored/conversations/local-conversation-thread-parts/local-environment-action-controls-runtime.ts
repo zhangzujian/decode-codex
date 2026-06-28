@@ -57,7 +57,7 @@ export {
   initLocalConversationNavigationRuntime,
   useLocation,
   useNavigate,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 export {
   initLocalEnvironmentConfigRuntime,
   LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,

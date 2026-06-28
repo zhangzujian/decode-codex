@@ -21,7 +21,7 @@ import {
   useLocation,
   useNavigate,
   type Navigate as NavigateFunction,
-} from "../runtime/local-conversation-route-runtime";
+} from "../conversations/local-conversation-route-runtime";
 import {
   initAppServerMutationRuntime,
   useMutation,
@@ -111,9 +111,10 @@ type ComposerPrefill = {
   prefillPrompt: string;
 };
 
-const PullRequestNumberBadge = PullRequestNumberBadgeRaw as React.ComponentType<{
-  pullRequestNumber: string | number;
-}>;
+const PullRequestNumberBadge =
+  PullRequestNumberBadgeRaw as React.ComponentType<{
+    pullRequestNumber: string | number;
+  }>;
 
 const UserMessageBubble = UserMessageBubbleRaw as React.ComponentType<{
   alwaysShowActions?: boolean;
@@ -145,7 +146,9 @@ const buildPendingWorktreeRoute = buildPendingWorktreeRouteRaw as unknown as (
 ) => string;
 
 const applyActiveProfileConfigOverrides =
-  applyActiveProfileConfigOverridesRaw as unknown as (config: unknown) => unknown;
+  applyActiveProfileConfigOverridesRaw as unknown as (
+    config: unknown,
+  ) => unknown;
 
 const clearPendingWorktreeRestore =
   clearPendingWorktreeRestoreRaw as unknown as (
@@ -258,7 +261,10 @@ export function PendingWorktreeConversation({
           });
         }
         onConversationReady?.(conversationId);
-        if (onConversationReady == null && pendingWorktree.clientThreadId == null) {
+        if (
+          onConversationReady == null &&
+          pendingWorktree.clientThreadId == null
+        ) {
           navigate(conversationPathBuilder(conversationId));
         }
       } catch (error) {
@@ -338,8 +344,7 @@ export function PendingWorktreeConversation({
   const isWorktreePending = isPendingWorktreeInProgress(pendingWorktree.phase);
   const isConversationStartFailed =
     pendingConversationStart?.state === "failed";
-  const isConversationStarting =
-    pendingConversationStart?.state === "starting";
+  const isConversationStarting = pendingConversationStart?.state === "starting";
   const hasFailure =
     pendingWorktree.phase === "failed" || isConversationStartFailed;
   const isStableWorktree =
@@ -542,7 +547,9 @@ function PendingWorktreeActivities({
           <PendingWorktreeActivityRow key={activity.id} activity={activity} />
         ))}
       </div>
-      {children ? <div className="flex flex-wrap gap-2 pt-1">{children}</div> : null}
+      {children ? (
+        <div className="flex flex-wrap gap-2 pt-1">{children}</div>
+      ) : null}
     </div>
   );
 }
@@ -737,7 +744,9 @@ async function createAutoFixPendingWorktree({
   pendingWorktree,
   serviceTier,
 }: {
-  createPendingWorktree: ReturnType<typeof usePendingWorktreeStore>["createPendingWorktree"];
+  createPendingWorktree: ReturnType<
+    typeof usePendingWorktreeStore
+  >["createPendingWorktree"];
   intl: IntlShape;
   pendingWorktree: PendingWorktree;
   serviceTier: string | null;
@@ -849,8 +858,9 @@ function buildComposerPrefill(entry: PendingWorktree): ComposerPrefill {
   if (entry.launchMode !== "start-conversation") {
     return { prefillPrompt };
   }
-  const commentAttachments = toRecord(entry.startConversationParamsInput)
-    .commentAttachments;
+  const commentAttachments = toRecord(
+    entry.startConversationParamsInput,
+  ).commentAttachments;
   return Array.isArray(commentAttachments) && commentAttachments.length > 0
     ? {
         prefillPrompt,

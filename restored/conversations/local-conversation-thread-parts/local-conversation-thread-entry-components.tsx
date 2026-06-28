@@ -27,7 +27,7 @@ import {
   initToastSignalRuntime,
   localConversationRouteScope,
   toastSignal,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
 import { initVscodeMessageRuntime } from "../../runtime/vscode-message-runtime";
 import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";

@@ -15,7 +15,7 @@ import {
 import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import {
   activeWorkflowSignal,
   BranchChangesIcon,

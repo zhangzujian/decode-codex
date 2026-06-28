@@ -11,7 +11,7 @@ import {
   localConversationRouteScope,
   toastSignal,
   useNavigate,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { initIntlRuntime, useIntl } from "../../vendor/react-intl";
 
 type LocalConversationTurnItem = {

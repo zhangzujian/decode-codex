@@ -27,7 +27,7 @@ import {
   initToastSignalRuntime,
   localConversationRouteScope,
   Navigate,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
 import { PlatformContentGate } from "../../runtime/platform-content-runtime";
 import { initVscodeMessageRuntime } from "../../runtime/vscode-message-runtime";

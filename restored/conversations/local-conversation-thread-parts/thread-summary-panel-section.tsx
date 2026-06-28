@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { once } from "../../runtime/commonjs-interop";
 import { useScope, useScopedValue } from "../../runtime/app-scope-hooks";
-import { localConversationRouteScope } from "../../runtime/local-conversation-route-runtime";
+import { localConversationRouteScope } from "../local-conversation-route-runtime";
 import {
   createLocalConversationRouteScopedSignal,
   createPersistedScopedSignal,

@@ -35,7 +35,7 @@ import {
   initConversationRouteSourceRuntime,
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import {
   backgroundAgentsSignal,
   formatCommandExecutionItemCommand,

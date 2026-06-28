@@ -27,7 +27,7 @@ import {
   initLocalConversationNavigationRuntime,
   toastSignal,
   useNavigate,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import {
   initOutputArtifactRuntime,
   normalizeWorkspacePath,

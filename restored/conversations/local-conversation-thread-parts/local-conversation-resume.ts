@@ -37,7 +37,7 @@ import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
 import {
   initToastSignalRuntime,
   toastSignal,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import {
   initVscodeMessageRuntime,
   vscodeMessageBridge,

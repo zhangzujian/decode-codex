@@ -34,7 +34,7 @@ import {
   initConversationRouteSourceRuntime,
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";
 import { setActiveConversationSourceContext } from "./local-conversation-state";
 import {

@@ -34,7 +34,7 @@ import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
 import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { normalizeWorkspacePath } from "../output-artifact-runtime";
 import {
   initPathHelpersRuntime,

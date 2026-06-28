@@ -32,7 +32,7 @@ import {
 import {
   initToastSignalRuntime,
   toastSignal,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { initVscodeBridgeRuntime } from "../../runtime/platform-content-runtime";
 import {
   initShareInviteAutocompleteChunk,

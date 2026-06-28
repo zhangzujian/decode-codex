@@ -25,7 +25,7 @@ import {
   initConversationRouteSourceRuntime,
   initLocalConversationRouteRuntime,
   initToastSignalRuntime,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { initModalRuntime } from "../../runtime/modal-runtime";
 import { initMotionSignalRuntime } from "../../utils/motion-signal-runtime";
 import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";

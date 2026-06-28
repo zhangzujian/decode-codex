@@ -5,7 +5,7 @@ import { useScope } from "../../runtime/app-scope-hooks";
 import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import {
   formatAutomationScheduleSummary,
   initAutomationScheduleSummaryFormatter,

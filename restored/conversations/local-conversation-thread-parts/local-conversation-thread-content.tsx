@@ -60,7 +60,7 @@ import {
   localConversationRouteScope,
   toastSignal,
   useNavigate,
-} from "../../runtime/local-conversation-route-runtime";
+} from "../local-conversation-route-runtime";
 import { initModalRuntime, openScopedModal } from "../../runtime/modal-runtime";
 import { motion } from "../../utils/motion-signal-runtime";
 import { normalizeWorkspacePath } from "../output-artifact-runtime";
