@@ -8,9 +8,10 @@ import {
   Sj as getPathBasename,
   wj as initArtifactPreviewRuntime,
   xL as isRemoteHostConfig,
-  YN as sendHostRequest,
   yR as isUrlLikePath,
 } from "../vendor/appg-thread-shared-runtime";
+import { sendHostRequest } from "./host-request-runtime";
+
 import { initVscodeBridgeRuntime as initVscodeApiBridge } from "./platform-content-runtime";
 
 import { isAbsoluteOrWindowsPath } from "../boundaries/src-l0hb-mz-p";

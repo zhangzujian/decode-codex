@@ -2,9 +2,10 @@
 // Local conversation page container runtime bindings and side-effect helpers.
 import {
   SP as initMotionRuntime,
-  VE as initGlobalStateQueryRuntime,
   bF as initIntlMessageRuntime,
 } from "../vendor/appg-thread-shared-runtime";
+import { initGlobalStateQueryRuntime } from "../runtime/global-state-runtime";
+
 import {
   initReactRuntime,
   getChunkModuleExports,

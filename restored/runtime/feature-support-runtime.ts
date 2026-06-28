@@ -3,8 +3,9 @@
 import {
   WA as initAppServicesRuntime,
   yV as createSignal,
-  YN as sendHostRequest,
 } from "../vendor/appg-thread-shared-runtime";
+import { sendHostRequest } from "./host-request-runtime";
+
 import {
   getJsxRuntime,
   initReactRuntime,

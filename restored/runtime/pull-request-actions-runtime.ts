@@ -6,11 +6,12 @@ import {
   kE as initPullRequestActionEventRuntime,
   NI as routeToPendingWorktree,
   ST as pullRequestViewedFromSidePanelEvent,
-  uM as toastSignal,
   VN as initSwitchRuntime,
   bT as pullRequestActionEvent,
   xT as pullRequestKindActionEvent,
 } from "../vendor/appg-thread-shared-runtime";
+import { toastSignal } from "./toast-runtime";
+
 import { initVscodeBridgeRuntime as initVscodeApiBridge } from "./platform-content-runtime";
 
 import {

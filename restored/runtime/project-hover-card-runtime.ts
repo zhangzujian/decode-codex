@@ -7,17 +7,18 @@ import {
 import {
   bF as initIntlMessageRuntime,
   cM as initModalRuntime,
-  HE as useHostConfigById,
   HI as parseProjectWritableRoots,
   KE as initKeyboardShortcutRuntime,
   qE as useRemoteHostConfigs,
   rF as defineMessages,
   Sj as normalizeTextForCompare,
-  uM as toastControllerSignal,
-  VE as initGlobalStateQueryRuntime,
   VI as getProjectWritableRootsForDisplay,
   wj as initStringNormalizeRuntime,
 } from "../vendor/appg-thread-shared-runtime";
+import { useHostConfigById } from "./host-config-runtime";
+import { toastSignal as toastControllerSignal } from "./toast-runtime";
+import { initGlobalStateQueryRuntime } from "./global-state-runtime";
+
 import {
   initPersistentSignalRuntime,
   initReactRuntime,

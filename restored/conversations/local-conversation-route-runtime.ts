@@ -5,9 +5,9 @@ import {
   OI as getHotkeyWindowThreadPathRaw,
   PI as getHotkeyWindowFallbackPathRaw,
   bF as initConversationPromptContextRuntime,
-  cM as initToastRuntime,
-  uM as toastSignal,
 } from "../vendor/appg-thread-shared-runtime";
+import { initToastRuntime, toastSignal } from "../runtime/toast-runtime";
+
 import { isHotkeyWindowContext } from "../utils/is-hotkey-window-context";
 import { Dl as createLocalConversationRouteTargetRaw } from "../vendor/pull-request-thread-actions-runtime";
 import {
