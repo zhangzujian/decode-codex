@@ -35,7 +35,7 @@ import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
 } from "../../runtime/local-conversation-route-runtime";
-import { normalizeWorkspacePath } from "../../runtime/output-artifact-runtime";
+import { normalizeWorkspacePath } from "../output-artifact-runtime";
 import {
   initPathHelpersRuntime,
   normalizeWorkspaceBrowserRoot,

@@ -31,7 +31,7 @@ import {
 import {
   initOutputArtifactRuntime,
   normalizeWorkspacePath,
-} from "../../runtime/output-artifact-runtime";
+} from "../output-artifact-runtime";
 import {
   createPendingWorktree,
   forkThreadMessages,

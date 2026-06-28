@@ -7,10 +7,12 @@ import {
   useStableCallback,
 } from "../../utils/use-stable-callback";
 import { isEqualT as createIsEqual } from "../../vendor/lodash-is-equal";
+import { initAppLoggerRuntime } from "../../runtime/app-logger";
 import {
-  initAppLoggerRuntime,
-} from "../../runtime/app-logger";
-import { useScope, useScopedValue, useSignalValue } from "../../runtime/app-scope-hooks";
+  useScope,
+  useScopedValue,
+  useSignalValue,
+} from "../../runtime/app-scope-hooks";
 import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
 import {
   initAppServerMutationRuntime,
@@ -53,7 +55,7 @@ import {
   localConversationRouteScope,
   toastSignal,
 } from "../../runtime/local-conversation-route-runtime";
-import { normalizeWorkspacePath } from "../../runtime/output-artifact-runtime";
+import { normalizeWorkspacePath } from "../output-artifact-runtime";
 import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
 import {
   PlatformContentGate,

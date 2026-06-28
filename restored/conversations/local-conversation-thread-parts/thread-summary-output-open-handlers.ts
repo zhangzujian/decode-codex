@@ -2,7 +2,7 @@
 // Output resource open handlers for the local conversation summary panel.
 import type { MouseEvent } from "react";
 import { once } from "../../runtime/commonjs-interop";
-import { isFileUrlLikeTarget } from "../../runtime/output-artifact-runtime";
+import { isFileUrlLikeTarget } from "../output-artifact-runtime";
 import {
   getImagePreviewDisplayMode,
   initResourceOpenRuntime,

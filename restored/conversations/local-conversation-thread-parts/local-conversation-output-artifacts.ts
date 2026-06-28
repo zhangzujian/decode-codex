@@ -12,7 +12,7 @@ import {
   normalizeHref,
   normalizeWorkspacePath,
   resolveWorkspacePathFromCwd,
-} from "../../runtime/output-artifact-runtime";
+} from "../output-artifact-runtime";
 import type { LocalConversationOutputArtifact } from "./artifact-summary";
 import {
   collectLocalAssistantOutputArtifacts,

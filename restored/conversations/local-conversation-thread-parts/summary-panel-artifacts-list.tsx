@@ -20,7 +20,7 @@ import {
 import {
   initOutputArtifactRuntime,
   isFileUrlLikeTarget,
-} from "../../runtime/output-artifact-runtime";
+} from "../output-artifact-runtime";
 import {
   getImagePreviewDisplayMode,
   initGeneratedImagePreviewRuntime,

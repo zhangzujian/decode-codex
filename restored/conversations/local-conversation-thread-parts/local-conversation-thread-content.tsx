@@ -63,7 +63,7 @@ import {
 } from "../../runtime/local-conversation-route-runtime";
 import { initModalRuntime, openScopedModal } from "../../runtime/modal-runtime";
 import { motion } from "../../runtime/motion-signal-runtime";
-import { normalizeWorkspacePath } from "../../runtime/output-artifact-runtime";
+import { normalizeWorkspacePath } from "../output-artifact-runtime";
 import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
 import {
   createAtomSignal,
