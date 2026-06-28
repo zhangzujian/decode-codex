@@ -1,11 +1,12 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Output artifact list for the local conversation summary panel.
-import type { MouseEvent } from "react";
+import type { MouseEvent, SVGProps } from "react";
 import { GlobeIcon, initGlobeIcon } from "../../icons/globe-icon";
 import {
   ExternalLinkIcon,
   initExternalLinkIconChunk,
 } from "../../icons/external-link-icon";
+import { GoogleDriveIcon } from "../../icons/google-drive-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
   getPathBasename,
@@ -22,7 +23,9 @@ import {
 } from "../../runtime/output-artifact-runtime";
 import {
   getImagePreviewDisplayMode,
+  initGeneratedImagePreviewRuntime,
   initResourceOpenRuntime,
+  openGeneratedImagePreviewTab,
 } from "../../runtime/resource-open-runtime";
 import {
   AppgenAppIcon,
@@ -30,14 +33,6 @@ import {
   initAppgenArtifactIconChunk,
   initAppgenArtifactUrlHelpers,
 } from "../../appgen/artifacts";
-import {
-  Gd as initGeneratedImagePreviewRuntime,
-  Jt as openGeneratedImagePreviewTab,
-  Wd as ExternalLinkGlyph,
-  mt as initExternalLinkGlyphChunk,
-  pt as GoogleDriveResourceIcon,
-  qt as initGoogleDriveResourceIconChunk,
-} from "../../boundaries/current-ref/profile-page-producer";
 import { FormattedMessage, useIntl } from "../../vendor/react-intl";
 import {
   ArtifactFilePreviewIcon,
@@ -68,6 +63,17 @@ type GeneratedImagePreviewItem = {
   src: string;
   tabTitle: string;
 };
+
+type GoogleDriveResourceIconProps = SVGProps<SVGSVGElement> & {
+  resourceKind?: unknown;
+};
+
+function GoogleDriveResourceIcon({
+  resourceKind: _resourceKind,
+  ...props
+}: GoogleDriveResourceIconProps) {
+  return <GoogleDriveIcon {...props} />;
+}
 
 export type SummaryPanelArtifactsListProps = {
   artifacts: readonly SummaryPanelArtifact[];
@@ -214,7 +220,6 @@ export function SummaryPanelArtifactsList({
                   </span>
                   <ExternalLinkIcon
                     className="icon-xs shrink-0 opacity-0 group-hover/summary-panel-row:opacity-100 group-focus-visible/summary-panel-row:opacity-100"
-                    ExternalIcon={ExternalLinkGlyph}
                     href={artifact.url}
                   />
                 </span>
@@ -296,11 +301,9 @@ export const initSummaryPanelArtifactsListChunk = once(() => {
   initAppgenArtifactUrlHelpers();
   initArtifactFilePreviewIconChunk();
   initExternalLinkIconChunk();
-  initGoogleDriveResourceIconChunk();
   initGeneratedImagePreviewRuntime();
   initGlobeIcon();
   initAppgenArtifactIconChunk();
-  initExternalLinkGlyphChunk();
   initSummaryPanelExpandableList();
   initSummaryPanelRowChunk();
 });

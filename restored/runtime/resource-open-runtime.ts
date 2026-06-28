@@ -10,12 +10,27 @@ import {
   r_ as getImagePreviewDisplayModeRaw,
   za as openInBrowserFromEventRaw,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
+import {
+  Gd as initGeneratedImagePreviewRuntimeRaw,
+  Jt as openGeneratedImagePreviewTabRaw,
+} from "../boundaries/current-ref/profile-page-producer";
 
 export type OpenInBrowserFromEventOptions = {
   event: unknown;
   href: string;
   initiator?: string;
   originHostId?: string;
+};
+
+export type GeneratedImagePreviewTabRequest = {
+  alt: string;
+  attachmentSrc: string;
+  downloadSrc: string;
+  generatedImages: readonly unknown[];
+  initialImageId: string;
+  referrerPolicy?: string;
+  src: string;
+  title: string;
 };
 
 export function initResourceOpenRuntime(): void {
@@ -26,6 +41,10 @@ export function initResourceOpenRuntime(): void {
 
 export function initLocalImageInliningRuntime(): void {
   initLocalImageInliningHelpers();
+}
+
+export function initGeneratedImagePreviewRuntime(): void {
+  initGeneratedImagePreviewRuntimeRaw();
 }
 
 export function toAppFsUrl(path: string): string {
@@ -44,4 +63,11 @@ export function openInBrowserFromEvent(
   options: OpenInBrowserFromEventOptions,
 ): void {
   openInBrowserFromEventRaw(options);
+}
+
+export function openGeneratedImagePreviewTab(
+  scope: unknown,
+  request: GeneratedImagePreviewTabRequest,
+): boolean {
+  return openGeneratedImagePreviewTabRaw(scope, request) as boolean;
 }
