@@ -1,8 +1,24 @@
 // Restored from ref/webview/assets/app-shell-state-QDRlZ5bT.js
 // App shell state public exports and compatibility aliases.
 import * as appShellStateImpl from "./app-shell-state-impl";
+
+const bottomPanelPreviousFocusAreaSignal =
+  appShellStateImpl.appShellStateAState;
+const rightPanelExpandedSignal = appShellStateImpl.rightPanelExpandedSignal;
+const appShellLayoutMotionContext =
+  appShellStateImpl.appShellLayoutMotionContext;
+const setBottomPanelOpen = appShellStateImpl.setBottomPanelOpen;
+const activeAppShellFocusAreaSignal =
+  appShellStateImpl.activeAppShellFocusAreaSignal;
+const rightPanelOpenSignal = appShellStateImpl.rightPanelOpenSignal;
+const bottomPanelOpenSignal = appShellStateImpl.bottomPanelOpenSignal;
+const setRightPanelOpen = appShellStateImpl.setRightPanelOpen;
+const setActiveAppShellFocusArea = appShellStateImpl.appShellStateTtState;
+const setRightPanelOpenWithOptions =
+  appShellStateImpl.setRightPanelOpenWithOptions;
+
 const appShellStateExportDollar = appShellStateImpl.appShellStateDollarState;
-const appShellStateExportA = appShellStateImpl.appShellStateAState;
+const appShellStateExportA = bottomPanelPreviousFocusAreaSignal;
 const appShellStateExportB = appShellStateImpl.appShellStateBState;
 const appShellStateExportC = appShellStateImpl.appShellStateCState;
 const appShellStateExportD = appShellStateImpl.appShellStateDState;
@@ -20,7 +36,7 @@ const appShellStateExportO = appShellStateImpl.appShellStateOState;
 const appShellStateExportP = appShellStateImpl.appShellStatePState;
 const appShellStateExportQ = appShellStateImpl.appShellStateQState;
 const appShellStateExportR = appShellStateImpl.appShellStateRState;
-const appShellStateExportS = appShellStateImpl.setRightPanelOpen;
+const appShellStateExportS = setRightPanelOpen;
 const appShellStateExportT = appShellStateImpl.appShellStateTState;
 const appShellStateExportU = appShellStateImpl.appShellStateUState;
 const appShellStateExportV = appShellStateImpl.appShellStateVState;
@@ -30,9 +46,9 @@ const appShellStateExportY = appShellStateImpl.appShellStateYState;
 const appShellStateExportZ = appShellStateImpl.appShellStateZState;
 const appShellStateExportUnderscore =
   appShellStateImpl.appShellStateUnderscoreState;
-const appShellStateExportAAlias = appShellStateImpl.rightPanelExpandedSignal;
-const appShellStateExportAt = appShellStateImpl.appShellLayoutMotionContext;
-const appShellStateExportBAlias = appShellStateImpl.setBottomPanelOpen;
+const appShellStateExportAAlias = rightPanelExpandedSignal;
+const appShellStateExportAt = appShellLayoutMotionContext;
+const appShellStateExportBAlias = setBottomPanelOpen;
 const appShellStateExportCAlias = appShellStateImpl.appShellStateCState;
 const appShellStateExportCt = appShellStateImpl.appShellStateCtState;
 const appShellStateExportDAlias = appShellStateImpl.appShellStateDState;
@@ -44,8 +60,7 @@ const appShellStateExportGAlias = appShellStateImpl.appShellStateGState;
 const appShellStateExportHAlias = appShellStateImpl.appShellStateHState;
 const appShellStateExportIAlias = appShellStateImpl.appShellStateIState;
 const appShellStateExportIt = appShellStateImpl.appShellStateItState;
-const appShellStateExportJAlias =
-  appShellStateImpl.activeAppShellFocusAreaSignal;
+const appShellStateExportJAlias = activeAppShellFocusAreaSignal;
 const appShellStateExportKAlias = appShellStateImpl.appShellStateKState;
 const appShellStateExportLAlias = appShellStateImpl.appShellStateLState;
 const appShellStateExportLt = appShellStateImpl.appShellStateLtState;
@@ -53,26 +68,35 @@ const appShellStateExportMAlias = appShellStateImpl.appShellStateMState;
 const appShellStateExportMt = appShellStateImpl.appShellStateMtState;
 const appShellStateExportNAlias = appShellStateImpl.appShellStateNState;
 const appShellStateExportNt = appShellStateImpl.appShellStateNtState;
-const appShellStateExportOAlias = appShellStateImpl.rightPanelOpenSignal;
+const appShellStateExportOAlias = rightPanelOpenSignal;
 const appShellStateExportOt = appShellStateImpl.appShellStateOtState;
 const appShellStateExportPAlias = appShellStateImpl.appShellStatePState;
 const appShellStateExportPt = appShellStateImpl.appShellStatePtState;
 const appShellStateExportQAlias = appShellStateImpl.appShellStateQState;
-const appShellStateExportRAlias = appShellStateImpl.bottomPanelOpenSignal;
+const appShellStateExportRAlias = bottomPanelOpenSignal;
 const appShellStateExportRt = appShellStateImpl.appShellStateRtState;
 const appShellStateExportSAlias = appShellStateImpl.appShellStateSState;
 const appShellStateExportSt = appShellStateImpl.appShellStateStState;
 const appShellStateExportTAlias = appShellStateImpl.appShellStateTState;
-const appShellStateExportTt = appShellStateImpl.appShellStateTtState;
+const appShellStateExportTt = setActiveAppShellFocusArea;
 const appShellStateExportUAlias = appShellStateImpl.appShellStateUState;
 const appShellStateExportUt = appShellStateImpl.appShellStateUtState;
 const appShellStateExportVAlias = appShellStateImpl.appShellStateVState;
 const appShellStateExportWAlias = appShellStateImpl.appShellStateWState;
-const appShellStateExportXAlias =
-  appShellStateImpl.setRightPanelOpenWithOptions;
+const appShellStateExportXAlias = setRightPanelOpenWithOptions;
 const appShellStateExportYAlias = appShellStateImpl.appShellStateYState;
 const appShellStateExportZAlias = appShellStateImpl.appShellStateZState;
 export {
+  bottomPanelPreviousFocusAreaSignal,
+  rightPanelExpandedSignal,
+  appShellLayoutMotionContext,
+  setBottomPanelOpen,
+  activeAppShellFocusAreaSignal,
+  rightPanelOpenSignal,
+  bottomPanelOpenSignal,
+  setRightPanelOpen,
+  setActiveAppShellFocusArea,
+  setRightPanelOpenWithOptions,
   appShellStateExportDollar,
   appShellStateExportA,
   appShellStateExportB,

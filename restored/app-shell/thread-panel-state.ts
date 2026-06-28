@@ -1,12 +1,12 @@
 // Restored from ref/webview/assets/thread-panel-state-_Pmf_86i.js
 // thread-panel-state-_Pmf_86i chunk restored from the Codex webview bundle.
 import {
-  appShellStateExportA as bottomPanelPreviousFocusAreaSignal,
-  appShellStateExportBAlias as setBottomPanelOpen,
-  appShellStateExportJAlias as activeAppShellFocusAreaSignal,
-  appShellStateExportS as setRightPanelOpen,
-  appShellStateExportTt as setActiveAppShellFocusArea,
-  appShellStateExportXAlias as setRightPanelOpenWithOptions,
+  activeAppShellFocusAreaSignal,
+  bottomPanelPreviousFocusAreaSignal,
+  setActiveAppShellFocusArea,
+  setBottomPanelOpen,
+  setRightPanelOpen,
+  setRightPanelOpenWithOptions,
 } from "./app-shell-state";
 import {
   bottomAppShellTabController,

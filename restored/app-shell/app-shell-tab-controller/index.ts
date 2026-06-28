@@ -1,10 +1,10 @@
 // Restored from ref/webview/assets/app-shell-tab-controller-CVKUvgYM.js
 // App shell tab controller public API.
 import {
-  appShellStateExportBAlias as setBottomPanelOpen,
-  appShellStateExportOAlias as rightPanelOpenSignal,
-  appShellStateExportRAlias as bottomPanelOpenSignal,
-  appShellStateExportS as setRightPanelOpen,
+  bottomPanelOpenSignal,
+  rightPanelOpenSignal,
+  setBottomPanelOpen,
+  setRightPanelOpen,
 } from "../app-shell-state";
 import {
   getAppShellTabAnalyticsKind,

@@ -8,10 +8,10 @@ import {
   appScopeUnderscore as createSignalFamily,
 } from "../boundaries/app-scope";
 import {
-  appShellStateExportAAlias as rightPanelExpandedSignal,
-  appShellStateExportJAlias as activeAppShellFocusAreaSignal,
-  appShellStateExportOAlias as rightPanelOpenSignal,
-  appShellStateExportRAlias as bottomPanelOpenSignal,
+  activeAppShellFocusAreaSignal,
+  bottomPanelOpenSignal,
+  rightPanelExpandedSignal,
+  rightPanelOpenSignal,
 } from "./app-shell-state";
 import { PERSISTED_PANEL_KIND, routeScope } from "../runtime/persisted-signal";
 import {

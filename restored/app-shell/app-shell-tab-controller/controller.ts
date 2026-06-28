@@ -6,7 +6,7 @@ import {
   appScopeUnderscore as createSignalFamily,
   createAppScopeSignal,
 } from "../../boundaries/app-scope";
-import { appShellStateExportTt as markActiveAppShellSurface } from "../app-shell-state";
+import { setActiveAppShellFocusArea as markActiveAppShellSurface } from "../app-shell-state";
 import { threadScope } from "../../runtime/persisted-signal";
 import { logAppShellTabSelection } from "./analytics";
 import {
