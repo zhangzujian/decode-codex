@@ -1,12 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page~profile-QLPeiknY.js
+// Profile chunk helpers reused by the local conversation page preview.
 export {
-  In as initThreadFindNavigationRail,
-  Et as isConversationItemInProgress,
   at as getRenderableTurnItems,
   el as clearSelectedSummarySource,
+  Et as isConversationItemInProgress,
   ft as resolveRenderableAgentItems,
   ms as WorkedForCollapsedAgentsLabel,
   rt as LocalConversationTurnRow,
   ut as getTurnAgentItemGroups,
-} from "../../conversations/local-conversation-profile-runtime";
-export * from "../../vendor/profile-page-runtime";
+} from "../vendor/profile-page-runtime";
+

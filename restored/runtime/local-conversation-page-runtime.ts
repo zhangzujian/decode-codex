@@ -92,7 +92,7 @@ import {
   LocalConversationTurnRow,
   resolveRenderableAgentItems,
   WorkedForCollapsedAgentsLabel,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../conversations/local-conversation-profile-runtime";
 import {
   getProjectAppearance,
   initProjectAppearanceChunk,

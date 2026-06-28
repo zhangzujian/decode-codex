@@ -11237,7 +11237,7 @@
     "app-initial~app-main~onboarding-page~profile-QLPeiknY": {
       "restored": "vendor/profile-page-runtime.ts",
       "status": "partial",
-      "note": "Compatibility facade moved out of current-ref direct passthrough. Local conversation/profile consumers already use narrower restored runtime facades for the needed row, search, summary, and conversation item helpers; remaining profile/onboarding shared exports stay isolated behind vendor/profile-page-runtime.ts until deep-restored.",
+      "note": "Compatibility facade moved out of current-ref direct passthrough. Local conversation/profile consumers already use narrower restored runtime facades for the needed row, search, summary, and conversation item helpers; local conversation page profile helpers are exposed through conversations/local-conversation-profile-runtime.tsx. Remaining profile/onboarding shared exports stay isolated behind vendor/profile-page-runtime.ts until deep-restored.",
       "lastUpdated": "2026-06-28T00:00:00.000Z",
       "boundary": "boundaries/current-ref/profile-page-producer.ts"
     },
