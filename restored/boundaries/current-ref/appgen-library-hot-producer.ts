@@ -1,36 +1,36 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CIs8dplf.js
 export {
-  threadComposerContext as $,
-  initThreadComposerContextChunk as et,
-  initThreadComposerFooterChunk as n,
-  ThreadComposerFooter as t,
+  threadComposerContext,
+  initThreadComposerContextChunk,
+  initThreadComposerFooterChunk,
+  ThreadComposerFooter,
 } from "../../composer/thread-composer-footer";
 export {
-  initAppShellElementContextChunk as it,
-  AppShellElementContext as rt,
+  initAppShellElementContextChunk,
+  AppShellElementContext,
 } from "../../app-shell/app-shell-element-context";
 export {
-  createLazyNavigationRailComponent as Dr,
-  initLazyNavigationRailRuntime as Er,
+  createLazyNavigationRailComponent,
+  initLazyNavigationRailRuntime,
 } from "../../threads/lazy-navigation-rail";
 export {
-  initGitRootQueryRuntime as at,
-  useGitRootQuery as st,
+  initGitRootQueryRuntime,
+  useGitRootQuery,
 } from "../../github/git-root-query";
 export {
-  useRemoteConnectionState as an,
-  initRemoteConnectionStateChunk as in,
-  RemoteProjectIcon as nn,
-  WaitingStatusIcon as oi,
-  initRemoteProjectIconChunk as rn,
-  initWaitingStatusIconChunk as si,
+  useRemoteConnectionState,
+  initRemoteConnectionStateChunk,
+  RemoteProjectIcon,
+  WaitingStatusIcon,
+  initRemoteProjectIconChunk,
+  initWaitingStatusIconChunk,
 } from "../../remote/remote-connection-runtime";
 export {
-  initCommandMenuItemComponent as A,
-  CommandMenuItem as k,
+  initCommandMenuItemComponent,
+  CommandMenuItem,
 } from "../../ui/command-menu-item";
 export {
-  getWorkspaceRootDisplayName as en,
-  initWorkspaceRootDisplayNameRuntime as tn,
+  getWorkspaceRootDisplayName,
+  initWorkspaceRootDisplayNameRuntime,
 } from "../../workspace/workspace-root-display-name";
 export * from "../../vendor/appgen-library-hot-runtime";
