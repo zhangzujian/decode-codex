@@ -5,6 +5,7 @@ import {
   initKeyboardShortcutKeycap,
   KeyboardShortcutKeycap,
 } from "../../ui/keyboard-shortcut-keycap";
+import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   initUseStableCallback,
   useStableCallback,
@@ -18,7 +19,6 @@ import {
   bP as createPersistedSignal,
   Bh as useHostMutation,
   DL as normalizeWorkspacePath,
-  DN as Button,
   Dj as joinPath,
   Ev as useLocation,
   FB as useScope,
@@ -41,7 +41,6 @@ import {
   Mu as initHostCodexHomeQuery,
   mv as initCurrentRefViewRuntime,
   Nh as initGitBranchQueryRuntime,
-  ON as initButtonComponentPrimitives,
   Ov as useNavigate,
   PB as useScopedValue,
   Pi as openScopedModal,

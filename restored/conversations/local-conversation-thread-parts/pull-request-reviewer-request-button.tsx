@@ -2,14 +2,13 @@
 // Reviewer request popover used from the pull request side-panel overview row.
 import { useState, type ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
+import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   $N as initVscodeApiBridge,
   $P as initAppScope,
   AB as initScopeRuntime,
   AN as initSpinnerComponent,
-  DN as Button,
   Lj as PlusIcon,
-  ON as initButtonComponentPrimitives,
   QP as appScope,
   Rj as initScreenReaderTitleChunk,
   ZN as createHostQuerySignal,

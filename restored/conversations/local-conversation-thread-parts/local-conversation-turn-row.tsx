@@ -2,17 +2,16 @@
 // Local conversation turn row renderer and per-turn error fallback.
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
+import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   initUseStableCallback,
   useStableCallback,
 } from "../../utils/use-stable-callback";
 import {
   AB as initScopeRuntime,
-  DN as Button,
   FB as useScope,
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
-  ON as initButtonComponentPrimitives,
   iF as initIntlRuntime,
   sF as FormattedMessage,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";

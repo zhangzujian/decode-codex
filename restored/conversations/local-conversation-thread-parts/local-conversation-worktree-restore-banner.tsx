@@ -2,6 +2,7 @@
 // Missing managed-worktree restore banner for local conversation thread frames.
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
+import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   $N as initVscodeApiBridge,
   $P as initAppScope,
@@ -10,7 +11,6 @@ import {
   AV as initReactQueryRuntime,
   Bh as useHostMutation,
   DL as normalizeWorkspacePath,
-  DN as Button,
   FB as useScope,
   Fx as initEnvironmentTerminalController,
   GE as initLocalHostConstants,
@@ -18,7 +18,6 @@ import {
   Ix as environmentTerminalControllerService,
   MV as useMutation,
   Nh as initGitBranchQueryRuntime,
-  ON as initButtonComponentPrimitives,
   Op as initConversationStateSelectors,
   PB as useScopedValue,
   QP as appScope,

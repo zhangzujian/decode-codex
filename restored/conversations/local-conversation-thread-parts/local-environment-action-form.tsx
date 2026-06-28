@@ -8,18 +8,17 @@ import {
   type ReactNode,
 } from "react";
 import { once } from "../../runtime/commonjs-interop";
+import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   $N as initVscodeApiBridge,
   Ai as initDialogLayoutComponents,
   AV as initReactQueryRuntime,
   Di as DialogSection,
-  DN as Button,
   Ei as DialogHeader,
   Gi as DropdownMenu,
   iF as initIntlRuntime,
   lF as useIntl,
   Oi as DialogFieldStack,
-  ON as initButtonComponentPrimitives,
   qi as MenuChrome,
   tP as useAppServerMutation,
   Ti as DialogFooterActions,

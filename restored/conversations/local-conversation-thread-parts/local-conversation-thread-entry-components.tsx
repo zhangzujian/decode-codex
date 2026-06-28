@@ -2,10 +2,10 @@
 // App-shell route entry components for main, summary, and side-chat local conversation threads.
 import React, { useState, type ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
+import { Button } from "../../ui/button";
 import {
   $P as initAppScope,
   AB as initScopeRuntime,
-  DN as Button,
   Dl as createLocalConversationRouteTarget,
   FB as useScope,
   Fp as expiredSideChatSignal,

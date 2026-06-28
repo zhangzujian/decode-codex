@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Initialization wiring for the local conversation public chunk.
 import { once } from "../../runtime/commonjs-interop";
+import { initButtonComponentPrimitives } from "../../ui/button";
 import { initUseStableCallback } from "../../utils/use-stable-callback";
 import { initWindowZoomContext } from "../../utils/window-zoom-context";
 import {
@@ -15,7 +16,6 @@ import {
   Mi as initModalRegistrySignal,
   Mu as initHostCodexHomeQuery,
   O_ as initConversationRouteSourceHelpers,
-  ON as initButtonComponentPrimitives,
   Op as initConversationStateSelectors,
   Rv as initMarkdownUtilityNoop,
   SP as initMotionRuntime,

@@ -2,6 +2,7 @@
 import React from "react";
 
 import { once } from "../../runtime/commonjs-interop";
+import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import { classNames } from "../../utils/class-names";
 import {
   initUseStableCallback,
@@ -14,7 +15,6 @@ import {
   AV as initReactQueryRuntime,
   A_ as appShellTabIds,
   DL as normalizeWorkspacePath,
-  DN as Button,
   FB as useScope,
   Gp as conversationReasoningEffortSignal,
   Hp as conversationModelSignal,
@@ -24,7 +24,6 @@ import {
   Ip as localResponseInProgressSignal,
   JV as initReactRuntime,
   M_ as localConversationRouteScope,
-  ON as initButtonComponentPrimitives,
   O_ as initConversationRouteSourceHelpers,
   PB as useScopedValue,
   QP as appScope,

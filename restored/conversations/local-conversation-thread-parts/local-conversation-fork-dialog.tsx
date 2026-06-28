@@ -2,17 +2,16 @@
 // Dialog and controller for forking a local conversation from an older turn.
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
+import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
   $P as initAppScope,
   AB as initScopeRuntime,
   Ai as initDialogLayoutComponents,
   Ao as initGitBranchIcon,
   DL as normalizeWorkspacePath,
-  DN as Button,
   Ei as DialogHeader,
   FB as useScope,
   Mu as initHostCodexHomeQuery,
-  ON as initButtonComponentPrimitives,
   Ov as useNavigate,
   QP as appScope,
   bF as initPathHelpers,

@@ -22,6 +22,10 @@ export {
   initClassNameRuntime as VP,
 } from "../../utils/class-names";
 export {
+  Button as DN,
+  initButtonComponentPrimitives as ON,
+} from "../../ui/button";
+export {
   initUseStableCallback as bM,
   useStableCallback as xM,
 } from "../../utils/use-stable-callback";
