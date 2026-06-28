@@ -2,21 +2,28 @@
 // Output artifact list for the local conversation summary panel.
 import type { MouseEvent } from "react";
 import { GlobeIcon, initGlobeIcon } from "../../icons/globe-icon";
+import {
+  ExternalLinkIcon,
+  initExternalLinkIconChunk,
+} from "../../icons/external-link-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
-  AB as initScopeRuntime,
-  FB as useScope,
-  I_ as initRouteScope,
-  M_ as localConversationRouteScope,
-  Sj as getPathBasename,
-  a_ as initFileTypeDetectionHelpers,
-  bF as initPathHelpers,
-  bR as isFileUrlLikeTarget,
-  en as ExternalLinkIcon,
-  r_ as getImagePreviewDisplayMode,
-  tn as initExternalLinkIconChunk,
-  wj as initArtifactPreviewRuntime,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  getPathBasename,
+  initThreadFindPreviewRuntime,
+} from "../../runtime/conversation-content-runtime";
+import { useScope } from "../../runtime/app-scope-hooks";
+import {
+  initLocalConversationRouteRuntime,
+  localConversationRouteScope,
+} from "../../runtime/local-conversation-route-runtime";
+import {
+  initOutputArtifactRuntime,
+  isFileUrlLikeTarget,
+} from "../../runtime/output-artifact-runtime";
+import {
+  getImagePreviewDisplayMode,
+  initResourceOpenRuntime,
+} from "../../runtime/resource-open-runtime";
 import {
   AppgenAppIcon,
   getAppgenArtifactUrlLabel,
@@ -282,19 +289,18 @@ export function SummaryPanelArtifactsList({
 }
 
 export const initSummaryPanelArtifactsListChunk = once(() => {
-  initScopeRuntime();
-  initPathHelpers();
+  initLocalConversationRouteRuntime();
+  initThreadFindPreviewRuntime();
+  initOutputArtifactRuntime();
+  initResourceOpenRuntime();
   initAppgenArtifactUrlHelpers();
   initArtifactFilePreviewIconChunk();
   initExternalLinkIconChunk();
   initGoogleDriveResourceIconChunk();
-  initFileTypeDetectionHelpers();
   initGeneratedImagePreviewRuntime();
   initGlobeIcon();
   initAppgenArtifactIconChunk();
   initExternalLinkGlyphChunk();
-  initRouteScope();
-  initArtifactPreviewRuntime();
   initSummaryPanelExpandableList();
   initSummaryPanelRowChunk();
 });

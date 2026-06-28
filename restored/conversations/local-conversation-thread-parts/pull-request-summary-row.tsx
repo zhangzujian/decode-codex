@@ -1,23 +1,32 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Pull request summary row and browser-sidebar entry point for the local conversation summary panel.
 import type { KeyboardEvent, MouseEvent } from "react";
+import {
+  ExternalLinkIcon,
+  initExternalLinkIconChunk,
+} from "../../icons/external-link-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
-  $j as initStatsigGateSignals,
-  AB as initScopeRuntime,
-  Es as browserSidebarEnabledSignal,
-  FB as useScope,
-  I_ as initRouteScope,
-  IB as useSignalValue,
-  La as initExternalUrlHelpers,
-  M_ as localConversationRouteScope,
-  PB as useScopedValue,
-  Ts as initBrowserFeatureAvailabilitySignals,
-  eM as featureGateSignal,
-  en as ExternalLinkIcon,
-  tn as initExternalLinkIconChunk,
-  za as openInBrowserFromEvent,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  useScope,
+  useScopedValue,
+  useSignalValue,
+} from "../../runtime/app-scope-hooks";
+import {
+  browserSidebarEnabledSignal,
+  initBrowserFeatureAvailabilityRuntime,
+} from "../../runtime/browser-feature-runtime";
+import {
+  featureGateSignal,
+  initFeatureGateSignalRuntime,
+} from "../../runtime/feature-gate-runtime";
+import {
+  initLocalConversationRouteRuntime,
+  localConversationRouteScope,
+} from "../../runtime/local-conversation-route-runtime";
+import {
+  initResourceOpenRuntime,
+  openInBrowserFromEvent,
+} from "../../runtime/resource-open-runtime";
 import {
   initPullRequestAnalyticsChunk,
   logPullRequestViewedFromSidePanel,
@@ -230,13 +239,12 @@ function formatPullRequestSummaryTitle(
 }
 
 export const initPullRequestSummaryRowChunk = once(() => {
-  initScopeRuntime();
-  initBrowserFeatureAvailabilitySignals();
+  initLocalConversationRouteRuntime();
+  initBrowserFeatureAvailabilityRuntime();
   initBrowserSidebarMenuChunk();
-  initExternalUrlHelpers();
+  initResourceOpenRuntime();
   initExternalLinkIconChunk();
   initPullRequestAnalyticsChunk();
-  initRouteScope();
-  initStatsigGateSignals();
+  initFeatureGateSignalRuntime();
   initSummaryPanelRowChunk();
 });

@@ -5,17 +5,16 @@ import { useEffect, useImperativeHandle } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { once } from "../../runtime/commonjs-interop";
+import { useScope, useScopedValue } from "../../runtime/app-scope-hooks";
 import {
-  $i as initSummaryPanelAnimationConfig,
-  FB as useScope,
-  I_ as initRouteScope,
-  jM as initScopedSignalRuntime,
-  M_ as localConversationRouteScope,
-  NM as createPersistedScopedSignal,
-  PB as useScopedValue,
-  Qi as threadSummaryPanelSectionTransition,
-  bV as createScopedSignal,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  localConversationRouteScope,
+} from "../../runtime/local-conversation-route-runtime";
+import {
+  createLocalConversationRouteScopedSignal,
+  createPersistedScopedSignal,
+  initThreadSummaryPanelSectionRuntime,
+  threadSummaryPanelSectionTransition,
+} from "../../runtime/thread-summary-panel-runtime";
 import { ChevronIcon } from "../../icons/chevron-icon";
 import { DropdownItem, DropdownMenu } from "../../ui/dropdown";
 import { useReducedMotion } from "../../utils/use-reduced-motion";
@@ -281,16 +280,12 @@ function ThreadSummaryPanelSectionHeader({
 }
 
 export const initThreadSummaryPanelSectionChunk = once(() => {
-  initRouteScope();
-  initSummaryPanelAnimationConfig();
-  initScopedSignalRuntime();
+  initThreadSummaryPanelSectionRuntime();
   threadSummaryPanelSectionExpandedState = createPersistedScopedSignal(
     (sectionKey: string) =>
       `${THREAD_SUMMARY_PANEL_SECTION_EXPANDED_STATE_PREFIX}${sectionKey}`,
     DEFAULT_THREAD_SUMMARY_PANEL_SECTION_EXPANDED_STATE,
   );
-  threadSummaryPanelSectionAutoCollapseState = createScopedSignal(
-    localConversationRouteScope,
-    () => "pending",
-  );
+  threadSummaryPanelSectionAutoCollapseState =
+    createLocalConversationRouteScopedSignal(() => "pending");
 });

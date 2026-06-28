@@ -2,18 +2,19 @@
 // Tool and web-source chips for the local conversation summary panel.
 import type { ComponentType, MouseEvent, SVGProps } from "react";
 import { GlobeIcon, initGlobeIcon } from "../../icons/globe-icon";
+import { ConnectedAppsIcon as ConnectedNodesIcon } from "../../icons/connected-apps-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initTooltipPrimitives, Tooltip } from "../../ui/tooltip-b";
 import {
-  Jt as ConnectedNodesIcon,
-  La as initExternalUrlHelpers,
-  Yt as initConnectedNodesIcon,
-  eo as ConnectorAppIcon,
-  io as getKnownAppIconById,
-  oo as initKnownAppIconRegistry,
-  to as initConnectorAppIconRuntime,
-  za as openInBrowserFromEvent,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  ConnectorAppIcon,
+  getKnownAppIconById,
+  initConnectorAppIconRuntime,
+  initKnownAppIconRegistry,
+} from "../../runtime/connector-app-icon-runtime";
+import {
+  initResourceOpenRuntime,
+  openInBrowserFromEvent,
+} from "../../runtime/resource-open-runtime";
 import { FormattedMessage, useIntl } from "../../vendor/react-intl";
 import type { ThreadSummaryWebSource } from "./thread-summary-web-sources";
 
@@ -217,8 +218,7 @@ function getThreadSummarySourceKey(sourceItem: ThreadSummarySourceItem) {
 export const initThreadSummarySourceRowsChunk = once(() => {
   initKnownAppIconRegistry();
   initConnectorAppIconRuntime();
-  initExternalUrlHelpers();
+  initResourceOpenRuntime();
   initTooltipPrimitives();
-  initConnectedNodesIcon();
   initGlobeIcon();
 });
