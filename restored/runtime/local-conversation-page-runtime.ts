@@ -116,16 +116,16 @@ import {
   PendingWorktreeConversation,
 } from "../worktree/pending-worktree-conversation-ui";
 import {
-  $c as syncReviewPanelForRestoredSource,
-  Js as scheduleReviewRestore,
-  nr as initPullRequestThreadActionsChunk,
-  Oc as focusPendingReviewPanelTarget,
-  Pc as pendingReviewPanelTargetSignal,
-  Qc as openInitialReviewPanelTarget,
-  Tc as shouldExpandReviewPanelSignal,
-  Xc as resetReviewPanelEmptyState,
-  Zc as revealChangedFilesInReviewPanel,
-} from "../boundaries/current-ref/pull-request-thread-actions-producer";
+  focusPendingReviewPanelTarget,
+  initPullRequestThreadActionsChunk,
+  openInitialReviewPanelTarget,
+  pendingReviewPanelTargetSignal,
+  resetReviewPanelEmptyState,
+  revealChangedFilesInReviewPanel,
+  scheduleReviewRestore,
+  shouldExpandReviewPanelSignal,
+  syncReviewPanelForRestoredSource,
+} from "../conversations/pull-request-review-panel-actions";
 
 export {
   activeHostIdSignal,
