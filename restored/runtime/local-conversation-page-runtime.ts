@@ -100,7 +100,7 @@ import {
 import {
   AppgenProjectHeader,
   initAppgenProjectHeaderChunk,
-} from "../boundaries/current-ref/appgen-project-header-producer";
+} from "../appgen/project-header";
 import {
   createDebugPanelSourceId,
   getEditedFilesFromTurns,
