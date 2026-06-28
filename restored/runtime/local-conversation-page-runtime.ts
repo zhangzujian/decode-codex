@@ -83,7 +83,7 @@ import {
   AutomationTooltipSurface,
   ComposerDismissableLayer,
   initAutomationSurface,
-} from "../boundaries/current-ref/automations-page-producer";
+} from "../automation/automation-surface";
 import {
   clearSelectedSummarySource,
   getRenderableTurnItems,
