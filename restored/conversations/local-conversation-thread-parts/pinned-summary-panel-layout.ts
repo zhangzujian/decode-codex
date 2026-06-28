@@ -14,12 +14,12 @@ import {
   useMotionValueEvent,
 } from "../../runtime/motion-signal-runtime";
 import {
-  Cd as pinnedSummaryPanelSpringTransition,
-  id as rightPanelStateSignal,
-  md as pinnedSummaryPanelPinnedSignal,
-  nd as leftPanelStateSignal,
-  wd as threadLayoutContext,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
+  leftPanelStateSignal,
+  pinnedSummaryPanelPinnedSignal,
+  pinnedSummaryPanelSpringTransition,
+  rightPanelStateSignal,
+  threadLayoutContext,
+} from "../../runtime/thread-summary-panel-runtime";
 
 const PINNED_SUMMARY_PANEL_WIDTH_PX = 300;
 const PINNED_SUMMARY_PANEL_GAP_PX = 16;

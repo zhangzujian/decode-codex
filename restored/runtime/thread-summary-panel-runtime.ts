@@ -8,11 +8,25 @@ import {
   jM as initScopedSignalRuntime,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
 import {
+  Cd as pinnedSummaryPanelSpringTransition,
+  id as rightPanelStateSignal,
+  md as pinnedSummaryPanelPinnedSignal,
+  nd as leftPanelStateSignal,
+  wd as threadLayoutContext,
+} from "../boundaries/current-ref/projects-app-shared-producer";
+import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
 } from "./local-conversation-route-runtime";
 
-export { threadSummaryPanelSectionTransition };
+export {
+  leftPanelStateSignal,
+  pinnedSummaryPanelPinnedSignal,
+  pinnedSummaryPanelSpringTransition,
+  rightPanelStateSignal,
+  threadLayoutContext,
+  threadSummaryPanelSectionTransition,
+};
 
 export type ScopedSignalInitializer<TKey, TValue> = (key: TKey) => TValue;
 
