@@ -3,6 +3,11 @@
 
 export { BrowserSidebarDocumentContextResolver } from "./document-context-resolver";
 export {
+  getBrowserSidebarAnchorViewportRect,
+  getBrowserSidebarBoundingRect,
+  getBrowserSidebarTextSelectionViewportRects,
+} from "./anchor-rects";
+export {
   areBrowserSidebarAnchorsEqual,
   areScrollContainerSnapshotsEqual,
 } from "./anchors";
@@ -49,6 +54,21 @@ export {
   isBrowserSidebarRootEvent,
   stopBrowserSidebarEvent,
 } from "./event-interactions";
+export {
+  BROWSER_SIDEBAR_SHADOW_FRAME_PATH_PREFIX,
+  BROWSER_SIDEBAR_SHADOW_FRAME_PATH_SEPARATOR,
+  getBrowserSidebarFrameDocument,
+  getBrowserSidebarFrameWindow,
+  getBrowserSidebarWindowFrameOffset,
+  getFrameElementContentWindow,
+  resolveBrowserSidebarFrameElement,
+} from "./frame-path";
+export {
+  getBrowserSidebarClampedMarkerPoint,
+  getBrowserSidebarMarkerPoint,
+  getBrowserSidebarZoomedMarkerPoint,
+  isBrowserSidebarMarkerPointInsideFramePath,
+} from "./marker-positioning";
 export {
   BROWSER_SIDEBAR_BASE_DESIGN_STYLE_PROPERTIES,
   BROWSER_SIDEBAR_FLEX_DESIGN_STYLE_PROPERTIES,
@@ -145,6 +165,11 @@ export type {
   BrowserSidebarDesignStyleDeclaration,
   BrowserSidebarDesignStyleDraft,
 } from "./design-css";
+export type {
+  BrowserSidebarClampedMarkerPointOptions,
+  BrowserSidebarMarkerPointOptions,
+  BrowserSidebarScaledMarkerPointOptions,
+} from "./marker-positioning";
 export type {
   BrowserSidebarFrameWindowResolver,
   BrowserSidebarScrollContainerAnchor,
