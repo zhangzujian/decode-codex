@@ -11177,16 +11177,18 @@
       "note": "Current wrapper calls initChromeExtensionHeaderChunk and re-exports ChromeExtensionHeader as Header."
     },
     "app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b": {
-      "restored": "boundaries/current-ref/appg-thread-shared-producer.ts",
-      "status": "boundary",
-      "note": "Current ref boundary for local-conversation-thread/app-shell. Ai/initDialogLayoutComponents, AN/initSpinnerComponent, Ao/initGitBranchIcon, BP/classNames, Di/DialogSection, di/Popover, DN/Button, Ei/DialogHeader, F_/getRouteThreadId, gi/initPopoverPrimitives, Gi/DropdownMenu, hi/PopoverTrigger, Hi/initSettingsGearIcon, hM/initTooltipPrimitives, Ki/DropdownSubmenuItem, Lj/PlusIcon, kN/Spinner, ko/GitBranchIcon, mi/PopoverTitle, mM/TooltipProvider, Oi/DialogFieldStack, ON/initButtonComponentPrimitives, pi/PopoverContent, pM/Tooltip, qi/Dropdown menu namespace, Rj/initPlusIcon, Ti/DialogFooterActions, TM/initCheckmarkIcon, va/AppDialog, VP/initClassNameRuntime, Vi/SettingsGearIcon, wi/DialogBody, aM/RefreshIcon, bz/normalizeBrowserTabId, bM/initUseStableCallback, DM/initWindowZoomContext, ea/DropdownSearchIcon, iF/initIntlRuntime, kM/useWindowZoom, lF/useIntl, Mj/getScrollDistanceFromBottomPx, Nj/initReverseScrollUtilities, oM/initRefreshIcon, OM/scaleCssPxByWindowZoom, P_/getLocalThreadConversationIdFromRoute, RP/ChevronIcon, sF/FormattedMessage, ta/initSearchIcon, vM/KeyboardShortcutKeycap, wM/CheckMdIcon, Xi/DropdownSeparator, xa/initAppDialog, xM/useStableCallback, yM/initKeyboardShortcutKeycap, Zi/initDropdownMenuPrimitives, and zP/initChevronDownIcon are now explicitly backed by restored runtime/utils/ui/app-shell/icon/vendor modules, and local thread/page/app-shell callers import those semantic modules directly; remaining exports stay raw passthrough until deep-restored.",
-      "lastUpdated": "2026-06-28T04:19:52.000Z"
+      "restored": "vendor/appg-thread-shared-runtime.ts",
+      "status": "partial",
+      "note": "Compatibility facade moved out of current-ref direct passthrough. Explicit appg/thread shared aliases in the current-ref producer are backed by restored runtime/utils/ui/app-shell/icon/vendor modules where available; remaining mixed app/thread shared exports stay isolated behind vendor/appg-thread-shared-runtime.ts until deep-restored.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z",
+      "boundary": "boundaries/current-ref/appg-thread-shared-producer.ts"
     },
     "app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~ovcriy74-KTK3czaX": {
-      "restored": "boundaries/current-ref/projects-app-shared-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
-      "lastUpdated": "2026-06-27T03:16:46.000Z"
+      "restored": "vendor/projects-app-shared-runtime.ts",
+      "status": "partial",
+      "note": "Compatibility facade moved out of current-ref direct passthrough. The local conversation and projects-app runtime facades expose the needed project shell, panel, and workspace signals semantically, while remaining projects-app shared exports stay isolated behind vendor/projects-app-shared-runtime.ts until deep-restored.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z",
+      "boundary": "boundaries/current-ref/projects-app-shared-producer.ts"
     },
     "app-initial~app-main~automations-page-bHJfYUGr": {
       "restored": "app-shell/app-fallback.tsx",
@@ -11233,10 +11235,11 @@
       "boundary": "boundaries/current-ref/pull-request-thread-actions-producer.ts"
     },
     "app-initial~app-main~onboarding-page~profile-QLPeiknY": {
-      "restored": "boundaries/current-ref/profile-page-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
-      "lastUpdated": "2026-06-27T03:16:46.000Z"
+      "restored": "vendor/profile-page-runtime.ts",
+      "status": "partial",
+      "note": "Compatibility facade moved out of current-ref direct passthrough. Local conversation/profile consumers already use narrower restored runtime facades for the needed row, search, summary, and conversation item helpers; remaining profile/onboarding shared exports stay isolated behind vendor/profile-page-runtime.ts until deep-restored.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z",
+      "boundary": "boundaries/current-ref/profile-page-producer.ts"
     },
     "app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CIs8dplf": {
       "restored": "vendor/appgen-library-hot-runtime.ts",

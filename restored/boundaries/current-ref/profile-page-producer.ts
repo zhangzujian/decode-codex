@@ -1,5 +1,4 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page~profile-QLPeiknY.js
-// TODO: Deep-restore this current ref producer; local-conversation-thread imports it while the updated producer is still pending.
 export {
   In as initThreadFindNavigationRail,
   Et as isConversationItemInProgress,
@@ -9,5 +8,5 @@ export {
   ms as WorkedForCollapsedAgentsLabel,
   rt as LocalConversationTurnRow,
   ut as getTurnAgentItemGroups,
-} from "../../../ref/webview/assets/app-initial~app-main~onboarding-page~profile-QLPeiknY.js";
-export * from "../../../ref/webview/assets/app-initial~app-main~onboarding-page~profile-QLPeiknY.js";
+} from "../../vendor/profile-page-runtime";
+export * from "../../vendor/profile-page-runtime";
