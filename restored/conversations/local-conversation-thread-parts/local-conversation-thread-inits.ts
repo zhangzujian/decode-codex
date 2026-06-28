@@ -45,13 +45,7 @@ import {
   yc as ho,
   yn as _o,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  Ai as Ao,
-  Gt as Po,
-  Ja as Lo,
-  Ma as Bo,
-  Ot as Wo,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+import { Gt as initMarkdownCopyHelpers } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   $n as vs,
   In as Ns,
@@ -138,14 +132,12 @@ export const initLocalConversationThreadChunk = once(() => {
   cr();
   Ha();
   initWindowZoomContext();
-  Bo();
   initAutomationHistoryItemsChunk();
   ro();
   vs();
   initButtonComponentPrimitives();
-  Lo();
   rc();
-  Po();
+  initMarkdownCopyHelpers();
   initModalRegistrySignal();
   initScrollToBottomButtonChunk();
   initToastRuntime();
@@ -158,7 +150,6 @@ export const initLocalConversationThreadChunk = once(() => {
   Qa();
   initReviewSearchHighlighter();
   Di();
-  Ao();
   initLauncherHotkeyStateChunk();
   Vc();
   initThreadSwitchTimingTrackerChunk();
@@ -188,7 +179,6 @@ export const initLocalConversationThreadChunk = once(() => {
   _o();
   mc();
   initMarkdownUtilityNoop();
-  Wo();
   Ac();
   initLocalConversationSearchAdapterChunk();
   initConversationSearchUnitExtractor();
