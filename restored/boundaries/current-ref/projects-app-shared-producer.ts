@@ -16,7 +16,5 @@ export {
   nc as appShellIntlSignal,
   nd as rightPanelOpenSignal,
   ql as rightPanelTabController,
-  wr as lastTurnCwdSignal,
-  yd as lastTurnDiffSignal,
 } from "../../vendor/projects-app-shared-runtime";
 export * from "../../vendor/projects-app-shared-runtime";

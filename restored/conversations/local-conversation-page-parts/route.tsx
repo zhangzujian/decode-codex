@@ -28,7 +28,6 @@ import {
   conversationCwdSignal,
   conversationHostIdSignal,
   conversationModeSignal,
-  conversationModelOverrideSignal,
   conversationModelSignal,
   conversationReasoningEffortSignal,
   conversationRequestsSignal,
@@ -359,10 +358,6 @@ function LocalConversationHeader({
   const model = useScopedValue(conversationModelSignal, conversationId) as
     | string
     | null;
-  const overrideModel = useScopedValue(
-    conversationModelOverrideSignal,
-    conversationId,
-  ) as string | null;
   const reasoningEffort = useScopedValue(
     conversationReasoningEffortSignal,
     conversationId,
@@ -401,9 +396,7 @@ function LocalConversationHeader({
               })}
           </div>
           <div className="truncate text-xs text-token-text-tertiary">
-            {[overrideModel ?? model, reasoningEffort]
-              .filter(Boolean)
-              .join(" · ")}
+            {[model, reasoningEffort].filter(Boolean).join(" · ")}
           </div>
         </div>
       </div>
