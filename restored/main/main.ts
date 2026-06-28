@@ -26,6 +26,15 @@ import {
   loadDesktopTrayIcons,
 } from "./tray/tray-icons";
 import {
+  addWindowsRegistryValue,
+  armWindowsCurrentProcessTermination,
+  buildWindowsFolderContextMenuEntries,
+  getWindowsUpdaterNativeAddon,
+  killWindowsProcessDescendants,
+  performUpdateInstallExit,
+  registerWindowsFolderContextMenu,
+} from "./platform/windows-shell-integration";
+import {
   createMainWorkerBusController,
   MainWorkerAppEventBus,
   MainWorkerThreadManager,
@@ -445,7 +454,7 @@ function shouldHandleStateDatabaseOpenError(error: unknown): boolean {
 function createMainStartupOpenBoundaryError(): Error {
   return Object.assign(
     Error(
-      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, worker main-RPC helper contracts, main-side worker bus manager, and desktop tray controller are recovered, but window services, app-server lifecycle, application menu assembly, IPC registration, and telemetry still require semantic restoration.",
+      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, worker main-RPC helper contracts, main-side worker bus manager, desktop tray controller, and Windows shell integration helpers are recovered, but window services, app-server lifecycle, application menu assembly, IPC registration, and telemetry still require semantic restoration.",
     ),
     {
       code: OPEN_RESTORATION_BOUNDARY_CODE,
@@ -494,6 +503,15 @@ function createMainStartupOpenBoundaryError(): Error {
         getWindowsTrayIconName,
         isTrayMenuThreadsChangedMessage,
         loadDesktopTrayIcons,
+      },
+      windowsShellHelpers: {
+        addWindowsRegistryValue,
+        armWindowsCurrentProcessTermination,
+        buildWindowsFolderContextMenuEntries,
+        getWindowsUpdaterNativeAddon,
+        killWindowsProcessDescendants,
+        performUpdateInstallExit,
+        registerWindowsFolderContextMenu,
       },
     },
   );
