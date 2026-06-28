@@ -2,11 +2,9 @@
 // Boundary facade for pull request action rows, analytics, mutations, and merge controls.
 import {
   $N as initVscodeApiBridge,
-  AB as initScopeRuntime,
   AI as routeToConversation,
   AV as initReactQueryRuntime,
   bF as initRouteHelpers,
-  FB as useScope,
   kE as initPullRequestActionEventRuntime,
   NI as routeToPendingWorktree,
   ST as pullRequestViewedFromSidePanelEvent,
@@ -37,6 +35,8 @@ import {
   CS as initPullRequestViewedEventRuntime,
   TS as logScopedProductEvent,
 } from "../vendor/projects-app-shared-runtime";
+import { useScope } from "./app-scope-hooks";
+import { initScopeRuntime } from "./app-scope-runtime";
 
 export {
   Button,

@@ -3,17 +3,13 @@
 import {
   $j as initSideConversationProducer,
   $N as initDeveloperInstructionsProducer,
-  AB as initScopeRuntime,
   ak as initSideConversationPromptProducer,
   cM as initToastRuntime,
   cP as initThreadActionMenuRuntime,
-  FB as useScope,
-  IB as useSignalValue,
   JV as initReactRuntime,
   mP as logger,
   ok as runConversationAction,
   pP as initConversationActionAndLoggerRuntime,
-  PB as useScopedValue,
   SV as initQueryRuntime,
   tM as modelSelectionSignal,
   TV as useSignalSnapshot,
@@ -80,6 +76,12 @@ import {
   jr as openExistingHeartbeatAutomationTab,
   Mr as openCreateHeartbeatAutomationTab,
 } from "../vendor/profile-page-runtime";
+import {
+  useScope,
+  useSignalValue,
+  useScopedValue,
+} from "../runtime/app-scope-hooks";
+import { initScopeRuntime } from "../runtime/app-scope-runtime";
 
 const initConversationActionProducer = initConversationActionAndLoggerRuntime;
 const initLoggerRuntime = initConversationActionAndLoggerRuntime;

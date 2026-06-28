@@ -1,7 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
 // Local conversation route scope, path, navigation, and toast helpers.
 import {
-  AB as initScopeRuntime,
   AI as getLocalConversationPathRaw,
   OI as getHotkeyWindowThreadPathRaw,
   PI as getHotkeyWindowFallbackPathRaw,
@@ -19,6 +18,7 @@ import {
   Ov as useNavigateRaw,
   yv as Navigate,
 } from "../vendor/projects-app-shared-runtime";
+import { initScopeRuntime } from "../runtime/app-scope-runtime";
 
 export type NavigateOptions = {
   replace?: boolean;

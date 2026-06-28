@@ -6,23 +6,17 @@ import {
 } from "../boundaries/src-l0hb-mz-p";
 import {
   $N as initVscodeApiBridge,
-  $P as initAppScope,
-  AB as initScopeRuntime,
   AV as initReactQueryRuntime,
   bF as initIntlMessageRuntime,
   cM as initModalRuntime,
-  FB as useScope,
   HE as useHostConfigById,
   HI as parseProjectWritableRoots,
-  IB as useSignalValue,
   jM as initPersistentSignalRuntime,
   JV as initReactRuntime,
   KE as initKeyboardShortcutRuntime,
   MM as createPersistentSignal,
-  PB as useScopedValue,
   qE as useRemoteHostConfigs,
   qV as getChunkModuleExports,
-  QP as appScope,
   rF as defineMessages,
   Sj as normalizeTextForCompare,
   tP as useAppServerMutation,
@@ -78,6 +72,8 @@ import {
   Ku as useGlobalStateQuery,
   Tx as initGlobalSettingsRuntime,
 } from "../vendor/projects-app-shared-runtime";
+import { useScope, useSignalValue, useScopedValue } from "./app-scope-hooks";
+import { initAppScope, initScopeRuntime, appScope } from "./app-scope-runtime";
 
 export {
   ActivityIcon,

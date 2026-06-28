@@ -1,8 +1,6 @@
 // Restored from ref/webview/assets/use-element-in-view-CZGmoMvk.js
 // Boundary facade for shared utility hooks, small icons, and vendored helpers.
 import {
-  $P as initAppScope,
-  AB as initScopeRuntime,
   BV as getJsxRuntime,
   cV as createSymbolConstructor,
   Iw as onboardingWizardAction,
@@ -29,6 +27,7 @@ import {
   Uf as initHostWorkspaceQueries,
   ub as initOnboardingWizardTrackingRuntime,
 } from "../vendor/projects-app-shared-runtime";
+import { initAppScope, initScopeRuntime } from "./app-scope-runtime";
 
 export {
   createArrayPush,

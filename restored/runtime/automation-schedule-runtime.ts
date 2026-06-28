@@ -2,11 +2,9 @@
 // Boundary facade for automation schedule analytics and query state.
 import {
   $N as initVscodeApiBridge,
-  $P as initAppScopeRuntime,
   aP as queryDurations,
   oP as initQueryDurationConstants,
   QN as createVscodeQueryOptions,
-  QP as appScopeRoot,
 } from "../vendor/appg-thread-shared-runtime";
 import {
   cC as automationStatusValues,
@@ -15,6 +13,10 @@ import {
   rC as automationKindValues,
   tC as executionEnvironmentValues,
 } from "../vendor/projects-app-shared-runtime";
+import {
+  initAppScope as initAppScopeRuntime,
+  appScopeRoot,
+} from "./app-scope-runtime";
 
 export {
   appScopeRoot,
