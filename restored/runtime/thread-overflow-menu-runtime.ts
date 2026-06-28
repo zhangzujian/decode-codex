@@ -40,7 +40,7 @@ import {
   Wp as conversationModelOverrideSignal,
   xi as RenameThreadDialog,
   YN as sendHostRequest,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 import {
   _c as getPanelController,
   a as forkConversationFromLatest,
@@ -67,7 +67,7 @@ import {
   x as threadActionMessages,
   yc as initNavigationProducer,
   Yi as threadActionShortcutSignal,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 import {
   Ar as initAutomationPanelRuntime,
   Du as initProfileRouteProducer,
@@ -77,7 +77,7 @@ import {
   Jm as initCreateHeartbeatAutomationRuntime,
   jr as openExistingHeartbeatAutomationTab,
   Mr as openCreateHeartbeatAutomationTab,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../vendor/profile-page-runtime";
 
 const initConversationActionProducer = initConversationActionAndLoggerRuntime;
 const initLoggerRuntime = initConversationActionAndLoggerRuntime;
