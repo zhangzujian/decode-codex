@@ -21,7 +21,7 @@ import {
   createMotionSignal,
   initMotionSignalRuntime,
   motion,
-} from "../../runtime/motion-signal-runtime";
+} from "../../utils/motion-signal-runtime";
 import { initThreadScrollLayoutStyleChunk } from "../../utils/thread-scroll-layout";
 import {
   initThreadScrollControllerContextChunk,

@@ -12,7 +12,7 @@ import {
   initMotionSignalRuntime,
   reducedMotionPreferenceSignal,
   useMotionValueEvent,
-} from "../../runtime/motion-signal-runtime";
+} from "../../utils/motion-signal-runtime";
 import {
   leftPanelStateSignal,
   pinnedSummaryPanelPinnedSignal,
