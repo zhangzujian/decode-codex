@@ -8,44 +8,62 @@ import {
 } from "../../utils/use-stable-callback";
 import { isEqualT as createIsEqual } from "../../vendor/lodash-is-equal";
 import {
-  $N as initVscodeApiBridge,
-  AB as initScopeRuntime,
-  Am as conversationWorkspaceRootSignal,
-  Bn as initGlobalCommandHandlers,
-  DL as normalizeWorkspacePath,
-  Es as browserSidebarEnabledSignal,
-  FB as useScope,
-  Ga as initElectronPlatformContent,
-  Gj as initStatsigFeatureGateHooks,
-  Gu as initGlobalStateQueryRuntime,
-  IB as useSignalValue,
-  I_ as initRouteScope,
-  Ku as useGlobalStateQuery,
-  La as initExternalUrlHelpers,
-  M_ as localConversationRouteScope,
-  Op as initConversationStateSelectors,
-  PB as useScopedValue,
-  R as initSlashIcon,
-  Sc as useConversationDetailMode,
-  Ts as initBrowserFeatureAvailabilitySignals,
-  VE as initHostConfigHelpers,
-  Vn as dispatchGlobalCommand,
-  Wa as PlatformContentGate,
-  XR as GLOBAL_STATE_KEYS,
-  a_ as initFileTypeDetectionHelpers,
-  ak as initAppServerRequestBridge,
-  bF as initPathHelpers,
-  bc as initConversationDetailModeConstants,
-  cM as initToastRuntime,
-  hs as initLocalImageInliningHelpers,
-  jm as conversationModeSignal,
-  pP as initLoggerRuntime,
-  qj as useStatsigGate,
-  uM as toastSignal,
-  _c as CONVERSATION_DETAIL_STEPS_PROSE,
-  eP as useHostQuery,
-  tP as useAppServerMutation,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  initAppLoggerRuntime,
+} from "../../runtime/app-logger";
+import { useScope, useScopedValue, useSignalValue } from "../../runtime/app-scope-hooks";
+import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
+import {
+  initAppServerMutationRuntime,
+  useAppServerMutation,
+} from "../../runtime/app-server-mutation-runtime";
+import { initAppServerRequestRuntime } from "../../runtime/app-server-request";
+import {
+  browserSidebarEnabledSignal,
+  initBrowserFeatureAvailabilityRuntime,
+} from "../../runtime/browser-feature-runtime";
+import {
+  CONVERSATION_DETAIL_STEPS_PROSE,
+  initConversationDetailModeRuntime,
+  useConversationDetailMode,
+} from "../../runtime/conversation-detail-runtime";
+import {
+  conversationModeSignal,
+  conversationWorkspaceRootSignal,
+  initConversationStateRuntime,
+} from "../../runtime/conversation-state-runtime";
+import {
+  initStatsigFeatureGateRuntime,
+  useStatsigGate,
+} from "../../runtime/feature-gate-runtime";
+import {
+  dispatchGlobalCommand,
+  initGlobalCommandHandlersRuntime,
+  initSlashIconRuntime,
+} from "../../runtime/global-command-runtime";
+import {
+  GLOBAL_STATE_KEYS,
+  initGlobalStateQueryRuntime,
+  useGlobalStateQuery,
+} from "../../runtime/global-state-runtime";
+import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
+import { useHostQuery } from "../../runtime/host-query-runtime";
+import {
+  initLocalConversationRouteRuntime,
+  initToastSignalRuntime,
+  localConversationRouteScope,
+  toastSignal,
+} from "../../runtime/local-conversation-route-runtime";
+import { normalizeWorkspacePath } from "../../runtime/output-artifact-runtime";
+import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
+import {
+  PlatformContentGate,
+  initPlatformContentRuntime,
+  initVscodeBridgeRuntime,
+} from "../../runtime/platform-content-runtime";
+import {
+  initLocalImageInliningRuntime,
+  initResourceOpenRuntime,
+} from "../../runtime/resource-open-runtime";
 import {
   $c as openBrowserSummaryTab,
   Il as initWorkspaceRouteStateChunk,
@@ -661,35 +679,35 @@ const initDeepEqualModule = once(() => {
 
 const initThreadSummaryPanelSectionsChunk = once(() => {
   initDeepEqualModule();
-  initScopeRuntime();
-  initPathHelpers();
+  initAppScopeSignalRuntime();
+  initPathHelpersRuntime();
   initIntlRuntime();
-  initConversationStateSelectors();
-  initAppServerRequestBridge();
+  initConversationStateRuntime();
+  initAppServerRequestRuntime();
+  initAppServerMutationRuntime();
   initAutomationDataSignalChunk();
   initAttachedHeartbeatAutomationLookupChunk();
-  initBrowserFeatureAvailabilitySignals();
-  initGlobalCommandHandlers();
+  initBrowserFeatureAvailabilityRuntime();
+  initGlobalCommandHandlersRuntime();
   initThreadSourceTabHelpersChunk();
-  initExternalUrlHelpers();
-  initToastRuntime();
-  initElectronPlatformContent();
-  initFileTypeDetectionHelpers();
+  initResourceOpenRuntime();
+  initToastSignalRuntime();
+  initPlatformContentRuntime();
   initGlobalStateQueryRuntime();
   initWorkspaceRouteStateSignalsChunk();
   initGlobalStateQueryHelpersChunk();
-  initSlashIcon();
+  initSlashIconRuntime();
   initRightPanelTabsRuntime();
   initThreadSummarySourceSupportChunk();
   initCurrentWorkspaceRootSignalChunk();
-  initLocalImageInliningHelpers();
+  initLocalImageInliningRuntime();
   initPendingBackgroundProcessRowsChunk();
   initThreadSummaryPanelSignalsSupportChunk();
   initThreadSummaryPanelSignalsChunk();
-  initRouteScope();
+  initLocalConversationRouteRuntime();
   initWorkspaceRouteStateChunk();
-  initConversationDetailModeConstants();
-  initStatsigFeatureGateHooks();
+  initConversationDetailModeRuntime();
+  initStatsigFeatureGateRuntime();
   initLocalConversationSummaryPanelSupportChunk();
   initThreadSourceFrameStateChunk();
   initEmptyPageStateChunk();
@@ -707,9 +725,9 @@ const initThreadSummaryPanelSectionsChunk = once(() => {
   initThreadSummaryPanelSectionChunk();
   initThreadSummaryPanelChromePrimitives();
   initUseStableCallback();
-  initVscodeApiBridge();
-  initHostConfigHelpers();
-  initLoggerRuntime();
+  initVscodeBridgeRuntime();
+  initHostConfigRuntime();
+  initAppLoggerRuntime();
   initBackgroundTaskSectionTitleChunk();
 });
 

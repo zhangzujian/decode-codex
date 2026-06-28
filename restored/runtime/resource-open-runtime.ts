@@ -2,6 +2,7 @@
 // Browser/file URL open helpers for conversation output resources.
 import {
   En as toAppFsUrlRaw,
+  hs as initLocalImageInliningHelpers,
   La as initExternalUrlHelpers,
   On as initAppFsUrlHelpers,
   a_ as initFileTypeDetectionHelpers,
@@ -21,6 +22,10 @@ export function initResourceOpenRuntime(): void {
   initExternalUrlHelpers();
   initAppFsUrlHelpers();
   initFileTypeDetectionHelpers();
+}
+
+export function initLocalImageInliningRuntime(): void {
+  initLocalImageInliningHelpers();
 }
 
 export function toAppFsUrl(path: string): string {
