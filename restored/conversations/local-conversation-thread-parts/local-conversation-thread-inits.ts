@@ -16,7 +16,7 @@ import {
   initMarkdownUtilityNoop,
   initThreadAuxiliaryRuntime,
   initThreadInternalStateRuntime,
-} from "../../runtime/conversation-thread-runtime";
+} from "./conversation-thread-runtime";
 import { initStatsigFeatureGateRuntime } from "../../runtime/feature-gate-runtime";
 import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
 import { initHostWorktreeContextRuntime } from "../../runtime/host-worktree-context";
@@ -56,7 +56,7 @@ import {
   initThreadSummaryRouteRuntime,
   initWorkspaceRouteQueryRuntime,
   initWorkspaceRouteStateRuntime,
-} from "../../runtime/local-conversation-thread-init-runtime";
+} from "./local-conversation-thread-init-runtime";
 import { initMarkdownCopyHelpers } from "../conversation-copy";
 import { initThreadSwitchTimingTrackerChunk } from "../../automation/heartbeat-automation-eligibility";
 import { initLauncherHotkeyStateChunk } from "../../features/hotkey-window-state";
