@@ -3,7 +3,7 @@
 // Small layout primitives used by home-page rows.
 import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
-import { ComposerFooterLabel } from "../composer/composer-footer-dy-rb-fs-kv";
+import { ComposerFooterLabel } from "../composer/composer-footer";
 import { once } from "../runtime/commonjs-interop";
 type SpanProps = ComponentPropsWithoutRef<"span">;
 export const initHomeRowLayoutChunk = once(() => {});

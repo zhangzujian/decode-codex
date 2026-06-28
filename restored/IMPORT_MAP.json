@@ -6113,13 +6113,15 @@
       "status": "done"
     },
     "composer-footer-DyRbFsKV": {
-      "restored": "composer/composer-footer-dy-rb-fs-kv.tsx",
+      "restored": "composer/composer-footer.tsx",
       "exports": {
         "n": "ComposerFooterLabel",
         "r": "ComposerFooterSecondaryChevron",
         "t": "ComposerFooterRoot"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Moved the public composer footer primitive module to composer/composer-footer.tsx, kept the previous hash-derived file as a compatibility barrel, and updated restored consumers to import the semantic path where they are already committed.",
+      "lastUpdated": "2026-06-28T15:02:12.000Z"
     },
     "setting-storage-DpOcYU7S": {
       "restored": "settings/setting-storage.tsx",
