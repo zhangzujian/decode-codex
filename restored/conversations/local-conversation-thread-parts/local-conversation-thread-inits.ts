@@ -70,9 +70,9 @@ import {
   it as initAppgenLibraryHotChunk,
   n as initAppgenLibraryRuntime,
 } from "../../boundaries/current-ref/appgen-library-hot-producer";
-import { m as initPetsGeneralSettingsProducer } from "../../boundaries/current-ref/pets-general-settings-producer";
 import { initThreadSwitchTimingTrackerChunk } from "../../automation/heartbeat-automation-eligibility";
 import { initLauncherHotkeyStateChunk } from "../../features/hotkey-window-state";
+import { initScrollToBottomButtonChunk } from "../../utils/scroll-to-bottom-buton";
 import { initThreadScrollControllerContextChunk } from "../../utils/thread-scroll-controller-context";
 import { initThreadOverflowMenuChunk } from "../../threads/thread-overflow-menu";
 import {
@@ -147,7 +147,7 @@ export const initLocalConversationThreadChunk = once(() => {
   rc();
   Po();
   initModalRegistrySignal();
-  initPetsGeneralSettingsProducer();
+  initScrollToBottomButtonChunk();
   initToastRuntime();
   Wc();
   initElectronPlatformContent();

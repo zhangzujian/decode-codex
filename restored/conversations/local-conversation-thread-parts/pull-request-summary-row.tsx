@@ -19,10 +19,6 @@ import {
   za as openInBrowserFromEvent,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  O as BrowserSidebarMenu,
-  k as initBrowserSidebarMenuChunk,
-} from "../../boundaries/current-ref/worktree-new-thread-panel-producer";
-import {
   Bt as buildPullRequestBrowserSidebarItems,
   Vt as initPullRequestBrowserSidebarItemsChunk,
   zt as canShowPullRequestBrowserSidebarMenu,
@@ -38,6 +34,10 @@ import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,
 } from "../../utils/summary-panel-row";
+import {
+  BrowserSidebarMenu,
+  initBrowserSidebarMenuChunk,
+} from "../../ui/browser-sidebar-menu";
 
 type PullRequestBoardItem = {
   number?: number | null;

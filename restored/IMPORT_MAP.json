@@ -11197,10 +11197,14 @@
       "lastUpdated": "2026-06-27T23:46:28.000Z"
     },
     "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-CQrj7g91": {
-      "restored": "boundaries/current-ref/worktree-new-thread-panel-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
-      "lastUpdated": "2026-06-27T03:16:46.000Z"
+      "restored": "ui/browser-sidebar-menu.tsx",
+      "exports": {
+        "O": "BrowserSidebarMenu",
+        "k": "initBrowserSidebarMenuChunk"
+      },
+      "status": "partial",
+      "note": "Deep-restored the BrowserSidebarMenu exports used by pull-request-summary-row using the restored ContextMenu implementation; remaining worktree/new-thread-panel exports still need semantic restoration.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~new-~kvpgbdy1-mhRp2VYQ": {
       "restored": "boundaries/current-ref/pull-request-thread-actions-producer.ts",
@@ -11280,10 +11284,14 @@
       "lastUpdated": "2026-06-27T23:21:23.000Z"
     },
     "app-initial~app-main~pets-settings~appearance-settings~general-settings-x4e4q7BN": {
-      "restored": "boundaries/current-ref/pets-general-settings-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
-      "lastUpdated": "2026-06-27T03:16:46.000Z"
+      "restored": "utils/scroll-to-bottom-buton.tsx",
+      "exports": {
+        "m": "initScrollToBottomButtonChunk",
+        "p": "ScrollToBottomButton"
+      },
+      "status": "partial",
+      "note": "Deep-restored the ScrollToBottomButton exports used by local-conversation composer footer; remaining pets/general-settings exports still need semantic restoration.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "app-initial~app-main~onboarding-page~appearance-settings~general-settings-Dkbr2b2v": {
       "restored": "icons/pull-request-comment-icon.tsx",

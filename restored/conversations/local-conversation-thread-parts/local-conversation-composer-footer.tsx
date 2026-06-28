@@ -36,9 +36,9 @@ import {
   et as initThreadComposerFooterChunk,
   t as ThreadComposerFooter,
 } from "../../boundaries/current-ref/appgen-library-hot-producer";
-import { p as ScrollToBottomButton } from "../../boundaries/current-ref/pets-general-settings-producer";
 import { FormattedMessage, useIntl } from "../../vendor/react-intl";
 import { SpinnerIcon } from "../../ui/spinner";
+import { ScrollToBottomButton } from "../../utils/scroll-to-bottom-buton";
 import { useThreadScrollController } from "../../utils/thread-scroll-controller-context";
 
 type WorktreeRestoreBannerProps = {
