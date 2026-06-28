@@ -10309,7 +10309,7 @@
       "status": "done"
     },
     "service-tier-icons-C-0I5QrR": {
-      "restored": "utils/composer-runtime-controls/index.ts",
+      "restored": "composer/composer-runtime-controls/index.ts",
       "exports": {
         "a": "togglePlanModeSelection",
         "c": "windowsSandboxReadinessQueryKey",
@@ -10323,7 +10323,9 @@
         "t": "getServiceTierIcon",
         "u": "useWindowsSandboxModeQuery"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Moved the public composer runtime controls, follow-up mode helpers, Windows sandbox controls, and service-tier icon selector into composer/composer-runtime-controls; utils/composer-runtime-controls remains as compatibility barrels.",
+      "lastUpdated": "2026-06-28T16:22:25.000Z"
     },
     "app-server-manager-hooks-D4-J16ZL": {
       "restored": "app-server/app-server-manager-hooks/index.ts",
