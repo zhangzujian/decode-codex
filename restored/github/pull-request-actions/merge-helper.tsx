@@ -3,18 +3,18 @@
 import type { MouseEvent } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
-  AB as initScopeRuntime,
-  AI as routeToConversation,
-  BP as classNames,
-  DN as Button,
-  FB as useScope,
-  NI as routeToPendingWorktree,
-  ON as initButtonComponentPrimitives,
-  VP as initClassNameRuntime,
-  bF as initRouteHelpers,
-  hM as initTooltipRuntime,
-  pM as Tooltip,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  Button,
+  classNames,
+  initButtonComponentPrimitives,
+  initClassNameRuntime,
+  initRouteHelpers,
+  initScopeRuntime,
+  initTooltipRuntime,
+  routeToConversation,
+  routeToPendingWorktree,
+  Tooltip,
+  useScope,
+} from "../../runtime/pull-request-actions-runtime";
 import { CodexIcon } from "../../icons/codex-icon";
 import { FormattedMessage } from "../../vendor/react-intl";
 import { trackPullRequestAction, initPullRequestAnalyticsChunk } from "./analytics";

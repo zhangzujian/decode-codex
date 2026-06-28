@@ -3,24 +3,24 @@
 import { useState } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
-  AB as initScopeRuntime,
-  AV as initReactQueryRuntime,
-  BP as classNames,
-  DN as Button,
-  FB as useScope,
-  ON as initButtonComponentPrimitives,
-  Qt as Switch,
-  VN as initSwitchRuntime,
-  VP as initClassNameRuntime,
-  XN as queryKey,
-  $N as initVscodeApiBridge,
-  hM as initTooltipRuntime,
-  iF as initIntlRuntime,
-  lF as useIntl,
-  pM as Tooltip,
-  uM as toastSignal,
-  zV as useQueryClient,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  Button,
+  classNames,
+  initButtonComponentPrimitives,
+  initClassNameRuntime,
+  initIntlRuntime,
+  initReactQueryRuntime,
+  initScopeRuntime,
+  initSwitchRuntime,
+  initTooltipRuntime,
+  initVscodeApiBridge,
+  queryKey,
+  Switch,
+  toastSignal,
+  Tooltip,
+  useIntl,
+  useQueryClient,
+  useScope,
+} from "../../runtime/pull-request-actions-runtime";
 import { ChevronIcon } from "../../icons/chevron-icon";
 import { FormattedMessage } from "../../vendor/react-intl";
 import {

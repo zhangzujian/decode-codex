@@ -2,12 +2,12 @@
 // GitHub pull request merge/update mutation hooks.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  $N as initVscodeApiBridge,
-  AV as initReactQueryRuntime,
-  XN as queryKey,
-  tP as useAppServerMutation,
-  zV as useQueryClient,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  initReactQueryRuntime,
+  initVscodeApiBridge,
+  queryKey,
+  useAppServerMutation,
+  useQueryClient,
+} from "../../runtime/pull-request-actions-runtime";
 
 type MutationOptions = {
   cwd?: string | null;

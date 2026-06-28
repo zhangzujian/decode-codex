@@ -3,13 +3,13 @@
 import type { ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
-  BP as classNames,
-  DN as Button,
-  ON as initButtonComponentPrimitives,
-  VP as initClassNameRuntime,
-  hM as initTooltipRuntime,
-  pM as Tooltip,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  Button,
+  classNames,
+  initButtonComponentPrimitives,
+  initClassNameRuntime,
+  initTooltipRuntime,
+  Tooltip,
+} from "../../runtime/pull-request-actions-runtime";
 
 export type PullRequestInlineActionButtonProps = {
   ariaLabel?: string;

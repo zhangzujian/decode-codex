@@ -3,11 +3,11 @@
 import type { ReactNode, SVGProps } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
-  BP as classNames,
-  La as initExternalUrlHelpers,
-  VP as initClassNameRuntime,
-  za as openInBrowserFromEvent,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  classNames,
+  initClassNameRuntime,
+  initExternalUrlHelpers,
+  openInBrowserFromEvent,
+} from "../../runtime/pull-request-actions-runtime";
 import { CheckCircleFilledIcon } from "../../icons/check-circle-filled-icon";
 import { ClockIcon } from "../../icons/clock-icon";
 import { QuestionMarkCircleIcon } from "../../icons/question-mark-circle-icon";

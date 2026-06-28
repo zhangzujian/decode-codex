@@ -2,13 +2,13 @@
 // Pull request side-panel analytics helpers.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  CS as initPullRequestViewedEventRuntime,
-  ST as pullRequestViewedFromSidePanelEvent,
-  TS as logScopedProductEvent,
-  bT as pullRequestActionEvent,
-  kE as initPullRequestActionEventRuntime,
-  xT as pullRequestKindActionEvent,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  initPullRequestActionEventRuntime,
+  initPullRequestViewedEventRuntime,
+  logScopedProductEvent,
+  pullRequestActionEvent,
+  pullRequestKindActionEvent,
+  pullRequestViewedFromSidePanelEvent,
+} from "../../runtime/pull-request-actions-runtime";
 import type { PullRequestBoardItem, PullRequestSurface } from "./types";
 
 type PullRequestActionParams = {
