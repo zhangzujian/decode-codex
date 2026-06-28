@@ -17,21 +17,23 @@ import {
   PopoverTrigger,
 } from "../../ui/popover";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
+import { useScope, useScopedValue } from "../../runtime/app-scope-hooks";
 import {
-  $N as initVscodeApiBridge,
-  $P as initAppScope,
-  AB as initScopeRuntime,
-  QP as appScope,
-  ZN as createHostQuerySignal,
-  aP as QUERY_DURATIONS,
-  cM as initToastRuntime,
-  fu as initTaskWorkspaceQueryRuntime,
-  oP as initQueryDurationConstants,
-  pu as useDebouncedValue,
-  uM as toastSignal,
-  PB as useScopedValue,
-  FB as useScope,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  appScopeRoot as appScope,
+  initAppScopeSignalRuntime,
+} from "../../runtime/app-scope-runtime";
+import {
+  createHostQuerySignal,
+  initHostQueryRuntime,
+  initTaskWorkspaceHostQueryRuntime,
+  QUERY_DURATIONS,
+  useDebouncedValue,
+} from "../../runtime/host-query-runtime";
+import {
+  initToastSignalRuntime,
+  toastSignal,
+} from "../../runtime/local-conversation-route-runtime";
+import { initVscodeBridgeRuntime } from "../../runtime/platform-content-runtime";
 import {
   initShareInviteAutocompleteChunk,
   ShareInviteAutocomplete,
@@ -97,9 +99,9 @@ type GithubUserSearchQuery = unknown;
 let githubUserSearchQuery: GithubUserSearchQuery;
 
 const initGithubUserSearchQuery = once(() => {
-  initAppScope();
-  initQueryDurationConstants();
-  initVscodeApiBridge();
+  initAppScopeSignalRuntime();
+  initHostQueryRuntime();
+  initVscodeBridgeRuntime();
   githubUserSearchQuery = createHostQuerySignal(
     appScope,
     "gh-user-search",
@@ -505,20 +507,19 @@ function toReviewerSearchOption(
 }
 
 export const initRequestPullRequestReviewersButtonChunk = once(() => {
-  initScopeRuntime();
+  initAppScopeSignalRuntime();
   initIntlRuntime();
   initButtonComponentPrimitives();
   initDropdownMenuPrimitives();
   initPopoverPrimitives();
   initShareInviteAutocompleteChunk();
   initSpinnerComponent();
-  initToastRuntime();
+  initToastSignalRuntime();
   initPlusIcon();
   initSearchIcon();
   initPullRequestUpdateMutationChunk();
   initPullRequestAnalyticsChunk();
-  initAppScope();
-  initTaskWorkspaceQueryRuntime();
+  initTaskWorkspaceHostQueryRuntime();
   initGithubUserSearchQuery();
   initReviewerSearchUniqByModule();
 });

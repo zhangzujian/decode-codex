@@ -38,6 +38,10 @@ export function initLocalConversationRouteRuntime(): void {
   initRouteScope();
 }
 
+export function initToastSignalRuntime(): void {
+  initToastRuntime();
+}
+
 export function initLocalConversationNavigationRuntime(): void {
   initLocalConversationRouteRuntime();
   initConversationPromptContextRuntime();
