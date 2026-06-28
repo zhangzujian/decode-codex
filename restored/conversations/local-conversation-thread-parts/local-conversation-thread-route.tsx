@@ -2,9 +2,7 @@
 // Route-level thread composition for the local conversation screen.
 import { once } from "../../runtime/commonjs-interop";
 import { useStableCallback } from "../../utils/use-stable-callback";
-import {
-  initAppLoggerRuntime,
-} from "../../runtime/app-logger";
+import { initAppLoggerRuntime } from "../../runtime/app-logger";
 import {
   useScope,
   useScopedValue,
@@ -34,7 +32,7 @@ import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
 import { PlatformContentGate } from "../../runtime/platform-content-runtime";
 import { initVscodeMessageRuntime } from "../../runtime/vscode-message-runtime";
 import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";
-import { rightPanelFullWidthSignal } from "../../runtime/app-shell-frame";
+import { rightPanelFullWidthSignal } from "../../app-shell/mcp-app-frame";
 import { ErrorBoundary as ThreadSummaryPanelErrorBoundary } from "../../runtime/error-boundary";
 import { threadSwitchTimingTracker } from "../../automation/heartbeat-automation-eligibility";
 import { launcherHotkeyStateQuery } from "../../features/hotkey-window-state";

@@ -7,7 +7,7 @@ import { useStableCallback } from "../../utils/use-stable-callback";
 import {
   AppShellElementContext,
   AppShellOverlayOutlet,
-} from "../../runtime/app-shell-frame";
+} from "../../app-shell/mcp-app-frame";
 import {
   initThreadNullRefChunk,
   useNullAppShellRef,

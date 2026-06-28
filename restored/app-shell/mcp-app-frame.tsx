@@ -1,0 +1,22 @@
+// Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
+// MCP app frame overlay outlet and route-level app-shell frame signals.
+import type { ComponentType } from "react";
+import {
+  jr as liveMcpAppFrameSignal,
+  vn as RawAppShellOverlayOutlet,
+} from "../vendor/projects-app-shared-runtime";
+import { appShellStateExportAAlias as rightPanelFullWidthSignal } from "../runtime/app-shell-state";
+import { AppShellElementContext } from "./app-shell-element-context";
+
+export type AppShellOverlayOutletProps = {
+  mcpAppId?: string;
+};
+
+export const AppShellOverlayOutlet =
+  RawAppShellOverlayOutlet as ComponentType<AppShellOverlayOutletProps>;
+
+export {
+  AppShellElementContext,
+  liveMcpAppFrameSignal,
+  rightPanelFullWidthSignal,
+};

@@ -20,7 +20,7 @@ import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
 } from "../../runtime/local-conversation-route-runtime";
-import { liveMcpAppFrameSignal } from "../../runtime/app-shell-frame";
+import { liveMcpAppFrameSignal } from "../../app-shell/mcp-app-frame";
 import { initBackgroundAgentThreadTab } from "./local-conversation-background-agent-thread-tab";
 import { openBackgroundAgentFromThread } from "./local-conversation-background-agent-open";
 import {
