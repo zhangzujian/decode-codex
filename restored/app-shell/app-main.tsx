@@ -25,11 +25,11 @@ import {
 } from "../boundaries/current-ref/automations-page-producer";
 import { AppFallback, initAppFallbackChunk } from "./app-fallback";
 import { initEmptyAppChunk } from "./empty-app-initializer";
-import { ErrorBoundary } from "../runtime/error-boundary";
 import {
-  Ja as initPullRequestThreadActionsChunk,
-  uo as initDesktopNotificationRuntime,
-} from "../boundaries/current-ref/pull-request-thread-actions-producer";
+  ErrorBoundary,
+  initializeRendererSentry,
+} from "../runtime/error-boundary";
+import { Ja as initPullRequestThreadActionsChunk } from "../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   appgenPublicationTermsSidePanelHandler,
   initPublicationTermsHandlerRegistryChunk,
@@ -158,7 +158,7 @@ const initAppMainChunk = once(() => {
     document.documentElement.classList.add("compact-window");
   }
 
-  initDesktopNotificationRuntime();
+  initializeRendererSentry();
   installGlobalErrorForwarders();
 
   const rootElement = document.getElementById("root");
