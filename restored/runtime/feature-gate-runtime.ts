@@ -1,12 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
 // Statsig feature-gate signal and hook facade for restored conversation modules.
 import {
-  $j as initStatsigGateSignals,
   Gj as initStatsigFeatureGateHooks,
   Xj as useStatsigLayerRaw,
   eM as featureGateSignal,
   qj as useStatsigGateRaw,
 } from "../vendor/appg-thread-shared-runtime";
+import { initAppgFeatureGateAndSideConversationRuntime } from "./appg-shared-runtime-initializers";
 
 export { featureGateSignal };
 
@@ -15,7 +15,7 @@ export type StatsigLayer = {
 };
 
 export function initFeatureGateSignalRuntime(): void {
-  initStatsigGateSignals();
+  initAppgFeatureGateAndSideConversationRuntime();
 }
 
 export function initStatsigFeatureGateRuntime(): void {
