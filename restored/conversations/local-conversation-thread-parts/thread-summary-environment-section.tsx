@@ -29,7 +29,7 @@ import {
   getHostCodexHome,
   initHostWorktreeContextRuntime,
   isPathInCodexWorktree,
-} from "../../runtime/host-worktree-context";
+} from "../../worktree/host-worktree-context";
 import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
 import {
   initLocalConversationRouteRuntime,

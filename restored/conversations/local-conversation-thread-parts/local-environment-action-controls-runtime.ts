@@ -51,7 +51,7 @@ export {
   useGitAvailabilityQuery,
 } from "../../runtime/git-query-runtime";
 export { useHostMutation } from "../../runtime/host-mutation-runtime";
-export { initHostWorktreeContextRuntime } from "../../runtime/host-worktree-context";
+export { initHostWorktreeContextRuntime } from "../../worktree/host-worktree-context";
 export { useHostQuery } from "../../runtime/host-query-runtime";
 export {
   initLocalConversationNavigationRuntime,

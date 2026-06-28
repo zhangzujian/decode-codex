@@ -21,7 +21,7 @@ import {
   appLogger as logger,
   initAppLoggerRuntime,
 } from "../../runtime/app-logger";
-import { initHostWorktreeContextRuntime } from "../../runtime/host-worktree-context";
+import { initHostWorktreeContextRuntime } from "../../worktree/host-worktree-context";
 import { initLocalEnvironmentConfigRuntime } from "../../runtime/local-environment-config-runtime";
 import {
   initLocalConversationNavigationRuntime,

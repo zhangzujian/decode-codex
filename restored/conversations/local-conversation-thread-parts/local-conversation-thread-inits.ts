@@ -19,7 +19,7 @@ import {
 } from "./conversation-thread-runtime";
 import { initStatsigFeatureGateRuntime } from "../../runtime/feature-gate-runtime";
 import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
-import { initHostWorktreeContextRuntime } from "../../runtime/host-worktree-context";
+import { initHostWorktreeContextRuntime } from "../../worktree/host-worktree-context";
 import { initLocalEnvironmentConfigRuntime } from "../../runtime/local-environment-config-runtime";
 import {
   initConversationRouteSourceRuntime,

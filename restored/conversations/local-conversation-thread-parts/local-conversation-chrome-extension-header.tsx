@@ -11,7 +11,7 @@ import {
   backgroundAgentSnapshotSignal,
   getFallbackBackgroundAgentHandle,
   getSubagentSourceMetadata,
-} from "../../runtime/background-agent-runtime";
+} from "./background-agent-runtime";
 import {
   conversationCwdSignal,
   hasConversationSignal,

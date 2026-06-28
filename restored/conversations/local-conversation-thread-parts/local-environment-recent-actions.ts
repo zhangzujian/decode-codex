@@ -3,7 +3,7 @@
 import {
   getHostCodexHome,
   isPathInCodexWorktree,
-} from "../../runtime/host-worktree-context";
+} from "../../worktree/host-worktree-context";
 
 export type RecentLocalEnvironmentActionsByKey = Record<
   string,
