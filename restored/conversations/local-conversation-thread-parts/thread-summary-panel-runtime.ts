@@ -1,6 +1,5 @@
 // Restored from ref/webview/assets/local-conversation-thread-BwqAGxoz.js
 // Thread summary panel animation config and route-scoped signal helpers.
-import { NM as createPersistedScopedSignalRaw } from "../../vendor/appg-thread-shared-runtime";
 import { initPersistentSignalRuntime as initScopedSignalRuntime } from "../../runtime/shared-utility-runtime";
 
 import { createScopedSignal as createScopedSignalRaw } from "../../runtime/app-scope-runtime";
@@ -26,6 +25,7 @@ import {
   Rl as hostConfigSignal,
   Rr as getThreadSourceFrameTabId,
   Sl as workspaceRouteStateSignal,
+  vS as createPersistedScopedSignalRaw,
   Wl as initProjectDisplayWorkspaceSignalsRaw,
   wd as threadLayoutContext,
   Ya as showRightPanel,
