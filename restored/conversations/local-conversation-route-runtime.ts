@@ -4,8 +4,9 @@ import {
   AI as getLocalConversationPathRaw,
   OI as getHotkeyWindowThreadPathRaw,
   PI as getHotkeyWindowFallbackPathRaw,
-  bF as initConversationPromptContextRuntime,
 } from "../vendor/appg-thread-shared-runtime";
+import { initConversationPromptContextRuntime } from "../runtime/conversation-prompt-context-runtime";
+
 import { initToastRuntime, toastSignal } from "../runtime/toast-runtime";
 
 import { isHotkeyWindowContext } from "../utils/is-hotkey-window-context";

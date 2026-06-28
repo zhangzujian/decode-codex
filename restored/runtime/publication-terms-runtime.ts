@@ -5,10 +5,11 @@ import {
   kL as readFileContentSampleByteLimit,
   MD as renderMcpCapabilityIcon,
   Sj as getPathBasename,
-  wj as initArtifactPreviewRuntime,
   xL as isRemoteHostConfig,
   yR as isUrlLikePath,
 } from "../vendor/appg-thread-shared-runtime";
+import { initArtifactPreviewRuntime } from "./artifact-preview-runtime";
+
 import { resolveWorkspacePathFromCwd } from "../conversations/output-artifact-runtime";
 
 import { sendHostRequest } from "./host-request-runtime";

@@ -3,9 +3,10 @@
 import {
   Sk as normalizeMarkdownPlainTextRaw,
   Sj as getPathBasenameRaw,
-  bF as initConversationPromptContextRuntime,
-  wj as initThreadFindResourcePreviewRuntime,
 } from "../../vendor/appg-thread-shared-runtime";
+import { initConversationPromptContextRuntime } from "../../runtime/conversation-prompt-context-runtime";
+import { initArtifactPreviewRuntime as initThreadFindResourcePreviewRuntime } from "../../runtime/artifact-preview-runtime";
+
 import { isAbsoluteOrWindowsPath as isAbsoluteOrWindowsPathValue } from "../../boundaries/src-l0hb-mz-p";
 import {
   P as recordForkedConversationSourceRaw,

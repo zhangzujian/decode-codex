@@ -2,10 +2,11 @@
 // Boundary facade for conversation markdown rendering and formatting helpers.
 import {
   aD as formatShellCommand,
-  bF as initPathHelpers,
   iD as initCommandMarkdownRuntime,
-  wj as initArtifactPreviewRuntime,
 } from "../vendor/appg-thread-shared-runtime";
+import { initPathHelpersRuntime as initPathHelpers } from "./path-helpers-runtime";
+import { initArtifactPreviewRuntime } from "./artifact-preview-runtime";
+
 import { normalizeArtifactPathKey } from "../conversations/output-artifact-runtime";
 
 import { normalizeConfigPath } from "./config-path-runtime";
