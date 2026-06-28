@@ -3,10 +3,12 @@
 import { once } from "../../runtime/commonjs-interop";
 import {
   AL as preloadDynamicImport,
-  Nv as initConversationArtifactRuntime,
-  Pv as toRenderableConversationTurn,
   jL as initModulePreloadRuntime,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import {
+  initLocalConversationArtifactRuntime,
+  renderLocalConversationTurn,
+} from "./local-conversation-artifact-runtime";
 
 const CONVERSATION_MARKDOWN_PRELOAD_DEPENDENCIES = [
   "../utils/thread-user-message-navigation-rail",
@@ -65,7 +67,7 @@ export async function renderLocalConversationMarkdownForTurns({
 }: RenderLocalConversationMarkdownOptions): Promise<string | null> {
   let renderableTurns = visibleTurnEntries.map(
     ({ preserveServerUserMessages, requests, turn }) =>
-      toRenderableConversationTurn(turn, requests, {
+      renderLocalConversationTurn(turn, requests, {
         isBackgroundSubagentsEnabled,
         preserveServerUserMessages,
       }),
@@ -94,7 +96,7 @@ export async function renderLocalConversationMarkdownForTurns({
 }
 
 export const initConversationMarkdownRenderer = once(() => {
-  initConversationArtifactRuntime();
+  initLocalConversationArtifactRuntime();
   initModulePreloadRuntime();
 });
 

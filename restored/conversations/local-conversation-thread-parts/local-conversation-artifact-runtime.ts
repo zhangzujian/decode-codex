@@ -20,7 +20,7 @@ type AssistantOutputArtifactsOptions = {
   turn: unknown;
 };
 
-export function renderLocalConversationTurnForArtifacts<TTurn = unknown>(
+export function renderLocalConversationTurn<TTurn = unknown>(
   turn: unknown,
   requests: readonly unknown[] = [],
   options?: RenderConversationTurnOptions,
@@ -30,6 +30,14 @@ export function renderLocalConversationTurnForArtifacts<TTurn = unknown>(
       ? renderConversationTurnForArtifactsRaw(turn, requests)
       : renderConversationTurnForArtifactsRaw(turn, requests, options)
   ) as TTurn;
+}
+
+export function renderLocalConversationTurnForArtifacts<TTurn = unknown>(
+  turn: unknown,
+  requests: readonly unknown[] = [],
+  options?: RenderConversationTurnOptions,
+): TTurn {
+  return renderLocalConversationTurn<TTurn>(turn, requests, options);
 }
 
 export function collectLocalAssistantOutputArtifacts<TArtifact = unknown>(

@@ -9,7 +9,6 @@ import {
   AB as initScopeRuntime,
   Em as conversationTurnsSignal,
   Ip as localResponseInProgressSignal,
-  Nv as initConversationArtifactRuntime,
   Op as initConversationStateSelectors,
   QP as appScope,
   Tp as hasConversationSignal,
@@ -19,6 +18,7 @@ import {
   sm as conversationRequestsSignal,
   vm as subagentParentThreadIdSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import { initLocalConversationArtifactRuntime } from "./local-conversation-artifact-runtime";
 import { getConversationTurnsNotInParent } from "./parent-conversation-turns";
 import {
   buildLocalConversationVisibleTurnEntries,
@@ -49,7 +49,7 @@ export const initLocalConversationTurnSelectors = once(() => {
   initAppScope();
   initStatsigGateSignals();
   initDeepEqualModule();
-  initConversationArtifactRuntime();
+  initLocalConversationArtifactRuntime();
   initConversationSearchUnitExtractor();
   initLocalConversationVisibleTurnEntriesBuilder();
 

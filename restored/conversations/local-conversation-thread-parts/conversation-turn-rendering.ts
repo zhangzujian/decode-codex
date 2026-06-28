@@ -2,10 +2,12 @@
 // Semantic renderability and search-format helpers for local conversation turns.
 import {
   Mv as isRenderableConversationTurn,
-  Nv as initConversationArtifactRuntime,
-  Pv as formatConversationTurnForSearch,
   Sk as normalizeMarkdownPlainText,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
+import {
+  initLocalConversationArtifactRuntime,
+  renderLocalConversationTurn,
+} from "./local-conversation-artifact-runtime";
 
 export type RenderableConversationTurnOptions = {
   isBackgroundSubagentsEnabled: boolean;
@@ -24,7 +26,11 @@ export function formatLocalConversationTurnForSearch<TItem = unknown>(
   requests: readonly unknown[],
   options: RenderableConversationTurnOptions,
 ): { items: TItem[] } {
-  return formatConversationTurnForSearch(turn, requests, options);
+  return renderLocalConversationTurn<{ items: TItem[] }>(
+    turn,
+    requests,
+    options,
+  );
 }
 
 export function normalizeConversationSearchMarkdown(text: string): string {
@@ -32,5 +38,5 @@ export function normalizeConversationSearchMarkdown(text: string): string {
 }
 
 export function initLocalConversationTurnRenderingRuntime(): void {
-  initConversationArtifactRuntime();
+  initLocalConversationArtifactRuntime();
 }
