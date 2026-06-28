@@ -2,17 +2,15 @@
 // Output resource open handlers for the local conversation summary panel.
 import type { MouseEvent } from "react";
 import { once } from "../../runtime/commonjs-interop";
-import { useStableCallback } from "../../utils/use-stable-callback";
+import { isFileUrlLikeTarget } from "../../runtime/output-artifact-runtime";
 import {
-  En as toAppFsUrl,
-  La as initExternalUrlHelpers,
-  On as initAppFsUrlHelpers,
-  a_ as initFileTypeDetectionHelpers,
-  bR as isFileUrlLikeTarget,
-  ms as resolveInlineableLocalImagePath,
-  r_ as getImagePreviewDisplayMode,
-  za as openInBrowserFromEvent,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  getImagePreviewDisplayMode,
+  initResourceOpenRuntime,
+  openInBrowserFromEvent,
+  resolveInlineableLocalImagePath,
+  toAppFsUrl,
+} from "../../runtime/resource-open-runtime";
+import { useStableCallback } from "../../utils/use-stable-callback";
 import {
   initWorkspaceResourceOpenerChunk,
   openWorkspaceResource,
@@ -149,8 +147,6 @@ function getGeneratedImagePreviewSrc(generatedImagePath: string) {
 }
 
 export const initThreadSummaryOutputOpenHandlersChunk = once(() => {
-  initExternalUrlHelpers();
-  initAppFsUrlHelpers();
-  initFileTypeDetectionHelpers();
+  initResourceOpenRuntime();
   initWorkspaceResourceOpenerChunk();
 });

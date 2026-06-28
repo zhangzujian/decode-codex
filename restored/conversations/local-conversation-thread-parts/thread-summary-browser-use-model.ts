@@ -2,12 +2,12 @@
 // Browser-use summary model glue for the local conversation summary panel.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  G_ as multiBrowserTabsEnabledSignal,
-  IB as useSignalValue,
-  T_ as getRouteConversationId,
-  Ts as initBrowserFeatureAvailabilitySignals,
-  uz as NEW_TAB_TITLE,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  getRouteConversationId,
+  initBrowserFeatureAvailabilityRuntime,
+  multiBrowserTabsEnabledSignal,
+  NEW_TAB_TITLE,
+} from "../../runtime/browser-feature-runtime";
+import { useSignalValue } from "../../runtime/app-scope-hooks";
 import {
   bottomPanelTabsStore,
   rightPanelTabsStore,
@@ -37,5 +37,5 @@ export function useThreadSummaryBrowserUseSummaries(
 }
 
 export const initThreadSummaryBrowserUseModelChunk = once(() => {
-  initBrowserFeatureAvailabilitySignals();
+  initBrowserFeatureAvailabilityRuntime();
 });

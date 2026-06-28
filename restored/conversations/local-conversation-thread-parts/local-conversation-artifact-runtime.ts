@@ -1,35 +1,21 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Conversation artifact rendering and output collection runtime helpers.
 import {
-  Hg as collectEndResourcePathsRaw,
-  Nv as initConversationArtifactRuntimeRaw,
-  Pv as renderConversationTurnForArtifactsRaw,
-  Ug as collectAssistantOutputArtifactsRaw,
-  Wg as initMarkdownResourceHelpersRaw,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
-
-type RenderConversationTurnOptions = {
-  isBackgroundSubagentsEnabled?: boolean;
-  preserveServerUserMessages?: boolean;
-};
-
-type AssistantOutputArtifactsOptions = {
-  assistantContent: string | null;
-  isAppgenEndCardEnabled?: boolean;
-  projectlessOutputDirectory?: string | null;
-  turn: unknown;
-};
+  collectAssistantOutputArtifacts,
+  collectConversationEndResourcePaths,
+  initConversationArtifactRuntime as initConversationArtifactRuntimeRaw,
+  initMarkdownResourceRuntime,
+  renderConversationTurnForArtifacts as renderConversationTurnForArtifactsRaw,
+  type AssistantOutputArtifactsOptions,
+  type RenderConversationTurnOptions,
+} from "../../runtime/conversation-artifact-runtime";
 
 export function renderLocalConversationTurn<TTurn = unknown>(
   turn: unknown,
   requests: readonly unknown[] = [],
   options?: RenderConversationTurnOptions,
 ): TTurn {
-  return (
-    options === undefined
-      ? renderConversationTurnForArtifactsRaw(turn, requests)
-      : renderConversationTurnForArtifactsRaw(turn, requests, options)
-  ) as TTurn;
+  return renderConversationTurnForArtifactsRaw<TTurn>(turn, requests, options);
 }
 
 export function renderLocalConversationTurnForArtifacts<TTurn = unknown>(
@@ -43,13 +29,13 @@ export function renderLocalConversationTurnForArtifacts<TTurn = unknown>(
 export function collectLocalAssistantOutputArtifacts<TArtifact = unknown>(
   options: AssistantOutputArtifactsOptions,
 ): TArtifact[] {
-  return collectAssistantOutputArtifactsRaw(options) as TArtifact[];
+  return collectAssistantOutputArtifacts<TArtifact>(options);
 }
 
 export function collectLocalConversationEndResourcePaths(
   artifacts: readonly unknown[],
 ): string[] {
-  return collectEndResourcePathsRaw(artifacts) as string[];
+  return collectConversationEndResourcePaths(artifacts);
 }
 
 export function initLocalConversationArtifactRuntime(): void {
@@ -57,5 +43,5 @@ export function initLocalConversationArtifactRuntime(): void {
 }
 
 export function initLocalConversationMarkdownResourceRuntime(): void {
-  initMarkdownResourceHelpersRaw();
+  initMarkdownResourceRuntime();
 }
