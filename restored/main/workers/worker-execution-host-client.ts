@@ -4,40 +4,7 @@
 import { randomUUID } from "node:crypto";
 import { posix, win32 } from "node:path";
 import { ReadableStream, WritableStream } from "node:stream/web";
-
-type WorkerMainRpcMethod =
-  | "codex-home"
-  | "platform-family"
-  | "platform-os"
-  | "process-start"
-  | "process-write"
-  | "process-resize"
-  | "process-terminate"
-  | "fs-read-file"
-  | "fs-write-file"
-  | "fs-create-directory"
-  | "fs-get-metadata"
-  | "fs-read-directory"
-  | "fs-remove"
-  | "fs-copy"
-  | "fs-watch"
-  | "fs-unwatch";
-
-type WorkerMainRpcEventMethod =
-  | "process-output-delta"
-  | "fs-watch-changed"
-  | "fs-watch-closed";
-
-export type WorkerMainRpcRequester = {
-  request(
-    method: WorkerMainRpcMethod,
-    params: Record<string, unknown>,
-  ): Promise<unknown>;
-  subscribe(
-    method: WorkerMainRpcEventMethod,
-    listener: (params: Record<string, unknown>) => void,
-  ): () => void;
-};
+import type { WorkerMainRpcRequester } from "./worker-main-rpc-client";
 
 export type WorkerExecutionHostConfig = Record<string, unknown> & {
   id: string;
@@ -109,6 +76,7 @@ export class WorkerRemoteExecutionHostClient {
     const unsubscribeOutput = this.mainRpcClient.subscribe(
       "process-output-delta",
       (event) => {
+        if (!isRecord(event)) return;
         if (event.processHandle !== processHandle) return;
         (event.stream === "stdout" ? stdout : stderr).enqueue(event.chunk);
       },
@@ -315,6 +283,7 @@ export class WorkerRemoteExecutionHostClient {
     unsubscribeChanged = this.mainRpcClient.subscribe(
       "fs-watch-changed",
       (event) => {
+        if (!isRecord(event)) return;
         if (
           !closed &&
           event.hostId === this.id &&
@@ -327,6 +296,7 @@ export class WorkerRemoteExecutionHostClient {
     unsubscribeClosed = this.mainRpcClient.subscribe(
       "fs-watch-closed",
       (event) => {
+        if (!isRecord(event)) return;
         if (event.hostId !== this.id || event.watchId !== options.watchId)
           return;
         close(
