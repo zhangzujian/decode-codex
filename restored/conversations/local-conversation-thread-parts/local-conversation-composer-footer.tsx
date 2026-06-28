@@ -43,7 +43,7 @@ import {
   initIntlRuntime,
 } from "../../vendor/react-intl";
 import { SpinnerIcon } from "../../ui/spinner";
-import { ScrollToBottomButton } from "../../utils/scroll-to-bottom-buton";
+import { ScrollToBottomButton } from "../../threads/scroll-to-bottom-button";
 import { useThreadScrollController } from "../../threads/thread-scroll-layout/scroll-controller-context";
 
 type WorktreeRestoreBannerProps = {

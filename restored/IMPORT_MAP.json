@@ -5408,7 +5408,8 @@
       "status": "done"
     },
     "scroll-to-bottom-buton-Bc3ZL53H": {
-      "restored": "utils/scroll-to-bottom-buton.tsx",
+      "restored": "threads/scroll-to-bottom-button.tsx",
+      "note": "Moved the public thread scroll-to-bottom control into threads/scroll-to-bottom-button.tsx; utils/scroll-to-bottom-buton.tsx remains as a compatibility barrel for the original typo basename.",
       "exports": {
         "t": "ScrollToBottomButton"
       },
@@ -11394,13 +11395,13 @@
       "lastUpdated": "2026-06-27T23:21:23.000Z"
     },
     "app-initial~app-main~pets-settings~appearance-settings~general-settings-x4e4q7BN": {
-      "restored": "utils/scroll-to-bottom-buton.tsx",
+      "restored": "threads/scroll-to-bottom-button.tsx",
       "exports": {
         "m": "initScrollToBottomButtonChunk",
         "p": "ScrollToBottomButton"
       },
       "status": "partial",
-      "note": "Deep-restored the ScrollToBottomButton exports used by local-conversation composer footer; remaining pets/general-settings exports still need semantic restoration.",
+      "note": "Deep-restored the ScrollToBottomButton exports used by local-conversation composer footer and moved the public wrapper into threads/scroll-to-bottom-button.tsx; remaining pets/general-settings exports still need semantic restoration.",
       "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "app-initial~app-main~onboarding-page~appearance-settings~general-settings-Dkbr2b2v": {
