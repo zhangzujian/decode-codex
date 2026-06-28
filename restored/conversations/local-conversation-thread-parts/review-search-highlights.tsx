@@ -3,6 +3,7 @@
 
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
+import { initSearchIcon } from "../../ui/dropdown/search";
 import {
   AB as initScopeRuntime,
   AL as preloadDynamicImport,
@@ -10,7 +11,6 @@ import {
   Gj as initStatsigFeatureGateHooks,
   jL as initModulePreloadRuntime,
   qj as useStatsigGate,
-  ta as initSearchIcon,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   Bo as conversationSearchResultSignal,

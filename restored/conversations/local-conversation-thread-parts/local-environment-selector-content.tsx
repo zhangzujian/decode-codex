@@ -1,16 +1,20 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Local environment display-name helpers and environment selector menu content.
+import {
+  CheckMdIcon as CheckIcon,
+  initCheckmarkIcon,
+} from "../../icons/check-md-icon";
+import {
+  initSettingsGearIcon,
+  SettingsGearIcon,
+} from "../../icons/settings-gear-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
-  Hi as initSettingsGearIcon,
   iF as initIntlRuntime,
   kj as normalizeConfigPath,
   lF as useIntl,
   qi as MenuChrome,
-  TM as initCheckmarkIcon,
-  Vi as SettingsGearIcon,
-  wM as CheckIcon,
   wj as initConfigPathHelpers,
   Xi as MenuSeparator,
   Zi as initDropdownMenuPrimitives,

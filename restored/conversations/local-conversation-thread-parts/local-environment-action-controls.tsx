@@ -1,5 +1,14 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 import { useState, type ReactNode } from "react";
+import {
+  CheckMdIcon as CheckIcon,
+  initCheckmarkIcon,
+} from "../../icons/check-md-icon";
+import { PlusIcon } from "../../icons/plus-icon";
+import {
+  initSettingsGearIcon,
+  SettingsGearIcon,
+} from "../../icons/settings-gear-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
   initKeyboardShortcutKeycap,
@@ -26,7 +35,6 @@ import {
   Ga as initElectronPlatformContent,
   Gi as DropdownMenu,
   Hh as initGitQueryKeyHelpers,
-  Hi as initSettingsGearIcon,
   hM as initTooltipPrimitives,
   iF as initIntlRuntime,
   Ix as environmentTerminalControllerService,
@@ -34,7 +42,6 @@ import {
   kj as normalizeConfigPath,
   lF as useIntl,
   lL as LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,
-  Lj as PlusIcon,
   Ln as initKeyboardModifierState,
   mP as logger,
   Mi as initModalRegistrySignal,
@@ -51,12 +58,9 @@ import {
   Rj as initCommandMenuItemRuntime,
   Rn as useCommandRegistration,
   SV as initQueryRuntime,
-  TM as initCheckmarkIcon,
   Uf as initHostWorkspaceQueries,
   Uh as useGitAvailabilityQuery,
-  Vi as SettingsGearIcon,
   Wa as PlatformContentGate,
-  wM as CheckIcon,
   wV as useSignalState,
   wj as initConfigPathHelpers,
   Xi as MenuSeparator,

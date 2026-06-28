@@ -1,14 +1,18 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Reviewer request popover used from the pull request side-panel overview row.
 import { useState, type ReactNode } from "react";
+import { PlusIcon } from "../../icons/plus-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { Button, initButtonComponentPrimitives } from "../../ui/button";
+import {
+  DropdownSearchIcon as SearchIcon,
+  initSearchIcon,
+} from "../../ui/dropdown/search";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
   $N as initVscodeApiBridge,
   $P as initAppScope,
   AB as initScopeRuntime,
-  Lj as PlusIcon,
   QP as appScope,
   Rj as initScreenReaderTitleChunk,
   ZN as createHostQuerySignal,
@@ -16,7 +20,6 @@ import {
   aP as QUERY_DURATIONS,
   cM as initToastRuntime,
   di as PopoverRoot,
-  ea as SearchIcon,
   fu as initTaskWorkspaceQueryRuntime,
   hi as PopoverTrigger,
   iF as initIntlRuntime,
@@ -29,7 +32,6 @@ import {
   FB as useScope,
   lF as useIntl,
   gi as initPopoverPrimitives,
-  ta as initSearchIcon,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   initShareInviteAutocompleteChunk,

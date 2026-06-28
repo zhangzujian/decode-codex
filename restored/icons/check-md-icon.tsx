@@ -20,4 +20,7 @@ export function CheckMdIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function initCheckmarkIcon(): void {}
+
 export default CheckMdIcon;

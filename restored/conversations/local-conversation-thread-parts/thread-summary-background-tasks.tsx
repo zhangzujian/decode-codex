@@ -6,6 +6,7 @@ import {
   type MouseEvent,
   type ReactNode,
 } from "react";
+import { initRefreshIcon, RefreshIcon } from "../../icons/refresh-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import { classNames, initClassNameRuntime } from "../../utils/class-names";
@@ -19,13 +20,11 @@ import {
   Ix as environmentTerminalControllerService,
   QP as appScope,
   SV as initQueryRuntime,
-  aM as RefreshIcon,
   ak as initAppServerRequestBridge,
   FB as useScope,
   hM as initTooltipPrimitives,
   iF as initIntlRuntime,
   ok as sendAppServerRequest,
-  oM as initRefreshIcon,
   pM as Tooltip,
   qi as MenuChrome,
   tP as useAppServerMutation,

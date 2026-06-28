@@ -23,6 +23,9 @@ export function DropdownSearchIcon(props: DropdownSearchIconProps) {
     </svg>
   );
 }
+
+export function initSearchIcon(): void {}
+
 export type DropdownInputProps = ComponentPropsWithoutRef<"input">;
 export function DropdownInput({
   onKeyDown,
