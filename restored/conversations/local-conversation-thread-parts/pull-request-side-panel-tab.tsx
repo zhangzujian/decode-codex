@@ -25,26 +25,21 @@ import {
   openInBrowserFromEvent,
 } from "../../runtime/resource-open-runtime";
 import {
-  Cl as pullRequestCurrentBranchSignal,
-  _c as threadSidePanelPositionControllers,
-  bc as activateThreadSidePanelPosition,
-  tc as initThreadSidePanelRuntimeChunk,
-  vc as getExistingThreadSidePanelPosition,
-  xl as initPullRequestCurrentBranchSignalChunk,
-  yc as initThreadSidePanelPositioningChunk,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
+  activateThreadSidePanelPosition,
+  getExistingThreadSidePanelPosition,
+  initPullRequestCurrentBranchRuntime,
+  initPullRequestDescriptionMarkdownRuntime,
+  initPullRequestSidePanelPositionRuntime,
+  parsePullRequestDescriptionMarkdown,
+  PullRequestDescriptionMarkdown,
+  pullRequestCurrentBranchSignal,
+  threadSidePanelPositionControllers,
+} from "../../runtime/pull-request-side-panel-runtime";
 import {
-  H as initPullRequestDescriptionMarkdownRendererChunk,
-  W as PullRequestDescriptionMarkdown,
-  m as parsePullRequestDescriptionMarkdown,
-  p as initPullRequestDescriptionMarkdownParserChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
-import {
-  Nl as PullRequestStatusIcon,
-  Pl as initPullRequestStatusIconChunk,
-  eu as getThreadBranchMismatchState,
-  tu as initThreadBranchComparisonChunk,
-} from "../../boundaries/current-ref/profile-page-producer";
+  getThreadBranchMismatchState,
+  initThreadBranchComparisonRuntime,
+} from "../../runtime/pull-request-prompt-runtime";
+import { PullRequestStatusIcon } from "../../github/pull-request-status";
 import {
   PullRequestMergeActions,
   initPullRequestMergeActionsChunk,
@@ -216,8 +211,7 @@ function PullRequestSidePanelDescriptionSection({
 
 const initPullRequestSidePanelDescriptionSectionChunk = once(() => {
   initIntlRuntime();
-  initPullRequestDescriptionMarkdownRendererChunk();
-  initPullRequestDescriptionMarkdownParserChunk();
+  initPullRequestDescriptionMarkdownRuntime();
   initPullRequestSidePanelErrorMessageChunk();
   initPullRequestSidePanelDetailsSummaryChunk();
   initPullRequestSidePanelLoadingStateChunk();
@@ -388,8 +382,8 @@ function getPullRequestDiffFileDisplayPath(diffFile: PullRequestDiffFile) {
 const initPullRequestSidePanelDetailsChunk = once(() => {
   initComposerScopeRuntime();
   initUnifiedDiffFileSummariesChunk();
-  initThreadBranchComparisonChunk();
-  initPullRequestCurrentBranchSignalChunk();
+  initThreadBranchComparisonRuntime();
+  initPullRequestCurrentBranchRuntime();
   initHostQueryRuntime();
   initVscodeBridgeRuntime();
   initPullRequestSidePanelChecksSectionChunk();
@@ -585,7 +579,10 @@ export function openPullRequestSidePanelTab(
         defaultState: () => ({}),
         icon: React.createElement(PullRequestStatusIcon, {
           className: "icon-xs shrink-0",
-          state: item.state,
+          status:
+            item.state === "draft" || item.state === "merged"
+              ? item.state
+              : "open",
         }),
         id: tabId,
         props: {
@@ -612,8 +609,6 @@ export function openPullRequestSidePanelTab(
 }
 
 export const initPullRequestSidePanelOpenerChunk = once(() => {
-  initThreadSidePanelRuntimeChunk();
-  initPullRequestStatusIconChunk();
+  initPullRequestSidePanelPositionRuntime();
   initPullRequestSidePanelTabChunk();
-  initThreadSidePanelPositioningChunk();
 });
