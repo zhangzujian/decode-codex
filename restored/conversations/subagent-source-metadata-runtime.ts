@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Subagent source metadata reader shared by conversation background-agent helpers.
-import { cA as getSubagentSourceMetadataRaw } from "../vendor/appg-thread-shared-runtime";
+import { Zy as getSubagentSourceMetadataRaw } from "../vendor/projects-app-shared-runtime";
 
 export type SubagentSourceMetadata = {
   agentNickname?: string | null;

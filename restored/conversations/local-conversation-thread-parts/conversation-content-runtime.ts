@@ -1,6 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
 // Conversation rendering helpers shared by local conversation thread modules.
-import { Sk as normalizeMarkdownPlainTextRaw } from "../../vendor/appg-thread-shared-runtime";
 import { getPathBasename as getPathBasenameRaw } from "../../runtime/path-basename-runtime";
 
 import { initConversationPromptContextRuntime } from "../../runtime/conversation-prompt-context-runtime";
@@ -86,7 +85,18 @@ export function isRenderableConversationTurn(
 }
 
 export function normalizeMarkdownPlainText(text: string): string {
-  return normalizeMarkdownPlainTextRaw(text);
+  let current = text;
+  for (;;) {
+    const next = current
+      .replace(/^\*\*(.+)\*\*$/u, "$1")
+      .replace(/^__(.+)__$/u, "$1")
+      .replace(/^\*(.+)\*$/u, "$1")
+      .replace(/^_(.+)_$/u, "$1")
+      .replace(/^`(.+)`$/u, "$1")
+      .trim();
+    if (next === current) return current;
+    current = next;
+  }
 }
 
 export function getPathBasename(path: string): string {
