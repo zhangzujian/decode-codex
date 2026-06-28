@@ -17,19 +17,27 @@ import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import { initTooltipPrimitives, Tooltip } from "../../ui/tooltip-b";
 import { classNames, initClassNameRuntime } from "../../utils/class-names";
 import {
-  $N as initVscodeApiBridge,
-  $P as initAppScope,
-  AB as initScopeRuntime,
-  Fx as initEnvironmentTerminalController,
-  IB as useSignalValue,
-  Ix as environmentTerminalControllerService,
-  QP as appScope,
-  SV as initQueryRuntime,
-  ak as initAppServerRequestBridge,
-  FB as useScope,
-  ok as sendAppServerRequest,
-  tP as useAppServerMutation,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  useScope,
+  useSignalValue,
+} from "../../runtime/app-scope-hooks";
+import {
+  appScopeRoot as appScope,
+  initAppScopeSignalRuntime,
+} from "../../runtime/app-scope-runtime";
+import {
+  initAppServerMutationRuntime,
+  useAppServerMutation,
+} from "../../runtime/app-server-mutation-runtime";
+import {
+  initAppServerRequestRuntime,
+  sendAppServerRequest,
+} from "../../runtime/app-server-request";
+import {
+  environmentTerminalControllerService,
+  initEnvironmentTerminalRuntime,
+} from "../../runtime/environment-terminal-runtime";
+import { initSignalStateRuntime } from "../../runtime/signal-state-runtime";
+import { initVscodeBridgeRuntime } from "../../runtime/platform-content-runtime";
 import {
   BackgroundAgentAvatar,
   initBackgroundAgentAvatarChunk,
@@ -445,7 +453,7 @@ function BackgroundAgentSummaryLabel({
 
 const initThreadSummaryBackgroundActivityRowsChunk = once(() => {
   initIntlRuntime();
-  initAppServerRequestBridge();
+  initAppServerRequestRuntime();
   initSpinnerComponent();
   initTooltipPrimitives();
   initDiffStatsChunk();
@@ -822,7 +830,7 @@ function BackgroundTerminalStatusIcon({
 
 const initBackgroundTerminalSummaryRowsChunk = once(() => {
   initClassNameRuntime();
-  initScopeRuntime();
+  initAppScopeSignalRuntime();
   initIntlRuntime();
   initDropdownMenuPrimitives();
   initSpinnerComponent();
@@ -830,10 +838,11 @@ const initBackgroundTerminalSummaryRowsChunk = once(() => {
   initActiveConversationProcessRowsChunk();
   initPendingBackgroundProcessRowsChunk();
   initProcessMetricHelpersChunk();
-  initAppScope();
-  initEnvironmentTerminalController();
-  initVscodeApiBridge();
-  initQueryRuntime();
+  initAppScopeSignalRuntime();
+  initEnvironmentTerminalRuntime();
+  initVscodeBridgeRuntime();
+  initSignalStateRuntime();
+  initAppServerMutationRuntime();
   initBackgroundTerminalSummaryRowsSupportChunk();
   initSummaryPanelRowChunk();
 });

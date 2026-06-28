@@ -33,7 +33,7 @@ export type AppServerMutation<
     variables: TVariables,
     options?: AppServerMutationOptions<TData, TVariables>,
   ) => void;
-  mutateAsync?: (
+  mutateAsync: (
     variables: TVariables,
     options?: AppServerMutationOptions<TData, TVariables>,
   ) => Promise<TData>;
