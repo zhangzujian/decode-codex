@@ -1,3 +1,19 @@
-// Restored boundary for ref/webview/assets/local-remote-dropdown-BcmhHtfg.js
-// TODO: Deep-restore this current ref producer; local-conversation-thread imports it while the updated producer is still pending.
-export * from "../../../ref/webview/assets/local-remote-dropdown-BcmhHtfg.js";
+// Restored from ref/webview/assets/local-remote-dropdown-BcmhHtfg.js
+export {
+  initThreadHandoffSummaryHelpersChunk,
+  initThreadHandoffSummaryHelpersChunk as i,
+  shouldShowThreadHandoffInSummary as r,
+  shouldShowThreadHandoffInSummary,
+} from "../../thread-summary/local-remote-dropdown";
+export {
+  a,
+  c,
+  CloudEnvironmentDropdown,
+  initCloudEnvironmentDropdownChunk,
+  initLocalRemoteDropdownChunk,
+  LocalRemoteDropdown,
+  n,
+  o,
+  s,
+  t,
+} from "../../vendor/local-remote-dropdown-runtime";

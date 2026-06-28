@@ -11329,10 +11329,19 @@
       "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "local-remote-dropdown-BcmhHtfg": {
-      "restored": "boundaries/current-ref/local-remote-dropdown-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-thread; open until this producer is deep-restored semantically.",
-      "lastUpdated": "2026-06-27T03:16:46.000Z"
+      "restored": "thread-summary/local-remote-dropdown.ts",
+      "status": "partial",
+      "note": "Partial thread-summary restore: the compact-window handoff visibility helper lives in thread-summary/local-remote-dropdown.ts. The large LocalRemoteDropdown and CloudEnvironmentDropdown UI remain isolated behind vendor/local-remote-dropdown-runtime.ts until the full composer-mode dropdown is restored.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z",
+      "exports": {
+        "a": "CloudEnvironmentDropdown",
+        "i": "initThreadHandoffSummaryHelpersChunk",
+        "n": "initLocalRemoteDropdownChunk",
+        "o": "initCloudEnvironmentDropdownChunk",
+        "r": "shouldShowThreadHandoffInSummary",
+        "t": "LocalRemoteDropdown"
+      },
+      "boundary": "boundaries/current-ref/local-remote-dropdown-producer.ts"
     },
     "pull-request-check-rows-Q1OJv6O3": {
       "restored": "github/pull-request-actions/index.ts",
