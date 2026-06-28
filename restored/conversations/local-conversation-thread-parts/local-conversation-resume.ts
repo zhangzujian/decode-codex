@@ -3,29 +3,40 @@
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
 import {
-  $P as initAppScope,
-  AB as initScopeRuntime,
-  Dp as conversationRemoteHostIdSignal,
-  FB as useScope,
-  IB as useSignalValue,
-  Op as initConversationStateSelectors,
-  PB as useScopedValue,
-  QP as appScope,
-  Rf as workspaceRootsSignal,
-  Uf as initHostWorkspaceQueries,
-  VE as initHostConfigHelpers,
-  ak as initAppServerRequestBridge,
-  cM as initToastRuntime,
-  cP as initVscodeMessageBridge,
-  cm as conversationHostIdSignal,
-  lP as vscodeMessageBridge,
-  mP as logger,
-  ok as sendAppServerRequest,
-  pP as initLoggerRuntime,
-  pp as shouldResumeConversationSignal,
-  uM as toastSignal,
-  vm as subagentParentThreadIdSignal,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  appLogger as logger,
+  initAppLoggerRuntime,
+} from "../../runtime/app-logger";
+import {
+  useScope,
+  useScopedValue,
+  useSignalValue,
+} from "../../runtime/app-scope-hooks";
+import {
+  appScopeRoot as appScope,
+  initAppScopeSignalRuntime,
+} from "../../runtime/app-scope-runtime";
+import {
+  initAppServerRequestRuntime,
+  sendAppServerRequest,
+} from "../../runtime/app-server-request";
+import {
+  conversationHostIdSignal,
+  conversationRemoteHostIdSignal,
+  initConversationStateRuntime,
+  shouldResumeConversationSignal,
+  subagentParentThreadIdSignal,
+  workspaceRootsSignal,
+} from "../../runtime/conversation-state-runtime";
+import { initHostWorkspaceQueries } from "../../runtime/git-query-runtime";
+import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
+import {
+  initToastSignalRuntime,
+  toastSignal,
+} from "../../runtime/local-conversation-route-runtime";
+import {
+  initVscodeMessageRuntime,
+  vscodeMessageBridge,
+} from "../../runtime/vscode-message-runtime";
 import {
   ho as resolveConversationServiceTier,
   mo as initProjectsAppSharedProducer,
@@ -224,16 +235,16 @@ export function useResumeLocalConversation(
 }
 
 export const initResumeLocalConversationChunk = once(() => {
-  initScopeRuntime();
+  initAppScopeSignalRuntime();
   initIntlRuntime();
-  initConversationStateSelectors();
-  initAppServerRequestBridge();
+  initConversationStateRuntime();
+  initAppServerRequestRuntime();
   initProjectsAppSharedProducer();
-  initToastRuntime();
+  initToastSignalRuntime();
   initProfilePageProducer();
-  initVscodeMessageBridge();
-  initAppScope();
+  initVscodeMessageRuntime();
+  initAppScopeSignalRuntime();
   initHostWorkspaceQueries();
-  initHostConfigHelpers();
-  initLoggerRuntime();
+  initHostConfigRuntime();
+  initAppLoggerRuntime();
 });

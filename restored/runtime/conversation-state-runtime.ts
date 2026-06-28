@@ -3,12 +3,14 @@
 import {
   $p as modelProviderSignal,
   Am as conversationWorkspaceRootSignal,
+  Dp as conversationRemoteHostIdSignal,
   Ep as conversationUnreadSignal,
   Em as conversationTurnsSignal,
   Ip as localResponseInProgressSignal,
   Kp as conversationReadStateSignal,
   Np as conversationHistoryCompleteSignal,
   Op as initConversationStateSelectors,
+  Rf as workspaceRootsSignal,
   Tp as hasConversationSignal,
   Tm as conversationTurnCountSignal,
   Xp as latestConversationTurnSignal,
@@ -32,6 +34,7 @@ export {
   conversationModeSignal,
   conversationReadStateSignal,
   conversationRequestsSignal,
+  conversationRemoteHostIdSignal,
   conversationResumeStateSignal,
   conversationTurnCountSignal,
   conversationTurnsSignal,
@@ -45,6 +48,7 @@ export {
   shouldResumeConversationSignal,
   storedThreadBranchSignal,
   subagentParentThreadIdSignal,
+  workspaceRootsSignal,
 };
 
 export function initConversationStateRuntime(): void {
