@@ -19,7 +19,7 @@ import {
   logAppMainStatsigRenderRequest,
   refreshStatsigDiagnostics,
   type CodexOs,
-} from "./app-main-runtime";
+} from "../runtime/app-main-runtime";
 import { AppFallback, initAppFallbackChunk } from "./app-fallback";
 import { initEmptyAppChunk } from "./empty-app-initializer";
 import {
