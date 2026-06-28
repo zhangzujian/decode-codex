@@ -35,6 +35,20 @@ import {
   registerWindowsFolderContextMenu,
 } from "./platform/windows-shell-integration";
 import {
+  centerAboutDialogWindow,
+  escapeHtml,
+  fitAboutDialogWindowToContent,
+  formatReleaseDateFromVersion,
+  getDockIconAssetNames,
+  getWindowIconBaseName,
+  loadAboutDialogIcons,
+  loadMacAppIconDataUrl,
+  parseReleaseDateFromVersion,
+  renderAboutDialogHtml,
+  resolveMacBundleIconPath,
+  showAboutDialog,
+} from "./menus/about-dialog";
+import {
   createMainWorkerBusController,
   MainWorkerAppEventBus,
   MainWorkerThreadManager,
@@ -454,7 +468,7 @@ function shouldHandleStateDatabaseOpenError(error: unknown): boolean {
 function createMainStartupOpenBoundaryError(): Error {
   return Object.assign(
     Error(
-      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, worker main-RPC helper contracts, main-side worker bus manager, desktop tray controller, and Windows shell integration helpers are recovered, but window services, app-server lifecycle, application menu assembly, IPC registration, and telemetry still require semantic restoration.",
+      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, worker main-RPC helper contracts, main-side worker bus manager, desktop tray controller, Windows shell integration helpers, and About dialog/app icon helpers are recovered, but window services, app-server lifecycle, application menu assembly, IPC registration, and telemetry still require semantic restoration.",
     ),
     {
       code: OPEN_RESTORATION_BOUNDARY_CODE,
@@ -512,6 +526,20 @@ function createMainStartupOpenBoundaryError(): Error {
         killWindowsProcessDescendants,
         performUpdateInstallExit,
         registerWindowsFolderContextMenu,
+      },
+      aboutDialogHelpers: {
+        centerAboutDialogWindow,
+        escapeHtml,
+        fitAboutDialogWindowToContent,
+        formatReleaseDateFromVersion,
+        getDockIconAssetNames,
+        getWindowIconBaseName,
+        loadAboutDialogIcons,
+        loadMacAppIconDataUrl,
+        parseReleaseDateFromVersion,
+        renderAboutDialogHtml,
+        resolveMacBundleIconPath,
+        showAboutDialog,
       },
     },
   );
