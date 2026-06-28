@@ -9,10 +9,15 @@ import {
   DropdownMenu,
   initDropdownMenuPrimitives,
 } from "../../ui/dropdown";
+import { Button, initButtonComponentPrimitives } from "../../ui/button";
+import {
+  FormattedMessage,
+  initIntlRuntime,
+  useIntl,
+} from "../../vendor/react-intl";
 import {
   $N as initDeveloperInstructionsProducer,
   AB as initScopeRuntime,
-  DN as Button,
   FB as useScope,
   Ga as initElectronPlatformContent,
   IB as useSignalValue,
@@ -20,7 +25,6 @@ import {
   JV as initReactRuntime,
   Ln as initKeyboardModifierState,
   M_ as localConversationRouteScope,
-  ON as initButtonComponentPrimitives,
   Op as initHostConversationActionsProducer,
   Ov as useNavigate,
   PB as useScopedValue,
@@ -35,12 +39,9 @@ import {
   cM as initToastRuntime,
   cP as initThreadActionMenuRuntime,
   cm as conversationHostIdSignal,
-  iF as initIntlRuntime,
-  lF as useIntl,
   mP as logger,
   mv as initCurrentRefViewRuntime,
   pP as initLoggerRuntime,
-  sF as FormattedMessage,
   uM as toastSignal,
   uP as useThreadCommandHandler,
   xi as RenameThreadDialog,
