@@ -40,6 +40,16 @@ const windowsTabsOpenRequestSchema = zStrictObject({
       view: zEnum(["last-turn", "branch", "unstaged", "staged"]).optional(),
       path: zString().min(1).optional(),
     }),
+    zStrictObject({
+      type: zLiteral("review"),
+      baseBranch: zString()
+        .min(1)
+        .describe(
+          "Git revision to compare with HEAD. Must resolve locally to a commit. Selects branch view.",
+        ),
+      view: zLiteral("branch").optional(),
+      path: zString().min(1).optional(),
+    }),
   ]),
   placement: zEnum(["right", "bottom"]).optional(),
 });

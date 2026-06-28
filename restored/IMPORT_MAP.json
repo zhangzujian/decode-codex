@@ -9803,7 +9803,8 @@
         "n": "windowsTabsOpenActionSchema",
         "t": "windowsTabsOpenRequestSchema"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Synced review target with the current app-main/profile schema: windows.tabs.open accepts a baseBranch review request that selects branch view."
     },
     "use-hotkey-window-dismiss-on-escape-CATf2BNk": {
       "restored": "utils/use-hotkey-window-dismiss-on-escape.ts",
@@ -11191,6 +11192,7 @@
         "G": "initWindowVisibilitySignal",
         "i": "appgenPublicationTermsSidePanelHandler",
         "Ln": "AppFallback",
+        "n": "windowsTabsOpenHandler",
         "Rn": "initAppFallbackChunk",
         "W": "windowVisibleSignal",
         "dn": "initAutomationHistoryItemsChunk",
@@ -11198,7 +11200,7 @@
       },
       "status": "partial",
       "boundary": "boundaries/current-ref/automations-page-producer.ts",
-      "note": "Partial app-shell/local-thread restore: Electron root fallback lives in app-shell/app-fallback.tsx; appgen publication-terms side-panel handler lives in appgen/publication-terms/side-panel-handler.ts; local-thread window focus state lives in runtime/window-focus-state.ts; automation inbox hook/init lives in utils/use-automation-history-items.ts. CodexApp, windows.tabs.open, automation state, and remaining route/UI exports continue through the current-ref compatibility boundary.",
+      "note": "Partial app-shell/local-thread restore: Electron root fallback lives in app-shell/app-fallback.tsx; appgen publication-terms side-panel handler lives in appgen/publication-terms/side-panel-handler.ts; windows.tabs.open handler lives in app-shell/windows-tabs-open-handler.ts; local-thread window focus state lives in runtime/window-focus-state.ts; automation inbox hook/init lives in utils/use-automation-history-items.ts. CodexApp, automation state, and remaining route/UI exports continue through the current-ref compatibility boundary.",
       "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-CQrj7g91": {

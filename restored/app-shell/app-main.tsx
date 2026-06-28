@@ -19,7 +19,6 @@ import {
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import {
   c as initAutomationsRuntimeChunk,
-  n as windowsTabsOpenHandler,
   r as initAutomationsStateChunk,
   s as CodexApp,
   t as initCodexAppChunk,
@@ -42,6 +41,7 @@ import {
   initRegisterAppActionsChunk,
   registerWindowsTabsOpenHandler,
 } from "./register-app-actions";
+import { windowsTabsOpenHandler } from "./windows-tabs-open-handler";
 
 type CodexOs = "win32" | "darwin" | "linux" | "unknown";
 
