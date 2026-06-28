@@ -8,6 +8,13 @@ export {
   getBrowserSidebarTextSelectionViewportRects,
 } from "./anchor-rects";
 export {
+  createBrowserSidebarAnchorStateForAnchor,
+  createBrowserSidebarAnchorStateForComment,
+  createBrowserSidebarAnchorStateForEditorEvent,
+  createBrowserSidebarElementAnchorState,
+  serializeBrowserSidebarEditorAnchor,
+} from "./anchor-state";
+export {
   areBrowserSidebarAnchorsEqual,
   areScrollContainerSnapshotsEqual,
 } from "./anchors";
@@ -227,6 +234,13 @@ export type {
   BrowserSidebarRegionDragState,
   BrowserSidebarViewportSizeWindow,
 } from "./region-drag";
+export type {
+  BrowserSidebarAnchorState,
+  BrowserSidebarCommentItem,
+  BrowserSidebarEditorAnchorEvent,
+  BrowserSidebarSerializedEditorAnchor,
+  BrowserSidebarStoredEditorAnchor,
+} from "./anchor-state";
 export type {
   BrowserSidebarAnchorPoint,
   BrowserSidebarCommentAnchor,
