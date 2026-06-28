@@ -14,7 +14,7 @@ import {
   qj as useStatsigGate,
   vm as subagentParentThreadIdSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
-import { jr as liveMcpAppFrameSignal } from "../../boundaries/current-ref/projects-app-shared-producer";
+import { liveMcpAppFrameSignal } from "../../runtime/app-shell-frame";
 import { initBackgroundAgentThreadTab } from "./local-conversation-background-agent-thread-tab";
 import { openBackgroundAgentFromThread } from "./local-conversation-background-agent-open";
 import {

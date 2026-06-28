@@ -28,7 +28,7 @@ import {
   zo as useAppsQuery,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";
-import { yd as rightPanelFullWidthSignal } from "../../boundaries/current-ref/projects-app-shared-producer";
+import { rightPanelFullWidthSignal } from "../../runtime/app-shell-frame";
 import { ErrorBoundary as ThreadSummaryPanelErrorBoundary } from "../../runtime/error-boundary";
 import { threadSwitchTimingTracker } from "../../automation/heartbeat-automation-eligibility";
 import { launcherHotkeyStateQuery } from "../../features/hotkey-window-state";

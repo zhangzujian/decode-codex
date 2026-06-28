@@ -4,8 +4,10 @@ import React, { type ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import { ErrorBoundary } from "../../runtime/error-boundary";
 import { useStableCallback } from "../../utils/use-stable-callback";
-import { vn as AppShellOverlayOutlet } from "../../boundaries/current-ref/projects-app-shared-producer";
-import { rt as AppShellElementContext } from "../../boundaries/current-ref/appgen-library-hot-producer";
+import {
+  AppShellElementContext,
+  AppShellOverlayOutlet,
+} from "../../runtime/app-shell-frame";
 import {
   initThreadNullRefChunk,
   useNullAppShellRef,
