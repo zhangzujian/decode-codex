@@ -15,7 +15,7 @@ import {
   Wv as rewriteMarkdownResourceLinks,
   wj as initArtifactPreviewRuntime,
   zv as renderChangeAsUnifiedDiff,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 import {
   Ba as groupClosedActivityUnits,
   dt as initPersonalityChangedItems,
@@ -29,7 +29,7 @@ import {
   ut as getTurnAgentItemGroups,
   Va as collectRenderableAgentUnits,
   za as wrapActivityUnits,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../vendor/profile-page-runtime";
 
 export {
   closeActivitySlices,

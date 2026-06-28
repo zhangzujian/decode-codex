@@ -20,7 +20,7 @@ import {
   xL as isRemoteHostConfig,
   YN as sendHostRequest,
   yR as isUrlLikePath,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 import {
   _c as getSidePanelController,
   bc as activateSidePanelPlacement,
@@ -31,7 +31,7 @@ import {
   ti as getWorkspaceFilePanelTabSource,
   vc as getPanelTabPlacement,
   Yt as openWorkspaceFilePanelTab,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   activateSidePanelPlacement,

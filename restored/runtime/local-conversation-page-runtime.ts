@@ -51,7 +51,7 @@ import {
   vm as subagentParentThreadIdSignal,
   yv as Navigate,
   zo as useAppsQuery,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 import {
   activeWorkspaceDiffSignal,
   appShellIntlSignal,
