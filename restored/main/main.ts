@@ -49,6 +49,15 @@ import {
   showAboutDialog,
 } from "./menus/about-dialog";
 import {
+  buildNativeContextMenuTemplate,
+  registerShowApplicationMenuIpc,
+  registerShowContextMenuIpc,
+  resizeNativeContextMenuIcon,
+  resolveNativeContextMenuIcon,
+  SHOW_APPLICATION_MENU_CHANNEL,
+  SHOW_CONTEXT_MENU_CHANNEL,
+} from "./menus/native-menu-ipc";
+import {
   createMainWorkerBusController,
   MainWorkerAppEventBus,
   MainWorkerThreadManager,
@@ -468,7 +477,7 @@ function shouldHandleStateDatabaseOpenError(error: unknown): boolean {
 function createMainStartupOpenBoundaryError(): Error {
   return Object.assign(
     Error(
-      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, worker main-RPC helper contracts, main-side worker bus manager, desktop tray controller, Windows shell integration helpers, and About dialog/app icon helpers are recovered, but window services, app-server lifecycle, application menu assembly, IPC registration, and telemetry still require semantic restoration.",
+      "main--VWTbRdF remains an open restoration boundary: the startup phase map, updater bridge helpers, worker main-RPC helper contracts, main-side worker bus manager, desktop tray controller, Windows shell integration helpers, About dialog/app icon helpers, and native menu IPC handlers are recovered, but window services, app-server lifecycle, application menu assembly, remaining IPC registration, and telemetry still require semantic restoration.",
     ),
     {
       code: OPEN_RESTORATION_BOUNDARY_CODE,
@@ -540,6 +549,15 @@ function createMainStartupOpenBoundaryError(): Error {
         renderAboutDialogHtml,
         resolveMacBundleIconPath,
         showAboutDialog,
+      },
+      nativeMenuIpcHelpers: {
+        buildNativeContextMenuTemplate,
+        registerShowApplicationMenuIpc,
+        registerShowContextMenuIpc,
+        resizeNativeContextMenuIcon,
+        resolveNativeContextMenuIcon,
+        SHOW_APPLICATION_MENU_CHANNEL,
+        SHOW_CONTEXT_MENU_CHANNEL,
       },
     },
   );
