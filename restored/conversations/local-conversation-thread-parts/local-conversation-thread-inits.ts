@@ -5,32 +5,34 @@ import { initButtonComponentPrimitives } from "../../ui/button";
 import { initUseStableCallback } from "../../utils/use-stable-callback";
 import { initWindowZoomContext } from "../../utils/window-zoom-context";
 import {
-  $P as initAppScope,
-  AB as initScopeRuntime,
-  Al as initComposerScope,
-  Ga as initElectronPlatformContent,
-  Gj as initStatsigFeatureGateHooks,
-  I_ as initRouteScope,
-  Io as initConnectorAppsListQuery,
-  LN as initReducedMotionPreference,
-  Mi as initModalRegistrySignal,
-  Mu as initHostCodexHomeQuery,
-  O_ as initConversationRouteSourceHelpers,
-  Op as initConversationStateSelectors,
-  Rv as initMarkdownUtilityNoop,
-  SP as initMotionRuntime,
-  SV as initQueryRuntime,
-  Ux as initAgentMentionMap,
-  VE as initHostConfigHelpers,
-  Zu as on,
-  ak as initAppServerRequestBridge,
-  bF as initPathHelpers,
-  cM as initToastRuntime,
-  lA as cr,
-  mv as xr,
-  pP as initLoggerRuntime,
-  qV as getChunkModuleExports,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  initAppLoggerRuntime,
+} from "../../runtime/app-logger";
+import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
+import { initAppServerRequestRuntime } from "../../runtime/app-server-request";
+import { initComposerScopeRuntime } from "../../runtime/composer-scope-runtime";
+import { initConnectorAppsRuntime } from "../../runtime/connector-apps-runtime";
+import { initConversationStateRuntime } from "../../runtime/conversation-state-runtime";
+import {
+  getChunkModuleExports,
+  initAgentMentionMap,
+  initMarkdownUtilityNoop,
+  initThreadAuxiliaryRuntime,
+  initThreadInternalStateRuntime,
+} from "../../runtime/conversation-thread-runtime";
+import { initStatsigFeatureGateRuntime } from "../../runtime/feature-gate-runtime";
+import { initHostConfigRuntime } from "../../runtime/host-config-runtime";
+import { initHostWorktreeContextRuntime } from "../../runtime/host-worktree-context";
+import { initLocalEnvironmentConfigRuntime } from "../../runtime/local-environment-config-runtime";
+import {
+  initConversationRouteSourceRuntime,
+  initLocalConversationRouteRuntime,
+  initToastSignalRuntime,
+} from "../../runtime/local-conversation-route-runtime";
+import { initModalRuntime } from "../../runtime/modal-runtime";
+import { initMotionSignalRuntime } from "../../runtime/motion-signal-runtime";
+import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
+import { initPlatformContentRuntime } from "../../runtime/platform-content-runtime";
+import { initSignalStateRuntime } from "../../runtime/signal-state-runtime";
 import {
   A as Di,
   Mr as Qi,
@@ -99,17 +101,16 @@ let localConversationThreadModule: unknown;
 
 export const initLocalEnvironmentRecentActions = once(() => {
   localEnvironmentRecentActionsModule = getChunkModuleExports();
-  initPathHelpers();
-  initHostCodexHomeQuery();
+  initPathHelpersRuntime();
+  initHostWorktreeContextRuntime();
 });
 
 export const initLocalConversationArtifacts = once(() => {
   localConversationArtifactsModule = getChunkModuleExports();
-  initMotionRuntime();
-  initScopeRuntime();
+  initMotionSignalRuntime();
+  initAppScopeSignalRuntime();
   initProjectsActionRuntime();
   Xa();
-  initReducedMotionPreference();
   initPinnedSummaryPanelState();
 });
 
@@ -119,17 +120,17 @@ export const initThreadScrollState = once(() => {
 
 export const initLocalConversationThreadChunk = once(() => {
   localConversationThreadModule = getChunkModuleExports();
-  initMotionRuntime();
-  initQueryRuntime();
-  initScopeRuntime();
-  initPathHelpers();
+  initMotionSignalRuntime();
+  initSignalStateRuntime();
+  initAppScopeSignalRuntime();
+  initPathHelpersRuntime();
   initIntlRuntime();
-  xr();
+  initLocalEnvironmentConfigRuntime();
   gc();
-  on();
-  initConversationStateSelectors();
-  initAppServerRequestBridge();
-  cr();
+  initThreadInternalStateRuntime();
+  initConversationStateRuntime();
+  initAppServerRequestRuntime();
+  initThreadAuxiliaryRuntime();
   Ha();
   initWindowZoomContext();
   initAutomationHistoryItemsChunk();
@@ -138,11 +139,11 @@ export const initLocalConversationThreadChunk = once(() => {
   initButtonComponentPrimitives();
   rc();
   initMarkdownCopyHelpers();
-  initModalRegistrySignal();
+  initModalRuntime();
   initScrollToBottomButtonChunk();
-  initToastRuntime();
+  initToastSignalRuntime();
   Wc();
-  initElectronPlatformContent();
+  initPlatformContentRuntime();
   initAppgenLibraryRuntime();
   initAppgenLibraryHotChunk();
   tc();
@@ -153,13 +154,13 @@ export const initLocalConversationThreadChunk = once(() => {
   initLauncherHotkeyStateChunk();
   Vc();
   initThreadSwitchTimingTrackerChunk();
-  initConnectorAppsListQuery();
-  initAppScope();
-  initComposerScope();
-  initRouteScope();
-  initHostConfigHelpers();
-  initStatsigFeatureGateHooks();
-  initConversationRouteSourceHelpers();
+  initConnectorAppsRuntime();
+  initAppScopeSignalRuntime();
+  initComposerScopeRuntime();
+  initLocalConversationRouteRuntime();
+  initHostConfigRuntime();
+  initStatsigFeatureGateRuntime();
+  initConversationRouteSourceRuntime();
   initLocalConversationThreadFrameChunk();
   ho();
   initThreadScrollControllerContextChunk();
@@ -169,7 +170,7 @@ export const initLocalConversationThreadChunk = once(() => {
   initLocalConversationGitSummary();
   initLocalConversationArtifacts();
   initLocalConversationSummaryPanelSignals();
-  initLoggerRuntime();
+  initAppLoggerRuntime();
   initUseStableCallback();
   Ns();
   initWorktreeRestoreBannerChunk();
