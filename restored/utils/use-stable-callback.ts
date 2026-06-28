@@ -23,6 +23,9 @@ function throwIfRendering(): void {
     "A function wrapped in useStableCallback can't be called during rendering.",
   );
 }
+
+export function initUseStableCallback(): void {}
+
 export function useStableCallback<TArgs extends unknown[], TReturn>(
   callback: (...args: TArgs) => TReturn,
 ): (...args: TArgs) => TReturn {

@@ -3,7 +3,10 @@
 import React from "react";
 import { flushSync as flushSyncReactUpdates } from "react-dom";
 import { once } from "../../runtime/commonjs-interop";
-import { useStableCallback } from "../../utils/use-stable-callback";
+import {
+  initUseStableCallback,
+  useStableCallback,
+} from "../../utils/use-stable-callback";
 import {
   initWindowZoomContext,
   useWindowZoom,
@@ -11,7 +14,6 @@ import {
 import {
   BP as classNames,
   VP as initClassNameRuntime,
-  bM as initKeyboardShortcutLabel,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   buildThreadVirtualizerLayout,
@@ -990,6 +992,6 @@ export const initVirtualizedTurnListChunk = once(() => {
   initUseResizeObserverChunk();
   initThreadScrollLayoutStyleChunk();
   initThreadScrollControllerContextChunk();
-  initKeyboardShortcutLabel();
+  initUseStableCallback();
   initThreadVirtualizerChunk();
 });

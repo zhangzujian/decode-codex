@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Initialization wiring for the local conversation public chunk.
 import { once } from "../../runtime/commonjs-interop";
+import { initUseStableCallback } from "../../utils/use-stable-callback";
 import { initWindowZoomContext } from "../../utils/window-zoom-context";
 import {
   $P as initAppScope,
@@ -24,7 +25,6 @@ import {
   Zu as on,
   ak as initAppServerRequestBridge,
   bF as initPathHelpers,
-  bM as initKeyboardShortcutLabel,
   cM as initToastRuntime,
   iF as initIntlRuntime,
   lA as cr,
@@ -179,7 +179,7 @@ export const initLocalConversationThreadChunk = once(() => {
   initLocalConversationArtifacts();
   initLocalConversationSummaryPanelSignals();
   initLoggerRuntime();
-  initKeyboardShortcutLabel();
+  initUseStableCallback();
   Ns();
   initWorktreeRestoreBannerChunk();
   initConversationMarkdownRenderer();

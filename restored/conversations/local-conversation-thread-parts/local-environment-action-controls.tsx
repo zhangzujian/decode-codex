@@ -5,14 +5,16 @@ import {
   initKeyboardShortcutKeycap,
   KeyboardShortcutKeycap,
 } from "../../ui/keyboard-shortcut-keycap";
-import { useStableCallback } from "../../utils/use-stable-callback";
+import {
+  initUseStableCallback,
+  useStableCallback,
+} from "../../utils/use-stable-callback";
 import {
   $N as initVscodeApiBridge,
   $P as initAppScope,
   AB as initScopeRuntime,
   Au as initOsInfoQuery,
   bF as initPathHelpers,
-  bM as initKeyboardShortcutLabel,
   bP as createPersistedSignal,
   Bh as useHostMutation,
   DL as normalizeWorkspacePath,
@@ -147,7 +149,6 @@ type LocalEnvironmentResponse = {
 
 type LocalEnvironmentActionRunRequest =
   LocalEnvironmentActionItem<LocalEnvironmentAction>;
-
 type LocalEnvironmentSelectorDropdownProps = {
   canChangeEnvironment: boolean;
   children: ReactNode;
@@ -184,8 +185,8 @@ type RegisterLocalEnvironmentActionCommandProps = {
 type LocalEnvironmentActionShortcutBadgeProps = { commandId: string };
 
 const joinLocalEnvironmentRepoPath = joinPath;
-const EMPTY_LOCAL_ENVIRONMENT_ACTION_ITEMS: LocalEnvironmentActionRunRequest[] =
-  [];
+const EMPTY_LOCAL_ENVIRONMENT_ACTION_ITEMS =
+  [] as LocalEnvironmentActionRunRequest[];
 const localEnvironmentActionIconButtonClassName =
   "flex h-7 w-7 shrink-0 cursor-interaction items-center justify-center rounded-sm border-0 bg-transparent p-0 text-token-text-tertiary hover:bg-token-list-hover-background data-[state=open]:bg-token-list-hover-background";
 
@@ -993,6 +994,6 @@ export const initLocalEnvironmentActionControlsChunk = once(() => {
   initPullRequestThreadActionsRuntime();
   initLoggerRuntime();
   initConfigPathHelpers();
-  initKeyboardShortcutLabel();
+  initUseStableCallback();
   initHostWorkspaceQueries();
 });

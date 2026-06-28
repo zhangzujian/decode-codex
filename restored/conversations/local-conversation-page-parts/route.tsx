@@ -2,7 +2,10 @@
 import React from "react";
 
 import { once } from "../../runtime/commonjs-interop";
-import { useStableCallback } from "../../utils/use-stable-callback";
+import {
+  initUseStableCallback,
+  useStableCallback,
+} from "../../utils/use-stable-callback";
 import {
   $N as initVscodeApiBridge,
   $P as initAppScope,
@@ -36,7 +39,6 @@ import {
   Xp as latestConversationTurnSignal,
   ak as initAppServerRequestBridge,
   bF as initIntlMessageRuntime,
-  bM as initKeyboardShortcutLabel,
   cm as conversationHostIdSignal,
   cv as sourceWorkspaceRootAfterRestoreSignal,
   di as PopoverRoot,
@@ -898,7 +900,7 @@ const initLocalConversationPageChunk = once(() => {
   initButtonComponentPrimitives();
   initPopoverPrimitives();
   initInlinePopoverRuntime();
-  initKeyboardShortcutLabel();
+  initUseStableCallback();
   initGlobalStateQueryRuntime();
   initCurrentRefViewRuntime();
   initVscodeApiBridge();

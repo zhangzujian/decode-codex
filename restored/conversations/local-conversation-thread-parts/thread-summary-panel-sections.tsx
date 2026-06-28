@@ -2,7 +2,10 @@
 // Summary panel section assembly for outputs, background tasks, browser tabs, sources, plan, automation, and git environment state.
 import type { ComponentType } from "react";
 import { once } from "../../runtime/commonjs-interop";
-import { useStableCallback } from "../../utils/use-stable-callback";
+import {
+  initUseStableCallback,
+  useStableCallback,
+} from "../../utils/use-stable-callback";
 import { isEqualT as createIsEqual } from "../../vendor/lodash-is-equal";
 import {
   $N as initVscodeApiBridge,
@@ -32,7 +35,6 @@ import {
   a_ as initFileTypeDetectionHelpers,
   ak as initAppServerRequestBridge,
   bF as initPathHelpers,
-  bM as initKeyboardShortcutLabel,
   bc as initConversationDetailModeConstants,
   cM as initToastRuntime,
   hs as initLocalImageInliningHelpers,
@@ -701,7 +703,7 @@ const initThreadSummaryPanelSectionsChunk = once(() => {
   initSummaryPanelRowChunk();
   initThreadSummaryPanelSectionChunk();
   initThreadSummaryPanelChromePrimitives();
-  initKeyboardShortcutLabel();
+  initUseStableCallback();
   initVscodeApiBridge();
   initHostConfigHelpers();
   initLoggerRuntime();

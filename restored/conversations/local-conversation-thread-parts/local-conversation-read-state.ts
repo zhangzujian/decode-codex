@@ -3,7 +3,10 @@
 import React from "react";
 import { useAppScopeValue } from "../../boundaries/app-scope";
 import { once } from "../../runtime/commonjs-interop";
-import { useStableCallback } from "../../utils/use-stable-callback";
+import {
+  initUseStableCallback,
+  useStableCallback,
+} from "../../utils/use-stable-callback";
 import {
   Ep as conversationUnreadSignal,
   Kp as conversationReadStateSignal,
@@ -11,7 +14,6 @@ import {
   PB as useScopedValue,
   Xp as latestConversationTurnSignal,
   ak as initAppServerRequestBridge,
-  bM as initKeyboardShortcutLabel,
   ok as sendAppServerRequest,
   AB as initScopeRuntime,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
@@ -88,5 +90,5 @@ export const initMarkConversationReadEffect = once(() => {
   initConversationStateSelectors();
   initAppServerRequestBridge();
   initWindowVisibilitySignal();
-  initKeyboardShortcutLabel();
+  initUseStableCallback();
 });

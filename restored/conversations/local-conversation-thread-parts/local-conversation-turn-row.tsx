@@ -2,7 +2,10 @@
 // Local conversation turn row renderer and per-turn error fallback.
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
-import { useStableCallback } from "../../utils/use-stable-callback";
+import {
+  initUseStableCallback,
+  useStableCallback,
+} from "../../utils/use-stable-callback";
 import {
   AB as initScopeRuntime,
   DN as Button,
@@ -10,7 +13,6 @@ import {
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
   ON as initButtonComponentPrimitives,
-  bM as initKeyboardShortcutLabel,
   iF as initIntlRuntime,
   sF as FormattedMessage,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
@@ -211,6 +213,6 @@ export const initLocalConversationTurnRowChunk = once(() => {
   initButtonComponentPrimitives();
   initTurnErrorBoundarySupport();
   initRouteScope();
-  initKeyboardShortcutLabel();
+  initUseStableCallback();
   initConversationTurnRendererChunk();
 });

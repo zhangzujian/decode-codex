@@ -6,7 +6,10 @@ import {
   getScrollDistanceFromBottomPx,
   initReverseScrollUtilities,
 } from "../../utils/reverse-scroll-distance";
-import { useStableCallback } from "../../utils/use-stable-callback";
+import {
+  initUseStableCallback,
+  useStableCallback,
+} from "../../utils/use-stable-callback";
 import {
   initWindowZoomContext,
   useWindowZoom,
@@ -20,7 +23,6 @@ import {
   OP as createMotionSignal,
   QP as appScope,
   SP as initMotionRuntime,
-  bM as initKeyboardShortcutLabel,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { initThreadScrollLayoutStyleChunk } from "../../utils/thread-scroll-layout";
 import {
@@ -973,7 +975,7 @@ export const initAutoFollowVirtualizedTurnListChunk = once(() => {
   initThreadScrollLayoutStyleChunk();
   initThreadScrollControllerContextChunk();
   initReverseScrollUtilities();
-  initKeyboardShortcutLabel();
+  initUseStableCallback();
   initThreadScrollStateSignal();
   initLocalConversationTurnRowDependencies();
   initLocalConversationTurnRowChunk();
