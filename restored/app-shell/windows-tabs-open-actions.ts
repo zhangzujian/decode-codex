@@ -3,11 +3,8 @@
 import {
   findBrowserPanelTab,
   getBrowserPanelTabs,
-} from "../runtime/thread-browser-panel-tabs";
-import {
-  activateThreadPanelTab,
-  findPanelForTab,
-} from "../runtime/thread-panel-state";
+} from "./thread-browser-panel-tabs";
+import { activateThreadPanelTab, findPanelForTab } from "./thread-panel-state";
 import {
   focusThreadReviewPath,
   selectThreadReviewBaseBranch,
@@ -21,7 +18,7 @@ import {
   getThreadTerminalPanelTabId,
   isThreadTerminalPanelTabAvailable,
   openThreadTerminalPanelTab,
-} from "../runtime/thread-terminal-tabs";
+} from "./thread-terminal-tabs";
 import type { AppShellStore } from "../runtime/app-shell-tab-controller/types";
 
 export type WindowsTabsOpenPlacement = "right" | "bottom";

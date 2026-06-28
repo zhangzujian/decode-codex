@@ -8,7 +8,7 @@ import {
 import {
   openThreadBrowserSidePanelTabWithPendingState as openBrowserPanelTab,
   openThreadReviewSidePanelTab as openReviewPanel,
-} from "../runtime/thread-side-panel-tabs";
+} from "./thread-side-panel-tabs";
 import { openPublicationTermsSidePanelResource } from "../appgen/publication-terms";
 import {
   activateExistingPanelTab,

@@ -8659,7 +8659,7 @@
       "status": "done"
     },
     "thread-panel-state-_Pmf_86i": {
-      "restored": "runtime/thread-panel-state.ts",
+      "restored": "app-shell/thread-panel-state.ts",
       "exports": {
         "a": "findPanelForTab",
         "i": "getThreadPanelController",
@@ -8671,7 +8671,7 @@
       "status": "done"
     },
     "thread-right-panel-state-kOix6M9C": {
-      "restored": "runtime/thread-right-panel-state.ts",
+      "restored": "app-shell/thread-right-panel-state.ts",
       "exports": {
         "n": "openRightThreadPanel",
         "t": "closeRightThreadPanel"
@@ -8679,7 +8679,7 @@
       "status": "done"
     },
     "thread-browser-panel-tabs-xnatAPyu": {
-      "restored": "runtime/thread-browser-panel-tabs.ts",
+      "restored": "app-shell/thread-browser-panel-tabs.ts",
       "exports": {
         "a": "choosePanelFromFocusAndAvailability",
         "i": "getBrowserTabIdsForEnabledPanels",
@@ -8692,7 +8692,7 @@
       "status": "done"
     },
     "thread-browser-panel-tabs-DuBf4ycc": {
-      "restored": "runtime/thread-browser-panel-tabs.ts",
+      "restored": "app-shell/thread-browser-panel-tabs.ts",
       "exports": {
         "getConversationBrowserTabIdsForTransfer": "getConversationBrowserTabIdsForTransfer",
         "getLastFocusedBrowserTabId": "getLastFocusedBrowserTabId"
@@ -10934,7 +10934,7 @@
       "status": "done"
     },
     "thread-side-panel-tabs-_WbpVYWU": {
-      "restored": "runtime/thread-side-panel-tabs.ts",
+      "restored": "app-shell/thread-side-panel-tabs.ts",
       "exports": {
         "THREAD_SIDE_PANEL_TAB": "THREAD_SIDE_PANEL_TAB",
         "closeThreadMcpAppSidePanelTab": "closeThreadMcpAppSidePanelTab",
@@ -10953,8 +10953,8 @@
         "toggleThreadSidePanel": "toggleThreadSidePanel"
       },
       "status": "done",
-      "note": "Restored the current side-panel tab API as semantic boundary imports, preserving the profile producer initializer side effect without re-exporting the raw hash chunk.",
-      "lastUpdated": "2026-06-27T21:33:36.552Z"
+      "note": "Restored the current side-panel tab API as semantic boundary imports under app-shell/thread-side-panel-tabs.ts, preserving the profile producer initializer side effect without re-exporting the raw hash chunk. runtime/thread-side-panel-tabs.ts remains as a compatibility barrel.",
+      "lastUpdated": "2026-06-28T14:29:00.000Z"
     },
     "selectable-list-row-Bm082MDr": {
       "restored": "ui/selectable-list-row.tsx",
