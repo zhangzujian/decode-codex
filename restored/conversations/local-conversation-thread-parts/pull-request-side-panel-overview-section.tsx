@@ -7,10 +7,7 @@ import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import { initTooltipPrimitives, Tooltip } from "../../ui/tooltip-b";
 import { classNames, initClassNameRuntime } from "../../utils/class-names";
-import {
-  l as getGithubAvatarUrl,
-  u as initGithubAvatarHelpersChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+import { getGithubAvatarUrl } from "../../github/github-avatar-url";
 import {
   Nl as PullRequestMergeStatusIcon,
   Pl as initPullRequestMergeStatusIconChunk,
@@ -549,7 +546,6 @@ export const initPullRequestSidePanelOverviewSectionChunk = once(() => {
   initErrorStatusIconChunk();
   initPullRequestChecksStatusLabelChunk();
   initPullRequestMergeStatusIconChunk();
-  initGithubAvatarHelpersChunk();
   initGitHubIcon();
   initSummaryPanelRowChunk();
   initRequestPullRequestReviewersButtonChunk();
