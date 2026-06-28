@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Git and pull-request summary rows used by the local conversation summary panel.
+import {
+  GithubMarkIcon as GitHubIcon,
+  initGitHubIcon,
+} from "../../icons/github-mark-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
@@ -9,8 +13,6 @@ import {
   Op as initConversationStateSelectors,
   PB as useScopedValue,
   gp as conversationCwdSignal,
-  mo as initGitHubIcon,
-  po as GitHubIcon,
   wp as storedThreadBranchSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {

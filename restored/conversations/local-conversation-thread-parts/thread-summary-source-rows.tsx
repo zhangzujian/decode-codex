@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Tool and web-source chips for the local conversation summary panel.
 import type { ComponentType, MouseEvent, SVGProps } from "react";
+import { GlobeIcon, initGlobeIcon } from "../../icons/globe-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initTooltipPrimitives, Tooltip } from "../../ui/tooltip-b";
 import {
@@ -9,9 +10,7 @@ import {
   Yt as initConnectedNodesIcon,
   eo as ConnectorAppIcon,
   io as getKnownAppIconById,
-  na as GlobeIcon,
   oo as initKnownAppIconRegistry,
-  ra as initGlobeIcon,
   to as initConnectorAppIconRuntime,
   za as openInBrowserFromEvent,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";

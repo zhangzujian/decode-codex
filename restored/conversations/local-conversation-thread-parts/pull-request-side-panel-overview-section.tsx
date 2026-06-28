@@ -2,11 +2,11 @@
 // Pull request side-panel overview section and reviewer badges.
 import type { ReactElement, SVGProps } from "react";
 import { GitBranchIcon, initGitBranchIcon } from "../../icons/git-branch-icon";
+import { initGitHubIcon } from "../../icons/github-mark-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import { initTooltipPrimitives, Tooltip } from "../../ui/tooltip-b";
 import { classNames, initClassNameRuntime } from "../../utils/class-names";
-import { mo as initGitHubIcon } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
   l as getGithubAvatarUrl,
   u as initGithubAvatarHelpersChunk,

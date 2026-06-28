@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Output artifact list for the local conversation summary panel.
 import type { MouseEvent } from "react";
+import { GlobeIcon, initGlobeIcon } from "../../icons/globe-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
   AB as initScopeRuntime,
@@ -12,9 +13,7 @@ import {
   bF as initPathHelpers,
   bR as isFileUrlLikeTarget,
   en as ExternalLinkIcon,
-  na as GlobeIcon,
   r_ as getImagePreviewDisplayMode,
-  ra as initGlobeIcon,
   tn as initExternalLinkIconChunk,
   wj as initArtifactPreviewRuntime,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";

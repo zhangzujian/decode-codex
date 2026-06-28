@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-page-D7JrTtqP.js
 import React from "react";
 
+import { ChevronRightIcon as DisclosureChevronIcon } from "../../icons/chevron-right-icon";
 import { once } from "../../runtime/commonjs-interop";
 import { Button, initButtonComponentPrimitives } from "../../ui/button";
 import {
@@ -34,7 +35,6 @@ import {
   PB as useScopedValue,
   QP as appScope,
   Rn as useCommandRegistration,
-  SM as DisclosureChevronIcon,
   SP as initMotionRuntime,
   T_ as getRouteConversationId,
   Tp as hasConversationSignal,

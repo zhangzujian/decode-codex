@@ -20,4 +20,7 @@ export function CheckCircleFilledIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function initCheckCircleFilledIcon(): void {}
+
 export default CheckCircleFilledIcon;

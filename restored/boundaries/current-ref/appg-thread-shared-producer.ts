@@ -21,10 +21,20 @@ export {
   ChevronIcon as RP,
   initChevronDownIcon as zP,
 } from "../../icons/chevron-icon";
+export { ChevronRightIcon as SM } from "../../icons/chevron-right-icon";
+export {
+  CheckCircleFilledIcon as Ja,
+  initCheckCircleFilledIcon as Ya,
+} from "../../icons/check-circle-filled-icon";
 export {
   GitBranchIcon as ko,
   initGitBranchIcon as Ao,
 } from "../../icons/git-branch-icon";
+export {
+  GithubMarkIcon as po,
+  initGitHubIcon as mo,
+} from "../../icons/github-mark-icon";
+export { GlobeIcon as na, initGlobeIcon as ra } from "../../icons/globe-icon";
 export {
   CheckMdIcon as wM,
   initCheckmarkIcon as TM,

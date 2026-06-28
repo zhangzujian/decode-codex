@@ -20,4 +20,7 @@ export function GithubMarkIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function initGitHubIcon(): void {}
+
 export default GithubMarkIcon;

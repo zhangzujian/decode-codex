@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 import type { MouseEvent, ReactNode } from "react";
+import {
+  CheckCircleFilledIcon as CheckCircleIcon,
+  initCheckCircleFilledIcon,
+} from "../../icons/check-circle-filled-icon";
 import { once } from "../../runtime/commonjs-interop";
 import {
   initTooltipPrimitives,
@@ -7,9 +11,7 @@ import {
   TooltipProvider,
 } from "../../ui/tooltip-b";
 import {
-  Ja as CheckCircleIcon,
   La as initExternalUrlHelpers,
-  Ya as initCheckCircleFilledIcon,
   za as openInBrowserFromEvent,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
