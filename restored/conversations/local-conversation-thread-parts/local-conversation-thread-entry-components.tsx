@@ -38,11 +38,11 @@ import {
   st as initSideChatHeaderChunk,
   wu as EmptyPageState,
 } from "../../boundaries/current-ref/profile-page-producer";
-import { ji as useBackgroundSubagentsEnabled } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   initOpenSideChatTabChunk,
   openSideChatTab,
 } from "../../threads/thread-overflow-menu";
+import { useIsBackgroundSubagentsEnabled as useBackgroundSubagentsEnabled } from "../../utils/use-is-background-subagents-enabled";
 import {
   FormattedMessage,
   useIntl,

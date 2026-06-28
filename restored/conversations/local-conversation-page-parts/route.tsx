@@ -11,6 +11,7 @@ import {
   PopoverTrigger,
 } from "../../ui/popover";
 import { classNames, initClassNameRuntime } from "../../utils/class-names";
+import { useIsBackgroundSubagentsEnabled } from "../../utils/use-is-background-subagents-enabled";
 import {
   initUseStableCallback,
   useStableCallback,
@@ -97,10 +98,7 @@ import {
   resolveRenderableAgentItems,
   WorkedForCollapsedAgentsLabel,
 } from "../../boundaries/current-ref/profile-page-producer";
-import {
-  ji as useIsBackgroundSubagentsEnabled,
-  nr as initPullRequestThreadActionsChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+import { nr as initPullRequestThreadActionsChunk } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   getProjectAppearance,
   initProjectAppearanceChunk,

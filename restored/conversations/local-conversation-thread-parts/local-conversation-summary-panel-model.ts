@@ -34,10 +34,8 @@ import {
   Yl as rightPanelTabsStore,
   yu as initWorkspaceRouteStateSignals,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  Ai as initPullRequestConversationHelpers,
-  ji as isBackgroundSubagentsEnabled,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+import { Ai as initPullRequestConversationHelpers } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+import { useIsBackgroundSubagentsEnabled as isBackgroundSubagentsEnabled } from "../../utils/use-is-background-subagents-enabled";
 import {
   At as initRestoredProcessRowsCollectorDependencies,
   cs as backgroundAgentsSignal,

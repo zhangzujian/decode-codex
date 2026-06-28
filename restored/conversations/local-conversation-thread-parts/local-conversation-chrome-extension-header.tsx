@@ -25,10 +25,7 @@ import {
   vm as subagentParentThreadIdSignal,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { Kl as conversationTitleSignal } from "../../boundaries/current-ref/projects-app-shared-producer";
-import {
-  Ai as initPullRequestConversationHelpers,
-  ji as isBackgroundSubagentsEnabled,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+import { Ai as initPullRequestConversationHelpers } from "../../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   ChromeExtensionHeader,
   initChromeExtensionHeaderChunk,
@@ -41,6 +38,7 @@ import {
   BackgroundAgentAvatar,
   initBackgroundAgentAvatarChunk,
 } from "../../ui/background-agent-avatar";
+import { useIsBackgroundSubagentsEnabled as isBackgroundSubagentsEnabled } from "../../utils/use-is-background-subagents-enabled";
 
 type ScopeRuntime = {
   get<TValue = unknown>(signal: unknown, key?: unknown): TValue;
