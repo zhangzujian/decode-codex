@@ -15,6 +15,11 @@ import {
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { parentPort, workerData } from "node:worker_threads";
+import {
+  isRemoteExecutionHostConfig,
+  WorkerRemoteExecutionHostClient,
+  type WorkerExecutionHostConfig,
+} from "./worker-execution-host-client";
 
 type WorkerInitOptions = {
   appVersion?: string;
@@ -152,6 +157,22 @@ type OpenInPlatformTarget = {
 type OpenInTargetDefinition = {
   id: string;
   platforms: Partial<Record<OpenInPlatformName, OpenInPlatformTarget>>;
+};
+type WorkerFeatureContext = {
+  computerUseCapture?: {
+    getServiceProcessIdentifier(): Promise<unknown>;
+    invalidateServiceProcessIdentifier(
+      processIdentifier: unknown,
+    ): Promise<void>;
+  };
+  git?: {
+    createExecutionHost(
+      hostConfig: WorkerExecutionHostConfig,
+    ): WorkerRemoteExecutionHostClient | null;
+  };
+  openIn?: {
+    readShortcutLink(path: string): Promise<ShortcutLink>;
+  };
 };
 
 const workerConfig = parseWorkerData(workerData);
@@ -454,9 +475,11 @@ class OpenBoundaryWorkerRequestDispatcher {
   constructor(
     private readonly workerId: string,
     private readonly postMessage: (message: WorkerOutboundMessage) => void,
+    private readonly featureContext: WorkerFeatureContext | null = null,
   ) {}
 
   handleRequest(request: WorkerRequest): void {
+    void this.featureContext;
     this.activeRequests.add(request.id);
     this.postMessage({
       type: "worker-response",
@@ -486,16 +509,70 @@ function createWorkerRequestDispatcher(
   postMessage: (message: WorkerOutboundMessage) => void,
   mainRpcClient: WorkerMainRpcClient,
 ): WorkerRequestDispatcher {
+  const featureContext = createWorkerFeatureContext(workerId, mainRpcClient);
   switch (workerId) {
     case "open-in":
       return new OpenInWorkerRequestDispatcher(workerId, postMessage, {
-        readShortcutLink: async (path) =>
-          normalizeShortcutLink(
-            await mainRpcClient.request("read-shortcut-link", { path }),
-          ),
+        readShortcutLink:
+          featureContext.openIn?.readShortcutLink ??
+          (async (path) =>
+            normalizeShortcutLink(
+              await mainRpcClient.request("read-shortcut-link", { path }),
+            )),
       });
+    case "computer-use-capture":
+    case "git":
+      return new OpenBoundaryWorkerRequestDispatcher(
+        workerId,
+        postMessage,
+        featureContext,
+      );
     default:
-      return new OpenBoundaryWorkerRequestDispatcher(workerId, postMessage);
+      return new OpenBoundaryWorkerRequestDispatcher(
+        workerId,
+        postMessage,
+        featureContext,
+      );
+  }
+}
+
+function createWorkerFeatureContext(
+  workerId: string,
+  mainRpcClient: WorkerMainRpcClient,
+): WorkerFeatureContext {
+  switch (workerId) {
+    case "computer-use-capture":
+      return {
+        computerUseCapture: {
+          getServiceProcessIdentifier: () =>
+            mainRpcClient.request("computer-use-service-pid", {}),
+          invalidateServiceProcessIdentifier: async (processIdentifier) => {
+            await mainRpcClient.request("computer-use-invalidate-service-pid", {
+              processIdentifier,
+            });
+          },
+        },
+      };
+    case "git":
+      return {
+        git: {
+          createExecutionHost: (hostConfig) =>
+            isRemoteExecutionHostConfig(hostConfig)
+              ? new WorkerRemoteExecutionHostClient(mainRpcClient, hostConfig)
+              : null,
+        },
+      };
+    case "open-in":
+      return {
+        openIn: {
+          readShortcutLink: async (path) =>
+            normalizeShortcutLink(
+              await mainRpcClient.request("read-shortcut-link", { path }),
+            ),
+        },
+      };
+    default:
+      return {};
   }
 }
 
