@@ -5,7 +5,7 @@ import { useScope, useScopedValue } from "../../runtime/app-scope-hooks";
 import {
   composerScope,
   initComposerScopeRuntime,
-} from "../../runtime/composer-scope-runtime";
+} from "../../composer/composer-scope-runtime";
 import {
   initConversationStateRuntime,
   storedThreadBranchSignal,

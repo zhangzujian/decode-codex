@@ -13,7 +13,7 @@ import {
   isBrowserPanelLocation,
   routeScope,
 } from "../runtime/persisted-signal";
-import { appShellElementContext } from "../utils/app-shell-ref";
+import { appShellElementContext } from "../app-shell/app-shell-ref";
 import { threadContentClassName } from "../utils/thread-layout";
 import {
   cancelOverlayReserveAnimation,

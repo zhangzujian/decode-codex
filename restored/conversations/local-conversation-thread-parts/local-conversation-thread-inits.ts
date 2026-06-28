@@ -7,7 +7,7 @@ import { initWindowZoomContext } from "../../utils/window-zoom-context";
 import { initAppLoggerRuntime } from "../../runtime/app-logger";
 import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
 import { initAppServerRequestRuntime } from "../../runtime/app-server-request";
-import { initComposerScopeRuntime } from "../../runtime/composer-scope-runtime";
+import { initComposerScopeRuntime } from "../../composer/composer-scope-runtime";
 import { initConnectorAppsRuntime } from "../../runtime/connector-apps-runtime";
 import { initConversationStateRuntime } from "../../runtime/conversation-state-runtime";
 import {

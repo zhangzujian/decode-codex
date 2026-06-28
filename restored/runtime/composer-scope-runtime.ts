@@ -1,14 +1,3 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
-// Composer scope initialization and scope token for local conversation panels.
-import {
-  AB as initScopeRuntime,
-  Al as initComposerScope,
-  wl as composerScope,
-} from "../vendor/appg-thread-shared-runtime";
-
-export { composerScope };
-
-export function initComposerScopeRuntime(): void {
-  initScopeRuntime();
-  initComposerScope();
-}
+// Compatibility barrel for the composer scope runtime.
+export * from "../composer/composer-scope-runtime";

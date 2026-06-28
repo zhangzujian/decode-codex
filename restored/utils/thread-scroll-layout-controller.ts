@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/thread-scroll-layout-BNp7nttn.js
 // Controller hook for the thread scroll layout restored from the Codex webview bundle.
 import React from "react";
-import { AppShellBottomPanelScrollSync } from "./app-shell-bottom-panel-scroll-sync";
+import { AppShellBottomPanelScrollSync } from "../app-shell/app-shell-bottom-panel-scroll-sync";
 import { getResizeObserverEntrySize } from "./get-resize-observer-entry-size";
 import type {
   ScrollDistanceListener,

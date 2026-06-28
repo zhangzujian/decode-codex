@@ -15,7 +15,7 @@ import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
 import {
   composerScope,
   initComposerScopeRuntime,
-} from "../../runtime/composer-scope-runtime";
+} from "../../composer/composer-scope-runtime";
 import {
   conversationCwdSignal,
   conversationHostIdSignal,

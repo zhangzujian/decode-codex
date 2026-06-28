@@ -15,7 +15,7 @@ import {
   _r as productLogger,
   productLoggerZn as userMessageNavigationRailEvent,
 } from "../../generated/product-logger";
-import { appShellElementContext } from "../app-shell-ref";
+import { appShellElementContext } from "../../app-shell/app-shell-ref";
 import { useThreadScrollController } from "../thread-scroll-controller-context";
 import {
   renderNavigationTooltipPreview,

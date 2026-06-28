@@ -9,7 +9,7 @@ import { getRouteConversationId } from "../../runtime/browser-feature-runtime";
 import {
   composerScope,
   initComposerScopeRuntime,
-} from "../../runtime/composer-scope-runtime";
+} from "../../composer/composer-scope-runtime";
 import {
   conversationCwdSignal,
   conversationModeSignal,

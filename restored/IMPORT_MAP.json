@@ -1510,11 +1510,13 @@
       "status": "done"
     },
     "app-shell-bottom-panel-scroll-sync-DT6iI9lV": {
-      "restored": "utils/app-shell-bottom-panel-scroll-sync.ts",
+      "restored": "app-shell/app-shell-bottom-panel-scroll-sync.ts",
       "exports": {
         "t": "AppShellBottomPanelScrollSync"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Moved the public bottom-panel scroll sync context into app-shell/ and kept utils/app-shell-bottom-panel-scroll-sync.ts as a compatibility barrel.",
+      "lastUpdated": "2026-06-28T16:14:15.000Z"
     },
     "apps-CHMcL_Hy": {
       "restored": "icons/apps-icon.tsx",
@@ -5257,12 +5259,14 @@
       "status": "done"
     },
     "app-shell-ref-DW6qz7GS": {
-      "restored": "utils/app-shell-ref.ts",
+      "restored": "app-shell/app-shell-ref.ts",
       "exports": {
         "n": "appShellRefContext",
         "t": "appShellElementContext"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Moved the public app-shell element contexts into app-shell/ and kept utils/app-shell-ref.ts as a compatibility barrel.",
+      "lastUpdated": "2026-06-28T16:14:15.000Z"
     },
     "invalidate-queries-and-broadcast-DTx8Xm8g": {
       "restored": "utils/invalidate-queries-and-broadcast.ts",
@@ -11185,8 +11189,8 @@
     "app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b": {
       "restored": "vendor/appg-thread-shared-runtime.ts",
       "status": "partial",
-      "note": "Compatibility facade moved out of current-ref direct passthrough. Explicit appg/thread shared aliases in the current-ref producer are backed by restored runtime/utils/ui/app-shell/icon/vendor modules where available; the local conversation composer bridge now uses semantic host config and app-server connection signals for LOCAL_HOST_ID/tp. Remaining mixed app/thread shared exports stay isolated behind vendor/appg-thread-shared-runtime.ts until deep-restored.",
-      "lastUpdated": "2026-06-28T00:00:00.000Z",
+      "note": "Compatibility facade moved out of current-ref direct passthrough. Explicit appg/thread shared aliases in the current-ref producer are backed by restored runtime/utils/ui/app-shell/icon/vendor modules where available; the local conversation composer bridge now uses semantic host config and app-server connection signals for LOCAL_HOST_ID/tp, and composer/composer-scope-runtime.ts owns the composer scope token/init helper with runtime/composer-scope-runtime.ts kept as a compatibility barrel. Remaining mixed app/thread shared exports stay isolated behind vendor/appg-thread-shared-runtime.ts until deep-restored.",
+      "lastUpdated": "2026-06-28T16:14:15.000Z",
       "boundary": "boundaries/current-ref/appg-thread-shared-producer.ts"
     },
     "app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~ovcriy74-KTK3czaX": {

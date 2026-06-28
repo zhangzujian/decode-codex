@@ -10,7 +10,7 @@ import { useScope, useSignalValue } from "../../runtime/app-scope-hooks";
 import {
   composerScope,
   initComposerScopeRuntime,
-} from "../../runtime/composer-scope-runtime";
+} from "../../composer/composer-scope-runtime";
 import {
   initHostQueryRuntime,
   QUERY_DURATIONS,

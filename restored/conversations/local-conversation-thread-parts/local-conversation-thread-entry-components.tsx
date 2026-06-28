@@ -11,7 +11,7 @@ import {
 import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
 import { initAppServerRequestRuntime } from "../../runtime/app-server-request";
 import { appLogger as logger } from "../../runtime/app-logger";
-import { composerScope } from "../../runtime/composer-scope-runtime";
+import { composerScope } from "../../composer/composer-scope-runtime";
 import {
   conversationCollaborationModeSignal,
   conversationCwdSignal,

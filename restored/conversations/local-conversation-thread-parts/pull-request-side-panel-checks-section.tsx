@@ -10,10 +10,8 @@ import { useScope, useSignalValue } from "../../runtime/app-scope-hooks";
 import {
   composerScope,
   initComposerScopeRuntime,
-} from "../../runtime/composer-scope-runtime";
-import {
-  pullRequestChecksState as attachedPullRequestChecksSignal,
-} from "../../composer/composer-view-state";
+} from "../../composer/composer-scope-runtime";
+import { pullRequestChecksState as attachedPullRequestChecksSignal } from "../../composer/composer-view-state";
 import { initPullRequestComposerContextChunk } from "../../composer/pull-request-prompt-actions";
 import {
   PullRequestInlineActionButton,
