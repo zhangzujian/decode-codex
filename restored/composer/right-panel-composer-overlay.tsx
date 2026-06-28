@@ -7,7 +7,7 @@ import {
   _appScopeO as useScopedStore,
   useAppScopeValue,
 } from "../boundaries/app-scope";
-import { appShellStateExportG as rightPanelComposerOverlayEnabledSignal } from "../app-shell/app-shell-state";
+import { rightPanelFullscreenSignal } from "../app-shell/app-shell-state";
 import { rightAppShellTabController } from "../app-shell/app-shell-tab-controller";
 import {
   isBrowserPanelLocation,
@@ -47,9 +47,7 @@ export function RightPanelComposerOverlay({
   const activeRightPanelTab = useAppScopeValue(
     rightAppShellTabController.activeTab$,
   );
-  const isOverlayEnabledForRightPanel = useAppScopeValue(
-    rightPanelComposerOverlayEnabledSignal,
-  );
+  const isRightPanelFullscreen = useAppScopeValue(rightPanelFullscreenSignal);
   const isOverlayVisible = useAppScopeValue(overlayVisibleSignal);
   const persistedVisibilityState = useAppScopeValue(
     overlayVisibilityStateSignal,
@@ -63,7 +61,7 @@ export function RightPanelComposerOverlay({
   );
   const shouldShowOverlay =
     !isBrowserPanelLocation(activeRightPanelTab) ||
-    !isOverlayEnabledForRightPanel ||
+    !isRightPanelFullscreen ||
     isOverlayVisible;
   const visibilityState = resolveOverlayVisibility(
     shouldShowOverlay,

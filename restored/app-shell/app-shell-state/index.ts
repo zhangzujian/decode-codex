@@ -4,6 +4,7 @@ import * as appShellStateImpl from "./app-shell-state-impl";
 
 const bottomPanelPreviousFocusAreaSignal =
   appShellStateImpl.appShellStateAState;
+const rightPanelFullscreenSignal = appShellStateImpl.appShellStateGState;
 const rightPanelExpandedSignal = appShellStateImpl.rightPanelExpandedSignal;
 const appShellLayoutMotionContext =
   appShellStateImpl.appShellLayoutMotionContext;
@@ -24,7 +25,7 @@ const appShellStateExportC = appShellStateImpl.appShellStateCState;
 const appShellStateExportD = appShellStateImpl.appShellStateDState;
 const appShellStateExportE = appShellStateImpl.appShellStateEState;
 const appShellStateExportF = appShellStateImpl.appShellStateFState;
-const appShellStateExportG = appShellStateImpl.appShellStateGState;
+const appShellStateExportG = rightPanelFullscreenSignal;
 const appShellStateExportH = appShellStateImpl.appShellStateHState;
 const appShellStateExportI = appShellStateImpl.appShellStateIState;
 const appShellStateExportJ = appShellStateImpl.appShellStateJState;
@@ -88,6 +89,7 @@ const appShellStateExportYAlias = appShellStateImpl.appShellStateYState;
 const appShellStateExportZAlias = appShellStateImpl.appShellStateZState;
 export {
   bottomPanelPreviousFocusAreaSignal,
+  rightPanelFullscreenSignal,
   rightPanelExpandedSignal,
   appShellLayoutMotionContext,
   setBottomPanelOpen,

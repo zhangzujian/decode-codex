@@ -8496,7 +8496,7 @@
         "D": "appShellStateExportD",
         "E": "appShellStateExportE",
         "F": "appShellStateExportF",
-        "G": "appShellStateExportG",
+        "G": "rightPanelFullscreenSignal",
         "H": "appShellStateExportH",
         "I": "appShellStateExportI",
         "J": "appShellStateExportJ",
@@ -8559,8 +8559,8 @@
         "z": "appShellStateExportZAlias"
       },
       "status": "done",
-      "note": "Grouped the app shell state implementation under app-shell/app-shell-state, with runtime/app-shell-state kept as compatibility barrels for older restored consumers. Known panel/focus exports now map to semantic public names while unresolved app-shell state aliases remain as compatibility exports.",
-      "lastUpdated": "2026-06-28T21:05:00.000Z"
+      "note": "Grouped the app shell state implementation under app-shell/app-shell-state, with runtime/app-shell-state kept as compatibility barrels for older restored consumers. Known panel/focus/fullscreen exports now map to semantic public names while unresolved app-shell state aliases remain as compatibility exports.",
+      "lastUpdated": "2026-06-28T18:09:02.000Z"
     },
     "mention-item-Cs3Au6lU": {
       "restored": "composer/mention-item/index.ts",
