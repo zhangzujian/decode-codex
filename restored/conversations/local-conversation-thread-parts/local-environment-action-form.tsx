@@ -25,12 +25,11 @@ import {
   initDialogLayoutComponents,
 } from "../../ui/dialog-layout";
 import {
-  $N as initVscodeApiBridge,
-  AV as initReactQueryRuntime,
-  tP as useAppServerMutation,
-  XN as createQueryKey,
-  zV as useQueryClient,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  createQueryKey,
+  initAppServerMutationRuntime,
+  useAppServerMutation,
+  useQueryClient,
+} from "../../runtime/app-server-mutation-runtime";
 import {
   en as getWorkspaceRootDisplayName,
   tn as initWorkspaceRootDisplayNameHelpers,
@@ -489,7 +488,7 @@ function createEmptyLocalEnvironmentActionDraft(): LocalEnvironmentAction {
 }
 
 export const initAddLocalEnvironmentActionFormChunk = once(() => {
-  initReactQueryRuntime();
+  initAppServerMutationRuntime();
   initIntlRuntime();
   initButtonComponentPrimitives();
   initDialogLayoutComponents();
@@ -499,5 +498,4 @@ export const initAddLocalEnvironmentActionFormChunk = once(() => {
   initLocalEnvironmentActionIconOptionsChunk();
   initLocalEnvironmentDefaultsChunk();
   initWorkspaceRootDisplayNameHelpers();
-  initVscodeApiBridge();
 });
