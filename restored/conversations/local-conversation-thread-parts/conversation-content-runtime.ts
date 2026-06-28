@@ -1,13 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
 // Conversation rendering helpers shared by local conversation thread modules.
 import {
-  Mv as isRenderableConversationTurnRaw,
   Sk as normalizeMarkdownPlainTextRaw,
   UR as isAbsoluteOrWindowsPathRaw,
   Sj as getPathBasenameRaw,
   bF as initConversationPromptContextRuntime,
-  fh as initGitActionDirectiveRuntime,
-  ph as parseGitActionDirectivesRaw,
   wj as initThreadFindResourcePreviewRuntime,
 } from "../../vendor/appg-thread-shared-runtime";
 import {
@@ -17,6 +14,9 @@ import {
   qo as diffSourceSignal,
   u as localConversationMessages,
   un as waitForThreadLayoutTickRaw,
+  Mv as isRenderableConversationTurnRaw,
+  fh as initGitActionDirectiveRuntime,
+  ph as parseGitActionDirectivesRaw,
 } from "../../vendor/projects-app-shared-runtime";
 import {
   it as initConversationTurnRendererChunkRaw,

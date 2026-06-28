@@ -4,17 +4,11 @@ import {
   aD as formatShellCommand,
   bF as initPathHelpers,
   DL as normalizeWorkspacePath,
-  Gv as initMarkdownNormalizationRuntime,
   iD as initCommandMarkdownRuntime,
-  Kg as initNormalizedPathUtilities,
   kj as normalizeConfigPath,
   Oj as normalizeArtifactPathKey,
-  qg as resolveProjectlessResourcePath,
   Tj as isAbsolutePath,
-  Vv as initMarkdownContentRuntime,
-  Wv as rewriteMarkdownResourceLinks,
   wj as initArtifactPreviewRuntime,
-  zv as renderChangeAsUnifiedDiff,
 } from "../vendor/appg-thread-shared-runtime";
 import {
   Ba as groupClosedActivityUnits,
@@ -30,6 +24,14 @@ import {
   Va as collectRenderableAgentUnits,
   za as wrapActivityUnits,
 } from "../vendor/profile-page-runtime";
+import {
+  Gv as initMarkdownNormalizationRuntime,
+  Kg as initNormalizedPathUtilities,
+  qg as resolveProjectlessResourcePath,
+  Vv as initMarkdownContentRuntime,
+  Wv as rewriteMarkdownResourceLinks,
+  zv as renderChangeAsUnifiedDiff,
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   closeActivitySlices,

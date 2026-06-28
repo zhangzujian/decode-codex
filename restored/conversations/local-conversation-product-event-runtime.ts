@@ -4,27 +4,29 @@ import {
   $P as initAppScope,
   AB as initScopeRuntime,
   cP as initVscodeMessageBridge,
-  CS as initThreadStateSignalRuntime,
   FB as useScope,
   gE as streamRoleProductEvent,
   Gj as initStatsigFeatureGateHooks,
   IB as useSignalValue,
-  I_ as initRouteScope,
   JV as initReactRuntime,
-  Jp as conversationPermissionConfigSignal,
   kE as initProductEventRuntime,
   lP as vscodeMessageBridge,
-  M_ as localConversationRouteScope,
-  Op as initConversationStateSelectors,
   PB as useScopedValue,
   QP as appScope,
   qV as getChunkModuleExports,
   qj as useStatsigGate,
+} from "../vendor/appg-thread-shared-runtime";
+import {
+  CS as initThreadStateSignalRuntime,
+  I_ as initRouteScope,
+  Jp as conversationPermissionConfigSignal,
+  M_ as localConversationRouteScope,
+  Op as initConversationStateSelectors,
   TS as setProductEventProperties,
   Up as conversationCollaborationModeSignal,
   Xp as latestConversationTurnSignal,
   _m as conversationStreamRoleSignal,
-} from "../vendor/appg-thread-shared-runtime";
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   appScope,

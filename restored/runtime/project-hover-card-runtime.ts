@@ -7,18 +7,14 @@ import {
   AV as initReactQueryRuntime,
   bF as initIntlMessageRuntime,
   cM as initModalRuntime,
-  Cx as getGlobalSettingValue,
   DL as normalizeWorkspacePath,
-  Ex as setGlobalSettingValue,
   FB as useScope,
-  Gu as initCodexAppFrameRuntime,
   HE as useHostConfigById,
   HI as parseProjectWritableRoots,
   IB as useSignalValue,
   jM as initPersistentSignalRuntime,
   JV as initReactRuntime,
   KE as initKeyboardShortcutRuntime,
-  Ku as useGlobalStateQuery,
   MM as createPersistentSignal,
   PB as useScopedValue,
   qE as useRemoteHostConfigs,
@@ -27,7 +23,6 @@ import {
   rF as defineMessages,
   Sj as normalizeTextForCompare,
   tP as useAppServerMutation,
-  Tx as initGlobalSettingsRuntime,
   uM as toastControllerSignal,
   VE as initGlobalStateQueryRuntime,
   VI as getProjectWritableRootsForDisplay,
@@ -74,6 +69,13 @@ import {
   Gd as initProfileIconsChunk,
   Wd as RowActionChevronIcon,
 } from "../vendor/profile-page-runtime";
+import {
+  Cx as getGlobalSettingValue,
+  Ex as setGlobalSettingValue,
+  Gu as initCodexAppFrameRuntime,
+  Ku as useGlobalStateQuery,
+  Tx as initGlobalSettingsRuntime,
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   ActivityIcon,

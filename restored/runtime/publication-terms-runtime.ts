@@ -2,18 +2,11 @@
 // Boundary facade for appgen publication-terms resource opening and panel tabs.
 import {
   $N as initVscodeApiBridge,
-  a_ as initFileTypeDetectionHelpers,
   Aj as resolveWorkspacePathFromCwd,
-  CS as initOpenFileOutcomeEventRuntime,
   DE as openFileOutcomeEvent,
-  i_ as getPathExtension,
   kL as readFileContentSampleByteLimit,
   MD as renderMcpCapabilityIcon,
-  o_ as isMarkdownPreviewPath,
-  r_ as getImagePreviewDisplayMode,
   Sj as getPathBasename,
-  s_ as isPdfPreviewPath,
-  TS as logScopedProductEvent,
   UR as isAbsoluteOrWindowsPath,
   wj as initArtifactPreviewRuntime,
   xL as isRemoteHostConfig,
@@ -31,6 +24,13 @@ import {
   ti as getWorkspaceFilePanelTabSource,
   vc as getPanelTabPlacement,
   Yt as openWorkspaceFilePanelTab,
+  a_ as initFileTypeDetectionHelpers,
+  CS as initOpenFileOutcomeEventRuntime,
+  i_ as getPathExtension,
+  o_ as isMarkdownPreviewPath,
+  r_ as getImagePreviewDisplayMode,
+  s_ as isPdfPreviewPath,
+  TS as logScopedProductEvent,
 } from "../vendor/projects-app-shared-runtime";
 
 export {

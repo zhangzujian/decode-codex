@@ -4,15 +4,17 @@ import {
   $N as initVscodeApiBridge,
   $P as initAppScopeRuntime,
   aP as queryDurations,
-  cC as automationStatusValues,
-  iC as reasoningEffortValues,
-  oC as scheduleFrequencyValues,
   oP as initQueryDurationConstants,
   QN as createVscodeQueryOptions,
   QP as appScopeRoot,
+} from "../vendor/appg-thread-shared-runtime";
+import {
+  cC as automationStatusValues,
+  iC as reasoningEffortValues,
+  oC as scheduleFrequencyValues,
   rC as automationKindValues,
   tC as executionEnvironmentValues,
-} from "../vendor/appg-thread-shared-runtime";
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   appScopeRoot,

@@ -3,20 +3,22 @@
 import {
   Aj as resolveWorkspacePathFromCwdRaw,
   DL as normalizeWorkspacePathRaw,
-  Hv as collectTurnFileArtifactsRaw,
-  Kg as initNormalizedPathUtilities,
   Oj as normalizeArtifactPathKeyRaw,
-  Qg as initArtifactPathDetectionHelpers,
-  Uv as initMarkdownArtifactHelpers,
   bF as initConversationPromptContextRuntime,
   bR as isFileUrlLikeTargetRaw,
-  e_ as isFileReferencePathRaw,
   lD as initMarkdownArtifactRenderingHelpers,
-  qg as isResourcePathInsideProjectlessOutputRaw,
   uD as mapTurnStatusToOutputStatusRaw,
   vR as normalizeHrefRaw,
   wj as initArtifactPreviewRuntime,
 } from "../vendor/appg-thread-shared-runtime";
+import {
+  Hv as collectTurnFileArtifactsRaw,
+  Kg as initNormalizedPathUtilities,
+  Qg as initArtifactPathDetectionHelpers,
+  Uv as initMarkdownArtifactHelpers,
+  e_ as isFileReferencePathRaw,
+  qg as isResourcePathInsideProjectlessOutputRaw,
+} from "../vendor/projects-app-shared-runtime";
 
 export type ProjectlessResourcePathOptions = {
   cwd: string | null;

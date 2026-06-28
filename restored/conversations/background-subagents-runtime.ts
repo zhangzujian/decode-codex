@@ -1,13 +1,13 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Background subagent membership/status aggregation for conversation UI.
 import {
-  Fv as formatAgentPathDisplayNameRaw,
   cA as getSubagentSourceMetadataRaw,
   pA as getCachedConversationTurnsRaw,
   pz as normalizeConversationIdRaw,
 } from "../vendor/appg-thread-shared-runtime";
 import { cs as backgroundAgentsSignal } from "../vendor/profile-page-runtime";
 import { parseUnifiedDiffFileSummaries } from "../utils/unified-diff-file-summaries";
+import { Fv as formatAgentPathDisplayNameRaw } from "../vendor/projects-app-shared-runtime";
 
 export { backgroundAgentsSignal };
 

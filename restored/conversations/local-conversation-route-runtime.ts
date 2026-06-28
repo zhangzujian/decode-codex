@@ -3,20 +3,22 @@
 import {
   AB as initScopeRuntime,
   AI as getLocalConversationPathRaw,
-  Dl as createLocalConversationRouteTargetRaw,
+  OI as getHotkeyWindowThreadPathRaw,
+  PI as getHotkeyWindowFallbackPathRaw,
+  bF as initConversationPromptContextRuntime,
+  cM as initToastRuntime,
+  uM as toastSignal,
+} from "../vendor/appg-thread-shared-runtime";
+import { isHotkeyWindowContext } from "../utils/is-hotkey-window-context";
+import { Dl as createLocalConversationRouteTargetRaw } from "../vendor/pull-request-thread-actions-runtime";
+import {
   Ev as useLocationRaw,
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
   O_ as initConversationRouteSourceHelpers,
-  OI as getHotkeyWindowThreadPathRaw,
-  PI as getHotkeyWindowFallbackPathRaw,
   Ov as useNavigateRaw,
-  bF as initConversationPromptContextRuntime,
-  cM as initToastRuntime,
-  uM as toastSignal,
   yv as Navigate,
-} from "../vendor/appg-thread-shared-runtime";
-import { isHotkeyWindowContext } from "../utils/is-hotkey-window-context";
+} from "../vendor/projects-app-shared-runtime";
 
 export type NavigateOptions = {
   replace?: boolean;

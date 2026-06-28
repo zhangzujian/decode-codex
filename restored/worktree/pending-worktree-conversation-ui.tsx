@@ -53,20 +53,20 @@ import {
 import {
   M as recordPendingWorktreeRestoreRaw,
   k as clearPendingWorktreeRestoreRaw,
+  Q_ as bindClientThreadConversationRaw,
+  ev as bindPendingWorktreeConversationRaw,
+  rx as applyActiveProfileConfigOverridesRaw,
 } from "../vendor/projects-app-shared-runtime";
 import {
   NI as buildPendingWorktreeRouteRaw,
-  Q_ as bindClientThreadConversationRaw,
-  Rt as useComposerPrefillRaw,
   aO as extractPullRequestNumberRaw,
-  ev as bindPendingWorktreeConversationRaw,
-  rx as applyActiveProfileConfigOverridesRaw,
 } from "../vendor/appg-thread-shared-runtime";
 import {
   Vu as setActiveLocalEnvironmentSettingsHostRaw,
   oa as UserMessageBubbleRaw,
   zt as PullRequestNumberBadgeRaw,
 } from "../vendor/profile-page-runtime";
+import { Rt as useComposerPrefillRaw } from "../vendor/pull-request-thread-actions-runtime";
 
 type AppScopeLike = {
   get<TValue = unknown>(signal: unknown, key?: unknown): TValue;

@@ -6,12 +6,10 @@ import {
   AI as routeToConversation,
   AV as initReactQueryRuntime,
   bF as initRouteHelpers,
-  CS as initPullRequestViewedEventRuntime,
   FB as useScope,
   kE as initPullRequestActionEventRuntime,
   NI as routeToPendingWorktree,
   ST as pullRequestViewedFromSidePanelEvent,
-  TS as logScopedProductEvent,
   tP as useAppServerMutation,
   uM as toastSignal,
   VN as initSwitchRuntime,
@@ -35,6 +33,10 @@ import {
   Tooltip,
   useIntl,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
+import {
+  CS as initPullRequestViewedEventRuntime,
+  TS as logScopedProductEvent,
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   Button,

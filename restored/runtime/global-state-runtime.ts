@@ -1,10 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
 // Global state query helpers.
+import { XR as GLOBAL_STATE_KEYS } from "../vendor/appg-thread-shared-runtime";
 import {
   Gu as initGlobalStateQueryRuntimeRaw,
   Ku as useGlobalStateQueryRaw,
-  XR as GLOBAL_STATE_KEYS,
-} from "../vendor/appg-thread-shared-runtime";
+} from "../vendor/projects-app-shared-runtime";
 
 export { GLOBAL_STATE_KEYS };
 
@@ -23,7 +23,9 @@ export function useGlobalStateQuery<TData = unknown>(
   key: unknown,
   options?: unknown,
 ): GlobalStateQueryResult<TData> {
-  return (options === undefined
-    ? useGlobalStateQueryRaw(key)
-    : useGlobalStateQueryRaw(key, options)) as GlobalStateQueryResult<TData>;
+  return (
+    options === undefined
+      ? useGlobalStateQueryRaw(key)
+      : useGlobalStateQueryRaw(key, options)
+  ) as GlobalStateQueryResult<TData>;
 }

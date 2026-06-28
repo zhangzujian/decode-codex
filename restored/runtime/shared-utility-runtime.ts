@@ -16,8 +16,6 @@ import {
   qV as getChunkModuleExports,
   tV as createIsArray,
   uV as createEq,
-  Uf as initHostWorkspaceQueries,
-  ub as initOnboardingWizardTrackingRuntime,
   VB as createIsArrayLike,
   wA as createIdentity,
   XB as createIsArguments,
@@ -27,6 +25,10 @@ import {
   _u as createBaseAt,
 } from "../vendor/pull-request-thread-actions-runtime";
 import { initClassNameRuntime } from "../boundaries/current-ref/appg-thread-shared-producer";
+import {
+  Uf as initHostWorkspaceQueries,
+  ub as initOnboardingWizardTrackingRuntime,
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   createArrayPush,
