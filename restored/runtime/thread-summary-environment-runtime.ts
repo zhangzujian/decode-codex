@@ -12,19 +12,21 @@ import {
   So as initWorkspaceRouteHelpersRaw,
   Wl as initConversationDisplayTitleSignalsRaw,
   wo as isCompactWindow,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 import {
   El as initSummaryPanelPullRequestControlsChunkRaw,
   Tl as SummaryPanelPullRequestControls,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../vendor/profile-page-runtime";
 import {
-  a as CloudEnvironmentDropdown,
-  i as initThreadHandoffHelpersChunkRaw,
+  initThreadHandoffSummaryHelpersChunk as initThreadHandoffHelpersChunkRaw,
+  shouldShowThreadHandoffInSummary,
+} from "../thread-summary/local-remote-dropdown";
+import {
+  CloudEnvironmentDropdown,
   n as initLocalRemoteDropdownChunkRaw,
   o as initCloudEnvironmentDropdownChunkRaw,
-  r as shouldShowThreadHandoffInSummary,
-  t as LocalRemoteDropdown,
-} from "../boundaries/current-ref/local-remote-dropdown-producer";
+  LocalRemoteDropdown,
+} from "../vendor/local-remote-dropdown-runtime";
 
 export {
   CloudEnvironmentDropdown,
