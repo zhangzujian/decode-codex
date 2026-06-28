@@ -16,6 +16,7 @@ import {
   uM as toastSignal,
   yv as Navigate,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
+import { Ja as isHotkeyWindowRouteRaw } from "../boundaries/current-ref/profile-page-producer";
 
 export type NavigateOptions = {
   replace?: boolean;
@@ -56,6 +57,10 @@ export function getHotkeyWindowFallbackPath(
   hasConfiguredLauncherHotkey: boolean,
 ): string {
   return getHotkeyWindowFallbackPathRaw(hasConfiguredLauncherHotkey);
+}
+
+export function isHotkeyWindowRoute(): boolean {
+  return isHotkeyWindowRouteRaw();
 }
 
 export function useNavigate(): Navigate {

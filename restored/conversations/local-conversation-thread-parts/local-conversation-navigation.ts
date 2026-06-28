@@ -7,11 +7,11 @@ import {
   getHotkeyWindowThreadPath,
   getLocalConversationPath,
   initLocalConversationNavigationRuntime,
+  isHotkeyWindowRoute,
   localConversationRouteScope,
   toastSignal,
   useNavigate,
 } from "../../runtime/local-conversation-route-runtime";
-import { Ja as isHotkeyWindowRoute } from "../../boundaries/current-ref/profile-page-producer";
 import { initIntlRuntime, useIntl } from "../../vendor/react-intl";
 
 type LocalConversationTurnItem = {
