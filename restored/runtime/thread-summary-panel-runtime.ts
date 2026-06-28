@@ -8,24 +8,45 @@ import {
   jM as initScopedSignalRuntime,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
 import {
+  $c as openBrowserSummaryTab,
   Cd as pinnedSummaryPanelSpringTransition,
   Fr as installedMcpAppIdsSignal,
-  Il as initRightPanelTabSignalsRaw,
-  Jl as initInstalledMcpAppSignalsRaw,
+  Il as initProjectPanelStateRaw,
+  Ir as setThreadSourceFrameState,
+  Ja as initThreadSourceFrameStateChunkRaw,
+  Jl as initProjectSourceOrMcpSignalsRaw,
+  Mr as initRightPanelTabsRuntimeRaw,
   nu as initThreadSummaryPanelSignalsRuntimeRaw,
+  Qc as openPullRequestReviewTab,
   id as rightPanelStateSignal,
   md as pinnedSummaryPanelPinnedSignal,
   nd as leftPanelStateSignal,
   Rl as hostConfigSignal,
-  Wl as initConversationDisplayTitleSignalsRaw,
+  Rr as getThreadSourceFrameTabId,
+  Sl as workspaceRouteStateSignal,
+  Wl as initProjectDisplayWorkspaceSignalsRaw,
   wd as threadLayoutContext,
+  Ya as showRightPanel,
+  wl as currentWorkspaceRootSignal,
   yu as initWorkspaceRouteStateSignalsRaw,
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import {
   At as initRestoredProcessRowsCollectorDependenciesRaw,
   cs as backgroundAgentsSignal,
+  Jn as PlanIcon,
   kt as formatCommandExecutionItemCommand,
   ls as initSummaryPanelSourceHelpersRaw,
+  St as openPlanSidePanelTab,
+  Xc as initEmptyPageStateChunkRaw,
+  Yn as initBackgroundTaskSectionTitleChunkRaw,
+  fl as initGlobalStateQueryHelpersChunkRaw,
+  gt as initWorkspaceRouteStateSignalsChunkRaw,
+  hc as openSideChatTabInRightPanel,
+  ht as ProcessManagerIcon,
+  ss as initThreadSummarySectionsSupportChunkRaw,
+  xt as initThreadSummarySourceSupportChunkRaw,
+  xl as initThreadSummaryPanelSignalsSupportChunkRaw,
+  yc as initLocalConversationSummaryPanelSupportChunkRaw,
 } from "../boundaries/current-ref/profile-page-producer";
 import {
   initLocalConversationRouteRuntime,
@@ -34,15 +55,26 @@ import {
 
 export {
   backgroundAgentsSignal,
+  currentWorkspaceRootSignal,
   formatCommandExecutionItemCommand,
+  getThreadSourceFrameTabId,
   hostConfigSignal,
   leftPanelStateSignal,
   installedMcpAppIdsSignal,
+  openBrowserSummaryTab,
+  openPlanSidePanelTab,
+  openPullRequestReviewTab,
+  openSideChatTabInRightPanel,
   pinnedSummaryPanelPinnedSignal,
   pinnedSummaryPanelSpringTransition,
+  PlanIcon,
+  ProcessManagerIcon,
   rightPanelStateSignal,
+  setThreadSourceFrameState,
+  showRightPanel,
   threadLayoutContext,
   threadSummaryPanelSectionTransition,
+  workspaceRouteStateSignal,
 };
 
 export type ScopedSignalInitializer<TKey, TValue> = (key: TKey) => TValue;
@@ -69,9 +101,25 @@ export function initThreadSummaryPanelSectionRuntime(): void {
 export function initThreadSummaryPanelModelRuntime(): void {
   initThreadSummaryPanelSignalsRuntimeRaw();
   initWorkspaceRouteStateSignalsRaw();
-  initInstalledMcpAppSignalsRaw();
-  initConversationDisplayTitleSignalsRaw();
-  initRightPanelTabSignalsRaw();
+  initProjectSourceOrMcpSignalsRaw();
+  initProjectDisplayWorkspaceSignalsRaw();
+  initProjectPanelStateRaw();
   initSummaryPanelSourceHelpersRaw();
   initRestoredProcessRowsCollectorDependenciesRaw();
+}
+
+export function initThreadSummaryPanelSectionsRuntime(): void {
+  initProjectSourceOrMcpSignalsRaw();
+  initProjectPanelStateRaw();
+  initGlobalStateQueryHelpersChunkRaw();
+  initRightPanelTabsRuntimeRaw();
+  initThreadSummarySourceSupportChunkRaw();
+  initProjectDisplayWorkspaceSignalsRaw();
+  initThreadSummaryPanelSignalsSupportChunkRaw();
+  initThreadSourceFrameStateChunkRaw();
+  initEmptyPageStateChunkRaw();
+  initThreadSummarySectionsSupportChunkRaw();
+  initWorkspaceRouteStateSignalsChunkRaw();
+  initLocalConversationSummaryPanelSupportChunkRaw();
+  initBackgroundTaskSectionTitleChunkRaw();
 }

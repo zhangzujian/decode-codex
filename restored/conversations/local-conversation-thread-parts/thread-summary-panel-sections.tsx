@@ -65,36 +65,22 @@ import {
   initResourceOpenRuntime,
 } from "../../runtime/resource-open-runtime";
 import {
-  $c as openBrowserSummaryTab,
-  Il as initWorkspaceRouteStateChunk,
-  Ir as setThreadSourceFrameState,
-  Ja as initThreadSourceFrameStateChunk,
-  Jl as initThreadSourceTabHelpersChunk,
-  Mr as initRightPanelTabsRuntime,
-  Qc as openPullRequestReviewTab,
-  Rl as hostConfigSignal,
-  Rr as getThreadSourceFrameTabId,
-  Sl as workspaceRouteStateSignal,
-  Wl as initCurrentWorkspaceRootSignalChunk,
-  Ya as showRightPanel,
-  wl as currentWorkspaceRootSignal,
-} from "../../boundaries/current-ref/projects-app-shared-producer";
+  currentWorkspaceRootSignal,
+  getThreadSourceFrameTabId,
+  hostConfigSignal,
+  initThreadSummaryPanelSectionsRuntime,
+  openBrowserSummaryTab,
+  openPlanSidePanelTab,
+  openPullRequestReviewTab,
+  openSideChatTabInRightPanel,
+  PlanIcon,
+  ProcessManagerIcon,
+  setThreadSourceFrameState,
+  showRightPanel,
+  workspaceRouteStateSignal,
+} from "../../runtime/thread-summary-panel-runtime";
 import { conversationTitleSignal } from "../../runtime/local-conversation-state";
 import { rightPanelTabsStore } from "../../runtime/thread-panel-tabs-store";
-import {
-  Jn as PlanIcon,
-  St as openPlanSidePanelTab,
-  Xc as initEmptyPageStateChunk,
-  Yn as initBackgroundTaskSectionTitleChunk,
-  fl as initGlobalStateQueryHelpersChunk,
-  gt as initWorkspaceRouteStateSignalsChunk,
-  hc as openSideChatTabInRightPanel,
-  ht as ProcessManagerIcon,
-  ss as initThreadSummarySectionsSupportChunk,
-  xt as initThreadSummarySourceSupportChunk,
-  xl as initThreadSummaryPanelSignalsSupportChunk,
-  yc as initLocalConversationSummaryPanelSupportChunk,
-} from "../../boundaries/current-ref/profile-page-producer";
 import {
   automationsQuerySignal as automationDataSignal,
   initAutomationsQueryChunk as initAutomationDataSignalChunk,
@@ -689,28 +675,18 @@ const initThreadSummaryPanelSectionsChunk = once(() => {
   initAttachedHeartbeatAutomationLookupChunk();
   initBrowserFeatureAvailabilityRuntime();
   initGlobalCommandHandlersRuntime();
-  initThreadSourceTabHelpersChunk();
+  initThreadSummaryPanelSectionsRuntime();
   initResourceOpenRuntime();
   initToastSignalRuntime();
   initPlatformContentRuntime();
   initGlobalStateQueryRuntime();
-  initWorkspaceRouteStateSignalsChunk();
-  initGlobalStateQueryHelpersChunk();
   initSlashIconRuntime();
-  initRightPanelTabsRuntime();
-  initThreadSummarySourceSupportChunk();
-  initCurrentWorkspaceRootSignalChunk();
   initLocalImageInliningRuntime();
   initPendingBackgroundProcessRowsChunk();
-  initThreadSummaryPanelSignalsSupportChunk();
   initThreadSummaryPanelSignalsChunk();
   initLocalConversationRouteRuntime();
-  initWorkspaceRouteStateChunk();
   initConversationDetailModeRuntime();
   initStatsigFeatureGateRuntime();
-  initLocalConversationSummaryPanelSupportChunk();
-  initThreadSourceFrameStateChunk();
-  initEmptyPageStateChunk();
   initSummaryPanelArtifactsListChunk();
   ThreadSummaryBackgroundActivityRows.initChunk();
   BackgroundTerminalSummaryRows.initChunk();
@@ -728,7 +704,6 @@ const initThreadSummaryPanelSectionsChunk = once(() => {
   initVscodeBridgeRuntime();
   initHostConfigRuntime();
   initAppLoggerRuntime();
-  initBackgroundTaskSectionTitleChunk();
 });
 
 ThreadSummaryPanelSections.initChunk = initThreadSummaryPanelSectionsChunk;
