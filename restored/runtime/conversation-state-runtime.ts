@@ -18,6 +18,7 @@ import {
   jm as conversationModeSignal,
   lm as conversationResumeStateSignal,
   nm as projectlessOutputDirectorySignal,
+  pp as shouldResumeConversationSignal,
   sm as conversationRequestsSignal,
   vm as subagentParentThreadIdSignal,
   wp as storedThreadBranchSignal,
@@ -41,6 +42,7 @@ export {
   localResponseInProgressSignal,
   modelProviderSignal,
   projectlessOutputDirectorySignal,
+  shouldResumeConversationSignal,
   storedThreadBranchSignal,
   subagentParentThreadIdSignal,
 };

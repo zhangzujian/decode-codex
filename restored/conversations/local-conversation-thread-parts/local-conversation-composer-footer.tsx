@@ -3,27 +3,32 @@
 import React, { type ComponentType } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import { useStableCallback } from "../../utils/use-stable-callback";
+import { useScope, useScopedValue } from "../../runtime/app-scope-hooks";
+import { initAppScopeSignalRuntime } from "../../runtime/app-scope-runtime";
+import { getRouteConversationId } from "../../runtime/browser-feature-runtime";
 import {
-  $P as initAppScope,
-  AB as initScopeRuntime,
-  Al as initComposerScope,
-  Em as conversationTurnsSignal,
-  FB as useScope,
-  I_ as initRouteScope,
-  M_ as localConversationRouteScope,
-  PB as useScopedValue,
-  T_ as getRouteConversationId,
-  UE as LOCAL_HOST_ID,
-  gp as conversationCwdSignal,
-  Ip as localResponseInProgressSignal,
-  jm as conversationModeSignal,
-  $p as modelProviderSignal,
-  O_ as initConversationRouteSourceHelpers,
-  Op as initConversationStateSelectors,
-  pp as shouldResumeConversationSignal,
-  tp as hostConnectionStatusSignal,
-  wP as initLocalConversationComposerBridge,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  composerScope,
+  initComposerScopeRuntime,
+} from "../../runtime/composer-scope-runtime";
+import {
+  conversationCwdSignal,
+  conversationModeSignal,
+  conversationTurnsSignal,
+  initConversationStateRuntime,
+  localResponseInProgressSignal,
+  modelProviderSignal,
+  shouldResumeConversationSignal,
+} from "../../runtime/conversation-state-runtime";
+import {
+  hostConnectionStatusSignal,
+  initLocalConversationComposerRuntime,
+  LOCAL_HOST_ID,
+} from "../../runtime/local-conversation-composer-runtime";
+import {
+  initConversationRouteSourceRuntime,
+  initLocalConversationRouteRuntime,
+  localConversationRouteScope,
+} from "../../runtime/local-conversation-route-runtime";
 import { getLocalThreadConversationIdFromRoute } from "../../runtime/local-thread-route";
 import {
   Vn as localWorkspaceMaterializationSignal,
@@ -143,7 +148,7 @@ export function LocalConversationComposerFooter({
 }: LocalConversationComposerFooterProps) {
   let scope = useScope(localConversationRouteScope);
   React.useContext(threadComposerContext);
-  initLocalConversationComposerBridge();
+  initLocalConversationComposerRuntime();
 
   let hostConnectionStatus = useScopedValue(hostConnectionStatusSignal, hostId),
     hasConversationTurns = !!useScopedValue(
@@ -287,12 +292,12 @@ export function LocalConversationComposerFooter({
 }
 
 export const initLocalConversationComposerFooterChunk = once(() => {
-  initScopeRuntime();
-  initAppScope();
-  initRouteScope();
-  initComposerScope();
+  initAppScopeSignalRuntime();
+  initLocalConversationRouteRuntime();
+  initComposerScopeRuntime();
   initIntlRuntime();
-  initConversationStateSelectors();
-  initConversationRouteSourceHelpers();
+  initConversationStateRuntime();
+  initConversationRouteSourceRuntime();
+  initLocalConversationComposerRuntime();
   initThreadComposerFooterChunk();
 });
