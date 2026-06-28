@@ -83,6 +83,16 @@ export {
   stopBrowserSidebarEvent,
 } from "./event-interactions";
 export {
+  BROWSER_SIDEBAR_COMMENT_ROOT_ATTRIBUTE,
+  BROWSER_SIDEBAR_INTERACTION_LAYER_ATTRIBUTE,
+  getBrowserSidebarAnchorTargetAtPoint,
+  getBrowserSidebarAnchorTargetFromEventPath,
+  getBrowserSidebarAnchorTargetFromPoint,
+  getBrowserSidebarDeepElementFromPoint,
+  getBrowserSidebarElementAtPointOutsideOverlay,
+  normalizeBrowserSidebarAnchorTarget,
+} from "./hit-testing";
+export {
   BROWSER_SIDEBAR_SHADOW_FRAME_PATH_PREFIX,
   BROWSER_SIDEBAR_SHADOW_FRAME_PATH_SEPARATOR,
   getBrowserSidebarFramePath,
@@ -154,6 +164,11 @@ export {
   updateBrowserSidebarRegionDragState,
 } from "./region-drag";
 export { getBrowserSidebarScrollContainerSnapshotsAtPoint } from "./scroll-containers";
+export {
+  findScrollableBrowserSidebarAncestor,
+  getBrowserSidebarWheelDelta,
+  scrollBrowserSidebarElementAtPoint,
+} from "./scroll-passthrough";
 export { buildBrowserSidebarTextAnchorState } from "./text-anchor-builder";
 export {
   captureBrowserSidebarActiveTextAnchorState,
