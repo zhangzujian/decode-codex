@@ -14,6 +14,27 @@ const ARTIFACT_IMPORT_KIND_BY_EXTENSION = new Map([
   ["xlsx", "xlsx"],
 ]);
 
+export function initArtifactImportPresentationChunk(): void {}
+
+export function shouldParseArtifactPreviewForImportKind(
+  importKind: string,
+): boolean {
+  switch (importKind) {
+    case "csv":
+    case "ipynb":
+    case "tex":
+    case "tsv":
+      return true;
+    case "docx":
+    case "pdf":
+    case "pptx":
+    case "xlsx":
+      return false;
+    default:
+      return false;
+  }
+}
+
 export function getArtifactImportPresentation(path: string) {
   const extension = getPathExtension(path);
   const importKind =

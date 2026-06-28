@@ -18,7 +18,11 @@ export {
   createMcpFileViewerHostResource,
   findMatchingMcpCapabilityFileViewer,
 } from "./mcp-file-viewers";
-export { getArtifactImportPresentation } from "./artifact-presentation";
+export {
+  getArtifactImportPresentation,
+  initArtifactImportPresentationChunk,
+  shouldParseArtifactPreviewForImportKind,
+} from "./artifact-presentation";
 export {
   initWorkspaceResourceOpenerChunk,
   openWorkspaceResource,

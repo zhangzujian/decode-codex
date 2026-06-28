@@ -11249,9 +11249,11 @@
       "splitDirectory": "appgen/publication-terms",
       "exports": {
         "A": "initPublicationTermsHandlerRegistryChunk",
+        "E": "shouldParseArtifactPreviewForImportKind",
         "G": "findMatchingMcpCapabilityFileViewer",
         "H": "getMcpServerLogo",
         "K": "createFileViewerToolArguments",
+        "T": "initArtifactImportPresentationChunk",
         "U": "initMcpServerLogoHelpers",
         "W": "createMcpFileViewerHostResource",
         "_": "initWorkspaceResourceOpenerChunk",
@@ -11261,7 +11263,7 @@
       },
       "status": "partial",
       "boundary": "boundaries/current-ref/appgen-publication-terms-producer.ts",
-      "note": "Partial semantic restore for app-shell/local-conversation/sidebar consumers: handler registry, MCP server logo selection, workspace resource opener, artifact presentation detection, and MCP file-viewer helpers now live under appgen/publication-terms; unused exports remain available through the current-ref compatibility boundary.",
+      "note": "Partial semantic restore for app-shell/local-conversation/sidebar/artifact consumers: handler registry, MCP server logo selection, workspace resource opener, artifact presentation detection, preview-parse gating, and MCP file-viewer helpers now live under appgen/publication-terms. The boundary no longer keeps a current-ref fallback; unrelated exports from this combined producer remain pending.",
       "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~projects-i~easvi6ps-Cs84X9Ip": {
@@ -11441,22 +11443,44 @@
       "lastUpdated": "2026-06-27T18:34:48.968Z"
     },
     "app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~hc7acb17-o4mgW3b3": {
-      "restored": "boundaries/current-ref/project-appearance-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-page; project appearance helpers are pending deep semantic restoration.",
-      "lastUpdated": "2026-06-27T18:51:20.705Z"
+      "restored": "projects/project-appearance.ts",
+      "exports": {
+        "a": "initProjectAppearanceChunk",
+        "o": "getProjectAppearance"
+      },
+      "status": "partial",
+      "boundary": "boundaries/current-ref/project-appearance-producer.ts",
+      "note": "Restored the project appearance global-state lookup used by local-conversation-page and removed the current-ref fallback. Other environment-icon and task-row exports from this combined producer remain pending because no restored consumer currently imports them.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "app-initial~app-main~appgen-page~remote-conversation-page~projects-index-page~appgen-librar~i4jkvfhy-Cz2rgy0h": {
-      "restored": "boundaries/current-ref/appgen-project-header-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-page; Appgen pending-thread header is pending deep semantic restoration.",
-      "lastUpdated": "2026-06-27T18:51:20.705Z"
+      "restored": "appgen/project-header.tsx",
+      "exports": {
+        "n": "initAppgenProjectHeaderChunk",
+        "t": "AppgenProjectHeader"
+      },
+      "status": "done",
+      "boundary": "boundaries/current-ref/appgen-project-header-producer.ts",
+      "note": "Deep-restored the pending Appgen project header and remapped its environment badges to the semantic thread-env-icon components. The boundary now only preserves original minified export aliases.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "use-debug-panel-BOtarLIY": {
-      "restored": "boundaries/current-ref/debug-panel-producer.ts",
-      "status": "boundary",
-      "note": "Current ref passthrough boundary for local-conversation-page debug-panel source registration.",
-      "lastUpdated": "2026-06-27T18:51:20.705Z"
+      "restored": "debug/debug-panel.ts",
+      "exports": {
+        "a": "useIsDebugPanelEnabled",
+        "c": "registerDebugPanelSource",
+        "i": "initDebugPanelRuntime",
+        "l": "initDebugPanelSourceRuntime",
+        "n": "createDebugPanelSourceId",
+        "o": "useDebugPanelSources",
+        "r": "unregisterDebugPanelSource",
+        "s": "getEditedFilesFromTurns",
+        "t": "getReferencedFilesFromTurns"
+      },
+      "status": "done",
+      "boundary": "boundaries/current-ref/debug-panel-producer.ts",
+      "note": "Deep-restored the debug panel source registry, internal-build gating, and local-conversation edited/referenced file aggregation. The boundary now only preserves original minified export aliases.",
+      "lastUpdated": "2026-06-28T00:00:00.000Z"
     },
     "worktree-init-v2-page-BAfwy1p_": {
       "restored": "boundaries/current-ref/worktree-init-v2-page-producer.ts",

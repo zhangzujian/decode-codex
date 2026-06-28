@@ -1,7 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~appgen-page~remote-conversation-page~projects-index-page~appgen-librar~i4jkvfhy-Cz2rgy0h.js
-// TODO: Deep-restore this current ref producer; pending client-local routes import it while the updated producer is still pending.
+// Compatibility aliases for the restored Appgen pending project header.
 export {
-  n as initAppgenProjectHeaderChunk,
-  t as AppgenProjectHeader,
-} from "../../../ref/webview/assets/app-initial~app-main~appgen-page~remote-conversation-page~projects-index-page~appgen-librar~i4jkvfhy-Cz2rgy0h.js";
-export * from "../../../ref/webview/assets/app-initial~app-main~appgen-page~remote-conversation-page~projects-index-page~appgen-librar~i4jkvfhy-Cz2rgy0h.js";
+  AppgenProjectHeader as t,
+  initAppgenProjectHeaderChunk as n,
+} from "../../appgen/project-header";
+
+export {
+  AppgenProjectHeader,
+  initAppgenProjectHeaderChunk,
+} from "../../appgen/project-header";

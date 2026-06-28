@@ -1,13 +1,25 @@
 // Restored from ref/webview/assets/use-debug-panel-BOtarLIY.js
-// TODO: Deep-restore this current ref producer; local conversation page debug reporting imports it while the updated producer is still pending.
+// Compatibility aliases for the restored debug panel source registry.
 export {
-  a as useIsDebugPanelEnabled,
-  c as registerDebugPanelSource,
-  i as initDebugPanelRuntime,
-  l as initDebugPanelSourceRuntime,
-  n as createDebugPanelSourceId,
-  r as unregisterDebugPanelSource,
-  s as getEditedFilesFromTurns,
-  t as getReferencedFilesFromTurns,
-} from "../../../ref/webview/assets/use-debug-panel-BOtarLIY.js";
-export * from "../../../ref/webview/assets/use-debug-panel-BOtarLIY.js";
+  createDebugPanelSourceId as n,
+  getEditedFilesFromTurns as s,
+  getReferencedFilesFromTurns as t,
+  initDebugPanelRuntime as i,
+  initDebugPanelSourceRuntime as l,
+  registerDebugPanelSource as c,
+  unregisterDebugPanelSource as r,
+  useDebugPanelSources as o,
+  useIsDebugPanelEnabled as a,
+} from "../../debug/debug-panel";
+
+export {
+  createDebugPanelSourceId,
+  getEditedFilesFromTurns,
+  getReferencedFilesFromTurns,
+  initDebugPanelRuntime,
+  initDebugPanelSourceRuntime,
+  registerDebugPanelSource,
+  unregisterDebugPanelSource,
+  useDebugPanelSources,
+  useIsDebugPanelEnabled,
+} from "../../debug/debug-panel";
