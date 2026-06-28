@@ -2,11 +2,10 @@
 // MCP tool-source summaries for the local conversation summary panel model.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  ay as formatIdentifierTitle,
-  ny as initAppToolSourceMatcherCache,
-  oy as initIdentifierTitleFormatter,
-  ty as getAppToolSourceMetadata,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  formatIdentifierTitle,
+  getAppToolSourceMetadata,
+  initAppToolSourceRuntime,
+} from "../../runtime/app-tool-source-runtime";
 import {
   Ar as parseMcpAppIdFromToolCallId,
   Mr as initMcpAppIdHelpers,
@@ -166,7 +165,6 @@ function getMcpToolSourceSummary(
 
 export const initLocalConversationSummaryPanelMcpSources = once(() => {
   initMcpAppIdHelpers();
-  initAppToolSourceMatcherCache();
+  initAppToolSourceRuntime();
   initMcpServerLogoHelpers();
-  initIdentifierTitleFormatter();
 });

@@ -3,13 +3,15 @@
 
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
+import {
+  initDynamicModulePreloadRuntime,
+  preloadDynamicImport,
+} from "../../runtime/dynamic-module-preload";
 import { initSearchIcon } from "../../ui/dropdown/search";
 import {
   AB as initScopeRuntime,
-  AL as preloadDynamicImport,
   IB as useSignalValue,
   Gj as initStatsigFeatureGateHooks,
-  jL as initModulePreloadRuntime,
   qj as useStatsigGate,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
@@ -271,7 +273,7 @@ export function ThreadFindNavigationRail(props: ThreadFindNavigationRailProps) {
 export const initThreadFindNavigationRail = once(() => {
   initLazyNavigationRailRuntime();
   initStatsigFeatureGateHooks();
-  initModulePreloadRuntime();
+  initDynamicModulePreloadRuntime();
   LazyThreadUserMessageNavigationRail = createLazyNavigationRailComponent(
     async () =>
       (

@@ -2,22 +2,17 @@
 // Output artifact collection for local conversation turns.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  Aj as resolveWorkspacePathFromCwd,
-  DL as normalizeWorkspacePath,
-  Hv as collectTurnFileArtifacts,
-  Kg as initNormalizedPathUtilities,
-  Oj as normalizeArtifactPathKey,
-  Qg as initArtifactPathDetectionHelpers,
-  Uv as initMarkdownArtifactHelpers,
-  bF as initPathHelpers,
-  bR as isFileUrlLikeTarget,
-  e_ as isFileReferencePath,
-  lD as initMarkdownArtifactRenderingHelpers,
-  qg as isResourcePathInsideProjectlessOutput,
-  uD as mapTurnStatusToOutputStatus,
-  vR as normalizeHref,
-  wj as initArtifactPreviewRuntime,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  collectTurnFileArtifacts,
+  initOutputArtifactRuntime,
+  isFileReferencePath,
+  isFileUrlLikeTarget,
+  isResourcePathInsideProjectlessOutput,
+  mapTurnStatusToOutputStatus,
+  normalizeArtifactPathKey,
+  normalizeHref,
+  normalizeWorkspacePath,
+  resolveWorkspacePathFromCwd,
+} from "../../runtime/output-artifact-runtime";
 import type { LocalConversationOutputArtifact } from "./artifact-summary";
 import {
   collectLocalAssistantOutputArtifacts,
@@ -279,12 +274,7 @@ function getOutputArtifactKey(
 }
 
 export const initOutputArtifactCollectorDependencies = once(() => {
-  initPathHelpers();
-  initArtifactPathDetectionHelpers();
-  initMarkdownArtifactHelpers();
-  initMarkdownArtifactRenderingHelpers();
+  initOutputArtifactRuntime();
   initLocalConversationArtifactRuntime();
   initLocalConversationMarkdownResourceRuntime();
-  initNormalizedPathUtilities();
-  initArtifactPreviewRuntime();
 });

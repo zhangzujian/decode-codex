@@ -2,9 +2,9 @@
 // Render visible local conversation turns into markdown for export and extension menus.
 import { once } from "../../runtime/commonjs-interop";
 import {
-  AL as preloadDynamicImport,
-  jL as initModulePreloadRuntime,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  initDynamicModulePreloadRuntime,
+  preloadDynamicImport,
+} from "../../runtime/dynamic-module-preload";
 import {
   initLocalConversationArtifactRuntime,
   renderLocalConversationTurn,
@@ -97,7 +97,7 @@ export async function renderLocalConversationMarkdownForTurns({
 
 export const initConversationMarkdownRenderer = once(() => {
   initLocalConversationArtifactRuntime();
-  initModulePreloadRuntime();
+  initDynamicModulePreloadRuntime();
 });
 
 function getConversationMarkdownPreloadDependencies(
