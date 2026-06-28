@@ -8527,8 +8527,8 @@
         "et": "appShellStateExportEt",
         "f": "appShellStateExportFAlias",
         "ft": "appShellStateExportFt",
-        "g": "appShellStateExportGAlias",
-        "h": "appShellStateExportHAlias",
+        "g": "reviewFileTreeOpenSignal",
+        "h": "reviewFileTreeOpenAnimationSignal",
         "i": "appShellStateExportIAlias",
         "it": "appShellStateExportIt",
         "j": "activeAppShellFocusAreaSignal",
@@ -8553,14 +8553,14 @@
         "u": "appShellStateExportUAlias",
         "ut": "appShellStateExportUt",
         "v": "appShellStateExportVAlias",
-        "w": "appShellStateExportWAlias",
+        "w": "setReviewFileTreeOpen",
         "x": "setRightPanelOpenWithOptions",
         "y": "appShellStateExportYAlias",
         "z": "appShellStateExportZAlias"
       },
       "status": "done",
-      "note": "Grouped the app shell state implementation under app-shell/app-shell-state, with runtime/app-shell-state kept as compatibility barrels for older restored consumers. Known panel/focus/fullscreen exports now map to semantic public names while unresolved app-shell state aliases remain as compatibility exports.",
-      "lastUpdated": "2026-06-28T18:09:02.000Z"
+      "note": "Grouped the app shell state implementation under app-shell/app-shell-state, with runtime/app-shell-state kept as compatibility barrels for older restored consumers. Known panel/focus/fullscreen exports now map to semantic public names, and the review file-tree open signal/action are split from the right-panel fullscreen signal. Unresolved app-shell state aliases remain as compatibility exports.",
+      "lastUpdated": "2026-06-28T19:07:12.000Z"
     },
     "mention-item-Cs3Au6lU": {
       "restored": "composer/mention-item/index.ts",

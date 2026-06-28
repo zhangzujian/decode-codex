@@ -299,8 +299,11 @@ var appShellStateState18 = `app-shell-bottom-panel-launcher-visible`,
   _appShellStateIState = appScopeG(persistedSignalG, () => new MotionValue(0)),
   _appShellStateOState = appScopeG(persistedSignalG, !1),
   appShellStateState21 = appScopeG(persistedSignalG, !1),
-  _appShellStateGState = appScopeG(appScopeT, !1),
-  _appShellStateHState = appScopeG(appScopeT, () => new MotionValue(0));
+  reviewFileTreeOpenSignal = appScopeG(appScopeT, !1),
+  reviewFileTreeOpenAnimationSignal = appScopeG(
+    appScopeT,
+    () => new MotionValue(0),
+  );
 const _appShellStatePState = appScopeG(appScopeT, appShellStateEState);
 const _appShellStateMState = appScopeG(appScopeT, !1, {
   onMount: (appShellStateInput17, appShellStateInput18) => {
@@ -433,37 +436,30 @@ function _appShellStateSState(
   }
   _appShellStateXState(appShellStateInput77, !1);
 }
-function _appShellStateWState(
-  appShellStateInput84: any,
-  appShellStateInput85: boolean,
-  appShellStateInput86: any = {},
+function setReviewFileTreeOpen(
+  appScope: any,
+  isOpen: boolean,
+  options: any = {},
 ): void {
-  (appShellStateInput84.set(_appShellStateGState, appShellStateInput85),
-    appShellStateHelper29(
-      appShellStateInput84.get(_appShellStateHState),
-      appShellStateInput85,
-      appShellStateInput84.get(reducedMotionPreferenceR),
-      appShellStateInput86,
+  (appScope.set(reviewFileTreeOpenSignal, isOpen),
+    animateBooleanMotionValue(
+      appScope.get(reviewFileTreeOpenAnimationSignal),
+      isOpen,
+      appScope.get(reducedMotionPreferenceR),
+      options,
     ));
 }
-function appShellStateHelper29(
-  appShellStateInput57,
-  appShellStateInput58,
-  appShellStateInput59,
-  appShellStateInput60,
+function animateBooleanMotionValue(
+  motionValue,
+  enabled,
+  shouldReduceMotion,
+  options,
 ) {
-  if (
-    (appShellStateInput57.stop(),
-    appShellStateInput60.animate === !1 || appShellStateInput59)
-  ) {
-    appShellStateInput57.set(appShellStateInput58 ? 1 : 0);
+  if ((motionValue.stop(), options.animate === !1 || shouldReduceMotion)) {
+    motionValue.set(enabled ? 1 : 0);
     return;
   }
-  appShellStateMtState(
-    appShellStateInput57,
-    appShellStateInput58 ? 1 : 0,
-    appShellStateItState,
-  );
+  appShellStateMtState(motionValue, enabled ? 1 : 0, appShellStateItState);
 }
 function appShellStateHelper30(
   appShellStateInput68,
@@ -531,4 +527,7 @@ export {
   _appShellStateJState as activeAppShellFocusAreaSignal,
   _appShellStateXState as setRightPanelOpenWithOptions,
   _appShellStateAState as rightPanelExpandedSignal,
+  reviewFileTreeOpenSignal,
+  reviewFileTreeOpenAnimationSignal,
+  setReviewFileTreeOpen,
 };
