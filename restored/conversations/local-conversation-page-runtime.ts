@@ -5,7 +5,6 @@ import {
   $P as initAppScope,
   AB as initScopeRuntime,
   AV as initReactQueryRuntime,
-  DL as normalizeWorkspacePath,
   FB as useScope,
   IB as useSignalValue,
   JV as initReactRuntime,
@@ -21,7 +20,10 @@ import {
   qV as getChunkModuleExports,
   qj as useStatsigGate,
 } from "../vendor/appg-thread-shared-runtime";
-import { normalizeConversationId as toConversationId } from "../boundaries/src-l0hb-mz-p";
+import {
+  normalizeConversationId as toConversationId,
+  normalizeWorkspacePath,
+} from "../boundaries/src-l0hb-mz-p";
 import {
   Sl as activeWorkspaceDiffSignal,
   nc as appShellIntlSignal,

@@ -2,7 +2,6 @@
 // Path, markdown-resource, and output-artifact helpers for conversation summaries.
 import {
   Aj as resolveWorkspacePathFromCwdRaw,
-  DL as normalizeWorkspacePathRaw,
   Oj as normalizeArtifactPathKeyRaw,
   bF as initConversationPromptContextRuntime,
   bR as isFileUrlLikeTargetRaw,
@@ -11,6 +10,7 @@ import {
   vR as normalizeHrefRaw,
   wj as initArtifactPreviewRuntime,
 } from "../vendor/appg-thread-shared-runtime";
+import { normalizeWorkspacePath as normalizeWorkspacePathValue } from "../boundaries/src-l0hb-mz-p";
 import {
   Hv as collectTurnFileArtifactsRaw,
   Kg as initNormalizedPathUtilities,
@@ -40,7 +40,7 @@ export function resolveWorkspacePathFromCwd(cwd: string, path: string): string {
 }
 
 export function normalizeWorkspacePath(path: string): string {
-  return normalizeWorkspacePathRaw(path);
+  return normalizeWorkspacePathValue(path);
 }
 
 export function collectTurnFileArtifacts<TArtifacts = unknown>(
