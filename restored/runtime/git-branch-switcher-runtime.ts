@@ -55,12 +55,12 @@ export {
   xa as initAppDialog,
   zV as useQueryClient,
   zh as updateGitMetadataCache,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/appg-thread-shared-runtime";
 
 export {
   Dl as initCurrentGitBranchSignal,
   Tl as currentGitBranchSignal,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "../vendor/projects-app-shared-runtime";
 
 export {
   Dl as CreateBranchDialogGraphic,
@@ -78,4 +78,4 @@ export {
   ru as branchSwitchReviewTargetSignal,
   su as mergeReviewSummaryStats,
   yl as BranchSearchMenu,
-} from "../boundaries/current-ref/profile-page-producer";
+} from "../vendor/profile-page-runtime";
