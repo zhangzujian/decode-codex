@@ -1,7 +1,6 @@
 // Restored from ref/webview/assets/local-conversation-page-D7JrTtqP.js
 // Local conversation page container runtime bindings and side-effect helpers.
 import {
-  $N as initVscodeApiBridge,
   JV as initReactRuntime,
   SP as initMotionRuntime,
   VE as initGlobalStateQueryRuntime,
@@ -12,6 +11,8 @@ import {
   qV as getChunkModuleExports,
   qj as useStatsigGate,
 } from "../vendor/appg-thread-shared-runtime";
+import { initVscodeBridgeRuntime as initVscodeApiBridge } from "../runtime/platform-content-runtime";
+
 import {
   normalizeConversationId as toConversationId,
   normalizeWorkspacePath,

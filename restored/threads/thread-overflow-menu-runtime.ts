@@ -2,14 +2,11 @@
 // Runtime bindings for thread overflow actions, side chat, and heartbeat automation tabs.
 import {
   $j as initSideConversationProducer,
-  $N as initDeveloperInstructionsProducer,
   ak as initSideConversationPromptProducer,
   cM as initToastRuntime,
   cP as initThreadActionMenuRuntime,
   JV as initReactRuntime,
-  mP as logger,
   ok as runConversationAction,
-  pP as initConversationActionAndLoggerRuntime,
   SV as initQueryRuntime,
   tM as modelSelectionSignal,
   TV as useSignalSnapshot,
@@ -17,6 +14,12 @@ import {
   uP as useThreadCommandHandler,
   YN as sendHostRequest,
 } from "../vendor/appg-thread-shared-runtime";
+import { initVscodeBridgeRuntime as initDeveloperInstructionsProducer } from "../runtime/platform-content-runtime";
+import {
+  appLogger as logger,
+  initAppLoggerRuntime as initConversationActionAndLoggerRuntime,
+} from "../runtime/app-logger";
+
 import {
   Ga as initElectronPlatformContent,
   ii as closeSideChatThreadAssociation,

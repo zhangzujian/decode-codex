@@ -1,7 +1,6 @@
 // Restored from ref/webview/assets/pull-request-check-rows-Q1OJv6O3.js
 // Boundary facade for pull request action rows, analytics, mutations, and merge controls.
 import {
-  $N as initVscodeApiBridge,
   AI as routeToConversation,
   bF as initRouteHelpers,
   kE as initPullRequestActionEventRuntime,
@@ -12,6 +11,8 @@ import {
   bT as pullRequestActionEvent,
   xT as pullRequestKindActionEvent,
 } from "../vendor/appg-thread-shared-runtime";
+import { initVscodeBridgeRuntime as initVscodeApiBridge } from "./platform-content-runtime";
+
 import {
   createQueryKey as queryKey,
   initReactQueryRuntime,

@@ -5,7 +5,6 @@ import {
   normalizeWorkspacePath,
 } from "../boundaries/src-l0hb-mz-p";
 import {
-  $N as initVscodeApiBridge,
   bF as initIntlMessageRuntime,
   cM as initModalRuntime,
   HE as useHostConfigById,
@@ -23,6 +22,8 @@ import {
   VI as getProjectWritableRootsForDisplay,
   wj as initStringNormalizeRuntime,
 } from "../vendor/appg-thread-shared-runtime";
+import { initVscodeBridgeRuntime as initVscodeApiBridge } from "./platform-content-runtime";
+
 import {
   initReactQueryRuntime,
   useAppServerMutation,

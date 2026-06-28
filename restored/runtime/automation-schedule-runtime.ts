@@ -1,9 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~projects-i~easvi6ps-Cs84X9Ip.js
 // Boundary facade for automation schedule analytics and query state.
-import {
-  $N as initVscodeApiBridge,
-  QN as createVscodeQueryOptions,
-} from "../vendor/appg-thread-shared-runtime";
+import { QN as createVscodeQueryOptions } from "../vendor/appg-thread-shared-runtime";
+import { initVscodeBridgeRuntime as initVscodeApiBridge } from "./platform-content-runtime";
+
 import {
   initQueryDurationConstants,
   queryDurations,
