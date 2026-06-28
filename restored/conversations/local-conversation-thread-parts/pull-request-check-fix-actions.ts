@@ -6,10 +6,10 @@ import {
   kO as MY_REQUEST_PROMPT_HEADER,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  ho as focusComposerAfterPullRequestPrompt,
-  ls as submitPullRequestPrompt,
-  us as updatePullRequestChatContext,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+  focusComposerAfterPullRequestPrompt,
+  submitPullRequestPrompt,
+  updatePullRequestChatContext,
+} from "../../composer/pull-request-prompt-actions";
 
 type PullRequestCheck = {
   link?: string | null;

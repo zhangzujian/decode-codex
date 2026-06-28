@@ -6,12 +6,12 @@ import {
   kO as MY_REQUEST_PROMPT_HEADER,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
-  _o as initPullRequestPromptActionsChunk,
-  ho as focusComposerAfterPullRequestPrompt,
-  ls as submitPullRequestPrompt,
-  ns as initPullRequestComposerContextChunk,
-  us as updatePullRequestChatContext,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+  focusComposerAfterPullRequestPrompt,
+  initPullRequestComposerContextChunk,
+  initPullRequestPromptActionsChunk,
+  submitPullRequestPrompt,
+  updatePullRequestChatContext,
+} from "../../composer/pull-request-prompt-actions";
 
 type PullRequestMergeConflict = {
   baseBranch: string;

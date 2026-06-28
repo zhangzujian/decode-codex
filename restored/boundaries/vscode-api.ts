@@ -20,6 +20,7 @@ type VscodeResponse<T = unknown> = {
   headers: Record<string, string>;
   status: number;
 };
+type HostMessageHandler = (message: unknown) => void;
 
 const queryData = new Map<string, unknown>();
 
@@ -50,6 +51,29 @@ export const vscodeApiF = {
     acquire?.().postMessage(message);
   },
 };
+
+export class VscodeHostMessageBridge {
+  private static instance: VscodeHostMessageBridge | null = null;
+
+  static getInstance(): VscodeHostMessageBridge {
+    VscodeHostMessageBridge.instance ??= new VscodeHostMessageBridge();
+    return VscodeHostMessageBridge.instance;
+  }
+
+  subscribe(type: string, handler: HostMessageHandler): () => void {
+    const listener = (event: MessageEvent) => {
+      const message = event.data as { type?: string } | undefined;
+      if (message?.type === type) handler(message);
+    };
+    window.addEventListener("message", listener);
+    return () => {
+      window.removeEventListener("message", listener);
+    };
+  }
+}
+
+export const vscodeApiD = VscodeHostMessageBridge;
+export const _vscodeApiD = VscodeHostMessageBridge;
 
 export const vscodeApiH = {
   debug(_message: string, _context?: unknown): void {},

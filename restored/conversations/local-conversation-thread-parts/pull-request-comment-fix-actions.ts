@@ -11,11 +11,11 @@ import {
   Va as initPullRequestReviewCommentAttachmentStateChunk,
 } from "../../boundaries/current-ref/projects-app-shared-producer";
 import {
-  _o as initPullRequestPromptActionsChunk,
-  ho as focusComposerAfterPullRequestPrompt,
-  ls as submitPullRequestPrompt,
-  ns as initPullRequestComposerContextChunk,
-} from "../../boundaries/current-ref/pull-request-thread-actions-producer";
+  focusComposerAfterPullRequestPrompt,
+  initPullRequestComposerContextChunk,
+  initPullRequestPromptActionsChunk,
+  submitPullRequestPrompt,
+} from "../../composer/pull-request-prompt-actions";
 
 type ReviewCommentAttachment = {
   reviewThreadId?: string | null;
