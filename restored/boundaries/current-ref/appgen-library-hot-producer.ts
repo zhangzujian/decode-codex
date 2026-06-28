@@ -24,4 +24,12 @@ export {
   initRemoteProjectIconChunk as rn,
   initWaitingStatusIconChunk as si,
 } from "../../remote/remote-connection-runtime";
+export {
+  initCommandMenuItemComponent as A,
+  CommandMenuItem as k,
+} from "../../ui/command-menu-item";
+export {
+  getWorkspaceRootDisplayName as en,
+  initWorkspaceRootDisplayNameRuntime as tn,
+} from "../../workspace/workspace-root-display-name";
 export * from "../../vendor/appgen-library-hot-runtime";

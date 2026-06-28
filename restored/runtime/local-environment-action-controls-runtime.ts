@@ -1,11 +1,13 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Runtime dependencies collected for the local environment action controls.
 export {
-  A as initCommandMenuItemComponent,
-  k as CommandMenuItem,
-  en as getWorkspaceRootDisplayName,
-  tn as initWorkspaceRootDisplayNameRuntime,
-} from "../boundaries/current-ref/appgen-library-hot-producer";
+  initCommandMenuItemComponent,
+  CommandMenuItem,
+} from "../ui/command-menu-item";
+export {
+  getWorkspaceRootDisplayName,
+  initWorkspaceRootDisplayNameRuntime,
+} from "../workspace/workspace-root-display-name";
 export {
   $i as initConversationRemoteStateHelpers,
   ba as initLocalEnvironmentSelectionRuntime,
