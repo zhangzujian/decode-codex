@@ -46,7 +46,9 @@ export function ModelLabel({
         className="icon-2xs text-token-link-foreground shrink-0"
         iconKind={serviceTierIconKind}
       />
-      <span className={classNames("truncate whitespace-nowrap", labelClassName)}>
+      <span
+        className={classNames("truncate whitespace-nowrap", labelClassName)}
+      >
         {label}
       </span>
     </span>

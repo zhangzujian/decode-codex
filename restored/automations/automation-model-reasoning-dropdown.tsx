@@ -14,7 +14,7 @@ import {
 import { ModelLabel } from "../composer/model-label";
 import {
   ReasoningEffortLabel,
-  type REASONING_EFFORT_LABELS,
+  REASONING_EFFORT_LABELS,
 } from "../composer/reasoning-effort-label";
 import { IntelligenceDropdown } from "../composer/intelligence-dropdown";
 

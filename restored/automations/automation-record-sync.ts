@@ -88,8 +88,7 @@ export function areAutomationRecordsEqual(
 
   if (left.kind === "heartbeat") {
     return (
-      right.kind === "heartbeat" &&
-      left.targetThreadId === right.targetThreadId
+      right.kind === "heartbeat" && left.targetThreadId === right.targetThreadId
     );
   }
 

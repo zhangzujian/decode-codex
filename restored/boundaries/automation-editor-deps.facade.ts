@@ -27,8 +27,9 @@ export const SchedulePopoverTrigger: any = undefined as any;
 export const SchedulePopoverContent: any = undefined as any;
 
 // --- Icons that are imported from sibling chunks ---
-export const ScheduleClockIcon: (props: { className?: string }) => ReactElement =
-  undefined as any;
+export const ScheduleClockIcon: (props: {
+  className?: string;
+}) => ReactElement = undefined as any;
 export const WorktreeIcon: (props: { className?: string }) => ReactElement =
   undefined as any;
 
@@ -85,8 +86,7 @@ export const selectActivePlugins: (availablePlugins: any) => any =
 export const useNativeApps: (options: { enabled: boolean }) => {
   nativeApps: any;
 } = undefined as any;
-export const useSkills: (roots: string[]) => { skills: any } =
-  undefined as any;
+export const useSkills: (roots: string[]) => { skills: any } = undefined as any;
 export const subscribeComposerDocChanges: (
   view: unknown,
   onChange: () => void,
@@ -98,11 +98,15 @@ export const handleComposerSuggestionEvent: (
     onSkillMention: (event: unknown) => void;
   },
 ) => void = undefined as any;
-export const MentionAutocompletePanel: (props: Record<string, unknown>) => ReactElement =
-  undefined as any;
-export const ComposerAnchoredOverlay: (props: Record<string, unknown>) => ReactElement =
-  undefined as any;
-export const SkillAutocompleteOverlay: (props: Record<string, unknown>) => ReactElement =
-  undefined as any;
-export const PromptComposerInput: (props: Record<string, unknown>) => ReactElement =
-  undefined as any;
+export const MentionAutocompletePanel: (
+  props: Record<string, unknown>,
+) => ReactElement = undefined as any;
+export const ComposerAnchoredOverlay: (
+  props: Record<string, unknown>,
+) => ReactElement = undefined as any;
+export const SkillAutocompleteOverlay: (
+  props: Record<string, unknown>,
+) => ReactElement = undefined as any;
+export const PromptComposerInput: (
+  props: Record<string, unknown>,
+) => ReactElement = undefined as any;

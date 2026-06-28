@@ -167,9 +167,7 @@ export function IntelligenceDropdown(
   const fillFraction = fillPercent / 100;
   const glowColor = `color-mix(in srgb, var(--color-token-text-link-foreground) ${100 - fillPercent}%, var(--color-token-charts-purple))`;
   const fillWidth = `calc(${fillPercent}% + ${16 - (16 * fillPercent) / 100}px)`;
-  const selectedModelOption = models?.find(
-    (option) => option.model === model,
-  );
+  const selectedModelOption = models?.find((option) => option.model === model);
   const intl = useIntl();
 
   const commitEffort = (index: number, effort?: string): void => {
@@ -366,7 +364,13 @@ export function IntelligenceDropdown(
                 disableHoverOpen={true}
                 open={isDragging}
                 sideOffset={6}
-                tooltipContent={<ReasoningEffortLabel effort={activeEffort as keyof typeof REASONING_EFFORT_LABELS} />}
+                tooltipContent={
+                  <ReasoningEffortLabel
+                    effort={
+                      activeEffort as keyof typeof REASONING_EFFORT_LABELS
+                    }
+                  />
+                }
               >
                 <motion.span
                   className="absolute top-0 size-3.5"
@@ -578,7 +582,9 @@ function IntelligenceSubmenuItem({
   flyoutHeader,
 }: IntelligenceSubmenuItemProps): ReactElement {
   const submenu = (
-    <Dropdown.SubmenuItem trigger={<Dropdown.Item disabled={disabled}>{label}</Dropdown.Item>}>
+    <Dropdown.SubmenuItem
+      trigger={<Dropdown.Item disabled={disabled}>{label}</Dropdown.Item>}
+    >
       {children}
     </Dropdown.SubmenuItem>
   );
