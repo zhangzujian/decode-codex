@@ -1,9 +1,9 @@
 // Restored from ref/webview/assets/prompt-text-BpPEyD-S.js
 // prompt-text-BpPEyD-S chunk restored from the Codex webview bundle.
 import {
-  _parseDirectivesA as formatMentionDisplayName,
-  parseDirectivesG as decodePromptLinkLabel,
-  parseDirectivesUnderscore as decodePromptLinkPath,
+  decodePromptLinkLabel,
+  decodePromptLinkPath,
+  formatMentionDisplayName,
 } from "../../utils/parse-directives";
 import {
   classifyMentionHref,

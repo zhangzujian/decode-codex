@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/prompt-text-BpPEyD-S.js
 // prompt-text-BpPEyD-S chunk restored from the Codex webview bundle.
-import { parseDirectivesU as scanMarkdownPromptLink } from "../../utils/parse-directives";
+import { scanMarkdownPromptLink } from "../../utils/parse-directives";
 import type { ParsedMarkdownPromptLink, PromptTextSchema } from "./types";
 export const CODEX_TEXT_LINK_PREFIX = "codex-text-link://";
 export const possibleUrlPattern =

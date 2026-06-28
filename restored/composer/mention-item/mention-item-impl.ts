@@ -3,7 +3,7 @@
 // Semantic implementation for composer mention item hrefs and menu item models.
 import * as sourceRuntime from "../../boundaries/src-l0hb-mz-p";
 import * as reactIntlRuntime from "../../vendor/react-intl";
-import { parseDirectivesM as formatDirectiveMention } from "../../utils/parse-directives";
+import { formatDirectiveMention } from "../../utils/parse-directives";
 import { getSkillDisplayName } from "../../plugins/skill-utils";
 type MessageDescriptor = {
   id: string;

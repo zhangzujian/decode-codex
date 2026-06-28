@@ -10,7 +10,10 @@ type ParsedDirective = {
   attributes: Record<string, string>;
   name: string;
 };
-type SentryCapture = (event: unknown, hint?: unknown) => string | null | undefined;
+type SentryCapture = (
+  event: unknown,
+  hint?: unknown,
+) => string | null | undefined;
 
 const sentryEventDataKey = Symbol("rendererSentryEventData");
 const directiveLinePattern = /^::[a-zA-Z0-9-]+.*$/gm;
@@ -19,7 +22,8 @@ let sentryCapture: SentryCapture | null = null;
 function titleCaseWord(word: string, index: number): string {
   const upper = word.toUpperCase();
   if (/^[A-Z0-9]{2,}s?$/.test(word)) return word;
-  if (index > 0 && ["and", "or", "to", "up", "with"].includes(word)) return word;
+  if (index > 0 && ["and", "or", "to", "up", "with"].includes(word))
+    return word;
   return `${word.slice(0, 1).toUpperCase()}${word.slice(1)}`;
 }
 
@@ -33,6 +37,9 @@ export function parseDirectivesA(value: string): string {
     .map((word, index) => titleCaseWord(word.toLowerCase(), index))
     .join(" ");
 }
+
+export const formatMentionDisplayName = parseDirectivesA;
+export const _parseDirectivesA = parseDirectivesA;
 
 function encodePromptLinkLabel(label: string): string {
   return label
@@ -49,6 +56,8 @@ export function parseDirectivesM(label: string, href: string): string {
   return `[${encodePromptLinkLabel(label)}](${parseDirectivesL(href)})`;
 }
 
+export const formatDirectiveMention = parseDirectivesM;
+
 export function parseDirectivesG(label: string): string {
   return label
     .replaceAll("\\]\\(", "](")
@@ -56,9 +65,13 @@ export function parseDirectivesG(label: string): string {
     .replaceAll("\\\\", "\\");
 }
 
+export const decodePromptLinkLabel = parseDirectivesG;
+
 export function parseDirectivesUnderscore(path: string): string {
   return path.replaceAll("\\)", ")").replaceAll("\\\\", "\\");
 }
+
+export const decodePromptLinkPath = parseDirectivesUnderscore;
 
 export function parseDirectivesU(
   text: string,
@@ -76,7 +89,10 @@ export function parseDirectivesU(
         offset = labelEnd + 1;
         continue scanLinks;
       }
-      if (current === "\\" && (next === "\\" || (next === "]" && text[labelEnd + 2] !== "("))) {
+      if (
+        current === "\\" &&
+        (next === "\\" || (next === "]" && text[labelEnd + 2] !== "("))
+      ) {
         labelEnd += 2;
         continue;
       }
@@ -123,6 +139,8 @@ export function parseDirectivesU(
   return null;
 }
 
+export const scanMarkdownPromptLink = parseDirectivesU;
+
 export function parseDirectivesN(markdown: string): string {
   return markdown
     .replace(directiveLinePattern, "")
@@ -132,7 +150,8 @@ export function parseDirectivesN(markdown: string): string {
 
 function parseAttributes(rawAttributes: string): Record<string, string> {
   const attributes: Record<string, string> = {};
-  const attributePattern = /([A-Za-z0-9_-]+)(?:=(?:"([^"]*)"|'([^']*)'|([^\s]+)))?/g;
+  const attributePattern =
+    /([A-Za-z0-9_-]+)(?:=(?:"([^"]*)"|'([^']*)'|([^\s]+)))?/g;
   let match: RegExpExecArray | null;
   while ((match = attributePattern.exec(rawAttributes)) != null) {
     attributes[match[1]] = match[2] ?? match[3] ?? match[4] ?? "true";
@@ -166,10 +185,15 @@ export function parseDirectivesD(
     componentStack?: string;
     transformStack?: (stack?: string) => string | undefined;
   },
-): { error: Error; extra: Record<string, unknown>; tags: Record<string, string> } {
+): {
+  error: Error;
+  extra: Record<string, unknown>;
+  tags: Record<string, string>;
+} {
   const clonedError = Error(error.message);
   clonedError.name = error.name;
-  const stack = boundary.transformStack?.(error.stack) ?? error.stack ?? clonedError.stack;
+  const stack =
+    boundary.transformStack?.(error.stack) ?? error.stack ?? clonedError.stack;
   if (stack != null) clonedError.stack = stack;
   return {
     error: clonedError,
@@ -188,9 +212,9 @@ export function parseDirectivesE<T extends Record<string, unknown>>(
 ): T {
   const extraData =
     typeof hint.originalException === "object" && hint.originalException != null
-      ? ((hint.originalException as Record<symbol, unknown>)[sentryEventDataKey] as
-          | Partial<T>
-          | undefined)
+      ? ((hint.originalException as Record<symbol, unknown>)[
+          sentryEventDataKey
+        ] as Partial<T> | undefined)
       : undefined;
   return extraData == null ? event : ({ ...event, ...extraData } as T);
 }
@@ -220,5 +244,13 @@ export const parseDirectivesF = (element: Element): string | null => {
 export const parseDirectivesH = (markdown: string): string =>
   markdown.replaceAll("](codex-text-link://", "](");
 
-export const parseDirectivesP = ({ fsPath, path }: { fsPath?: string; path: string }): string =>
-  /[\\/]$/.test(path) && fsPath != null && !/[\\/]$/.test(fsPath) ? `${fsPath}/` : (fsPath ?? path);
+export const parseDirectivesP = ({
+  fsPath,
+  path,
+}: {
+  fsPath?: string;
+  path: string;
+}): string =>
+  /[\\/]$/.test(path) && fsPath != null && !/[\\/]$/.test(fsPath)
+    ? `${fsPath}/`
+    : (fsPath ?? path);
