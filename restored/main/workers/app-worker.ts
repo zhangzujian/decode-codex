@@ -1,8 +1,18 @@
 // Restored from ref/.vite/build/worker.js
-// App worker shell: main-RPC client, worker message routing, and open request boundary.
+// App worker shell: main-RPC client, worker message routing, and OpenIn target discovery.
 import { randomUUID } from "node:crypto";
-import { existsSync } from "node:fs";
-import { delimiter, posix, win32 } from "node:path";
+import { existsSync, readdirSync, statSync } from "node:fs";
+import { homedir } from "node:os";
+import {
+  basename,
+  delimiter,
+  dirname,
+  extname,
+  join,
+  posix,
+  win32,
+} from "node:path";
+import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { parentPort, workerData } from "node:worker_threads";
 
@@ -125,6 +135,23 @@ type OpenInTargetRequestParams = {
   target?: string | null;
   command?: string | null;
   customTarget?: OpenInCustomTarget | null;
+};
+type OpenInPlatformName = "darwin" | "linux" | "win32";
+type OpenInTargetKind = "editor" | "fileManager" | "systemDefault" | "terminal";
+type OpenInShortcutResolver = (path: string) => Promise<ShortcutLink>;
+type OpenInPlatformTarget = {
+  label: string;
+  icon: string;
+  kind: OpenInTargetKind;
+  hidden?: boolean;
+  detect(
+    readShortcutLink: OpenInShortcutResolver,
+  ): string | null | Promise<string | null>;
+  iconPath?(command: string): string | null;
+};
+type OpenInTargetDefinition = {
+  id: string;
+  platforms: Partial<Record<OpenInPlatformName, OpenInPlatformTarget>>;
 };
 
 const workerConfig = parseWorkerData(workerData);
@@ -472,6 +499,1256 @@ function createWorkerRequestDispatcher(
   }
 }
 
+const USER_APPLICATIONS_DIR = join(homedir(), "Applications");
+const MAC_APPLICATION_ROOTS = ["/Applications", USER_APPLICATIONS_DIR];
+const WINDOWS_LOCAL_APPDATA =
+  process.env.LOCALAPPDATA ?? join(homedir(), "AppData", "Local");
+const WINDOWS_PROGRAM_ROOTS = [
+  join(WINDOWS_LOCAL_APPDATA, "Programs"),
+  process.env.ProgramFiles,
+  process.env["ProgramFiles(x86)"],
+].flatMap((entry) => (entry ? [entry] : []));
+const WINDOWS_APPS_DIR = join(
+  WINDOWS_LOCAL_APPDATA,
+  "Microsoft",
+  "WindowsApps",
+);
+const WINDOWS_START_MENU_ROOTS = [
+  process.env.APPDATA
+    ? join(
+        process.env.APPDATA,
+        "Microsoft",
+        "Windows",
+        "Start Menu",
+        "Programs",
+      )
+    : null,
+  process.env.ProgramData
+    ? join(
+        process.env.ProgramData,
+        "Microsoft",
+        "Windows",
+        "Start Menu",
+        "Programs",
+      )
+    : null,
+].flatMap((entry) => (entry ? [entry] : []));
+const WINDOWS_JETBRAINS_ROOTS = [
+  process.env.ProgramFiles,
+  process.env["ProgramFiles(x86)"],
+].flatMap((entry) => (entry ? [join(entry, "JetBrains")] : []));
+const JETBRAINS_TOOLBOX_ROOT = join(
+  homedir(),
+  "Library",
+  "Application Support",
+  "JetBrains",
+  "Toolbox",
+  "apps",
+);
+const WINDOWS_TERMINAL_SHORTCUT_NAMES = [
+  "Terminal.lnk",
+  "Windows Terminal.lnk",
+];
+const JETBRAINS_BUNDLE_HINTS = [
+  {
+    target: "androidStudio",
+    bundlePrefixes: ["android studio"],
+    executable: "studio",
+  },
+  { target: "intellij", bundlePrefixes: ["intellij idea"], executable: "idea" },
+  { target: "rider", bundlePrefixes: ["rider"], executable: "rider" },
+  { target: "goland", bundlePrefixes: ["goland"], executable: "goland" },
+  {
+    target: "rustrover",
+    bundlePrefixes: ["rustrover"],
+    executable: "rustrover",
+  },
+  { target: "pycharm", bundlePrefixes: ["pycharm"], executable: "pycharm" },
+  { target: "webstorm", bundlePrefixes: ["webstorm"], executable: "webstorm" },
+  { target: "phpstorm", bundlePrefixes: ["phpstorm"], executable: "phpstorm" },
+] as const;
+let jetBrainsToolboxCache: Map<string, string> | null = null;
+
+const OPEN_IN_TARGET_DEFINITIONS: OpenInTargetDefinition[] = [
+  createCodeFamilyOpenInTarget({
+    id: "vscode",
+    label: "VS Code",
+    icon: "apps/vscode.png",
+    darwinCliPaths: [
+      "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code",
+      "/Applications/Code.app/Contents/Resources/app/bin/code",
+    ],
+    windowsPathCommand: "code",
+    windowsExecutableName: "Code.exe",
+    windowsInstallDirName: "Microsoft VS Code",
+  }),
+  createCodeFamilyOpenInTarget({
+    id: "vscodeInsiders",
+    label: "VS Code Insiders",
+    icon: "apps/vscode-insiders.png",
+    darwinCliPaths: [
+      "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin/code",
+      "/Applications/Code - Insiders.app/Contents/Resources/app/bin/code",
+    ],
+    windowsPathCommand: "code-insiders",
+    windowsExecutableName: "Code - Insiders.exe",
+    windowsInstallDirName: "Microsoft VS Code Insiders",
+  }),
+  createCodeFamilyOpenInTarget({
+    id: "antigravity",
+    label: "Antigravity",
+    icon: "apps/antigravity.png",
+    darwinCliPaths: [
+      "/Applications/Antigravity.app/Contents/Resources/app/bin/antigravity",
+    ],
+    windowsPathCommands: ["antigravity.exe", "antigravity.cmd", "antigravity"],
+    windowsFallbackPaths: [
+      ["Antigravity", "Antigravity.exe"],
+      ["antigravity", "Antigravity.exe"],
+      ["Antigravity", "bin", "antigravity.cmd"],
+      ["antigravity", "bin", "antigravity.cmd"],
+      ["Antigravity", "resources", "app", "bin", "antigravity.cmd"],
+      ["antigravity", "resources", "app", "bin", "antigravity.cmd"],
+    ],
+  }),
+  createCursorOpenInTarget(),
+  {
+    id: "visualStudio",
+    platforms: {
+      win32: {
+        label: "Visual Studio",
+        icon: "apps/vscode.png",
+        kind: "editor",
+        detect: detectVisualStudio,
+      },
+    },
+  },
+  createDarwinLaunchServicesTarget({
+    id: "bbedit",
+    label: "BBEdit",
+    icon: "apps/bbedit.png",
+    kind: "editor",
+    appName: "BBEdit",
+    explicitAppPaths: ["/Applications/BBEdit.app"],
+  }),
+  createDarwinLaunchServicesTarget({
+    id: "emacs",
+    label: "Emacs",
+    icon: "apps/emacs.png",
+    kind: "editor",
+    appName: "Emacs",
+    explicitAppPaths: ["/Applications/Emacs.app"],
+  }),
+  createSublimeTextTarget(),
+  createZedOpenInTarget(),
+  {
+    id: "windsurf",
+    platforms: {
+      darwin: {
+        label: "Windsurf",
+        icon: "apps/windsurf.png",
+        kind: "editor",
+        detect: () =>
+          findExistingMacPath([
+            "/Applications/Windsurf.app/Contents/Resources/app/bin/windsurf",
+          ]),
+      },
+    },
+  },
+  {
+    id: "githubDesktop",
+    platforms: {
+      win32: {
+        label: "GitHub Desktop",
+        icon: "apps/vscode.png",
+        kind: "editor",
+        detect: detectGitHubDesktop,
+      },
+    },
+  },
+  {
+    id: "systemDefault",
+    platforms: {
+      darwin: {
+        label: "Default app",
+        icon: "apps/file-explorer.png",
+        kind: "systemDefault",
+        hidden: true,
+        detect: () => "system-default",
+        iconPath: () => null,
+      },
+      win32: {
+        label: "Default app",
+        icon: "apps/file-explorer.png",
+        kind: "systemDefault",
+        hidden: true,
+        detect: () => "system-default",
+        iconPath: () => null,
+      },
+      linux: {
+        label: "Default app",
+        icon: "apps/file-explorer.png",
+        kind: "systemDefault",
+        hidden: true,
+        detect: () => "system-default",
+        iconPath: () => null,
+      },
+    },
+  },
+  {
+    id: "fileManager",
+    platforms: {
+      darwin: {
+        label: "Finder",
+        icon: "apps/finder.png",
+        kind: "fileManager",
+        detect: () => "open",
+      },
+      win32: {
+        label: "File Explorer",
+        icon: "apps/file-explorer.png",
+        kind: "fileManager",
+        detect: detectWindowsExplorer,
+      },
+    },
+  },
+  createTerminalTarget(),
+  createGitBashTarget(),
+  createCmderTarget(),
+  createDarwinTerminalTarget({
+    id: "iterm2",
+    label: "iTerm2",
+    icon: "apps/iterm2.png",
+    appPaths: ["/Applications/iTerm.app", "/Applications/iTerm2.app"],
+  }),
+  createDarwinTerminalTarget({
+    id: "ghostty",
+    label: "Ghostty",
+    icon: "apps/ghostty.png",
+    appPaths: ["/Applications/Ghostty.app"],
+  }),
+  createDarwinTerminalTarget({
+    id: "warp",
+    label: "Warp",
+    icon: "apps/warp.png",
+    appPaths: ["/Applications/Warp.app"],
+  }),
+  createWslTarget(),
+  createXcodeTarget(),
+  createJetBrainsTarget({
+    id: "androidStudio",
+    label: "Android Studio",
+    icon: "apps/android-studio.png",
+    toolboxTarget: "androidStudio",
+    macExecutable: "studio",
+    windowsPathCommands: ["studio64.exe", "studio.exe", "studio"],
+    windowsInstallDirPrefixes: ["android studio"],
+    windowsInstallExecutables: ["studio64.exe", "studio.exe"],
+    windowsFallbackPaths: [
+      ["Android", "Android Studio", "bin", "studio64.exe"],
+      ["Android", "Android Studio", "bin", "studio.exe"],
+    ],
+  }),
+  createJetBrainsTarget({
+    id: "intellij",
+    label: "IntelliJ IDEA",
+    icon: "apps/intellij.png",
+    toolboxTarget: "intellij",
+    macExecutable: "idea",
+    windowsPathCommands: ["idea64.exe", "idea.exe", "idea"],
+    windowsInstallDirPrefixes: ["intellij idea", "idea"],
+    windowsInstallExecutables: ["idea64.exe", "idea.exe"],
+  }),
+  createJetBrainsTarget({
+    id: "rider",
+    label: "Rider",
+    icon: "apps/rider.png",
+    toolboxTarget: "rider",
+    macExecutable: "rider",
+    windowsPathCommands: ["rider64.exe", "rider.exe", "rider"],
+    windowsInstallDirPrefixes: ["rider"],
+    windowsInstallExecutables: ["rider64.exe", "rider.exe"],
+  }),
+  createJetBrainsTarget({
+    id: "goland",
+    label: "GoLand",
+    icon: "apps/goland.png",
+    toolboxTarget: "goland",
+    macExecutable: "goland",
+  }),
+  createJetBrainsTarget({
+    id: "rustrover",
+    label: "RustRover",
+    icon: "apps/rustrover.png",
+    toolboxTarget: "rustrover",
+    macExecutable: "rustrover",
+  }),
+  createJetBrainsTarget({
+    id: "pycharm",
+    label: "PyCharm",
+    icon: "apps/pycharm.png",
+    toolboxTarget: "pycharm",
+    macExecutable: "pycharm",
+    windowsPathCommands: ["pycharm64.exe", "pycharm.exe", "pycharm"],
+    windowsInstallDirPrefixes: ["pycharm"],
+    windowsInstallExecutables: ["pycharm64.exe", "pycharm.exe"],
+  }),
+  createJetBrainsTarget({
+    id: "webstorm",
+    label: "WebStorm",
+    icon: "apps/webstorm.svg",
+    toolboxTarget: "webstorm",
+    macExecutable: "webstorm",
+    windowsPathCommands: ["webstorm64.exe", "webstorm.exe", "webstorm"],
+    windowsInstallDirPrefixes: ["webstorm"],
+    windowsInstallExecutables: ["webstorm64.exe", "webstorm.exe"],
+  }),
+  createJetBrainsTarget({
+    id: "phpstorm",
+    label: "PhpStorm",
+    icon: "apps/phpstorm.png",
+    toolboxTarget: "phpstorm",
+    macExecutable: "phpstorm",
+    windowsPathCommands: ["phpstorm64.exe", "phpstorm.exe", "phpstorm"],
+    windowsInstallDirPrefixes: ["phpstorm"],
+    windowsInstallExecutables: ["phpstorm64.exe", "phpstorm.exe"],
+  }),
+  createTextMateTarget(),
+];
+const OPEN_IN_TARGETS_BY_ID = new Map(
+  OPEN_IN_TARGET_DEFINITIONS.map((definition) => [definition.id, definition]),
+);
+
+function getOpenInPlatformTarget(
+  targetId: string | null | undefined,
+): OpenInPlatformTarget {
+  if (!targetId) throw Error("Open target is required.");
+  const definition = OPEN_IN_TARGETS_BY_ID.get(targetId);
+  const platform = currentOpenInPlatform();
+  const platformTarget =
+    platform == null ? undefined : definition?.platforms[platform];
+  if (definition == null || platformTarget == null) {
+    throw Error(`Unknown open target "${targetId}"`);
+  }
+  return platformTarget;
+}
+
+function currentOpenInPlatform(): OpenInPlatformName | null {
+  switch (process.platform) {
+    case "darwin":
+    case "linux":
+    case "win32":
+      return process.platform;
+    default:
+      return null;
+  }
+}
+
+function createCodeFamilyOpenInTarget({
+  id,
+  label,
+  icon,
+  darwinCliPaths,
+  windowsPathCommand,
+  windowsPathCommands,
+  windowsExecutableName,
+  windowsInstallDirName,
+  windowsFallbackPaths,
+}: {
+  id: string;
+  label: string;
+  icon: string;
+  darwinCliPaths: string[];
+  windowsPathCommand?: string;
+  windowsPathCommands?: string[];
+  windowsExecutableName?: string;
+  windowsInstallDirName?: string;
+  windowsFallbackPaths?: string[][];
+}): OpenInTargetDefinition {
+  return {
+    id,
+    platforms: {
+      darwin: {
+        label,
+        icon,
+        kind: "editor",
+        detect: () => findExistingMacPath(darwinCliPaths),
+      },
+      win32: {
+        label,
+        icon,
+        kind: "editor",
+        detect: () => {
+          if (
+            windowsPathCommand &&
+            windowsExecutableName &&
+            windowsInstallDirName
+          ) {
+            return detectWindowsCommandApplication({
+              pathCommand: windowsPathCommand,
+              executableName: windowsExecutableName,
+              installDirName: windowsInstallDirName,
+            });
+          }
+          return (
+            findWindowsPathCommand(windowsPathCommands ?? []) ??
+            (windowsFallbackPaths
+              ? findWindowsProgramPath(windowsFallbackPaths)
+              : null)
+          );
+        },
+      },
+    },
+  };
+}
+
+function createCursorOpenInTarget(): OpenInTargetDefinition {
+  return {
+    id: "cursor",
+    platforms: {
+      darwin: {
+        label: "Cursor",
+        icon: "apps/cursor.png",
+        kind: "editor",
+        detect: () => detectCursorDarwin()?.electronBin ?? null,
+      },
+      win32: {
+        label: "Cursor",
+        icon: "apps/cursor.png",
+        kind: "editor",
+        detect: detectCursorWin32,
+      },
+    },
+  };
+}
+
+function createDarwinLaunchServicesTarget({
+  id,
+  label,
+  icon,
+  kind,
+  appName,
+  explicitAppPaths,
+}: {
+  id: string;
+  label: string;
+  icon: string;
+  kind: OpenInTargetKind;
+  appName: string;
+  explicitAppPaths: string[];
+}): OpenInTargetDefinition {
+  return {
+    id,
+    platforms: {
+      darwin: {
+        label,
+        icon,
+        kind,
+        detect: () =>
+          findMacApplicationByName(appName) ||
+          findExistingMacPath(explicitAppPaths)
+            ? "open"
+            : null,
+      },
+    },
+  };
+}
+
+function createDarwinTerminalTarget({
+  id,
+  label,
+  icon,
+  appPaths,
+}: {
+  id: string;
+  label: string;
+  icon: string;
+  appPaths: string[];
+}): OpenInTargetDefinition {
+  return {
+    id,
+    platforms: {
+      darwin: {
+        label,
+        icon,
+        kind: "terminal",
+        detect: () => (findExistingMacPath(appPaths) ? "open" : null),
+      },
+    },
+  };
+}
+
+function createSublimeTextTarget(): OpenInTargetDefinition {
+  return {
+    id: "sublimeText",
+    platforms: {
+      darwin: {
+        label: "Sublime Text",
+        icon: "apps/sublime-text.png",
+        kind: "editor",
+        detect: detectSublimeTextDarwin,
+      },
+      win32: {
+        label: "Sublime Text",
+        icon: "apps/sublime-text.png",
+        kind: "editor",
+        detect: detectSublimeTextWin32,
+      },
+    },
+  };
+}
+
+function createZedOpenInTarget(): OpenInTargetDefinition {
+  return {
+    id: "zed",
+    platforms: {
+      darwin: {
+        label: "Zed",
+        icon: "apps/zed.png",
+        kind: "editor",
+        detect: detectZedDarwin,
+      },
+      win32: {
+        label: "Zed",
+        icon: "apps/zed.png",
+        kind: "editor",
+        detect: detectZedWin32,
+      },
+    },
+  };
+}
+
+function createTerminalTarget(): OpenInTargetDefinition {
+  return {
+    id: "terminal",
+    platforms: {
+      darwin: {
+        label: "Terminal",
+        icon: "apps/terminal.png",
+        kind: "terminal",
+        detect: () =>
+          findExistingMacPath(["/System/Applications/Utilities/Terminal.app"])
+            ? "open"
+            : null,
+      },
+      win32: {
+        label: "Terminal",
+        icon: "apps/microsoft-terminal.png",
+        kind: "terminal",
+        detect: detectWindowsTerminal,
+        iconPath: () => null,
+      },
+    },
+  };
+}
+
+function createGitBashTarget(): OpenInTargetDefinition {
+  return {
+    id: "gitBash",
+    platforms: {
+      win32: {
+        label: "Git Bash",
+        icon: "apps/vscode.png",
+        kind: "terminal",
+        detect: detectGitBash,
+        iconPath: getGitBashIconPath,
+      },
+    },
+  };
+}
+
+function createCmderTarget(): OpenInTargetDefinition {
+  return {
+    id: "cmder",
+    platforms: {
+      win32: {
+        label: "Cmder",
+        icon: "apps/cmder.png",
+        kind: "terminal",
+        detect: detectCmder,
+      },
+    },
+  };
+}
+
+function createWslTarget(): OpenInTargetDefinition {
+  return {
+    id: "wsl",
+    platforms: {
+      win32: {
+        label: "WSL",
+        icon: "apps/terminal.png",
+        kind: "terminal",
+        detect: async (readShortcutLink) =>
+          hasWslDistribution() ? detectWindowsTerminal(readShortcutLink) : null,
+        iconPath: () =>
+          findWindowsStartMenuShortcut(["WSL.lnk"]) ??
+          resolveWindowsAppsExecutionAlias("wsl.exe"),
+      },
+    },
+  };
+}
+
+function createXcodeTarget(): OpenInTargetDefinition {
+  return {
+    id: "xcode",
+    platforms: {
+      darwin: {
+        label: "Xcode",
+        icon: "apps/xcode.png",
+        kind: "editor",
+        detect: () => {
+          const xcode = detectXcodeDarwin();
+          return xcode?.xedPath ?? xcode?.appPath ?? null;
+        },
+      },
+    },
+  };
+}
+
+function createJetBrainsTarget({
+  id,
+  label,
+  icon,
+  toolboxTarget,
+  macExecutable,
+  windowsPathCommands,
+  windowsInstallDirPrefixes,
+  windowsInstallExecutables,
+  windowsFallbackPaths,
+}: {
+  id: string;
+  label: string;
+  icon: string;
+  toolboxTarget: string;
+  macExecutable: string;
+  windowsPathCommands?: string[];
+  windowsInstallDirPrefixes?: string[];
+  windowsInstallExecutables?: string[];
+  windowsFallbackPaths?: string[][];
+}): OpenInTargetDefinition {
+  return {
+    id,
+    platforms: {
+      darwin: {
+        label,
+        icon,
+        kind: "editor",
+        detect: () =>
+          findExistingMacPath([
+            `/Applications/${label}.app/Contents/MacOS/${macExecutable}`,
+          ]) ??
+          getJetBrainsToolboxInstallations().get(toolboxTarget) ??
+          findMacExecutableByAppPrefix(label, macExecutable),
+      },
+      win32:
+        windowsPathCommands &&
+        windowsInstallDirPrefixes &&
+        windowsInstallExecutables
+          ? {
+              label,
+              icon,
+              kind: "editor",
+              detect: () =>
+                detectJetBrainsWin32({
+                  pathCommands: windowsPathCommands,
+                  installDirPrefixes: windowsInstallDirPrefixes,
+                  installExecutables: windowsInstallExecutables,
+                  fallbackPaths: windowsFallbackPaths,
+                }),
+            }
+          : undefined,
+    },
+  };
+}
+
+function createTextMateTarget(): OpenInTargetDefinition {
+  return createDarwinLaunchServicesTarget({
+    id: "textmate",
+    label: "TextMate",
+    icon: "apps/textmate.png",
+    kind: "editor",
+    appName: "TextMate",
+    explicitAppPaths: ["/Applications/TextMate.app"],
+  });
+}
+
+function findExistingMacPath(paths: string[]): string | null {
+  if (process.platform !== "darwin") return null;
+  for (const path of paths) {
+    for (const candidate of expandMacApplicationPath(path)) {
+      if (existsSync(candidate)) return candidate;
+    }
+  }
+  return null;
+}
+
+function expandMacApplicationPath(path: string): string[] {
+  return path.startsWith("/Applications/")
+    ? [path, join(USER_APPLICATIONS_DIR, path.slice("/Applications/".length))]
+    : [path];
+}
+
+function findMacApplicationByName(appName: string): string | null {
+  if (process.platform !== "darwin") return null;
+  const lowerName = appName.toLowerCase();
+  for (const root of MAC_APPLICATION_ROOTS) {
+    let entries: string[];
+    try {
+      entries = readdirSync(root);
+    } catch {
+      continue;
+    }
+    for (const entry of entries) {
+      const lowerEntry = entry.toLowerCase();
+      if (!lowerEntry.startsWith(lowerName) || !lowerEntry.endsWith(".app")) {
+        continue;
+      }
+      const appPath = join(root, entry);
+      if (existsSync(appPath)) return appPath;
+    }
+  }
+  return null;
+}
+
+function findMacExecutableByAppPrefix(
+  appName: string,
+  executable: string,
+): string | null {
+  const lowerName = appName.toLowerCase();
+  for (const root of MAC_APPLICATION_ROOTS) {
+    let entries: string[];
+    try {
+      entries = readdirSync(root);
+    } catch {
+      continue;
+    }
+    for (const entry of entries) {
+      const lowerEntry = entry.toLowerCase();
+      if (!lowerEntry.startsWith(lowerName) || !lowerEntry.endsWith(".app")) {
+        continue;
+      }
+      const executablePath = join(root, entry, "Contents", "MacOS", executable);
+      if (existsSync(executablePath)) return executablePath;
+    }
+  }
+  return null;
+}
+
+function findWindowsPathCommand(commands: string[]): string | null {
+  for (const command of commands) {
+    const resolved =
+      resolveExecutableFromPath(command) ?? resolveWindowsWhere(command);
+    if (resolved != null) return resolveWindowsExecutableCandidate(resolved);
+  }
+  return null;
+}
+
+function findWindowsProgramPath(fallbackPaths: string[][]): string | null {
+  for (const root of WINDOWS_PROGRAM_ROOTS) {
+    for (const fallbackPath of fallbackPaths) {
+      const candidate = join(root, ...fallbackPath);
+      if (existsSync(candidate)) return candidate;
+    }
+  }
+  return null;
+}
+
+function resolveWindowsExecutableCandidate(candidate: string): string | null {
+  if (!existsSync(candidate)) return null;
+  if (extname(candidate)) return candidate;
+  for (const extension of [".cmd", ".bat", ".exe"]) {
+    const withExtension = `${candidate}${extension}`;
+    if (existsSync(withExtension)) return withExtension;
+  }
+  return candidate;
+}
+
+function findAdjacentWindowsExecutable(
+  executablePath: string,
+  executableName: string,
+): string | null {
+  const executableDirectory = dirname(executablePath);
+  if (basename(executableDirectory).toLowerCase() === "bin") {
+    const adjacentToBin = join(dirname(executableDirectory), executableName);
+    if (existsSync(adjacentToBin)) return adjacentToBin;
+  }
+  const adjacent = join(executableDirectory, executableName);
+  return existsSync(adjacent) ? adjacent : null;
+}
+
+function detectWindowsCommandApplication({
+  pathCommand,
+  executableName,
+  installDirName,
+}: {
+  pathCommand: string;
+  executableName: string;
+  installDirName: string;
+}): string | null {
+  const commandPath =
+    resolveExecutableFromPath(pathCommand) ?? resolveWindowsWhere(pathCommand);
+  if (commandPath != null) {
+    const executablePath = resolveWindowsExecutableCandidate(commandPath);
+    if (executablePath != null) {
+      return (
+        findAdjacentWindowsExecutable(executablePath, executableName) ??
+        (basename(executablePath).toLowerCase() === executableName.toLowerCase()
+          ? executablePath
+          : null)
+      );
+    }
+  }
+  return findWindowsProgramPath([[installDirName, executableName]]);
+}
+
+function resolveWindowsAppsExecutionAlias(alias: string): string | null {
+  return resolveWindowsExecutableCandidate(join(WINDOWS_APPS_DIR, alias));
+}
+
+function resolveWindowsWhere(command: string): string | null {
+  if (process.platform !== "win32") return null;
+  const result = spawnSync("where.exe", [command], {
+    windowsHide: true,
+    encoding: "utf8",
+  });
+  if (result.status !== 0 || typeof result.stdout !== "string") return null;
+  return (
+    result.stdout
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .find((line) => line.length > 0) ?? null
+  );
+}
+
+function findWindowsStartMenuShortcut(shortcutNames: string[]): string | null {
+  const lowerNames = new Set(shortcutNames.map((name) => name.toLowerCase()));
+  for (const root of WINDOWS_START_MENU_ROOTS) {
+    const shortcut = findWindowsStartMenuShortcutInDirectory(root, lowerNames);
+    if (shortcut != null) return shortcut;
+  }
+  return null;
+}
+
+function findWindowsStartMenuShortcutInDirectory(
+  directory: string,
+  lowerNames: Set<string>,
+): string | null {
+  if (!existsSync(directory)) return null;
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const entryPath = join(directory, entry.name);
+    if (entry.isFile() && lowerNames.has(entry.name.toLowerCase())) {
+      return entryPath;
+    }
+    if (!entry.isDirectory()) continue;
+    const nested = findWindowsStartMenuShortcutInDirectory(
+      entryPath,
+      lowerNames,
+    );
+    if (nested != null) return nested;
+  }
+  return null;
+}
+
+async function detectWindowsTerminal(
+  readShortcutLink: OpenInShortcutResolver,
+): Promise<string | null> {
+  const terminalPath =
+    resolveExecutableFromPath("wt.exe") ??
+    resolveWindowsAppsExecutionAlias("wt.exe");
+  if (terminalPath != null) return terminalPath;
+  const shortcutPath = findWindowsStartMenuShortcut(
+    WINDOWS_TERMINAL_SHORTCUT_NAMES,
+  );
+  if (shortcutPath == null) return null;
+  const shortcut = await readShortcutLink(shortcutPath);
+  return (
+    resolveWindowsExecutableCandidate(
+      stripWindowsIconResourceSuffix(shortcut.target) ?? "",
+    ) ?? "wt.exe"
+  );
+}
+
+function detectWindowsExplorer(): string {
+  const systemRoot = process.env.SystemRoot ?? process.env.windir;
+  if (systemRoot != null) {
+    const explorerPath = join(systemRoot, "explorer.exe");
+    if (existsSync(explorerPath)) return explorerPath;
+  }
+  return "explorer.exe";
+}
+
+function detectGitBash(): string | null {
+  const pathCommand = findWindowsPathCommand(["git-bash.exe", "git-bash"]);
+  if (pathCommand != null) {
+    return (
+      findAdjacentWindowsExecutable(pathCommand, "git-bash.exe") ?? pathCommand
+    );
+  }
+  return findWindowsProgramPath([
+    ["Git", "git-bash.exe"],
+    ["Git", "bin", "bash.exe"],
+  ]);
+}
+
+function getGitBashIconPath(command: string): string | null {
+  return (
+    findWindowsStartMenuShortcut(["Git Bash.lnk"]) ??
+    findWindowsProgramPath([["Git", "git-bash.exe"]]) ??
+    findAdjacentWindowsExecutable(command, "git-bash.exe") ??
+    command
+  );
+}
+
+async function detectCmder(
+  readShortcutLink: OpenInShortcutResolver,
+): Promise<string | null> {
+  const cmderRoot = process.env.CMDER_ROOT?.trim();
+  if (cmderRoot) {
+    const cmderPath = join(cmderRoot, "Cmder.exe");
+    if (existsSync(cmderPath)) return cmderPath;
+  }
+  const pathCommand = findWindowsPathCommand(["cmder.exe", "cmder"]);
+  if (pathCommand != null) return pathCommand;
+  const shortcutPath = findWindowsStartMenuShortcut(["Cmder.lnk"]);
+  if (shortcutPath == null) return null;
+  const shortcut = await readShortcutLink(shortcutPath);
+  return resolveWindowsExecutableCandidate(
+    stripWindowsIconResourceSuffix(shortcut.target) ?? "",
+  );
+}
+
+function detectCursorDarwin(): { electronBin: string; cliJs: string } | null {
+  if (process.platform !== "darwin") return null;
+  const appPaths = [
+    "/Applications/Cursor.app",
+    "/Applications/Cursor Preview.app",
+    "/Applications/Cursor Nightly.app",
+  ];
+  const discoveredCursorApp = findMacApplicationByName("Cursor");
+  if (discoveredCursorApp != null) appPaths.push(discoveredCursorApp);
+  for (const appPath of appPaths) {
+    for (const candidate of expandMacApplicationPath(appPath)) {
+      const electronBin = join(candidate, "Contents", "MacOS", "Cursor");
+      const cliJs = join(
+        candidate,
+        "Contents",
+        "Resources",
+        "app",
+        "out",
+        "cli.js",
+      );
+      if (existsSync(electronBin) && existsSync(cliJs)) {
+        return { electronBin, cliJs };
+      }
+    }
+  }
+  return null;
+}
+
+function detectCursorWin32(): string | null {
+  const cursorCommand =
+    resolveExecutableFromPath("cursor") ?? resolveWindowsWhere("cursor");
+  if (cursorCommand != null) {
+    const executablePath = resolveWindowsExecutableCandidate(cursorCommand);
+    if (executablePath != null) {
+      if (basename(executablePath).toLowerCase() === "cursor.exe") {
+        return executablePath;
+      }
+      const binDirectory = dirname(executablePath);
+      if (basename(binDirectory).toLowerCase() === "bin") {
+        const appDirectory = dirname(binDirectory);
+        if (basename(appDirectory).toLowerCase() === "app") {
+          const resourcesDirectory = dirname(appDirectory);
+          if (basename(resourcesDirectory).toLowerCase() === "resources") {
+            const cursorExe = join(dirname(resourcesDirectory), "Cursor.exe");
+            if (existsSync(cursorExe)) return cursorExe;
+          }
+        }
+      }
+    }
+  }
+  return findWindowsProgramPath([["Cursor", "Cursor.exe"]]);
+}
+
+function detectSublimeTextDarwin(): string | null {
+  const pathCommand = resolveExecutableFromPath("subl");
+  if (pathCommand != null) return pathCommand;
+  const appPath = findMacApplicationByName("Sublime Text");
+  if (appPath != null) {
+    const cliPath = join(appPath, "Contents", "SharedSupport", "bin", "subl");
+    if (existsSync(cliPath)) return cliPath;
+  }
+  return findExistingMacPath([
+    "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl",
+  ]);
+}
+
+function detectSublimeTextWin32(): string | null {
+  const pathCommand = findWindowsPathCommand(["subl.exe", "subl"]);
+  if (pathCommand != null) {
+    return (
+      findAdjacentWindowsExecutable(pathCommand, "sublime_text.exe") ??
+      pathCommand
+    );
+  }
+  return findWindowsProgramPath([
+    ["Sublime Text", "sublime_text.exe"],
+    ["Sublime Text", "subl.exe"],
+  ]);
+}
+
+function detectZedDarwin(): string | null {
+  return (
+    resolveExecutableFromPath("zed") ??
+    findExistingMacPath([
+      "/Applications/Zed.app/Contents/MacOS/zed",
+      "/Applications/Zed Preview.app/Contents/MacOS/zed",
+      "/Applications/Zed Nightly.app/Contents/MacOS/zed",
+    ]) ??
+    findMacExecutableByAppPrefix("Zed", "zed")
+  );
+}
+
+function detectZedWin32(): string | null {
+  const pathCommand = findWindowsPathCommand(["zed.exe", "zed"]);
+  return pathCommand ?? findWindowsProgramPath([["Zed", "Zed.exe"]]);
+}
+
+function detectGitHubDesktop(): string | null {
+  const pathCommand = findWindowsPathCommand(["github.exe", "github"]);
+  if (pathCommand != null) {
+    return (
+      findAdjacentWindowsExecutable(pathCommand, "GitHubDesktop.exe") ??
+      pathCommand
+    );
+  }
+  for (const fallbackPath of [
+    ["GitHubDesktop", "GitHubDesktop.exe"],
+    ["GitHub Desktop", "GitHubDesktop.exe"],
+  ]) {
+    const candidate = join(WINDOWS_LOCAL_APPDATA, ...fallbackPath);
+    if (existsSync(candidate)) return candidate;
+  }
+  return findWindowsProgramPath([
+    ["GitHub Desktop", "GitHubDesktop.exe"],
+    ["GitHubDesktop", "GitHubDesktop.exe"],
+  ]);
+}
+
+function detectVisualStudio(): string | null {
+  const pathCommand = findWindowsPathCommand(["devenv.exe", "devenv"]);
+  return (
+    pathCommand ??
+    findWindowsProgramPath(
+      ["2022", "2019", "2017"].flatMap((version) =>
+        [
+          "Community",
+          "Professional",
+          "Enterprise",
+          "Preview",
+          "BuildTools",
+        ].map((edition) => [
+          "Microsoft Visual Studio",
+          version,
+          edition,
+          "Common7",
+          "IDE",
+          "devenv.exe",
+        ]),
+      ),
+    ) ??
+    findVisualStudioWithVswhere("**\\Common7\\IDE\\devenv.exe")
+  );
+}
+
+function findVisualStudioWithVswhere(pattern: string): string | null {
+  const vswhereCandidates = [
+    process.env["ProgramFiles(x86)"],
+    process.env.ProgramFiles,
+  ].flatMap((root) =>
+    root
+      ? [join(root, "Microsoft Visual Studio", "Installer", "vswhere.exe")]
+      : [],
+  );
+  const vswhere = vswhereCandidates.find((candidate) => existsSync(candidate));
+  if (vswhere == null) return null;
+  const result = spawnSync(
+    vswhere,
+    [
+      "-products",
+      "*",
+      "-all",
+      "-find",
+      pattern,
+      "-utf8",
+      "-nologo",
+      "-prerelease",
+    ],
+    { windowsHide: true, encoding: "utf8" },
+  );
+  if (result.status !== 0 || typeof result.stdout !== "string") return null;
+  return (
+    result.stdout
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .find((line) => line.length > 0 && existsSync(line)) ?? null
+  );
+}
+
+function hasWslDistribution(): boolean {
+  return (
+    resolveWindowsAppsExecutionAlias("wsl.exe") != null ||
+    resolveExecutableFromPath("wsl.exe") != null
+  );
+}
+
+function detectXcodeDarwin(): {
+  appPath: string | null;
+  xedPath: string | null;
+} | null {
+  if (process.platform !== "darwin") return null;
+  const appPath =
+    findMacApplicationByName("Xcode") ??
+    findExistingMacPath(["/Applications/Xcode.app"]);
+  let xedPath: string | null = null;
+  try {
+    const result = spawnSync("xcode-select", ["-p"], {
+      encoding: "utf8",
+      timeout: 1000,
+    });
+    const developerPath = result.status === 0 ? result.stdout?.trim() : "";
+    if (developerPath) {
+      const selectedXed = join(developerPath, "usr", "bin", "xed");
+      if (existsSync(selectedXed)) xedPath = selectedXed;
+    }
+  } catch {}
+  if (xedPath == null && appPath != null) {
+    const appXed = join(appPath, "Contents", "Developer", "usr", "bin", "xed");
+    if (existsSync(appXed)) xedPath = appXed;
+  }
+  return appPath == null && xedPath == null ? null : { appPath, xedPath };
+}
+
+function getJetBrainsToolboxInstallations(): Map<string, string> {
+  if (jetBrainsToolboxCache != null) return jetBrainsToolboxCache;
+  jetBrainsToolboxCache = new Map();
+  collectJetBrainsToolboxInstallations(
+    JETBRAINS_TOOLBOX_ROOT,
+    0,
+    jetBrainsToolboxCache,
+  );
+  return jetBrainsToolboxCache;
+}
+
+function collectJetBrainsToolboxInstallations(
+  directory: string,
+  depth: number,
+  found: Map<string, string>,
+): void {
+  if (process.platform !== "darwin" || depth > 6 || !existsSync(directory)) {
+    return;
+  }
+  let entries: string[];
+  try {
+    entries = readdirSync(directory);
+  } catch {
+    return;
+  }
+  for (const entry of entries.sort((left, right) =>
+    right.localeCompare(left),
+  )) {
+    const entryPath = join(directory, entry);
+    const lowerEntry = entry.toLowerCase();
+    if (lowerEntry.endsWith(".app")) {
+      for (const hint of JETBRAINS_BUNDLE_HINTS) {
+        if (
+          found.has(hint.target) ||
+          !hint.bundlePrefixes.some((prefix) => lowerEntry.startsWith(prefix))
+        ) {
+          continue;
+        }
+        const executablePath = join(
+          entryPath,
+          "Contents",
+          "MacOS",
+          hint.executable,
+        );
+        if (existsSync(executablePath)) found.set(hint.target, executablePath);
+      }
+      continue;
+    }
+    try {
+      if (statSync(entryPath).isDirectory()) {
+        collectJetBrainsToolboxInstallations(entryPath, depth + 1, found);
+      }
+    } catch {}
+  }
+}
+
+function detectJetBrainsWin32({
+  pathCommands,
+  installDirPrefixes,
+  installExecutables,
+  fallbackPaths,
+}: {
+  pathCommands: string[];
+  installDirPrefixes: string[];
+  installExecutables: string[];
+  fallbackPaths?: string[][];
+}): string | null {
+  const pathCommand = findWindowsPathCommand(pathCommands);
+  if (pathCommand != null) return pathCommand;
+  const installPrefixSet = installDirPrefixes.map((prefix) =>
+    prefix.toLowerCase(),
+  );
+  for (const root of WINDOWS_JETBRAINS_ROOTS) {
+    let entries: string[];
+    try {
+      entries = readdirSync(root).sort((left, right) =>
+        right.localeCompare(left),
+      );
+    } catch {
+      continue;
+    }
+    for (const entry of entries) {
+      const lowerEntry = entry.toLowerCase();
+      if (!installPrefixSet.some((prefix) => lowerEntry.startsWith(prefix))) {
+        continue;
+      }
+      for (const executableName of installExecutables) {
+        const executablePath = join(root, entry, "bin", executableName);
+        if (existsSync(executablePath)) return executablePath;
+      }
+    }
+  }
+  return fallbackPaths ? findWindowsProgramPath(fallbackPaths) : null;
+}
+
+async function resolveWindowsShortcutIconPath(
+  shortcutPath: string,
+  readShortcutLink: OpenInShortcutResolver,
+): Promise<string | null> {
+  const shortcut = await readShortcutLink(shortcutPath);
+  return (
+    stripWindowsIconResourceSuffix(shortcut.icon) ??
+    stripWindowsIconResourceSuffix(shortcut.target)
+  );
+}
+
+function stripWindowsIconResourceSuffix(
+  value: string | null | undefined,
+): string | null {
+  if (value == null) return null;
+  const trimmed = value.trim().replace(/^"(.*)"$/, "$1");
+  const commaIndex = trimmed.lastIndexOf(",");
+  if (commaIndex < 0) return trimmed || null;
+  const resourceIndex = Number(trimmed.slice(commaIndex + 1));
+  return Number.isInteger(resourceIndex)
+    ? trimmed.slice(0, commaIndex) || null
+    : trimmed || null;
+}
+
 async function detectOpenInTarget(
   params: OpenInTargetRequestParams,
   readShortcutLink: (path: string) => Promise<ShortcutLink>,
@@ -482,9 +1759,7 @@ async function detectOpenInTarget(
       readShortcutLink,
     );
   }
-  throw Error(
-    `Open-in target '${params.target ?? "unknown"}' remains an open restoration boundary.`,
-  );
+  return getOpenInPlatformTarget(params.target).detect(readShortcutLink);
 }
 
 async function resolveCustomOpenInCommand(
@@ -524,9 +1799,22 @@ async function getOpenInTargetIcon({
     const shortcut = await readShortcutLink(command);
     return normalizeOpenInIconSpecifier(shortcut.icon ?? shortcut.target);
   }
-  throw Error(
-    `Open-in target '${params.target ?? "unknown"}' icon remains an open restoration boundary.`,
-  );
+  const platformTarget = getOpenInPlatformTarget(params.target);
+  if (process.platform !== "win32" || command == null) {
+    return platformTarget.icon;
+  }
+  const iconPath = platformTarget.iconPath
+    ? platformTarget.iconPath(command)
+    : command;
+  const resolvedIconPath =
+    iconPath?.toLowerCase().endsWith(".lnk") === true
+      ? await resolveWindowsShortcutIconPath(iconPath, readShortcutLink)
+      : iconPath;
+  return resolvedIconPath == null
+    ? platformTarget.icon
+    : normalizeOpenInIconSpecifier(
+        stripWindowsIconResourceSuffix(resolvedIconPath),
+      );
 }
 
 function parseOpenInTargetRequestParams(
