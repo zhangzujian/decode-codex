@@ -56,7 +56,7 @@ import {
   openEnvironmentTerminalSession,
   shouldShowThreadHandoffInSummary,
   SummaryPanelPullRequestControls,
-} from "../../runtime/thread-summary-environment-runtime";
+} from "./thread-summary-environment-runtime";
 import {
   composerModeState as composerModeSignal,
   initComposerModeRuntime,
