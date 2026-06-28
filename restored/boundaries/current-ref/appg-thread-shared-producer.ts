@@ -43,6 +43,11 @@ export {
   initSearchIcon as ta,
 } from "../../ui/dropdown/search";
 export {
+  FormattedMessage as sF,
+  initIntlRuntime as iF,
+  useIntl as lF,
+} from "../../vendor/react-intl";
+export {
   classNames as BP,
   initClassNameRuntime as VP,
 } from "../../utils/class-names";

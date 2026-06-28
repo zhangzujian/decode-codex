@@ -23,7 +23,6 @@ import {
   ak as initAppServerRequestBridge,
   FB as useScope,
   hM as initTooltipPrimitives,
-  iF as initIntlRuntime,
   ok as sendAppServerRequest,
   pM as Tooltip,
   qi as MenuChrome,
@@ -60,7 +59,11 @@ import {
   initSummaryPanelRowChunk,
   SummaryPanelRow,
 } from "../../utils/summary-panel-row";
-import { FormattedMessage, useIntl } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  initIntlRuntime,
+  useIntl,
+} from "../../vendor/react-intl";
 import {
   createBackgroundSummaryItems,
   getBackgroundSummaryItemKey,

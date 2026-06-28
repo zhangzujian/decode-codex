@@ -36,11 +36,9 @@ import {
   Gi as DropdownMenu,
   Hh as initGitQueryKeyHelpers,
   hM as initTooltipPrimitives,
-  iF as initIntlRuntime,
   Ix as environmentTerminalControllerService,
   Ki as DropdownMenuSubmenu,
   kj as normalizeConfigPath,
-  lF as useIntl,
   lL as LOCAL_ENVIRONMENT_CONFIG_PATH_SETTING_KEY,
   Ln as initKeyboardModifierState,
   mP as logger,
@@ -106,7 +104,11 @@ import {
   initUseGitConfigValueChunk,
   useGitConfigValue,
 } from "../../utils/use-git-config-value";
-import { FormattedMessage } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  initIntlRuntime,
+  useIntl,
+} from "../../vendor/react-intl";
 import {
   createLocalEnvironmentActionRunId,
   getLocalEnvironmentActionItems,

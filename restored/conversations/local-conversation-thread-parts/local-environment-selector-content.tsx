@@ -11,16 +11,18 @@ import {
 import { once } from "../../runtime/commonjs-interop";
 import { initSpinnerComponent, Spinner } from "../../ui/spinner";
 import {
-  iF as initIntlRuntime,
   kj as normalizeConfigPath,
-  lF as useIntl,
   qi as MenuChrome,
   wj as initConfigPathHelpers,
   Xi as MenuSeparator,
   Zi as initDropdownMenuPrimitives,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import { initStarIconChunk, StarIcon } from "../../icons/star-icon";
-import { FormattedMessage } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  initIntlRuntime,
+  useIntl,
+} from "../../vendor/react-intl";
 
 type LocalEnvironmentResultLike = {
   configPath: string;

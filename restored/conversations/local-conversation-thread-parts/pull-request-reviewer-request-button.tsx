@@ -22,7 +22,6 @@ import {
   di as PopoverRoot,
   fu as initTaskWorkspaceQueryRuntime,
   hi as PopoverTrigger,
-  iF as initIntlRuntime,
   mi as ScreenReaderTitle,
   oP as initQueryDurationConstants,
   pi as PopoverContent,
@@ -30,7 +29,6 @@ import {
   uM as toastSignal,
   PB as useScopedValue,
   FB as useScope,
-  lF as useIntl,
   gi as initPopoverPrimitives,
 } from "../../boundaries/current-ref/appg-thread-shared-producer";
 import {
@@ -43,7 +41,11 @@ import {
   trackPullRequestAction,
   usePullRequestUpdateMutation,
 } from "../../github/pull-request-actions";
-import { FormattedMessage } from "../../vendor/react-intl";
+import {
+  FormattedMessage,
+  initIntlRuntime,
+  useIntl,
+} from "../../vendor/react-intl";
 
 type PullRequestBoardItem = {
   cwd: string;

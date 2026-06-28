@@ -39,9 +39,9 @@ export function defineMessage<TMessage extends MessageDescriptor>(
   return message;
 }
 
-export function defineMessages<TMessages extends Record<string, MessageDescriptor>>(
-  messages: TMessages,
-): TMessages {
+export function defineMessages<
+  TMessages extends Record<string, MessageDescriptor>,
+>(messages: TMessages): TMessages {
   return messages;
 }
 
@@ -52,7 +52,10 @@ export function createIntl(): IntlShape {
         ? new Intl.DateTimeFormat(undefined, options).format(value)
         : String(value ?? ""),
     formatMessage: (descriptor, values) =>
-      interpolateMessage(descriptor.defaultMessage ?? descriptor.id ?? "", values),
+      interpolateMessage(
+        descriptor.defaultMessage ?? descriptor.id ?? "",
+        values,
+      ),
     formatNumber: (value, options) =>
       new Intl.NumberFormat(undefined, options).format(value),
   };
@@ -65,6 +68,8 @@ export function createIntlCache(): Record<string, never> {
 export function useIntl(): IntlShape {
   return createIntl();
 }
+
+export function initIntlRuntime(): void {}
 
 export function FormattedMessage({
   defaultMessage,
