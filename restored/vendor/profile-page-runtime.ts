@@ -1,3 +1,4 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page~profile-QLPeiknY.js
-// Vendored compatibility facade for profile/onboarding shared route exports.
-export * from "../../ref/webview/assets/app-initial~app-main~onboarding-page~profile-QLPeiknY.js";
+// Current build compatibility: the legacy profile/onboarding aliases consumed by
+// restored modules now live in the large app-main/new-thread producer chunk.
+export * from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
