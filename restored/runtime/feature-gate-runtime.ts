@@ -3,11 +3,16 @@
 import {
   $j as initStatsigGateSignals,
   Gj as initStatsigFeatureGateHooks,
+  Xj as useStatsigLayerRaw,
   eM as featureGateSignal,
   qj as useStatsigGateRaw,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
 
 export { featureGateSignal };
+
+export type StatsigLayer = {
+  get<TValue>(key: string, fallbackValue: TValue): TValue;
+};
 
 export function initFeatureGateSignalRuntime(): void {
   initStatsigGateSignals();
@@ -19,4 +24,8 @@ export function initStatsigFeatureGateRuntime(): void {
 
 export function useStatsigGate(gateName: string): boolean {
   return useStatsigGateRaw(gateName);
+}
+
+export function useStatsigLayer(layerName: string): StatsigLayer {
+  return useStatsigLayerRaw(layerName) as StatsigLayer;
 }

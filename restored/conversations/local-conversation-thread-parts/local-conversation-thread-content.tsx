@@ -4,46 +4,59 @@ import React, { type ComponentType } from "react";
 import { once } from "../../runtime/commonjs-interop";
 import { useStableCallback } from "../../utils/use-stable-callback";
 import {
-  $j as initStatsigGateSignals,
-  $p as modelProviderSignal,
-  AB as initScopeRuntime,
-  AP as motion,
-  DL as normalizeWorkspacePath,
-  FB as useScope,
-  Gj as initStatsigFeatureGateHooks,
-  IB as useSignalValue,
-  Io as initConnectorAppsListQuery,
-  M_ as localConversationRouteScope,
-  Mi as initModalRegistrySignal,
-  Np as conversationHistoryCompleteSignal,
-  O_ as initConversationRouteSourceHelpers,
-  Op as initConversationStateSelectors,
-  OV as createAtomSignal,
-  Ov as useNavigate,
-  PB as useScopedValue,
-  Pi as openScopedModal,
-  Pp as responseInProgressSignal,
-  Tp as hasConversationSignal,
-  Up as conversationCollaborationModeSignal,
-  Xj as useStatsigLayer,
-  ak as initAppServerRequestBridge,
-  bF as initPathHelpers,
-  cM as initToastRuntime,
-  cm as conversationHostIdSignal,
-  ed as useConversationHostApi,
-  fp as completedThreadGoalSignal,
-  gp as conversationCwdSignal,
-  ic as useConversationAgentMode,
-  jm as conversationModeSignal,
-  lm as conversationResumeStateSignal,
-  mP as logger,
-  nm as projectlessOutputDirectorySignal,
-  ok as sendAppServerRequest,
-  uM as toastSignal,
-  vm as subagentParentThreadIdSignal,
-  wV as useSignalState,
-  zo as useAppsQuery,
-} from "../../boundaries/current-ref/appg-thread-shared-producer";
+  useScope,
+  useScopedValue,
+  useSignalValue,
+} from "../../runtime/app-scope-hooks";
+import {
+  initAppServerRequestRuntime,
+  sendAppServerRequest,
+} from "../../runtime/app-server-request";
+import { appLogger as logger } from "../../runtime/app-logger";
+import {
+  initConnectorAppsRuntime,
+  useAppsQuery,
+} from "../../runtime/connector-apps-runtime";
+import {
+  useConversationAgentMode,
+  useConversationHostApi,
+} from "../../runtime/conversation-host-runtime";
+import {
+  completedThreadGoalSignal,
+  conversationCollaborationModeSignal,
+  conversationCwdSignal,
+  conversationHistoryCompleteSignal,
+  conversationHostIdSignal,
+  conversationModeSignal,
+  conversationResumeStateSignal,
+  hasConversationSignal,
+  initConversationStateRuntime,
+  modelProviderSignal,
+  projectlessOutputDirectorySignal,
+  responseInProgressSignal,
+  subagentParentThreadIdSignal,
+} from "../../runtime/conversation-state-runtime";
+import {
+  initFeatureGateSignalRuntime,
+  initStatsigFeatureGateRuntime,
+  useStatsigLayer,
+} from "../../runtime/feature-gate-runtime";
+import {
+  initConversationRouteSourceRuntime,
+  initLocalConversationRouteRuntime,
+  initToastSignalRuntime,
+  localConversationRouteScope,
+  toastSignal,
+  useNavigate,
+} from "../../runtime/local-conversation-route-runtime";
+import { initModalRuntime, openScopedModal } from "../../runtime/modal-runtime";
+import { motion } from "../../runtime/motion-signal-runtime";
+import { normalizeWorkspacePath } from "../../runtime/output-artifact-runtime";
+import { initPathHelpersRuntime } from "../../runtime/path-helpers-runtime";
+import {
+  createAtomSignal,
+  useSignalState,
+} from "../../runtime/signal-state-runtime";
 import {
   P as recordForkedConversationSource,
   cs as focusThreadSourceFrame,
@@ -842,17 +855,17 @@ function getTurnEntryModel(turnEntry: LocalConversationTurnListEntry) {
 }
 
 export const initLocalConversationThreadContentChunk = once(() => {
-  initScopeRuntime();
-  initPathHelpers();
+  initLocalConversationRouteRuntime();
+  initPathHelpersRuntime();
   initIntlRuntime();
-  initConversationStateSelectors();
-  initAppServerRequestBridge();
-  initToastRuntime();
-  initModalRegistrySignal();
-  initStatsigGateSignals();
-  initStatsigFeatureGateHooks();
-  initConnectorAppsListQuery();
-  initConversationRouteSourceHelpers();
+  initConversationStateRuntime();
+  initAppServerRequestRuntime();
+  initToastSignalRuntime();
+  initModalRuntime();
+  initFeatureGateSignalRuntime();
+  initStatsigFeatureGateRuntime();
+  initConnectorAppsRuntime();
+  initConversationRouteSourceRuntime();
   initLocalConversationNavigationHelpers();
   initLocalConversationAppShellSourceRegistrationChunk();
   initReviewSearchHighlighter();
