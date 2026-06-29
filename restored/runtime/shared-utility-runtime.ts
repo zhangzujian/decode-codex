@@ -11,7 +11,7 @@ import {
   getJsxRuntime,
   initReactRuntime,
 } from "./app-main-host-runtime";
-import { initClassNameRuntime } from "../boundaries/current-ref/appg-thread-shared-producer";
+import { initClassNameRuntime } from "../utils/class-names";
 import { initAppScope, initScopeRuntime } from "./app-scope-runtime";
 
 export {

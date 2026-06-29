@@ -36,12 +36,10 @@ import {
   useQueryClient,
 } from "./app-server-mutation-runtime";
 import {
-  classNames,
   initAppDialog,
   initButtonComponentPrimitives,
   FormattedMessage,
   GlobeIcon,
-  initClassNameRuntime,
   initDialogLayoutComponents,
   initGlobeIcon as initSignalHooksRuntime,
   initIntlRuntime as initReactIntlRuntime,
@@ -51,6 +49,7 @@ import {
   Spinner as ActivityIcon,
   useIntl,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
+import { classNames, initClassNameRuntime } from "../utils/class-names";
 import {
   initProjectHoverCardCurrentRefRuntime,
   LocalProjectFallbackIcon,

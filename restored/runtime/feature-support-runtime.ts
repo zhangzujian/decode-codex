@@ -16,9 +16,9 @@ import { initVscodeBridgeRuntime as initPetInstallSignalRuntime } from "./platfo
 import { initQueryDurationConstants } from "./host-query-runtime";
 import {
   GlobeIcon as FallbackGlobeIcon,
-  initClassNameRuntime,
   initGlobeIcon as initGlobeIconChunk,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
+import { initClassNameRuntime } from "../utils/class-names";
 import {
   initAppScope,
   initScopeRuntime,
