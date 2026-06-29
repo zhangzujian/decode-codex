@@ -4,7 +4,6 @@ import { getCachedConversationTurns as getCachedConversationTurnsRaw } from "../
 import { normalizeConversationId as normalizeConversationIdValue } from "../boundaries/src-l0hb-mz-p";
 import { cs as backgroundAgentsSignal } from "../vendor/profile-page-runtime";
 import { parseUnifiedDiffFileSummaries } from "../utils/unified-diff-file-summaries";
-import { Fv as formatAgentPathDisplayNameRaw } from "../vendor/projects-app-shared-runtime";
 import {
   getSubagentSourceMetadata,
   type SubagentSourceMetadata,
@@ -743,7 +742,21 @@ function getCachedConversationTurns(
 
 function formatAgentPathDisplayName(agentPath: unknown): string | null {
   const path = readString(agentPath);
-  return path == null ? null : formatAgentPathDisplayNameRaw(path);
+  if (path == null) return null;
+  const finalSegment = path
+    .split("/")
+    .map((segment) => segment.trim())
+    .filter((segment) => segment.length > 0 && segment !== "root")
+    .at(-1);
+  if (finalSegment == null) return null;
+  const displayName = finalSegment
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+  return displayName.length === 0
+    ? null
+    : displayName.charAt(0).toUpperCase() + displayName.slice(1);
 }
 
 function normalizeConversationId(value: unknown): string {
