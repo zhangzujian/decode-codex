@@ -4,3 +4,14 @@
 export const BUNDLED_MARKETPLACE_CONTENT_HASHES = [
   "59e7bb81812ddd5f102e1d580335166e552c91686b5726218a985b59b4f89ca1",
 ] as const;
+
+export const DEFAULT_BUNDLED_MARKETPLACE_NAME = "openai-bundled";
+
+export const STALE_BUNDLED_MARKETPLACE_NAMES = [
+  "openai-bundled-agent",
+  "openai-bundled-alpha",
+  "openai-bundled-beta",
+  "openai-bundled-dev",
+  "openai-bundled-nightly",
+  "openai-bundled-owl",
+] as const;
