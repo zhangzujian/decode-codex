@@ -13,6 +13,12 @@ export function formatRelativeDateTime({ dateString }: { dateString: string }) {
   const now = useCurrentMinute();
   return formatCompactRelativeDateTime(dateString, now);
 }
+
+export function RelativeTime(props: { dateString: string }) {
+  return formatRelativeDateTime(props);
+}
+
+export function initRelativeTimeRuntimeChunk(): void {}
 function useCurrentMinute() {
   return React.useSyncExternalStore(
     subscribeToCurrentMinute,

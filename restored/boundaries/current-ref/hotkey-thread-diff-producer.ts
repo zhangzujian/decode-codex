@@ -58,6 +58,11 @@ export {
 } from "../../features/is-compact-window-context";
 
 export {
+  initRelativeTimeRuntimeChunk,
+  RelativeTime,
+} from "../../utils/format-relative-date-time";
+
+export {
   applyCodexThemeToElement,
   getCodeThemeRegistration,
   isCodeThemeId as isKnownCodeThemeId,
@@ -76,11 +81,17 @@ export { ChevronIcon as ChevronDownIcon } from "../../icons/chevron-icon";
 
 export { CommentIcon } from "../../icons/comment-icon";
 
+export { DocumentIcon, initDocumentIconChunk } from "../../icons/document-icon";
+
 export { EditIcon } from "../../icons/edit-icon";
+
+export { PackageIcon, initPackageIconChunk } from "../../icons/package-icon";
 
 export { PinFilledIcon } from "../../icons/pin-filled-icon";
 
 export { PinIcon } from "../../icons/pin-icon";
+
+export { PluginIcon, initPluginIconChunk } from "../../icons/plugin-icon";
 
 export { SettingsGearIcon } from "../../icons/settings-gear-icon";
 
