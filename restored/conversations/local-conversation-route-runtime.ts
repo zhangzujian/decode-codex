@@ -5,7 +5,6 @@ import { initConversationPromptContextRuntime } from "../runtime/conversation-pr
 import { initToastRuntime, toastSignal } from "../runtime/toast-runtime";
 
 import { isHotkeyWindowContext } from "../utils/is-hotkey-window-context";
-import { Dl as createLocalConversationRouteTargetRaw } from "../vendor/pull-request-thread-actions-runtime";
 import {
   Ev as useLocationRaw,
   I_ as initRouteScope,
@@ -37,11 +36,12 @@ export function createLocalConversationRouteTarget(
   surface: "main" | "side" | string,
   sourceConversationId?: string | null,
 ): unknown {
-  return createLocalConversationRouteTargetRaw(
+  return {
     conversationId,
-    surface,
-    sourceConversationId,
-  );
+    kind: "local",
+    placement: surface,
+    routeConversationId: sourceConversationId ?? conversationId,
+  };
 }
 
 export function getLocalConversationPath(conversationId: string): string {
