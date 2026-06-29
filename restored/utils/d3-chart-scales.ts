@@ -1,0 +1,13 @@
+// Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
+// d3 scale constructors plus the color/time helpers they depend on, used by onboarding charts.
+
+export {
+  scaleOrdinal,
+  scaleBand,
+  scalePoint,
+  scaleLinear,
+  scaleSqrt,
+  scaleTime,
+} from "d3-scale";
+export { interpolateHcl } from "d3-interpolate";
+export { timeSunday } from "d3-time";
