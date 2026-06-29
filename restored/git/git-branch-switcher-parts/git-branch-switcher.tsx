@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-branch-switcher-BokkKYIT.js
+// Restored from ref/webview/assets/git-branch-switcher-Cb06tz5G.js
 
 import React from "react";
 import { once } from "../../runtime/commonjs-interop";
@@ -43,7 +43,10 @@ import {
   useScopedValue,
 } from "../../runtime/git-branch-switcher-runtime";
 import { initDiffStatsChunk } from "../git-review-primitives";
-import { CreateAndCheckoutBranchDialog, UncommittedChangesDialog } from "./branch-dialogs";
+import {
+  CreateAndCheckoutBranchDialog,
+  UncommittedChangesDialog,
+} from "./branch-dialogs";
 import {
   initCheckoutBranchMutation,
   initCreateBranchMutation,
@@ -113,13 +116,16 @@ export function GitBranchSwitcher({
   const intl = useIntl();
   const [isDropdownOpen, setDropdownOpen] = React.useState(false);
   const [hasOpenedDropdown, setHasOpenedDropdown] = React.useState(false);
-  const [isUncommittedDialogOpen, setUncommittedDialogOpenState] = React.useState(false);
+  const [isUncommittedDialogOpen, setUncommittedDialogOpenState] =
+    React.useState(false);
   const [isCreateDialogOpen, setCreateDialogOpen] = React.useState(false);
   const [isCommitFlowOpen, setCommitFlowOpen] = React.useState(false);
   const [commitFlowResetNonce, setCommitFlowResetNonce] = React.useState(0);
-  const [pendingBlockedAction, setPendingBlockedAction] = React.useState<BranchSwitchNextAction | null>(null);
+  const [pendingBlockedAction, setPendingBlockedAction] =
+    React.useState<BranchSwitchNextAction | null>(null);
   const [conflictFiles, setConflictFiles] = React.useState<string[]>([]);
-  const [commitFlowStatus, setCommitFlowStatus] = React.useState<CommitFlowStatus>("idle");
+  const [commitFlowStatus, setCommitFlowStatus] =
+    React.useState<CommitFlowStatus>("idle");
   const currentBranchRequest = {
     cwd: gitRoot,
     enabled: shouldShow,
@@ -134,10 +140,10 @@ export function GitBranchSwitcher({
   ) as GitOperationResult<string>;
   const currentBranch = currentBranchQuery.data?.trim() ?? "";
   const shouldRenderSwitcher = shouldShow && currentBranch.length > 0;
-  const conversationTitle = useScopedValue(localConversationTitleSignal, localConversationId) as
-    | string
-    | null
-    | undefined;
+  const conversationTitle = useScopedValue(
+    localConversationTitleSignal,
+    localConversationId,
+  ) as string | null | undefined;
   const checkoutBranchMutation = useCheckoutBranchMutation(
     gitRoot,
     hostConfig,
@@ -148,7 +154,8 @@ export function GitBranchSwitcher({
     hostConfig,
     BRANCH_SWITCHER_OPERATION_SOURCE,
   );
-  const normalizedCwd = gitRoot == null ? null : normalizeWorkspacePath(gitRoot);
+  const normalizedCwd =
+    gitRoot == null ? null : normalizeWorkspacePath(gitRoot);
   const reviewTarget =
     normalizedCwd == null
       ? null
@@ -156,7 +163,9 @@ export function GitBranchSwitcher({
           cwd: normalizedCwd,
           hostId: hostConfig.id,
         };
-  const isPending = Boolean(checkoutBranchMutation.isPending || createBranchMutation.isPending);
+  const isPending = Boolean(
+    checkoutBranchMutation.isPending || createBranchMutation.isPending,
+  );
   const switchTooltipText = intl.formatMessage({
     id: "composer.footer.branchSwitch.tooltip",
     defaultMessage: "Switch branch",
@@ -328,7 +337,9 @@ export function GitBranchSwitcher({
     setUncommittedDialogOpenState(false);
     setCommitFlowOpen(true);
   };
-  const handleCommitFlowStatus = (status: GitMutationResponse["status"] | CommitFlowStatus) => {
+  const handleCommitFlowStatus = (
+    status: GitMutationResponse["status"] | CommitFlowStatus,
+  ) => {
     if (status === "success" && pendingBlockedAction != null) {
       const action = pendingBlockedAction;
       resetBlockedCheckoutState();
@@ -378,7 +389,8 @@ export function GitBranchSwitcher({
     isPending,
     switchTooltipText,
   });
-  const shouldRenderCommitFlow = isCommitFlowOpen || commitFlowStatus !== "idle";
+  const shouldRenderCommitFlow =
+    isCommitFlowOpen || commitFlowStatus !== "idle";
 
   return (
     <>

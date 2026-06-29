@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-branch-switcher-BokkKYIT.js
+// Restored from ref/webview/assets/git-branch-switcher-Cb06tz5G.js
 
 import {
   Ba as updateGitMetadataCache,

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/thread-overflow-menu-CM-Eo7JH.js
+// Restored from ref/webview/assets/thread-overflow-menu-yh1Ldo2y.js
 // Side-chat tab opener split from the thread overflow menu chunk.
 
 import { once } from "../../runtime/commonjs-interop";

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/thread-overflow-menu-CM-Eo7JH.js
+// Restored from ref/webview/assets/thread-overflow-menu-yh1Ldo2y.js
 // Runtime bindings for thread overflow actions, side chat, and heartbeat automation tabs.
 import { k as useThreadCommandHandler } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js";
 import { Po as useSignalSnapshot } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";

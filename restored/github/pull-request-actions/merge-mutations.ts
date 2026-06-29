@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pull-request-check-rows-Q1OJv6O3.js
+// Restored from ref/webview/assets/pull-request-check-rows-B2iGS9CB.js
 // GitHub pull request merge/update mutation hooks.
 import { once } from "../../runtime/commonjs-interop";
 import {
@@ -22,7 +22,13 @@ function pullRequestMergeMutationKey(
   headBranch?: string | null,
   hostId?: string | null,
 ) {
-  return ["vscode", "gh-pr-merge", cwd ?? null, headBranch ?? null, hostId ?? null];
+  return [
+    "vscode",
+    "gh-pr-merge",
+    cwd ?? null,
+    headBranch ?? null,
+    hostId ?? null,
+  ];
 }
 
 function pullRequestUpdateMutationKey({
@@ -30,7 +36,13 @@ function pullRequestUpdateMutationKey({
   headBranch,
   hostId,
 }: MutationOptions) {
-  return ["vscode", "gh-pr-update", cwd ?? null, headBranch ?? null, hostId ?? null];
+  return [
+    "vscode",
+    "gh-pr-update",
+    cwd ?? null,
+    headBranch ?? null,
+    hostId ?? null,
+  ];
 }
 
 export function usePullRequestMergeMutation({
@@ -50,7 +62,9 @@ export function usePullRequestMergeMutation({
         Promise.all([
           queryClient.invalidateQueries({ queryKey: queryKey("gh-pr-body") }),
           queryClient.invalidateQueries({ queryKey: queryKey("gh-pr-checks") }),
-          queryClient.invalidateQueries({ queryKey: queryKey("gh-pr-comments") }),
+          queryClient.invalidateQueries({
+            queryKey: queryKey("gh-pr-comments"),
+          }),
           queryClient.invalidateQueries({
             queryKey: queryKey("gh-pr-status", {
               cwd: variables.cwd,

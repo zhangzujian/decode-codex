@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pull-request-check-rows-Q1OJv6O3.js
+// Restored from ref/webview/assets/pull-request-check-rows-B2iGS9CB.js
 // Pull request merge, auto-merge, and draft-state controls.
 import { useState } from "react";
 import { once } from "../../runtime/commonjs-interop";
@@ -34,7 +34,10 @@ import {
   usePullRequestMergeMutation,
   usePullRequestUpdateMutation,
 } from "./merge-mutations";
-import { trackPullRequestAction, initPullRequestAnalyticsChunk } from "./analytics";
+import {
+  trackPullRequestAction,
+  initPullRequestAnalyticsChunk,
+} from "./analytics";
 import type {
   PullRequestBoardItem,
   PullRequestBody,
@@ -81,7 +84,8 @@ export function PullRequestMergeActions({
   const [retryWithSquash, setRetryWithSquash] = useState(false);
   const mergeMethod: MergeMethod = retryWithSquash ? "squash" : "merge";
   const normalizedHostId = hostId ?? request?.hostId ?? item.hostId ?? null;
-  const normalizedRepo = pullRequestBody?.repo ?? request?.repo ?? item.repo ?? null;
+  const normalizedRepo =
+    pullRequestBody?.repo ?? request?.repo ?? item.repo ?? null;
   const pullRequestNumber = item.number ?? request?.number ?? null;
   const isSidePanel = variant === "side-panel";
 
@@ -89,13 +93,19 @@ export function PullRequestMergeActions({
     await Promise.all([
       queryClient.invalidateQueries({ queryKey: queryKey("gh-pr-board") }),
       request != null
-        ? queryClient.invalidateQueries({ queryKey: queryKey("gh-pr-body", request) })
+        ? queryClient.invalidateQueries({
+            queryKey: queryKey("gh-pr-body", request),
+          })
         : undefined,
       request != null
-        ? queryClient.invalidateQueries({ queryKey: queryKey("gh-pr-checks", request) })
+        ? queryClient.invalidateQueries({
+            queryKey: queryKey("gh-pr-checks", request),
+          })
         : undefined,
       request != null
-        ? queryClient.invalidateQueries({ queryKey: queryKey("gh-pr-comments", request) })
+        ? queryClient.invalidateQueries({
+            queryKey: queryKey("gh-pr-comments", request),
+          })
         : undefined,
       queryClient.invalidateQueries({
         queryKey: queryKey("gh-pr-status", {
@@ -138,7 +148,8 @@ export function PullRequestMergeActions({
   if (!item.isAuthor) return null;
 
   const isDraft = pullRequestBody?.isDraft ?? item.state === "draft";
-  const isMerged = item.state === "merged" || pullRequestBody?.hasOpenPr === false;
+  const isMerged =
+    item.state === "merged" || pullRequestBody?.hasOpenPr === false;
   const isAutoMergeEnabled = pullRequestBody?.isAutoMergeEnabled === true;
   const disabledReason = getMergeDisabledReason({
     body: pullRequestBody,
@@ -153,7 +164,8 @@ export function PullRequestMergeActions({
     isMerged ||
     (!isAutoMergeEnabled && isDraft) ||
     autoMergeMutation.isPending;
-  const draftDisabled = pullRequestBody == null || isMerged || draftMutation.isPending;
+  const draftDisabled =
+    pullRequestBody == null || isMerged || draftMutation.isPending;
   const showMergeHelper =
     !isSidePanel &&
     pullRequestBody != null &&
@@ -391,7 +403,10 @@ function PullRequestSidePanelMergeControls({
   if (isAutoMergeEnabled) {
     return (
       <div className="inline-flex h-token-button-composer items-center gap-1 self-start rounded-lg bg-token-foreground/5 px-2 text-base leading-[18px] text-token-text-secondary">
-        <span aria-hidden={true} className="size-2.5 rounded-full bg-token-charts-green" />
+        <span
+          aria-hidden={true}
+          className="size-2.5 rounded-full bg-token-charts-green"
+        />
         <FormattedMessage
           id="pullRequestsPage.detail.actions.autoMerge.status"
           defaultMessage="Auto-merge"
@@ -475,7 +490,10 @@ function getMergeDisabledTooltip(reason: string | null) {
   );
 }
 
-function getUpdateSuccessMessage(action: string, intl: ReturnType<typeof useIntl>) {
+function getUpdateSuccessMessage(
+  action: string,
+  intl: ReturnType<typeof useIntl>,
+) {
   switch (action) {
     case "toggle-auto-merge":
       return intl.formatMessage({

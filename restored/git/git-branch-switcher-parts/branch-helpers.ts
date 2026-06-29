@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-branch-switcher-BokkKYIT.js
+// Restored from ref/webview/assets/git-branch-switcher-Cb06tz5G.js
 
 type BranchOrderingInput = {
   branches: string[];
@@ -36,7 +36,11 @@ function pushUniqueBranch(
   orderedBranches: string[],
   seenBranches: Set<string>,
 ): void {
-  if (branchName == null || branchName.length === 0 || seenBranches.has(branchName)) {
+  if (
+    branchName == null ||
+    branchName.length === 0 ||
+    seenBranches.has(branchName)
+  ) {
     return;
   }
 
@@ -44,8 +48,11 @@ function pushUniqueBranch(
   orderedBranches.push(branchName);
 }
 
-export function getChangedFileCount(summary: StatusSummary | undefined): number {
+export function getChangedFileCount(
+  summary: StatusSummary | undefined,
+): number {
   return summary?.type === "success"
-    ? Math.max(summary.stagedCount ?? 0, summary.unstagedCount ?? 0) + (summary.untrackedCount ?? 0)
+    ? Math.max(summary.stagedCount ?? 0, summary.unstagedCount ?? 0) +
+        (summary.untrackedCount ?? 0)
     : 0;
 }

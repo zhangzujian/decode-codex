@@ -11400,6 +11400,19 @@
       "note": "Promoted semantic split for the updated thread overflow menu. The menu impl now uses semantic imports, direct TSX, typed props, and a separate side-chat opener module. Thread overflow runtime bindings now live in threads/thread-overflow-menu-runtime.ts, with runtime/thread-overflow-menu-runtime.ts kept as a compatibility barrel; thread-overflow-menu-parts passes quality-gate --check-format.",
       "lastUpdated": "2026-06-28T16:47:03.000Z"
     },
+    "thread-overflow-menu-yh1Ldo2y": {
+      "restored": "threads/thread-overflow-menu.tsx",
+      "exports": {
+        "i": "openSideChatTab",
+        "n": "initThreadOverflowMenuChunk",
+        "r": "initOpenSideChatTabChunk",
+        "t": "ThreadOverflowMenu"
+      },
+      "status": "done",
+      "note": "Promoted semantic split for the updated thread overflow menu. The menu impl now uses semantic imports, direct TSX, typed props, and a separate side-chat opener module. Thread overflow runtime bindings now live in threads/thread-overflow-menu-runtime.ts, with runtime/thread-overflow-menu-runtime.ts kept as a compatibility barrel; thread-overflow-menu-parts passes quality-gate --check-format.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "aliasOf": "thread-overflow-menu-CM-Eo7JH"
+    },
     "above-composer-suggestions-CAXbkE_4": {
       "restored": "composer/above-composer-suggestions.tsx",
       "exports": {
@@ -11450,6 +11463,25 @@
       },
       "status": "done",
       "note": "Split into semantic branch query, dialog, dropdown, and runtime facade modules; quality-gate and consumer builds pass."
+    },
+    "git-branch-switcher-Cb06tz5G": {
+      "restored": "git/git-branch-switcher.tsx",
+      "exports": {
+        "a": "initGitRecentBranchesQuery",
+        "c": "useGitStatusSummaryQuery",
+        "i": "sanitizeGitBranchSearchInput",
+        "l": "gitBranchSearchQuery",
+        "n": "initGitBranchSwitcherChunk",
+        "o": "useGitRecentBranchesQuery",
+        "r": "initSanitizeGitBranchSearchInput",
+        "s": "initGitStatusSummaryQuery",
+        "t": "GitBranchSwitcher",
+        "u": "initGitBranchSearchQuery"
+      },
+      "status": "done",
+      "note": "Split into semantic branch query, dialog, dropdown, and runtime facade modules; quality-gate and consumer builds pass.",
+      "aliasOf": "git-branch-switcher-BokkKYIT",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "app-initial~app-main~remote-conversation-page~onboarding-page~hotkey-window-thread-page~thr~b0jzjd62-JuRN2k_O": {
       "restored": "git/git-review-primitives.tsx",
@@ -12029,6 +12061,23 @@
         "t": "LocalRemoteDropdown"
       }
     },
+    "local-remote-dropdown-BZlMncy8": {
+      "restored": "thread-summary/local-remote-dropdown.tsx",
+      "status": "partial",
+      "note": "Partial thread-summary/composer restore: all raw aliases resolve to semantic exports in thread-summary/local-remote-dropdown.tsx, while vendor/local-remote-dropdown-runtime.ts now exposes semantic names only. The current-ref producer preserves original short aliases for compatibility. Cross-host handoff dialog parity remains pending.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "exports": {
+        "a": "CloudEnvironmentDropdown",
+        "c": "isComposerModeVisibleInLocalRemoteDropdown",
+        "i": "initThreadHandoffSummaryHelpersChunk",
+        "n": "initLocalRemoteDropdownChunk",
+        "o": "initCloudEnvironmentDropdownChunk",
+        "r": "shouldShowThreadHandoffInSummary",
+        "s": "initLocalRemoteDropdownStateChunk",
+        "t": "LocalRemoteDropdown"
+      },
+      "aliasOf": "local-remote-dropdown-BcmhHtfg"
+    },
     "pull-request-check-rows-Q1OJv6O3": {
       "restored": "github/pull-request-actions/index.ts",
       "splitDirectory": "github/pull-request-actions",
@@ -12061,6 +12110,40 @@
       "status": "done",
       "note": "Semantic split pull request side-panel action producer for checks, merge actions, analytics, and Merge with Codex controls.",
       "lastUpdated": "2026-06-27T23:05:27.000Z"
+    },
+    "pull-request-check-rows-B2iGS9CB": {
+      "restored": "github/pull-request-actions/index.ts",
+      "splitDirectory": "github/pull-request-actions",
+      "exports": {
+        "C": "PullRequestInlineActionButton",
+        "S": "initPullRequestCheckStatusIconChunk",
+        "_": "initPullRequestAnalyticsChunk",
+        "a": "PullRequestMergeActions",
+        "b": "logPullRequestViewedFromSidePanel",
+        "c": "initMergeWithCodexButtonChunk",
+        "d": "shouldShowMergeWithCodex",
+        "f": "initPullRequestMergeHelperPromptChunk",
+        "g": "usePullRequestMergeMutation",
+        "h": "initPullRequestMergeMutationChunk",
+        "i": "initPullRequestMetadataRowsChunk",
+        "l": "resolvePullRequestTaskRoute",
+        "m": "usePullRequestUpdateMutation",
+        "n": "initPullRequestCheckRowsChunk",
+        "o": "initPullRequestMergeActionsChunk",
+        "p": "initPullRequestUpdateMutationChunk",
+        "r": "PullRequestMetadataRows",
+        "s": "MergeWithCodexButton",
+        "t": "PullRequestCheckRows",
+        "u": "initPullRequestTaskRouteHelpersChunk",
+        "v": "trackPullRequestAction",
+        "w": "initPullRequestInlineActionButtonChunk",
+        "x": "PullRequestUnknownCheckIcon",
+        "y": "trackPullRequestKindAction"
+      },
+      "status": "done",
+      "note": "Semantic split pull request side-panel action producer for checks, merge actions, analytics, and Merge with Codex controls.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "aliasOf": "pull-request-check-rows-Q1OJv6O3"
     },
     "conversation-markdown-BjFKV53f": {
       "restored": "conversations/conversation-markdown.ts",

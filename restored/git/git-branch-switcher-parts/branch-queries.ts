@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-branch-switcher-BokkKYIT.js
+// Restored from ref/webview/assets/git-branch-switcher-Cb06tz5G.js
 
 import { once } from "../../runtime/commonjs-interop";
 import {
@@ -49,7 +49,10 @@ type BranchSearchQueryRequest = GitRootQueryRequest & {
 };
 
 type QuerySignalContext = {
-  get: (querySignal: unknown, request: GitRootQueryRequest) => GitOperationResult<{ root: string }>;
+  get: (
+    querySignal: unknown,
+    request: GitRootQueryRequest,
+  ) => GitOperationResult<{ root: string }>;
 };
 
 type BranchListResponse = {
@@ -109,9 +112,15 @@ export const initGitBranchSearchQuery = once(() => {
   currentGitRootQuery = createQuerySignalFamily(
     appScope,
     ({ cwd, enabled, hostConfig, operationSource }: GitRootQueryRequest) =>
-      createGitRootQueryOptions(cwd, getHostCacheKey(hostConfig), hostConfig, operationSource, {
-        enabled,
-      }),
+      createGitRootQueryOptions(
+        cwd,
+        getHostCacheKey(hostConfig),
+        hostConfig,
+        operationSource,
+        {
+          enabled,
+        },
+      ),
     {
       key: serializeGitRootQueryKey,
     },
@@ -120,7 +129,13 @@ export const initGitBranchSearchQuery = once(() => {
   gitBranchSearchQuery = createQuerySignalFamily(
     appScope,
     (
-      { cwd, enabled, hostConfig, operationSource, query }: BranchSearchQueryRequest,
+      {
+        cwd,
+        enabled,
+        hostConfig,
+        operationSource,
+        query,
+      }: BranchSearchQueryRequest,
       { get }: QuerySignalContext,
     ) => {
       const gitRoot = get(currentGitRootQuery, {
@@ -176,10 +191,17 @@ export function useGitStatusSummaryQuery(
     operationSource,
   };
 
-  return useGitOperationQuery(cwd, hostConfig, "status-summary", request, operationSource, {
-    staleTime: staleTime ?? queryDurations.FIVE_SECONDS,
-    ...restOptions,
-  }) as GitOperationResult;
+  return useGitOperationQuery(
+    cwd,
+    hostConfig,
+    "status-summary",
+    request,
+    operationSource,
+    {
+      staleTime: staleTime ?? queryDurations.FIVE_SECONDS,
+      ...restOptions,
+    },
+  ) as GitOperationResult;
 }
 
 export const initGitRecentBranchesQuery = once(() => {
@@ -200,11 +222,18 @@ export function useGitRecentBranchesQuery(
     limit: 100,
   });
 
-  return useGitOperationQuery(cwd, hostConfig, "recent-branches", buildRecentBranchesRequest, operationSource, {
-    select: selectBranches,
-    staleTime: queryDurations.FIVE_SECONDS,
-    ...options,
-  }) as GitOperationResult<string[]>;
+  return useGitOperationQuery(
+    cwd,
+    hostConfig,
+    "recent-branches",
+    buildRecentBranchesRequest,
+    operationSource,
+    {
+      select: selectBranches,
+      staleTime: queryDurations.FIVE_SECONDS,
+      ...options,
+    },
+  ) as GitOperationResult<string[]>;
 }
 
 export const initCheckoutBranchMutation = once(() => {
@@ -223,9 +252,18 @@ export function useCheckoutBranchMutation(
   callbacks?: MutationCallbacks<CheckoutBranchPayload, GitMutationResponse>,
 ): MutationResult<CheckoutBranchPayload, GitMutationResponse> {
   const queryClient = useQueryClient();
-  const { data: availability } = useGitAvailabilityQuery(cwd, hostConfig, operationSource) as GitOperationResult<GitAvailability>;
+  const { data: availability } = useGitAvailabilityQuery(
+    cwd,
+    hostConfig,
+    operationSource,
+  ) as GitOperationResult<GitAvailability>;
   const hostKey = getHostCacheKey(hostConfig);
-  const mutationKey = ["vscode", "git-checkout-branch", cwd ?? null, hostConfig.id];
+  const mutationKey = [
+    "vscode",
+    "git-checkout-branch",
+    cwd ?? null,
+    hostConfig.id,
+  ];
 
   const onSettled = async (
     result: GitMutationResponse,
@@ -297,9 +335,18 @@ export function useCreateBranchMutation(
   callbacks?: MutationCallbacks<CreateBranchPayload, GitMutationResponse>,
 ): MutationResult<CreateBranchPayload, GitMutationResponse> {
   const queryClient = useQueryClient();
-  const { data: availability } = useGitAvailabilityQuery(cwd, hostConfig, operationSource) as GitOperationResult<GitAvailability>;
+  const { data: availability } = useGitAvailabilityQuery(
+    cwd,
+    hostConfig,
+    operationSource,
+  ) as GitOperationResult<GitAvailability>;
   const hostKey = getHostCacheKey(hostConfig);
-  const mutationKey = ["vscode", "git-create-branch", cwd ?? null, hostConfig.id];
+  const mutationKey = [
+    "vscode",
+    "git-create-branch",
+    cwd ?? null,
+    hostConfig.id,
+  ];
 
   const onSettled = async (
     result: GitMutationResponse,

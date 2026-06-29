@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pull-request-check-rows-Q1OJv6O3.js
+// Restored from ref/webview/assets/pull-request-check-rows-B2iGS9CB.js
 // Pull request side-panel analytics helpers.
 import { once } from "../../runtime/commonjs-interop";
 import {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pull-request-check-rows-Q1OJv6O3.js
+// Restored from ref/webview/assets/pull-request-check-rows-B2iGS9CB.js
 // Pull request check status icons and row list.
 import type { ReactNode, SVGProps } from "react";
 import { once } from "../../runtime/commonjs-interop";
@@ -103,7 +103,8 @@ export function PullRequestCheckRows({
   onRemoveCheck,
 }: PullRequestCheckRowsProps) {
   const sortedRows = [...checks].sort(
-    (left, right) => CHECK_STATUS_ORDER[left.status] - CHECK_STATUS_ORDER[right.status],
+    (left, right) =>
+      CHECK_STATUS_ORDER[left.status] - CHECK_STATUS_ORDER[right.status],
   );
   const rows = sortedRows.map((check, index): PullRequestRowItem => {
     const isAttached = isCheckAttached?.(check) ?? false;
@@ -164,16 +165,22 @@ export function PullRequestUnknownCheckIcon(props: SVGProps<SVGSVGElement>) {
 function CheckStatusIcon({ status }: { status: PullRequestCheckStatus }) {
   switch (status) {
     case "failing":
-      return <XCircleFilledIcon className="icon-sm shrink-0 text-token-charts-red" />;
+      return (
+        <XCircleFilledIcon className="icon-sm shrink-0 text-token-charts-red" />
+      );
     case "pending":
-      return <ClockIcon className="icon-sm shrink-0 text-token-charts-yellow" />;
+      return (
+        <ClockIcon className="icon-sm shrink-0 text-token-charts-yellow" />
+      );
     case "passing":
       return (
         <CheckCircleFilledIcon className="icon-sm shrink-0 text-token-charts-green" />
       );
     case "skipped":
     case "unknown":
-      return <PullRequestUnknownCheckIcon className="icon-sm shrink-0 text-token-text-tertiary" />;
+      return (
+        <PullRequestUnknownCheckIcon className="icon-sm shrink-0 text-token-text-tertiary" />
+      );
   }
 }
 

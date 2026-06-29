@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-branch-switcher-BokkKYIT.js
+// Restored from ref/webview/assets/git-branch-switcher-Cb06tz5G.js
 
 import React from "react";
 import {
@@ -23,7 +23,10 @@ import {
 import { DiffStats } from "../git-review-primitives";
 import { getChangedFileCount, orderPreferredBranches } from "./branch-helpers";
 import { sanitizeGitBranchSearchInput } from "./branch-name";
-import { useGitRecentBranchesQuery, useGitStatusSummaryQuery } from "./branch-queries";
+import {
+  useGitRecentBranchesQuery,
+  useGitStatusSummaryQuery,
+} from "./branch-queries";
 import { BRANCH_SWITCHER_OPERATION_SOURCE } from "./constants";
 import type { GitOperationResult, HostConfig } from "./types";
 
@@ -69,9 +72,14 @@ export function CreateAndCheckoutBranchDialog({
     isLoading,
     isFetching,
     isError,
-  } = useGitRecentBranchesQuery(gitRoot, hostConfig, BRANCH_SWITCHER_OPERATION_SOURCE, {
-    enabled: shouldLoadBranches,
-  });
+  } = useGitRecentBranchesQuery(
+    gitRoot,
+    hostConfig,
+    BRANCH_SWITCHER_OPERATION_SOURCE,
+    {
+      enabled: shouldLoadBranches,
+    },
+  );
   const orderedBranches = orderPreferredBranches({
     branches: recentBranches,
     currentBranch: "",
@@ -79,7 +87,8 @@ export function CreateAndCheckoutBranchDialog({
   });
   const trimmedBranchName = branchName.trim();
   const hasTrailingSlash = trimmedBranchName.endsWith("/");
-  const branchAlreadyExists = trimmedBranchName.length > 0 && orderedBranches.includes(trimmedBranchName);
+  const branchAlreadyExists =
+    trimmedBranchName.length > 0 && orderedBranches.includes(trimmedBranchName);
   const repositoryHasNoCommits =
     !isLoading && !isFetching && !isError && recentBranches.length === 0;
   const canSubmit =
@@ -174,7 +183,12 @@ export function CreateAndCheckoutBranchDialog({
                 description="Secondary button label in create-and-checkout branch dialog shown from the composer footer"
               />
             </Button>
-            <Button color="primary" disabled={!canSubmit} loading={isPending} onClick={submitBranch}>
+            <Button
+              color="primary"
+              disabled={!canSubmit}
+              loading={isPending}
+              onClick={submitBranch}
+            >
               <FormattedMessage
                 id="composer.footer.branchSwitch.createDialog.createAndCheckout"
                 defaultMessage="Create and checkout"
@@ -247,7 +261,9 @@ export function UncommittedChangesDialog({
     },
   ) as GitOperationResult<ReviewSummary>;
   const reviewSummaries = [stagedSummary, unstagedSummary];
-  const mergedSummary = mergeReviewSummaryStats(reviewSummaries) as ReviewSummary | undefined;
+  const mergedSummary = mergeReviewSummaryStats(reviewSummaries) as
+    | ReviewSummary
+    | undefined;
   const totalAdditions = mergedSummary?.totalAdditions ?? 0;
   const totalDeletions = mergedSummary?.totalDeletions ?? 0;
   const hasDiffStats = totalAdditions + totalDeletions > 0;
@@ -290,7 +306,10 @@ export function UncommittedChangesDialog({
               />
               <div className="flex flex-col gap-1">
                 {conflictFiles.map((filePath, index) => {
-                  const fileStats = findFileDiffStats(filePath, reviewSummaries) as FileDiffStats | null;
+                  const fileStats = findFileDiffStats(
+                    filePath,
+                    reviewSummaries,
+                  ) as FileDiffStats | null;
 
                   return (
                     <div

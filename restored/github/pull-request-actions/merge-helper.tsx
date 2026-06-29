@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pull-request-check-rows-Q1OJv6O3.js
+// Restored from ref/webview/assets/pull-request-check-rows-B2iGS9CB.js
 // Helpers for the "Merge with Codex" pull request action.
 import type { MouseEvent } from "react";
 import { once } from "../../runtime/commonjs-interop";
@@ -17,7 +17,10 @@ import {
 } from "../../runtime/pull-request-actions-runtime";
 import { CodexIcon } from "../../icons/codex-icon";
 import { FormattedMessage } from "../../vendor/react-intl";
-import { trackPullRequestAction, initPullRequestAnalyticsChunk } from "./analytics";
+import {
+  trackPullRequestAction,
+  initPullRequestAnalyticsChunk,
+} from "./analytics";
 import type { PullRequestBoardItem, PullRequestSurface } from "./types";
 
 type MergeHelperPromptOptions = {
@@ -201,10 +204,7 @@ export function MergeWithCodexButton({
   );
 }
 
-function getPullRequestPromptContext({
-  item,
-  repo,
-}: MergeHelperPromptOptions) {
+function getPullRequestPromptContext({ item, repo }: MergeHelperPromptOptions) {
   return [
     `Repository: ${repo ?? item.repo ?? "the current repository"}`,
     `Pull request: #${item.number ?? "unknown"}`,

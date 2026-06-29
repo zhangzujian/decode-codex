@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-branch-switcher-BokkKYIT.js
+// Restored from ref/webview/assets/git-branch-switcher-Cb06tz5G.js
 
 import React from "react";
 import {
@@ -44,32 +44,50 @@ export function GitBranchDropdownContent({
   const intl = useIntl();
   const [searchQuery, setSearchQuery] = React.useState("");
   const debouncedSearchQuery = useDebouncedValue(searchQuery, 200);
-  const { data: statusSummary, refetch: refetchStatusSummary } = useGitStatusSummaryQuery(
-    gitRoot,
-    hostConfig,
-    BRANCH_SWITCHER_OPERATION_SOURCE,
-  );
+  const { data: statusSummary, refetch: refetchStatusSummary } =
+    useGitStatusSummaryQuery(
+      gitRoot,
+      hostConfig,
+      BRANCH_SWITCHER_OPERATION_SOURCE,
+    );
   const {
     data: recentBranches = [],
     isLoading: isRecentLoading,
     isFetching: isRecentFetching,
     isError: isRecentError,
     refetch: refetchRecentBranches,
-  } = useGitRecentBranchesQuery(gitRoot, hostConfig, BRANCH_SWITCHER_OPERATION_SOURCE, {
-    enabled: true,
-  });
-  const {
-    data: defaultBranch,
-    refetch: refetchDefaultBranch,
-  } = useDefaultBranchQuery(gitRoot, hostConfig, BRANCH_SWITCHER_OPERATION_SOURCE, {
-    enabled: true,
-  }) as GitOperationResult<string | null>;
+  } = useGitRecentBranchesQuery(
+    gitRoot,
+    hostConfig,
+    BRANCH_SWITCHER_OPERATION_SOURCE,
+    {
+      enabled: true,
+    },
+  );
+  const { data: defaultBranch, refetch: refetchDefaultBranch } =
+    useDefaultBranchQuery(
+      gitRoot,
+      hostConfig,
+      BRANCH_SWITCHER_OPERATION_SOURCE,
+      {
+        enabled: true,
+      },
+    ) as GitOperationResult<string | null>;
 
   React.useEffect(() => {
     if (isOpen) {
-      Promise.all([refetchRecentBranches?.(), refetchDefaultBranch?.(), refetchStatusSummary?.()]);
+      Promise.all([
+        refetchRecentBranches?.(),
+        refetchDefaultBranch?.(),
+        refetchStatusSummary?.(),
+      ]);
     }
-  }, [isOpen, refetchRecentBranches, refetchDefaultBranch, refetchStatusSummary]);
+  }, [
+    isOpen,
+    refetchRecentBranches,
+    refetchDefaultBranch,
+    refetchStatusSummary,
+  ]);
 
   const trimmedSearchQuery = searchQuery.trim();
   const settledSearchQuery = String(debouncedSearchQuery).trim();
@@ -88,7 +106,10 @@ export function GitBranchDropdownContent({
     defaultBranch,
   });
   const repositoryHasNoCommits =
-    !isRecentLoading && !isRecentFetching && !isRecentError && recentBranches.length === 0;
+    !isRecentLoading &&
+    !isRecentFetching &&
+    !isRecentError &&
+    recentBranches.length === 0;
   const changedFileCount = getChangedFileCount(statusSummary);
   const createDisabledTooltip = repositoryHasNoCommits
     ? intl.formatMessage({
@@ -98,7 +119,8 @@ export function GitBranchDropdownContent({
           "Tooltip shown when create-and-checkout branch action is disabled because the repository has no commits",
       })
     : undefined;
-  const isListLoading = isRecentLoading || (isRecentFetching && orderedBranches.length === 0);
+  const isListLoading =
+    isRecentLoading || (isRecentFetching && orderedBranches.length === 0);
   const isSearchLoading = isSearchSettling || branchSearch.isFetching;
 
   const retryRecentBranches = () => {
@@ -112,7 +134,9 @@ export function GitBranchDropdownContent({
       <span className="inline-flex items-center gap-1 text-xs text-token-input-placeholder-foreground">
         <FormattedMessage
           id="composer.footer.branchSwitch.uncommittedSummaryPrefix"
-          defaultMessage={"Uncommitted: {fileCount, plural, one {# file} other {# files}}"}
+          defaultMessage={
+            "Uncommitted: {fileCount, plural, one {# file} other {# files}}"
+          }
           description="Prefix shown under the active branch in the branch dropdown when there are uncommitted tracked changes"
           values={{
             fileCount: changedFileCount,

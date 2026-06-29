@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pull-request-check-rows-Q1OJv6O3.js
+// Restored from ref/webview/assets/pull-request-check-rows-B2iGS9CB.js
 // Compact action button used by pull request side-panel rows.
 import type { ReactNode } from "react";
 import { once } from "../../runtime/commonjs-interop";
