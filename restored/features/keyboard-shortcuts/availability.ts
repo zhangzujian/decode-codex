@@ -51,6 +51,9 @@ export function isKeyboardShortcutCommandAvailable(
   }
   return commandId !== "toggleTraceRecording";
 }
+
+export function initKeyboardShortcutAvailabilityChunk(): void {}
+
 export function isKeyboardShortcutCommandFeatureEnabled(
   commandId: string,
   {
@@ -87,6 +90,9 @@ export function compareKeyboardShortcutCommands(
     ? firstCommand.id.localeCompare(secondCommand.id)
     : groupDelta;
 }
+
+export function initKeyboardShortcutCommandOrderingChunk(): void {}
+
 function getCommandMenuGroupRank(command: KeyboardShortcutCommand): number {
   if (command.kind !== "webview" || command.commandMenuGroupKey == null) {
     return COMMAND_MENU_GROUP_ORDER.length;

@@ -86,3 +86,5 @@ export function KeyboardShortcutsSearchInput({
     </div>
   );
 }
+
+export function initKeyboardShortcutsSearchInputChunk(): void {}
