@@ -2,15 +2,18 @@
 // Bridges a workspace file into the OpenAI MCP "capability" surface: exposes the
 // file as an MCP resource (with a stable codex-resource:// instance id) and a
 // reader, then renders the embedded MCP app view for it.
-import { OpenAiMcpCapabilityView } from "./openai-mcp-capability-view";
+import { useRef } from "react";
+import {
+  OpenAiMcpCapabilityView,
+  type McpCapabilityViewModel,
+} from "./openai-mcp-capability-view";
 import { createWorkspaceFileReader } from "./workspace-file-reader";
 import {
   buildFileViewerToolArguments,
   createFileResourceReader,
 } from "../boundaries/onboarding-commons-externals.facade";
 
-interface FileViewer {
-  resourceUri: string;
+interface FileViewer extends McpCapabilityViewModel {
   [key: string]: unknown;
 }
 
@@ -26,12 +29,11 @@ export function FileResourceMcpView(props: FileResourceMcpViewProps) {
   const { className, filePath, fileViewer, instanceId, readResourceContents } =
     props;
 
-  let resourceUri: string;
-  if (instanceId != null) {
-    resourceUri = instanceId;
-  } else {
-    resourceUri = `codex-resource://${crypto.randomUUID()}`;
+  const fallbackResourceUri = useRef<string | null>(null);
+  if (instanceId == null && fallbackResourceUri.current == null) {
+    fallbackResourceUri.current = `codex-resource://${crypto.randomUUID()}`;
   }
+  const resourceUri = instanceId ?? fallbackResourceUri.current!;
 
   const toolArguments = buildFileViewerToolArguments(filePath, resourceUri);
   const readHostResource = createFileResourceReader({

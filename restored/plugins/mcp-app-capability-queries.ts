@@ -23,7 +23,7 @@ export function buildResourceCacheKey({
   threadId,
   view,
 }: {
-  threadId: string;
+  threadId?: string;
   view: McpCapabilityView;
 }): string {
   return JSON.stringify([
@@ -40,7 +40,7 @@ export function buildToolResultCacheKey({
   toolArguments,
   view,
 }: {
-  threadId: string;
+  threadId?: string;
   toolArguments: unknown;
   view: McpCapabilityView;
 }): string {
@@ -57,7 +57,7 @@ export function buildToolResultCacheKey({
 export const mcpCapabilityViewResourceQueryAtom = createParametricQueryAtom(
   appStoreScope,
   (
-    { threadId, view }: { threadId: string; view: McpCapabilityView },
+    { threadId, view }: { threadId?: string; view: McpCapabilityView },
     { scope }: { scope: unknown },
   ) => ({
     queryKey: [
@@ -88,7 +88,7 @@ export const mcpCapabilityViewToolResultQueryAtom = createParametricQueryAtom(
       toolArguments,
       threadId,
       view,
-    }: { toolArguments: unknown; threadId: string; view: McpCapabilityView },
+    }: { toolArguments: unknown; threadId?: string; view: McpCapabilityView },
     { scope }: { scope: unknown },
   ) => ({
     queryKey: [
