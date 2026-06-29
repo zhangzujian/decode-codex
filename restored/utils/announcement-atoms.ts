@@ -23,6 +23,14 @@ const workspaceMessageLastSeenAtByAccountAtom = persistedAtom(
   "workspace-message-last-seen-at-by-account",
   {} as LastSeenByAccount,
 );
+const seenModelUpgradeListAtom = persistedAtom<string[]>(
+  "seen-model-upgrade-list",
+  [],
+);
+const latestModelSeenAtom = persistedAtom<string | null>(
+  "latest-model-seen",
+  null,
+);
 function getWorkspaceMessageLastSeenAt(
   lastSeenByAccount: LastSeenByAccount,
   accountId: string | null | undefined,
@@ -54,4 +62,6 @@ export {
   hasSeenKnowledgeWorkAnnouncementAtom,
   markWorkspaceMessageSeenAt,
   hasSeenAppgenAnnouncementAtom,
+  seenModelUpgradeListAtom,
+  latestModelSeenAtom,
 };

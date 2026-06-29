@@ -1,4 +1,17 @@
 // Restored from ref/webview/assets/app-initial~app-main~home-ambient-suggestions-content-C1TXIiPK.js
-// Semantic alias layer for home ambient suggestions current runtime.
-// prettier-ignore
-export { a as HomeAmbientSuggestionsCurrentExportLowerAAlias, c as HomeAmbientSuggestionsCurrentExportLowerCAlias, d as HomeAmbientSuggestionsCurrentExportLowerDAlias, f as HomeAmbientSuggestionsCurrentExportLowerFAlias, i as HomeAmbientSuggestionsCurrentExportLowerIAlias, l as HomeAmbientSuggestionsCurrentExportLowerLAlias, n as HomeAmbientSuggestionsCurrentExportLowerNAlias, o as HomeAmbientSuggestionsCurrentExportLowerOAlias, p as HomeAmbientSuggestionsCurrentExportLowerPAlias, r as HomeAmbientSuggestionsCurrentExportLowerRAlias, s as HomeAmbientSuggestionsCurrentExportLowerSAlias, t as HomeAmbientSuggestionsCurrentExportLowerTAlias, u as HomeAmbientSuggestionsCurrentExportLowerUAlias } from "../../boundaries/current-ref/current-app-initial-home-ambient-suggestions-current-runtime-producer";
+// Semantic home ambient suggestion announcement runtime.
+export {
+  hasSeenKnowledgeWorkAnnouncementSignal,
+  initHomeAnnouncementSignalsChunk,
+  useIsHomeAmbientSuggestionsRoute,
+  useLatestModelUpgradeAnnouncement,
+  hasSeenFastModeAnnouncementSignal,
+  initModelUpgradeAnnouncementStateChunk,
+  useWorkspaceAnnouncement,
+  hasSeenWorkPluginsAnnouncementSignal,
+  useModelAvailabilityNuxAnnouncement,
+  useWorkspaceHeadline,
+  homeAnnouncementDismissedSignal,
+  initWorkspaceMessagesQueryChunk,
+  usePriorityServiceTierAnnouncement,
+} from "../../app-shell/home-ambient-suggestions/index";
