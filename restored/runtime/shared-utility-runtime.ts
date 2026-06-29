@@ -1,11 +1,9 @@
 // Restored from ref/webview/assets/use-element-in-view-CZGmoMvk.js
 // Boundary facade for shared utility hooks, small icons, and vendored helpers.
 import {
-  Iw as onboardingWizardAction,
-  kE as initProductEventRuntime,
-} from "../vendor/appg-thread-shared-runtime";
-import {
   _S as createPersistentSignal,
+  Bm as onboardingWizardAction,
+  Df as initProductEventRuntime,
   gS as initPersistentSignalRuntime,
 } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
 import {
