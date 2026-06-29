@@ -1,23 +1,23 @@
 // Restored from ref/webview/assets/app-CAW031s_.js
 // app-CAW031s_ chunk restored from the Codex webview bundle.
 import {
-  _appScopeJ as notifyManager,
-  appScopeA as onlineManager,
-  appScopeE as Query,
-  appScopeH as matchQuery,
-  appScopeI as functionalUpdate,
-  appScopeK as resolveStaleTime,
-  appScopeL as hashKey,
-  appScopeM as focusManager,
-  appScopeR as hashQueryKeyByOptions,
-  appScopeU as noop,
-  appScopeV as matchMutation,
-  appScopeW as partialMatchKey,
-  appScopeX as Subscribable,
-  appScopeY as skipToken,
-} from "../../boundaries/app-scope";
+  queryCoreFocusManager as focusManager,
+  queryCoreFunctionalUpdate as functionalUpdate,
+  queryCoreHashKey as hashKey,
+  queryCoreHashQueryKeyByOptions as hashQueryKeyByOptions,
+  queryCoreMatchMutation as matchMutation,
+  queryCoreMatchQuery as matchQuery,
+  queryCoreNoop as noop,
+  queryCoreNotifyManager as notifyManager,
+  queryCoreOnlineManager as onlineManager,
+  queryCoreResolveStaleTime as resolveStaleTime,
+  QueryCoreSubscribable as Subscribable,
+  queryCorePartialMatchKey as partialMatchKey,
+  queryCoreSkipToken as skipToken,
+} from "../../boundaries/query-core-runtime";
+import { QueryCoreQuery as Query } from "../../boundaries/query-core-query";
 import { infiniteQueryBehavior } from "../../boundaries/use-host-config.facade";
-import { vscodeApiJ as Mutation } from "../../boundaries/vscode-api";
+import { VscodeApiMutation as Mutation } from "../../boundaries/vscode-api-mutation";
 import type {
   MutationCacheLike,
   QueryCacheLike,
