@@ -21,10 +21,12 @@ export type ChromeExtensionSyncInput = {
 
 export type ApplyChromeExtensionSyncInput = ChromeExtensionSyncInput & {
   chromeExtensionSyncManagedPluginStore: ChromeExtensionManagedPluginStore;
+  codexHome: string;
   logger: StructuredLogger;
   marketplaceName: string;
   nativeHostPluginName: string | null;
   removeChromeNativeHost(options: {
+    codexHome: string;
     marketplaceName: string;
     pluginName: string;
   }): Promise<void> | void;
@@ -95,6 +97,7 @@ export function decideChromeExtensionSync({
 
 export async function applyChromeExtensionSyncDecision({
   chromeExtensionSyncManagedPluginStore,
+  codexHome,
   extensionId,
   installedPlugin,
   installedPluginStatus,
@@ -148,7 +151,7 @@ export async function applyChromeExtensionSyncDecision({
     });
     await uninstallPlugin(installedPlugin.id);
     if (nativeHostPluginName != null) {
-      await removeChromeNativeHost({ marketplaceName, pluginName });
+      await removeChromeNativeHost({ codexHome, marketplaceName, pluginName });
     }
     chromeExtensionSyncManagedPluginStore.setManagedPluginId(
       installedPlugin.id,
