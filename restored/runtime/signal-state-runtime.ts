@@ -1,10 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js
 // React signal-state hooks used by restored app-scope feature modules.
 import {
-  Bs as createAtomSignalRaw,
-  Ps as initSignalStateRuntimeRaw,
-  Is as useSignalStateRaw,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
+  createAtom,
+  initJotaiRuntimeChunk,
+  useAtom,
+  type Atom,
+  type AtomStore,
+} from "../vendor/jotai-runtime";
 
 export type SignalStateUpdater<TValue> =
   | TValue
@@ -14,20 +16,19 @@ export type SignalStateSetter<TValue> = (
 ) => void;
 
 export function createAtomSignal<TValue>(initialValue: TValue): unknown {
-  return createAtomSignalRaw(initialValue);
+  return createAtom(initialValue);
 }
 
 export function initSignalStateRuntime(): void {
-  initSignalStateRuntimeRaw();
+  initJotaiRuntimeChunk();
 }
 
 export function useSignalState<TValue>(
   signal: unknown,
-  key?: unknown,
+  options?: { store?: AtomStore },
 ): [TValue, SignalStateSetter<TValue>] {
-  return (
-    arguments.length === 1
-      ? useSignalStateRaw(signal)
-      : useSignalStateRaw(signal, key)
-  ) as [TValue, SignalStateSetter<TValue>];
+  return useAtom(signal as Atom<TValue>, options) as [
+    TValue,
+    SignalStateSetter<TValue>,
+  ];
 }
