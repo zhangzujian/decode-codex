@@ -1,23 +1,25 @@
 // Restored from ref/webview/assets/use-element-in-view-CZGmoMvk.js
 // Boundary facade for shared utility hooks, small icons, and vendored helpers.
 import {
-  BV as getJsxRuntime,
   cV as createSymbolConstructor,
   Iw as onboardingWizardAction,
   JB as createIsIndex,
-  JV as initReactRuntime,
   jM as initPersistentSignalRuntime,
   kE as initProductEventRuntime,
   MM as createPersistentSignal,
   nV as createArrayPush,
   oV as createIsObject,
-  qV as getChunkModuleExports,
   tV as createIsArray,
   uV as createEq,
   VB as createIsArrayLike,
   wA as createIdentity,
   XB as createIsArguments,
 } from "../vendor/appg-thread-shared-runtime";
+import {
+  I as getJsxRuntime,
+  L as getChunkModuleExports,
+  R as initReactRuntime,
+} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js";
 import {
   _r as createDefineProperty,
   _u as createBaseAt,
