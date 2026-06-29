@@ -12,7 +12,7 @@ import {
   createIsIndex,
   createIsObject,
   createSymbolConstructor,
-} from "../runtime/shared-utility-runtime";
+} from "./lodash-runtime-helpers";
 
 type RestTransform = (values: unknown[]) => unknown;
 type VariadicFunction = (this: unknown, ...args: unknown[]) => unknown;
@@ -28,7 +28,9 @@ const isObject = createIsObject();
 const isArray = createIsArray();
 const eq = createEq();
 const identity = createIdentity();
-const spreadableSymbol = nativeSymbol ? nativeSymbol.isConcatSpreadable : undefined;
+const spreadableSymbol = nativeSymbol
+  ? nativeSymbol.isConcatSpreadable
+  : undefined;
 
 function isFlattenable(value: unknown): boolean {
   return (
@@ -53,7 +55,13 @@ function baseFlatten(
     const value = array[index];
     if (depth > 0 && predicate(value)) {
       if (depth > 1) {
-        baseFlatten(value as ArrayLike<unknown>, depth - 1, predicate, isStrict, result);
+        baseFlatten(
+          value as ArrayLike<unknown>,
+          depth - 1,
+          predicate,
+          isStrict,
+          result,
+        );
       } else {
         arrayPush(result, value);
       }
@@ -95,7 +103,8 @@ function overRest(
       restValues[restIndex] = args[start + restIndex];
     }
     const leadingArgs = Array(start + 1);
-    for (let index = 0; index < start; index += 1) leadingArgs[index] = args[index];
+    for (let index = 0; index < start; index += 1)
+      leadingArgs[index] = args[index];
     leadingArgs[start] = transform(restValues);
     return applyWithArity(func, this, leadingArgs);
   };
@@ -140,17 +149,18 @@ function shortOut<T extends (...args: any[]) => any>(func: T): T {
 
 const setToString = shortOut(baseSetToString);
 
-function baseRest(
-  func: VariadicFunction,
-  start?: number,
-): VariadicFunction {
+function baseRest(func: VariadicFunction, start?: number): VariadicFunction {
   return setToString(
     overRest(func, start, identity as RestTransform),
     `${func}`,
   ) as VariadicFunction;
 }
 
-function isIterateeCall(value: unknown, index: unknown, object: unknown): boolean {
+function isIterateeCall(
+  value: unknown,
+  index: unknown,
+  object: unknown,
+): boolean {
   if (!isObject(object)) return false;
   const indexType = typeof index;
   const isValidIndex =
@@ -166,7 +176,10 @@ const at = baseRest(function atWithGuard(object: unknown, paths: unknown[]) {
   if (object == null) return [];
   let normalizedPaths = paths;
   const pathCount = normalizedPaths.length;
-  if (pathCount > 1 && isIterateeCall(object, normalizedPaths[0], normalizedPaths[1])) {
+  if (
+    pathCount > 1 &&
+    isIterateeCall(object, normalizedPaths[0], normalizedPaths[1])
+  ) {
     normalizedPaths = [];
   } else if (
     pathCount > 2 &&
