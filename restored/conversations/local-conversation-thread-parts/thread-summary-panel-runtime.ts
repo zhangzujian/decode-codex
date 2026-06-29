@@ -5,10 +5,6 @@ import { initPersistentSignalRuntime as initScopedSignalRuntime } from "../../ru
 import { createScopedSignal as createScopedSignalRaw } from "../../runtime/app-scope-runtime";
 
 import {
-  $i as initSummaryPanelAnimationConfig,
-  Qi as threadSummaryPanelSectionTransition,
-} from "../../vendor/pull-request-thread-actions-runtime";
-import {
   $c as openBrowserSummaryTab,
   Cd as pinnedSummaryPanelSpringTransition,
   Fr as installedMcpAppIdsSignal,
@@ -54,6 +50,15 @@ import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
 } from "../local-conversation-route-runtime";
+
+const threadSummaryPanelSectionTransition = {
+  duration: 0.5,
+  ease: [0.19, 1, 0.22, 1],
+};
+
+function initSummaryPanelAnimationConfig(): void {
+  // The current section animation config is a local motion transition constant.
+}
 
 export {
   backgroundAgentsSignal,
