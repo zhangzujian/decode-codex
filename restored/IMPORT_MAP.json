@@ -10620,6 +10620,27 @@
       },
       "status": "done"
     },
+    "global-dictation-orb-BTMuOubw": {
+      "restored": "features/global-dictation-orb/index.ts",
+      "exports": {
+        "a": "startGlobalDictation",
+        "i": "retryGlobalDictation",
+        "n": "initGlobalDictationOrbChunk",
+        "o": "stopGlobalDictation",
+        "r": "initGlobalDictationSessionControllerChunk",
+        "t": "GlobalDictationOrb",
+        "startGlobalDictation": "startGlobalDictation",
+        "retryGlobalDictation": "retryGlobalDictation",
+        "initGlobalDictationOrbChunk": "initGlobalDictationOrbChunk",
+        "stopGlobalDictation": "stopGlobalDictation",
+        "initGlobalDictationSessionControllerChunk": "initGlobalDictationSessionControllerChunk",
+        "GlobalDictationOrb": "GlobalDictationOrb"
+      },
+      "status": "done",
+      "aliasOf": "global-dictation-orb-D5sxKQB_",
+      "note": "Current synced global dictation orb chunk with explicit start/retry/stop aliases and initializer exports.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "global-dictation-page-BV05fEU5": {
       "restored": "features/global-dictation-page/index.tsx",
       "exports": {

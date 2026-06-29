@@ -1,14 +1,21 @@
-// Restored from ref/webview/assets/global-dictation-orb-D5sxKQB_.js
-// global-dictation-orb-D5sxKQB_ chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/global-dictation-orb-BTMuOubw.js
+// global-dictation-orb-BTMuOubw chunk restored from the Codex webview bundle.
 import { GlobalDictationOrb } from "./global-dictation-orb";
 import {
   retryGlobalDictation,
   startGlobalDictation,
   stopGlobalDictation,
 } from "./session-controller";
+import { once } from "../../runtime/commonjs-interop";
+
+const initGlobalDictationSessionControllerChunk = once(() => {});
+const initGlobalDictationOrbChunk = once(() => {});
+
 export {
-  stopGlobalDictation,
-  retryGlobalDictation,
   startGlobalDictation,
+  retryGlobalDictation,
+  initGlobalDictationOrbChunk,
+  stopGlobalDictation,
+  initGlobalDictationSessionControllerChunk,
   GlobalDictationOrb,
 };
