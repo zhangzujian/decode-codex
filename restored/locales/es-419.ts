@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/es-419-l8FjsfDn.js
+// Restored from ref/webview/assets/es-419-DFyoHHc8.js
 // Es419 locale messages restored from the current Codex webview bundle.
 const es419Greeting = "Alternativa";
 export const es419Default = {

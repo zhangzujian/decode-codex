@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pl-PL-CJzhu7Jw.js
+// Restored from ref/webview/assets/pl-PL-CpM4oe24.js
 // PlPL locale messages restored from the current Codex webview bundle.
 const plPLGreeting = "Zapasowa";
 export const plPLDefault = {

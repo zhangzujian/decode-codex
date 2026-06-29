@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/lt-74XnDA7r.js
+// Restored from ref/webview/assets/lt-DUWRS6Tt.js
 // Lt locale messages restored from the current Codex webview bundle.
 const ltGreeting = "Atsarginis variantas";
 export const ltDefault = {

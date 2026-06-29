@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/fr-FR-eGS6uO2w.js
+// Restored from ref/webview/assets/fr-FR-Cpvtbppl.js
 // FrFR locale messages restored from the current Codex webview bundle.
 const frFRGreeting = "Solution de secours";
 export const frFRDefault = {

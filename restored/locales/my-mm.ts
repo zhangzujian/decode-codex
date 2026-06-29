@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/my-MM-CtDaOUZw.js
+// Restored from ref/webview/assets/my-MM-B2DCjyyB.js
 // MyMM locale messages restored from the current Codex webview bundle.
 const myMMGreeting = "အရန်";
 export const myMMDefault = {

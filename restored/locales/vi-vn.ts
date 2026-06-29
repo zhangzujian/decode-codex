@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/vi-VN-DvE18UUb.js
+// Restored from ref/webview/assets/vi-VN-CBrBuiMI.js
 // ViVN locale messages restored from the current Codex webview bundle.
 const viVNGreeting = "Dự phòng";
 export const viVNDefault = {

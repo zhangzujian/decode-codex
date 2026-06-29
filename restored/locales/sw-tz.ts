@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sw-TZ-B9Ny9hIG.js
+// Restored from ref/webview/assets/sw-TZ-CVis1sqh.js
 // SwTZ locale messages restored from the current Codex webview bundle.
 const swTZGreeting = "Mbadala";
 export const swTZDefault = {

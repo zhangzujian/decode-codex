@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sl-SI-Do5xB85g.js
+// Restored from ref/webview/assets/sl-SI-CXtfEBj9.js
 // SlSI locale messages restored from the current Codex webview bundle.
 const slSIGreeting = "Nadomestno";
 export const slSIDefault = {

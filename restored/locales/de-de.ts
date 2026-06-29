@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/de-DE-D63rPoLM.js
+// Restored from ref/webview/assets/de-DE-BCKs7I1Q.js
 // DeDE locale messages restored from the current Codex webview bundle.
 const deDEGreeting = "Ersatz";
 export const deDEDefault = {

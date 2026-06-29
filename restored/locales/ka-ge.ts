@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ka-GE-CgQMhVBL.js
+// Restored from ref/webview/assets/ka-GE-CDVNJAgG.js
 // KaGE locale messages restored from the current Codex webview bundle.
 const kaGEGreeting = "სათადარიგო ვარიანტი";
 export const kaGEDefault = {

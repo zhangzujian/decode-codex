@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/id-ID-DCQosstX.js
+// Restored from ref/webview/assets/id-ID-CQKnHCYT.js
 // IdID locale messages restored from the current Codex webview bundle.
 const idIDGreeting = "Pesan Cadangan";
 export const idIDDefault = {

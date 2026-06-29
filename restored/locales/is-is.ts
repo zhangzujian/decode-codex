@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/is-IS-DANru4dP.js
+// Restored from ref/webview/assets/is-IS-CFYSbhEO.js
 // IsIS locale messages restored from the current Codex webview bundle.
 const isISGreeting = "Varatexti";
 export const isISDefault = {

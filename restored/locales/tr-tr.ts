@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/tr-TR-CpyStiOS.js
+// Restored from ref/webview/assets/tr-TR-DJOlOhhn.js
 // TrTR locale messages restored from the current Codex webview bundle.
 const trTRGreeting = "Yedek";
 export const trTRDefault = {

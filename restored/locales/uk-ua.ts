@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/uk-UA-BvIcgx7t.js
+// Restored from ref/webview/assets/uk-UA-D8UOIhmf.js
 // UkUA locale messages restored from the current Codex webview bundle.
 const ukUAGreeting = "Запасний варіант";
 export const ukUADefault = {

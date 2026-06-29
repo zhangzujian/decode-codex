@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ur--oPcQ9ec.js
+// Restored from ref/webview/assets/ur-DYOXcuku.js
 // Ur locale messages restored from the current Codex webview bundle.
 const urGreeting = "متبادل";
 export const urDefault = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/et-EE-CJ7I2Exb.js
+// Restored from ref/webview/assets/et-EE-0CssZnCF.js
 // EtEE locale messages restored from the current Codex webview bundle.
 const etEEGreeting = "Varuvariant";
 export const etEEDefault = {

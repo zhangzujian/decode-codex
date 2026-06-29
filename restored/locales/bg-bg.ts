@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/bg-BG-D2bEYE2Y.js
+// Restored from ref/webview/assets/bg-BG-C771vIck.js
 // BgBG locale messages restored from the current Codex webview bundle.
 const bgBGGreeting = "Резервен вариант";
 export const bgBGDefault = {

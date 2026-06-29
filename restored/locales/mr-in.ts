@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/mr-IN-7Dodc0Ty.js
+// Restored from ref/webview/assets/mr-IN-QRVUN4wE.js
 // MrIN locale messages restored from the current Codex webview bundle.
 const mrINGreeting = "बॅकअप";
 export const mrINDefault = {

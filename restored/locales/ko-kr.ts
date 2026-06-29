@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ko-KR-adQ5bPpE.js
+// Restored from ref/webview/assets/ko-KR-7nm0RwMM.js
 // KoKR locale messages restored from the current Codex webview bundle.
 const koKRGreeting = "폴백";
 export const koKRDefault = {

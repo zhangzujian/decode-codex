@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/kk-uS1WcM2d.js
+// Restored from ref/webview/assets/kk-DnquLp8u.js
 // Kk locale messages restored from the current Codex webview bundle.
 const kkGreeting = "Резервтік";
 export const kkDefault = {

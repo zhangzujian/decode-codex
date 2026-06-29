@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pa-BZHWcmht.js
+// Restored from ref/webview/assets/pa-D0zPFlfM.js
 // Pa locale messages restored from the current Codex webview bundle.
 const paGreeting = "ਫਾਲਬੈਕ";
 export const paDefault = {

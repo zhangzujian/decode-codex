@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/hy-AM-CL4pCUXE.js
+// Restored from ref/webview/assets/hy-AM-CqrvdbOW.js
 // HyAM locale messages restored from the current Codex webview bundle.
 const hyAMGreeting = "Պահուստային";
 export const hyAMDefault = {

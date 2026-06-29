@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ar-BaFVaNHU.js
+// Restored from ref/webview/assets/ar-CtZHOil4.js
 // Ar locale messages restored from the current Codex webview bundle.
 const arGreeting = "بديل احتياطي";
 export const arDefault = {

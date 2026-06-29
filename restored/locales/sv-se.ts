@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sv-SE-B7FIoSU0.js
+// Restored from ref/webview/assets/sv-SE-D8Pp2zkN.js
 // SvSE locale messages restored from the current Codex webview bundle.
 const svSEGreeting = "Reserv";
 export const svSEDefault = {

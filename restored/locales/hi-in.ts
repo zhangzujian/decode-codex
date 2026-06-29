@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/hi-IN-CVDBYsXT.js
+// Restored from ref/webview/assets/hi-IN-VbqkHreo.js
 // HiIN locale messages restored from the current Codex webview bundle.
 const hiINGreeting = "बैकअप विकल्प";
 export const hiINDefault = {

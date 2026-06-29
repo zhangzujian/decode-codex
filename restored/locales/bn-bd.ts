@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/bn-BD-BAGlMiMo.js
+// Restored from ref/webview/assets/bn-BD-CJX2VuUi.js
 // BnBD locale messages restored from the current Codex webview bundle.
 const bnBDGreeting = "ব্যাকআপ";
 export const bnBDDefault = {

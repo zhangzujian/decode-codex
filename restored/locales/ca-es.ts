@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ca-ES-BAz7VPpi.js
+// Restored from ref/webview/assets/ca-ES-D8n6ouW1.js
 // CaES locale messages restored from the current Codex webview bundle.
 const caESGreeting = "Alternativa";
 export const caESDefault = {

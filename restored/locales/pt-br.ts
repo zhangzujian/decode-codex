@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pt-BR-BSYzVBPC.js
+// Restored from ref/webview/assets/pt-BR-VU2u5wcW.js
 // PtBR locale messages restored from the current Codex webview bundle.
 const ptBRGreeting = "Mensagem padrão";
 export const ptBRDefault = {

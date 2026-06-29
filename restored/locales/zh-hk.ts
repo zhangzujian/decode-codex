@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/zh-HK-sh0FzERc.js
+// Restored from ref/webview/assets/zh-HK-CWNL91Gv.js
 // ZhHK locale messages restored from the current Codex webview bundle.
 const zhHKGreeting = "後備";
 export const zhHKDefault = {

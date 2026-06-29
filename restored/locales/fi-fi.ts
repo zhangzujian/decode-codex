@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/fi-FI-C1HseERi.js
+// Restored from ref/webview/assets/fi-FI-Y9J7Ykf0.js
 // FiFI locale messages restored from the current Codex webview bundle.
 const fiFIGreeting = "Varaviesti";
 export const fiFIDefault = {

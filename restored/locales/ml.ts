@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ml-ChEpdLdJ.js
+// Restored from ref/webview/assets/ml-Bg4RvjjK.js
 // Ml locale messages restored from the current Codex webview bundle.
 const mlGreeting = "ഫോൾബാക്ക്";
 export const mlDefault = {

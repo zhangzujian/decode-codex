@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/da-DK-L5kUxedx.js
+// Restored from ref/webview/assets/da-DK-DuJf5BST.js
 // DaDK locale messages restored from the current Codex webview bundle.
 const daDKGreeting = "Fallback";
 export const daDKDefault = {

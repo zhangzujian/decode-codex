@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/cs-CZ-Blia0Srx.js
+// Restored from ref/webview/assets/cs-CZ-CViX8sy9.js
 // CsCZ locale messages restored from the current Codex webview bundle.
 const csCZGreeting = "Záložní";
 export const csCZDefault = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/am-CjqvPkLf.js
+// Restored from ref/webview/assets/am-TV3NZRpd.js
 // Am locale messages restored from the current Codex webview bundle.
 const amGreeting = "መመለሻ";
 export const amDefault = {

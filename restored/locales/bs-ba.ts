@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/bs-BA-BHB7MacG.js
+// Restored from ref/webview/assets/bs-BA-CTHmT7FV.js
 // BsBA locale messages restored from the current Codex webview bundle.
 const bsBAGreeting = "Rezervno";
 export const bsBADefault = {

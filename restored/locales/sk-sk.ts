@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sk-SK-BsKKZvvP.js
+// Restored from ref/webview/assets/sk-SK-ByD0YvmC.js
 // SkSK locale messages restored from the current Codex webview bundle.
 const skSKGreeting = "Náhradné";
 export const skSKDefault = {

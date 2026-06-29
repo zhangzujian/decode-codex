@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/th-TH-GAMKp_nE.js
+// Restored from ref/webview/assets/th-TH-BEw1UFrb.js
 // ThTH locale messages restored from the current Codex webview bundle.
 const thTHGreeting = "สำรอง";
 export const thTHDefault = {

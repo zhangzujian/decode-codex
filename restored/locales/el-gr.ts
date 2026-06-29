@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/el-GR-BrfdoJFC.js
+// Restored from ref/webview/assets/el-GR-8DkPoOo8.js
 // ElGR locale messages restored from the current Codex webview bundle.
 const elGRGreeting = "Εφεδρικό";
 export const elGRDefault = {

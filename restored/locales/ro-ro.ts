@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ro-RO-Dii6l9Y4.js
+// Restored from ref/webview/assets/ro-RO-DdEIpEKg.js
 // RoRO locale messages restored from the current Codex webview bundle.
 const roROGreeting = "Rezervă";
 export const roRODefault = {

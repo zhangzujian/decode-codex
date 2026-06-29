@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/hr-HR-B0nLGQgi.js
+// Restored from ref/webview/assets/hr-HR-BFT2_Ahj.js
 // HrHR locale messages restored from the current Codex webview bundle.
 const hrHRGreeting = "Rezervna opcija";
 export const hrHRDefault = {

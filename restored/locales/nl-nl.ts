@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/nl-NL-3sS_CdAo.js
+// Restored from ref/webview/assets/nl-NL-C6pF6MKA.js
 // NlNL locale messages restored from the current Codex webview bundle.
 const nlNLGreeting = "Terugvaloptie";
 export const nlNLDefault = {

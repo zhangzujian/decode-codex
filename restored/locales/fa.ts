@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/fa-DqlONpwh.js
+// Restored from ref/webview/assets/fa-BXfCiPdU.js
 // Fa locale messages restored from the current Codex webview bundle.
 const faGreeting = "جایگزین";
 export const faDefault = {

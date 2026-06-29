@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/es-ES-4AJWyRAa.js
+// Restored from ref/webview/assets/es-ES-B2bkZ0pS.js
 // EsES locale messages restored from the current Codex webview bundle.
 const esESGreeting = "Alternativa";
 export const esESDefault = {

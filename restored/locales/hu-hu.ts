@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/hu-HU-B7xklNur.js
+// Restored from ref/webview/assets/hu-HU-PeillpTn.js
 // HuHU locale messages restored from the current Codex webview bundle.
 const huHUGreeting = "Tartalék";
 export const huHUDefault = {

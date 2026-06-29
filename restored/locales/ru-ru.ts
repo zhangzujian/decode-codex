@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ru-RU-CBDjoJgP.js
+// Restored from ref/webview/assets/ru-RU-CuU7GCwq.js
 // RuRU locale messages restored from the current Codex webview bundle.
 const ruRUGreeting = "Запасной вариант";
 export const ruRUDefault = {

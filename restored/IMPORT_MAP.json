@@ -14462,6 +14462,644 @@
       "aliasOf": "chunk-MI3HLSF2-DUVSUh0R",
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current vendor chunk keeps the restored public API and adds r internal export."
+    },
+    "am-TV3NZRpd": {
+      "restored": "locales/am.ts",
+      "exports": {
+        "default": "amDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "am-D5soOju5",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ar-CtZHOil4": {
+      "restored": "locales/ar.ts",
+      "exports": {
+        "default": "arDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ar-BYzcPnMt",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "bg-BG-C771vIck": {
+      "restored": "locales/bg-bg.ts",
+      "exports": {
+        "default": "bgBGDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "bg-BG-BhW0D5U1",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "bn-BD-CJX2VuUi": {
+      "restored": "locales/bn-bd.ts",
+      "exports": {
+        "default": "bnBDDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "bn-BD-D8Owdbvl",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "bs-BA-CTHmT7FV": {
+      "restored": "locales/bs-ba.ts",
+      "exports": {
+        "default": "bsBADefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "bs-BA-CqzEs6IN",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ca-ES-D8n6ouW1": {
+      "restored": "locales/ca-es.ts",
+      "exports": {
+        "default": "caESDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ca-ES-z44J2uQd",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "cs-CZ-CViX8sy9": {
+      "restored": "locales/cs-cz.ts",
+      "exports": {
+        "default": "csCZDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "cs-CZ-Dpt3IKAc",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "da-DK-DuJf5BST": {
+      "restored": "locales/da-dk.ts",
+      "exports": {
+        "default": "daDKDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "da-DK-DjpYQ3Ww",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "de-DE-BCKs7I1Q": {
+      "restored": "locales/de-de.ts",
+      "exports": {
+        "default": "deDEDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "de-DE-BlIA6tJU",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "el-GR-8DkPoOo8": {
+      "restored": "locales/el-gr.ts",
+      "exports": {
+        "default": "elGRDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "el-GR-CZhyRT3v",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "es-419-DFyoHHc8": {
+      "restored": "locales/es-419.ts",
+      "exports": {
+        "default": "es419Default",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "es-419-D_L5ZOFq",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "es-ES-B2bkZ0pS": {
+      "restored": "locales/es-es.ts",
+      "exports": {
+        "default": "esESDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "es-ES-4AJWyRAa",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "et-EE-0CssZnCF": {
+      "restored": "locales/et-ee.ts",
+      "exports": {
+        "default": "etEEDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "et-EE-C4S5p0OT",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "fa-BXfCiPdU": {
+      "restored": "locales/fa.ts",
+      "exports": {
+        "default": "faDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "fa-DP1J1lBg",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "fi-FI-Y9J7Ykf0": {
+      "restored": "locales/fi-fi.ts",
+      "exports": {
+        "default": "fiFIDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "fi-FI-6uDa3Shi",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "fr-CA-DqzWWoFx": {
+      "restored": "locales/fr-ca.ts",
+      "exports": {
+        "default": "frCADefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "fr-CA-BdD02lPj",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "fr-FR-Cpvtbppl": {
+      "restored": "locales/fr-fr.ts",
+      "exports": {
+        "default": "frFRDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "fr-FR-_l8AQa2a",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "gu-IN-Dk_OGIGT": {
+      "restored": "locales/gu-in.ts",
+      "exports": {
+        "default": "guINDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "gu-IN-xsdNPEen",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "hi-IN-VbqkHreo": {
+      "restored": "locales/hi-in.ts",
+      "exports": {
+        "default": "hiINDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "hi-IN-B62Rrzsr",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "hr-HR-BFT2_Ahj": {
+      "restored": "locales/hr-hr.ts",
+      "exports": {
+        "default": "hrHRDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "hr-HR-fYfIGYfz",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "hu-HU-PeillpTn": {
+      "restored": "locales/hu-hu.ts",
+      "exports": {
+        "default": "huHUDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "hu-HU-BeLDuXUP",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "hy-AM-CqrvdbOW": {
+      "restored": "locales/hy-am.ts",
+      "exports": {
+        "default": "hyAMDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "hy-AM-DMEWHb8i",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "id-ID-CQKnHCYT": {
+      "restored": "locales/id-id.ts",
+      "exports": {
+        "default": "idIDDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "id-ID-rq_OYNd1",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "is-IS-CFYSbhEO": {
+      "restored": "locales/is-is.ts",
+      "exports": {
+        "default": "isISDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "is-IS-k8WGAuGD",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "it-IT-DMucw47S": {
+      "restored": "locales/it-it.ts",
+      "exports": {
+        "default": "itITDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "it-IT-CKj4ut5G",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ja-JP-Nrsel1Zg": {
+      "restored": "locales/ja-jp.ts",
+      "exports": {
+        "default": "jaJPDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ja-JP-BrhoRk2F",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ka-GE-CDVNJAgG": {
+      "restored": "locales/ka-ge.ts",
+      "exports": {
+        "default": "kaGEDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ka-GE-CAO8OzIz",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "kk-DnquLp8u": {
+      "restored": "locales/kk.ts",
+      "exports": {
+        "default": "kkDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "kk-mrnuydfN",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ko-KR-7nm0RwMM": {
+      "restored": "locales/ko-kr.ts",
+      "exports": {
+        "default": "koKRDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ko-KR-DJ1lJReK",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "lt-DUWRS6Tt": {
+      "restored": "locales/lt.ts",
+      "exports": {
+        "default": "ltDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "lt-l593wJhl",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "mk-MK-5GOxiIKv": {
+      "restored": "locales/mk-mk.ts",
+      "exports": {
+        "default": "mkMKDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "mk-MK-Ctb7IHsG",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ml-Bg4RvjjK": {
+      "restored": "locales/ml.ts",
+      "exports": {
+        "default": "mlDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ml-ChjUUzhv",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "mr-IN-QRVUN4wE": {
+      "restored": "locales/mr-in.ts",
+      "exports": {
+        "default": "mrINDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "mr-IN-jjgIQw22",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ms-MY-Du8Sy1SH": {
+      "restored": "locales/ms-my.ts",
+      "exports": {
+        "default": "msMYDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ms-MY-dkDi8eIt",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "my-MM-B2DCjyyB": {
+      "restored": "locales/my-mm.ts",
+      "exports": {
+        "default": "myMMDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "my-MM-CeEAMvcW",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "nl-NL-C6pF6MKA": {
+      "restored": "locales/nl-nl.ts",
+      "exports": {
+        "default": "nlNLDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "nl-NL-mho2JLXC",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "pa-D0zPFlfM": {
+      "restored": "locales/pa.ts",
+      "exports": {
+        "default": "paDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "pa-BhjR_BW_",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "pl-PL-CpM4oe24": {
+      "restored": "locales/pl-pl.ts",
+      "exports": {
+        "default": "plPLDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "pl-PL-DyZ_95zX",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "pt-BR-VU2u5wcW": {
+      "restored": "locales/pt-br.ts",
+      "exports": {
+        "default": "ptBRDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "pt-BR-BWE6erAK",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "pt-PT-CECMtpkP": {
+      "restored": "locales/pt-pt.ts",
+      "exports": {
+        "default": "ptPTDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "pt-PT-BwE6VwBY",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ro-RO-DdEIpEKg": {
+      "restored": "locales/ro-ro.ts",
+      "exports": {
+        "default": "roRODefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ro-RO-DwDHb_fX",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ru-RU-CuU7GCwq": {
+      "restored": "locales/ru-ru.ts",
+      "exports": {
+        "default": "ruRUDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ru-RU-CZ8IKHZG",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "sk-SK-ByD0YvmC": {
+      "restored": "locales/sk-sk.ts",
+      "exports": {
+        "default": "skSKDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "sk-SK-D6qDDlQS",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "sl-SI-CXtfEBj9": {
+      "restored": "locales/sl-si.ts",
+      "exports": {
+        "default": "slSIDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "sl-SI-C7PwE4wN",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "so-SO-C_GAn1q0": {
+      "restored": "locales/so-so.ts",
+      "exports": {
+        "default": "soSODefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "so-SO-DaETleV5",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "sq-AL-DklfGH98": {
+      "restored": "locales/sq-al.ts",
+      "exports": {
+        "default": "sqALDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "sq-AL-zPNWjyhh",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "sr-RS-CM48f9au": {
+      "restored": "locales/sr-rs.ts",
+      "exports": {
+        "default": "srRSDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "sr-RS-DLOU33Sa",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "sv-SE-D8Pp2zkN": {
+      "restored": "locales/sv-se.ts",
+      "exports": {
+        "default": "svSEDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "sv-SE-DYt1uh98",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "sw-TZ-CVis1sqh": {
+      "restored": "locales/sw-tz.ts",
+      "exports": {
+        "default": "swTZDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "sw-TZ-BlQmflrx",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "th-TH-BEw1UFrb": {
+      "restored": "locales/th-th.ts",
+      "exports": {
+        "default": "thTHDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "th-TH-BPpx5F0e",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "tl-BqjOJzNK": {
+      "restored": "locales/tl.ts",
+      "exports": {
+        "default": "tlDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "tl-Dk-irmvY",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "tr-TR-DJOlOhhn": {
+      "restored": "locales/tr-tr.ts",
+      "exports": {
+        "default": "trTRDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "tr-TR-CpyStiOS",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "uk-UA-D8UOIhmf": {
+      "restored": "locales/uk-ua.ts",
+      "exports": {
+        "default": "ukUADefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "uk-UA-BvIcgx7t",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "ur-DYOXcuku": {
+      "restored": "locales/ur.ts",
+      "exports": {
+        "default": "urDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "ur--oPcQ9ec",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "vi-VN-CBrBuiMI": {
+      "restored": "locales/vi-vn.ts",
+      "exports": {
+        "default": "viVNDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "vi-VN-DvE18UUb",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "zh-CN-Bssc0aSr": {
+      "restored": "locales/zh-cn.ts",
+      "exports": {
+        "default": "zhCNDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "zh-CN-Do7tAOFh",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "zh-HK-CWNL91Gv": {
+      "restored": "locales/zh-hk.ts",
+      "exports": {
+        "default": "zhHKDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "zh-HK-sh0FzERc",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "zh-TW-ga5yoLEM": {
+      "restored": "locales/zh-tw.ts",
+      "exports": {
+        "default": "zhTWDefault",
+        "greeting": "greeting"
+      },
+      "status": "done",
+      "note": "Current locale-data chunk keeps the restored locale export API.",
+      "aliasOf": "zh-TW-DZA9KvlM",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     }
   }
 }

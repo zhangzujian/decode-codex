@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ja-JP-D6qp4Xjl.js
+// Restored from ref/webview/assets/ja-JP-Nrsel1Zg.js
 // JaJP locale messages restored from the current Codex webview bundle.
 const jaJPGreeting = "フォールバック";
 export const jaJPDefault = {

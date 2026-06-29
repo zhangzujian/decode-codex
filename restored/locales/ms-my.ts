@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ms-MY-CLv3f_pZ.js
+// Restored from ref/webview/assets/ms-MY-Du8Sy1SH.js
 // MsMY locale messages restored from the current Codex webview bundle.
 const msMYGreeting = "Sandaran";
 export const msMYDefault = {

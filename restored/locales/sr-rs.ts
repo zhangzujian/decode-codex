@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sr-RS-DGFHpY38.js
+// Restored from ref/webview/assets/sr-RS-CM48f9au.js
 // SrRS locale messages restored from the current Codex webview bundle.
 const srRSGreeting = "Резервна опција";
 export const srRSDefault = {

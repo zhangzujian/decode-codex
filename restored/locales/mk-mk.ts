@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/mk-MK-Ctb7IHsG.js
+// Restored from ref/webview/assets/mk-MK-5GOxiIKv.js
 // MkMK locale messages restored from the current Codex webview bundle.
 const mkMKGreeting = "Резерва";
 export const mkMKDefault = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/it-IT-B0xd5YZf.js
+// Restored from ref/webview/assets/it-IT-DMucw47S.js
 // ItIT locale messages restored from the current Codex webview bundle.
 const itITGreeting = "Soluzione alternativa";
 export const itITDefault = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/pt-PT-C9S83pag.js
+// Restored from ref/webview/assets/pt-PT-CECMtpkP.js
 // PtPT locale messages restored from the current Codex webview bundle.
 const ptPTGreeting = "Alternativa";
 export const ptPTDefault = {

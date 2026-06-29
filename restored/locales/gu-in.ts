@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/gu-IN-lpxkzWTS.js
+// Restored from ref/webview/assets/gu-IN-Dk_OGIGT.js
 // GuIN locale messages restored from the current Codex webview bundle.
 const guINGreeting = "ફોલબેક";
 export const guINDefault = {

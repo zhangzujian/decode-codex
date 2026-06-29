@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/zh-CN-Do7tAOFh.js
+// Restored from ref/webview/assets/zh-CN-Bssc0aSr.js
 // ZhCN locale messages restored from the current Codex webview bundle.
 const zhCNGreeting = "备用";
 export const zhCNDefault = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sq-AL-zPNWjyhh.js
+// Restored from ref/webview/assets/sq-AL-DklfGH98.js
 // SqAL locale messages restored from the current Codex webview bundle.
 const sqALGreeting = "Alternativë";
 export const sqALDefault = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/fr-CA-HA9FCt5G.js
+// Restored from ref/webview/assets/fr-CA-DqzWWoFx.js
 // FrCA locale messages restored from the current Codex webview bundle.
 const frCAGreeting = "Par défaut";
 export const frCADefault = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/zh-TW-DZA9KvlM.js
+// Restored from ref/webview/assets/zh-TW-ga5yoLEM.js
 // ZhTW locale messages restored from the current Codex webview bundle.
 const zhTWGreeting = "備援";
 export const zhTWDefault = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/so-SO-BiHgeg7j.js
+// Restored from ref/webview/assets/so-SO-C_GAn1q0.js
 // SoSO locale messages restored from the current Codex webview bundle.
 const soSOGreeting = "Doorasho kale";
 export const soSODefault = {
