@@ -13873,6 +13873,52 @@
       "boundary": "boundaries/current-ref/pull-request-thread-actions-producer.ts",
       "note": "Current synced pull-request thread action producer. It preserves the aliases needed by restored PR review panel/comment-card/description markdown runtimes; residual raw aliases stay in vendor/pull-request-thread-actions-runtime.ts as an open boundary.",
       "lastUpdated": "2026-06-28T21:35:00.000Z"
+    },
+    "address-utils-CS84EMiz": {
+      "restored": "vendor/xlsx-address-utils.ts",
+      "exports": {
+        "_": "addressUtilsUnderscore",
+        "a": "addressUtilsA",
+        "c": "addressUtilsC",
+        "d": "addressUtilsD",
+        "f": "addressUtilsF",
+        "g": "addressUtilsG",
+        "h": "addressUtilsH",
+        "i": "addressUtilsI",
+        "l": "addressUtilsL",
+        "m": "addressUtilsM",
+        "n": "addressUtilsN",
+        "o": "addressUtilsO",
+        "p": "addressUtilsP",
+        "r": "addressUtilsR",
+        "s": "addressUtilsS",
+        "t": "addressUtilsT",
+        "u": "addressUtilsU",
+        "v": "addressUtilsV"
+      },
+      "status": "done",
+      "aliasOf": "address-utils-D9uhGifl",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current XLSX address-utils chunk keeps the restored public API and adds b/y internal exports."
+    },
+    "load-script-enBvQ5ff": {
+      "restored": "vendor/segment-load-script.ts",
+      "exports": {
+        "a": "loadScriptA",
+        "c": "loadScriptC",
+        "i": "loadScriptI",
+        "l": "loadScriptL",
+        "n": "loadScriptN",
+        "o": "loadScriptO",
+        "r": "loadScriptR",
+        "s": "loadScriptS",
+        "t": "loadScriptT",
+        "u": "loadScriptU"
+      },
+      "status": "done",
+      "aliasOf": "load-script-CELRAn-0",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current Segment load-script chunk keeps the restored public API and adds d/f/m/p internal exports."
     }
   }
 }
