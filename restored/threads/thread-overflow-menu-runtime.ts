@@ -24,16 +24,16 @@ import {
 } from "../runtime/app-logger";
 
 import {
-  Ga as initElectronPlatformContent,
-  ii as closeSideChatThreadAssociation,
-  Ln as initKeyboardModifierState,
-  Rn as useCommandRegistration,
-  ri as initToastProducer,
-  Si as initThreadOverflowQueryRuntime,
-  ti as registerSideChatThreadAssociation,
-  Wa as PlatformContentGate,
-  xi as RenameThreadDialog,
-} from "../vendor/pull-request-thread-actions-runtime";
+  closeSideChatThreadAssociation,
+  initElectronPlatformContent,
+  initKeyboardModifierState,
+  initThreadOverflowQueryRuntime,
+  initToastProducer,
+  PlatformContentGate,
+  registerSideChatThreadAssociation,
+  RenameThreadDialog,
+  useCommandRegistration,
+} from "../boundaries/current-ref/thread-overflow-menu-primitives-producer";
 import {
   _c as getPanelController,
   a as forkConversationFromLatest,
