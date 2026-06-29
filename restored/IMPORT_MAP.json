@@ -14024,14 +14024,19 @@
       "exports": {
         "_S": "createPersistentSignal",
         "Bm": "onboardingWizardAction",
+        "Dd": "initGlobalStateQueryRuntime",
         "Df": "initProductEventRuntime",
+        "Ed": "globalStateQuerySignal",
         "Mb": "connectAppHostServices",
+        "Od": "setGlobalStateValue",
+        "Td": "globalStateQueryRequestSignal",
         "gS": "initPersistentSignalRuntime",
         "jb": "initAppHostServicesRuntimeChunk",
-        "nb": "getCachedConversationTurns"
+        "nb": "getCachedConversationTurns",
+        "wd": "getGlobalStateValue"
       },
       "status": "partial",
-      "note": "Current app-main app-host service bootstrap aliases, cached conversation turn reader, persistent-signal factory/runtime, product-event runtime initializer, and onboarding wizard action catalog are isolated in runtime/app-host-services-runtime.ts; the full producer and renderer RPC bridge remain an open partial boundary.",
+      "note": "Current app-main app-host service bootstrap aliases, cached conversation turn reader, persistent-signal factory/runtime, product-event runtime initializer, onboarding wizard action catalog, and global-state query helpers are isolated across runtime/app-host-services-runtime.ts and runtime/global-state-runtime.ts. Gu/Ku now drift to tab-context event-name constants and are intentionally not used for global-state. The full producer and renderer RPC bridge remain an open partial boundary.",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "app-initial~app-main~onboarding-page-BUwCKIcU": {
