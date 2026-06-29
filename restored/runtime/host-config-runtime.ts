@@ -1,11 +1,12 @@
-// Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
+// Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js
 // Host config helper initialization.
 import {
-  GE as initLocalHostConstantsRaw,
-  HE as useHostConfigByIdRaw,
-  VE as initHostConfigHelpersRaw,
-} from "../vendor/appg-thread-shared-runtime";
-import { $h as getHostConfigKeyRaw } from "../vendor/projects-app-shared-runtime";
+  Hn as initHostConfigHelpersRaw,
+  Vn as hostConfigByIdSignal,
+  eo as getHostConfigKeyRaw,
+  to as initLocalHostConstantsRaw,
+} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
+import { useScopedValue } from "./app-scope-hooks";
 
 export type HostConfigRecord = {
   id: string;
@@ -27,5 +28,5 @@ export function getHostConfigKey(hostConfig: HostConfigRecord): string {
 export function useHostConfigById<THostConfig extends HostConfigRecord>(
   hostId: string,
 ): THostConfig {
-  return useHostConfigByIdRaw(hostId) as THostConfig;
+  return useScopedValue<THostConfig>(hostConfigByIdSignal, hostId);
 }
