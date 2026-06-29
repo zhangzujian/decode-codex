@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/infinite-scroll-pagination-spinner-COdLT3Uw.js
+// Restored from ref/webview/assets/infinite-scroll-pagination-spinner-CqKOYMC4.js
 // Also matches ref/webview/assets/infinite-scroll-pagination-spinner-iQsEdPrJ.js.
 import React from "react";
 import { once } from "../runtime/commonjs-interop";

@@ -16178,6 +16178,72 @@
       "aliasOf": "selectable-list-row-Bm082MDr",
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current app chunk keeps the restored public export surface; alias added after current ref sync."
+    },
+    "worktree-environment-dropdown-CLHJ2WYr": {
+      "restored": "environments/worktree-environment-dropdown.tsx",
+      "exports": {
+        "n": "initWorktreeEnvironmentDropdownChunk",
+        "t": "WorktreeEnvironmentDropdown"
+      },
+      "status": "done",
+      "aliasOf": "worktree-environment-dropdown-_JdYz4cO",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current app chunk export surface restored including bundler init export."
+    },
+    "PopcornPageNumberNavigation-2i17P54k": {
+      "restored": "features/popcorn-page-number-navigation.tsx",
+      "exports": {
+        "n": "initPopcornPageNumberNavigationChunk",
+        "t": "PopcornPageNumberNavigation"
+      },
+      "status": "done",
+      "aliasOf": "PopcornPageNumberNavigation-VRpKM1l8",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current app chunk export surface restored including bundler init export."
+    },
+    "settings-host-dropdown-BH50x2Qx": {
+      "restored": "settings/settings-host-dropdown.tsx",
+      "exports": {
+        "n": "initSettingsHostDropdownChunk",
+        "t": "SettingsHostDropdown"
+      },
+      "status": "done",
+      "aliasOf": "settings-host-dropdown-BDIFNoo6",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current app chunk export surface restored including bundler init export."
+    },
+    "avatar-mascot-button-DMfpOSwL": {
+      "restored": "ui/avatar-mascot-button.tsx",
+      "exports": {
+        "n": "initAvatarMascotButtonChunk",
+        "t": "AvatarMascotButton"
+      },
+      "status": "done",
+      "aliasOf": "avatar-mascot-button-D4p_kbfc",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current app chunk export surface restored including bundler init export."
+    },
+    "infinite-scroll-pagination-spinner-CqKOYMC4": {
+      "restored": "ui/infinite-scroll-pagination-spinner.tsx",
+      "exports": {
+        "n": "initInfiniteScrollPaginationSpinnerChunk",
+        "t": "InfiniteScrollPaginationSpinner"
+      },
+      "status": "done",
+      "aliasOf": "infinite-scroll-pagination-spinner-iQsEdPrJ",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current app chunk export surface restored including bundler init export."
+    },
+    "toolbar-breadcrumb-BZpOAzWC": {
+      "restored": "ui/toolbar-breadcrumb.tsx",
+      "exports": {
+        "n": "initToolbarBreadcrumbChunk",
+        "t": "ToolbarBreadcrumb"
+      },
+      "status": "done",
+      "aliasOf": "toolbar-breadcrumb-D6sZAZxC",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current app chunk export surface restored including bundler init export."
     }
   }
 }

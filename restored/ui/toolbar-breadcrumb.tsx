@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/toolbar-breadcrumb-DNxKTOzt.js
+// Restored from ref/webview/assets/toolbar-breadcrumb-BZpOAzWC.js
 // Also matches ref/webview/assets/toolbar-breadcrumb-D6sZAZxC.js.
 import { Fragment } from "react";
 import type { ReactNode } from "react";

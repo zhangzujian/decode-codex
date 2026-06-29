@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/settings-host-dropdown-BDIFNoo6.js
+// Restored from ref/webview/assets/settings-host-dropdown-BH50x2Qx.js
 // Host selector dropdown used by settings pages.
 import type { ComponentProps, ComponentType, ReactNode } from "react";
 import { FormattedMessage, useIntl } from "../vendor/react-intl";
@@ -10,6 +10,7 @@ import { LaptopIcon } from "../icons/laptop-icon";
 import { RemoteHostGlobeIcon } from "../icons/remote-host-globe-icon";
 import { SettingsMenuButton } from "./settings-shared";
 import { Dropdown, DropdownMenu } from "../ui/dropdown";
+import { once } from "../runtime/commonjs-interop";
 type HostIconComponent = ComponentType<{
   className?: string;
 }>;
@@ -32,6 +33,7 @@ export type SettingsHostDropdownProps = {
   triggerColor?: ComponentProps<typeof SettingsMenuButton>["color"];
   useRemoteHostColors?: boolean;
 };
+export const initSettingsHostDropdownChunk = once(() => {});
 function ConnectedIndicator() {
   return (
     <span

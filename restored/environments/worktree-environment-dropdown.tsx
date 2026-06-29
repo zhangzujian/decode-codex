@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/worktree-environment-dropdown-_JdYz4cO.js
+// Restored from ref/webview/assets/worktree-environment-dropdown-CLHJ2WYr.js
 // Worktree local-environment selector dropdown for the composer footer.
 
 import React, { type ReactNode } from "react";
@@ -20,6 +20,7 @@ import { LinkExternalIcon } from "../icons/link-external-icon";
 import { SettingsCogIcon } from "../icons/settings-cog-icon";
 import { Dropdown } from "../ui/dropdown";
 import { StarIcon } from "../icons/star-icon";
+import { once } from "../runtime/commonjs-interop";
 type WorktreeEnvironment = LocalEnvironment & {
   environment?: {
     name?: string | null;
@@ -40,6 +41,7 @@ export type WorktreeEnvironmentDropdownProps = {
   showIcon?: boolean;
   side?: "bottom" | "left" | "right" | "top";
 };
+export const initWorktreeEnvironmentDropdownChunk = once(() => {});
 export function WorktreeEnvironmentDropdown({
   className,
   labelClassName,

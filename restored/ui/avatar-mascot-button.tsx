@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/avatar-mascot-button-D4p_kbfc.js
+// Restored from ref/webview/assets/avatar-mascot-button-DMfpOSwL.js
 // avatar-mascot-button-D4p_kbfc chunk restored from the Codex webview bundle.
 import type {
   CSSProperties,
@@ -13,6 +13,7 @@ import { useAtom } from "jotai";
 import { CodexAvatar } from "../utils/codex-avatar";
 import { persistedAtom } from "../utils/persisted-atom";
 import { useReducedMotion } from "../utils/use-reduced-motion";
+import { once } from "../runtime/commonjs-interop";
 type BadgeCorner = "top-start" | "top-end" | "bottom-start" | "bottom-end";
 type AvatarState =
   | "failed"
@@ -55,6 +56,7 @@ export type AvatarMascotButtonProps = {
   style?: CSSProperties;
   transientState?: AvatarState | null;
 };
+export const initAvatarMascotButtonChunk = once(() => {});
 const BADGE_DRAG_THRESHOLD_PX = 4;
 const badgeCornerClassNames: Record<BadgeCorner, string> = {
   "top-start": "top-0 left-0",
