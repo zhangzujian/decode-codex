@@ -10978,6 +10978,30 @@
       "note": "Restored the current side-panel tab API as semantic boundary imports under app-shell/thread-side-panel-tabs.ts, preserving the profile producer initializer side effect without re-exporting the raw hash chunk. runtime/thread-side-panel-tabs.ts remains as a compatibility barrel.",
       "lastUpdated": "2026-06-28T14:29:00.000Z"
     },
+    "thread-side-panel-tabs-tc-mAOFK": {
+      "restored": "app-shell/thread-side-panel-tabs.ts",
+      "exports": {
+        "THREAD_SIDE_PANEL_TAB": "THREAD_SIDE_PANEL_TAB",
+        "closeThreadMcpAppSidePanelTab": "closeThreadMcpAppSidePanelTab",
+        "getBrowserTabIdForSidePanelOpen": "getBrowserTabIdForSidePanelOpen",
+        "getThreadMcpAppSidePanelTabId": "getThreadMcpAppSidePanelTabId",
+        "openSessionSandboxSidePanel": "openSessionSandboxSidePanel",
+        "openThreadBranchReviewSidePanelTab": "openThreadBranchReviewSidePanelTab",
+        "openThreadBrowserSidePanelTab": "openThreadBrowserSidePanelTab",
+        "openThreadBrowserSidePanelTabWithPendingState": "openThreadBrowserSidePanelTabWithPendingState",
+        "openThreadBrowserSidePanelTabWithoutAnimation": "openThreadBrowserSidePanelTabWithoutAnimation",
+        "openThreadLastTurnReviewSidePanelTab": "openThreadLastTurnReviewSidePanelTab",
+        "openThreadMcpAppSidePanelTab": "openThreadMcpAppSidePanelTab",
+        "openThreadReviewSidePanelTab": "openThreadReviewSidePanelTab",
+        "openThreadTimelineSidePanel": "openThreadTimelineSidePanel",
+        "primeBrowserTabTransfers": "primeBrowserTabTransfers",
+        "toggleThreadSidePanel": "toggleThreadSidePanel"
+      },
+      "status": "done",
+      "aliasOf": "thread-side-panel-tabs-_WbpVYWU",
+      "note": "Current synced side-panel tab chunk preserves the same public export surface as the previous restored semantic module.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "selectable-list-row-Bm082MDr": {
       "restored": "ui/selectable-list-row.tsx",
       "exports": {
@@ -11521,6 +11545,19 @@
       "note": "Restored side-effect reporters for heartbeat automation thread state host messages and stream-role product-event properties. Local conversation product-event runtime bindings now live in conversations/local-conversation-product-event-runtime.ts, with runtime/local-conversation-product-event-runtime.ts kept as a compatibility barrel.",
       "lastUpdated": "2026-06-28T16:32:46.000Z"
     },
+    "local-conversation-stream-role-product-event-De1UaUs6": {
+      "restored": "conversations/local-conversation-stream-role-product-event.tsx",
+      "exports": {
+        "i": "initLocalConversationHeartbeatAutomationThreadStateReporter",
+        "n": "initLocalConversationStreamRoleProductEventReporter",
+        "r": "LocalConversationHeartbeatAutomationThreadStateReporter",
+        "t": "LocalConversationStreamRoleProductEventReporter"
+      },
+      "status": "done",
+      "aliasOf": "local-conversation-stream-role-product-event-DHQpO55W",
+      "note": "Current synced local conversation product-event chunk preserves the same public export surface as the previous restored semantic module.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "app-initial~app-main~projects-index-page~local-conversation-page-4SURv8Cr": {
       "restored": "sidebar/project-hover-card.tsx",
       "exports": {
@@ -11608,6 +11645,16 @@
       "status": "done",
       "note": "Restored local conversation page container: workspace tab remapping, local header chrome, summary panel toggle, latest-turn preview, background subagent panel, composer shell, pending client/worktree routes, and debug panel reporter. Page runtime bindings now live in conversations/local-conversation-page-runtime.ts, with runtime/local-conversation-page-runtime.ts kept as a compatibility barrel.",
       "lastUpdated": "2026-06-28T16:37:54.000Z"
+    },
+    "local-conversation-page-C379OsPf": {
+      "restored": "conversations/local-conversation-page.tsx",
+      "exports": {
+        "LocalConversationPage": "LocalConversationPage"
+      },
+      "status": "done",
+      "aliasOf": "local-conversation-page-D7JrTtqP",
+      "note": "Current synced local conversation page chunk preserves the same page component surface while exporting it by semantic name.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "analyze_image_animation-BUMQPx3-": {
       "restored": "animations/analyze-image-animation.ts",

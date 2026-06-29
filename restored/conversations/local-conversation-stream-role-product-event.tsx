@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/local-conversation-stream-role-product-event-DHQpO55W.js
+// Restored from ref/webview/assets/local-conversation-stream-role-product-event-De1UaUs6.js
 // Side-effect components that publish local conversation stream role and heartbeat automation thread state to the host.
 import React from "react";
 import { once } from "../runtime/commonjs-interop";

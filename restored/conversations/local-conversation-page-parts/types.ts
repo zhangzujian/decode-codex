@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/local-conversation-page-D7JrTtqP.js
+// Restored from ref/webview/assets/local-conversation-page-C379OsPf.js
 import React from "react";
 
 export type Scope = {

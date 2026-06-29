@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/local-conversation-page-D7JrTtqP.js
+// Restored from ref/webview/assets/local-conversation-page-C379OsPf.js
 // Local conversation page container runtime bindings and side-effect helpers.
 import { initIntlMessageRuntime } from "../runtime/intl-message-runtime";
 

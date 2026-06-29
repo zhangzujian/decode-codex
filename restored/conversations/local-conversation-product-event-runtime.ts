@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/local-conversation-stream-role-product-event-DHQpO55W.js
+// Restored from ref/webview/assets/local-conversation-stream-role-product-event-De1UaUs6.js
 // Runtime bindings for local conversation stream-role and heartbeat host events.
 import {
   initStatsigFeatureGateRuntime as initStatsigFeatureGateHooks,

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/local-conversation-page-D7JrTtqP.js
+// Restored from ref/webview/assets/local-conversation-page-C379OsPf.js
 import React from "react";
 
 import { ChevronRightIcon as DisclosureChevronIcon } from "../../icons/chevron-right-icon";
@@ -867,7 +867,7 @@ function PendingWorktreeLocalConversationPage({
 }
 
 const initLocalConversationPageChunk = once(() => {
-  getChunkModuleExports("local-conversation-page-D7JrTtqP");
+  getChunkModuleExports("local-conversation-page-C379OsPf");
   initReactRuntime();
   initScopeRuntime();
   initRouteScope();
