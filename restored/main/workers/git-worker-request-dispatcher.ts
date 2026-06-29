@@ -34,6 +34,7 @@ import {
   readSubmodulePaths,
   setConfigValueForScope,
 } from "./git-worker-config-queries";
+import { commitGitChanges } from "./git-worker-commit";
 import { readCommitMessageDiff } from "./git-worker-commit-message-diff";
 import { readCurrentBranch } from "./git-worker-current-branch";
 import { readBranchDiffStats } from "./git-worker-diff-stats";
@@ -434,6 +435,19 @@ export class GitWorkerRequestDispatcher {
             cwd: requireStringParam(params, "cwd"),
             host: context.host,
             includeUnstaged: optionalBooleanParam(params, "includeUnstaged"),
+            signal: context.signal,
+          }),
+        );
+      }
+      case "commit": {
+        const params = requireRecordParams(request);
+        return ok(
+          await commitGitChanges({
+            commitAttribution: params.commitAttribution,
+            cwd: requireStringParam(params, "cwd"),
+            host: context.host,
+            includeUnstaged: optionalBooleanParam(params, "includeUnstaged"),
+            message: requireStringParam(params, "message"),
             signal: context.signal,
           }),
         );
