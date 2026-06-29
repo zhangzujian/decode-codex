@@ -19,7 +19,7 @@ export {
   _ as initRendererErrorBoundaryStateChunk,
   n as initProjectsSharedRuntimeChunk,
 } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-x1JD0lOF.js";
-export { za as readCompactWindowPreference } from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~hotkey-win~fzw0jvy4-rg89odR_.js";
+export { isCurrentCompactWindow as readCompactWindowPreference } from "../features/is-compact-window-context";
 export {
   CodexApp,
   initAutomationsRuntimeChunk,

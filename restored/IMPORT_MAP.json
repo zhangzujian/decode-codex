@@ -14030,13 +14030,13 @@
       "lastUpdated": "2026-06-28T21:05:00.000Z"
     },
     "app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~hotkey-win~fzw0jvy4-rg89odR_": {
-      "restored": "vendor/app-main-current-runtime.ts",
+      "restored": "features/is-compact-window-context.ts",
       "exports": {
-        "za": "readCompactWindowPreference"
+        "za": "isCurrentCompactWindow"
       },
       "status": "partial",
-      "note": "Current app-main shell-preference producer facade for compact-window state; full producer remains an open partial boundary.",
-      "lastUpdated": "2026-06-28T21:05:00.000Z"
+      "note": "Compact-window route-context helper reused by the app-main shell preference alias; remaining exports in this broad producer chunk remain an open partial boundary.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~nek76pmq-C240EGR1": {
       "restored": "runtime/shared-object-host-runtime.ts",
