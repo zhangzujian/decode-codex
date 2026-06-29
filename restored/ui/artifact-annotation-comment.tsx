@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/artifact-annotation-comment-UAnLVQlX.js
-// Also matches ref/webview/assets/artifact-annotation-comment-BkpjMf2c.js.
+// Restored from ref/webview/assets/artifact-annotation-comment-C4rLnC0m.js
+// Also matches ref/webview/assets/artifact-annotation-comment-UAnLVQlX.js and ref/webview/assets/artifact-annotation-comment-BkpjMf2c.js.
 import { once } from "../runtime/commonjs-interop";
 
 type ArtifactAnnotationPayload = {

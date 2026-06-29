@@ -13571,6 +13571,21 @@
       "note": "Synced current recommended skill Statsig overrides chunk with semantic parser, hook, getter, and initializer exports.",
       "lastUpdated": "2026-06-27T21:45:02.884Z"
     },
+    "recommended-skill-statsig-overrides-D2T8Gp66": {
+      "restored": "plugins/recommended-skill-statsig-overrides.ts",
+      "exports": {
+        "n": "initRecommendedSkillStatsigOverridesChunk",
+        "r": "useRecommendedSkillStatsigOverrides",
+        "t": "getRecommendedSkillStatsigOverride",
+        "initRecommendedSkillStatsigOverridesChunk": "initRecommendedSkillStatsigOverridesChunk",
+        "useRecommendedSkillStatsigOverrides": "useRecommendedSkillStatsigOverrides",
+        "getRecommendedSkillStatsigOverride": "getRecommendedSkillStatsigOverride"
+      },
+      "status": "done",
+      "aliasOf": "recommended-skill-statsig-overrides-B_jnuULm",
+      "note": "Current synced recommended skill Statsig overrides chunk; export surface matches the previous semantic restore.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "home-row-layout-nv_THLYD": {
       "restored": "ui/home-row-layout.tsx",
       "exports": {
@@ -13586,6 +13601,23 @@
       "status": "done",
       "note": "Synced current home row layout chunk with semantic row layout primitives and initializer export.",
       "lastUpdated": "2026-06-27T21:49:07.586Z"
+    },
+    "home-row-layout-CrWoAp3h": {
+      "restored": "ui/home-row-layout.tsx",
+      "exports": {
+        "i": "initHomeRowLayoutChunk",
+        "n": "HomeRowIcon",
+        "r": "HomeRowLabel",
+        "t": "HomeRowContent",
+        "initHomeRowLayoutChunk": "initHomeRowLayoutChunk",
+        "HomeRowIcon": "HomeRowIcon",
+        "HomeRowLabel": "HomeRowLabel",
+        "HomeRowContent": "HomeRowContent"
+      },
+      "status": "done",
+      "aliasOf": "home-row-layout-nv_THLYD",
+      "note": "Current synced home row layout chunk; export surface matches the previous semantic restore.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "artifact-annotation-comment-UAnLVQlX": {
       "restored": "ui/artifact-annotation-comment.tsx",
@@ -13606,6 +13638,27 @@
       "status": "done",
       "note": "Synced current artifact annotation comment helper chunk with semantic comment helpers and initializer export.",
       "lastUpdated": "2026-06-27T21:50:28.470Z"
+    },
+    "artifact-annotation-comment-C4rLnC0m": {
+      "restored": "ui/artifact-annotation-comment.tsx",
+      "exports": {
+        "a": "initArtifactAnnotationCommentChunk",
+        "i": "getRemovedArtifactAnnotationIds",
+        "n": "getArtifactAnnotationCommentsForPath",
+        "o": "removeArtifactAnnotationCommentsForPath",
+        "r": "getNextArtifactAnnotationLine",
+        "t": "createArtifactAnnotationComment",
+        "initArtifactAnnotationCommentChunk": "initArtifactAnnotationCommentChunk",
+        "getRemovedArtifactAnnotationIds": "getRemovedArtifactAnnotationIds",
+        "getArtifactAnnotationCommentsForPath": "getArtifactAnnotationCommentsForPath",
+        "removeArtifactAnnotationCommentsForPath": "removeArtifactAnnotationCommentsForPath",
+        "getNextArtifactAnnotationLine": "getNextArtifactAnnotationLine",
+        "createArtifactAnnotationComment": "createArtifactAnnotationComment"
+      },
+      "status": "done",
+      "aliasOf": "artifact-annotation-comment-UAnLVQlX",
+      "note": "Current synced artifact annotation comment helper chunk; export surface matches the previous semantic restore.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "PopcornPageNumberNavigation-CdETRqdh": {
       "restored": "features/popcorn-page-number-navigation.tsx",

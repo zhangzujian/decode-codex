@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/home-row-layout-nv_THLYD.js
-// Also matches ref/webview/assets/home-row-layout-DglQhCVZ.js.
+// Restored from ref/webview/assets/home-row-layout-CrWoAp3h.js
+// Also matches ref/webview/assets/home-row-layout-nv_THLYD.js and ref/webview/assets/home-row-layout-DglQhCVZ.js.
 // Small layout primitives used by home-page rows.
 import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
