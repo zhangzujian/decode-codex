@@ -1,10 +1,14 @@
 // Restored from ref/webview/assets/local-conversation-thread-BwqAGxoz.js
 // App-shell panel tab stores backed by the current onboarding/app-shell bundle.
 import {
-  Kv as rightPanelTabsStore,
-  tv as initThreadPanelTabsStoreChunk,
-  Wv as bottomPanelTabsStore,
-} from "../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
+  bottomAppShellTabController,
+  rightAppShellTabController,
+} from "./app-shell-tab-controller";
+
+const rightPanelTabsStore = rightAppShellTabController;
+const bottomPanelTabsStore = bottomAppShellTabController;
+
+function initThreadPanelTabsStoreChunk(): void {}
 
 const initRightPanelTabsStoreChunk = initThreadPanelTabsStoreChunk;
 
