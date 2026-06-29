@@ -9,11 +9,9 @@ import {
   HANDOFF_THREAD_TOOL_NAME,
   GET_HANDOFF_STATUS_TOOL_NAME,
 } from "./codex-app-tool-names";
-import {
-  MAX_HANDOFF_STATUS_WAIT_MS,
-  type HandoffHostConfig,
-} from "./thread-handoff-tool-definitions";
+import { MAX_HANDOFF_STATUS_WAIT_MS } from "./thread-handoff-tool-definitions";
 import { getAvailableHandoffHosts } from "./available-handoff-hosts";
+import type { HandoffHostConfig } from "./available-handoff-hosts";
 import { interruptSourceThreadIfRunning } from "./interrupt-source-thread";
 import {
   getHandoffOperationStatus,
@@ -58,10 +56,7 @@ import {
   sharedStateKeys,
   toWorkspaceRootPath,
 } from "../boundaries/onboarding-commons-externals.facade";
-import {
-  N as logger,
-  mi as serializeError,
-} from "../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
+import { appLogger as logger, serializeError } from "../runtime/app-logger";
 
 const CROSS_HOST_HANDOFF_FEATURE_GATE = "2256010998";
 const HANDOFF_OPERATION_SOURCE = "local_remote_dropdown";
