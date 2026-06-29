@@ -14158,6 +14158,58 @@
       "aliasOf": "merge-Ch0yXQoh",
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current lodash merge chunk keeps the restored public API and adds b/v/y internal exports."
+    },
+    "_baseFor-DhUeMyzd": {
+      "restored": "vendor/lodash-base-for.ts",
+      "exports": {
+        "C": "baseForC",
+        "D": "baseForD",
+        "E": "baseForE",
+        "O": "baseForO",
+        "S": "baseForS",
+        "T": "baseForT",
+        "_": "baseForUnderscore",
+        "a": "baseForA",
+        "b": "baseForB",
+        "c": "_baseForC",
+        "d": "_baseForD",
+        "f": "baseForF",
+        "g": "baseForG",
+        "h": "baseForH",
+        "i": "baseForI",
+        "l": "baseForL",
+        "m": "baseForM",
+        "n": "baseForN",
+        "o": "_baseForO",
+        "p": "baseForP",
+        "r": "baseForR",
+        "s": "_baseForS",
+        "t": "_baseForT",
+        "u": "baseForU",
+        "v": "baseForV",
+        "w": "baseForW",
+        "x": "baseForX",
+        "y": "baseForY"
+      },
+      "status": "done",
+      "aliasOf": "_baseFor-eDjxQiUL",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current lodash baseFor chunk keeps the restored export API."
+    },
+    "esm-EAsy4EQA": {
+      "restored": "vendor/iconify-core.ts",
+      "exports": {
+        "a": "esmA",
+        "i": "esmI",
+        "n": "esmN",
+        "o": "esmO",
+        "r": "esmR",
+        "t": "esmT"
+      },
+      "status": "done",
+      "aliasOf": "esm-DbqKqkZh",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current Iconify core chunk keeps the restored public API and adds c/s internal exports."
     }
   }
 }

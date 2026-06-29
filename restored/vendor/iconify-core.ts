@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/esm-DbqKqkZh.js
+// Restored from ref/webview/assets/esm-EAsy4EQA.js
 // Esm chunk restored from the Codex webview bundle.
 var esmValue1 = Object.freeze({
     left: 0,
