@@ -14023,6 +14023,7 @@
       "restored": "runtime/app-host-services-runtime.ts",
       "exports": {
         "_S": "createPersistentSignal",
+        "As": "THREAD_SIDE_PANEL_TAB",
         "Bm": "onboardingWizardAction",
         "Dd": "initGlobalStateQueryRuntime",
         "Df": "initProductEventRuntime",
@@ -14036,21 +14037,36 @@
         "wd": "getGlobalStateValue"
       },
       "status": "partial",
-      "note": "Current app-main app-host service bootstrap aliases, cached conversation turn reader, persistent-signal factory/runtime, product-event runtime initializer, onboarding wizard action catalog, and global-state query helpers are isolated across runtime/app-host-services-runtime.ts and runtime/global-state-runtime.ts. Gu/Ku now drift to tab-context event-name constants and are intentionally not used for global-state. The full producer and renderer RPC bridge remain an open partial boundary.",
+      "note": "Current app-main app-host service bootstrap aliases, cached conversation turn reader, persistent-signal factory/runtime, product-event runtime initializer, onboarding wizard action catalog, side-panel tab kind ids, and global-state query helpers are isolated across runtime/app-host-services-runtime.ts, app-shell/thread-side-panel-tabs.ts, and runtime/global-state-runtime.ts. Gu/Ku now drift to tab-context event-name constants and are intentionally not used for global-state. The full producer and renderer RPC bridge remain an open partial boundary.",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "app-initial~app-main~onboarding-page-BUwCKIcU": {
       "restored": "runtime/window-chrome-runtime.ts",
       "exports": {
+        "Cl": "toggleThreadSidePanel",
         "Kv": "rightPanelTabsStore",
         "Rv": "currentRouteHostIdSignal",
+        "Sl": "primeBrowserTabTransfers",
         "Wv": "bottomPanelTabsStore",
+        "_l": "openThreadBrowserSidePanelTabWithPendingState",
+        "bl": "openThreadReviewSidePanelTab",
+        "cf": "openThreadMcpAppSidePanelTab",
+        "fl": "getBrowserTabIdForSidePanelOpen",
+        "gl": "openThreadBrowserSidePanelTab",
+        "hl": "openThreadBranchReviewSidePanelTab",
+        "ml": "openSessionSandboxSidePanel",
+        "of": "closeThreadMcpAppSidePanelTab",
         "og": "getCodexWindowChrome",
+        "pl": "initThreadSidePanelTabsChunk",
+        "sf": "getThreadMcpAppSidePanelTabId",
         "sg": "initAppFeatureRuntimeChunk",
-        "tv": "initThreadPanelTabsStoreChunk"
+        "tv": "initThreadPanelTabsStoreChunk",
+        "vl": "openThreadBrowserSidePanelTabWithoutAnimation",
+        "xl": "openThreadTimelineSidePanel",
+        "yl": "openThreadLastTurnReviewSidePanelTab"
       },
       "status": "partial",
-      "note": "Current app-main window chrome helper aliases, app-view route host-id selector, and app-shell right/bottom panel tab stores are restored in runtime/window-chrome-runtime.ts and app-shell/thread-panel-tabs-store.ts. The broader BUwCKIcU shared commons barrel remains represented separately by app-shared-runtime.ts while its many unrelated exports are incrementally wired to semantic modules.",
+      "note": "Current app-main window chrome helper aliases, app-view route host-id selector, app-shell right/bottom panel tab stores, and thread side-panel tab helpers are restored in runtime/window-chrome-runtime.ts, app-shell/thread-panel-tabs-store.ts, and app-shell/thread-side-panel-tabs.ts. The broader BUwCKIcU shared commons barrel remains represented separately by app-shared-runtime.ts while its many unrelated exports are incrementally wired to semantic modules.",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-x1JD0lOF": {

@@ -1,27 +1,27 @@
 // Restored from ref/webview/assets/thread-side-panel-tabs-tc-mAOFK.js
 // Semantic side-panel tab barrel for the updated Codex webview bundle.
-import { A_ as THREAD_SIDE_PANEL_TAB } from "../vendor/projects-app-shared-runtime";
+import { As as THREAD_SIDE_PANEL_TAB } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
 import {
-  Br as openThreadMcpAppSidePanelTab,
-  Lr as closeThreadMcpAppSidePanelTab,
-  Rr as getThreadMcpAppSidePanelTabId,
-} from "../vendor/projects-app-shared-runtime";
+  Cl as toggleThreadSidePanel,
+  fl as getBrowserTabIdForSidePanelOpen,
+  gl as openThreadBrowserSidePanelTab,
+  hl as openThreadBranchReviewSidePanelTab,
+  ml as openSessionSandboxSidePanel,
+  pl as initThreadSidePanelTabsChunk,
+  Sl as primeBrowserTabTransfers,
+  vl as openThreadBrowserSidePanelTabWithoutAnimation,
+  xl as openThreadTimelineSidePanel,
+  yl as openThreadLastTurnReviewSidePanelTab,
+  _l as openThreadBrowserSidePanelTabWithPendingState,
+  bl as openThreadReviewSidePanelTab,
+} from "../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
 import {
-  $c as openThreadBrowserSidePanelTab,
-  Qc as openThreadBranchReviewSidePanelTab,
-  Xc as initEmptyPageStateChunk,
-  Yc as getBrowserTabIdForSidePanelOpen,
-  Zc as openSessionSandboxSidePanel,
-  al as primeBrowserTabTransfers,
-  el as openThreadBrowserSidePanelTabWithPendingState,
-  il as openThreadTimelineSidePanel,
-  nl as openThreadLastTurnReviewSidePanelTab,
-  ol as toggleThreadSidePanel,
-  rl as openThreadReviewSidePanelTab,
-  tl as openThreadBrowserSidePanelTabWithoutAnimation,
-} from "../vendor/profile-page-runtime";
+  closeMcpAppTab as closeThreadMcpAppSidePanelTab,
+  mcpAppTabId as getThreadMcpAppSidePanelTabId,
+  openMcpAppTab as openThreadMcpAppSidePanelTab,
+} from "../plugins/mcp-app-tab";
 
-initEmptyPageStateChunk();
+initThreadSidePanelTabsChunk();
 
 export {
   THREAD_SIDE_PANEL_TAB,
