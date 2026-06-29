@@ -14,6 +14,7 @@ import {
   createWorkerFeatureContext,
   type WorkerFeatureContext,
 } from "./worker-feature-context";
+import { GitWorkerRequestDispatcher } from "./git-worker-request-dispatcher";
 import {
   WorkerMainRpcClient,
   type RpcResult,
@@ -282,10 +283,13 @@ function createWorkerRequestDispatcher(
         featureContext.computerUseCapture,
       );
     case "git":
-      return new OpenBoundaryWorkerRequestDispatcher(
+      return new GitWorkerRequestDispatcher(
         workerId,
         postMessage,
         featureContext,
+        {
+          spawnInsideWsl: config.spawnInsideWsl === true,
+        },
       );
     default:
       return new OpenBoundaryWorkerRequestDispatcher(

@@ -1,0 +1,342 @@
+// Restored from ref/.vite/build/worker.js
+// Git worker request lifecycle, cancellation, and availability checks.
+
+import { spawnSync } from "node:child_process";
+import { accessSync, constants } from "node:fs";
+import { posix, win32 } from "node:path";
+import type { WorkerFeatureContext } from "./worker-feature-context";
+import type { WorkerExecutionHostConfig } from "./worker-execution-host-client";
+import type { RpcResult } from "./worker-main-rpc-client";
+import { toRpcError } from "./worker-runtime-utils";
+
+type GitWorkerRequest = {
+  id: string;
+  method: string;
+  params?: unknown;
+};
+
+type GitWorkerOutboundMessage =
+  | {
+      type: "worker-response";
+      workerId: string;
+      response: { id: string; method: string; result: RpcResult };
+    }
+  | { type: "worker-event"; workerId: string; event: unknown };
+
+type GitWorkerRequestDispatcherOptions = {
+  spawnInsideWsl?: boolean;
+};
+
+type GitAvailabilityCacheEntry = {
+  key: string;
+  expiresAt: number;
+  value: boolean;
+};
+
+const GIT_UNAVAILABLE_MESSAGE = "Git is unavailable";
+const DEFAULT_LOCAL_HOST_CONFIG: WorkerExecutionHostConfig = {
+  id: "local",
+  display_name: "Local",
+  kind: "local",
+};
+const DEFAULT_WINDOWS_EXECUTABLE_EXTENSIONS = ".COM;.EXE;.BAT;.CMD";
+const SYSTEM_MACOS_GIT_PATH = "/usr/bin/git";
+const availabilityCacheTtlMs = 10_000;
+const gitAllowedWhenUnavailableSources = new Set([
+  "async_task_starting_state_dropdown",
+  "commit_modal",
+  "composer_branch_switcher",
+  "composer_worktree_source",
+  "create_pull_request_modal",
+  "local_conversation_git_actions",
+]);
+const gitAllowedWhenUnavailableMethods = new Set([
+  "git-checkout-branch",
+  "git-create-branch",
+  "git-init-repo",
+]);
+const uncancellableGitWorkerMethods = new Set([
+  "delete-worktree",
+  "dispose-git-init-watch",
+  "invalidate-stable-metadata",
+  "invalidate-git-read-caches",
+  "git-init-repo",
+  "cleanup-host-handoff-transfer",
+  "watch-repo",
+  "unwatch-repo",
+]);
+let gitAvailabilityCache: GitAvailabilityCacheEntry | null = null;
+
+export class GitWorkerRequestDispatcher {
+  private readonly canceledRequests = new Set<string>();
+  private readonly inFlightRequests = new Map<string, AbortController>();
+  private readonly uncancelableRequestIds = new Set<string>();
+  private localGitAvailable: boolean | null = null;
+
+  constructor(
+    private readonly workerId: string,
+    private readonly postMessage: (message: GitWorkerOutboundMessage) => void,
+    private readonly featureContext: WorkerFeatureContext,
+    private readonly options: GitWorkerRequestDispatcherOptions = {},
+  ) {}
+
+  handleRequest(request: GitWorkerRequest): void {
+    void this.handleRequestAsync(request);
+  }
+
+  handleCancel(requestId: string): void {
+    if (this.uncancelableRequestIds.has(requestId)) return;
+    const controller = this.inFlightRequests.get(requestId);
+    if (controller == null) {
+      this.canceledRequests.add(requestId);
+      return;
+    }
+    this.inFlightRequests.delete(requestId);
+    controller.abort(createAbortError());
+  }
+
+  private async handleRequestAsync(request: GitWorkerRequest): Promise<void> {
+    const abortController = new AbortController();
+    const params = isRecord(request.params) ? request.params : {};
+    const hostConfig = isRecord(params.hostConfig)
+      ? (params.hostConfig as WorkerExecutionHostConfig)
+      : DEFAULT_LOCAL_HOST_CONFIG;
+    const executionHost =
+      this.featureContext.git?.createExecutionHost(hostConfig);
+    const isCancellable = !uncancellableGitWorkerMethods.has(request.method);
+
+    if (executionHost == null) {
+      this.postResponse(
+        request,
+        toRpcError(
+          openRestorationBoundaryError("Git worker dependencies are required"),
+        ),
+      );
+      return;
+    }
+
+    if (isCancellable) {
+      this.inFlightRequests.set(request.id, abortController);
+      if (this.canceledRequests.has(request.id)) {
+        this.canceledRequests.delete(request.id);
+        abortController.abort(createAbortError());
+        this.inFlightRequests.delete(request.id);
+        return;
+      }
+    } else {
+      this.uncancelableRequestIds.add(request.id);
+      this.canceledRequests.delete(request.id);
+    }
+
+    let result: RpcResult;
+    try {
+      if (
+        request.method !== "availability" &&
+        executionHost.isLocal &&
+        !isAllowedWhenGitUnavailable(request.method, params.operationSource) &&
+        !(this.localGitAvailable ??= isGitAvailableForHost({
+          env: process.env,
+          hostIsLocal: executionHost.isLocal,
+          platform: process.platform,
+          spawnInsideWsl: this.options.spawnInsideWsl === true,
+        }))
+      ) {
+        throw Error(GIT_UNAVAILABLE_MESSAGE);
+      }
+
+      result = await this.dispatchGitRequest(request, {
+        available: isGitAvailableForHost({
+          env: process.env,
+          hostIsLocal: executionHost.isLocal,
+          platform: process.platform,
+          spawnInsideWsl: this.options.spawnInsideWsl === true,
+        }),
+      });
+    } catch (error) {
+      result = fallbackGitErrorResult(request, error);
+    } finally {
+      if (isCancellable) {
+        this.inFlightRequests.delete(request.id);
+      } else {
+        this.uncancelableRequestIds.delete(request.id);
+      }
+      this.canceledRequests.delete(request.id);
+    }
+
+    if (isCancellable && abortController.signal.aborted) return;
+    this.postResponse(request, result);
+  }
+
+  private async dispatchGitRequest(
+    request: GitWorkerRequest,
+    context: { available: boolean },
+  ): Promise<RpcResult> {
+    switch (request.method) {
+      case "availability":
+        this.localGitAvailable = context.available;
+        return ok({ available: context.available });
+    }
+    throw openRestorationBoundaryError(
+      `Git worker method '${request.method}' remains an open restoration boundary.`,
+    );
+  }
+
+  private postResponse(request: GitWorkerRequest, result: RpcResult): void {
+    this.postMessage({
+      type: "worker-response",
+      workerId: this.workerId,
+      response: { id: request.id, method: request.method, result },
+    });
+  }
+}
+
+function ok(value: unknown): RpcResult {
+  return { type: "ok", value };
+}
+
+function fallbackGitErrorResult(
+  request: GitWorkerRequest,
+  error: unknown,
+): RpcResult {
+  if (isGitUnavailableError(error)) {
+    if (request.method === "stable-metadata") return ok(null);
+    if (request.method === "git-origins") return ok({ origins: [] });
+  }
+  return toRpcError(error);
+}
+
+function isAllowedWhenGitUnavailable(
+  method: string,
+  operationSource: unknown,
+): boolean {
+  return (
+    gitAllowedWhenUnavailableMethods.has(method) ||
+    (typeof operationSource === "string" &&
+      gitAllowedWhenUnavailableSources.has(operationSource))
+  );
+}
+
+function isGitAvailableForHost({
+  env,
+  hostIsLocal,
+  platform,
+  spawnInsideWsl,
+}: {
+  env: NodeJS.ProcessEnv;
+  hostIsLocal: boolean;
+  platform: NodeJS.Platform;
+  spawnInsideWsl: boolean;
+}): boolean {
+  if (!hostIsLocal) return true;
+  if (platform === "win32" && spawnInsideWsl) return true;
+  return cachedLocalGitAvailable(env, platform);
+}
+
+function cachedLocalGitAvailable(
+  env: NodeJS.ProcessEnv,
+  platform: NodeJS.Platform,
+): boolean {
+  const pathValue = getEnvironmentValue(env, "PATH");
+  const pathExtValue = getEnvironmentValue(env, "PATHEXT");
+  const key = JSON.stringify([pathValue, pathExtValue, platform]);
+  const now = Date.now();
+  if (
+    gitAvailabilityCache != null &&
+    gitAvailabilityCache.key === key &&
+    gitAvailabilityCache.expiresAt > now
+  ) {
+    return gitAvailabilityCache.value;
+  }
+  const value = computeLocalGitAvailable(pathValue, pathExtValue, platform);
+  gitAvailabilityCache = {
+    key,
+    expiresAt: now + availabilityCacheTtlMs,
+    value,
+  };
+  return value;
+}
+
+function computeLocalGitAvailable(
+  pathValue: string | undefined,
+  pathExtValue: string | undefined,
+  platform: NodeJS.Platform,
+): boolean {
+  const gitPath = findGitExecutable(pathValue, pathExtValue, platform);
+  if (gitPath == null) return false;
+  if (platform !== "darwin") return true;
+  return posix.normalize(gitPath) !== SYSTEM_MACOS_GIT_PATH
+    ? true
+    : readAppleDeveloperDirectory() != null;
+}
+
+function findGitExecutable(
+  pathValue: string | undefined,
+  pathExtValue: string | undefined,
+  platform: NodeJS.Platform,
+): string | null {
+  if (pathValue == null) return null;
+  const pathApi = platform === "win32" ? win32 : posix;
+  const executableExtensions =
+    platform === "win32"
+      ? [
+          "",
+          ...(pathExtValue ?? DEFAULT_WINDOWS_EXECUTABLE_EXTENSIONS).split(";"),
+        ]
+      : [""];
+  for (const rawDirectory of pathValue.split(pathApi.delimiter)) {
+    const directory = rawDirectory.trim().replace(/^"|"$/g, "");
+    if (directory.length === 0) continue;
+    for (const extension of executableExtensions) {
+      const candidate = pathApi.join(directory, `git${extension}`);
+      try {
+        accessSync(
+          candidate,
+          platform === "win32" ? constants.F_OK : constants.X_OK,
+        );
+        return candidate;
+      } catch {}
+    }
+  }
+  return null;
+}
+
+function readAppleDeveloperDirectory(): string | null {
+  const result = spawnSync("/usr/bin/xcode-select", ["-p"], {
+    encoding: "utf8",
+    env: process.env,
+    timeout: 1_000,
+  });
+  const directory = result.stdout?.trim();
+  return result.status === 0 && directory ? directory : null;
+}
+
+function getEnvironmentValue(
+  env: NodeJS.ProcessEnv,
+  key: string,
+): string | undefined {
+  return (
+    env[
+      Object.keys(env).find(
+        (candidate) => candidate.toLowerCase() === key.toLowerCase(),
+      ) ?? ""
+    ]?.trim() || undefined
+  );
+}
+
+function openRestorationBoundaryError(message: string): Error {
+  return Object.assign(Error(message), { code: "OPEN_RESTORATION_BOUNDARY" });
+}
+
+function isGitUnavailableError(error: unknown): boolean {
+  return error instanceof Error && error.message === GIT_UNAVAILABLE_MESSAGE;
+}
+
+function createAbortError(): Error {
+  const error = Error("The operation was aborted");
+  error.name = "AbortError";
+  return error;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value != null;
+}
