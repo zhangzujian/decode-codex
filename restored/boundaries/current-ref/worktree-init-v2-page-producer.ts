@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/worktree-init-v2-page-BAfwy1p_.js
+// Restored from ref/webview/assets/worktree-init-v2-page-CAOv319r.js
 export {
   initPendingWorktreeChunk,
   PendingWorktreeConversation,
