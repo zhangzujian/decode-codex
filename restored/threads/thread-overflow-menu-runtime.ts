@@ -1,10 +1,7 @@
 // Restored from ref/webview/assets/thread-overflow-menu-CM-Eo7JH.js
 // Runtime bindings for thread overflow actions, side chat, and heartbeat automation tabs.
-import {
-  tM as modelSelectionSignal,
-  TV as useSignalSnapshot,
-  uP as useThreadCommandHandler,
-} from "../vendor/appg-thread-shared-runtime";
+import { k as useThreadCommandHandler } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js";
+import { Po as useSignalSnapshot } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
 import {
   initAppgFeatureGateAndSideConversationRuntime as initSideConversationProducer,
   initAppgThreadActionAndMessageRuntime as initThreadActionMenuRuntime,
@@ -64,8 +61,9 @@ import {
   x as threadActionMessages,
   yc as initNavigationProducer,
   Yi as threadActionShortcutSignal,
+  Bx as modelSelectionSignal,
   cm as conversationHostIdSignal,
-  Db as buildInstructionOverrides,
+  Ou as buildInstructionOverrides,
   I_ as initRouteScope,
   M_ as localConversationRouteScope,
   mv as initCurrentRefViewRuntime,
