@@ -11,6 +11,7 @@ export * from "./errors";
 export * from "./folder-removal";
 export * from "./install-failures";
 export * from "./install-helpers";
+export * from "./install-loop";
 export * from "./manifest-io";
 export * from "./materialize";
 export * from "./manifests";
