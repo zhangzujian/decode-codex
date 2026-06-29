@@ -20,6 +20,7 @@ export type GitCommandResult = {
 export async function runGitCommand({
   allowedNonZeroExitCodes = [],
   args,
+  configOverrides = [],
   cwd,
   env,
   host,
@@ -30,6 +31,7 @@ export async function runGitCommand({
 }: {
   allowedNonZeroExitCodes?: number[];
   args: string[];
+  configOverrides?: string[];
   cwd: string;
   env?: Record<string, string | undefined>;
   host: WorkerExecutionHostClient;
@@ -39,7 +41,7 @@ export async function runGitCommand({
   trim?: boolean;
 }): Promise<GitCommandResult> {
   const subcommand = args[0];
-  const command = ["git", ...args];
+  const command = ["git", ...configOverrides, ...args];
   if (subcommand == null || subcommand.startsWith("-")) {
     return failedGitCommand(
       command,
@@ -55,6 +57,7 @@ export async function runGitCommand({
     processHandle = await host.spawn({
       args: [
         "git",
+        ...configOverrides,
         "-c",
         `core.hooksPath=${await nullGitHooksPath(host)}`,
         ...args,
