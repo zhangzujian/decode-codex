@@ -3,6 +3,7 @@
 
 export * from "./app-server";
 export * from "./chrome-extension-sync";
+export * from "./chrome-extension-sync-state";
 export * from "./constants";
 export * from "./content-variants";
 export * from "./copy";
