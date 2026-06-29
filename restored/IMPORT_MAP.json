@@ -25959,24 +25959,26 @@
     "app-initial~app-main~local-conversation-page-D-F_r9ay": {
       "restored": "runtime/current-app-initial/local-conversation-current-runtime.ts",
       "exports": {
-        "a": "LocalConversationCurrentExportLowerAAlias",
-        "c": "LocalConversationCurrentExportLowerCAlias",
-        "d": "LocalConversationCurrentExportLowerDAlias",
-        "f": "LocalConversationCurrentExportLowerFAlias",
-        "i": "LocalConversationCurrentExportLowerIAlias",
-        "l": "LocalConversationCurrentExportLowerLAlias",
-        "n": "LocalConversationCurrentExportLowerNAlias",
-        "o": "LocalConversationCurrentExportLowerOAlias",
-        "p": "LocalConversationCurrentExportLowerPAlias",
-        "r": "LocalConversationCurrentExportLowerRAlias",
-        "s": "LocalConversationCurrentExportLowerSAlias",
-        "t": "LocalConversationCurrentExportLowerTAlias",
-        "u": "LocalConversationCurrentExportLowerUAlias"
+        "a": "threadCommandMenuModeSignal",
+        "c": "initCommandMenuItemComponent",
+        "d": "threadSidePanelTabDefinitionsSignal",
+        "f": "initThreadSidePanelTabRegistryChunk",
+        "i": "FIRST_FILE_COMMAND_MENU_ITEM_VALUE",
+        "l": "highlightTextSegments",
+        "n": "initThreadFileSearchCommandChunk",
+        "o": "initThreadCommandMenuStateChunk",
+        "p": "registerThreadSidePanelTab",
+        "r": "FIRST_CHAT_COMMAND_MENU_ITEM_VALUE",
+        "s": "CommandMenuItem",
+        "t": "useRegisterThreadFileSearchCommand",
+        "u": "initHighlightTextSegmentsChunk"
       },
       "status": "done",
-      "note": "Current ref local conversation current runtime restored as a semantic alias layer over boundaries/current-ref/current-app-initial-local-conversation-current-runtime-producer.ts.",
+      "note": "Current ref local conversation command-menu runtime restored via thread command-menu state, side-panel tab registration, command-menu item rendering, highlight helpers, and thread file search command aliases.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-29T19:53:12.718Z"
+      "lastUpdated": "2026-06-29T23:40:00.000Z",
+      "stage3AcceptedAt": "2026-06-29T23:40:00.000Z",
+      "stage3Review": "Host self-review: replaced placeholder aliases with command-menu/file-search semantic exports and verified the export alias set against the current ref chunk."
     },
     "app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~thread-app-shell-ch~ecjwgenq-_p4PfxvN": {
       "restored": "runtime/current-app-initial/thread-app-shell-rate-limit-runtime.ts",

@@ -8,6 +8,7 @@ import {
   type ThreadSidePanelTabDefinition,
 } from "../app-shell/thread-background-processes";
 import { CommandMenuItem } from "../ui/command-menu-item";
+import { FIRST_FILE_COMMAND_MENU_ITEM_VALUE } from "./thread-command-menu-state";
 import { useWorkspaceFileSearch } from "../utils/use-workspace-file-search";
 import { useCommandRegistration } from "../runtime/command-registration-runtime";
 import { vscodeApiF } from "../boundaries/vscode-api";
@@ -107,7 +108,7 @@ function ThreadFileSearchMenu({
           description:
             "Fallback loading text reused while command menu search results load.",
         })}
-        value="command-menu-first-file-item"
+        value={FIRST_FILE_COMMAND_MENU_ITEM_VALUE}
       />
     );
   }
@@ -134,7 +135,7 @@ function ThreadFileSearchMenu({
           title={file.label}
           value={
             index === 0
-              ? "command-menu-first-file-item"
+              ? FIRST_FILE_COMMAND_MENU_ITEM_VALUE
               : [file.label, file.relativePathWithoutFileName].join(" ")
           }
         />
