@@ -6,6 +6,7 @@ export * from "./constants";
 export * from "./content-variants";
 export * from "./descriptors";
 export * from "./errors";
+export * from "./folder-removal";
 export * from "./manifest-io";
 export * from "./manifests";
 export * from "./marketplaces";

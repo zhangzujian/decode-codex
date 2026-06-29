@@ -13,6 +13,9 @@ export type StructuredLogger = {
 
 export type ExecutionHostPath = {
   join(...segments: string[]): string;
+  resolve(...segments: string[]): string;
+  sep: string;
+  toNamespacedPath?(path: string): string;
 };
 
 export type BundledPluginManifest = {

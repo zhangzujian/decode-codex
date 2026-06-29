@@ -1,6 +1,7 @@
 // Restored from ref/.vite/build/main-r5HnecX_.js
 // Safe path helpers for bundled plugin cache roots.
 
+import * as pathModule from "node:path";
 import type { ExecutionHostPath } from "./types";
 
 export function getBundledPluginCacheRoot({
@@ -77,6 +78,65 @@ export function isInsideExecutionHostRoot({
   );
 }
 
+export function assertPathInsideMarketplaceRoot({
+  label,
+  path,
+  root,
+}: {
+  label: string;
+  path: string;
+  root: string;
+}): void {
+  const normalizedRoot = executionHostPathResolve(root);
+  const normalizedPath = executionHostPathResolve(path);
+  if (
+    normalizedPath !== normalizedRoot &&
+    !normalizedPath.startsWith(`${normalizedRoot}${nativePathSeparator()}`)
+  ) {
+    throw Error(`${label} path escapes marketplace root: ${normalizedPath}`);
+  }
+}
+
+export function resolveExecutionHostPathInsideMarketplaceRoot({
+  executionHostPath,
+  label,
+  path,
+  root,
+}: {
+  executionHostPath: ExecutionHostPath;
+  label: string;
+  path: string;
+  root: string;
+}): string {
+  const normalizedRoot = executionHostPath.resolve(root);
+  const normalizedPath = executionHostPath.resolve(normalizedRoot, path);
+  if (
+    !isInsideExecutionHostResolvedRoot({
+      executionHostPath,
+      path: normalizedPath,
+      root: normalizedRoot,
+    })
+  ) {
+    throw Error(`${label} path escapes marketplace root: ${normalizedPath}`);
+  }
+  return normalizedPath;
+}
+
+export function isInsideExecutionHostResolvedRoot({
+  executionHostPath,
+  path,
+  root,
+}: {
+  executionHostPath: Pick<ExecutionHostPath, "sep">;
+  path: string;
+  root: string;
+}): boolean {
+  const rootPrefix = root.endsWith(executionHostPath.sep)
+    ? root
+    : `${root}${executionHostPath.sep}`;
+  return path === root || path.startsWith(rootPrefix);
+}
+
 function safeExecutionHostPath({
   executionHostPath,
   label,
@@ -95,4 +155,12 @@ function safeExecutionHostPath({
     throw Error(`${label} path must not contain separators`);
   }
   return executionHostPath.join(root, path);
+}
+
+function executionHostPathResolve(path: string): string {
+  return pathModule.resolve(path);
+}
+
+function nativePathSeparator(): string {
+  return pathModule.sep;
 }
