@@ -2,6 +2,7 @@
 // Same-host thread handoff request handling and top-level orchestration.
 
 import { readCurrentBranch } from "./git-worker-current-branch";
+import { moveThreadToHostWorktree } from "./git-worker-host-handoff";
 import { readStableMetadata } from "./git-worker-repo-queries";
 import { readStatusSummary } from "./git-worker-status-queries";
 import { checkoutBranch } from "./git-worker-thread-handoff-checkout";
@@ -27,11 +28,13 @@ import type {
 import type { WorkerExecutionHostClient } from "./worker-execution-host-client";
 
 export async function handleThreadHandoffRequest({
+  destinationHost,
   emit,
   host,
   request,
   signal,
 }: {
+  destinationHost?: WorkerExecutionHostClient;
   emit(event: unknown): void;
   host: WorkerExecutionHostClient;
   request: GitWorkerRequest;
@@ -85,6 +88,44 @@ export async function handleThreadHandoffRequest({
           params,
           "worktreeWorkspaceRoot",
         ),
+      });
+    }
+    case "move-thread-to-host-worktree": {
+      if (destinationHost == null) {
+        throw Error("Destination host is required for host worktree handoff");
+      }
+      const operationId =
+        optionalStringParam(params, "operationId") ?? request.id;
+      return moveThreadToHostWorktree({
+        callbacks: progressCallbacks({
+          direction: "to-host-worktree",
+          emit,
+          operationId,
+        }),
+        destinationHost,
+        options: {
+          destinationWorkspaceRoot: requireStringParam(
+            params,
+            "destinationWorkspaceRoot",
+          ),
+          destinationWorktreeGitRoot: optionalStringParam(
+            params,
+            "destinationWorktreeGitRoot",
+          ),
+          destinationWorktreeWorkspaceRoot: optionalStringParam(
+            params,
+            "destinationWorktreeWorkspaceRoot",
+          ),
+          sourceBranch: requireStringParam(params, "sourceBranch"),
+          sourceCwd: requireStringParam(params, "sourceCwd"),
+          sourceRolloutPath: requireStringParam(params, "sourceRolloutPath"),
+          stashDestinationWorktree: optionalBooleanParam(
+            params,
+            "stashDestinationWorktree",
+          ),
+        },
+        signal,
+        sourceHost: host,
       });
     }
     default:

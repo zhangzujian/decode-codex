@@ -96,7 +96,7 @@ export async function handleCreateWorktreeRequest({
   });
 }
 
-async function createWorktree({
+export async function createWorktree({
   allowSetupFailure,
   callbacks,
   host,

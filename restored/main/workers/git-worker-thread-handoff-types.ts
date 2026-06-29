@@ -14,7 +14,10 @@ export type GitCommandExecOutput = {
   output: string;
 };
 
-export type ThreadHandoffDirection = "to-local" | "to-worktree";
+export type ThreadHandoffDirection =
+  | "to-host-worktree"
+  | "to-local"
+  | "to-worktree";
 export type ThreadHandoffProgressStatus =
   | "started"
   | "completed"
@@ -25,6 +28,9 @@ export type ThreadHandoffProgressStep =
   | "detach-worktree-branch"
   | "checkout-local-branch"
   | "apply-changes-to-local"
+  | "prepare-host-transfer"
+  | "transfer-host-artifacts"
+  | "create-new-worktree"
   | "stash-target-worktree-changes"
   | "checkout-worktree-branch"
   | "apply-changes-to-worktree";
@@ -36,17 +42,24 @@ export type ThreadHandoffCallbacks = {
   ): void;
 };
 
-export type ThreadHandoffSuccess = {
-  status: "success";
-  warnings: string[];
-};
+export type ThreadHandoffSuccess =
+  | {
+      status: "success";
+      warnings: string[];
+    }
+  | {
+      status: "success";
+      rolloutPath: string;
+      worktreeGitRoot: string;
+      worktreeWorkspaceRoot: string;
+    };
 
 export type ThreadHandoffError = {
   status: "error";
   error: string;
   message: string;
-  rollbackErrors: string[];
-  warnings: string[];
+  rollbackErrors?: string[];
+  warnings?: string[];
   execOutput?: GitCommandExecOutput;
 };
 

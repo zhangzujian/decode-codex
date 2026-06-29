@@ -720,6 +720,29 @@ export class GitWorkerRequestDispatcher {
             signal: context.signal,
           }),
         };
+      case "move-thread-to-host-worktree": {
+        const params = requireRecordParams(request);
+        const destinationHostConfig = requireRecordParam(
+          params,
+          "destinationHostConfig",
+        ) as WorkerExecutionHostConfig;
+        const destinationHost = this.featureContext.git?.createExecutionHost(
+          destinationHostConfig,
+        );
+        if (destinationHost == null) {
+          return rpcError("Destination host dependencies are required");
+        }
+        return {
+          type: "ok",
+          value: await handleThreadHandoffRequest({
+            destinationHost,
+            emit: (event) => this.postWorkerEvent(event),
+            host: context.host,
+            request,
+            signal: context.signal,
+          }),
+        };
+      }
       case "list-worktrees": {
         const params = requireRecordParams(request);
         return ok({
@@ -825,6 +848,15 @@ function requireStringParam(
   const requirement =
     options.allowEmpty === true ? "a string" : "a non-empty string";
   throw Error(`Git worker parameter '${key}' must be ${requirement}`);
+}
+
+function requireRecordParam(
+  params: Record<string, unknown>,
+  key: string,
+): Record<string, unknown> {
+  const value = params[key];
+  if (isRecord(value)) return value;
+  throw Error(`Git worker parameter '${key}' must be an object`);
 }
 
 function optionalStringParam(
