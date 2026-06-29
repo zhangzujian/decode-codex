@@ -5,6 +5,7 @@ export * from "./chrome-extension-sync";
 export * from "./constants";
 export * from "./content-variants";
 export * from "./descriptors";
+export * from "./errors";
 export * from "./manifests";
 export * from "./paths";
 export * from "./stale-cleanup";
