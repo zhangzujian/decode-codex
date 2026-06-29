@@ -1,5 +1,5 @@
 // Restored from ref/.vite/build/worker.js
-// Read-only Git branch search helpers.
+// Read-only Git branch search and existence helpers.
 
 import { runGitCommand } from "./git-worker-commands";
 import type { WorkerExecutionHostClient } from "./worker-execution-host-client";
@@ -47,10 +47,67 @@ export async function searchBranches({
   ];
 }
 
+export async function readRecentBranches({
+  host,
+  limit,
+  root,
+  signal,
+}: {
+  host: WorkerExecutionHostClient;
+  limit: number;
+  root: string;
+  signal: AbortSignal;
+}): Promise<string[]> {
+  const result = await runGitCommand({
+    args: [
+      "for-each-ref",
+      `--count=${limit}`,
+      "--sort=-committerdate",
+      "refs/heads",
+      "--format=%(refname:short)",
+    ],
+    cwd: root,
+    host,
+    signal,
+  });
+  return result.success && result.stdout
+    ? result.stdout
+        .split("\n")
+        .map((branch) => branch.trim())
+        .filter((branch) => branch.length > 0)
+    : [];
+}
+
+export async function branchExists({
+  branch,
+  host,
+  root,
+  signal,
+}: {
+  branch: string;
+  host: WorkerExecutionHostClient;
+  root: string;
+  signal: AbortSignal;
+}): Promise<boolean> {
+  const result = await runGitCommand({
+    args: ["show-ref", "--verify", "--quiet", gitBranchRef(branch)],
+    cwd: root,
+    host,
+    signal,
+  });
+  return result.success && result.code === 0;
+}
+
 export function clampBranchSearchLimit(value: unknown): number {
   const limit =
     typeof value === "number" && Number.isFinite(value) ? value : 20;
   return Math.max(1, Math.min(Math.trunc(limit), 20));
+}
+
+export function clampRecentBranchLimit(value: unknown): number {
+  const limit =
+    typeof value === "number" && Number.isFinite(value) ? value : 10;
+  return Math.max(1, Math.min(Math.trunc(limit), 100));
 }
 
 async function searchBranchesForRefPattern({
@@ -103,6 +160,10 @@ function branchNameFromFullRef(ref: string): string | null {
   if (slashIndex < 0 || slashIndex === remoteBranch.length - 1) return null;
   const branch = remoteBranch.slice(slashIndex + 1);
   return branch === "HEAD" ? null : branch;
+}
+
+function gitBranchRef(branch: string): string {
+  return branch.startsWith("refs/") ? branch : `refs/heads/${branch}`;
 }
 
 function normalizeBranchSearchText(value: string): string {

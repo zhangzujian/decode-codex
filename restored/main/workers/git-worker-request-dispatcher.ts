@@ -16,13 +16,17 @@ import {
 } from "./git-worker-branch-discovery";
 import { readBranchMetadata } from "./git-worker-branch-metadata";
 import {
+  branchExists,
   clampBranchSearchLimit,
+  clampRecentBranchLimit,
+  readRecentBranches,
   searchBranches,
 } from "./git-worker-branch-search";
 import { readCatFile } from "./git-worker-cat-file";
 import {
   readConfigValueForScope,
   readSubmodulePaths,
+  setConfigValueForScope,
 } from "./git-worker-config-queries";
 import { readCurrentBranch } from "./git-worker-current-branch";
 import { readBranchDiffStats } from "./git-worker-diff-stats";
@@ -431,6 +435,19 @@ export class GitWorkerRequestDispatcher {
           }),
         });
       }
+      case "set-config-value": {
+        const params = requireRecordParams(request);
+        return ok({
+          success: await setConfigValueForScope({
+            host: context.host,
+            key: requireStringParam(params, "key"),
+            root: requireStringParam(params, "root"),
+            scope: optionalStringParam(params, "scope"),
+            signal: context.signal,
+            value: requireStringParam(params, "value", { allowEmpty: true }),
+          }),
+        });
+      }
     }
     throw openRestorationBoundaryError(
       `Git worker method '${request.method}' remains an open restoration boundary.`,
@@ -448,57 +465,6 @@ export class GitWorkerRequestDispatcher {
 
 function ok(value: unknown): RpcResult {
   return { type: "ok", value };
-}
-
-async function readRecentBranches({
-  host,
-  limit,
-  root,
-  signal,
-}: {
-  host: WorkerExecutionHostClient;
-  limit: number;
-  root: string;
-  signal: AbortSignal;
-}): Promise<string[]> {
-  const result = await runGitCommand({
-    args: [
-      "for-each-ref",
-      `--count=${limit}`,
-      "--sort=-committerdate",
-      "refs/heads",
-      "--format=%(refname:short)",
-    ],
-    cwd: root,
-    host,
-    signal,
-  });
-  return result.success && result.stdout
-    ? result.stdout
-        .split("\n")
-        .map((branch) => branch.trim())
-        .filter((branch) => branch.length > 0)
-    : [];
-}
-
-async function branchExists({
-  branch,
-  host,
-  root,
-  signal,
-}: {
-  branch: string;
-  host: WorkerExecutionHostClient;
-  root: string;
-  signal: AbortSignal;
-}): Promise<boolean> {
-  const result = await runGitCommand({
-    args: ["show-ref", "--verify", "--quiet", gitBranchRef(branch)],
-    cwd: root,
-    host,
-    signal,
-  });
-  return result.success && result.code === 0;
 }
 
 async function readUpstreamBranchResult(
@@ -776,16 +742,6 @@ async function readCommitCount(
 
 function isGitSha(value: string): boolean {
   return /^[0-9a-f]{7,40}$/i.test(value.trim());
-}
-
-function gitBranchRef(branch: string): string {
-  return branch.startsWith("refs/") ? branch : `refs/heads/${branch}`;
-}
-
-function clampRecentBranchLimit(value: unknown): number {
-  const limit =
-    typeof value === "number" && Number.isFinite(value) ? value : 10;
-  return Math.max(1, Math.min(Math.trunc(limit), 100));
 }
 
 function requireRecordParams(
