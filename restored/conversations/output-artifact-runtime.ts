@@ -1,26 +1,19 @@
-// Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
+// Restored from ref/webview/assets/local-conversation-thread-BwqAGxoz.js
 // Path, markdown-resource, and output-artifact helpers for conversation summaries.
 import {
+  Uc as collectTurnFileArtifactsRaw,
   Qg as mapTurnStatusToOutputStatusRaw,
   _x as normalizeArtifactPathKeyRaw,
+  es as isFileReferencePathRaw,
+  qo as isResourcePathInsideProjectlessOutputRaw,
   yx as resolveWorkspacePathFromCwdRaw,
 } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
-import {
-  gi as isFileUrlLikeTargetRaw,
-  mi as normalizeHrefRaw,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-DEE2TwPG.js";
+import { Gr as isFileUrlLikeTargetRaw } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
+import { mi as normalizeHrefRaw } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-DEE2TwPG.js";
 import { initConversationPromptContextRuntime } from "../runtime/conversation-prompt-context-runtime";
 import { initArtifactPreviewRuntime } from "../runtime/artifact-preview-runtime";
 
 import { normalizeWorkspacePath as normalizeWorkspacePathValue } from "../boundaries/src-l0hb-mz-p";
-import {
-  Hv as collectTurnFileArtifactsRaw,
-  Kg as initNormalizedPathUtilities,
-  Qg as initArtifactPathDetectionHelpers,
-  Uv as initMarkdownArtifactHelpers,
-  e_ as isFileReferencePathRaw,
-  qg as isResourcePathInsideProjectlessOutputRaw,
-} from "../vendor/projects-app-shared-runtime";
 
 export type ProjectlessResourcePathOptions = {
   cwd: string | null;
@@ -30,9 +23,6 @@ export type ProjectlessResourcePathOptions = {
 
 export function initOutputArtifactRuntime(): void {
   initConversationPromptContextRuntime();
-  initArtifactPathDetectionHelpers();
-  initMarkdownArtifactHelpers();
-  initNormalizedPathUtilities();
   initArtifactPreviewRuntime();
 }
 
