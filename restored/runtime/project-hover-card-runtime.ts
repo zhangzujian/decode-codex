@@ -8,7 +8,6 @@ import {
   Xt as parseProjectWritableRootsRaw,
   Yt as getProjectWritableRootsForDisplayRaw,
 } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
-import { u as useRemoteHostConfigsRaw } from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~nek76pmq-C240EGR1.js";
 import { defineMessages } from "./intl-define-messages-runtime";
 import { getPathBasename as normalizeTextForCompare } from "./path-basename-runtime";
 import { initStringNormalizeRuntime } from "./string-normalize-runtime";
@@ -83,6 +82,7 @@ import {
 } from "../vendor/projects-app-shared-runtime";
 import { useScope, useSignalValue, useScopedValue } from "./app-scope-hooks";
 import { initAppScope, initScopeRuntime, appScope } from "./app-scope-runtime";
+import { useRemoteHostConfigs as useSharedObjectRemoteHostConfigs } from "./shared-object-host-runtime";
 
 export type ProjectWritableRoot = {
   kind?: "local";
@@ -114,7 +114,7 @@ export function getProjectWritableRootsForDisplay(
 }
 
 export function useRemoteHostConfigs(): unknown[] {
-  return (useRemoteHostConfigsRaw() ?? []) as unknown[];
+  return (useSharedObjectRemoteHostConfigs() ?? []) as unknown[];
 }
 
 export function initKeyboardShortcutRuntime(): void {

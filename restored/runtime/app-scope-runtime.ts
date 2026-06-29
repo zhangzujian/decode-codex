@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js
-// AppScope root is restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~nek76pmq-C240EGR1.js.
+// AppScope root comes from the current shared-object host runtime.
 // App-scope signal primitives shared by restored conversation/runtime modules.
 import {
   Ao as initScopeRuntimeRaw,
@@ -8,9 +8,9 @@ import {
   ys as createDerivedSignalRaw,
 } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
 import {
-  _ as initAppScopeRaw,
-  g as appScopeRoot,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~nek76pmq-C240EGR1.js";
+  appScopeRoot,
+  initSharedObjectAppScopeRoot,
+} from "./shared-object-host-runtime";
 
 export type ScopedSignalGetter = {
   get<TValue = unknown>(signal: unknown, key?: unknown): TValue;
@@ -31,7 +31,7 @@ export function initScopeRuntime(): void {
 }
 
 export function initAppScope(): void {
-  initAppScopeRaw();
+  initSharedObjectAppScopeRoot();
 }
 
 export function initAppScopeSignalRuntime(): void {

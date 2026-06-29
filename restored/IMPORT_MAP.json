@@ -14016,6 +14016,32 @@
       "note": "Current app-main shell-preference producer facade for compact-window state; full producer remains an open partial boundary.",
       "lastUpdated": "2026-06-28T21:05:00.000Z"
     },
+    "app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~nek76pmq-C240EGR1": {
+      "restored": "runtime/shared-object-host-runtime.ts",
+      "exports": {
+        "_": "initSharedObjectAppScopeRoot",
+        "a": "useSharedObjectHostConfigById",
+        "c": "initLocalHostKindRuntime",
+        "d": "initSharedObjectStateRuntime",
+        "f": "useSharedObjectState",
+        "g": "sharedObjectAppScopeRoot",
+        "h": "updateSharedObjectValue",
+        "i": "initRemoteHostConfigRuntime",
+        "l": "initRemoteConnectionListRuntime",
+        "m": "initSharedObjectSignalFamilyRuntime",
+        "n": "isCurrentHostLocal",
+        "o": "localHostKind",
+        "p": "readSharedObjectValueWithReader",
+        "r": "findRemoteHostConfigById",
+        "s": "localHostKindAlias",
+        "t": "initSharedObjectHostRuntime",
+        "u": "useRemoteHostConfigs"
+      },
+      "status": "partial",
+      "boundary": "runtime/shared-object-host-runtime.ts",
+      "note": "Current shared-object host state and remote host config producer lifted behind typed semantic wrappers. Existing app-scope/project-hover runtime facades now consume this module instead of importing the current ref chunk directly; the low-level app-scope signal implementation remains backed by the current ref producer until fully reimplemented.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "app-initial~app-main~automations-page-BfqUlSo6": {
       "restored": "vendor/app-main-current-runtime.ts",
       "exports": {
