@@ -69,6 +69,7 @@ import {
   readManagedWorktreeState,
   readWorktreeSnapshotRef,
 } from "./git-worker-managed-worktree";
+import { handleCreateWorktreeRequest } from "./git-worker-create-worktree";
 import { handleWorktreeMutationRequest } from "./git-worker-worktree-mutations";
 import { resolveWorktreeForThread } from "./git-worker-thread-worktree";
 import { listCodexWorktrees, listWorktrees } from "./git-worker-worktrees";
@@ -541,6 +542,21 @@ export class GitWorkerRequestDispatcher {
             signal: context.signal,
           }),
         );
+      case "create-worktree": {
+        const result = await handleCreateWorktreeRequest({
+          emit: (event) => this.postWorkerEvent(event),
+          host: context.host,
+          request,
+          signal: context.signal,
+        });
+        return result.success
+          ? ok({
+              worktreeGitRoot: result.worktreeGitRoot,
+              worktreeWorkspaceRoot: result.worktreeWorkspaceRoot,
+              setupError: result.setupError,
+            })
+          : rpcError(result.error.message);
+      }
       case "status-summary": {
         const params = requireRecordParams(request);
         return ok(
