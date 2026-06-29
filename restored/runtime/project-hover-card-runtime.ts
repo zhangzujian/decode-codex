@@ -5,11 +5,10 @@ import {
   normalizeWorkspacePath,
 } from "../boundaries/src-l0hb-mz-p";
 import {
-  HI as parseProjectWritableRoots,
-  KE as initKeyboardShortcutRuntime,
-  qE as useRemoteHostConfigs,
-  VI as getProjectWritableRootsForDisplay,
-} from "../vendor/appg-thread-shared-runtime";
+  Xt as parseProjectWritableRootsRaw,
+  Yt as getProjectWritableRootsForDisplayRaw,
+} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
+import { u as useRemoteHostConfigsRaw } from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~nek76pmq-C240EGR1.js";
 import { defineMessages } from "./intl-define-messages-runtime";
 import { getPathBasename as normalizeTextForCompare } from "./path-basename-runtime";
 import { initStringNormalizeRuntime } from "./string-normalize-runtime";
@@ -84,6 +83,43 @@ import {
 } from "../vendor/projects-app-shared-runtime";
 import { useScope, useSignalValue, useScopedValue } from "./app-scope-hooks";
 import { initAppScope, initScopeRuntime, appScope } from "./app-scope-runtime";
+
+export type ProjectWritableRoot = {
+  kind?: "local";
+  label?: string;
+  path: string;
+};
+
+export type ProjectWritableRootsByProject = Record<
+  string,
+  ProjectWritableRoot[] | undefined
+>;
+
+export type ProjectWritableRootsDisplayOptions = {
+  legacyRoot: string | null;
+  projectId: string;
+  projectWritableRoots: ProjectWritableRootsByProject;
+};
+
+export function parseProjectWritableRoots(
+  value: unknown,
+): ProjectWritableRootsByProject {
+  return parseProjectWritableRootsRaw(value) as ProjectWritableRootsByProject;
+}
+
+export function getProjectWritableRootsForDisplay(
+  options: ProjectWritableRootsDisplayOptions,
+): string[] {
+  return getProjectWritableRootsForDisplayRaw(options) as string[];
+}
+
+export function useRemoteHostConfigs(): unknown[] {
+  return (useRemoteHostConfigsRaw() ?? []) as unknown[];
+}
+
+export function initKeyboardShortcutRuntime(): void {
+  // Current ProjectHoverCard no longer initializes the old keyboard-shortcut runtime.
+}
 
 export {
   ActivityIcon,
