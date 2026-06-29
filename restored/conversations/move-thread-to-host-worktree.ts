@@ -11,22 +11,14 @@ import {
 } from "../boundaries/thread-context-inputs.facade";
 import { codexWorktreesQueryKey } from "../utils/worktree-query-keys";
 import { remapDiffCommentsForHandoff } from "./remap-diff-comments-for-handoff";
+import { transferPinnedThreadOrder } from "./transfer-pinned-thread-order";
+import { transferThreadTitle } from "./transfer-thread-title";
 
-// Provisional facade imports from the commons chunk:
-// - `logger` (orig `N`) structured logger.
-// - `serializeError` (orig `mi`) converts an error into a log-safe value.
-// - `associateBranchWithConversation` (orig `go`) records the source branch on
-//   the freshly forked conversation.
-// - `transferThreadTitle` (chunk-local `XW`) / `transferPinnedThreadOrder`
-//   (chunk-local `JW`) copy thread title and pinned-thread ordering between
-//   conversations. These are owned by sibling batches of the same chunk.
 import {
-  N as logger,
-  mi as serializeError,
-  go as associateBranchWithConversation,
-  XW as transferThreadTitle,
-  JW as transferPinnedThreadOrder,
-} from "../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
+  associateBranchWithConversation,
+  logger,
+  serializeError,
+} from "../vendor/app-main-current-runtime";
 
 type HostConfig = { id: string };
 

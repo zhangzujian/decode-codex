@@ -10,18 +10,10 @@ import {
   Wn as resolveLocalWorkspaceRoot,
 } from "../boundaries/thread-context-inputs.facade";
 import { remapDiffCommentsForHandoff } from "./remap-diff-comments-for-handoff";
+import { transferPinnedThreadOrder } from "./transfer-pinned-thread-order";
+import { transferThreadTitle } from "./transfer-thread-title";
 
-// Provisional facade imports from the commons chunk:
-// - `logger` (orig `N`) structured logger.
-// - `serializeError` (orig `mi`) converts an error into a log-safe value.
-// - `transferThreadTitle` (chunk-local `XW`) / `transferPinnedThreadOrder`
-//   (chunk-local `JW`) copy thread metadata between conversations.
-import {
-  N as logger,
-  mi as serializeError,
-  XW as transferThreadTitle,
-  JW as transferPinnedThreadOrder,
-} from "../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
+import { logger, serializeError } from "../vendor/app-main-current-runtime";
 
 type HostConfig = { id: string };
 

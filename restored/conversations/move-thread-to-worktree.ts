@@ -11,20 +11,10 @@ import {
 } from "../boundaries/thread-context-inputs.facade";
 import { codexWorktreesQueryKey } from "../utils/worktree-query-keys";
 import { remapDiffCommentsForHandoff } from "./remap-diff-comments-for-handoff";
+import { transferPinnedThreadOrder } from "./transfer-pinned-thread-order";
+import { transferThreadTitle } from "./transfer-thread-title";
 
-// Provisional facade imports from the commons chunk:
-// - `logger` (orig `N`) structured logger.
-// - `serializeError` (orig `mi`) converts an error into a log-safe value.
-// - `generateStreamId` (orig `Ig`) creates a progress stream id.
-// - `transferThreadTitle` (chunk-local `XW`) / `transferPinnedThreadOrder`
-//   (chunk-local `JW`) copy thread metadata between conversations.
-import {
-  N as logger,
-  mi as serializeError,
-  Ig as generateStreamId,
-  XW as transferThreadTitle,
-  JW as transferPinnedThreadOrder,
-} from "../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
+import { logger, serializeError } from "../vendor/app-main-current-runtime";
 
 type HostConfig = { id: string };
 
@@ -67,6 +57,10 @@ type MoveThreadToWorktreeOptions = {
 type MoveThreadResult =
   | { status: "success"; conversationId: string }
   | { status: "error"; message: string; execOutput?: unknown };
+
+function createStreamId(): string {
+  return crypto.randomUUID();
+}
 
 export async function moveThreadToWorktree({
   conversationId,
@@ -142,7 +136,7 @@ export async function moveThreadToWorktree({
               branchName: currentBranch,
             },
             localEnvironmentConfigPath: null,
-            streamId: generateStreamId(),
+            streamId: createStreamId(),
           },
         },
       );
