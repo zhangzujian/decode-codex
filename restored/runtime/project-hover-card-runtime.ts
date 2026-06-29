@@ -18,7 +18,12 @@ import { initModalRuntime } from "./modal-runtime";
 
 import { useHostConfigById } from "./host-config-runtime";
 import { toastSignal as toastControllerSignal } from "./toast-runtime";
-import { initGlobalStateQueryRuntime } from "./global-state-runtime";
+import {
+  getGlobalStateValue,
+  initGlobalStateQueryRuntime,
+  setGlobalStateValue,
+  useGlobalStateQuery as useGlobalStateQueryRuntime,
+} from "./global-state-runtime";
 
 import {
   initPersistentSignalRuntime,
@@ -73,13 +78,6 @@ import {
   Gd as initProfileIconsChunk,
   Wd as RowActionChevronIcon,
 } from "../vendor/profile-page-runtime";
-import {
-  Cx as getGlobalSettingValue,
-  Ex as setGlobalSettingValue,
-  Gu as initCodexAppFrameRuntime,
-  Ku as useGlobalStateQuery,
-  Tx as initGlobalSettingsRuntime,
-} from "../vendor/projects-app-shared-runtime";
 import { useScope, useSignalValue, useScopedValue } from "./app-scope-hooks";
 import { initAppScope, initScopeRuntime, appScope } from "./app-scope-runtime";
 import { useRemoteHostConfigs as useSharedObjectRemoteHostConfigs } from "./shared-object-host-runtime";
@@ -119,6 +117,37 @@ export function useRemoteHostConfigs(): unknown[] {
 
 export function initKeyboardShortcutRuntime(): void {
   // Current ProjectHoverCard no longer initializes the old keyboard-shortcut runtime.
+}
+
+export function getGlobalSettingValue<TData = unknown>(
+  get: unknown,
+  key: unknown,
+): TData | undefined {
+  return getGlobalStateValue<TData>(get, key);
+}
+
+export async function setGlobalSettingValue(
+  scope: unknown,
+  key: unknown,
+  value: unknown,
+  options?: unknown,
+): Promise<void> {
+  await setGlobalStateValue(scope, key, value, options);
+}
+
+export function useGlobalStateQuery<TData = unknown>(
+  key: unknown,
+  options?: unknown,
+) {
+  return useGlobalStateQueryRuntime<TData>(key, options);
+}
+
+export function initGlobalSettingsRuntime(): void {
+  initGlobalStateQueryRuntime();
+}
+
+export function initCodexAppFrameRuntime(): void {
+  // Current ProjectHoverCard chunk no longer has a separate app-frame initializer.
 }
 
 export {
