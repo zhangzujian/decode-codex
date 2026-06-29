@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/app-initial~app-main~automations-page-bHJfYUGr.js
+// Restored from ref/webview/assets/app-initial~app-main~automations-page-BfqUlSo6.js
 // Electron window focus signal used by local conversation read-state effects.
 import {
   _appScopeO as getAppScopeStore,
@@ -20,10 +20,14 @@ export const windowVisibleSignal = createAppScopeSignal<boolean | null>(
 );
 
 function readBrowserFocusState(): boolean {
-  if (typeof document !== "undefined" && document.visibilityState === "hidden") {
+  if (
+    typeof document !== "undefined" &&
+    document.visibilityState === "hidden"
+  ) {
     return false;
   }
-  return typeof document === "undefined" || typeof document.hasFocus !== "function"
+  return typeof document === "undefined" ||
+    typeof document.hasFocus !== "function"
     ? true
     : document.hasFocus();
 }
@@ -35,7 +39,9 @@ function getFocusStateFromMessage(message: unknown): boolean | null {
   if (typeof focusMessage.isFocused === "boolean") {
     return focusMessage.isFocused;
   }
-  return typeof focusMessage.focused === "boolean" ? focusMessage.focused : null;
+  return typeof focusMessage.focused === "boolean"
+    ? focusMessage.focused
+    : null;
 }
 
 function setWindowFocusState(isFocused: boolean): void {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/app-initial~app-main~automations-page-bHJfYUGr.js
+// Restored from ref/webview/assets/app-initial~app-main~automations-page-BfqUlSo6.js
 // Opens workspace resources into the app-shell side panel for publication terms/resource links.
 import { once } from "../../runtime/commonjs-interop";
 import {
@@ -11,9 +11,7 @@ import {
   createMcpFileViewerHostResource,
 } from "./mcp-file-viewers";
 import { getArtifactImportPresentation } from "./artifact-presentation";
-import {
-  initWorkspaceResourceOpenerChunk,
-} from "./resource-opener";
+import { initWorkspaceResourceOpenerChunk } from "./resource-opener";
 import {
   findExistingWorkspaceFilePanelTab,
   findMcpCapabilityFileViewerForPathInScope,

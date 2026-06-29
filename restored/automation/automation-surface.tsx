@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/app-initial~app-main~automations-page-bHJfYUGr.js
+// Restored from ref/webview/assets/app-initial~app-main~automations-page-BfqUlSo6.js
 // Local-conversation automation tooltip and composer outside-pointer surface.
 import React from "react";
 import {
@@ -28,10 +28,7 @@ export function ComposerDismissableLayer({
 
     const handlePointerDown = (event: PointerEvent) => {
       const target = event.target;
-      if (
-        target instanceof Node &&
-        !containerRef.current?.contains(target)
-      ) {
+      if (target instanceof Node && !containerRef.current?.contains(target)) {
         outsideHandlerRef.current?.(event);
       }
     };

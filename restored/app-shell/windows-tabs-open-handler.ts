@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/app-initial~app-main~automations-page-bHJfYUGr.js
+// Restored from ref/webview/assets/app-initial~app-main~automations-page-BfqUlSo6.js
 // Main-window implementation for the windows.tabs.open app action.
 import {
   getRouteThreadId,

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/app-initial~app-main~automations-page-bHJfYUGr.js
+// Restored from ref/webview/assets/app-initial~app-main~automations-page-BfqUlSo6.js
 // App-shell side-panel tab helpers used by publication terms/resource links.
 import {
   activateSidePanelPlacement,

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/app-initial~app-main~automations-page-bHJfYUGr.js
+// Restored from ref/webview/assets/app-initial~app-main~automations-page-BfqUlSo6.js
 // Error-boundary fallback used by the Electron app shell root.
 import { once } from "../runtime/commonjs-interop";
 
