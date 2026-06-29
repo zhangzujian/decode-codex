@@ -26,6 +26,10 @@ import {
   WorkerAppEventBus,
   toRpcError,
 } from "./worker-runtime-utils";
+import {
+  createWorkerTelemetryController,
+  type WorkerTelemetryController,
+} from "./worker-telemetry";
 
 type WorkerInitOptions = {
   appVersion?: string;
@@ -89,7 +93,7 @@ const workerConfig = parseWorkerData(workerData);
 const port = parentPort;
 if (port == null) throw Error("worker-entry must be run in a worker thread");
 
-initializeWorkerTelemetry(workerConfig);
+const workerTelemetry = initializeWorkerTelemetry(workerConfig);
 
 const mainRpcClient = new WorkerMainRpcClient(workerConfig.workerId, {
   postMessage(message) {
@@ -107,7 +111,7 @@ port.on("message", (message: WorkerInboundMessage) => {
   if (mainRpcClient.handleMessage(message)) return;
 
   if (message.type === "worker-sentry-user-update") {
-    updateWorkerTelemetryUser(message);
+    workerTelemetry.updateUser(message);
     return;
   }
   if (message.type === "worker-app-event") {
@@ -312,12 +316,15 @@ function parseWorkerData(value: unknown): WorkerThreadData {
   };
 }
 
-function initializeWorkerTelemetry(config: WorkerThreadData): void {
-  void config;
-}
-
-function updateWorkerTelemetryUser(message: WorkerSentryUserMessage): void {
-  void message;
+function initializeWorkerTelemetry(
+  config: WorkerThreadData,
+): WorkerTelemetryController {
+  return createWorkerTelemetryController({
+    workerId: config.workerId,
+    sentryInitOptions: config.sentryInitOptions,
+    sentryRewriteFramesRoot: config.sentryRewriteFramesRoot,
+    maxLogLevel: config.maxLogLevel,
+  });
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
