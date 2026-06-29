@@ -1,4 +1,5 @@
-// Restored from ref/webview/assets/use-nux-ChpUn11I.js; synced with ref/webview/assets/app-initial~app-main~first-run~new-thread-panel-page-DDCPYhDR.js.
+// Restored from ref/webview/assets/use-nux-ChpUn11I.js
+// Synced aliases: ref/webview/assets/app-initial~app-main~first-run~new-thread-panel-page-DDCPYhDR.js, ref/webview/assets/app-initial~app-main~first-run~new-thread-panel-page-Dmmp67Az.js.
 // App-shell onboarding NUX state hook.
 import { globalSettingKeys } from "../boundaries/src-l0hb-mz-p";
 import { useAuth } from "../auth/use-auth";

@@ -18,6 +18,10 @@ export type ScopedSignalGetter = {
 
 export type ScopedSignalInitializer<TKey, TValue> = (key: TKey) => TValue;
 
+export type ScopedSignalInitialValue<TKey, TValue> =
+  | TValue
+  | ScopedSignalInitializer<TKey, TValue>;
+
 export type ScopedSignalFamilyInitializer<TKey, TValue> = (
   key: TKey,
   context: ScopedSignalGetter,
@@ -39,15 +43,27 @@ export function initAppScopeSignalRuntime(): void {
   initAppScope();
 }
 
+export function createAppScopedSignal<TValue>(initialValue: TValue): unknown;
 export function createAppScopedSignal<TKey, TValue>(
   initializer: ScopedSignalInitializer<TKey, TValue>,
+): unknown;
+export function createAppScopedSignal<TKey, TValue>(
+  initializer: ScopedSignalInitialValue<TKey, TValue>,
 ): unknown {
-  return createScopedSignal(appScopeRoot, initializer);
+  return createScopedSignalRaw(appScopeRoot, initializer);
 }
 
+export function createScopedSignal<TValue>(
+  scope: unknown,
+  initialValue: TValue,
+): unknown;
 export function createScopedSignal<TKey, TValue>(
   scope: unknown,
   initializer: ScopedSignalInitializer<TKey, TValue>,
+): unknown;
+export function createScopedSignal<TKey, TValue>(
+  scope: unknown,
+  initializer: ScopedSignalInitialValue<TKey, TValue>,
 ): unknown {
   return createScopedSignalRaw(scope, initializer);
 }

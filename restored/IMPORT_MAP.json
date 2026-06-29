@@ -11039,6 +11039,16 @@
       "aliasOf": "use-nux-ChpUn11I",
       "note": "Current-ref first-run/new-thread chunk wraps the same NUX hook with a rolldown init export; public wrapper moved to app-shell/nux-state.ts while utils/use-nux.ts remains as a compatibility barrel."
     },
+    "app-initial~app-main~first-run~new-thread-panel-page-Dmmp67Az": {
+      "restored": "app-shell/nux-state.ts",
+      "exports": {
+        "n": "useNux",
+        "t": "initUseNuxChunk"
+      },
+      "status": "done",
+      "aliasOf": "app-initial~app-main~first-run~new-thread-panel-page-DDCPYhDR",
+      "note": "Current synced first-run/new-thread chunk preserves the same NUX hook behavior and export aliases as the earlier app-main DDCPYhDR hash."
+    },
     "worktrees-settings-page-KeLyIYZM": {
       "restored": "settings/worktrees-settings-page/index.tsx",
       "exports": {
@@ -14040,6 +14050,26 @@
       "status": "partial",
       "boundary": "runtime/shared-object-host-runtime.ts",
       "note": "Current shared-object host state and remote host config producer lifted behind typed semantic wrappers. Existing app-scope/project-hover runtime facades now consume this module instead of importing the current ref chunk directly; the low-level app-scope signal implementation remains backed by the current ref producer until fully reimplemented.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~jqxaf9bd-D06wdm98": {
+      "restored": "runtime/progress-duration-constants.ts",
+      "exports": {
+        "n": "initProgressDurationConstantsChunk",
+        "t": "DEFAULT_PROGRESS_DURATION_MS"
+      },
+      "status": "done",
+      "note": "Current tiny app-main dependency that initializes the shared 60 second progress countdown duration.",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "app-initial~app-main~pets-settings-eXPTB2Dp": {
+      "restored": "features/avatar-overlay-open-state.ts",
+      "exports": {
+        "n": "initAvatarOverlayOpenStateChunk",
+        "t": "avatarOverlayOpenSignal"
+      },
+      "status": "done",
+      "note": "Current pets/avatar-overlay state chunk restored as the app-scope boolean signal that tracks whether the avatar overlay is open.",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "app-initial~app-main~automations-page-BfqUlSo6": {
