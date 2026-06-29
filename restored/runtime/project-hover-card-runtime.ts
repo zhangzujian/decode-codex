@@ -36,19 +36,26 @@ import {
   useQueryClient,
 } from "./app-server-mutation-runtime";
 import {
-  initAppDialog,
   initButtonComponentPrimitives,
+} from "../ui/button";
+import { initAppDialog, initDialogLayoutComponents } from "../ui/dialog-layout";
+import {
   FormattedMessage,
-  GlobeIcon,
-  initDialogLayoutComponents,
-  initGlobeIcon as initSignalHooksRuntime,
   initIntlRuntime as initReactIntlRuntime,
-  initSettingsGearIcon,
-  initSpinnerComponent,
-  SettingsGearIcon as EditProjectIcon,
-  Spinner as ActivityIcon,
   useIntl,
-} from "../boundaries/current-ref/appg-thread-shared-producer";
+} from "../vendor/react-intl";
+import {
+  GlobeIcon,
+  initGlobeIcon as initSignalHooksRuntime,
+} from "../icons/globe-icon";
+import {
+  initSettingsGearIcon,
+  SettingsGearIcon as EditProjectIcon,
+} from "../icons/settings-gear-icon";
+import {
+  initSpinnerComponent,
+  Spinner as ActivityIcon,
+} from "../ui/spinner";
 import { classNames, initClassNameRuntime } from "../utils/class-names";
 import {
   initProjectHoverCardCurrentRefRuntime,
