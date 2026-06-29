@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/local-remote-control-enabled-sync-DueNKRXX.js
-// local-remote-control-enabled-sync-DueNKRXX chunk restored from the Codex webview bundle.
+// Local remote-control enable/disable sync and error-toast handling.
 import {
   LOCAL_HOST_ID,
   sendAppServerRequest,
@@ -10,7 +10,7 @@ import {
 } from "../boundaries/thread-context-inputs.facade";
 import { _vscodeApiC as VscodeApiError } from "../boundaries/vscode-api";
 import { toastSignal } from "../runtime/toast-runtime";
-import { intlShapeSignal } from "../vendor/app-main-current-runtime";
+import { appIntlSignal } from "../utils/app-intl-signal";
 type RemoteControlStatusOptions = {
   shouldApplyStatus?: () => boolean;
 };
@@ -125,7 +125,7 @@ export function handleLocalRemoteControlEnableError(
   error: unknown,
 ): boolean {
   const toast = scope.get<ToastApiLike>(toastSignal);
-  const intl = scope.get<IntlShapeLike>(intlShapeSignal);
+  const intl = scope.get<IntlShapeLike>(appIntlSignal);
   if (error instanceof VscodeApiError) {
     toast.danger(
       intl.formatMessage({
