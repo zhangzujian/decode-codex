@@ -2,16 +2,12 @@
 // Synced with ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CFm41aDU.js.
 // Current-ref compatibility facade for the appgen-library hot-path aliases
 // still consumed by restored app-shell/composer modules.
-import {
-  createContext,
-  type ComponentType,
-  type Context,
-  type ReactNode,
-} from "react";
+import { type ComponentType, type Context, type ReactNode } from "react";
 import {
   n as initRawThreadComposerFooterChunk,
   t as RawThreadComposerFooter,
 } from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CFm41aDU.js";
+import { AppShellElementContext } from "../app-shell/app-shell-element-context";
 import { Cr as rawThreadComposerContext } from "./pull-request-thread-actions-runtime";
 
 type ThreadComposerFooterComponent = ComponentType<{
@@ -19,8 +15,7 @@ type ThreadComposerFooterComponent = ComponentType<{
   children?: ReactNode;
 }>;
 
-export const appShellElementContext: Context<HTMLElement | null> =
-  createContext<HTMLElement | null>(null);
+export const appShellElementContext = AppShellElementContext;
 
 export const threadComposerContext =
   rawThreadComposerContext as Context<boolean>;
