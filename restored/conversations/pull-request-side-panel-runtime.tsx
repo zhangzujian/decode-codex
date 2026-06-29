@@ -10,11 +10,11 @@ import {
   yc as initThreadSidePanelPositioningChunkRaw,
 } from "../vendor/projects-app-shared-runtime";
 import {
-  H as initPullRequestDescriptionMarkdownRendererChunkRaw,
-  W as PullRequestDescriptionMarkdown,
-  m as parsePullRequestDescriptionMarkdown,
-  p as initPullRequestDescriptionMarkdownParserChunkRaw,
-} from "../vendor/pull-request-thread-actions-runtime";
+  initPullRequestDescriptionMarkdownRendererChunk as initPullRequestDescriptionMarkdownRendererChunkRaw,
+  initPullRequestDescriptionMarkdownParserChunk as initPullRequestDescriptionMarkdownParserChunkRaw,
+  parsePullRequestDescriptionMarkdown,
+  PullRequestDescriptionMarkdown,
+} from "../boundaries/current-ref/pull-request-description-markdown-producer";
 
 export {
   activateThreadSidePanelPosition,
