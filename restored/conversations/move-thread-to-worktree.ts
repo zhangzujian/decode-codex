@@ -14,7 +14,7 @@ import { remapDiffCommentsForHandoff } from "./remap-diff-comments-for-handoff";
 import { transferPinnedThreadOrder } from "./transfer-pinned-thread-order";
 import { transferThreadTitle } from "./transfer-thread-title";
 
-import { logger, serializeError } from "../vendor/app-main-current-runtime";
+import { appLogger as logger, serializeError } from "../runtime/app-logger";
 
 type HostConfig = { id: string };
 

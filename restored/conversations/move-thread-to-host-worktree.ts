@@ -14,11 +14,8 @@ import { remapDiffCommentsForHandoff } from "./remap-diff-comments-for-handoff";
 import { transferPinnedThreadOrder } from "./transfer-pinned-thread-order";
 import { transferThreadTitle } from "./transfer-thread-title";
 
-import {
-  associateBranchWithConversation,
-  logger,
-  serializeError,
-} from "../vendor/app-main-current-runtime";
+import { appLogger as logger, serializeError } from "../runtime/app-logger";
+import { setConversationBranchOverride } from "../runtime/git-query/conversation-branch-override";
 
 type HostConfig = { id: string };
 
@@ -221,7 +218,7 @@ export async function moveThreadToHostWorktree({
 
   onTargetConversationId?.(targetConversationId);
   onTargetCwd?.(moveResult.worktreeWorkspaceRoot);
-  await associateBranchWithConversation(targetConversationId, sourceBranch);
+  await setConversationBranchOverride(targetConversationId, sourceBranch);
   await runTransferStep(
     "Cross-host handoff succeeded, but worktree ownership metadata could not be updated: {}",
     () =>
