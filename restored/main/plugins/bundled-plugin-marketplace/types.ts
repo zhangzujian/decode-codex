@@ -34,6 +34,28 @@ export type BundledMarketplacePlugin = {
   source: { path: string; source?: string };
 };
 
+export type BundledMarketplace = {
+  interface?: unknown;
+  name: string;
+  plugins: BundledMarketplacePlugin[];
+};
+
+export type InstalledBundledMarketplace = {
+  plugins: InstalledMarketplacePlugin[];
+};
+
+export type MarketplaceWriteCounts = {
+  pluginCountAfterWrite: number;
+  pluginCountBeforeWrite: number | null;
+};
+
+export type MaterializedBundledMarketplace = {
+  localMarketplaceRoot?: string;
+  marketplace: BundledMarketplace;
+  marketplaceRoot?: unknown;
+  marketplaceWriteCounts: MarketplaceWriteCounts | null;
+};
+
 export type ChromeExtensionSyncDecision =
   | "keep_installed"
   | "install_missing"

@@ -7,6 +7,7 @@ export * from "./content-variants";
 export * from "./descriptors";
 export * from "./errors";
 export * from "./manifests";
+export * from "./marketplaces";
 export * from "./paths";
 export * from "./stale-cleanup";
 export * from "./types";
