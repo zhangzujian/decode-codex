@@ -1,9 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js
 // App logger facade used by restored conversation modules.
 import {
-  N as appLogger,
-  M as initLoggerRuntimeRaw,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js";
+  appMainLogger as appLogger,
+  initAppLoggingChunk,
+} from "./app-main-host-runtime";
 
 export type AppLogger = {
   debug(
@@ -37,7 +37,7 @@ export type AppLogger = {
 };
 
 export function initAppLoggerRuntime(): void {
-  initLoggerRuntimeRaw();
+  initAppLoggingChunk();
 }
 
 export { appLogger };
