@@ -1,12 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-publication-terms-route~remote-conversati~oykv7gy7-B4ar2dlW.js
 // Boundary facade for appgen publication-terms resource opening and panel tabs.
 import { createElement, isValidElement } from "react";
-import { Mg as openFileOutcomeEvent } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
-import {
-  Kn as readFileContentSampleByteLimit,
-  Rn as isRemoteHostConfig,
-  Wr as isUrlLikePath,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
 import { getPathBasename } from "./path-basename-runtime";
 
 import { initArtifactPreviewRuntime } from "./artifact-preview-runtime";
@@ -42,10 +36,34 @@ import {
   TS as logScopedProductEvent,
 } from "../vendor/projects-app-shared-runtime";
 
+const readFileContentSampleByteLimit = 4096;
+const urlLikePathPattern = /\.html?$/i;
+const openFileOutcomeEvent = {
+  $type: "protobuf_analytics_events.v1.CodexWorkspaceFilePreviewAttempted",
+};
+
 type McpCapabilityLogoIcon = {
   logoDarkUrl?: string | null;
   logoUrl?: string | null;
 };
+
+type RemoteHostConfigLike = {
+  kind?: string | null;
+};
+
+function isRemoteHostConfig(
+  hostConfig: RemoteHostConfigLike | null | undefined,
+) {
+  return (
+    hostConfig?.kind === "ssh" ||
+    hostConfig?.kind === "wsl" ||
+    hostConfig?.kind === "remote-control"
+  );
+}
+
+function isUrlLikePath(path: string) {
+  return urlLikePathPattern.test(path);
+}
 
 function isMcpCapabilityLogoIcon(icon: unknown): icon is McpCapabilityLogoIcon {
   return (
