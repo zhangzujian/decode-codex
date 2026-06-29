@@ -2,14 +2,18 @@
 // Composer scope initialization and scope token for local conversation panels.
 
 import {
-  Al as initComposerScope,
-  wl as composerScope,
-} from "../vendor/pull-request-thread-actions-runtime";
+  _appScopeH as createScopedScope,
+  appScopeRoot,
+} from "../boundaries/app-scope";
 import { initScopeRuntime } from "../runtime/app-scope-runtime";
 
-export { composerScope };
+export const composerScope = createScopedScope("ComposerScope", {
+  parent: appScopeRoot,
+  retain: {
+    max: 100,
+  },
+});
 
 export function initComposerScopeRuntime(): void {
   initScopeRuntime();
-  initComposerScope();
 }
