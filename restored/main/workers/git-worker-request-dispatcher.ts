@@ -72,6 +72,7 @@ import {
 import { handleCreateWorktreeRequest } from "./git-worker-create-worktree";
 import { handleWorktreeMutationRequest } from "./git-worker-worktree-mutations";
 import { resolveWorktreeForThread } from "./git-worker-thread-worktree";
+import { handleThreadHandoffRequest } from "./git-worker-thread-handoff";
 import { listCodexWorktrees, listWorktrees } from "./git-worker-worktrees";
 import type { RpcResult } from "./worker-main-rpc-client";
 import { toRpcError } from "./worker-runtime-utils";
@@ -228,7 +229,7 @@ export class GitWorkerRequestDispatcher {
     switch (request.method) {
       case "availability":
         this.localGitAvailable = context.available;
-        return ok({ available: context.available });
+        return { type: "ok", value: { available: context.available } };
       case "stable-metadata": {
         const params = requireRecordParams(request);
         const cwd = requireStringParam(params, "cwd");
@@ -708,6 +709,17 @@ export class GitWorkerRequestDispatcher {
           return rpcError("Failed to set thread worktree owner");
         }
       }
+      case "move-thread-to-local":
+      case "move-thread-to-worktree":
+        return {
+          type: "ok",
+          value: await handleThreadHandoffRequest({
+            emit: (event) => this.postWorkerEvent(event),
+            host: context.host,
+            request,
+            signal: context.signal,
+          }),
+        };
       case "list-worktrees": {
         const params = requireRecordParams(request);
         return ok({
