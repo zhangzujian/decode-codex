@@ -4,9 +4,9 @@ import React from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 import {
-  registerThreadSidePanelTab,
-  type ThreadSidePanelTabDefinition,
-} from "../app-shell/thread-background-processes";
+  useRegisterThreadCommandMenuEntry,
+  type ThreadCommandMenuEntryDefinition,
+} from "./thread-command-menu-entries";
 import { CommandMenuItem } from "../ui/command-menu-item";
 import { FIRST_FILE_COMMAND_MENU_ITEM_VALUE } from "./thread-command-menu-state";
 import { useWorkspaceFileSearch } from "../utils/use-workspace-file-search";
@@ -44,7 +44,7 @@ export function useRegisterThreadFileSearchCommand({
     enabled,
   });
 
-  registerThreadSidePanelTab({
+  useRegisterThreadCommandMenuEntry({
     dependencies: [enabled, hostId, workspaceRoot, openFile],
     enabled,
     groupKey: "suggested",
@@ -62,10 +62,14 @@ export function useRegisterThreadFileSearchCommand({
         />
       );
     },
-  } as ThreadSidePanelTabDefinition & {
-    groupKey: string;
-    render: (closeMenu: () => void, query?: string) => React.ReactNode;
-  });
+  } satisfies ThreadCommandMenuEntryDefinition);
+}
+
+export function ThreadFileSearchCommandMenuRegistration(
+  props: ThreadFileSearchCommandProps = {},
+): null {
+  useRegisterThreadFileSearchCommand(props);
+  return null;
 }
 
 function ThreadFileSearchMenu({

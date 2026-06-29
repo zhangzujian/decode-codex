@@ -11,15 +11,15 @@ export {
   CommandMenuItem as s,
 } from "../../ui/command-menu-item";
 export {
-  threadSidePanelTabDefinitionsSignal as d,
-  initThreadSidePanelTabRegistryChunk as f,
-  registerThreadSidePanelTab as p,
-} from "../../app-shell/thread-background-processes";
+  threadCommandMenuEntriesSignal as d,
+  initThreadCommandMenuEntryRegistryChunk as f,
+  useRegisterThreadCommandMenuEntry as p,
+} from "../../threads/thread-command-menu-entries";
 export {
   highlightTextSegments as l,
   initHighlightTextSegmentsChunk as u,
 } from "../../ui/slash-command-item";
 export {
   initThreadFileSearchCommandChunk as n,
-  useRegisterThreadFileSearchCommand as t,
+  ThreadFileSearchCommandMenuRegistration as t,
 } from "../../threads/thread-file-search-command";

@@ -25961,24 +25961,24 @@
       "exports": {
         "a": "threadCommandMenuModeSignal",
         "c": "initCommandMenuItemComponent",
-        "d": "threadSidePanelTabDefinitionsSignal",
-        "f": "initThreadSidePanelTabRegistryChunk",
+        "d": "threadCommandMenuEntriesSignal",
+        "f": "initThreadCommandMenuEntryRegistryChunk",
         "i": "FIRST_FILE_COMMAND_MENU_ITEM_VALUE",
         "l": "highlightTextSegments",
         "n": "initThreadFileSearchCommandChunk",
         "o": "initThreadCommandMenuStateChunk",
-        "p": "registerThreadSidePanelTab",
+        "p": "useRegisterThreadCommandMenuEntry",
         "r": "FIRST_CHAT_COMMAND_MENU_ITEM_VALUE",
         "s": "CommandMenuItem",
-        "t": "useRegisterThreadFileSearchCommand",
+        "t": "ThreadFileSearchCommandMenuRegistration",
         "u": "initHighlightTextSegmentsChunk"
       },
       "status": "done",
-      "note": "Current ref local conversation command-menu runtime restored via thread command-menu state, side-panel tab registration, command-menu item rendering, highlight helpers, and thread file search command aliases.",
+      "note": "Current ref local conversation command-menu runtime restored via command-menu state, command-menu entry registration, command-menu item rendering, highlight helpers, and thread file-search registration aliases.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-29T23:40:00.000Z",
-      "stage3AcceptedAt": "2026-06-29T23:40:00.000Z",
-      "stage3Review": "Host self-review: replaced placeholder aliases with command-menu/file-search semantic exports and verified the export alias set against the current ref chunk."
+      "stage3AcceptedAt": "2026-06-29T23:58:00.000Z",
+      "stage3Review": "Host self-review: corrected d/f/p/t to the command-menu entry registry and registration component from the current local-conversation source chunk.",
+      "lastUpdated": "2026-06-29T23:58:00.000Z"
     },
     "app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~thread-app-shell-ch~ecjwgenq-_p4PfxvN": {
       "restored": "runtime/current-app-initial/thread-app-shell-rate-limit-runtime.ts",
