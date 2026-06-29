@@ -2,8 +2,8 @@
 // Worker feature-context mapping and Computer Use capture request dispatcher.
 
 import {
-  isRemoteExecutionHostConfig,
-  WorkerRemoteExecutionHostClient,
+  createWorkerExecutionHostClient,
+  type WorkerExecutionHostClient,
   type WorkerExecutionHostConfig,
 } from "./worker-execution-host-client";
 import {
@@ -45,7 +45,7 @@ export type WorkerFeatureContext = {
   git?: {
     createExecutionHost(
       hostConfig: WorkerExecutionHostConfig,
-    ): WorkerRemoteExecutionHostClient | null;
+    ): WorkerExecutionHostClient;
   };
   openIn?: {
     readShortcutLink(path: string): Promise<ShortcutLink>;
@@ -172,6 +172,7 @@ export function createWorkerFeatureContext(
   workerId: string,
   mainRpcClient: WorkerMainRpcRequester,
   normalizeShortcutLink: (value: unknown) => ShortcutLink,
+  options: { spawnInsideWsl?: boolean } = {},
 ): WorkerFeatureContext {
   switch (workerId) {
     case "computer-use-capture":
@@ -182,9 +183,7 @@ export function createWorkerFeatureContext(
       return {
         git: {
           createExecutionHost: (hostConfig) =>
-            isRemoteExecutionHostConfig(hostConfig)
-              ? new WorkerRemoteExecutionHostClient(mainRpcClient, hostConfig)
-              : null,
+            createWorkerExecutionHostClient(hostConfig, mainRpcClient, options),
         },
       };
     case "open-in":

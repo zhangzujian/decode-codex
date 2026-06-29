@@ -98,7 +98,7 @@ const mainRpcClient = new WorkerMainRpcClient(workerConfig.workerId, {
 });
 const appEventBus = new WorkerAppEventBus();
 const requestDispatcher = createWorkerRequestDispatcher(
-  workerConfig.workerId,
+  workerConfig,
   (message) => port.postMessage(message),
   mainRpcClient,
 );
@@ -250,14 +250,16 @@ class OpenBoundaryWorkerRequestDispatcher {
 }
 
 function createWorkerRequestDispatcher(
-  workerId: string,
+  config: WorkerThreadData,
   postMessage: (message: WorkerOutboundMessage) => void,
   mainRpcClient: WorkerMainRpcClient,
 ): WorkerRequestDispatcher {
+  const { workerId } = config;
   const featureContext = createWorkerFeatureContext(
     workerId,
     mainRpcClient,
     normalizeShortcutLink,
+    { spawnInsideWsl: config.spawnInsideWsl === true },
   );
   switch (workerId) {
     case "open-in":
