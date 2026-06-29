@@ -1,19 +1,14 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
 // Browser/file URL open helpers for conversation output resources.
 import {
-  En as toAppFsUrlRaw,
-  hs as initLocalImageInliningHelpers,
-  La as initExternalUrlHelpers,
-  On as initAppFsUrlHelpers,
-  a_ as initFileTypeDetectionHelpers,
-  ms as resolveInlineableLocalImagePathRaw,
-  r_ as getImagePreviewDisplayModeRaw,
-  za as openInBrowserFromEventRaw,
-} from "../vendor/projects-app-shared-runtime";
-import {
-  Gd as initGeneratedImagePreviewRuntimeRaw,
-  Jt as openGeneratedImagePreviewTabRaw,
-} from "../vendor/profile-page-runtime";
+  isAbsoluteFilesystemPath,
+  normalizeFilesystemPath,
+} from "../boundaries/rpc.facade";
+import { vscodeApiF as vscodeMessageBus } from "../boundaries/vscode-api";
+import { openImagePreviewTab } from "../image-side-panel/open-image-preview-tab";
+import { handleExternalLinkClick } from "../utils/external-link/browser-actions";
+import { normalizeExternalHref } from "../utils/external-link/normalize";
+import type { ExternalLinkClickEvent } from "../utils/external-link/types";
 
 export type OpenInBrowserFromEventOptions = {
   event: unknown;
@@ -33,41 +28,126 @@ export type GeneratedImagePreviewTabRequest = {
   title: string;
 };
 
-export function initResourceOpenRuntime(): void {
-  initExternalUrlHelpers();
-  initAppFsUrlHelpers();
-  initFileTypeDetectionHelpers();
+type ImagePreviewDisplayMode = "always" | "toggle" | "none";
+
+const ALWAYS_PREVIEW_IMAGE_EXTENSIONS = new Set([
+  "avif",
+  "bmp",
+  "gif",
+  "ico",
+  "jpeg",
+  "jpg",
+  "png",
+  "tif",
+  "tiff",
+  "webp",
+]);
+
+function getPathExtension(path: string): string | null {
+  const lowerPath = path.toLowerCase();
+  const separatorIndex = Math.max(
+    lowerPath.lastIndexOf("/"),
+    lowerPath.lastIndexOf("\\"),
+  );
+  const basename =
+    separatorIndex >= 0 ? lowerPath.slice(separatorIndex + 1) : lowerPath;
+  const extensionIndex = basename.lastIndexOf(".");
+  return extensionIndex > 0 && extensionIndex < basename.length - 1
+    ? basename.slice(extensionIndex + 1)
+    : null;
 }
 
-export function initLocalImageInliningRuntime(): void {
-  initLocalImageInliningHelpers();
+function getClickDisposition({
+  button,
+  ctrlKey,
+  metaKey,
+}: ExternalLinkClickEvent): "new-tab" | undefined {
+  if (button === 1 || metaKey || ctrlKey) return "new-tab";
 }
 
-export function initGeneratedImagePreviewRuntime(): void {
-  initGeneratedImagePreviewRuntimeRaw();
+function isLocalFileOpenTarget(href: string): boolean {
+  const trimmedHref = href.trim();
+  return (
+    trimmedHref.length > 0 &&
+    (/^file:\/\//i.test(trimmedHref) || isAbsoluteFilesystemPath(trimmedHref))
+  );
 }
+
+function isNonFileUrlLikePath(path: string): boolean {
+  return /^[a-z][a-z0-9+.-]*:/i.test(path) && !/^file:/i.test(path);
+}
+
+export function initResourceOpenRuntime(): void {}
+
+export function initLocalImageInliningRuntime(): void {}
+
+export function initGeneratedImagePreviewRuntime(): void {}
 
 export function toAppFsUrl(path: string): string {
-  return toAppFsUrlRaw(path);
+  return normalizeExternalHref(path);
 }
 
 export function resolveInlineableLocalImagePath(path: string): string | null {
-  return resolveInlineableLocalImagePathRaw(path) ?? null;
+  const trimmedPath = path.trim();
+  if (trimmedPath.length === 0 || isNonFileUrlLikePath(trimmedPath)) {
+    return null;
+  }
+  if (getImagePreviewDisplayMode(trimmedPath) === "none") return null;
+  if (/^file:\/\//i.test(trimmedPath)) return trimmedPath;
+
+  const normalizedPath = normalizeFilesystemPath(trimmedPath);
+  return isAbsoluteFilesystemPath(normalizedPath) ? normalizedPath : null;
 }
 
-export function getImagePreviewDisplayMode(path: string): string {
-  return getImagePreviewDisplayModeRaw(path);
+export function getImagePreviewDisplayMode(
+  path: string,
+): ImagePreviewDisplayMode {
+  const extension = getPathExtension(path);
+  if (extension == null) return "none";
+  if (extension === "svg") return "toggle";
+  return ALWAYS_PREVIEW_IMAGE_EXTENSIONS.has(extension) ? "always" : "none";
+}
+
+function openLocalFileTargetInBrowser({
+  event,
+  href,
+  initiator,
+  originHostId,
+}: OpenInBrowserFromEventOptions): void {
+  const clickEvent = event as ExternalLinkClickEvent;
+  clickEvent.preventDefault();
+  vscodeMessageBus.dispatchMessage("open-in-browser", {
+    disposition: getClickDisposition(clickEvent),
+    initiator,
+    originHostId,
+    source: "manual",
+    url: toAppFsUrl(href),
+  });
 }
 
 export function openInBrowserFromEvent(
   options: OpenInBrowserFromEventOptions,
 ): void {
-  openInBrowserFromEventRaw(options);
+  const clickEvent = options.event as ExternalLinkClickEvent;
+  if (
+    handleExternalLinkClick({
+      event: clickEvent,
+      href: options.href,
+      initiator: options.initiator,
+      originHostId: options.originHostId,
+    })
+  ) {
+    return;
+  }
+
+  if (isLocalFileOpenTarget(options.href)) {
+    openLocalFileTargetInBrowser(options);
+  }
 }
 
 export function openGeneratedImagePreviewTab(
   scope: unknown,
   request: GeneratedImagePreviewTabRequest,
 ): boolean {
-  return openGeneratedImagePreviewTabRaw(scope, request) as boolean;
+  return openImagePreviewTab(scope, request);
 }
