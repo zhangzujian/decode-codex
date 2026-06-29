@@ -28,8 +28,9 @@ import {
   readRecentBranches,
   searchBranches,
 } from "./git-worker-branch-search";
-import { readCatFile } from "./git-worker-cat-file";
 import { applyChangesToDestination } from "./git-worker-apply-changes";
+import { applyReviewSectionChanges } from "./git-worker-apply-review-section";
+import { readCatFile } from "./git-worker-cat-file";
 import {
   readConfigValueForScope,
   readSubmodulePaths,
@@ -45,6 +46,12 @@ import { readStableMetadata } from "./git-worker-repo-queries";
 import { initializeGitRepository } from "./git-worker-init-repo";
 import { readReviewDiff } from "./git-worker-review/file-diff";
 import { readReviewSummary } from "./git-worker-review/metadata";
+import {
+  requireApplyReviewSectionActionParam,
+  requireReviewFilesParam,
+  requireReviewSectionFilesParam,
+  requireReviewSourceParam,
+} from "./git-worker-review/params";
 import { readReviewPatch } from "./git-worker-review/patch";
 import { searchReviewDiff } from "./git-worker-review/search";
 import { readIndexInfo, readStatusSummary } from "./git-worker-status-queries";
@@ -599,6 +606,19 @@ export class GitWorkerRequestDispatcher {
           }),
         );
       }
+      case "apply-review-section-changes": {
+        const params = requireRecordParams(request);
+        return ok(
+          await applyReviewSectionChanges({
+            action: requireApplyReviewSectionActionParam(params),
+            cwd: requireStringParam(params, "cwd"),
+            files: requireReviewSectionFilesParam(params),
+            host: context.host,
+            signal: context.signal,
+            source: requireReviewSourceParam(params),
+          }),
+        );
+      }
       case "set-worktree-owner-thread": {
         const params = requireRecordParams(request);
         try {
@@ -741,81 +761,6 @@ function optionalBooleanParam(
   if (value == null) return false;
   if (typeof value === "boolean") return value;
   throw Error(`Git worker parameter '${key}' must be a boolean`);
-}
-
-function requireReviewSourceParam(
-  params: Record<string, unknown>,
-): "branch" | "commit" | "staged" | "unstaged" {
-  const source = params.source;
-  if (
-    source === "branch" ||
-    source === "commit" ||
-    source === "staged" ||
-    source === "unstaged"
-  ) {
-    return source;
-  }
-  throw Error("Git worker parameter 'source' must be a review source");
-}
-
-function requireReviewFilesParam(params: Record<string, unknown>): Array<{
-  changeKind?:
-    | "added"
-    | "copied"
-    | "deleted"
-    | "modified"
-    | "renamed"
-    | "type-changed"
-    | "unmerged"
-    | "untracked";
-  path: string;
-  previousPath?: string | null;
-}> {
-  const value = params.files;
-  if (!Array.isArray(value)) {
-    throw Error("Git worker parameter 'files' must be an array");
-  }
-  return value.map((item) => {
-    if (!isRecord(item) || typeof item.path !== "string") {
-      throw Error("Git worker review file entries require a path");
-    }
-    const previousPath = item.previousPath;
-    if (previousPath != null && typeof previousPath !== "string") {
-      throw Error("Git worker review file previousPath must be a string");
-    }
-    const changeKind = item.changeKind;
-    if (changeKind != null && !isReviewFileChangeKind(changeKind)) {
-      throw Error("Git worker review file changeKind is invalid");
-    }
-    return {
-      changeKind,
-      path: item.path,
-      previousPath,
-    };
-  });
-}
-
-function isReviewFileChangeKind(
-  value: unknown,
-): value is
-  | "added"
-  | "copied"
-  | "deleted"
-  | "modified"
-  | "renamed"
-  | "type-changed"
-  | "unmerged"
-  | "untracked" {
-  return (
-    value === "added" ||
-    value === "copied" ||
-    value === "deleted" ||
-    value === "modified" ||
-    value === "renamed" ||
-    value === "type-changed" ||
-    value === "unmerged" ||
-    value === "untracked"
-  );
 }
 
 function fallbackGitErrorResult(

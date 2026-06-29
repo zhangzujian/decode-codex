@@ -16,7 +16,7 @@ type ApplyChangesResult =
       conflictedPaths: string[];
     };
 
-type GitCommandExecOutput = {
+export type GitCommandExecOutput = {
   command: string | string[];
   output: string;
 };
@@ -26,6 +26,17 @@ type ParsedApplyOutput = {
   skippedPaths: string[];
   conflictedPaths: string[];
 };
+export type GitPatchApplyResult =
+  | ({ status: "success" } & ParsedApplyOutput & {
+        execOutput: GitCommandExecOutput;
+      })
+  | ({ status: "partial-success" } & ParsedApplyOutput & {
+        execOutput: GitCommandExecOutput;
+      })
+  | ({ status: "error" } & ParsedApplyOutput & {
+        execOutput: GitCommandExecOutput;
+      });
+export type GitPatchApplyTarget = "staged" | "staged-and-unstaged" | "unstaged";
 
 const maxDiffBytes = 32 * 1024 * 1024;
 const diffConfigOverrides = [
@@ -87,11 +98,13 @@ export async function applyChangesToDestination({
   }
   if (!diffResult.stdout) return { status: "success" };
 
-  const applyResult = await applyDiffToWorktree({
+  const applyResult = await applyGitPatch({
+    atomic: false,
     diff: diffResult.stdout,
     host,
     root: destinationRoot,
     signal,
+    target: "unstaged",
   });
   if (applyResult.status === "error") {
     return { status: "command-error", execOutput: applyResult.execOutput };
@@ -132,40 +145,41 @@ async function resolveMergeBase({
   return mergeBase ? mergeBase : null;
 }
 
-async function applyDiffToWorktree({
+export async function applyGitPatch({
+  atomic = false,
   diff,
   host,
+  revert = false,
   root,
   signal,
+  stageCurrentPathsForUnstaged = true,
+  target = "unstaged",
 }: {
+  atomic?: boolean;
   diff: string;
   host: WorkerExecutionHostClient;
+  revert?: boolean;
   root: string;
   signal: AbortSignal;
-}): Promise<
-  | ({ status: "success" } & ParsedApplyOutput & {
-        execOutput: GitCommandExecOutput;
-      })
-  | ({ status: "partial-success" } & ParsedApplyOutput & {
-        execOutput: GitCommandExecOutput;
-      })
-  | ({ status: "error" } & ParsedApplyOutput & {
-        execOutput: GitCommandExecOutput;
-      })
-> {
+  stageCurrentPathsForUnstaged?: boolean;
+  target?: GitPatchApplyTarget;
+}): Promise<GitPatchApplyResult> {
   const tempDir = await createTemporaryDirectory(host, "codex-apply-", signal);
   const pathApi = await host.platformPath();
   const patchPath = pathApi.join(tempDir, "patch.diff");
   await host.writeFile(patchPath, diff, { signal });
 
   try {
-    const env = await createTemporaryIndexEnvironment({
-      host,
-      root,
-      signal,
-      tempDir,
-    });
-    if (env != null) {
+    let env: Record<string, string> | null = null;
+    if (target === "unstaged" && !atomic && stageCurrentPathsForUnstaged) {
+      env = await createTemporaryIndexEnvironment({
+        host,
+        root,
+        signal,
+        tempDir,
+      });
+    }
+    if (env != null && stageCurrentPathsForUnstaged) {
       const stageResult = await stageTouchedPaths({
         diff,
         env,
@@ -176,9 +190,20 @@ async function applyDiffToWorktree({
       void stageResult;
     }
 
+    const args = ["apply"];
+    if (revert) args.push("-R");
+    args.push("--binary");
+    if (!atomic) args.push("--3way");
+    if (target === "staged") {
+      args.push("--cached");
+    } else if (target === "staged-and-unstaged") {
+      args.push("--index");
+    }
+    args.push(patchPath);
+
     const result = await runGitCommand({
       allowedNonZeroExitCodes: [1],
-      args: ["apply", "--binary", "--3way", patchPath],
+      args,
       cwd: root,
       env: env ?? undefined,
       host,
@@ -188,7 +213,7 @@ async function applyDiffToWorktree({
     const metadata = parseApplyOutput(result.stdout, result.stderr);
     const execOutput = commandExecOutput({
       ...result,
-      command: ["apply", "--binary", "--3way", patchPath],
+      command: args.join(" "),
     });
 
     if (signal.aborted || result.code == null) {
@@ -197,7 +222,7 @@ async function applyDiffToWorktree({
     if (result.code === 0) {
       return { status: "success", ...metadata, execOutput };
     }
-    if (result.code === 1) {
+    if (result.code === 1 && !atomic) {
       return { status: "partial-success", ...metadata, execOutput };
     }
     return { status: "error", ...metadata, execOutput };
@@ -615,7 +640,11 @@ function parseApplyOutput(stdout: string, stderr: string): ParsedApplyOutput {
 }
 
 function commandExecOutput(
-  result: Pick<GitCommandResult, "command" | "stdout" | "stderr">,
+  result: {
+    command: string | string[];
+    stdout: string;
+    stderr: string;
+  },
   fallbackOutput = result.stdout ||
     result.stderr ||
     "An unknown error occurred",
