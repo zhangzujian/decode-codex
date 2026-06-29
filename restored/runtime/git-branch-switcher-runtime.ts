@@ -11,10 +11,7 @@ import {
   ro as initGitRootQueryRuntime,
   rw as useGlobalSettingValue,
 } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
-import {
-  W as branchSettingKeys,
-  ws as createQuerySignalFamily,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
+import { ws as createQuerySignalFamily } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
 import {
   Button,
   DialogBody,
@@ -32,7 +29,10 @@ import {
   initIntlRuntime,
   useIntl,
 } from "../boundaries/current-ref/appg-thread-shared-producer";
-import { normalizeWorkspacePath } from "../boundaries/src-l0hb-mz-p";
+import {
+  gitSettingDefinitions as branchSettingKeys,
+  normalizeWorkspacePath,
+} from "../boundaries/src-l0hb-mz-p";
 import { initPlusIcon, PlusIcon } from "../icons/plus-icon";
 import { localConversationTitleSignal } from "../threads/local-conversation-title-signals";
 import {
