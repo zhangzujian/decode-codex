@@ -47,6 +47,7 @@ export const NODE_REPL_UNTRUSTED_ENV_ALLOWLIST_ENV =
   "NODE_REPL_UNTRUSTED_ENV_ALLOWLIST";
 
 export const NODE_REPL_MCP_SERVER_NAME = "node_repl";
+export const NODE_REPL_MCP_SERVER_KEY = `mcp_servers.${NODE_REPL_MCP_SERVER_NAME}`;
 export const COMPUTER_USE_MCP_SERVER_KEY = "mcp_servers.computer-use";
 
 export const BROWSER_USE_IN_APP_INSTRUCTIONS =
@@ -69,6 +70,8 @@ export const COMPUTER_USE_MAC_MCP_CONFIG = {
 export const NODE_REPL_DISABLED_JS_REPL_CONFIG = {
   "features.js_repl": false,
 } as const;
+
+export const NODE_REPL_JS_REPL_FEATURE_KEY = "features.js_repl";
 
 export const BROWSER_USE_ENV_PASSTHROUGH = [
   CODEX_CHROME_USER_DATA_DIR_ENV,
