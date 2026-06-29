@@ -2351,6 +2351,15 @@
       "restored": "vendor/docx-preview.ts",
       "status": "done"
     },
+    "docx-preview-dx1eKBjU": {
+      "restored": "vendor/docx-preview.ts",
+      "status": "done",
+      "exports": {
+        "renderAsync": "renderAsync"
+      },
+      "aliasOf": "docx-preview-Mi4H0G1I",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "__vite-browser-external-EPeb3y57": {
       "restored": "runtime/vite-browser-external.ts",
       "exports": {
