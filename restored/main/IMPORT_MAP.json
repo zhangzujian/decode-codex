@@ -97,6 +97,7 @@
         "plugins/computer-use-native-pipe/index.ts",
         "plugins/computer-use-config/index.ts",
         "plugins/bundled-plugin-marketplace/index.ts",
+        "plugins/bundled-plugin-marketplace/app-server.ts",
         "plugins/bundled-plugin-marketplace/content-variants.ts",
         "plugins/bundled-plugin-marketplace/copy.ts",
         "plugins/bundled-plugin-marketplace/descriptors/index.ts",

@@ -1,6 +1,7 @@
 // Restored from ref/.vite/build/main-r5HnecX_.js
 // Barrel for bundled plugin marketplace reconciliation helpers.
 
+export * from "./app-server";
 export * from "./chrome-extension-sync";
 export * from "./constants";
 export * from "./content-variants";
