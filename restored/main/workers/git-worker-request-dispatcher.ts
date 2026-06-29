@@ -23,6 +23,7 @@ import {
   readConfigValueForScope,
   readSubmodulePaths,
 } from "./git-worker-config-queries";
+import { readBranchDiffStats } from "./git-worker-diff-stats";
 import { readGitOrigins } from "./git-worker-origin-queries";
 import { readStableMetadata } from "./git-worker-repo-queries";
 import { readIndexInfo, readStatusSummary } from "./git-worker-status-queries";
@@ -324,6 +325,19 @@ export class GitWorkerRequestDispatcher {
           await readBranchMetadata({
             cwd: requireStringParam(params, "cwd"),
             host: context.host,
+            signal: context.signal,
+          }),
+        );
+      }
+      case "branch-diff-stats": {
+        const params = requireRecordParams(request);
+        return ok(
+          await readBranchDiffStats({
+            baseBranch: optionalStringParam(params, "baseBranch"),
+            cwd: requireStringParam(params, "cwd"),
+            hideWhitespace: optionalBooleanParam(params, "hideWhitespace"),
+            host: context.host,
+            includeUntrackedFiles: params.includeUntrackedFiles !== false,
             signal: context.signal,
           }),
         );
