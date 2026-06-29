@@ -1,113 +1,7 @@
-// Restored from ref/webview/assets/app-initial~app-main~automations-page-BfqUlSo6.js
-export {
-  AppFallback,
-  initAppFallbackChunk,
-} from "../../app-shell/app-fallback";
-export { BulletSeparator } from "../../utils/bullet-separator";
-export {
-  initAutomationHistoryItemsChunk,
-  initAutomationHistoryItemsChunk as initAutomationsPageProducer,
-  useAutomationItems,
-} from "../../utils/use-automation-history-items";
-export {
-  initProjectSiteRoutesChunk,
-  getProjectSiteAnalyticsRoute,
-  getProjectSiteSettingsRoute,
-  PROJECT_SITES_LIBRARY_ROUTE,
-} from "../../appgen/project-site-routes";
-export { initSitesIconChunk, SitesIcon } from "../../sites/sites-icon";
-export { initSunIconChunk, SunIcon } from "../../icons/sun-icon";
-export {
-  initNotificationsBellIconChunk,
-  NotificationsBellIcon,
-} from "../../icons/notifications-bell-icon";
-export {
-  initWindowVisibilitySignal,
-  windowVisibleSignal,
-} from "../../runtime/window-focus-state";
-export {
-  appgenPublicationTermsSidePanelHandler,
-  initPublicationTermsSidePanelHandlerChunk,
-} from "../../appgen/publication-terms/side-panel-handler";
-export {
-  AppHeaderUpdateButton,
-  initAppHeaderUpdateButtonChunk,
-} from "../../app-shell/app-header-update-button";
-export { windowsTabsOpenHandler } from "../../app-shell/windows-tabs-open-handler";
-export {
-  AutomationTooltipSurface,
-  ComposerDismissableLayer,
-  initAutomationSurface,
-} from "../../automation/automation-surface";
-export {
-  initRightPanelComposerOverlayChunk,
-  RightPanelComposerOverlay,
-} from "../../composer/right-panel-composer-overlay";
-export { getShuffledWelcomeOnboardingRoles } from "../../onboarding/onboarding-roles";
-export {
-  initPrimaryRuntimeFeatureFlagsChunk,
-  initPrimaryRuntimeInstallActionChunk,
-  initPrimaryRuntimeInstallEventFormattersChunk,
-  formatPrimaryRuntimeDependenciesResetEvent,
-  formatPrimaryRuntimeDiagnosticsEvent,
-  formatPrimaryRuntimeDiagnosticsFailedEvent,
-  PRIMARY_RUNTIME_SETTINGS_FEATURE_ID,
-  isPrimaryRuntimeInstallAbortError,
-} from "../../runtime/primary-runtime-install-action";
-export {
-  buildLocalEnvironmentCreateRoute,
-  initLocalEnvironmentCreateRouteChunk,
-  LOCAL_ENVIRONMENT_CREATE_ROUTE,
-  parseLocalEnvironmentCreateRoute,
-} from "../../settings/local-environment-create-route";
-export {
-  initSettingsContentLayoutChunk,
-  SettingsContentLayout,
-  SettingsContentNavigationTargetProvider,
-} from "../../ui/settings-content-layout";
-export {
-  CodexApp,
-  initAutomationsRuntimeChunk,
-  initAutomationsStateChunk,
-  initCodexAppChunk,
-} from "../../vendor/automations-page-runtime";
-export {
-  LocalConversationDiffSummaryView,
-  initLocalConversationDiffSummaryEffectsChunk,
-} from "../../conversations/local-conversation-page-parts/local-conversation-diff-summary-effects";
-export {
-  initQueryClientScopeProviderChunk,
-  QueryClientScopeProvider,
-} from "../../runtime/query-client/query-client-provider";
-export {
-  initLauncherHotkeyStateChunk,
-  launcherHotkeyStateQuery,
-  launcherHotkeyStateQueryKey,
-} from "../../features/hotkey-window-state";
-export {
-  compareKeyboardShortcutCommands,
-  getKeyboardShortcutCommandCopy,
-  initKeyboardShortcutAvailabilityChunk,
-  initKeyboardShortcutCommandCopyChunk,
-  initKeyboardShortcutCommandOrderingChunk,
-  initKeyboardShortcutKeystrokeSearchIconChunk,
-  initKeyboardShortcutsSearchInputChunk,
-  isKeyboardShortcutCommandFeatureEnabled,
-  KeyboardShortcutKeystrokeSearchIcon,
-  KeyboardShortcutsSearchInput,
-} from "../../features/keyboard-shortcuts";
-export {
-  GiftCreditsIcon,
-  GIFT_CREDITS_FEATURE_GATE,
-  initGiftCreditsIconChunk,
-  initGiftCreditsLinkChunk,
-  openGiftCreditsInBrowser,
-} from "../../features/gift-credits-runtime";
-export {
-  giftCreditsProfileCoachmarkPendingSignal,
-  hasSeenGiftCreditsHomeBannerSignal,
-  initGiftCreditsSignalsChunk,
-} from "../../features/gift-credits-signals";
+// Restored from ref/webview/assets/app-initial~app-main~automations-page-Bc0ZtIBr.js
+// Current-ref producer facade: re-exports this build's 105 public exports from their
+// semantic restored modules. Alias->name mapping lives in restored/IMPORT_MAP.json.
+
 export {
   appServerNotificationDebugEntriesSignal,
   clearNotificationDebugEntriesForHost,
@@ -116,105 +10,155 @@ export {
   useProductEventDebugLogEntries,
 } from "../../app-server/notification-debug-signals";
 export {
-  buildCodexMemoryStateSnapshot,
-  buildChronicleSetupState,
-  CHRONICLE_TRY_CODEX_PROMPT,
-  ChronicleSetupDialog,
-  initChronicleFeatureGateChunk,
-  initChronicleSetupDialogChunk,
-  initChronicleSetupStateChunk,
-  initCodexMemoryStateSnapshotChunk,
-  isChronicleSetupCompletionState,
-  useIsChronicleResearchPreviewEnabled,
-} from "../../onboarding/chronicle-setup-state";
+  AppFallback,
+  initAppFallbackChunk,
+} from "../../app-shell/app-fallback";
 export {
-  getWelcomeOnboardingWorkMode,
-  initWelcomeOnboardingRolesChunk,
-  welcomeOnboardingRoleIds,
-  welcomeOnboardingRoleMessages,
-  welcomeOnboardingSelectedRolesAtom,
-} from "../../onboarding/onboarding-roles";
+  AppHeaderUpdateButton,
+  initAppHeaderUpdateButtonChunk,
+} from "../../app-shell/app-header-update-button";
 export {
-  getWorkspaceOnboardingPlaygroundName,
-  initWorkspaceOnboardingControllerChunk,
-  useTeenOnboardingEligibility,
-  useWorkspaceOnboardingAutoLaunch,
-} from "../../onboarding/workspace-onboarding-controller";
+  CodexApp,
+  initAutomationsRuntimeChunk,
+  initAutomationsStateChunk,
+  initCodexAppChunk,
+} from "../../app-shell/codex-app";
 export {
-  handleLocalRemoteControlEnableError,
-  initLocalRemoteControlEnabledChunk,
-  initLocalRemoteControlErrorHandlingChunk,
-  initSetRemoteControlEnabledForHostChunk,
-  setLocalRemoteControlEnabled,
-  setRemoteControlEnabledForHost,
-} from "../../remote/local-remote-control-enabled-sync";
+  BackgroundTerminalIcon,
+  initBackgroundTerminalIconChunk,
+  initBackgroundTerminalSidePanelTabChunk,
+  openBackgroundTerminalSidePanelTab,
+} from "../../app-shell/thread-background-processes/background-terminal-tab";
 export {
-  initToggleSidebarCommandChunk,
-  useRegisterToggleSidebarCommand,
-} from "../../settings/settings-navigation";
+  clearStoppedPendingProcessRows,
+  getPendingBackgroundProcessRow,
+  initPendingBackgroundProcessRowsChunk,
+  isPendingProcessRowExpired,
+  pendingBackgroundProcessRowsSignal,
+  removePendingBackgroundProcessRow,
+  setPendingBackgroundProcessRow,
+} from "../../app-shell/thread-background-processes/pending-process-rows";
 export {
-  EXTERNAL_AGENT_IMPORT_SETTINGS_FEATURE_ID,
-  initExternalAgentImportSettingsFeatureChunk,
-} from "../../settings/import-settings-feature";
+  initProcessMetricHelpersChunk,
+  matchProcessMetrics,
+  selectRunningProcessRows,
+} from "../../app-shell/thread-background-processes/process-metrics";
 export {
-  initSettingsReturnRouteSignalChunk,
-  settingsReturnRouteSignal,
-} from "../../settings/settings-navigation/settings-return-route";
+  collectConversationProcessRows,
+  isSameProcessRow,
+  mergeProcessRows,
+  restoreRegisteredProcessRows,
+} from "../../app-shell/thread-background-processes/process-rows";
 export {
-  initStatsigRefreshDiagnosticsChunk,
-  refreshStatsigValuesForDiagnostics,
-} from "../../utils/statsig-refresh-diagnostics";
-export { STATSIG_CLIENT_KEY } from "../../utils/statsig-client-key";
+  ThreadAppShellSourceRegistration,
+  initThreadAppShellSourcesChunk,
+  initThreadNullRefChunk,
+  useNullAppShellRef,
+} from "../../app-shell/thread-background-processes/thread-app-shell-sources";
+export { useThreadHandoffOperationActions } from "../../app-shell/thread-handoff-operations/actions";
 export {
-  initThreadPageHeaderChunk,
-  ThreadPageHeader,
-} from "../../threads/thread-page-header";
+  createQueuedThreadHandoffOperation,
+  getThreadHandoffOperationForConversation,
+} from "../../app-shell/thread-handoff-operations/operations";
 export {
-  initThreadPanelCommandHooksChunk,
-  useRegisterToggleDiffPanelCommand,
-} from "../../threads/thread-panel-command-hooks";
+  initThreadHandoffOperationsChunk,
+  useThreadHandoffOperationsState,
+} from "../../app-shell/thread-handoff-operations/store";
+export { windowsTabsOpenHandler } from "../../app-shell/windows-tabs-open-handler";
+export { appgenPublicationTermsSidePanelHandler } from "../../appgen/publication-terms/side-panel-handler";
+export { allThreadCommandExecutionsSignal } from "../../automation/heartbeat-automation-eligibility/command-executions";
 export {
-  initThreadFileSearchCommandChunk,
-  useRegisterThreadFileSearchCommand,
-} from "../../threads/thread-file-search-command";
+  heartbeatAutomationEligibilitySignal,
+  initHeartbeatAutomationEligibilityChunk,
+} from "../../automation/heartbeat-automation-eligibility/eligibility";
+export { initComposerProjectListChunk } from "../../composer/project-selector";
+export { ProjectIcon } from "../../composer/project-selector/icons/project-icon";
+export { ComposerProjectSelector } from "../../composer/project-selector/project-selector";
 export {
-  initPendingWorktreeConversationRuntimeChunk,
-  restorePendingWorktreeBrowserTransferSources,
-  startPendingWorktreeConversation,
-} from "../../threads/pending-worktree-conversation";
+  initRemoteHostedPipStateChunk,
+  remoteHostedPipAnyStreamActiveSignal,
+  remoteHostedPipVisibleSignal,
+} from "../../conversations/remote-hosted-pip/state";
+export { initAvatarOverlayOpenStateChunk } from "../../features/avatar-overlay-open-state";
+export { initKeyboardShortcutsDialogChunk } from "../../features/keyboard-shortcuts";
 export {
-  initProfileDropdownChunk,
-  ProfileDropdown,
-} from "../../app-shell/profile-dropdown";
+  compareKeyboardShortcutCommands,
+  initKeyboardShortcutAvailabilityChunk,
+  initKeyboardShortcutCommandOrderingChunk,
+  isKeyboardShortcutCommandFeatureEnabled,
+} from "../../features/keyboard-shortcuts/availability";
+export { KeyboardShortcutsSearchInput } from "../../features/keyboard-shortcuts/search-input";
 export {
-  initWorkspaceMessagesHeadlineChunk,
-  useWorkspaceMessagesHeadline,
-} from "../../app-shell/workspace-messages";
+  getKeyboardShortcutCommandCopy,
+  initKeyboardShortcutCommandCopyChunk,
+} from "../../features/keyboard-shortcuts/titles";
 export {
-  initRateLimitSummaryChunk,
-  RateLimitSummary,
-} from "../../ui/rate-limit-summary";
-export { initNuxGateChunk, NuxGate } from "../../app-shell/nux-gate";
-export { AppPreloader, initAppPreloaderChunk } from "../../ui/app-preloader";
+  FastModeHomeBannerIcon,
+  fastModePersonalizedEstimateMessages,
+  initFastModeHomeBannerIconChunk,
+  initFastModePersonalizedEstimateChunk,
+  useFastModePersonalizedEstimate,
+} from "../../features/use-fast-mode-personalized-estimate";
+export {
+  initPullRequestMergeHelperGateChunk,
+  initPullRequestMergeHelperStateChunk,
+  skipPullRequestMergeHelperConfirmSignal,
+  startPullRequestMergeHelper,
+  useIsPullRequestMergeHelperEnabled,
+  useIsPullRequestMergeHelperEnabledA,
+} from "../../github/use-is-pull-request-merge-helper-enabled";
+export { initHomeHeroHeadingChunk } from "../../home/hero-heading";
 export {
   CodexMobileSetupQueriesIcon,
   initCodexMobileSetupQueriesIconChunk,
 } from "../../icons/codex-mobile-setup-queries-icon";
 export {
-  HotkeyWindowDetailLayout,
-  initHotkeyWindowDetailLayoutChunk,
-} from "../../utils/hotkey-window-detail-layout";
-export { useCommandHotkey } from "../../utils/use-command-hotkey";
-export { initBulletSeparatorChunk } from "../../utils/bullet-separator";
+  NotificationsBellIcon,
+  initNotificationsBellIconChunk,
+} from "../../icons/notifications-bell-icon";
+export { SunIcon, initSunIconChunk } from "../../icons/sun-icon";
 export {
-  avatarOverlayAnalytics,
-  initAvatarOverlayAnalyticsChunk,
-} from "../../utils/avatar-overlay-analytics";
+  initChronicleFeatureGateChunk,
+  initChronicleSetupDialogChunk,
+  initChronicleSetupStateChunk,
+  initCodexMemoryStateSnapshotChunk,
+} from "../../onboarding/chronicle-setup-state";
+export { useIsChronicleResearchPreviewEnabled } from "../../onboarding/chronicle-setup-state/feature-gate";
+export { buildCodexMemoryStateSnapshot } from "../../onboarding/chronicle-setup-state/memory-state";
+export { ChronicleSetupDialog } from "../../onboarding/chronicle-setup-state/setup-dialog";
 export {
-  cloneBuffer,
-  cloneTypedArray,
-  copyArray,
-  copyObject,
-  initCloneObject,
-  keys,
-} from "../../vendor/lodash-clone-helpers";
+  CHRONICLE_TRY_CODEX_PROMPT,
+  buildChronicleSetupState,
+  isChronicleSetupCompletionState,
+} from "../../onboarding/chronicle-setup-state/setup-state";
+export {
+  QueryClientScopeProvider,
+  initQueryClientScopeProviderChunk,
+} from "../../runtime/query-client/query-client-provider";
+export {
+  initWindowVisibilitySignal,
+  windowVisibleSignal,
+} from "../../runtime/window-focus-state";
+export {
+  EXTERNAL_AGENT_IMPORT_SETTINGS_FEATURE_ID,
+  initExternalAgentImportSettingsFeatureChunk,
+} from "../../settings/import-settings-feature";
+export {
+  LOCAL_ENVIRONMENT_CREATE_ROUTE,
+  buildLocalEnvironmentCreateRoute,
+  initLocalEnvironmentCreateRouteChunk,
+  parseLocalEnvironmentCreateRoute,
+} from "../../settings/local-environment-create-route";
+export {
+  initSettingsReturnRouteSignalChunk,
+  settingsReturnRouteSignal,
+} from "../../settings/settings-navigation/settings-return-route";
+export {
+  initToggleSidebarCommandChunk,
+  useRegisterToggleSidebarCommand,
+} from "../../settings/settings-navigation/sidebar-command";
+export { avatarOverlayAnalytics } from "../../utils/avatar-overlay-analytics";
+export {
+  initStatsigRefreshDiagnosticsChunk,
+  refreshStatsigValuesForDiagnostics,
+} from "../../utils/statsig-refresh-diagnostics";

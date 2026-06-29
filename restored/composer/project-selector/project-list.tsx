@@ -218,3 +218,10 @@ function findDuplicateProjectLabels(
   }
   return pathsByLabel;
 }
+
+let composerProjectListChunkInitialized = false;
+
+export function initComposerProjectListChunk(): void {
+  if (composerProjectListChunkInitialized) return;
+  composerProjectListChunkInitialized = true;
+}

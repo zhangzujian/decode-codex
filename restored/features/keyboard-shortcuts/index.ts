@@ -17,6 +17,14 @@ export {
   initKeyboardShortcutKeystrokeSearchIconChunk,
   KeyboardShortcutKeystrokeSearchIcon,
 } from "./keystroke-search-icon";
+export {
+  initKeyboardShortcutsDialogChunk,
+  KeyboardShortcutsDialog,
+} from "./dialog";
+export type {
+  KeyboardShortcutsDialogItem,
+  KeyboardShortcutsDialogProps,
+} from "./dialog";
 export type {
   KeyboardShortcutAvailability,
   KeyboardShortcutFeatureAvailability,

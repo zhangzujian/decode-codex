@@ -19,6 +19,11 @@ export type {
   ComposerFooterProjectButtonProps,
   ComposerFooterStaticProjectControlProps,
 } from "./footer-controls";
+export {
+  ComposerProjectList,
+  initComposerProjectListChunk,
+} from "./project-list";
+export type { ComposerProjectListProps } from "./project-list";
 export { ComposerProjectSelector } from "./project-selector";
 export type { ComposerProjectSelectorProps } from "./project-selector";
 export {
