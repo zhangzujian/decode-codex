@@ -180,27 +180,26 @@ import {
   Jt as z,
 } from "../boundaries/current-ref/projects-app-shared-producer";
 import {
-  Nr as Ae,
-  Cr as De,
-  ba as Fe,
-  ho as Ie,
-  Or as je,
-  Er as ke,
-  xa as Le,
-  Sr as Me,
-  Tr as Ne,
-  Dr as Oe,
-  _o as Pe,
-  xr as Re,
+  ArtifactOpenButton,
+  ArtifactPreviewDownloadButton,
+  ArtifactPreviewHeader,
+  ArtifactPreviewZoomControl,
+  ArtifactPreviewZoomToFitLabel,
+  artifactPreviewZoomOptions,
+  initArtifactDropdownMenuRuntime,
+  initArtifactPreviewControlsChunk,
+  initArtifactPreviewZoomRuntime,
 } from "../boundaries/current-ref/pull-request-thread-actions-producer";
 import {
   xd as Be,
   bd as ze,
 } from "../boundaries/current-ref/profile-page-producer";
 import {
+  ArtifactSourceIcon,
   initArtifactImportPresentationChunk as He,
   shouldParseArtifactPreviewForImportKind as Ve,
 } from "../boundaries/current-ref/appgen-publication-terms-producer";
+import { focusComposerInput } from "../composer/focus-composer";
 import {
   initArtifactAnalyticsChunk as qe,
   trackArtifactAnnotationCanceled as Ue,
@@ -3128,13 +3127,13 @@ export function Fr({
             })
           ) : (
             <section className="flex h-full min-h-0 flex-col bg-token-side-bar-background">
-              <Me
+              <ArtifactPreviewHeader
                 artifactType="PDF"
                 centerContent={null}
                 hideMetadata={chromeMode === "standalone"}
                 rightContent={
                   chromeMode === "default" ? (
-                    <Re
+                    <ArtifactPreviewDownloadButton
                       hostId={hostId}
                       path={path}
                       sizeBytes={data.sizeBytes}
@@ -3470,8 +3469,8 @@ function Rr(e) {
     D =
       chromeMode === "default" && !disableFileActions ? (
         <>
-          <Re hostId={hostId} path={path} />
-          <De
+          <ArtifactPreviewDownloadButton hostId={hostId} path={path} />
+          <ArtifactOpenButton
             analyticsContext={{
               threadId: T ?? null,
               turnId: null,
@@ -3495,8 +3494,8 @@ function Rr(e) {
     j =
       chromeMode === "default" && !disableFileActions ? (
         <>
-          <Re hostId={hostId} path={path} />
-          <De
+          <ArtifactPreviewDownloadButton hostId={hostId} path={path} />
+          <ArtifactOpenButton
             analyticsContext={{
               threadId: T ?? null,
               turnId: null,
@@ -3591,7 +3590,7 @@ function Rr(e) {
       payload: e,
       title,
     });
-    t != null && (z((e) => [...e, t]), Ie());
+    t != null && (z((e) => [...e, t]), focusComposerInput());
   };
   let Ae = (e) => {
     let t = $e({
@@ -3703,7 +3702,7 @@ function Rr(e) {
         );
       let a = !disableAnnotations,
         s = disableAnnotations ? undefined : Pe,
-        c = $.jsx(ke, {});
+        c = $.jsx(ArtifactPreviewZoomToFitLabel, {});
       let l;
       l = (
         <Q.Suspense fallback={E}>
@@ -3803,11 +3802,11 @@ function Br(e) {
 function Vr(e) {
   let { fitOption, onZoomPercentChange, triggerTestId, zoomPercent } = e;
   return (
-    <Ne
+    <ArtifactPreviewZoomControl
       fitOption={fitOption}
       onZoomPercentChange={onZoomPercentChange}
       triggerTestId={triggerTestId}
-      zoomOptions={je}
+      zoomOptions={artifactPreviewZoomOptions}
       zoomPercent={zoomPercent}
     />
   );
@@ -3851,7 +3850,7 @@ function Hr(e) {
     />
   );
   let b = (
-    <P.Item onSelect={g} LeftIcon={Fe}>
+    <P.Item onSelect={g} LeftIcon={ArtifactSourceIcon}>
       {y}
     </P.Item>
   );
@@ -3883,7 +3882,11 @@ function Ur(e) {
     />
   );
   let l = chromeMode === "default" && (
-    <Re hostId={hostId} path={path} sizeBytes={sizeBytes} />
+    <ArtifactPreviewDownloadButton
+      hostId={hostId}
+      path={path}
+      sizeBytes={sizeBytes}
+    />
   );
   return (
     <div className={s}>
@@ -3948,11 +3951,11 @@ e(() => {
   Te();
   y();
   S();
-  Pe();
+  initArtifactDropdownMenuRuntime();
   M();
   st();
   Be();
-  Le();
+  initArtifactPreviewControlsChunk();
   ce();
   v();
   T();
@@ -3965,10 +3968,9 @@ e(() => {
   te();
   n();
   ue();
-  Oe();
+  initArtifactPreviewZoomRuntime();
   Pr();
   tt();
-  Ae();
   $ = s();
   D();
   Zr = 41943040;
