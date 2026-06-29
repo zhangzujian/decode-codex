@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-BwqAGxoz.js
 // Entry-thread UI components and side-panel helpers used by local conversation routes.
 import type { ComponentType } from "react";
-import { _c as getSidePanelTargetStoreRaw } from "../../vendor/projects-app-shared-runtime";
+import { threadSidePanelPositionControllers } from "./pull-request-side-panel-runtime";
 import {
   Eu as EmptyConversationStateRaw,
   Ql as initSummaryPanelBannerChunkRaw,
@@ -33,7 +33,7 @@ export const EmptyPageState = EmptyPageStateRaw as ComponentType<
 >;
 
 export function getSidePanelTargetStore(target: unknown): SidePanelTargetStore {
-  return getSidePanelTargetStoreRaw(target) as SidePanelTargetStore;
+  return threadSidePanelPositionControllers(target) as SidePanelTargetStore;
 }
 
 export function initLocalConversationThreadEntryRuntime(): void {
