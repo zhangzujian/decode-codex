@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-page~remote-conversation-page~plugin-deta~hb9r3lcf-Bl5shjph.js
-// Current-ref boundary for home composer prefill routing.
+// Semantic boundary for the pending-worktree composer prefill flow.
 export {
-  r as useComposerPrefill,
-  t as initComposerPrefillChunk,
-} from "../../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-page~remote-conversation-page~plugin-deta~hb9r3lcf-Bl5shjph.js";
+  initOpenHomeRouteChunk as initComposerPrefillChunk,
+  useOpenHomeRoute as useComposerPrefill,
+} from "../../routes/open-home-route";

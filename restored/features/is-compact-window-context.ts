@@ -11,6 +11,26 @@ type WindowRouteState = {
   pathname: string;
   initialRoute: string | null;
 };
+let initialRouteSnapshot: string | null = null;
+
+export function initInitialRouteRuntime(): void {
+  initialRouteSnapshot = readInitialRoute();
+}
+
+export function getInitialRouteSnapshot(): string | null {
+  return initialRouteSnapshot;
+}
+
+function readInitialRoute(): string | null {
+  if (typeof window === "undefined") return null;
+  const initialRouteMeta = document.querySelector<HTMLMetaElement>(
+    'meta[name="initial-route"]',
+  );
+  const initialRouteFromMeta = initialRouteMeta?.content.trim();
+  if (initialRouteFromMeta) return initialRouteFromMeta;
+  return new URL(window.location.href).searchParams.get("initialRoute");
+}
+
 export function isCompactWindowRoute(pathname: string | null): boolean {
   return pathname
     ? pathname === "/avatar-overlay" || matchesCompactRoutePattern(pathname)

@@ -24,3 +24,5 @@ export function setSelectedLocalRemoteCwd(
   store.set(selectedLocalRemoteCwdState, cwd);
   return cwd;
 }
+
+export function initSelectedLocalRemoteCwdStateChunk(): void {}

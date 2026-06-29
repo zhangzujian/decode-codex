@@ -59,4 +59,7 @@ function resetLocalWorkspaceSelection(
     roots: [],
   });
 }
-export { selectProject };
+
+function initSelectProjectRuntimeChunk(): void {}
+
+export { initSelectProjectRuntimeChunk, selectProject };
