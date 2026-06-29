@@ -1,10 +1,29 @@
-// Restored from ref/webview/assets/chunk-ICPOFSXX-Dk2rFw9E.js
+// Restored from ref/webview/assets/chunk-ICPOFSXX-CPupJSsJ.js
 // ChunkICPOFSXX chunk restored from the Codex webview bundle.
 const __vite__mapDeps = (
   chunkICPOFSXXParam83,
   chunkICPOFSXXParam84 = __vite__mapDeps,
   chunkICPOFSXXParam85 = chunkICPOFSXXParam84.f ||
-    (chunkICPOFSXXParam84.f = ["./katex-DZmv-8PO.js", "./katex--WVKgE7E.js"]),
+    (chunkICPOFSXXParam84.f = [
+      "../utils/katex",
+      "./app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~hotkey-win~fzw0jvy4-rg89odR_.js",
+      "./app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js",
+      "./rolldown-runtime-Czos8NxU.js",
+      "./app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js",
+      "./app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js",
+      "./app-initial~app-main~remote-conversation-page~new-thread-panel-page~onboarding-page~appgen-~1je6c975-DGpPRr1D.js",
+      "./app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~cf3a13zj-DZ7tupb9.js",
+      "./app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-publication-ter~g5252vxb-CZkpVhg2.js",
+      "./app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~nek76pmq-C240EGR1.js",
+      "./app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~ki4n9fl3-zz_Wr7F0.js",
+      "./app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~ki4n9fl3-sS9Dm_y9.css",
+      "./app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-DEE2TwPG.js",
+      "./app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-publication-ter~chrf619l-Bf5oWcQG.js",
+      "./app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-9F1MU8ql.css",
+      "./app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-x1JD0lOF.js",
+      "./app-initial~app-main~worktree-init-v2-page~appgen-publication-terms-route~remote-conversati~dg864qec-ISZMeMHq.js",
+      "./app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~hotkey-win~fzw0jvy4-czZPzzcM.css",
+    ]),
 ) => chunkICPOFSXXParam83.map((item) => chunkICPOFSXXParam85[item]);
 import { PreloadHelper } from "../utils/preload-helper";
 import {
@@ -9176,7 +9195,9 @@ var chunkICPOFSXXValue80 = chunkAGHRB4JFN(
                 default: __default,
               };
             },
-            __vite__mapDeps([0, 1]),
+            __vite__mapDeps([
+              0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+            ]),
             import.meta.url,
           ),
           chunkICPOFSXXValue202 =
