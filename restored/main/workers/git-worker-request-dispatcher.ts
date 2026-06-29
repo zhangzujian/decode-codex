@@ -38,6 +38,7 @@ import { commitGitChanges } from "./git-worker-commit";
 import { readCommitMessageDiff } from "./git-worker-commit-message-diff";
 import { readCurrentBranch } from "./git-worker-current-branch";
 import { readBranchDiffStats } from "./git-worker-diff-stats";
+import { cleanupHostHandoffTransfer } from "./git-worker-host-handoff";
 import { readGitOrigins } from "./git-worker-origin-queries";
 import { readStableMetadata } from "./git-worker-repo-queries";
 import { initializeGitRepository } from "./git-worker-init-repo";
@@ -569,6 +570,15 @@ export class GitWorkerRequestDispatcher {
             cwd: requireStringParam(params, "cwd", { allowEmpty: true }),
             host: context.host,
             signal: context.signal,
+          }),
+        );
+      }
+      case "cleanup-host-handoff-transfer": {
+        const params = requireRecordParams(request);
+        return ok(
+          await cleanupHostHandoffTransfer({
+            host: context.host,
+            rolloutPath: requireStringParam(params, "rolloutPath"),
           }),
         );
       }
