@@ -20,4 +20,7 @@ export function SunIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function initSunIconChunk(): void {}
+
 export default SunIcon;

@@ -33,4 +33,7 @@ export function SitesIcon(props: SitesIconProps) {
     </svg>
   );
 }
+
+export function initSitesIconChunk(): void {}
+
 export default SitesIcon;
