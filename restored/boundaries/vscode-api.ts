@@ -9,7 +9,10 @@ type QueryOptions<T = unknown> = {
   placeholderData?: T;
   queryFn?: () => T | Promise<T>;
   queryKey?: QueryKey;
+  refetchOnWindowFocus?: boolean;
+  retry?: number | boolean;
   select?: (data: T) => unknown;
+  staleTime?: number;
 };
 type MutationOptions<TVariables = unknown, TResult = unknown> = {
   mutationFn?: (variables: TVariables) => TResult | Promise<TResult>;
@@ -37,12 +40,16 @@ function keyToString(queryKey: unknown): string {
 export class _vscodeApiC extends Error {
   constructor(
     message: string,
+    readonly status?: number,
+    readonly errorCode?: string | null,
     readonly details?: unknown,
   ) {
     super(message);
     this.name = "VscodeApiError";
   }
 }
+
+export function initVscodeApiRuntime(): void {}
 
 export const vscodeApiF = {
   dispatchHostMessage(message: unknown): void {
@@ -174,6 +181,27 @@ export function _vscodeApiA<T = unknown>(
 }
 
 export const createVscodeQueryOptions = _vscodeApiA;
+
+export function vscodeApiI<TVariables = unknown, TResult = unknown>(
+  scope: unknown,
+  command: string,
+  buildOptions: (variables: TVariables) => QueryOptions<TResult> = () => ({}),
+): (variables: TVariables) => QueryOptions<TResult> {
+  return (variables: TVariables) => {
+    const options = buildOptions(variables);
+    return {
+      ...options,
+      queryKey: options.queryKey ?? [command, variables],
+      queryFn:
+        options.queryFn ??
+        (() =>
+          callCodexVscodeApi<TResult>(command, {
+            params: variables,
+            scope,
+          })),
+    };
+  };
+}
 
 export function vscodeApiA(): {
   cancelQueries(options?: { queryKey?: QueryKey }): Promise<void>;

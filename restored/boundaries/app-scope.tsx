@@ -56,7 +56,8 @@ class AppScopeStore {
       };
     },
     setData: (query: unknown, keyOrValue: unknown, value?: unknown): void => {
-      const key = value === undefined ? signalKey(query) : signalKey(query, keyOrValue);
+      const key =
+        value === undefined ? signalKey(query) : signalKey(query, keyOrValue);
       this.values.set(key, value === undefined ? keyOrValue : value);
     },
   };
@@ -169,6 +170,32 @@ export function _appScopeO(): AppScopeStore {
 export const appScopeO = _appScopeO;
 export const appScopeD = _appScopeO;
 
+const queryClientContext = React.createContext<unknown>(undefined);
+
+export function _appScopeN({
+  children,
+  queryClient,
+}: {
+  children: React.ReactNode;
+  queryClient: {
+    mount?: () => void;
+    unmount?: () => void;
+  };
+}) {
+  React.useEffect(() => {
+    queryClient.mount?.();
+    return () => {
+      queryClient.unmount?.();
+    };
+  }, [queryClient]);
+
+  return (
+    <queryClientContext.Provider value={queryClient}>
+      {children}
+    </queryClientContext.Provider>
+  );
+}
+
 export function appScopeH(name: string, value: unknown = null): AppScopeStore {
   return new AppScopeStore({ name, value });
 }
@@ -194,4 +221,6 @@ export function _appScopeY<T>(value: T): T {
 
 export const appScopeX = React.createContext;
 export const appScopeZ = React.useContext;
+export const _appScopeX = appScopeX;
+export const _appScopeZ = appScopeZ;
 export { createPortal };
