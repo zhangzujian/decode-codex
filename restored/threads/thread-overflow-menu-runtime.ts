@@ -1,10 +1,10 @@
 // Restored from ref/webview/assets/thread-overflow-menu-yh1Ldo2y.js
 // Runtime bindings for thread overflow actions, side chat, and heartbeat automation tabs.
-import { k as useThreadCommandHandler } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js";
 import {
   initAppgFeatureGateAndSideConversationRuntime as initSideConversationProducer,
   initAppgThreadActionAndMessageRuntime as initThreadActionMenuRuntime,
 } from "../runtime/appg-shared-runtime-initializers";
+import { useThreadCommandHandler } from "../runtime/thread-command-handler-runtime";
 import { initSignalStateRuntime as initQueryRuntime } from "../runtime/signal-state-runtime";
 
 import {
