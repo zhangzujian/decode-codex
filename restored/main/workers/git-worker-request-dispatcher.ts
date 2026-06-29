@@ -35,6 +35,7 @@ import { readStableMetadata } from "./git-worker-repo-queries";
 import { readIndexInfo, readStatusSummary } from "./git-worker-status-queries";
 import { readSyncedBranch } from "./git-worker-synced-branch";
 import { runGitCommand } from "./git-worker-commands";
+import { setWorktreeOwnerThread } from "./git-worker-worktree-thread";
 import type { RpcResult } from "./worker-main-rpc-client";
 import { toRpcError } from "./worker-runtime-utils";
 
@@ -448,6 +449,20 @@ export class GitWorkerRequestDispatcher {
           }),
         });
       }
+      case "set-worktree-owner-thread": {
+        const params = requireRecordParams(request);
+        try {
+          await setWorktreeOwnerThread({
+            conversationId: requireStringParam(params, "conversationId"),
+            host: context.host,
+            signal: context.signal,
+            worktree: requireStringParam(params, "worktree"),
+          });
+          return ok({ success: true });
+        } catch {
+          return rpcError("Failed to set thread worktree owner");
+        }
+      }
     }
     throw openRestorationBoundaryError(
       `Git worker method '${request.method}' remains an open restoration boundary.`,
@@ -465,6 +480,10 @@ export class GitWorkerRequestDispatcher {
 
 function ok(value: unknown): RpcResult {
   return { type: "ok", value };
+}
+
+function rpcError(message: string): RpcResult {
+  return { type: "error", error: { message } };
 }
 
 async function readUpstreamBranchResult(
