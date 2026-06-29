@@ -2,9 +2,9 @@
 // MCP app frame overlay outlet and route-level app-shell frame signals.
 import type { ComponentType } from "react";
 import {
-  nf as liveMcpAppFrameSignal,
-  Zu as RawAppShellOverlayOutlet,
-} from "../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
+  AppShellOverlayOutletRaw,
+  liveMcpAppFrameSignal,
+} from "../boundaries/current-ref/mcp-app-frame-producer";
 import { rightPanelFullscreenSignal as rightPanelFullWidthSignal } from "./app-shell-state";
 import { AppShellElementContext } from "./app-shell-element-context";
 
@@ -13,7 +13,7 @@ export type AppShellOverlayOutletProps = {
 };
 
 export const AppShellOverlayOutlet =
-  RawAppShellOverlayOutlet as ComponentType<AppShellOverlayOutletProps>;
+  AppShellOverlayOutletRaw as ComponentType<AppShellOverlayOutletProps>;
 
 export {
   AppShellElementContext,
