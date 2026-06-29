@@ -67,3 +67,5 @@ export function getChunkModuleExports(
 ): ReactCompilerRuntime {
   return reactCompilerRuntime;
 }
+
+export function noopReactRuntimeCallback(): void {}

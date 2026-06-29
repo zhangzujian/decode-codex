@@ -1,16 +1,19 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js
 // Electron app-main logging and host-message bridge runtime.
 import { once } from "./commonjs-interop";
+import { useEffect, useRef } from "react";
 export {
   getChunkModuleExports,
   getJsxRuntime,
   initReactRuntime,
+  noopReactRuntimeCallback,
 } from "./app-main-react-runtime";
 export {
   findSingleMatchingCodexAppForPlugin,
   initAppPluginMatchingRuntime,
   pluginMatchesCodexApp,
 } from "./app-main-plugin-matching";
+export * from "./app-main-host-runtime/hooks-settings";
 export type {
   CodexAppPluginMatchApp,
   CodexAppPluginMatchPlugin,
@@ -75,7 +78,7 @@ function isHostMessage(value: unknown): value is HostMessage {
   );
 }
 
-function parseWindowHostMessage(
+export function parseWindowHostMessage(
   event: MessageEvent,
   targetWindow: Window = window,
 ): HostMessage | null {
@@ -181,6 +184,29 @@ function initHostMessageApi(): void {
   };
 }
 
+export function initHostMessageParsingRuntime(): void {}
+
+export function initHostMessageApiRuntime(): void {
+  initAppLoggingChunk();
+  initHostMessageApi();
+}
+
+export function useHostMessageSubscription(
+  type: string,
+  handler: HostMessageHandler,
+  deps: readonly unknown[] = [],
+): void {
+  const handlerRef = useRef(handler);
+  handlerRef.current = handler;
+
+  useEffect(() => {
+    const bridge = ElectronHostMessageBridge.getInstance();
+    return bridge.subscribe(type, (message, dispatchMessage) => {
+      handlerRef.current(message, dispatchMessage);
+    });
+  }, [type, ...deps]);
+}
+
 export class ElectronHostMessageBridge {
   private static instance: ElectronHostMessageBridge | null = null;
 
@@ -260,3 +286,5 @@ export const initAppRuntimeChunk = once(() => {
     hostMessageBridge.dispatchMessage(type, payload);
   });
 });
+
+export const initAppMainHostRuntimeChunk = initAppRuntimeChunk;
