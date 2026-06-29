@@ -16680,7 +16680,7 @@
       },
       "status": "partial",
       "boundary": "boundaries/current-ref/hotkey-thread-diff-producer.ts",
-      "note": "Compact-window route-context helper reused by the app-main shell preference alias, initial-route snapshot initializer consumed by app-main home-route setup, composer chrome aliases, folded @pierre/diffs parseDiffFromFiles, pull-request comment card and description markdown aliases, and the current diff/highlight helper aliases consumed by unified-diff-file-summaries are routed through semantic modules. Remaining exports in this broad producer chunk remain an open partial boundary.",
+      "note": "Compact-window route-context helper reused by the app-main shell preference alias, initial-route snapshot initializer consumed by app-main home-route setup, composer chrome aliases, folded @pierre/diffs parseDiffFromFiles, pull-request comment card and description markdown aliases, thread-overflow icon aliases, projectless-output path helper, and the current diff/highlight helper aliases consumed by unified-diff-file-summaries are routed through semantic modules. Remaining exports in this broad producer chunk remain an open partial boundary.",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~ki4n9fl3-zz_Wr7F0": {

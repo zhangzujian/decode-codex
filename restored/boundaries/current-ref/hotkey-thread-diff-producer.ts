@@ -70,11 +70,23 @@ export { TerminalPanelIcon } from "../../app-shell/thread-app-shell-chrome/icons
 
 export { ArrowUpIcon } from "../../icons/arrow-up-icon";
 
+export { ArchiveIcon } from "../../icons/archive-icon";
+
+export { ChevronIcon as ChevronDownIcon } from "../../icons/chevron-icon";
+
 export { CommentIcon } from "../../icons/comment-icon";
 
 export { EditIcon } from "../../icons/edit-icon";
 
+export { PinFilledIcon } from "../../icons/pin-filled-icon";
+
+export { PinIcon } from "../../icons/pin-icon";
+
 export { SettingsGearIcon } from "../../icons/settings-gear-icon";
+
+export { MoreHorizontalIcon } from "../../runtime/local-environment-action-controls-runtime";
+
+export { isResourcePathInsideProjectlessOutput } from "../../conversations/output-artifact-runtime";
 
 export { Checkbox } from "../../utils/checkbox";
 
