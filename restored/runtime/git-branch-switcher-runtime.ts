@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/git-branch-switcher-Cb06tz5G.js
 
-import { ws as createQuerySignalFamily } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
+import { createQuerySignalFamilyRaw as createQuerySignalFamily } from "../boundaries/current-ref/app-scope-producer";
 import {
   Button,
   DialogBody,
