@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/absolutely-light-DwFCI8bO.js
+// Restored from ref/webview/assets/absolutely-light-DzMdOP92.js
 // AbsolutelyLight theme data restored from the current Codex webview bundle.
 var absolutelyLightBg = `#f9f9f7`,
   absolutelyLightColors = {

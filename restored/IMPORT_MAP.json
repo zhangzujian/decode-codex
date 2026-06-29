@@ -15420,6 +15420,319 @@
       "aliasOf": "use-media-query-_Pl2VYyH",
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current utility chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "analyze_image_animation-ay3IvHSQ": {
+      "restored": "animations/analyze-image-animation.ts",
+      "exports": {
+        "default": "analyzeImageAnimation"
+      },
+      "status": "done",
+      "aliasOf": "analyze_image_animation-C79AlwO6",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "automation-DsMQK1Rv": {
+      "restored": "animations/automation.ts",
+      "exports": {
+        "default": "automation"
+      },
+      "status": "done",
+      "aliasOf": "automation-Db3NF6nJ",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "browsing_animation-6B2c3Dlv": {
+      "restored": "animations/browsing-animation.ts",
+      "exports": {
+        "default": "browsingAnimation"
+      },
+      "status": "done",
+      "aliasOf": "browsing_animation-70d1Q20Y",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "code-searching-icon-DR4dSb2l": {
+      "restored": "animations/code-searching-icon.ts",
+      "exports": {
+        "default": "codeSearchingIcon"
+      },
+      "status": "done",
+      "aliasOf": "code-searching-icon-BzRS2ht5",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "codex-happy-small-Bv1QNXcL": {
+      "restored": "animations/codex-happy-small.ts",
+      "exports": {
+        "default": "codexHappySmall"
+      },
+      "status": "done",
+      "aliasOf": "codex-happy-small-C2oUSjo_",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "codex-looking-around-DQj_jyXY": {
+      "restored": "animations/codex-looking-around.ts",
+      "exports": {
+        "default": "codexLookingAround"
+      },
+      "status": "done",
+      "aliasOf": "codex-looking-around-Bmjizoql",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "hello-BQVP3uJ7": {
+      "restored": "animations/hello.ts",
+      "exports": {
+        "default": "hello"
+      },
+      "status": "done",
+      "aliasOf": "hello-CbhTfO5C",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "internal-knowledge-icon-DMjr2e_R": {
+      "restored": "animations/internal-knowledge-icon.ts",
+      "exports": {
+        "default": "internalKnowledgeIcon"
+      },
+      "status": "done",
+      "aliasOf": "internal-knowledge-icon-BQJ1PqEM",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "list_files_animation-C5PTcHs2": {
+      "restored": "animations/list-files-animation.ts",
+      "exports": {
+        "default": "listFilesAnimation"
+      },
+      "status": "done",
+      "aliasOf": "list_files_animation-DCfdil8y",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "local_context_animation-DYsV5vWP": {
+      "restored": "animations/local-context-animation.ts",
+      "exports": {
+        "default": "localContextAnimation"
+      },
+      "status": "done",
+      "aliasOf": "local_context_animation-BzBxrXAK",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "searching_animation-Db5W0sIB": {
+      "restored": "animations/searching-animation.ts",
+      "exports": {
+        "default": "searchingAnimation"
+      },
+      "status": "done",
+      "aliasOf": "searching_animation-B0ELdh4U",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "to_do_animation-QXnMUnnJ": {
+      "restored": "animations/to-do-animation.ts",
+      "exports": {
+        "default": "toDoAnimation"
+      },
+      "status": "done",
+      "aliasOf": "to_do_animation-5nSmC8vV",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "web-search-icon-DtUFVMeN": {
+      "restored": "animations/web-search-icon.ts",
+      "exports": {
+        "default": "webSearchIcon"
+      },
+      "status": "done",
+      "aliasOf": "web-search-icon-DwkfqMCX",
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "absolutely-light-DzMdOP92": {
+      "restored": "themes/absolutely-light.ts",
+      "exports": {
+        "bg": "bg",
+        "colors": "colors",
+        "default": "absolutelyLightDefault",
+        "fg": "absolutelyLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "absolutely-light-BPRjNNJr",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "linear-dark-PTBAV1iT": {
+      "restored": "themes/linear-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "linearDarkDefault",
+        "fg": "linearDarkFg",
+        "name": "name",
+        "settings": "settings"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "linear-dark-BLNhFjHH",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "lobster-dark-DSFMX6FT": {
+      "restored": "themes/lobster-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "lobsterDarkDefault",
+        "fg": "lobsterDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "lobster-dark-CzHMFiJk",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "matrix-dark-xPg2ZFOf": {
+      "restored": "themes/matrix-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "matrixDarkDefault",
+        "fg": "matrixDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "matrix-dark-20LfShwG",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "notion-dark-mMgrZbKL": {
+      "restored": "themes/notion-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "notionDarkDefault",
+        "fg": "notionDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "notion-dark-8RJId8TA",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "notion-light-CL0hr9wB": {
+      "restored": "themes/notion-light.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "notionLightDefault",
+        "fg": "notionLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "notion-light-CWCqCl25",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "proof-light-C81mlsgQ": {
+      "restored": "themes/proof-light.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "proofLightDefault",
+        "fg": "proofLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "proof-light-6h_OypMu",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "sentry-dark-BWh6_xoc": {
+      "restored": "themes/sentry-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "sentryDarkDefault",
+        "fg": "sentryDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "sentry-dark-B5ZGgYpd",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "temple-dark-CXWxQtiv": {
+      "restored": "themes/temple-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "colors": "colors",
+        "default": "templeDarkDefault",
+        "fg": "templeDarkFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "temple-dark-CYlGfqCb",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "vercel-dark-CWjc77Aa": {
+      "restored": "themes/vercel-dark.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "vercelDarkDefault",
+        "fg": "vercelDarkFg",
+        "name": "name",
+        "settings": "settings"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "vercel-dark-AMgwvbBL",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "vercel-light-DDAMV7VG": {
+      "restored": "themes/vercel-light.ts",
+      "exports": {
+        "bg": "bg",
+        "chromeTheme": "chromeTheme",
+        "colors": "colors",
+        "default": "vercelLightDefault",
+        "fg": "vercelLightFg",
+        "name": "name",
+        "settings": "settings",
+        "type": "type"
+      },
+      "status": "done",
+      "note": "Current animation/theme chunk keeps the restored public API; alias added after current ref sync.",
+      "aliasOf": "vercel-light-C2_H1SoG",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     }
   }
 }

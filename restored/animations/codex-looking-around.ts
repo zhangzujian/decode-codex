@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/codex-looking-around-CuiZhPpW.js
+// Restored from ref/webview/assets/codex-looking-around-DQj_jyXY.js
 // CodexLookingAround chunk restored from the Codex webview bundle.
 export const codexLookingAround = {
   v: "5.12.2",

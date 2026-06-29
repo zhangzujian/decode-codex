@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/hello-CbhTfO5C.js
+// Restored from ref/webview/assets/hello-BQVP3uJ7.js
 // Hello chunk restored from the Codex webview bundle.
 export const hello = {
   v: "5.7.0",

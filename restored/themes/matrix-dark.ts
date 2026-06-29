@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/matrix-dark-20LfShwG.js
+// Restored from ref/webview/assets/matrix-dark-xPg2ZFOf.js
 // MatrixDark theme data restored from the current Codex webview bundle.
 var matrixDarkBg = `#040805`,
   matrixDarkColors = {

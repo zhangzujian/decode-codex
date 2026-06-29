@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/code-searching-icon-DZ2sIJwa.js
+// Restored from ref/webview/assets/code-searching-icon-DR4dSb2l.js
 // CodeSearchingIcon chunk restored from the Codex webview bundle.
 export const codeSearchingIcon = {
   v: "5.7.5",

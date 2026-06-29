@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/analyze_image_animation-C79AlwO6.js
+// Restored from ref/webview/assets/analyze_image_animation-ay3IvHSQ.js
 // AnalyzeImageAnimation chunk restored from the Codex webview bundle.
 export const analyzeImageAnimation = {
   v: "5.7.0",

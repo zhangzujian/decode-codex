@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/temple-dark-CYlGfqCb.js
+// Restored from ref/webview/assets/temple-dark-CXWxQtiv.js
 // TempleDark theme data restored from the current Codex webview bundle.
 var templeDarkBg = `#02120c`,
   templeDarkColors = {

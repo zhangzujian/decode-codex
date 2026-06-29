@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/notion-dark-8RJId8TA.js
+// Restored from ref/webview/assets/notion-dark-mMgrZbKL.js
 // NotionDark theme data restored from the current Codex webview bundle.
 var notionDarkBg = `#191919`,
   notionDarkColors = {

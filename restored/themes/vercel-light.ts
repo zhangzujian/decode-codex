@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/vercel-light-nmt3r7fB.js
+// Restored from ref/webview/assets/vercel-light-DDAMV7VG.js
 // VercelLight theme data restored from the current Codex webview bundle.
 var vercelLightBg = `#ffffff`,
   vercelLightChromeTheme = {

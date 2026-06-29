@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/browsing_animation-70d1Q20Y.js
+// Restored from ref/webview/assets/browsing_animation-6B2c3Dlv.js
 // BrowsingAnimation chunk restored from the Codex webview bundle.
 export const browsingAnimation = {
   v: "5.7.0",

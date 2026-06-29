@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/list_files_animation-DCfdil8y.js
+// Restored from ref/webview/assets/list_files_animation-C5PTcHs2.js
 // ListFilesAnimation chunk restored from the Codex webview bundle.
 export const listFilesAnimation = {
   v: "5.7.0",

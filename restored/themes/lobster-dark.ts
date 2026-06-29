@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/lobster-dark-DM2463ba.js
+// Restored from ref/webview/assets/lobster-dark-DSFMX6FT.js
 // LobsterDark theme data restored from the current Codex webview bundle.
 var lobsterDarkBg = `#111827`,
   lobsterDarkColors = {

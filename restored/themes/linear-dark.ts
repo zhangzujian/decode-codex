@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/linear-dark-C4bjD9c7.js
+// Restored from ref/webview/assets/linear-dark-PTBAV1iT.js
 // LinearDark theme data restored from the current Codex webview bundle.
 var linearDarkBg = `#17181d`,
   linearDarkColors = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/notion-light-DvDlXhXF.js
+// Restored from ref/webview/assets/notion-light-CL0hr9wB.js
 // NotionLight theme data restored from the current Codex webview bundle.
 var notionLightBg = `#ffffff`,
   notionLightColors = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/vercel-dark-AMgwvbBL.js
+// Restored from ref/webview/assets/vercel-dark-CWjc77Aa.js
 // VercelDark theme data restored from the current Codex webview bundle.
 var vercelDarkBg = `#000000`,
   vercelDarkChromeTheme = {

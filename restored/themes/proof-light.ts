@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/proof-light-S3dC_C2J.js
+// Restored from ref/webview/assets/proof-light-C81mlsgQ.js
 // ProofLight theme data restored from the current Codex webview bundle.
 var proofLightBg = `#f5f3ed`,
   proofLightColors = {

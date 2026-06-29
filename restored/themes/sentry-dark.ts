@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sentry-dark-CqVGlz9V.js
+// Restored from ref/webview/assets/sentry-dark-BWh6_xoc.js
 // SentryDark theme data restored from the current Codex webview bundle.
 var sentryDarkBg = `#2d2935`,
   sentryDarkColors = {

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/local_context_animation-BzBxrXAK.js
+// Restored from ref/webview/assets/local_context_animation-DYsV5vWP.js
 // LocalContextAnimation chunk restored from the Codex webview bundle.
 export const localContextAnimation = {
   v: "5.7.0",
