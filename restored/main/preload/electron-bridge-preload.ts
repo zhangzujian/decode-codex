@@ -59,12 +59,13 @@ const systemThemeVariantListeners = new Set<ThemeVariantListener>();
 const workerMessageHandlers = new Map<string, Set<WorkerMessageHandler>>();
 const workerIpcListeners = new Map<string, (...args: unknown[]) => void>();
 
-function setSharedObjectValue(key: string, value: unknown): void {
+function setSharedObjectValue(key: unknown, value: unknown): void {
+  const propertyKey = String(key);
   if (value === undefined) {
-    delete sharedObjectSnapshot[key];
+    delete sharedObjectSnapshot[propertyKey];
     return;
   }
-  sharedObjectSnapshot[key] = value;
+  sharedObjectSnapshot[propertyKey] = value;
 }
 
 ipcRenderer.on(SYSTEM_THEME_VARIANT_UPDATED_CHANNEL, (_event, nextVariant) => {
@@ -79,7 +80,7 @@ const electronBridge = {
     key?: string;
     value?: unknown;
   }) => {
-    if (message.type === "shared-object-set" && message.key) {
+    if (message.type === "shared-object-set") {
       setSharedObjectValue(message.key, message.value);
     }
     await ipcRenderer.invoke(MESSAGE_FROM_VIEW_CHANNEL, message);
@@ -161,10 +162,7 @@ ipcRenderer.on(MESSAGE_FOR_VIEW_CHANNEL, (_event, message) => {
     key?: string;
     value?: unknown;
   };
-  if (
-    maybeSharedObjectMessage.type === "shared-object-updated" &&
-    maybeSharedObjectMessage.key
-  ) {
+  if (maybeSharedObjectMessage.type === "shared-object-updated") {
     setSharedObjectValue(
       maybeSharedObjectMessage.key,
       maybeSharedObjectMessage.value,
