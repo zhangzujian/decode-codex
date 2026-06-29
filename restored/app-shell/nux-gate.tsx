@@ -17,3 +17,5 @@ export function NuxGate({ children }: NuxGateProps): JSX.Element {
   }
   return <>{children}</>;
 }
+
+export function initNuxGateChunk(): void {}

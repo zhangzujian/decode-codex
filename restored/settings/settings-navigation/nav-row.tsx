@@ -47,7 +47,7 @@ export function SettingsNavRow({
 }: SettingsNavRowProps) {
   const hasNumericBadge = typeof badge === "number";
   const rowClassName = clsx(
-    "focus-visible:outline-token-border relative h-token-nav-row px-row-x py-row-y cursor-interaction shrink-0 items-center overflow-hidden rounded-lg text-left text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50 gap-2",
+    "focus-visible:outline-token-border relative h-[var(--height-token-row)] px-[var(--padding-row-cell-x,var(--padding-row-x))] py-row-y cursor-interaction shrink-0 items-center overflow-hidden rounded-[var(--radius-token-row)] text-left text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-50 gap-2",
     fullWidth ? "flex w-full" : "inline-flex w-auto",
     isActive
       ? "bg-token-list-hover-background"
@@ -79,7 +79,7 @@ export function SettingsNavRow({
     </div>
   );
   const badgeElement = hasNumericBadge ? (
-    <Badge className="disambiguated-digits absolute top-1/2 right-[var(--padding-row-x)] -translate-y-1/2">
+    <Badge className="disambiguated-digits absolute top-1/2 right-[var(--padding-row-cell-x,var(--padding-row-x))] -translate-y-1/2">
       {badge}
     </Badge>
   ) : null;

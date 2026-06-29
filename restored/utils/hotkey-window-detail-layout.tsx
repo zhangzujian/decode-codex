@@ -224,3 +224,5 @@ export function HotkeyWindowDetailLayout() {
     </HotkeyWindowDetailLayoutContext.Provider>
   );
 }
+
+export function initHotkeyWindowDetailLayoutChunk(): void {}

@@ -10,8 +10,10 @@ export interface SettingsNavSectionProps {
   collapsed?: boolean | null;
   title?: ReactNode;
   titleActions?: ReactNode;
+  titleActionsOnHover?: boolean;
   titleClassName?: string;
   titleRowClassName?: string;
+  titleTrailing?: ReactNode;
 }
 export function SettingsNavSection({
   children,
@@ -19,8 +21,10 @@ export function SettingsNavSection({
   collapsed,
   title,
   titleActions,
+  titleActionsOnHover = false,
   titleClassName,
   titleRowClassName,
+  titleTrailing,
 }: SettingsNavSectionProps) {
   const sectionClassName = clsx(
     "flex flex-col",
@@ -31,7 +35,7 @@ export function SettingsNavSection({
     title == null ? null : (
       <div
         className={clsx(
-          "flex items-center justify-between gap-2",
+          "group/nav-section-title flex items-center justify-between gap-2",
           titleRowClassName ?? "pr-0.5 pl-2",
         )}
       >
@@ -44,8 +48,23 @@ export function SettingsNavSection({
         >
           {title}
         </div>
-        {titleActions == null ? null : (
-          <div className="shrink-0">{titleActions}</div>
+        {titleActions == null && titleTrailing == null ? null : (
+          <div className="flex shrink-0 items-center gap-1">
+            {titleActions == null ? null : (
+              <div
+                className={clsx(
+                  "shrink-0",
+                  titleActionsOnHover &&
+                    "pointer-events-none opacity-0 group-focus-within/nav-section-title:pointer-events-auto group-focus-within/nav-section-title:opacity-100 group-hover/nav-section-title:pointer-events-auto group-hover/nav-section-title:opacity-100 has-[[data-state=open]]:pointer-events-auto has-[[data-state=open]]:opacity-100",
+                )}
+              >
+                {titleActions}
+              </div>
+            )}
+            {titleTrailing == null ? null : (
+              <div className="shrink-0">{titleTrailing}</div>
+            )}
+          </div>
         )}
       </div>
     );
