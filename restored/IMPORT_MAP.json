@@ -3629,6 +3629,15 @@
       },
       "status": "done"
     },
+    "quadrantDiagram-AYHSOK5B-BRnrrCmT": {
+      "restored": "vendor/quadrant-diagram-ayhsok5-b-w-vc-jzs-pp.ts",
+      "exports": {
+        "diagram": "QuadrantDiagramAYHSOK5B"
+      },
+      "status": "done",
+      "aliasOf": "quadrantDiagram-AYHSOK5B-WVcJzsPP",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "sankeyDiagram-TZEHDZUN-XAdBsdDZ": {
       "restored": "vendor/sankey-diagram-tzehdzun-x-ad-bsd-dz.ts",
       "exports": {
@@ -3636,12 +3645,30 @@
       },
       "status": "done"
     },
+    "sankeyDiagram-TZEHDZUN-DaYrOv_J": {
+      "restored": "vendor/sankey-diagram-tzehdzun-x-ad-bsd-dz.ts",
+      "exports": {
+        "diagram": "SankeyDiagramTZEHDZUN"
+      },
+      "status": "done",
+      "aliasOf": "sankeyDiagram-TZEHDZUN-XAdBsdDZ",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "timeline-definition-IT6M3QCI-Bx_6jO7O": {
       "restored": "vendor/timeline-definition-it6-m3-qci.ts",
       "exports": {
         "diagram": "timelineDefinitionIT6M3QCI"
       },
       "status": "done"
+    },
+    "timeline-definition-IT6M3QCI-DaTZmOPo": {
+      "restored": "vendor/timeline-definition-it6-m3-qci.ts",
+      "exports": {
+        "diagram": "timelineDefinitionIT6M3QCI"
+      },
+      "status": "done",
+      "aliasOf": "timeline-definition-IT6M3QCI-Bx_6jO7O",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "chunk-4BX2VUAB-Dutn5tdG": {
       "restored": "utils/chunk-4-bx2-vuab.ts",
@@ -4806,6 +4833,15 @@
       },
       "status": "done"
     },
+    "c4Diagram-YG6GDRKO-84gmUwHW": {
+      "restored": "vendor/c4-diagram-yg6gdrko.ts",
+      "exports": {
+        "diagram": "C4DiagramYG6GDRKO"
+      },
+      "status": "done",
+      "aliasOf": "c4Diagram-YG6GDRKO-DjawmGRU",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "chunk-JA3XYJ7Z-CjR9BG5n": {
       "restored": "vendor/chunk-ja3xyj7z.ts",
       "exports": {
@@ -4825,6 +4861,15 @@
       },
       "status": "done"
     },
+    "ganttDiagram-LVOFAZNH-O6Om1k1l": {
+      "restored": "vendor/gantt-diagram-lvofaznh.ts",
+      "exports": {
+        "diagram": "GanttDiagramLVOFAZNH"
+      },
+      "status": "done",
+      "aliasOf": "ganttDiagram-LVOFAZNH-yOkQF_JE",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "journeyDiagram-XKPGCS4Q-qmAqcnof": {
       "restored": "vendor/journey-diagram-xkpgcs4q.ts",
       "exports": {
@@ -4832,12 +4877,30 @@
       },
       "status": "done"
     },
+    "journeyDiagram-XKPGCS4Q-BcfnIZ-y": {
+      "restored": "vendor/journey-diagram-xkpgcs4q.ts",
+      "exports": {
+        "diagram": "journeyDiagramXKPGCS4Q"
+      },
+      "status": "done",
+      "aliasOf": "journeyDiagram-XKPGCS4Q-qmAqcnof",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "sequenceDiagram-WL72ISMW-BR6BjBF1": {
       "restored": "vendor/sequence-diagram-wl72ismw.ts",
       "exports": {
         "diagram": "SequenceDiagramWL72ISMW"
       },
       "status": "done"
+    },
+    "sequenceDiagram-WL72ISMW-Dy4xSVKS": {
+      "restored": "vendor/sequence-diagram-wl72ismw.ts",
+      "exports": {
+        "diagram": "SequenceDiagramWL72ISMW"
+      },
+      "status": "done",
+      "aliasOf": "sequenceDiagram-WL72ISMW-BR6BjBF1",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "spreadsheet-C5mWVSPz": {
       "restored": "vendor/spreadsheet-schema-entry.ts",
@@ -5082,6 +5145,15 @@
       },
       "status": "done"
     },
+    "blockDiagram-VD42YOAC-B8jfUIDl": {
+      "restored": "vendor/block-diagram-vd42yoac.ts",
+      "exports": {
+        "diagram": "BlockDiagramVD42YOAC"
+      },
+      "status": "done",
+      "aliasOf": "blockDiagram-VD42YOAC-DicrLsNJ",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "chunk-JZLCHNYA-HNai7LB6": {
       "restored": "vendor/chunk-jzlchnya.ts",
       "exports": {
@@ -5134,6 +5206,15 @@
         "diagram": "XychartDiagramPRI3JC2R"
       },
       "status": "done"
+    },
+    "xychartDiagram-PRI3JC2R-BSg-J5mB": {
+      "restored": "vendor/xychart-diagram-pri3jc2r.ts",
+      "exports": {
+        "diagram": "XychartDiagramPRI3JC2R"
+      },
+      "status": "done",
+      "aliasOf": "xychartDiagram-PRI3JC2R-B3NKXKok",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "vscode-api-Cc4BqLmp": {
       "restored": "boundaries/vscode-api.ts",
@@ -5280,6 +5361,15 @@
         "diagram": "kanbanDefinition3W4ZIXB7"
       },
       "status": "done"
+    },
+    "kanban-definition-3W4ZIXB7-CcVjm75r": {
+      "restored": "vendor/kanban-definition-3w4zixb7.ts",
+      "exports": {
+        "diagram": "kanbanDefinition3W4ZIXB7"
+      },
+      "status": "done",
+      "aliasOf": "kanban-definition-3W4ZIXB7-DvB9N6my",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "workbook-DDjets34": {
       "restored": "boundaries/workbook-runtime.ts",
@@ -7547,6 +7637,15 @@
       },
       "status": "done"
     },
+    "dagre-6UL2VRFP-CS6q5ofU": {
+      "restored": "vendor/mermaid-dagre-renderer.ts",
+      "exports": {
+        "render": "dagre6UL2VRFP"
+      },
+      "status": "done",
+      "aliasOf": "dagre-6UL2VRFP-DHAAtlj_",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "remote-text-edit-session-DjCWscO4": {
       "restored": "generated/remote-text-edit-session.tsx",
       "exports": {
@@ -7844,12 +7943,30 @@
       },
       "status": "done"
     },
+    "architecture-U656AL7Q-DwwG5n5O": {
+      "restored": "vendor/mermaid-architecture-definition-fpaj.ts",
+      "exports": {
+        "createArchitectureServices": "architectureU656AL7Q"
+      },
+      "status": "done",
+      "aliasOf": "architecture-U656AL7Q-Ccsrjk_f",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "gitGraph-F6HP7TQM-8BKmskHr": {
       "restored": "vendor/mermaid-git-graph-definition-fpaj.ts",
       "exports": {
         "createGitGraphServices": "gitGraphF6HP7TQM"
       },
       "status": "done"
+    },
+    "gitGraph-F6HP7TQM-fvR48z-j": {
+      "restored": "vendor/mermaid-git-graph-definition-fpaj.ts",
+      "exports": {
+        "createGitGraphServices": "gitGraphF6HP7TQM"
+      },
+      "status": "done",
+      "aliasOf": "gitGraph-F6HP7TQM-8BKmskHr",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "info-NVLQJR56-CJGElsQG": {
       "restored": "vendor/mermaid-info-definition-fpaj.ts",
@@ -7858,12 +7975,30 @@
       },
       "status": "done"
     },
+    "info-NVLQJR56-DYO81Ru7": {
+      "restored": "vendor/mermaid-info-definition-fpaj.ts",
+      "exports": {
+        "createInfoServices": "infoNVLQJR56"
+      },
+      "status": "done",
+      "aliasOf": "info-NVLQJR56-CJGElsQG",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "packet-BFZMPI3H-C976HVjn": {
       "restored": "vendor/mermaid-packet-definition-fpaj.ts",
       "exports": {
         "createPacketServices": "packetBFZMPI3H"
       },
       "status": "done"
+    },
+    "packet-BFZMPI3H-BXp3wJk9": {
+      "restored": "vendor/mermaid-packet-definition-fpaj.ts",
+      "exports": {
+        "createPacketServices": "packetBFZMPI3H"
+      },
+      "status": "done",
+      "aliasOf": "packet-BFZMPI3H-C976HVjn",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "pie-7BOR55EZ-Cel_tNJ1": {
       "restored": "vendor/mermaid-pie-definition-fpaj.ts",
@@ -7872,6 +8007,15 @@
       },
       "status": "done"
     },
+    "pie-7BOR55EZ-BDq7x-wB": {
+      "restored": "vendor/mermaid-pie-definition-fpaj.ts",
+      "exports": {
+        "createPieServices": "pie7BOR55EZ"
+      },
+      "status": "done",
+      "aliasOf": "pie-7BOR55EZ-Cel_tNJ1",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "radar-NHE76QYJ-8GggBqpZ": {
       "restored": "vendor/mermaid-radar-definition-fpaj.ts",
       "exports": {
@@ -7879,12 +8023,30 @@
       },
       "status": "done"
     },
+    "radar-NHE76QYJ-DLr-eYFz": {
+      "restored": "vendor/mermaid-radar-definition-fpaj.ts",
+      "exports": {
+        "createRadarServices": "radarNHE76QYJ"
+      },
+      "status": "done",
+      "aliasOf": "radar-NHE76QYJ-8GggBqpZ",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "treemap-KMMF4GRG-ByNQtOJN": {
       "restored": "vendor/mermaid-treemap-definition-fpaj.ts",
       "exports": {
         "createTreemapServices": "treemapKMMF4GRG"
       },
       "status": "done"
+    },
+    "treemap-KMMF4GRG-Bo7ISLpJ": {
+      "restored": "vendor/mermaid-treemap-definition-fpaj.ts",
+      "exports": {
+        "createTreemapServices": "treemapKMMF4GRG"
+      },
+      "status": "done",
+      "aliasOf": "treemap-KMMF4GRG-ByNQtOJN",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "mermaid-parser.core-DWICYyNZ": {
       "restored": "vendor/mermaid-parser-core-k5.ts",
@@ -7970,12 +8132,30 @@
       },
       "status": "done"
     },
+    "architectureDiagram-VXUJARFQ-DSHF0-Hw": {
+      "restored": "vendor/mermaid-architecture-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "ArchitectureDiagramVXUJARFQ"
+      },
+      "status": "done",
+      "aliasOf": "architectureDiagram-VXUJARFQ-x16TdI-X",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "diagram-PSM6KHXK-DqnCog4a": {
       "restored": "vendor/mermaid-treemap-diagram-fpaj.ts",
       "exports": {
         "diagram": "DiagramPSM6KHXK"
       },
       "status": "done"
+    },
+    "diagram-PSM6KHXK-_uPuWuHP": {
+      "restored": "vendor/mermaid-treemap-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "DiagramPSM6KHXK"
+      },
+      "status": "done",
+      "aliasOf": "diagram-PSM6KHXK-DqnCog4a",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "diagram-QEK2KX5R-DVrdB3UI": {
       "restored": "vendor/mermaid-radar-diagram-fpaj.ts",
@@ -7984,12 +8164,30 @@
       },
       "status": "done"
     },
+    "diagram-QEK2KX5R-4OZQ3rse": {
+      "restored": "vendor/mermaid-radar-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "diagramQEK2KX5R"
+      },
+      "status": "done",
+      "aliasOf": "diagram-QEK2KX5R-DVrdB3UI",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "diagram-S2PKOQOG-CYp0tDDf": {
       "restored": "vendor/mermaid-packet-diagram-fpaj.ts",
       "exports": {
         "diagram": "DiagramS2PKOQOG"
       },
       "status": "done"
+    },
+    "diagram-S2PKOQOG-C0ma8yN3": {
+      "restored": "vendor/mermaid-packet-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "DiagramS2PKOQOG"
+      },
+      "status": "done",
+      "aliasOf": "diagram-S2PKOQOG-CYp0tDDf",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "gitGraphDiagram-NY62KEGX-lV4TXvsv": {
       "restored": "vendor/mermaid-git-graph-diagram-fpaj.ts",
@@ -7998,6 +8196,15 @@
       },
       "status": "done"
     },
+    "gitGraphDiagram-NY62KEGX-CsIEzHiX": {
+      "restored": "vendor/mermaid-git-graph-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "gitGraphDiagramNY62KEGX"
+      },
+      "status": "done",
+      "aliasOf": "gitGraphDiagram-NY62KEGX-lV4TXvsv",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "infoDiagram-F6ZHWCRC-CZZfMpuV": {
       "restored": "vendor/mermaid-info-diagram-fpaj.ts",
       "exports": {
@@ -8005,12 +8212,30 @@
       },
       "status": "done"
     },
+    "infoDiagram-F6ZHWCRC-DCNCNGKS": {
+      "restored": "vendor/mermaid-info-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "infoDiagramF6ZHWCRC"
+      },
+      "status": "done",
+      "aliasOf": "infoDiagram-F6ZHWCRC-CZZfMpuV",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "pieDiagram-ADFJNKIX-CdTMfn5r": {
       "restored": "vendor/mermaid-pie-diagram-fpaj.ts",
       "exports": {
         "diagram": "pieDiagramADFJNKIX"
       },
       "status": "done"
+    },
+    "pieDiagram-ADFJNKIX-BC6CAEwA": {
+      "restored": "vendor/mermaid-pie-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "pieDiagramADFJNKIX"
+      },
+      "status": "done",
+      "aliasOf": "pieDiagram-ADFJNKIX-CdTMfn5r",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "PopcornElectronDocumentPanel-LEVj37uj": {
       "restored": "generated/popcorn-electron-document-panel.tsx",
@@ -8139,12 +8364,30 @@
       },
       "status": "done"
     },
+    "erDiagram-Q2GNP2WA-BPM0lS04": {
+      "restored": "vendor/mermaid-er-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "ErDiagramQ2GNP2WA"
+      },
+      "status": "done",
+      "aliasOf": "erDiagram-Q2GNP2WA-BuOvbo5z",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "flowDiagram-NV44I4VS-D4eH0gaV": {
       "restored": "vendor/mermaid-flow-diagram-fpaj.ts",
       "exports": {
         "diagram": "FlowDiagramNV44I4VS"
       },
       "status": "done"
+    },
+    "flowDiagram-NV44I4VS-QsAiBWP0": {
+      "restored": "vendor/mermaid-flow-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "FlowDiagramNV44I4VS"
+      },
+      "status": "done",
+      "aliasOf": "flowDiagram-NV44I4VS-D4eH0gaV",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "mindmap-definition-VGOIOE7T-CravxLKD": {
       "restored": "vendor/mermaid-mindmap-definition-fpaj.ts",
@@ -8153,12 +8396,30 @@
       },
       "status": "done"
     },
+    "mindmap-definition-VGOIOE7T-DdYOkKZJ": {
+      "restored": "vendor/mermaid-mindmap-definition-fpaj.ts",
+      "exports": {
+        "diagram": "MindmapDefinitionVGOIOE7T"
+      },
+      "status": "done",
+      "aliasOf": "mindmap-definition-VGOIOE7T-CravxLKD",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "requirementDiagram-UZGBJVZJ-CREo4bNX": {
       "restored": "vendor/mermaid-requirement-diagram-fpaj.ts",
       "exports": {
         "diagram": "RequirementDiagramUZGBJVZJ"
       },
       "status": "done"
+    },
+    "requirementDiagram-UZGBJVZJ-9RUb2zSd": {
+      "restored": "vendor/mermaid-requirement-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "RequirementDiagramUZGBJVZJ"
+      },
+      "status": "done",
+      "aliasOf": "requirementDiagram-UZGBJVZJ-CREo4bNX",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "chunk-336JU56O-D9FbfXWS": {
       "restored": "vendor/mermaid-layout-loader-k5.ts",
@@ -8234,12 +8495,30 @@
       },
       "status": "done"
     },
+    "classDiagram-2ON5EDUG-CyX6CvQE": {
+      "restored": "vendor/mermaid-class-diagram-definition-fpaj.ts",
+      "exports": {
+        "diagram": "ClassDiagram2ON5EDUG"
+      },
+      "status": "done",
+      "aliasOf": "classDiagram-2ON5EDUG-CNv4W435",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "classDiagram-v2-WZHVMYZB-DXC_WPMt": {
       "restored": "vendor/mermaid-class-diagram-v2-definition-fpaj.ts",
       "exports": {
         "diagram": "ClassDiagramV2WZHVMYZB"
       },
       "status": "done"
+    },
+    "classDiagram-v2-WZHVMYZB-C9FMKhYl": {
+      "restored": "vendor/mermaid-class-diagram-v2-definition-fpaj.ts",
+      "exports": {
+        "diagram": "ClassDiagramV2WZHVMYZB"
+      },
+      "status": "done",
+      "aliasOf": "classDiagram-v2-WZHVMYZB-DXC_WPMt",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "stateDiagram-FKZM4ZOC-BLPu-ra7": {
       "restored": "vendor/mermaid-state-diagram-definition-fpaj.ts",
@@ -8248,12 +8527,30 @@
       },
       "status": "done"
     },
+    "stateDiagram-FKZM4ZOC-DB2Mqdbr": {
+      "restored": "vendor/mermaid-state-diagram-definition-fpaj.ts",
+      "exports": {
+        "diagram": "stateDiagramFKZM4ZOC"
+      },
+      "status": "done",
+      "aliasOf": "stateDiagram-FKZM4ZOC-BLPu-ra7",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
     "stateDiagram-v2-4FDKWEC3-CqVrfWb0": {
       "restored": "vendor/mermaid-state-diagram-v2-definition-fpaj.ts",
       "exports": {
         "diagram": "stateDiagramV24FDKWEC3"
       },
       "status": "done"
+    },
+    "stateDiagram-v2-4FDKWEC3-BRG4MBfA": {
+      "restored": "vendor/mermaid-state-diagram-v2-definition-fpaj.ts",
+      "exports": {
+        "diagram": "stateDiagramV24FDKWEC3"
+      },
+      "status": "done",
+      "aliasOf": "stateDiagram-v2-4FDKWEC3-CqVrfWb0",
+      "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "is-compact-window-context-CVCwwVNh": {
       "restored": "features/is-compact-window-context.ts",

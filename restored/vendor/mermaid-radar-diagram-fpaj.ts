@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/diagram-QEK2KX5R-DVrdB3UI.js
+// Restored from ref/webview/assets/diagram-QEK2KX5R-4OZQ3rse.js
 // DiagramQEK2KX5R chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJP } from "./chunk-s3r3byoj";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";

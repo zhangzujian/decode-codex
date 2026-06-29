@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/stateDiagram-v2-4FDKWEC3-CqVrfWb0.js
+// Restored from ref/webview/assets/stateDiagram-v2-4FDKWEC3-BRG4MBfA.js
 // StateDiagramV24FDKWEC3 chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dompurify";
 import {

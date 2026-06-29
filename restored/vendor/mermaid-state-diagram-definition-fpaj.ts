@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/stateDiagram-FKZM4ZOC-BLPu-ra7.js
+// Restored from ref/webview/assets/stateDiagram-FKZM4ZOC-DB2Mqdbr.js
 // StateDiagramFKZM4ZOC chunk restored from the Codex webview bundle.
 import { Dagre } from "./dagre";
 import { chunkS3R3BYOJC } from "./chunk-s3r3byoj";

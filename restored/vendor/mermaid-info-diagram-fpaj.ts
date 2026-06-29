@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/infoDiagram-F6ZHWCRC-CZZfMpuV.js
+// Restored from ref/webview/assets/infoDiagram-F6ZHWCRC-DCNCNGKS.js
 // InfoDiagramF6ZHWCRC chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";
 import { _chunkABZYJK2DN } from "./katex-auto-render";

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sequenceDiagram-WL72ISMW-BR6BjBF1.js
+// Restored from ref/webview/assets/sequenceDiagram-WL72ISMW-Dy4xSVKS.js
 // SequenceDiagramWL72ISMW chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJA, chunkS3R3BYOJC } from "./chunk-s3r3byoj";
 import { Src } from "./roughjs-geometry";

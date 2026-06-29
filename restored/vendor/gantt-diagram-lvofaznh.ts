@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/ganttDiagram-LVOFAZNH-yOkQF_JE.js
+// Restored from ref/webview/assets/ganttDiagram-LVOFAZNH-O6Om1k1l.js
 // GanttDiagramLVOFAZNH chunk restored from the Codex webview bundle.
 import { toEsModule, createCommonJsModule } from "../runtime/commonjs-interop";
 import { chunkS3R3BYOJC } from "./chunk-s3r3byoj";

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/classDiagram-v2-WZHVMYZB-DXC_WPMt.js
+// Restored from ref/webview/assets/classDiagram-v2-WZHVMYZB-C9FMKhYl.js
 // ClassDiagramV2WZHVMYZB chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dompurify";
 import {

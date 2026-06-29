@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/c4Diagram-YG6GDRKO-DjawmGRU.js
+// Restored from ref/webview/assets/c4Diagram-YG6GDRKO-84gmUwHW.js
 // C4DiagramYG6GDRKO chunk restored from the Codex webview bundle.
 import {
   chunkS3R3BYOJUnderscore,

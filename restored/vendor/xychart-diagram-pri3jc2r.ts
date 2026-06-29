@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/xychartDiagram-PRI3JC2R-B3NKXKok.js
+// Restored from ref/webview/assets/xychartDiagram-PRI3JC2R-BSg-J5mB.js
 // XychartDiagramPRI3JC2R chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJP } from "./chunk-s3r3byoj";
 import { linearT } from "./d3-scale-linear";

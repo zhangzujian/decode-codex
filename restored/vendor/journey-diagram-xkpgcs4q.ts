@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/journeyDiagram-XKPGCS4Q-qmAqcnof.js
+// Restored from ref/webview/assets/journeyDiagram-XKPGCS4Q-BcfnIZ-y.js
 // JourneyDiagramXKPGCS4Q chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { arc } from "./d3-shape-arc";

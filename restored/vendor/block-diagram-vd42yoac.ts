@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/blockDiagram-VD42YOAC-DicrLsNJ.js
+// Restored from ref/webview/assets/blockDiagram-VD42YOAC-B8jfUIDl.js
 // BlockDiagramVD42YOAC chunk restored from the Codex webview bundle.
 import {
   chunkS3R3BYOJI as chunkS3R3BYOJC,

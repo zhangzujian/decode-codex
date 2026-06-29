@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sankeyDiagram-TZEHDZUN-XAdBsdDZ.js
+// Restored from ref/webview/assets/sankeyDiagram-TZEHDZUN-DaYrOv_J.js
 // SankeyDiagramTZEHDZUN chunk restored from the Codex webview bundle.
 import { tableau10T } from "./d3-tableau10";
 import { Src } from "./roughjs-geometry";
