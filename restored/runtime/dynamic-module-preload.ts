@@ -1,9 +1,9 @@
-// Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b.js
+// Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js
 // Dynamic import preloader used by lazily loaded conversation UI modules.
 import {
-  AL as preloadDynamicImportRaw,
-  jL as initModulePreloadRuntimeRaw,
-} from "../vendor/appg-thread-shared-runtime";
+  Jn as initModulePreloadRuntimeRaw,
+  qn as preloadDynamicImportRaw,
+} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
 
 export function initDynamicModulePreloadRuntime(): void {
   initModulePreloadRuntimeRaw();
@@ -14,5 +14,9 @@ export function preloadDynamicImport<TModule>(
   dependencies: readonly string[],
   importerUrl: string,
 ): Promise<TModule> {
-  return preloadDynamicImportRaw(loader, dependencies, importerUrl) as Promise<TModule>;
+  return preloadDynamicImportRaw(
+    loader,
+    dependencies,
+    importerUrl,
+  ) as Promise<TModule>;
 }
