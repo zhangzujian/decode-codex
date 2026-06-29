@@ -1,12 +1,11 @@
 // Restored from ref/webview/assets/local-conversation-thread-BwqAGxoz.js
 // Motion values, animation helpers, and reduced-motion signal facade.
 import {
-  _u as createMotionSignal,
-  du as initMotionRuntime,
-  fu as animateSignalValue,
-  vu as useMotionValueEvent,
-  yu as motion,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-DEE2TwPG.js";
+  animate as animateSignalValue,
+  motion,
+  motionValue as createMotionSignal,
+  useMotionValueEvent,
+} from "framer-motion";
 import { shouldReduceMotionSignal as reducedMotionPreferenceSignal } from "./reduced-motion-preference";
 import {
   createScopedSignal as createSignal,
@@ -17,11 +16,12 @@ export {
   animateSignalValue,
   createMotionSignal,
   createSignal,
-  initMotionRuntime,
   motion,
   reducedMotionPreferenceSignal,
   useMotionValueEvent,
 };
+
+export function initMotionRuntime(): void {}
 
 export function initReducedMotionPreference(): void {
   void reducedMotionPreferenceSignal;
