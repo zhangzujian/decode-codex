@@ -1,11 +1,6 @@
 // Restored from ref/webview/assets/pull-request-check-rows-B2iGS9CB.js
 // Boundary facade for pull request action rows, analytics, mutations, and merge controls.
 import {
-  Eh as pullRequestViewedFromSidePanelEvent,
-  Th as pullRequestKindActionEvent,
-  wh as pullRequestActionEvent,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
-import {
   F as initSwitchRuntime,
   P as Switch,
   fi as openInBrowserFromEvent,
@@ -42,6 +37,16 @@ import {
 } from "../vendor/projects-app-shared-runtime";
 import { useScope } from "./app-scope-hooks";
 import { initScopeRuntime } from "./app-scope-runtime";
+
+const pullRequestActionEvent = {
+  $type: "protobuf_analytics_events.v1.CodexPullRequestActionClicked",
+};
+const pullRequestKindActionEvent = {
+  $type: "protobuf_analytics_events.v1.CodexPullRequestCommentPosted",
+};
+const pullRequestViewedFromSidePanelEvent = {
+  $type: "protobuf_analytics_events.v1.CodexPullRequestSelected",
+};
 
 export {
   Button,
