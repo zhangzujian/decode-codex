@@ -2,10 +2,12 @@
 // Boundary facade for shared utility hooks, small icons, and vendored helpers.
 import {
   Iw as onboardingWizardAction,
-  jM as initPersistentSignalRuntime,
   kE as initProductEventRuntime,
-  MM as createPersistentSignal,
 } from "../vendor/appg-thread-shared-runtime";
+import {
+  _S as createPersistentSignal,
+  gS as initPersistentSignalRuntime,
+} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
 import {
   I as getJsxRuntime,
   L as getChunkModuleExports,
