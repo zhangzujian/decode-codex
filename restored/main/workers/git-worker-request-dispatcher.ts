@@ -60,6 +60,7 @@ import {
   readSyncedBranch,
   readSyncedBranchDetailedState,
 } from "./git-worker-synced-branch";
+import { handleTurnDiffCaptureRequest } from "./git-worker-turn-diff";
 import { setWorktreeOwnerThread } from "./git-worker-worktree-thread";
 import {
   readManagedWorktreeState,
@@ -541,6 +542,15 @@ export class GitWorkerRequestDispatcher {
         );
         return ok({ success: true });
       }
+      case "turn-diff-capture-start":
+      case "turn-diff-capture-complete":
+        return ok(
+          await handleTurnDiffCaptureRequest({
+            host: context.host,
+            request,
+            signal: context.signal,
+          }),
+        );
       case "status-summary": {
         const params = requireRecordParams(request);
         return ok(
