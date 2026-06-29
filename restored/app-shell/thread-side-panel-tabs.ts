@@ -1,19 +1,19 @@
 // Restored from ref/webview/assets/thread-side-panel-tabs-tc-mAOFK.js
 // Semantic side-panel tab barrel for the updated Codex webview bundle.
 import {
-  Cl as toggleThreadSidePanel,
-  fl as getBrowserTabIdForSidePanelOpen,
-  gl as openThreadBrowserSidePanelTab,
-  hl as openThreadBranchReviewSidePanelTab,
-  ml as openSessionSandboxSidePanel,
-  pl as initThreadSidePanelTabsChunk,
-  Sl as primeBrowserTabTransfers,
-  vl as openThreadBrowserSidePanelTabWithoutAnimation,
-  xl as openThreadTimelineSidePanel,
-  yl as openThreadLastTurnReviewSidePanelTab,
-  _l as openThreadBrowserSidePanelTabWithPendingState,
-  bl as openThreadReviewSidePanelTab,
-} from "../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
+  getBrowserTabIdForSidePanelOpen,
+  initThreadSidePanelTabsChunk,
+  openSessionSandboxSidePanel,
+  openThreadBranchReviewSidePanelTab,
+  openThreadBrowserSidePanelTab,
+  openThreadBrowserSidePanelTabWithPendingState,
+  openThreadBrowserSidePanelTabWithoutAnimation,
+  openThreadLastTurnReviewSidePanelTab,
+  openThreadReviewSidePanelTab,
+  openThreadTimelineSidePanel,
+  primeBrowserTabTransfers,
+  toggleThreadSidePanel,
+} from "../boundaries/current-ref/thread-side-panel-tabs-producer";
 import {
   closeMcpAppTab as closeThreadMcpAppSidePanelTab,
   mcpAppTabId as getThreadMcpAppSidePanelTabId,
