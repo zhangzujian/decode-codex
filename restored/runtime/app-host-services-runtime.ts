@@ -1,13 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js
 // App-host service bridge bootstrap used by the Electron app-main entry.
+import { createPersistedSignal } from "./persisted-signal";
 import {
-  _S as createPersistentSignalRaw,
-  Bm as onboardingWizardActionRaw,
-  Df as initProductEventRuntimeRaw,
   Mb as connectAppHostServicesRaw,
-  gS as initPersistentSignalRuntimeRaw,
   jb as initAppHostServicesRuntimeChunkRaw,
-  nb as getCachedConversationTurnsRaw,
 } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
 
 type PersistentSignalFactory = <TValue>(
@@ -15,16 +11,54 @@ type PersistentSignalFactory = <TValue>(
   defaultValue: TValue,
 ) => unknown;
 type OnboardingWizardActionCatalog = {
+  CODEX_ONBOARDING_WIZARD_ACTION_COMPLETED: string;
+  CODEX_ONBOARDING_WIZARD_ACTION_DISMISSED: string;
+  CODEX_ONBOARDING_WIZARD_ACTION_FAILED: string;
+  CODEX_ONBOARDING_WIZARD_ACTION_SKIPPED: string;
+  CODEX_ONBOARDING_WIZARD_ACTION_UNSPECIFIED: string;
   CODEX_ONBOARDING_WIZARD_ACTION_VIEWED: string;
+  UNRECOGNIZED: string;
   [action: string]: string;
 };
+type CanonicalTurnHistory<TTurn> = {
+  islands: Array<{
+    entries: Array<{
+      value: TTurn;
+    }>;
+  }>;
+};
+type CachedConversation<TTurn> = {
+  turnHistory?: {
+    kind?: string;
+    history?: CanonicalTurnHistory<TTurn>;
+  };
+  turns?: readonly TTurn[];
+};
+
+const canonicalHistoryTurnCache = new WeakMap<object, readonly unknown[]>();
 
 export const createPersistentSignal =
-  createPersistentSignalRaw as PersistentSignalFactory;
-export const onboardingWizardAction =
-  onboardingWizardActionRaw as OnboardingWizardActionCatalog;
+  createPersistedSignal as PersistentSignalFactory;
+
+export const onboardingWizardAction = {
+  CODEX_ONBOARDING_WIZARD_ACTION_UNSPECIFIED:
+    "CODEX_ONBOARDING_WIZARD_ACTION_UNSPECIFIED",
+  CODEX_ONBOARDING_WIZARD_ACTION_COMPLETED:
+    "CODEX_ONBOARDING_WIZARD_ACTION_COMPLETED",
+  CODEX_ONBOARDING_WIZARD_ACTION_SKIPPED:
+    "CODEX_ONBOARDING_WIZARD_ACTION_SKIPPED",
+  CODEX_ONBOARDING_WIZARD_ACTION_DISMISSED:
+    "CODEX_ONBOARDING_WIZARD_ACTION_DISMISSED",
+  CODEX_ONBOARDING_WIZARD_ACTION_FAILED:
+    "CODEX_ONBOARDING_WIZARD_ACTION_FAILED",
+  CODEX_ONBOARDING_WIZARD_ACTION_VIEWED:
+    "CODEX_ONBOARDING_WIZARD_ACTION_VIEWED",
+  UNRECOGNIZED: "UNRECOGNIZED",
+} satisfies OnboardingWizardActionCatalog;
 
 export function initAppHostServicesRuntimeChunk(): void {
+  // TODO: deep-restore the MessagePort RPC client and remove this final bj5
+  // bridge dependency.
   initAppHostServicesRuntimeChunkRaw();
 }
 
@@ -32,16 +66,28 @@ export async function connectAppHostServices(): Promise<void> {
   await connectAppHostServicesRaw();
 }
 
-export function initProductEventRuntime(): void {
-  initProductEventRuntimeRaw();
-}
+export function initProductEventRuntime(): void {}
 
-export function initPersistentSignalRuntime(): void {
-  initPersistentSignalRuntimeRaw();
-}
+export function initPersistentSignalRuntime(): void {}
 
 export function getCachedConversationTurns<TTurn = unknown>(
   conversation: unknown,
 ): readonly TTurn[] {
-  return getCachedConversationTurnsRaw(conversation) as readonly TTurn[];
+  const cachedConversation = conversation as CachedConversation<TTurn> | null;
+  const canonicalHistory =
+    cachedConversation?.turnHistory?.kind === "canonical"
+      ? cachedConversation.turnHistory.history
+      : null;
+  if (canonicalHistory == null) {
+    return cachedConversation?.turns ?? [];
+  }
+
+  const cachedTurns = canonicalHistoryTurnCache.get(canonicalHistory);
+  if (cachedTurns != null) return cachedTurns as readonly TTurn[];
+
+  const turns = canonicalHistory.islands.flatMap((island) =>
+    island.entries.map((entry) => entry.value),
+  );
+  canonicalHistoryTurnCache.set(canonicalHistory, turns);
+  return turns;
 }
