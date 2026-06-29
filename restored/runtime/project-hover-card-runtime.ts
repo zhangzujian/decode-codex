@@ -4,10 +4,6 @@ import {
   globalSettingKeys,
   normalizeWorkspacePath,
 } from "../boundaries/src-l0hb-mz-p";
-import {
-  Xt as parseProjectWritableRootsRaw,
-  Yt as getProjectWritableRootsForDisplayRaw,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
 import { defineMessages } from "./intl-define-messages-runtime";
 import { getPathBasename as normalizeTextForCompare } from "./path-basename-runtime";
 import { initStringNormalizeRuntime } from "./string-normalize-runtime";
@@ -102,13 +98,50 @@ export type ProjectWritableRootsDisplayOptions = {
 export function parseProjectWritableRoots(
   value: unknown,
 ): ProjectWritableRootsByProject {
-  return parseProjectWritableRootsRaw(value) as ProjectWritableRootsByProject;
+  if (!isRecord(value)) return {};
+
+  const writableRoots: ProjectWritableRootsByProject = {};
+  for (const [projectId, roots] of Object.entries(value)) {
+    if (!Array.isArray(roots)) return {};
+
+    const parsedRoots: ProjectWritableRoot[] = [];
+    for (const root of roots) {
+      if (!isProjectWritableRoot(root)) return {};
+      parsedRoots.push({
+        kind: "local",
+        path: root.path,
+        ...(root.label === undefined ? {} : { label: root.label }),
+      });
+    }
+    writableRoots[projectId] = parsedRoots;
+  }
+
+  return writableRoots;
 }
 
 export function getProjectWritableRootsForDisplay(
   options: ProjectWritableRootsDisplayOptions,
 ): string[] {
-  return getProjectWritableRootsForDisplayRaw(options) as string[];
+  if (Object.hasOwn(options.projectWritableRoots, options.projectId)) {
+    return (
+      options.projectWritableRoots[options.projectId]?.map(
+        (root) => root.path,
+      ) ?? []
+    );
+  }
+
+  return options.legacyRoot == null ? [] : [options.legacyRoot];
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return value != null && typeof value === "object" && !Array.isArray(value);
+}
+
+function isProjectWritableRoot(value: unknown): value is ProjectWritableRoot {
+  if (!isRecord(value)) return false;
+  if (value.kind !== "local") return false;
+  if (typeof value.path !== "string") return false;
+  return value.label === undefined || typeof value.label === "string";
 }
 
 export function useRemoteHostConfigs(): unknown[] {
