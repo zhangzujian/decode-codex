@@ -23,6 +23,14 @@ export type GitWorktreeEntry = {
   headRef: GitWorktreeHeadRef;
 };
 
+export type CodexWorktreeEntry = {
+  dir: string;
+  gitDir: string | null;
+};
+
+const SHORT_WORKTREE_PARENT_PATTERN = /^[0-9a-f]{4}$/i;
+const TIMESTAMPED_WORKTREE_DIR_PATTERN = /^\d{6}-\d{4}-[0-9a-f]{8}$/i;
+
 export async function listWorktrees({
   cwd,
   host,
@@ -49,6 +57,68 @@ export async function listWorktrees({
     );
   }
   return parseWorktreePorcelain(result.stdout ?? "");
+}
+
+export async function listCodexWorktrees({
+  host,
+  signal,
+}: {
+  host: WorkerExecutionHostClient;
+  signal: AbortSignal;
+}): Promise<CodexWorktreeEntry[]> {
+  const [codexHome, pathApi] = await Promise.all([
+    host.codexHome(),
+    host.platformPath(),
+  ]);
+  if (typeof codexHome !== "string" || codexHome.length === 0) return [];
+
+  const worktreesRoot = pathApi.join(codexHome, "worktrees");
+  const parentEntries = await host
+    .readDirectory(worktreesRoot)
+    .catch(() => null);
+  if (parentEntries == null) return [];
+
+  const worktreeCandidates: string[] = [];
+  const parentDirectories = parentEntries.filter(isDirectoryEntry);
+  const childEntryGroups = await Promise.all(
+    parentDirectories.map(async (parentEntry) => {
+      const parentPath = pathApi.join(worktreesRoot, parentEntry.name);
+      try {
+        return {
+          parentName: parentEntry.name,
+          parentPath,
+          entries: await host.readDirectory(parentPath),
+        };
+      } catch {
+        return null;
+      }
+    }),
+  );
+
+  for (const group of childEntryGroups) {
+    if (group == null) continue;
+    const acceptsAnyChildName = SHORT_WORKTREE_PARENT_PATTERN.test(
+      group.parentName,
+    );
+    for (const childEntry of group.entries) {
+      if (!isDirectoryEntry(childEntry)) continue;
+      if (
+        !acceptsAnyChildName &&
+        !TIMESTAMPED_WORKTREE_DIR_PATTERN.test(childEntry.name)
+      ) {
+        continue;
+      }
+      const worktreePath = pathApi.join(group.parentPath, childEntry.name);
+      if (worktreePath.length > 0) worktreeCandidates.push(worktreePath);
+    }
+  }
+
+  return Promise.all(
+    worktreeCandidates.map(async (dir) => ({
+      dir,
+      gitDir: await readGitDir({ host, root: dir, signal }),
+    })),
+  );
 }
 
 function parseWorktreePorcelain(value: string): GitWorktreeEntry[] {
@@ -120,4 +190,37 @@ function parseWorktreePorcelain(value: string): GitWorktreeEntry[] {
 
   if (current != null) worktrees.push(current);
   return worktrees;
+}
+
+async function readGitDir({
+  host,
+  root,
+  signal,
+}: {
+  host: WorkerExecutionHostClient;
+  root: string;
+  signal: AbortSignal;
+}): Promise<string | null> {
+  const result = await runGitCommand({
+    args: ["rev-parse", "--git-dir"],
+    cwd: root,
+    host,
+    signal,
+  });
+  if (!result.success || !result.stdout) return null;
+
+  const pathApi = await host.platformPath();
+  return pathApi.isAbsolute(result.stdout)
+    ? result.stdout
+    : pathApi.join(root, result.stdout);
+}
+
+function isDirectoryEntry(
+  entry: unknown,
+): entry is { name: string; isDirectory(): boolean } {
+  if (typeof entry !== "object" || entry == null) return false;
+  const record = entry as Record<string, unknown>;
+  if (typeof record.name !== "string") return false;
+  const isDirectory = record.isDirectory;
+  return typeof isDirectory === "function" && isDirectory.call(entry) === true;
 }

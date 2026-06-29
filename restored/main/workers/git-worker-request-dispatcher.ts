@@ -36,7 +36,7 @@ import { readIndexInfo, readStatusSummary } from "./git-worker-status-queries";
 import { readSyncedBranch } from "./git-worker-synced-branch";
 import { runGitCommand } from "./git-worker-commands";
 import { setWorktreeOwnerThread } from "./git-worker-worktree-thread";
-import { listWorktrees } from "./git-worker-worktrees";
+import { listCodexWorktrees, listWorktrees } from "./git-worker-worktrees";
 import type { RpcResult } from "./worker-main-rpc-client";
 import { toRpcError } from "./worker-runtime-utils";
 
@@ -474,6 +474,13 @@ export class GitWorkerRequestDispatcher {
           }),
         });
       }
+      case "codex-worktrees":
+        return ok({
+          worktrees: await listCodexWorktrees({
+            host: context.host,
+            signal: context.signal,
+          }),
+        });
     }
     throw openRestorationBoundaryError(
       `Git worker method '${request.method}' remains an open restoration boundary.`,
