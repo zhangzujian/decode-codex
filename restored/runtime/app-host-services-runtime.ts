@@ -3,6 +3,7 @@
 import {
   Mb as connectAppHostServicesRaw,
   jb as initAppHostServicesRuntimeChunkRaw,
+  nb as getCachedConversationTurnsRaw,
 } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
 
 export function initAppHostServicesRuntimeChunk(): void {
@@ -11,4 +12,10 @@ export function initAppHostServicesRuntimeChunk(): void {
 
 export async function connectAppHostServices(): Promise<void> {
   await connectAppHostServicesRaw();
+}
+
+export function getCachedConversationTurns<TTurn = unknown>(
+  conversation: unknown,
+): readonly TTurn[] {
+  return getCachedConversationTurnsRaw(conversation) as readonly TTurn[];
 }

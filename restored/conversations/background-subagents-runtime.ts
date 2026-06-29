@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/local-conversation-thread-BwqAGxoz.js
 // Background subagent membership/status aggregation for conversation UI.
-import { nb as getCachedConversationTurnsRaw } from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
+import { getCachedConversationTurns as getCachedConversationTurnsRaw } from "../runtime/app-host-services-runtime";
 import { normalizeConversationId as normalizeConversationIdValue } from "../boundaries/src-l0hb-mz-p";
 import { cs as backgroundAgentsSignal } from "../vendor/profile-page-runtime";
 import { parseUnifiedDiffFileSummaries } from "../utils/unified-diff-file-summaries";

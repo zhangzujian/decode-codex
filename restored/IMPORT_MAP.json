@@ -14003,10 +14003,11 @@
       "restored": "runtime/app-host-services-runtime.ts",
       "exports": {
         "Mb": "connectAppHostServices",
-        "jb": "initAppHostServicesRuntimeChunk"
+        "jb": "initAppHostServicesRuntimeChunk",
+        "nb": "getCachedConversationTurns"
       },
       "status": "partial",
-      "note": "Current app-main app-host service bootstrap aliases are isolated in runtime/app-host-services-runtime.ts; the full producer and renderer RPC bridge remain an open partial boundary.",
+      "note": "Current app-main app-host service bootstrap aliases and cached conversation turn reader are isolated in runtime/app-host-services-runtime.ts; the full producer and renderer RPC bridge remain an open partial boundary.",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
     "app-initial~app-main~onboarding-page-BUwCKIcU": {
