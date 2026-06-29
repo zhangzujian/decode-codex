@@ -21,4 +21,5 @@ export * from "./paths";
 export * from "./reconcile";
 export * from "./resource-roots";
 export * from "./stale-cleanup";
+export * from "./sync";
 export * from "./types";
