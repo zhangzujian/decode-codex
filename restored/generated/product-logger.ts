@@ -26,6 +26,7 @@ export const _r = __productLoggerR;
 export const codexThreadSwitchCompletedEvent = event(
   "codex_thread_switch_completed",
 );
+export const productLoggerX = event("codex_appshot_shortcut_changed");
 export const productLoggerZn = event("codex_prompt_rail_navigation_clicked");
 export const _productLoggerVr = event("codex_thread_side_panel_tab_viewed");
 export const codexThreadSwitchKind = {

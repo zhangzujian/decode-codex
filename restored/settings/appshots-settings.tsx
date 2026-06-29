@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/appshots-settings-Yk90QG0U.js
+// Restored from ref/webview/assets/appshots-settings-DWXasG5t.js
 // Settings page for Appshots capture, hotkey configuration, and sound effects.
 import React, { type ReactNode } from "react";
 import {

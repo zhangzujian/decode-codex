@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/vscode-api-Cp_DWew0.js
 // VS Code bridge, query helpers, and logging facade for restored chunks.
+import * as React from "react";
+
 type QueryKey = readonly unknown[];
 type QueryOptions<T = unknown> = {
   enabled?: boolean;
@@ -81,6 +83,18 @@ export class VscodeHostMessageBridge {
 
 export const vscodeApiD = VscodeHostMessageBridge;
 export const _vscodeApiD = VscodeHostMessageBridge;
+
+export function vscodeApiP<TMessage = unknown>(
+  type: string,
+  handler: (message: TMessage) => void,
+  deps: React.DependencyList = [],
+): void {
+  React.useEffect(() => {
+    return VscodeHostMessageBridge.getInstance().subscribe(type, (message) => {
+      handler(message as TMessage);
+    });
+  }, [type, ...deps]);
+}
 
 export const vscodeApiH = {
   debug(_message: string, _context?: unknown): void {},

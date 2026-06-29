@@ -10873,12 +10873,30 @@
       },
       "status": "done"
     },
+    "appshots-settings-DWXasG5t": {
+      "restored": "settings/appshots-settings.tsx",
+      "exports": {
+        "AppshotsSettings": "AppshotsSettings"
+      },
+      "status": "done",
+      "aliasOf": "appshots-settings-Yk90QG0U",
+      "note": "Current synced Appshots settings chunk; productLoggerX now maps the CodexAppshotShortcutChanged event boundary."
+    },
     "mcp-settings-Cq9pFeQZ": {
       "restored": "settings/mcp-settings.tsx",
       "exports": {
         "McpSettings": "McpSettings"
       },
       "status": "done"
+    },
+    "mcp-settings-rSYMD_vg": {
+      "restored": "settings/mcp-settings.tsx",
+      "exports": {
+        "McpSettings": "McpSettings"
+      },
+      "status": "done",
+      "aliasOf": "mcp-settings-Cq9pFeQZ",
+      "note": "Current synced MCP settings chunk; vscodeApiP now provides the host message subscription hook used by this chunk."
     },
     "project-dropdown-options-yIKBFAMU": {
       "restored": "ui/project-dropdown-options.tsx",

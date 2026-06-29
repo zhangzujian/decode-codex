@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/mcp-settings-Cq9pFeQZ.js
+// Restored from ref/webview/assets/mcp-settings-rSYMD_vg.js
 // MCP server settings page, including custom server editing and auth status controls.
 import React from "react";
 import {
