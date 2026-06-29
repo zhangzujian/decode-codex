@@ -11,5 +11,6 @@ export * from "./manifest-io";
 export * from "./manifests";
 export * from "./marketplaces";
 export * from "./paths";
+export * from "./resource-roots";
 export * from "./stale-cleanup";
 export * from "./types";
