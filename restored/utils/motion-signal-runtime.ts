@@ -1,16 +1,20 @@
 // Restored from ref/webview/assets/local-conversation-thread-Bf38rCmF.js
 // Motion values, animation helpers, and reduced-motion signal facade.
 import {
-  AP as motion,
-  CP as animateSignalValue,
-  LN as initReducedMotionPreference,
-  OP as createMotionSignal,
-  RN as reducedMotionPreferenceSignal,
-  SP as initMotionRuntime,
-  kP as useMotionValueEvent,
-  yV as createSignal,
-} from "../vendor/appg-thread-shared-runtime";
-import { initAppScopeSignalRuntime } from "../runtime/app-scope-runtime";
+  JC as initReducedMotionPreference,
+  YC as reducedMotionPreferenceSignal,
+} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js";
+import {
+  _u as createMotionSignal,
+  du as initMotionRuntime,
+  fu as animateSignalValue,
+  vu as useMotionValueEvent,
+  yu as motion,
+} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-DEE2TwPG.js";
+import {
+  createScopedSignal as createSignal,
+  initAppScopeSignalRuntime,
+} from "../runtime/app-scope-runtime";
 
 export {
   animateSignalValue,
