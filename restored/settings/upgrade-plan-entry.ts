@@ -13,6 +13,7 @@ import { Sku } from "../utils/skus";
 import { openModalControllerModal } from "../ui/modal-controller-state";
 import type { ExternalLinkClickEvent } from "../utils/external-link/types";
 import { useLocation, useNavigate } from "../vendor/react-router";
+import type { UpgradePlanDialogModalProps } from "./upgrade-plan-dialog";
 
 export const PRICING_PLAN_ROUTE = "/pricing-plan";
 
@@ -24,11 +25,6 @@ export type UpgradePlanDefaultTab = "business" | "personal";
 export type UpgradePlanSurface = "dialog" | "page" | "web";
 type CodexPlanSku = (typeof Sku)[keyof typeof Sku];
 type ModalControllerStore = Parameters<typeof openModalControllerModal>[0];
-type UpgradePlanDialogProps = {
-  currentPlan: CodexPlanSku;
-  defaultTab: UpgradePlanDefaultTab;
-  source?: string;
-};
 type StatsigExperiment = {
   get<TValue>(field: string, fallback: TValue): TValue;
 };
@@ -49,15 +45,10 @@ export type OpenUpgradePlanOptions = OpenUpgradePlanInAppOptions & {
   getPricingUrl: () => string;
 };
 
-function UpgradePlanDialogModalChunk(): never {
-  throw new Error(
-    "UpgradePlanDialogModal must be supplied by upgrade-plan-dialog-B70ZA4z-.",
-  );
-}
-
-const UpgradePlanDialogModalLazy = React.lazy(async () => ({
-  default: UpgradePlanDialogModalChunk,
-})) as ComponentType<UpgradePlanDialogProps>;
+const UpgradePlanDialogModalLazy = React.lazy(async () => {
+  const { UpgradePlanDialogModal } = await import("./upgrade-plan-dialog");
+  return { default: UpgradePlanDialogModal };
+}) as ComponentType<UpgradePlanDialogModalProps>;
 
 function getStatsigClient(): StatsigClient {
   return getStatsigClientRaw() as StatsigClient;

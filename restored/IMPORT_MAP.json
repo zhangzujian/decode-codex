@@ -39219,6 +39219,19 @@
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
+    "upgrade-plan-dialog-CtSyWdd4": {
+      "restored": "settings/upgrade-plan-dialog.tsx",
+      "exports": {
+        "UpgradePlanDialog": "UpgradePlanDialog",
+        "UpgradePlanDialogModal": "UpgradePlanDialogModal"
+      },
+      "status": "done",
+      "note": "Current upgrade plan dialog restored as typed modal UI plus split plan-card helpers and subscription update flow.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: read upgrade-plan-dialog.tsx, split card modules, shared types, and entry lazy import end-to-end against Stage 3 E1-E4; exports, tab/card UI, pricing, URL routing, and subscription update confirmation flow match the current chunk."
+    },
     "blade-DK87gFxT": {
       "restored": "vendor/shiki-languages.ts",
       "exports": {
