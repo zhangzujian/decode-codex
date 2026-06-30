@@ -2519,7 +2519,9 @@
       "aliasOf": "core-CpC1jq0N",
       "note": "Current highlight.js core wrapper preserves the restored loader export surface.",
       "status": "done",
-      "lastUpdated": "2026-06-30T08:19:23.819Z"
+      "lastUpdated": "2026-06-30T08:19:23.819Z",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as a typed Highlight.js core loader re-export with current-bundle provenance."
     },
     "highlight-code-BntQZ0HZ": {
       "restored": "utils/highlight-code.ts",
@@ -20503,7 +20505,9 @@
       "status": "done",
       "aliasOf": "load-script-enBvQ5ff",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown repack reorders Segment load-script aliases and exposes initializer thunks; aliases were rederived from load-script-BifiZc4M.js."
+      "note": "Current Rolldown repack reorders Segment load-script aliases and exposes initializer thunks; aliases were rederived from load-script-BifiZc4M.js.",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as a typed Segment load-script helper restored with DOM side-effect handling."
     },
     "document-1gFz5aiQ": {
       "restored": "vendor/document-schema.ts",
@@ -22096,7 +22100,9 @@
       "status": "done",
       "aliasOf": "plan-pricing-dtn4oxxh",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref hash keeps the restored plan price formatting helpers and initializer surface."
+      "note": "Current ref hash keeps the restored plan price formatting helpers and initializer surface.",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as typed plan-price formatting helpers with an explicit no-op chunk initializer."
     },
     "routing-middleware-BMBY4FI3": {
       "restored": "utils/routing-middleware.ts",
@@ -31251,14 +31257,20 @@
       "exports": {
         "default": "default"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as a typed browser-external boundary shim for Vite bundle compatibility.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "dist-CD74BDfk": {
       "restored": "vendor/entities-escape.ts",
       "exports": {
         "t": "dist"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as typed entity escaping and URL sanitizer helpers.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "permission-request-model-FfJwWzP9": {
       "restored": "utils/permission-request-model.ts",
@@ -32249,7 +32261,9 @@
       "aliasOf": "thread-virtualizer-j4nMuJ6u",
       "note": "Current thread virtualizer hash preserves the restored public export surface; aliases re-derived from thread-virtualizer-tFKjdFLY.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T08:05:41.179Z"
+      "lastUpdated": "2026-06-30T08:05:41.179Z",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as typed thread virtualizer range and layout helpers with current-bundle provenance."
     },
     "esm-CuAuNray": {
       "restored": "vendor/iconify-core.ts",
@@ -32277,7 +32291,9 @@
       },
       "status": "done",
       "lastUpdated": "2026-06-30T08:08:22.353Z",
-      "note": "Oniguruma WASM payload restored as a typed data module with getWasmInstance and wasmBinary exports."
+      "note": "Oniguruma WASM payload restored as a typed data module with getWasmInstance and wasmBinary exports.",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as the Oniguruma WASM data asset wrapper with typed loader exports."
     },
     "browser-4rTfxlUZ": {
       "restored": "vendor/dotlottie-react.tsx",
@@ -33047,7 +33063,9 @@
       "status": "done",
       "lastUpdated": "2026-06-30T08:11:10.597Z",
       "vendor": "d3-sankey",
-      "note": "Current src chunk identified as d3-sankey; aliases re-derived from src-6yFswxVy.js."
+      "note": "Current src chunk identified as d3-sankey; aliases re-derived from src-6yFswxVy.js.",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as a semantic d3-sankey re-export surface with no remaining app logic."
     },
     "src-BhkLFyc4": {
       "restored": "vendor/d3-hierarchy.ts",
@@ -33064,7 +33082,9 @@
       "status": "done",
       "lastUpdated": "2026-06-30T08:11:10.597Z",
       "vendor": "d3-hierarchy/d3-scale-chromatic",
-      "note": "Current src chunk identified as d3-hierarchy plus d3-scale-chromatic; aliases re-derived from src-BhkLFyc4.js."
+      "note": "Current src chunk identified as d3-hierarchy plus d3-scale-chromatic; aliases re-derived from src-BhkLFyc4.js.",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as a semantic d3-hierarchy re-export surface with no remaining app logic."
     },
     "stylis-CNWqMcUo": {
       "restored": "vendor/stylis.ts",
@@ -33077,7 +33097,9 @@
       "status": "done",
       "vendor": "stylis",
       "lastUpdated": "2026-06-30T08:12:20.343Z",
-      "note": "Current Stylis bundle matched stock compile/serialize/stringify exports; initializer is represented as a no-op."
+      "note": "Current Stylis bundle matched stock compile/serialize/stringify exports; initializer is represented as a no-op.",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as a semantic Stylis re-export surface with no remaining app logic."
     },
     "above-composer-suggestions-EVJBi7fI": {
       "restored": "composer/above-composer-suggestions.tsx",

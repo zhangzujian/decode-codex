@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/core-CCcWj3EO.js
-// core-CCcWj3EO chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/core-DMiaGTKr.js
+// Highlight.js core re-export used by bundled syntax highlighters.
 import highlightJsCore from "highlight.js/lib/core";
 export const loadHighlightJsCore = () => highlightJsCore;

@@ -1,6 +1,5 @@
 // Restored from ref/webview/assets/plan-pricing-DANGBAbm.js
 // Format plan prices and currency parts for billing UI surfaces.
-import { once } from "../runtime/commonjs-interop";
 type IntlNumberFormatter = {
   formatNumber(value: number, options: Intl.NumberFormatOptions): string;
   formatNumberToParts(
@@ -55,7 +54,7 @@ export function formatPlanPriceParts({
     parts,
   };
 }
-export const initPlanPricingChunk = once(() => {});
+export function initPlanPricingChunk(): void {}
 export function formatPlanPrice({
   intl,
   amount,
