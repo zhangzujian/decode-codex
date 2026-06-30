@@ -9620,6 +9620,10 @@ export const _chunkICPOFSXXM = chunkAGHRB4JFN(
   },
   "registerDiagram",
 );
+export function initChunkICPOFSXXDomPurifyRuntime(): void {}
+export function initChunkICPOFSXXCurrent(): void {
+  initChunkICPOFSXXDomPurifyRuntime();
+}
 export {
   chunkICPOFSXXZ as $,
   chunkICPOFSXXA,
