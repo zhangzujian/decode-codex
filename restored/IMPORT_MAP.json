@@ -5231,7 +5231,10 @@
       },
       "status": "done",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Legacy Mermaid viewport helper export maps to the semantic setupViewPortForSVG name; chunkEDXVE4YY remains as a restored compatibility alias."
+      "note": "Legacy Mermaid viewport helper export maps to the semantic setupViewPortForSVG name; chunkEDXVE4YY remains as a restored compatibility alias.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains chunk-EDXVE4YY-Cs5mTzNz, current EDXVE4YY hashes exist, vendor/chunk-edxve4yy.ts passes quality-gate, and the recorded setupViewPortForSVG alias is exported."
     },
     "chunk-EDXVE4YY-C5jaZxVP": {
       "restored": "vendor/chunk-edxve4yy.ts",
@@ -5241,7 +5244,10 @@
       "status": "done",
       "aliasOf": "chunk-EDXVE4YY-Cs5mTzNz",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid viewport helper export re-derived from ref hash C5jaZxVP."
+      "note": "Current Mermaid viewport helper export re-derived from ref hash C5jaZxVP.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current chunk-EDXVE4YY-C5jaZxVP ref asset exists, vendor/chunk-edxve4yy.ts passes quality-gate, and the recorded setupViewPortForSVG alias is exported."
     },
     "chunk-EDXVE4YY-CqVtr0uy": {
       "restored": "vendor/chunk-edxve4yy.ts",
@@ -5251,7 +5257,10 @@
       "status": "done",
       "aliasOf": "chunk-EDXVE4YY-Cs5mTzNz",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid viewport helper export re-derived from ref hash CqVtr0uy."
+      "note": "Current Mermaid viewport helper export re-derived from ref hash CqVtr0uy.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current chunk-EDXVE4YY-CqVtr0uy ref asset exists, vendor/chunk-edxve4yy.ts passes quality-gate, and the recorded setupViewPortForSVG alias is exported."
     },
     "chunk-EDXVE4YY-mzmFTiuP": {
       "restored": "vendor/chunk-edxve4yy.ts",
@@ -5261,7 +5270,10 @@
       "status": "done",
       "aliasOf": "chunk-EDXVE4YY-Cs5mTzNz",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid viewport helper export re-derived from ref hash mzmFTiuP."
+      "note": "Current Mermaid viewport helper export re-derived from ref hash mzmFTiuP.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current chunk-EDXVE4YY-mzmFTiuP ref asset exists, vendor/chunk-edxve4yy.ts passes quality-gate, and the recorded setupViewPortForSVG alias is exported."
     },
     "chunk-EDXVE4YY-BWFoBgdE": {
       "restored": "vendor/chunk-edxve4yy.ts",
@@ -5272,7 +5284,10 @@
       "status": "done",
       "aliasOf": "chunk-EDXVE4YY-Cs5mTzNz",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps n to setupViewPortForSVG and t to the restored eager ESM initializer compatibility export."
+      "note": "Current Rolldown lazy-init variant maps n to setupViewPortForSVG and t to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current chunk-EDXVE4YY-BWFoBgdE ref asset exists, vendor/chunk-edxve4yy.ts passes quality-gate, and both recorded setupViewPortForSVG/initChunkEDXVE4YY aliases are exported."
     },
     "chunk-YZCP3GAM-CkcPUeYE": {
       "restored": "vendor/chunk-yzcp3gam.ts",
