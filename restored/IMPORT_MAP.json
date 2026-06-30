@@ -9584,6 +9584,17 @@
       },
       "status": "done"
     },
+    "mermaid-parser.core-C7uxoPQv": {
+      "restored": "vendor/mermaid-parser-core-fpaj.ts",
+      "exports": {
+        "n": "MermaidParserCore",
+        "t": "initMermaidParserCoreFpajChunk"
+      },
+      "aliasOf": "mermaid-parser.core-Cloq2txW",
+      "note": "Current Mermaid parser core aliases were re-derived from mermaid-parser.core-C7uxoPQv.js: n=parse, t=lazy init thunk. This FPaj parser set omits Wardley and keeps the older compact parse error messages.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
     "architectureDiagram-Q4EWVU46-C9aYmC2s": {
       "restored": "vendor/mermaid-architecture-diagram-k5.ts",
       "exports": {

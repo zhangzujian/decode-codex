@@ -185,4 +185,5 @@ var mermaidParserCoreValue3 = class extends Error {
     chunkFPAJGGOCF(this, "MermaidParseError");
   }
 };
+export function initMermaidParserCoreFpajChunk(): void {}
 export { MermaidParserCore };
