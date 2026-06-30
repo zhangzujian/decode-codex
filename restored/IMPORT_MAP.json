@@ -19898,6 +19898,18 @@
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current app chunk keeps the restored public export surface; alias added after current ref sync."
     },
+    "browser-use-elevated-risk-learn-more-url-Bdqa5sCw": {
+      "restored": "browser/browser-use-elevated-risk-learn-more-url.ts",
+      "exports": {
+        "n": "getBrowserUseElevatedRiskLearnMoreUrl",
+        "r": "initializeBrowserUseElevatedRiskLearnMoreUrlChunk",
+        "t": "BROWSER_USE_ELEVATED_RISK_LEARN_MORE_CONFIG_ID"
+      },
+      "status": "done",
+      "aliasOf": "browser-use-elevated-risk-learn-more-url-BBUxFihc",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current ref hash keeps the restored browser-use elevated-risk learn-more URL surface."
+    },
     "browser-sidebar-hidden-background-webview-host-BWupD_uZ": {
       "restored": "browser/hidden-background-webview-host.tsx",
       "exports": {
@@ -19951,6 +19963,19 @@
       "aliasOf": "ambient-suggestions-connected-apps-consent-DQKvmN_n",
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current app chunk keeps the restored public export surface; alias added after current ref sync."
+    },
+    "ambient-suggestions-connected-apps-consent-BnmCW-mt": {
+      "restored": "composer/ambient-suggestions-connected-apps-consent.ts",
+      "exports": {
+        "i": "initAmbientSuggestionsConnectedAppsConsentChunk",
+        "n": "hasDismissedAmbientSuggestionsConnectAppsRowSignal",
+        "r": "hasSeenAmbientSuggestionsConnectedAppsConsentSignal",
+        "t": "filterAccessibleEnabledAmbientSuggestionApps"
+      },
+      "status": "done",
+      "aliasOf": "ambient-suggestions-connected-apps-consent-DQKvmN_n",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current ref hash keeps the restored ambient suggestion consent surface."
     },
     "composer-external-footer-BFeCW1bq": {
       "restored": "composer/composer-external-footer.tsx",
