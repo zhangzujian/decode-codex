@@ -19301,8 +19301,11 @@
         "y": "InfoCircleIcon"
       },
       "status": "done",
-      "note": "App-main renderer Sentry, app-update recovery state/selectors, Codex identity, info icon, and ErrorBoundary exports are restored through semantic runtime modules.",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "note": "Historical app-main renderer Sentry/error-boundary producer retained as the x1JD0lOF alias set. The current ref migrated this stable-stem chunk to di269h6j-DHWk0JvV; renderer Sentry, app-update recovery state/selectors, Codex identity, info icon, and ErrorBoundary exports are restored through semantic runtime modules.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains x1JD0lOF; verified the current di269h6j-DHWk0JvV exact hash is accepted, runtime/renderer-error-boundary-runtime.ts passes quality-gate, and all 20 historical aliases are covered by the semantic runtime exports."
     },
     "app-initial~app-main~remote-conversation-page~pull-requests-page~onboarding-page~hotkey-win~fzw0jvy4-rg89odR_": {
       "restored": "runtime/hotkey-thread-diff-runtime.ts",
