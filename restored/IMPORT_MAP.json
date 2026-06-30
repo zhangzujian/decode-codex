@@ -5168,16 +5168,19 @@
     "chunk-YZCP3GAM-CkcPUeYE": {
       "restored": "vendor/chunk-yzcp3gam.ts",
       "exports": {
-        "a": "chunkYZCP3GAMT",
-        "c": "chunkYZCP3GAMS",
-        "i": "chunkYZCP3GAMR",
-        "n": "chunkYZCP3GAMO",
-        "o": "chunkYZCP3GAMN",
-        "r": "chunkYZCP3GAMI",
-        "s": "chunkYZCP3GAMC",
-        "t": "chunkYZCP3GAMA"
+        "a": "drawRect",
+        "c": "getTextObj",
+        "i": "drawImage",
+        "n": "drawBackgroundRect",
+        "o": "drawText",
+        "r": "drawEmbeddedImage",
+        "s": "getNoteRect",
+        "t": "createTooltip"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Restored to typed Mermaid SVG drawing and tooltip helpers; compatibility chunkYZCP3GAM* exports remain in the public file for older consumers."
     },
     "chunk-426QAEUC-SBg7XJ-1": {
       "restored": "vendor/chunk-426qaeuc.ts",
@@ -32981,71 +32984,75 @@
     "chunk-YZCP3GAM-BaYtHc5x": {
       "restored": "vendor/chunk-yzcp3gam.ts",
       "exports": {
-        "a": "chunkYZCP3GAMT",
-        "c": "chunkYZCP3GAMS",
-        "i": "chunkYZCP3GAMR",
-        "n": "chunkYZCP3GAMO",
-        "o": "chunkYZCP3GAMN",
-        "r": "chunkYZCP3GAMI",
-        "s": "chunkYZCP3GAMC",
-        "t": "chunkYZCP3GAMA"
+        "a": "drawRect",
+        "c": "getTextObj",
+        "i": "drawImage",
+        "n": "drawBackgroundRect",
+        "o": "drawText",
+        "r": "drawEmbeddedImage",
+        "s": "getNoteRect",
+        "t": "createTooltip"
       },
       "aliasOf": "chunk-YZCP3GAM-CkcPUeYE",
-      "note": "Current chunk-YZCP3GAM hash preserves the restored public export surface; aliases re-derived from chunk-YZCP3GAM-BaYtHc5x.js.",
+      "note": "Current chunk-YZCP3GAM hash re-derived from chunk-YZCP3GAM-BaYtHc5x.js; drawing helper aliases were matched by wrapped function names.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "chunk-YZCP3GAM-CLwUXLrb": {
       "restored": "vendor/chunk-yzcp3gam.ts",
       "exports": {
-        "a": "chunkYZCP3GAMT",
-        "c": "chunkYZCP3GAMS",
-        "i": "chunkYZCP3GAMR",
-        "n": "chunkYZCP3GAMO",
-        "o": "chunkYZCP3GAMN",
-        "r": "chunkYZCP3GAMI",
-        "s": "chunkYZCP3GAMC",
-        "t": "chunkYZCP3GAMA"
+        "a": "drawRect",
+        "c": "getTextObj",
+        "i": "drawImage",
+        "n": "drawBackgroundRect",
+        "o": "drawText",
+        "r": "drawEmbeddedImage",
+        "s": "getNoteRect",
+        "t": "createTooltip"
       },
       "aliasOf": "chunk-YZCP3GAM-CkcPUeYE",
-      "note": "Current chunk-YZCP3GAM hash preserves the restored public export surface; aliases re-derived from chunk-YZCP3GAM-CLwUXLrb.js.",
+      "note": "Current chunk-YZCP3GAM hash re-derived from chunk-YZCP3GAM-CLwUXLrb.js; drawing helper aliases were matched by wrapped function names.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "chunk-YZCP3GAM-YM2CBvV6": {
       "restored": "vendor/chunk-yzcp3gam.ts",
       "exports": {
-        "a": "chunkYZCP3GAMT",
-        "c": "chunkYZCP3GAMS",
-        "i": "chunkYZCP3GAMR",
-        "n": "chunkYZCP3GAMO",
-        "o": "chunkYZCP3GAMN",
-        "r": "chunkYZCP3GAMI",
-        "s": "chunkYZCP3GAMC",
-        "t": "chunkYZCP3GAMA"
+        "a": "drawRect",
+        "c": "getTextObj",
+        "i": "drawImage",
+        "n": "drawBackgroundRect",
+        "o": "drawText",
+        "r": "drawEmbeddedImage",
+        "s": "getNoteRect",
+        "t": "createTooltip"
       },
       "aliasOf": "chunk-YZCP3GAM-CkcPUeYE",
-      "note": "Current chunk-YZCP3GAM hash preserves the restored public export surface; aliases re-derived from chunk-YZCP3GAM-YM2CBvV6.js.",
+      "note": "Current chunk-YZCP3GAM hash re-derived from chunk-YZCP3GAM-YM2CBvV6.js; drawing helper aliases were matched by wrapped function names.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "chunk-YZCP3GAM-B39030I6": {
       "restored": "vendor/chunk-yzcp3gam.ts",
       "exports": {
-        "a": "chunkYZCP3GAMA",
-        "c": "chunkYZCP3GAMC",
-        "i": "chunkYZCP3GAMI",
-        "l": "initChunkYZCP3GAM",
-        "n": "chunkYZCP3GAMN",
-        "o": "chunkYZCP3GAMO",
-        "r": "chunkYZCP3GAMR",
-        "s": "chunkYZCP3GAMS",
-        "t": "chunkYZCP3GAMT"
+        "a": "drawRect",
+        "c": "getTextObj",
+        "i": "drawImage",
+        "l": "initMermaidTooltipDrawingHelpersChunk",
+        "n": "drawBackgroundRect",
+        "o": "drawText",
+        "r": "drawEmbeddedImage",
+        "s": "getNoteRect",
+        "t": "createTooltip"
       },
       "aliasOf": "chunk-YZCP3GAM-CkcPUeYE",
       "note": "Current chunk-YZCP3GAM hash re-derived from chunk-YZCP3GAM-B39030I6.js; alias l is the Rolldown lazy init thunk and the drawing helper aliases match their wrapped function names.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "chunk-ZZ45TVLE-BM69Gnq3": {
       "restored": "vendor/chunk-zz45tvle.ts",

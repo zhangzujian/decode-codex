@@ -1,64 +1,214 @@
-// Restored from ref/webview/assets/chunk-YZCP3GAM-CkcPUeYE.js
-// ChunkYZCP3GAM chunk restored from the Codex webview bundle.
-import { Src } from "./roughjs-geometry";
-import { dist } from "./entities-escape";
+// Restored from ref/webview/assets/chunk-YZCP3GAM-B39030I6.js
+// Mermaid SVG drawing and tooltip helpers shared by current diagram chunks.
+import { Src as select } from "./roughjs-geometry";
+import { dist as createUrlSanitizerModule } from "./entities-escape";
 import { chunkAGHRB4JFN } from "./dayjs-core-alt";
-import { _chunkICPOFSXXZ } from "./chunk-icpofsxx";
-var chunkYZCP3GAMValue1 = dist(),
-  chunkYZCP3GAMA = chunkAGHRB4JFN(
-    (chunkYZCP3GAMParam1, chunkYZCP3GAMParam2) => {
-      let chunkYZCP3GAMValue3 = chunkYZCP3GAMParam1.append("rect");
-      if (
-        (chunkYZCP3GAMValue3.attr("x", chunkYZCP3GAMParam2.x),
-        chunkYZCP3GAMValue3.attr("y", chunkYZCP3GAMParam2.y),
-        chunkYZCP3GAMValue3.attr("fill", chunkYZCP3GAMParam2.fill),
-        chunkYZCP3GAMValue3.attr("stroke", chunkYZCP3GAMParam2.stroke),
-        chunkYZCP3GAMValue3.attr("width", chunkYZCP3GAMParam2.width),
-        chunkYZCP3GAMValue3.attr("height", chunkYZCP3GAMParam2.height),
-        chunkYZCP3GAMParam2.name &&
-          chunkYZCP3GAMValue3.attr("name", chunkYZCP3GAMParam2.name),
-        chunkYZCP3GAMParam2.rx &&
-          chunkYZCP3GAMValue3.attr("rx", chunkYZCP3GAMParam2.rx),
-        chunkYZCP3GAMParam2.ry &&
-          chunkYZCP3GAMValue3.attr("ry", chunkYZCP3GAMParam2.ry),
-        chunkYZCP3GAMParam2.attrs !== undefined)
-      )
-        for (let chunkYZCP3GAMValue6 in chunkYZCP3GAMParam2.attrs)
-          chunkYZCP3GAMValue3.attr(
-            chunkYZCP3GAMValue6,
-            chunkYZCP3GAMParam2.attrs[chunkYZCP3GAMValue6],
-          );
-      return (
-        chunkYZCP3GAMParam2.class &&
-          chunkYZCP3GAMValue3.attr("class", chunkYZCP3GAMParam2.class),
-        chunkYZCP3GAMValue3
-      );
-    },
-    "drawRect",
-  );
-export const chunkYZCP3GAMT = chunkAGHRB4JFN(() => {
-  let chunkYZCP3GAMValue2 = Src(".mermaidTooltip");
-  return (
-    chunkYZCP3GAMValue2.empty() &&
-      (chunkYZCP3GAMValue2 = Src("body")
-        .append("div")
-        .attr("class", "mermaidTooltip")
-        .style("opacity", 0)
-        .style("position", "absolute")
-        .style("text-align", "center")
-        .style("max-width", "200px")
-        .style("padding", "2px")
-        .style("font-size", "12px")
-        .style("background", "#ffffde")
-        .style("border", "1px solid #333")
-        .style("border-radius", "2px")
-        .style("pointer-events", "none")
-        .style("z-index", "100")),
-    chunkYZCP3GAMValue2
-  );
-}, "createTooltip");
-export const chunkYZCP3GAMS = chunkAGHRB4JFN(
-  () => ({
+import { chunkICPOFSXXA as LINE_BREAK_TAG_PATTERN } from "./chunk-icpofsxx";
+
+type SvgAttributeValue = string | number | boolean | null | undefined;
+
+type ExtensibleDiagramObject = {
+  [propertyName: string]: unknown;
+};
+
+export type MermaidSvgSelection = {
+  append(elementName: string): MermaidSvgSelection;
+  attr(name: string, value?: SvgAttributeValue): MermaidSvgSelection;
+  style(name: string, value: SvgAttributeValue): MermaidSvgSelection;
+  text(value: string): MermaidSvgSelection;
+  lower(): MermaidSvgSelection;
+};
+
+export type MermaidTooltipSelection = MermaidSvgSelection & {
+  append(elementName: string): MermaidTooltipSelection;
+  attr(name: string, value?: SvgAttributeValue): MermaidTooltipSelection;
+  style(name: string, value: SvgAttributeValue): MermaidTooltipSelection;
+  text(value: string | null): MermaidTooltipSelection;
+  html(value: string): MermaidTooltipSelection;
+  empty(): boolean;
+  transition(): MermaidTooltipSelection;
+  duration(milliseconds: number): MermaidTooltipSelection;
+};
+
+export type MermaidRectDescriptor = ExtensibleDiagramObject & {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fill: string;
+  stroke: string;
+  class?: string;
+  name?: string;
+  rx?: number;
+  ry?: number;
+  attrs?: Record<string, SvgAttributeValue>;
+};
+
+export type MermaidBackgroundRectDescriptor = {
+  startx: number;
+  starty: number;
+  stopx: number;
+  stopy: number;
+  fill: string;
+  stroke: string;
+};
+
+export type MermaidTextDescriptor = ExtensibleDiagramObject & {
+  x: number;
+  y: number;
+  text: string;
+  anchor: string;
+  textMargin: number;
+  class?: string;
+};
+
+export type MermaidTextObjectDefaults = ExtensibleDiagramObject & {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  "text-anchor": "start";
+  style: string;
+  textMargin: number;
+  rx: number;
+  ry: number;
+  tspan: boolean;
+};
+
+export type MermaidNoteRectDescriptor = ExtensibleDiagramObject & {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fill: string;
+  stroke: string;
+  anchor: "start";
+  rx: number;
+  ry: number;
+};
+
+type UrlSanitizerModule = {
+  sanitizeUrl(input: string | null | undefined): string;
+};
+
+const nameFunction = chunkAGHRB4JFN as <TArgs extends unknown[], TResult>(
+  callback: (...args: TArgs) => TResult,
+  displayName: string,
+) => (...args: TArgs) => TResult;
+
+const selectTooltip = select as (selector: string) => MermaidTooltipSelection;
+const urlSanitizer = createUrlSanitizerModule() as UrlSanitizerModule;
+
+export const drawRect = nameFunction(
+  (
+    parentSelection: MermaidSvgSelection,
+    rect: MermaidRectDescriptor,
+  ): MermaidSvgSelection => {
+    const rectSelection = parentSelection.append("rect");
+    rectSelection.attr("x", rect.x);
+    rectSelection.attr("y", rect.y);
+    rectSelection.attr("fill", rect.fill);
+    rectSelection.attr("stroke", rect.stroke);
+    rectSelection.attr("width", rect.width);
+    rectSelection.attr("height", rect.height);
+
+    if (rect.name) rectSelection.attr("name", rect.name);
+    if (rect.rx) rectSelection.attr("rx", rect.rx);
+    if (rect.ry) rectSelection.attr("ry", rect.ry);
+
+    if (rect.attrs !== undefined) {
+      for (const [attributeName, attributeValue] of Object.entries(
+        rect.attrs,
+      )) {
+        rectSelection.attr(attributeName, attributeValue);
+      }
+    }
+
+    if (rect.class) rectSelection.attr("class", rect.class);
+    return rectSelection;
+  },
+  "drawRect",
+);
+
+export const drawBackgroundRect = nameFunction(
+  (
+    parentSelection: MermaidSvgSelection,
+    bounds: MermaidBackgroundRectDescriptor,
+  ): void => {
+    drawRect(parentSelection, {
+      x: bounds.startx,
+      y: bounds.starty,
+      width: bounds.stopx - bounds.startx,
+      height: bounds.stopy - bounds.starty,
+      fill: bounds.fill,
+      stroke: bounds.stroke,
+      class: "rect",
+    }).lower();
+  },
+  "drawBackgroundRect",
+);
+
+export const drawText = nameFunction(
+  (
+    parentSelection: MermaidSvgSelection,
+    textDescriptor: MermaidTextDescriptor,
+  ): MermaidSvgSelection => {
+    const normalizedText = textDescriptor.text.replace(
+      LINE_BREAK_TAG_PATTERN,
+      " ",
+    );
+    const textSelection = parentSelection.append("text");
+    textSelection.attr("x", textDescriptor.x);
+    textSelection.attr("y", textDescriptor.y);
+    textSelection.attr("class", "legend");
+    textSelection.style("text-anchor", textDescriptor.anchor);
+
+    if (textDescriptor.class) {
+      textSelection.attr("class", textDescriptor.class);
+    }
+
+    textSelection
+      .append("tspan")
+      .attr("x", textDescriptor.x + textDescriptor.textMargin * 2)
+      .text(normalizedText);
+
+    return textSelection;
+  },
+  "drawText",
+);
+
+export const drawImage = nameFunction(
+  (
+    parentSelection: MermaidSvgSelection,
+    x: number,
+    y: number,
+    imageUrl: string,
+  ): void => {
+    const imageSelection = parentSelection.append("image");
+    imageSelection.attr("x", x);
+    imageSelection.attr("y", y);
+    imageSelection.attr("xlink:href", urlSanitizer.sanitizeUrl(imageUrl));
+  },
+  "drawImage",
+);
+
+export const drawEmbeddedImage = nameFunction(
+  (
+    parentSelection: MermaidSvgSelection,
+    x: number,
+    y: number,
+    imageId: string,
+  ): void => {
+    const useSelection = parentSelection.append("use");
+    useSelection.attr("x", x);
+    useSelection.attr("y", y);
+    useSelection.attr("xlink:href", `#${urlSanitizer.sanitizeUrl(imageId)}`);
+  },
+  "drawEmbeddedImage",
+);
+
+export const getNoteRect = nameFunction(
+  (): MermaidNoteRectDescriptor => ({
     x: 0,
     y: 0,
     width: 100,
@@ -71,77 +221,9 @@ export const chunkYZCP3GAMS = chunkAGHRB4JFN(
   }),
   "getNoteRect",
 );
-export const chunkYZCP3GAMR = chunkAGHRB4JFN(
-  (
-    chunkYZCP3GAMParam7,
-    chunkYZCP3GAMParam8,
-    chunkYZCP3GAMParam9,
-    chunkYZCP3GAMParam10,
-  ) => {
-    let _chunkYZCP3GAMA = chunkYZCP3GAMParam7.append("use");
-    _chunkYZCP3GAMA.attr("x", chunkYZCP3GAMParam8);
-    _chunkYZCP3GAMA.attr("y", chunkYZCP3GAMParam9);
-    let _chunkYZCP3GAMN = chunkYZCP3GAMValue1.sanitizeUrl(chunkYZCP3GAMParam10);
-    _chunkYZCP3GAMA.attr("xlink:href", `#${_chunkYZCP3GAMN}`);
-  },
-  "drawEmbeddedImage",
-);
-export const chunkYZCP3GAMO = chunkAGHRB4JFN(
-  (chunkYZCP3GAMParam3, chunkYZCP3GAMParam4) => {
-    let chunkYZCP3GAMValue4 = chunkYZCP3GAMParam4.text.replace(
-        _chunkICPOFSXXZ,
-        " ",
-      ),
-      chunkYZCP3GAMValue5 = chunkYZCP3GAMParam3.append("text");
-    chunkYZCP3GAMValue5.attr("x", chunkYZCP3GAMParam4.x);
-    chunkYZCP3GAMValue5.attr("y", chunkYZCP3GAMParam4.y);
-    chunkYZCP3GAMValue5.attr("class", "legend");
-    chunkYZCP3GAMValue5.style("text-anchor", chunkYZCP3GAMParam4.anchor);
-    chunkYZCP3GAMParam4.class &&
-      chunkYZCP3GAMValue5.attr("class", chunkYZCP3GAMParam4.class);
-    let _chunkYZCP3GAMA = chunkYZCP3GAMValue5.append("tspan");
-    return (
-      _chunkYZCP3GAMA.attr(
-        "x",
-        chunkYZCP3GAMParam4.x + chunkYZCP3GAMParam4.textMargin * 2,
-      ),
-      _chunkYZCP3GAMA.text(chunkYZCP3GAMValue4),
-      chunkYZCP3GAMValue5
-    );
-  },
-  "drawText",
-);
-export const chunkYZCP3GAMN = chunkAGHRB4JFN(
-  (chunkYZCP3GAMParam5, chunkYZCP3GAMParam6) => {
-    chunkYZCP3GAMA(chunkYZCP3GAMParam5, {
-      x: chunkYZCP3GAMParam6.startx,
-      y: chunkYZCP3GAMParam6.starty,
-      width: chunkYZCP3GAMParam6.stopx - chunkYZCP3GAMParam6.startx,
-      height: chunkYZCP3GAMParam6.stopy - chunkYZCP3GAMParam6.starty,
-      fill: chunkYZCP3GAMParam6.fill,
-      stroke: chunkYZCP3GAMParam6.stroke,
-      class: "rect",
-    }).lower();
-  },
-  "drawBackgroundRect",
-);
-export const chunkYZCP3GAMI = chunkAGHRB4JFN(
-  (
-    chunkYZCP3GAMParam11,
-    chunkYZCP3GAMParam12,
-    chunkYZCP3GAMParam13,
-    chunkYZCP3GAMParam14,
-  ) => {
-    let _chunkYZCP3GAMA = chunkYZCP3GAMParam11.append("image");
-    _chunkYZCP3GAMA.attr("x", chunkYZCP3GAMParam12);
-    _chunkYZCP3GAMA.attr("y", chunkYZCP3GAMParam13);
-    let _chunkYZCP3GAMN = chunkYZCP3GAMValue1.sanitizeUrl(chunkYZCP3GAMParam14);
-    _chunkYZCP3GAMA.attr("xlink:href", _chunkYZCP3GAMN);
-  },
-  "drawImage",
-);
-export const chunkYZCP3GAMC = chunkAGHRB4JFN(
-  () => ({
+
+export const getTextObj = nameFunction(
+  (): MermaidTextObjectDefaults => ({
     x: 0,
     y: 0,
     width: 100,
@@ -155,5 +237,38 @@ export const chunkYZCP3GAMC = chunkAGHRB4JFN(
   }),
   "getTextObj",
 );
-export function initChunkYZCP3GAM(): void {}
-export { chunkYZCP3GAMA };
+
+export const createTooltip = nameFunction((): MermaidTooltipSelection => {
+  let tooltipSelection = selectTooltip(".mermaidTooltip");
+
+  if (tooltipSelection.empty()) {
+    tooltipSelection = selectTooltip("body")
+      .append("div")
+      .attr("class", "mermaidTooltip")
+      .style("opacity", 0)
+      .style("position", "absolute")
+      .style("text-align", "center")
+      .style("max-width", "200px")
+      .style("padding", "2px")
+      .style("font-size", "12px")
+      .style("background", "#ffffde")
+      .style("border", "1px solid #333")
+      .style("border-radius", "2px")
+      .style("pointer-events", "none")
+      .style("z-index", "100");
+  }
+
+  return tooltipSelection;
+}, "createTooltip");
+
+export function initMermaidTooltipDrawingHelpersChunk(): void {}
+
+export const chunkYZCP3GAMA = createTooltip;
+export const chunkYZCP3GAMC = getNoteRect;
+export const chunkYZCP3GAMI = drawEmbeddedImage;
+export const chunkYZCP3GAMN = drawText;
+export const chunkYZCP3GAMO = drawBackgroundRect;
+export const chunkYZCP3GAMR = drawImage;
+export const chunkYZCP3GAMS = getTextObj;
+export const chunkYZCP3GAMT = drawRect;
+export const initChunkYZCP3GAM = initMermaidTooltipDrawingHelpersChunk;
