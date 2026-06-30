@@ -127,4 +127,5 @@ export const chunkATLVNIR6A = chunkAGHRB4JFN(
   },
   "userNodeOverrides",
 );
+export function initChunkATLVNIR6(): void {}
 export { chunkATLVNIR6N, chunkATLVNIR6T };

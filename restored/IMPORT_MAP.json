@@ -33250,6 +33250,22 @@
       "note": "Current chunk-ZZ45TVLE hash re-derived from chunk-ZZ45TVLE-DzHSn4eK.js. Alias r is the Rolldown lazy init thunk; n/t preserve the restored margin and label-image helper surface.",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-ATLVNIR6-CqT90CcJ": {
+      "restored": "vendor/chunk-atlvnir6.ts",
+      "exports": {
+        "a": "chunkATLVNIR6I",
+        "i": "chunkATLVNIR6R",
+        "n": "initChunkATLVNIR6",
+        "o": "chunkATLVNIR6A",
+        "r": "chunkATLVNIR6N",
+        "t": "chunkATLVNIR6T"
+      },
+      "status": "done",
+      "aliasOf": "chunk-ATLVNIR6-D9WszxCx",
+      "note": "Current chunk-ATLVNIR6 hash re-derived from chunk-ATLVNIR6-CqT90CcJ.js. Alias n is the Rolldown lazy init thunk; style helper aliases were matched by function names.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }
