@@ -55,5 +55,8 @@ function chunkCIAEETITN(chunkCIAEETITParam4 = chunkK5T4RW27H) {
     }
   );
 }
+function initChunkCIAEETIT() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkK5T4RW27M(chunkCIAEETITN, "createWardleyServices");
-export { chunkCIAEETITN, chunkCIAEETITT };
+export { chunkCIAEETITN, initChunkCIAEETIT, chunkCIAEETITT };

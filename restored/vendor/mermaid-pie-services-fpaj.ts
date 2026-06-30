@@ -64,5 +64,8 @@ function chunkT53DSG4QN(chunkT53DSG4QParam1 = chunkFPAJGGOCP) {
     }
   );
 }
+function initChunkT53DSG4Q() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkFPAJGGOCF(chunkT53DSG4QN, "createPieServices");
-export { chunkT53DSG4QN, chunkT53DSG4QT };
+export { chunkT53DSG4QN, initChunkT53DSG4Q, chunkT53DSG4QT };

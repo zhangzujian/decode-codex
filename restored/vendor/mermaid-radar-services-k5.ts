@@ -51,5 +51,8 @@ function chunk2KRD3SAON(chunk2KRD3SAOParam1 = chunkK5T4RW27H) {
     }
   );
 }
+function initChunk2KRD3SAO() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkK5T4RW27M(chunk2KRD3SAON, "createRadarServices");
-export { chunk2KRD3SAON, chunk2KRD3SAOT };
+export { chunk2KRD3SAON, initChunk2KRD3SAO, chunk2KRD3SAOT };

@@ -51,5 +51,8 @@ function chunk67CJDMHEN(chunk67CJDMHEParam1 = chunkK5T4RW27H) {
     }
   );
 }
+function initChunk67CJDMHE() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkK5T4RW27M(chunk67CJDMHEN, "createGitGraphServices");
-export { chunk67CJDMHEN, chunk67CJDMHET };
+export { chunk67CJDMHEN, initChunk67CJDMHE, chunk67CJDMHET };

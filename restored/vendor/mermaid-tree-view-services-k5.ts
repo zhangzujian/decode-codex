@@ -66,5 +66,8 @@ function chunkORNJ4GCNN(chunkORNJ4GCNParam4 = chunkK5T4RW27H) {
     }
   );
 }
+function initChunkORNJ4GCN() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkK5T4RW27M(chunkORNJ4GCNN, "createTreeViewServices");
-export { chunkORNJ4GCNN, chunkORNJ4GCNT };
+export { chunkORNJ4GCNN, initChunkORNJ4GCN, chunkORNJ4GCNT };

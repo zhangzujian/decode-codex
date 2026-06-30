@@ -51,5 +51,8 @@ function chunkLHMN2FUIN(chunkLHMN2FUIParam1 = chunkFPAJGGOCP) {
     }
   );
 }
+function initChunkLHMN2FUI() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkFPAJGGOCF(chunkLHMN2FUIN, "createRadarServices");
-export { chunkLHMN2FUIN, chunkLHMN2FUIT };
+export { chunkLHMN2FUIN, initChunkLHMN2FUI, chunkLHMN2FUIT };

@@ -68,5 +68,8 @@ function chunkO7ZBX7Z2N(chunkO7ZBX7Z2Param4 = chunkFPAJGGOCP) {
     }
   );
 }
+function initChunkO7ZBX7Z2() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkFPAJGGOCF(chunkO7ZBX7Z2N, "createArchitectureServices");
-export { chunkO7ZBX7Z2N, chunkO7ZBX7Z2T };
+export { chunkO7ZBX7Z2N, initChunkO7ZBX7Z2, chunkO7ZBX7Z2T };

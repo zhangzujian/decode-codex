@@ -51,5 +51,8 @@ function chunkLBM3YZW2N(chunkLBM3YZW2Param1 = chunkFPAJGGOCP) {
     }
   );
 }
+function initChunkLBM3YZW2() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkFPAJGGOCF(chunkLBM3YZW2N, "createInfoServices");
-export { chunkLBM3YZW2N, chunkLBM3YZW2T };
+export { chunkLBM3YZW2N, initChunkLBM3YZW2, chunkLBM3YZW2T };

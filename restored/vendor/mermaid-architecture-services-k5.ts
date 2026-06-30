@@ -82,5 +82,8 @@ function chunk7N4EOEYRN(chunk7N4EOEYRParam4 = chunkK5T4RW27H) {
     }
   );
 }
+function initChunk7N4EOEYR() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkK5T4RW27M(chunk7N4EOEYRN, "createArchitectureServices");
-export { chunk7N4EOEYRN, chunk7N4EOEYRT };
+export { chunk7N4EOEYRN, initChunk7N4EOEYR, chunk7N4EOEYRT };

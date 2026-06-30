@@ -57,3 +57,7 @@ export const chunkEDXVE4YY = chunkAGHRB4JFN(
   },
   "setupViewPortForSVG",
 );
+
+export function initChunkEDXVE4YY() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}

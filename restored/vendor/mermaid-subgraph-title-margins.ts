@@ -10,3 +10,7 @@ export const chunkCVBHYZKI = chunkAGHRB4JFN(({ flowchart }) => {
     subGraphTitleTotalMargin: _chunkCVBHYZKI + chunkCVBHYZKIValue1,
   };
 }, "getSubGraphTitleMargins");
+
+export function initChunkCVBHYZKI() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}

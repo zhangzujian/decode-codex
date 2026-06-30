@@ -2,3 +2,4 @@
 // App chunk restored from the Codex webview bundle.
 import { once } from "../runtime/commonjs-interop";
 export const app = once(() => {});
+export const initEmptyAppChunk = app;

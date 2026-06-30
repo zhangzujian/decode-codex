@@ -51,5 +51,8 @@ function chunkS6J4BHB3N(chunkS6J4BHB3Param1 = chunkFPAJGGOCP) {
     }
   );
 }
+function initChunkS6J4BHB3() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkFPAJGGOCF(chunkS6J4BHB3N, "createGitGraphServices");
-export { chunkS6J4BHB3N, chunkS6J4BHB3T };
+export { chunkS6J4BHB3N, initChunkS6J4BHB3, chunkS6J4BHB3T };

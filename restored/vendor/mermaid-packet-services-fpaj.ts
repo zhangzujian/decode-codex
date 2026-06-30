@@ -51,5 +51,8 @@ function chunk76Q3JFCEN(chunk76Q3JFCEParam1 = chunkFPAJGGOCP) {
     }
   );
 }
+function initChunk76Q3JFCE() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkFPAJGGOCF(chunk76Q3JFCEN, "createPacketServices");
-export { chunk76Q3JFCEN, chunk76Q3JFCET };
+export { chunk76Q3JFCEN, initChunk76Q3JFCE, chunk76Q3JFCET };

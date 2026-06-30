@@ -125,5 +125,8 @@ function chunkLIHQZDEYN(chunkLIHQZDEYParam7 = chunkK5T4RW27H) {
     }
   );
 }
+function initChunkLIHQZDEY() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkK5T4RW27M(chunkLIHQZDEYN, "createTreemapServices");
-export { chunkLIHQZDEYN, chunkLIHQZDEYT };
+export { chunkLIHQZDEYN, initChunkLIHQZDEY, chunkLIHQZDEYT };

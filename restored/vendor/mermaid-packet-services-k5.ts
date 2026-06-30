@@ -51,5 +51,8 @@ function chunkFOC6F5B3N(chunkFOC6F5B3Param1 = chunkK5T4RW27H) {
     }
   );
 }
+function initChunkFOC6F5B3() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkK5T4RW27M(chunkFOC6F5B3N, "createPacketServices");
-export { chunkFOC6F5B3N, chunkFOC6F5B3T };
+export { chunkFOC6F5B3N, initChunkFOC6F5B3, chunkFOC6F5B3T };

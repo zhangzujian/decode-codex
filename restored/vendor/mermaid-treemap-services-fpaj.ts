@@ -125,5 +125,8 @@ function chunkFWNWRKHMN(chunkFWNWRKHMParam7 = chunkFPAJGGOCP) {
     }
   );
 }
+function initChunkFWNWRKHM() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
 chunkFPAJGGOCF(chunkFWNWRKHMN, "createTreemapServices");
-export { chunkFWNWRKHMN, chunkFWNWRKHMT };
+export { chunkFWNWRKHMN, initChunkFWNWRKHM, chunkFWNWRKHMT };

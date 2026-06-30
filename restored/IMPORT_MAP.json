@@ -8402,6 +8402,295 @@
       },
       "status": "done"
     },
+    "chunk-2KRD3SAO-DgftbvIN": {
+      "restored": "vendor/mermaid-radar-services-k5.ts",
+      "exports": {
+        "n": "chunk2KRD3SAON",
+        "r": "initChunk2KRD3SAO",
+        "t": "chunk2KRD3SAOT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-2KRD3SAO-Bdi3VHck",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-67CJDMHE-x2DGRTFj": {
+      "restored": "vendor/mermaid-git-graph-services-k5.ts",
+      "exports": {
+        "n": "chunk67CJDMHEN",
+        "r": "initChunk67CJDMHE",
+        "t": "chunk67CJDMHET"
+      },
+      "status": "done",
+      "aliasOf": "chunk-67CJDMHE-B3_SAS71",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-7N4EOEYR-BdYlf3CM": {
+      "restored": "vendor/mermaid-architecture-services-k5.ts",
+      "exports": {
+        "n": "chunk7N4EOEYRN",
+        "t": "chunk7N4EOEYRT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-7N4EOEYR-BEkdQLCb",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-7N4EOEYR-CfJFZH_K": {
+      "restored": "vendor/mermaid-architecture-services-k5.ts",
+      "exports": {
+        "n": "chunk7N4EOEYRN",
+        "t": "chunk7N4EOEYRT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-7N4EOEYR-BEkdQLCb",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-7N4EOEYR-D3vBGdWK": {
+      "restored": "vendor/mermaid-architecture-services-k5.ts",
+      "exports": {
+        "n": "chunk7N4EOEYRN",
+        "t": "chunk7N4EOEYRT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-7N4EOEYR-BEkdQLCb",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-7N4EOEYR-DUByuvQa": {
+      "restored": "vendor/mermaid-architecture-services-k5.ts",
+      "exports": {
+        "n": "chunk7N4EOEYRN",
+        "r": "initChunk7N4EOEYR",
+        "t": "chunk7N4EOEYRT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-7N4EOEYR-BEkdQLCb",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-AA7GKIK3-Bui0LsHR": {
+      "restored": "vendor/mermaid-pie-services-k5.ts",
+      "exports": {
+        "n": "chunkAA7GKIK3N",
+        "t": "chunkAA7GKIK3T"
+      },
+      "status": "done",
+      "aliasOf": "chunk-AA7GKIK3-Bic0nqP_",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-AA7GKIK3-CB8JLaZX": {
+      "restored": "vendor/mermaid-pie-services-k5.ts",
+      "exports": {
+        "n": "chunkAA7GKIK3N",
+        "t": "chunkAA7GKIK3T"
+      },
+      "status": "done",
+      "aliasOf": "chunk-AA7GKIK3-Bic0nqP_",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-CIAEETIT-Ch0jAfU2": {
+      "restored": "vendor/mermaid-wardley-services-k5.ts",
+      "exports": {
+        "n": "chunkCIAEETITN",
+        "r": "initChunkCIAEETIT",
+        "t": "chunkCIAEETITT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-CIAEETIT-DnOj_Z7m",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-FOC6F5B3-BxacOS_T": {
+      "restored": "vendor/mermaid-packet-services-k5.ts",
+      "exports": {
+        "n": "chunkFOC6F5B3N",
+        "r": "initChunkFOC6F5B3",
+        "t": "chunkFOC6F5B3T"
+      },
+      "status": "done",
+      "aliasOf": "chunk-FOC6F5B3-BgcFtwB_",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-LIHQZDEY-CgRZpBHs": {
+      "restored": "vendor/mermaid-treemap-services-k5.ts",
+      "exports": {
+        "n": "chunkLIHQZDEYN",
+        "t": "chunkLIHQZDEYT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-LIHQZDEY-B0GBEU3_",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-LIHQZDEY-dRog1TEv": {
+      "restored": "vendor/mermaid-treemap-services-k5.ts",
+      "exports": {
+        "n": "chunkLIHQZDEYN",
+        "t": "chunkLIHQZDEYT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-LIHQZDEY-B0GBEU3_",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-LIHQZDEY-nN8HZxGm": {
+      "restored": "vendor/mermaid-treemap-services-k5.ts",
+      "exports": {
+        "n": "chunkLIHQZDEYN",
+        "t": "chunkLIHQZDEYT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-LIHQZDEY-B0GBEU3_",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-LIHQZDEY-CbTzOPPd": {
+      "restored": "vendor/mermaid-treemap-services-k5.ts",
+      "exports": {
+        "n": "chunkLIHQZDEYN",
+        "r": "initChunkLIHQZDEY",
+        "t": "chunkLIHQZDEYT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-LIHQZDEY-B0GBEU3_",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-ORNJ4GCN-CYOwbfCr": {
+      "restored": "vendor/mermaid-tree-view-services-k5.ts",
+      "exports": {
+        "n": "chunkORNJ4GCNN",
+        "t": "chunkORNJ4GCNT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-ORNJ4GCN-Dtggxgv1",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-ORNJ4GCN-DYY7AInT": {
+      "restored": "vendor/mermaid-tree-view-services-k5.ts",
+      "exports": {
+        "n": "chunkORNJ4GCNN",
+        "t": "chunkORNJ4GCNT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-ORNJ4GCN-Dtggxgv1",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-ORNJ4GCN-SHb9c4ZQ": {
+      "restored": "vendor/mermaid-tree-view-services-k5.ts",
+      "exports": {
+        "n": "chunkORNJ4GCNN",
+        "t": "chunkORNJ4GCNT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-ORNJ4GCN-Dtggxgv1",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+    },
+    "chunk-ORNJ4GCN-UdwLKAZZ": {
+      "restored": "vendor/mermaid-tree-view-services-k5.ts",
+      "exports": {
+        "n": "chunkORNJ4GCNN",
+        "r": "initChunkORNJ4GCN",
+        "t": "chunkORNJ4GCNT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-ORNJ4GCN-Dtggxgv1",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-76Q3JFCE-CQZKJ6cQ": {
+      "restored": "vendor/mermaid-packet-services-fpaj.ts",
+      "exports": {
+        "n": "chunk76Q3JFCEN",
+        "r": "initChunk76Q3JFCE",
+        "t": "chunk76Q3JFCET"
+      },
+      "status": "done",
+      "aliasOf": "chunk-76Q3JFCE-Bhgg5xKY",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-FWNWRKHM-BHhZ1scK": {
+      "restored": "vendor/mermaid-treemap-services-fpaj.ts",
+      "exports": {
+        "n": "chunkFWNWRKHMN",
+        "r": "initChunkFWNWRKHM",
+        "t": "chunkFWNWRKHMT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-FWNWRKHM-DRtw95ir",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-LBM3YZW2-C3vrLyXI": {
+      "restored": "vendor/mermaid-info-services-fpaj.ts",
+      "exports": {
+        "n": "chunkLBM3YZW2N",
+        "r": "initChunkLBM3YZW2",
+        "t": "chunkLBM3YZW2T"
+      },
+      "status": "done",
+      "aliasOf": "chunk-LBM3YZW2-C9W8CgCb",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-LHMN2FUI-IYfQ4Xix": {
+      "restored": "vendor/mermaid-radar-services-fpaj.ts",
+      "exports": {
+        "n": "chunkLHMN2FUIN",
+        "r": "initChunkLHMN2FUI",
+        "t": "chunkLHMN2FUIT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-LHMN2FUI-BO1BbTL6",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-O7ZBX7Z2-YEixComM": {
+      "restored": "vendor/mermaid-architecture-services-fpaj.ts",
+      "exports": {
+        "n": "chunkO7ZBX7Z2N",
+        "r": "initChunkO7ZBX7Z2",
+        "t": "chunkO7ZBX7Z2T"
+      },
+      "status": "done",
+      "aliasOf": "chunk-O7ZBX7Z2-B9AHjHvq",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-S6J4BHB3-Dk5nTTZ4": {
+      "restored": "vendor/mermaid-git-graph-services-fpaj.ts",
+      "exports": {
+        "n": "chunkS6J4BHB3N",
+        "r": "initChunkS6J4BHB3",
+        "t": "chunkS6J4BHB3T"
+      },
+      "status": "done",
+      "aliasOf": "chunk-S6J4BHB3-BiRR_8vz",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
+    "chunk-T53DSG4Q-m0Nw3lHx": {
+      "restored": "vendor/mermaid-pie-services-fpaj.ts",
+      "exports": {
+        "n": "chunkT53DSG4QN",
+        "r": "initChunkT53DSG4Q",
+        "t": "chunkT53DSG4QT"
+      },
+      "status": "done",
+      "aliasOf": "chunk-T53DSG4Q-DwpHe3Zz",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+    },
     "architecture-YZFGNWBL-hfWpxWZF": {
       "restored": "vendor/mermaid-architecture-definition-k5.ts",
       "exports": {
@@ -8640,6 +8929,46 @@
       },
       "status": "done"
     },
+    "infoDiagram-42DDH7IO-By7WsAd5": {
+      "restored": "vendor/mermaid-info-diagram-k5.ts",
+      "exports": {
+        "diagram": "infoDiagram42DDH7IO"
+      },
+      "status": "done",
+      "aliasOf": "infoDiagram-42DDH7IO-CA5dZBgd",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+    },
+    "infoDiagram-42DDH7IO-3khaWBDB": {
+      "restored": "vendor/mermaid-info-diagram-k5.ts",
+      "exports": {
+        "diagram": "infoDiagram42DDH7IO"
+      },
+      "status": "done",
+      "aliasOf": "infoDiagram-42DDH7IO-CA5dZBgd",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+    },
+    "infoDiagram-42DDH7IO-DzlFnAH6": {
+      "restored": "vendor/mermaid-info-diagram-k5.ts",
+      "exports": {
+        "diagram": "infoDiagram42DDH7IO"
+      },
+      "status": "done",
+      "aliasOf": "infoDiagram-42DDH7IO-CA5dZBgd",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+    },
+    "infoDiagram-42DDH7IO-FW52P25b": {
+      "restored": "vendor/mermaid-info-diagram-k5.ts",
+      "exports": {
+        "diagram": "infoDiagram42DDH7IO"
+      },
+      "status": "done",
+      "aliasOf": "infoDiagram-42DDH7IO-CA5dZBgd",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+    },
     "pieDiagram-DEJITSTG-D-t1CIhj": {
       "restored": "vendor/mermaid-pie-diagram-k5.ts",
       "exports": {
@@ -8749,6 +9078,16 @@
       "status": "done",
       "aliasOf": "infoDiagram-F6ZHWCRC-CZZfMpuV",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "infoDiagram-F6ZHWCRC-C6PSQHhJ": {
+      "restored": "vendor/mermaid-info-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "infoDiagramF6ZHWCRC"
+      },
+      "status": "done",
+      "aliasOf": "infoDiagram-F6ZHWCRC-CZZfMpuV",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
     },
     "pieDiagram-ADFJNKIX-CdTMfn5r": {
       "restored": "vendor/mermaid-pie-diagram-fpaj.ts",
@@ -9045,6 +9384,16 @@
       "aliasOf": "classDiagram-2ON5EDUG-CNv4W435",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
+    "classDiagram-2ON5EDUG-D2wwEQjz": {
+      "restored": "vendor/mermaid-class-diagram-definition-fpaj.ts",
+      "exports": {
+        "diagram": "ClassDiagram2ON5EDUG"
+      },
+      "status": "done",
+      "aliasOf": "classDiagram-2ON5EDUG-CNv4W435",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+    },
     "classDiagram-v2-WZHVMYZB-DXC_WPMt": {
       "restored": "vendor/mermaid-class-diagram-v2-definition-fpaj.ts",
       "exports": {
@@ -9060,6 +9409,16 @@
       "status": "done",
       "aliasOf": "classDiagram-v2-WZHVMYZB-DXC_WPMt",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "classDiagram-v2-WZHVMYZB-Bcn_9N3w": {
+      "restored": "vendor/mermaid-class-diagram-v2-definition-fpaj.ts",
+      "exports": {
+        "diagram": "ClassDiagramV2WZHVMYZB"
+      },
+      "status": "done",
+      "aliasOf": "classDiagram-v2-WZHVMYZB-DXC_WPMt",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
     },
     "stateDiagram-FKZM4ZOC-BLPu-ra7": {
       "restored": "vendor/mermaid-state-diagram-definition-fpaj.ts",
@@ -9092,6 +9451,16 @@
       "status": "done",
       "aliasOf": "stateDiagram-v2-4FDKWEC3-CqVrfWb0",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "stateDiagram-v2-4FDKWEC3-D0mP3Mt0": {
+      "restored": "vendor/mermaid-state-diagram-v2-definition-fpaj.ts",
+      "exports": {
+        "diagram": "stateDiagramV24FDKWEC3"
+      },
+      "status": "done",
+      "aliasOf": "stateDiagram-v2-4FDKWEC3-CqVrfWb0",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
     },
     "is-compact-window-context-CVCwwVNh": {
       "restored": "features/is-compact-window-context.ts",
@@ -21533,6 +21902,36 @@
       "lastUpdated": "2026-06-30T00:00:00.000Z",
       "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
     },
+    "stateDiagram-v2-QKLJ7IA2-DK5qXNDf": {
+      "restored": "vendor/mermaid-state-diagram-v2-definition-k5.ts",
+      "exports": {
+        "diagram": "stateDiagramV2QKLJ7IA2"
+      },
+      "status": "done",
+      "aliasOf": "stateDiagram-v2-QKLJ7IA2-CfGDQd0C",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+    },
+    "classDiagram-6PBFFD2Q-BezZnw5U": {
+      "restored": "vendor/mermaid-class-diagram-definition-k5.ts",
+      "exports": {
+        "diagram": "ClassDiagram6PBFFD2Q"
+      },
+      "status": "done",
+      "aliasOf": "classDiagram-6PBFFD2Q-Cvxpk6bJ",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+    },
+    "classDiagram-v2-HSJHXN6E-AM1LZZtP": {
+      "restored": "vendor/mermaid-class-diagram-v2-definition-k5.ts",
+      "exports": {
+        "diagram": "ClassDiagramV2HSJHXN6E"
+      },
+      "status": "done",
+      "aliasOf": "classDiagram-v2-HSJHXN6E-Dhbhv0LY",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+    },
     "chunk-FOC6F5B3-BluoYoGB": {
       "restored": "vendor/mermaid-packet-services-k5.ts",
       "exports": {
@@ -28430,12 +28829,12 @@
     "app-BwRVouQs": {
       "restored": "app-shell/empty-app-initializer.ts",
       "exports": {
-        "t": "app"
+        "t": "initEmptyAppChunk"
       },
       "status": "done",
       "aliasOf": "app-K22tSs_z",
-      "note": "Current app bootstrap chunk exports the Rolldown once(() => {}) initializer as app.",
-      "lastUpdated": "2026-06-29T21:10:00.000Z",
+      "note": "Current app bootstrap chunk exports the Rolldown once(() => {}) initializer as initEmptyAppChunk.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-29T21:10:00.000Z",
       "stage3Review": "Host self-review: source imports the current Rolldown once helper and exports a typed no-op app initializer matching alias t."

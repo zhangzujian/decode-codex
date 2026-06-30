@@ -15,3 +15,7 @@ export const chunkEXTU4WIE = chunkAGHRB4JFN((chunkEXTU4WIEParam1) => {
     chunkEXTU4WIEValue1.select(`#${chunkEXTU4WIEParam1}`)
   );
 }, "selectSvgElement");
+
+export function initChunkEXTU4WIE() {
+  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
+}
