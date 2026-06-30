@@ -118,7 +118,7 @@ import {
 import {
   Xi as D,
   Zi as O,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~kg2pu5rs-N3llppXI.js";
+} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-orchestrator-runtime-producer";
 import {
   Ca as k,
   Da as A,
@@ -170,7 +170,7 @@ import {
   va as je,
   wo as Me,
   ya as Ne,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~ko8xg8gw-DEdbMp8p.js";
+} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-query-runtime-producer";
 import {
   Bl as Pe,
   Fa as Fe,
@@ -199,7 +199,7 @@ import {
   xa as nt,
   zf as rt,
   zy as q,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~iy8s9c2d-BUvvfhQQ.js";
+} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
 import {
   $s as it,
   Is as at,

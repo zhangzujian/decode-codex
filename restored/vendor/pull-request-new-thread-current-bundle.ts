@@ -115,7 +115,7 @@ import {
   wl as gt,
   yg as L,
   yt as _t,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~iy8s9c2d-BUvvfhQQ.js";
+} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
 function vt() {
   let e = bt?.H;
   return e != null && e.useState !== e.useReducer;

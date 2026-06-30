@@ -286,7 +286,7 @@ import {
   zh as vr,
   zr as Kee,
   zy as yr,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~iy8s9c2d-BUvvfhQQ.js";
+} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
 import {
   C as qee,
   Ht as Jee,
@@ -314,7 +314,7 @@ import {
   y as Br,
   yn as Vr,
   zt as Hr,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~new-~ozr5a6hk-DZC70s11.js";
+} from "../boundaries/current-ref/current-app-initial-pull-request-new-thread-runtime-producer";
 var Xee = i((e) => {
     var t = K();
     function n(e) {

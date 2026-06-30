@@ -365,7 +365,7 @@ import {
   zg as Kr,
   zo as qr,
   zu as Jr,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~kg2pu5rs-N3llppXI.js";
+} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-orchestrator-runtime-producer";
 import {
   $ as Yr,
   $c as Xr,
@@ -689,7 +689,7 @@ import {
   zm as Wl,
   zo as Gl,
   zu as Kl,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~ko8xg8gw-DEdbMp8p.js";
+} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-query-runtime-producer";
 import {
   $ as ql,
   $_ as Jl,
@@ -912,7 +912,7 @@ import {
   yp as Xp,
   zc as Zp,
   zy as X,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~iy8s9c2d-BUvvfhQQ.js";
+} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
 import {
   Bt as Qp,
   C as $p,
@@ -951,7 +951,7 @@ import {
   y as Mm,
   yn as Nm,
   zt as Pm,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~new-~ozr5a6hk-DZC70s11.js";
+} from "../boundaries/current-ref/current-app-initial-pull-request-new-thread-runtime-producer";
 import {
   $d as Fm,
   $f as Im,
@@ -1216,7 +1216,7 @@ import {
   ut as dy,
   x as fy,
   z as py,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~fjhbmao5-BWbJojtu.js";
+} from "../boundaries/current-ref/current-app-initial-appgen-library-hot-current-runtime-producer";
 import {
   C as my,
   M as hy,
