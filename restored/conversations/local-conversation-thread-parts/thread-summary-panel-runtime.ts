@@ -3,6 +3,7 @@
 import { initPersistentSignalRuntime as initScopedSignalRuntime } from "../../runtime/shared-utility-runtime";
 
 import { createScopedSignal as createScopedSignalRaw } from "../../runtime/app-scope-runtime";
+import { createPersistedAtomSignal } from "../../runtime/persisted-signal";
 
 import {
   $c as openBrowserSummaryTab,
@@ -21,7 +22,6 @@ import {
   Rl as hostConfigSignal,
   Rr as getThreadSourceFrameTabId,
   Sl as workspaceRouteStateSignal,
-  vS as createPersistedScopedSignalRaw,
   Wl as initProjectDisplayWorkspaceSignalsRaw,
   wd as threadLayoutContext,
   Ya as showRightPanel,
@@ -90,7 +90,7 @@ export function createPersistedScopedSignal<TKey, TValue>(
   keyFactory: (key: TKey) => string,
   defaultValue: TValue,
 ): unknown {
-  return createPersistedScopedSignalRaw(keyFactory, defaultValue);
+  return createPersistedAtomSignal(keyFactory, defaultValue);
 }
 
 export function createLocalConversationRouteScopedSignal<TKey, TValue>(

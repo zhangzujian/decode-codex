@@ -11,5 +11,4 @@ export {
   TS,
   qx,
   rx,
-  vS,
 } from "../../vendor/app-main-legacy-buw-compat-bundle";
