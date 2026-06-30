@@ -40316,6 +40316,13 @@
         "AtMentionList": "AtMentionList"
       },
       "status": "done"
+    },
+    "browser-sidebar-hidden-background-webview-host-bg_qe-WM": {
+      "restored": "browser/hidden-background-webview-host.tsx",
+      "exports": {
+        "HiddenBackgroundBrowserWebviewHost": "HiddenBackgroundBrowserWebviewHost"
+      },
+      "status": "done"
     }
   }
 }

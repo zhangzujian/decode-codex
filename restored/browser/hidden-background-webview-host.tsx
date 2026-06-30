@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/browser-sidebar-hidden-background-webview-host-BWupD_uZ.js
-// browser-sidebar-hidden-background-webview-host-Dh1K2IP3 chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/browser-sidebar-hidden-background-webview-host-bg_qe-WM.js
+// browser-sidebar-hidden-background-webview-host-bg_qe-WM chunk restored from the Codex webview bundle.
 import React, { useMemo, useRef, useSyncExternalStore } from "react";
 import { useAppScopeValue } from "../boundaries/app-scope";
 import {
@@ -32,6 +32,12 @@ import type {
 import { BrowserSidebarWebview } from "./sidebar-webview";
 type HiddenBackgroundBrowserWebviewHostProps = {
   conversationId: string;
+  persistedTabsEnabled?: boolean;
+};
+type HiddenBackgroundBrowserWebviewProps = {
+  browserTabId: string;
+  conversationId: string;
+  persistedTabsEnabled?: boolean;
 };
 type MotionValueLike = {
   get: () => number;
@@ -44,6 +50,7 @@ type PendingHiddenWebviewBootstrap = {
 };
 export function HiddenBackgroundBrowserWebviewHost({
   conversationId,
+  persistedTabsEnabled,
 }: HiddenBackgroundBrowserWebviewHostProps): React.JSX.Element | null {
   const bottomActiveTab = useAppScopeValue(
     bottomAppShellTabController.activeTab$,
@@ -102,6 +109,7 @@ export function HiddenBackgroundBrowserWebviewHost({
           key={browserTabId}
           browserTabId={browserTabId}
           conversationId={conversationId}
+          persistedTabsEnabled={persistedTabsEnabled}
         />
       ))}
     </>
@@ -110,10 +118,8 @@ export function HiddenBackgroundBrowserWebviewHost({
 function HiddenBackgroundBrowserWebview({
   browserTabId,
   conversationId,
-}: {
-  browserTabId: string;
-  conversationId: string;
-}): React.JSX.Element | null {
+  persistedTabsEnabled,
+}: HiddenBackgroundBrowserWebviewProps): React.JSX.Element | null {
   const windowZoom = useWindowZoom();
   const webviewRef = useRef<BrowserSidebarWebviewElement | null>(
     null,
@@ -137,6 +143,7 @@ function HiddenBackgroundBrowserWebview({
       conversationId={conversationId}
       initialUrl={pendingBootstrap.initialUrl}
       isVisible={false}
+      persistedTabsEnabled={persistedTabsEnabled}
       scale={1}
       shouldBootstrapWhenHidden={true}
       shouldPaint={false}
