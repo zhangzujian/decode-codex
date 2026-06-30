@@ -241,3 +241,40 @@ newer `publicOutputs`. It is the guard against the recurring failure where most
 files look mapped but many app chunks remain mechanical or placeholder outputs.
 Do not accept a boundary-only audit, a count of placeholder files under
 `boundaries/`, or `status: "done"` as proof of a complete deep restore.
+
+## `current-ref` stable-stem chunks: never trust an inherited alias map
+
+`boundaries/current-ref/*-producer.ts` facades map a *current* build chunk to
+prior restored work by **stable stem** (the hash-stripped name), recording the
+old hash under `migratedFrom`. The export **alias letters** (`a`, `B`, `_t`, …)
+are bundler-assigned and **repack between builds**: when the export *set* changes
+(features added/removed/code-split differently), the minifier reassigns aliases
+for the survivors too. So an IMPORT_MAP `exports` map copied from the old hash is
+**stale** — its alias→name pairs silently point at the wrong bindings, which
+mis-rewrites every consumer that imports the chunk by alias.
+
+When asked to deep-restore a `current-ref` chunk (or any chunk whose map entry
+has `migratedFrom` ≠ its current hash), **re-derive from the actual current
+file**, do not trust the inherited map:
+
+1. Parse the tail `export { INTERNAL as ALIAS, … }` table from the current file
+   → the authoritative alias→internal-binding list.
+2. For each internal binding, pull its definition (Babel `path.scope.bindings`)
+   and **fingerprint** it against `restored/`: React components by their
+   destructured prop-name set + JSX string/`defaultMessage` ids; constants by
+   their literal value (e.g. a feature-gate id like `2574306096`); `init*Chunk`
+   thunks by the distinctive literal/signal they set up. String literals and prop
+   names survive minification, so grep-against-`restored/` is reliable; the alias
+   letter is **not**.
+3. Diff the re-derived semantic-name *set* (not the alias set) vs the old map to
+   find genuinely added/removed exports. Newly-added exports are real new modules
+   to restore; they are not "already done" just because the stem matched.
+4. Rebuild the producer barrel to exactly the current name set and rewrite the
+   IMPORT_MAP `exports`; only then is `status: done` honest for this hash.
+
+This is parallelizable: fan out one fingerprint agent per ~15-20 exports.
+Worked example: `app-initial~app-main~automations-page` went `BfqUlSo6` (141
+exports) → `Bc0ZtIBr` (105 exports); aliases fully repacked (`B` went from
+`isKeyboardShortcutCommandFeatureEnabled` to `isSameProcessRow`), and 6 exports
+were net-new (remote-hosted-pip state, keyboard-shortcuts dialog, home-hero
+heading, composer-project-list init).
