@@ -20367,6 +20367,15 @@
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current app chunk keeps the restored public export surface; alias added after current ref sync."
     },
+    "home-prefill-artifact-preview-BSpJO2AO": {
+      "restored": "home/home-prefill-artifact-preview.tsx",
+      "exports": {
+        "HomePrefillArtifactPreview": "HomePrefillArtifactPreview"
+      },
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current home side-effect component opens prefilled artifact preview files once per location key using the restored artifact side-panel tab helper."
+    },
     "home-use-cases-data-hIxZSoyH": {
       "restored": "home/home-use-cases-data.ts",
       "exports": {
