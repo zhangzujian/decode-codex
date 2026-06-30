@@ -45,7 +45,12 @@ const __vite__mapDeps = (
       "./gracefulDecodeURIComponent-LfJMBovP.js",
     ]),
 ) => i.map((i) => d[i]);
-import { n as e, r as t, s as n, t as r } from "./rolldown-runtime-Czos8NxU";
+import {
+  once as e,
+  exportGetters as t,
+  toEsModule as n,
+  createCommonJsModule as r,
+} from "../../runtime/commonjs-interop";
 import {
   D as i,
   I as a,

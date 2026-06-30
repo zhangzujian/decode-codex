@@ -1,6 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-publication-ter~g5252vxb-CZkpVhg2.js
 // Vendored legacy app-main compatibility dependency.
-import { n as e, t } from "./rolldown-runtime-Czos8NxU";
+import {
+  once as e,
+  createCommonJsModule as t,
+} from "../../runtime/commonjs-interop";
 import {
   Ho as n,
   Uo as r,

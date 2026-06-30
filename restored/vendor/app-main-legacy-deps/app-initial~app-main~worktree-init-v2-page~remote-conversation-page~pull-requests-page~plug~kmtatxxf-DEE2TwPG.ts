@@ -1,12 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-DEE2TwPG.js
 // Vendored legacy app-main compatibility dependency.
 import {
-  n as e,
-  o as t,
-  r as n,
-  s as r,
-  t as i,
-} from "./rolldown-runtime-Czos8NxU";
+  once as e,
+  toCommonJs as t,
+  exportGetters as n,
+  toEsModule as r,
+  createCommonJsModule as i,
+} from "../../runtime/commonjs-interop";
 import {
   D as a,
   I as o,

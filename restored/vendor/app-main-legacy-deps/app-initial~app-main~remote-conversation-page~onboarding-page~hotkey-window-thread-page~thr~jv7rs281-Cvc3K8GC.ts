@@ -1,6 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~onboarding-page~hotkey-window-thread-page~thr~jv7rs281-Cvc3K8GC.js
 // Vendored legacy app-main compatibility dependency.
-import { n as e, s as t, t as n } from "./rolldown-runtime-Czos8NxU";
+import {
+  once as e,
+  toEsModule as t,
+  createCommonJsModule as n,
+} from "../../runtime/commonjs-interop";
 import {
   M as r,
   N as i,

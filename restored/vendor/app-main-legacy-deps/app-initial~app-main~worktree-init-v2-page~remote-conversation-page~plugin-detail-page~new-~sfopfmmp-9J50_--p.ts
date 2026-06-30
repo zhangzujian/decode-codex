@@ -1,7 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js
 // Vendored legacy app-main compatibility dependency.
 declare const reportError: any;
-import { n as e, s as t, t as n } from "./rolldown-runtime-Czos8NxU";
+import {
+  once as e,
+  toEsModule as t,
+  createCommonJsModule as n,
+} from "../../runtime/commonjs-interop";
 var r = n((e) => {
     var t = Symbol.for(`react.transitional.element`),
       n = Symbol.for(`react.portal`),
