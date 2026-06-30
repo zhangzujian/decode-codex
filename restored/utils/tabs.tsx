@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/tabs-BAeCIxNQ.js
 // Updated with exports from ref/webview/assets/tabs-Bltkr1kO.js.
 // Also matches ref/webview/assets/tabs-DXhUD06H.js.
+// Current DXhUD06H source rechecked against tab rendering, close buttons, and wheel scrolling.
 import clsx from "clsx";
 import type { MouseEventHandler, ReactNode, Ref, WheelEvent } from "react";
 import { XIcon } from "../icons/x-icon";

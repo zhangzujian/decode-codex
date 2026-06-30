@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/keyboard-event-accelerator-DMT_0ZVa.js
 // Also matches ref/webview/assets/keyboard-event-accelerator-AI-jxMPG.js.
 // Also matches ref/webview/assets/keyboard-event-accelerator-Bfs2Rziw.js.
+// Current Bfs2Rziw source rechecked against modifier and key accelerator formatting.
 import { once } from "../runtime/commonjs-interop";
 import { resolveKeyboardLayoutKey } from "./keyboard-layout-map";
 type KeyboardLikeEvent = {

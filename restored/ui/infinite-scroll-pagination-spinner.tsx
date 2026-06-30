@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/infinite-scroll-pagination-spinner-CqKOYMC4.js
 // Also matches ref/webview/assets/infinite-scroll-pagination-spinner-iQsEdPrJ.js.
 // Also matches ref/webview/assets/infinite-scroll-pagination-spinner-DKk_zYlO.js.
+// Current DKk_zYlO source rechecked against IntersectionObserver pagination loading.
 import React from "react";
 import { once } from "../runtime/commonjs-interop";
 import { Spinner } from "../ui/spinner";

@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/toolbar-breadcrumb-BZpOAzWC.js
 // Also matches ref/webview/assets/toolbar-breadcrumb-D6sZAZxC.js.
 // Also matches ref/webview/assets/toolbar-breadcrumb-Z_0PUIuH.js.
+// Current Z_0PUIuH source rechecked against ancestor and current-page breadcrumb rendering.
 import { Fragment } from "react";
 import type { ReactNode } from "react";
 import { useIntl } from "react-intl";

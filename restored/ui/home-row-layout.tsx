@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/home-row-layout-CrWoAp3h.js
 // Also matches ref/webview/assets/home-row-layout-nv_THLYD.js and ref/webview/assets/home-row-layout-DglQhCVZ.js.
 // Also matches ref/webview/assets/home-row-layout-CcGOwHDw.js.
+// Current CcGOwHDw source rechecked against the three home row layout primitives.
 // Small layout primitives used by home-page rows.
 import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";

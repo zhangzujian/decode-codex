@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/use-git-config-value-Bnyud4Db.js
 // Also matches ref/webview/assets/use-git-config-value-Bbxa9eSu.js.
+// Current Bbxa9eSu source rechecked against git config query parameter construction.
 // use-git-config-value-Bnyud4Db chunk restored from the Codex webview bundle.
 import { useMemo } from "react";
 import { _appScopeA as useScopedSignalValue } from "../boundaries/app-scope";

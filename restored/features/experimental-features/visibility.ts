@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/experimental-feature-visibility-Bvp90zWX.js
 // Also matches ref/webview/assets/experimental-feature-visibility-8-2TesZ9.js.
+// Current 8-2TesZ9 source rechecked against the beta visibility predicate and init thunk.
 // Visibility predicate for experimental feature rows.
 const HIDDEN_BETA_FEATURES = new Set([
   "memories",

@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/segmented-toggle-WuxzI5uh.js
 // Also matches ref/webview/assets/segmented-toggle-DYZLeHEX.js.
+// Current DYZLeHEX source rechecked against segmented toggle option rendering.
 
 import React from "react";
 import clsx from "clsx";
