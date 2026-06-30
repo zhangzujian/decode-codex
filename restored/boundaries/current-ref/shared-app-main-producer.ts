@@ -1,6 +1,4 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js
 // Compatibility boundary for shared app-main/new-thread runtime aliases.
-// Most live in the current remote/projects shared bundle; the listed aliases are legacy-only fallbacks
-// still consumed by restored projects/profile runtime facades.
+// All restored consumers now route through the current remote/projects shared bundle.
 export * from "../../vendor/remote-projects-app-shared-current-bundle";
-export { rx } from "../../vendor/app-main-legacy-buw-compat-bundle";

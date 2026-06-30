@@ -55,7 +55,7 @@ import {
   k as clearPendingWorktreeRestoreRaw,
   Q_ as bindClientThreadConversationRaw,
   ev as bindPendingWorktreeConversationRaw,
-  rx as applyActiveProfileConfigOverridesRaw,
+  dc as applyActiveProfileConfigOverridesRaw,
 } from "../vendor/projects-app-shared-runtime";
 import {
   buildPendingWorktreeRoute,
