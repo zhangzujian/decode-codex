@@ -5556,7 +5556,10 @@
       "exports": {
         "t": "Graphlib"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as a typed self-contained Graphlib runtime rewrite verified against current graphlib-BnZ9Pn5Q.js behavior.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "c4Diagram-YG6GDRKO-DjawmGRU": {
       "restored": "vendor/c4-diagram-yg6gdrko.ts",
@@ -33079,6 +33082,8 @@
       "aliasOf": "graphlib-DGNlaJmK",
       "note": "Current graphlib hash preserves the restored public export surface; aliases re-derived from graphlib-BnZ9Pn5Q.js.",
       "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as the current Graphlib runtime alias sharing the typed self-contained graphlib module.",
       "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "graphlib-C7jSnfgR": {
@@ -33089,6 +33094,8 @@
       "aliasOf": "graphlib-DGNlaJmK",
       "note": "Current graphlib hash preserves the restored public export surface; aliases re-derived from graphlib-C7jSnfgR.js.",
       "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as the current Graphlib runtime alias sharing the typed self-contained graphlib module.",
       "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "graphlib-CqExjonE": {
@@ -33099,6 +33106,8 @@
       "aliasOf": "graphlib-DGNlaJmK",
       "note": "Current graphlib hash preserves the restored public export surface; aliases re-derived from graphlib-CqExjonE.js.",
       "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as the current Graphlib runtime alias sharing the typed self-contained graphlib module.",
       "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "mermaid-parser.core-CbP7P1Ck": {
