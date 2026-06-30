@@ -13029,7 +13029,10 @@
       "status": "done",
       "aliasOf": "rpc-B-UGFAxq",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current RPC wrapper preserves the app host service export names."
+      "note": "Current RPC wrapper preserves the app host service export names.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T18:25:00.000Z",
+      "stage3Note": "Accepted current rpc-CoQWhzCy wrapper after checking the current export table maps appHost, appServices, and initializeAppHostServices directly."
     },
     "get-skill-icon-BdVrkuXU": {
       "restored": "utils/get-skill-icon.tsx",
