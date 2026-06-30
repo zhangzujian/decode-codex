@@ -1,44 +1,33 @@
-// Restored from ref/webview/assets/infoDiagram-42DDH7IO-CA5dZBgd.js
+// Restored from ref/webview/assets/infoDiagram-42DDH7IO-By7WsAd5.js
 // InfoDiagram42DDH7IO chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
 import { chunkICPOFSXXC } from "./chunk-icpofsxx";
 import { chunk426QAEUC } from "./chunk-426qaeuc";
 import { MermaidParserCore } from "./mermaid-parser-core-k5";
-var infoDiagram42DDH7IOValue1 = {
-    parse: chunkAGHRB4JFN(async (infoDiagram42DDH7IOParam4) => {
-      let infoDiagram42DDH7IOValue4 = await MermaidParserCore(
-        "info",
-        infoDiagram42DDH7IOParam4,
-      );
-      chunkAGHRB4JFR.debug(infoDiagram42DDH7IOValue4);
-    }, "parse"),
-  },
-  infoDiagram42DDH7IOValue2 = {
-    version: "11.14.0",
-  };
-export const infoDiagram42DDH7IO = {
-  parser: infoDiagram42DDH7IOValue1,
+
+const infoParser = {
+  parse: chunkAGHRB4JFN(async (source: string): Promise<void> => {
+    const parsedInfo = await MermaidParserCore("info", source);
+    chunkAGHRB4JFR.debug(parsedInfo);
+  }, "parse"),
+};
+
+const infoVersion = {
+  version: "11.14.0",
+};
+
+const infoDiagramDefinition = {
+  parser: infoParser,
   db: {
-    getVersion: chunkAGHRB4JFN(
-      () => infoDiagram42DDH7IOValue2.version,
-      "getVersion",
-    ),
+    getVersion: chunkAGHRB4JFN(() => infoVersion.version, "getVersion"),
   },
   renderer: {
     draw: chunkAGHRB4JFN(
-      (
-        infoDiagram42DDH7IOParam1,
-        infoDiagram42DDH7IOParam2,
-        infoDiagram42DDH7IOParam3,
-      ) => {
-        chunkAGHRB4JFR.debug(
-          "rendering info diagram\n" + infoDiagram42DDH7IOParam1,
-        );
-        let infoDiagram42DDH7IOValue3 = chunk426QAEUC(
-          infoDiagram42DDH7IOParam2,
-        );
-        chunkICPOFSXXC(infoDiagram42DDH7IOValue3, 100, 400, true);
-        infoDiagram42DDH7IOValue3
+      (source: string, diagramId: string, version: string): void => {
+        chunkAGHRB4JFR.debug("rendering info diagram\n" + source);
+        const svgSelection = chunk426QAEUC(diagramId);
+        chunkICPOFSXXC(svgSelection, 100, 400, true);
+        svgSelection
           .append("g")
           .append("text")
           .attr("x", 100)
@@ -46,9 +35,14 @@ export const infoDiagram42DDH7IO = {
           .attr("class", "version")
           .attr("font-size", 32)
           .style("text-anchor", "middle")
-          .text(`v${infoDiagram42DDH7IOParam3}`);
+          .text(`v${version}`);
       },
       "draw",
     ),
   },
+};
+
+export {
+  infoDiagramDefinition as diagram,
+  infoDiagramDefinition as infoDiagram42DDH7IO,
 };

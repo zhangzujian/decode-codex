@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/chunk-LBM3YZW2-CrUBqdFe.js
+// Restored from ref/webview/assets/chunk-LBM3YZW2-C3vrLyXI.js
 // ChunkLBM3YZW2 chunk restored from the Codex webview bundle.
 import {
   chunkFPAJGGOCF,
@@ -11,48 +11,56 @@ import {
   chunkFPAJGGOCS,
   chunkFPAJGGOCT,
 } from "./mermaid-parser-runtime-fpajggoc";
-var chunkLBM3YZW2Value1 = class extends chunkFPAJGGOCT {
-    static {
-      chunkFPAJGGOCF(this, "InfoTokenBuilder");
-    }
-    constructor() {
-      super(["info", "showInfo"]);
-    }
-  },
-  chunkLBM3YZW2T = {
-    parser: {
-      TokenBuilder: chunkFPAJGGOCF(
-        () => new chunkLBM3YZW2Value1(),
-        "TokenBuilder",
-      ),
-      ValueConverter: chunkFPAJGGOCF(
-        () => new chunkFPAJGGOCI(),
-        "ValueConverter",
-      ),
-    },
-  };
-function chunkLBM3YZW2N(chunkLBM3YZW2Param1 = chunkFPAJGGOCP) {
-  let chunkLBM3YZW2Value2 = chunkFPAJGGOCM(
-      chunkFPAJGGOCG(chunkLBM3YZW2Param1),
-      chunkFPAJGGOCS,
+
+class InfoTokenBuilder extends chunkFPAJGGOCT {
+  static {
+    chunkFPAJGGOCF(this, "InfoTokenBuilder");
+  }
+  constructor() {
+    super(["info", "showInfo"]);
+  }
+}
+
+const infoServiceModule = {
+  parser: {
+    TokenBuilder: chunkFPAJGGOCF(
+      () => new InfoTokenBuilder(),
+      "TokenBuilder",
     ),
-    chunkLBM3YZW2Value3 = chunkFPAJGGOCM(
+    ValueConverter: chunkFPAJGGOCF(
+      () => new chunkFPAJGGOCI(),
+      "ValueConverter",
+    ),
+  },
+};
+
+function createInfoServices(parserConfig = chunkFPAJGGOCP) {
+  const sharedServices = chunkFPAJGGOCM(
+    chunkFPAJGGOCG(parserConfig),
+    chunkFPAJGGOCS,
+  );
+  const infoServices = chunkFPAJGGOCM(
       chunkFPAJGGOCH({
-        shared: chunkLBM3YZW2Value2,
+        shared: sharedServices,
       }),
       chunkFPAJGGOCO,
-      chunkLBM3YZW2T,
+      infoServiceModule,
     );
-  return (
-    chunkLBM3YZW2Value2.ServiceRegistry.register(chunkLBM3YZW2Value3),
-    {
-      shared: chunkLBM3YZW2Value2,
-      Info: chunkLBM3YZW2Value3,
-    }
-  );
+  sharedServices.ServiceRegistry.register(infoServices);
+
+  return {
+    shared: sharedServices,
+    Info: infoServices,
+  };
 }
 function initChunkLBM3YZW2() {
   // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
 }
-chunkFPAJGGOCF(chunkLBM3YZW2N, "createInfoServices");
-export { chunkLBM3YZW2N, initChunkLBM3YZW2, chunkLBM3YZW2T };
+chunkFPAJGGOCF(createInfoServices, "createInfoServices");
+export {
+  createInfoServices,
+  createInfoServices as chunkLBM3YZW2N,
+  infoServiceModule,
+  infoServiceModule as chunkLBM3YZW2T,
+  initChunkLBM3YZW2,
+};
