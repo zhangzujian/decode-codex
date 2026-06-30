@@ -8530,6 +8530,18 @@
       },
       "status": "done"
     },
+    "import-settings-Di3LdE0B": {
+      "restored": "settings/import-settings.tsx",
+      "exports": {
+        "ImportSettings": "ImportSettings"
+      },
+      "status": "done",
+      "lastUpdated": "2026-06-30T23:10:00.000Z",
+      "note": "Current import settings page shell restored from the dynamically imported settings chunk.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:10:00.000Z",
+      "stage3Review": "Host self-review: current ref import-settings-Di3LdE0B.js exports ImportSettings and renders SettingsContentLayout with slug import plus settings.import.subtitle copy; restored/settings/import-settings.tsx preserves that surface and passes quality-gate."
+    },
     "settings-external-section-acD-8PK7": {
       "restored": "settings/settings-external-section.tsx",
       "exports": {
