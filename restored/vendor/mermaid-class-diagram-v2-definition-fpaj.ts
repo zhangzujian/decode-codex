@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/classDiagram-v2-WZHVMYZB-C9FMKhYl.js
+// Restored from ref/webview/assets/classDiagram-v2-WZHVMYZB-Bcn_9N3w.js
 // ClassDiagramV2WZHVMYZB chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dompurify";
 import {
@@ -7,16 +7,41 @@ import {
   chunkB4BG7PRWR,
   chunkB4BG7PRWT,
 } from "./mermaid-class-diagram-fpaj";
-export const ClassDiagramV2WZHVMYZB = {
-  parser: chunkB4BG7PRWN,
+
+type MermaidClassDiagramConfig = {
+  arrowMarkerAbsolute?: boolean;
+  class?: {
+    arrowMarkerAbsolute?: boolean;
+  };
+};
+
+const initClassDiagramDefinition = chunkAGHRB4JFN(
+  (config: MermaidClassDiagramConfig) => {
+    config.class ||= {};
+    config.class.arrowMarkerAbsolute = config.arrowMarkerAbsolute;
+  },
+  "init",
+);
+
+const classDiagramDefinition = {
+  get parser() {
+    return chunkB4BG7PRWN;
+  },
   get db() {
     return new chunkB4BG7PRWT();
   },
-  renderer: chunkB4BG7PRWR,
-  styles: chunkB4BG7PRWI,
-  init: chunkAGHRB4JFN((classDiagramV2WZHVMYZBParam1) => {
-    classDiagramV2WZHVMYZBParam1.class ||= {};
-    classDiagramV2WZHVMYZBParam1.class.arrowMarkerAbsolute =
-      classDiagramV2WZHVMYZBParam1.arrowMarkerAbsolute;
-  }, "init"),
+  get renderer() {
+    return chunkB4BG7PRWR;
+  },
+  get styles() {
+    return chunkB4BG7PRWI;
+  },
+  get init() {
+    return initClassDiagramDefinition;
+  },
+};
+
+export {
+  classDiagramDefinition as ClassDiagramV2WZHVMYZB,
+  classDiagramDefinition as diagram,
 };
