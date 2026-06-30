@@ -597,6 +597,12 @@ export function metricHelpersT(metricHelpersParam19, metricHelpersParam20) {
     ],
   );
 }
+export function initSegmentMetricHelpersRetryRuntime(): void {}
+export function initSegmentMetricHelpersPersistedQueueRuntime(): void {}
+export function initSegmentMetricHelpersAnalyticsCoreRuntime(): void {}
+export function initSegmentMetricHelpersTslibRuntime(): void {}
+export function initSegmentMetricHelpersNoopRuntime(): void {}
+export function initSegmentMetricHelpersLoadScriptRuntime(): void {}
 export {
   metricHelpersD,
   metricHelpersL,

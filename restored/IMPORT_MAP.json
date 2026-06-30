@@ -3630,7 +3630,11 @@
         "t": "metricHelpersT",
         "u": "metricHelpersU"
       },
-      "status": "done"
+      "status": "done",
+      "lastUpdated": "2026-06-30T22:20:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:20:00.000Z",
+      "stage3Review": "Host self-review: historical metric-helpers-BidZZeRm is absent from the current ref, vendor/segment-metric-helpers.ts preserves all 12 recorded Segment metric/helper aliases, and the vendored quality gate passes."
     },
     "metric-helpers-7nP-wnaS": {
       "restored": "vendor/segment-metric-helpers.ts",
@@ -3650,28 +3654,33 @@
       },
       "status": "done",
       "aliasOf": "metric-helpers-BidZZeRm",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T22:20:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:20:00.000Z",
+      "stage3Review": "Host self-review: historical metric-helpers-7nP-wnaS is absent from the current ref, vendor/segment-metric-helpers.ts preserves all 12 recorded aliases, and the vendored quality gate passes."
     },
     "metric-helpers-DG5zp00d": {
       "restored": "vendor/segment-metric-helpers.ts",
       "exports": {
-        "a": "metricHelpersA",
-        "c": "metricHelpersC",
-        "d": "metricHelpersD",
-        "f": "metricHelpersF",
-        "i": "metricHelpersI",
-        "l": "metricHelpersL",
-        "n": "metricHelpersN",
-        "o": "metricHelpersO",
-        "r": "metricHelpersR",
-        "s": "metricHelpersS",
-        "t": "metricHelpersT",
-        "u": "metricHelpersU"
+        "a": "initSegmentMetricHelpersRetryRuntime",
+        "c": "initSegmentMetricHelpersPersistedQueueRuntime",
+        "d": "metricHelpersA",
+        "f": "metricHelpersO",
+        "i": "metricHelpersN",
+        "l": "initSegmentMetricHelpersAnalyticsCoreRuntime",
+        "n": "metricHelpersT",
+        "o": "metricHelpersR",
+        "r": "initSegmentMetricHelpersTslibRuntime",
+        "s": "metricHelpersI",
+        "t": "initSegmentMetricHelpersNoopRuntime",
+        "u": "initSegmentMetricHelpersLoadScriptRuntime"
       },
       "status": "done",
-      "aliasOf": "metric-helpers-BidZZeRm",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Segment metric helper chunk keeps the restored public API."
+      "lastUpdated": "2026-06-30T22:20:00.000Z",
+      "note": "Current Segment metric helper chunk has a shifted export table relative to the historical hashes; the current aliases now map to the restored online/offline helpers, integration merge and stats helpers, persisted queue class, retry helper, and no-op init facades for Rolldown init thunks.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:20:00.000Z",
+      "stage3Review": "Host self-review: re-derived metric-helpers-DG5zp00d from the current ref export table (a=retry init, c=persisted queue init, d=offline, f=online, i=integration merge, l=analytics-core init, n=integration stats, o=retry helper, r=tslib init, s=persisted queue class, t=no-op init, u=load-script init), preserved historical aliases in vendor/segment-metric-helpers.ts, and quality-gate/prettier passed."
     },
     "middleware-Az7vHdEh": {
       "restored": "vendor/segment-middleware-entry.ts",
