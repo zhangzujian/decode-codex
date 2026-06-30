@@ -1156,7 +1156,7 @@ import {
   _ as _v,
   g as vv,
   w as yv,
-} from "../../ref/webview/assets/app-initial~app-main~projects-index-page~local-conversation-page-HgUkvfGN.js";
+} from "../boundaries/current-ref/current-app-initial-project-hover-card-current-producer";
 import {
   a as bv,
   i as xv,
@@ -1177,11 +1177,11 @@ import {
   h as Av,
   m as jv,
   y as Mv,
-} from "../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-DHWk0JvV.js";
+} from "../boundaries/current-ref/current-app-initial-renderer-error-boundary-runtime-producer";
 import {
   r as Nv,
   t as Pv,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~pull-requests-page~new-thread-panel-page~proj~jolrh1c9-UBdbdM9i.js";
+} from "../boundaries/current-ref/current-app-initial-git-config-value-query-current-producer";
 import {
   G as Fv,
   I as Iv,
@@ -1231,14 +1231,14 @@ import {
 import {
   nt as Cy,
   tt as wy,
-} from "../../ref/webview/assets/app-initial~app-main~pets-settings~appearance-settings~general-settings-DKOJ5iv-.js";
+} from "../boundaries/current-ref/current-app-initial-general-appearance-current-producer";
 import {
   a as Ty,
   c as Ey,
   f as Dy,
   o as Oy,
   r as ky,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~onboarding-page~appgen-~mhwq036p-DS9KwK15.js";
+} from "../boundaries/current-ref/current-app-initial-sidebar-onboarding-checklist-current-producer";
 import {
   c as Ay,
   l as jy,
@@ -1250,7 +1250,7 @@ import {
   n as Fy,
   r as Iy,
   t as Ly,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~settings-page~appgen-li~oiv69xe5-CLPVtyft.js";
+} from "../boundaries/current-ref/current-app-initial-appshot-current-producer";
 import {
   n as Ry,
   t as zy,
