@@ -31218,7 +31218,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ar-3TMbwP2L": {
       "restored": "locales/ar.ts",
@@ -31226,7 +31229,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "bg-BG-BquMUSiw": {
       "restored": "locales/bg-bg.ts",
@@ -31234,7 +31240,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "bn-BD-BGpIwcBb": {
       "restored": "locales/bn-bd.ts",
@@ -31242,7 +31251,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "bs-BA-4eGChBDy": {
       "restored": "locales/bs-ba.ts",
@@ -31250,7 +31262,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ca-ES-CxYwQFXA": {
       "restored": "locales/ca-es.ts",
@@ -31258,7 +31273,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "cs-CZ-606F1Ced": {
       "restored": "locales/cs-cz.ts",
@@ -31266,7 +31284,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "da-DK-Bxr-nzCo": {
       "restored": "locales/da-dk.ts",
@@ -31274,7 +31295,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "de-DE-uIhYktck": {
       "restored": "locales/de-de.ts",
@@ -31282,7 +31306,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "el-GR-BCFVnc9T": {
       "restored": "locales/el-gr.ts",
@@ -31290,7 +31317,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "es-419-9pl7noPm": {
       "restored": "locales/es-419.ts",
@@ -31298,7 +31328,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "es-ES-BW-x6iqw": {
       "restored": "locales/es-es.ts",
@@ -31306,7 +31339,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "et-EE-DB6pI6NP": {
       "restored": "locales/et-ee.ts",
@@ -31314,7 +31350,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "fa-ulLUpR-L": {
       "restored": "locales/fa.ts",
@@ -31322,7 +31361,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "fi-FI-CfGWVO8y": {
       "restored": "locales/fi-fi.ts",
@@ -31330,7 +31372,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "fr-CA-C6xF-klO": {
       "restored": "locales/fr-ca.ts",
@@ -31338,7 +31383,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "fr-FR-3A1bHfJ7": {
       "restored": "locales/fr-fr.ts",
@@ -31346,7 +31394,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "gu-IN-2fionZeX": {
       "restored": "locales/gu-in.ts",
@@ -31354,7 +31405,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "hi-IN-g4g3Rqd9": {
       "restored": "locales/hi-in.ts",
@@ -31362,7 +31416,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "hr-HR-CgpzB8MW": {
       "restored": "locales/hr-hr.ts",
@@ -31370,7 +31427,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "hu-HU-srjtJElQ": {
       "restored": "locales/hu-hu.ts",
@@ -31378,7 +31438,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "hy-AM-DuMUOVdH": {
       "restored": "locales/hy-am.ts",
@@ -31386,7 +31449,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "id-ID-CjSZ1Zco": {
       "restored": "locales/id-id.ts",
@@ -31394,7 +31460,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "is-IS-jFnqHysR": {
       "restored": "locales/is-is.ts",
@@ -31402,7 +31471,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "it-IT-BGoOMX8W": {
       "restored": "locales/it-it.ts",
@@ -31410,7 +31482,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ja-JP-6ZdlaPCc": {
       "restored": "locales/ja-jp.ts",
@@ -31418,7 +31493,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ka-GE-BbCvPs5w": {
       "restored": "locales/ka-ge.ts",
@@ -31426,7 +31504,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "kk-CLm1ZRKA": {
       "restored": "locales/kk.ts",
@@ -31434,7 +31515,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "kn-IN-7xM42NXG": {
       "restored": "locales/kn-in.ts",
@@ -31442,7 +31526,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ko-KR-DmoQ-HrH": {
       "restored": "locales/ko-kr.ts",
@@ -31450,7 +31537,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "lt-CYpm5TfO": {
       "restored": "locales/lt.ts",
@@ -31458,7 +31548,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "lv-LV-ZikztgNw": {
       "restored": "locales/lv-lv.ts",
@@ -31466,7 +31559,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "mk-MK-CIu2rV5W": {
       "restored": "locales/mk-mk.ts",
@@ -31474,7 +31570,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ml-nKdaCiFi": {
       "restored": "locales/ml.ts",
@@ -31482,7 +31581,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "mn-Cva00Fq9": {
       "restored": "locales/mn.ts",
@@ -31490,7 +31592,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "mr-IN-Cx10RVTG": {
       "restored": "locales/mr-in.ts",
@@ -31498,7 +31603,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ms-MY-9rOPkwvS": {
       "restored": "locales/ms-my.ts",
@@ -31506,7 +31614,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "my-MM-59VNdJjb": {
       "restored": "locales/my-mm.ts",
@@ -31514,7 +31625,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "nb-NO-B75J3BYf": {
       "restored": "locales/nb-no.ts",
@@ -31522,7 +31636,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "nl-NL-sLamI4YB": {
       "restored": "locales/nl-nl.ts",
@@ -31530,7 +31647,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "pa-DnOzYwLv": {
       "restored": "locales/pa.ts",
@@ -31538,7 +31658,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "pl-PL-CpAWNuSI": {
       "restored": "locales/pl-pl.ts",
@@ -31546,7 +31669,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "pt-BR-DqwXUAk1": {
       "restored": "locales/pt-br.ts",
@@ -31554,7 +31680,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "pt-PT-Cft0uxe2": {
       "restored": "locales/pt-pt.ts",
@@ -31562,7 +31691,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ro-RO-BGSFt0Y4": {
       "restored": "locales/ro-ro.ts",
@@ -31570,7 +31702,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ru-RU-Dhkg59qA": {
       "restored": "locales/ru-ru.ts",
@@ -31578,7 +31713,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "sk-SK-AwhLscj9": {
       "restored": "locales/sk-sk.ts",
@@ -31586,7 +31724,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "sl-SI-DODS99pc": {
       "restored": "locales/sl-si.ts",
@@ -31594,7 +31735,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "so-SO-Dz4wpxb7": {
       "restored": "locales/so-so.ts",
@@ -31602,7 +31746,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "sq-AL-BwXBTitD": {
       "restored": "locales/sq-al.ts",
@@ -31610,7 +31757,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "sr-RS-BY3_HeAK": {
       "restored": "locales/sr-rs.ts",
@@ -31618,7 +31768,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "sv-SE-DPKYKK7A": {
       "restored": "locales/sv-se.ts",
@@ -31626,7 +31779,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "sw-TZ-0WHruz3M": {
       "restored": "locales/sw-tz.ts",
@@ -31634,7 +31790,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ta-IN-B_zyfJyB": {
       "restored": "locales/ta-in.ts",
@@ -31642,7 +31801,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "te-IN-Bm9KCVb7": {
       "restored": "locales/te-in.ts",
@@ -31650,7 +31812,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "th-TH-CLDvMBGU": {
       "restored": "locales/th-th.ts",
@@ -31658,7 +31823,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "tl-Cdn-8thi": {
       "restored": "locales/tl.ts",
@@ -31666,7 +31834,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "tr-TR-DALvECY_": {
       "restored": "locales/tr-tr.ts",
@@ -31674,7 +31845,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "uk-UA-y_b_N_Ww": {
       "restored": "locales/uk-ua.ts",
@@ -31682,7 +31856,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "ur-B-jnzAL1": {
       "restored": "locales/ur.ts",
@@ -31690,7 +31867,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "vi-VN-qpXziAgw": {
       "restored": "locales/vi-vn.ts",
@@ -31698,7 +31878,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "zh-CN-DBEktoel": {
       "restored": "locales/zh-cn.ts",
@@ -31706,7 +31889,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "zh-HK-D1Y2oZXp": {
       "restored": "locales/zh-hk.ts",
@@ -31714,7 +31900,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "zh-TW-0FCihP0v": {
       "restored": "locales/zh-tw.ts",
@@ -31722,7 +31911,10 @@
         "default": "default",
         "greeting": "greeting"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Locale data module finalized as generated i18n message catalog with default message table and greeting export.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "absolutely-dark-Cq3gv8mI": {
       "restored": "themes/absolutely-dark.ts",
