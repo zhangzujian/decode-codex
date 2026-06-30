@@ -46,11 +46,11 @@ const __vite__mapDeps = (
     ]),
 ) => i.map((i) => d[i]);
 import {
-  n as e,
-  r as t,
-  s as n,
-  t as r,
-} from "../../ref/webview/assets/rolldown-runtime-Czos8NxU.js";
+  createCommonJsModule as r,
+  exportGetters as t,
+  once as e,
+  toEsModule as n,
+} from "../runtime/commonjs-interop";
 import {
   $n as i,
   $o as a,

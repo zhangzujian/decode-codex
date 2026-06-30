@@ -102,9 +102,9 @@ const __vite__mapDeps = (
     ]),
 ) => i.map((i) => d[i]);
 import {
-  n as e,
-  s as t,
-} from "../../ref/webview/assets/rolldown-runtime-Czos8NxU.js";
+  once as e,
+  toEsModule as t,
+} from "../runtime/commonjs-interop";
 import {
   $s as n,
   Ao as r,

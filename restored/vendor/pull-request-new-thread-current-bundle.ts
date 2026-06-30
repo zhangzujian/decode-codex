@@ -1,10 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~new-~ozr5a6hk-DZC70s11.js
 // Vendored current pull request new-thread bundle copied from the Codex webview chunk.
 import {
-  n as e,
-  s as t,
-  t as n,
-} from "../../ref/webview/assets/rolldown-runtime-Czos8NxU.js";
+  createCommonJsModule as n,
+  once as e,
+  toEsModule as t,
+} from "../runtime/commonjs-interop";
 import {
   $o as r,
   $s as i,

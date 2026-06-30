@@ -3,12 +3,12 @@
 declare const __REACT_DEVTOOLS_GLOBAL_HOOK__: unknown;
 
 import {
-  n as e,
-  o as t,
-  r as n,
-  s as r,
-  t as i,
-} from "../../ref/webview/assets/rolldown-runtime-Czos8NxU.js";
+  createCommonJsModule as i,
+  once as e,
+  toCommonJs as t,
+  exportGetters as n,
+  toEsModule as r,
+} from "../runtime/commonjs-interop";
 import {
   $s as a,
   $t as o,
