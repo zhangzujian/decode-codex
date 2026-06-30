@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/use-git-recent-branches-C6O5sB4S.js
 // Also covers ref/webview/assets/use-git-recent-branches-DVeuba-T.js.
+// Also matches ref/webview/assets/use-git-recent-branches-BVnl1r0u.js.
 // use-git-recent-branches chunk restored from the Codex webview bundle.
 import { useGitRepositoryQuery } from "../boundaries/thread-context-inputs.facade";
 type GitRepositoryMetadata = {

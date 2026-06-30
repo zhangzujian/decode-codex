@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/page-search-input-Fp7_sG04.js
 // Supersedes historical restore from ref/webview/assets/page-search-input-BoNxWh4n.js.
+// Also matches ref/webview/assets/page-search-input-rbsdCe5M.js.
 // Page search input component.
 import type { KeyboardEventHandler, ReactNode, Ref } from "react";
 import clsx from "clsx";

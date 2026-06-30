@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/custom-avatars-query-Bodwj3U-.js
+// Also matches ref/webview/assets/custom-avatars-query-tr8cLFBL.js.
 import {
   _appScopeM as createQuerySignal,
   _appScopeO as useAppScope,
