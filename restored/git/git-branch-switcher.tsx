@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-branch-switcher-Cb06tz5G.js
+// Restored from ref/webview/assets/git-branch-switcher-BtVZYs2f.js
 // Git branch switching controls and queries from the Codex webview bundle.
 
 export {
