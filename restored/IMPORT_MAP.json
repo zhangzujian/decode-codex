@@ -34937,6 +34937,182 @@
       "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-light-default; JSON payload is intentionally not copied into restored/",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "everforest-light-CUt11vS2": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "everforestLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/everforest-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/everforest-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "everforest-light-Dfm1smgH": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "everforestLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/everforest-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/everforest-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-dark-BxJp0eD2": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-dark; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-dark-yz25JHpy": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-dark; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-light-BSm6_8Us": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-light-SKXmUh__": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-dark-medium-D8ASJRG_": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxDarkMediumTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-dark-medium",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-dark-medium; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-dark-medium-_FYRzapa": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxDarkMediumTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-dark-medium",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-dark-medium; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-light-medium-Bk58jAWk": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxLightMediumTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-light-medium",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-light-medium; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-light-medium-Cn2T5s7t": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxLightMediumTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-light-medium",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-light-medium; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "light-plus-DCap_vPA": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "lightPlusTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/light-plus",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/light-plus; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "light-plus-DWY0pl5w": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "lightPlusTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/light-plus",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/light-plus; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "material-theme-darker-C9mtpZGP": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "materialThemeDarkerTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/material-theme-darker",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/material-theme-darker; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "material-theme-darker-Dw15fs0M": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "materialThemeDarkerTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/material-theme-darker",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/material-theme-darker; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "monokai-CunC9jyV": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "monokaiTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/monokai",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/monokai; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "monokai-amhyikgy": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "monokaiTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/monokai",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/monokai; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }
