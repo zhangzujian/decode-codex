@@ -2982,7 +2982,12 @@
       "exports": {
         "t": "channel"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical color-channel helper retained as an alias of the current channel chunks; public export t maps to channel(color, channelName).",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains channel-ykMIcoPi, current channel hashes exist, vendor/color-channel.ts passes quality-gate, and the recorded channel alias is exported."
     },
     "channel-BlN9FjG1": {
       "restored": "vendor/color-channel.ts",
@@ -2992,7 +2997,10 @@
       "status": "done",
       "aliasOf": "channel-ykMIcoPi",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref hash keeps the restored color channel helper surface."
+      "note": "Current ref hash keeps the restored color channel helper surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current channel-BlN9FjG1 ref asset exists, vendor/color-channel.ts passes quality-gate, and the recorded channel alias is exported."
     },
     "channel-inukl00r": {
       "restored": "vendor/color-channel.ts",
@@ -3002,7 +3010,10 @@
       "status": "done",
       "aliasOf": "channel-ykMIcoPi",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref hash keeps the restored color channel helper surface."
+      "note": "Current ref hash keeps the restored color channel helper surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current channel-inukl00r ref asset exists, vendor/color-channel.ts passes quality-gate, and the recorded channel alias is exported."
     },
     "channel-fkXXpwx-": {
       "restored": "vendor/color-channel.ts",
@@ -3012,7 +3023,10 @@
       "status": "done",
       "aliasOf": "channel-ykMIcoPi",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref hash keeps the restored color channel helper surface."
+      "note": "Current ref hash keeps the restored color channel helper surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current channel-fkXXpwx- ref asset exists, vendor/color-channel.ts passes quality-gate, and the recorded channel alias is exported."
     },
     "line-DIsP-Yv_": {
       "restored": "vendor/d3-shape-line.ts",
