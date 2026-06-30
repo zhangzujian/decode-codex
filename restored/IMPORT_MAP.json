@@ -6018,7 +6018,10 @@
       "status": "done",
       "aliasOf": "c4Diagram-YG6GDRKO-DjawmGRU",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:13:03.000Z",
+      "stage3Review": "Host self-review: current ref c4Diagram-YG6GDRKO-Bm_tFvsQ.js exports only diagram; restored/vendor/c4-diagram-yg6gdrko.ts preserves that surface through C4DiagramYG6GDRKO/diagram and passes vendored quality-gate."
     },
     "chunk-JA3XYJ7Z-CjR9BG5n": {
       "restored": "vendor/chunk-ja3xyj7z.ts",
@@ -6046,7 +6049,10 @@
       "status": "done",
       "aliasOf": "chunk-JA3XYJ7Z-CjR9BG5n",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid label/icon helper aliases re-derived from chunk-JA3XYJ7Z-DXPUiutJ."
+      "note": "Current Mermaid label/icon helper aliases re-derived from chunk-JA3XYJ7Z-DXPUiutJ.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:12:04.000Z",
+      "stage3Review": "Host self-review: current ref chunk-JA3XYJ7Z-DXPUiutJ.js exports the same Mermaid label/icon helper aliases; restored/vendor/chunk-ja3xyj7z.ts preserves that alias table and passes vendored quality-gate."
     },
     "ganttDiagram-LVOFAZNH-yOkQF_JE": {
       "restored": "vendor/gantt-diagram-lvofaznh.ts",
@@ -6072,7 +6078,10 @@
       "status": "done",
       "aliasOf": "ganttDiagram-LVOFAZNH-yOkQF_JE",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:13:03.000Z",
+      "stage3Review": "Host self-review: current ref ganttDiagram-LVOFAZNH-Drr2wFg7.js exports only diagram; restored/vendor/gantt-diagram-lvofaznh.ts preserves that surface through GanttDiagramLVOFAZNH/diagram and passes vendored quality-gate."
     },
     "journeyDiagram-XKPGCS4Q-qmAqcnof": {
       "restored": "vendor/journey-diagram-xkpgcs4q.ts",
@@ -11143,7 +11152,10 @@
       "status": "done",
       "aliasOf": "diagram-PSM6KHXK-DqnCog4a",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:12:04.000Z",
+      "stage3Review": "Host self-review: current ref diagram-PSM6KHXK-CBhgZ9rl.js exports only diagram; restored/vendor/mermaid-treemap-diagram-fpaj.ts preserves that surface through DiagramPSM6KHXK/diagram and passes vendored quality-gate."
     },
     "diagram-QEK2KX5R-DVrdB3UI": {
       "restored": "vendor/mermaid-radar-diagram-fpaj.ts",
@@ -11239,7 +11251,10 @@
       "status": "done",
       "aliasOf": "gitGraphDiagram-NY62KEGX-lV4TXvsv",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:13:03.000Z",
+      "stage3Review": "Host self-review: current ref gitGraphDiagram-NY62KEGX-DaFudJe8.js exports only diagram; restored/vendor/mermaid-git-graph-diagram-fpaj.ts preserves that surface through gitGraphDiagramNY62KEGX/diagram and passes vendored quality-gate."
     },
     "infoDiagram-F6ZHWCRC-CZZfMpuV": {
       "restored": "vendor/mermaid-info-diagram-fpaj.ts",
@@ -23406,7 +23421,10 @@
       "status": "done",
       "aliasOf": "use-home-directory-7PtGooXU",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref hash keeps the restored home-directory value hook, query hook, and initializer surface."
+      "note": "Current ref hash keeps the restored home-directory value hook, query hook, and initializer surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:15:48.000Z",
+      "stage3Review": "Host self-review: current ref use-home-directory-BujwbbZZ.js exports n/r/t for useHomeDirectory, useHomeDirectoryQuery, and initUseHomeDirectoryChunk; restored/utils/use-home-directory.ts preserves that surface and passes quality-gate."
     },
     "use-hotkey-window-dismiss-on-escape-Dpt2emga": {
       "restored": "utils/use-hotkey-window-dismiss-on-escape.ts",
@@ -24197,7 +24215,10 @@
       "status": "done",
       "aliasOf": "remote-connections-page-CWiJhSOT",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current semantic wrapper preserves the restored public export surface."
+      "note": "Current semantic wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:15:48.000Z",
+      "stage3Review": "Host self-review: current ref remote-connections-page-2Vi91kKH.js exports only RemoteConnectionsPage; restored/remote/remote-connections-page.tsx preserves that semantic export and passes quality-gate."
     },
     "schema-filter-Dzj5Tjvi": {
       "restored": "utils/schema-filter.ts",
@@ -34652,7 +34673,10 @@
       "aliasOf": "global-dictation-page-BV05fEU5",
       "note": "Current global-dictation-page hash preserves the semantic public export surface; aliases re-derived from global-dictation-page-CND2x2T2.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:14:21.000Z",
+      "stage3Review": "Host self-review: current ref global-dictation-page-CND2x2T2.js exports only GlobalDictationPage; restored/features/global-dictation-page/index.tsx preserves that semantic export and passes quality-gate."
     },
     "highlight-code-Bv8OoAm9": {
       "restored": "utils/highlight-code.ts",
@@ -34714,7 +34738,10 @@
       "aliasOf": "preview-DvaTfwxN",
       "note": "Current preview hash preserves the semantic public export surface; aliases re-derived from preview-DAZTnBWb.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:14:21.000Z",
+      "stage3Review": "Host self-review: current ref preview-DAZTnBWb.js exports only PdbPreviewFromFile; restored/ui/pdb-preview/index.tsx preserves that semantic export and passes quality-gate."
     },
     "thread-user-message-navigation-rail-DP1Of3Tk": {
       "restored": "threads/thread-user-message-navigation-rail/index.tsx",
@@ -34724,7 +34751,10 @@
       "aliasOf": "thread-user-message-navigation-rail-Mi2GE36I",
       "note": "Current thread-user-message-navigation-rail hash preserves the semantic public export surface; aliases re-derived from thread-user-message-navigation-rail-DP1Of3Tk.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:16:40.000Z",
+      "stage3Review": "Host self-review: current ref thread-user-message-navigation-rail-DP1Of3Tk.js exports only ThreadUserMessageNavigationRail; restored/threads/thread-user-message-navigation-rail/index.tsx preserves that semantic export and passes quality-gate."
     },
     "workbook-from-markdown-6t79Mo_W": {
       "restored": "utils/workbook-from-markdown.ts",
