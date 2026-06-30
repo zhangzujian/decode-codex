@@ -26726,12 +26726,13 @@
         "t": "LibraryIcon"
       },
       "status": "done",
-      "note": "Current ref chunk mapped from prior restored chunk with the same stable stem (app-initial~app-main~appgen-library-page-B4-cMcQI). Verify source diff before treating as Stage 3 accepted for this exact hash.",
-      "lastUpdated": "2026-06-29T20:20:00.000Z",
+      "note": "Verified against the exact current BfbI4bIH source: export n is the init thunk and export t re-exports LibraryIcon with matching current SVG path data.",
+      "lastUpdated": "2026-06-30T14:54:59.000Z",
       "migratedFrom": "app-initial~app-main~appgen-library-page-B4-cMcQI",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "stage3AcceptedAt": "2026-06-30T14:54:59.000Z",
+      "stage3Review": "Host self-review: exact current ref source was compared against the restored public file; quality-gate and prettier were rerun for the mapped public file.",
+      "stage3Note": "Verified against the exact current BfbI4bIH source: export n is the init thunk and export t re-exports LibraryIcon with matching current SVG path data."
     },
     "app-initial~app-main~remote-conversation-page~thread-app-shell-chrome~local-conversation-page-BYNuwa4z": {
       "restored": "appgen/publication-terms/side-panel-tabs.ts",
@@ -26757,12 +26758,13 @@
         "t": "NotebookPlusIcon"
       },
       "status": "done",
-      "note": "Current ref chunk mapped from prior restored chunk with the same stable stem (app-initial~app-main~select-workspace-page-BLN50XAC). Verify source diff before treating as Stage 3 accepted for this exact hash.",
-      "lastUpdated": "2026-06-29T20:20:00.000Z",
+      "note": "Verified against the exact current DMB-jExv source: export n is the init thunk and export t is the notebook-plus SVG component with matching path data.",
+      "lastUpdated": "2026-06-30T14:54:59.000Z",
       "migratedFrom": "app-initial~app-main~select-workspace-page-BLN50XAC",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "stage3AcceptedAt": "2026-06-30T14:54:59.000Z",
+      "stage3Review": "Host self-review: exact current ref source was compared against the restored public file; quality-gate and prettier were rerun for the mapped public file.",
+      "stage3Note": "Verified against the exact current DMB-jExv source: export n is the init thunk and export t is the notebook-plus SVG component with matching path data."
     },
     "app-initial~app-main~onboarding-page~profile-CFRY9Eda": {
       "restored": "features/profile-queries/index.ts",
@@ -26861,12 +26863,13 @@
         "t": "initAvatarOverlayOpenStateChunk"
       },
       "status": "done",
-      "note": "Current ref chunk mapped from prior restored chunk with the same stable stem (app-initial~app-main~pets-settings-eXPTB2Dp). Verify source diff before treating as Stage 3 accepted for this exact hash.",
-      "lastUpdated": "2026-06-29T20:20:00.000Z",
+      "note": "Verified against the exact current CPYQX7qb source: export n initializes app-scope signal runtime and export t is the false-default avatar overlay signal.",
+      "lastUpdated": "2026-06-30T14:54:59.000Z",
       "migratedFrom": "app-initial~app-main~pets-settings-eXPTB2Dp",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "stage3AcceptedAt": "2026-06-30T14:54:59.000Z",
+      "stage3Review": "Host self-review: exact current ref source was compared against the restored public file; quality-gate and prettier were rerun for the mapped public file.",
+      "stage3Note": "Verified against the exact current CPYQX7qb source: export n initializes app-scope signal runtime and export t is the false-default avatar overlay signal."
     },
     "app-initial~app-main~personalization-settings~appearance-settings~general-settings-Qj6SXl5X": {
       "restored": "runtime/app-info-query-runtime.ts",
@@ -26889,12 +26892,13 @@
         "t": "PopInMacIcon"
       },
       "status": "done",
-      "note": "Current ref chunk mapped from prior restored chunk with the same stable stem (app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~o5l7nhuo-CRoJfHHc). Verify source diff before treating as Stage 3 accepted for this exact hash.",
-      "lastUpdated": "2026-06-29T20:20:00.000Z",
+      "note": "Verified against the exact current DnNHJk2m source: export n is the init thunk and export t is the pop-in-mac SVG component with matching path data.",
+      "lastUpdated": "2026-06-30T14:54:59.000Z",
       "migratedFrom": "app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~o5l7nhuo-CRoJfHHc",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "stage3AcceptedAt": "2026-06-30T14:54:59.000Z",
+      "stage3Review": "Host self-review: exact current ref source was compared against the restored public file; quality-gate and prettier were rerun for the mapped public file.",
+      "stage3Note": "Verified against the exact current DnNHJk2m source: export n is the init thunk and export t is the pop-in-mac SVG component with matching path data."
     },
     "app-initial~app-main~debug-window-page~agent-settings~debug-modal-Baq5IrGF": {
       "restored": "runtime/primary-runtime-query-keys.ts",
@@ -26909,12 +26913,13 @@
       },
       "status": "done",
       "aliasOf": "primary-runtime-query-keys-BCEaoICN",
-      "lastUpdated": "2026-06-29T20:20:00.000Z",
-      "note": "Current ref chunk mapped from prior restored chunk with the same stable stem (app-initial~app-main~debug-window-page~agent-settings~debug-modal-Bxp4dVZQ). Verify source diff before treating as Stage 3 accepted for this exact hash.",
+      "lastUpdated": "2026-06-30T14:54:59.000Z",
+      "note": "Verified against the exact current Baq5IrGF source: export aliases map to runtime config init, Statsig refresh/read/publish helpers, diagnostics query key, and update-status query key.",
       "migratedFrom": "app-initial~app-main~debug-window-page~agent-settings~debug-modal-Bxp4dVZQ",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "stage3AcceptedAt": "2026-06-30T14:54:59.000Z",
+      "stage3Review": "Host self-review: exact current ref source was compared against the restored public file; quality-gate and prettier were rerun for the mapped public file.",
+      "stage3Note": "Verified against the exact current Baq5IrGF source: export aliases map to runtime config init, Statsig refresh/read/publish helpers, diagnostics query key, and update-status query key."
     },
     "app-initial~app-main~remote-conversation-page~hotkey-window-worktree-init-page~hotkey-windo~kjl2gxhu-DXs0ueRP": {
       "restored": "features/hotkey-window-state.ts",
@@ -26976,12 +26981,13 @@
         "t": "ChatBubblesIcon"
       },
       "status": "done",
-      "note": "Current ref chunk mapped from prior restored chunk with the same stable stem (app-initial~app-main~remote-conversation-page~onboarding-page~hotkey-window-thread-page~app~c482ypdv-DWbVQfmz). Verify source diff before treating as Stage 3 accepted for this exact hash.",
-      "lastUpdated": "2026-06-29T20:20:00.000Z",
+      "note": "Verified against the exact current D1zCejbw source: export n is the init thunk and export t is the chat bubbles SVG component with matching path data.",
+      "lastUpdated": "2026-06-30T14:54:59.000Z",
       "migratedFrom": "app-initial~app-main~remote-conversation-page~onboarding-page~hotkey-window-thread-page~app~c482ypdv-DWbVQfmz",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "stage3AcceptedAt": "2026-06-30T14:54:59.000Z",
+      "stage3Review": "Host self-review: exact current ref source was compared against the restored public file; quality-gate and prettier were rerun for the mapped public file.",
+      "stage3Note": "Verified against the exact current D1zCejbw source: export n is the init thunk and export t is the chat bubbles SVG component with matching path data."
     },
     "app-initial~app-main~first-run~new-thread-panel-page-BZcGQjmi": {
       "restored": "app-shell/nux-state.ts",

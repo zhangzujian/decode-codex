@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~debug-window-page~agent-settings~debug-modal-Baq5IrGF.js
+// Primary runtime Statsig config query keys restored from the current chunk.
 
 import {
   vscodeApiF,

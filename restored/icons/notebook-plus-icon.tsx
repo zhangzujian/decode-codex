@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~select-workspace-page-DMB-jExv.js
+// Current-ref notebook plus icon restored from the exact SVG path data.
 
 import type { SVGProps } from "react";
 export type NotebookPlusIconProps = SVGProps<SVGSVGElement>;

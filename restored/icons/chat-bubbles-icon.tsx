@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~onboarding-page~hotkey-window-thread-page~app~c482ypdv-D1zCejbw.js
+// Current-ref chat bubbles icon restored from the exact SVG path data.
 
 import type { SVGProps } from "react";
 export type ChatBubblesIconProps = SVGProps<SVGSVGElement>;
