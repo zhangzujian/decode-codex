@@ -1,14 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~onboarding-page~hotkey-~h422e2ym-Dd6oN7BA.js
-// Browser comment preview parsing and composer surface chrome helpers.
+// app-initial~app-main~worktree-init-v2-page~remote-conversation-page~onboarding-page~hotkey-~h422e2ym-Dd6oN7BA chunk restored from the Codex webview bundle.
 import * as React from "react";
 import type { CSSProperties, HTMLAttributes, ReactElement } from "react";
 import { parseCommentPreviewSegments } from "../../browser/browser-comment-preview-segments";
 import { classNames } from "../../utils/class-names";
-
 const BROWSER_COMMENT_FONT_STACK =
   '-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Segoe UI", sans-serif';
-
-export const browserCommentComposerProseClassName = classNames(
+const browserCommentComposerProseClassName = classNames(
   "text-token-text-primary min-h-0 w-full p-0 leading-normal !font-sans",
   "[&_.ProseMirror]:w-full",
   "[&_.ProseMirror]:!text-token-foreground",
@@ -23,14 +21,11 @@ export const browserCommentComposerProseClassName = classNames(
   "!min-h-0 text-base",
   "[&_.ProseMirror]:min-h-6",
 );
-
-export const browserCommentInputAbsoluteClassName =
+const browserCommentInputAbsoluteClassName =
   "absolute left-4 min-w-0 overflow-hidden transition-[left,width,top,bottom] duration-[140ms] ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none";
-
-export const browserCommentFooterClassName =
+const browserCommentFooterClassName =
   "absolute inset-x-0 bottom-0 flex h-12 items-center pl-2 pr-3 origin-bottom-left transition-[opacity,transform] duration-150 ease-out motion-reduce:transition-none";
-
-export const browserCommentComposerSurfaceStyle = {
+const browserCommentComposerSurfaceStyle = {
   "--codex-chat-font-size": "13px",
   "--composer-top-tray-background": "var(--color-token-main-surface-primary)",
   "--composer-top-tray-border": "transparent",
@@ -38,8 +33,7 @@ export const browserCommentComposerSurfaceStyle = {
   "--vscode-font-family": BROWSER_COMMENT_FONT_STACK,
   fontFamily: BROWSER_COMMENT_FONT_STACK,
 } as CSSProperties;
-
-export function BrowserCommentComposerShell({
+function BrowserCommentComposerShell({
   className,
   style,
   ...props
@@ -56,11 +50,17 @@ export function BrowserCommentComposerShell({
     },
   });
 }
-
-export function initBrowserCommentPreviewParserChunk(): void {}
-
-export function initBrowserCommentComposerStyleChunk(): void {}
-
-export function initBrowserCommentComposerShellChunk(): void {}
-
-export { parseCommentPreviewSegments };
+function initBrowserCommentPreviewParserChunk(): void {}
+function initBrowserCommentComposerStyleChunk(): void {}
+function initBrowserCommentComposerShellChunk(): void {}
+export {
+  browserCommentInputAbsoluteClassName,
+  initBrowserCommentPreviewParserChunk,
+  browserCommentComposerProseClassName,
+  parseCommentPreviewSegments,
+  initBrowserCommentComposerShellChunk,
+  browserCommentComposerSurfaceStyle,
+  browserCommentFooterClassName,
+  initBrowserCommentComposerStyleChunk,
+  BrowserCommentComposerShell,
+};
