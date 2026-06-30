@@ -37091,6 +37091,523 @@
       "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/powershell; grammar payload is intentionally not copied into restored/",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "prisma-CBK42SWq": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "prismaGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/prisma",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/prisma; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "prolog-8A_kXZJ_": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "prologGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/prolog",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/prolog; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "proto-CH_dWqJs": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "protoGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/proto",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/proto; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "puppet-CjhfK2hT": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "puppetGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/puppet",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/puppet; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "purescript-abfBpIls": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "purescriptGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/purescript",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/purescript; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "qmldir-DD7WMdJn": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "qmldirGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/qmldir",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/qmldir; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "qss-Do2CmzRF": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "qssGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/qss",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/qss; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "racket-CdgfZ7cS": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "racketGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/racket",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/racket; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "raku-yVS9qGY4": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "rakuGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/raku",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/raku; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "reg-Bl33fVo0": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "regGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/reg",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/reg; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rel-BmGLeqAL": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "relGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/rel",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/rel; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "riscv-BgsNpLAC": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "riscvGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/riscv",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/riscv; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rosmsg-Xt20ZveA": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "rosmsgGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/rosmsg",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/rosmsg; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rust-ETEJwe1a": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "rustGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/rust",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/rust; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "sass-C5hvIvt0": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "sassGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/sass",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/sass; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "scala-ChXa4k6l": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "scalaGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/scala",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/scala; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "scheme-mcEqMXvB": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "schemeGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/scheme",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/scheme; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "smalltalk-BuhqY-yn": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "smalltalkGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/smalltalk",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/smalltalk; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "solidity-5-wPfdR9": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "solidityGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/solidity",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/solidity; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "splunk-BqTt7IX4": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "splunkGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/splunk",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/splunk; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "ssh-config-CA7PFhjA": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "sshConfigGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/ssh-config",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/ssh-config; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "swift-wgjKYyVc": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "swiftGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/swift",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/swift; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "system-verilog-K9V66JBq": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "systemVerilogGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/system-verilog",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/system-verilog; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "systemd-DdWdkDL2": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "systemdGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/systemd",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/systemd; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "talonscript-uNwbRaRY": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "talonscriptGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/talonscript",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/talonscript; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "tasl-BOzMu2p2": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "taslGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/tasl",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/tasl; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "tcl-B_GvClz-": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "tclGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/tcl",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/tcl; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "terraform-7Jp688C1": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "terraformGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/terraform",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/terraform; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "toml-p_2Y8YyN": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "tomlGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/toml",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/toml; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "tsv-B2MuVSRN": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "tsvGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/tsv",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/tsv; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "typespec-DuwVmG13": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "typespecGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/typespec",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/typespec; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "typst-bTibnxiS": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "typstGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/typst",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/typst; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "v-B-mtud_4": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "vGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/v",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/v; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vala-CRE2TEeY": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "valaGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/vala",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/vala; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vb-BuXwhyrf": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "vbGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/vb",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/vb; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "verilog-4OgmQTIy": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "verilogGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/verilog",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/verilog; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vhdl-19EwvKlE": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "vhdlGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/vhdl",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/vhdl; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "viml-Bi4A361y": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "vimlGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/viml",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/viml; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vyper-AVkmd_MC": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "vyperGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/vyper",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/vyper; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "wasm-C-5-wMpW": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "wasmGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/wasm",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/wasm; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "wenyan-Bs1VGBUQ": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "wenyanGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/wenyan",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/wenyan; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "wgsl-bXR3gB4a": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "wgslGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/wgsl",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/wgsl; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "wikitext-z89ckheI": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "wikitextGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/wikitext",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/wikitext; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "wit-BMF8T8e9": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "witGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/wit",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/wit; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "wolfram-irmgVd1S": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "wolframGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/wolfram",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/wolfram; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "zenscript-CKDIo-7F": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "zenscriptGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/zenscript",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/zenscript; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "zig-DJLAcFnn": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "zigGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/zig",
+      "note": "Shiki bundled language grammar chunk mapped to npm leaf @shikijs/langs/zig; grammar payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }

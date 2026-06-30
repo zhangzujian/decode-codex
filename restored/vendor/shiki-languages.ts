@@ -81,6 +81,53 @@ import poGrammar from "@shikijs/langs/po";
 import polarGrammar from "@shikijs/langs/polar";
 import powerqueryGrammar from "@shikijs/langs/powerquery";
 import powershellGrammar from "@shikijs/langs/powershell";
+import prismaGrammar from "@shikijs/langs/prisma";
+import prologGrammar from "@shikijs/langs/prolog";
+import protoGrammar from "@shikijs/langs/proto";
+import puppetGrammar from "@shikijs/langs/puppet";
+import purescriptGrammar from "@shikijs/langs/purescript";
+import qmldirGrammar from "@shikijs/langs/qmldir";
+import qssGrammar from "@shikijs/langs/qss";
+import racketGrammar from "@shikijs/langs/racket";
+import rakuGrammar from "@shikijs/langs/raku";
+import regGrammar from "@shikijs/langs/reg";
+import relGrammar from "@shikijs/langs/rel";
+import riscvGrammar from "@shikijs/langs/riscv";
+import rosmsgGrammar from "@shikijs/langs/rosmsg";
+import rustGrammar from "@shikijs/langs/rust";
+import sassGrammar from "@shikijs/langs/sass";
+import scalaGrammar from "@shikijs/langs/scala";
+import schemeGrammar from "@shikijs/langs/scheme";
+import smalltalkGrammar from "@shikijs/langs/smalltalk";
+import solidityGrammar from "@shikijs/langs/solidity";
+import splunkGrammar from "@shikijs/langs/splunk";
+import sshConfigGrammar from "@shikijs/langs/ssh-config";
+import swiftGrammar from "@shikijs/langs/swift";
+import systemVerilogGrammar from "@shikijs/langs/system-verilog";
+import systemdGrammar from "@shikijs/langs/systemd";
+import talonscriptGrammar from "@shikijs/langs/talonscript";
+import taslGrammar from "@shikijs/langs/tasl";
+import tclGrammar from "@shikijs/langs/tcl";
+import terraformGrammar from "@shikijs/langs/terraform";
+import tomlGrammar from "@shikijs/langs/toml";
+import tsvGrammar from "@shikijs/langs/tsv";
+import typespecGrammar from "@shikijs/langs/typespec";
+import typstGrammar from "@shikijs/langs/typst";
+import vGrammar from "@shikijs/langs/v";
+import valaGrammar from "@shikijs/langs/vala";
+import vbGrammar from "@shikijs/langs/vb";
+import verilogGrammar from "@shikijs/langs/verilog";
+import vhdlGrammar from "@shikijs/langs/vhdl";
+import vimlGrammar from "@shikijs/langs/viml";
+import vyperGrammar from "@shikijs/langs/vyper";
+import wasmGrammar from "@shikijs/langs/wasm";
+import wenyanGrammar from "@shikijs/langs/wenyan";
+import wgslGrammar from "@shikijs/langs/wgsl";
+import wikitextGrammar from "@shikijs/langs/wikitext";
+import witGrammar from "@shikijs/langs/wit";
+import wolframGrammar from "@shikijs/langs/wolfram";
+import zenscriptGrammar from "@shikijs/langs/zenscript";
+import zigGrammar from "@shikijs/langs/zig";
 
 export {
   abapGrammar,
@@ -163,4 +210,51 @@ export {
   polarGrammar,
   powerqueryGrammar,
   powershellGrammar,
+  prismaGrammar,
+  prologGrammar,
+  protoGrammar,
+  puppetGrammar,
+  purescriptGrammar,
+  qmldirGrammar,
+  qssGrammar,
+  racketGrammar,
+  rakuGrammar,
+  regGrammar,
+  relGrammar,
+  riscvGrammar,
+  rosmsgGrammar,
+  rustGrammar,
+  sassGrammar,
+  scalaGrammar,
+  schemeGrammar,
+  smalltalkGrammar,
+  solidityGrammar,
+  splunkGrammar,
+  sshConfigGrammar,
+  swiftGrammar,
+  systemVerilogGrammar,
+  systemdGrammar,
+  talonscriptGrammar,
+  taslGrammar,
+  tclGrammar,
+  terraformGrammar,
+  tomlGrammar,
+  tsvGrammar,
+  typespecGrammar,
+  typstGrammar,
+  vGrammar,
+  valaGrammar,
+  vbGrammar,
+  verilogGrammar,
+  vhdlGrammar,
+  vimlGrammar,
+  vyperGrammar,
+  wasmGrammar,
+  wenyanGrammar,
+  wgslGrammar,
+  wikitextGrammar,
+  witGrammar,
+  wolframGrammar,
+  zenscriptGrammar,
+  zigGrammar,
 };
