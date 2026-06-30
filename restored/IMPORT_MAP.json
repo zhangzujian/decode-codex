@@ -3660,7 +3660,11 @@
         "applyDestinationMiddleware": "applyDestinationMiddleware",
         "sourceMiddlewarePlugin": "sourceMiddlewarePlugin"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:13:55.000Z",
+      "stage3Review": "Host self-review: vendor/segment-middleware-entry.ts is a compact Segment middleware entry wrapper; all mapped exports are public, source export aliases were checked for middleware-Az7vHdEh, and the vendored quality gate passes.",
+      "lastUpdated": "2026-06-30T21:13:55.000Z"
     },
     "lib-CqEvD6Nn": {
       "restored": "vendor/markdown-renderer.ts",
@@ -4299,7 +4303,11 @@
         "y": "_chunkICPOFSXXY",
         "z": "_chunkICPOFSXXZ"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:13:55.000Z",
+      "stage3Review": "Host self-review: vendor/chunk-icpofsxx.ts now exposes the Dk2rFw9E alias surface from the auto-renamed export table, including the current chunkICPOFSXXQ/$ compatibility exports; all mapped exports exist and the vendored quality gate passes.",
+      "lastUpdated": "2026-06-30T21:13:55.000Z"
     },
     "chunk-ICPOFSXX-CeJdw7BH": {
       "restored": "vendor/chunk-icpofsxx.ts",
@@ -5813,7 +5821,11 @@
         "t": "basePickByD",
         "u": "basePickByU"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:13:55.000Z",
+      "stage3Review": "Host self-review: vendor/lodash-base-pick-by.ts is a compatibility barrel over the restored collection/path helpers; every mapped alias resolves to a public re-export and the vendored quality gate passes.",
+      "lastUpdated": "2026-06-30T21:13:55.000Z"
     },
     "flatten-CdNmRCTf": {
       "restored": "vendor/lodash-flatten.ts",
@@ -6116,7 +6128,11 @@
       "exports": {
         "t": "clone"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:13:55.000Z",
+      "stage3Review": "Host self-review: vendor/lodash-clone-deep.ts restores the lodash clone helper wrapper as baseClone(value, 4), matches the original clone-2yQp58UZ export table, and passes the vendored quality gate.",
+      "lastUpdated": "2026-06-30T21:13:55.000Z"
     },
     "graphlib-Dk1ocXNC": {
       "restored": "vendor/graphlib-alt.ts",
@@ -21693,8 +21709,11 @@
       },
       "status": "done",
       "aliasOf": "middleware-Az7vHdEh",
-      "lastUpdated": "2026-06-29T00:00:00.000Z",
-      "note": "Current Segment middleware entry chunk keeps the restored public API."
+      "lastUpdated": "2026-06-30T21:13:55.000Z",
+      "note": "Current Segment middleware entry chunk keeps the restored public API.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:13:55.000Z",
+      "stage3Review": "Host self-review: middleware-ClySjhR5 re-exports the same applyDestinationMiddleware/sourceMiddlewarePlugin surface as vendor/segment-middleware-entry.ts, and the target file passes the vendored quality gate."
     },
     "middleware-CVKpk5Wn": {
       "restored": "vendor/segment-middleware-entry.ts",
@@ -21704,8 +21723,11 @@
       },
       "status": "done",
       "aliasOf": "middleware-Az7vHdEh",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref hash keeps the restored Segment middleware entry surface."
+      "lastUpdated": "2026-06-30T21:13:55.000Z",
+      "note": "Current ref hash keeps the restored Segment middleware entry surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:13:55.000Z",
+      "stage3Review": "Host self-review: middleware-CVKpk5Wn is the current ref hash for the Segment middleware entry surface, its original export aliases match the restored wrapper, and the target file passes the vendored quality gate."
     },
     "middleware-m1mRm6yO": {
       "restored": "vendor/segment-middleware-current.ts",
