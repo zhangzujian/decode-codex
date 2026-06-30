@@ -9500,7 +9500,11 @@
         "n": "chunk67CJDMHEN",
         "t": "chunk67CJDMHET"
       },
-      "status": "done"
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-git-graph-services-k5.ts restores the Mermaid GitGraph parser service with a semantic token builder, preserves n/t aliases, and passes quality-gate."
     },
     "chunk-7N4EOEYR-BEkdQLCb": {
       "restored": "vendor/mermaid-architecture-services-k5.ts",
@@ -9685,7 +9689,24 @@
       "status": "done",
       "aliasOf": "chunk-67CJDMHE-B3_SAS71",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current Rolldown variant exports f as n, lazy init h as r, and service module m as t; vendor/mermaid-git-graph-services-k5.ts preserves n/t plus initChunk67CJDMHE and passes quality-gate."
+    },
+    "chunk-67CJDMHE-BwzXel-I": {
+      "restored": "vendor/mermaid-git-graph-services-k5.ts",
+      "exports": {
+        "n": "chunk67CJDMHEN",
+        "t": "chunk67CJDMHET"
+      },
+      "status": "done",
+      "aliasOf": "chunk-67CJDMHE-B3_SAS71",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref chunk-67CJDMHE-BwzXel-I.js exports d as n and u as t for the GitGraph parser service; vendor/mermaid-git-graph-services-k5.ts preserves those aliases and passes quality-gate."
     },
     "chunk-7N4EOEYR-BdYlf3CM": {
       "restored": "vendor/mermaid-architecture-services-k5.ts",
@@ -10001,7 +10022,11 @@
       "exports": {
         "createGitGraphServices": "gitGraph7Q5UKJZL"
       },
-      "status": "done"
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-git-graph-definition-k5.ts is a thin Mermaid GitGraph definition wrapper, preserves createGitGraphServices, imports the restored service module, and passes quality-gate."
     },
     "info-OMHHGYJF-VpsoNmpd": {
       "restored": "vendor/mermaid-info-definition-k5.ts",
@@ -23783,7 +23808,10 @@
       "status": "done",
       "aliasOf": "gitGraph-7Q5UKJZL-RtuWf9d8",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref wrapper exports e as createGitGraphServices from chunk-67CJDMHE-BwzXel-I; vendor/mermaid-git-graph-definition-k5.ts preserves that public surface and passes quality-gate."
     },
     "gitGraph-7Q5UKJZL-BNwjXrZM": {
       "restored": "vendor/mermaid-git-graph-definition-k5.ts",
@@ -23793,7 +23821,10 @@
       "status": "done",
       "aliasOf": "gitGraph-7Q5UKJZL-RtuWf9d8",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref wrapper exports e as createGitGraphServices from chunk-67CJDMHE-DnBZbXY2; vendor/mermaid-git-graph-definition-k5.ts preserves that public surface and passes quality-gate."
     },
     "gitGraph-7Q5UKJZL-c0r9_3hl": {
       "restored": "vendor/mermaid-git-graph-definition-k5.ts",
@@ -23803,7 +23834,10 @@
       "status": "done",
       "aliasOf": "gitGraph-7Q5UKJZL-RtuWf9d8",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref wrapper exports e as createGitGraphServices from chunk-67CJDMHE-dS3j2yNb; vendor/mermaid-git-graph-definition-k5.ts preserves that public surface and passes quality-gate."
     },
     "architecture-YZFGNWBL-BpEn3l_6": {
       "restored": "vendor/mermaid-architecture-definition-k5.ts",
@@ -23971,7 +24005,10 @@
       "status": "done",
       "aliasOf": "gitGraph-7Q5UKJZL-RtuWf9d8",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current Rolldown wrapper initializes parser runtime, exports n as createGitGraphServices, and maps to vendor/mermaid-git-graph-definition-k5.ts, which preserves the surface and passes quality-gate."
     },
     "gitGraph-F6HP7TQM-B1yJI3OO": {
       "restored": "vendor/mermaid-git-graph-definition-fpaj.ts",
@@ -24383,7 +24420,10 @@
       "status": "done",
       "aliasOf": "chunk-67CJDMHE-B3_SAS71",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref chunk-67CJDMHE-DnBZbXY2.js exports d as n and u as t for the GitGraph parser service; vendor/mermaid-git-graph-services-k5.ts preserves those aliases and passes quality-gate."
     },
     "chunk-67CJDMHE-dS3j2yNb": {
       "restored": "vendor/mermaid-git-graph-services-k5.ts",
@@ -24394,7 +24434,10 @@
       "status": "done",
       "aliasOf": "chunk-67CJDMHE-B3_SAS71",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref chunk-67CJDMHE-dS3j2yNb.js exports d as n and u as t for the GitGraph parser service; vendor/mermaid-git-graph-services-k5.ts preserves those aliases and passes quality-gate."
     },
     "chunk-CIAEETIT-CX7Ko5zn": {
       "restored": "vendor/mermaid-wardley-services-k5.ts",
