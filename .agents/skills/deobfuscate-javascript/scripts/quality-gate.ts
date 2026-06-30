@@ -2392,6 +2392,45 @@ export function collectImportMapBoundaryFiles(targetDir: string): Set<string> {
   return files;
 }
 
+function isVendoredManifestOutput(file: FullRestorationManifestFile): boolean {
+  const org = file.organization;
+  if (!org?.semanticPath) return false;
+  const classification = org.classification?.toLowerCase();
+  if (classification === "app-feature") return false;
+  return (
+    org.domain === "vendor" ||
+    classification === "vendor-runtime" ||
+    classification === "vendor-utility" ||
+    classification === "vendor-npm"
+  );
+}
+
+export function collectManifestVendoredFiles(targetDir: string): Set<string> {
+  const files = new Set<string>();
+  if (!fs.existsSync(targetDir) || !fs.statSync(targetDir).isDirectory()) {
+    return files;
+  }
+
+  const manifestPath = path.join(
+    targetDir,
+    ".deobfuscate-javascript",
+    "_full",
+    "manifest.json",
+  );
+  if (!fs.existsSync(manifestPath)) return files;
+
+  const manifest = parseJsonFile<unknown>(manifestPath);
+  for (const [, manifestFile] of manifestFiles(manifest)) {
+    if (!isVendoredManifestOutput(manifestFile)) continue;
+    const semanticPath = manifestFile.organization?.semanticPath;
+    if (!semanticPath) continue;
+    for (const file of sourceFilesForPublicTargets(targetDir, [semanticPath])) {
+      files.add(path.resolve(file));
+    }
+  }
+  return files;
+}
+
 function inspectAppFeatureTargetFiles(files: string[]): QualityGateIssue[] {
   const tsNoCheck: string[] = [];
   const declareFacades: string[] = [];
@@ -2564,6 +2603,7 @@ function analyzeOrganizePromoteState(
   const checkpoints = checkpointBasenames(targetDir);
 
   const localBasenames = new Set<string>();
+  const currentManifestCheckpointBasenames = new Set<string>();
   const promoted = new Set<string>();
   const finalizedNotPromoted: string[] = [];
   const facadePromoted: Array<{
@@ -2575,6 +2615,7 @@ function analyzeOrganizePromoteState(
     if (file.kind !== "local" && file.kind !== "oversized-local") continue;
     const basename = file.basename ?? fallback;
     if (!basename) continue;
+    currentManifestCheckpointBasenames.add(basename);
     if (looksLikeContentHashedChunkBasename(basename)) {
       localBasenames.add(basename);
     }
@@ -2619,14 +2660,18 @@ function analyzeOrganizePromoteState(
   // exist). A restore that never used it — or one whose chunks are all promoted —
   // is unaffected. `--allow-organize-incomplete` suppresses them for in-progress runs.
   if (checkpoints.size > 0 && !opts.allowOrganizeIncomplete) {
-    const undrained = [...checkpoints].filter((b) => !promoted.has(b)).sort();
+    const currentCheckpoints = [...checkpoints].filter((basename) =>
+      currentManifestCheckpointBasenames.has(basename),
+    );
+    const undrained = currentCheckpoints.filter((b) => !promoted.has(b)).sort();
     if (undrained.length > 0) {
       issues.push({
         code: "full-restoration-checkpoints-not-drained",
         message:
           "Mechanical checkpoints exist under _full/checkpoints/ but were not promoted into the public tree (restored/ left empty). Run plan-organize.ts then promote-organized.ts until every chunk is promoted, or pass --allow-organize-incomplete for an intermediate run.",
         detail: {
-          checkpoints: checkpoints.size,
+          checkpoints: currentCheckpoints.length,
+          ignoredStaleCheckpoints: checkpoints.size - currentCheckpoints.length,
           promoted: promoted.size,
           undrained: undrained.slice(0, 50),
         },
@@ -3007,6 +3052,7 @@ async function main(): Promise<void> {
     allowedCheckpointImportFiles: collectBoundaryCheckpointImportFiles(input),
   };
   const importMapBoundaryFiles = collectImportMapBoundaryFiles(input);
+  const manifestVendoredFiles = collectManifestVendoredFiles(input);
 
   let files: string[];
   try {
@@ -3020,7 +3066,9 @@ async function main(): Promise<void> {
     analyzeSource(fs.readFileSync(file, "utf-8"), file, {
       ...options,
       vendored:
-        options.vendored || importMapBoundaryFiles.has(path.resolve(file)),
+        options.vendored ||
+        importMapBoundaryFiles.has(path.resolve(file)) ||
+        manifestVendoredFiles.has(path.resolve(file)),
     }),
   );
   reports.push(

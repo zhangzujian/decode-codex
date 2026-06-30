@@ -9,6 +9,7 @@ import {
   checkFormatting,
   collectBoundaryCheckpointImportFiles,
   collectImportMapBoundaryFiles,
+  collectManifestVendoredFiles,
   DEFAULT_OPTIONS,
 } from "./quality-gate.ts";
 
@@ -1390,6 +1391,34 @@ export function __rest(value) {
     expect(codes).toContain("full-restoration-checkpoints-not-drained");
   });
 
+  test("anti-stall: ignores stale checkpoints outside the current manifest", () => {
+    const targetDir = makeTmpRoot();
+    writeFullManifest(targetDir, {
+      "foo-AbCdEf12": {
+        basename: "foo-AbCdEf12",
+        kind: "local",
+        stages: { promoted: true },
+      },
+    });
+    writeCheckpoints(targetDir, ["foo-AbCdEf12", "old-ZzYyXx99"]);
+    fs.writeFileSync(
+      path.join(targetDir, "IMPORT_MAP.json"),
+      JSON.stringify({
+        chunks: {
+          "foo-AbCdEf12": {
+            restored: "utils/foo.ts",
+            status: "done",
+            stage3Accepted: true,
+          },
+        },
+      }),
+    );
+
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain("full-restoration-checkpoints-not-drained");
+  });
+
   test("anti-stall: organize-incomplete fires when a chunk is finalized but not promoted", () => {
     const targetDir = makeTmpRoot();
     writeFullManifest(targetDir, {
@@ -2002,6 +2031,115 @@ describe("vendored / facade relaxation", () => {
     expect(reports.flatMap((report) => codes(report))).not.toContain(
       "split-required",
     );
+  });
+
+  test("CLI relaxes current manifest vendor outputs but not app-feature outputs", () => {
+    const targetDir = makeTmpRoot();
+    const vendorDir = path.join(targetDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    const vendorFile = path.join(vendorDir, "vendor-runtime.ts");
+    const appFeatureFile = path.join(vendorDir, "docx-preview-panel.ts");
+    const mechanicalSource = [
+      "// Restored from ref/webview/assets/vendor-runtime-AbCdEf12.js",
+      "function vendorRuntimeHelper1(vendorRuntimeParam1) {",
+      "  const vendorRuntimeValue1 = vendorRuntimeParam1.value;",
+      "  return vendorRuntimeValue1;",
+      "}",
+      "export const a = vendorRuntimeHelper1;",
+      "export const b = vendorRuntimeHelper1;",
+      "export const c = vendorRuntimeHelper1;",
+      "",
+    ].join("\n");
+    fs.writeFileSync(vendorFile, mechanicalSource);
+    fs.writeFileSync(appFeatureFile, mechanicalSource);
+    fs.mkdirSync(
+      path.join(targetDir, ".deobfuscate-javascript", "_full"),
+      { recursive: true },
+    );
+    fs.writeFileSync(
+      path.join(targetDir, ".deobfuscate-javascript", "_full", "manifest.json"),
+      JSON.stringify(
+        {
+          files: {
+            "vendor-runtime-AbCdEf12": {
+              basename: "vendor-runtime-AbCdEf12",
+              kind: "local",
+              stages: { finalized: true, promoted: true },
+              organization: {
+                domain: "vendor",
+                semanticPath: "vendor/vendor-runtime.ts",
+                classification: "vendor-runtime",
+              },
+            },
+            "docx-preview-panel-GhIjKl34": {
+              basename: "docx-preview-panel-GhIjKl34",
+              kind: "local",
+              stages: { finalized: true, promoted: true },
+              organization: {
+                domain: "vendor",
+                semanticPath: "vendor/docx-preview-panel.ts",
+                classification: "app-feature",
+              },
+            },
+          },
+        },
+        null,
+        2,
+      ),
+    );
+    fs.writeFileSync(
+      path.join(targetDir, "IMPORT_MAP.json"),
+      JSON.stringify(
+        {
+          chunks: {
+            "vendor-runtime-AbCdEf12": {
+              restored: "vendor/vendor-runtime.ts",
+              status: "done",
+            },
+            "docx-preview-panel-GhIjKl34": {
+              restored: "vendor/docx-preview-panel.ts",
+              status: "done",
+              stage3Accepted: true,
+            },
+          },
+        },
+        null,
+        2,
+      ),
+    );
+
+    const vendoredFiles = collectManifestVendoredFiles(targetDir);
+    expect(vendoredFiles).toContain(path.resolve(vendorFile));
+    expect(vendoredFiles).not.toContain(path.resolve(appFeatureFile));
+
+    const result = spawnSync(
+      "bun",
+      [
+        path.join(import.meta.dir, "quality-gate.ts"),
+        targetDir,
+        "--json",
+        "--max-flat-lines",
+        "3",
+      ],
+      { encoding: "utf8" },
+    );
+    expect(result.status).toBe(1);
+    const reports = JSON.parse(result.stdout) as Array<{
+      file: string;
+      issues: Array<{ code: string }>;
+    }>;
+    const vendorCodes = reports
+      .filter((report) => path.resolve(report.file) === path.resolve(vendorFile))
+      .flatMap((report) => codes(report));
+    const appFeatureCodes = reports
+      .filter(
+        (report) => path.resolve(report.file) === path.resolve(appFeatureFile),
+      )
+      .flatMap((report) => codes(report));
+    expect(vendorCodes).not.toContain("mechanical-names");
+    expect(vendorCodes).not.toContain("split-required");
+    expect(appFeatureCodes).toContain("mechanical-names");
+    expect(appFeatureCodes).toContain("split-required");
   });
 
   test("a generated facade is auto-relaxed by its marker (no --vendored)", () => {
