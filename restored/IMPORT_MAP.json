@@ -2421,6 +2421,36 @@
       },
       "status": "done"
     },
+    "__vite-browser-external-BJEkgHY1": {
+      "restored": "runtime/vite-browser-external.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done",
+      "aliasOf": "__vite-browser-external-EPeb3y57",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current browser-external empty module preserves the restored default export surface."
+    },
+    "__vite-browser-external-D8wv_T7u": {
+      "restored": "runtime/vite-browser-external.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done",
+      "aliasOf": "__vite-browser-external-EPeb3y57",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current browser-external empty module preserves the restored default export surface."
+    },
+    "__vite-browser-external-p7C1JnVn": {
+      "restored": "runtime/vite-browser-external.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done",
+      "aliasOf": "__vite-browser-external-EPeb3y57",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current browser-external empty module preserves the restored default export surface."
+    },
     "browser-DKmdu5pM": {
       "restored": "runtime/browser-process.ts",
       "exports": {
@@ -10753,6 +10783,18 @@
       "status": "done",
       "aliasOf": "rpc-B-UGFAxq",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "rpc-CoQWhzCy": {
+      "restored": "runtime/rpc-b-ugf-axq.tsx",
+      "exports": {
+        "appHost": "appHost",
+        "appServices": "appServices",
+        "initializeAppHostServices": "initializeAppHostServices"
+      },
+      "status": "done",
+      "aliasOf": "rpc-B-UGFAxq",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current RPC wrapper preserves the app host service export names."
     },
     "get-skill-icon-BdVrkuXU": {
       "restored": "utils/get-skill-icon.tsx",
