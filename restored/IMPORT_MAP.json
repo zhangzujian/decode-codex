@@ -38809,6 +38809,102 @@
       "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/templ; grammar payload and dependency wiring are intentionally not copied into restored/",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "glsl-CRL-4j1q": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "initGlslGrammarChunk",
+        "t": "glslLanguageGrammars"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/glsl",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/glsl; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "graphql-287Zlxjf": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "initGraphqlGrammarChunk",
+        "t": "graphqlLanguageGrammars"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/graphql",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/graphql; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "haml-P95ff3y3": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "initHamlGrammarChunk",
+        "t": "hamlLanguageGrammars"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/haml",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/haml; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "html-MNtWGjjL": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "initHtmlGrammarChunk",
+        "t": "htmlLanguageGrammars"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/html",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/html; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "lua-BVT-dYQb": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "luaLanguageGrammars",
+        "t": "initLuaGrammarChunk"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/lua",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/lua; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "scss-1kSLVE5G": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "scssLanguageGrammars",
+        "t": "initScssGrammarChunk"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/scss",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/scss; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "tex-7A0jSPe9": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "texLanguageGrammars",
+        "t": "initTexGrammarChunk"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/tex",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/tex; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "xml-CH7YWzSL": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "xmlLanguageGrammars",
+        "t": "initXmlGrammarChunk"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/xml",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/xml; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }

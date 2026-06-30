@@ -178,6 +178,14 @@ import shellsessionGrammar from "@shikijs/langs/shellsession";
 import sparqlGrammar from "@shikijs/langs/sparql";
 import stataGrammar from "@shikijs/langs/stata";
 import templGrammar from "@shikijs/langs/templ";
+import glslGrammar from "@shikijs/langs/glsl";
+import graphqlGrammar from "@shikijs/langs/graphql";
+import hamlGrammar from "@shikijs/langs/haml";
+import htmlGrammar from "@shikijs/langs/html";
+import luaGrammar from "@shikijs/langs/lua";
+import scssGrammar from "@shikijs/langs/scss";
+import texGrammar from "@shikijs/langs/tex";
+import xmlGrammar from "@shikijs/langs/xml";
 
 type ShikiGrammarChunkInitializer = () => void;
 
@@ -243,6 +251,22 @@ const turtleLanguageGrammars = turtleGrammar;
 const initTurtleGrammarChunk = initShikiGrammarChunk;
 const typescriptLanguageGrammars = typescriptGrammar;
 const initTypescriptGrammarChunk = initShikiGrammarChunk;
+const glslLanguageGrammars = glslGrammar;
+const initGlslGrammarChunk = initShikiGrammarChunk;
+const graphqlLanguageGrammars = graphqlGrammar;
+const initGraphqlGrammarChunk = initShikiGrammarChunk;
+const hamlLanguageGrammars = hamlGrammar;
+const initHamlGrammarChunk = initShikiGrammarChunk;
+const htmlLanguageGrammars = htmlGrammar;
+const initHtmlGrammarChunk = initShikiGrammarChunk;
+const luaLanguageGrammars = luaGrammar;
+const initLuaGrammarChunk = initShikiGrammarChunk;
+const scssLanguageGrammars = scssGrammar;
+const initScssGrammarChunk = initShikiGrammarChunk;
+const texLanguageGrammars = texGrammar;
+const initTexGrammarChunk = initShikiGrammarChunk;
+const xmlLanguageGrammars = xmlGrammar;
+const initXmlGrammarChunk = initShikiGrammarChunk;
 
 export {
   abapGrammar,
@@ -451,4 +475,20 @@ export {
   sparqlGrammar,
   stataGrammar,
   templGrammar,
+  glslLanguageGrammars,
+  initGlslGrammarChunk,
+  graphqlLanguageGrammars,
+  initGraphqlGrammarChunk,
+  hamlLanguageGrammars,
+  initHamlGrammarChunk,
+  htmlLanguageGrammars,
+  initHtmlGrammarChunk,
+  luaLanguageGrammars,
+  initLuaGrammarChunk,
+  scssLanguageGrammars,
+  initScssGrammarChunk,
+  texLanguageGrammars,
+  initTexGrammarChunk,
+  xmlLanguageGrammars,
+  initXmlGrammarChunk,
 };
