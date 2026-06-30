@@ -42495,6 +42495,32 @@
       "stage3AcceptedAt": "2026-06-30T23:03:34.404Z",
       "stage3Review": "Host self-review: parsed codex-mobile-setup-dialog-BIUrpc8k.js exports, rebuilt alias-to-compatibility-name exports from auto-renames.json, rewrote dependency imports through restored/IMPORT_MAP.json with consumer rename aliases, and prepared focused quality gates on the backing bundle and runtime.",
       "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of CodexMobileSetupDialog remains future cleanup."
+    },
+    "general-settings-BCaH5ZVP": {
+      "restored": "runtime/current-app-initial/general-settings-route-current-runtime.ts",
+      "exports": {
+        "GeneralSettings": "GeneralSettings"
+      },
+      "status": "done",
+      "note": "Current GeneralSettings wrapper maps to the general settings producer runtime; the wrapper initializes the producer chunk and re-exports the current route component as GeneralSettings.",
+      "lastUpdated": "2026-06-30T23:59:59.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:59:59.000Z",
+      "stage3Review": "Host self-review: verified general-settings-BCaH5ZVP.js imports i/o from the current general settings producer, invokes o(), and exports i as GeneralSettings; runtime wrapper preserves that surface and passes quality-gate.",
+      "stage3Note": "Accepted as a current-ref route wrapper over runtime/current-app-initial/general-settings-current-runtime.ts; the producer body remains a compatibility backing bundle pending future semantic split."
+    },
+    "appearance-settings-ig-5Lyy_": {
+      "restored": "runtime/current-app-initial/appearance-settings-current-runtime.ts",
+      "exports": {
+        "AppearanceSettings": "AppearanceSettings"
+      },
+      "status": "done",
+      "note": "Current AppearanceSettings hash maps to a dedicated current-ref runtime over vendor/appearance-settings-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:59:59.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:59:59.000Z",
+      "stage3Review": "Host self-review: verified the current file exports AppearanceSettings, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of AppearanceSettings remains a later cleanup."
     }
   }
 }
