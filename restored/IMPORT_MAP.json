@@ -23248,6 +23248,16 @@
       "lastUpdated": "2026-06-30T00:00:00.000Z",
       "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
     },
+    "info-OMHHGYJF-pC1W-Mm-": {
+      "restored": "vendor/mermaid-info-definition-k5.ts",
+      "exports": {
+        "createInfoServices": "createInfoServices"
+      },
+      "status": "done",
+      "aliasOf": "info-OMHHGYJF-VpsoNmpd",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid info vendor wrapper preserves the restored public export surface."
+    },
     "radar-NHE76QYJ-mTArgrmn": {
       "restored": "vendor/mermaid-radar-definition-fpaj.ts",
       "exports": {
@@ -23308,6 +23318,16 @@
       "lastUpdated": "2026-06-30T00:00:00.000Z",
       "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
     },
+    "wardley-RL74JXVD-BKwl9Y-_": {
+      "restored": "vendor/mermaid-wardley-definition-k5.ts",
+      "exports": {
+        "createWardleyServices": "createWardleyServices"
+      },
+      "status": "done",
+      "aliasOf": "wardley-RL74JXVD-DX26H2Am",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid wardley vendor wrapper preserves the restored public export surface."
+    },
     "gitGraph-7Q5UKJZL-TSRyDsE1": {
       "restored": "vendor/mermaid-git-graph-definition-k5.ts",
       "exports": {
@@ -23347,6 +23367,16 @@
       "aliasOf": "architecture-YZFGNWBL-hfWpxWZF",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
       "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+    },
+    "architecture-YZFGNWBL-rarOtu8-": {
+      "restored": "vendor/mermaid-architecture-definition-k5.ts",
+      "exports": {
+        "createArchitectureServices": "createArchitectureServices"
+      },
+      "status": "done",
+      "aliasOf": "architecture-YZFGNWBL-hfWpxWZF",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid architecture vendor wrapper preserves the restored public export surface."
     },
     "document-BYhvo62S": {
       "restored": "vendor/document-schema-entry.ts",
