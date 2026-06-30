@@ -21928,7 +21928,7 @@
         "zu": "appMainCurrentExportLowerZLowerUAlias"
       },
       "status": "done",
-      "note": "Current ref app-main/onboarding shared producer. Verified 793/793 current exported aliases are covered by vendor/app-main-current-runtime.ts; the public file intentionally retains legacy BUwCKIcU compatibility exports outside this exact hash surface.",
+      "note": "Current app-main/onboarding shared runtime restored as a semantic alias layer over boundaries/current-ref/app-main-current-producer.ts. The producer now re-exports vendor/app-main-current-cgnc-bundle.ts, a faithful CgNc-Bk2 backing bundle with restored import boundaries, while semantic consumers continue through app-main-current-runtime.ts.",
       "lastUpdated": "2026-06-29T21:20:00.000Z",
       "stage3Accepted": true,
       "migratedFrom": "app-initial~app-main~onboarding-page-BUwCKIcU",
