@@ -1,7 +1,5 @@
-// Restored from ref/webview/assets/chunk-KS23V3DP-CXu2WtWu.js
+// Restored from ref/webview/assets/chunk-KS23V3DP-CoFgPtnd.js
 // Mermaid package metadata shared by generated Mermaid diagram chunks.
-
-import { once } from "../runtime/commonjs-interop";
 
 export const mermaidPackageMetadata = {
   name: "mermaid",
@@ -147,4 +145,4 @@ export const mermaidPackageMetadata = {
 
 export const ChunkKS23V3DP = mermaidPackageMetadata;
 
-export const initMermaidPackageMetadataChunk = once(() => {});
+export function initMermaidPackageMetadataChunk(): void {}

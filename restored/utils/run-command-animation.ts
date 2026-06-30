@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/run_command_animation-xxVOZvtb.js
-// RunCommandAnimation chunk restored from the Codex webview bundle.
+// Lottie animation data restored from the Codex webview bundle.
 export const runCommandAnimation = {
   v: "5.7.0",
   ip: 0,

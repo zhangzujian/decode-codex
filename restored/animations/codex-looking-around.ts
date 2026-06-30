@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/codex-looking-around-BDscHCZy.js
-// CodexLookingAround chunk restored from the Codex webview bundle.
+// Lottie animation data restored from the Codex webview bundle.
 export const codexLookingAround = {
   v: "5.12.2",
   fr: 60,

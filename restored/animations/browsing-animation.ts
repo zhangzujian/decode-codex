@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/browsing_animation-ziZqoAwk.js
-// BrowsingAnimation chunk restored from the Codex webview bundle.
+// Lottie animation data restored from the Codex webview bundle.
 export const browsingAnimation = {
   v: "5.7.0",
   ip: 0,

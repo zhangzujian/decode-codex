@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/loader-CIO20QbK.js
-// Loader chunk restored from the Codex webview bundle.
+// Lottie animation data restored from the Codex webview bundle.
 export const loader = {
   v: "5.7.0",
   ip: 0,

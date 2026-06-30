@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/to_do_animation-DGUZkdLr.js
-// ToDoAnimation chunk restored from the Codex webview bundle.
+// Lottie animation data restored from the Codex webview bundle.
 export const toDoAnimation = {
   v: "5.7.0",
   ip: 0,

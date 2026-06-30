@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/internal-knowledge-icon-BqsH99c0.js
-// InternalKnowledgeIcon chunk restored from the Codex webview bundle.
+// Lottie animation data restored from the Codex webview bundle.
 export const internalKnowledgeIcon = {
   v: "5.7.5",
   fr: 100,

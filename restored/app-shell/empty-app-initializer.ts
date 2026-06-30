@@ -1,5 +1,4 @@
 // Restored from ref/webview/assets/app-BwRVouQs.js
-// App chunk restored from the Codex webview bundle.
-import { once } from "../runtime/commonjs-interop";
-export const app = once(() => {});
-export const initEmptyAppChunk = app;
+// Empty app bootstrap initializer restored from the Codex webview bundle.
+export function initEmptyAppChunk(): void {}
+export const app = initEmptyAppChunk;
