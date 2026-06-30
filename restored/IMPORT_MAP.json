@@ -2950,6 +2950,16 @@
       "aliasOf": "remote-middleware-DRFk97G2",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
+    "remote-middleware-PCES0C24": {
+      "restored": "vendor/segment-remote-middleware.ts",
+      "exports": {
+        "remoteMiddlewares": "remoteMiddleware"
+      },
+      "status": "done",
+      "aliasOf": "remote-middleware-DRFk97G2",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current ref hash keeps the restored Segment remote middleware resolver surface."
+    },
     "chunk-AGHRB4JF-Bxy73eEy": {
       "restored": "vendor/dayjs-core-alt.ts",
       "exports": {
@@ -14256,6 +14266,19 @@
       "note": "Current custom avatar query chunk keeps the same query-key, query-signal, selected-avatar refresh, and initializer surface as the existing semantic restore.",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
+    "custom-avatars-query-tr8cLFBL": {
+      "restored": "features/custom-avatars-query.ts",
+      "exports": {
+        "i": "selectedCustomAvatarRefreshQuery",
+        "n": "customAvatarsQuery",
+        "r": "initCustomAvatarsQueryChunk",
+        "t": "CUSTOM_AVATARS_QUERY_KEY"
+      },
+      "status": "done",
+      "aliasOf": "custom-avatars-query-Bodwj3U-",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current ref hash keeps the restored custom avatar query-key, query-signal, selected-avatar refresh, and initializer surface."
+    },
     "use-avatar-options-B31DUULL": {
       "restored": "utils/use-avatar-options.ts",
       "exports": {
@@ -14267,6 +14290,17 @@
       "status": "done",
       "note": "Synced current avatar option hook with semantic hook and initializer exports, reusing the restored custom avatar query feature module.",
       "lastUpdated": "2026-06-27T21:17:46.549Z"
+    },
+    "use-avatar-options-CMZnWjwp": {
+      "restored": "utils/use-avatar-options.ts",
+      "exports": {
+        "n": "useAvatarOptions",
+        "t": "initUseAvatarOptionsChunk"
+      },
+      "status": "done",
+      "aliasOf": "use-avatar-options-B31DUULL",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current ref hash keeps the restored avatar options hook and initializer surface."
     },
     "plan-pricing-BL-ew2t5": {
       "restored": "utils/plan-pricing.ts",
