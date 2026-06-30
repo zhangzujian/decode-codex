@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/setup-codex-wizard-step-view-DkZFzDpn.js
+// Restored from ref/webview/assets/setup-codex-wizard-step-view-BVC1Ci2i.js
 // Tracks one-time onboarding wizard step view events.
 
 import { useEffect, useRef } from "react";
@@ -7,6 +7,7 @@ import {
   _appScopeO as useCurrentAppScope,
   appScopeRoot,
 } from "../boundaries/app-scope";
+import { trackOnboardingWizardAction } from "../boundaries/thread-context-inputs.facade";
 import {
   getChunkModuleExports,
   initAppScope,
@@ -16,17 +17,6 @@ import {
   initScopeRuntime,
   onboardingWizardAction,
 } from "../runtime/shared-utility-runtime";
-import { trackOnboardingWizardAction } from "../boundaries/thread-context-inputs.facade";
-
-export const initSetupCodexWizardStepViewChunk = once(() => {
-  getChunkModuleExports();
-  initProductEventRuntime();
-  initScopeRuntime();
-  initReactRuntime();
-  initOnboardingWizardTrackingRuntime();
-  initAppScope();
-});
-
 export function useSetupCodexWizardStepView(
   phase: string,
   enabled: boolean = true,
@@ -43,3 +33,11 @@ export function useSetupCodexWizardStepView(
     );
   }, [enabled, phase, appScope]);
 }
+export const initSetupCodexWizardStepViewChunk = once(() => {
+  getChunkModuleExports();
+  initProductEventRuntime();
+  initScopeRuntime();
+  initReactRuntime();
+  initOnboardingWizardTrackingRuntime();
+  initAppScope();
+});
