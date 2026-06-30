@@ -5507,19 +5507,25 @@
     "union-8iT5ANuG": {
       "restored": "vendor/lodash-union.ts",
       "exports": {
-        "i": "unionR",
+        "i": "unionI",
         "n": "unionN",
-        "r": "unionT",
-        "t": "unionI"
+        "r": "unionR",
+        "t": "unionT"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as typed lodash baseClone/isUndefined/values/union helpers with aliases re-derived from union-8iT5ANuG.js.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "clone-Mnyt6qd1": {
       "restored": "vendor/lodash-clone.ts",
       "exports": {
         "t": "clone"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3Note": "Accepted as lodash clone over the corrected union-8iT5ANuG baseClone alias.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "document-BvkTVHtx": {
       "restored": "vendor/document-schema.ts",

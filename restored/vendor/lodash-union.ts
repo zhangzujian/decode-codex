@@ -1,115 +1,93 @@
 // Restored from ref/webview/assets/union-8iT5ANuG.js
-// Union chunk restored from the Codex webview bundle.
-import {
-  reduceN as _reduceS,
-  reduceE as reduceA,
-  reduceS as reduceB,
-  _reduceC,
-  reduceA as reduceE,
-  reduceG,
-  reduceN,
-  _reduceT,
-  reduceW,
-  reduceX,
-} from "./lodash-reduce";
-import {
-  baseForE,
-  baseForG,
-  baseForH,
-  baseForL,
-  baseForP,
-  baseForU,
-  baseForV,
-  baseForW,
-} from "./lodash-base-for";
-import { isEmptyN } from "./lodash-is-empty";
-import {
-  mergeA,
-  mergeC,
-  mergeF,
-  mergeI,
-  mergeN,
-  mergeO,
-  mergeP,
-  mergeR,
-  mergeS,
-  mergeU,
-  mergeUnderscore,
-} from "./lodash-merge";
-function unionHelper1(unionParam21, unionParam22) {
+// Lodash union/values/isUndefined/baseClone helpers restored from the Codex webview bundle.
+
+type CloneStack = WeakMap<object, unknown>;
+
+const CLONE_DEEP_FLAG = 1;
+const CLONE_FLAT_FLAG = 2;
+const CLONE_SYMBOLS_FLAG = 4;
+const objectToString = Object.prototype.toString;
+
+function isObjectLike(value: unknown): value is object {
   return (
-    unionParam21 && mergeF(unionParam22, reduceX(unionParam22), unionParam21)
+    value !== null && (typeof value === "object" || typeof value === "function")
   );
 }
-function unionHelper2(unionParam23, unionParam24) {
-  return (
-    unionParam23 && mergeF(unionParam24, mergeC(unionParam24), unionParam23)
+
+function sameValueZeroIncludes(values: unknown[], candidate: unknown): boolean {
+  return values.some(
+    (value) =>
+      value === candidate || (value !== value && candidate !== candidate),
   );
 }
-function unionHelper3(unionParam27, unionParam28) {
-  return mergeF(unionParam27, reduceN(unionParam27), unionParam28);
-}
-var unionValue1 = Object.getOwnPropertySymbols
-  ? function (unionParam14) {
-      for (var unionValue74 = []; unionParam14; ) {
-        _reduceT(unionValue74, reduceN(unionParam14));
-        unionParam14 = mergeS(unionParam14);
-      }
-      return unionValue74;
+
+function enumerableKeys(
+  value: object,
+  includeInherited: boolean,
+): PropertyKey[] {
+  const keys: PropertyKey[] = includeInherited ? [] : Object.keys(value);
+
+  if (includeInherited) {
+    for (const key in value) {
+      keys.push(key);
     }
-  : _reduceC;
-function unionHelper4(unionParam29, unionParam30) {
-  return mergeF(unionParam29, unionValue1(unionParam29), unionParam30);
+  }
+
+  return keys;
 }
-function unionHelper5(unionParam33) {
-  return reduceW(unionParam33, mergeC, unionValue1);
+
+function enumerableSymbols(value: object, includeInherited: boolean): symbol[] {
+  const symbols: symbol[] = [];
+  let current: object | null = value;
+
+  while (current) {
+    symbols.push(
+      ...Object.getOwnPropertySymbols(current).filter((symbol) =>
+        Object.prototype.propertyIsEnumerable.call(current, symbol),
+      ),
+    );
+
+    if (!includeInherited) {
+      break;
+    }
+
+    current = Object.getPrototypeOf(current);
+  }
+
+  return symbols;
 }
-var unionValue2 = Object.prototype.hasOwnProperty;
-function unionHelper6(unionParam10) {
-  var unionValue70 = unionParam10.length,
-    unionValue71 = new unionParam10.constructor(unionValue70);
-  return (
-    unionValue70 &&
-      typeof unionParam10[0] == "string" &&
-      unionValue2.call(unionParam10, "index") &&
-      ((unionValue71.index = unionParam10.index),
-      (unionValue71.input = unionParam10.input)),
-    unionValue71
-  );
+
+function cloneArrayBuffer(buffer: ArrayBuffer): ArrayBuffer {
+  return buffer.slice(0);
 }
-function unionHelper7(unionParam11, unionParam12) {
-  var unionValue72 = unionParam12
-    ? mergeA(unionParam11.buffer)
-    : unionParam11.buffer;
-  return new unionParam11.constructor(
-    unionValue72,
-    unionParam11.byteOffset,
-    unionParam11.byteLength,
-  );
+
+function cloneTypedArray<T extends ArrayBufferView>(
+  value: T,
+  isDeep: boolean,
+): T {
+  const ctor = value.constructor as {
+    new (buffer: ArrayBuffer, byteOffset: number, length?: number): T;
+  };
+  const buffer = isDeep ? cloneArrayBuffer(value.buffer) : value.buffer;
+  const length =
+    "length" in value ? (value as { length: number }).length : undefined;
+  return new ctor(buffer, value.byteOffset, length);
 }
-var unionValue3 = /\w*$/;
-function unionHelper8(unionParam13) {
-  var unionValue73 = new unionParam13.constructor(
-    unionParam13.source,
-    unionValue3.exec(unionParam13),
-  );
-  return ((unionValue73.lastIndex = unionParam13.lastIndex), unionValue73);
-}
-var unionValue4 = baseForE ? baseForE.prototype : undefined,
-  unionValue5 = unionValue4 ? unionValue4.valueOf : undefined;
-function unionHelper9(unionParam19) {
-  return unionValue5 ? Object(unionValue5.call(unionParam19)) : {};
-}
-function _e(unionParam7, unionParam8, unionParam9) {
-  var unionValue69 = unionParam7.constructor;
-  switch (unionParam8) {
+
+function initCloneByTag(value: object, tag: string, isDeep: boolean): unknown {
+  const ctor = value.constructor as new (...args: unknown[]) => unknown;
+
+  switch (tag) {
     case "[object ArrayBuffer]":
-      return mergeA(unionParam7);
+      return cloneArrayBuffer(value as ArrayBuffer);
     case "[object Boolean]":
     case "[object Date]":
-      return new unionValue69(+unionParam7);
-    case "[object DataView]":
-      return unionHelper7(unionParam7, unionParam9);
+      return new ctor(+(value as Date));
+    case "[object DataView]": {
+      const view = value as DataView;
+      const buffer = isDeep ? cloneArrayBuffer(view.buffer) : view.buffer;
+      return new DataView(buffer, view.byteOffset, view.byteLength);
+    }
     case "[object Float32Array]":
     case "[object Float64Array]":
     case "[object Int8Array]":
@@ -119,182 +97,161 @@ function _e(unionParam7, unionParam8, unionParam9) {
     case "[object Uint8ClampedArray]":
     case "[object Uint16Array]":
     case "[object Uint32Array]":
-      return mergeI(unionParam7, unionParam9);
+      return cloneTypedArray(value as ArrayBufferView, isDeep);
     case "[object Map]":
-      return new unionValue69();
+      return new Map();
     case "[object Number]":
     case "[object String]":
-      return new unionValue69(unionParam7);
-    case "[object RegExp]":
-      return unionHelper8(unionParam7);
+      return new ctor(value.valueOf());
+    case "[object RegExp]": {
+      const regexp = value as RegExp;
+      const clone = new RegExp(regexp.source, /\w*$/.exec(String(regexp))?.[0]);
+      clone.lastIndex = regexp.lastIndex;
+      return clone;
+    }
     case "[object Set]":
-      return new unionValue69();
+      return new Set();
     case "[object Symbol]":
-      return unionHelper9(unionParam7);
+      return Object((value as { valueOf(): symbol }).valueOf());
+    default:
+      return undefined;
   }
 }
-function unionHelper10(unionParam25) {
-  return baseForH(unionParam25) && isEmptyN(unionParam25) == "[object Map]";
+
+function initObjectClone(value: object, isFlat: boolean): object {
+  if (isFlat || objectToString.call(value) === "[object Function]") {
+    return {};
+  }
+
+  return Object.create(Object.getPrototypeOf(value));
 }
-var unionValue26 = baseForL && baseForL.isMap,
-  be = unionValue26 ? baseForU(unionValue26) : unionHelper10;
-function unionHelper11(unionParam26) {
-  return baseForH(unionParam26) && isEmptyN(unionParam26) == "[object Set]";
-}
-var unionValue28 = baseForL && baseForL.isSet,
-  unionValue29 = unionValue28 ? baseForU(unionValue28) : unionHelper11,
-  unionValue59 = {};
-unionValue59["[object Arguments]"] =
-  unionValue59["[object Array]"] =
-  unionValue59["[object ArrayBuffer]"] =
-  unionValue59["[object DataView]"] =
-  unionValue59["[object Boolean]"] =
-  unionValue59["[object Date]"] =
-  unionValue59["[object Float32Array]"] =
-  unionValue59["[object Float64Array]"] =
-  unionValue59["[object Int8Array]"] =
-  unionValue59["[object Int16Array]"] =
-  unionValue59["[object Int32Array]"] =
-  unionValue59["[object Map]"] =
-  unionValue59["[object Number]"] =
-  unionValue59["[object Object]"] =
-  unionValue59["[object RegExp]"] =
-  unionValue59["[object Set]"] =
-  unionValue59["[object String]"] =
-  unionValue59["[object Symbol]"] =
-  unionValue59["[object Uint8Array]"] =
-  unionValue59["[object Uint8ClampedArray]"] =
-  unionValue59["[object Uint16Array]"] =
-  unionValue59["[object Uint32Array]"] =
-    true;
-unionValue59["[object Error]"] =
-  unionValue59["[object Function]"] =
-  unionValue59["[object WeakMap]"] =
-    false;
-function unionI(
-  unionParam1,
-  unionParam2,
-  unionParam3,
-  unionParam4,
-  unionParam5,
-  unionParam6,
-) {
-  var unionValue60,
-    unionValue61 = unionParam2 & 1,
-    unionValue62 = unionParam2 & 2,
-    unionValue63 = unionParam2 & 4;
-  if (
-    (unionParam3 &&
-      (unionValue60 = unionParam5
-        ? unionParam3(unionParam1, unionParam4, unionParam5, unionParam6)
-        : unionParam3(unionParam1)),
-    unionValue60 !== undefined)
-  )
-    return unionValue60;
-  if (!baseForW(unionParam1)) return unionParam1;
-  var unionValue64 = baseForG(unionParam1);
-  if (unionValue64) {
-    if (((unionValue60 = unionHelper6(unionParam1)), !unionValue61))
-      return mergeUnderscore(unionParam1, unionValue60);
+
+export function unionI<T>(
+  value: T,
+  bitmask: number = 0,
+  customizer?: (
+    value: unknown,
+    key?: PropertyKey,
+    object?: unknown,
+    stack?: CloneStack,
+  ) => unknown,
+  key?: PropertyKey,
+  object?: unknown,
+  stack: CloneStack = new WeakMap(),
+): T {
+  const customClone = customizer?.(value, key, object, stack);
+
+  if (customClone !== undefined) {
+    return customClone as T;
+  }
+
+  if (!isObjectLike(value)) {
+    return value;
+  }
+
+  const isDeep = Boolean(bitmask & CLONE_DEEP_FLAG);
+  const isFlat = Boolean(bitmask & CLONE_FLAT_FLAG);
+  const includeSymbols = Boolean(bitmask & CLONE_SYMBOLS_FLAG);
+  const tag = objectToString.call(value);
+  const source = value as object;
+  let clone: unknown;
+
+  if (Array.isArray(value)) {
+    clone = new Array(value.length);
+    if (!isDeep) {
+      return value.slice() as T;
+    }
+  } else if (tag === "[object Object]" || tag === "[object Arguments]") {
+    clone = initObjectClone(source, isFlat);
   } else {
-    var unionValue65 = isEmptyN(unionParam1),
-      unionValue66 =
-        unionValue65 == "[object Function]" ||
-        unionValue65 == "[object GeneratorFunction]";
-    if (baseForP(unionParam1)) return mergeO(unionParam1, unionValue61);
-    if (
-      unionValue65 == "[object Object]" ||
-      unionValue65 == "[object Arguments]" ||
-      (unionValue66 && !unionParam5)
-    ) {
-      if (
-        ((unionValue60 =
-          unionValue62 || unionValue66 ? {} : mergeR(unionParam1)),
-        !unionValue61)
-      )
-        return unionValue62
-          ? unionHelper4(unionParam1, unionHelper2(unionValue60, unionParam1))
-          : unionHelper3(unionParam1, unionHelper1(unionValue60, unionParam1));
-    } else {
-      if (!unionValue59[unionValue65]) return unionParam5 ? unionParam1 : {};
-      unionValue60 = _e(unionParam1, unionValue65, unionValue61);
+    clone = initCloneByTag(source, tag, isDeep);
+    if (clone === undefined) {
+      return object ? value : ({} as T);
     }
   }
-  unionParam6 ||= new baseForV();
-  var unionValue67 = unionParam6.get(unionParam1);
-  if (unionValue67) return unionValue67;
-  unionParam6.set(unionParam1, unionValue60);
-  unionValue29(unionParam1)
-    ? unionParam1.forEach(function (item) {
-        unionValue60.add(
-          unionI(
-            item,
-            unionParam2,
-            unionParam3,
-            item,
-            unionParam1,
-            unionParam6,
-          ),
-        );
-      })
-    : be(unionParam1) &&
-      unionParam1.forEach(function (item, index) {
-        unionValue60.set(
-          index,
-          unionI(
-            item,
-            unionParam2,
-            unionParam3,
-            index,
-            unionParam1,
-            unionParam6,
-          ),
-        );
-      });
-  var unionValue68 = unionValue64
-    ? undefined
-    : (unionValue63
-        ? unionValue62
-          ? unionHelper5
-          : reduceB
-        : unionValue62
-          ? mergeC
-          : reduceX)(unionParam1);
-  return (
-    reduceG(unionValue68 || unionParam1, function (unionParam17, unionParam18) {
-      unionValue68 &&
-        ((unionParam18 = unionParam17),
-        (unionParam17 = unionParam1[unionParam18]));
-      mergeP(
-        unionValue60,
-        unionParam18,
-        unionI(
-          unionParam17,
-          unionParam2,
-          unionParam3,
-          unionParam18,
-          unionParam1,
-          unionParam6,
-        ),
+
+  const cloneObject = clone as Record<PropertyKey, unknown>;
+  const stackedClone = stack.get(source);
+
+  if (stackedClone) {
+    return stackedClone as T;
+  }
+
+  stack.set(source, clone);
+
+  if (value instanceof Set) {
+    value.forEach((item) => {
+      (clone as Set<unknown>).add(
+        unionI(item, bitmask, customizer, item, value, stack),
       );
-    }),
-    unionValue60
-  );
+    });
+    return clone as T;
+  }
+
+  if (value instanceof Map) {
+    value.forEach((item, mapKey) => {
+      (clone as Map<unknown, unknown>).set(
+        mapKey,
+        unionI(item, bitmask, customizer, mapKey, value, stack),
+      );
+    });
+    return clone as T;
+  }
+
+  const keys = enumerableKeys(source, isFlat);
+  const symbols = includeSymbols ? enumerableSymbols(source, isFlat) : [];
+
+  for (const propertyKey of [...keys, ...symbols]) {
+    cloneObject[propertyKey] = isDeep
+      ? unionI(
+          (source as Record<PropertyKey, unknown>)[propertyKey],
+          bitmask,
+          customizer,
+          propertyKey,
+          value,
+          stack,
+        )
+      : (source as Record<PropertyKey, unknown>)[propertyKey];
+  }
+
+  return clone as T;
 }
-function unionHelper12(unionParam15, unionParam16) {
-  return reduceE(unionParam16, function (unionParam34) {
-    return unionParam15[unionParam34];
-  });
+
+export function unionN(value: unknown): value is undefined {
+  return value === undefined;
 }
-export function unionR(unionParam20) {
-  return unionParam20 == null
-    ? []
-    : unionHelper12(unionParam20, reduceX(unionParam20));
+
+export function unionR(value: unknown): unknown[];
+export function unionR<T>(value: T, bitmask: number): T;
+export function unionR<T>(value: T, bitmask?: number): T | unknown[] {
+  if (bitmask !== undefined) {
+    return unionI(value, bitmask);
+  }
+
+  if (value == null) {
+    return [];
+  }
+
+  const objectValue = Object(value) as Record<string, unknown>;
+  return Object.keys(objectValue).map((key) => objectValue[key]);
 }
-export function unionN(unionParam32) {
-  return unionParam32 === undefined;
+
+export function unionT(
+  ...arrays: Array<Iterable<unknown> | ArrayLike<unknown> | null | undefined>
+): unknown[] {
+  const result: unknown[] = [];
+
+  for (const arrayLike of arrays) {
+    if (arrayLike == null) {
+      continue;
+    }
+
+    for (const value of Array.from(arrayLike)) {
+      if (!sameValueZeroIncludes(result, value)) {
+        result.push(value);
+      }
+    }
+  }
+
+  return result;
 }
-export const unionT = mergeU(function (unionParam31) {
-  return reduceA(_reduceS(unionParam31, 1, mergeN, true));
-});
-export { unionI };
