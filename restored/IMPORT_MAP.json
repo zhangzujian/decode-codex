@@ -26462,6 +26462,17 @@
       "lastUpdated": "2026-06-30T00:00:00.000Z",
       "stage3Review": "Host self-review: current source export table was re-derived from ref/webview/assets/app-initial~app-main~register-app-actions-CTTYxHO5.js and matched the restored register-app-actions aliases; quality-gate and prettier passed on the mapped public file."
     },
+    "register-app-actions-CrtQ5J4S": {
+      "restored": "app-shell/app-action-registry.ts",
+      "exports": {
+        "appActionRegistry": "appActionRegistry"
+      },
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current app action registry chunk re-derived from register-app-actions-CrtQ5J4S.js; imports are mechanically rewritten through restored public current-runtime facades and it preserves the appActionRegistry export used by remote-projects app action dispatch.",
+      "stage3Accepted": true,
+      "stage3Review": "Host self-review: parsed current source export table ($ as appActionRegistry), verified all six dependency import blocks resolve through IMPORT_MAP to public restored modules, preserved the registry construction and action run-map export, and quality-gate passes."
+    },
     "app-initial~app-main~remote-conversation-page~pull-requests-page~new-thread-panel-page~proj~jolrh1c9-UBdbdM9i": {
       "restored": "runtime/current-app-initial/git-config-value-current-runtime.ts",
       "exports": {
