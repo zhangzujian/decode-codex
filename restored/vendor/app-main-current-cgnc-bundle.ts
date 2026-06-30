@@ -1393,81 +1393,81 @@ import {
   yt as que,
 } from "./diagram-definition-current-runtime";
 import {
-  i as Ld,
-  n as Rd,
-  r as zd,
-  t as Jue,
-} from "../boundaries/current-ref/current-app-initial-preferred-agent-mode-runtime-producer";
+  agentModeByHostIdAtom as Jue,
+  getAgentModeForHost as zd,
+  initPreferredAgentModeRuntimeChunk as Ld,
+  preferredNonFullAccessAgentModeByHostIdAtom as Rd,
+} from "../runtime/current-app-initial/preferred-agent-mode-runtime";
 import {
-  n as Bd,
-  t as Vd,
-} from "../boundaries/current-ref/appgen-plug-icon-producer";
+  AppgenPlugIcon as Vd,
+  initAppgenPlugIconChunk as Bd,
+} from "../icons/appgen-plug-icon";
 import {
-  b as Hd,
-  h as Yue,
-  m as Ud,
-  n as Xue,
-  t as Zue,
-  y as Wd,
-} from "../boundaries/current-ref/current-app-initial-renderer-error-boundary-runtime-producer";
+  CODEX_APP_NAME as Ud,
+  ErrorBoundary as Zue,
+  InfoCircleIcon as Wd,
+  initCodexAppIdentityChunk as Yue,
+  initErrorBoundaryRuntimeChunk as Xue,
+  initInfoCircleIconChunk as Hd,
+} from "../runtime/renderer-error-boundary-runtime";
 import {
-  a as Gd,
-  i as Kd,
-} from "../boundaries/current-ref/current-app-initial-plugin-logo-card-runtime-producer";
+  CodexKnotLogoIcon as Gd,
+  initAppBrandLogoChunk as Kd,
+} from "../runtime/current-app-initial/plugin-logo-card-runtime";
 import {
-  n as Que,
-  r as $ue,
-} from "../boundaries/current-ref/current-app-initial-appgen-access-query-runtime-producer";
+  initAppgenAccessQueryRuntimeChunk as Que,
+  useAppgenSitesEntryPointEnabled as $ue,
+} from "../runtime/current-app-initial/appgen-access-query-runtime";
 import {
-  n as qd,
-  t as Jd,
-} from "../boundaries/current-ref/cloud-terminal-icon-producer";
+  CloudTerminalIcon as Jd,
+  initCloudTerminalIconChunk as qd,
+} from "../icons/cloud-terminal-icon";
 import {
-  a as Yd,
-  c as Xd,
-  i as Zd,
-  l as Qd,
-  n as $d,
-  o as ef,
-  r as tf,
-  s as nf,
-  t as rf,
-} from "../boundaries/current-ref/current-app-initial-conversation-title-platform-icon-runtime-producer";
+  BrowserCommentComposerShell as rf,
+  browserCommentComposerProseClassName as Zd,
+  browserCommentComposerSurfaceStyle as ef,
+  browserCommentFooterClassName as tf,
+  browserCommentInputAbsoluteClassName as Yd,
+  initBrowserCommentComposerShellChunk as $d,
+  initBrowserCommentComposerStyleChunk as nf,
+  initBrowserCommentPreviewParserChunk as Xd,
+  parseCommentPreviewSegments as Qd,
+} from "../runtime/current-app-initial/conversation-title-platform-icon-runtime";
 import {
-  c as af,
-  n as ede,
-  s as of,
-  t as tde,
-} from "../boundaries/current-ref/current-app-initial-plugin-logo-card-runtime-producer";
+  AppLoadingScreen as tde,
+  initAppLoadingScreenChunk as ede,
+  initBrandLogoDataUrlRuntimeChunk as af,
+  svgToDataImageUri as of,
+} from "../runtime/current-app-initial/plugin-logo-card-runtime";
 import {
-  A as nde,
-  _ as sf,
-  h as cf,
-  j as rde,
-  v as ide,
-  y as ade,
-} from "../boundaries/current-ref/current-app-initial-appgen-settings-publication-runtime-producer";
+  AppgenSettingsPencilIcon as ide,
+  AppgenSettingsPublicationIcon as nde,
+  getAppgenSettingsFilesystemMediaSrc as cf,
+  initAppgenSettingsFilesystemMediaChunk as sf,
+  initAppgenSettingsPencilIconChunk as ade,
+  initAppgenSettingsPublicationIconChunk as rde,
+} from "../appgen/settings-publication-runtime";
 import {
-  n as ode,
-  t as sde,
-} from "../boundaries/current-ref/edit-pencil-icon-producer";
+  EditPencilIcon as sde,
+  initEditPencilIconChunk as ode,
+} from "../icons/edit-pencil-icon";
 import {
-  m as cde,
-  p as lde,
-} from "../boundaries/current-ref/current-app-initial-agent-settings-diagnostics-runtime-producer";
+  initPrimaryRuntimeInstallRequestStateChunk as lde,
+  requestPrimaryRuntimeInstall as cde,
+} from "../runtime/current-app-initial/agent-settings-diagnostics-runtime";
 import {
-  n as lf,
-  t as uf,
-} from "../boundaries/current-ref/browser-cursor-icon-producer";
+  BrowserCursorIcon as uf,
+  initBrowserCursorIconChunk as lf,
+} from "../icons/browser-cursor-icon";
 import {
-  i as ude,
-  r as dde,
-  t as fde,
-} from "../boundaries/current-ref/current-app-initial-review-comment-count-labels-runtime-producer";
+  formatCommentAttachmentKindCount as fde,
+  formatRemoveCommentAttachmentLabel as dde,
+  initReviewCommentCountLabelsRuntimeChunk as ude,
+} from "../runtime/current-app-initial/review-comment-count-labels-runtime";
 import {
-  n as pde,
-  t as mde,
-} from "../boundaries/current-ref/browser-window-icon-producer";
+  BrowserWindowIcon as mde,
+  initBrowserWindowIconChunk as pde,
+} from "../icons/browser-window-icon";
 var df,
   ff,
   pf = e(() => {

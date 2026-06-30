@@ -1149,36 +1149,35 @@ import {
   zs as hv,
 } from "./app-main-current-cgnc-bundle";
 import {
-  T as gv,
-  _ as _v,
-  g as vv,
-  w as yv,
-} from "../boundaries/current-ref/current-app-initial-project-hover-card-current-producer";
+  RemoteHostGlobeIcon as vv,
+  initRemoteHostGlobeIconChunk as _v,
+} from "../sidebar/project-hover-card";
+import { QuestionMarkCircleIcon as yv } from "../icons/question-mark-circle-icon";
 import {
-  a as bv,
-  i as xv,
-} from "../boundaries/current-ref/current-app-initial-preferred-agent-mode-runtime-producer";
+  initPreferredAgentModeRuntimeChunk as xv,
+  setDefaultAgentModeForHost as bv,
+} from "../runtime/current-app-initial/preferred-agent-mode-runtime";
 import {
-  C as Sv,
-  j as Cv,
-  m as wv,
-  p as Tv,
-  w as Ev,
-} from "../boundaries/current-ref/current-app-initial-onboarding-select-workspace-current-runtime-producer";
+  initOnboardingStateChunk as Cv,
+  initUseIsRemoteHostChunk as Tv,
+  primaryRuntimeInstallReadyAtom as Sv,
+  primaryRuntimeInstallRequestedAtom as Ev,
+  useIsRemoteHost as wv,
+} from "../runtime/current-app-initial/onboarding-select-workspace-current-runtime";
 import {
-  n as Dv,
-  t as Ov,
-} from "../boundaries/current-ref/appgen-plug-icon-producer";
+  AppgenPlugIcon as Ov,
+  initAppgenPlugIconChunk as Dv,
+} from "../icons/appgen-plug-icon";
 import {
-  b as kv,
-  h as Av,
-  m as jv,
-  y as Mv,
-} from "../boundaries/current-ref/current-app-initial-renderer-error-boundary-runtime-producer";
+  CODEX_APP_NAME as jv,
+  InfoCircleIcon as Mv,
+  initCodexAppIdentityChunk as Av,
+  initInfoCircleIconChunk as kv,
+} from "../runtime/renderer-error-boundary-runtime";
 import {
-  r as Nv,
-  t as Pv,
-} from "../boundaries/current-ref/current-app-initial-git-config-value-query-current-producer";
+  gitConfigValueByMetadataQuerySignal as Pv,
+  initGitConfigValueQueryChunk as Nv,
+} from "../github/git-config-value-query-b-kg-flj-zw";
 import {
   G as Fv,
   I as Iv,
@@ -1215,47 +1214,50 @@ import {
   z as py,
 } from "./appgen-library-hot-current-runtime-bundle";
 import {
-  C as my,
-  M as hy,
-  N as gy,
-  S as _y,
-  _ as vy,
-  g as yy,
-  h as by,
-  v as xy,
-  y as Sy,
-} from "../boundaries/current-ref/current-app-initial-appgen-settings-publication-runtime-producer";
+  AppgenPublicationTermsFallbackIcon as hy,
+  AppgenSettingsOpenAiIcon as _y,
+  AppgenSettingsPencilIcon as xy,
+  getAppgenSettingsFilesystemMediaPath as yy,
+  getAppgenSettingsFilesystemMediaSrc as by,
+  initAppgenPublicationTermsFallbackIconChunk as gy,
+  initAppgenSettingsFilesystemMediaChunk as vy,
+  initAppgenSettingsOpenAiIconChunk as my,
+  initAppgenSettingsPencilIconChunk as Sy,
+} from "../appgen/settings-publication-runtime";
 import {
-  nt as Cy,
-  tt as wy,
-} from "../boundaries/current-ref/current-app-initial-general-appearance-current-producer";
+  MoonIcon as wy,
+  initMoonIconChunk as Cy,
+} from "../settings/general-appearance-runtime";
 import {
-  a as Ty,
-  c as Ey,
-  f as Dy,
-  o as Oy,
-  r as ky,
-} from "../boundaries/current-ref/current-app-initial-sidebar-onboarding-checklist-current-producer";
+  getSidebarOnboardingChecklistState as Ty,
+  initSidebarOnboardingChecklistStateChunk as Oy,
+  isSidebarOnboardingChecklistItemComplete as Ey,
+  markSidebarOnboardingChecklistItemComplete as ky,
+  sidebarOnboardingChecklistStateByAccountIdSignal as Dy,
+} from "../onboarding/sidebar-onboarding-checklist-state";
 import {
-  c as Ay,
-  l as jy,
-  s as My,
-  u as Ny,
-} from "../boundaries/current-ref/current-app-initial-local-conversation-current-runtime-producer";
+  CommandMenuItem as My,
+  initCommandMenuItemComponent as Ay,
+} from "../ui/command-menu-item";
 import {
-  a as Py,
-  n as Fy,
-  r as Iy,
-  t as Ly,
-} from "../boundaries/current-ref/current-app-initial-appshot-current-producer";
+  highlightTextSegments as jy,
+  initHighlightTextSegmentsChunk as Ny,
+} from "../ui/slash-command-item";
 import {
-  n as Ry,
-  t as zy,
-} from "../boundaries/current-ref/shield-alert-icon-producer";
+  appshotAvailabilityByHost as Py,
+  appshotLogo as Ly,
+  initAppshotAvailabilityChunk as Iy,
+  initAppshotLogoChunk as Fy,
+} from "../features/appshot";
 import {
-  n as By,
-  t as Vy,
-} from "../boundaries/current-ref/usage-gauge-icon-producer";
+  ShieldAlertIcon as zy,
+  initShieldAlertIconChunk as Ry,
+} from "../icons/shield-alert-icon";
+import {
+  UsageGaugeIcon as Vy,
+  initUsageGaugeIconChunk as By,
+} from "../icons/usage-gauge-icon";
+function gv() {}
 function Hy(e, t, n) {
   if (t === `transcription`) {
     if (n instanceof K) {
