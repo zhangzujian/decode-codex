@@ -12516,10 +12516,9 @@
     },
     "app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~ovcriy74-KTK3czaX": {
       "restored": "vendor/projects-app-shared-runtime.ts",
-      "status": "partial",
-      "note": "Legacy projects-app shared compatibility facade. The ovcriy74-KTK3czaX chunk is absent from the current ref snapshot; the raw aliases still consumed by restored modules are all exported by the current app-main/new-thread producer chunk recorded in compatibilitySource. Keep this as an open partial boundary until the producer is semantically split.",
-      "lastUpdated": "2026-06-28T22:10:00.000Z",
-      "boundary": "boundaries/current-ref/projects-app-shared-producer.ts",
+      "status": "done",
+      "note": "Legacy projects-app shared chunk is absent from the current ref. The compatibility facade now aliases the done current app-main/new-thread source recorded in compatibilitySource and the done iy8s9c2d remote/projects runtime; projects-app raw aliases were verified against vendor/remote-projects-app-shared-current-bundle.ts.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
       "compatibilitySource": "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj"
     },
     "app-initial~app-main~automations-page-bHJfYUGr": {
