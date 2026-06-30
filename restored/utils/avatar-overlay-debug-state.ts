@@ -1,18 +1,19 @@
-// Restored from ref/webview/assets/avatar-overlay-debug-state-Bc374YAh.js
-// Persistent debug flag for hiding the avatar overlay resize button.
-
+// Restored from ref/webview/assets/avatar-overlay-debug-state-WM6He6by.js
+// avatar-overlay-debug-state-WM6He6by chunk restored from the Codex webview bundle.
 import { once } from "../runtime/commonjs-interop";
 import {
   createPersistentSignal,
   initPersistentSignalRuntime,
 } from "../runtime/shared-utility-runtime";
-
-export let avatarOverlayResizeButtonHiddenSignal: unknown;
-
-export const initAvatarOverlayDebugStateChunk = once(() => {
+let avatarOverlayResizeButtonHiddenSignal: unknown;
+const initAvatarOverlayDebugStateChunk = once(() => {
   initPersistentSignalRuntime();
   avatarOverlayResizeButtonHiddenSignal = createPersistentSignal(
     "avatar-overlay-resize-button-hidden",
     false,
   );
 });
+export {
+  initAvatarOverlayDebugStateChunk,
+  avatarOverlayResizeButtonHiddenSignal,
+};
