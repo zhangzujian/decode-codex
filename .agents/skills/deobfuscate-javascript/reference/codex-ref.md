@@ -328,24 +328,27 @@ assign correct domain paths via `ledger.ts set-organization`. The `vendor/`
 domain is reserved for bare npm re-export shims and thin passthrough facades —
 not for aggregator bodies.
 
-**Red flag 3 — Inconsistent manifest stages.**
-`stages.organized = true` while `stages.renamed = false` on a `kind: local`
-chunk is a contradiction: organized means a semantic path was chosen, but
-renamed means the code identifiers were never fixed. This combination indicates
-the organize step created a *facade* (like the 6.3 KB re-export barrel at
-`vendor/automations-page-current-runtime.ts`) without actually deobfuscating
-the body. Treat it as an unfinished state: the alias-map sub-task is complete
-but the body restoration is pending.
+**Red flag 3 — Facade promoted in place of a body.**
+The tell-tale is a large `kind: local`, `classification: app-feature` chunk
+marked **`stages.promoted = true`** whose organize-path file is a **pure
+re-export barrel** — the `current-ref` producer facade (e.g. the 6.4 KB
+`vendor/automations-page-current-runtime.ts`, all `export { … } from "…"`, zero
+`function`/`class`/arrow bodies). It means the alias-map sub-task finished and
+flipped every stage flag (`renamed`/`polished`/`finalized`/`promoted` all true
+via `source: "agent-current-ref-alias"`), but the 43k-line body was never
+deobfuscated into semantic files. Do **not** trust the stage flags alone here:
+the early symptom `stages.organized = true` while `stages.renamed = false` only
+shows _before_ the alias agent flips the flags; once it does, the flags lie and
+the **barrel shape** is the reliable signal.
 
-`quality-gate.ts` flags the symptom (`full-restoration-checkpoints-not-drained`)
-but does not distinguish between "checkpoint promoted" and "facade promoted".
-Until the gate is hardened for this case, the manual check is:
-
-```bash
-# A promoted aggregator body must be > 2 KB at its organize path.
-# A < 2 KB file at the organize path is a facade, not a promotion.
-wc -c restored/<organize-domain-path>
-```
+`quality-gate.ts <target>` now detects this directly:
+**`full-restoration-aggregator-body-not-restored`** flags any local app-feature
+chunk ≥ 4 000 source lines that is promoted to a re-export-only barrel (the size
+heuristic — "facade < 2 KB" — was wrong; this facade is 6.4 KB, so the gate
+keys off the barrel _shape_, not bytes). Vendor-npm / vendor-runtime
+classifications and small chunks are exempt; `--allow-organize-incomplete`
+suppresses it for an intermediate run. A clean `quality-gate.ts <target>` is the
+proof; do not declare the body done while this code is present.
 
 ### Correct closure for an aggregator chunk
 

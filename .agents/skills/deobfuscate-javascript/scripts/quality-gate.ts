@@ -536,7 +536,14 @@ export type FileQualityReport = {
 type FullRestorationManifestFile = {
   basename?: string;
   kind?: string;
+  lineCount?: number;
   stages?: Record<string, unknown>;
+  organization?: {
+    domain?: string;
+    semanticPath?: string;
+    classification?: string;
+    recipe?: string;
+  };
 };
 
 type FullRestorationImportMapEntry = {
@@ -2503,12 +2510,40 @@ function looksLikeContentHashedChunkBasename(basename: string): boolean {
 }
 
 /**
+ * A pure re-export barrel: re-exports symbols from other modules
+ * (`export { … } from "…"` / `export * from "…"`) and contains no real bodies
+ * (no `function` / `class` / arrow). This is the shape of a `current-ref`
+ * producer facade — fine as the alias-map sub-task, but NOT a body restoration.
+ */
+function isReExportBarrel(src: string): boolean {
+  const code = src
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/(^|[^:])\/\/.*$/gm, "$1");
+  const hasReExport =
+    /export\s*(?:\*|\{[\s\S]*?\})\s*from\s*["']/.test(code) ||
+    /export\s*\*\s*as\s+\w+\s*from\s*["']/.test(code);
+  const hasBody =
+    /\bfunction\b/.test(code) || /\bclass\b/.test(code) || /=>/.test(code);
+  return hasReExport && !hasBody;
+}
+
+/**
+ * Source-line count above which a `kind: local` app-feature chunk promoted to a
+ * pure re-export barrel is treated as a facade-promotion (body never restored),
+ * not a legitimately tiny module. The two real aggregators are 43k and 130k
+ * lines; a genuine barrel-only deliverable comes from a small source.
+ */
+const AGGREGATOR_BODY_LINE_THRESHOLD = 4000;
+
+/**
  * The anti-stall checks: a whole-tree restore that built mechanical checkpoints
  * but never promoted them into the public tree (the "checkpoints full, restored/
- * empty" failure), and the structural "a promoted public file is still sitting in
- * a hash-named chunk directory" failure. Computable from the manifest + the
- * staging tree alone — they fire even before IMPORT_MAP.json exists, which is the
- * exact state a stalled restore is left in.
+ * empty" failure), the structural "a promoted public file is still sitting in
+ * a hash-named chunk directory" failure, and the "facade promoted in place of a
+ * body" failure (a large app-feature aggregator marked promoted whose promoted
+ * file is only a `current-ref` re-export producer barrel). Computable from the
+ * manifest + the staging tree alone — they fire even before IMPORT_MAP.json
+ * exists, which is the exact state a stalled restore is left in.
  */
 function analyzeOrganizePromoteState(
   targetDir: string,
@@ -2521,6 +2556,11 @@ function analyzeOrganizePromoteState(
   const localBasenames = new Set<string>();
   const promoted = new Set<string>();
   const finalizedNotPromoted: string[] = [];
+  const facadePromoted: Array<{
+    basename: string;
+    semanticPath: string;
+    lineCount: number;
+  }> = [];
   for (const [fallback, file] of manifestFiles(manifest)) {
     if (file.kind !== "local" && file.kind !== "oversized-local") continue;
     const basename = file.basename ?? fallback;
@@ -2530,8 +2570,39 @@ function analyzeOrganizePromoteState(
     }
     const stages = file.stages ?? {};
     if (stages.faced) continue; // a facade boundary is not promotable
-    if (stages.promoted) promoted.add(basename);
-    else if (stages.finalized) finalizedNotPromoted.push(basename);
+    if (stages.promoted) {
+      promoted.add(basename);
+      // Facade-promoted aggregator: a large app-feature chunk marked promoted
+      // whose promoted file is only a re-export producer barrel. The alias-map
+      // sub-task is done but the chunk body was never restored. (Red Flag 3 in
+      // reference/codex-ref.md — the gate previously could not see this.)
+      const org = file.organization;
+      const cls = org?.classification;
+      const lineCount = file.lineCount ?? 0;
+      if (
+        org?.semanticPath &&
+        cls !== "vendor-npm" &&
+        cls !== "vendor-runtime" &&
+        lineCount >= AGGREGATOR_BODY_LINE_THRESHOLD
+      ) {
+        const resolved = resolvePublicTarget(targetDir, org.semanticPath);
+        let src: string | null = null;
+        try {
+          if (fs.existsSync(resolved) && fs.statSync(resolved).isFile()) {
+            src = fs.readFileSync(resolved, "utf8");
+          }
+        } catch {
+          src = null;
+        }
+        if (src != null && isReExportBarrel(src)) {
+          facadePromoted.push({
+            basename,
+            semanticPath: org.semanticPath,
+            lineCount,
+          });
+        }
+      }
+    } else if (stages.finalized) finalizedNotPromoted.push(basename);
   }
 
   // The "drain" checks only apply once the batch executor has run (checkpoints
@@ -2559,6 +2630,22 @@ function analyzeOrganizePromoteState(
         detail: finalizedNotPromoted.sort().slice(0, 50),
       });
     }
+  }
+
+  // Facade-promoted aggregator: marked promoted, but the promoted file is a pure
+  // re-export producer barrel for a large chunk — the alias-map sub-task only.
+  // This is independent of checkpoint existence (the chunk reads as `done`), so
+  // it is checked outside the checkpoint gate, still honoring the in-progress
+  // override.
+  if (facadePromoted.length > 0 && !opts.allowOrganizeIncomplete) {
+    issues.push({
+      code: "full-restoration-aggregator-body-not-restored",
+      message:
+        "App-feature aggregator chunk(s) are marked promoted, but the promoted file is a pure re-export barrel (a current-ref producer facade), not a restored body. Finishing the alias-map producer barrel does NOT complete the body restoration: the chunk's non-exported residue modules were never deobfuscated into semantic files. Deep-restore the body (rename → polish → finalize → organize → promote into restored/<domain>/). See reference/codex-ref.md → Aggregator-chunk restore anti-patterns.",
+      detail: facadePromoted
+        .sort((a, b) => b.lineCount - a.lineCount)
+        .slice(0, 50),
+    });
   }
 
   // Structural: a promoted public file must not live inside a directory still

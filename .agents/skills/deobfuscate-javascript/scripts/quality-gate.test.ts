@@ -1423,6 +1423,149 @@ export function __rest(value) {
     expect(codes).not.toContain("full-restoration-organize-incomplete");
   });
 
+  function writePromotedFile(
+    targetDir: string,
+    relPath: string,
+    contents: string,
+  ): void {
+    const abs = path.join(targetDir, relPath);
+    fs.mkdirSync(path.dirname(abs), { recursive: true });
+    fs.writeFileSync(abs, contents);
+  }
+
+  const BARREL_FACADE =
+    "// Restored from ref/webview/assets/app-initial~app-main~automations-page-Bc0ZtIBr.js\n" +
+    "// Current automations-page compatibility facade.\n" +
+    'export { CodexApp, initCodexAppChunk } from "../app-shell/codex-app";\n' +
+    'export { AppFallback } from "../app-shell/app-fallback";\n';
+
+  test("aggregator-body-not-restored fires: large app-feature chunk promoted to a re-export barrel", () => {
+    const targetDir = makeTmpRoot();
+    writePromotedFile(
+      targetDir,
+      "vendor/automations-page-current-runtime.ts",
+      BARREL_FACADE,
+    );
+    writeFullManifest(targetDir, {
+      "app-initial~app-main~automations-page-Bc0ZtIBr": {
+        basename: "app-initial~app-main~automations-page-Bc0ZtIBr",
+        kind: "local",
+        lineCount: 43136,
+        stages: {
+          extracted: true,
+          renamed: true,
+          polished: true,
+          finalized: true,
+          organized: true,
+          promoted: true,
+        },
+        organization: {
+          domain: "vendor",
+          semanticPath: "vendor/automations-page-current-runtime.ts",
+          classification: "app-feature",
+        },
+      },
+    });
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).toContain("full-restoration-aggregator-body-not-restored");
+  });
+
+  test("aggregator-body-not-restored does NOT fire: promoted file has a real body", () => {
+    const targetDir = makeTmpRoot();
+    writePromotedFile(
+      targetDir,
+      "app-shell/codex-app.tsx",
+      "// Restored from ref/webview/assets/app-initial~app-main~automations-page-Bc0ZtIBr.js\n" +
+        "export function CodexApp() {\n  return null;\n}\n",
+    );
+    writeFullManifest(targetDir, {
+      "app-initial~app-main~automations-page-Bc0ZtIBr": {
+        basename: "app-initial~app-main~automations-page-Bc0ZtIBr",
+        kind: "local",
+        lineCount: 43136,
+        stages: { promoted: true },
+        organization: {
+          domain: "app-shell",
+          semanticPath: "app-shell/codex-app.tsx",
+          classification: "app-feature",
+        },
+      },
+    });
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain("full-restoration-aggregator-body-not-restored");
+  });
+
+  test("aggregator-body-not-restored does NOT fire: genuine vendor-runtime barrel is exempt", () => {
+    const targetDir = makeTmpRoot();
+    writePromotedFile(targetDir, "vendor/mermaid-parser-runtime.ts", BARREL_FACADE);
+    writeFullManifest(targetDir, {
+      "chunk-K5T4RW27-B7ZoXjZA": {
+        basename: "chunk-K5T4RW27-B7ZoXjZA",
+        kind: "local",
+        lineCount: 21062,
+        stages: { promoted: true },
+        organization: {
+          domain: "vendor",
+          semanticPath: "vendor/mermaid-parser-runtime.ts",
+          classification: "vendor-runtime",
+        },
+      },
+    });
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain("full-restoration-aggregator-body-not-restored");
+  });
+
+  test("aggregator-body-not-restored does NOT fire: small chunk promoted to a barrel is fine", () => {
+    const targetDir = makeTmpRoot();
+    writePromotedFile(targetDir, "utils/small-index.ts", BARREL_FACADE);
+    writeFullManifest(targetDir, {
+      "small-index-AbCdEf12": {
+        basename: "small-index-AbCdEf12",
+        kind: "local",
+        lineCount: 120,
+        stages: { promoted: true },
+        organization: {
+          domain: "utils",
+          semanticPath: "utils/small-index.ts",
+          classification: "app-feature",
+        },
+      },
+    });
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain("full-restoration-aggregator-body-not-restored");
+  });
+
+  test("aggregator-body-not-restored: --allow-organize-incomplete suppresses it", () => {
+    const targetDir = makeTmpRoot();
+    writePromotedFile(
+      targetDir,
+      "vendor/automations-page-current-runtime.ts",
+      BARREL_FACADE,
+    );
+    writeFullManifest(targetDir, {
+      "app-initial~app-main~automations-page-Bc0ZtIBr": {
+        basename: "app-initial~app-main~automations-page-Bc0ZtIBr",
+        kind: "local",
+        lineCount: 43136,
+        stages: { promoted: true },
+        organization: {
+          domain: "vendor",
+          semanticPath: "vendor/automations-page-current-runtime.ts",
+          classification: "app-feature",
+        },
+      },
+    });
+    const reports = analyzeFullRestorationCoverage(targetDir, {
+      allowOrganizeIncomplete: true,
+    });
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain("full-restoration-aggregator-body-not-restored");
+  });
+
   test("anti-stall: public-file-in-hash-dir flags a promoted file in a hash-named dir", () => {
     const targetDir = makeTmpRoot();
     writeFullManifest(targetDir, {
