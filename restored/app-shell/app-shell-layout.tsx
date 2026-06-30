@@ -23,6 +23,12 @@ import { bottomAppShellTabController } from "./app-shell-tab-controller";
 import { AppShellTabs } from "./app-shell-tabs";
 import { appShellElementContext, appShellRefContext } from "./app-shell-ref";
 import { useResizeObserverRef } from "../utils/use-resize-observer";
+import { useMotionValueEvent } from "../utils/use-motion-value-event";
+import {
+  useMotionValue,
+  useTransform as useMotionTransform,
+  type MotionValue,
+} from "../utils/use-transform";
 import {
   activeAppShellFocusAreaSignal,
   reviewFileTreeOpenSignal,
@@ -64,13 +70,9 @@ import {
   useApplicationMenuBarEnabled,
   useAppScope,
   useEventCallback,
-  useMotionTransform,
-  useMotionValue,
-  useMotionValueEvent,
   useSignalValue,
   useTitleBarSafeAreaInsets,
   useWindowZoom,
-  type MotionValue,
 } from "../boundaries/onboarding-commons-externals.facade";
 import type { AppShellStore } from "./app-shell-tab-controller/types";
 
