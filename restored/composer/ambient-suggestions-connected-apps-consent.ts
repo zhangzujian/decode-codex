@@ -1,5 +1,7 @@
-// Restored from ref/webview/assets/ambient-suggestions-connected-apps-consent-DEdjluUh.js
+// Restored from ref/webview/assets/ambient-suggestions-connected-apps-consent-BnmCW-mt.js
+// Alias-compatible with ref/webview/assets/ambient-suggestions-connected-apps-consent-DEdjluUh.js.
 // Ambient suggestion connected-app consent signals and filtering helpers.
+
 import { createPersistedSignal } from "../runtime/persisted-signal";
 
 type ConnectedAppSuggestion = {
