@@ -2745,7 +2745,12 @@
         "n": "tableau10N",
         "t": "tableau10T"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical D3 Tableau10 palette helper retained in vendor/d3-tableau10.ts; the current synced ref no longer contains this exact hash.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains Tableau10-BYZHCNVA, vendor/d3-tableau10.ts passes quality-gate, and both recorded palette aliases are exported."
     },
     "address-utils-D9uhGifl": {
       "restored": "vendor/xlsx-address-utils.ts",
@@ -2868,7 +2873,12 @@
         "n": "minN",
         "t": "minT"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical D3 min/max helper retained in vendor/d3-array-min.ts; the current synced ref no longer contains this exact hash.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains min-BVs4UoI0, vendor/d3-array-min.ts passes quality-gate, and both recorded min/max aliases are exported."
     },
     "monotone-DKOUTWfZ": {
       "restored": "vendor/d3-curve-monotone.ts",
@@ -3033,14 +3043,24 @@
       "exports": {
         "t": "line"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical D3 line generator retained in vendor/d3-shape-line.ts; the current synced ref no longer contains this exact hash.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains line-DIsP-Yv_, vendor/d3-shape-line.ts passes quality-gate, and the recorded line alias is exported."
     },
     "pie-ChHHloNp": {
       "restored": "vendor/d3-shape-pie.ts",
       "exports": {
         "t": "pie"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical D3 pie generator retained in vendor/d3-shape-pie.ts; the current synced ref no longer contains this exact hash.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains pie-ChHHloNp, vendor/d3-shape-pie.ts passes quality-gate, and the recorded pie alias is exported."
     },
     "auto-track-CVxnO46V": {
       "restored": "vendor/segment-auto-track.ts",
