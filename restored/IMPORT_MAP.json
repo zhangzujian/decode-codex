@@ -35113,6 +35113,292 @@
       "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/monokai; JSON payload is intentionally not copied into restored/",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "andromeeda-Cj_0g_0i": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "andromeedaTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/andromeeda",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/andromeeda; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "andromeeda-ye8tK0uS": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "andromeedaTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/andromeeda",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/andromeeda; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "aurora-x-BFVi8iqo": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "auroraXTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/aurora-x",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/aurora-x; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "aurora-x-CAiYSn9A": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "auroraXTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/aurora-x",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/aurora-x; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "ayu-light-F8J_1WoX": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "ayuLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/ayu-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/ayu-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "ayu-mirage-CF4qJqsS": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "ayuMirageTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/ayu-mirage",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/ayu-mirage; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "catppuccin-frappe-CbleTlQv": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "catppuccinFrappeTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/catppuccin-frappe",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/catppuccin-frappe; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "catppuccin-frappe-DpRz1kIH": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "catppuccinFrappeTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/catppuccin-frappe",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/catppuccin-frappe; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "catppuccin-macchiato-Ba_uK29J": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "catppuccinMacchiatoTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/catppuccin-macchiato",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/catppuccin-macchiato; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "catppuccin-macchiato-lge-HEbT": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "catppuccinMacchiatoTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/catppuccin-macchiato",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/catppuccin-macchiato; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "dracula-soft-HwS5SS39": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "draculaSoftTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/dracula-soft",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/dracula-soft; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "dracula-soft-ukV_vfo8": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "draculaSoftTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/dracula-soft",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/dracula-soft; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-dark-dimmed-CoBjGdGZ": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubDarkDimmedTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-dark-dimmed",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-dark-dimmed; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-dark-dimmed-EeifYJxg": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubDarkDimmedTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-dark-dimmed",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-dark-dimmed; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-dark-high-contrast-CHlWWjB_": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubDarkHighContrastTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-dark-high-contrast",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-dark-high-contrast; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-dark-high-contrast-wdPRq2if": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubDarkHighContrastTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-dark-high-contrast",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-dark-high-contrast; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-light-high-contrast-DomWGpc2": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubLightHighContrastTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-light-high-contrast",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-light-high-contrast; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "github-light-high-contrast-YWoqpVG_": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "githubLightHighContrastTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/github-light-high-contrast",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/github-light-high-contrast; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-dark-hard-BpExE6hO": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxDarkHardTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-dark-hard",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-dark-hard; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-dark-hard-DijIBmPQ": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxDarkHardTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-dark-hard",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-dark-hard; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-dark-soft-BEo-Zsam": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxDarkSoftTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-dark-soft",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-dark-soft; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-dark-soft-Djl_DbIs": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxDarkSoftTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-dark-soft",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-dark-soft; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-light-hard-B497kAjd": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxLightHardTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-light-hard",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-light-hard; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-light-hard-DtTMEt-C": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxLightHardTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-light-hard",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-light-hard; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-light-soft-CkXmJuT7": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxLightSoftTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-light-soft",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-light-soft; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gruvbox-light-soft-D-0joJ3v": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "gruvboxLightSoftTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/gruvbox-light-soft",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/gruvbox-light-soft; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }
