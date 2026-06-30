@@ -127,4 +127,5 @@ export const chunkX2U36JSPA = chunkAGHRB4JFN(
   },
   "userNodeOverrides",
 );
+export function initChunkX2U36JSP(): void {}
 export { chunkX2U36JSPN, chunkX2U36JSPT };

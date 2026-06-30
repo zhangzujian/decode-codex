@@ -32972,6 +32972,177 @@
       "note": "Current ref lodash merge helper chunk re-derived from merge-Mpnm7bAs.js. Rolldown lazy init exports map to initLodashMergeChunk because the restored module has those side effects flattened.",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-OYMX7WX6-DelqxLa3": {
+      "restored": "vendor/mermaid-state-diagram-runtime-k5.ts",
+      "exports": {
+        "a": "chunkOYMX7WX6I",
+        "i": "chunkOYMX7WX6R",
+        "n": "initMermaidStateDiagramRuntimeK5Chunk",
+        "r": "chunkOYMX7WX6N",
+        "t": "chunkOYMX7WX6T"
+      },
+      "aliasOf": "chunk-OYMX7WX6-DPwCFRNe",
+      "note": "Current chunk-OYMX7WX6 hash re-derived from chunk-OYMX7WX6-DelqxLa3.js. The current export table inserts a Rolldown lazy init alias and shifts styles/renderer/parser aliases.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-OYMX7WX6-DCKR-mnE": {
+      "restored": "vendor/mermaid-state-diagram-runtime-k5.ts",
+      "exports": {
+        "i": "chunkOYMX7WX6I",
+        "n": "chunkOYMX7WX6N",
+        "r": "chunkOYMX7WX6R",
+        "t": "chunkOYMX7WX6T"
+      },
+      "aliasOf": "chunk-OYMX7WX6-DPwCFRNe",
+      "note": "Current chunk-OYMX7WX6 hash re-derived from chunk-OYMX7WX6-DCKR-mnE.js; aliases match the restored state diagram runtime surface.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-B4BG7PRW-Cjy5ZJpM": {
+      "restored": "vendor/mermaid-class-diagram-fpaj.ts",
+      "exports": {
+        "a": "chunkB4BG7PRWI",
+        "i": "initMermaidClassDiagramFpajChunk",
+        "n": "chunkB4BG7PRWN",
+        "r": "chunkB4BG7PRWR",
+        "t": "chunkB4BG7PRWT"
+      },
+      "aliasOf": "chunk-B4BG7PRW-YMKrAsOx",
+      "note": "Current chunk-B4BG7PRW hash re-derived from chunk-B4BG7PRW-Cjy5ZJpM.js. The current export table exposes styles at alias a and a Rolldown lazy init thunk at alias i.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-QXUST7PY-bOMzPJkM": {
+      "restored": "vendor/mermaid-edge-renderer.ts",
+      "exports": {
+        "a": "chunkQXUST7PYI",
+        "i": "chunkQXUST7PYR",
+        "n": "initMermaidEdgeRendererChunk",
+        "o": "chunkQXUST7PYA",
+        "r": "chunkQXUST7PYN",
+        "t": "chunkQXUST7PYT"
+      },
+      "aliasOf": "chunk-QXUST7PY-B8nc5wSD",
+      "note": "Current chunk-QXUST7PY hash re-derived from chunk-QXUST7PY-bOMzPJkM.js. The current export table adds a lazy init alias and shifts marker/label/edge renderer aliases.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-U2HBQHQK-BfxUGRAz": {
+      "restored": "vendor/chunk-u2hbqhqk.ts",
+      "exports": {
+        "a": "chunkU2HBQHQKI",
+        "i": "initChunkU2HBQHQK",
+        "n": "chunkU2HBQHQKN",
+        "o": "chunkU2HBQHQKA",
+        "r": "chunkU2HBQHQKR",
+        "t": "chunkU2HBQHQKT"
+      },
+      "aliasOf": "chunk-U2HBQHQK-DJ4vuuzw",
+      "note": "Current chunk-U2HBQHQK hash re-derived from chunk-U2HBQHQK-BfxUGRAz.js. Alias i is the lazy init thunk; alias o is the fallback icon object.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-U2HBQHQK-ByHLWhPg": {
+      "restored": "vendor/chunk-u2hbqhqk.ts",
+      "exports": {
+        "a": "chunkU2HBQHQKA",
+        "i": "chunkU2HBQHQKI",
+        "n": "chunkU2HBQHQKN",
+        "o": "chunkU2HBQHQKO",
+        "r": "chunkU2HBQHQKR",
+        "t": "chunkU2HBQHQKT"
+      },
+      "aliasOf": "chunk-U2HBQHQK-DJ4vuuzw",
+      "note": "Current chunk-U2HBQHQK hash re-derived from chunk-U2HBQHQK-ByHLWhPg.js. Alias o is the exported dedent helper added to the restored icon/text runtime.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-U2HBQHQK-CowWxNLz": {
+      "restored": "vendor/chunk-u2hbqhqk.ts",
+      "exports": {
+        "a": "chunkU2HBQHQKA",
+        "i": "chunkU2HBQHQKI",
+        "n": "chunkU2HBQHQKN",
+        "o": "chunkU2HBQHQKO",
+        "r": "chunkU2HBQHQKR",
+        "t": "chunkU2HBQHQKT"
+      },
+      "aliasOf": "chunk-U2HBQHQK-DJ4vuuzw",
+      "note": "Current chunk-U2HBQHQK hash re-derived from chunk-U2HBQHQK-CowWxNLz.js. Alias o is the exported dedent helper added to the restored icon/text runtime.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-U2HBQHQK-Di_FkPOF": {
+      "restored": "vendor/chunk-u2hbqhqk.ts",
+      "exports": {
+        "a": "chunkU2HBQHQKA",
+        "i": "chunkU2HBQHQKI",
+        "n": "chunkU2HBQHQKN",
+        "o": "chunkU2HBQHQKO",
+        "r": "chunkU2HBQHQKR",
+        "t": "chunkU2HBQHQKT"
+      },
+      "aliasOf": "chunk-U2HBQHQK-DJ4vuuzw",
+      "note": "Current chunk-U2HBQHQK hash re-derived from chunk-U2HBQHQK-Di_FkPOF.js. Alias o is the exported dedent helper added to the restored icon/text runtime.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-TZMSLE5B-DUO6_pDl": {
+      "restored": "vendor/chunk-tzmsle5b.ts",
+      "exports": {
+        "a": "chunkTZMSLE5BA",
+        "c": "initChunkTZMSLE5B",
+        "i": "chunkTZMSLE5BI",
+        "n": "chunkTZMSLE5BN",
+        "o": "chunkTZMSLE5BO",
+        "r": "chunkTZMSLE5BR",
+        "s": "chunkTZMSLE5BS",
+        "t": "chunkTZMSLE5BT"
+      },
+      "aliasOf": "chunk-TZMSLE5B-BvWo7845",
+      "note": "Current chunk-TZMSLE5B hash re-derived from chunk-TZMSLE5B-DUO6_pDl.js. Alias c is the Rolldown lazy init thunk; drawing helper aliases were matched by function names.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-X2U36JSP-sSeN7Tix": {
+      "restored": "vendor/chunk-x2u36jsp.ts",
+      "exports": {
+        "a": "chunkX2U36JSPI",
+        "i": "chunkX2U36JSPR",
+        "n": "initChunkX2U36JSP",
+        "o": "chunkX2U36JSPA",
+        "r": "chunkX2U36JSPN",
+        "t": "chunkX2U36JSPT"
+      },
+      "aliasOf": "chunk-X2U36JSP-DWvyIaf0",
+      "note": "Current chunk-X2U36JSP hash re-derived from chunk-X2U36JSP-sSeN7Tix.js. Alias n is the lazy init thunk; style helper aliases were matched by function names.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "yaml-BkONZa5B": {
+      "restored": "utils/yaml-c-ou-ir-s-cu.ts",
+      "exports": {
+        "n": "yamlLanguageGrammars",
+        "t": "initYamlGrammarChunk"
+      },
+      "aliasOf": "yaml-COuIrSCu",
+      "vendor": "@shikijs/langs/yaml",
+      "note": "Current YAML grammar chunk re-derived from yaml-BkONZa5B.js. It is the direct Shiki YAML grammar producer; yaml-COuIrSCu remains the default-export wrapper.",
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }

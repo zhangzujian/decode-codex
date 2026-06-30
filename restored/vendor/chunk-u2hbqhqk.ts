@@ -717,4 +717,82 @@ export const chunkU2HBQHQKN = chunkAGHRB4JFN(
   },
   "createText",
 );
+export function initChunkU2HBQHQK(): void {}
+export function chunkU2HBQHQKO(chunkU2HBQHQKParam69: string | string[]) {
+  var chunkU2HBQHQKValue62 = [...arguments].slice(1),
+    chunkU2HBQHQKValue63 = Array.from(
+      typeof chunkU2HBQHQKParam69 == "string"
+        ? [chunkU2HBQHQKParam69]
+        : chunkU2HBQHQKParam69,
+    );
+  chunkU2HBQHQKValue63[chunkU2HBQHQKValue63.length - 1] = chunkU2HBQHQKValue63[
+    chunkU2HBQHQKValue63.length - 1
+  ].replace(/\r?\n([\t ]*)$/, "");
+  var chunkU2HBQHQKValue64 = chunkU2HBQHQKValue63.reduce(function (
+    chunkU2HBQHQKParam70,
+    chunkU2HBQHQKParam71,
+  ) {
+    var chunkU2HBQHQKValue65 =
+      chunkU2HBQHQKParam71.match(/\n([\t ]+|(?!\s).)/g);
+    return chunkU2HBQHQKValue65
+      ? chunkU2HBQHQKParam70.concat(
+          chunkU2HBQHQKValue65.map(function (chunkU2HBQHQKParam72) {
+            return chunkU2HBQHQKParam72.match(/[\t ]/g)?.length ?? 0;
+          }),
+        )
+      : chunkU2HBQHQKParam70;
+  }, []);
+  if (chunkU2HBQHQKValue64.length) {
+    var chunkU2HBQHQKValue66 = RegExp(
+      `
+[\t ]{` +
+        Math.min.apply(Math, chunkU2HBQHQKValue64) +
+        "}",
+      "g",
+    );
+    chunkU2HBQHQKValue63 = chunkU2HBQHQKValue63.map(
+      function (chunkU2HBQHQKParam70) {
+        return chunkU2HBQHQKParam70.replace(
+          chunkU2HBQHQKValue66,
+          `
+`,
+        );
+      },
+    );
+  }
+  chunkU2HBQHQKValue63[0] = chunkU2HBQHQKValue63[0].replace(/^\r?\n/, "");
+  var chunkU2HBQHQKValue67 = chunkU2HBQHQKValue63[0];
+  return (
+    chunkU2HBQHQKValue62.forEach(
+      function (chunkU2HBQHQKParam70, chunkU2HBQHQKParam71) {
+        var chunkU2HBQHQKValue68 = chunkU2HBQHQKValue67.match(/(?:^|\n)( *)$/),
+          chunkU2HBQHQKValue69 = chunkU2HBQHQKValue68
+            ? chunkU2HBQHQKValue68[1]
+            : "",
+          chunkU2HBQHQKValue70 = chunkU2HBQHQKParam70;
+        (typeof chunkU2HBQHQKParam70 == "string" &&
+          chunkU2HBQHQKParam70.includes(`
+`) &&
+          (chunkU2HBQHQKValue70 = String(chunkU2HBQHQKParam70)
+            .split(
+              `
+`,
+            )
+            .map(function (chunkU2HBQHQKParam70, chunkU2HBQHQKParam72) {
+              return chunkU2HBQHQKParam72 === 0
+                ? chunkU2HBQHQKParam70
+                : "" + chunkU2HBQHQKValue69 + chunkU2HBQHQKParam70;
+            })
+            .join(
+              `
+`,
+            )),
+          (chunkU2HBQHQKValue67 +=
+            chunkU2HBQHQKValue70 +
+            chunkU2HBQHQKValue63[chunkU2HBQHQKParam71 + 1]));
+      },
+    ),
+    chunkU2HBQHQKValue67
+  );
+}
 export { chunkU2HBQHQKA, chunkU2HBQHQKR, chunkU2HBQHQKT };

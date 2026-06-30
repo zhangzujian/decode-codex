@@ -133,4 +133,5 @@ export const chunkTZMSLE5BA = chunkAGHRB4JFN(
   },
   "drawText",
 );
+export function initChunkTZMSLE5B(): void {}
 export { chunkTZMSLE5BI };

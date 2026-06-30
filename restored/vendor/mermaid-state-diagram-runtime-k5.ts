@@ -3162,3 +3162,5 @@ g.stateGroup line {
 `,
   "getStyles",
 );
+
+export function initMermaidStateDiagramRuntimeK5Chunk(): void {}

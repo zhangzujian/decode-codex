@@ -1889,3 +1889,5 @@ var chunkQXUST7PYValue13 = chunkAGHRB4JFN(
     ),
   };
 export const chunkQXUST7PYI = chunkQXUST7PYValue13;
+
+export function initMermaidEdgeRendererChunk(): void {}

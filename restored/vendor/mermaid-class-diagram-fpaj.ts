@@ -3511,3 +3511,5 @@ g.classGroup line {
 `,
   "getStyles",
 );
+
+export function initMermaidClassDiagramFpajChunk(): void {}
