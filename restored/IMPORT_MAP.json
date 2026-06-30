@@ -14403,6 +14403,23 @@
       "note": "Synced current artifact annotation analytics chunk with semantic helpers and initializer export.",
       "lastUpdated": "2026-06-27T21:55:59.640Z"
     },
+    "artifact-analytics-DlC6JvjK": {
+      "restored": "features/artifact-analytics.ts",
+      "exports": {
+        "a": "trackArtifactAnnotationCanceled",
+        "i": "trackArtifactAnnotationSubmitted",
+        "n": "trackArtifactAnnotationSaved",
+        "r": "trackArtifactAnnotationStarted",
+        "t": "initArtifactAnalyticsChunk"
+      },
+      "status": "done",
+      "aliasOf": "artifact-analytics-D0odHltv",
+      "note": "Current synced artifact annotation analytics chunk used by current artifact preview panels; export surface matches the existing semantic helpers and initializer.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: compared ref/webview/assets/artifact-analytics-DlC6JvjK.js to restored/features/artifact-analytics.ts; event descriptors, artifact kind mapping, annotation start/submit source mappings, payload shape, and a/i/n/r/t export surface match."
+    },
     "page-search-input-DLGrsDpo": {
       "restored": "ui/page-search-input.tsx",
       "exports": {
