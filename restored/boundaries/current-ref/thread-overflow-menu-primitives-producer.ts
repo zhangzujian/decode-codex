@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/thread-overflow-menu-yh1Ldo2y.js
 // Current-ref boundary for thread overflow menu primitives used by the semantic split.
+// Raw primitives are re-derived from the current worktree/new-thread query bundle.
 import { once } from "../../runtime/commonjs-interop";
 import {
   initPlatformContentRuntime,
@@ -8,14 +9,14 @@ import {
 import { initToastRuntime } from "../../runtime/toast-runtime";
 import { Si as initThreadSourceSignal } from "../../vendor/projects-app-shared-runtime";
 import {
-  Ct as initKeyboardModifierStateRaw,
-  Gn as registerSideChatThreadAssociationRaw,
-  Jn as closeSideChatThreadAssociationRaw,
-  Ot as initCommandRegistrationStateRaw,
-  dr as RenameThreadDialog,
-  kt as useCommandRegistrationRaw,
-  qn as initSideChatThreadAssociationStateRaw,
-} from "../../vendor/app-main-legacy-deps/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-DEE2TwPG";
+  Er as initKeyboardModifierStateRaw,
+  Ji as registerSideChatThreadAssociationRaw,
+  Zi as closeSideChatThreadAssociationRaw,
+  jr as initCommandRegistrationStateRaw,
+  ma as RenameThreadDialog,
+  Mr as useCommandRegistrationRaw,
+  Xi as initSideChatThreadAssociationStateRaw,
+} from "../../vendor/worktree-new-thread-query-current-bundle";
 
 export type CommandRegistrationOptions = {
   contextHandler?: (context: unknown) => void;
