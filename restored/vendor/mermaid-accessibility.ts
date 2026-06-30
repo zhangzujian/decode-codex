@@ -1,13 +1,29 @@
 // Restored from ref/webview/assets/chunk-4BX2VUAB-CQ4cpB2N.js
 // Chunk4BX2VUAB chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dompurify";
-function chunk4BX2VUAB(chunk4BX2VUABParam1, _chunk4BX2VUAB) {
-  chunk4BX2VUABParam1.accDescr &&
-    _chunk4BX2VUAB.setAccDescription?.(chunk4BX2VUABParam1.accDescr);
-  chunk4BX2VUABParam1.accTitle &&
-    _chunk4BX2VUAB.setAccTitle?.(chunk4BX2VUABParam1.accTitle);
-  chunk4BX2VUABParam1.title &&
-    _chunk4BX2VUAB.setDiagramTitle?.(chunk4BX2VUABParam1.title);
+
+type MermaidAccessibilityConfig = {
+  accDescr?: string;
+  accTitle?: string;
+  title?: string;
+};
+
+type MermaidCommonDb = {
+  setAccDescription?: (description: string) => void;
+  setAccTitle?: (title: string) => void;
+  setDiagramTitle?: (title: string) => void;
+};
+
+function populateCommonDb(
+  accessibilityConfig: MermaidAccessibilityConfig,
+  commonDb: MermaidCommonDb,
+) {
+  accessibilityConfig.accDescr &&
+    commonDb.setAccDescription?.(accessibilityConfig.accDescr);
+  accessibilityConfig.accTitle &&
+    commonDb.setAccTitle?.(accessibilityConfig.accTitle);
+  accessibilityConfig.title &&
+    commonDb.setDiagramTitle?.(accessibilityConfig.title);
 }
-chunkAGHRB4JFN(chunk4BX2VUAB, "populateCommonDb");
-export { chunk4BX2VUAB };
+chunkAGHRB4JFN(populateCommonDb, "populateCommonDb");
+export { populateCommonDb as chunk4BX2VUAB };
