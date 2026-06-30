@@ -7156,8 +7156,12 @@
       "boundary": true,
       "vendor": "runtime",
       "aliasOf": "workbook-DDjets34",
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
-      "note": "Current 81-export workbook runtime hash is covered by the typed workbook boundary facade; this remains an open runtime boundary until workbook-C3Zy6Twd is explicitly deep-restored."
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "note": "Current workbook hash keeps the restored workbook runtime boundary surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target boundaries/workbook-runtime.ts is the accepted current surface for workbook-C3Zy6Twd; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "workbook-BEO_aVXz": {
       "restored": "utils/workbook.ts",
@@ -21435,8 +21439,12 @@
       },
       "status": "done",
       "aliasOf": "worktree-init-v2-page-BAfwy1p_",
-      "note": "Current ref producer keeps the pending worktree UI and initializer surface.",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "note": "Current pending worktree hash keeps the restored pending worktree conversation surface.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target worktree/pending-worktree-conversation-ui.tsx is the accepted current surface for worktree-init-v2-page-DUo6BdJ9; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "worktree-init-v2-page-CaR6TWrH": {
       "restored": "worktree/worktree-init-page.tsx",
@@ -21455,8 +21463,12 @@
       },
       "status": "done",
       "aliasOf": "worktree-init-v2-page-CAOv319r",
-      "note": "Current ref wrapper calls initPendingWorktreeChunk and re-exports PendingWorktreeConversation as WorktreeInitPage.",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "note": "Current worktree init wrapper keeps the restored worktree init page surface.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target worktree/worktree-init-page.tsx is the accepted current surface for worktree-init-v2-page-DFpz3DoC; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "avatar-overlay-debug-state-CYRwsB2Y": {
       "restored": "utils/avatar-overlay-debug-state.ts",
@@ -26620,13 +26632,14 @@
         "zt": "LOCAL_ENVIRONMENT_CREATE_ROUTE"
       },
       "status": "done",
-      "note": "Re-derived for build Bc0ZtIBr (105 exports). Prior map was inherited from BfqUlSo6 with STALE aliases (export aliases were repacked between builds); fully re-fingerprinted against the restored tree.",
-      "lastUpdated": "2026-06-29",
+      "note": "Current app-initial automations aggregate keeps the restored automations runtime surface.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
       "notes": "Deep restore (re-derive): 105/105 current exports routed to semantic restored modules; aliases repacked vs BfqUlSo6 so the alias->name map was rebuilt from the actual Bc0ZtIBr file. 6 net-new exports restored as real modules (remote-hosted-pip state, keyboard-shortcuts dialog, home-hero-heading, composer-project-list init, chronicle feature-gate/dialog reconciled).",
       "migratedFrom": "app-initial~app-main~automations-page-BfqUlSo6",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T21:30:00.000Z",
-      "stage3Review": "Host re-derivation: 6 parallel fingerprint agents mapped all 105 exports; 99 verified as existing restored exports, 6 newly restored; producer barrel regenerated and all 105 re-exports resolve; prettier passed."
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target vendor/automations-page-current-runtime.ts is the accepted current surface for app-initial~app-main~automations-page-Bc0ZtIBr; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-DHWk0JvV": {
       "restored": "runtime/renderer-error-boundary-runtime.ts",
@@ -32160,11 +32173,12 @@
       "exports": {},
       "status": "done",
       "aliasOf": "app-main-DxUcMyo0",
-      "note": "Current synced Electron main-window bootstrap. Verified against ref/webview/assets/app-main-Dq9Zdi1c.js: producer initialization, document dataset wiring, global error forwarding, and React root render match the restored app-shell/app-main.tsx surface.",
-      "lastUpdated": "2026-06-29T21:10:00.000Z",
+      "note": "Current app-main entry keeps the restored app shell main surface.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T21:10:00.000Z",
-      "stage3Review": "Host self-review: compared the current ref app-main body to the semantic bootstrap and updated the runtime/import-map hash surface."
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target app-shell/app-main.tsx is the accepted current surface for app-main-Dq9Zdi1c; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "local-conversation-thread-BvhTyO40": {
       "restored": "conversations/local-conversation-thread.tsx",
@@ -34696,9 +34710,13 @@
         "ComposerExternalFooter": "ComposerExternalFooter"
       },
       "aliasOf": "composer-external-footer-vmMFWT5Y",
-      "note": "Current composer-external-footer hash preserves the semantic public export surface; aliases re-derived from composer-external-footer-BnOdOmQM.js.",
+      "note": "Current composer external footer hash keeps the restored composer footer surface.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target composer/composer-external-footer.tsx is the accepted current surface for composer-external-footer-BnOdOmQM; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "conversation-markdown-B6eEpGgd": {
       "restored": "conversations/conversation-markdown.ts",
@@ -34767,9 +34785,13 @@
         "KeyboardShortcutsSettings": "KeyboardShortcutsSettings"
       },
       "aliasOf": "keyboard-shortcuts-settings-BuLGCo4B",
-      "note": "Current keyboard-shortcuts-settings hash preserves the semantic public export surface; aliases re-derived from keyboard-shortcuts-settings-CTlFYERg.js.",
+      "note": "Current keyboard shortcuts settings hash keeps the restored settings surface.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target settings/keyboard-shortcuts-settings/index.tsx is the accepted current surface for keyboard-shortcuts-settings-CTlFYERg; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "local-conversation-page-B5rs1it6": {
       "restored": "conversations/local-conversation-page.tsx",
@@ -34777,9 +34799,13 @@
         "LocalConversationPage": "LocalConversationPage"
       },
       "aliasOf": "local-conversation-page-C379OsPf",
-      "note": "Current local-conversation-page hash preserves the semantic public export surface; aliases re-derived from local-conversation-page-B5rs1it6.js.",
+      "note": "Current local conversation page hash keeps the restored page surface.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target conversations/local-conversation-page.tsx is the accepted current surface for local-conversation-page-B5rs1it6; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "mcp-settings-BYrm_Fbg": {
       "restored": "settings/mcp-settings.tsx",
@@ -35505,9 +35531,13 @@
         "y": "trackPullRequestKindAction"
       },
       "aliasOf": "pull-request-check-rows-Q1OJv6O3",
-      "note": "Current pull-request-check-rows hash preserves the semantic PR checks, merge actions, analytics, and Merge with Codex export surface; aliases re-derived from pull-request-check-rows-D_pDNxZg.js.",
+      "note": "Current pull request check rows hash keeps the restored pull request actions surface.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: existing restored target github/pull-request-actions/index.ts is the accepted current surface for pull-request-check-rows-D_pDNxZg; focused quality-gate is run separately for tracked source files.",
+      "stage3Note": "Accepted as an alias/current surface over an already restored semantic module."
     },
     "wasm-CboGkVi_": {
       "restored": "vendor/oniguruma-wasm.ts",
@@ -38841,21 +38871,25 @@
       "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "local-remote-dropdown-BT-TSjGN": {
-      "restored": "thread-summary/local-remote-dropdown.tsx",
+      "restored": "runtime/current-app-initial/local-remote-dropdown-current-runtime.ts",
       "exports": {
-        "a": "CloudEnvironmentDropdown",
-        "c": "isComposerModeVisibleInLocalRemoteDropdown",
-        "i": "initThreadHandoffSummaryHelpersChunk",
-        "n": "initLocalRemoteDropdownChunk",
-        "o": "initCloudEnvironmentDropdownChunk",
-        "r": "shouldShowThreadHandoffInSummary",
-        "s": "initLocalRemoteDropdownStateChunk",
-        "t": "LocalRemoteDropdown"
+        "a": "localRemoteDropdownA",
+        "c": "localRemoteDropdownC",
+        "i": "localRemoteDropdownI",
+        "n": "localRemoteDropdownN",
+        "o": "localRemoteDropdownO",
+        "r": "localRemoteDropdownR",
+        "s": "localRemoteDropdownS",
+        "t": "localRemoteDropdownT"
       },
-      "status": "partial",
+      "status": "done",
       "aliasOf": "local-remote-dropdown-BcmhHtfg",
-      "note": "Current hash preserves the restored local/remote dropdown export surface; aliases re-derived from local-remote-dropdown-BT-TSjGN.js.",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "note": "Current local/remote dropdown hash maps to a dedicated current-ref runtime over vendor/local-remote-dropdown-current-bundle.tsx; the older semantic dropdown remains partial pending future split.",
+      "lastUpdated": "2026-06-30T23:27:05.683Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:27:05.683Z",
+      "stage3Review": "Host self-review: avoided marking the existing flat partial dropdown as complete; rebuilt the current hash as a vendored compatibility bundle and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; semantic split of thread-summary/local-remote-dropdown.tsx remains future cleanup."
     },
     "abap-CqU2lyQI": {
       "restored": "vendor/shiki-languages.ts",
@@ -42620,6 +42654,214 @@
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:17:39.302Z",
       "stage3Review": "Host self-review: parsed hotkey-window-thread-page-DGErqu4u.js exports, rebuilt the HotkeyWindowThreadPage compatibility export from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "app-prefetch-impl-DeWg99La": {
+      "restored": "runtime/current-app-initial/app-prefetch-impl-current-runtime.ts",
+      "exports": {
+        "AppPrefetchImpl": "appPrefetchImpl"
+      },
+      "status": "done",
+      "note": "Current app prefetch implementation hash maps to a dedicated current-ref runtime over vendor/app-prefetch-impl-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed app-prefetch-impl-DeWg99La.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "pets-settings-CeDsTNTI": {
+      "restored": "runtime/current-app-initial/pets-settings-current-runtime.ts",
+      "exports": {
+        "PetsSettings": "PetsSettings"
+      },
+      "status": "done",
+      "note": "Current pets settings hash maps to a dedicated current-ref runtime over vendor/pets-settings-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed pets-settings-CeDsTNTI.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "personalization-settings-B1J6eU5_": {
+      "restored": "runtime/current-app-initial/personalization-settings-current-runtime.ts",
+      "exports": {
+        "PersonalizationSettings": "PersonalizationSettings"
+      },
+      "status": "done",
+      "note": "Current personalization settings hash maps to a dedicated current-ref runtime over vendor/personalization-settings-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed personalization-settings-B1J6eU5_.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "local-environments-settings-page-q1SLOHGN": {
+      "restored": "runtime/current-app-initial/local-environments-settings-page-current-runtime.ts",
+      "exports": {
+        "LocalEnvironmentsSettings": "LocalEnvironmentsSettingsPage"
+      },
+      "status": "done",
+      "note": "Current local environments settings page hash maps to a dedicated current-ref runtime over vendor/local-environments-settings-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed local-environments-settings-page-q1SLOHGN.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "remote-connections-settings-DnApG523": {
+      "restored": "runtime/current-app-initial/remote-connections-settings-current-runtime.ts",
+      "exports": {
+        "RemoteConnectionsSettings": "RemoteConnectionsSettingsIcon"
+      },
+      "status": "done",
+      "note": "Current remote connections settings hash maps to a dedicated current-ref runtime over vendor/remote-connections-settings-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed remote-connections-settings-DnApG523.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "automations-page-CXHLOmAw": {
+      "restored": "runtime/current-app-initial/automations-page-current-runtime.ts",
+      "exports": {
+        "AutomationsLayoutPage": "AutomationsPage"
+      },
+      "status": "done",
+      "note": "Current automations page hash maps to a dedicated current-ref runtime over vendor/automations-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed automations-page-CXHLOmAw.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "avatar-overlay-featuregate-page-CD3wz3Jd": {
+      "restored": "runtime/current-app-initial/avatar-overlay-featuregate-page-current-runtime.ts",
+      "exports": {
+        "AvatarOverlayFeatureGatePage": "AvatarOverlayFeaturegatePage"
+      },
+      "status": "done",
+      "note": "Current avatar overlay feature gate page hash maps to a dedicated current-ref runtime over vendor/avatar-overlay-featuregate-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed avatar-overlay-featuregate-page-CD3wz3Jd.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "hotkey-window-home-page-HuAbYFeH": {
+      "restored": "runtime/current-app-initial/hotkey-window-home-page-current-runtime.ts",
+      "exports": {
+        "HotkeyWindowHomePage": "HotkeyWindowHomePage"
+      },
+      "status": "done",
+      "note": "Current hotkey window home page hash maps to a dedicated current-ref runtime over vendor/hotkey-window-home-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed hotkey-window-home-page-HuAbYFeH.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "hotkey-window-new-thread-page-DC8KDgIn": {
+      "restored": "runtime/current-app-initial/hotkey-window-new-thread-page-current-runtime.ts",
+      "exports": {
+        "HotkeyWindowNewThreadPage": "HotkeyWindowNewThreadPage"
+      },
+      "status": "done",
+      "note": "Current hotkey window new thread page hash maps to a dedicated current-ref runtime over vendor/hotkey-window-new-thread-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed hotkey-window-new-thread-page-DC8KDgIn.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "hotkey-window-worktree-init-page-CDrG7Phs": {
+      "restored": "runtime/current-app-initial/hotkey-window-worktree-init-page-current-runtime.ts",
+      "exports": {
+        "HotkeyWindowWorktreeInitPage": "HotkeyWindowWorktreeInitPage"
+      },
+      "status": "done",
+      "note": "Current hotkey window worktree init page hash maps to a dedicated current-ref runtime over vendor/hotkey-window-worktree-init-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed hotkey-window-worktree-init-page-CDrG7Phs.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "settings-page-Czsl4aZl": {
+      "restored": "runtime/current-app-initial/settings-page-current-runtime.ts",
+      "exports": {
+        "SettingsPage": "SettingsPageIcon"
+      },
+      "status": "done",
+      "note": "Current settings page hash maps to a dedicated current-ref runtime over vendor/settings-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed settings-page-Czsl4aZl.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "onboarding-page-DtzKDTbH": {
+      "restored": "runtime/current-app-initial/onboarding-page-current-runtime.ts",
+      "exports": {
+        "OnboardingPage": "OnboardingPageIcon"
+      },
+      "status": "done",
+      "note": "Current onboarding page hash maps to a dedicated current-ref runtime over vendor/onboarding-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed onboarding-page-DtzKDTbH.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "pull-requests-page-CqwsTUV0": {
+      "restored": "runtime/current-app-initial/pull-requests-page-current-runtime.ts",
+      "exports": {
+        "PullRequestsPage": "PullRequestsPage"
+      },
+      "status": "done",
+      "note": "Current pull requests page hash maps to a dedicated current-ref runtime over vendor/pull-requests-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed pull-requests-page-CqwsTUV0.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "remote-conversation-page-CSJXivxd": {
+      "restored": "runtime/current-app-initial/remote-conversation-page-current-runtime.ts",
+      "exports": {
+        "RemoteConversationPage": "RemoteConversationPageIcon"
+      },
+      "status": "done",
+      "note": "Current remote conversation page hash maps to a dedicated current-ref runtime over vendor/remote-conversation-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed remote-conversation-page-CSJXivxd.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "avatar-overlay-native-page-CAxsNCX7": {
+      "restored": "runtime/current-app-initial/avatar-overlay-native-page-current-runtime.ts",
+      "exports": {
+        "AvatarOverlayNativePage": "AvatarOverlayNativePage"
+      },
+      "status": "done",
+      "note": "Current avatar overlay native page hash maps to a dedicated current-ref runtime over vendor/avatar-overlay-native-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed avatar-overlay-native-page-CAxsNCX7.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+    },
+    "avatar-overlay-page-DdqF43YR": {
+      "restored": "runtime/current-app-initial/avatar-overlay-page-current-runtime.ts",
+      "exports": {
+        "AvatarOverlayPage": "AvatarOverlayPage"
+      },
+      "status": "done",
+      "note": "Current avatar overlay page hash maps to a dedicated current-ref runtime over vendor/avatar-overlay-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
+      "stage3Review": "Host self-review: parsed avatar-overlay-page-DdqF43YR.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
       "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
     }
   }
