@@ -9359,6 +9359,46 @@
       },
       "status": "done"
     },
+    "treeView-SZITEDCU-cjLZpVgp": {
+      "restored": "vendor/mermaid-tree-view-definition-k5.ts",
+      "exports": {
+        "createTreeViewServices": "createTreeViewServices"
+      },
+      "status": "done",
+      "aliasOf": "treeView-SZITEDCU-CQ3h0-LJ",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface."
+    },
+    "treeView-SZITEDCU-D8xhDZfC": {
+      "restored": "vendor/mermaid-tree-view-definition-k5.ts",
+      "exports": {
+        "createTreeViewServices": "createTreeViewServices"
+      },
+      "status": "done",
+      "aliasOf": "treeView-SZITEDCU-CQ3h0-LJ",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface."
+    },
+    "treeView-SZITEDCU-Eh_Sy40o": {
+      "restored": "vendor/mermaid-tree-view-definition-k5.ts",
+      "exports": {
+        "createTreeViewServices": "createTreeViewServices"
+      },
+      "status": "done",
+      "aliasOf": "treeView-SZITEDCU-CQ3h0-LJ",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface."
+    },
+    "treeView-SZITEDCU-Ra8GTsMQ": {
+      "restored": "vendor/mermaid-tree-view-definition-k5.ts",
+      "exports": {
+        "createTreeViewServices": "createTreeViewServices"
+      },
+      "status": "done",
+      "aliasOf": "treeView-SZITEDCU-CQ3h0-LJ",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface."
+    },
     "treemap-W4RFUUIX-LvOJWvcJ": {
       "restored": "vendor/mermaid-treemap-definition-k5.ts",
       "exports": {
@@ -9795,6 +9835,46 @@
       },
       "status": "done"
     },
+    "pieDiagram-DEJITSTG-BJ04HqRJ": {
+      "restored": "vendor/mermaid-pie-diagram-k5.ts",
+      "exports": {
+        "diagram": "pieDiagramDEJITSTG"
+      },
+      "status": "done",
+      "aliasOf": "pieDiagram-DEJITSTG-D-t1CIhj",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid pie diagram wrapper preserves the restored public export surface."
+    },
+    "pieDiagram-DEJITSTG-C1opPG5o": {
+      "restored": "vendor/mermaid-pie-diagram-k5.ts",
+      "exports": {
+        "diagram": "pieDiagramDEJITSTG"
+      },
+      "status": "done",
+      "aliasOf": "pieDiagram-DEJITSTG-D-t1CIhj",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid pie diagram wrapper preserves the restored public export surface."
+    },
+    "pieDiagram-DEJITSTG-eYbVMxhh": {
+      "restored": "vendor/mermaid-pie-diagram-k5.ts",
+      "exports": {
+        "diagram": "pieDiagramDEJITSTG"
+      },
+      "status": "done",
+      "aliasOf": "pieDiagram-DEJITSTG-D-t1CIhj",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid pie diagram wrapper preserves the restored public export surface."
+    },
+    "pieDiagram-DEJITSTG-G0ijuKHv": {
+      "restored": "vendor/mermaid-pie-diagram-k5.ts",
+      "exports": {
+        "diagram": "pieDiagramDEJITSTG"
+      },
+      "status": "done",
+      "aliasOf": "pieDiagram-DEJITSTG-D-t1CIhj",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid pie diagram wrapper preserves the restored public export surface."
+    },
     "wardleyDiagram-NUSXRM2D-DlElmt-K": {
       "restored": "vendor/mermaid-wardley-diagram-k5.ts",
       "exports": {
@@ -9817,6 +9897,16 @@
       "status": "done",
       "aliasOf": "architectureDiagram-VXUJARFQ-x16TdI-X",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
+    },
+    "architectureDiagram-VXUJARFQ-Cezc0LkZ": {
+      "restored": "vendor/mermaid-architecture-diagram-fpaj.ts",
+      "exports": {
+        "diagram": "ArchitectureDiagramVXUJARFQ"
+      },
+      "status": "done",
+      "aliasOf": "architectureDiagram-VXUJARFQ-x16TdI-X",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Mermaid architecture diagram wrapper preserves the restored public export surface."
     },
     "diagram-PSM6KHXK-DqnCog4a": {
       "restored": "vendor/mermaid-treemap-diagram-fpaj.ts",
