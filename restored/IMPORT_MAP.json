@@ -12477,9 +12477,9 @@
     },
     "app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~ijdupmx5-CdYgxe-b": {
       "restored": "vendor/appg-thread-shared-runtime.ts",
-      "status": "partial",
-      "note": "Legacy appg/thread shared producer no longer exists in the current ref. The compatibility facade now exposes only no-op initializer aliases while specific restored runtime modules initialize their concrete current producer chunks directly.",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "status": "done",
+      "note": "Legacy appg/thread shared producer no longer exists in the current ref. The compatibility facade intentionally exposes only no-op initializer aliases, has no restored consumers, and specific restored runtime modules initialize their concrete current producer chunks directly.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~ovcriy74-KTK3czaX": {
       "restored": "vendor/projects-app-shared-runtime.ts",
