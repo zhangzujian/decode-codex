@@ -36145,6 +36145,72 @@
       "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vitesse-light; JSON payload is intentionally not copied into restored/",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "pierre-dark-BvenaEZa": {
+      "restored": "vendor/pierre-themes.ts",
+      "exports": {
+        "default": "pierreDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@pierre/theme",
+      "note": "Pierre theme data chunk pierre-dark restored as inline frozen JSON data; no local @pierre/theme package surface is available in this restore.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "pierre-dark-soft-JyefoaBc": {
+      "restored": "vendor/pierre-themes.ts",
+      "exports": {
+        "default": "pierreDarkSoftTheme"
+      },
+      "status": "done",
+      "vendor": "@pierre/theme",
+      "note": "Pierre theme data chunk pierre-dark-soft restored as inline frozen JSON data; no local @pierre/theme package surface is available in this restore.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "pierre-dark-vibrant-Cmjp-dN9": {
+      "restored": "vendor/pierre-themes.ts",
+      "exports": {
+        "default": "pierreDarkVibrantTheme"
+      },
+      "status": "done",
+      "vendor": "@pierre/theme",
+      "note": "Pierre theme data chunk pierre-dark-vibrant restored as inline frozen JSON data; no local @pierre/theme package surface is available in this restore.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "pierre-light-D8J8zrP2": {
+      "restored": "vendor/pierre-themes.ts",
+      "exports": {
+        "default": "pierreLightTheme"
+      },
+      "status": "done",
+      "vendor": "@pierre/theme",
+      "note": "Pierre theme data chunk pierre-light restored as inline frozen JSON data; no local @pierre/theme package surface is available in this restore.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "pierre-light-soft-DHrH3I8z": {
+      "restored": "vendor/pierre-themes.ts",
+      "exports": {
+        "default": "pierreLightSoftTheme"
+      },
+      "status": "done",
+      "vendor": "@pierre/theme",
+      "note": "Pierre theme data chunk pierre-light-soft restored as inline frozen JSON data; no local @pierre/theme package surface is available in this restore.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "pierre-light-vibrant-oTqpm0VH": {
+      "restored": "vendor/pierre-themes.ts",
+      "exports": {
+        "default": "pierreLightVibrantTheme"
+      },
+      "status": "done",
+      "vendor": "@pierre/theme",
+      "note": "Pierre theme data chunk pierre-light-vibrant restored as inline frozen JSON data; no local @pierre/theme package surface is available in this restore.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }
