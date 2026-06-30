@@ -5279,6 +5279,40 @@
       "note": "Current Rolldown chunk has the same export surface as chunk-5PVQY5BW-DEldFBPA; aliases were re-derived from chunk-5PVQY5BW-VrOwugqI.js.",
       "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
+    "chunk-5PVQY5BW-B-If-JI6": {
+      "restored": "vendor/mermaid-curve-utils.ts",
+      "exports": {
+        "C": "curveBasis",
+        "S": "curveCardinal",
+        "T": "curveBumpY",
+        "_": "curveStepAfter",
+        "a": "encodeEntities",
+        "b": "curveNatural",
+        "c": "getStylesFromArray",
+        "d": "isDetailedError",
+        "f": "parseFontSize",
+        "g": "wrapLabel",
+        "h": "mermaidSvgUtilities",
+        "i": "decodeEntities",
+        "l": "handleUndefinedAttr",
+        "m": "removeDirectives",
+        "n": "calculateTextWidth",
+        "o": "generateId",
+        "p": "random",
+        "r": "cleanAndMerge",
+        "s": "getEdgeId",
+        "t": "calculateTextHeight",
+        "u": "interpolateToCurve",
+        "v": "curveStepBefore",
+        "w": "curveBumpX",
+        "x": "curveCatmullRom",
+        "y": "curveStep"
+      },
+      "status": "done",
+      "aliasOf": "chunk-5PVQY5BW-DEldFBPA",
+      "note": "Current Rolldown chunk has the same merged d3 curve and Mermaid SVG utility export surface as chunk-5PVQY5BW-DEldFBPA; aliases were re-derived from chunk-5PVQY5BW-B-If-JI6.js.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
     "chunk-X2U36JSP-DWvyIaf0": {
       "restored": "vendor/chunk-x2u36jsp.ts",
       "exports": {
