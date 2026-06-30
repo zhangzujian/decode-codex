@@ -1,66 +1,94 @@
 // Restored from ref/webview/assets/flatten-CdNmRCTf.js
-// Flatten chunk restored from the Codex webview bundle.
+// Lodash map/min/flatten helpers restored from the Codex webview bundle.
 import {
-  reduceUnderscore,
-  reduceA,
-  reduceH,
-  reduceR,
-  reduceY,
+  reduceD as toIteratee,
+  reduceE as arrayMap,
+  reduceFlattenOne,
+  reduceY as isSymbol,
 } from "./lodash-reduce";
-import { baseForG, baseForI, baseForN } from "./lodash-base-for";
-function flattenO(flattenParam4, flattenParam5) {
-  var flattenValue5 = -1,
-    flattenValue6 = baseForI(flattenParam4) ? Array(flattenParam4.length) : [];
-  return (
-    reduceH(
-      flattenParam4,
-      function (flattenParam10, flattenParam11, flattenParam12) {
-        flattenValue6[++flattenValue5] = flattenParam5(
-          flattenParam10,
-          flattenParam11,
-          flattenParam12,
-        );
-      },
-    ),
-    flattenValue6
-  );
-}
-export function flattenA(flattenParam8, flattenParam9) {
-  return (baseForG(flattenParam8) ? reduceA : flattenO)(
-    flattenParam8,
-    reduceUnderscore(flattenParam9, 3),
-  );
-}
-function flattenI(flattenParam1, flattenParam2, flattenParam3) {
-  for (
-    var flattenValue1 = -1, flattenValue2 = flattenParam1.length;
-    ++flattenValue1 < flattenValue2;
+import {
+  baseForG as isArray,
+  baseForI as isArrayLike,
+} from "./lodash-base-for";
 
-  ) {
-    var flattenValue3 = flattenParam1[flattenValue1],
-      flattenValue4 = flattenParam2(flattenValue3);
-    if (
-      flattenValue4 != null &&
-      (_flattenO === undefined
-        ? flattenValue4 === flattenValue4 && !reduceY(flattenValue4)
-        : flattenParam3(flattenValue4, _flattenO))
-    )
-      var _flattenO = flattenValue4,
-        _flattenA = flattenValue3;
+type Collection<T> = ArrayLike<T> | Record<string, T> | null | undefined;
+type CollectionKey = number | string;
+type CollectionIteratee<T, R> = (
+  value: T,
+  key: CollectionKey,
+  collection: Collection<T>,
+) => R;
+type ExtremumIteratee<T, R> = (value: T) => R;
+type ExtremumComparator<T> = (current: T, computed: T) => boolean;
+
+export function flattenO<T, R>(
+  collection: Collection<T>,
+  iteratee: CollectionIteratee<T, R>,
+): R[] {
+  if (collection == null) return [];
+
+  if (isArrayLike(collection)) {
+    const source = collection as ArrayLike<T>;
+    const result: R[] = Array(source.length);
+    for (let index = 0; index < source.length; index += 1) {
+      result[index] = iteratee(source[index], index, collection);
+    }
+    return result;
   }
-  return _flattenA;
+
+  const source = Object(collection) as Record<string, T>;
+  return Object.keys(source).map((key) =>
+    iteratee(source[key], key, collection),
+  );
 }
-function flattenR(flattenParam13, flattenParam14) {
-  return flattenParam13 < flattenParam14;
+
+export function flattenA<T, R>(
+  collection: Collection<T>,
+  iteratee: unknown,
+): R[] {
+  const mapper = toIteratee(iteratee, 3) as CollectionIteratee<T, R>;
+  const mapCollection = isArray(collection) ? arrayMap : flattenO;
+  return mapCollection(collection, mapper);
 }
-export function flattenN(flattenParam6) {
-  return flattenParam6 && flattenParam6.length
-    ? flattenI(flattenParam6, baseForN, flattenR)
+
+export function flattenI<T, R>(
+  values: ArrayLike<T>,
+  iteratee: ExtremumIteratee<T, R>,
+  comparator: ExtremumComparator<R>,
+): T | undefined {
+  let bestComputed: R | undefined;
+  let bestValue: T | undefined;
+
+  for (let index = 0; index < values.length; index += 1) {
+    const value = values[index];
+    const computed = iteratee(value);
+
+    if (
+      computed != null &&
+      (bestComputed === undefined
+        ? computed === computed && !isSymbol(computed)
+        : comparator(computed, bestComputed))
+    ) {
+      bestComputed = computed;
+      bestValue = value;
+    }
+  }
+
+  return bestValue;
+}
+
+export function flattenR<T>(current: T, computed: T): boolean {
+  return current < computed;
+}
+
+export function flattenN<T>(
+  values: ArrayLike<T> | null | undefined,
+): T | undefined {
+  return values && values.length
+    ? flattenI(values, (value) => value, flattenR)
     : undefined;
 }
-export function flattenT(flattenParam7) {
-  return flattenParam7 != null && flattenParam7.length
-    ? reduceR(flattenParam7, 1)
-    : [];
+
+export function flattenT<T>(values: ArrayLike<T> | null | undefined): T[] {
+  return values != null && values.length ? reduceFlattenOne(values) : [];
 }
-export { flattenI, flattenO, flattenR };

@@ -5494,13 +5494,15 @@
       "restored": "vendor/lodash-flatten.ts",
       "exports": {
         "a": "flattenA",
-        "i": "flattenN",
-        "n": "flattenT",
-        "o": "flattenI",
-        "r": "flattenO",
-        "t": "flattenR"
+        "i": "flattenI",
+        "n": "flattenN",
+        "o": "flattenO",
+        "r": "flattenR",
+        "t": "flattenT"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "union-8iT5ANuG": {
       "restored": "vendor/lodash-union.ts",
