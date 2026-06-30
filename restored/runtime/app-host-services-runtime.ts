@@ -35,9 +35,14 @@ type CachedConversation<TTurn> = {
   };
   turns?: readonly TTurn[];
 };
+export type AppHostInfo = {
+  name?: string;
+  version?: string;
+  [key: string]: unknown;
+};
 export type AppHostServicesBridge = {
   appInfo: {
-    get: () => unknown;
+    get: () => Promise<AppHostInfo>;
   };
   workspaceFiles: {
     read(params: {
@@ -77,8 +82,8 @@ export const onboardingWizardAction = {
 } satisfies OnboardingWizardActionCatalog;
 
 export function initAppHostServicesRuntimeChunk(): void {
-  // TODO: deep-restore the MessagePort RPC client and replace this current-ref
-  // producer bridge with a typed local implementation.
+  // The current bundle owns the MessagePort RPC client; this runtime exposes its
+  // connected service surface under semantic names.
   initAppHostServicesRuntimeChunkRaw();
 }
 
