@@ -8910,7 +8910,9 @@
         "t": "chunkFPAJGGOCT",
         "u": "chunkFPAJGGOCU"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "chunk-QXUST7PY-B8nc5wSD": {
       "restored": "vendor/mermaid-edge-renderer.ts",
@@ -9462,8 +9464,9 @@
       },
       "status": "done",
       "aliasOf": "chunk-76Q3JFCE-Bhgg5xKY",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true
     },
     "chunk-FWNWRKHM-BHhZ1scK": {
       "restored": "vendor/mermaid-treemap-services-fpaj.ts",
@@ -9474,8 +9477,9 @@
       },
       "status": "done",
       "aliasOf": "chunk-FWNWRKHM-DRtw95ir",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true
     },
     "chunk-LBM3YZW2-C3vrLyXI": {
       "restored": "vendor/mermaid-info-services-fpaj.ts",
@@ -9486,8 +9490,9 @@
       },
       "status": "done",
       "aliasOf": "chunk-LBM3YZW2-C9W8CgCb",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true
     },
     "chunk-LHMN2FUI-IYfQ4Xix": {
       "restored": "vendor/mermaid-radar-services-fpaj.ts",
@@ -9498,8 +9503,9 @@
       },
       "status": "done",
       "aliasOf": "chunk-LHMN2FUI-BO1BbTL6",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true
     },
     "chunk-O7ZBX7Z2-YEixComM": {
       "restored": "vendor/mermaid-architecture-services-fpaj.ts",
@@ -9510,8 +9516,9 @@
       },
       "status": "done",
       "aliasOf": "chunk-O7ZBX7Z2-B9AHjHvq",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true
     },
     "chunk-S6J4BHB3-Dk5nTTZ4": {
       "restored": "vendor/mermaid-git-graph-services-fpaj.ts",
@@ -9522,8 +9529,9 @@
       },
       "status": "done",
       "aliasOf": "chunk-S6J4BHB3-BiRR_8vz",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true
     },
     "chunk-T53DSG4Q-m0Nw3lHx": {
       "restored": "vendor/mermaid-pie-services-fpaj.ts",
@@ -9534,8 +9542,9 @@
       },
       "status": "done",
       "aliasOf": "chunk-T53DSG4Q-DwpHe3Zz",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true
     },
     "architecture-YZFGNWBL-hfWpxWZF": {
       "restored": "vendor/mermaid-architecture-definition-k5.ts",
@@ -10645,7 +10654,9 @@
         "r": "chunkDI55MBZ5R",
         "t": "chunkDI55MBZ5T"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "artifact-analytics-FNBRBLp1": {
       "restored": "features/artifact-analytics.ts",
@@ -34654,6 +34665,49 @@
       "aliasOf": "useForm-Dc2s3Q7s",
       "lastUpdated": "2026-06-30T00:00:00.000-05:00",
       "note": "Current Rolldown TanStack React Form chunk re-derived from esm-BrsRQYxN.js; n is useForm and t is the initializer thunk."
+    },
+    "chunk-DI55MBZ5-6W-fDgmq": {
+      "restored": "vendor/mermaid-state-diagram-fpaj.ts",
+      "exports": {
+        "a": "chunkDI55MBZ5I",
+        "i": "chunkDI55MBZ5R",
+        "n": "initChunkDI55MBZ5Chunk",
+        "r": "chunkDI55MBZ5N",
+        "t": "chunkDI55MBZ5T"
+      },
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown Mermaid state diagram repack re-derived from chunk-DI55MBZ5-6W-fDgmq.js; a is getStyles, i is the renderer definition, n is the initializer thunk, r is the parser, and t is StateDB.",
+      "aliasOf": "chunk-DI55MBZ5-CK4BKk7V",
+      "stage3Accepted": true
+    },
+    "chunk-FPAJGGOC-Yd_bXKmT": {
+      "restored": "vendor/mermaid-parser-runtime-fpajggoc.ts",
+      "exports": {
+        "_": "chunkFPAJGGOCH",
+        "a": "chunkFPAJGGOCA",
+        "c": "chunkFPAJGGOCC",
+        "d": "chunkFPAJGGOCD",
+        "f": "chunkFPAJGGOCF",
+        "g": "chunkFPAJGGOCM",
+        "h": "chunkFPAJGGOCP",
+        "i": "chunkFPAJGGOCI",
+        "l": "chunkFPAJGGOCL",
+        "m": "initMermaidParserRuntimeChunk",
+        "n": "chunkFPAJGGOCN",
+        "o": "chunkFPAJGGOCO",
+        "p": "initMermaidParserDefinitionsChunk",
+        "r": "chunkFPAJGGOCR",
+        "s": "chunkFPAJGGOCS",
+        "t": "chunkFPAJGGOCT",
+        "u": "chunkFPAJGGOCU",
+        "v": "chunkFPAJGGOCG"
+      },
+      "status": "done",
+      "aliasOf": "chunk-FPAJGGOC-Cy-1bcKF",
+      "note": "Current Mermaid/Langium parser runtime hash re-derived from chunk-FPAJGGOC-Yd_bXKmT.js. Alias reshuffle maps core/shared/inject/empty-file-system exports onto the existing restored runtime; m/p are flattened Rolldown init thunks.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }
