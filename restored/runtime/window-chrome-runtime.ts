@@ -8,7 +8,7 @@ export type CodexWindowType = "electron" | string;
 export type CodexOs = "win32" | "darwin" | "linux" | "unknown";
 export type CodexWindowChrome = "application-menu" | "native";
 
-export const currentRouteHostIdSignal = threadHostIdSignal as unknown;
+export const currentRouteHostIdSignal = threadHostIdSignal;
 
 export function getCodexWindowChrome(
   windowType: CodexWindowType,

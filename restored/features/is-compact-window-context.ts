@@ -79,7 +79,7 @@ export function isCurrentAvatarOverlayWindow(): boolean {
   return isAvatarOverlayRoute(readWindowRouteState());
 }
 function readWindowRouteState(): WindowRouteState {
-  if (typeof window > "u") {
+  if (typeof window === "undefined") {
     return {
       pathname: "",
       initialRoute: null,
