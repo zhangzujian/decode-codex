@@ -4214,15 +4214,18 @@
     "chunk-TZMSLE5B-BvWo7845": {
       "restored": "vendor/chunk-tzmsle5b.ts",
       "exports": {
-        "a": "chunkTZMSLE5BT",
-        "i": "chunkTZMSLE5BS",
-        "n": "chunkTZMSLE5BR",
-        "o": "chunkTZMSLE5BO",
-        "r": "chunkTZMSLE5BN",
-        "s": "chunkTZMSLE5BA",
-        "t": "chunkTZMSLE5BI"
+        "a": "drawBackgroundRect",
+        "i": "getTextObj",
+        "n": "drawImage",
+        "o": "getNoteRect",
+        "r": "drawEmbeddedImage",
+        "s": "drawText",
+        "t": "drawRect"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Restored to typed Mermaid SVG drawing helpers; compatibility chunkTZMSLE5B* exports remain in the public file for older consumers."
     },
     "pdf-c2WnNMiD": {
       "restored": "vendor/pdfjs-entry.ts",
@@ -21195,18 +21198,19 @@
     "chunk-TZMSLE5B-DErk67ZI": {
       "restored": "vendor/chunk-tzmsle5b.ts",
       "exports": {
-        "a": "chunkTZMSLE5BT",
-        "i": "chunkTZMSLE5BS",
-        "n": "chunkTZMSLE5BR",
-        "o": "chunkTZMSLE5BO",
-        "r": "chunkTZMSLE5BN",
-        "s": "chunkTZMSLE5BA",
-        "t": "chunkTZMSLE5BI"
+        "a": "drawBackgroundRect",
+        "i": "getTextObj",
+        "n": "drawImage",
+        "o": "getNoteRect",
+        "r": "drawEmbeddedImage",
+        "s": "drawText",
+        "t": "drawRect"
       },
       "status": "done",
       "aliasOf": "chunk-TZMSLE5B-BvWo7845",
-      "lastUpdated": "2026-06-29T00:00:00.000Z",
-      "note": "Current vendor chunk keeps the restored public API and adds c internal export."
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Restored to typed Mermaid SVG drawing helpers; compatibility chunkTZMSLE5B* exports remain in the public file for older consumers."
     },
     "chunk-ABZYJK2D-Ugtemmk_": {
       "restored": "vendor/katex-auto-render.ts",
@@ -34595,17 +34599,17 @@
     "chunk-TZMSLE5B-DUO6_pDl": {
       "restored": "vendor/chunk-tzmsle5b.ts",
       "exports": {
-        "a": "chunkTZMSLE5BA",
-        "c": "initChunkTZMSLE5B",
-        "i": "chunkTZMSLE5BI",
-        "n": "chunkTZMSLE5BN",
-        "o": "chunkTZMSLE5BO",
-        "r": "chunkTZMSLE5BR",
-        "s": "chunkTZMSLE5BS",
-        "t": "chunkTZMSLE5BT"
+        "a": "drawText",
+        "c": "initMermaidSvgDrawingHelpersChunk",
+        "i": "drawRect",
+        "n": "drawEmbeddedImage",
+        "o": "getNoteRect",
+        "r": "drawImage",
+        "s": "getTextObj",
+        "t": "drawBackgroundRect"
       },
       "aliasOf": "chunk-TZMSLE5B-BvWo7845",
-      "note": "Current chunk-TZMSLE5B hash re-derived from chunk-TZMSLE5B-DUO6_pDl.js. Alias c is the Rolldown lazy init thunk; drawing helper aliases were matched by function names.",
+      "note": "Current chunk-TZMSLE5B hash re-derived from chunk-TZMSLE5B-DUO6_pDl.js. Alias c is the Rolldown lazy init thunk; drawing helper aliases were matched by wrapped function names.",
       "status": "done",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"

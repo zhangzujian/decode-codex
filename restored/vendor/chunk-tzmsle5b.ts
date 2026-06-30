@@ -1,56 +1,138 @@
-// Restored from ref/webview/assets/chunk-TZMSLE5B-DErk67ZI.js
-// ChunkTZMSLE5B chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/chunk-TZMSLE5B-DUO6_pDl.js
+// Mermaid SVG drawing helpers shared by flow, sequence, journey, and C4 diagrams.
 import { chunkAGHRB4JFN } from "./dompurify";
-import { _chunkABZYJK2DA } from "./katex-auto-render";
-import { dist } from "./entities-escape";
-var chunkTZMSLE5BValue1 = dist(),
-  chunkTZMSLE5BI = chunkAGHRB4JFN(
-    (chunkTZMSLE5BParam1, chunkTZMSLE5BParam2) => {
-      let chunkTZMSLE5BValue2 = chunkTZMSLE5BParam1.append("rect");
-      if (
-        (chunkTZMSLE5BValue2.attr("x", chunkTZMSLE5BParam2.x),
-        chunkTZMSLE5BValue2.attr("y", chunkTZMSLE5BParam2.y),
-        chunkTZMSLE5BValue2.attr("fill", chunkTZMSLE5BParam2.fill),
-        chunkTZMSLE5BValue2.attr("stroke", chunkTZMSLE5BParam2.stroke),
-        chunkTZMSLE5BValue2.attr("width", chunkTZMSLE5BParam2.width),
-        chunkTZMSLE5BValue2.attr("height", chunkTZMSLE5BParam2.height),
-        chunkTZMSLE5BParam2.name &&
-          chunkTZMSLE5BValue2.attr("name", chunkTZMSLE5BParam2.name),
-        chunkTZMSLE5BParam2.rx &&
-          chunkTZMSLE5BValue2.attr("rx", chunkTZMSLE5BParam2.rx),
-        chunkTZMSLE5BParam2.ry &&
-          chunkTZMSLE5BValue2.attr("ry", chunkTZMSLE5BParam2.ry),
-        chunkTZMSLE5BParam2.attrs !== undefined)
-      )
-        for (let chunkTZMSLE5BValue4 in chunkTZMSLE5BParam2.attrs)
-          chunkTZMSLE5BValue2.attr(
-            chunkTZMSLE5BValue4,
-            chunkTZMSLE5BParam2.attrs[chunkTZMSLE5BValue4],
-          );
-      return (
-        chunkTZMSLE5BParam2.class &&
-          chunkTZMSLE5BValue2.attr("class", chunkTZMSLE5BParam2.class),
-        chunkTZMSLE5BValue2
-      );
-    },
-    "drawRect",
-  );
-export const chunkTZMSLE5BT = chunkAGHRB4JFN(
-  (chunkTZMSLE5BParam5, chunkTZMSLE5BParam6) => {
-    chunkTZMSLE5BI(chunkTZMSLE5BParam5, {
-      x: chunkTZMSLE5BParam6.startx,
-      y: chunkTZMSLE5BParam6.starty,
-      width: chunkTZMSLE5BParam6.stopx - chunkTZMSLE5BParam6.startx,
-      height: chunkTZMSLE5BParam6.stopy - chunkTZMSLE5BParam6.starty,
-      fill: chunkTZMSLE5BParam6.fill,
-      stroke: chunkTZMSLE5BParam6.stroke,
+import { chunkABZYJK2DK as LINE_BREAK_TAG_PATTERN } from "./katex-auto-render";
+import { dist as createUrlSanitizerModule } from "./entities-escape";
+
+type SvgAttributeValue = string | number | boolean | null | undefined;
+
+export type MermaidSvgSelection = {
+  append(elementName: string): MermaidSvgSelection;
+  attr(name: string, value?: SvgAttributeValue): MermaidSvgSelection;
+  style(name: string, value: SvgAttributeValue): MermaidSvgSelection;
+  text(value: string): MermaidSvgSelection;
+  lower(): MermaidSvgSelection;
+};
+
+export type MermaidRectDescriptor = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fill: string;
+  stroke: string;
+  class?: string;
+  name?: string;
+  rx?: number;
+  ry?: number;
+  attrs?: Record<string, SvgAttributeValue>;
+};
+
+export type MermaidBackgroundRectDescriptor = {
+  startx: number;
+  starty: number;
+  stopx: number;
+  stopy: number;
+  fill: string;
+  stroke: string;
+};
+
+export type MermaidTextDescriptor = {
+  x: number;
+  y: number;
+  text: string;
+  anchor: string;
+  textMargin: number;
+  class?: string;
+};
+
+export type MermaidTextObjectDefaults = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  "text-anchor": "start";
+  style: string;
+  textMargin: number;
+  rx: number;
+  ry: number;
+  tspan: boolean;
+};
+
+export type MermaidNoteRectDescriptor = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fill: string;
+  stroke: string;
+  anchor: "start";
+  rx: number;
+  ry: number;
+};
+
+type UrlSanitizerModule = {
+  sanitizeUrl(input: string | null | undefined): string;
+};
+
+const nameFunction = chunkAGHRB4JFN as <TArgs extends unknown[], TResult>(
+  callback: (...args: TArgs) => TResult,
+  displayName: string,
+) => (...args: TArgs) => TResult;
+
+const urlSanitizer = createUrlSanitizerModule() as UrlSanitizerModule;
+
+export const drawRect = nameFunction(
+  (
+    parentSelection: MermaidSvgSelection,
+    rect: MermaidRectDescriptor,
+  ): MermaidSvgSelection => {
+    const rectSelection = parentSelection.append("rect");
+    rectSelection.attr("x", rect.x);
+    rectSelection.attr("y", rect.y);
+    rectSelection.attr("fill", rect.fill);
+    rectSelection.attr("stroke", rect.stroke);
+    rectSelection.attr("width", rect.width);
+    rectSelection.attr("height", rect.height);
+
+    if (rect.name) rectSelection.attr("name", rect.name);
+    if (rect.rx) rectSelection.attr("rx", rect.rx);
+    if (rect.ry) rectSelection.attr("ry", rect.ry);
+
+    if (rect.attrs !== undefined) {
+      for (const [attributeName, attributeValue] of Object.entries(
+        rect.attrs,
+      )) {
+        rectSelection.attr(attributeName, attributeValue);
+      }
+    }
+
+    if (rect.class) rectSelection.attr("class", rect.class);
+    return rectSelection;
+  },
+  "drawRect",
+);
+
+export const drawBackgroundRect = nameFunction(
+  (
+    parentSelection: MermaidSvgSelection,
+    bounds: MermaidBackgroundRectDescriptor,
+  ): void => {
+    drawRect(parentSelection, {
+      x: bounds.startx,
+      y: bounds.starty,
+      width: bounds.stopx - bounds.startx,
+      height: bounds.stopy - bounds.starty,
+      fill: bounds.fill,
+      stroke: bounds.stroke,
       class: "rect",
     }).lower();
   },
   "drawBackgroundRect",
 );
-export const chunkTZMSLE5BS = chunkAGHRB4JFN(
-  () => ({
+
+export const getTextObj = nameFunction(
+  (): MermaidTextObjectDefaults => ({
     x: 0,
     y: 0,
     width: 100,
@@ -64,23 +146,24 @@ export const chunkTZMSLE5BS = chunkAGHRB4JFN(
   }),
   "getTextObj",
 );
-export const chunkTZMSLE5BR = chunkAGHRB4JFN(
+
+export const drawImage = nameFunction(
   (
-    chunkTZMSLE5BParam10,
-    chunkTZMSLE5BParam11,
-    chunkTZMSLE5BParam12,
-    _chunkTZMSLE5BI,
-  ) => {
-    let _chunkTZMSLE5BT = chunkTZMSLE5BParam10.append("image");
-    _chunkTZMSLE5BT.attr("x", chunkTZMSLE5BParam11);
-    _chunkTZMSLE5BT.attr("y", chunkTZMSLE5BParam12);
-    let _chunkTZMSLE5BA = chunkTZMSLE5BValue1.sanitizeUrl(_chunkTZMSLE5BI);
-    _chunkTZMSLE5BT.attr("xlink:href", _chunkTZMSLE5BA);
+    parentSelection: MermaidSvgSelection,
+    x: number,
+    y: number,
+    imageUrl: string,
+  ): void => {
+    const imageSelection = parentSelection.append("image");
+    imageSelection.attr("x", x);
+    imageSelection.attr("y", y);
+    imageSelection.attr("xlink:href", urlSanitizer.sanitizeUrl(imageUrl));
   },
   "drawImage",
 );
-export const chunkTZMSLE5BO = chunkAGHRB4JFN(
-  () => ({
+
+export const getNoteRect = nameFunction(
+  (): MermaidNoteRectDescriptor => ({
     x: 0,
     y: 0,
     width: 100,
@@ -93,45 +176,58 @@ export const chunkTZMSLE5BO = chunkAGHRB4JFN(
   }),
   "getNoteRect",
 );
-export const chunkTZMSLE5BN = chunkAGHRB4JFN(
+
+export const drawEmbeddedImage = nameFunction(
   (
-    chunkTZMSLE5BParam7,
-    chunkTZMSLE5BParam8,
-    chunkTZMSLE5BParam9,
-    _chunkTZMSLE5BI,
-  ) => {
-    let _chunkTZMSLE5BT = chunkTZMSLE5BParam7.append("use");
-    _chunkTZMSLE5BT.attr("x", chunkTZMSLE5BParam8);
-    _chunkTZMSLE5BT.attr("y", chunkTZMSLE5BParam9);
-    let _chunkTZMSLE5BA = chunkTZMSLE5BValue1.sanitizeUrl(_chunkTZMSLE5BI);
-    _chunkTZMSLE5BT.attr("xlink:href", `#${_chunkTZMSLE5BA}`);
+    parentSelection: MermaidSvgSelection,
+    x: number,
+    y: number,
+    imageId: string,
+  ): void => {
+    const useSelection = parentSelection.append("use");
+    useSelection.attr("x", x);
+    useSelection.attr("y", y);
+    useSelection.attr("xlink:href", `#${urlSanitizer.sanitizeUrl(imageId)}`);
   },
   "drawEmbeddedImage",
 );
-export const chunkTZMSLE5BA = chunkAGHRB4JFN(
-  (chunkTZMSLE5BParam3, chunkTZMSLE5BParam4) => {
-    let chunkTZMSLE5BValue3 = chunkTZMSLE5BParam4.text.replace(
-        _chunkABZYJK2DA,
-        " ",
-      ),
-      _chunkTZMSLE5BI = chunkTZMSLE5BParam3.append("text");
-    _chunkTZMSLE5BI.attr("x", chunkTZMSLE5BParam4.x);
-    _chunkTZMSLE5BI.attr("y", chunkTZMSLE5BParam4.y);
-    _chunkTZMSLE5BI.attr("class", "legend");
-    _chunkTZMSLE5BI.style("text-anchor", chunkTZMSLE5BParam4.anchor);
-    chunkTZMSLE5BParam4.class &&
-      _chunkTZMSLE5BI.attr("class", chunkTZMSLE5BParam4.class);
-    let _chunkTZMSLE5BT = _chunkTZMSLE5BI.append("tspan");
-    return (
-      _chunkTZMSLE5BT.attr(
-        "x",
-        chunkTZMSLE5BParam4.x + chunkTZMSLE5BParam4.textMargin * 2,
-      ),
-      _chunkTZMSLE5BT.text(chunkTZMSLE5BValue3),
-      _chunkTZMSLE5BI
+
+export const drawText = nameFunction(
+  (
+    parentSelection: MermaidSvgSelection,
+    textDescriptor: MermaidTextDescriptor,
+  ): MermaidSvgSelection => {
+    const normalizedText = textDescriptor.text.replace(
+      LINE_BREAK_TAG_PATTERN,
+      " ",
     );
+    const textSelection = parentSelection.append("text");
+    textSelection.attr("x", textDescriptor.x);
+    textSelection.attr("y", textDescriptor.y);
+    textSelection.attr("class", "legend");
+    textSelection.style("text-anchor", textDescriptor.anchor);
+
+    if (textDescriptor.class) {
+      textSelection.attr("class", textDescriptor.class);
+    }
+
+    textSelection
+      .append("tspan")
+      .attr("x", textDescriptor.x + textDescriptor.textMargin * 2)
+      .text(normalizedText);
+
+    return textSelection;
   },
   "drawText",
 );
-export function initChunkTZMSLE5B(): void {}
-export { chunkTZMSLE5BI };
+
+export function initMermaidSvgDrawingHelpersChunk(): void {}
+
+export const chunkTZMSLE5BI = drawRect;
+export const chunkTZMSLE5BT = drawBackgroundRect;
+export const chunkTZMSLE5BS = getTextObj;
+export const chunkTZMSLE5BR = drawImage;
+export const chunkTZMSLE5BO = getNoteRect;
+export const chunkTZMSLE5BN = drawEmbeddedImage;
+export const chunkTZMSLE5BA = drawText;
+export const initChunkTZMSLE5B = initMermaidSvgDrawingHelpersChunk;
