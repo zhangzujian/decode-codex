@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/thread-scroll-layout-mKm5Xueq.js
 // Also covers ref/webview/assets/thread-scroll-layout-DsxWR6SP.js.
+// Updated with exports from ref/webview/assets/thread-scroll-layout-lROgzP0x.js.
 import React from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";

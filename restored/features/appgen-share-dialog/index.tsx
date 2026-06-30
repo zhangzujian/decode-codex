@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/appgen-share-dialog-DXPJlTmi.js
+// Updated with exports from ref/webview/assets/appgen-share-dialog-BQA5qyJU.js.
 // Sharing dialog for Codex-generated sites.
 
 import React from "react";

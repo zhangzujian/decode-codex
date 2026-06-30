@@ -34338,6 +34338,33 @@
       "note": "Current use-workspace-users aliases were re-derived from use-workspace-users-CmiCK9G8.js and preserve the split workspace sharing helper surface.",
       "status": "done",
       "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "codex-avatar-Bz6TO2Qk": {
+      "restored": "utils/codex-avatar.tsx",
+      "exports": {
+        "n": "initCodexAvatarChunk",
+        "t": "CodexAvatar"
+      },
+      "aliasOf": "codex-avatar-BvRO-FvR",
+      "note": "Current codex-avatar aliases were re-derived from codex-avatar-Bz6TO2Qk.js; alias n is the spritesheet/runtime initializer represented as a no-op in the semantic module.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "onboarding-login-content-BFxktxIt": {
+      "restored": "onboarding/login-content.tsx",
+      "exports": {
+        "a": "initChatGptLoginRequestChunk",
+        "i": "initChatGptAuthUrlChunk",
+        "n": "initOnboardingLoginContentChunk",
+        "o": "startChatGptDeviceCodeLogin",
+        "r": "buildChatGptAuthUrl",
+        "s": "startChatGptLogin",
+        "t": "OnboardingLoginContent"
+      },
+      "aliasOf": "onboarding-login-content-BYCq-uLw",
+      "note": "Current onboarding-login-content aliases were re-derived from onboarding-login-content-BFxktxIt.js; init thunks are no-ops because the semantic module initializes request helpers and component dependencies at import time.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     }
   }
 }

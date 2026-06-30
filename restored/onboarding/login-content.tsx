@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/onboarding-login-content-BYCq-uLw.js
+// Updated with exports from ref/webview/assets/onboarding-login-content-BFxktxIt.js.
 // Login request helpers and onboarding login controls.
 import type { ChangeEvent, ReactNode } from "react";
 import { _ as loadStatsigCore } from "@statsig/js-client";
@@ -49,6 +50,7 @@ export type OnboardingLoginContentProps = {
   onChatGptSignIn: () => void;
   onShowApiKeyEntry: () => void;
 };
+export function initChatGptLoginRequestChunk(): void {}
 export async function startChatGptLogin({
   appBrand,
   hostId = LOCAL_HOST_ID as string,
@@ -72,6 +74,7 @@ export async function startChatGptLogin({
         useStreamlinedLogin,
       });
 }
+export function initChatGptAuthUrlChunk(): void {}
 export function buildChatGptAuthUrl({
   authUrl,
   sourceSurfaceStableId = statsigCore.StableID.get(STATSIG_CLIENT_KEY),
@@ -144,6 +147,7 @@ function createAbortControllerFromSignal(signal?: AbortSignal) {
   });
   return abortController;
 }
+export function initOnboardingLoginContentChunk(): void {}
 function setStableIdParams(
   url: URL,
   sourceSurfaceStableId: string,

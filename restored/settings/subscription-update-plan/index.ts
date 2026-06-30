@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/subscription-update-plan-D0G2uLaZ.js
 // Also matches ref/webview/assets/subscription-update-plan-D2uMfgET.js.
+// Updated with exports from ref/webview/assets/subscription-update-plan-C6ivP0af.js.
 import { once } from "../../runtime/commonjs-interop";
 
 export const initSubscriptionUpdatePlanDialogChunk = once(() => {});

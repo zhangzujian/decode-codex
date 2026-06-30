@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/global-dictation-orb-BTMuOubw.js
+// Updated with exports from ref/webview/assets/global-dictation-orb-DhuZzKUa.js.
 // global-dictation-orb-BTMuOubw chunk restored from the Codex webview bundle.
 import { GlobalDictationOrb } from "./global-dictation-orb";
 import {

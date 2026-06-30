@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/codex-avatar-BvRO-FvR.js
+// Updated with exports from ref/webview/assets/codex-avatar-Bz6TO2Qk.js.
 // codex-avatar-BvRO-FvR chunk restored from the Codex webview bundle.
 import clsx from "clsx";
 import React from "react";
@@ -87,6 +88,7 @@ type CodexAvatarProps = {
   spritesheetUrl?: string;
   state?: AvatarState;
 };
+export function initCodexAvatarChunk(): void {}
 export function CodexAvatar({
   assetRef,
   className,
