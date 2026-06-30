@@ -3378,11 +3378,13 @@
     "chunk-HN2XXSSU-dadJeUL1": {
       "restored": "vendor/mermaid-relation-markers.ts",
       "exports": {
-        "n": "chunkHN2XXSSUN",
-        "r": "chunkHN2XXSSUR",
-        "t": "chunkHN2XXSSUT"
+        "n": "relationMarkerOffsets",
+        "r": "neoMarkerOffsets",
+        "t": "getLineFunctionsWithOffset"
       },
-      "status": "done"
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Mermaid relation marker helpers restored semantically; chunkHN2XXSSUN/chunkHN2XXSSUR/chunkHN2XXSSUT remain as compatibility aliases."
     },
     "chunk-MI3HLSF2-DUVSUh0R": {
       "restored": "vendor/mermaid-utils.ts",
@@ -21373,14 +21375,14 @@
     "chunk-HN2XXSSU-BPyoUjyB": {
       "restored": "vendor/mermaid-relation-markers.ts",
       "exports": {
-        "n": "chunkHN2XXSSUN",
-        "r": "chunkHN2XXSSUR",
-        "t": "chunkHN2XXSSUT"
+        "n": "relationMarkerOffsets",
+        "r": "neoMarkerOffsets",
+        "t": "getLineFunctionsWithOffset"
       },
       "status": "done",
       "aliasOf": "chunk-HN2XXSSU-dadJeUL1",
-      "lastUpdated": "2026-06-29T00:00:00.000Z",
-      "note": "Current vendor chunk keeps the restored public API and adds i internal export."
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Mermaid relation marker helpers preserve the semantic restored export surface; aliases re-derived from chunk-HN2XXSSU-BPyoUjyB.js."
     },
     "chunk-FWNWRKHM-CrY4401d": {
       "restored": "vendor/mermaid-treemap-services-fpaj.ts",
@@ -34095,13 +34097,13 @@
     "chunk-HN2XXSSU-BJwKN-er": {
       "restored": "vendor/mermaid-relation-markers.ts",
       "exports": {
-        "i": "chunkHN2XXSSUR",
+        "i": "neoMarkerOffsets",
         "n": "initChunkHN2XXSSU",
-        "r": "chunkHN2XXSSUN",
-        "t": "chunkHN2XXSSUT"
+        "r": "relationMarkerOffsets",
+        "t": "getLineFunctionsWithOffset"
       },
       "aliasOf": "chunk-HN2XXSSU-dadJeUL1",
-      "note": "Current chunk-HN2XXSSU hash preserves the restored relation marker helpers; aliases re-derived from the lazy-init export tail.",
+      "note": "Current chunk-HN2XXSSU lazy-init hash maps i=neoMarkerOffsets, r=relationMarkerOffsets, t=getLineFunctionsWithOffset, n=init thunk; compatibility aliases remain exported.",
       "status": "done",
       "lastUpdated": "2026-06-30T14:36:13.205Z",
       "stage3Accepted": true,
