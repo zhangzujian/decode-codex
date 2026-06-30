@@ -39158,6 +39158,42 @@
       "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/xsl; grammar payload and dependency wiring are intentionally not copied into restored/",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "cpp-ClQr4VDH": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "initCppGrammarChunk",
+        "t": "cppLanguageGrammars"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/cpp",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/cpp; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "html-derivative-B2l2q3Kc": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "initHtmlDerivativeGrammarChunk",
+        "t": "htmlDerivativeLanguageGrammars"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/html-derivative",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/html-derivative; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "php-mFHI1T5u": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "n": "phpLanguageGrammars",
+        "t": "initPhpGrammarChunk"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/php",
+      "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/php; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }

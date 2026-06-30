@@ -209,6 +209,9 @@ import razorGrammar from "@shikijs/langs/razor";
 import soyGrammar from "@shikijs/langs/soy";
 import tsTagsGrammar from "@shikijs/langs/ts-tags";
 import xslGrammar from "@shikijs/langs/xsl";
+import cppGrammar from "@shikijs/langs/cpp";
+import htmlDerivativeGrammar from "@shikijs/langs/html-derivative";
+import phpGrammar from "@shikijs/langs/php";
 
 type ShikiGrammarChunkInitializer = () => void;
 
@@ -290,6 +293,12 @@ const texLanguageGrammars = texGrammar;
 const initTexGrammarChunk = initShikiGrammarChunk;
 const xmlLanguageGrammars = xmlGrammar;
 const initXmlGrammarChunk = initShikiGrammarChunk;
+const cppLanguageGrammars = cppGrammar;
+const initCppGrammarChunk = initShikiGrammarChunk;
+const htmlDerivativeLanguageGrammars = htmlDerivativeGrammar;
+const initHtmlDerivativeGrammarChunk = initShikiGrammarChunk;
+const phpLanguageGrammars = phpGrammar;
+const initPhpGrammarChunk = initShikiGrammarChunk;
 
 export {
   abapGrammar,
@@ -537,4 +546,10 @@ export {
   soyGrammar,
   tsTagsGrammar,
   xslGrammar,
+  cppLanguageGrammars,
+  initCppGrammarChunk,
+  htmlDerivativeLanguageGrammars,
+  initHtmlDerivativeGrammarChunk,
+  phpLanguageGrammars,
+  initPhpGrammarChunk,
 };
