@@ -25220,6 +25220,170 @@ function $(presentationParam665) {
     );
   return presentationValue876;
 }
+var presentationEmbeddedFontType = (function (presentationEnum) {
+  presentationEnum[(presentationEnum.EMBEDDED_FONT_TYPE_UNSPECIFIED = 0)] =
+    "EMBEDDED_FONT_TYPE_UNSPECIFIED";
+  presentationEnum[(presentationEnum.EMBEDDED_FONT_TYPE_REGULAR = 1)] =
+    "EMBEDDED_FONT_TYPE_REGULAR";
+  presentationEnum[(presentationEnum.EMBEDDED_FONT_TYPE_BOLD = 2)] =
+    "EMBEDDED_FONT_TYPE_BOLD";
+  presentationEnum[(presentationEnum.EMBEDDED_FONT_TYPE_ITALIC = 3)] =
+    "EMBEDDED_FONT_TYPE_ITALIC";
+  presentationEnum[(presentationEnum.EMBEDDED_FONT_TYPE_BOLD_ITALIC = 4)] =
+    "EMBEDDED_FONT_TYPE_BOLD_ITALIC";
+  presentationEnum[(presentationEnum.UNRECOGNIZED = -1)] = "UNRECOGNIZED";
+  return presentationEnum;
+})({});
+function presentationDefaultEmbeddedFont() {
+  return {
+    type: 0,
+    contentType: "",
+    data: new Uint8Array(),
+    subsetted: void 0,
+  };
+}
+var presentationEmbeddedFont = {
+  encode(presentationParam, presentationWriter = new presentationPr()) {
+    return (
+      presentationParam.type !== 0 &&
+        presentationWriter.uint32(24).int32(presentationParam.type),
+      presentationParam.contentType !== "" &&
+        presentationWriter.uint32(34).string(presentationParam.contentType),
+      presentationParam.data.length !== 0 &&
+        presentationWriter.uint32(42).bytes(presentationParam.data),
+      presentationParam.subsetted !== void 0 &&
+        presentationWriter.uint32(48).bool(presentationParam.subsetted),
+      presentationWriter
+    );
+  },
+  decode(presentationInput, presentationLength) {
+    let presentationReader =
+        presentationInput instanceof presentationFr
+          ? presentationInput
+          : new presentationFr(presentationInput),
+      presentationEnd =
+        presentationLength === void 0
+          ? presentationReader.len
+          : presentationReader.pos + presentationLength,
+      presentationValue = presentationDefaultEmbeddedFont();
+    for (; presentationReader.pos < presentationEnd; ) {
+      let presentationTag = presentationReader.uint32();
+      switch (presentationTag >>> 3) {
+        case 3:
+          if (presentationTag !== 24) break;
+          presentationValue.type = presentationReader.int32();
+          continue;
+        case 4:
+          if (presentationTag !== 34) break;
+          presentationValue.contentType = presentationReader.string();
+          continue;
+        case 5:
+          if (presentationTag !== 42) break;
+          presentationValue.data = presentationReader.bytes();
+          continue;
+        case 6:
+          if (presentationTag !== 48) break;
+          presentationValue.subsetted = presentationReader.bool();
+          continue;
+      }
+      if ((presentationTag & 7) == 4 || presentationTag === 0) break;
+      presentationReader.skip(presentationTag & 7);
+    }
+    return presentationValue;
+  },
+  create(presentationParam) {
+    return presentationEmbeddedFont.fromPartial(presentationParam ?? {});
+  },
+  fromPartial(presentationParam) {
+    let presentationValue = presentationDefaultEmbeddedFont();
+    return (
+      (presentationValue.type = presentationParam.type ?? 0),
+      (presentationValue.contentType = presentationParam.contentType ?? ""),
+      (presentationValue.data = presentationParam.data ?? new Uint8Array()),
+      (presentationValue.subsetted = presentationParam.subsetted ?? void 0),
+      presentationValue
+    );
+  },
+};
+function presentationDefaultFontDefinition() {
+  return {
+    name: void 0,
+    altName: void 0,
+    family: void 0,
+    embeddedFonts: [],
+  };
+}
+var presentationFontDefinition = {
+  encode(presentationParam, presentationWriter = new presentationPr()) {
+    presentationParam.name !== void 0 &&
+      presentationWriter.uint32(10).string(presentationParam.name);
+    presentationParam.altName !== void 0 &&
+      presentationWriter.uint32(18).string(presentationParam.altName);
+    presentationParam.family !== void 0 &&
+      presentationWriter.uint32(26).string(presentationParam.family);
+    for (let presentationFont of presentationParam.embeddedFonts)
+      presentationEmbeddedFont
+        .encode(presentationFont, presentationWriter.uint32(34).fork())
+        .join();
+    return presentationWriter;
+  },
+  decode(presentationInput, presentationLength) {
+    let presentationReader =
+        presentationInput instanceof presentationFr
+          ? presentationInput
+          : new presentationFr(presentationInput),
+      presentationEnd =
+        presentationLength === void 0
+          ? presentationReader.len
+          : presentationReader.pos + presentationLength,
+      presentationValue = presentationDefaultFontDefinition();
+    for (; presentationReader.pos < presentationEnd; ) {
+      let presentationTag = presentationReader.uint32();
+      switch (presentationTag >>> 3) {
+        case 1:
+          if (presentationTag !== 10) break;
+          presentationValue.name = presentationReader.string();
+          continue;
+        case 2:
+          if (presentationTag !== 18) break;
+          presentationValue.altName = presentationReader.string();
+          continue;
+        case 3:
+          if (presentationTag !== 26) break;
+          presentationValue.family = presentationReader.string();
+          continue;
+        case 4:
+          if (presentationTag !== 34) break;
+          presentationValue.embeddedFonts.push(
+            presentationEmbeddedFont.decode(
+              presentationReader,
+              presentationReader.uint32(),
+            ),
+          );
+          continue;
+      }
+      if ((presentationTag & 7) == 4 || presentationTag === 0) break;
+      presentationReader.skip(presentationTag & 7);
+    }
+    return presentationValue;
+  },
+  create(presentationParam) {
+    return presentationFontDefinition.fromPartial(presentationParam ?? {});
+  },
+  fromPartial(presentationParam) {
+    let presentationValue = presentationDefaultFontDefinition();
+    return (
+      (presentationValue.name = presentationParam.name ?? void 0),
+      (presentationValue.altName = presentationParam.altName ?? void 0),
+      (presentationValue.family = presentationParam.family ?? void 0),
+      (presentationValue.embeddedFonts =
+        presentationParam.embeddedFonts?.map((presentationFont) =>
+          presentationEmbeddedFont.fromPartial(presentationFont),
+        ) || []),
+      presentationValue
+    );
+  },
+};
 export {
   presentationDollar as $,
   _presentationAt,
@@ -25277,9 +25441,12 @@ export {
   presentationCt,
   _presentationD,
   presentationDt,
+  presentationEmbeddedFont,
+  presentationEmbeddedFontType,
   presentationEr,
   _presentationEt,
   _presentationF,
+  presentationFontDefinition,
   presentationFr,
   presentationFt,
   presentationG,
