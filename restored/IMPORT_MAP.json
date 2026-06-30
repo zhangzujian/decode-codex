@@ -35837,6 +35837,314 @@
       "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/red; JSON payload is intentionally not copied into restored/",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rose-pine-Ba1qbx7F": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "rosePineTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/rose-pine",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/rose-pine; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rose-pine-C2nZvb4-": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "rosePineTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/rose-pine",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/rose-pine; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rose-pine-dawn-Cmd2-Yjf": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "rosePineDawnTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/rose-pine-dawn",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/rose-pine-dawn; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rose-pine-dawn-Db1ee6qd": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "rosePineDawnTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/rose-pine-dawn",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/rose-pine-dawn; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rose-pine-moon-B-lfmJnd": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "rosePineMoonTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/rose-pine-moon",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/rose-pine-moon; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "rose-pine-moon-zJQxmDBi": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "rosePineMoonTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/rose-pine-moon",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/rose-pine-moon; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "slack-dark-DLxEMsDQ": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "slackDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/slack-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/slack-dark; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "slack-dark-ues4ULPG": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "slackDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/slack-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/slack-dark; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "slack-ochin-DqmkUUeH": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "slackOchinTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/slack-ochin",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/slack-ochin; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "slack-ochin-WOILGs40": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "slackOchinTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/slack-ochin",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/slack-ochin; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "snazzy-light-BoGfiLgM": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "snazzyLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/snazzy-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/snazzy-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "snazzy-light-C6EVx1lf": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "snazzyLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/snazzy-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/snazzy-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "solarized-dark-DgjdNmw5": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "solarizedDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/solarized-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/solarized-dark; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "solarized-dark-DwK5x4u5": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "solarizedDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/solarized-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/solarized-dark; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "solarized-light-acgJwbR1": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "solarizedLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/solarized-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/solarized-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "solarized-light-BM-hzPWS": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "solarizedLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/solarized-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/solarized-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "synthwave-84-2hsNn22X": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "synthwave84Theme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/synthwave-84",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/synthwave-84; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "synthwave-84-DVaFKrj3": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "synthwave84Theme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/synthwave-84",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/synthwave-84; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "tokyo-night-BNdx9RSX": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "tokyoNightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/tokyo-night",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/tokyo-night; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "tokyo-night-CTDAuYe8": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "tokyoNightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/tokyo-night",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/tokyo-night; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vesper-BrabfAsQ": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "vesperTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/vesper",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vesper; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vesper-ByfpEf7v": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "vesperTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/vesper",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vesper; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vitesse-black-3XAvLd9c": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "vitesseBlackTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/vitesse-black",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vitesse-black; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vitesse-black-GLb8QnVK": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "vitesseBlackTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/vitesse-black",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vitesse-black; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vitesse-dark-CE6nYikO": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "vitesseDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/vitesse-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vitesse-dark; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vitesse-dark-lWUDjae5": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "vitesseDarkTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/vitesse-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vitesse-dark; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vitesse-light-Cape1Ose": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "vitesseLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/vitesse-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vitesse-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "vitesse-light-UMnHnkJ4": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "default": "vitesseLightTheme"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/vitesse-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/vitesse-light; JSON payload is intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }

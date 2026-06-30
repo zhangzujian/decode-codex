@@ -52,6 +52,20 @@ import oneLightTheme from "@shikijs/themes/one-light";
 import plasticTheme from "@shikijs/themes/plastic";
 import poimandresTheme from "@shikijs/themes/poimandres";
 import redTheme from "@shikijs/themes/red";
+import rosePineTheme from "@shikijs/themes/rose-pine";
+import rosePineDawnTheme from "@shikijs/themes/rose-pine-dawn";
+import rosePineMoonTheme from "@shikijs/themes/rose-pine-moon";
+import slackDarkTheme from "@shikijs/themes/slack-dark";
+import slackOchinTheme from "@shikijs/themes/slack-ochin";
+import snazzyLightTheme from "@shikijs/themes/snazzy-light";
+import solarizedDarkTheme from "@shikijs/themes/solarized-dark";
+import solarizedLightTheme from "@shikijs/themes/solarized-light";
+import synthwave84Theme from "@shikijs/themes/synthwave-84";
+import tokyoNightTheme from "@shikijs/themes/tokyo-night";
+import vesperTheme from "@shikijs/themes/vesper";
+import vitesseBlackTheme from "@shikijs/themes/vitesse-black";
+import vitesseDarkTheme from "@shikijs/themes/vitesse-dark";
+import vitesseLightTheme from "@shikijs/themes/vitesse-light";
 
 export {
   andromeedaTheme,
@@ -105,4 +119,18 @@ export {
   plasticTheme,
   poimandresTheme,
   redTheme,
+  rosePineTheme,
+  rosePineDawnTheme,
+  rosePineMoonTheme,
+  slackDarkTheme,
+  slackOchinTheme,
+  snazzyLightTheme,
+  solarizedDarkTheme,
+  solarizedLightTheme,
+  synthwave84Theme,
+  tokyoNightTheme,
+  vesperTheme,
+  vitesseBlackTheme,
+  vitesseDarkTheme,
+  vitesseLightTheme,
 };
