@@ -40082,7 +40082,7 @@
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "codex-dark-C0SGGgEz": {
-      "restored": "vendor/shiki-themes.ts",
+      "restored": "vendor/codex-shiki-themes/codex-dark.ts",
       "exports": {
         "colors": "codexDarkColors",
         "default": "codexDarkTheme",
@@ -40095,10 +40095,11 @@
       "vendor": "@shikijs/themes/codex-dark",
       "note": "Codex custom Shiki dark theme data extracted from the current bundle; this is app-specific data, not a public npm leaf payload.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: split Codex Shiki theme data into dark/light entries with separate colors, token colors, and semantic token colors while preserving the current bundle export surface."
     },
     "codex-light-CP3oidzW": {
-      "restored": "vendor/shiki-themes.ts",
+      "restored": "vendor/codex-shiki-themes/codex-light.ts",
       "exports": {
         "colors": "codexLightColors",
         "default": "codexLightTheme",
@@ -40111,7 +40112,8 @@
       "vendor": "@shikijs/themes/codex-light",
       "note": "Codex custom Shiki light theme data extracted from the current bundle; this is app-specific data, not a public npm leaf payload.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: split Codex Shiki theme data into dark/light entries with separate colors, token colors, and semantic token colors while preserving the current bundle export surface."
     },
     "home-onboarding-assistant-tutorial-card-CacqQsHt": {
       "restored": "app-shell/home-ambient-suggestions/setup-codex/index.ts",
