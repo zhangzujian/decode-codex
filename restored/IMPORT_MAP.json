@@ -14717,7 +14717,10 @@
       "status": "done",
       "aliasOf": "browser-use-settings-Ct3jD7gG",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref producer keeps the restored browser-use settings page, row, and initializer export surface."
+      "note": "Current ref producer keeps the restored browser-use settings page, row, and initializer export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref browser-use-settings-D70mfZpl.js exports the browser-use settings helper surface; restored/browser/browser-use-settings/index.tsx preserves the mapped aliases and passes quality-gate."
     },
     "use-workspace-users-BuMotENr": {
       "restored": "collaboration/use-workspace-users/index.ts",
@@ -24310,7 +24313,10 @@
       "status": "done",
       "aliasOf": "open-source-licenses-page-BeKIrKdc",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current semantic wrapper preserves the restored public export surface."
+      "note": "Current semantic wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref open-source-licenses-page-DiIBjlKM.js exports only OpenSourceLicensesPage; restored/settings/open-source-licenses-page.tsx preserves that semantic export and passes quality-gate."
     },
     "hotkey-window-detail-layout-CbLgJ30Y": {
       "restored": "utils/hotkey-window-detail-layout.tsx",
@@ -24330,7 +24336,10 @@
       "status": "done",
       "aliasOf": "home-artifact-templates-BqtjKj4m",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current semantic wrapper preserves the restored public export surface."
+      "note": "Current semantic wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref home-artifact-templates-D0u8_Ecs.js exports only HomeArtifactTemplates; restored/home/artifact-templates.tsx preserves that semantic export and passes quality-gate."
     },
     "pie-ZZUOXDRM-BhKikLzB": {
       "restored": "vendor/mermaid-pie-definition-k5.ts",
@@ -34606,7 +34615,10 @@
       "aliasOf": "appshots-settings-Yk90QG0U",
       "note": "Current appshots-settings hash preserves the semantic public export surface; aliases re-derived from appshots-settings-RmZiMnx3.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref appshots-settings-RmZiMnx3.js exports only AppshotsSettings; restored/settings/appshots-settings.tsx preserves that semantic export and passes quality-gate."
     },
     "artifact-tab-content.electron-CoTXiI_o": {
       "restored": "ui/artifact-tab-content.tsx",
@@ -34626,7 +34638,10 @@
       "aliasOf": "browser-profile-import-dialog-D1qMiO6m",
       "note": "Current browser-profile-import-dialog hash preserves the semantic public export surface; aliases re-derived from browser-profile-import-dialog-Gr1b2Z7w.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref browser-profile-import-dialog-Gr1b2Z7w.js exports only BrowserProfileImportDialogModal; restored/ui/browser-profile-import-dialog.tsx preserves that semantic export and passes quality-gate."
     },
     "cloud-environments-settings-page-DBIXWMQN": {
       "restored": "settings/cloud-environments-settings-page/index.tsx",
@@ -34636,7 +34651,10 @@
       "aliasOf": "cloud-environments-settings-page-Cx0Mfko0",
       "note": "Current cloud-environments-settings-page hash preserves the semantic public export surface; aliases re-derived from cloud-environments-settings-page-DBIXWMQN.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref cloud-environments-settings-page-DBIXWMQN.js exports only CloudEnvironmentsSettingsPage; restored/settings/cloud-environments-settings-page/index.tsx preserves that semantic export and passes quality-gate."
     },
     "cloud-preferences-settings-DhNHe3Nv": {
       "restored": "settings/cloud-preferences-settings.tsx",
@@ -34646,7 +34664,10 @@
       "aliasOf": "cloud-preferences-settings-DFJ0Jg4r",
       "note": "Current cloud-preferences-settings hash preserves the semantic public export surface; aliases re-derived from cloud-preferences-settings-DhNHe3Nv.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref cloud-preferences-settings-DhNHe3Nv.js exports only CloudPreferencesSettings; restored/settings/cloud-preferences-settings.tsx preserves that semantic export and passes quality-gate."
     },
     "code-review-settings-z8ACadqs": {
       "restored": "settings/code-review-settings.tsx",
@@ -34656,7 +34677,10 @@
       "aliasOf": "code-review-settings-DnoRR0qO",
       "note": "Current code-review-settings hash preserves the semantic public export surface; aliases re-derived from code-review-settings-z8ACadqs.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref code-review-settings-z8ACadqs.js exports only CodeReviewSettings; restored/settings/code-review-settings.tsx preserves that semantic export and passes quality-gate."
     },
     "composer-external-footer-BnOdOmQM": {
       "restored": "composer/composer-external-footer.tsx",
@@ -34686,7 +34710,10 @@
       "aliasOf": "first-run-Db14L1Gy",
       "note": "Current first-run hash preserves the semantic public export surface; aliases re-derived from first-run-wJZq0dYc.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref first-run-wJZq0dYc.js exports only FirstRunPage; restored/routes/first-run.tsx preserves that semantic export and passes quality-gate."
     },
     "git-settings-Cv4Hezof": {
       "restored": "settings/git-settings/index.tsx",
@@ -34696,7 +34723,10 @@
       "aliasOf": "git-settings-Bv6LnZbi",
       "note": "Current git-settings hash preserves the semantic public export surface; aliases re-derived from git-settings-Cv4Hezof.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref git-settings-Cv4Hezof.js exports only GitSettings; restored/settings/git-settings/index.tsx preserves that semantic export and passes quality-gate."
     },
     "global-dictation-page-CND2x2T2": {
       "restored": "features/global-dictation-page/index.tsx",
@@ -34751,7 +34781,10 @@
       "aliasOf": "mcp-settings-Cq9pFeQZ",
       "note": "Current mcp-settings hash preserves the semantic public export surface; aliases re-derived from mcp-settings-BYrm_Fbg.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref mcp-settings-BYrm_Fbg.js exports only McpSettings; restored/settings/mcp-settings.tsx preserves that semantic export and passes quality-gate."
     },
     "mermaid-diagram-CVBcf6fK": {
       "restored": "markdown/mermaid-diagram-renderer.tsx",
@@ -34841,7 +34874,10 @@
       "aliasOf": "worktrees-settings-page-KeLyIYZM",
       "note": "Current worktrees-settings-page hash preserves the semantic public export surface; aliases re-derived from worktrees-settings-page-DXtwfjjn.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref worktrees-settings-page-DXtwfjjn.js exports only WorktreesSettingsPage; restored/settings/worktrees-settings-page/index.tsx preserves that semantic export and passes quality-gate."
     },
     "chunk-FMBD7UC4-BvMbe0V6": {
       "restored": "utils/chunk-fmbd7-uc4-dbbz-vn-va.ts",
@@ -35160,7 +35196,10 @@
       "aliasOf": "animated-icon-vdVLnP6G",
       "note": "Current animated-icon hash was fingerprinted from component/helper body strings and preserves this public export surface.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref animated-icon-CeYm5OId.js exports n/t; restored/ui/animated-icon.tsx preserves the mapped AnimatedIcon/init export surface and passes quality-gate."
     },
     "git-branch-switcher-BtVZYs2f": {
       "restored": "git/git-branch-switcher.tsx",
@@ -35190,7 +35229,10 @@
       "aliasOf": "header-CT44CGhD",
       "note": "Current header hash was fingerprinted from component/helper body strings and preserves this public export surface.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:21:23.000Z",
+      "stage3Review": "Host self-review: current ref header-CF6ECAV2.js exports n/t for the Chrome extension header surface; restored/browser/chrome-extension-header.tsx preserves that mapped surface and passes quality-gate."
     },
     "chunk-AGHRB4JF-DVNPU_Qo": {
       "restored": "vendor/dayjs-core-alt.ts",
