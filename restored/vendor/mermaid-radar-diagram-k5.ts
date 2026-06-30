@@ -1,558 +1,661 @@
-// Restored from ref/webview/assets/diagram-MMDJMWI5-BCvRK5AH.js
-// DiagramMMDJMWI5 chunk restored from the Codex webview bundle.
-import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
+// Restored from ref/webview/assets/diagram-MMDJMWI5-Cot69-mD.js
+// Also covers ref/webview/assets/diagram-MMDJMWI5-BCvRK5AH.js,
+// ref/webview/assets/diagram-MMDJMWI5-B6Cvwmyf.js,
+// ref/webview/assets/diagram-MMDJMWI5-D_LZcM0k.js, and
+// ref/webview/assets/diagram-MMDJMWI5-DKgr1SoD.js.
 import {
-  _chunkICPOFSXXA,
-  chunkICPOFSXXB,
-  _chunkICPOFSXXC as chunkICPOFSXXC,
-  chunkICPOFSXXD,
-  chunkICPOFSXXE,
-  chunkICPOFSXXUnderscore,
-  chunkICPOFSXXV,
-  _chunkICPOFSXXW,
-  _chunkICPOFSXXY,
+  chunkAGHRB4JFN as nameFunction,
+  chunkAGHRB4JFR as mermaidLogger,
+} from "./dayjs-core-alt";
+import {
+  _chunkICPOFSXXA as clearCommonDb,
+  _chunkICPOFSXXC as getDiagramTitle,
+  _chunkICPOFSXXV as getAccessibleTitle,
+  _chunkICPOFSXXW as setDiagramTitle,
+  _chunkICPOFSXXY as getCurrentConfig,
+  chunkICPOFSXXB as setAccessibleDescription,
+  chunkICPOFSXXC as configureSvgSize,
+  chunkICPOFSXXD as defaultDiagramConfig,
+  chunkICPOFSXXE as getDefaultThemeVariables,
+  chunkICPOFSXXUnderscore as getAccessibleDescription,
+  chunkICPOFSXXV as setAccessibleTitle,
 } from "./chunk-icpofsxx";
-import { chunk426QAEUC } from "./chunk-426qaeuc";
-import { chunk5PVQY5BWP } from "./chunk-5pvqy5bw";
+import { chunk426QAEUC as selectSvgById } from "./chunk-426qaeuc";
 import { populateCommonDb } from "../utils/chunk-4-bx2-vuab";
+import { cleanAndMerge } from "./mermaid-curve-utils";
 import { MermaidParserCore } from "./mermaid-parser-core-k5";
-const _chunkICPOFSXXC = chunkICPOFSXXC,
-  _chunkICPOFSXXV = chunkICPOFSXXV;
-var diagramMMDJMWI5Value1 = {
-    showLegend: true,
-    ticks: 5,
-    max: null,
-    min: 0,
-    graticule: "circle",
-  },
-  diagramMMDJMWI5Value2 = {
-    axes: [],
-    curves: [],
-    options: diagramMMDJMWI5Value1,
-  },
-  diagramMMDJMWI5Value3 = structuredClone(diagramMMDJMWI5Value2),
-  diagramMMDJMWI5Value4 = chunkICPOFSXXD.radar,
-  diagramMMDJMWI5Value5 = chunkAGHRB4JFN(
-    () =>
-      chunk5PVQY5BWP({
-        ...diagramMMDJMWI5Value4,
-        ..._chunkICPOFSXXY().radar,
-      }),
-    "getConfig",
-  ),
-  diagramMMDJMWI5Value6 = chunkAGHRB4JFN(
-    () => diagramMMDJMWI5Value3.axes,
-    "getAxes",
-  ),
-  diagramMMDJMWI5Value7 = chunkAGHRB4JFN(
-    () => diagramMMDJMWI5Value3.curves,
-    "getCurves",
-  ),
-  diagramMMDJMWI5Value8 = chunkAGHRB4JFN(
-    () => diagramMMDJMWI5Value3.options,
-    "getOptions",
-  ),
-  diagramMMDJMWI5Value9 = chunkAGHRB4JFN((diagramMMDJMWI5Param40) => {
-    diagramMMDJMWI5Value3.axes = diagramMMDJMWI5Param40.map((item) => ({
-      name: item.name,
-      label: item.label ?? item.name,
-    }));
-  }, "setAxes"),
-  diagramMMDJMWI5Value10 = chunkAGHRB4JFN((diagramMMDJMWI5Param33) => {
-    diagramMMDJMWI5Value3.curves = diagramMMDJMWI5Param33.map((item) => ({
-      name: item.name,
-      label: item.label ?? item.name,
-      entries: diagramMMDJMWI5Value11(item.entries),
-    }));
-  }, "setCurves"),
-  diagramMMDJMWI5Value11 = chunkAGHRB4JFN((diagramMMDJMWI5Param29) => {
-    if (diagramMMDJMWI5Param29[0].axis == null)
-      return diagramMMDJMWI5Param29.map((item) => item.value);
-    let diagramMMDJMWI5Value45 = diagramMMDJMWI5Value6();
-    if (diagramMMDJMWI5Value45.length === 0)
+
+type RadarGraticule = "circle" | "polygon";
+
+type ParsedAxisReference = {
+  $refText: string;
+};
+
+type ParsedRadarAxis = {
+  name: string;
+  label?: string;
+};
+
+type ParsedRadarEntry = {
+  axis?: ParsedAxisReference | null;
+  value: number;
+};
+
+type ParsedRadarCurve = {
+  name: string;
+  label?: string;
+  entries: ParsedRadarEntry[];
+};
+
+type ParsedRadarOption = {
+  name: string;
+  value: boolean | number | string | null;
+};
+
+type ParsedRadarDiagram = {
+  accDescr?: string;
+  accTitle?: string;
+  title?: string;
+  axes: ParsedRadarAxis[];
+  curves: ParsedRadarCurve[];
+  options: ParsedRadarOption[];
+};
+
+type RadarAxis = {
+  name: string;
+  label: string;
+};
+
+type RadarCurve = {
+  name: string;
+  label: string;
+  entries: number[];
+};
+
+type RadarOptions = {
+  showLegend: boolean;
+  ticks: number;
+  max: number | null;
+  min: number;
+  graticule: RadarGraticule;
+};
+
+type RadarDiagramState = {
+  axes: RadarAxis[];
+  curves: RadarCurve[];
+  options: RadarOptions;
+};
+
+type RadarConfig = {
+  width: number;
+  height: number;
+  marginLeft: number;
+  marginRight: number;
+  marginTop: number;
+  marginBottom: number;
+  axisScaleFactor: number;
+  axisLabelFactor: number;
+  axisColor: string;
+  axisStrokeWidth: string | number;
+  axisLabelFontSize: string | number;
+  curveTension: number;
+  curveOpacity: number;
+  curveStrokeWidth: string | number;
+  graticuleColor: string;
+  graticuleOpacity: number;
+  graticuleStrokeWidth: string | number;
+  legendFontSize: string | number;
+  useMaxWidth?: boolean;
+};
+
+type ThemeVariables = {
+  THEME_COLOR_LIMIT: number;
+  fontSize: string | number;
+  titleColor: string;
+  radar: Partial<RadarConfig>;
+  [key: string]: unknown;
+};
+
+type MermaidSiteConfig = {
+  radar?: Partial<RadarConfig>;
+  themeVariables?: Partial<ThemeVariables>;
+};
+
+type SvgSelection = {
+  append(name: string): SvgSelection;
+  attr(name: string, value: unknown): SvgSelection;
+  text(value: unknown): SvgSelection;
+};
+
+type RadarPoint = {
+  x: number;
+  y: number;
+};
+
+type RadarRenderContext = {
+  db: RadarDiagramDb;
+};
+
+type RadarDiagramDb = {
+  getAxes(): RadarAxis[];
+  getCurves(): RadarCurve[];
+  getOptions(): RadarOptions;
+  setAxes(axes: ParsedRadarAxis[]): void;
+  setCurves(curves: ParsedRadarCurve[]): void;
+  setOptions(options: ParsedRadarOption[]): void;
+  getConfig(): RadarConfig;
+  clear(): void;
+  setAccTitle(title: string): void;
+  getAccTitle(): string;
+  setDiagramTitle(title: string): void;
+  getDiagramTitle(): string;
+  getAccDescription(): string;
+  setAccDescription(description: string): void;
+};
+
+const defaultRadarOptions: RadarOptions = {
+  showLegend: true,
+  ticks: 5,
+  max: null,
+  min: 0,
+  graticule: "circle",
+};
+
+const defaultRadarState: RadarDiagramState = {
+  axes: [],
+  curves: [],
+  options: defaultRadarOptions,
+};
+
+const baseRadarConfig = defaultDiagramConfig.radar as RadarConfig;
+
+let radarState = structuredClone(defaultRadarState) as RadarDiagramState;
+
+const getRadarConfig = nameFunction(
+  (): RadarConfig =>
+    cleanAndMerge(
+      baseRadarConfig,
+      (getCurrentConfig() as MermaidSiteConfig).radar ?? {},
+    ) as RadarConfig,
+  "getConfig",
+);
+
+const getRadarAxes = nameFunction(
+  (): RadarAxis[] => radarState.axes,
+  "getAxes",
+);
+
+const getRadarCurves = nameFunction(
+  (): RadarCurve[] => radarState.curves,
+  "getCurves",
+);
+
+const getRadarOptions = nameFunction(
+  (): RadarOptions => radarState.options,
+  "getOptions",
+);
+
+const setRadarAxes = nameFunction((axes: ParsedRadarAxis[]): void => {
+  radarState.axes = axes.map((axis) => ({
+    name: axis.name,
+    label: axis.label ?? axis.name,
+  }));
+}, "setAxes");
+
+const computeCurveEntries = nameFunction(
+  (entries: ParsedRadarEntry[]): number[] => {
+    if (entries[0]?.axis == null) {
+      return entries.map((entry) => entry.value);
+    }
+
+    const axes = getRadarAxes();
+    if (axes.length === 0) {
       throw Error("Axes must be populated before curves for reference entries");
-    return diagramMMDJMWI5Value45.map((item) => {
-      let diagramMMDJMWI5Value63 = diagramMMDJMWI5Param29.find(
-        (_item) => _item.axis?.$refText === item.name,
+    }
+
+    return axes.map((axis) => {
+      const matchingEntry = entries.find(
+        (entry) => entry.axis?.$refText === axis.name,
       );
-      if (diagramMMDJMWI5Value63 === undefined)
-        throw Error("Missing entry for axis " + item.label);
-      return diagramMMDJMWI5Value63.value;
+
+      if (matchingEntry === undefined) {
+        throw Error("Missing entry for axis " + axis.label);
+      }
+
+      return matchingEntry.value;
     });
-  }, "computeCurveEntries"),
-  diagramMMDJMWI5Value12 = {
-    getAxes: diagramMMDJMWI5Value6,
-    getCurves: diagramMMDJMWI5Value7,
-    getOptions: diagramMMDJMWI5Value8,
-    setAxes: diagramMMDJMWI5Value9,
-    setCurves: diagramMMDJMWI5Value10,
-    setOptions: chunkAGHRB4JFN((diagramMMDJMWI5Param32) => {
-      let diagramMMDJMWI5Value52 = diagramMMDJMWI5Param32.reduce(
-        (accumulator, current) => (
-          (accumulator[current.name] = current),
-          accumulator
-        ),
-        {},
-      );
-      diagramMMDJMWI5Value3.options = {
-        showLegend:
-          diagramMMDJMWI5Value52.showLegend?.value ??
-          diagramMMDJMWI5Value1.showLegend,
-        ticks:
-          diagramMMDJMWI5Value52.ticks?.value ?? diagramMMDJMWI5Value1.ticks,
-        max: diagramMMDJMWI5Value52.max?.value ?? diagramMMDJMWI5Value1.max,
-        min: diagramMMDJMWI5Value52.min?.value ?? diagramMMDJMWI5Value1.min,
-        graticule:
-          diagramMMDJMWI5Value52.graticule?.value ??
-          diagramMMDJMWI5Value1.graticule,
-      };
-    }, "setOptions"),
-    getConfig: diagramMMDJMWI5Value5,
-    clear: chunkAGHRB4JFN(() => {
-      _chunkICPOFSXXA();
-      diagramMMDJMWI5Value3 = structuredClone(diagramMMDJMWI5Value2);
-    }, "clear"),
-    setAccTitle: chunkICPOFSXXV,
-    getAccTitle: _chunkICPOFSXXV,
-    setDiagramTitle: _chunkICPOFSXXW,
-    getDiagramTitle: chunkICPOFSXXC,
-    getAccDescription: chunkICPOFSXXUnderscore,
-    setAccDescription: chunkICPOFSXXB,
   },
-  diagramMMDJMWI5Value13 = chunkAGHRB4JFN((diagramMMDJMWI5Param34) => {
-    populateCommonDb(diagramMMDJMWI5Param34, diagramMMDJMWI5Value12);
-    let { axes, curves, options } = diagramMMDJMWI5Param34;
-    diagramMMDJMWI5Value12.setAxes(axes);
-    diagramMMDJMWI5Value12.setCurves(curves);
-    diagramMMDJMWI5Value12.setOptions(options);
-  }, "populate"),
-  diagramMMDJMWI5Value14 = {
-    parse: chunkAGHRB4JFN(async (diagramMMDJMWI5Param41) => {
-      let diagramMMDJMWI5Value70 = await MermaidParserCore(
-        "radar",
-        diagramMMDJMWI5Param41,
-      );
-      chunkAGHRB4JFR.debug(diagramMMDJMWI5Value70);
-      diagramMMDJMWI5Value13(diagramMMDJMWI5Value70);
-    }, "parse"),
-  },
-  diagramMMDJMWI5Value15 = chunkAGHRB4JFN(
-    (
-      diagramMMDJMWI5Param13,
-      diagramMMDJMWI5Param14,
-      diagramMMDJMWI5Param15,
-      diagramMMDJMWI5Param16,
-    ) => {
-      let diagramMMDJMWI5Value24 = diagramMMDJMWI5Param16.db,
-        diagramMMDJMWI5Value25 = diagramMMDJMWI5Value24.getAxes(),
-        diagramMMDJMWI5Value26 = diagramMMDJMWI5Value24.getCurves(),
-        diagramMMDJMWI5Value27 = diagramMMDJMWI5Value24.getOptions(),
-        diagramMMDJMWI5Value28 = diagramMMDJMWI5Value24.getConfig(),
-        diagramMMDJMWI5Value29 = diagramMMDJMWI5Value24.getDiagramTitle(),
-        diagramMMDJMWI5Value30 = diagramMMDJMWI5Value16(
-          chunk426QAEUC(diagramMMDJMWI5Param14),
-          diagramMMDJMWI5Value28,
-        ),
-        diagramMMDJMWI5Value31 =
-          diagramMMDJMWI5Value27.max ??
-          Math.max(
-            ...diagramMMDJMWI5Value26.map((item) => Math.max(...item.entries)),
-          ),
-        diagramMMDJMWI5Value32 = diagramMMDJMWI5Value27.min,
-        diagramMMDJMWI5Value33 =
-          Math.min(
-            diagramMMDJMWI5Value28.width,
-            diagramMMDJMWI5Value28.height,
-          ) / 2;
-      diagramMMDJMWI5Value17(
-        diagramMMDJMWI5Value30,
-        diagramMMDJMWI5Value25,
-        diagramMMDJMWI5Value33,
-        diagramMMDJMWI5Value27.ticks,
-        diagramMMDJMWI5Value27.graticule,
-      );
-      diagramMMDJMWI5Value18(
-        diagramMMDJMWI5Value30,
-        diagramMMDJMWI5Value25,
-        diagramMMDJMWI5Value33,
-        diagramMMDJMWI5Value28,
-      );
-      diagramMMDJMWI5Helper1(
-        diagramMMDJMWI5Value30,
-        diagramMMDJMWI5Value25,
-        diagramMMDJMWI5Value26,
-        diagramMMDJMWI5Value32,
-        diagramMMDJMWI5Value31,
-        diagramMMDJMWI5Value27.graticule,
-        diagramMMDJMWI5Value28,
-      );
-      diagramMMDJMWI5Helper4(
-        diagramMMDJMWI5Value30,
-        diagramMMDJMWI5Value26,
-        diagramMMDJMWI5Value27.showLegend,
-        diagramMMDJMWI5Value28,
-      );
-      diagramMMDJMWI5Value30
-        .append("text")
-        .attr("class", "radarTitle")
-        .text(diagramMMDJMWI5Value29)
-        .attr("x", 0)
-        .attr(
-          "y",
-          -diagramMMDJMWI5Value28.height / 2 - diagramMMDJMWI5Value28.marginTop,
-        );
+  "computeCurveEntries",
+);
+
+const setRadarCurves = nameFunction((curves: ParsedRadarCurve[]): void => {
+  radarState.curves = curves.map((curve) => ({
+    name: curve.name,
+    label: curve.label ?? curve.name,
+    entries: computeCurveEntries(curve.entries),
+  }));
+}, "setCurves");
+
+const setRadarOptions = nameFunction((options: ParsedRadarOption[]): void => {
+  const optionsByName = options.reduce<Record<string, ParsedRadarOption>>(
+    (accumulator, option) => {
+      accumulator[option.name] = option;
+      return accumulator;
     },
-    "draw",
-  ),
-  diagramMMDJMWI5Value16 = chunkAGHRB4JFN(
-    (diagramMMDJMWI5Param30, diagramMMDJMWI5Param31) => {
-      let diagramMMDJMWI5Value47 =
-          diagramMMDJMWI5Param31.width +
-          diagramMMDJMWI5Param31.marginLeft +
-          diagramMMDJMWI5Param31.marginRight,
-        diagramMMDJMWI5Value48 =
-          diagramMMDJMWI5Param31.height +
-          diagramMMDJMWI5Param31.marginTop +
-          diagramMMDJMWI5Param31.marginBottom,
-        diagramMMDJMWI5Value49 = {
-          x:
-            diagramMMDJMWI5Param31.marginLeft +
-            diagramMMDJMWI5Param31.width / 2,
-          y:
-            diagramMMDJMWI5Param31.marginTop +
-            diagramMMDJMWI5Param31.height / 2,
-        };
-      return (
-        _chunkICPOFSXXC(
-          diagramMMDJMWI5Param30,
-          diagramMMDJMWI5Value48,
-          diagramMMDJMWI5Value47,
-          diagramMMDJMWI5Param31.useMaxWidth ?? true,
-        ),
-        diagramMMDJMWI5Param30.attr(
-          "viewBox",
-          `0 0 ${diagramMMDJMWI5Value47} ${diagramMMDJMWI5Value48}`,
-        ),
-        diagramMMDJMWI5Param30
-          .append("g")
-          .attr(
-            "transform",
-            `translate(${diagramMMDJMWI5Value49.x}, ${diagramMMDJMWI5Value49.y})`,
-          )
-      );
-    },
-    "drawFrame",
-  ),
-  diagramMMDJMWI5Value17 = chunkAGHRB4JFN(
-    (
-      diagramMMDJMWI5Param8,
-      diagramMMDJMWI5Param9,
-      diagramMMDJMWI5Param10,
-      diagramMMDJMWI5Param11,
-      diagramMMDJMWI5Param12,
-    ) => {
-      if (diagramMMDJMWI5Param12 === "circle")
-        for (
-          let diagramMMDJMWI5Value67 = 0;
-          diagramMMDJMWI5Value67 < diagramMMDJMWI5Param11;
-          diagramMMDJMWI5Value67++
-        ) {
-          let diagramMMDJMWI5Value68 =
-            (diagramMMDJMWI5Param10 * (diagramMMDJMWI5Value67 + 1)) /
-            diagramMMDJMWI5Param11;
-          diagramMMDJMWI5Param8
-            .append("circle")
-            .attr("r", diagramMMDJMWI5Value68)
-            .attr("class", "radarGraticule");
-        }
-      else if (diagramMMDJMWI5Param12 === "polygon") {
-        let diagramMMDJMWI5Value44 = diagramMMDJMWI5Param9.length;
-        for (
-          let diagramMMDJMWI5Value50 = 0;
-          diagramMMDJMWI5Value50 < diagramMMDJMWI5Param11;
-          diagramMMDJMWI5Value50++
-        ) {
-          let diagramMMDJMWI5Value53 =
-              (diagramMMDJMWI5Param10 * (diagramMMDJMWI5Value50 + 1)) /
-              diagramMMDJMWI5Param11,
-            diagramMMDJMWI5Value54 = diagramMMDJMWI5Param9
-              .map((item, index) => {
-                let diagramMMDJMWI5Value66 =
-                  (2 * index * Math.PI) / diagramMMDJMWI5Value44 - Math.PI / 2;
-                return `${diagramMMDJMWI5Value53 * Math.cos(diagramMMDJMWI5Value66)},${diagramMMDJMWI5Value53 * Math.sin(diagramMMDJMWI5Value66)}`;
-              })
-              .join(" ");
-          diagramMMDJMWI5Param8
-            .append("polygon")
-            .attr("points", diagramMMDJMWI5Value54)
-            .attr("class", "radarGraticule");
-        }
-      }
-    },
-    "drawGraticule",
-  ),
-  diagramMMDJMWI5Value18 = chunkAGHRB4JFN(
-    (
-      diagramMMDJMWI5Param17,
-      diagramMMDJMWI5Param18,
-      diagramMMDJMWI5Param19,
-      diagramMMDJMWI5Param20,
-    ) => {
-      let diagramMMDJMWI5Value34 = diagramMMDJMWI5Param18.length;
-      for (
-        let diagramMMDJMWI5Value35 = 0;
-        diagramMMDJMWI5Value35 < diagramMMDJMWI5Value34;
-        diagramMMDJMWI5Value35++
-      ) {
-        let diagramMMDJMWI5Value37 =
-            diagramMMDJMWI5Param18[diagramMMDJMWI5Value35].label,
-          diagramMMDJMWI5Value38 =
-            (2 * diagramMMDJMWI5Value35 * Math.PI) / diagramMMDJMWI5Value34 -
-            Math.PI / 2;
-        diagramMMDJMWI5Param17
-          .append("line")
-          .attr("x1", 0)
-          .attr("y1", 0)
-          .attr(
-            "x2",
-            diagramMMDJMWI5Param19 *
-              diagramMMDJMWI5Param20.axisScaleFactor *
-              Math.cos(diagramMMDJMWI5Value38),
-          )
-          .attr(
-            "y2",
-            diagramMMDJMWI5Param19 *
-              diagramMMDJMWI5Param20.axisScaleFactor *
-              Math.sin(diagramMMDJMWI5Value38),
-          )
-          .attr("class", "radarAxisLine");
-        diagramMMDJMWI5Param17
-          .append("text")
-          .text(diagramMMDJMWI5Value37)
-          .attr(
-            "x",
-            diagramMMDJMWI5Param19 *
-              diagramMMDJMWI5Param20.axisLabelFactor *
-              Math.cos(diagramMMDJMWI5Value38),
-          )
-          .attr(
-            "y",
-            diagramMMDJMWI5Param19 *
-              diagramMMDJMWI5Param20.axisLabelFactor *
-              Math.sin(diagramMMDJMWI5Value38),
-          )
-          .attr("class", "radarAxisLabel");
-      }
-    },
-    "drawAxes",
+    {},
   );
-function diagramMMDJMWI5Helper1(
-  diagramMMDJMWI5Param1,
-  diagramMMDJMWI5Param2,
-  diagramMMDJMWI5Param3,
-  diagramMMDJMWI5Param4,
-  diagramMMDJMWI5Param5,
-  diagramMMDJMWI5Param6,
-  diagramMMDJMWI5Param7,
-) {
-  let diagramMMDJMWI5Value22 = diagramMMDJMWI5Param2.length,
-    diagramMMDJMWI5Value23 =
-      Math.min(diagramMMDJMWI5Param7.width, diagramMMDJMWI5Param7.height) / 2;
-  diagramMMDJMWI5Param3.forEach((item, index) => {
-    if (item.entries.length !== diagramMMDJMWI5Value22) return;
-    let diagramMMDJMWI5Value36 = item.entries.map((_item, _index) => {
-      let diagramMMDJMWI5Value64 =
-          (2 * Math.PI * _index) / diagramMMDJMWI5Value22 - Math.PI / 2,
-        diagramMMDJMWI5Value65 = diagramMMDJMWI5Helper2(
-          _item,
-          diagramMMDJMWI5Param4,
-          diagramMMDJMWI5Param5,
-          diagramMMDJMWI5Value23,
-        );
+
+  radarState.options = {
+    showLegend:
+      (optionsByName.showLegend?.value as boolean | undefined) ??
+      defaultRadarOptions.showLegend,
+    ticks:
+      (optionsByName.ticks?.value as number | undefined) ??
+      defaultRadarOptions.ticks,
+    max:
+      (optionsByName.max?.value as number | null | undefined) ??
+      defaultRadarOptions.max,
+    min:
+      (optionsByName.min?.value as number | undefined) ??
+      defaultRadarOptions.min,
+    graticule:
+      (optionsByName.graticule?.value as RadarGraticule | undefined) ??
+      defaultRadarOptions.graticule,
+  };
+}, "setOptions");
+
+const radarDiagramDb: RadarDiagramDb = {
+  getAxes: getRadarAxes,
+  getCurves: getRadarCurves,
+  getOptions: getRadarOptions,
+  setAxes: setRadarAxes,
+  setCurves: setRadarCurves,
+  setOptions: setRadarOptions,
+  getConfig: getRadarConfig,
+  clear: nameFunction((): void => {
+    clearCommonDb();
+    radarState = structuredClone(defaultRadarState) as RadarDiagramState;
+  }, "clear"),
+  setAccTitle: setAccessibleTitle,
+  getAccTitle: getAccessibleTitle,
+  setDiagramTitle,
+  getDiagramTitle,
+  getAccDescription: getAccessibleDescription,
+  setAccDescription: setAccessibleDescription,
+};
+
+const populateRadarDb = nameFunction(
+  (parsedRadar: ParsedRadarDiagram): void => {
+    populateCommonDb(parsedRadar, radarDiagramDb);
+
+    const { axes, curves, options } = parsedRadar;
+    radarDiagramDb.setAxes(axes);
+    radarDiagramDb.setCurves(curves);
+    radarDiagramDb.setOptions(options);
+  },
+  "populate",
+);
+
+const radarParser = {
+  parse: nameFunction(async (source: string): Promise<void> => {
+    const parsedRadar = (await MermaidParserCore(
+      "radar",
+      source,
+    )) as ParsedRadarDiagram;
+    mermaidLogger.debug(parsedRadar);
+    populateRadarDb(parsedRadar);
+  }, "parse"),
+};
+
+const createRadarRootGroup = nameFunction(
+  (svg: SvgSelection, radarConfig: RadarConfig): SvgSelection => {
+    const viewBoxWidth =
+      radarConfig.width + radarConfig.marginLeft + radarConfig.marginRight;
+    const viewBoxHeight =
+      radarConfig.height + radarConfig.marginTop + radarConfig.marginBottom;
+    const center = {
+      x: radarConfig.marginLeft + radarConfig.width / 2,
+      y: radarConfig.marginTop + radarConfig.height / 2,
+    };
+
+    configureSvgSize(
+      svg,
+      viewBoxHeight,
+      viewBoxWidth,
+      radarConfig.useMaxWidth ?? true,
+    );
+    svg.attr("viewBox", `0 0 ${viewBoxWidth} ${viewBoxHeight}`);
+
+    return svg
+      .append("g")
+      .attr("transform", `translate(${center.x}, ${center.y})`);
+  },
+  "drawFrame",
+);
+
+const drawRadarGraticule = nameFunction(
+  (
+    rootGroup: SvgSelection,
+    axes: RadarAxis[],
+    radius: number,
+    ticks: number,
+    graticule: RadarGraticule,
+  ): void => {
+    if (graticule === "circle") {
+      for (let tickIndex = 0; tickIndex < ticks; tickIndex++) {
+        const tickRadius = (radius * (tickIndex + 1)) / ticks;
+        rootGroup
+          .append("circle")
+          .attr("r", tickRadius)
+          .attr("class", "radarGraticule");
+      }
+      return;
+    }
+
+    if (graticule !== "polygon") {
+      return;
+    }
+
+    const axisCount = axes.length;
+    for (let tickIndex = 0; tickIndex < ticks; tickIndex++) {
+      const tickRadius = (radius * (tickIndex + 1)) / ticks;
+      const points = axes
+        .map((_axis, axisIndex) => {
+          const angle = (2 * axisIndex * Math.PI) / axisCount - Math.PI / 2;
+          return `${tickRadius * Math.cos(angle)},${
+            tickRadius * Math.sin(angle)
+          }`;
+        })
+        .join(" ");
+
+      rootGroup
+        .append("polygon")
+        .attr("points", points)
+        .attr("class", "radarGraticule");
+    }
+  },
+  "drawGraticule",
+);
+
+const drawRadarAxes = nameFunction(
+  (
+    rootGroup: SvgSelection,
+    axes: RadarAxis[],
+    radius: number,
+    radarConfig: RadarConfig,
+  ): void => {
+    const axisCount = axes.length;
+
+    for (let axisIndex = 0; axisIndex < axisCount; axisIndex++) {
+      const axisLabel = axes[axisIndex].label;
+      const angle = (2 * axisIndex * Math.PI) / axisCount - Math.PI / 2;
+
+      rootGroup
+        .append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", radius * radarConfig.axisScaleFactor * Math.cos(angle))
+        .attr("y2", radius * radarConfig.axisScaleFactor * Math.sin(angle))
+        .attr("class", "radarAxisLine");
+
+      rootGroup
+        .append("text")
+        .text(axisLabel)
+        .attr("x", radius * radarConfig.axisLabelFactor * Math.cos(angle))
+        .attr("y", radius * radarConfig.axisLabelFactor * Math.sin(angle))
+        .attr("class", "radarAxisLabel");
+    }
+  },
+  "drawAxes",
+);
+
+function getRelativeRadius(
+  value: number,
+  minimumValue: number,
+  maximumValue: number,
+  radius: number,
+): number {
+  return (
+    (radius *
+      (Math.min(Math.max(value, minimumValue), maximumValue) - minimumValue)) /
+    (maximumValue - minimumValue)
+  );
+}
+nameFunction(getRelativeRadius, "relativeRadius");
+
+function createClosedCurvePath(
+  points: RadarPoint[],
+  curveTension: number,
+): string {
+  const pointCount = points.length;
+  let pathData = `M${points[0].x},${points[0].y}`;
+
+  for (let pointIndex = 0; pointIndex < pointCount; pointIndex++) {
+    const previousPoint = points[(pointIndex - 1 + pointCount) % pointCount];
+    const currentPoint = points[pointIndex];
+    const nextPoint = points[(pointIndex + 1) % pointCount];
+    const afterNextPoint = points[(pointIndex + 2) % pointCount];
+    const firstControlPoint = {
+      x: currentPoint.x + (nextPoint.x - previousPoint.x) * curveTension,
+      y: currentPoint.y + (nextPoint.y - previousPoint.y) * curveTension,
+    };
+    const secondControlPoint = {
+      x: nextPoint.x - (afterNextPoint.x - currentPoint.x) * curveTension,
+      y: nextPoint.y - (afterNextPoint.y - currentPoint.y) * curveTension,
+    };
+
+    pathData += ` C${firstControlPoint.x},${firstControlPoint.y} ${secondControlPoint.x},${secondControlPoint.y} ${nextPoint.x},${nextPoint.y}`;
+  }
+
+  return `${pathData} Z`;
+}
+nameFunction(createClosedCurvePath, "closedRoundCurve");
+
+function drawRadarCurves(
+  rootGroup: SvgSelection,
+  axes: RadarAxis[],
+  curves: RadarCurve[],
+  minimumValue: number,
+  maximumValue: number,
+  graticule: RadarGraticule,
+  radarConfig: RadarConfig,
+): void {
+  const axisCount = axes.length;
+  const radius = Math.min(radarConfig.width, radarConfig.height) / 2;
+
+  curves.forEach((curve, curveIndex) => {
+    if (curve.entries.length !== axisCount) {
+      return;
+    }
+
+    const curvePoints = curve.entries.map((entryValue, axisIndex) => {
+      const angle = (2 * Math.PI * axisIndex) / axisCount - Math.PI / 2;
+      const pointRadius = getRelativeRadius(
+        entryValue,
+        minimumValue,
+        maximumValue,
+        radius,
+      );
+
       return {
-        x: diagramMMDJMWI5Value65 * Math.cos(diagramMMDJMWI5Value64),
-        y: diagramMMDJMWI5Value65 * Math.sin(diagramMMDJMWI5Value64),
+        x: pointRadius * Math.cos(angle),
+        y: pointRadius * Math.sin(angle),
       };
     });
-    diagramMMDJMWI5Param6 === "circle"
-      ? diagramMMDJMWI5Param1
-          .append("path")
-          .attr(
-            "d",
-            diagramMMDJMWI5Helper3(
-              diagramMMDJMWI5Value36,
-              diagramMMDJMWI5Param7.curveTension,
-            ),
-          )
-          .attr("class", `radarCurve-${index}`)
-      : diagramMMDJMWI5Param6 === "polygon" &&
-        diagramMMDJMWI5Param1
-          .append("polygon")
-          .attr(
-            "points",
-            diagramMMDJMWI5Value36
-              .map((_item) => `${_item.x},${_item.y}`)
-              .join(" "),
-          )
-          .attr("class", `radarCurve-${index}`);
+
+    if (graticule === "circle") {
+      rootGroup
+        .append("path")
+        .attr("d", createClosedCurvePath(curvePoints, radarConfig.curveTension))
+        .attr("class", `radarCurve-${curveIndex}`);
+      return;
+    }
+
+    if (graticule === "polygon") {
+      rootGroup
+        .append("polygon")
+        .attr(
+          "points",
+          curvePoints.map((point) => `${point.x},${point.y}`).join(" "),
+        )
+        .attr("class", `radarCurve-${curveIndex}`);
+    }
   });
 }
-chunkAGHRB4JFN(diagramMMDJMWI5Helper1, "drawCurves");
-function diagramMMDJMWI5Helper2(
-  diagramMMDJMWI5Param36,
-  diagramMMDJMWI5Param37,
-  diagramMMDJMWI5Param38,
-  diagramMMDJMWI5Param39,
-) {
-  return (
-    (diagramMMDJMWI5Param39 *
-      (Math.min(
-        Math.max(diagramMMDJMWI5Param36, diagramMMDJMWI5Param37),
-        diagramMMDJMWI5Param38,
-      ) -
-        diagramMMDJMWI5Param37)) /
-    (diagramMMDJMWI5Param38 - diagramMMDJMWI5Param37)
-  );
-}
-chunkAGHRB4JFN(diagramMMDJMWI5Helper2, "relativeRadius");
-function diagramMMDJMWI5Helper3(
-  diagramMMDJMWI5Param25,
-  diagramMMDJMWI5Param26,
-) {
-  let diagramMMDJMWI5Value41 = diagramMMDJMWI5Param25.length,
-    diagramMMDJMWI5Value42 = `M${diagramMMDJMWI5Param25[0].x},${diagramMMDJMWI5Param25[0].y}`;
-  for (
-    let diagramMMDJMWI5Value55 = 0;
-    diagramMMDJMWI5Value55 < diagramMMDJMWI5Value41;
-    diagramMMDJMWI5Value55++
-  ) {
-    let diagramMMDJMWI5Value57 =
-        diagramMMDJMWI5Param25[
-          (diagramMMDJMWI5Value55 - 1 + diagramMMDJMWI5Value41) %
-            diagramMMDJMWI5Value41
-        ],
-      diagramMMDJMWI5Value58 = diagramMMDJMWI5Param25[diagramMMDJMWI5Value55],
-      diagramMMDJMWI5Value59 =
-        diagramMMDJMWI5Param25[
-          (diagramMMDJMWI5Value55 + 1) % diagramMMDJMWI5Value41
-        ],
-      diagramMMDJMWI5Value60 =
-        diagramMMDJMWI5Param25[
-          (diagramMMDJMWI5Value55 + 2) % diagramMMDJMWI5Value41
-        ],
-      diagramMMDJMWI5Value61 = {
-        x:
-          diagramMMDJMWI5Value58.x +
-          (diagramMMDJMWI5Value59.x - diagramMMDJMWI5Value57.x) *
-            diagramMMDJMWI5Param26,
-        y:
-          diagramMMDJMWI5Value58.y +
-          (diagramMMDJMWI5Value59.y - diagramMMDJMWI5Value57.y) *
-            diagramMMDJMWI5Param26,
-      },
-      diagramMMDJMWI5Value62 = {
-        x:
-          diagramMMDJMWI5Value59.x -
-          (diagramMMDJMWI5Value60.x - diagramMMDJMWI5Value58.x) *
-            diagramMMDJMWI5Param26,
-        y:
-          diagramMMDJMWI5Value59.y -
-          (diagramMMDJMWI5Value60.y - diagramMMDJMWI5Value58.y) *
-            diagramMMDJMWI5Param26,
-      };
-    diagramMMDJMWI5Value42 += ` C${diagramMMDJMWI5Value61.x},${diagramMMDJMWI5Value61.y} ${diagramMMDJMWI5Value62.x},${diagramMMDJMWI5Value62.y} ${diagramMMDJMWI5Value59.x},${diagramMMDJMWI5Value59.y}`;
+nameFunction(drawRadarCurves, "drawCurves");
+
+function drawRadarLegend(
+  rootGroup: SvgSelection,
+  curves: RadarCurve[],
+  showLegend: boolean,
+  radarConfig: RadarConfig,
+): void {
+  if (!showLegend) {
+    return;
   }
-  return `${diagramMMDJMWI5Value42} Z`;
-}
-chunkAGHRB4JFN(diagramMMDJMWI5Helper3, "closedRoundCurve");
-function diagramMMDJMWI5Helper4(
-  diagramMMDJMWI5Param21,
-  diagramMMDJMWI5Param22,
-  diagramMMDJMWI5Param23,
-  diagramMMDJMWI5Param24,
-) {
-  if (!diagramMMDJMWI5Param23) return;
-  let diagramMMDJMWI5Value39 =
-      ((diagramMMDJMWI5Param24.width / 2 + diagramMMDJMWI5Param24.marginRight) *
-        3) /
-      4,
-    diagramMMDJMWI5Value40 =
-      (-(diagramMMDJMWI5Param24.height / 2 + diagramMMDJMWI5Param24.marginTop) *
-        3) /
-      4;
-  diagramMMDJMWI5Param22.forEach((item, index) => {
-    let diagramMMDJMWI5Value46 = diagramMMDJMWI5Param21
+
+  const legendX = ((radarConfig.width / 2 + radarConfig.marginRight) * 3) / 4;
+  const legendY = (-(radarConfig.height / 2 + radarConfig.marginTop) * 3) / 4;
+
+  curves.forEach((curve, curveIndex) => {
+    const legendItem = rootGroup
       .append("g")
-      .attr(
-        "transform",
-        `translate(${diagramMMDJMWI5Value39}, ${diagramMMDJMWI5Value40 + index * 20})`,
-      );
-    diagramMMDJMWI5Value46
+      .attr("transform", `translate(${legendX}, ${legendY + curveIndex * 20})`);
+
+    legendItem
       .append("rect")
       .attr("width", 12)
       .attr("height", 12)
-      .attr("class", `radarLegendBox-${index}`);
-    diagramMMDJMWI5Value46
+      .attr("class", `radarLegendBox-${curveIndex}`);
+
+    legendItem
       .append("text")
       .attr("x", 16)
       .attr("y", 0)
       .attr("class", "radarLegendText")
-      .text(item.label);
+      .text(curve.label);
   });
 }
-chunkAGHRB4JFN(diagramMMDJMWI5Helper4, "drawLegend");
-var diagramMMDJMWI5Value19 = {
-    draw: diagramMMDJMWI5Value15,
+nameFunction(drawRadarLegend, "drawLegend");
+
+const drawRadarDiagram = nameFunction(
+  (
+    sourceText: string,
+    diagramId: string,
+    renderVersion: string,
+    context: RadarRenderContext,
+  ): void => {
+    void sourceText;
+    void renderVersion;
+
+    const radarDb = context.db;
+    const axes = radarDb.getAxes();
+    const curves = radarDb.getCurves();
+    const options = radarDb.getOptions();
+    const radarConfig = radarDb.getConfig();
+    const diagramTitle = radarDb.getDiagramTitle();
+    const rootGroup = createRadarRootGroup(
+      selectSvgById(diagramId),
+      radarConfig,
+    );
+    const maximumValue =
+      options.max ??
+      Math.max(...curves.map((curve) => Math.max(...curve.entries)));
+    const minimumValue = options.min;
+    const radius = Math.min(radarConfig.width, radarConfig.height) / 2;
+
+    drawRadarGraticule(
+      rootGroup,
+      axes,
+      radius,
+      options.ticks,
+      options.graticule,
+    );
+    drawRadarAxes(rootGroup, axes, radius, radarConfig);
+    drawRadarCurves(
+      rootGroup,
+      axes,
+      curves,
+      minimumValue,
+      maximumValue,
+      options.graticule,
+      radarConfig,
+    );
+    drawRadarLegend(rootGroup, curves, options.showLegend, radarConfig);
+
+    rootGroup
+      .append("text")
+      .attr("class", "radarTitle")
+      .text(diagramTitle)
+      .attr("x", 0)
+      .attr("y", -radarConfig.height / 2 - radarConfig.marginTop);
   },
-  diagramMMDJMWI5Value20 = chunkAGHRB4JFN(
-    (diagramMMDJMWI5Param27, diagramMMDJMWI5Param28) => {
-      let diagramMMDJMWI5Value43 = "";
-      for (
-        let diagramMMDJMWI5Value51 = 0;
-        diagramMMDJMWI5Value51 < diagramMMDJMWI5Param27.THEME_COLOR_LIMIT;
-        diagramMMDJMWI5Value51++
-      ) {
-        let diagramMMDJMWI5Value56 =
-          diagramMMDJMWI5Param27[`cScale${diagramMMDJMWI5Value51}`];
-        diagramMMDJMWI5Value43 += `
-		.radarCurve-${diagramMMDJMWI5Value51} {
-			color: ${diagramMMDJMWI5Value56};
-			fill: ${diagramMMDJMWI5Value56};
-			fill-opacity: ${diagramMMDJMWI5Param28.curveOpacity};
-			stroke: ${diagramMMDJMWI5Value56};
-			stroke-width: ${diagramMMDJMWI5Param28.curveStrokeWidth};
+  "draw",
+);
+
+const radarRenderer = {
+  draw: drawRadarDiagram,
+};
+
+const getIndexedRadarStyles = nameFunction(
+  (themeVariables: ThemeVariables, radarOptions: RadarConfig): string => {
+    let styles = "";
+
+    for (
+      let colorIndex = 0;
+      colorIndex < themeVariables.THEME_COLOR_LIMIT;
+      colorIndex++
+    ) {
+      const curveColor = String(themeVariables[`cScale${colorIndex}`]);
+      styles += `
+		.radarCurve-${colorIndex} {
+			color: ${curveColor};
+			fill: ${curveColor};
+			fill-opacity: ${radarOptions.curveOpacity};
+			stroke: ${curveColor};
+			stroke-width: ${radarOptions.curveStrokeWidth};
 		}
-		.radarLegendBox-${diagramMMDJMWI5Value51} {
-			fill: ${diagramMMDJMWI5Value56};
-			fill-opacity: ${diagramMMDJMWI5Param28.curveOpacity};
-			stroke: ${diagramMMDJMWI5Value56};
+		.radarLegendBox-${colorIndex} {
+			fill: ${curveColor};
+			fill-opacity: ${radarOptions.curveOpacity};
+			stroke: ${curveColor};
 		}
 		`;
-      }
-      return diagramMMDJMWI5Value43;
-    },
-    "genIndexStyles",
-  ),
-  diagramMMDJMWI5Value21 = chunkAGHRB4JFN((diagramMMDJMWI5Param35) => {
-    let diagramMMDJMWI5Value69 = chunk5PVQY5BWP(
-      chunkICPOFSXXE(),
-      _chunkICPOFSXXY().themeVariables,
-    );
+    }
+
+    return styles;
+  },
+  "genIndexStyles",
+);
+
+const buildRadarStyleOptions = nameFunction(
+  (radarOverrides?: Partial<RadarConfig>) => {
+    const themeVariables = cleanAndMerge(
+      getDefaultThemeVariables(),
+      (getCurrentConfig() as MermaidSiteConfig).themeVariables ?? {},
+    ) as ThemeVariables;
+
     return {
-      themeVariables: diagramMMDJMWI5Value69,
-      radarOptions: chunk5PVQY5BWP(
-        diagramMMDJMWI5Value69.radar,
-        diagramMMDJMWI5Param35,
-      ),
+      themeVariables,
+      radarOptions: cleanAndMerge(
+        themeVariables.radar,
+        radarOverrides ?? {},
+      ) as RadarConfig,
     };
-  }, "buildRadarStyleOptions");
-export const diagramMMDJMWI5 = {
-  parser: diagramMMDJMWI5Value14,
-  db: diagramMMDJMWI5Value12,
-  renderer: diagramMMDJMWI5Value19,
-  styles: chunkAGHRB4JFN(({ radar } = {}) => {
-    let { themeVariables, radarOptions } = diagramMMDJMWI5Value21(radar);
-    return `
+  },
+  "buildRadarStyleOptions",
+);
+
+function createRadarDiagramDefinition() {
+  return {
+    parser: radarParser,
+    db: radarDiagramDb,
+    renderer: radarRenderer,
+    styles: nameFunction(
+      ({ radar }: { radar?: Partial<RadarConfig> } = {}): string => {
+        const { themeVariables, radarOptions } = buildRadarStyleOptions(radar);
+
+        return `
 	.radarTitle {
 		font-size: ${themeVariables.fontSize};
 		color: ${themeVariables.titleColor};
@@ -580,7 +683,14 @@ export const diagramMMDJMWI5 = {
 		font-size: ${radarOptions.legendFontSize}px;
 		dominant-baseline: hanging;
 	}
-	${diagramMMDJMWI5Value20(themeVariables, radarOptions)}
+	${getIndexedRadarStyles(themeVariables, radarOptions)}
 	`;
-  }, "styles"),
-};
+      },
+      "styles",
+    ),
+  };
+}
+
+const diagramMMDJMWI5 = createRadarDiagramDefinition();
+
+export { diagramMMDJMWI5 };

@@ -10453,7 +10453,10 @@
       "exports": {
         "diagram": "diagramMMDJMWI5"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:31:42.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-radar-diagram-k5.ts now semantically restores the Mermaid Radar diagram definition against current ref diagram-MMDJMWI5-Cot69-mD.js, with typed radar DB state, parser population, responsive frame setup, graticule/axis/curve/legend rendering, and styles; it preserves the diagramMMDJMWI5 public export and passes quality-gate."
     },
     "diagram-MMDJMWI5-B6Cvwmyf": {
       "restored": "vendor/mermaid-radar-diagram-k5.ts",
@@ -10463,7 +10466,10 @@
       "status": "done",
       "aliasOf": "diagram-MMDJMWI5-BCvRK5AH",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:31:42.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-radar-diagram-k5.ts now semantically restores the Mermaid Radar diagram definition against current ref diagram-MMDJMWI5-Cot69-mD.js, with typed radar DB state, parser population, responsive frame setup, graticule/axis/curve/legend rendering, and styles; it preserves the diagramMMDJMWI5 public export and passes quality-gate."
     },
     "diagram-MMDJMWI5-D_LZcM0k": {
       "restored": "vendor/mermaid-radar-diagram-k5.ts",
@@ -10473,7 +10479,10 @@
       "status": "done",
       "aliasOf": "diagram-MMDJMWI5-BCvRK5AH",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:31:42.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-radar-diagram-k5.ts now semantically restores the Mermaid Radar diagram definition against current ref diagram-MMDJMWI5-Cot69-mD.js, with typed radar DB state, parser population, responsive frame setup, graticule/axis/curve/legend rendering, and styles; it preserves the diagramMMDJMWI5 public export and passes quality-gate."
     },
     "diagram-MMDJMWI5-DKgr1SoD": {
       "restored": "vendor/mermaid-radar-diagram-k5.ts",
@@ -10483,7 +10492,23 @@
       "status": "done",
       "aliasOf": "diagram-MMDJMWI5-BCvRK5AH",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:31:42.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-radar-diagram-k5.ts now semantically restores the Mermaid Radar diagram definition against current ref diagram-MMDJMWI5-Cot69-mD.js, with typed radar DB state, parser population, responsive frame setup, graticule/axis/curve/legend rendering, and styles; it preserves the diagramMMDJMWI5 public export and passes quality-gate."
+    },
+    "diagram-MMDJMWI5-Cot69-mD": {
+      "restored": "vendor/mermaid-radar-diagram-k5.ts",
+      "exports": {
+        "diagram": "diagramMMDJMWI5"
+      },
+      "status": "done",
+      "aliasOf": "diagram-MMDJMWI5-BCvRK5AH",
+      "lastUpdated": "2026-06-30T20:31:42.000Z",
+      "note": "Current Mermaid radar diagram wrapper preserves the restored public export surface; aliases were re-derived from diagram-MMDJMWI5-Cot69-mD.js.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:31:42.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-radar-diagram-k5.ts now semantically restores the Mermaid Radar diagram definition against current ref diagram-MMDJMWI5-Cot69-mD.js, with typed radar DB state, parser population, responsive frame setup, graticule/axis/curve/legend rendering, and styles; it preserves the diagramMMDJMWI5 public export and passes quality-gate."
     },
     "diagram-TYMM5635-DG2wO4Kx": {
       "restored": "vendor/mermaid-packet-diagram-k5.ts",
@@ -27347,7 +27372,7 @@
       "stage3Note": "Verified against the exact current BfbI4bIH source: export n is the init thunk and export t re-exports LibraryIcon with matching current SVG path data."
     },
     "app-initial~app-main~remote-conversation-page~thread-app-shell-chrome~local-conversation-page-BYNuwa4z": {
-      "restored": "appgen/publication-terms/side-panel-tabs.ts",
+      "restored": "runtime/current-app-initial/mcp-capability-panel-current-runtime.ts",
       "exports": {
         "i": "initMcpCapabilityPanelIconChunk",
         "n": "openMcpCapabilityPanelTab",
