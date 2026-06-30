@@ -40309,6 +40309,13 @@
         "AppConnectOAuthCallbackPage": "AppConnectOAuthCallbackPage"
       },
       "status": "done"
+    },
+    "at-mention-list-BoBEtdsA": {
+      "restored": "composer/at-mention-list.ts",
+      "exports": {
+        "AtMentionList": "AtMentionList"
+      },
+      "status": "done"
     }
   }
 }
