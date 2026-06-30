@@ -88,6 +88,7 @@ import {
   vm as subagentParentThreadIdSignal,
   yv as Navigate,
 } from "../vendor/projects-app-shared-runtime";
+import { ea as ProjectAvatar } from "../vendor/worktree-new-thread-query-current-bundle";
 import {
   AutomationTooltipSurface,
   ComposerDismissableLayer,
@@ -140,7 +141,6 @@ import {
   useAppsQuery,
 } from "../runtime/connector-apps-runtime";
 import { useCommandRegistration } from "../runtime/command-registration-runtime";
-import { ProjectAvatar } from "../boundaries/current-ref/project-hover-card-producer";
 
 export {
   activeHostIdSignal,
