@@ -57,3 +57,4 @@ export const chunkQN33PNHL = chunkAGHRB4JFN(
   },
   "setupViewPortForSVG",
 );
+export function initChunkQN33PNHL(): void {}

@@ -32780,6 +32780,50 @@
       "note": "Current Mermaid edge renderer aliases were re-derived from chunk-ENJZ2VHE-Hl7g56sN.js: a=marker definitions, i=insertEdgeLabel, n=lazy init thunk, o=positionEdgeLabel, r=insertEdge, t=clear.",
       "status": "done",
       "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "chunk-55IACEB6-C7TKde_g": {
+      "restored": "vendor/chunk-55-iaceb6.ts",
+      "exports": {
+        "n": "initChunk55IACEB6",
+        "t": "chunk55IACEB6"
+      },
+      "aliasOf": "chunk-55IACEB6-DBIditYu",
+      "note": "Current Mermaid getDiagramElement wrapper aliases were re-derived from chunk-55IACEB6-C7TKde_g.js: n=lazy init thunk, t=getDiagramElement.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "chunk-55IACEB6-W9i3ByIr": {
+      "restored": "vendor/chunk-55-iaceb6.ts",
+      "exports": {
+        "n": "initChunk55IACEB6",
+        "t": "chunk55IACEB6"
+      },
+      "aliasOf": "chunk-55IACEB6-DBIditYu",
+      "note": "Current Mermaid getDiagramElement wrapper aliases were re-derived from chunk-55IACEB6-W9i3ByIr.js: n=lazy init thunk, t=getDiagramElement.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "chunk-QN33PNHL-nPLgaaqy": {
+      "restored": "vendor/chunk-qn33-pnhl-dv-z-pb-bs-u.ts",
+      "exports": {
+        "n": "chunkQN33PNHL",
+        "t": "initChunkQN33PNHL"
+      },
+      "aliasOf": "chunk-QN33PNHL-AbzhC4my",
+      "note": "Current Mermaid viewport setup wrapper aliases were re-derived from chunk-QN33PNHL-nPLgaaqy.js: n=setupViewPortForSVG, t=lazy init thunk.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "mermaid-parser.core-DurnYtle": {
+      "restored": "vendor/mermaid-parser-core-k5.ts",
+      "exports": {
+        "n": "MermaidParserCore",
+        "t": "initMermaidParserCoreK5Chunk"
+      },
+      "aliasOf": "mermaid-parser.core-CbP7P1Ck",
+      "note": "Current Mermaid parser core aliases were re-derived from mermaid-parser.core-DurnYtle.js: n=parse, t=lazy init thunk. This hash includes Wardley parser support and detailed lexer/parser error messages.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     }
   }
 }

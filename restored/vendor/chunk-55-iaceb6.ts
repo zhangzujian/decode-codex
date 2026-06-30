@@ -17,3 +17,4 @@ export const chunk55IACEB6 = chunkAGHRB4JFN(
   },
   "getDiagramElement",
 );
+export function initChunk55IACEB6(): void {}

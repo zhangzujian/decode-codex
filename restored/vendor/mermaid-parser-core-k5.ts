@@ -199,6 +199,7 @@ async function MermaidParserCore(
     throw new mermaidParserCoreValue3(mermaidParserCoreValue6);
   return mermaidParserCoreValue6.value;
 }
+export function initMermaidParserCoreK5Chunk(): void {}
 chunkK5T4RW27M(MermaidParserCore, "parse");
 var mermaidParserCoreValue3 = class extends Error {
   constructor(mermaidParserCoreParam3) {
