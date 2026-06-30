@@ -1,4 +1,8 @@
-// Restored from ref/webview/assets/workbook-BEO_aVXz.js
-// Workbook chunk restored from the Codex webview bundle.
-import { t as workbook } from "../boundaries/workbook-runtime";
-export { workbook as Workbook };
+// Restored from ref/webview/assets/workbook-C9Gx7OEE.js
+// Initializes and re-exports the workbook runtime entrypoint.
+import {
+  n as initializeWorkbookRuntime,
+  t as workbookRuntimeWorkbook,
+} from "../boundaries/workbook-runtime";
+initializeWorkbookRuntime();
+export { workbookRuntimeWorkbook as Workbook };
