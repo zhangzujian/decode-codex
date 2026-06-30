@@ -1,6 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~hotkey-window-thread-page~automations-page~local-conversation-page-Dacd6Pdw.js
-// heartbeat-automation-permissions-CKjRbTXW chunk restored from the Codex webview bundle.
-// Also covers ref/webview/assets/app-initial~app-main~hotkey-window-thread-page~automations-page~local-conversation-page-BdwGathX.js.
+// Restored from ref/webview/assets/app-initial~app-main~hotkey-window-thread-page~automations-page~local-conversation-page-CnYocBk6.js
+// app-initial~app-main~hotkey-window-thread-page~automations-page~local-conversation-page-CnYocBk6 chunk restored from the Codex webview bundle.
 import {
   _appScopeL as createComputedSignalFamily,
   appScopeRoot,
@@ -10,7 +9,7 @@ import {
   latestTurnByConversationIdSignal,
 } from "../boundaries/thread-context-inputs.facade";
 import { createPersistedSignal } from "../runtime/persisted-signal";
-export const heartbeatThreadPermissionsByIdSignal = createPersistedSignal(
+const heartbeatThreadPermissionsByIdSignal = createPersistedSignal(
   "heartbeat-thread-permissions-by-id",
   {},
 );
@@ -44,7 +43,7 @@ function normalizeHeartbeatPermissions(value: any) {
         sandboxPolicy: value.sandboxPolicy,
       };
 }
-export function getHeartbeatTurnPermissions(turn: any, config: any) {
+function getHeartbeatTurnPermissions(turn: any, config: any) {
   return (
     normalizeHeartbeatPermissions(config) ??
     (turn?.turnId == null || turn.params.collaborationMode == null
@@ -52,7 +51,7 @@ export function getHeartbeatTurnPermissions(turn: any, config: any) {
       : normalizeHeartbeatPermissions(turn.params))
   );
 }
-export function resolveHeartbeatPermissions(
+function resolveHeartbeatPermissions(
   turn: any,
   config: any,
   fallbackPermissions: any,
@@ -61,7 +60,7 @@ export function resolveHeartbeatPermissions(
     getHeartbeatTurnPermissions(turn, config) ?? fallbackPermissions ?? null
   );
 }
-export const serializedHeartbeatPermissionsSignal = createComputedSignalFamily(
+const serializedHeartbeatPermissionsSignal = createComputedSignalFamily(
   appScopeRoot,
   (conversationId: string, { get }: any) => {
     const permissions = getHeartbeatTurnPermissions(
@@ -71,7 +70,7 @@ export const serializedHeartbeatPermissionsSignal = createComputedSignalFamily(
     return permissions == null ? null : JSON.stringify(permissions);
   },
 );
-export function updateHeartbeatPermissionsByThreadId(
+function updateHeartbeatPermissionsByThreadId(
   permissionsByThreadId: Record<string, unknown>,
   threadId: string,
   permissions: unknown,
@@ -85,5 +84,12 @@ export function updateHeartbeatPermissionsByThreadId(
         [threadId]: permissions,
       };
 }
-
-export function initHeartbeatPermissionsChunk(): void {}
+function initHeartbeatPermissionsChunk(): void {}
+export {
+  serializedHeartbeatPermissionsSignal,
+  heartbeatThreadPermissionsByIdSignal,
+  getHeartbeatTurnPermissions,
+  initHeartbeatPermissionsChunk,
+  resolveHeartbeatPermissions,
+  updateHeartbeatPermissionsByThreadId,
+};

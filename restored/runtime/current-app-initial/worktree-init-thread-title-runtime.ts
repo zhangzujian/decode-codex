@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~hotkey-window-worktree-init-page~local-conversation-page-BwSKiuwm.js
-// Worktree-init conversation start, browser-source restore, and metadata finalization.
+// app-initial~app-main~worktree-init-v2-page~hotkey-window-worktree-init-page~local-conversation-page-BwSKiuwm chunk restored from the Codex webview bundle.
 import { sendAppServerRequest } from "../../boundaries/use-host-config.facade";
 import { vscodeApiH, vscodeApiN } from "../../boundaries/vscode-api";
 import {
@@ -8,7 +8,6 @@ import {
   startPendingWorktreeConversation,
 } from "../../threads/pending-worktree-conversation";
 import { setPinnedThread } from "../../utils/set-pinned-thread";
-
 type PendingWorktreeEntryForFinalization = {
   initialThreadTitle?: string | null;
   labelEdited?: boolean;
@@ -19,12 +18,10 @@ type PendingWorktreeEntryForFinalization = {
   launchMode: string;
   threadStartHostId?: string | null;
 };
-
 type PendingWorktreeHostConfig = {
   id: string;
 };
-
-export async function finalizePendingWorktreeConversationMetadata({
+async function finalizePendingWorktreeConversationMetadata({
   entry,
   conversationId,
   hostConfig,
@@ -41,15 +38,17 @@ export async function finalizePendingWorktreeConversationMetadata({
     entry.initialThreadTitle ??
     (shouldOnlySetEditedLabelIfUntitled ? entry.label : "")
   ).trim();
-
   if (title.length > 0) {
     await sendAppServerRequest("set-thread-title", {
       conversationId,
       title,
-      ...(shouldOnlySetEditedLabelIfUntitled ? { onlyIfUntitled: true } : {}),
+      ...(shouldOnlySetEditedLabelIfUntitled
+        ? {
+            onlyIfUntitled: true,
+          }
+        : {}),
     });
   }
-
   if (entry.worktreeGitRoot != null) {
     try {
       await vscodeApiN("worktree-set-owner-thread", {
@@ -64,12 +63,13 @@ export async function finalizePendingWorktreeConversationMetadata({
         "Worktree created and conversation started, but failed to set worktree owner metadata: {}",
         {
           safe: {},
-          sensitive: { error },
+          sensitive: {
+            error,
+          },
         },
       );
     }
   }
-
   if (entry.isPinned) {
     try {
       await setPinnedThread(conversationId, true, entry.pinnedBeforeThreadId);
@@ -78,12 +78,13 @@ export async function finalizePendingWorktreeConversationMetadata({
         "Worktree conversation started, but failed to set pinned metadata: {}",
         {
           safe: {},
-          sensitive: { error },
+          sensitive: {
+            error,
+          },
         },
       );
     }
   }
-
   if (
     entry.launchMode === "start-conversation" &&
     threadGoalObjective != null
@@ -96,9 +97,9 @@ export async function finalizePendingWorktreeConversationMetadata({
     });
   }
 }
-
 export {
-  initPendingWorktreeConversationRuntimeChunk,
   restorePendingWorktreeBrowserTransferSources,
+  initPendingWorktreeConversationRuntimeChunk,
   startPendingWorktreeConversation,
+  finalizePendingWorktreeConversationMetadata,
 };
