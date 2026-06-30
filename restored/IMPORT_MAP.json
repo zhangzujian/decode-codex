@@ -10711,7 +10711,10 @@
       "status": "done",
       "aliasOf": "diagram-5BDNPKRD-CNeveAHh",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:20:00.000Z",
+      "stage3Review": "Host self-review: current ref diagram-5BDNPKRD-CGdKF119.js exports the treeView diagram wrapper with parser, db, renderer, and styles; vendor/mermaid-tree-view-diagram-k5.ts preserves the diagram5BDNPKRD export surface and passes quality-gate."
     },
     "diagram-G4DWMVQ6-B4ApuIEg": {
       "restored": "vendor/mermaid-treemap-diagram-k5.ts",
@@ -10867,7 +10870,10 @@
       "status": "done",
       "aliasOf": "diagram-TYMM5635-DG2wO4Kx",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:20:00.000Z",
+      "stage3Review": "Host self-review: current ref diagram-TYMM5635-CeddCmtp.js exports the packet diagram wrapper with PacketDB, parser, renderer, styles, and split-block validation; vendor/mermaid-packet-diagram-k5.ts preserves the DiagramTYMM5635 export surface and passes quality-gate."
     },
     "gitGraphDiagram-UUTBAWPF-DGICCt1Z": {
       "restored": "vendor/mermaid-git-graph-diagram-k5.ts",
@@ -11001,7 +11007,10 @@
       "status": "done",
       "aliasOf": "pieDiagram-DEJITSTG-D-t1CIhj",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid pie diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid pie diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:20:00.000Z",
+      "stage3Review": "Host self-review: current ref pieDiagram-DEJITSTG-eYbVMxhh.js exports the K5 pie diagram wrapper with parser, db, renderer, styles, and showData handling; vendor/mermaid-pie-diagram-k5.ts preserves the pieDiagramDEJITSTG export surface and passes quality-gate."
     },
     "pieDiagram-DEJITSTG-G0ijuKHv": {
       "restored": "vendor/mermaid-pie-diagram-k5.ts",
