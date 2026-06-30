@@ -1,36 +1,72 @@
 // Restored from ref/webview/assets/min-BVs4UoI0.js
 // Min chunk restored from the Codex webview bundle.
-export function minN(_minN, _minT) {
-  let minValue1;
-  if (_minT === undefined)
-    for (let __minT of _minN)
-      __minT != null &&
-        (minValue1 < __minT || (minValue1 === undefined && __minT >= __minT)) &&
-        (minValue1 = __minT);
+type ComparableValue = number | string | Date;
+type ValueAccessor<Datum, Value extends ComparableValue> = (
+  datum: Datum,
+  index: number,
+  values: Iterable<Datum>,
+) => Value | null | undefined;
+
+function maxValue<Datum extends ComparableValue>(
+  values: Iterable<Datum>,
+): Datum | undefined;
+function maxValue<Datum, Value extends ComparableValue>(
+  values: Iterable<Datum>,
+  accessor: ValueAccessor<Datum, Value>,
+): Value | undefined;
+function maxValue<Datum, Value extends ComparableValue>(
+  values: Iterable<Datum>,
+  accessor?: ValueAccessor<Datum, Value>,
+): Datum | Value | undefined {
+  let selectedValue: Datum | Value | undefined;
+  if (accessor === undefined)
+    for (const value of values as Iterable<Datum & ComparableValue>)
+      value != null &&
+        (selectedValue < value ||
+          (selectedValue === undefined && value >= value)) &&
+        (selectedValue = value);
   else {
-    let minValue3 = -1;
-    for (let minValue5 of _minN)
-      (minValue5 = _minT(minValue5, ++minValue3, _minN)) != null &&
-        (minValue1 < minValue5 ||
-          (minValue1 === undefined && minValue5 >= minValue5)) &&
-        (minValue1 = minValue5);
+    let index = -1;
+    for (const datum of values) {
+      const value = accessor(datum, ++index, values);
+      value != null &&
+        (selectedValue < value ||
+          (selectedValue === undefined && value >= value)) &&
+        (selectedValue = value);
+    }
   }
-  return minValue1;
+  return selectedValue;
 }
-export function minT(_minN, _minT) {
-  let minValue2;
-  if (_minT === undefined)
-    for (let __minT of _minN)
-      __minT != null &&
-        (minValue2 > __minT || (minValue2 === undefined && __minT >= __minT)) &&
-        (minValue2 = __minT);
+
+function minValue<Datum extends ComparableValue>(
+  values: Iterable<Datum>,
+): Datum | undefined;
+function minValue<Datum, Value extends ComparableValue>(
+  values: Iterable<Datum>,
+  accessor: ValueAccessor<Datum, Value>,
+): Value | undefined;
+function minValue<Datum, Value extends ComparableValue>(
+  values: Iterable<Datum>,
+  accessor?: ValueAccessor<Datum, Value>,
+): Datum | Value | undefined {
+  let selectedValue: Datum | Value | undefined;
+  if (accessor === undefined)
+    for (const value of values as Iterable<Datum & ComparableValue>)
+      value != null &&
+        (selectedValue > value ||
+          (selectedValue === undefined && value >= value)) &&
+        (selectedValue = value);
   else {
-    let minValue4 = -1;
-    for (let minValue6 of _minN)
-      (minValue6 = _minT(minValue6, ++minValue4, _minN)) != null &&
-        (minValue2 > minValue6 ||
-          (minValue2 === undefined && minValue6 >= minValue6)) &&
-        (minValue2 = minValue6);
+    let index = -1;
+    for (const datum of values) {
+      const value = accessor(datum, ++index, values);
+      value != null &&
+        (selectedValue > value ||
+          (selectedValue === undefined && value >= value)) &&
+        (selectedValue = value);
+    }
   }
-  return minValue2;
+  return selectedValue;
 }
+
+export { maxValue, maxValue as minN, minValue, minValue as minT };

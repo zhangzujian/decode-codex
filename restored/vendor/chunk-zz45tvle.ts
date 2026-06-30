@@ -1,54 +1,85 @@
-// Restored from ref/webview/assets/chunk-ZZ45TVLE-CvzuGe_q.js
+// Restored from ref/webview/assets/chunk-ZZ45TVLE-DzHSn4eK.js
 // ChunkZZ45TVLE chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dayjs-core-alt";
 import { _chunkICPOFSXXP, chunkICPOFSXXV } from "./chunk-icpofsxx";
 import { chunk5PVQY5BWH } from "./chunk-5pvqy5bw";
-export const chunkZZ45TVLEN = chunkAGHRB4JFN(({ flowchart }) => {
-  let chunkZZ45TVLEValue4 = flowchart?.subGraphTitleMargin?.top ?? 0,
-    chunkZZ45TVLEValue5 = flowchart?.subGraphTitleMargin?.bottom ?? 0;
-  return {
-    subGraphTitleTopMargin: chunkZZ45TVLEValue4,
-    subGraphTitleBottomMargin: chunkZZ45TVLEValue5,
-    subGraphTitleTotalMargin: chunkZZ45TVLEValue4 + chunkZZ45TVLEValue5,
+
+type MermaidFlowchartConfig = {
+  flowchart?: {
+    subGraphTitleMargin?: {
+      top?: number;
+      bottom?: number;
+    };
   };
-}, "getSubGraphTitleMargins");
-async function chunkZZ45TVLET(_chunkZZ45TVLEN, _chunkZZ45TVLET) {
-  let chunkZZ45TVLEValue1 = _chunkZZ45TVLEN.getElementsByTagName("img");
-  if (!chunkZZ45TVLEValue1 || chunkZZ45TVLEValue1.length === 0) return;
-  let chunkZZ45TVLEValue2 =
-    _chunkZZ45TVLET.replace(/<img[^>]*>/g, "").trim() === "";
+};
+
+type SubGraphTitleMargins = {
+  subGraphTitleTopMargin: number;
+  subGraphTitleBottomMargin: number;
+  subGraphTitleTotalMargin: number;
+};
+
+const getSubGraphTitleMargins = chunkAGHRB4JFN(
+  ({ flowchart }: MermaidFlowchartConfig): SubGraphTitleMargins => {
+    const topMargin = flowchart?.subGraphTitleMargin?.top ?? 0;
+    const bottomMargin = flowchart?.subGraphTitleMargin?.bottom ?? 0;
+
+    return {
+      subGraphTitleTopMargin: topMargin,
+      subGraphTitleBottomMargin: bottomMargin,
+      subGraphTitleTotalMargin: topMargin + bottomMargin,
+    };
+  },
+  "getSubGraphTitleMargins",
+);
+
+async function configureLabelImages(
+  labelElement: Element,
+  labelHtml: string,
+): Promise<void> {
+  const images = labelElement.getElementsByTagName("img");
+  if (!images || images.length === 0) return;
+
+  const labelOnlyContainsImages =
+    labelHtml.replace(/<img[^>]*>/g, "").trim() === "";
+
   await Promise.all(
-    [...chunkZZ45TVLEValue1].map(
-      (__chunkZZ45TVLEN) =>
-        new Promise((__chunkZZ45TVLET) => {
-          function chunkZZ45TVLEHelper1() {
+    [...images].map(
+      (image) =>
+        new Promise<HTMLImageElement>((resolve) => {
+          function setupImage() {
             if (
-              ((__chunkZZ45TVLEN.style.display = "flex"),
-              (__chunkZZ45TVLEN.style.flexDirection = "column"),
-              chunkZZ45TVLEValue2)
+              ((image.style.display = "flex"),
+              (image.style.flexDirection = "column"),
+              labelOnlyContainsImages)
             ) {
-              let [chunkZZ45TVLEValue3 = chunkICPOFSXXV.fontSize] =
-                  chunk5PVQY5BWH(
-                    _chunkICPOFSXXP().fontSize
-                      ? _chunkICPOFSXXP().fontSize
-                      : window.getComputedStyle(document.body).fontSize,
-                  ),
-                ___chunkZZ45TVLET = chunkZZ45TVLEValue3 * 5 + "px";
-              __chunkZZ45TVLEN.style.minWidth = ___chunkZZ45TVLET;
-              __chunkZZ45TVLEN.style.maxWidth = ___chunkZZ45TVLET;
-            } else __chunkZZ45TVLEN.style.width = "100%";
-            __chunkZZ45TVLET(__chunkZZ45TVLEN);
+              const [configuredFontSize = chunkICPOFSXXV.fontSize] =
+                chunk5PVQY5BWH(
+                  _chunkICPOFSXXP().fontSize
+                    ? _chunkICPOFSXXP().fontSize
+                    : window.getComputedStyle(document.body).fontSize,
+                );
+              const fallbackImageWidth = configuredFontSize * 5 + "px";
+              image.style.minWidth = fallbackImageWidth;
+              image.style.maxWidth = fallbackImageWidth;
+            } else image.style.width = "100%";
+            resolve(image);
           }
-          chunkAGHRB4JFN(chunkZZ45TVLEHelper1, "setupImage");
+          chunkAGHRB4JFN(setupImage, "setupImage");
           setTimeout(() => {
-            __chunkZZ45TVLEN.complete && chunkZZ45TVLEHelper1();
+            image.complete && setupImage();
           });
-          __chunkZZ45TVLEN.addEventListener("error", chunkZZ45TVLEHelper1);
-          __chunkZZ45TVLEN.addEventListener("load", chunkZZ45TVLEHelper1);
+          image.addEventListener("error", setupImage);
+          image.addEventListener("load", setupImage);
         }),
     ),
   );
 }
-chunkAGHRB4JFN(chunkZZ45TVLET, "configureLabelImages");
+chunkAGHRB4JFN(configureLabelImages, "configureLabelImages");
 export function initChunkZZ45TVLE(): void {}
-export { chunkZZ45TVLET };
+export {
+  configureLabelImages,
+  configureLabelImages as chunkZZ45TVLET,
+  getSubGraphTitleMargins,
+  getSubGraphTitleMargins as chunkZZ45TVLEN,
+};
