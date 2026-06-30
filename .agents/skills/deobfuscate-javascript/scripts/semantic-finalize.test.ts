@@ -4,6 +4,7 @@ import * as path from "node:path";
 import * as parser from "@babel/parser";
 import { polish } from "./polish.ts";
 import {
+  rewriteImportTarget,
   rewriteSemanticImports,
   semanticFinalize,
   type SemanticFile,
@@ -299,6 +300,51 @@ describe("semantic-finalize", () => {
     expect(out).toContain('import("../utils/katex")');
     expect(out).not.toContain("katex-DZmv-8PO");
     parseModule(out);
+  });
+
+  test("rewriteImportTarget accepts the shared project IMPORT_MAP shape", () => {
+    const tempRoot = fs.mkdtempSync(
+      path.join(import.meta.dir, "../.tmp-semantic-finalize-"),
+    );
+    try {
+      const targetRoot = path.join(tempRoot, "restored");
+      const consumerPath = path.join(targetRoot, "vendor/consumer.ts");
+      fs.mkdirSync(path.dirname(consumerPath), { recursive: true });
+      fs.writeFileSync(
+        consumerPath,
+        [
+          `import { t as WidgetAlias } from "./widget-AbCdEf12.js";`,
+          `export const rendered = WidgetAlias;`,
+        ].join("\n"),
+      );
+      fs.writeFileSync(
+        path.join(targetRoot, "IMPORT_MAP.json"),
+        JSON.stringify({
+          chunks: {
+            "widget-AbCdEf12": {
+              restored: "ui/widget.tsx",
+              exports: { t: "Widget" },
+            },
+          },
+        }),
+      );
+
+      rewriteImportTarget(
+        consumerPath,
+        JSON.parse(
+          fs.readFileSync(path.join(targetRoot, "IMPORT_MAP.json"), "utf-8"),
+        ),
+        undefined,
+        targetRoot,
+      );
+
+      const rewritten = fs.readFileSync(consumerPath, "utf-8");
+      expect(rewritten).toContain('from "../ui/widget"');
+      expect(rewritten).toContain("import { Widget as WidgetAlias }");
+      parseModule(rewritten);
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+    }
   });
 
   test("keeps import aliases when a replacement local name already exists", () => {

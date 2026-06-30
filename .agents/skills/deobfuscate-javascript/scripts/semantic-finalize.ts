@@ -54,6 +54,18 @@ export type SemanticImportMapping = {
   exports: Record<string, string>;
 };
 
+type ProjectImportMap = {
+  chunks?: Record<
+    string,
+    {
+      restored?: string;
+      exports?: Record<string, string>;
+    }
+  >;
+};
+
+type SemanticImportMappingInput = SemanticImportMapping[] | ProjectImportMap;
+
 type SvgComponent = {
   exportedName: string;
   name: string;
@@ -617,9 +629,39 @@ function specifierName(node: t.ImportSpecifier["imported"]): string {
 }
 
 function importKey(source: string): string {
-  return source
-    .replace(/^\.\//, "")
+  return source.replace(/^\.\//, "").replace(/\.[cm]?[jt]sx?$/i, "");
+}
+
+function toRelativeModuleSpecifier(fromFile: string, toFile: string): string {
+  let relativePath = path
+    .relative(path.dirname(fromFile), toFile)
+    .replaceAll(path.sep, "/")
     .replace(/\.[cm]?[jt]sx?$/i, "");
+  if (!relativePath.startsWith(".")) relativePath = `./${relativePath}`;
+  return relativePath;
+}
+
+function isProjectImportMap(
+  mappings: SemanticImportMappingInput,
+): mappings is ProjectImportMap {
+  return !Array.isArray(mappings) && mappings != null && "chunks" in mappings;
+}
+
+function projectImportMapMappingsForFile(
+  importMap: ProjectImportMap,
+  file: string,
+  importMapRoot: string,
+): SemanticImportMapping[] {
+  return Object.entries(importMap.chunks ?? {})
+    .filter(([, entry]) => entry.restored && entry.exports)
+    .map(([basename, entry]) => ({
+      source: `./${basename}.js`,
+      to: toRelativeModuleSpecifier(
+        file,
+        path.join(importMapRoot, entry.restored!),
+      ),
+      exports: entry.exports!,
+    }));
 }
 
 function sourceMatches(actual: string, expected: string): boolean {
@@ -776,16 +818,20 @@ function listSourceFiles(target: string): string[] {
   return out;
 }
 
-function rewriteImportTarget(
+export function rewriteImportTarget(
   target: string,
-  mappings: SemanticImportMapping[],
+  mappings: SemanticImportMappingInput,
   outDir?: string,
+  importMapRoot = process.cwd(),
 ): string[] {
   const files = listSourceFiles(target);
   const written: string[] = [];
   for (const file of files) {
     const code = fs.readFileSync(file, "utf-8");
-    const next = rewriteSemanticImports(code, mappings);
+    const fileMappings = isProjectImportMap(mappings)
+      ? projectImportMapMappingsForFile(mappings, file, importMapRoot)
+      : mappings;
+    const next = rewriteSemanticImports(code, fileMappings);
     const outPath = outDir
       ? path.join(outDir, path.relative(target, file))
       : file;
@@ -830,13 +876,15 @@ async function main(): Promise<void> {
       console.error("--rewrite-imports requires --import-map");
       process.exit(64);
     }
+    const importMapPath = values["import-map"];
     const mappings = JSON.parse(
-      fs.readFileSync(values["import-map"], "utf-8"),
-    ) as SemanticImportMapping[];
+      fs.readFileSync(importMapPath, "utf-8"),
+    ) as SemanticImportMappingInput;
     const written = rewriteImportTarget(
       values["rewrite-imports"],
       mappings,
       values.out,
+      path.dirname(importMapPath),
     );
     for (const file of written) console.error(`rewrote imports: ${file}`);
     return;
