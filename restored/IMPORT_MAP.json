@@ -9551,7 +9551,10 @@
         "n": "chunkAA7GKIK3N",
         "t": "chunkAA7GKIK3T"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-services-k5.ts semantically restores the Mermaid K5 Pie Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-CIAEETIT-DnOj_Z7m": {
       "restored": "vendor/mermaid-wardley-services-k5.ts",
@@ -9559,7 +9562,10 @@
         "n": "chunkCIAEETITN",
         "t": "chunkCIAEETITT"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-services-k5.ts semantically restores the Mermaid K5 Wardley Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-FOC6F5B3-BgcFtwB_": {
       "restored": "vendor/mermaid-packet-services-k5.ts",
@@ -9567,7 +9573,10 @@
         "n": "chunkFOC6F5B3N",
         "t": "chunkFOC6F5B3T"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-services-k5.ts semantically restores the Mermaid K5 Packet Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-KGLVRYIC-DZY-IxHR": {
       "restored": "vendor/mermaid-info-services-k5.ts",
@@ -9643,7 +9652,10 @@
         "n": "chunkLIHQZDEYN",
         "t": "chunkLIHQZDEYT"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-services-k5.ts semantically restores the Mermaid K5 Treemap Langium service module, including token/value converter wiring, validation checks, service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-ORNJ4GCN-Dtggxgv1": {
       "restored": "vendor/mermaid-tree-view-services-k5.ts",
@@ -9651,7 +9663,10 @@
         "n": "chunkORNJ4GCNN",
         "t": "chunkORNJ4GCNT"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-services-k5.ts semantically restores the Mermaid K5 Tree View Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-76Q3JFCE-Bhgg5xKY": {
       "restored": "vendor/mermaid-packet-services-fpaj.ts",
@@ -9831,7 +9846,10 @@
       "status": "done",
       "aliasOf": "chunk-AA7GKIK3-Bic0nqP_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-services-k5.ts semantically restores the Mermaid K5 Pie Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-AA7GKIK3-CB8JLaZX": {
       "restored": "vendor/mermaid-pie-services-k5.ts",
@@ -9842,7 +9860,10 @@
       "status": "done",
       "aliasOf": "chunk-AA7GKIK3-Bic0nqP_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-services-k5.ts semantically restores the Mermaid K5 Pie Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-CIAEETIT-Ch0jAfU2": {
       "restored": "vendor/mermaid-wardley-services-k5.ts",
@@ -9854,7 +9875,10 @@
       "status": "done",
       "aliasOf": "chunk-CIAEETIT-DnOj_Z7m",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-services-k5.ts semantically restores the Mermaid K5 Wardley Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-FOC6F5B3-BxacOS_T": {
       "restored": "vendor/mermaid-packet-services-k5.ts",
@@ -9866,7 +9890,10 @@
       "status": "done",
       "aliasOf": "chunk-FOC6F5B3-BgcFtwB_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-services-k5.ts semantically restores the Mermaid K5 Packet Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-LIHQZDEY-CgRZpBHs": {
       "restored": "vendor/mermaid-treemap-services-k5.ts",
@@ -9877,7 +9904,10 @@
       "status": "done",
       "aliasOf": "chunk-LIHQZDEY-B0GBEU3_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-services-k5.ts semantically restores the Mermaid K5 Treemap Langium service module, including token/value converter wiring, validation checks, service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-LIHQZDEY-dRog1TEv": {
       "restored": "vendor/mermaid-treemap-services-k5.ts",
@@ -9888,7 +9918,10 @@
       "status": "done",
       "aliasOf": "chunk-LIHQZDEY-B0GBEU3_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-services-k5.ts semantically restores the Mermaid K5 Treemap Langium service module, including token/value converter wiring, validation checks, service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-LIHQZDEY-nN8HZxGm": {
       "restored": "vendor/mermaid-treemap-services-k5.ts",
@@ -9899,7 +9932,10 @@
       "status": "done",
       "aliasOf": "chunk-LIHQZDEY-B0GBEU3_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-services-k5.ts semantically restores the Mermaid K5 Treemap Langium service module, including token/value converter wiring, validation checks, service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-LIHQZDEY-CbTzOPPd": {
       "restored": "vendor/mermaid-treemap-services-k5.ts",
@@ -9911,7 +9947,10 @@
       "status": "done",
       "aliasOf": "chunk-LIHQZDEY-B0GBEU3_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-services-k5.ts semantically restores the Mermaid K5 Treemap Langium service module, including token/value converter wiring, validation checks, service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-ORNJ4GCN-CYOwbfCr": {
       "restored": "vendor/mermaid-tree-view-services-k5.ts",
@@ -9922,7 +9961,10 @@
       "status": "done",
       "aliasOf": "chunk-ORNJ4GCN-Dtggxgv1",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-services-k5.ts semantically restores the Mermaid K5 Tree View Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-ORNJ4GCN-DYY7AInT": {
       "restored": "vendor/mermaid-tree-view-services-k5.ts",
@@ -9933,7 +9975,10 @@
       "status": "done",
       "aliasOf": "chunk-ORNJ4GCN-Dtggxgv1",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-services-k5.ts semantically restores the Mermaid K5 Tree View Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-ORNJ4GCN-SHb9c4ZQ": {
       "restored": "vendor/mermaid-tree-view-services-k5.ts",
@@ -9944,7 +9989,10 @@
       "status": "done",
       "aliasOf": "chunk-ORNJ4GCN-Dtggxgv1",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-services-k5.ts semantically restores the Mermaid K5 Tree View Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-ORNJ4GCN-UdwLKAZZ": {
       "restored": "vendor/mermaid-tree-view-services-k5.ts",
@@ -9956,7 +10004,10 @@
       "status": "done",
       "aliasOf": "chunk-ORNJ4GCN-Dtggxgv1",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-services-k5.ts semantically restores the Mermaid K5 Tree View Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-76Q3JFCE-CQZKJ6cQ": {
       "restored": "vendor/mermaid-packet-services-fpaj.ts",
@@ -10098,16 +10149,22 @@
     "packet-4T2RLAQJ-Cps_a8kh": {
       "restored": "vendor/mermaid-packet-definition-k5.ts",
       "exports": {
-        "createPacketServices": "packet4T2RLAQJ"
+        "createPacketServices": "createPacketServices"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-definition-k5.ts is now a semantic wrapper over createPacketServices from the restored K5 Packet services module; it covers historical and current packet-4T2RLAQJ hashes and passes quality-gate."
     },
     "pie-ZZUOXDRM-CTCvZluc": {
       "restored": "vendor/mermaid-pie-definition-k5.ts",
       "exports": {
-        "createPieServices": "pieZZUOXDRM"
+        "createPieServices": "createPieServices"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-definition-k5.ts is now a semantic wrapper over createPieServices from the restored K5 Pie services module; it covers historical and current pie-ZZUOXDRM hashes and passes quality-gate."
     },
     "radar-PYXPWWZC-DenUZrCa": {
       "restored": "vendor/mermaid-radar-definition-k5.ts",
@@ -10122,9 +10179,12 @@
     "treeView-SZITEDCU-CQ3h0-LJ": {
       "restored": "vendor/mermaid-tree-view-definition-k5.ts",
       "exports": {
-        "createTreeViewServices": "treeViewSZITEDCU"
+        "createTreeViewServices": "createTreeViewServices"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-definition-k5.ts is now a semantic wrapper over createTreeViewServices from the restored K5 Tree View services module; it covers historical and current treeView-SZITEDCU-CQ3h0 hashes and passes quality-gate."
     },
     "treeView-SZITEDCU-cjLZpVgp": {
       "restored": "vendor/mermaid-tree-view-definition-k5.ts",
@@ -10134,7 +10194,10 @@
       "status": "done",
       "aliasOf": "treeView-SZITEDCU-CQ3h0-LJ",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface."
+      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-definition-k5.ts is now a semantic wrapper over createTreeViewServices from the restored K5 Tree View services module; it covers historical and current treeView-SZITEDCU hashes and passes quality-gate."
     },
     "treeView-SZITEDCU-D8xhDZfC": {
       "restored": "vendor/mermaid-tree-view-definition-k5.ts",
@@ -10144,7 +10207,10 @@
       "status": "done",
       "aliasOf": "treeView-SZITEDCU-CQ3h0-LJ",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface."
+      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-definition-k5.ts is now a semantic wrapper over createTreeViewServices from the restored K5 Tree View services module; it covers historical and current treeView-SZITEDCU hashes and passes quality-gate."
     },
     "treeView-SZITEDCU-Eh_Sy40o": {
       "restored": "vendor/mermaid-tree-view-definition-k5.ts",
@@ -10154,7 +10220,10 @@
       "status": "done",
       "aliasOf": "treeView-SZITEDCU-CQ3h0-LJ",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface."
+      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-definition-k5.ts is now a semantic wrapper over createTreeViewServices from the restored K5 Tree View services module; it covers historical and current treeView-SZITEDCU hashes and passes quality-gate."
     },
     "treeView-SZITEDCU-Ra8GTsMQ": {
       "restored": "vendor/mermaid-tree-view-definition-k5.ts",
@@ -10164,21 +10233,30 @@
       "status": "done",
       "aliasOf": "treeView-SZITEDCU-CQ3h0-LJ",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface."
+      "note": "Current Mermaid tree-view definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-tree-view-definition-k5.ts is now a semantic wrapper over createTreeViewServices from the restored K5 Tree View services module; it covers historical and current treeView-SZITEDCU hashes and passes quality-gate."
     },
     "treemap-W4RFUUIX-LvOJWvcJ": {
       "restored": "vendor/mermaid-treemap-definition-k5.ts",
       "exports": {
-        "createTreemapServices": "treemapW4RFUUIX"
+        "createTreemapServices": "createTreemapServices"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-definition-k5.ts is now a semantic wrapper over createTreemapServices from the restored K5 Treemap services module; it covers historical and current treemap-W4RFUUIX hashes and passes quality-gate."
     },
     "wardley-RL74JXVD-DX26H2Am": {
       "restored": "vendor/mermaid-wardley-definition-k5.ts",
       "exports": {
-        "createWardleyServices": "wardleyRL74JXVD"
+        "createWardleyServices": "createWardleyServices"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-definition-k5.ts is now a semantic wrapper over createWardleyServices from the restored K5 Wardley services module; it covers historical and current wardley-RL74JXVD hashes and passes quality-gate."
     },
     "architecture-U656AL7Q-Ccsrjk_f": {
       "restored": "vendor/mermaid-architecture-definition-fpaj.ts",
@@ -23800,7 +23878,10 @@
       "status": "done",
       "aliasOf": "pie-ZZUOXDRM-CTCvZluc",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-definition-k5.ts is now a semantic wrapper over createPieServices from the restored K5 Pie services module; it covers historical and current pie-ZZUOXDRM hashes and passes quality-gate."
     },
     "pie-ZZUOXDRM-D38H6U8O": {
       "restored": "vendor/mermaid-pie-definition-k5.ts",
@@ -23810,7 +23891,10 @@
       "status": "done",
       "aliasOf": "pie-ZZUOXDRM-CTCvZluc",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-definition-k5.ts is now a semantic wrapper over createPieServices from the restored K5 Pie services module; it covers historical and current pie-ZZUOXDRM hashes and passes quality-gate."
     },
     "pie-ZZUOXDRM-OHayUxDu": {
       "restored": "vendor/mermaid-pie-definition-k5.ts",
@@ -23820,7 +23904,10 @@
       "status": "done",
       "aliasOf": "pie-ZZUOXDRM-CTCvZluc",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-definition-k5.ts is now a semantic wrapper over createPieServices from the restored K5 Pie services module; it covers historical and current pie-ZZUOXDRM hashes and passes quality-gate."
     },
     "info-OMHHGYJF-DfUzhqEq": {
       "restored": "vendor/mermaid-info-definition-k5.ts",
@@ -23895,7 +23982,10 @@
       "status": "done",
       "aliasOf": "packet-4T2RLAQJ-Cps_a8kh",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-definition-k5.ts is now a semantic wrapper over createPacketServices from the restored K5 Packet services module; it covers historical and current packet-4T2RLAQJ hashes and passes quality-gate."
     },
     "packet-4T2RLAQJ-CXT6yCX4": {
       "restored": "vendor/mermaid-packet-definition-k5.ts",
@@ -23905,7 +23995,10 @@
       "status": "done",
       "aliasOf": "packet-4T2RLAQJ-Cps_a8kh",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-definition-k5.ts is now a semantic wrapper over createPacketServices from the restored K5 Packet services module; it covers historical and current packet-4T2RLAQJ hashes and passes quality-gate."
     },
     "packet-4T2RLAQJ-W4xr__oY": {
       "restored": "vendor/mermaid-packet-definition-k5.ts",
@@ -23915,7 +24008,10 @@
       "status": "done",
       "aliasOf": "packet-4T2RLAQJ-Cps_a8kh",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-definition-k5.ts is now a semantic wrapper over createPacketServices from the restored K5 Packet services module; it covers historical and current packet-4T2RLAQJ hashes and passes quality-gate."
     },
     "treemap-W4RFUUIX-C8UN2kue": {
       "restored": "vendor/mermaid-treemap-definition-k5.ts",
@@ -23925,7 +24021,10 @@
       "status": "done",
       "aliasOf": "treemap-W4RFUUIX-LvOJWvcJ",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-definition-k5.ts is now a semantic wrapper over createTreemapServices from the restored K5 Treemap services module; it covers historical and current treemap-W4RFUUIX hashes and passes quality-gate."
     },
     "treemap-W4RFUUIX-CNJ7eEJ5": {
       "restored": "vendor/mermaid-treemap-definition-k5.ts",
@@ -23935,7 +24034,10 @@
       "status": "done",
       "aliasOf": "treemap-W4RFUUIX-LvOJWvcJ",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-definition-k5.ts is now a semantic wrapper over createTreemapServices from the restored K5 Treemap services module; it covers historical and current treemap-W4RFUUIX hashes and passes quality-gate."
     },
     "treemap-W4RFUUIX-CW1SkhIG": {
       "restored": "vendor/mermaid-treemap-definition-k5.ts",
@@ -23945,7 +24047,10 @@
       "status": "done",
       "aliasOf": "treemap-W4RFUUIX-LvOJWvcJ",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-definition-k5.ts is now a semantic wrapper over createTreemapServices from the restored K5 Treemap services module; it covers historical and current treemap-W4RFUUIX hashes and passes quality-gate."
     },
     "wardley-RL74JXVD-DYn8r5o9": {
       "restored": "vendor/mermaid-wardley-definition-k5.ts",
@@ -23955,7 +24060,10 @@
       "status": "done",
       "aliasOf": "wardley-RL74JXVD-DX26H2Am",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-definition-k5.ts is now a semantic wrapper over createWardleyServices from the restored K5 Wardley services module; it covers historical and current wardley-RL74JXVD hashes and passes quality-gate."
     },
     "wardley-RL74JXVD-pIeHHMCS": {
       "restored": "vendor/mermaid-wardley-definition-k5.ts",
@@ -23965,7 +24073,10 @@
       "status": "done",
       "aliasOf": "wardley-RL74JXVD-DX26H2Am",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-definition-k5.ts is now a semantic wrapper over createWardleyServices from the restored K5 Wardley services module; it covers historical and current wardley-RL74JXVD hashes and passes quality-gate."
     },
     "gitGraph-7Q5UKJZL-BH263Z7o": {
       "restored": "vendor/mermaid-git-graph-definition-k5.ts",
@@ -24053,7 +24164,10 @@
       "status": "done",
       "aliasOf": "pie-ZZUOXDRM-CTCvZluc",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-definition-k5.ts is now a semantic wrapper over createPieServices from the restored K5 Pie services module; it covers historical and current pie-ZZUOXDRM hashes and passes quality-gate."
     },
     "info-NVLQJR56-DtE2TVet": {
       "restored": "vendor/mermaid-info-definition-fpaj.ts",
@@ -24128,7 +24242,10 @@
       "status": "done",
       "aliasOf": "packet-4T2RLAQJ-Cps_a8kh",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-definition-k5.ts is now a semantic wrapper over createPacketServices from the restored K5 Packet services module; it covers historical and current packet-4T2RLAQJ hashes and passes quality-gate."
     },
     "treemap-KMMF4GRG-B4BU_8KA": {
       "restored": "vendor/mermaid-treemap-definition-fpaj.ts",
@@ -24151,7 +24268,10 @@
       "status": "done",
       "aliasOf": "treemap-W4RFUUIX-LvOJWvcJ",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-treemap-definition-k5.ts is now a semantic wrapper over createTreemapServices from the restored K5 Treemap services module; it covers historical and current treemap-W4RFUUIX hashes and passes quality-gate."
     },
     "wardley-RL74JXVD-BpkKUtaW": {
       "restored": "vendor/mermaid-wardley-definition-k5.ts",
@@ -24161,7 +24281,10 @@
       "status": "done",
       "aliasOf": "wardley-RL74JXVD-DX26H2Am",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-definition-k5.ts is now a semantic wrapper over createWardleyServices from the restored K5 Wardley services module; it covers historical and current wardley-RL74JXVD hashes and passes quality-gate."
     },
     "wardley-RL74JXVD-BKwl9Y-_": {
       "restored": "vendor/mermaid-wardley-definition-k5.ts",
@@ -24171,7 +24294,10 @@
       "status": "done",
       "aliasOf": "wardley-RL74JXVD-DX26H2Am",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid wardley vendor wrapper preserves the restored public export surface."
+      "note": "Current Mermaid wardley vendor wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-definition-k5.ts is now a semantic wrapper over createWardleyServices from the restored K5 Wardley services module; it covers historical and current wardley-RL74JXVD-BKwl9Y hashes and passes quality-gate."
     },
     "gitGraph-7Q5UKJZL-TSRyDsE1": {
       "restored": "vendor/mermaid-git-graph-definition-k5.ts",
@@ -24530,7 +24656,10 @@
       "status": "done",
       "aliasOf": "chunk-FOC6F5B3-BgcFtwB_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-services-k5.ts semantically restores the Mermaid K5 Packet Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-FOC6F5B3-BQkdNRoT": {
       "restored": "vendor/mermaid-packet-services-k5.ts",
@@ -24541,7 +24670,10 @@
       "status": "done",
       "aliasOf": "chunk-FOC6F5B3-BgcFtwB_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-services-k5.ts semantically restores the Mermaid K5 Packet Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-FOC6F5B3-DIovYYQv": {
       "restored": "vendor/mermaid-packet-services-k5.ts",
@@ -24552,7 +24684,10 @@
       "status": "done",
       "aliasOf": "chunk-FOC6F5B3-BgcFtwB_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-services-k5.ts semantically restores the Mermaid K5 Packet Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-2KRD3SAO-DBdBb0Dn": {
       "restored": "vendor/mermaid-radar-services-k5.ts",
@@ -24633,7 +24768,10 @@
       "status": "done",
       "aliasOf": "chunk-CIAEETIT-DnOj_Z7m",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-services-k5.ts semantically restores the Mermaid K5 Wardley Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-CIAEETIT-DwqjRsI7": {
       "restored": "vendor/mermaid-wardley-services-k5.ts",
@@ -24644,7 +24782,10 @@
       "status": "done",
       "aliasOf": "chunk-CIAEETIT-DnOj_Z7m",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-services-k5.ts semantically restores the Mermaid K5 Wardley Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "chunk-CIAEETIT-FzMe_bm6": {
       "restored": "vendor/mermaid-wardley-services-k5.ts",
@@ -24655,7 +24796,10 @@
       "status": "done",
       "aliasOf": "chunk-CIAEETIT-DnOj_Z7m",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface."
+      "note": "Current Mermaid K5 service wrapper preserves the restored parser service export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-wardley-services-k5.ts semantically restores the Mermaid K5 Wardley Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~a~hqj10sd5-C_H_yI8D": {
       "restored": "threads/thread-layout.tsx",
@@ -35869,7 +36013,10 @@
       "status": "done",
       "aliasOf": "chunk-AA7GKIK3-Bic0nqP_",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export."
+      "note": "Current Rolldown lazy-init variant maps the init alias to the restored eager ESM initializer compatibility export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-services-k5.ts semantically restores the Mermaid K5 Pie Langium service module, including token/value converter wiring service registration, and current lazy-init compatibility; it preserves recorded n/t(/r) aliases and passes quality-gate."
     },
     "lodash-BhBwOd7I": {
       "restored": "vendor/lodash-current-runtime.ts",
@@ -40881,6 +41028,20 @@
         "HiddenBackgroundBrowserWebviewHost": "HiddenBackgroundBrowserWebviewHost"
       },
       "status": "done"
+    },
+    "chunk-AA7GKIK3--EMbbHQf": {
+      "restored": "vendor/mermaid-pie-services-k5.ts",
+      "status": "done",
+      "exports": {
+        "n": "chunkAA7GKIK3N",
+        "t": "chunkAA7GKIK3T"
+      },
+      "aliasOf": "chunk-AA7GKIK3-Bic0nqP_",
+      "lastUpdated": "2026-06-30T20:43:07.830Z",
+      "note": "Current pie services hash from ref/webview/assets/chunk-AA7GKIK3--EMbbHQf.js; same n/t compatibility surface as chunk-AA7GKIK3-Bic0nqP_.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-services-k5.ts semantically restores the Mermaid K5 Pie Langium service module, including token/value converter wiring, service registration, and current hash compatibility; it preserves recorded n/t aliases and passes quality-gate."
     }
   }
 }

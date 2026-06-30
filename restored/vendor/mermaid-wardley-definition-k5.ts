@@ -1,4 +1,8 @@
-// Restored from ref/webview/assets/wardley-RL74JXVD-DX26H2Am.js
-// WardleyRL74JXVD chunk restored from the Codex webview bundle.
-import { chunkCIAEETITN as wardleyRL74JXVD } from "./mermaid-wardley-services-k5";
-export { wardleyRL74JXVD as createWardleyServices };
+// Restored from ref/webview/assets/wardley-RL74JXVD-BpkKUtaW.js
+// Also covers ref/webview/assets/wardley-RL74JXVD-DX26H2Am.js,
+// ref/webview/assets/wardley-RL74JXVD-BKwl9Y-_.js,
+// ref/webview/assets/wardley-RL74JXVD-DYn8r5o9.js, and
+// ref/webview/assets/wardley-RL74JXVD-pIeHHMCS.js.
+import { createWardleyServices } from "./mermaid-wardley-services-k5";
+
+export { createWardleyServices };
