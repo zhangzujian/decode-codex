@@ -10777,7 +10777,10 @@
       "exports": {
         "diagram": "diagramQEK2KX5R"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:24:15.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-radar-diagram-fpaj.ts now semantically restores the Mermaid Radar diagram definition against current ref diagram-QEK2KX5R-BsePa769.js, with typed radar DB state, parser population, frame/graticule/axis/curve/legend rendering, and styles; it preserves the diagramQEK2KX5R public export and passes quality-gate."
     },
     "diagram-QEK2KX5R-4OZQ3rse": {
       "restored": "vendor/mermaid-radar-diagram-fpaj.ts",
@@ -10786,7 +10789,10 @@
       },
       "status": "done",
       "aliasOf": "diagram-QEK2KX5R-DVrdB3UI",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:24:15.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-radar-diagram-fpaj.ts now semantically restores the Mermaid Radar diagram definition against current ref diagram-QEK2KX5R-BsePa769.js, with typed radar DB state, parser population, frame/graticule/axis/curve/legend rendering, and styles; it preserves the diagramQEK2KX5R public export and passes quality-gate."
     },
     "diagram-QEK2KX5R-BsePa769": {
       "restored": "vendor/mermaid-radar-diagram-fpaj.ts",
@@ -10796,7 +10802,10 @@
       "status": "done",
       "aliasOf": "diagram-QEK2KX5R-DVrdB3UI",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:24:15.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-radar-diagram-fpaj.ts now semantically restores the Mermaid Radar diagram definition against current ref diagram-QEK2KX5R-BsePa769.js, with typed radar DB state, parser population, frame/graticule/axis/curve/legend rendering, and styles; it preserves the diagramQEK2KX5R public export and passes quality-gate."
     },
     "diagram-S2PKOQOG-CYp0tDDf": {
       "restored": "vendor/mermaid-packet-diagram-fpaj.ts",

@@ -1,554 +1,650 @@
-// Restored from ref/webview/assets/diagram-QEK2KX5R-4OZQ3rse.js
-// DiagramQEK2KX5R chunk restored from the Codex webview bundle.
-import { chunkS3R3BYOJP } from "./chunk-s3r3byoj";
-import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";
+// Restored from ref/webview/assets/diagram-QEK2KX5R-BsePa769.js
+// Vendored Mermaid radar diagram definition restored from the Codex webview bundle.
+import { chunkS3R3BYOJR as cleanAndMerge } from "./chunk-s3r3byoj";
 import {
-  _chunkABZYJK2DK,
-  chunkABZYJK2DN,
-  chunkABZYJK2DF,
-  chunkABZYJK2DO,
-  chunkABZYJK2DB,
-  _chunkABZYJK2DC,
-  chunkABZYJK2DJ,
-  chunkABZYJK2DR,
-  _chunkABZYJK2DY,
-  chunkABZYJK2DZ,
+  chunkAGHRB4JFN as nameFunction,
+  chunkAGHRB4JFR as mermaidLogger,
+} from "./dompurify";
+import {
+  _chunkABZYJK2DA as clearCommonDb,
+  _chunkABZYJK2DC as getDiagramTitle,
+  _chunkABZYJK2DT as getDefaultThemeVariables,
+  _chunkABZYJK2DV as getAccessibleTitle,
+  _chunkABZYJK2DY as getCurrentConfig,
+  chunkABZYJK2DB as setAccessibleTitle,
+  chunkABZYJK2DO as defaultDiagramConfig,
+  chunkABZYJK2DU as setDiagramTitle,
+  chunkABZYJK2DUnderscore as getAccessibleDescription,
+  chunkABZYJK2DZ as setAccessibleDescription,
 } from "./katex-auto-render";
-import { chunkEXTU4WIE } from "./chunk-extu4-wie";
-import { chunk4BX2VUAB } from "./mermaid-accessibility";
+import { chunkEXTU4WIE as selectSvgById } from "./chunk-extu4-wie";
+import { chunk4BX2VUAB as populateCommonDb } from "./mermaid-accessibility";
 import { MermaidParserCore } from "./mermaid-parser-core-fpaj";
-var diagramQEK2KX5RValue1 = {
-    showLegend: true,
-    ticks: 5,
-    max: null,
-    min: 0,
-    graticule: "circle",
-  },
-  diagramQEK2KX5RValue2 = {
-    axes: [],
-    curves: [],
-    options: diagramQEK2KX5RValue1,
-  },
-  diagramQEK2KX5RValue3 = structuredClone(diagramQEK2KX5RValue2),
-  diagramQEK2KX5RValue4 = chunkABZYJK2DO.radar,
-  diagramQEK2KX5RValue5 = chunkAGHRB4JFN(
-    () =>
-      chunkS3R3BYOJP({
-        ...diagramQEK2KX5RValue4,
-        ..._chunkABZYJK2DY().radar,
-      }),
-    "getConfig",
-  ),
-  diagramQEK2KX5RValue6 = chunkAGHRB4JFN(
-    () => diagramQEK2KX5RValue3.axes,
-    "getAxes",
-  ),
-  diagramQEK2KX5RValue7 = chunkAGHRB4JFN(
-    () => diagramQEK2KX5RValue3.curves,
-    "getCurves",
-  ),
-  diagramQEK2KX5RValue8 = chunkAGHRB4JFN(
-    () => diagramQEK2KX5RValue3.options,
-    "getOptions",
-  ),
-  diagramQEK2KX5RValue9 = chunkAGHRB4JFN((diagramQEK2KX5RParam40) => {
-    diagramQEK2KX5RValue3.axes = diagramQEK2KX5RParam40.map((item) => ({
-      name: item.name,
-      label: item.label ?? item.name,
-    }));
-  }, "setAxes"),
-  diagramQEK2KX5RValue10 = chunkAGHRB4JFN((diagramQEK2KX5RParam33) => {
-    diagramQEK2KX5RValue3.curves = diagramQEK2KX5RParam33.map((item) => ({
-      name: item.name,
-      label: item.label ?? item.name,
-      entries: diagramQEK2KX5RValue11(item.entries),
-    }));
-  }, "setCurves"),
-  diagramQEK2KX5RValue11 = chunkAGHRB4JFN((diagramQEK2KX5RParam29) => {
-    if (diagramQEK2KX5RParam29[0].axis == null)
-      return diagramQEK2KX5RParam29.map((item) => item.value);
-    let diagramQEK2KX5RValue45 = diagramQEK2KX5RValue6();
-    if (diagramQEK2KX5RValue45.length === 0)
+
+type RadarGraticule = "circle" | "polygon";
+
+type ParsedAxisReference = {
+  $refText: string;
+};
+
+type ParsedRadarAxis = {
+  name: string;
+  label?: string;
+};
+
+type ParsedRadarEntry = {
+  axis?: ParsedAxisReference | null;
+  value: number;
+};
+
+type ParsedRadarCurve = {
+  name: string;
+  label?: string;
+  entries: ParsedRadarEntry[];
+};
+
+type ParsedRadarOption = {
+  name: string;
+  value: boolean | number | string | null;
+};
+
+type ParsedRadarDiagram = {
+  accDescr?: string;
+  accTitle?: string;
+  title?: string;
+  axes: ParsedRadarAxis[];
+  curves: ParsedRadarCurve[];
+  options: ParsedRadarOption[];
+};
+
+type RadarAxis = {
+  name: string;
+  label: string;
+};
+
+type RadarCurve = {
+  name: string;
+  label: string;
+  entries: number[];
+};
+
+type RadarOptions = {
+  showLegend: boolean;
+  ticks: number;
+  max: number | null;
+  min: number;
+  graticule: RadarGraticule;
+};
+
+type RadarDiagramState = {
+  axes: RadarAxis[];
+  curves: RadarCurve[];
+  options: RadarOptions;
+};
+
+type RadarConfig = {
+  width: number;
+  height: number;
+  marginLeft: number;
+  marginRight: number;
+  marginTop: number;
+  marginBottom: number;
+  axisScaleFactor: number;
+  axisLabelFactor: number;
+  axisColor: string;
+  axisStrokeWidth: string | number;
+  axisLabelFontSize: string | number;
+  curveTension: number;
+  curveOpacity: number;
+  curveStrokeWidth: string | number;
+  graticuleColor: string;
+  graticuleOpacity: number;
+  graticuleStrokeWidth: string | number;
+  legendFontSize: string | number;
+};
+
+type ThemeVariables = {
+  THEME_COLOR_LIMIT: number;
+  fontSize: string | number;
+  titleColor: string;
+  radar: Partial<RadarConfig>;
+  [key: string]: unknown;
+};
+
+type MermaidSiteConfig = {
+  radar?: Partial<RadarConfig>;
+  themeVariables?: Partial<ThemeVariables>;
+};
+
+type SvgSelection = {
+  append(name: string): SvgSelection;
+  attr(name: string, value: unknown): SvgSelection;
+  text(value: unknown): SvgSelection;
+};
+
+type RadarPoint = {
+  x: number;
+  y: number;
+};
+
+type RadarRenderContext = {
+  db: RadarDiagramDb;
+};
+
+type RadarDiagramDb = {
+  getAxes(): RadarAxis[];
+  getCurves(): RadarCurve[];
+  getOptions(): RadarOptions;
+  setAxes(axes: ParsedRadarAxis[]): void;
+  setCurves(curves: ParsedRadarCurve[]): void;
+  setOptions(options: ParsedRadarOption[]): void;
+  getConfig(): RadarConfig;
+  clear(): void;
+  setAccTitle(title: string): void;
+  getAccTitle(): string;
+  setDiagramTitle(title: string): void;
+  getDiagramTitle(): string;
+  getAccDescription(): string;
+  setAccDescription(description: string): void;
+};
+
+const defaultRadarOptions: RadarOptions = {
+  showLegend: true,
+  ticks: 5,
+  max: null,
+  min: 0,
+  graticule: "circle",
+};
+
+const defaultRadarState: RadarDiagramState = {
+  axes: [],
+  curves: [],
+  options: defaultRadarOptions,
+};
+
+const baseRadarConfig = defaultDiagramConfig.radar as RadarConfig;
+
+let radarState = structuredClone(defaultRadarState) as RadarDiagramState;
+
+const getRadarConfig = nameFunction(
+  (): RadarConfig =>
+    cleanAndMerge(
+      baseRadarConfig,
+      (getCurrentConfig() as MermaidSiteConfig).radar ?? {},
+    ) as RadarConfig,
+  "getConfig",
+);
+
+const getRadarAxes = nameFunction(
+  (): RadarAxis[] => radarState.axes,
+  "getAxes",
+);
+
+const getRadarCurves = nameFunction(
+  (): RadarCurve[] => radarState.curves,
+  "getCurves",
+);
+
+const getRadarOptions = nameFunction(
+  (): RadarOptions => radarState.options,
+  "getOptions",
+);
+
+const setRadarAxes = nameFunction((axes: ParsedRadarAxis[]): void => {
+  radarState.axes = axes.map((axis) => ({
+    name: axis.name,
+    label: axis.label ?? axis.name,
+  }));
+}, "setAxes");
+
+const computeCurveEntries = nameFunction(
+  (entries: ParsedRadarEntry[]): number[] => {
+    if (entries[0]?.axis == null) {
+      return entries.map((entry) => entry.value);
+    }
+
+    const axes = getRadarAxes();
+    if (axes.length === 0) {
       throw Error("Axes must be populated before curves for reference entries");
-    return diagramQEK2KX5RValue45.map((item) => {
-      let diagramQEK2KX5RValue63 = diagramQEK2KX5RParam29.find(
-        (_item) => _item.axis?.$refText === item.name,
+    }
+
+    return axes.map((axis) => {
+      const matchingEntry = entries.find(
+        (entry) => entry.axis?.$refText === axis.name,
       );
-      if (diagramQEK2KX5RValue63 === undefined)
-        throw Error("Missing entry for axis " + item.label);
-      return diagramQEK2KX5RValue63.value;
+
+      if (matchingEntry === undefined) {
+        throw Error("Missing entry for axis " + axis.label);
+      }
+
+      return matchingEntry.value;
     });
-  }, "computeCurveEntries"),
-  diagramQEK2KX5RValue12 = {
-    getAxes: diagramQEK2KX5RValue6,
-    getCurves: diagramQEK2KX5RValue7,
-    getOptions: diagramQEK2KX5RValue8,
-    setAxes: diagramQEK2KX5RValue9,
-    setCurves: diagramQEK2KX5RValue10,
-    setOptions: chunkAGHRB4JFN((diagramQEK2KX5RParam32) => {
-      let diagramQEK2KX5RValue52 = diagramQEK2KX5RParam32.reduce(
-        (accumulator, current) => (
-          (accumulator[current.name] = current),
-          accumulator
-        ),
-        {},
-      );
-      diagramQEK2KX5RValue3.options = {
-        showLegend:
-          diagramQEK2KX5RValue52.showLegend?.value ??
-          diagramQEK2KX5RValue1.showLegend,
-        ticks:
-          diagramQEK2KX5RValue52.ticks?.value ?? diagramQEK2KX5RValue1.ticks,
-        max: diagramQEK2KX5RValue52.max?.value ?? diagramQEK2KX5RValue1.max,
-        min: diagramQEK2KX5RValue52.min?.value ?? diagramQEK2KX5RValue1.min,
-        graticule:
-          diagramQEK2KX5RValue52.graticule?.value ??
-          diagramQEK2KX5RValue1.graticule,
-      };
-    }, "setOptions"),
-    getConfig: diagramQEK2KX5RValue5,
-    clear: chunkAGHRB4JFN(() => {
-      _chunkABZYJK2DK();
-      diagramQEK2KX5RValue3 = structuredClone(diagramQEK2KX5RValue2);
-    }, "clear"),
-    setAccTitle: chunkABZYJK2DN,
-    getAccTitle: chunkABZYJK2DR,
-    setDiagramTitle: _chunkABZYJK2DC,
-    getDiagramTitle: chunkABZYJK2DF,
-    getAccDescription: chunkABZYJK2DJ,
-    setAccDescription: chunkABZYJK2DZ,
   },
-  diagramQEK2KX5RValue13 = chunkAGHRB4JFN((diagramQEK2KX5RParam34) => {
-    chunk4BX2VUAB(diagramQEK2KX5RParam34, diagramQEK2KX5RValue12);
-    let { axes, curves, options } = diagramQEK2KX5RParam34;
-    diagramQEK2KX5RValue12.setAxes(axes);
-    diagramQEK2KX5RValue12.setCurves(curves);
-    diagramQEK2KX5RValue12.setOptions(options);
-  }, "populate"),
-  diagramQEK2KX5RValue14 = {
-    parse: chunkAGHRB4JFN(async (diagramQEK2KX5RParam41) => {
-      let diagramQEK2KX5RValue70 = await MermaidParserCore(
-        "radar",
-        diagramQEK2KX5RParam41,
-      );
-      chunkAGHRB4JFR.debug(diagramQEK2KX5RValue70);
-      diagramQEK2KX5RValue13(diagramQEK2KX5RValue70);
-    }, "parse"),
-  },
-  diagramQEK2KX5RValue15 = chunkAGHRB4JFN(
-    (
-      diagramQEK2KX5RParam13,
-      diagramQEK2KX5RParam14,
-      diagramQEK2KX5RParam15,
-      diagramQEK2KX5RParam16,
-    ) => {
-      let diagramQEK2KX5RValue24 = diagramQEK2KX5RParam16.db,
-        diagramQEK2KX5RValue25 = diagramQEK2KX5RValue24.getAxes(),
-        diagramQEK2KX5RValue26 = diagramQEK2KX5RValue24.getCurves(),
-        diagramQEK2KX5RValue27 = diagramQEK2KX5RValue24.getOptions(),
-        diagramQEK2KX5RValue28 = diagramQEK2KX5RValue24.getConfig(),
-        diagramQEK2KX5RValue29 = diagramQEK2KX5RValue24.getDiagramTitle(),
-        diagramQEK2KX5RValue30 = diagramQEK2KX5RValue16(
-          chunkEXTU4WIE(diagramQEK2KX5RParam14),
-          diagramQEK2KX5RValue28,
-        ),
-        diagramQEK2KX5RValue31 =
-          diagramQEK2KX5RValue27.max ??
-          Math.max(
-            ...diagramQEK2KX5RValue26.map((item) => Math.max(...item.entries)),
-          ),
-        diagramQEK2KX5RValue32 = diagramQEK2KX5RValue27.min,
-        diagramQEK2KX5RValue33 =
-          Math.min(
-            diagramQEK2KX5RValue28.width,
-            diagramQEK2KX5RValue28.height,
-          ) / 2;
-      diagramQEK2KX5RValue17(
-        diagramQEK2KX5RValue30,
-        diagramQEK2KX5RValue25,
-        diagramQEK2KX5RValue33,
-        diagramQEK2KX5RValue27.ticks,
-        diagramQEK2KX5RValue27.graticule,
-      );
-      diagramQEK2KX5RValue18(
-        diagramQEK2KX5RValue30,
-        diagramQEK2KX5RValue25,
-        diagramQEK2KX5RValue33,
-        diagramQEK2KX5RValue28,
-      );
-      diagramQEK2KX5RHelper1(
-        diagramQEK2KX5RValue30,
-        diagramQEK2KX5RValue25,
-        diagramQEK2KX5RValue26,
-        diagramQEK2KX5RValue32,
-        diagramQEK2KX5RValue31,
-        diagramQEK2KX5RValue27.graticule,
-        diagramQEK2KX5RValue28,
-      );
-      diagramQEK2KX5RHelper4(
-        diagramQEK2KX5RValue30,
-        diagramQEK2KX5RValue26,
-        diagramQEK2KX5RValue27.showLegend,
-        diagramQEK2KX5RValue28,
-      );
-      diagramQEK2KX5RValue30
-        .append("text")
-        .attr("class", "radarTitle")
-        .text(diagramQEK2KX5RValue29)
-        .attr("x", 0)
-        .attr(
-          "y",
-          -diagramQEK2KX5RValue28.height / 2 - diagramQEK2KX5RValue28.marginTop,
-        );
+  "computeCurveEntries",
+);
+
+const setRadarCurves = nameFunction((curves: ParsedRadarCurve[]): void => {
+  radarState.curves = curves.map((curve) => ({
+    name: curve.name,
+    label: curve.label ?? curve.name,
+    entries: computeCurveEntries(curve.entries),
+  }));
+}, "setCurves");
+
+const setRadarOptions = nameFunction((options: ParsedRadarOption[]): void => {
+  const optionsByName = options.reduce<Record<string, ParsedRadarOption>>(
+    (accumulator, option) => {
+      accumulator[option.name] = option;
+      return accumulator;
     },
-    "draw",
-  ),
-  diagramQEK2KX5RValue16 = chunkAGHRB4JFN(
-    (diagramQEK2KX5RParam30, diagramQEK2KX5RParam31) => {
-      let diagramQEK2KX5RValue47 =
-          diagramQEK2KX5RParam31.width +
-          diagramQEK2KX5RParam31.marginLeft +
-          diagramQEK2KX5RParam31.marginRight,
-        diagramQEK2KX5RValue48 =
-          diagramQEK2KX5RParam31.height +
-          diagramQEK2KX5RParam31.marginTop +
-          diagramQEK2KX5RParam31.marginBottom,
-        diagramQEK2KX5RValue49 = {
-          x:
-            diagramQEK2KX5RParam31.marginLeft +
-            diagramQEK2KX5RParam31.width / 2,
-          y:
-            diagramQEK2KX5RParam31.marginTop +
-            diagramQEK2KX5RParam31.height / 2,
-        };
-      return (
-        diagramQEK2KX5RParam30
-          .attr(
-            "viewbox",
-            `0 0 ${diagramQEK2KX5RValue47} ${diagramQEK2KX5RValue48}`,
-          )
-          .attr("width", diagramQEK2KX5RValue47)
-          .attr("height", diagramQEK2KX5RValue48),
-        diagramQEK2KX5RParam30
-          .append("g")
-          .attr(
-            "transform",
-            `translate(${diagramQEK2KX5RValue49.x}, ${diagramQEK2KX5RValue49.y})`,
-          )
-      );
-    },
-    "drawFrame",
-  ),
-  diagramQEK2KX5RValue17 = chunkAGHRB4JFN(
-    (
-      diagramQEK2KX5RParam8,
-      diagramQEK2KX5RParam9,
-      diagramQEK2KX5RParam10,
-      diagramQEK2KX5RParam11,
-      diagramQEK2KX5RParam12,
-    ) => {
-      if (diagramQEK2KX5RParam12 === "circle")
-        for (
-          let diagramQEK2KX5RValue67 = 0;
-          diagramQEK2KX5RValue67 < diagramQEK2KX5RParam11;
-          diagramQEK2KX5RValue67++
-        ) {
-          let diagramQEK2KX5RValue68 =
-            (diagramQEK2KX5RParam10 * (diagramQEK2KX5RValue67 + 1)) /
-            diagramQEK2KX5RParam11;
-          diagramQEK2KX5RParam8
-            .append("circle")
-            .attr("r", diagramQEK2KX5RValue68)
-            .attr("class", "radarGraticule");
-        }
-      else if (diagramQEK2KX5RParam12 === "polygon") {
-        let diagramQEK2KX5RValue44 = diagramQEK2KX5RParam9.length;
-        for (
-          let diagramQEK2KX5RValue50 = 0;
-          diagramQEK2KX5RValue50 < diagramQEK2KX5RParam11;
-          diagramQEK2KX5RValue50++
-        ) {
-          let diagramQEK2KX5RValue53 =
-              (diagramQEK2KX5RParam10 * (diagramQEK2KX5RValue50 + 1)) /
-              diagramQEK2KX5RParam11,
-            diagramQEK2KX5RValue54 = diagramQEK2KX5RParam9
-              .map((item, index) => {
-                let diagramQEK2KX5RValue66 =
-                  (2 * index * Math.PI) / diagramQEK2KX5RValue44 - Math.PI / 2;
-                return `${diagramQEK2KX5RValue53 * Math.cos(diagramQEK2KX5RValue66)},${diagramQEK2KX5RValue53 * Math.sin(diagramQEK2KX5RValue66)}`;
-              })
-              .join(" ");
-          diagramQEK2KX5RParam8
-            .append("polygon")
-            .attr("points", diagramQEK2KX5RValue54)
-            .attr("class", "radarGraticule");
-        }
-      }
-    },
-    "drawGraticule",
-  ),
-  diagramQEK2KX5RValue18 = chunkAGHRB4JFN(
-    (
-      diagramQEK2KX5RParam17,
-      diagramQEK2KX5RParam18,
-      diagramQEK2KX5RParam19,
-      diagramQEK2KX5RParam20,
-    ) => {
-      let diagramQEK2KX5RValue34 = diagramQEK2KX5RParam18.length;
-      for (
-        let diagramQEK2KX5RValue35 = 0;
-        diagramQEK2KX5RValue35 < diagramQEK2KX5RValue34;
-        diagramQEK2KX5RValue35++
-      ) {
-        let diagramQEK2KX5RValue37 =
-            diagramQEK2KX5RParam18[diagramQEK2KX5RValue35].label,
-          diagramQEK2KX5RValue38 =
-            (2 * diagramQEK2KX5RValue35 * Math.PI) / diagramQEK2KX5RValue34 -
-            Math.PI / 2;
-        diagramQEK2KX5RParam17
-          .append("line")
-          .attr("x1", 0)
-          .attr("y1", 0)
-          .attr(
-            "x2",
-            diagramQEK2KX5RParam19 *
-              diagramQEK2KX5RParam20.axisScaleFactor *
-              Math.cos(diagramQEK2KX5RValue38),
-          )
-          .attr(
-            "y2",
-            diagramQEK2KX5RParam19 *
-              diagramQEK2KX5RParam20.axisScaleFactor *
-              Math.sin(diagramQEK2KX5RValue38),
-          )
-          .attr("class", "radarAxisLine");
-        diagramQEK2KX5RParam17
-          .append("text")
-          .text(diagramQEK2KX5RValue37)
-          .attr(
-            "x",
-            diagramQEK2KX5RParam19 *
-              diagramQEK2KX5RParam20.axisLabelFactor *
-              Math.cos(diagramQEK2KX5RValue38),
-          )
-          .attr(
-            "y",
-            diagramQEK2KX5RParam19 *
-              diagramQEK2KX5RParam20.axisLabelFactor *
-              Math.sin(diagramQEK2KX5RValue38),
-          )
-          .attr("class", "radarAxisLabel");
-      }
-    },
-    "drawAxes",
+    {},
   );
-function diagramQEK2KX5RHelper1(
-  diagramQEK2KX5RParam1,
-  diagramQEK2KX5RParam2,
-  diagramQEK2KX5RParam3,
-  diagramQEK2KX5RParam4,
-  diagramQEK2KX5RParam5,
-  diagramQEK2KX5RParam6,
-  diagramQEK2KX5RParam7,
-) {
-  let diagramQEK2KX5RValue22 = diagramQEK2KX5RParam2.length,
-    diagramQEK2KX5RValue23 =
-      Math.min(diagramQEK2KX5RParam7.width, diagramQEK2KX5RParam7.height) / 2;
-  diagramQEK2KX5RParam3.forEach((item, index) => {
-    if (item.entries.length !== diagramQEK2KX5RValue22) return;
-    let diagramQEK2KX5RValue36 = item.entries.map((_item, _index) => {
-      let diagramQEK2KX5RValue64 =
-          (2 * Math.PI * _index) / diagramQEK2KX5RValue22 - Math.PI / 2,
-        diagramQEK2KX5RValue65 = diagramQEK2KX5RHelper2(
-          _item,
-          diagramQEK2KX5RParam4,
-          diagramQEK2KX5RParam5,
-          diagramQEK2KX5RValue23,
-        );
+
+  radarState.options = {
+    showLegend:
+      (optionsByName.showLegend?.value as boolean | undefined) ??
+      defaultRadarOptions.showLegend,
+    ticks:
+      (optionsByName.ticks?.value as number | undefined) ??
+      defaultRadarOptions.ticks,
+    max:
+      (optionsByName.max?.value as number | null | undefined) ??
+      defaultRadarOptions.max,
+    min:
+      (optionsByName.min?.value as number | undefined) ??
+      defaultRadarOptions.min,
+    graticule:
+      (optionsByName.graticule?.value as RadarGraticule | undefined) ??
+      defaultRadarOptions.graticule,
+  };
+}, "setOptions");
+
+const radarDiagramDb: RadarDiagramDb = {
+  getAxes: getRadarAxes,
+  getCurves: getRadarCurves,
+  getOptions: getRadarOptions,
+  setAxes: setRadarAxes,
+  setCurves: setRadarCurves,
+  setOptions: setRadarOptions,
+  getConfig: getRadarConfig,
+  clear: nameFunction((): void => {
+    clearCommonDb();
+    radarState = structuredClone(defaultRadarState) as RadarDiagramState;
+  }, "clear"),
+  setAccTitle: setAccessibleTitle,
+  getAccTitle: getAccessibleTitle,
+  setDiagramTitle,
+  getDiagramTitle,
+  getAccDescription: getAccessibleDescription,
+  setAccDescription: setAccessibleDescription,
+};
+
+const populateRadarDb = nameFunction(
+  (parsedRadar: ParsedRadarDiagram): void => {
+    populateCommonDb(parsedRadar, radarDiagramDb);
+
+    const { axes, curves, options } = parsedRadar;
+    radarDiagramDb.setAxes(axes);
+    radarDiagramDb.setCurves(curves);
+    radarDiagramDb.setOptions(options);
+  },
+  "populate",
+);
+
+const radarParser = {
+  parse: nameFunction(async (source: string): Promise<void> => {
+    const parsedRadar = (await MermaidParserCore(
+      "radar",
+      source,
+    )) as ParsedRadarDiagram;
+    mermaidLogger.debug(parsedRadar);
+    populateRadarDb(parsedRadar);
+  }, "parse"),
+};
+
+const createRadarRootGroup = nameFunction(
+  (svg: SvgSelection, radarConfig: RadarConfig): SvgSelection => {
+    const viewBoxWidth =
+      radarConfig.width + radarConfig.marginLeft + radarConfig.marginRight;
+    const viewBoxHeight =
+      radarConfig.height + radarConfig.marginTop + radarConfig.marginBottom;
+    const center = {
+      x: radarConfig.marginLeft + radarConfig.width / 2,
+      y: radarConfig.marginTop + radarConfig.height / 2,
+    };
+
+    svg
+      .attr("viewbox", `0 0 ${viewBoxWidth} ${viewBoxHeight}`)
+      .attr("width", viewBoxWidth)
+      .attr("height", viewBoxHeight);
+
+    return svg
+      .append("g")
+      .attr("transform", `translate(${center.x}, ${center.y})`);
+  },
+  "drawFrame",
+);
+
+const drawRadarGraticule = nameFunction(
+  (
+    rootGroup: SvgSelection,
+    axes: RadarAxis[],
+    radius: number,
+    ticks: number,
+    graticule: RadarGraticule,
+  ): void => {
+    if (graticule === "circle") {
+      for (let tickIndex = 0; tickIndex < ticks; tickIndex++) {
+        const tickRadius = (radius * (tickIndex + 1)) / ticks;
+        rootGroup
+          .append("circle")
+          .attr("r", tickRadius)
+          .attr("class", "radarGraticule");
+      }
+      return;
+    }
+
+    if (graticule !== "polygon") {
+      return;
+    }
+
+    const axisCount = axes.length;
+    for (let tickIndex = 0; tickIndex < ticks; tickIndex++) {
+      const tickRadius = (radius * (tickIndex + 1)) / ticks;
+      const points = axes
+        .map((_axis, axisIndex) => {
+          const angle = (2 * axisIndex * Math.PI) / axisCount - Math.PI / 2;
+          return `${tickRadius * Math.cos(angle)},${
+            tickRadius * Math.sin(angle)
+          }`;
+        })
+        .join(" ");
+
+      rootGroup
+        .append("polygon")
+        .attr("points", points)
+        .attr("class", "radarGraticule");
+    }
+  },
+  "drawGraticule",
+);
+
+const drawRadarAxes = nameFunction(
+  (
+    rootGroup: SvgSelection,
+    axes: RadarAxis[],
+    radius: number,
+    radarConfig: RadarConfig,
+  ): void => {
+    const axisCount = axes.length;
+
+    for (let axisIndex = 0; axisIndex < axisCount; axisIndex++) {
+      const axisLabel = axes[axisIndex].label;
+      const angle = (2 * axisIndex * Math.PI) / axisCount - Math.PI / 2;
+
+      rootGroup
+        .append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", radius * radarConfig.axisScaleFactor * Math.cos(angle))
+        .attr("y2", radius * radarConfig.axisScaleFactor * Math.sin(angle))
+        .attr("class", "radarAxisLine");
+
+      rootGroup
+        .append("text")
+        .text(axisLabel)
+        .attr("x", radius * radarConfig.axisLabelFactor * Math.cos(angle))
+        .attr("y", radius * radarConfig.axisLabelFactor * Math.sin(angle))
+        .attr("class", "radarAxisLabel");
+    }
+  },
+  "drawAxes",
+);
+
+function getRelativeRadius(
+  value: number,
+  minimumValue: number,
+  maximumValue: number,
+  radius: number,
+): number {
+  return (
+    (radius *
+      (Math.min(Math.max(value, minimumValue), maximumValue) - minimumValue)) /
+    (maximumValue - minimumValue)
+  );
+}
+nameFunction(getRelativeRadius, "relativeRadius");
+
+function createClosedCurvePath(points: RadarPoint[], curveTension: number) {
+  const pointCount = points.length;
+  let pathData = `M${points[0].x},${points[0].y}`;
+
+  for (let pointIndex = 0; pointIndex < pointCount; pointIndex++) {
+    const previousPoint = points[(pointIndex - 1 + pointCount) % pointCount];
+    const currentPoint = points[pointIndex];
+    const nextPoint = points[(pointIndex + 1) % pointCount];
+    const afterNextPoint = points[(pointIndex + 2) % pointCount];
+    const firstControlPoint = {
+      x: currentPoint.x + (nextPoint.x - previousPoint.x) * curveTension,
+      y: currentPoint.y + (nextPoint.y - previousPoint.y) * curveTension,
+    };
+    const secondControlPoint = {
+      x: nextPoint.x - (afterNextPoint.x - currentPoint.x) * curveTension,
+      y: nextPoint.y - (afterNextPoint.y - currentPoint.y) * curveTension,
+    };
+
+    pathData += ` C${firstControlPoint.x},${firstControlPoint.y} ${secondControlPoint.x},${secondControlPoint.y} ${nextPoint.x},${nextPoint.y}`;
+  }
+
+  return `${pathData} Z`;
+}
+nameFunction(createClosedCurvePath, "closedRoundCurve");
+
+function drawRadarCurves(
+  rootGroup: SvgSelection,
+  axes: RadarAxis[],
+  curves: RadarCurve[],
+  minimumValue: number,
+  maximumValue: number,
+  graticule: RadarGraticule,
+  radarConfig: RadarConfig,
+): void {
+  const axisCount = axes.length;
+  const radius = Math.min(radarConfig.width, radarConfig.height) / 2;
+
+  curves.forEach((curve, curveIndex) => {
+    if (curve.entries.length !== axisCount) {
+      return;
+    }
+
+    const curvePoints = curve.entries.map((entryValue, axisIndex) => {
+      const angle = (2 * Math.PI * axisIndex) / axisCount - Math.PI / 2;
+      const pointRadius = getRelativeRadius(
+        entryValue,
+        minimumValue,
+        maximumValue,
+        radius,
+      );
+
       return {
-        x: diagramQEK2KX5RValue65 * Math.cos(diagramQEK2KX5RValue64),
-        y: diagramQEK2KX5RValue65 * Math.sin(diagramQEK2KX5RValue64),
+        x: pointRadius * Math.cos(angle),
+        y: pointRadius * Math.sin(angle),
       };
     });
-    diagramQEK2KX5RParam6 === "circle"
-      ? diagramQEK2KX5RParam1
-          .append("path")
-          .attr(
-            "d",
-            diagramQEK2KX5RHelper3(
-              diagramQEK2KX5RValue36,
-              diagramQEK2KX5RParam7.curveTension,
-            ),
-          )
-          .attr("class", `radarCurve-${index}`)
-      : diagramQEK2KX5RParam6 === "polygon" &&
-        diagramQEK2KX5RParam1
-          .append("polygon")
-          .attr(
-            "points",
-            diagramQEK2KX5RValue36
-              .map((_item) => `${_item.x},${_item.y}`)
-              .join(" "),
-          )
-          .attr("class", `radarCurve-${index}`);
+
+    if (graticule === "circle") {
+      rootGroup
+        .append("path")
+        .attr("d", createClosedCurvePath(curvePoints, radarConfig.curveTension))
+        .attr("class", `radarCurve-${curveIndex}`);
+      return;
+    }
+
+    if (graticule === "polygon") {
+      rootGroup
+        .append("polygon")
+        .attr(
+          "points",
+          curvePoints.map((point) => `${point.x},${point.y}`).join(" "),
+        )
+        .attr("class", `radarCurve-${curveIndex}`);
+    }
   });
 }
-chunkAGHRB4JFN(diagramQEK2KX5RHelper1, "drawCurves");
-function diagramQEK2KX5RHelper2(
-  diagramQEK2KX5RParam36,
-  diagramQEK2KX5RParam37,
-  diagramQEK2KX5RParam38,
-  diagramQEK2KX5RParam39,
-) {
-  return (
-    (diagramQEK2KX5RParam39 *
-      (Math.min(
-        Math.max(diagramQEK2KX5RParam36, diagramQEK2KX5RParam37),
-        diagramQEK2KX5RParam38,
-      ) -
-        diagramQEK2KX5RParam37)) /
-    (diagramQEK2KX5RParam38 - diagramQEK2KX5RParam37)
-  );
-}
-chunkAGHRB4JFN(diagramQEK2KX5RHelper2, "relativeRadius");
-function diagramQEK2KX5RHelper3(
-  diagramQEK2KX5RParam25,
-  diagramQEK2KX5RParam26,
-) {
-  let diagramQEK2KX5RValue41 = diagramQEK2KX5RParam25.length,
-    diagramQEK2KX5RValue42 = `M${diagramQEK2KX5RParam25[0].x},${diagramQEK2KX5RParam25[0].y}`;
-  for (
-    let diagramQEK2KX5RValue55 = 0;
-    diagramQEK2KX5RValue55 < diagramQEK2KX5RValue41;
-    diagramQEK2KX5RValue55++
-  ) {
-    let diagramQEK2KX5RValue57 =
-        diagramQEK2KX5RParam25[
-          (diagramQEK2KX5RValue55 - 1 + diagramQEK2KX5RValue41) %
-            diagramQEK2KX5RValue41
-        ],
-      diagramQEK2KX5RValue58 = diagramQEK2KX5RParam25[diagramQEK2KX5RValue55],
-      diagramQEK2KX5RValue59 =
-        diagramQEK2KX5RParam25[
-          (diagramQEK2KX5RValue55 + 1) % diagramQEK2KX5RValue41
-        ],
-      diagramQEK2KX5RValue60 =
-        diagramQEK2KX5RParam25[
-          (diagramQEK2KX5RValue55 + 2) % diagramQEK2KX5RValue41
-        ],
-      diagramQEK2KX5RValue61 = {
-        x:
-          diagramQEK2KX5RValue58.x +
-          (diagramQEK2KX5RValue59.x - diagramQEK2KX5RValue57.x) *
-            diagramQEK2KX5RParam26,
-        y:
-          diagramQEK2KX5RValue58.y +
-          (diagramQEK2KX5RValue59.y - diagramQEK2KX5RValue57.y) *
-            diagramQEK2KX5RParam26,
-      },
-      diagramQEK2KX5RValue62 = {
-        x:
-          diagramQEK2KX5RValue59.x -
-          (diagramQEK2KX5RValue60.x - diagramQEK2KX5RValue58.x) *
-            diagramQEK2KX5RParam26,
-        y:
-          diagramQEK2KX5RValue59.y -
-          (diagramQEK2KX5RValue60.y - diagramQEK2KX5RValue58.y) *
-            diagramQEK2KX5RParam26,
-      };
-    diagramQEK2KX5RValue42 += ` C${diagramQEK2KX5RValue61.x},${diagramQEK2KX5RValue61.y} ${diagramQEK2KX5RValue62.x},${diagramQEK2KX5RValue62.y} ${diagramQEK2KX5RValue59.x},${diagramQEK2KX5RValue59.y}`;
+nameFunction(drawRadarCurves, "drawCurves");
+
+function drawRadarLegend(
+  rootGroup: SvgSelection,
+  curves: RadarCurve[],
+  showLegend: boolean,
+  radarConfig: RadarConfig,
+): void {
+  if (!showLegend) {
+    return;
   }
-  return `${diagramQEK2KX5RValue42} Z`;
-}
-chunkAGHRB4JFN(diagramQEK2KX5RHelper3, "closedRoundCurve");
-function diagramQEK2KX5RHelper4(
-  diagramQEK2KX5RParam21,
-  diagramQEK2KX5RParam22,
-  diagramQEK2KX5RParam23,
-  diagramQEK2KX5RParam24,
-) {
-  if (!diagramQEK2KX5RParam23) return;
-  let diagramQEK2KX5RValue39 =
-      ((diagramQEK2KX5RParam24.width / 2 + diagramQEK2KX5RParam24.marginRight) *
-        3) /
-      4,
-    diagramQEK2KX5RValue40 =
-      (-(diagramQEK2KX5RParam24.height / 2 + diagramQEK2KX5RParam24.marginTop) *
-        3) /
-      4;
-  diagramQEK2KX5RParam22.forEach((item, index) => {
-    let diagramQEK2KX5RValue46 = diagramQEK2KX5RParam21
+
+  const legendX = ((radarConfig.width / 2 + radarConfig.marginRight) * 3) / 4;
+  const legendY = (-(radarConfig.height / 2 + radarConfig.marginTop) * 3) / 4;
+
+  curves.forEach((curve, curveIndex) => {
+    const legendItem = rootGroup
       .append("g")
-      .attr(
-        "transform",
-        `translate(${diagramQEK2KX5RValue39}, ${diagramQEK2KX5RValue40 + index * 20})`,
-      );
-    diagramQEK2KX5RValue46
+      .attr("transform", `translate(${legendX}, ${legendY + curveIndex * 20})`);
+
+    legendItem
       .append("rect")
       .attr("width", 12)
       .attr("height", 12)
-      .attr("class", `radarLegendBox-${index}`);
-    diagramQEK2KX5RValue46
+      .attr("class", `radarLegendBox-${curveIndex}`);
+
+    legendItem
       .append("text")
       .attr("x", 16)
       .attr("y", 0)
       .attr("class", "radarLegendText")
-      .text(item.label);
+      .text(curve.label);
   });
 }
-chunkAGHRB4JFN(diagramQEK2KX5RHelper4, "drawLegend");
-var diagramQEK2KX5RValue19 = {
-    draw: diagramQEK2KX5RValue15,
+nameFunction(drawRadarLegend, "drawLegend");
+
+const drawRadarDiagram = nameFunction(
+  (
+    sourceText: string,
+    diagramId: string,
+    renderVersion: string,
+    context: RadarRenderContext,
+  ): void => {
+    void sourceText;
+    void renderVersion;
+
+    const radarDb = context.db;
+    const axes = radarDb.getAxes();
+    const curves = radarDb.getCurves();
+    const options = radarDb.getOptions();
+    const radarConfig = radarDb.getConfig();
+    const diagramTitle = radarDb.getDiagramTitle();
+    const rootGroup = createRadarRootGroup(
+      selectSvgById(diagramId),
+      radarConfig,
+    );
+    const maximumValue =
+      options.max ??
+      Math.max(...curves.map((curve) => Math.max(...curve.entries)));
+    const minimumValue = options.min;
+    const radius = Math.min(radarConfig.width, radarConfig.height) / 2;
+
+    drawRadarGraticule(
+      rootGroup,
+      axes,
+      radius,
+      options.ticks,
+      options.graticule,
+    );
+    drawRadarAxes(rootGroup, axes, radius, radarConfig);
+    drawRadarCurves(
+      rootGroup,
+      axes,
+      curves,
+      minimumValue,
+      maximumValue,
+      options.graticule,
+      radarConfig,
+    );
+    drawRadarLegend(rootGroup, curves, options.showLegend, radarConfig);
+
+    rootGroup
+      .append("text")
+      .attr("class", "radarTitle")
+      .text(diagramTitle)
+      .attr("x", 0)
+      .attr("y", -radarConfig.height / 2 - radarConfig.marginTop);
   },
-  diagramQEK2KX5RValue20 = chunkAGHRB4JFN(
-    (diagramQEK2KX5RParam27, diagramQEK2KX5RParam28) => {
-      let diagramQEK2KX5RValue43 = "";
-      for (
-        let diagramQEK2KX5RValue51 = 0;
-        diagramQEK2KX5RValue51 < diagramQEK2KX5RParam27.THEME_COLOR_LIMIT;
-        diagramQEK2KX5RValue51++
-      ) {
-        let diagramQEK2KX5RValue56 =
-          diagramQEK2KX5RParam27[`cScale${diagramQEK2KX5RValue51}`];
-        diagramQEK2KX5RValue43 += `
-		.radarCurve-${diagramQEK2KX5RValue51} {
-			color: ${diagramQEK2KX5RValue56};
-			fill: ${diagramQEK2KX5RValue56};
-			fill-opacity: ${diagramQEK2KX5RParam28.curveOpacity};
-			stroke: ${diagramQEK2KX5RValue56};
-			stroke-width: ${diagramQEK2KX5RParam28.curveStrokeWidth};
+  "draw",
+);
+
+const radarRenderer = {
+  draw: drawRadarDiagram,
+};
+
+const getIndexedRadarStyles = nameFunction(
+  (themeVariables: ThemeVariables, radarOptions: RadarConfig): string => {
+    let styles = "";
+
+    for (
+      let colorIndex = 0;
+      colorIndex < themeVariables.THEME_COLOR_LIMIT;
+      colorIndex++
+    ) {
+      const curveColor = String(themeVariables[`cScale${colorIndex}`]);
+      styles += `
+		.radarCurve-${colorIndex} {
+			color: ${curveColor};
+			fill: ${curveColor};
+			fill-opacity: ${radarOptions.curveOpacity};
+			stroke: ${curveColor};
+			stroke-width: ${radarOptions.curveStrokeWidth};
 		}
-		.radarLegendBox-${diagramQEK2KX5RValue51} {
-			fill: ${diagramQEK2KX5RValue56};
-			fill-opacity: ${diagramQEK2KX5RParam28.curveOpacity};
-			stroke: ${diagramQEK2KX5RValue56};
+		.radarLegendBox-${colorIndex} {
+			fill: ${curveColor};
+			fill-opacity: ${radarOptions.curveOpacity};
+			stroke: ${curveColor};
 		}
 		`;
-      }
-      return diagramQEK2KX5RValue43;
-    },
-    "genIndexStyles",
-  ),
-  diagramQEK2KX5RValue21 = chunkAGHRB4JFN((diagramQEK2KX5RParam35) => {
-    let diagramQEK2KX5RValue69 = chunkS3R3BYOJP(
-      chunkABZYJK2DB(),
-      _chunkABZYJK2DY().themeVariables,
-    );
+    }
+
+    return styles;
+  },
+  "genIndexStyles",
+);
+
+const buildRadarStyleOptions = nameFunction(
+  (radarOverrides?: Partial<RadarConfig>) => {
+    const themeVariables = cleanAndMerge(
+      getDefaultThemeVariables(),
+      (getCurrentConfig() as MermaidSiteConfig).themeVariables ?? {},
+    ) as ThemeVariables;
+
     return {
-      themeVariables: diagramQEK2KX5RValue69,
-      radarOptions: chunkS3R3BYOJP(
-        diagramQEK2KX5RValue69.radar,
-        diagramQEK2KX5RParam35,
-      ),
+      themeVariables,
+      radarOptions: cleanAndMerge(
+        themeVariables.radar,
+        radarOverrides ?? {},
+      ) as RadarConfig,
     };
-  }, "buildRadarStyleOptions");
-export const diagramQEK2KX5R = {
-  parser: diagramQEK2KX5RValue14,
-  db: diagramQEK2KX5RValue12,
-  renderer: diagramQEK2KX5RValue19,
-  styles: chunkAGHRB4JFN(({ radar } = {}) => {
-    let { themeVariables, radarOptions } = diagramQEK2KX5RValue21(radar);
-    return `
+  },
+  "buildRadarStyleOptions",
+);
+
+function createRadarDiagramDefinition() {
+  return {
+    parser: radarParser,
+    db: radarDiagramDb,
+    renderer: radarRenderer,
+    styles: nameFunction(
+      ({ radar }: { radar?: Partial<RadarConfig> } = {}): string => {
+        const { themeVariables, radarOptions } = buildRadarStyleOptions(radar);
+
+        return `
 	.radarTitle {
 		font-size: ${themeVariables.fontSize};
 		color: ${themeVariables.titleColor};
@@ -576,7 +672,14 @@ export const diagramQEK2KX5R = {
 		font-size: ${radarOptions.legendFontSize}px;
 		dominant-baseline: hanging;
 	}
-	${diagramQEK2KX5RValue20(themeVariables, radarOptions)}
+	${getIndexedRadarStyles(themeVariables, radarOptions)}
 	`;
-  }, "styles"),
-};
+      },
+      "styles",
+    ),
+  };
+}
+
+const diagramQEK2KX5R = createRadarDiagramDefinition();
+
+export { diagramQEK2KX5R };
