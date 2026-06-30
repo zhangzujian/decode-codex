@@ -13698,7 +13698,11 @@
         "s": "installPrimaryRuntime",
         "t": "isPrimaryRuntimeInstallAbortError"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:02:38.000Z",
+      "stage3Review": "Host self-review: runtime/primary-runtime-install-action.ts semantically restores primary-runtime install telemetry payloads, install toast flow, request dispatch, failure logging, and abort detection; it passes quality-gate.",
+      "lastUpdated": "2026-06-30T21:02:38.000Z"
     },
     "custom-avatars-query-CtItijR_": {
       "restored": "features/custom-avatars-query.ts",
@@ -14569,7 +14573,11 @@
         "x": "useRateLimitResetCreditsQuery",
         "y": "useOnboardingContextQuery"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:02:38.000Z",
+      "stage3Review": "Host self-review: runtime/codex-api/index.ts and runtime/codex-api/types.ts semantically restore Codex API task, turn, environment, referral, rate-limit, onboarding, branch-search, account, snapshot upload, and ordering query/mutation helpers; both files pass quality-gate.",
+      "lastUpdated": "2026-06-30T21:02:38.000Z"
     },
     "use-usage-settings-access-Bq_PKiLc": {
       "restored": "utils/use-usage-settings-access.ts",
