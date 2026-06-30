@@ -1494,12 +1494,18 @@ export function __rest(value) {
     });
     const reports = analyzeFullRestorationCoverage(targetDir);
     const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
-    expect(codes).not.toContain("full-restoration-aggregator-body-not-restored");
+    expect(codes).not.toContain(
+      "full-restoration-aggregator-body-not-restored",
+    );
   });
 
   test("aggregator-body-not-restored does NOT fire: genuine vendor-runtime barrel is exempt", () => {
     const targetDir = makeTmpRoot();
-    writePromotedFile(targetDir, "vendor/mermaid-parser-runtime.ts", BARREL_FACADE);
+    writePromotedFile(
+      targetDir,
+      "vendor/mermaid-parser-runtime.ts",
+      BARREL_FACADE,
+    );
     writeFullManifest(targetDir, {
       "chunk-K5T4RW27-B7ZoXjZA": {
         basename: "chunk-K5T4RW27-B7ZoXjZA",
@@ -1515,7 +1521,9 @@ export function __rest(value) {
     });
     const reports = analyzeFullRestorationCoverage(targetDir);
     const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
-    expect(codes).not.toContain("full-restoration-aggregator-body-not-restored");
+    expect(codes).not.toContain(
+      "full-restoration-aggregator-body-not-restored",
+    );
   });
 
   test("aggregator-body-not-restored does NOT fire: small chunk promoted to a barrel is fine", () => {
@@ -1536,7 +1544,9 @@ export function __rest(value) {
     });
     const reports = analyzeFullRestorationCoverage(targetDir);
     const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
-    expect(codes).not.toContain("full-restoration-aggregator-body-not-restored");
+    expect(codes).not.toContain(
+      "full-restoration-aggregator-body-not-restored",
+    );
   });
 
   test("aggregator-body-not-restored: --allow-organize-incomplete suppresses it", () => {
@@ -1563,7 +1573,9 @@ export function __rest(value) {
       allowOrganizeIncomplete: true,
     });
     const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
-    expect(codes).not.toContain("full-restoration-aggregator-body-not-restored");
+    expect(codes).not.toContain(
+      "full-restoration-aggregator-body-not-restored",
+    );
   });
 
   test("anti-stall: public-file-in-hash-dir flags a promoted file in a hash-named dir", () => {
@@ -2177,10 +2189,14 @@ describe("vendored / facade relaxation", () => {
       `export const documentB = documentHelper1;\n` +
       `export const documentC = documentHelper1;\n`;
 
-    const ordinary = analyzeSource(schemaRuntime, "widgets/document-schema.ts", {
-      ...DEFAULT_OPTIONS,
-      maxFlatLines: 5,
-    });
+    const ordinary = analyzeSource(
+      schemaRuntime,
+      "widgets/document-schema.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        maxFlatLines: 5,
+      },
+    );
     expect(codes(ordinary)).toContain("mechanical-names");
     expect(codes(ordinary)).toContain("split-required");
 
@@ -2239,6 +2255,38 @@ describe("kebab filename gate", () => {
 });
 
 describe("checkFormatting", () => {
+  test("checks only public source files for directory inputs", () => {
+    const root = makeTmpRoot();
+    const publicFile = path.join(root, "ui", "button.tsx");
+    const hiddenFile = path.join(
+      root,
+      ".deobfuscate-javascript",
+      "_full",
+      "files",
+      "button",
+      "candidate.tsx",
+    );
+    fs.mkdirSync(path.dirname(publicFile), { recursive: true });
+    fs.mkdirSync(path.dirname(hiddenFile), { recursive: true });
+    fs.writeFileSync(publicFile, "export const Button = () => null;\n");
+    fs.writeFileSync(hiddenFile, "export const Hidden = () => null;\n");
+
+    let checkedPaths: string[] = [];
+    const reports = checkFormatting(root, (paths) => {
+      checkedPaths = paths;
+      return {
+        ok: true,
+        stdout: "All matched files use Prettier code style!\n",
+        stderr: "",
+      };
+    });
+
+    expect(reports).toEqual([]);
+    expect(checkedPaths.map((p) => path.relative(root, p))).toEqual([
+      path.join("ui", "button.tsx"),
+    ]);
+  });
+
   test("flags each file prettier --check reports as unformatted", () => {
     const fakeRun = () => ({
       ok: false,

@@ -10,7 +10,7 @@ import {
   isLikelyAppChunk,
   JS_GLOBALS,
 } from "./chunk-classification.ts";
-import { formatPath } from "./format.ts";
+import { formatPaths } from "./format.ts";
 
 const traverse = ((
   babelTraverse as unknown as { default?: typeof babelTraverse }
@@ -2125,11 +2125,21 @@ function emptyReport(
  */
 export function checkFormatting(
   input: string,
-  runCheck: (p: string) => { ok: boolean; stdout: string; stderr: string } = (
-    p,
-  ) => formatPath(p, { check: true }),
+  runCheck: (paths: string[]) => {
+    ok: boolean;
+    stdout: string;
+    stderr: string;
+  } = (paths) => formatPaths(paths, { check: true }),
 ): FileQualityReport[] {
-  const res = runCheck(input);
+  let targets: string[];
+  try {
+    const stat = fs.existsSync(input) ? fs.statSync(input) : null;
+    targets = stat?.isDirectory() ? collectFiles(input) : [input];
+  } catch {
+    targets = [input];
+  }
+  if (targets.length === 0) return [];
+  const res = runCheck(targets);
   if (res.ok) return []; // everything is prettier-clean
   const combined = `${res.stdout}\n${res.stderr}`;
   // prettier --check prints `[warn] <path>` per unformatted file, plus a

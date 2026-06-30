@@ -34,26 +34,10 @@ function which(cmd: string): string | null {
   return res.stdout.trim() || null;
 }
 
-export function formatPath(targetPath: string, opts: FormatOptions = {}): FormatResult {
-  if (!fs.existsSync(targetPath)) {
-    return {
-      ok: false,
-      command: "",
-      stdout: "",
-      stderr: `target does not exist: ${targetPath}`,
-      code: 1,
-    };
-  }
-
-  const stat = fs.statSync(targetPath);
-  // If a directory, default to the common JS/TS extensions.
-  const target =
-    stat.isDirectory() && !opts.glob
-      ? path.join(targetPath, "**/*.{ts,tsx,js,jsx,mjs,cjs}")
-      : opts.glob
-        ? path.join(targetPath, opts.glob)
-        : targetPath;
-
+function runPrettier(
+  targets: string[],
+  opts: FormatOptions = {},
+): FormatResult {
   const prettierArgs = [
     opts.check ? "--check" : "--write",
     "--no-error-on-unmatched-pattern",
@@ -64,7 +48,7 @@ export function formatPath(targetPath: string, opts: FormatOptions = {}): Format
     // real `.prettierignore` is still honoured.
     "--ignore-path",
     ".prettierignore",
-    target,
+    ...targets,
   ];
 
   // Prefer a `prettier` already on PATH (no network fetch, works offline); fall
@@ -84,6 +68,58 @@ export function formatPath(targetPath: string, opts: FormatOptions = {}): Format
     stderr: res.stderr ?? "",
     code: res.status ?? 1,
   };
+}
+
+export function formatPaths(
+  targetPaths: string[],
+  opts: Omit<FormatOptions, "glob"> = {},
+): FormatResult {
+  if (targetPaths.length === 0) {
+    return {
+      ok: true,
+      command: "",
+      stdout: "",
+      stderr: "",
+      code: 0,
+    };
+  }
+  const missing = targetPaths.find((targetPath) => !fs.existsSync(targetPath));
+  if (missing) {
+    return {
+      ok: false,
+      command: "",
+      stdout: "",
+      stderr: `target does not exist: ${missing}`,
+      code: 1,
+    };
+  }
+  return runPrettier(targetPaths, opts);
+}
+
+export function formatPath(
+  targetPath: string,
+  opts: FormatOptions = {},
+): FormatResult {
+  if (!fs.existsSync(targetPath)) {
+    return {
+      ok: false,
+      command: "",
+      stdout: "",
+      stderr: `target does not exist: ${targetPath}`,
+      code: 1,
+    };
+  }
+
+  const stat = fs.statSync(targetPath);
+  // If a directory, default to the common JS/TS extensions.
+  const target =
+    stat.isDirectory() && !opts.glob
+      ? path.join(targetPath, "**/*.{ts,tsx,js,jsx,mjs,cjs}")
+      : opts.glob
+        ? path.join(targetPath, opts.glob)
+        : targetPath;
+
+  return runPrettier([target], opts);
 }
 
 const USAGE =
