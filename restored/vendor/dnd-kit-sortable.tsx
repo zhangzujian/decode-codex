@@ -12,7 +12,7 @@ import {
   cssTransform,
   isKeyboardEvent,
   getClientRect,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "./dnd-kit-core";
 
 const SORTABLE_ID_PREFIX = "Sortable";
 const SORTABLE_TRANSITION_PROPERTY = "transform";
