@@ -65,6 +65,26 @@ interface ClientRect {
   height: number;
 }
 
+interface DroppableContainer {
+  id: string | number;
+  [key: string]: unknown;
+}
+
+interface Collision {
+  id: string | number;
+  data: {
+    droppableContainer: DroppableContainer;
+    value: number;
+  };
+}
+
+interface CollisionDetectionArgs {
+  collisionRect: ClientRect;
+  droppableContainers: DroppableContainer[];
+  droppableRects: Map<string | number, ClientRect>;
+  pointerCoordinates?: Coordinates | null;
+}
+
 const DEFAULT_DRAGGABLE_ROLE = "button";
 
 function noop(): void {}
@@ -179,6 +199,83 @@ function isPointWithinRect(point: Coordinates, rect: ClientRect): boolean {
   return (
     top <= point.y && point.y <= bottom && left <= point.x && point.x <= right
   );
+}
+
+function closestCenter({
+  collisionRect,
+  droppableRects,
+  droppableContainers,
+}: CollisionDetectionArgs): Collision[] {
+  const collisionCenter = centerOfRectangle(
+    collisionRect,
+    collisionRect.left,
+    collisionRect.top,
+  );
+  const collisions: Collision[] = [];
+  for (const droppableContainer of droppableContainers) {
+    const { id } = droppableContainer;
+    const rect = droppableRects.get(id);
+    if (rect) {
+      const distBetween = distanceBetween(
+        centerOfRectangle(rect),
+        collisionCenter,
+      );
+      collisions.push({
+        id,
+        data: { droppableContainer, value: distBetween },
+      });
+    }
+  }
+  return collisions.sort(sortCollisionsAsc);
+}
+
+function rectIntersection({
+  collisionRect,
+  droppableRects,
+  droppableContainers,
+}: CollisionDetectionArgs): Collision[] {
+  const collisions: Collision[] = [];
+  for (const droppableContainer of droppableContainers) {
+    const { id } = droppableContainer;
+    const rect = droppableRects.get(id);
+    if (rect) {
+      const intersectionRatio = getIntersectionRatio(rect, collisionRect);
+      if (intersectionRatio > 0) {
+        collisions.push({
+          id,
+          data: { droppableContainer, value: intersectionRatio },
+        });
+      }
+    }
+  }
+  return collisions.sort(sortCollisionsDesc);
+}
+
+function pointerWithin({
+  droppableContainers,
+  droppableRects,
+  pointerCoordinates,
+}: CollisionDetectionArgs): Collision[] {
+  if (!pointerCoordinates) return [];
+  const collisions: Collision[] = [];
+  for (const droppableContainer of droppableContainers) {
+    const { id } = droppableContainer;
+    const rect = droppableRects.get(id);
+    if (rect && isPointWithinRect(pointerCoordinates, rect)) {
+      const corners = cornersOfRectangle(rect);
+      const distances = corners.reduce(
+        (accumulator, corner) =>
+          accumulator + distanceBetween(pointerCoordinates, corner),
+        0,
+      );
+      const effectiveDistance = Number((distances / 4).toFixed(4));
+      collisions.push({
+        id,
+        data: { droppableContainer, value: effectiveDistance },
+      });
+    }
+  }
+  return collisions.sort(sortCollisionsAsc);
 }
 
 function adjustScale(
@@ -1668,6 +1765,9 @@ export {
   centerOfRectangle,
   getIntersectionRatio,
   isPointWithinRect,
+  closestCenter,
+  rectIntersection,
+  pointerWithin,
   adjustScale,
   getRectDelta,
   createRectAdjustmentFn,

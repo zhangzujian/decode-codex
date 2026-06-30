@@ -12,11 +12,6 @@ import {
   cssTransform,
   isKeyboardEvent,
   getClientRect,
-  defaultAnimateLayoutChanges,
-  defaultGetNewIndex,
-  rectSortingStrategy,
-  normalizeSortableDisabled,
-  derivedTransformTransition,
 } from "../boundaries/onboarding-commons-externals.facade";
 
 const SORTABLE_ID_PREFIX = "Sortable";
@@ -31,9 +26,33 @@ const defaultSortableTransition = {
   easing: "ease",
 };
 
+const defaultScale = { scaleX: 1, scaleY: 1 };
+
 export interface SortableTransition {
   duration: number;
   easing: string;
+}
+
+interface SortableRect {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+}
+
+interface SortableTransform {
+  x: number;
+  y: number;
+  scaleX: number;
+  scaleY: number;
+}
+
+export interface SortingStrategyArgs {
+  activeIndex: number;
+  activeNodeRect: SortableRect | null;
+  index: number;
+  overIndex: number;
+  rects: Array<SortableRect | null | undefined>;
 }
 
 export interface SortableContextValue {
@@ -44,8 +63,8 @@ export interface SortableContextValue {
   items: Array<string | number>;
   overIndex: number;
   useDragOverlay: boolean;
-  sortedRects: unknown[];
-  strategy: (...args: any[]) => unknown;
+  sortedRects: Array<SortableRect | undefined>;
+  strategy: (args: SortingStrategyArgs) => SortableTransform | null;
 }
 
 const SortableContextStore = React.createContext<SortableContextValue>({
@@ -87,16 +106,205 @@ function normalizeDisabled(
     : disabled;
 }
 
+function getHorizontalGap(
+  rects: Array<SortableRect | null | undefined>,
+  index: number,
+  activeIndex: number,
+): number {
+  const currentRect = rects[index];
+  const previousRect = rects[index - 1];
+  const nextRect = rects[index + 1];
+  if (!currentRect || (!previousRect && !nextRect)) return 0;
+  return activeIndex < index
+    ? previousRect
+      ? currentRect.left - (previousRect.left + previousRect.width)
+      : nextRect!.left - (currentRect.left + currentRect.width)
+    : nextRect
+      ? nextRect.left - (currentRect.left + currentRect.width)
+      : currentRect.left - (previousRect!.left + previousRect!.width);
+}
+
+function getVerticalGap(
+  rects: Array<SortableRect | null | undefined>,
+  index: number,
+  activeIndex: number,
+): number {
+  const currentRect = rects[index];
+  const previousRect = rects[index - 1];
+  const nextRect = rects[index + 1];
+  return currentRect
+    ? activeIndex < index
+      ? previousRect
+        ? currentRect.top - (previousRect.top + previousRect.height)
+        : nextRect
+          ? nextRect.top - (currentRect.top + currentRect.height)
+          : 0
+      : nextRect
+        ? nextRect.top - (currentRect.top + currentRect.height)
+        : previousRect
+          ? currentRect.top - (previousRect.top + previousRect.height)
+          : 0
+    : 0;
+}
+
 function getSortedRects(
   items: Array<string | number>,
   rectsById: Map<string | number, unknown>,
 ) {
-  return items.reduce<unknown[]>((accumulator, current, index) => {
-    const rect = rectsById.get(current);
-    if (rect) accumulator[index] = rect;
-    return accumulator;
-  }, Array(items.length));
+  return items.reduce<Array<SortableRect | undefined>>(
+    (accumulator, current, index) => {
+      const rect = rectsById.get(current) as SortableRect | undefined;
+      if (rect) accumulator[index] = rect;
+      return accumulator;
+    },
+    Array(items.length),
+  );
 }
+
+export function horizontalListSortingStrategy({
+  rects,
+  activeNodeRect,
+  activeIndex,
+  overIndex,
+  index,
+}: SortingStrategyArgs): SortableTransform | null {
+  const activeRect = rects[activeIndex] ?? activeNodeRect;
+  if (!activeRect) return null;
+  const itemGap = getHorizontalGap(rects, index, activeIndex);
+  if (index === activeIndex) {
+    const overRect = rects[overIndex];
+    return overRect
+      ? {
+          x:
+            activeIndex < overIndex
+              ? overRect.left +
+                overRect.width -
+                (activeRect.left + activeRect.width)
+              : overRect.left - activeRect.left,
+          y: 0,
+          ...defaultScale,
+        }
+      : null;
+  }
+  return index > activeIndex && index <= overIndex
+    ? { x: -activeRect.width - itemGap, y: 0, ...defaultScale }
+    : index < activeIndex && index >= overIndex
+      ? { x: activeRect.width + itemGap, y: 0, ...defaultScale }
+      : { x: 0, y: 0, ...defaultScale };
+}
+
+export function rectSortingStrategy({
+  rects,
+  activeIndex,
+  overIndex,
+  index,
+}: SortingStrategyArgs): SortableTransform | null {
+  const reorderedRects = arrayMove(rects, overIndex, activeIndex);
+  const currentRect = rects[index];
+  const newRect = reorderedRects[index];
+  return !newRect || !currentRect
+    ? null
+    : {
+        x: newRect.left - currentRect.left,
+        y: newRect.top - currentRect.top,
+        scaleX: newRect.width / currentRect.width,
+        scaleY: newRect.height / currentRect.height,
+      };
+}
+
+export function verticalListSortingStrategy({
+  activeIndex,
+  activeNodeRect,
+  index,
+  rects,
+  overIndex,
+}: SortingStrategyArgs): SortableTransform | null {
+  const activeRect = rects[activeIndex] ?? activeNodeRect;
+  if (!activeRect) return null;
+  if (index === activeIndex) {
+    const overRect = rects[overIndex];
+    return overRect
+      ? {
+          x: 0,
+          y:
+            activeIndex < overIndex
+              ? overRect.top +
+                overRect.height -
+                (activeRect.top + activeRect.height)
+              : overRect.top - activeRect.top,
+          ...defaultScale,
+        }
+      : null;
+  }
+  const itemGap = getVerticalGap(rects, index, activeIndex);
+  return index > activeIndex && index <= overIndex
+    ? { x: 0, y: -activeRect.height - itemGap, ...defaultScale }
+    : index < activeIndex && index >= overIndex
+      ? { x: 0, y: activeRect.height + itemGap, ...defaultScale }
+      : { x: 0, y: 0, ...defaultScale };
+}
+
+export function defaultGetNewIndex({
+  id,
+  items,
+  activeIndex,
+  overIndex,
+}: {
+  activeIndex: number;
+  id: string | number;
+  items: Array<string | number>;
+  overIndex: number;
+}): number {
+  return arrayMove(items, activeIndex, overIndex).indexOf(id);
+}
+
+export function defaultAnimateLayoutChanges({
+  containerId,
+  isSorting,
+  wasDragging,
+  index,
+  items,
+  newIndex,
+  previousItems,
+  previousContainerId,
+  transition,
+}: {
+  containerId: string;
+  index: number;
+  isSorting: boolean;
+  items: Array<string | number>;
+  newIndex: number;
+  previousContainerId: string;
+  previousItems: Array<string | number>;
+  transition: SortableTransition | null;
+  wasDragging: boolean;
+}): boolean {
+  return !transition ||
+    !wasDragging ||
+    (previousItems !== items && index === newIndex)
+    ? false
+    : isSorting
+      ? true
+      : newIndex !== index && containerId === previousContainerId;
+}
+
+export function normalizeSortableDisabled(
+  disabled: boolean | { draggable?: boolean; droppable?: boolean } | undefined,
+  defaultDisabled: { draggable: boolean; droppable: boolean },
+): { draggable: boolean; droppable: boolean } {
+  return typeof disabled === "boolean"
+    ? { draggable: disabled, droppable: false }
+    : {
+        draggable: disabled?.draggable ?? defaultDisabled.draggable,
+        droppable: disabled?.droppable ?? defaultDisabled.droppable,
+      };
+}
+
+const derivedTransformTransition = cssTransform.Transition.toString({
+  property: SORTABLE_TRANSITION_PROPERTY,
+  duration: 0,
+  easing: "linear",
+});
 
 interface DerivedTransform {
   x: number;
