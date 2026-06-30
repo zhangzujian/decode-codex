@@ -1,4 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~personalization-settings~appearance-settings~general-settings-DCerg-br.js
+// Restored from ref/webview/assets/app-initial~app-main~personalization-settings~appearance-settings~general-settings-Qj6SXl5X.js
+// Synced alias: ref/webview/assets/app-initial~app-main~personalization-settings~appearance-settings~general-settings-DCerg-br.js.
 // App info query signal backed by the app-host service bridge.
 import {
   initQueryDurationConstants,
@@ -21,8 +22,6 @@ export type AppInfoQueryResult = Awaited<
   ReturnType<typeof appHostServices.appInfo.get>
 >;
 
-export let appInfoQuerySignal: unknown;
-
 export function initAppInfoQueryRuntime(): void {
   initScopeRuntimeChunk();
   initAppHostServicesRuntimeChunk();
@@ -35,3 +34,5 @@ export function initAppInfoQueryRuntime(): void {
     staleTime: queryDurations.INFINITE,
   }));
 }
+
+export let appInfoQuerySignal: unknown;
