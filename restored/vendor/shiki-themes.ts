@@ -49,8 +49,11 @@ import nightOwlLightTheme from "@shikijs/themes/night-owl-light";
 import nordTheme from "@shikijs/themes/nord";
 import oneDarkProTheme from "@shikijs/themes/one-dark-pro";
 import oneLightTheme from "@shikijs/themes/one-light";
+import oscurangeTheme from "@shikijs/themes/oscurange";
 import plasticTheme from "@shikijs/themes/plastic";
 import poimandresTheme from "@shikijs/themes/poimandres";
+import raycastDarkTheme from "@shikijs/themes/raycast-dark";
+import raycastLightTheme from "@shikijs/themes/raycast-light";
 import redTheme from "@shikijs/themes/red";
 import rosePineTheme from "@shikijs/themes/rose-pine";
 import rosePineDawnTheme from "@shikijs/themes/rose-pine-dawn";
@@ -66,6 +69,47 @@ import vesperTheme from "@shikijs/themes/vesper";
 import vitesseBlackTheme from "@shikijs/themes/vitesse-black";
 import vitesseDarkTheme from "@shikijs/themes/vitesse-dark";
 import vitesseLightTheme from "@shikijs/themes/vitesse-light";
+import xcodeDarkTheme from "@shikijs/themes/xcode-dark";
+import xcodeLightTheme from "@shikijs/themes/xcode-light";
+
+type ThemeData = Record<string, unknown>;
+
+const oscurangeThemeData = oscurangeTheme as ThemeData;
+const oscurangeSchema = oscurangeThemeData.$schema;
+const oscurangeColors = oscurangeThemeData.colors;
+const oscurangeDisplayName = oscurangeThemeData.displayName;
+const oscurangeName = oscurangeThemeData.name;
+const oscurangeTokenColors = oscurangeThemeData.tokenColors;
+const oscurangeType = oscurangeThemeData.type;
+
+const raycastDarkThemeData = raycastDarkTheme as ThemeData;
+const raycastDarkChromeTheme = raycastDarkThemeData.chromeTheme;
+const raycastDarkColors = raycastDarkThemeData.colors;
+const raycastDarkName = raycastDarkThemeData.name;
+const raycastDarkTokenColors = raycastDarkThemeData.tokenColors;
+const raycastDarkType = raycastDarkThemeData.type;
+
+const raycastLightThemeData = raycastLightTheme as ThemeData;
+const raycastLightChromeTheme = raycastLightThemeData.chromeTheme;
+const raycastLightColors = raycastLightThemeData.colors;
+const raycastLightName = raycastLightThemeData.name;
+const raycastLightTokenColors = raycastLightThemeData.tokenColors;
+const raycastLightType = raycastLightThemeData.type;
+
+const xcodeDarkThemeData = xcodeDarkTheme as ThemeData;
+const xcodeDarkChromeTheme = xcodeDarkThemeData.chromeTheme;
+const xcodeDarkColors = xcodeDarkThemeData.colors;
+const xcodeDarkName = xcodeDarkThemeData.name;
+const xcodeDarkTokenColors = xcodeDarkThemeData.tokenColors;
+const xcodeDarkType = xcodeDarkThemeData.type;
+
+const xcodeLightThemeData = xcodeLightTheme as ThemeData;
+const xcodeLightChromeTheme = xcodeLightThemeData.chromeTheme;
+const xcodeLightColors = xcodeLightThemeData.colors;
+const xcodeLightName = xcodeLightThemeData.name;
+const xcodeLightTokenColors = xcodeLightThemeData.tokenColors;
+const xcodeLightType = xcodeLightThemeData.type;
+
 export {
   codexDarkColors,
   codexDarkName,
@@ -128,10 +172,29 @@ export {
   nightOwlTheme,
   nightOwlLightTheme,
   nordTheme,
+  oscurangeColors,
+  oscurangeDisplayName,
+  oscurangeName,
+  oscurangeSchema,
+  oscurangeTheme,
+  oscurangeTokenColors,
+  oscurangeType,
   oneDarkProTheme,
   oneLightTheme,
   plasticTheme,
   poimandresTheme,
+  raycastDarkChromeTheme,
+  raycastDarkColors,
+  raycastDarkName,
+  raycastDarkTheme,
+  raycastDarkTokenColors,
+  raycastDarkType,
+  raycastLightChromeTheme,
+  raycastLightColors,
+  raycastLightName,
+  raycastLightTheme,
+  raycastLightTokenColors,
+  raycastLightType,
   redTheme,
   rosePineTheme,
   rosePineDawnTheme,
@@ -147,4 +210,16 @@ export {
   vitesseBlackTheme,
   vitesseDarkTheme,
   vitesseLightTheme,
+  xcodeDarkChromeTheme,
+  xcodeDarkColors,
+  xcodeDarkName,
+  xcodeDarkTheme,
+  xcodeDarkTokenColors,
+  xcodeDarkType,
+  xcodeLightChromeTheme,
+  xcodeLightColors,
+  xcodeLightName,
+  xcodeLightTheme,
+  xcodeLightTokenColors,
+  xcodeLightType,
 };

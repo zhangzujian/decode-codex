@@ -39419,6 +39419,98 @@
       "stage3AcceptedAt": "2026-06-30T12:40:23.128Z",
       "stage3Review": "Host self-review: split module read end-to-end against Stage 3 E1-E4; quality-gate and prettier passed for setup-codex state, conversation, card, types, and barrels.",
       "lastUpdated": "2026-06-30T12:40:23.132Z"
+    },
+    "ajs-destination-BeM_T5LQ": {
+      "restored": "vendor/segment-analytics-integration.ts",
+      "exports": {
+        "ajsDestinations": "ajsDestinations"
+      },
+      "status": "done",
+      "vendor": "@segment/analytics.js-integration",
+      "note": "Segment analytics.js integration chunk mapped to the npm leaf @segment/analytics.js-integration.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "raycast-light-qgM2ighB": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "chromeTheme": "raycastLightChromeTheme",
+        "colors": "raycastLightColors",
+        "default": "raycastLightTheme",
+        "name": "raycastLightName",
+        "tokenColors": "raycastLightTokenColors",
+        "type": "raycastLightType"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/raycast-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/raycast-light; JSON payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "raycast-dark-LsRgHKYu": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "chromeTheme": "raycastDarkChromeTheme",
+        "colors": "raycastDarkColors",
+        "default": "raycastDarkTheme",
+        "name": "raycastDarkName",
+        "tokenColors": "raycastDarkTokenColors",
+        "type": "raycastDarkType"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/raycast-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/raycast-dark; JSON payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "oscurange-Cutn5gUn": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "$schema": "oscurangeSchema",
+        "colors": "oscurangeColors",
+        "default": "oscurangeTheme",
+        "displayName": "oscurangeDisplayName",
+        "name": "oscurangeName",
+        "tokenColors": "oscurangeTokenColors",
+        "type": "oscurangeType"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/oscurange",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/oscurange; JSON payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "xcode-light-Cer2u1Qo": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "chromeTheme": "xcodeLightChromeTheme",
+        "colors": "xcodeLightColors",
+        "default": "xcodeLightTheme",
+        "name": "xcodeLightName",
+        "tokenColors": "xcodeLightTokenColors",
+        "type": "xcodeLightType"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/xcode-light",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/xcode-light; JSON payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "xcode-dark-BiV-GMju": {
+      "restored": "vendor/shiki-themes.ts",
+      "exports": {
+        "chromeTheme": "xcodeDarkChromeTheme",
+        "colors": "xcodeDarkColors",
+        "default": "xcodeDarkTheme",
+        "name": "xcodeDarkName",
+        "tokenColors": "xcodeDarkTokenColors",
+        "type": "xcodeDarkType"
+      },
+      "status": "done",
+      "vendor": "@shikijs/themes/xcode-dark",
+      "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/xcode-dark; JSON payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }
