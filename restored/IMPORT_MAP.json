@@ -38578,6 +38578,237 @@
       "note": "Shiki bundled language producer chunk mapped to npm leaf @shikijs/langs/typescript; grammar payload is intentionally not copied into restored/. Bundler init aliases are no-ops because static imports are already initialized.",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "bsl-KJXudxOs": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "bslGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/bsl",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/bsl; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "cairo-CabDj-6B": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "cairoGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/cairo",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/cairo; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "coffee-ntqzjsrT": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "coffeeGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/coffee",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/coffee; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "erlang-zJYtvIOx": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "erlangGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/erlang",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/erlang; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "fortran-fixed-form-DT6s7E1t": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "fortranFixedFormGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/fortran-fixed-form",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/fortran-fixed-form; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "fsharp-CoUv6rAb": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "fsharpGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/fsharp",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/fsharp; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "gdresource-Bpdnj0xZ": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "gdresourceGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/gdresource",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/gdresource; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "git-commit-pXideLWu": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "gitCommitGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/git-commit",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/git-commit; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "git-rebase-DNdrrfLt": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "gitRebaseGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/git-rebase",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/git-rebase; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "hxml-CtbC7KEd": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "hxmlGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/hxml",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/hxml; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "jison-BTNoHX4S": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "jisonGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/jison",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/jison; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "nix-NBakjypp": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "nixGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/nix",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/nix; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "astro-DOGoiU8t": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "astroGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/astro",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/astro; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "svelte-4fOmeI0c": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "svelteGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/svelte",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/svelte; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "qml-SRGoj9le": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "qmlGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/qml",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/qml; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "sas-uegmVIpF": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "sasGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/sas",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/sas; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "shaderlab-iR4kDh6v": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "shaderlabGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/shaderlab",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/shaderlab; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "shellsession-D3gj630C": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "shellsessionGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/shellsession",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/shellsession; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "sparql-I2WrHo5x": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "sparqlGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/sparql",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/sparql; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "stata-BcK2lJ9l": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "stataGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/stata",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/stata; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "templ-ClsDWsCA": {
+      "restored": "vendor/shiki-languages.ts",
+      "exports": {
+        "default": "templGrammar"
+      },
+      "status": "done",
+      "vendor": "@shikijs/langs/templ",
+      "note": "Shiki bundled language wrapper chunk mapped to npm leaf @shikijs/langs/templ; grammar payload and dependency wiring are intentionally not copied into restored/",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }

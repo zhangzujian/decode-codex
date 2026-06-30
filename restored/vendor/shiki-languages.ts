@@ -157,6 +157,27 @@ import stylusGrammar from "@shikijs/langs/stylus";
 import tsxGrammar from "@shikijs/langs/tsx";
 import turtleGrammar from "@shikijs/langs/turtle";
 import typescriptGrammar from "@shikijs/langs/typescript";
+import bslGrammar from "@shikijs/langs/bsl";
+import cairoGrammar from "@shikijs/langs/cairo";
+import coffeeGrammar from "@shikijs/langs/coffee";
+import erlangGrammar from "@shikijs/langs/erlang";
+import fortranFixedFormGrammar from "@shikijs/langs/fortran-fixed-form";
+import fsharpGrammar from "@shikijs/langs/fsharp";
+import gdresourceGrammar from "@shikijs/langs/gdresource";
+import gitCommitGrammar from "@shikijs/langs/git-commit";
+import gitRebaseGrammar from "@shikijs/langs/git-rebase";
+import hxmlGrammar from "@shikijs/langs/hxml";
+import jisonGrammar from "@shikijs/langs/jison";
+import nixGrammar from "@shikijs/langs/nix";
+import astroGrammar from "@shikijs/langs/astro";
+import svelteGrammar from "@shikijs/langs/svelte";
+import qmlGrammar from "@shikijs/langs/qml";
+import sasGrammar from "@shikijs/langs/sas";
+import shaderlabGrammar from "@shikijs/langs/shaderlab";
+import shellsessionGrammar from "@shikijs/langs/shellsession";
+import sparqlGrammar from "@shikijs/langs/sparql";
+import stataGrammar from "@shikijs/langs/stata";
+import templGrammar from "@shikijs/langs/templ";
 
 type ShikiGrammarChunkInitializer = () => void;
 
@@ -409,4 +430,25 @@ export {
   initTurtleGrammarChunk,
   typescriptLanguageGrammars,
   initTypescriptGrammarChunk,
+  bslGrammar,
+  cairoGrammar,
+  coffeeGrammar,
+  erlangGrammar,
+  fortranFixedFormGrammar,
+  fsharpGrammar,
+  gdresourceGrammar,
+  gitCommitGrammar,
+  gitRebaseGrammar,
+  hxmlGrammar,
+  jisonGrammar,
+  nixGrammar,
+  astroGrammar,
+  svelteGrammar,
+  qmlGrammar,
+  sasGrammar,
+  shaderlabGrammar,
+  shellsessionGrammar,
+  sparqlGrammar,
+  stataGrammar,
+  templGrammar,
 };
