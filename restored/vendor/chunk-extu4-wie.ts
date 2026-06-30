@@ -3,19 +3,24 @@
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN } from "./dompurify";
 import { _chunkABZYJK2DL } from "./katex-auto-render";
-export const chunkEXTU4WIE = chunkAGHRB4JFN((chunkEXTU4WIEParam1) => {
-  let { securityLevel: _chunkEXTU4WIE } = _chunkABZYJK2DL(),
-    chunkEXTU4WIEValue1 = Src("body");
-  return (
-    _chunkEXTU4WIE === "sandbox" &&
-      (chunkEXTU4WIEValue1 = Src(
-        (Src(`#i${chunkEXTU4WIEParam1}`).node()?.contentDocument ?? document)
-          .body,
-      )),
-    chunkEXTU4WIEValue1.select(`#${chunkEXTU4WIEParam1}`)
-  );
+
+type MermaidSecurityConfig = {
+  securityLevel?: string;
+};
+
+const selectSvgElement = chunkAGHRB4JFN((diagramId: string) => {
+  const { securityLevel } = _chunkABZYJK2DL() as MermaidSecurityConfig;
+  let rootSelection = Src("body");
+
+  if (securityLevel === "sandbox") {
+    const sandboxDocument =
+      Src(`#i${diagramId}`).node()?.contentDocument ?? document;
+    rootSelection = Src(sandboxDocument.body);
+  }
+
+  return rootSelection.select(`#${diagramId}`);
 }, "selectSvgElement");
 
-export function initChunkEXTU4WIE() {
-  // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
-}
+export { selectSvgElement, selectSvgElement as chunkEXTU4WIE };
+
+export function initChunkEXTU4WIE(): void {}

@@ -11,10 +11,10 @@ export const mathF = Math.sqrt;
 export const mathD = Math.sin;
 export const mathC = Math.max;
 export const mathA = Math.cos;
-export function mathN(_mathT) {
-  return _mathT > 1 ? 0 : _mathT < -1 ? mathU : Math.acos(_mathT);
+export function mathN(value: number): number {
+  return value > 1 ? 0 : value < -1 ? mathU : Math.acos(value);
 }
-export function mathR(_mathT) {
-  return _mathT >= 1 ? mathS : _mathT <= -1 ? -mathS : Math.asin(_mathT);
+export function mathR(value: number): number {
+  return value >= 1 ? mathS : value <= -1 ? -mathS : Math.asin(value);
 }
 export { mathS, mathU };
