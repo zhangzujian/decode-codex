@@ -186,6 +186,29 @@ import luaGrammar from "@shikijs/langs/lua";
 import scssGrammar from "@shikijs/langs/scss";
 import texGrammar from "@shikijs/langs/tex";
 import xmlGrammar from "@shikijs/langs/xml";
+import aplGrammar from "@shikijs/langs/apl";
+import cobolGrammar from "@shikijs/langs/cobol";
+import crystalGrammar from "@shikijs/langs/crystal";
+import elixirGrammar from "@shikijs/langs/elixir";
+import elmGrammar from "@shikijs/langs/elm";
+import glimmerJsGrammar from "@shikijs/langs/glimmer-js";
+import glimmerTsGrammar from "@shikijs/langs/glimmer-ts";
+import hackGrammar from "@shikijs/langs/hack";
+import handlebarsGrammar from "@shikijs/langs/handlebars";
+import httpGrammar from "@shikijs/langs/http";
+import hurlGrammar from "@shikijs/langs/hurl";
+import jinjaGrammar from "@shikijs/langs/jinja";
+import latexGrammar from "@shikijs/langs/latex";
+import liquidGrammar from "@shikijs/langs/liquid";
+import markoGrammar from "@shikijs/langs/marko";
+import nginxGrammar from "@shikijs/langs/nginx";
+import nimGrammar from "@shikijs/langs/nim";
+import perlGrammar from "@shikijs/langs/perl";
+import pugGrammar from "@shikijs/langs/pug";
+import razorGrammar from "@shikijs/langs/razor";
+import soyGrammar from "@shikijs/langs/soy";
+import tsTagsGrammar from "@shikijs/langs/ts-tags";
+import xslGrammar from "@shikijs/langs/xsl";
 
 type ShikiGrammarChunkInitializer = () => void;
 
@@ -491,4 +514,27 @@ export {
   initTexGrammarChunk,
   xmlLanguageGrammars,
   initXmlGrammarChunk,
+  aplGrammar,
+  cobolGrammar,
+  crystalGrammar,
+  elixirGrammar,
+  elmGrammar,
+  glimmerJsGrammar,
+  glimmerTsGrammar,
+  hackGrammar,
+  handlebarsGrammar,
+  httpGrammar,
+  hurlGrammar,
+  jinjaGrammar,
+  latexGrammar,
+  liquidGrammar,
+  markoGrammar,
+  nginxGrammar,
+  nimGrammar,
+  perlGrammar,
+  pugGrammar,
+  razorGrammar,
+  soyGrammar,
+  tsTagsGrammar,
+  xslGrammar,
 };
