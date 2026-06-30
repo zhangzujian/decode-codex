@@ -1,13 +1,11 @@
-// Restored from ref/webview/assets/artifact-preview-status-BdDDtvat.js
+// Restored from ref/webview/assets/artifact-preview-status-jgtoNhXT.js
+// Alias-compatible with ref/webview/assets/artifact-preview-status-BdDDtvat.js.
 // Artifact preview loading and error state renderer.
 
 import type { ReactElement } from "react";
 import { FormattedMessage } from "react-intl";
-
 export type ArtifactPreviewStatusValue = "ready" | "loading" | "error";
-
 export function initArtifactPreviewStatusChunk() {}
-
 export function ArtifactPreviewStatus(
   status: ArtifactPreviewStatusValue,
 ): ReactElement | null {
@@ -32,5 +30,4 @@ export function ArtifactPreviewStatus(
     </div>
   );
 }
-
 export default ArtifactPreviewStatus;
