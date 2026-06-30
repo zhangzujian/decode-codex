@@ -41804,6 +41804,19 @@
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T22:12:25.055Z",
       "stage3Review": "Host self-review: current ref sequenceDiagram-WL72ISMW-Cj-M6wv4.js exports only diagram; restored/vendor/sequence-diagram-wl72ismw.ts preserves that surface through SequenceDiagramWL72ISMW and passes quality-gate --vendored."
+    },
+    "kanban-definition-6JOO6SKY-BPmh8gj-": {
+      "restored": "vendor/mermaid-kanban-definition.ts",
+      "exports": {
+        "diagram": "KanbanDefinition6JOO6SKY"
+      },
+      "status": "done",
+      "aliasOf": "kanban-definition-6JOO6SKY-cHI15BWA",
+      "lastUpdated": "2026-06-30T22:15:39.570Z",
+      "note": "Current Mermaid kanban definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:15:39.570Z",
+      "stage3Review": "Host self-review: current ref kanban-definition-6JOO6SKY-BPmh8gj-.js exports only diagram; restored/vendor/mermaid-kanban-definition.ts preserves that surface through KanbanDefinition6JOO6SKY and passes quality-gate --vendored."
     }
   }
 }
