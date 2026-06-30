@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/chunk-FWNWRKHM-CrY4401d.js
-// ChunkFWNWRKHM chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/chunk-FWNWRKHM-BHhZ1scK.js
+// Mermaid treemap diagram service module restored from the Codex webview bundle.
 import {
   chunkFPAJGGOCD,
   chunkFPAJGGOCF,
@@ -11,7 +11,7 @@ import {
   chunkFPAJGGOCS,
   chunkFPAJGGOCT,
 } from "./mermaid-parser-runtime-fpajggoc";
-var chunkFWNWRKHMValue1 = class extends chunkFPAJGGOCT {
+var TreemapTokenBuilder = class extends chunkFPAJGGOCT {
     static {
       chunkFPAJGGOCF(this, "TreemapTokenBuilder");
     }
@@ -19,114 +19,110 @@ var chunkFWNWRKHMValue1 = class extends chunkFPAJGGOCT {
       super(["treemap"]);
     }
   },
-  chunkFWNWRKHMValue2 = /classDef\s+([A-Z_a-z]\w+)(?:\s+([^\n\r;]*))?;?/,
-  chunkFWNWRKHMValue3 = class extends chunkFPAJGGOCN {
+  classDefStatementPattern =
+    /classDef\s+([A-Z_a-z]\w+)(?:\s+([^\n\r;]*))?;?/,
+  TreemapValueConverter = class extends chunkFPAJGGOCN {
     static {
       chunkFPAJGGOCF(this, "TreemapValueConverter");
     }
-    runCustomConverter(
-      chunkFWNWRKHMParam1,
-      chunkFWNWRKHMParam2,
-      chunkFWNWRKHMParam3,
-    ) {
-      if (chunkFWNWRKHMParam1.name === "NUMBER2")
-        return parseFloat(chunkFWNWRKHMParam2.replace(/,/g, ""));
-      if (
-        chunkFWNWRKHMParam1.name === "SEPARATOR" ||
-        chunkFWNWRKHMParam1.name === "STRING2"
-      )
-        return chunkFWNWRKHMParam2.substring(1, chunkFWNWRKHMParam2.length - 1);
-      if (chunkFWNWRKHMParam1.name === "INDENTATION")
-        return chunkFWNWRKHMParam2.length;
-      if (chunkFWNWRKHMParam1.name === "ClassDef") {
-        if (typeof chunkFWNWRKHMParam2 != "string") return chunkFWNWRKHMParam2;
-        let chunkFWNWRKHMValue7 = chunkFWNWRKHMValue2.exec(chunkFWNWRKHMParam2);
-        if (chunkFWNWRKHMValue7)
+    runCustomConverter(token, text, context) {
+      if (token.name === "NUMBER2") return parseFloat(text.replace(/,/g, ""));
+      if (token.name === "SEPARATOR" || token.name === "STRING2")
+        return text.substring(1, text.length - 1);
+      if (token.name === "INDENTATION") return text.length;
+      if (token.name === "ClassDef") {
+        if (typeof text != "string") return text;
+        let classDefMatch = classDefStatementPattern.exec(text);
+        if (classDefMatch)
           return {
             $type: "ClassDefStatement",
-            className: chunkFWNWRKHMValue7[1],
-            styleText: chunkFWNWRKHMValue7[2] || undefined,
+            className: classDefMatch[1],
+            styleText: classDefMatch[2] || undefined,
           };
       }
     }
   };
-function chunkFWNWRKHMHelper1(chunkFWNWRKHMParam6) {
-  let chunkFWNWRKHMValue8 = chunkFWNWRKHMParam6.validation.TreemapValidator,
-    chunkFWNWRKHMValue9 = chunkFWNWRKHMParam6.validation.ValidationRegistry;
-  if (chunkFWNWRKHMValue9) {
-    let chunkFWNWRKHMValue12 = {
-      Treemap: chunkFWNWRKHMValue8.checkSingleRoot.bind(chunkFWNWRKHMValue8),
+function registerValidationChecks(treemapServices) {
+  let treemapValidator = treemapServices.validation.TreemapValidator,
+    validationRegistry = treemapServices.validation.ValidationRegistry;
+  if (validationRegistry) {
+    let validationChecks = {
+      Treemap: treemapValidator.checkSingleRoot.bind(treemapValidator),
     };
-    chunkFWNWRKHMValue9.register(chunkFWNWRKHMValue12, chunkFWNWRKHMValue8);
+    validationRegistry.register(validationChecks, treemapValidator);
   }
 }
-chunkFPAJGGOCF(chunkFWNWRKHMHelper1, "registerValidationChecks");
-var chunkFWNWRKHMValue4 = class {
+chunkFPAJGGOCF(registerValidationChecks, "registerValidationChecks");
+var TreemapValidator = class {
     static {
       chunkFPAJGGOCF(this, "TreemapValidator");
     }
-    checkSingleRoot(chunkFWNWRKHMParam4, chunkFWNWRKHMParam5) {
-      let chunkFWNWRKHMValue5;
-      for (let chunkFWNWRKHMValue6 of chunkFWNWRKHMParam4.TreemapRows)
-        chunkFWNWRKHMValue6.item &&
-          (chunkFWNWRKHMValue5 === undefined &&
-          chunkFWNWRKHMValue6.indent === undefined
-            ? (chunkFWNWRKHMValue5 = 0)
-            : (chunkFWNWRKHMValue6.indent === undefined ||
-                (chunkFWNWRKHMValue5 !== undefined &&
-                  chunkFWNWRKHMValue5 >=
-                    parseInt(chunkFWNWRKHMValue6.indent, 10))) &&
-              chunkFWNWRKHMParam5(
+    checkSingleRoot(treemapDocument, accept) {
+      let rootIndent;
+      for (let row of treemapDocument.TreemapRows)
+        row.item &&
+          (rootIndent === undefined && row.indent === undefined
+            ? (rootIndent = 0)
+            : (row.indent === undefined ||
+                (rootIndent !== undefined &&
+                  rootIndent >= parseInt(row.indent, 10))) &&
+              accept(
                 "error",
                 "Multiple root nodes are not allowed in a treemap.",
                 {
-                  node: chunkFWNWRKHMValue6,
+                  node: row,
                   property: "item",
                 },
               ));
     }
   },
-  chunkFWNWRKHMT = {
+  treemapServiceModule = {
     parser: {
       TokenBuilder: chunkFPAJGGOCF(
-        () => new chunkFWNWRKHMValue1(),
+        () => new TreemapTokenBuilder(),
         "TokenBuilder",
       ),
       ValueConverter: chunkFPAJGGOCF(
-        () => new chunkFWNWRKHMValue3(),
+        () => new TreemapValueConverter(),
         "ValueConverter",
       ),
     },
     validation: {
       TreemapValidator: chunkFPAJGGOCF(
-        () => new chunkFWNWRKHMValue4(),
+        () => new TreemapValidator(),
         "TreemapValidator",
       ),
     },
   };
-function chunkFWNWRKHMN(chunkFWNWRKHMParam7 = chunkFPAJGGOCP) {
-  let chunkFWNWRKHMValue10 = chunkFPAJGGOCM(
-      chunkFPAJGGOCG(chunkFWNWRKHMParam7),
+function createTreemapServices(parserConfig = chunkFPAJGGOCP) {
+  let sharedServices = chunkFPAJGGOCM(
+      chunkFPAJGGOCG(parserConfig),
       chunkFPAJGGOCS,
     ),
-    chunkFWNWRKHMValue11 = chunkFPAJGGOCM(
+    treemapServices = chunkFPAJGGOCM(
       chunkFPAJGGOCH({
-        shared: chunkFWNWRKHMValue10,
+        shared: sharedServices,
       }),
       chunkFPAJGGOCD,
-      chunkFWNWRKHMT,
+      treemapServiceModule,
     );
   return (
-    chunkFWNWRKHMValue10.ServiceRegistry.register(chunkFWNWRKHMValue11),
-    chunkFWNWRKHMHelper1(chunkFWNWRKHMValue11),
+    sharedServices.ServiceRegistry.register(treemapServices),
+    registerValidationChecks(treemapServices),
     {
-      shared: chunkFWNWRKHMValue10,
-      Treemap: chunkFWNWRKHMValue11,
+      shared: sharedServices,
+      Treemap: treemapServices,
     }
   );
 }
-function initChunkFWNWRKHM() {
+function initChunkFWNWRKHM(): void {
   // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
 }
-chunkFPAJGGOCF(chunkFWNWRKHMN, "createTreemapServices");
-export { chunkFWNWRKHMN, initChunkFWNWRKHM, chunkFWNWRKHMT };
+chunkFPAJGGOCF(createTreemapServices, "createTreemapServices");
+export {
+  createTreemapServices,
+  createTreemapServices as chunkFWNWRKHMN,
+  initChunkFWNWRKHM,
+  treemapServiceModule,
+  treemapServiceModule as chunkFWNWRKHMT,
+};
