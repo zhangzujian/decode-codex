@@ -4,6 +4,7 @@
 // surface, and measures each slot so its reserved width tracks the content.
 import type { ReactNode } from "react";
 import clsx from "clsx";
+import { useResizeObserverRef } from "../utils/use-resize-observer";
 import {
   appShellHeaderActionEntriesSignal,
   appShellHeaderContextMenuItemsSignal,
@@ -17,7 +18,6 @@ import {
   motionTemplate,
   rightPanelMaximizedSignal,
   useAppShellLayout,
-  useResizeObserverRef,
   useSignalValue,
   type MotionValue,
 } from "../boundaries/onboarding-commons-externals.facade";

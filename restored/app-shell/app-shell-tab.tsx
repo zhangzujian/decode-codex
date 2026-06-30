@@ -8,10 +8,8 @@ import clsx from "clsx";
 import { useIntl } from "../vendor/react-intl";
 import { Tooltip } from "../ui/tooltip-b";
 import { TabCloseCircleIcon } from "../icons/app-shell-panel-icons";
-import {
-  useMeasuredWidth,
-  useResizeObserverRef,
-} from "../boundaries/onboarding-commons-externals.facade";
+import { useResizeObserverRef } from "../utils/use-resize-observer";
+import { useMeasuredWidth } from "../boundaries/onboarding-commons-externals.facade";
 
 export const APP_SHELL_TAB_BACKGROUND =
   "color-mix(in srgb, var(--color-token-foreground) 5%, var(--color-token-main-surface-primary))";
