@@ -2,6 +2,6 @@
 // Complete current-ref compatibility export surface for gitConfigValueCurrent.
 // prettier-ignore
 export {
-  a as gitConfigValueCurrentCompatSlotLowerA, i as gitConfigValueCurrentCompatSlotLowerI, n as gitConfigValueCurrentCompatSlotLowerN, r as gitConfigValueCurrentCompatSlotLowerR,
-  t as gitConfigValueCurrentCompatSlotLowerT
+  initGitConfigValueCurrentRuntimeDependencies as gitConfigValueCurrentCompatSlotLowerA, createCurrentGitQuerySignal as gitConfigValueCurrentCompatSlotLowerI, gitConfigValueFromCwdSignal as gitConfigValueCurrentCompatSlotLowerN, initGitConfigValueCurrentChunk as gitConfigValueCurrentCompatSlotLowerR,
+  gitConfigValueByMetadataQuerySignal as gitConfigValueCurrentCompatSlotLowerT
 } from "../../vendor/git-config-value-current-bundle";
