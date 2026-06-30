@@ -3316,6 +3316,27 @@
       "aliasOf": "metric-helpers-BidZZeRm",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
+    "metric-helpers-DG5zp00d": {
+      "restored": "vendor/segment-metric-helpers.ts",
+      "exports": {
+        "a": "metricHelpersA",
+        "c": "metricHelpersC",
+        "d": "metricHelpersD",
+        "f": "metricHelpersF",
+        "i": "metricHelpersI",
+        "l": "metricHelpersL",
+        "n": "metricHelpersN",
+        "o": "metricHelpersO",
+        "r": "metricHelpersR",
+        "s": "metricHelpersS",
+        "t": "metricHelpersT",
+        "u": "metricHelpersU"
+      },
+      "status": "done",
+      "aliasOf": "metric-helpers-BidZZeRm",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Segment metric helper chunk keeps the restored public API."
+    },
     "middleware-Az7vHdEh": {
       "restored": "vendor/segment-middleware-entry.ts",
       "exports": {
@@ -18321,6 +18342,29 @@
       "aliasOf": "load-script-CELRAn-0",
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current Segment load-script chunk keeps the restored public API and adds d/f/m/p internal exports."
+    },
+    "load-script-BifiZc4M": {
+      "restored": "vendor/segment-load-script.ts",
+      "exports": {
+        "a": "loadScriptI",
+        "c": "loadScriptO",
+        "d": "loadScriptC",
+        "f": "loadScriptF",
+        "i": "loadScriptR",
+        "l": "loadScriptNamespaceInit",
+        "m": "loadScriptU",
+        "n": "loadScriptT",
+        "o": "loadScriptCdnInit",
+        "p": "loadScriptL",
+        "r": "loadScriptN",
+        "s": "loadScriptA",
+        "t": "loadScriptEntryInit",
+        "u": "loadScriptS"
+      },
+      "status": "done",
+      "aliasOf": "load-script-enBvQ5ff",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current Rolldown repack reorders Segment load-script aliases and exposes initializer thunks; aliases were rederived from load-script-BifiZc4M.js."
     },
     "document-1gFz5aiQ": {
       "restored": "vendor/document-schema.ts",

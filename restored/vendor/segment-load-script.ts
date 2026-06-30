@@ -7,6 +7,10 @@ export function loadScriptU() {
   return !loadScriptL();
 }
 var loadScriptValue1 = "analytics";
+export function loadScriptF() {}
+export function loadScriptNamespaceInit() {
+  loadScriptValue1 = "analytics";
+}
 function loadScriptO() {
   return window[loadScriptValue1];
 }
@@ -48,6 +52,9 @@ export const loadScriptA = function (_loadScriptL) {
   _loadScriptU && (_loadScriptU._cdn = _loadScriptL);
   loadScriptValue4 = _loadScriptL;
 };
+export function loadScriptCdnInit() {
+  loadScriptNamespaceInit();
+}
 function loadScriptHelper1(_loadScriptL) {
   return Array.prototype.slice
     .call(window.document.querySelectorAll("script"))
@@ -112,4 +119,5 @@ export function loadScriptN(_loadScriptL) {
     Promise.resolve()
   );
 }
+export function loadScriptEntryInit() {}
 export { loadScriptL, loadScriptO, loadScriptR };
