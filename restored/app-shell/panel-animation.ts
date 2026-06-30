@@ -3,11 +3,11 @@
 // kept mounted while its animation value is non-zero so the collapse transition
 // can play out, and exposes the interpolated size / opacity motion values.
 import { useState } from "react";
+import { useMotionValueEvent } from "../utils/use-motion-value-event";
 import {
-  useMotionValueEvent,
-  useMotionTransform,
+  useTransform as useMotionTransform,
   type MotionValue,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "../utils/use-transform";
 
 export interface PanelAnimationArgs {
   size: MotionValue<number>;

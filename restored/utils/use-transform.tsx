@@ -102,4 +102,5 @@ function useTransform<T>(
     ? useListTransform(value, transformer as (latest: Array<unknown>) => T)
     : useListTransform([value], ([latest]) => transformer(latest));
 }
+export type { MotionValue };
 export { useCombineMotionValues, useMotionValue, useTransform };
