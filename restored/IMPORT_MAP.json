@@ -2962,7 +2962,12 @@
         "r": "helpersR",
         "t": "helpersT"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical Segment primitive type-check helper chunk retained in vendor/segment-helpers.ts; the current synced ref no longer contains this exact hash.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains helpers-BDwSRLlu, vendor/segment-helpers.ts passes quality-gate, and all five recorded helper aliases are exported."
     },
     "load-script-CELRAn-0": {
       "restored": "vendor/segment-load-script.ts",
@@ -2978,7 +2983,12 @@
         "t": "loadScriptT",
         "u": "loadScriptU"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical Segment load-script helper chunk retained in vendor/segment-load-script.ts; the current synced ref migrated this surface to load-script-BifiZc4M.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains load-script-CELRAn-0, current load-script-BifiZc4M exists, vendor/segment-load-script.ts passes quality-gate, and all ten historical aliases are exported."
     },
     "arc-D3MQZVTw": {
       "restored": "vendor/d3-shape-arc.ts",
@@ -20863,8 +20873,11 @@
       },
       "status": "done",
       "aliasOf": "load-script-CELRAn-0",
-      "lastUpdated": "2026-06-29T00:00:00.000Z",
-      "note": "Current Segment load-script chunk keeps the restored public API and adds d/f/m/p internal exports."
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Historical intermediate Segment load-script chunk retained in vendor/segment-load-script.ts; the current synced ref migrated this surface to load-script-BifiZc4M.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains load-script-enBvQ5ff, current load-script-BifiZc4M exists, vendor/segment-load-script.ts passes quality-gate, and all ten intermediate aliases are exported."
     },
     "load-script-BifiZc4M": {
       "restored": "vendor/segment-load-script.ts",
@@ -20889,7 +20902,9 @@
       "lastUpdated": "2026-06-30T00:00:00.000Z",
       "note": "Current Rolldown repack reorders Segment load-script aliases and exposes initializer thunks; aliases were rederived from load-script-BifiZc4M.js.",
       "stage3Accepted": true,
-      "stage3Note": "Accepted as a typed Segment load-script helper restored with DOM side-effect handling."
+      "stage3Note": "Accepted as a typed Segment load-script helper restored with DOM side-effect handling.",
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current load-script-BifiZc4M ref asset exists, vendor/segment-load-script.ts passes quality-gate, and all fourteen current aliases are exported."
     },
     "document-1gFz5aiQ": {
       "restored": "vendor/document-schema.ts",
