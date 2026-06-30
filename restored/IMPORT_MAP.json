@@ -15065,8 +15065,12 @@
       },
       "status": "done",
       "aliasOf": "thread-app-shell-chrome-D7ImdiWZ",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref producer keeps the restored thread app-shell chrome surface."
+      "lastUpdated": "2026-06-30T23:17:39.302Z",
+      "note": "Current ref producer keeps the restored thread app-shell chrome surface; validated against app-shell/thread-app-shell-chrome/index.tsx.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:17:39.302Z",
+      "stage3Review": "Host self-review: CEI45G4c exposes the same n/r/t shell surface as the semantic thread-app-shell-chrome restore, and the existing restored app-shell file passes quality-gate.",
+      "stage3Note": "Accepted as an alias to the semantic app-shell/thread-app-shell-chrome restore instead of duplicating the current bundle."
     },
     "thread-app-shell-chrome-DBT2t1lC": {
       "restored": "app-shell/thread-app-shell-chrome-entry.ts",
@@ -42600,6 +42604,19 @@
       "stage3AcceptedAt": "2026-06-30T23:59:59.950Z",
       "stage3Review": "Host self-review: verified the current file exports DebugWindowPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
       "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of DebugWindowPage remains a later cleanup."
+    },
+    "hotkey-window-thread-page-DGErqu4u": {
+      "restored": "runtime/current-app-initial/hotkey-window-thread-page-current-runtime.ts",
+      "exports": {
+        "HotkeyWindowThreadPage": "HotkeyWindowThreadPage"
+      },
+      "status": "done",
+      "note": "Current hotkey window thread page hash maps to a dedicated current-ref runtime over vendor/hotkey-window-thread-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-06-30T23:17:39.302Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:17:39.302Z",
+      "stage3Review": "Host self-review: parsed hotkey-window-thread-page-DGErqu4u.js exports, rebuilt the HotkeyWindowThreadPage compatibility export from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
     }
   }
 }
