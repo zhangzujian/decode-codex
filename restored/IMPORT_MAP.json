@@ -36,6 +36,40 @@
       },
       "status": "done"
     },
+    "start-appgen-conversation-DsuZNIH_": {
+      "restored": "appgen/start-appgen-conversation/index.ts",
+      "exports": {
+        "C": "initAppgenLibraryItemCardPrimitivesChunk",
+        "S": "AppgenLibraryItemMeta",
+        "T": "useAppgenScrollablePageTitle",
+        "_": "AppgenLibraryItemSubtitle",
+        "a": "initAppgenLibraryFilteringChunk",
+        "b": "AppgenLibraryItemTitle",
+        "c": "MacSiteDefaultThumbnailIcon",
+        "d": "initWindowsSiteDefaultThumbnailChunk",
+        "f": "AppgenSiteActions",
+        "g": "AppgenLibraryItemFooter",
+        "h": "ContinueLibraryItemChatButton",
+        "i": "filterAppgenLibraryItems",
+        "l": "initMacSiteDefaultThumbnailChunk",
+        "m": "APPGEN_LIBRARY_ITEM_OVERLAY_BUTTON_CLASS_NAME",
+        "n": "initStartAppgenConversationChunk",
+        "o": "shouldIncludeCloudLibraryFile",
+        "p": "initAppgenSiteActionsChunk",
+        "r": "startAppgenConversation",
+        "s": "isAppgenProjectSearchMatch",
+        "t": "continueEditingLibraryFileInOriginalConversation",
+        "u": "WindowsSiteDefaultThumbnailIcon",
+        "v": "AppgenLibraryThumbnailFrame",
+        "w": "initAppgenScrollablePageTitleChunk",
+        "x": "AppgenLibraryItemActionsContainer",
+        "y": "AppgenLibraryItemShell"
+      },
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: compared ref/webview/assets/start-appgen-conversation-DsuZNIH_.js and its appgen-page/appgen-library-page consumers with restored/appgen/start-appgen-conversation; alias exports, card primitives, filtering, site actions, prompt builders, thumbnail variants, and init exports match the source behavior."
+    },
     "codex-app-ga-logo-B3RsqIhJ": {
       "restored": "utils/codex-app-ga-logo.ts",
       "exports": {
