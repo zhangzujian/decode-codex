@@ -1428,7 +1428,10 @@
         "t": "installModulepreloadPolyfill"
       },
       "status": "done",
-      "note": "Previous modulepreload polyfill hash now shares the explicit initializer surface used by the current synced chunk."
+      "note": "Previous modulepreload polyfill hash now shares the explicit initializer surface used by the current synced chunk.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: historical modulepreload-polyfill-Cf3xff8G is absent from the current ref, but current modulepreload-polyfill-D8LKdSkT exposes the same t initializer; runtime/modulepreload-polyfill.ts preserves the idempotent installer surface and passes quality-gate."
     },
     "app-window-BkmniFLd": {
       "restored": "icons/app-window-icon.tsx",
@@ -2501,14 +2504,20 @@
       "exports": {
         "default": "katexC"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: historical __vite-browser-external-EPeb3y57 maps to the same empty Vite/Rolldown browser external stub accepted for the current browser-external hashes; runtime/vite-browser-external.ts preserves the default empty-object surface and passes quality-gate."
     },
     "__vite-browser-external-APFuKv3p": {
       "restored": "runtime/vite-browser-external.ts",
       "exports": {
         "default": "default"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: historical __vite-browser-external-APFuKv3p maps to the same empty Vite/Rolldown browser external stub accepted for the current browser-external hashes; runtime/vite-browser-external.ts preserves the default empty-object surface and passes quality-gate."
     },
     "__vite-browser-external-BJEkgHY1": {
       "restored": "runtime/vite-browser-external.ts",
@@ -2554,7 +2563,10 @@
       "exports": {
         "default": "default"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: compared the stored original browser-DKmdu5pM.js process shim to runtime/browser-process.ts; the restored module preserves nextTick queueing, no-op event methods, process metadata, cwd/chdir/umask/binding behavior, and passes quality-gate."
     },
     "core-CpC1jq0N": {
       "restored": "vendor/highlight-js-core.ts",
@@ -7312,7 +7324,10 @@
         "n": "filesystemMediaPath",
         "t": "filesystemMediaSrc"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: compared the stored original filesystem-media-src-Wi28Ksng.js to runtime/filesystem-media-src.ts; the restored module preserves n/t aliases, app://fs + /@fs path construction, source path normalization, URI escaping, and passes quality-gate."
     },
     "web-search-favicon-icon-B_3yd7Lz": {
       "restored": "browser/web-search-favicon-icon.tsx",
