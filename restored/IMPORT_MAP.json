@@ -39573,6 +39573,28 @@
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
       "stage3Review": "Host self-review: compared avatar-overlay-pill-dismiss-button-Br8FWkZZ.js against the restored avatar-overlay-pill modules; current alias exports cover activity status, compact waiting request helpers, activity item building with automation tray visibility, mascot width persistence/style helpers, resize observation, and the dismiss button component."
+    },
+    "use-avatar-overlay-selection-CUecA6qh": {
+      "restored": "features/avatar-overlay-selection/index.ts",
+      "exports": {
+        "a": "initAvatarOverlayNotificationTrayChunk",
+        "c": "resolveAvatarOverlayPointerDragRelease",
+        "d": "initAvatarOverlayPointerDragChunk",
+        "i": "collectAvatarOverlayNotifications",
+        "l": "createAvatarOverlayPointerSample",
+        "n": "useAvatarOverlaySelection",
+        "o": "buildAvatarOverlayNotificationSearchKey",
+        "r": "createFirstAwakeAvatarOverlayNotification",
+        "s": "initAvatarOverlayNotificationSearchKeyChunk",
+        "t": "initUseAvatarOverlaySelectionChunk",
+        "u": "trimRecentAvatarOverlayPointerSamples"
+      },
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: pointer sampling, notification aggregation, selected-avatar refresh gating, and all minified export aliases were checked against the original chunk.",
+      "note": "Restores avatar overlay pointer release helpers, notification tray aggregation/search-key helpers, first-awake notification factory, and selected avatar hook.",
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }
