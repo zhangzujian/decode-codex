@@ -11609,7 +11609,10 @@
         "r": "chunk336JU56OR",
         "t": "chunk336JU56OT"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:19:35.000Z",
+      "stage3Review": "Host self-review: current ref chunk-336JU56O wrappers preserve the Mermaid layout loader registry surface; restored/vendor/mermaid-layout-loader-k5.ts exports registerLayoutLoaders, render, getRegisteredLayoutAlgorithm, and the current init thunk aliases, and passes vendored quality gate."
     },
     "chunk-B4BG7PRW-YMKrAsOx": {
       "restored": "vendor/mermaid-class-diagram-fpaj.ts",
@@ -33722,7 +33725,10 @@
       "aliasOf": "chunk-336JU56O-D9FbfXWS",
       "note": "Current chunk-336JU56O hash preserves the restored public export surface; aliases re-derived from chunk-336JU56O-20NhwBl7.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:19:35.000Z",
+      "stage3Review": "Host self-review: current ref chunk-336JU56O-20NhwBl7.js exports n/r/t; restored/vendor/mermaid-layout-loader-k5.ts preserves that surface through chunk336JU56ON/chunk336JU56OR/chunk336JU56OT and passes vendored quality gate."
     },
     "chunk-336JU56O-Cutebe7h": {
       "restored": "vendor/mermaid-layout-loader-k5.ts",
@@ -33734,7 +33740,10 @@
       "aliasOf": "chunk-336JU56O-D9FbfXWS",
       "note": "Current chunk-336JU56O hash preserves the restored public export surface; aliases re-derived from chunk-336JU56O-Cutebe7h.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:19:35.000Z",
+      "stage3Review": "Host self-review: current ref chunk-336JU56O-Cutebe7h.js exports n/r/t; restored/vendor/mermaid-layout-loader-k5.ts preserves that surface through chunk336JU56ON/chunk336JU56OR/chunk336JU56OT and passes vendored quality gate."
     },
     "chunk-4TB4RGXK-C0e7Pz0J": {
       "restored": "vendor/mermaid-class-diagram-runtime-k5.ts",
@@ -35469,7 +35478,10 @@
       "aliasOf": "chunk-336JU56O-Cutebe7h",
       "note": "Current Mermaid layout loader aliases were re-derived from chunk-336JU56O-DNhqwrXr.js: i=render, n=lazy init thunk, r=registerLayoutLoaders, t=getRegisteredLayoutAlgorithm.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T22:19:35.000Z",
+      "stage3Review": "Host self-review: current ref chunk-336JU56O-DNhqwrXr.js exports i/n/r/t; restored/vendor/mermaid-layout-loader-k5.ts preserves render/init/register/getRegisteredLayoutAlgorithm through chunk336JU56OR/initMermaidLayoutLoaderK5Chunk/chunk336JU56ON/chunk336JU56OT and passes vendored quality gate."
     },
     "chunk-4TB4RGXK-BR1f0w2Q": {
       "restored": "vendor/mermaid-class-diagram-runtime-k5.ts",
