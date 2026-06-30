@@ -23636,12 +23636,12 @@
         "y": "InfoCircleIcon"
       },
       "status": "done",
-      "note": "Current ref chunk mapped from prior restored chunk with the same stable stem (app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-x1JD0lOF). Verify source diff before treating as Stage 3 accepted for this exact hash.",
-      "lastUpdated": "2026-06-29T20:20:00.000Z",
+      "note": "Current ref exact hash verified against its export table: renderer Sentry, app-update state selectors, InfoCircleIcon, Codex app identity, recovery button, and ErrorBoundary aliases match the restored semantic runtime surface.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
       "migratedFrom": "app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-x1JD0lOF",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "stage3Review": "Host self-review: current source export table was re-derived from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-DHWk0JvV.js and matched the restored renderer-error-boundary runtime aliases; quality-gate and prettier passed on the mapped public file."
     },
     "app-initial~app-main~register-app-actions-CTTYxHO5": {
       "restored": "app-shell/register-app-actions.ts",
@@ -23654,12 +23654,12 @@
         "t": "initRegisterAppActionsChunk"
       },
       "status": "done",
-      "note": "Current ref chunk mapped from prior restored chunk with the same stable stem (app-initial~app-main~register-app-actions-CgjL-zeV). Verify source diff before treating as Stage 3 accepted for this exact hash.",
+      "note": "Current ref exact hash verified against its export table: action schema wrapping, action run-map construction, windows.tabs.open handler registration, and init aliases match the restored app action registration surface.",
       "migratedFrom": "app-initial~app-main~register-app-actions-CgjL-zeV",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "lastUpdated": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current source export table was re-derived from ref/webview/assets/app-initial~app-main~register-app-actions-CTTYxHO5.js and matched the restored register-app-actions aliases; quality-gate and prettier passed on the mapped public file."
     },
     "app-initial~app-main~remote-conversation-page~pull-requests-page~new-thread-panel-page~proj~jolrh1c9-UBdbdM9i": {
       "restored": "runtime/current-app-initial/git-config-value-current-runtime.ts",
@@ -29595,6 +29595,14 @@
       "restored": "vendor/entities-escape.ts",
       "exports": {
         "t": "dist"
+      },
+      "status": "done"
+    },
+    "permission-request-model-FfJwWzP9": {
+      "restored": "utils/permission-request-model.ts",
+      "exports": {
+        "n": "initPermissionRequestModelChunk",
+        "t": "permissionRequestModel"
       },
       "status": "done"
     }

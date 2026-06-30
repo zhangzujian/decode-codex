@@ -1,57 +1,78 @@
-// Restored from ref/webview/assets/permission-request-model-DtxJl8qA.js
+// Restored from ref/webview/assets/permission-request-model-FfJwWzP9.js
 // Permission request model restored from the current Codex webview bundle.
 type FileSystemSpecialPath =
-  | { kind: "root" }
-  | { kind: "minimal" }
-  | { kind: "project_roots"; subpath?: string | null }
-  | { kind: "tmpdir" }
-  | { kind: "slash_tmp" }
-  | { kind: "unknown"; path: string; subpath?: string | null };
-
+  | {
+      kind: "root";
+    }
+  | {
+      kind: "minimal";
+    }
+  | {
+      kind: "project_roots";
+      subpath?: string | null;
+    }
+  | {
+      kind: "tmpdir";
+    }
+  | {
+      kind: "slash_tmp";
+    }
+  | {
+      kind: "unknown";
+      path: string;
+      subpath?: string | null;
+    };
 type FileSystemPermissionPath =
-  | { type: "path"; path: string }
-  | { type: "glob_pattern"; pattern: string }
-  | { type: "special"; value: FileSystemSpecialPath };
-
+  | {
+      type: "path";
+      path: string;
+    }
+  | {
+      type: "glob_pattern";
+      pattern: string;
+    }
+  | {
+      type: "special";
+      value: FileSystemSpecialPath;
+    };
 type FileSystemPermissionEntry = {
   access: "read" | "write" | "deny";
   path: FileSystemPermissionPath;
 };
-
 type FileSystemPermissionRequest = {
   entries?: FileSystemPermissionEntry[] | null;
   read?: string[] | null;
   write?: string[] | null;
 };
-
 type PermissionRequest = {
   network?: unknown;
   fileSystem?: FileSystemPermissionRequest | null;
 };
-
 type PermissionModel =
-  | { kind: "network" }
+  | {
+      kind: "network";
+    }
   | {
       kind: "fileSystem";
       access: "read" | "write" | "readWrite";
       paths: string[];
     };
-
+export function initPermissionRequestModelChunk(): void {}
 export function permissionRequestModel(
   request: PermissionRequest,
 ): PermissionModel[] {
   const permissions: PermissionModel[] = [];
   if (request.network != null) {
-    permissions.push({ kind: "network" });
+    permissions.push({
+      kind: "network",
+    });
   }
   if (request.fileSystem == null) {
     return permissions;
   }
-
   const readPaths = new Set<string>();
   const writePaths = new Set<string>();
   const fileSystem = request.fileSystem;
-
   if (fileSystem.entries != null) {
     for (const entry of fileSystem.entries) {
       const path = formatFileSystemPermissionPath(entry.path);
@@ -74,13 +95,11 @@ export function permissionRequestModel(
       writePaths.add(path);
     }
   }
-
   const readablePaths = Array.from(readPaths);
   const writablePaths = Array.from(writePaths);
   const readWritePaths = readablePaths.filter((path) => writePaths.has(path));
   const readOnlyPaths = readablePaths.filter((path) => !writePaths.has(path));
   const writeOnlyPaths = writablePaths.filter((path) => !readPaths.has(path));
-
   if (readWritePaths.length > 0) {
     permissions.push({
       kind: "fileSystem",
@@ -104,7 +123,6 @@ export function permissionRequestModel(
   }
   return permissions;
 }
-
 function formatFileSystemPermissionPath(
   path: FileSystemPermissionPath,
 ): string {
@@ -117,9 +135,6 @@ function formatFileSystemPermissionPath(
       return formatSpecialPath(path.value);
   }
 }
-
-export function initPermissionRequestModelChunk(): void {}
-
 function formatSpecialPath(path: FileSystemSpecialPath): string {
   switch (path.kind) {
     case "root":
