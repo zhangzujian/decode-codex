@@ -42521,6 +42521,31 @@
       "stage3AcceptedAt": "2026-06-30T23:59:59.000Z",
       "stage3Review": "Host self-review: verified the current file exports AppearanceSettings, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
       "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of AppearanceSettings remains a later cleanup."
+    },
+    "codex-mobile-setup-flow-XFbY7C-Z": {
+      "restored": "runtime/current-app-initial/codex-mobile-setup-flow-current-runtime.ts",
+      "exports": {
+        "a": "codexMobileSetupFlowA",
+        "c": "codexMobileSetupFlowC",
+        "d": "codexMobileSetupFlowD",
+        "f": "codexMobileSetupFlowF",
+        "i": "codexMobileSetupFlowI",
+        "l": "codexMobileSetupFlowL",
+        "n": "codexMobileSetupFlowN",
+        "o": "codexMobileSetupFlowO",
+        "p": "codexMobileSetupFlowP",
+        "r": "codexMobileSetupFlowR",
+        "s": "codexMobileSetupFlowS",
+        "t": "codexMobileSetupFlowT",
+        "u": "codexMobileSetupFlowU"
+      },
+      "status": "done",
+      "note": "Current Codex mobile setup flow hash maps to a dedicated current-ref runtime over vendor/codex-mobile-setup-flow-current-bundle.tsx; aliases are derived from the current file and exposed as codexMobileSetupFlow* compatibility names.",
+      "lastUpdated": "2026-06-30T23:06:02.558Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:06:02.558Z",
+      "stage3Review": "Host self-review: parsed current export table, rebuilt alias-to-compatibility-name exports from auto-renames.json, rewrote dependency imports through restored/IMPORT_MAP.json with consumer rename aliases, and prepared focused quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of CodexMobileSetupFlow remains future cleanup."
     }
   }
 }
