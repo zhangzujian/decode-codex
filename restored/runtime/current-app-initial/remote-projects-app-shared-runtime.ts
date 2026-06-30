@@ -2,6 +2,10 @@
 // Semantic export map for the current app-initial remote/projects shared runtime chunk.
 // Every minified public binding is exposed below with a stable restored name.
 
+// App Host Services
+// prettier-ignore
+export { nv as initAppHostServicesRuntimeChunkRaw, rv as connectAppHostServicesRaw, tv as appHostServicesRaw } from "../../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
+
 // Helpers
 // prettier-ignore
 export { Dp as markdownCodeBlockParserRuntime, H_ as coerceObjectLikeHelper, Iy as intlFormatDateTimeRuntime, Jy as copyObjectExcludingKeysHelper, Ky as extendClassPrototypeHelper, Ly as dateTimeNumberFormatters, R_ as symbolObjectCoercionHelper, Vc as usingDeclarationsRuntimeHelper, Wy as setPrototypeOfHelperBinding, Xy as initializeTypeScriptClassHelpers, Yy as appendArrayLikeHelper, Z_ as coercePrimitivePropertyKeyHelper, Zp as randomUuidBytesHelper, do as computerUseIntlMessages } from "../../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
