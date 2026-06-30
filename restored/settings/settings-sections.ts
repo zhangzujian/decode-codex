@@ -2,6 +2,7 @@
 // settings-sections-R3FWArjV chunk restored from the Codex webview bundle.
 export const SETTINGS_SECTION_IDS = [
   "general-settings",
+  "import",
   "profile",
   "keyboard-shortcuts",
   "codex-micro",
@@ -61,3 +62,18 @@ export const SettingsSchemaValueType = {
 } as const;
 
 export const DEFAULT_SETTINGS_SECTION = "general-settings";
+
+export const settingsSectionIds = SETTINGS_SECTION_IDS;
+
+export type SettingsSectionId = (typeof settingsSectionIds)[number];
+
+export type SettingsSectionEntry = {
+  slug: SettingsSectionId;
+};
+
+export const settingsNavigationSections =
+  SETTINGS_SECTIONS as readonly SettingsSectionEntry[];
+
+export const defaultSettingsSection = DEFAULT_SETTINGS_SECTION;
+
+export function initSettingsSectionMetadataChunk(): void {}

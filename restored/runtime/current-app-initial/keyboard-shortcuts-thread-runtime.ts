@@ -1,31 +1,43 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~keyboard-shortcuts-~n7jwlpf0-BaxBxQFI.js
 // Semantic alias layer for keyboard shortcuts and thread account runtime.
 export {
-  _ as giftCreditsProfileCoachmarkPendingSignal,
-  a as initUsageSettingsAccessChunk,
-  b as GIFT_CREDITS_FEATURE_GATE,
-  c as useProfileVisibility,
-  C as defaultSettingsSection,
-  d as AccountSwitchIcon,
-  D as settingsSectionIds,
-  E as initSettingsSectionMetadataChunk,
-  f as initAccountSwitchIconChunk,
-  g as initGiftCreditsIconChunk,
-  h as GiftCreditsIcon,
-  i as shouldHideFreeGoPersonalAccountSwitcher,
-  l as ProfileUpgradeSparkleIcon,
-  m as initKeyboardShortcutsMenuIconChunk,
-  n as initProfileDropdownChunk,
-  o as useUsageSettingsAccess,
-  p as KeyboardShortcutsMenuIcon,
-  r as initProfileVisibilityHelpersChunk,
-  s as initProfileVisibilityChunk,
-  S as openGiftCreditsInBrowser,
-  t as ProfileDropdown,
-  T as SettingsSchemaValueType,
-  u as initProfileUpgradeSparkleIconChunk,
-  v as hasSeenGiftCreditsHomeBannerSignal,
-  w as settingsNavigationSections,
-  x as initGiftCreditsLinkChunk,
-  y as initGiftCreditsSignalsChunk,
-} from "../../boundaries/current-ref/current-app-initial-keyboard-shortcuts-thread-runtime-producer";
+  SettingsSchemaValueType,
+  defaultSettingsSection,
+  initSettingsSectionMetadataChunk,
+  settingsNavigationSections,
+  settingsSectionIds,
+} from "../../settings/settings-sections";
+export {
+  GIFT_CREDITS_FEATURE_GATE,
+  GiftCreditsIcon,
+  initGiftCreditsIconChunk,
+  initGiftCreditsLinkChunk,
+  openGiftCreditsInBrowser,
+} from "../../features/gift-credits-runtime";
+export {
+  giftCreditsProfileCoachmarkPendingSignal,
+  hasSeenGiftCreditsHomeBannerSignal,
+  initGiftCreditsSignalsChunk,
+} from "../../features/gift-credits-signals";
+export {
+  initProfileVisibilityChunk,
+  initProfileVisibilityHelpersChunk,
+  shouldHideFreeGoPersonalAccountSwitcher,
+  useProfileVisibility,
+} from "../../features/profile-visibility";
+export {
+  initUsageSettingsAccessChunk,
+  useUsageSettingsAccess,
+} from "../../utils/usage-settings-access-runtime";
+export {
+  ProfileDropdown,
+  initProfileDropdownChunk,
+} from "../../app-shell/profile-dropdown";
+export {
+  AccountSwitchIcon,
+  KeyboardShortcutsMenuIcon,
+  ProfileUpgradeSparkleIcon,
+  initAccountSwitchIconChunk,
+  initKeyboardShortcutsMenuIconChunk,
+  initProfileUpgradeSparkleIconChunk,
+} from "../../app-shell/account-menu-icons";

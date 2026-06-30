@@ -1,17 +1,25 @@
 // Restored from ref/webview/assets/app-initial~app-main~local-conversation-page-D-F_r9ay.js
 // Semantic alias layer for the local-conversation command-menu runtime.
 export {
-  a as threadCommandMenuModeSignal,
-  c as initCommandMenuItemComponent,
-  d as threadCommandMenuEntriesSignal,
-  f as initThreadCommandMenuEntryRegistryChunk,
-  i as FIRST_FILE_COMMAND_MENU_ITEM_VALUE,
-  l as highlightTextSegments,
-  n as initThreadFileSearchCommandChunk,
-  o as initThreadCommandMenuStateChunk,
-  p as useRegisterThreadCommandMenuEntry,
-  r as FIRST_CHAT_COMMAND_MENU_ITEM_VALUE,
-  s as CommandMenuItem,
-  t as ThreadFileSearchCommandMenuRegistration,
-  u as initHighlightTextSegmentsChunk,
-} from "../../boundaries/current-ref/current-app-initial-local-conversation-current-runtime-producer";
+  FIRST_CHAT_COMMAND_MENU_ITEM_VALUE,
+  FIRST_FILE_COMMAND_MENU_ITEM_VALUE,
+  initThreadCommandMenuStateChunk,
+  threadCommandMenuModeSignal,
+} from "../../threads/thread-command-menu-state";
+export {
+  CommandMenuItem,
+  initCommandMenuItemComponent,
+} from "../../ui/command-menu-item";
+export {
+  initThreadCommandMenuEntryRegistryChunk,
+  threadCommandMenuEntriesSignal,
+  useRegisterThreadCommandMenuEntry,
+} from "../../threads/thread-command-menu-entries";
+export {
+  highlightTextSegments,
+  initHighlightTextSegmentsChunk,
+} from "../../ui/slash-command-item";
+export {
+  ThreadFileSearchCommandMenuRegistration,
+  initThreadFileSearchCommandChunk,
+} from "../../threads/thread-file-search-command";
