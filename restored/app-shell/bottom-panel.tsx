@@ -10,6 +10,7 @@ import {
   writeBottomPanelHeight,
 } from "./bottom-panel-height";
 import { setBottomPanelOpen } from "./app-shell-state";
+import type { MotionValue } from "../utils/use-transform";
 import {
   appStoreScope,
   bottomPanelAnimationSignal,
@@ -19,7 +20,6 @@ import {
   scalePx,
   useAppScope,
   useSignalValue,
-  type MotionValue,
 } from "../boundaries/onboarding-commons-externals.facade";
 import type { AppShellStore } from "./app-shell-tab-controller/types";
 
