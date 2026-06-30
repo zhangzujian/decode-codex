@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/team-Cs5ac34V.js
+// Also matches ref/webview/assets/team-CK2eAy16.js.
 // Semantic icon module: named React component with JSX return value.
 
 import type { SVGProps } from "react";

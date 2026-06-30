@@ -33606,6 +33606,19 @@
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
+    "graphlib-CU4GKOO2": {
+      "restored": "vendor/graphlib-alt.ts",
+      "status": "done",
+      "exports": {
+        "n": "Graphlib",
+        "r": "initGraphlibAltChunk",
+        "t": "initGraphlibAltChunk"
+      },
+      "aliasOf": "graphlib-Dk1ocXNC",
+      "note": "Current graphlib hash re-derived from graphlib-CU4GKOO2.js. Alias n is the Graphlib class; r/t are Rolldown lazy init thunks.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
     "merge-jSBXKSH5": {
       "restored": "vendor/lodash-merge-runtime.ts",
       "exports": {
@@ -33717,6 +33730,32 @@
       "status": "done",
       "aliasOf": "star-B47SYvH7",
       "note": "Current Star icon hash preserves the same SVG path with Rolldown initializer export n.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "team-CK2eAy16": {
+      "restored": "icons/team-icon.tsx",
+      "exports": {
+        "n": "initTeamIconChunk",
+        "t": "TeamIcon",
+        "TeamIcon": "TeamIcon"
+      },
+      "status": "done",
+      "aliasOf": "team-DKjbhg1P",
+      "note": "Current Team icon hash preserves the same SVG path with Rolldown initializer export n.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "dock-BXG1fB9e": {
+      "restored": "icons/dock-icon.tsx",
+      "exports": {
+        "n": "initDockIconChunk",
+        "t": "DockIcon",
+        "DockIcon": "DockIcon"
+      },
+      "status": "done",
+      "aliasOf": "dock-NoZMzdzo",
+      "note": "Current Dock icon hash preserves the same SVG path with Rolldown initializer export n.",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }

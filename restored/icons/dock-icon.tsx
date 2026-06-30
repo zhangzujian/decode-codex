@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/dock-DAmmeMut.js; synced with ref/webview/assets/dock-NoZMzdzo.js.
+// Restored from ref/webview/assets/dock-DAmmeMut.js; synced with ref/webview/assets/dock-NoZMzdzo.js and ref/webview/assets/dock-BXG1fB9e.js.
 // Semantic icon module: named React component with JSX return value.
 
 import type { SVGProps } from "react";
