@@ -2810,11 +2810,13 @@
     "monotone-DKOUTWfZ": {
       "restored": "vendor/d3-curve-monotone.ts",
       "exports": {
-        "n": "monotoneN",
-        "r": "monotoneR",
-        "t": "monotoneT"
+        "n": "curveMonotoneY",
+        "r": "curveLinear",
+        "t": "curveMonotoneX"
       },
-      "status": "done"
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "D3 monotone chunk exports re-derived semantically: n=curveMonotoneY, r=curveLinear, t=curveMonotoneX. monotoneN/monotoneR/monotoneT remain as restored compatibility aliases."
     },
     "sankeyLinkHorizontal-DCfEjaVP": {
       "restored": "vendor/d3-sankey-link-horizontal.ts",
