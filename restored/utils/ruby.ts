@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/ruby-_cJoqc5C.js
-// Ruby chunk restored from the Codex webview bundle.
-import { n as ruby, t as rubyImport1 } from "@shikijs/langs/ruby";
-rubyImport1();
-export { ruby as default };
+// Shiki Ruby grammar wrapper; the grammar payload stays in @shikijs/langs/ruby.
+import { n as rubyGrammar, t as initRubyGrammar } from "@shikijs/langs/ruby";
+
+initRubyGrammar();
+
+export { rubyGrammar as default };

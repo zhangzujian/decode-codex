@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/diff-CpoeL3j5.js
-// Diff chunk restored from the Codex webview bundle.
-import { t as diff, n as diffImport1 } from "@shikijs/langs/diff";
-diffImport1();
-export { diff as default };
+// Shiki Diff grammar wrapper; the grammar payload stays in @shikijs/langs/diff.
+import { n as diffGrammar, t as initDiffGrammar } from "@shikijs/langs/diff";
+
+initDiffGrammar();
+
+export { diffGrammar as default };

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/haxe-DkGT2131.js
-// Haxe chunk restored from the Codex webview bundle.
-import { t as haxe, n as haxeImport1 } from "@shikijs/langs/haxe";
-haxeImport1();
-export { haxe as default };
+// Shiki Haxe grammar wrapper; the grammar payload stays in @shikijs/langs/haxe.
+import { n as haxeGrammar, t as initHaxeGrammar } from "@shikijs/langs/haxe";
+
+initHaxeGrammar();
+
+export { haxeGrammar as default };

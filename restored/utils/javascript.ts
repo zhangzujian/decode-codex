@@ -1,8 +1,10 @@
 // Restored from ref/webview/assets/javascript-Bv2O-vnZ.js
-// Javascript chunk restored from the Codex webview bundle.
+// Shiki JavaScript grammar wrapper; the grammar payload stays in @shikijs/langs/javascript.
 import {
-  n as javascript,
-  t as javascriptImport1,
+  n as javascriptGrammar,
+  t as initJavascriptGrammar,
 } from "@shikijs/langs/javascript";
-javascriptImport1();
-export { javascript as default };
+
+initJavascriptGrammar();
+
+export { javascriptGrammar as default };

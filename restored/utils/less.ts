@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/less-tbWM5EJf.js
-// Less chunk restored from the Codex webview bundle.
-import { n as less, t as lessImport1 } from "@shikijs/langs/less";
-lessImport1();
-export { less as default };
+// Shiki Less grammar wrapper; the grammar payload stays in @shikijs/langs/less.
+import { n as lessGrammar, t as initLessGrammar } from "@shikijs/langs/less";
+
+initLessGrammar();
+
+export { lessGrammar as default };

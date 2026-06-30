@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/java-C52td-q2.js
-// Java chunk restored from the Codex webview bundle.
-import { n as java, t as javaImport1 } from "@shikijs/langs/java";
-javaImport1();
-export { java as default };
+// Shiki Java grammar wrapper; the grammar payload stays in @shikijs/langs/java.
+import { n as javaGrammar, t as initJavaGrammar } from "@shikijs/langs/java";
+
+initJavaGrammar();
+
+export { javaGrammar as default };

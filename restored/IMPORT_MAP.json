@@ -30762,7 +30762,7 @@
       "stage3Review": "Host self-review: sourcemap-check found only a missing adjacent map; exported alias surface matches the historical Bf38rCmF restore exactly."
     },
     "angular-html-DzvejccC": {
-      "restored": "utils/angular-html-dzvejcc-c.ts",
+      "restored": "utils/angular-html.ts",
       "exports": {
         "default": "default"
       },
@@ -30790,14 +30790,14 @@
       "status": "done"
     },
     "csharp-DcUaRtiR": {
-      "restored": "utils/csharp-dc-ua-rti-r.ts",
+      "restored": "utils/csharp.ts",
       "exports": {
         "default": "default"
       },
       "status": "done"
     },
     "css-CbzfSxcr": {
-      "restored": "utils/css-cbzf-sxcr.ts",
+      "restored": "utils/css.ts",
       "exports": {
         "default": "default"
       },
@@ -30832,7 +30832,7 @@
       "status": "done"
     },
     "gdshader-BStHgrRi": {
-      "restored": "utils/gdshader-b-st-hgr-ri.ts",
+      "restored": "utils/gdshader.ts",
       "exports": {
         "default": "default"
       },
@@ -30881,14 +30881,14 @@
       "status": "done"
     },
     "html-DrkgpsXB": {
-      "restored": "utils/html-drkgps-xb.ts",
+      "restored": "utils/html.ts",
       "exports": {
         "default": "default"
       },
       "status": "done"
     },
     "html-derivative-YqcYPLj-": {
-      "restored": "utils/html-derivative-yqc-yp-lj.ts",
+      "restored": "utils/html-derivative.ts",
       "exports": {
         "default": "default"
       },
@@ -30930,7 +30930,7 @@
       "status": "done"
     },
     "markdown-CAzYfzjG": {
-      "restored": "utils/markdown-c-az-yfzj-g.ts",
+      "restored": "utils/markdown.ts",
       "exports": {
         "default": "default"
       },
@@ -30944,7 +30944,7 @@
       "status": "done"
     },
     "postcss-DnToBIkd": {
-      "restored": "utils/postcss-dn-to-b-ikd.ts",
+      "restored": "utils/postcss.ts",
       "exports": {
         "default": "default"
       },
@@ -30979,14 +30979,14 @@
       "status": "done"
     },
     "scss-RNltJBYU": {
-      "restored": "utils/scss-r-nlt-jbyu.ts",
+      "restored": "utils/scss.ts",
       "exports": {
         "default": "default"
       },
       "status": "done"
     },
     "sdbl-CfFWJKTM": {
-      "restored": "utils/sdbl-cf-fwjktm.ts",
+      "restored": "utils/sdbl.ts",
       "exports": {
         "default": "default"
       },
@@ -31021,14 +31021,14 @@
       "status": "done"
     },
     "tsx-BOUdnHOj": {
-      "restored": "utils/tsx-bo-udn-h-oj.ts",
+      "restored": "utils/tsx.ts",
       "exports": {
         "default": "default"
       },
       "status": "done"
     },
     "turtle-BkBNzqPX": {
-      "restored": "utils/turtle-bk-b-nzq-px.ts",
+      "restored": "utils/turtle.ts",
       "exports": {
         "default": "default"
       },
@@ -31056,7 +31056,7 @@
       "status": "done"
     },
     "yaml-COuIrSCu": {
-      "restored": "utils/yaml-c-ou-ir-s-cu.ts",
+      "restored": "utils/yaml.ts",
       "exports": {
         "default": "default"
       },
@@ -34025,7 +34025,7 @@
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     },
     "yaml-BkONZa5B": {
-      "restored": "utils/yaml-c-ou-ir-s-cu.ts",
+      "restored": "utils/yaml.ts",
       "exports": {
         "n": "yamlLanguageGrammars",
         "t": "initYamlGrammarChunk"

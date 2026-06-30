@@ -1,8 +1,10 @@
 // Restored from ref/webview/assets/shellscript-D7DQ1f51.js
-// Shellscript chunk restored from the Codex webview bundle.
+// Shiki Shell grammar wrapper; the grammar payload stays in @shikijs/langs/shellscript.
 import {
-  n as shellscript,
-  t as shellscriptImport1,
+  n as shellscriptGrammar,
+  t as initShellscriptGrammar,
 } from "@shikijs/langs/shellscript";
-shellscriptImport1();
-export { shellscript as default };
+
+initShellscriptGrammar();
+
+export { shellscriptGrammar as default };

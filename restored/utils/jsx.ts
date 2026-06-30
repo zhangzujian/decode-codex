@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/jsx-C9RXlD5D.js
-// Jsx chunk restored from the Codex webview bundle.
-import { n as Jsx, t as jsxImport1 } from "@shikijs/langs/jsx";
-jsxImport1();
-export { Jsx as default };
+// Shiki JSX grammar wrapper; the grammar payload stays in @shikijs/langs/jsx.
+import { n as jsxGrammar, t as initJsxGrammar } from "@shikijs/langs/jsx";
+
+initJsxGrammar();
+
+export { jsxGrammar as default };

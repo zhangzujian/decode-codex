@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/php-GJpY09xI.js
-// Php chunk restored from the Codex webview bundle.
-import { n as php, t as phpImport1 } from "@shikijs/langs/php";
-phpImport1();
-export { php as default };
+// Shiki PHP grammar wrapper; the grammar payload stays in @shikijs/langs/php.
+import { n as phpGrammar, t as initPhpGrammar } from "@shikijs/langs/php";
+
+initPhpGrammar();
+
+export { phpGrammar as default };

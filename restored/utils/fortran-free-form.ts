@@ -1,8 +1,10 @@
 // Restored from ref/webview/assets/fortran-free-form-CnO4YhPM.js
-// FortranFreeForm chunk restored from the Codex webview bundle.
+// Shiki Fortran Free Form grammar wrapper; the grammar payload stays in @shikijs/langs/fortran-free-form.
 import {
-  t as fortranFreeForm,
-  n as fortranFreeFormImport1,
+  n as fortranFreeFormGrammar,
+  t as initFortranFreeFormGrammar,
 } from "@shikijs/langs/fortran-free-form";
-fortranFreeFormImport1();
-export { fortranFreeForm as default };
+
+initFortranFreeFormGrammar();
+
+export { fortranFreeFormGrammar as default };

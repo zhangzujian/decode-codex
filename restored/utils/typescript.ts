@@ -1,8 +1,10 @@
 // Restored from ref/webview/assets/typescript-Dntn5ztg.js
-// Typescript chunk restored from the Codex webview bundle.
+// Shiki TypeScript grammar wrapper; the grammar payload stays in @shikijs/langs/typescript.
 import {
-  n as typescript,
-  t as typescriptImport1,
+  n as typescriptGrammar,
+  t as initTypescriptGrammar,
 } from "@shikijs/langs/typescript";
-typescriptImport1();
-export { typescript as default };
+
+initTypescriptGrammar();
+
+export { typescriptGrammar as default };

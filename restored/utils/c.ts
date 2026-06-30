@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/c-B7an39ey.js
-// C chunk restored from the Codex webview bundle.
-import { t as c, n as cImport1 } from "@shikijs/langs/c";
-cImport1();
-export { c as default };
+// Shiki C grammar wrapper; the grammar payload stays in @shikijs/langs/c.
+import { n as cGrammar, t as initCGrammar } from "@shikijs/langs/c";
+
+initCGrammar();
+
+export { cGrammar as default };

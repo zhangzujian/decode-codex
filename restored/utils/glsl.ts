@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/glsl-DWqQpJ3q.js
-// Glsl chunk restored from the Codex webview bundle.
-import { t as glsl, n as glslImport1 } from "@shikijs/langs/glsl";
-glslImport1();
-export { glsl as default };
+// Shiki GLSL grammar wrapper; the grammar payload stays in @shikijs/langs/glsl.
+import { n as glslGrammar, t as initGlslGrammar } from "@shikijs/langs/glsl";
+
+initGlslGrammar();
+
+export { glslGrammar as default };

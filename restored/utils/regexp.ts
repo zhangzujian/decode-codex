@@ -1,5 +1,10 @@
 // Restored from ref/webview/assets/regexp-BsdSO74N.js
-// Regexp chunk restored from the Codex webview bundle.
-import { n as regexp, t as regexpImport1 } from "@shikijs/langs/regexp";
-regexpImport1();
-export { regexp as default };
+// Shiki RegExp grammar wrapper; the grammar payload stays in @shikijs/langs/regexp.
+import {
+  n as regexpGrammar,
+  t as initRegexpGrammar,
+} from "@shikijs/langs/regexp";
+
+initRegexpGrammar();
+
+export { regexpGrammar as default };

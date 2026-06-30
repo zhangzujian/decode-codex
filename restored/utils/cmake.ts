@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/cmake-B2S09CzH.js
-// Cmake chunk restored from the Codex webview bundle.
-import { t as cmake, n as cmakeImport1 } from "@shikijs/langs/cmake";
-cmakeImport1();
-export { cmake as default };
+// Shiki CMake grammar wrapper; the grammar payload stays in @shikijs/langs/cmake.
+import { n as cmakeGrammar, t as initCmakeGrammar } from "@shikijs/langs/cmake";
+
+initCmakeGrammar();
+
+export { cmakeGrammar as default };

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/lua-BXhKk7Gw.js
-// Lua chunk restored from the Codex webview bundle.
-import { n as lua, t as luaImport1 } from "@shikijs/langs/lua";
-luaImport1();
-export { lua as default };
+// Shiki Lua grammar wrapper; the grammar payload stays in @shikijs/langs/lua.
+import { n as luaGrammar, t as initLuaGrammar } from "@shikijs/langs/lua";
+
+initLuaGrammar();
+
+export { luaGrammar as default };

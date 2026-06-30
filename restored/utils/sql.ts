@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/sql-BMJUGw5T.js
-// Sql chunk restored from the Codex webview bundle.
-import { n as sql, t as sqlImport1 } from "@shikijs/langs/sql";
-sqlImport1();
-export { sql as default };
+// Shiki SQL grammar wrapper; the grammar payload stays in @shikijs/langs/sql.
+import { n as sqlGrammar, t as initSqlGrammar } from "@shikijs/langs/sql";
+
+initSqlGrammar();
+
+export { sqlGrammar as default };
