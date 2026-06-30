@@ -34643,6 +34643,17 @@
       "note": "Current lodash aggregate alias map re-derived from lodash-BhBwOd7I.js. Public vendor runtime keeps the current export surface while importing restored lodash dependency chunks.",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "esm-BrsRQYxN": {
+      "restored": "vendor/tanstack-react-form.ts",
+      "exports": {
+        "n": "useForm",
+        "t": "initTanstackReactFormChunk"
+      },
+      "status": "done",
+      "aliasOf": "useForm-Dc2s3Q7s",
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "note": "Current Rolldown TanStack React Form chunk re-derived from esm-BrsRQYxN.js; n is useForm and t is the initializer thunk."
     }
   }
 }
