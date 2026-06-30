@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/internal-knowledge-icon-DMjr2e_R.js
+// Restored from ref/webview/assets/internal-knowledge-icon-BqsH99c0.js
 // InternalKnowledgeIcon chunk restored from the Codex webview bundle.
 export const internalKnowledgeIcon = {
   v: "5.7.5",

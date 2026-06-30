@@ -1,123 +1,139 @@
-// Restored from ref/webview/assets/load-script-enBvQ5ff.js
-// LoadScript chunk restored from the Codex webview bundle.
-function loadScriptL() {
+// Restored from ref/webview/assets/load-script-BifiZc4M.js
+// Segment analytics script-loader helpers used by the bundled analytics runtime.
+type SegmentAnalyticsGlobal = {
+  _cdn?: string;
+  [key: string]: unknown;
+};
+type ScriptAttributes = Record<string, string>;
+const SEGMENT_CDN_PATTERN =
+  /(https:\/\/.*)\/analytics\.js\/v1\/(?:.*?)\/(?:platform|analytics.*)?/;
+let analyticsGlobalKey = "analytics";
+let configuredCdnUrl: string | undefined;
+function loadScriptL(): boolean {
   return typeof window < "u";
 }
-export function loadScriptU() {
+function loadScriptU(): boolean {
   return !loadScriptL();
 }
-var loadScriptValue1 = "analytics";
-export function loadScriptF() {}
-export function loadScriptNamespaceInit() {
-  loadScriptValue1 = "analytics";
+function loadScriptF(): void {}
+function loadScriptNamespaceInit(): void {
+  analyticsGlobalKey = "analytics";
 }
-function loadScriptO() {
-  return window[loadScriptValue1];
+function loadScriptO(): SegmentAnalyticsGlobal | undefined {
+  return (window as unknown as Record<string, SegmentAnalyticsGlobal>)[
+    analyticsGlobalKey
+  ];
 }
-export function loadScriptC(_loadScriptL) {
-  loadScriptValue1 = _loadScriptL;
+function loadScriptC(globalKey: string): void {
+  analyticsGlobalKey = globalKey;
 }
-export function loadScriptS(_loadScriptL) {
-  window[loadScriptValue1] = _loadScriptL;
+function loadScriptS(analyticsGlobal: SegmentAnalyticsGlobal): void {
+  (window as unknown as Record<string, SegmentAnalyticsGlobal>)[
+    analyticsGlobalKey
+  ] = analyticsGlobal;
 }
-var loadScriptValue2 =
-    /(https:\/\/.*)\/analytics\.js\/v1\/(?:.*?)\/(?:platform|analytics.*)?/,
-  loadScriptValue3 = function () {
-    var _loadScriptL;
-    return (
-      Array.prototype.slice
-        .call(document.querySelectorAll("script"))
-        .forEach(function (_loadScriptU) {
-          var loadScriptValue11 = _loadScriptU.getAttribute("src") ?? "",
-            _loadScriptO = loadScriptValue2.exec(loadScriptValue11);
-          _loadScriptO && _loadScriptO[1] && (_loadScriptL = _loadScriptO[1]);
-        }),
-      _loadScriptL
-    );
-  },
-  loadScriptValue4,
-  loadScriptValue5 = function () {
-    return loadScriptValue4 ?? loadScriptO()?._cdn;
-  },
-  loadScriptR = function () {
-    return (
-      loadScriptValue5() || loadScriptValue3() || "https://cdn.segment.com"
-    );
-  };
-export const loadScriptI = function () {
-  return `${loadScriptR()}/next-integrations`;
-};
-export const loadScriptA = function (_loadScriptL) {
-  var _loadScriptU = loadScriptO();
-  _loadScriptU && (_loadScriptU._cdn = _loadScriptL);
-  loadScriptValue4 = _loadScriptL;
-};
-export function loadScriptCdnInit() {
-  loadScriptNamespaceInit();
-}
-function loadScriptHelper1(_loadScriptL) {
-  return Array.prototype.slice
-    .call(window.document.querySelectorAll("script"))
-    .find(function (_loadScriptU) {
-      return _loadScriptU.src === _loadScriptL;
+function findSegmentCdnFromScripts(): string | undefined {
+  let cdnUrl: string | undefined;
+  Array.prototype.slice
+    .call(document.querySelectorAll("script"))
+    .forEach((script: HTMLScriptElement) => {
+      const source = script.getAttribute("src") ?? "";
+      const match = SEGMENT_CDN_PATTERN.exec(source);
+      if (match?.[1]) cdnUrl = match[1];
     });
+  return cdnUrl;
 }
-export function loadScriptT(_loadScriptL, _loadScriptU) {
-  var loadScriptValue6 = loadScriptHelper1(_loadScriptL);
-  if (loadScriptValue6 !== undefined) {
-    var _loadScriptO = loadScriptValue6?.getAttribute("status");
-    if (_loadScriptO === "loaded") return Promise.resolve(loadScriptValue6);
-    if (_loadScriptO === "loading")
-      return new Promise(function (__loadScriptL, __loadScriptU) {
-        loadScriptValue6.addEventListener("load", function () {
-          return __loadScriptL(loadScriptValue6);
-        });
-        loadScriptValue6.addEventListener("error", function (___loadScriptL) {
-          return __loadScriptU(___loadScriptL);
-        });
-      });
-  }
-  return new Promise(function (loadScriptParam1, __loadScriptO) {
-    var _loadScriptC,
-      _loadScriptS = window.document.createElement("script");
-    _loadScriptS.type = "text/javascript";
-    _loadScriptS.src = _loadScriptL;
-    _loadScriptS.async = true;
-    _loadScriptS.setAttribute("status", "loading");
-    for (
-      var loadScriptValue7 = 0,
-        loadScriptValue8 = Object.entries(_loadScriptU ?? {});
-      loadScriptValue7 < loadScriptValue8.length;
-      loadScriptValue7++
-    ) {
-      var loadScriptValue9 = loadScriptValue8[loadScriptValue7],
-        loadScriptValue10 = loadScriptValue9[0],
-        _loadScriptA = loadScriptValue9[1];
-      _loadScriptS.setAttribute(loadScriptValue10, _loadScriptA);
-    }
-    _loadScriptS.onload = function () {
-      _loadScriptS.onerror = _loadScriptS.onload = null;
-      _loadScriptS.setAttribute("status", "loaded");
-      loadScriptParam1(_loadScriptS);
-    };
-    _loadScriptS.onerror = function () {
-      _loadScriptS.onerror = _loadScriptS.onload = null;
-      _loadScriptS.setAttribute("status", "error");
-      __loadScriptO(Error(`Failed to load ${_loadScriptL}`));
-    };
-    var _loadScriptR = window.document.querySelector("script");
-    _loadScriptR
-      ? (_loadScriptC = _loadScriptR.parentElement) == null ||
-        _loadScriptC.insertBefore(_loadScriptS, _loadScriptR)
-      : window.document.head.appendChild(_loadScriptS);
-  });
+function getConfiguredSegmentCdn(): string | undefined {
+  return configuredCdnUrl ?? loadScriptO()?._cdn;
 }
-export function loadScriptN(_loadScriptL) {
-  var _loadScriptU = loadScriptHelper1(_loadScriptL);
+function loadScriptR(): string {
   return (
-    _loadScriptU !== undefined && _loadScriptU.remove(),
-    Promise.resolve()
+    getConfiguredSegmentCdn() ??
+    findSegmentCdnFromScripts() ??
+    "https://cdn.segment.com"
   );
 }
-export function loadScriptEntryInit() {}
-export { loadScriptL, loadScriptO, loadScriptR };
+const loadScriptI = function getSegmentIntegrationsBaseUrl(): string {
+  return `${loadScriptR()}/next-integrations`;
+};
+const loadScriptA = function setSegmentCdnUrl(cdnUrl: string): void {
+  const analyticsGlobal = loadScriptO();
+  if (analyticsGlobal) analyticsGlobal._cdn = cdnUrl;
+  configuredCdnUrl = cdnUrl;
+};
+function loadScriptCdnInit(): void {
+  loadScriptNamespaceInit();
+}
+function findScriptBySource(source: string): HTMLScriptElement | undefined {
+  return Array.prototype.slice
+    .call(window.document.querySelectorAll("script"))
+    .find((script: HTMLScriptElement) => script.src === source);
+}
+function loadScriptT(
+  source: string,
+  attributes?: ScriptAttributes,
+): Promise<HTMLScriptElement> {
+  const existingScript = findScriptBySource(source);
+  if (existingScript !== undefined) {
+    const status = existingScript.getAttribute("status");
+    if (status === "loaded") return Promise.resolve(existingScript);
+    if (status === "loading") {
+      return new Promise((resolve, reject) => {
+        existingScript.addEventListener("load", () => {
+          resolve(existingScript);
+        });
+        existingScript.addEventListener("error", (event) => {
+          reject(event);
+        });
+      });
+    }
+  }
+  return new Promise((resolve, reject) => {
+    const script = window.document.createElement("script");
+    script.type = "text/javascript";
+    script.src = source;
+    script.async = true;
+    script.setAttribute("status", "loading");
+    for (const [name, value] of Object.entries(attributes ?? {})) {
+      script.setAttribute(name, value);
+    }
+    script.onload = () => {
+      script.onerror = script.onload = null;
+      script.setAttribute("status", "loaded");
+      resolve(script);
+    };
+    script.onerror = () => {
+      script.onerror = script.onload = null;
+      script.setAttribute("status", "error");
+      reject(Error(`Failed to load ${source}`));
+    };
+    const firstScript = window.document.querySelector("script");
+    if (firstScript) {
+      firstScript.parentElement?.insertBefore(script, firstScript);
+    } else {
+      window.document.head.appendChild(script);
+    }
+  });
+}
+function loadScriptN(source: string): Promise<void> {
+  const script = findScriptBySource(source);
+  if (script !== undefined) script.remove();
+  return Promise.resolve();
+}
+function loadScriptEntryInit(): void {}
+export {
+  loadScriptI,
+  loadScriptO,
+  loadScriptC,
+  loadScriptF,
+  loadScriptR,
+  loadScriptNamespaceInit,
+  loadScriptU,
+  loadScriptT,
+  loadScriptCdnInit,
+  loadScriptL,
+  loadScriptN,
+  loadScriptA,
+  loadScriptEntryInit,
+  loadScriptS,
+};

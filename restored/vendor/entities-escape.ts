@@ -1,94 +1,79 @@
-// Restored from ref/webview/assets/dist-D8VrLBqU.js
-// Dist chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/dist-CD74BDfk.js
+// CommonJS-compatible URL sanitizer used by Mermaid diagram renderers.
 import { createCommonJsModule } from "../runtime/commonjs-interop";
-var distValue1 = createCommonJsModule((distParam3) => {
-  Object.defineProperty(distParam3, "__esModule", {
+type SanitizedUrlModule = {
+  __esModule?: true;
+  sanitizeUrl?: (input: string | null | undefined) => string;
+};
+const INVALID_PROTOCOL_PATTERN = /^([^\w]*)(javascript|data|vbscript)/im;
+const HTML_ENTITY_PATTERN = /&#(\w+)(^\w|;)?/g;
+const HTML_CONTROL_ENTITY_PATTERN = /&(newline|tab);/gi;
+const CONTROL_CHARACTER_PATTERN =
+  /[\u0000-\u001F\u007F-\u009F\u2000-\u200D\uFEFF]/gim;
+const URL_SCHEME_PATTERN = /^.+(:|&colon;)/gim;
+const WHITESPACE_ESCAPE_PATTERN = /(\\|%5[cC])((%(6[eE]|72|74))|[nrt])/g;
+const RELATIVE_URL_PREFIXES = [".", "/"];
+const BLANK_URL = "about:blank";
+function startsLikeRelativeUrl(value: string): boolean {
+  return RELATIVE_URL_PREFIXES.includes(value[0] ?? "");
+}
+function decodeHtmlEntities(value: string): string {
+  return value
+    .replace(CONTROL_CHARACTER_PATTERN, "")
+    .replace(HTML_ENTITY_PATTERN, (_match, entityCode: string) =>
+      String.fromCharCode(Number(entityCode)),
+    );
+}
+function canParseUrl(value: string): boolean {
+  return URL.canParse(value);
+}
+function decodeUriComponentSafely(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+function sanitizeUrl(input: string | null | undefined): string {
+  if (!input) return BLANK_URL;
+  let sanitized = decodeUriComponentSafely(input.trim());
+  let unsafeMatch: RegExpMatchArray | null;
+  do {
+    sanitized = decodeHtmlEntities(sanitized)
+      .replace(HTML_CONTROL_ENTITY_PATTERN, "")
+      .replace(CONTROL_CHARACTER_PATTERN, "")
+      .replace(WHITESPACE_ESCAPE_PATTERN, "")
+      .trim();
+    sanitized = decodeUriComponentSafely(sanitized);
+    unsafeMatch =
+      sanitized.match(CONTROL_CHARACTER_PATTERN) ||
+      sanitized.match(HTML_ENTITY_PATTERN) ||
+      sanitized.match(HTML_CONTROL_ENTITY_PATTERN) ||
+      sanitized.match(WHITESPACE_ESCAPE_PATTERN);
+  } while (unsafeMatch && unsafeMatch.length > 0);
+  if (!sanitized) return BLANK_URL;
+  if (startsLikeRelativeUrl(sanitized)) return sanitized;
+  const schemeMatch = sanitized.trimStart().match(URL_SCHEME_PATTERN);
+  if (!schemeMatch) return sanitized;
+  const normalizedProtocol = schemeMatch[0].toLowerCase().trim();
+  if (INVALID_PROTOCOL_PATTERN.test(normalizedProtocol)) return BLANK_URL;
+  const normalizedUrl = sanitized.trimStart().replace(/\\/g, "/");
+  if (normalizedProtocol === "mailto:" || normalizedProtocol.includes("://")) {
+    return normalizedUrl;
+  }
+  if (normalizedProtocol === "http:" || normalizedProtocol === "https:") {
+    if (!canParseUrl(normalizedUrl)) return BLANK_URL;
+    const parsedUrl = new URL(normalizedUrl);
+    parsedUrl.protocol = parsedUrl.protocol.toLowerCase();
+    parsedUrl.hostname = parsedUrl.hostname.toLowerCase();
+    return parsedUrl.toString();
+  }
+  return normalizedUrl;
+}
+export const dist = createCommonJsModule((exports) => {
+  const moduleExports = exports as SanitizedUrlModule;
+  Object.defineProperty(moduleExports, "__esModule", {
     value: true,
   });
-  distParam3.BLANK_URL =
-    distParam3.relativeFirstCharacters =
-    distParam3.whitespaceEscapeCharsRegex =
-    distParam3.urlSchemeRegex =
-    distParam3.ctrlCharactersRegex =
-    distParam3.htmlCtrlEntityRegex =
-    distParam3.htmlEntitiesRegex =
-    distParam3.invalidProtocolRegex =
-      undefined;
-  distParam3.invalidProtocolRegex = /^([^\w]*)(javascript|data|vbscript)/im;
-  distParam3.htmlEntitiesRegex = /&#(\w+)(^\w|;)?/g;
-  distParam3.htmlCtrlEntityRegex = /&(newline|tab);/gi;
-  distParam3.ctrlCharactersRegex =
-    /[\u0000-\u001F\u007F-\u009F\u2000-\u200D\uFEFF]/gim;
-  distParam3.urlSchemeRegex = /^.+(:|&colon;)/gim;
-  distParam3.whitespaceEscapeCharsRegex =
-    /(\\|%5[cC])((%(6[eE]|72|74))|[nrt])/g;
-  distParam3.relativeFirstCharacters = [".", "/"];
-  distParam3.BLANK_URL = "about:blank";
-});
-export const dist = createCommonJsModule((distParam1) => {
-  Object.defineProperty(distParam1, "__esModule", {
-    value: true,
-  });
-  distParam1.sanitizeUrl = undefined;
-  var _dist = distValue1();
-  function distHelper1(distParam6) {
-    return _dist.relativeFirstCharacters.indexOf(distParam6[0]) > -1;
-  }
-  function distHelper2(distParam4) {
-    return distParam4
-      .replace(_dist.ctrlCharactersRegex, "")
-      .replace(_dist.htmlEntitiesRegex, function (distParam7, distParam8) {
-        return String.fromCharCode(distParam8);
-      });
-  }
-  function distHelper3(distParam9) {
-    return URL.canParse(distParam9);
-  }
-  function distHelper4(distParam5) {
-    try {
-      return decodeURIComponent(distParam5);
-    } catch {
-      return distParam5;
-    }
-  }
-  function distHelper5(distParam2) {
-    if (!distParam2) return _dist.BLANK_URL;
-    var distValue2,
-      distValue3 = distHelper4(distParam2.trim());
-    do {
-      distValue3 = distHelper2(distValue3)
-        .replace(_dist.htmlCtrlEntityRegex, "")
-        .replace(_dist.ctrlCharactersRegex, "")
-        .replace(_dist.whitespaceEscapeCharsRegex, "")
-        .trim();
-      distValue3 = distHelper4(distValue3);
-      distValue2 =
-        distValue3.match(_dist.ctrlCharactersRegex) ||
-        distValue3.match(_dist.htmlEntitiesRegex) ||
-        distValue3.match(_dist.htmlCtrlEntityRegex) ||
-        distValue3.match(_dist.whitespaceEscapeCharsRegex);
-    } while (distValue2 && distValue2.length > 0);
-    var distValue4 = distValue3;
-    if (!distValue4) return _dist.BLANK_URL;
-    if (distHelper1(distValue4)) return distValue4;
-    var distValue5 = distValue4.trimStart(),
-      distValue6 = distValue5.match(_dist.urlSchemeRegex);
-    if (!distValue6) return distValue4;
-    var distValue7 = distValue6[0].toLowerCase().trim();
-    if (_dist.invalidProtocolRegex.test(distValue7)) return _dist.BLANK_URL;
-    var distValue8 = distValue5.replace(/\\/g, "/");
-    if (distValue7 === "mailto:" || distValue7.includes("://"))
-      return distValue8;
-    if (distValue7 === "http:" || distValue7 === "https:") {
-      if (!distHelper3(distValue8)) return _dist.BLANK_URL;
-      var distValue9 = new URL(distValue8);
-      return (
-        (distValue9.protocol = distValue9.protocol.toLowerCase()),
-        (distValue9.hostname = distValue9.hostname.toLowerCase()),
-        distValue9.toString()
-      );
-    }
-    return distValue8;
-  }
-  distParam1.sanitizeUrl = distHelper5;
+  moduleExports.sanitizeUrl = sanitizeUrl;
 });

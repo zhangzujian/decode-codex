@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/__vite-browser-external-EPeb3y57.js
-// __vite-browser-external-EPeb3y57 chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/__vite-browser-external-DZg7-sPp.js
+// Empty browser external stub emitted by Vite/Rolldown.
 const viteBrowserExternal = {};
 export default viteBrowserExternal;

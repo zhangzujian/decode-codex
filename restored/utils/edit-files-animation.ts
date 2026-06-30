@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/edit_files_animation-DbcPz_Aa.js
+// Restored from ref/webview/assets/edit_files_animation-B36jdqfO.js
 // EditFilesAnimation chunk restored from the Codex webview bundle.
 export const editFilesAnimation = {
   v: "5.7.0",

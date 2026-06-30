@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/web-search-icon-DtUFVMeN.js
+// Restored from ref/webview/assets/web-search-icon-DoVLu9dI.js
 // WebSearchIcon chunk restored from the Codex webview bundle.
 export const webSearchIcon = {
   nm: "250410_Search 2",

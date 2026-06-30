@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/plan-pricing-L0fVJY25.js
-// Also matches ref/webview/assets/plan-pricing-dtn4oxxh.js.
+// Restored from ref/webview/assets/plan-pricing-DANGBAbm.js
+// Format plan prices and currency parts for billing UI surfaces.
 import { once } from "../runtime/commonjs-interop";
-
 type IntlNumberFormatter = {
   formatNumber(value: number, options: Intl.NumberFormatOptions): string;
   formatNumberToParts(
@@ -9,16 +8,12 @@ type IntlNumberFormatter = {
     options: Intl.NumberFormatOptions,
   ): Intl.NumberFormatPart[];
 };
-
 type PlanPriceInput = {
   intl: IntlNumberFormatter;
   amount: number | null;
   currencyCode: string;
   minorUnitExponent?: number | null;
 };
-
-export const initPlanPricingChunk = once(() => {});
-
 export function formatPlanPriceParts({
   intl,
   amount,
@@ -60,7 +55,7 @@ export function formatPlanPriceParts({
     parts,
   };
 }
-
+export const initPlanPricingChunk = once(() => {});
 export function formatPlanPrice({
   intl,
   amount,
@@ -74,7 +69,6 @@ export function formatPlanPrice({
         currencyFormatOptions(currencyCode, minorUnitExponent),
       );
 }
-
 function currencyFormatOptions(
   currency: string,
   minorUnitExponent?: number | null,

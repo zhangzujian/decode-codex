@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/automation-DsMQK1Rv.js
+// Restored from ref/webview/assets/automation-DuPITMQE.js
 // Automation chunk restored from the Codex webview bundle.
 export const automation = {
   v: "5.7.0",

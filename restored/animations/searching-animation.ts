@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/searching_animation-Db5W0sIB.js
+// Restored from ref/webview/assets/searching_animation-LxIbdoSi.js
 // SearchingAnimation chunk restored from the Codex webview bundle.
 export const searchingAnimation = {
   v: "5.7.0",

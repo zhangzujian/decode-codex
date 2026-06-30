@@ -1,20 +1,16 @@
 // Restored from ref/webview/assets/modulepreload-polyfill-D8LKdSkT.js
 // Modulepreload polyfill initializer used by the Codex webview entry chunk.
 let modulepreloadPolyfillInstalled = false;
-
 export function installModulepreloadPolyfill(): void {
   if (modulepreloadPolyfillInstalled) return;
   modulepreloadPolyfillInstalled = true;
-
   const relList = document.createElement("link").relList;
   if (relList?.supports?.("modulepreload")) return;
-
   for (const link of document.querySelectorAll<HTMLLinkElement>(
     'link[rel="modulepreload"]',
   )) {
     preloadLink(link);
   }
-
   new MutationObserver((mutations) => {
     for (const mutation of mutations) {
       if (mutation.type !== "childList") continue;
@@ -29,7 +25,6 @@ export function installModulepreloadPolyfill(): void {
     subtree: true,
   });
 }
-
 function fetchOptionsForModulepreload(link: HTMLLinkElement): RequestInit {
   const options: RequestInit = {};
   if (link.integrity) options.integrity = link.integrity;
@@ -42,8 +37,11 @@ function fetchOptionsForModulepreload(link: HTMLLinkElement): RequestInit {
         : "same-origin";
   return options;
 }
-
-function preloadLink(link: HTMLLinkElement & { ep?: boolean }): void {
+function preloadLink(
+  link: HTMLLinkElement & {
+    ep?: boolean;
+  },
+): void {
   if (link.ep) return;
   link.ep = true;
   fetch(link.href, fetchOptionsForModulepreload(link));
