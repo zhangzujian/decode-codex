@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/chunk-O7ZBX7Z2-DYQIo95F.js
-// ChunkO7ZBX7Z2 chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/chunk-O7ZBX7Z2-YEixComM.js
+// Mermaid architecture diagram service module restored from the Codex webview bundle.
 import {
   chunkFPAJGGOCF,
   chunkFPAJGGOCG,
@@ -11,7 +11,7 @@ import {
   chunkFPAJGGOCS,
   chunkFPAJGGOCT,
 } from "./mermaid-parser-runtime-fpajggoc";
-var chunkO7ZBX7Z2Value1 = class extends chunkFPAJGGOCT {
+var ArchitectureTokenBuilder = class extends chunkFPAJGGOCT {
     static {
       chunkFPAJGGOCF(this, "ArchitectureTokenBuilder");
     }
@@ -19,57 +19,57 @@ var chunkO7ZBX7Z2Value1 = class extends chunkFPAJGGOCT {
       super(["architecture"]);
     }
   },
-  chunkO7ZBX7Z2Value2 = class extends chunkFPAJGGOCN {
+  ArchitectureValueConverter = class extends chunkFPAJGGOCN {
     static {
       chunkFPAJGGOCF(this, "ArchitectureValueConverter");
     }
-    runCustomConverter(
-      chunkO7ZBX7Z2Param1,
-      chunkO7ZBX7Z2Param2,
-      chunkO7ZBX7Z2Param3,
-    ) {
-      if (chunkO7ZBX7Z2Param1.name === "ARCH_ICON")
-        return chunkO7ZBX7Z2Param2.replace(/[()]/g, "").trim();
-      if (chunkO7ZBX7Z2Param1.name === "ARCH_TEXT_ICON")
-        return chunkO7ZBX7Z2Param2.replace(/["()]/g, "");
-      if (chunkO7ZBX7Z2Param1.name === "ARCH_TITLE")
-        return chunkO7ZBX7Z2Param2.replace(/[[\]]/g, "").trim();
+    runCustomConverter(token, text, context) {
+      if (token.name === "ARCH_ICON")
+        return text.replace(/[()]/g, "").trim();
+      if (token.name === "ARCH_TEXT_ICON") return text.replace(/["()]/g, "");
+      if (token.name === "ARCH_TITLE") return text.replace(/[[\]]/g, "").trim();
     }
   },
-  chunkO7ZBX7Z2T = {
+  architectureServiceModule = {
     parser: {
       TokenBuilder: chunkFPAJGGOCF(
-        () => new chunkO7ZBX7Z2Value1(),
+        () => new ArchitectureTokenBuilder(),
         "TokenBuilder",
       ),
       ValueConverter: chunkFPAJGGOCF(
-        () => new chunkO7ZBX7Z2Value2(),
+        () => new ArchitectureValueConverter(),
         "ValueConverter",
       ),
     },
   };
-function chunkO7ZBX7Z2N(chunkO7ZBX7Z2Param4 = chunkFPAJGGOCP) {
-  let chunkO7ZBX7Z2Value3 = chunkFPAJGGOCM(
-      chunkFPAJGGOCG(chunkO7ZBX7Z2Param4),
+function createArchitectureServices(parserConfig = chunkFPAJGGOCP) {
+  let sharedServices = chunkFPAJGGOCM(
+      chunkFPAJGGOCG(parserConfig),
       chunkFPAJGGOCS,
     ),
-    chunkO7ZBX7Z2Value4 = chunkFPAJGGOCM(
+    architectureServices = chunkFPAJGGOCM(
       chunkFPAJGGOCH({
-        shared: chunkO7ZBX7Z2Value3,
+        shared: sharedServices,
       }),
       chunkFPAJGGOCR,
-      chunkO7ZBX7Z2T,
+      architectureServiceModule,
     );
   return (
-    chunkO7ZBX7Z2Value3.ServiceRegistry.register(chunkO7ZBX7Z2Value4),
+    sharedServices.ServiceRegistry.register(architectureServices),
     {
-      shared: chunkO7ZBX7Z2Value3,
-      Architecture: chunkO7ZBX7Z2Value4,
+      shared: sharedServices,
+      Architecture: architectureServices,
     }
   );
 }
-function initChunkO7ZBX7Z2() {
+function initChunkO7ZBX7Z2(): void {
   // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
 }
-chunkFPAJGGOCF(chunkO7ZBX7Z2N, "createArchitectureServices");
-export { chunkO7ZBX7Z2N, initChunkO7ZBX7Z2, chunkO7ZBX7Z2T };
+chunkFPAJGGOCF(createArchitectureServices, "createArchitectureServices");
+export {
+  createArchitectureServices,
+  createArchitectureServices as chunkO7ZBX7Z2N,
+  initChunkO7ZBX7Z2,
+  architectureServiceModule,
+  architectureServiceModule as chunkO7ZBX7Z2T,
+};

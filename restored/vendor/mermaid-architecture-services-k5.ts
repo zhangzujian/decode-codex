@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/chunk-7N4EOEYR-BEkdQLCb.js
-// Chunk7N4EOEYR chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/chunk-7N4EOEYR-CfJFZH_K.js
+// Mermaid architecture diagram service module restored from the Codex webview bundle.
 import {
   chunkK5T4RW27G,
   chunkK5T4RW27H,
@@ -11,7 +11,7 @@ import {
   chunkK5T4RW27Underscore,
   chunkK5T4RW27V,
 } from "./mermaid-parser-runtime-k5";
-var chunk7N4EOEYRValue1 = class extends chunkK5T4RW27T {
+var ArchitectureTokenBuilder = class extends chunkK5T4RW27T {
     static {
       chunkK5T4RW27M(this, "ArchitectureTokenBuilder");
     }
@@ -19,71 +19,66 @@ var chunk7N4EOEYRValue1 = class extends chunkK5T4RW27T {
       super(["architecture"]);
     }
   },
-  chunk7N4EOEYRValue2 = class extends chunkK5T4RW27N {
+  ArchitectureValueConverter = class extends chunkK5T4RW27N {
     static {
       chunkK5T4RW27M(this, "ArchitectureValueConverter");
     }
-    runCustomConverter(
-      chunk7N4EOEYRParam1,
-      chunk7N4EOEYRParam2,
-      chunk7N4EOEYRParam3,
-    ) {
-      if (chunk7N4EOEYRParam1.name === "ARCH_ICON")
-        return chunk7N4EOEYRParam2.replace(/[()]/g, "").trim();
-      if (chunk7N4EOEYRParam1.name === "ARCH_TEXT_ICON")
-        return chunk7N4EOEYRParam2.replace(/["()]/g, "");
-      if (chunk7N4EOEYRParam1.name === "ARCH_TITLE") {
-        let chunk7N4EOEYRValue3 = chunk7N4EOEYRParam2
-          .replace(/^\[|]$/g, "")
-          .trim();
+    runCustomConverter(token, text, context) {
+      if (token.name === "ARCH_ICON")
+        return text.replace(/[()]/g, "").trim();
+      if (token.name === "ARCH_TEXT_ICON") return text.replace(/["()]/g, "");
+      if (token.name === "ARCH_TITLE") {
+        let titleText = text.replace(/^\[|]$/g, "").trim();
         return (
-          ((chunk7N4EOEYRValue3.startsWith('"') &&
-            chunk7N4EOEYRValue3.endsWith('"')) ||
-            (chunk7N4EOEYRValue3.startsWith("'") &&
-              chunk7N4EOEYRValue3.endsWith("'"))) &&
-            ((chunk7N4EOEYRValue3 = chunk7N4EOEYRValue3.slice(1, -1)),
-            (chunk7N4EOEYRValue3 = chunk7N4EOEYRValue3
-              .replace(/\\"/g, '"')
-              .replace(/\\'/g, "'"))),
-          chunk7N4EOEYRValue3.trim()
+          ((titleText.startsWith('"') && titleText.endsWith('"')) ||
+            (titleText.startsWith("'") && titleText.endsWith("'"))) &&
+            ((titleText = titleText.slice(1, -1)),
+            (titleText = titleText.replace(/\\"/g, '"').replace(/\\'/g, "'"))),
+          titleText.trim()
         );
       }
     }
   },
-  chunk7N4EOEYRT = {
+  architectureServiceModule = {
     parser: {
       TokenBuilder: chunkK5T4RW27M(
-        () => new chunk7N4EOEYRValue1(),
+        () => new ArchitectureTokenBuilder(),
         "TokenBuilder",
       ),
       ValueConverter: chunkK5T4RW27M(
-        () => new chunk7N4EOEYRValue2(),
+        () => new ArchitectureValueConverter(),
         "ValueConverter",
       ),
     },
   };
-function chunk7N4EOEYRN(chunk7N4EOEYRParam4 = chunkK5T4RW27H) {
-  let chunk7N4EOEYRValue4 = chunkK5T4RW27G(
-      chunkK5T4RW27V(chunk7N4EOEYRParam4),
+function createArchitectureServices(parserConfig = chunkK5T4RW27H) {
+  let sharedServices = chunkK5T4RW27G(
+      chunkK5T4RW27V(parserConfig),
       chunkK5T4RW27S,
     ),
-    chunk7N4EOEYRValue5 = chunkK5T4RW27G(
+    architectureServices = chunkK5T4RW27G(
       chunkK5T4RW27Underscore({
-        shared: chunk7N4EOEYRValue4,
+        shared: sharedServices,
       }),
       chunkK5T4RW27R,
-      chunk7N4EOEYRT,
+      architectureServiceModule,
     );
   return (
-    chunk7N4EOEYRValue4.ServiceRegistry.register(chunk7N4EOEYRValue5),
+    sharedServices.ServiceRegistry.register(architectureServices),
     {
-      shared: chunk7N4EOEYRValue4,
-      Architecture: chunk7N4EOEYRValue5,
+      shared: sharedServices,
+      Architecture: architectureServices,
     }
   );
 }
-function initChunk7N4EOEYR() {
+function initChunk7N4EOEYR(): void {
   // Restored ESM modules initialize eagerly; keep the current chunk init export compatible.
 }
-chunkK5T4RW27M(chunk7N4EOEYRN, "createArchitectureServices");
-export { chunk7N4EOEYRN, initChunk7N4EOEYR, chunk7N4EOEYRT };
+chunkK5T4RW27M(createArchitectureServices, "createArchitectureServices");
+export {
+  createArchitectureServices,
+  createArchitectureServices as chunk7N4EOEYRN,
+  initChunk7N4EOEYR,
+  architectureServiceModule,
+  architectureServiceModule as chunk7N4EOEYRT,
+};
