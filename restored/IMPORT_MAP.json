@@ -42138,6 +42138,149 @@
       "stage3AcceptedAt": "2026-06-30T23:06:00.000Z",
       "stage3Review": "Host self-review: current ref PopcornElectronWorkbookPanel-DEXqsHf5.js exports only PopcornElectronWorkbookPanel; restored/generated/popcorn-electron-workbook-panel.tsx declares the current hash match and passes vendored quality-gate.",
       "stage3Note": "Accepted as a current-ref compatibility export over an existing restored backing module; full semantic split of PopcornElectronWorkbookPanel remains future cleanup."
+    },
+    "select-workspace-page-Dpe6Qyul": {
+      "restored": "runtime/current-app-initial/select-workspace-page-current-runtime.ts",
+      "exports": {
+        "SelectWorkspacePage": "SelectWorkspacePage"
+      },
+      "status": "done",
+      "note": "Current SelectWorkspacePage hash maps to a dedicated current-ref runtime over vendor/select-workspace-page-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:18:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:18:00.000Z",
+      "stage3Review": "Host self-review: current ref select-workspace-page-Dpe6Qyul.js exports only SelectWorkspacePage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of SelectWorkspacePage remains future cleanup."
+    },
+    "agent-settings-CE_EGsV1": {
+      "restored": "runtime/current-app-initial/agent-settings-current-runtime.ts",
+      "exports": {
+        "AgentSettings": "AgentSettings"
+      },
+      "status": "done",
+      "note": "Current AgentSettings hash maps to a dedicated current-ref runtime over vendor/agent-settings-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:35:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:35:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports AgentSettings, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of AgentSettings remains a later cleanup."
+    },
+    "appgen-settings-page-BxhhSHRZ": {
+      "restored": "runtime/current-app-initial/appgen-settings-page-current-runtime.ts",
+      "exports": {
+        "AppgenSettingsPage": "AppgenSettingsPage"
+      },
+      "status": "done",
+      "note": "Current AppgenSettingsPage hash maps to a dedicated current-ref runtime over vendor/appgen-settings-page-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:35:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:35:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports AppgenSettingsPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of AppgenSettingsPage remains a later cleanup."
+    },
+    "computer-use-settings-BIYkni3c": {
+      "restored": "runtime/current-app-initial/computer-use-settings-current-runtime.ts",
+      "exports": {
+        "ComputerUseSettings": "ComputerUseSettings"
+      },
+      "status": "done",
+      "note": "Current ComputerUseSettings hash maps to a dedicated current-ref runtime over vendor/computer-use-settings-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:35:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:35:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports ComputerUseSettings, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of ComputerUseSettings remains a later cleanup."
+    },
+    "data-controls-CwyuAPUl": {
+      "restored": "runtime/current-app-initial/data-controls-current-runtime.ts",
+      "exports": {
+        "DataControlsSettings": "DataControlsSettings"
+      },
+      "status": "done",
+      "note": "Current DataControlsSettings hash maps to a dedicated current-ref runtime over vendor/data-controls-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:35:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:35:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports DataControlsSettings, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of DataControlsSettings remains a later cleanup."
+    },
+    "hooks-settings-DUMdgBqk": {
+      "restored": "runtime/current-app-initial/hooks-settings-current-runtime.ts",
+      "exports": {
+        "HooksSettings": "HooksSettings"
+      },
+      "status": "done",
+      "note": "Current HooksSettings hash maps to a dedicated current-ref runtime over vendor/hooks-settings-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:35:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:35:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports HooksSettings, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of HooksSettings remains a later cleanup."
+    },
+    "login-route-BmCnkGdw": {
+      "restored": "runtime/current-app-initial/login-route-current-runtime.ts",
+      "exports": {
+        "LoginRoute": "LoginRoute"
+      },
+      "status": "done",
+      "note": "Current LoginRoute hash maps to a dedicated current-ref runtime over vendor/login-route-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:35:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:35:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports LoginRoute, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of LoginRoute remains a later cleanup."
+    },
+    "projects-index-page-CJjk7dRY": {
+      "restored": "runtime/current-app-initial/projects-index-page-current-runtime.ts",
+      "exports": {
+        "ProjectsIndexPage": "ProjectsIndexPage"
+      },
+      "status": "done",
+      "note": "Current ProjectsIndexPage hash maps to a dedicated current-ref runtime over vendor/projects-index-page-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:35:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:35:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports ProjectsIndexPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of ProjectsIndexPage remains a later cleanup."
+    },
+    "pending-request-item-panel-DnKsF6y0": {
+      "restored": "runtime/current-app-initial/pending-request-item-panel-current-runtime.ts",
+      "exports": {
+        "PendingRequestItemPanel": "PendingRequestItemPanel"
+      },
+      "status": "done",
+      "note": "Current PendingRequestItemPanel hash maps to a dedicated current-ref runtime over vendor/pending-request-item-panel-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:45:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:45:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports PendingRequestItemPanel, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of PendingRequestItemPanel remains a later cleanup."
+    },
+    "profile-BCAO7QLd": {
+      "restored": "runtime/current-app-initial/profile-current-runtime.ts",
+      "exports": {
+        "Profile": "Profile"
+      },
+      "status": "done",
+      "note": "Current Profile hash maps to a dedicated current-ref runtime over vendor/profile-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:45:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:45:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports Profile, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of Profile remains a later cleanup."
+    },
+    "usage-settings-D_gEzTFv": {
+      "restored": "runtime/current-app-initial/usage-settings-current-runtime.ts",
+      "exports": {
+        "UsageSettings": "UsageSettings"
+      },
+      "status": "done",
+      "note": "Current UsageSettings hash maps to a dedicated current-ref runtime over vendor/usage-settings-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:45:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:45:00.000Z",
+      "stage3Review": "Host self-review: verified the current file exports UsageSettings, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of UsageSettings remains a later cleanup."
     }
   }
 }
