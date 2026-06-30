@@ -32301,6 +32301,186 @@
       "note": "Current use-floating-window-pointer-interactivity hash was fingerprinted against the restored source body and preserves this public export surface.",
       "status": "done",
       "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "use-debug-panel-CdyuStw9": {
+      "restored": "debug/debug-panel.ts",
+      "exports": {
+        "a": "useIsDebugPanelEnabled",
+        "c": "registerDebugPanelSource",
+        "i": "initDebugPanelRuntime",
+        "l": "initDebugPanelSourceRuntime",
+        "n": "createDebugPanelSourceId",
+        "o": "useDebugPanelSources",
+        "r": "unregisterDebugPanelSource",
+        "s": "getEditedFilesFromTurns",
+        "t": "getReferencedFilesFromTurns"
+      },
+      "aliasOf": "use-debug-panel-BOtarLIY",
+      "note": "Current use-debug-panel hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "settings-host-dropdown-D9ctLTpF": {
+      "restored": "settings/settings-host-dropdown.tsx",
+      "exports": {
+        "n": "initSettingsHostDropdownChunk",
+        "t": "SettingsHostDropdown"
+      },
+      "aliasOf": "settings-host-dropdown-BH50x2Qx",
+      "note": "Current settings-host-dropdown hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "tabs-DXhUD06H": {
+      "restored": "utils/tabs.tsx",
+      "exports": {
+        "n": "initTabsChunk",
+        "t": "Tabs"
+      },
+      "aliasOf": "tabs-Bltkr1kO",
+      "note": "Current tabs hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "feature-catalog-CkE810ru": {
+      "restored": "features/feature-catalog.tsx",
+      "exports": {
+        "a": "initFeatureCatalogFindBarChunk",
+        "i": "FeatureCatalogFindBar",
+        "n": "getFeatureCatalogRows",
+        "r": "initFeatureCatalogDataChunk",
+        "t": "getFeatureCatalogItems"
+      },
+      "aliasOf": "feature-catalog-CkClCF_S",
+      "note": "Current feature-catalog hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "thread-scroll-layout-lROgzP0x": {
+      "restored": "threads/thread-scroll-layout/index.tsx",
+      "exports": {
+        "t": "ThreadScrollLayout",
+        "n": "initThreadScrollLayoutChunk",
+        "r": "initThreadScrollLayoutStyleChunk"
+      },
+      "aliasOf": "thread-scroll-layout-DsxWR6SP",
+      "note": "Current thread-scroll-layout hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "worktree-environment-dropdown-BwnkHMlh": {
+      "restored": "environments/worktree-environment-dropdown.tsx",
+      "exports": {
+        "n": "initWorktreeEnvironmentDropdownChunk",
+        "t": "WorktreeEnvironmentDropdown"
+      },
+      "aliasOf": "worktree-environment-dropdown-CLHJ2WYr",
+      "note": "Current worktree-environment-dropdown hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "avatar-mascot-button-CdmzjmYy": {
+      "restored": "ui/avatar-mascot-button.tsx",
+      "exports": {
+        "n": "initAvatarMascotButtonChunk",
+        "t": "AvatarMascotButton"
+      },
+      "aliasOf": "avatar-mascot-button-DMfpOSwL",
+      "note": "Current avatar-mascot-button hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "share-invite-autocomplete-Bqz_EmsG": {
+      "restored": "collaboration/share-invite-autocomplete.tsx",
+      "exports": {
+        "n": "initShareInviteAutocompleteChunk",
+        "t": "ShareInviteAutocomplete"
+      },
+      "aliasOf": "share-invite-autocomplete-DUiU0DI5",
+      "note": "Current share-invite-autocomplete hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "home-use-cases-data-BeTzhg1t": {
+      "restored": "home/home-use-cases-data.ts",
+      "exports": {
+        "n": "getAutomationHomeUseCases",
+        "r": "initHomeUseCasesDataChunk",
+        "t": "HOME_USE_CASES"
+      },
+      "aliasOf": "home-use-cases-data-B74wpFte",
+      "note": "Current home-use-cases-data hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "composer-footer-branch-switcher-Cl5csgcW": {
+      "restored": "composer/composer-footer-branch-switcher/index.ts",
+      "exports": {
+        "a": "ComposerFooterBranchBadge",
+        "i": "initComposerFooterBranchSwitcherChunk",
+        "n": "initComposerFooterInlineBranchSwitcherChunk",
+        "o": "initComposerFooterBranchBadgeChunk",
+        "r": "ComposerFooterBranchSwitcher",
+        "t": "ComposerFooterInlineBranchSwitcher"
+      },
+      "aliasOf": "composer-footer-branch-switcher-GaN7fzcq",
+      "note": "Current composer-footer-branch-switcher hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "thread-overflow-menu-sWCLw7OA": {
+      "restored": "threads/thread-overflow-menu.tsx",
+      "exports": {
+        "i": "openSideChatTab",
+        "n": "initThreadOverflowMenuChunk",
+        "r": "initOpenSideChatTabChunk",
+        "t": "ThreadOverflowMenu"
+      },
+      "aliasOf": "thread-overflow-menu-yh1Ldo2y",
+      "note": "Current thread-overflow-menu hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "animated-icon-CeYm5OId": {
+      "restored": "ui/animated-icon.tsx",
+      "exports": {
+        "n": "initAnimatedIconModule",
+        "t": "AnimatedIcon"
+      },
+      "aliasOf": "animated-icon-vdVLnP6G",
+      "note": "Current animated-icon hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "git-branch-switcher-BtVZYs2f": {
+      "restored": "git/git-branch-switcher.tsx",
+      "exports": {
+        "a": "initGitRecentBranchesQuery",
+        "c": "useGitStatusSummaryQuery",
+        "i": "sanitizeGitBranchSearchInput",
+        "l": "gitBranchSearchQuery",
+        "n": "initGitBranchSwitcherChunk",
+        "o": "useGitRecentBranchesQuery",
+        "r": "initSanitizeGitBranchSearchInput",
+        "s": "initGitStatusSummaryQuery",
+        "t": "GitBranchSwitcher",
+        "u": "initGitBranchSearchQuery"
+      },
+      "aliasOf": "git-branch-switcher-BokkKYIT",
+      "note": "Current git-branch-switcher hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "header-CF6ECAV2": {
+      "restored": "browser/chrome-extension-header.tsx",
+      "exports": {
+        "n": "initChromeExtensionHeaderChunk",
+        "t": "ChromeExtensionHeader"
+      },
+      "aliasOf": "header-CT44CGhD",
+      "note": "Current header hash was fingerprinted from component/helper body strings and preserves this public export surface.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     }
   }
 }
