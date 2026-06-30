@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~pull-requests-page~projects-index-page~hotkey~ek7ayrmo-CGSZn3BZ.js
-// Also covers ref/webview/assets/app-initial~app-main~remote-conversation-page~pull-requests-page~projects-index-page~hotkey~ek7ayrmo-BLROoMi3.js.
+// Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~pull-requests-page~projects-index-page~hotkey~ek7ayrmo-CFM_IGPy.js
+// app-initial~app-main~remote-conversation-page~pull-requests-page~projects-index-page~hotkey~ek7ayrmo-CFM_IGPy chunk restored from the Codex webview bundle.
 import { FormattedMessage } from "react-intl";
 import { CheckCircleFilledIcon } from "../icons/check-circle-filled-icon";
 import { ClockIcon } from "../icons/clock-icon";
@@ -13,7 +13,7 @@ type PullRequestCiStatus = "failing" | "none" | "passing" | "pending";
 type PullRequestCheck = {
   status: string;
 };
-export function pullRequestChecksStatusLabel(status: PullRequestCiStatus) {
+function pullRequestChecksStatusLabel(status: PullRequestCiStatus) {
   switch (status) {
     case "failing":
       return (
@@ -49,7 +49,7 @@ export function pullRequestChecksStatusLabel(status: PullRequestCiStatus) {
       );
   }
 }
-export function PullRequestChecksSummary({
+function PullRequestChecksSummary({
   checks,
   ciStatus,
 }: {
@@ -80,13 +80,18 @@ export function PullRequestChecksSummary({
     <HeartbeatAutomationCheckRing checks={checks} />
   );
 }
-export function initPullRequestChecksStatusLabelChunk(): void {}
-export function initHeartbeatAutomationCheckRingChunk(): void {}
-export function initAttachedHeartbeatAutomationLookupChunk(): void {}
-export function initHeartbeatAutomationIconChunk(): void {}
-
+function initPullRequestChecksStatusLabelChunk(): void {}
+function initHeartbeatAutomationCheckRingChunk(): void {}
+function initAttachedHeartbeatAutomationLookupChunk(): void {}
+function initHeartbeatAutomationIconChunk(): void {}
 export {
-  getAttachedHeartbeatAutomationForThread,
+  initPullRequestChecksStatusLabelChunk,
   HeartbeatAutomationCheckRing,
+  pullRequestChecksStatusLabel,
+  initHeartbeatAutomationCheckRingChunk,
+  initAttachedHeartbeatAutomationLookupChunk,
   HeartbeatAutomationIcon,
+  PullRequestChecksSummary,
+  initHeartbeatAutomationIconChunk,
+  getAttachedHeartbeatAutomationForThread,
 };

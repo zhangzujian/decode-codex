@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~page-CMEx4JDW.js
-// Lodash-style clone helpers used by page-level chunks.
+// app-initial~app-main~page-CMEx4JDW chunk restored from the Codex webview bundle.
 type MutableRecord = Record<PropertyKey, unknown>;
 type CopyObjectCustomizer = (
   objectValue: unknown,
@@ -28,14 +28,11 @@ type TypedArrayLike = {
     ): TypedArrayLike;
   };
 };
-
 const hasOwn = Object.prototype.hasOwnProperty;
 const nativeObjectCreate = Object.create;
-
 function sameValue(left: unknown, right: unknown): boolean {
   return left === right || (left !== left && right !== right);
 }
-
 function baseAssignValue(
   object: MutableRecord,
   key: PropertyKey,
@@ -52,8 +49,7 @@ function baseAssignValue(
   }
   object[key] = value;
 }
-
-export function assignValue(
+function assignValue(
   object: MutableRecord,
   key: PropertyKey,
   value: unknown,
@@ -66,8 +62,7 @@ export function assignValue(
     baseAssignValue(object, key, value);
   }
 }
-
-export function copyObject<TObject extends MutableRecord>(
+function copyObject<TObject extends MutableRecord>(
   source: MutableRecord,
   propertyNames: readonly PropertyKey[],
   object?: TObject,
@@ -87,7 +82,6 @@ export function copyObject<TObject extends MutableRecord>(
   }
   return result;
 }
-
 function getNativeKeysIn(value: unknown): string[] {
   const result: string[] = [];
   if (value != null) {
@@ -95,17 +89,19 @@ function getNativeKeysIn(value: unknown): string[] {
   }
   return result;
 }
-
 function isPrototype(value: unknown): boolean {
   if (value == null || typeof value !== "object") return false;
-  const constructor = (value as { constructor?: unknown }).constructor;
+  const constructor = (
+    value as {
+      constructor?: unknown;
+    }
+  ).constructor;
   const prototype =
     typeof constructor === "function"
       ? constructor.prototype
       : Object.prototype;
   return value === prototype;
 }
-
 function getBaseKeysIn(value: unknown): string[] {
   if (
     value == null ||
@@ -125,20 +121,37 @@ function getBaseKeysIn(value: unknown): string[] {
   }
   return result;
 }
-
-function isArrayLike(value: unknown): value is { readonly length: number } {
+function isArrayLike(value: unknown): value is {
+  readonly length: number;
+} {
   return (
     value != null &&
     typeof value !== "function" &&
-    Number.isInteger((value as { length?: unknown }).length) &&
-    ((value as { length: number }).length ?? -1) >= 0 &&
-    (value as { length: number }).length <= Number.MAX_SAFE_INTEGER
+    Number.isInteger(
+      (
+        value as {
+          length?: unknown;
+        }
+      ).length,
+    ) &&
+    ((
+      value as {
+        length: number;
+      }
+    ).length ?? -1) >= 0 &&
+    (
+      value as {
+        length: number;
+      }
+    ).length <= Number.MAX_SAFE_INTEGER
   );
 }
-
 function getArrayLikeKeys(value: { readonly length: number }): string[] {
-  const result = Array.from({ length: value.length }, (_, index) =>
-    String(index),
+  const result = Array.from(
+    {
+      length: value.length,
+    },
+    (_, index) => String(index),
   );
   for (const key in Object(value)) {
     if (!/^(?:0|[1-9]\d*)$/.test(key) || Number(key) >= value.length) {
@@ -147,28 +160,28 @@ function getArrayLikeKeys(value: { readonly length: number }): string[] {
   }
   return result;
 }
-
-export function keysIn(value: unknown): string[] {
+function keysIn(value: unknown): string[] {
   return isArrayLike(value) ? getArrayLikeKeys(value) : getBaseKeysIn(value);
 }
-
 function getBufferConstructor(): BufferConstructorLike | undefined {
-  return (globalThis as { Buffer?: BufferConstructorLike }).Buffer;
+  return (
+    globalThis as {
+      Buffer?: BufferConstructorLike;
+    }
+  ).Buffer;
 }
-
-export function cloneBuffer(buffer: BufferLike, isDeep?: boolean): BufferLike {
+function cloneBuffer(buffer: BufferLike, isDeep?: boolean): BufferLike {
   if (isDeep) return buffer.slice();
   const result =
     getBufferConstructor()?.allocUnsafe?.(buffer.length) ??
-    new (buffer.constructor as { new (length: number): Uint8Array })(
-      buffer.length,
-    );
+    new (buffer.constructor as {
+      new (length: number): Uint8Array;
+    })(buffer.length);
   if (typeof buffer.copy === "function") buffer.copy(result);
   else result.set(buffer);
   return result as BufferLike;
 }
-
-export function copyArray<TValue>(
+function copyArray<TValue>(
   source: readonly TValue[],
   array: TValue[] = Array(source.length),
 ): TValue[] {
@@ -177,14 +190,12 @@ export function copyArray<TValue>(
   }
   return array;
 }
-
-export function cloneArrayBuffer(arrayBuffer: ArrayBuffer): ArrayBuffer {
+function cloneArrayBuffer(arrayBuffer: ArrayBuffer): ArrayBuffer {
   const result = new arrayBuffer.constructor(arrayBuffer.byteLength);
   new Uint8Array(result).set(new Uint8Array(arrayBuffer));
   return result;
 }
-
-export function cloneTypedArray<TArray extends TypedArrayLike>(
+function cloneTypedArray<TArray extends TypedArrayLike>(
   typedArray: TArray,
   isDeep?: boolean,
 ): TArray {
@@ -197,22 +208,34 @@ export function cloneTypedArray<TArray extends TypedArrayLike>(
     typedArray.length,
   ) as TArray;
 }
-
 function baseCreate(prototype: object | null): object {
   if (prototype == null || typeof prototype !== "object") return {};
   if (nativeObjectCreate != null) return nativeObjectCreate(prototype);
   function TemporaryConstructor() {}
   TemporaryConstructor.prototype = prototype;
-  const result = new (TemporaryConstructor as { new (): object })();
+  const result = new (TemporaryConstructor as {
+    new (): object;
+  })();
   TemporaryConstructor.prototype = undefined;
   return result;
 }
-
-export function initCloneObject<TObject extends object>(
-  object: TObject,
-): object {
-  const constructor = (object as { constructor?: unknown }).constructor;
+function initCloneObject<TObject extends object>(object: TObject): object {
+  const constructor = (
+    object as {
+      constructor?: unknown;
+    }
+  ).constructor;
   return typeof constructor === "function" && !isPrototype(object)
     ? baseCreate(constructor.prototype)
     : {};
 }
+export {
+  cloneBuffer,
+  assignValue,
+  copyArray,
+  cloneTypedArray,
+  keysIn,
+  cloneArrayBuffer,
+  copyObject,
+  initCloneObject,
+};
