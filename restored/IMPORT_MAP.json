@@ -2390,7 +2390,12 @@
       "exports": {
         "t": "loadCytoscapeCoseBilkent"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical cytoscape-cose-bilkent wrapper retained as an alias of the current Cew5xac- chunk; public export t loads the cytoscape-cose-bilkent package.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains cytoscape-cose-bilkent-3yd98erd, current Cew5xac- exists, vendor/cytoscape-cose-bilkent.ts passes quality-gate, and the recorded loadCytoscapeCoseBilkent alias is exported."
     },
     "cytoscape-cose-bilkent-CZ_nfQWZ": {
       "restored": "vendor/cytoscape-cose-bilkent.ts",
@@ -2399,7 +2404,11 @@
       },
       "status": "done",
       "aliasOf": "cytoscape-cose-bilkent-3yd98erd",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Historical cytoscape-cose-bilkent wrapper retained as an alias of the current Cew5xac- chunk; public export t loads the cytoscape-cose-bilkent package.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains cytoscape-cose-bilkent-CZ_nfQWZ, current Cew5xac- exists, vendor/cytoscape-cose-bilkent.ts passes quality-gate, and the recorded loadCytoscapeCoseBilkent alias is exported."
     },
     "cytoscape-cose-bilkent-Cew5xac-": {
       "restored": "vendor/cytoscape-cose-bilkent.ts",
@@ -2410,14 +2419,21 @@
       "aliasOf": "cytoscape-cose-bilkent-CZ_nfQWZ",
       "note": "Current ref cytoscape-cose-bilkent UMD wrapper; public export t loads the cytoscape-cose-bilkent package.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-29T22:20:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current Cew5xac- ref asset exists, vendor/cytoscape-cose-bilkent.ts passes quality-gate, and the recorded loadCytoscapeCoseBilkent alias is exported."
     },
     "cytoscape-fcose-CYmUq-SS": {
       "restored": "vendor/cytoscape-fcose.ts",
       "exports": {
         "t": "loadCytoscapeFcose"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical cytoscape-fcose wrapper retained as an alias of the current q4BaAAiB chunk; public export t loads the cytoscape-fcose package.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains cytoscape-fcose-CYmUq-SS, current q4BaAAiB exists, vendor/cytoscape-fcose.ts passes quality-gate, and the recorded loadCytoscapeFcose alias is exported."
     },
     "cytoscape-fcose-w_4iexyA": {
       "restored": "vendor/cytoscape-fcose.ts",
@@ -2426,7 +2442,11 @@
       },
       "status": "done",
       "aliasOf": "cytoscape-fcose-CYmUq-SS",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Historical cytoscape-fcose wrapper retained as an alias of the current q4BaAAiB chunk; public export t loads the cytoscape-fcose package.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains cytoscape-fcose-w_4iexyA, current q4BaAAiB exists, vendor/cytoscape-fcose.ts passes quality-gate, and the recorded loadCytoscapeFcose alias is exported."
     },
     "cytoscape-fcose-q4BaAAiB": {
       "restored": "vendor/cytoscape-fcose.ts",
@@ -2437,11 +2457,18 @@
       "aliasOf": "cytoscape-fcose-w_4iexyA",
       "note": "Current ref cytoscape-fcose UMD wrapper; public export t loads the cytoscape-fcose package.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-29T22:20:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current q4BaAAiB ref asset exists, vendor/cytoscape-fcose.ts passes quality-gate, and the recorded loadCytoscapeFcose alias is exported."
     },
     "docx-preview-Mi4H0G1I": {
       "restored": "vendor/docx-preview.ts",
-      "status": "done"
+      "status": "done",
+      "note": "Historical docx-preview no-export checkpoint retained as an alias of the current G1XqxLZP chunk; the public docx-preview wrapper exports renderAsync for later hashes.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains docx-preview-Mi4H0G1I, current G1XqxLZP exists, vendor/docx-preview.ts passes quality-gate, and this historical entry records no public aliases."
     },
     "docx-preview-dx1eKBjU": {
       "restored": "vendor/docx-preview.ts",
@@ -2450,7 +2477,11 @@
         "renderAsync": "renderAsync"
       },
       "aliasOf": "docx-preview-Mi4H0G1I",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Historical docx-preview wrapper retained as an alias of the current G1XqxLZP chunk; renderAsync is restored as the public export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains docx-preview-dx1eKBjU, current G1XqxLZP exists, vendor/docx-preview.ts passes quality-gate, and renderAsync is exported."
     },
     "docx-preview-G1XqxLZP": {
       "restored": "vendor/docx-preview.ts",
@@ -2461,7 +2492,9 @@
       "aliasOf": "docx-preview-dx1eKBjU",
       "note": "Current ref docx-preview UMD bundle with renderAsync as the only public export.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-29T22:20:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current G1XqxLZP ref asset exists, vendor/docx-preview.ts passes quality-gate, and renderAsync is exported."
     },
     "__vite-browser-external-EPeb3y57": {
       "restored": "runtime/vite-browser-external.ts",
@@ -2519,7 +2552,12 @@
       "exports": {
         "t": "loadHighlightJsCore"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical highlight.js core wrapper retained as an alias of the current DMiaGTKr chunk; public export t loads highlight.js/lib/core.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains core-CpC1jq0N, current DMiaGTKr exists, vendor/highlight-js-core.ts passes quality-gate, and the recorded loadHighlightJsCore alias is exported."
     },
     "core-CCcWj3EO": {
       "restored": "vendor/highlight-js-core.ts",
@@ -2528,7 +2566,11 @@
       },
       "status": "done",
       "aliasOf": "core-CpC1jq0N",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Historical highlight.js core wrapper retained as an alias of the current DMiaGTKr chunk; public export t loads highlight.js/lib/core.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains core-CCcWj3EO, current DMiaGTKr exists, vendor/highlight-js-core.ts passes quality-gate, and the recorded loadHighlightJsCore alias is exported."
     },
     "core-DMiaGTKr": {
       "restored": "vendor/highlight-js-core.ts",
@@ -2540,7 +2582,9 @@
       "status": "done",
       "lastUpdated": "2026-06-30T08:19:23.819Z",
       "stage3Accepted": true,
-      "stage3Note": "Accepted as a typed Highlight.js core loader re-export with current-bundle provenance."
+      "stage3Note": "Accepted as a typed Highlight.js core loader re-export with current-bundle provenance.",
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current DMiaGTKr ref asset exists, vendor/highlight-js-core.ts passes quality-gate, and the recorded loadHighlightJsCore alias is exported."
     },
     "highlight-code-BntQZ0HZ": {
       "restored": "utils/highlight-code.ts",
