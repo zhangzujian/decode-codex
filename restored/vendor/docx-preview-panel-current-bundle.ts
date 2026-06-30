@@ -2,8 +2,7 @@
 const __vite__mapDeps = (
   i,
   m = __vite__mapDeps,
-  d = m.f ||
-    (m.f = ["./docx-preview"]),
+  d = m.f || (m.f = ["./docx-preview"]),
 ) => i.map((i) => d[i]);
 import { once as e, toEsModule as t } from "../runtime/commonjs-interop";
 import {
@@ -31,7 +30,7 @@ import {
   oc as b,
   sa as x,
   ws as te,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-orchestrator-runtime-producer";
+} from "./worktree-new-thread-orchestrator-current-bundle";
 import {
   $t as S,
   Np as ne,
@@ -49,7 +48,7 @@ import {
   rn as E,
   sn as de,
   tn as fe,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-query-runtime-producer";
+} from "./worktree-new-thread-query-current-bundle";
 import {
   Hi as D,
   Iy as O,
@@ -58,7 +57,7 @@ import {
   Vy as he,
   ba as k,
   ya as ge,
-} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
+} from "./remote-projects-app-shared-current-bundle";
 import {
   $u as _e,
   At as ve,
@@ -79,18 +78,25 @@ import {
   nd as De,
   rd as I,
   wt as L,
-} from "../boundaries/current-ref/app-main-current-producer";
+} from "./app-main-current-cgnc-bundle";
 import {
   c as R,
   l as Oe,
 } from "../boundaries/current-ref/current-projects-index-compose-refs-producer";
-import { i as ke, r as Ae, t as z } from "../boundaries/current-ref/current-artifact-analytics-producer";
+import {
+  i as ke,
+  r as Ae,
+  t as z,
+} from "../boundaries/current-ref/current-artifact-analytics-producer";
 import {
   a as je,
   n as B,
   r as Me,
 } from "../boundaries/current-ref/current-artifact-annotation-comment-producer";
-import { n as V, t as Ne } from "../boundaries/current-ref/current-artifact-preview-status-producer";
+import {
+  n as V,
+  t as Ne,
+} from "../boundaries/current-ref/current-artifact-preview-status-producer";
 var H = e(() => {});
 function Pe({ anchor: e, editorScale: t, layer: n, pageSize: r }) {
   return e.kind === `region` && e.selectionKind != null

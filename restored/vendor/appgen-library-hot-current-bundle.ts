@@ -101,10 +101,7 @@ const __vite__mapDeps = (
       "./thread-browser-panel-tabs-BBhz5qN_.js",
     ]),
 ) => i.map((i) => d[i]);
-import {
-  once as e,
-  toEsModule as t,
-} from "../runtime/commonjs-interop";
+import { once as e, toEsModule as t } from "../runtime/commonjs-interop";
 import {
   $s as n,
   Ao as r,
@@ -365,7 +362,7 @@ import {
   zg as Kr,
   zo as qr,
   zu as Jr,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-orchestrator-runtime-producer";
+} from "./worktree-new-thread-orchestrator-current-bundle";
 import {
   $ as Yr,
   $c as Xr,
@@ -689,7 +686,7 @@ import {
   zm as Wl,
   zo as Gl,
   zu as Kl,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-query-runtime-producer";
+} from "./worktree-new-thread-query-current-bundle";
 import {
   $ as ql,
   $_ as Jl,
@@ -912,7 +909,7 @@ import {
   yp as Xp,
   zc as Zp,
   zy as X,
-} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
+} from "./remote-projects-app-shared-current-bundle";
 import {
   Bt as Qp,
   C as $p,
@@ -951,7 +948,7 @@ import {
   y as Mm,
   yn as Nm,
   zt as Pm,
-} from "../boundaries/current-ref/current-app-initial-pull-request-new-thread-runtime-producer";
+} from "./pull-request-new-thread-current-bundle";
 import {
   $d as Fm,
   $f as Im,
@@ -1150,7 +1147,7 @@ import {
   zi as pv,
   zl as mv,
   zs as hv,
-} from "../boundaries/current-ref/app-main-current-producer";
+} from "./app-main-current-cgnc-bundle";
 import {
   T as gv,
   _ as _v,
@@ -1216,7 +1213,7 @@ import {
   ut as dy,
   x as fy,
   z as py,
-} from "../boundaries/current-ref/current-app-initial-appgen-library-hot-current-runtime-producer";
+} from "./appgen-library-hot-current-runtime-bundle";
 import {
   C as my,
   M as hy,

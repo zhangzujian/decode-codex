@@ -690,7 +690,7 @@ import {
   zp as aie,
   zr as Na,
   zu as Pa,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-orchestrator-runtime-producer";
+} from "./worktree-new-thread-orchestrator-current-bundle";
 import {
   $ as oie,
   $a as sie,
@@ -953,7 +953,7 @@ import {
   zc as $s,
   zm as ec,
   zt as Aoe,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-query-runtime-producer";
+} from "./worktree-new-thread-query-current-bundle";
 import {
   $_ as tc,
   $a as joe,
@@ -1314,7 +1314,7 @@ import {
   zu as Jle,
   zv as gd,
   zy as $,
-} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
+} from "./remote-projects-app-shared-current-bundle";
 import {
   $t as _d,
   Bt as vd,
@@ -1345,7 +1345,7 @@ import {
   xn as Nd,
   y as Pd,
   yn as Fd,
-} from "../boundaries/current-ref/current-app-initial-pull-request-new-thread-runtime-producer";
+} from "./pull-request-new-thread-current-bundle";
 import {
   $ as aue,
   A as oue,
@@ -1391,7 +1391,7 @@ import {
   wt as Gue,
   xt as Kue,
   yt as que,
-} from "../boundaries/current-ref/current-app-initial-diagram-definition-runtime-producer";
+} from "./diagram-definition-current-runtime";
 import {
   i as Ld,
   n as Rd,

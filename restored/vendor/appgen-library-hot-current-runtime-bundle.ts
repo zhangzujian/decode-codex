@@ -84,10 +84,7 @@ const __vite__mapDeps = (
       "./conversation-starter-card-Ddm44v7Z.js",
     ]),
 ) => i.map((i) => d[i]);
-import {
-  once as e,
-  toEsModule as t,
-} from "../runtime/commonjs-interop";
+import { once as e, toEsModule as t } from "../runtime/commonjs-interop";
 import {
   $s as n,
   Bo as r,
@@ -118,7 +115,7 @@ import {
 import {
   Xi as D,
   Zi as O,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-orchestrator-runtime-producer";
+} from "./worktree-new-thread-orchestrator-current-bundle";
 import {
   Ca as k,
   Da as A,
@@ -170,7 +167,7 @@ import {
   va as je,
   wo as Me,
   ya as Ne,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-query-runtime-producer";
+} from "./worktree-new-thread-query-current-bundle";
 import {
   Bl as Pe,
   Fa as Fe,
@@ -199,7 +196,7 @@ import {
   xa as nt,
   zf as rt,
   zy as q,
-} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
+} from "./remote-projects-app-shared-current-bundle";
 import {
   $s as it,
   Is as at,
@@ -216,7 +213,7 @@ import {
   qs as gt,
   sc as _t,
   tc as vt,
-} from "../boundaries/current-ref/app-main-current-producer";
+} from "./app-main-current-cgnc-bundle";
 import {
   n as yt,
   t as bt,

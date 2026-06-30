@@ -2,8 +2,7 @@
 const __vite__mapDeps = (
   i,
   m = __vite__mapDeps,
-  d = m.f ||
-    (m.f = ["./pdfjs-entry"]),
+  d = m.f || (m.f = ["./pdfjs-entry"]),
 ) => i.map((i) => d[i]);
 import { once as e, toEsModule as t } from "../runtime/commonjs-interop";
 import {
@@ -31,7 +30,7 @@ import {
   oc as x,
   sa as S,
   ws as C,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-orchestrator-runtime-producer";
+} from "./worktree-new-thread-orchestrator-current-bundle";
 import {
   $t as w,
   Dp as T,
@@ -53,7 +52,7 @@ import {
   tn as z,
   xp as B,
   yp as ne,
-} from "../boundaries/current-ref/current-app-initial-worktree-new-thread-query-runtime-producer";
+} from "./worktree-new-thread-query-current-bundle";
 import {
   Bl as re,
   Hi as V,
@@ -68,7 +67,7 @@ import {
   if as K,
   ya as ce,
   zy as le,
-} from "../boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer";
+} from "./remote-projects-app-shared-current-bundle";
 import {
   $u as ue,
   At as de,
@@ -92,7 +91,7 @@ import {
   nd as De,
   rd as Oe,
   wt as ke,
-} from "../boundaries/current-ref/app-main-current-producer";
+} from "./app-main-current-cgnc-bundle";
 import {
   n as Ae,
   t as je,
@@ -103,7 +102,10 @@ import {
   r as Pe,
   t as Fe,
 } from "../boundaries/current-ref/current-artifact-analytics-producer";
-import { n as Ie, t as Le } from "../boundaries/current-ref/current-artifact-preview-status-producer";
+import {
+  n as Ie,
+  t as Le,
+} from "../boundaries/current-ref/current-artifact-preview-status-producer";
 function Re(e) {
   let t = (0, He.c)(19),
     { containerRef: n, pageSelector: r, totalPages: i } = e,
