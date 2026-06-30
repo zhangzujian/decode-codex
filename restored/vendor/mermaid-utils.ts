@@ -4571,3 +4571,5 @@ export const chunkMI3HLSF2T = chunkMI3HLSF2Value13;
 export const chunkMI3HLSF2N = chunkMI3HLSF2Value44.load;
 chunkMI3HLSF2Value44.loadAll;
 chunkMI3HLSF2Value80.dump;
+
+export function initChunkMI3HLSF2() {}

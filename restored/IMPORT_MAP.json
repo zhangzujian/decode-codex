@@ -32033,7 +32033,7 @@
       "aliasOf": "highlight-code-BntQZ0HZ",
       "note": "Current highlight-code hash preserves the semantic public export surface; aliases re-derived from highlight-code-Bv8OoAm9.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T08:26:22.483Z"
     },
     "keyboard-shortcuts-settings-CTlFYERg": {
       "restored": "settings/keyboard-shortcuts-settings/index.tsx",
@@ -32615,6 +32615,30 @@
       "status": "done",
       "lastUpdated": "2026-06-30T08:22:15.325Z"
     },
+    "chunk-XPW4576I-C68fwtjN": {
+      "restored": "vendor/chunk-xpw4576i.ts",
+      "exports": {
+        "n": "initChunkXPW4576I",
+        "r": "chunkXPW4576IN",
+        "t": "chunkXPW4576IT"
+      },
+      "aliasOf": "chunk-XPW4576I-Bqa38NHl",
+      "note": "Current js-yaml wrapper aliases were re-derived from this ref: n=lazy init thunk, r=load, t=schema.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T08:26:22.483Z"
+    },
+    "chunk-MI3HLSF2-lTgkCAOX": {
+      "restored": "vendor/mermaid-utils.ts",
+      "exports": {
+        "n": "initChunkMI3HLSF2",
+        "r": "chunkMI3HLSF2N",
+        "t": "chunkMI3HLSF2T"
+      },
+      "aliasOf": "chunk-MI3HLSF2-DUVSUh0R",
+      "note": "Current Mermaid js-yaml wrapper aliases were re-derived from this ref: n=lazy init thunk, r=load, t=schema.",
+      "status": "done",
+      "lastUpdated": "2026-06-30T08:26:22.483Z"
+    },
     "local-environments-utils-Y1qAyZiR": {
       "restored": "environments/local-environments-utils/index.ts",
       "exports": {
@@ -32697,6 +32721,23 @@
       "note": "Current Oniguruma WASM hash preserves the typed data-module export surface; aliases re-derived from wasm-CboGkVi_.js.",
       "status": "done",
       "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
+    "dist-Dcs2yc8m": {
+      "restored": "vendor/mermaid-color-utils.ts",
+      "exports": {
+        "a": "darken",
+        "c": "colorChannel",
+        "i": "transparentize",
+        "l": "rgba",
+        "n": "invertColor",
+        "o": "lighten",
+        "r": "adjustColor",
+        "s": "isDark",
+        "t": "initMermaidColorUtils"
+      },
+      "status": "done",
+      "lastUpdated": "2026-06-30T08:30:05.291Z",
+      "note": "Mermaid color utility aliases re-derived from dist-Dcs2yc8m.js export tail."
     }
   }
 }
