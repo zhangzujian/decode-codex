@@ -3103,7 +3103,12 @@
       "exports": {
         "t": "dist"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical entity escaping and URL sanitizer helper retained in vendor/entities-escape.ts; current synced ref hashes preserve the same dist export surface.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains dist-D8VrLBqU, current dist hashes exist, vendor/entities-escape.ts passes quality-gate, and the recorded dist alias is exported."
     },
     "chunk-CVBHYZKI-D5c0MJ_k": {
       "restored": "vendor/mermaid-subgraph-title-margins.ts",
@@ -3249,7 +3254,12 @@
         "r": "isEmptyR",
         "t": "isEmptyT"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical lodash isEmpty helper retained in vendor/lodash-is-empty.ts; current synced ref hashes add rolldown lazy-init aliases over the same semantic helper surface.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains isEmpty-CKN2Jii3, current isEmpty hashes exist, vendor/lodash-is-empty.ts passes quality-gate, and all four historical aliases are exported."
     },
     "band-DVYrpIoC": {
       "restored": "vendor/d3-scale-band.ts",
@@ -3818,14 +3828,24 @@
       "exports": {
         "t": "baseEach"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical lodash baseEach helper retained in vendor/lodash-base-each.ts; the current synced ref no longer contains this exact hash.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains _baseEach-D1JYswpe, vendor/lodash-base-each.ts passes quality-gate, and the recorded baseEach alias is exported."
     },
     "_defineProperty-CjRaK4yh": {
       "restored": "vendor/babel-define-property.ts",
       "exports": {
         "t": "defineProperty"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Historical Babel/lodash defineProperty helper retained in vendor/babel-define-property.ts; the current synced ref no longer contains this exact hash.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains _defineProperty-CjRaK4yh, vendor/babel-define-property.ts passes quality-gate, and the recorded defineProperty alias is exported."
     },
     "browser-BQH2qCja": {
       "restored": "vendor/dotlottie-react.tsx",
@@ -31679,7 +31699,9 @@
       "status": "done",
       "stage3Accepted": true,
       "stage3Note": "Accepted as typed entity escaping and URL sanitizer helpers.",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current dist-CD74BDfk ref asset exists, vendor/entities-escape.ts passes quality-gate, and the recorded dist alias is exported."
     },
     "permission-request-model-FfJwWzP9": {
       "restored": "utils/permission-request-model.ts",
@@ -33385,7 +33407,10 @@
       "aliasOf": "dist-D8VrLBqU",
       "note": "Current dist hash preserves the restored public export surface; aliases re-derived from dist-BO3qvbGN.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current dist-BO3qvbGN ref asset exists, vendor/entities-escape.ts passes quality-gate, and the recorded dist alias is exported."
     },
     "dist-Kh8ku4yn": {
       "restored": "vendor/entities-escape.ts",
@@ -33395,7 +33420,10 @@
       "aliasOf": "dist-D8VrLBqU",
       "note": "Current dist hash preserves the restored public export surface; aliases re-derived from dist-Kh8ku4yn.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current dist-Kh8ku4yn ref asset exists, vendor/entities-escape.ts passes quality-gate, and the recorded dist alias is exported."
     },
     "dist-WEF1yh7f": {
       "restored": "vendor/entities-escape.ts",
@@ -33405,7 +33433,10 @@
       "aliasOf": "dist-D8VrLBqU",
       "note": "Current dist hash preserves the restored public export surface; aliases re-derived from dist-WEF1yh7f.js.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current dist-WEF1yh7f ref asset exists, vendor/entities-escape.ts passes quality-gate, and the recorded dist alias is exported."
     },
     "graphlib-BnZ9Pn5Q": {
       "restored": "vendor/graphlib.ts",
@@ -34631,7 +34662,9 @@
       "aliasOf": "isEmpty-CKN2Jii3",
       "note": "Current ref lodash isEmpty chunk re-derived from isEmpty-ld3eWiRn.js. Rolldown lazy init exports map to initLodashIsEmptyChunk because the restored module has those side effects flattened.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current isEmpty-ld3eWiRn ref asset exists, vendor/lodash-is-empty.ts passes quality-gate, and all eight current aliases are exported."
     },
     "merge-Mpnm7bAs": {
       "restored": "vendor/lodash-merge.ts",
@@ -34942,7 +34975,9 @@
       "aliasOf": "isEmpty-CKN2Jii3",
       "note": "Current ref lodash isEmpty chunk re-derived from isEmpty-BJ4mdsaY.js. Rolldown lazy init exports map to initLodashIsEmptyChunk because the restored module has those side effects flattened.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: exact current isEmpty-BJ4mdsaY ref asset exists, vendor/lodash-is-empty.ts passes quality-gate, and all eight current aliases are exported."
     },
     "chunk-ZZ45TVLE-DzHSn4eK": {
       "restored": "vendor/chunk-zz45tvle.ts",
