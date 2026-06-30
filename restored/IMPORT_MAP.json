@@ -10803,7 +10803,10 @@
       "exports": {
         "diagram": "DiagramS2PKOQOG"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:08:39.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-packet-diagram-fpaj.ts now semantically restores the Mermaid Packet diagram definition with typed PacketDb, parser, row splitting, renderer, and styles; it preserves the historical diagram export surface and passes quality-gate."
     },
     "diagram-S2PKOQOG-C0ma8yN3": {
       "restored": "vendor/mermaid-packet-diagram-fpaj.ts",
@@ -10812,7 +10815,10 @@
       },
       "status": "done",
       "aliasOf": "diagram-S2PKOQOG-CYp0tDDf",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:08:39.000Z",
+      "stage3Review": "Host self-review: restored packet diagram preserves parser/db/renderer/styles behavior from diagram-S2PKOQOG-C0ma8yN3 and exports DiagramS2PKOQOG for the bundled diagram alias; it passes quality-gate."
     },
     "diagram-S2PKOQOG-DEagJxzL": {
       "restored": "vendor/mermaid-packet-diagram-fpaj.ts",
@@ -10822,7 +10828,10 @@
       "status": "done",
       "aliasOf": "diagram-S2PKOQOG-CYp0tDDf",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:08:39.000Z",
+      "stage3Review": "Host self-review: current ref diagram-S2PKOQOG-DEagJxzL.js exports N as diagram with the same PacketDB, populate, drawWord, renderer, and styles surface; vendor/mermaid-packet-diagram-fpaj.ts preserves that behavior with semantic names and passes quality-gate."
     },
     "gitGraphDiagram-NY62KEGX-lV4TXvsv": {
       "restored": "vendor/mermaid-git-graph-diagram-fpaj.ts",
