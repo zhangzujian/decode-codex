@@ -2,13 +2,28 @@
 // Persistence + clamping for the app-shell bottom panel height. The height is
 // kept between a fixed minimum and half of the available main-content height,
 // and is stored under a dedicated settings key.
-import {
-  readStoredNumber,
-  writeStoredValue,
-} from "../boundaries/onboarding-commons-externals.facade";
 
 const DEFAULT_BOTTOM_PANEL_HEIGHT = 280;
 const BOTTOM_PANEL_HEIGHT_STORAGE_KEY = "app-shell:bottom-panel-height";
+
+function readStoredNumber(key: string, fallback: number): number {
+  try {
+    const value = window.localStorage?.getItem(key);
+    if (value == null) return fallback;
+    const parsed = JSON.parse(value) as unknown;
+    return typeof parsed === "number" ? parsed : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function writeStoredValue(key: string, value: number): void {
+  try {
+    window.localStorage?.setItem(key, JSON.stringify(value));
+  } catch {
+    // Ignore storage failures; panel sizing can continue with the default.
+  }
+}
 
 export function clampBottomPanelHeight(
   height: number,

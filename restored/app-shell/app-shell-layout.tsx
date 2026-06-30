@@ -20,8 +20,9 @@ import {
   readBottomPanelHeight,
 } from "./bottom-panel-height";
 import { bottomAppShellTabController } from "./app-shell-tab-controller";
-import { AppShellTabs } from "../app-shell-tabs";
+import { AppShellTabs } from "./app-shell-tabs";
 import { appShellElementContext, appShellRefContext } from "./app-shell-ref";
+import { useResizeObserverRef } from "../utils/use-resize-observer";
 import {
   activeAppShellFocusAreaSignal,
   reviewFileTreeOpenSignal,
