@@ -17958,8 +17958,11 @@
         "yw": "useStableCallback"
       },
       "status": "done",
-      "note": "Current app-main/new-thread exact-hash runtime is complete as a semantic alias layer over vendor/app-main-legacy-deps/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.ts. The 281 current aliases collapse to 268 unique semantic exports, matching runtime/app-main-new-thread-runtime.ts exactly; duplicate aliases such as kx/Ox, G/J, K/Y, Ln/Yn, FC/zC, ZS/CC, jC/DC, Dx/er, ls/oS, fx/dx, qy/rw, and yw/oS intentionally map to the same public names.",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "note": "Historical bj5tp28r app-main/new-thread runtime retained as runtime/app-main-new-thread-runtime.ts. The current ref no longer contains this exact hash; current worktree/new-thread query and orchestrator runtimes are covered separately by ko8xg8gw-DEdbMp8p and kg2pu5rs-N3llppXI. The 281 legacy aliases collapse to 268 unique semantic exports; duplicate aliases such as kx/Ox, G/J/ul, K/Y, Ln/Yn, FC/zC, ZS/CC, jC/DC, Dx/er, ls/yw/oS, fx/dx, and qy/rw intentionally map to the same public names.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: current ref no longer contains bj5tp28r-Dcs9S3fj; verified kg2pu5rs-N3llppXI and ko8xg8gw-DEdbMp8p are the separate current entries, runtime/app-main-new-thread-runtime.ts passes quality-gate, and its 268 public exports cover the recorded 281 legacy aliases including the documented duplicate alias groups."
     },
     "app-initial~app-main~onboarding-page-BUwCKIcU": {
       "restored": "vendor/app-main-legacy-buw-runtime/index.ts",
@@ -27149,8 +27152,8 @@
     "app-initial~app-main~first-run~new-thread-panel-page-BZcGQjmi": {
       "restored": "app-shell/nux-state.ts",
       "exports": {
-        "n": "initUseNuxChunk",
-        "t": "useNux"
+        "n": "useNux",
+        "t": "initUseNuxChunk"
       },
       "status": "done",
       "aliasOf": "use-nux-ChpUn11I",
