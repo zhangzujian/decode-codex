@@ -1,7 +1,14 @@
 // Restored from ref/webview/assets/chunk-U2HBQHQK-DJ4vuuzw.js
 // ChunkU2HBQHQK chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
-import { esmA, esmI, esmN, esmO, esmR, esmT } from "./iconify-core";
+import {
+  resolveIconData,
+  iconToSvg,
+  wrapSvgContent,
+  parseIconName,
+  replaceIconIds,
+  dedentTemplate,
+} from "./iconify-core";
 import { n as chunkU2HBQHQKImport1 } from "marked";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
 import {
@@ -21,7 +28,7 @@ var chunkU2HBQHQKA = {
   chunkU2HBQHQKValue2 = new Map(),
   chunkU2HBQHQKValue3 = chunkAGHRB4JFN(
     async (chunkU2HBQHQKParam19, chunkU2HBQHQKParam20) => {
-      let chunkU2HBQHQKValue23 = esmO(
+      let chunkU2HBQHQKValue23 = parseIconName(
         chunkU2HBQHQKParam19,
         true,
         chunkU2HBQHQKParam20 !== undefined,
@@ -51,7 +58,7 @@ var chunkU2HBQHQKA = {
           );
         }
       }
-      let chunkU2HBQHQKValue26 = esmA(
+      let chunkU2HBQHQKValue26 = resolveIconData(
         chunkU2HBQHQKValue25,
         chunkU2HBQHQKValue23.name,
       );
@@ -84,12 +91,12 @@ var chunkU2HBQHQKA = {
         chunkAGHRB4JFR.error(chunkU2HBQHQKValue60);
         chunkU2HBQHQKValue44 = chunkU2HBQHQKA;
       }
-      let chunkU2HBQHQKValue45 = esmI(
+      let chunkU2HBQHQKValue45 = iconToSvg(
         chunkU2HBQHQKValue44,
         chunkU2HBQHQKParam45,
       );
       return chunkICPOFSXXJ(
-        esmN(esmR(chunkU2HBQHQKValue45.body), {
+        wrapSvgContent(replaceIconIds(chunkU2HBQHQKValue45.body), {
           ...chunkU2HBQHQKValue45.attributes,
           ...chunkU2HBQHQKParam46,
         }),
@@ -130,7 +137,7 @@ export const chunkU2HBQHQKI = chunkAGHRB4JFN((chunkU2HBQHQKParam23) => {
   }
 }, "registerIconPacks");
 function chunkU2HBQHQKHelper1(chunkU2HBQHQKParam55, { markdownAutoWrap }) {
-  return esmT(
+  return dedentTemplate(
     chunkU2HBQHQKParam55.replace(/<br\/>/g, "\n").replace(/\n{2,}/g, "\n"),
   );
 }

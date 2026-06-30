@@ -1,425 +1,616 @@
 // Restored from ref/webview/assets/esm-CuAuNray.js
 // Vendored Iconify core runtime restored from the Codex webview bundle.
-export function initIconifyCoreRuntimeChunk() {}
-export function initIconifyCoreChunk() {
+
+export type IconifyIconName = {
+  provider: string;
+  prefix: string;
+  name: string;
+};
+
+export type IconifyTransformations = {
+  rotate?: number;
+  vFlip?: boolean;
+  hFlip?: boolean;
+};
+
+export type IconifyIconData = IconifyTransformations & {
+  left?: number;
+  top?: number;
+  width?: number;
+  height?: number;
+  body?: string;
+  hidden?: boolean;
+};
+
+export type IconifyAliasData = IconifyIconData & {
+  parent: string;
+};
+
+export type IconifyIconSet = IconifyIconData & {
+  icons: Record<string, IconifyIconData>;
+  aliases?: Record<string, IconifyAliasData>;
+};
+
+export type IconifyCustomisations = IconifyTransformations & {
+  width?: number | string | null;
+  height?: number | string | null;
+};
+
+export type IconifySvgBuildResult = {
+  attributes: Record<string, string>;
+  viewBox: number[];
+  body: string;
+};
+
+const DEFAULT_ICON_DIMENSIONS = Object.freeze({
+  left: 0,
+  top: 0,
+  width: 16,
+  height: 16,
+});
+
+const DEFAULT_ICON_TRANSFORMS = Object.freeze({
+  rotate: 0,
+  vFlip: false,
+  hFlip: false,
+});
+
+const DEFAULT_ICON_PROPS = Object.freeze({
+  ...DEFAULT_ICON_DIMENSIONS,
+  ...DEFAULT_ICON_TRANSFORMS,
+});
+
+const DEFAULT_RESOLVED_ICON_PROPS = Object.freeze({
+  ...DEFAULT_ICON_PROPS,
+  body: "",
+  hidden: false,
+});
+
+const DEFAULT_SIZE_CUSTOMISATIONS = Object.freeze({
+  width: null,
+  height: null,
+});
+
+const DEFAULT_ICON_CUSTOMISATIONS = Object.freeze({
+  ...DEFAULT_SIZE_CUSTOMISATIONS,
+  ...DEFAULT_ICON_TRANSFORMS,
+});
+
+const NUMBER_SPLIT_PATTERN = /(-?[0-9.]*[0-9]+[0-9.]*)/g;
+const NUMBER_VALUE_PATTERN = /^-?[0-9.]*[0-9]+[0-9.]*$/g;
+const SVG_ID_PATTERN = /\sid="(\S+)"/g;
+const DEFAULT_ID_PREFIX =
+  "IconifyId" +
+  Date.now().toString(16) +
+  ((Math.random() * 16777216) | 0).toString(16);
+
+let iconIdCounter = 0;
+
+export function initIconifyCoreRuntimeChunk(): void {}
+
+export function initIconifyCoreChunk(): void {
   initIconifyCoreRuntimeChunk();
 }
-var esmValue1 = Object.freeze({
-    left: 0,
-    top: 0,
-    width: 16,
-    height: 16,
-  }),
-  esmValue2 = Object.freeze({
-    rotate: 0,
-    vFlip: false,
-    hFlip: false,
-  }),
-  esmValue3 = Object.freeze({
-    ...esmValue1,
-    ...esmValue2,
-  }),
-  esmValue4 = Object.freeze({
-    ...esmValue3,
-    body: "",
-    hidden: false,
-  }),
-  esmValue5 = Object.freeze({
-    width: null,
-    height: null,
-  }),
-  esmValue6 = Object.freeze({
-    ...esmValue5,
-    ...esmValue2,
-  }),
-  esmValue7 = (esmParam32, esmParam33) =>
-    esmParam32
-      ? !!(
-          ((esmParam33 && esmParam32.prefix === "") || esmParam32.prefix) &&
-          esmParam32.name
-        )
-      : false;
-export const esmO = (esmParam4, esmParam5, esmParam6, esmParam7 = "") => {
-  let esmValue35 = esmParam4.split(":");
-  if (esmParam4.slice(0, 1) === "@") {
-    if (esmValue35.length < 2 || esmValue35.length > 3) return null;
-    esmParam7 = esmValue35.shift().slice(1);
+
+function isValidIconName(
+  iconName: IconifyIconName | null,
+  allowSimpleName = false,
+): iconName is IconifyIconName {
+  return iconName
+    ? Boolean(
+        ((allowSimpleName && iconName.prefix === "") || iconName.prefix) &&
+          iconName.name,
+      )
+    : false;
+}
+
+export function parseIconName(
+  value: string,
+  validate: boolean = true,
+  allowSimpleName: boolean = false,
+  provider: string = "",
+): IconifyIconName | null {
+  const colonParts = value.split(":");
+
+  if (value.slice(0, 1) === "@") {
+    if (colonParts.length < 2 || colonParts.length > 3) return null;
+    provider = colonParts.shift()!.slice(1);
   }
-  if (esmValue35.length > 3 || !esmValue35.length) return null;
-  if (esmValue35.length > 1) {
-    let esmValue62 = esmValue35.pop(),
-      esmValue63 = esmValue35.pop(),
-      esmValue64 = {
-        provider: esmValue35.length > 0 ? esmValue35[0] : esmParam7,
-        prefix: esmValue63,
-        name: esmValue62,
-      };
-    return esmParam5 && !esmValue7(esmValue64) ? null : esmValue64;
-  }
-  let esmValue36 = esmValue35[0],
-    _esmO = esmValue36.split("-");
-  if (_esmO.length > 1) {
-    let esmValue69 = {
-      provider: esmParam7,
-      prefix: _esmO.shift(),
-      name: _esmO.join("-"),
+
+  if (colonParts.length > 3 || !colonParts.length) return null;
+
+  if (colonParts.length > 1) {
+    const name = colonParts.pop()!;
+    const prefix = colonParts.pop()!;
+    const parsedName = {
+      provider: colonParts.length > 0 ? colonParts[0] : provider,
+      prefix,
+      name,
     };
-    return esmParam5 && !esmValue7(esmValue69) ? null : esmValue69;
+    return validate && !isValidIconName(parsedName) ? null : parsedName;
   }
-  if (esmParam6 && esmParam7 === "") {
-    let esmValue71 = {
-      provider: esmParam7,
+
+  const simpleName = colonParts[0];
+  const dashParts = simpleName.split("-");
+
+  if (dashParts.length > 1) {
+    const parsedName = {
+      provider,
+      prefix: dashParts.shift()!,
+      name: dashParts.join("-"),
+    };
+    return validate && !isValidIconName(parsedName) ? null : parsedName;
+  }
+
+  if (allowSimpleName && provider === "") {
+    const parsedName = {
+      provider,
       prefix: "",
-      name: esmValue36,
+      name: simpleName,
     };
-    return esmParam5 && !esmValue7(esmValue71, esmParam6) ? null : esmValue71;
+    return validate && !isValidIconName(parsedName, allowSimpleName)
+      ? null
+      : parsedName;
   }
+
   return null;
-};
-function esmHelper1(esmParam20, esmParam21) {
-  let esmValue56 = {};
-  !esmParam20.hFlip != !esmParam21.hFlip && (esmValue56.hFlip = true);
-  !esmParam20.vFlip != !esmParam21.vFlip && (esmValue56.vFlip = true);
-  let esmValue57 = ((esmParam20.rotate || 0) + (esmParam21.rotate || 0)) % 4;
-  return (esmValue57 && (esmValue56.rotate = esmValue57), esmValue56);
 }
-function esmHelper2(esmParam22, esmParam23) {
-  let esmValue58 = esmHelper1(esmParam22, esmParam23);
-  for (let esmValue65 in esmValue4)
-    esmValue65 in esmValue2
-      ? esmValue65 in esmParam22 &&
-        !(esmValue65 in esmValue58) &&
-        (esmValue58[esmValue65] = esmValue2[esmValue65])
-      : esmValue65 in esmParam23
-        ? (esmValue58[esmValue65] = esmParam23[esmValue65])
-        : esmValue65 in esmParam22 &&
-          (esmValue58[esmValue65] = esmParam22[esmValue65]);
-  return esmValue58;
+
+function mergeIconTransformations(
+  parent: IconifyTransformations,
+  child: IconifyTransformations,
+): IconifyTransformations {
+  const transformations: IconifyTransformations = {};
+
+  if (Boolean(parent.hFlip) !== Boolean(child.hFlip)) {
+    transformations.hFlip = true;
+  }
+  if (Boolean(parent.vFlip) !== Boolean(child.vFlip)) {
+    transformations.vFlip = true;
+  }
+
+  const rotate = ((parent.rotate || 0) + (child.rotate || 0)) % 4;
+  if (rotate) transformations.rotate = rotate;
+
+  return transformations;
 }
-function esmHelper3(esmParam13, esmParam14) {
-  let esmValue43 = esmParam13.icons,
-    esmValue44 = esmParam13.aliases || Object.create(null),
-    esmValue45 = Object.create(null);
-  function esmHelper9(esmParam19) {
-    if (esmValue43[esmParam19]) return (esmValue45[esmParam19] = []);
-    if (!(esmParam19 in esmValue45)) {
-      esmValue45[esmParam19] = null;
-      let esmValue66 = esmValue44[esmParam19] && esmValue44[esmParam19].parent,
-        esmValue67 = esmValue66 && esmHelper9(esmValue66);
-      esmValue67 && (esmValue45[esmParam19] = [esmValue66].concat(esmValue67));
+
+function mergeIconProps(
+  parent: IconifyIconData,
+  child: IconifyIconData,
+): IconifyIconData {
+  const merged: IconifyIconData = mergeIconTransformations(parent, child);
+
+  for (const propertyName of Object.keys(DEFAULT_RESOLVED_ICON_PROPS) as Array<
+    keyof IconifyIconData
+  >) {
+    if (propertyName in DEFAULT_ICON_TRANSFORMS) {
+      if (propertyName in parent && !(propertyName in merged)) {
+        merged[propertyName] = DEFAULT_ICON_TRANSFORMS[
+          propertyName as keyof typeof DEFAULT_ICON_TRANSFORMS
+        ] as never;
+      }
+    } else if (propertyName in child) {
+      merged[propertyName] = child[propertyName] as never;
+    } else if (propertyName in parent) {
+      merged[propertyName] = parent[propertyName] as never;
     }
-    return esmValue45[esmParam19];
   }
-  return (
-    (
-      esmParam14 || Object.keys(esmValue43).concat(Object.keys(esmValue44))
-    ).forEach(esmHelper9),
-    esmValue45
-  );
+
+  return merged;
 }
-function esmHelper4(esmParam24, esmParam25, esmParam26) {
-  let esmValue59 = esmParam24.icons,
-    esmValue60 = esmParam24.aliases || Object.create(null),
-    esmValue61 = {};
-  function _esmO(esmParam39) {
-    esmValue61 = esmHelper2(
-      esmValue59[esmParam39] || esmValue60[esmParam39],
-      esmValue61,
-    );
+
+function collectAliasParents(
+  iconSet: IconifyIconSet,
+  requestedNames?: string[],
+): Record<string, string[] | null> {
+  const icons = iconSet.icons;
+  const aliases = iconSet.aliases || Object.create(null);
+  const parentsByName: Record<string, string[] | null> = Object.create(null);
+
+  function visitAliasParent(iconName: string): string[] | null {
+    if (icons[iconName]) {
+      parentsByName[iconName] = [];
+      return parentsByName[iconName];
+    }
+
+    if (!(iconName in parentsByName)) {
+      parentsByName[iconName] = null;
+      const parentName = aliases[iconName]?.parent;
+      const parentChain = parentName && visitAliasParent(parentName);
+      if (parentChain) {
+        parentsByName[iconName] = [parentName].concat(parentChain);
+      }
+    }
+
+    return parentsByName[iconName];
   }
-  return (
-    _esmO(esmParam25),
-    esmParam26.forEach(_esmO),
-    esmHelper2(esmParam24, esmValue61)
+
+  (requestedNames || Object.keys(icons).concat(Object.keys(aliases))).forEach(
+    visitAliasParent,
   );
+
+  return parentsByName;
 }
-export function esmA(esmParam27, esmParam28) {
-  if (esmParam27.icons[esmParam28])
-    return esmHelper4(esmParam27, esmParam28, []);
-  let esmValue68 = esmHelper3(esmParam27, [esmParam28])[esmParam28];
-  return esmValue68 ? esmHelper4(esmParam27, esmParam28, esmValue68) : null;
+
+function resolveIconWithAliases(
+  iconSet: IconifyIconSet,
+  iconName: string,
+  parentNames: string[],
+): IconifyIconData {
+  const icons = iconSet.icons;
+  const aliases = iconSet.aliases || Object.create(null);
+  let mergedIcon: IconifyIconData = {};
+
+  function mergeNamedIcon(name: string): void {
+    mergedIcon = mergeIconProps(icons[name] || aliases[name], mergedIcon);
+  }
+
+  mergeNamedIcon(iconName);
+  parentNames.forEach(mergeNamedIcon);
+
+  return mergeIconProps(iconSet, mergedIcon);
 }
-var esmValue8 = /(-?[0-9.]*[0-9]+[0-9.]*)/g,
-  esmValue9 = /^-?[0-9.]*[0-9]+[0-9.]*$/g;
-function esmHelper5(esmParam10, esmParam11, esmParam12) {
-  if (esmParam11 === 1) return esmParam10;
-  if (((esmParam12 ||= 100), typeof esmParam10 == "number"))
-    return Math.ceil(esmParam10 * esmParam11 * esmParam12) / esmParam12;
-  if (typeof esmParam10 != "string") return esmParam10;
-  let esmValue40 = esmParam10.split(esmValue8);
-  if (esmValue40 === null || !esmValue40.length) return esmParam10;
-  let esmValue41 = [],
-    esmValue42 = esmValue40.shift(),
-    _esmO = esmValue9.test(esmValue42);
+
+export function resolveIconData(
+  iconSet: IconifyIconSet,
+  iconName: string,
+): IconifyIconData | null {
+  if (iconSet.icons[iconName]) {
+    return resolveIconWithAliases(iconSet, iconName, []);
+  }
+
+  const parentNames = collectAliasParents(iconSet, [iconName])[iconName];
+  return parentNames
+    ? resolveIconWithAliases(iconSet, iconName, parentNames)
+    : null;
+}
+
+function scaleIconDimension(
+  dimension: number | string,
+  scale: number,
+  precision = 100,
+): number | string {
+  if (scale === 1) return dimension;
+
+  if (typeof dimension === "number") {
+    return Math.ceil(dimension * scale * precision) / precision;
+  }
+  if (typeof dimension !== "string") return dimension;
+
+  const parts = dimension.split(NUMBER_SPLIT_PATTERN);
+  if (!parts.length) return dimension;
+
+  const scaledParts: Array<number | string> = [];
+  let currentPart = parts.shift();
+  let isNumberPart = NUMBER_VALUE_PATTERN.test(currentPart || "");
+
   for (;;) {
-    if (_esmO) {
-      let esmValue70 = parseFloat(esmValue42);
-      isNaN(esmValue70)
-        ? esmValue41.push(esmValue42)
-        : esmValue41.push(
-            Math.ceil(esmValue70 * esmParam11 * esmParam12) / esmParam12,
-          );
-    } else esmValue41.push(esmValue42);
-    if (((esmValue42 = esmValue40.shift()), esmValue42 === undefined))
-      return esmValue41.join("");
-    _esmO = !_esmO;
+    if (isNumberPart) {
+      const numericValue = Number.parseFloat(currentPart || "");
+      scaledParts.push(
+        Number.isNaN(numericValue)
+          ? (currentPart ?? "")
+          : Math.ceil(numericValue * scale * precision) / precision,
+      );
+    } else {
+      scaledParts.push(currentPart ?? "");
+    }
+
+    currentPart = parts.shift();
+    if (currentPart === undefined) return scaledParts.join("");
+    isNumberPart = !isNumberPart;
   }
 }
-function esmHelper6(esmParam15, esmParam16 = "defs") {
-  let esmValue46 = "",
-    esmValue47 = esmParam15.indexOf("<" + esmParam16);
-  for (; esmValue47 >= 0; ) {
-    let esmValue53 = esmParam15.indexOf(">", esmValue47),
-      esmValue54 = esmParam15.indexOf("</" + esmParam16);
-    if (esmValue53 === -1 || esmValue54 === -1) break;
-    let _esmO = esmParam15.indexOf(">", esmValue54);
-    if (_esmO === -1) break;
-    esmValue46 += esmParam15.slice(esmValue53 + 1, esmValue54).trim();
-    esmParam15 =
-      esmParam15.slice(0, esmValue47).trim() + esmParam15.slice(_esmO + 1);
+
+function extractSvgDefs(
+  body: string,
+  tagName = "defs",
+): {
+  defs: string;
+  content: string;
+} {
+  let defs = "";
+  let openingIndex = body.indexOf("<" + tagName);
+
+  while (openingIndex >= 0) {
+    const openingEnd = body.indexOf(">", openingIndex);
+    const closingStart = body.indexOf("</" + tagName);
+    if (openingEnd === -1 || closingStart === -1) break;
+
+    const closingEnd = body.indexOf(">", closingStart);
+    if (closingEnd === -1) break;
+
+    defs += body.slice(openingEnd + 1, closingStart).trim();
+    body = body.slice(0, openingIndex).trim() + body.slice(closingEnd + 1);
+    openingIndex = body.indexOf("<" + tagName);
   }
+
   return {
-    defs: esmValue46,
-    content: esmParam15,
+    defs,
+    content: body,
   };
 }
-function esmHelper7(esmParam34, esmParam35) {
-  return esmParam34
-    ? "<defs>" + esmParam34 + "</defs>" + esmParam35
-    : esmParam35;
+
+function prependSvgDefs(defs: string, content: string): string {
+  return defs ? "<defs>" + defs + "</defs>" + content : content;
 }
-function esmHelper8(esmParam29, esmParam30, esmParam31) {
-  let esmValue72 = esmHelper6(esmParam29);
-  return esmHelper7(
-    esmValue72.defs,
-    esmParam30 + esmValue72.content + esmParam31,
+
+function wrapSvgBodyWithTransform(
+  body: string,
+  openingTag: string,
+  closingTag: string,
+): string {
+  const extracted = extractSvgDefs(body);
+  return prependSvgDefs(
+    extracted.defs,
+    openingTag + extracted.content + closingTag,
   );
 }
-var esmValue10 = (esmParam36) =>
-  esmParam36 === "unset" || esmParam36 === "undefined" || esmParam36 === "none";
-export function esmI(esmParam1, esmParam2) {
-  let esmValue14 = {
-      ...esmValue3,
-      ...esmParam1,
-    },
-    esmValue15 = {
-      ...esmValue6,
-      ...esmParam2,
-    },
-    _esmO = {
-      left: esmValue14.left,
-      top: esmValue14.top,
-      width: esmValue14.width,
-      height: esmValue14.height,
-    },
-    esmValue16 = esmValue14.body;
-  [esmValue14, esmValue15].forEach((item) => {
-    let esmValue25 = [],
-      esmValue26 = item.hFlip,
-      esmValue27 = item.vFlip,
-      esmValue28 = item.rotate;
-    esmValue26
-      ? esmValue27
-        ? (esmValue28 += 2)
-        : (esmValue25.push(
-            "translate(" +
-              (_esmO.width + _esmO.left).toString() +
-              " " +
-              (0 - _esmO.top).toString() +
-              ")",
-          ),
-          esmValue25.push("scale(-1 1)"),
-          (_esmO.top = _esmO.left = 0))
-      : esmValue27 &&
-        (esmValue25.push(
+
+function isUnsetDimension(value: unknown): boolean {
+  return value === "unset" || value === "undefined" || value === "none";
+}
+
+export function iconToSvg(
+  iconData: IconifyIconData,
+  customisations: IconifyCustomisations,
+): IconifySvgBuildResult {
+  const resolvedIcon = {
+    ...DEFAULT_ICON_PROPS,
+    ...iconData,
+  };
+  const resolvedCustomisations = {
+    ...DEFAULT_ICON_CUSTOMISATIONS,
+    ...customisations,
+  };
+  const viewBoxBounds = {
+    left: resolvedIcon.left,
+    top: resolvedIcon.top,
+    width: resolvedIcon.width,
+    height: resolvedIcon.height,
+  };
+
+  let body = resolvedIcon.body || "";
+
+  [resolvedIcon, resolvedCustomisations].forEach((item) => {
+    const transformations: string[] = [];
+    let hFlip = item.hFlip;
+    const vFlip = item.vFlip;
+    let rotate = item.rotate || 0;
+
+    if (hFlip) {
+      if (vFlip) {
+        rotate += 2;
+      } else {
+        transformations.push(
           "translate(" +
-            (0 - _esmO.left).toString() +
+            (viewBoxBounds.width + viewBoxBounds.left).toString() +
             " " +
-            (_esmO.height + _esmO.top).toString() +
+            (0 - viewBoxBounds.top).toString() +
             ")",
-        ),
-        esmValue25.push("scale(1 -1)"),
-        (_esmO.top = _esmO.left = 0));
-    let esmValue29;
-    switch (
-      (esmValue28 < 0 && (esmValue28 -= Math.floor(esmValue28 / 4) * 4),
-      (esmValue28 %= 4),
-      esmValue28)
-    ) {
+        );
+        transformations.push("scale(-1 1)");
+        viewBoxBounds.top = 0;
+        viewBoxBounds.left = 0;
+      }
+    } else if (vFlip) {
+      transformations.push(
+        "translate(" +
+          (0 - viewBoxBounds.left).toString() +
+          " " +
+          (viewBoxBounds.height + viewBoxBounds.top).toString() +
+          ")",
+      );
+      transformations.push("scale(1 -1)");
+      viewBoxBounds.top = 0;
+      viewBoxBounds.left = 0;
+    }
+
+    if (rotate < 0) rotate -= Math.floor(rotate / 4) * 4;
+    rotate %= 4;
+
+    let rotationCenter: number;
+    switch (rotate) {
       case 1:
-        esmValue29 = _esmO.height / 2 + _esmO.top;
-        esmValue25.unshift(
+        rotationCenter = viewBoxBounds.height / 2 + viewBoxBounds.top;
+        transformations.unshift(
           "rotate(90 " +
-            esmValue29.toString() +
+            rotationCenter.toString() +
             " " +
-            esmValue29.toString() +
+            rotationCenter.toString() +
             ")",
         );
         break;
       case 2:
-        esmValue25.unshift(
+        transformations.unshift(
           "rotate(180 " +
-            (_esmO.width / 2 + _esmO.left).toString() +
+            (viewBoxBounds.width / 2 + viewBoxBounds.left).toString() +
             " " +
-            (_esmO.height / 2 + _esmO.top).toString() +
+            (viewBoxBounds.height / 2 + viewBoxBounds.top).toString() +
             ")",
         );
         break;
       case 3:
-        esmValue29 = _esmO.width / 2 + _esmO.left;
-        esmValue25.unshift(
+        rotationCenter = viewBoxBounds.width / 2 + viewBoxBounds.left;
+        transformations.unshift(
           "rotate(-90 " +
-            esmValue29.toString() +
+            rotationCenter.toString() +
             " " +
-            esmValue29.toString() +
+            rotationCenter.toString() +
             ")",
         );
         break;
     }
-    esmValue28 % 2 == 1 &&
-      (_esmO.left !== _esmO.top &&
-        ((esmValue29 = _esmO.left),
-        (_esmO.left = _esmO.top),
-        (_esmO.top = esmValue29)),
-      _esmO.width !== _esmO.height &&
-        ((esmValue29 = _esmO.width),
-        (_esmO.width = _esmO.height),
-        (_esmO.height = esmValue29)));
-    esmValue25.length &&
-      (esmValue16 = esmHelper8(
-        esmValue16,
-        '<g transform="' + esmValue25.join(" ") + '">',
-        "</g>",
-      ));
-  });
-  let esmValue17 = esmValue15.width,
-    esmValue18 = esmValue15.height,
-    esmValue19 = _esmO.width,
-    esmValue20 = _esmO.height,
-    _esmA,
-    esmValue21;
-  esmValue17 === null
-    ? ((esmValue21 =
-        esmValue18 === null
-          ? "1em"
-          : esmValue18 === "auto"
-            ? esmValue20
-            : esmValue18),
-      (_esmA = esmHelper5(esmValue21, esmValue19 / esmValue20)))
-    : ((_esmA = esmValue17 === "auto" ? esmValue19 : esmValue17),
-      (esmValue21 =
-        esmValue18 === null
-          ? esmHelper5(_esmA, esmValue20 / esmValue19)
-          : esmValue18 === "auto"
-            ? esmValue20
-            : esmValue18));
-  let esmValue22 = {},
-    esmValue23 = (esmParam37, esmParam38) => {
-      esmValue10(esmParam38) ||
-        (esmValue22[esmParam37] = esmParam38.toString());
-    };
-  esmValue23("width", _esmA);
-  esmValue23("height", esmValue21);
-  let esmValue24 = [_esmO.left, _esmO.top, esmValue19, esmValue20];
-  return (
-    (esmValue22.viewBox = esmValue24.join(" ")),
-    {
-      attributes: esmValue22,
-      viewBox: esmValue24,
-      body: esmValue16,
+
+    if (rotate % 2 === 1) {
+      if (viewBoxBounds.left !== viewBoxBounds.top) {
+        const left = viewBoxBounds.left;
+        viewBoxBounds.left = viewBoxBounds.top;
+        viewBoxBounds.top = left;
+      }
+      if (viewBoxBounds.width !== viewBoxBounds.height) {
+        const width = viewBoxBounds.width;
+        viewBoxBounds.width = viewBoxBounds.height;
+        viewBoxBounds.height = width;
+      }
     }
-  );
-}
-var esmValue11 = /\sid="(\S+)"/g,
-  esmValue12 =
-    "IconifyId" +
-    Date.now().toString(16) +
-    ((Math.random() * 16777216) | 0).toString(16),
-  esmValue13 = 0;
-export function esmR(esmParam8, esmParam9 = esmValue12) {
-  let esmValue37 = [],
-    esmValue38;
-  for (; (esmValue38 = esmValue11.exec(esmParam8)); )
-    esmValue37.push(esmValue38[1]);
-  if (!esmValue37.length) return esmParam8;
-  let esmValue39 =
-    "suffix" + ((Math.random() * 16777216) | Date.now()).toString(16);
-  return (
-    esmValue37.forEach((item) => {
-      let esmValue51 =
-          typeof esmParam9 == "function"
-            ? esmParam9(item)
-            : esmParam9 + (esmValue13++).toString(),
-        esmValue52 = item.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      esmParam8 = esmParam8.replace(
-        RegExp('([#;"])(' + esmValue52 + ')([")]|\\.[a-z])', "g"),
-        "$1" + esmValue51 + esmValue39 + "$3",
+
+    if (transformations.length) {
+      body = wrapSvgBodyWithTransform(
+        body,
+        '<g transform="' + transformations.join(" ") + '">',
+        "</g>",
       );
-    }),
-    (esmParam8 = esmParam8.replace(new RegExp(esmValue39, "g"), "")),
-    esmParam8
-  );
+    }
+  });
+
+  const customWidth = resolvedCustomisations.width;
+  const customHeight = resolvedCustomisations.height;
+  const boxWidth = viewBoxBounds.width;
+  const boxHeight = viewBoxBounds.height;
+  let width: number | string;
+  let height: number | string;
+
+  if (customWidth === null) {
+    height =
+      customHeight === null
+        ? "1em"
+        : customHeight === "auto"
+          ? boxHeight
+          : customHeight;
+    width = scaleIconDimension(height, boxWidth / boxHeight);
+  } else {
+    width = customWidth === "auto" ? boxWidth : customWidth;
+    height =
+      customHeight === null
+        ? scaleIconDimension(width, boxHeight / boxWidth)
+        : customHeight === "auto"
+          ? boxHeight
+          : customHeight;
+  }
+
+  const attributes: Record<string, string> = {};
+  const addAttribute = (name: string, value: number | string): void => {
+    if (!isUnsetDimension(value)) attributes[name] = value.toString();
+  };
+
+  addAttribute("width", width);
+  addAttribute("height", height);
+
+  const viewBox = [viewBoxBounds.left, viewBoxBounds.top, boxWidth, boxHeight];
+  attributes.viewBox = viewBox.join(" ");
+
+  return {
+    attributes,
+    viewBox,
+    body,
+  };
 }
-export function esmN(esmParam17, esmParam18) {
-  let esmValue50 =
-    esmParam17.indexOf("xlink:") === -1
+
+export function replaceIconIds(
+  body: string,
+  prefix: string | ((id: string) => string) = DEFAULT_ID_PREFIX,
+): string {
+  SVG_ID_PATTERN.lastIndex = 0;
+
+  const ids: string[] = [];
+  let match: RegExpExecArray | null;
+  while ((match = SVG_ID_PATTERN.exec(body))) {
+    ids.push(match[1]);
+  }
+  if (!ids.length) return body;
+
+  const temporarySuffix =
+    "suffix" + ((Math.random() * 16777216) | Date.now()).toString(16);
+
+  ids.forEach((id) => {
+    const replacement =
+      typeof prefix === "function"
+        ? prefix(id)
+        : prefix + (iconIdCounter++).toString();
+    const escapedId = id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    body = body.replace(
+      RegExp('([#;"])(' + escapedId + ')([")]|\\.[a-z])', "g"),
+      "$1" + replacement + temporarySuffix + "$3",
+    );
+  });
+
+  return body.replace(new RegExp(temporarySuffix, "g"), "");
+}
+
+export function wrapSvgContent(
+  body: string,
+  attributes: Record<string, string>,
+): string {
+  let attributeText =
+    body.indexOf("xlink:") === -1
       ? ""
       : ' xmlns:xlink="http://www.w3.org/1999/xlink"';
-  for (let esmValue73 in esmParam18)
-    esmValue50 += " " + esmValue73 + '="' + esmParam18[esmValue73] + '"';
+
+  for (const name in attributes) {
+    attributeText += " " + name + '="' + attributes[name] + '"';
+  }
+
   return (
     '<svg xmlns="http://www.w3.org/2000/svg"' +
-    esmValue50 +
+    attributeText +
     ">" +
-    esmParam17 +
+    body +
     "</svg>"
   );
 }
-export function esmT(esmParam3) {
-  var esmValue30 = [...arguments].slice(1),
-    esmValue31 = Array.from(
-      typeof esmParam3 == "string" ? [esmParam3] : esmParam3,
-    );
-  esmValue31[esmValue31.length - 1] = esmValue31[esmValue31.length - 1].replace(
+
+export function dedentTemplate(
+  strings: TemplateStringsArray | string | string[],
+  ...values: unknown[]
+): string {
+  const segments = Array.from(
+    typeof strings === "string" ? [strings] : strings,
+  );
+  segments[segments.length - 1] = segments[segments.length - 1].replace(
     /\r?\n([\t ]*)$/,
     "",
   );
-  var esmValue32 = esmValue31.reduce(function (accumulator, current) {
-    var esmValue55 = current.match(/\n([\t ]+|(?!\s).)/g);
-    return esmValue55
-      ? accumulator.concat(
-          esmValue55.map(function (item) {
-            return item.match(/[\t ]/g)?.length ?? 0;
-          }),
+
+  const indentationLevels = segments.reduce<number[]>((levels, segment) => {
+    const matches = segment.match(/\n([\t ]+|(?!\s).)/g);
+    return matches
+      ? levels.concat(
+          matches.map((match) => match.match(/[\t ]/g)?.length ?? 0),
         )
-      : accumulator;
+      : levels;
   }, []);
-  if (esmValue32.length) {
-    var esmValue33 = RegExp(
-      "\n[\t ]{" + Math.min.apply(Math, esmValue32) + "}",
+
+  if (indentationLevels.length) {
+    const trimPattern = RegExp(
+      "\n[\t ]{" + Math.min.apply(Math, indentationLevels) + "}",
       "g",
     );
-    esmValue31 = esmValue31.map(function (item) {
-      return item.replace(esmValue33, "\n");
+    segments.forEach((segment, index) => {
+      segments[index] = segment.replace(trimPattern, "\n");
     });
   }
-  esmValue31[0] = esmValue31[0].replace(/^\r?\n/, "");
-  var esmValue34 = esmValue31[0];
-  return (
-    esmValue30.forEach(function (item, index) {
-      var esmValue48 = esmValue34.match(/(?:^|\n)( *)$/),
-        esmValue49 = esmValue48 ? esmValue48[1] : "",
-        _esmO = item;
-      typeof item == "string" &&
-        item.includes("\n") &&
-        (_esmO = String(item)
-          .split("\n")
-          .map(function (_item, _index) {
-            return _index === 0 ? _item : "" + esmValue49 + _item;
-          })
-          .join("\n"));
-      esmValue34 += _esmO + esmValue31[index + 1];
-    }),
-    esmValue34
-  );
+
+  segments[0] = segments[0].replace(/^\r?\n/, "");
+
+  let result = segments[0];
+  values.forEach((value, index) => {
+    const currentLineMatch = result.match(/(?:^|\n)( *)$/);
+    const currentIndent = currentLineMatch ? currentLineMatch[1] : "";
+    let resolvedValue = value;
+
+    if (typeof value === "string" && value.includes("\n")) {
+      resolvedValue = String(value)
+        .split("\n")
+        .map((line, lineIndex) =>
+          lineIndex === 0 ? line : "" + currentIndent + line,
+        )
+        .join("\n");
+    }
+
+    result += resolvedValue + segments[index + 1];
+  });
+
+  return result;
 }

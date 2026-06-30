@@ -10,7 +10,14 @@ import {
   chunkABZYJK2DM,
   _chunkABZYJK2DY,
 } from "./katex-auto-render";
-import { esmA, esmI, esmN, esmO, esmR, esmT } from "./iconify-core";
+import {
+  resolveIconData,
+  iconToSvg,
+  wrapSvgContent,
+  parseIconName,
+  replaceIconIds,
+  dedentTemplate,
+} from "./iconify-core";
 import { n as chunkJA3XYJ7ZImport1 } from "marked";
 var chunkJA3XYJ7ZO = {
     body: '<g><rect width="80" height="80" style="fill: #087ebf; stroke-width: 0px;"/><text transform="translate(21.16 64.67)" style="fill: #fff; font-family: ArialMT, Arial; font-size: 67.75px;"><tspan x="0" y="0">?</tspan></text></g>',
@@ -21,7 +28,7 @@ var chunkJA3XYJ7ZO = {
   chunkJA3XYJ7ZValue2 = new Map(),
   chunkJA3XYJ7ZValue3 = chunkAGHRB4JFN(
     async (chunkJA3XYJ7ZParam18, chunkJA3XYJ7ZParam19) => {
-      let chunkJA3XYJ7ZValue21 = esmO(
+      let chunkJA3XYJ7ZValue21 = parseIconName(
         chunkJA3XYJ7ZParam18,
         true,
         chunkJA3XYJ7ZParam19 !== undefined,
@@ -51,7 +58,7 @@ var chunkJA3XYJ7ZO = {
           );
         }
       }
-      let chunkJA3XYJ7ZValue24 = esmA(
+      let chunkJA3XYJ7ZValue24 = resolveIconData(
         chunkJA3XYJ7ZValue23,
         chunkJA3XYJ7ZValue21.name,
       );
@@ -84,12 +91,12 @@ var chunkJA3XYJ7ZO = {
         chunkAGHRB4JFR.error(chunkJA3XYJ7ZValue58);
         chunkJA3XYJ7ZValue42 = chunkJA3XYJ7ZO;
       }
-      let chunkJA3XYJ7ZValue43 = esmI(
+      let chunkJA3XYJ7ZValue43 = iconToSvg(
         chunkJA3XYJ7ZValue42,
         chunkJA3XYJ7ZParam40,
       );
       return _chunkABZYJK2DM(
-        esmN(esmR(chunkJA3XYJ7ZValue43.body), {
+        wrapSvgContent(replaceIconIds(chunkJA3XYJ7ZValue43.body), {
           ...chunkJA3XYJ7ZValue43.attributes,
           ...chunkJA3XYJ7ZParam41,
         }),
@@ -130,7 +137,7 @@ export const chunkJA3XYJ7ZI = chunkAGHRB4JFN((chunkJA3XYJ7ZParam22) => {
   }
 }, "registerIconPacks");
 function chunkJA3XYJ7ZHelper1(chunkJA3XYJ7ZParam38, { markdownAutoWrap }) {
-  let chunkJA3XYJ7ZValue41 = esmT(
+  let chunkJA3XYJ7ZValue41 = dedentTemplate(
     chunkJA3XYJ7ZParam38.replace(/<br\/>/g, "\n").replace(/\n{2,}/g, "\n"),
   );
   return markdownAutoWrap === false

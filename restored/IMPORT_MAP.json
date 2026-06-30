@@ -2805,7 +2805,11 @@
         "v": "decodeRow"
       },
       "status": "done",
-      "note": "XLSX address-utils compatibility hash mapped to the shared semantic address/range/color/sizing helper module."
+      "note": "XLSX address-utils compatibility hash mapped to the shared semantic address/range/color/sizing helper module.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/xlsx-address-utils.ts is a typed semantic XLSX address/range/color/sizing helper module with compatibility aliases preserved and quality-gate passing.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "defaultLocale-gPb_B8uX": {
       "restored": "vendor/d3-format-default-locale.ts",
@@ -2974,14 +2978,19 @@
     "esm-DbqKqkZh": {
       "restored": "vendor/iconify-core.ts",
       "exports": {
-        "a": "esmA",
-        "i": "esmI",
-        "n": "esmN",
-        "o": "esmO",
-        "r": "esmR",
-        "t": "esmT"
+        "a": "resolveIconData",
+        "i": "iconToSvg",
+        "n": "wrapSvgContent",
+        "o": "parseIconName",
+        "r": "replaceIconIds",
+        "t": "dedentTemplate"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Vendored Iconify core runtime restored with semantic helper exports; no stock @iconify package is available under ref/node_modules, so this remains a restored vendor module rather than a bare re-export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/iconify-core.ts now semantically restores the vendored Iconify core helpers with typed icon-name parsing, alias resolution, SVG building, ID replacement, SVG wrapping, and template dedenting; existing chunk aliases are re-mapped to the semantic exports and quality-gate --vendored passes.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "helpers-BDwSRLlu": {
       "restored": "vendor/segment-helpers.ts",
@@ -3916,7 +3925,11 @@
       },
       "status": "done",
       "vendor": "runtime",
-      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals."
+      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is a vendored @lottiefiles/dotlottie-web React runtime boundary preserving DotLottieReact, DotLottieWorkerReact, and setWasmUrl compatibility; it passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "browser-BUZask3G": {
       "restored": "vendor/dotlottie-react.tsx",
@@ -3927,7 +3940,11 @@
       },
       "status": "done",
       "vendor": "runtime",
-      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals."
+      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is a vendored @lottiefiles/dotlottie-web React runtime boundary preserving DotLottieReact, DotLottieWorkerReact, and setWasmUrl compatibility; it passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "browser-1Fy2HWnE": {
       "restored": "vendor/dotlottie-react.tsx",
@@ -3940,7 +3957,10 @@
       "vendor": "runtime",
       "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals.",
       "aliasOf": "browser-BUZask3G",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T20:52:10.762Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is a vendored @lottiefiles/dotlottie-web React runtime boundary preserving DotLottieReact, DotLottieWorkerReact, and setWasmUrl compatibility; it passes quality-gate --vendored."
     },
     "chunk-ABZYJK2D-8WiwWXHe": {
       "restored": "vendor/katex-auto-render.ts",
@@ -21154,8 +21174,11 @@
         "y": "getCellPadding"
       },
       "status": "done",
-      "lastUpdated": "2026-06-30T08:05:41.179Z",
-      "note": "XLSX address-utils compatibility hash mapped to the shared semantic address/range/color/sizing helper module."
+      "lastUpdated": "2026-06-30T20:52:10.762Z",
+      "note": "XLSX address-utils compatibility hash mapped to the shared semantic address/range/color/sizing helper module.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/xlsx-address-utils.ts is a typed semantic XLSX address/range/color/sizing helper module with compatibility aliases preserved and quality-gate passing."
     },
     "load-script-enBvQ5ff": {
       "restored": "vendor/segment-load-script.ts",
@@ -21646,18 +21669,21 @@
     "esm-EAsy4EQA": {
       "restored": "vendor/iconify-core.ts",
       "exports": {
-        "a": "esmR",
-        "c": "esmO",
-        "i": "esmN",
+        "a": "replaceIconIds",
+        "c": "parseIconName",
+        "i": "wrapSvgContent",
         "n": "initIconifyCoreChunk",
-        "o": "esmI",
+        "o": "iconToSvg",
         "r": "initIconifyCoreRuntimeChunk",
-        "s": "esmA",
-        "t": "esmT"
+        "s": "resolveIconData",
+        "t": "dedentTemplate"
       },
       "status": "done",
-      "lastUpdated": "2026-06-30T08:05:41.179Z",
-      "note": "Rolldown-wrapped Iconify core exports re-derived from the current file; n/r are initializer thunks and c/s are real current exports."
+      "lastUpdated": "2026-06-30T20:52:10.762Z",
+      "note": "Vendored Iconify core runtime restored with semantic helper exports; no stock @iconify package is available under ref/node_modules, so this remains a restored vendor module rather than a bare re-export.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/iconify-core.ts now semantically restores the vendored Iconify core helpers with typed icon-name parsing, alias resolution, SVG building, ID replacement, SVG wrapping, and template dedenting; existing chunk aliases are re-mapped to the semantic exports and quality-gate --vendored passes."
     },
     "chunk-ATLVNIR6-DShFhP4G": {
       "restored": "vendor/chunk-atlvnir6.ts",
@@ -33138,11 +33164,13 @@
         "y": "getCellPadding"
       },
       "aliasOf": "address-utils-CS84EMiz",
-      "note": "Current XLSX address-utils hash restored with semantic address/range/color/sizing exports re-derived from address-utils-CrPpzw-e.js.",
+      "note": "XLSX address-utils compatibility hash mapped to the shared semantic address/range/color/sizing helper module.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
+      "lastUpdated": "2026-06-30T20:52:10.762Z",
       "stage3Accepted": true,
-      "stage3Note": "Accepted as typed XLSX address, range, color, and worksheet sizing helpers with semantic exports."
+      "stage3Note": "Accepted as typed XLSX address, range, color, and worksheet sizing helpers with semantic exports.",
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/xlsx-address-utils.ts is a typed semantic XLSX address/range/color/sizing helper module with compatibility aliases preserved and quality-gate passing."
     },
     "thread-virtualizer-tFKjdFLY": {
       "restored": "threads/thread-virtualizer.tsx",
@@ -33164,22 +33192,23 @@
     "esm-CuAuNray": {
       "restored": "vendor/iconify-core.ts",
       "exports": {
-        "a": "esmR",
-        "c": "esmO",
-        "i": "esmN",
+        "a": "replaceIconIds",
+        "c": "parseIconName",
+        "i": "wrapSvgContent",
         "n": "initIconifyCoreChunk",
-        "o": "esmI",
+        "o": "iconToSvg",
         "r": "initIconifyCoreRuntimeChunk",
-        "s": "esmA",
-        "t": "esmT"
+        "s": "resolveIconData",
+        "t": "dedentTemplate"
       },
       "aliasOf": "esm-EAsy4EQA",
-      "note": "Current Iconify core hash matches esm-EAsy4EQA; export aliases were re-derived from esm-CuAuNray.js.",
+      "note": "Vendored Iconify core runtime restored with semantic helper exports; no stock @iconify package is available under ref/node_modules, so this remains a restored vendor module rather than a bare re-export.",
       "status": "done",
-      "lastUpdated": "2026-06-30T14:34:18.332Z",
+      "lastUpdated": "2026-06-30T20:52:10.762Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T14:34:18.332Z",
-      "stage3Note": "Accepted as a vendored Iconify core runtime module with current chunk provenance and validated aliases."
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Note": "Accepted as a vendored Iconify core runtime module with current chunk provenance and validated aliases.",
+      "stage3Review": "Host self-review: vendor/iconify-core.ts now semantically restores the vendored Iconify core helpers with typed icon-name parsing, alias resolution, SVG building, ID replacement, SVG wrapping, and template dedenting; existing chunk aliases are re-mapped to the semantic exports and quality-gate --vendored passes."
     },
     "wasm-Cgooknyf": {
       "restored": "vendor/oniguruma-wasm.ts",
@@ -33202,12 +33231,13 @@
         "setWasmUrl": "setWasmUrl"
       },
       "aliasOf": "browser-BUZask3G",
-      "note": "Current browser hash preserves the restored public export surface; aliases re-derived from browser-4rTfxlUZ.js.",
+      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals.",
       "status": "done",
-      "lastUpdated": "2026-06-30T14:46:14.202Z",
+      "lastUpdated": "2026-06-30T20:52:10.762Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T14:46:14.202Z",
-      "stage3Note": "Accepted as a vendored dotLottie React runtime boundary with the current export surface validated."
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Note": "Accepted as a vendored dotLottie React runtime boundary with the current export surface validated.",
+      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is a vendored @lottiefiles/dotlottie-web React runtime boundary preserving DotLottieReact, DotLottieWorkerReact, and setWasmUrl compatibility; it passes quality-gate --vendored."
     },
     "chunk-336JU56O-20NhwBl7": {
       "restored": "vendor/mermaid-layout-loader-k5.ts",
@@ -40658,7 +40688,12 @@
         "default": "bladeGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/blade"
+      "vendor": "@shikijs/langs/blade",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/blade; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps blade-DK87gFxT to @shikijs/langs/blade as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "edge-DPrOGh3M": {
       "restored": "vendor/shiki-languages.ts",
@@ -40666,7 +40701,12 @@
         "default": "edgeGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/edge"
+      "vendor": "@shikijs/langs/edge",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/edge; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps edge-DPrOGh3M to @shikijs/langs/edge as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "erb-dC1kuoP8": {
       "restored": "vendor/shiki-languages.ts",
@@ -40674,7 +40714,12 @@
         "default": "erbGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/erb"
+      "vendor": "@shikijs/langs/erb",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/erb; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps erb-dC1kuoP8 to @shikijs/langs/erb as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "julia-NCf7lgSr": {
       "restored": "vendor/shiki-languages.ts",
@@ -40682,7 +40727,12 @@
         "default": "juliaGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/julia"
+      "vendor": "@shikijs/langs/julia",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/julia; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps julia-NCf7lgSr to @shikijs/langs/julia as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "mdc-5IJ9h_iu": {
       "restored": "vendor/shiki-languages.ts",
@@ -40690,7 +40740,12 @@
         "default": "mdcGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/mdc"
+      "vendor": "@shikijs/langs/mdc",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/mdc; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps mdc-5IJ9h_iu to @shikijs/langs/mdc as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "rst-CAXmzl31": {
       "restored": "vendor/shiki-languages.ts",
@@ -40698,7 +40753,12 @@
         "default": "rstGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/rst"
+      "vendor": "@shikijs/langs/rst",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/rst; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps rst-CAXmzl31 to @shikijs/langs/rst as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "twig-CuMRydOM": {
       "restored": "vendor/shiki-languages.ts",
@@ -40706,7 +40766,12 @@
         "default": "twigGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/twig"
+      "vendor": "@shikijs/langs/twig",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/twig; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps twig-CuMRydOM to @shikijs/langs/twig as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "vue-html-BjcMXo3O": {
       "restored": "vendor/shiki-languages.ts",
@@ -40714,7 +40779,12 @@
         "default": "vueHtmlGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/vue-html"
+      "vendor": "@shikijs/langs/vue-html",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/vue-html; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps vue-html-BjcMXo3O to @shikijs/langs/vue-html as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "vue-vine-BXhAHSqJ": {
       "restored": "vendor/shiki-languages.ts",
@@ -40722,7 +40792,12 @@
         "default": "vueVineGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/vue-vine"
+      "vendor": "@shikijs/langs/vue-vine",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/vue-vine; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps vue-vine-BXhAHSqJ to @shikijs/langs/vue-vine as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "angular-html-D-J2vtxm": {
       "restored": "vendor/shiki-languages.ts",
@@ -40740,7 +40815,11 @@
       },
       "status": "done",
       "vendor": "@shikijs/langs/angular-html",
-      "note": "Current Angular HTML producer aliases re-derived from angular-html-D-J2vtxm.js; init thunks map to no-op static npm imports, grammar arrays map to @shikijs/langs/angular-* subpaths."
+      "note": "Current Angular HTML Shiki producer aliases re-derived from angular-html-D-J2vtxm.js; init thunks map to no-op static npm imports, grammar arrays map to @shikijs/langs/angular-* subpaths.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps angular-html-D-J2vtxm to @shikijs/langs/angular-html as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "angular-ts-CrRACqVO": {
       "restored": "vendor/shiki-languages.ts",
@@ -40748,7 +40827,12 @@
         "default": "angularTsGrammar"
       },
       "status": "done",
-      "vendor": "@shikijs/langs/angular-ts"
+      "vendor": "@shikijs/langs/angular-ts",
+      "note": "Current Shiki bundled language chunk mapped to npm leaf @shikijs/langs/angular-ts; grammar payload is intentionally not copied into restored/.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
+      "stage3Review": "Host self-review: vendor/shiki-languages.ts maps angular-ts-CrRACqVO to @shikijs/langs/angular-ts as a Shiki grammar npm leaf, preserves the recorded export aliases, keeps grammar payloads out of restored/, and passes quality-gate --vendored.",
+      "lastUpdated": "2026-06-30T20:52:10.762Z"
     },
     "3Dmol-BR8fUS3S": {
       "restored": "vendor/3dmol.ts",

@@ -112,7 +112,7 @@ const __vite__mapDeps = (
 import { PreloadHelper } from "../utils/preload-helper";
 import { isEmptyT } from "./lodash-is-empty";
 import { Src } from "./roughjs-geometry";
-import { esmT } from "./iconify-core";
+import { dedentTemplate } from "./iconify-core";
 import {
   chunkAGHRB4JFI,
   chunkAGHRB4JFN,
@@ -1952,7 +1952,7 @@ var mermaidCoreValue98 = chunkAGHRB4JFN(
       mermaidCoreValue143.setAttribute("data-processed", "true");
       let mermaidCoreValue144 = `mermaid-${mermaidCoreValue138.next()}`;
       mermaidCoreValue139 = mermaidCoreValue143.innerHTML;
-      mermaidCoreValue139 = esmT(
+      mermaidCoreValue139 = dedentTemplate(
         chunk5PVQY5BWC.entityDecode(mermaidCoreValue139),
       )
         .trim()
