@@ -12068,7 +12068,11 @@
       "exports": {
         "diagram": "stateDiagramV2QKLJ7IA2"
       },
-      "status": "done"
+      "status": "done",
+      "lastUpdated": "2026-06-30T21:58:19.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:58:19.000Z",
+      "stage3Review": "Host self-review: historical Mermaid stateDiagram-v2 QKLJ7IA2 definition hash is absent from the current ref, current QKLJ7IA2 hashes preserve the single diagram export, vendor/mermaid-state-diagram-v2-definition-k5.ts exposes the semantic stateDiagramV2QKLJ7IA2 alias, and the vendored quality gate plus export coverage pass."
     },
     "mermaid.core-eIokQLcr": {
       "restored": "vendor/mermaid-core.ts",
@@ -24944,8 +24948,11 @@
       },
       "status": "done",
       "aliasOf": "stateDiagram-v2-QKLJ7IA2-CfGDQd0C",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+      "lastUpdated": "2026-06-30T21:58:19.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:58:19.000Z",
+      "stage3Review": "Host self-review: current ref stateDiagram-v2-QKLJ7IA2-Bge6W8at.js exports only diagram; restored/vendor/mermaid-state-diagram-v2-definition-k5.ts preserves that surface through stateDiagramV2QKLJ7IA2 and passes vendored quality gate."
     },
     "stateDiagram-v2-QKLJ7IA2-DOZoTWEO": {
       "restored": "vendor/mermaid-state-diagram-v2-definition-k5.ts",
@@ -24954,8 +24961,11 @@
       },
       "status": "done",
       "aliasOf": "stateDiagram-v2-QKLJ7IA2-CfGDQd0C",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+      "lastUpdated": "2026-06-30T21:58:19.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:58:19.000Z",
+      "stage3Review": "Host self-review: current ref stateDiagram-v2-QKLJ7IA2-DOZoTWEO.js exports only diagram; restored/vendor/mermaid-state-diagram-v2-definition-k5.ts preserves that surface through stateDiagramV2QKLJ7IA2 and passes vendored quality gate."
     },
     "stateDiagram-v2-QKLJ7IA2-NVujTopY": {
       "restored": "vendor/mermaid-state-diagram-v2-definition-k5.ts",
@@ -24964,8 +24974,11 @@
       },
       "status": "done",
       "aliasOf": "stateDiagram-v2-QKLJ7IA2-CfGDQd0C",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+      "lastUpdated": "2026-06-30T21:58:19.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:58:19.000Z",
+      "stage3Review": "Host self-review: current ref stateDiagram-v2-QKLJ7IA2-NVujTopY.js exports only diagram; restored/vendor/mermaid-state-diagram-v2-definition-k5.ts preserves that surface through stateDiagramV2QKLJ7IA2 and passes vendored quality gate."
     },
     "classDiagram-6PBFFD2Q-BMID2kH6": {
       "restored": "vendor/mermaid-class-diagram-definition-k5.ts",
@@ -25024,8 +25037,11 @@
       },
       "status": "done",
       "aliasOf": "stateDiagram-v2-QKLJ7IA2-CfGDQd0C",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface."
+      "lastUpdated": "2026-06-30T21:58:19.000Z",
+      "note": "Current Mermaid diagram definition wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:58:19.000Z",
+      "stage3Review": "Host self-review: current ref stateDiagram-v2-QKLJ7IA2-DK5qXNDf.js exports only diagram; restored/vendor/mermaid-state-diagram-v2-definition-k5.ts preserves that surface through stateDiagramV2QKLJ7IA2 and passes vendored quality gate."
     },
     "classDiagram-6PBFFD2Q-BezZnw5U": {
       "restored": "vendor/mermaid-class-diagram-definition-k5.ts",
