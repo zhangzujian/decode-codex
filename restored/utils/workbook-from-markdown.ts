@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/workbook-from-markdown-Do0YNaaN.js
-// Build spreadsheet-ready cell values from the first GFM markdown table.
+// Restored from ref/webview/assets/workbook-from-markdown-WDutqDfH.js
+// Build spreadsheet-ready cell values from the first GFM markdown table; previous hash workbook-from-markdown-Do0YNaaN mapped to the same surface.
 
 const DEFAULT_SHEET_NAME = "Markdown table";
 const MAX_SHEET_NAME_LENGTH = 31;
@@ -143,5 +143,4 @@ function decodeBasicHtmlEntities(value: string): string {
     .replace(/&quot;/gi, '"')
     .replace(/&#39;/gi, "'");
 }
-
 export { buildTableValuesFromMarkdown, sanitizeSheetName };
