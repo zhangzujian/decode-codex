@@ -12,10 +12,15 @@ export type HotkeyDetailLayoutCommandShortcutOptions = {
   keyboardEventTarget?: EventTarget | null;
 };
 
-export function useHotkeyDetailLayoutCommandShortcut(
+function useHotkeyDetailLayoutCommandShortcut(
   options: HotkeyDetailLayoutCommandShortcutOptions,
 ): void {
   useCommandHotkey(options);
 }
 
-export function initHotkeyDetailLayoutShortcutRuntimeChunk(): void {}
+function initHotkeyDetailLayoutShortcutRuntimeChunk(): void {}
+
+export {
+  useHotkeyDetailLayoutCommandShortcut,
+  initHotkeyDetailLayoutShortcutRuntimeChunk,
+};

@@ -1,18 +1,22 @@
-// Restored from ref/webview/assets/schema-filter-CwY0F20C.js
-// schema-filter-r146tzO0 chunk restored from the Codex webview bundle.
+// Restored from ref/webview/assets/schema-filter-Dzj5Tjvi.js
+// Segment schema-filter plugin restored with typed event and remote-plugin helpers.
 import { isPlanEventEnabled } from "./is-plan-event-enabled";
+
 type PlanEventConfig = {
   enabled?: boolean;
   integrations?: Record<string, boolean> | null;
 };
+
 type SchemaFilterConfig = Record<string, PlanEventConfig | undefined> & {
   __default?: {
     enabled?: boolean;
   };
 };
+
 type RemotePluginSubscription = {
   partnerAction: string;
 };
+
 type RemotePlugin = {
   creationName: string;
   name: string;
@@ -20,9 +24,11 @@ type RemotePlugin = {
     subscriptions?: RemotePluginSubscription[] | null;
   };
 };
+
 type SchemaFilterOptions = {
   remotePlugins?: RemotePlugin[] | null;
 };
+
 type AnalyticsEvent = {
   event: {
     event?: string | null;
@@ -30,6 +36,7 @@ type AnalyticsEvent = {
   };
   updateEvent(key: "integrations", value: Record<string, boolean>): void;
 };
+
 type AnalyticsPlugin = {
   name: "Schema Filter";
   version: "0.1.0";
@@ -42,6 +49,7 @@ type AnalyticsPlugin = {
   identify(event: AnalyticsEvent): AnalyticsEvent;
   group(event: AnalyticsEvent): AnalyticsEvent;
 };
+
 export function schemaFilter(
   schema: SchemaFilterConfig | null | undefined,
   options: SchemaFilterOptions,
@@ -84,17 +92,20 @@ export function schemaFilter(
     group: applySchemaFilter,
   };
 }
+
 function disabledRemotePluginIntegrations(
   eventConfig: PlanEventConfig | undefined,
   options: SchemaFilterOptions,
 ): Record<string, boolean> {
   if (!eventConfig) return {};
+
   const disabledCreationNames = eventConfig.integrations
     ? Object.keys(eventConfig.integrations).filter(
         (integration) => eventConfig.integrations?.[integration] === false,
       )
     : [];
   const disabledPluginNames: string[] = [];
+
   for (const plugin of options.remotePlugins ?? []) {
     for (const creationName of disabledCreationNames) {
       if (plugin.creationName === creationName) {
@@ -102,6 +113,7 @@ function disabledRemotePluginIntegrations(
       }
     }
   }
+
   return (options.remotePlugins ?? []).reduce<Record<string, boolean>>(
     (integrations, plugin) => {
       if (
