@@ -42379,6 +42379,28 @@
       "stage3AcceptedAt": "2026-06-30T23:58:00.000Z",
       "stage3Review": "Host self-review: verified plugin-detail-page-B276d6cf.js imports n/t from the current plugin detail producer, invokes n(), and exports t as PluginDetailPage; runtime wrapper preserves that surface and passes quality-gate.",
       "stage3Note": "Accepted as a current-ref route wrapper over runtime/current-app-initial/plugin-detail-page-current-runtime.ts; the producer body remains a compatibility backing bundle pending future semantic split."
+    },
+    "plugins-page-D95-xrxa": {
+      "restored": "runtime/current-app-initial/plugins-page-current-runtime.ts",
+      "exports": {
+        "a": "pluginsPageA",
+        "c": "pluginsPageC",
+        "i": "pluginsPageI",
+        "l": "pluginsPageL",
+        "n": "initPluginsPageChunk",
+        "o": "pluginsPageO",
+        "r": "pluginsPageR",
+        "s": "pluginsPageS",
+        "t": "PluginsPage",
+        "u": "pluginsPageU"
+      },
+      "status": "done",
+      "note": "Current plugins page hash maps to a dedicated current-ref runtime over vendor/plugins-page-current-bundle.tsx; aliases are re-derived from the current file, with the page component exposed as PluginsPage.",
+      "lastUpdated": "2026-06-30T23:59:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:59:00.000Z",
+      "stage3Review": "Host self-review: parsed the current export table, exposed n as initPluginsPageChunk and t as PluginsPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of plugins and skills page shared modules remains future cleanup."
     }
   }
 }
