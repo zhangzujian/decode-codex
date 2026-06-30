@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/use-media-query-B9nva7HK.js
 // Also matches ref/webview/assets/use-media-query-CUpGkpzI.js.
 // Also matches ref/webview/assets/use-media-query-BNTymZCj.js.
-// Media-query hook restored from the Codex webview bundle.
+// Current BNTymZCj source verified as the same matchMedia hook plus init thunk.
 import React from "react";
 
 export function initUseMediaQueryChunk(): void {
