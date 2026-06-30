@@ -10899,7 +10899,10 @@
       "exports": {
         "diagram": "pieDiagramADFJNKIX"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:13:51.000Z",
+      "stage3Review": "Host self-review: vendor/mermaid-pie-diagram-fpaj.ts now semantically restores the Mermaid Pie diagram definition with typed pie DB state, parser, renderer, arc generation, legend rendering, and styles; it preserves the historical diagram export surface and passes quality-gate."
     },
     "pieDiagram-ADFJNKIX-BC6CAEwA": {
       "restored": "vendor/mermaid-pie-diagram-fpaj.ts",
@@ -10908,7 +10911,10 @@
       },
       "status": "done",
       "aliasOf": "pieDiagram-ADFJNKIX-CdTMfn5r",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-29T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:13:51.000Z",
+      "stage3Review": "Host self-review: restored Pie diagram preserves parser/db/renderer/styles behavior from pieDiagram-ADFJNKIX-BC6CAEwA and exports pieDiagramADFJNKIX for the bundled diagram alias; it passes quality-gate."
     },
     "pieDiagram-ADFJNKIX-P_2Ro0Kn": {
       "restored": "vendor/mermaid-pie-diagram-fpaj.ts",
@@ -10918,7 +10924,10 @@
       "status": "done",
       "aliasOf": "pieDiagram-ADFJNKIX-CdTMfn5r",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current Mermaid diagram wrapper preserves the restored public export surface."
+      "note": "Current Mermaid diagram wrapper preserves the restored public export surface.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T20:13:51.000Z",
+      "stage3Review": "Host self-review: current ref pieDiagram-ADFJNKIX-P_2Ro0Kn.js exports R as diagram with the same Pie DB, populateDb, createPieArcs, renderer, legend, and styles surface; vendor/mermaid-pie-diagram-fpaj.ts preserves that behavior with semantic names and passes quality-gate."
     },
     "PopcornElectronDocumentPanel-LEVj37uj": {
       "restored": "generated/popcorn-electron-document-panel.tsx",
