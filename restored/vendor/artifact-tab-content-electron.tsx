@@ -98,7 +98,7 @@ import {
   getFallbackArtifactConversationId as re,
   initArtifactPanelRuntime as M,
   initArtifactRouteScopeRuntime as m,
-} from "../boundaries/current-ref/artifact-tab-content-producer";
+} from "./artifact-tab-current-runtime";
 import { getRouteThreadId as u } from "../app-shell/app-view-route-helpers";
 import { initXIcon as v, XIcon as g } from "../icons/x-icon";
 import { Button as c, initButtonComponentPrimitives as y } from "../ui/button";
@@ -183,7 +183,7 @@ import {
   oi as xe,
   ni as ye,
   Jt as z,
-} from "../boundaries/current-ref/projects-app-shared-producer";
+} from "./projects-app-shared-runtime";
 import {
   ArtifactOpenButton,
   ArtifactPreviewDownloadButton,
@@ -194,16 +194,13 @@ import {
   initArtifactDropdownMenuRuntime,
   initArtifactPreviewControlsChunk,
   initArtifactPreviewZoomRuntime,
-} from "../boundaries/current-ref/pull-request-thread-actions-producer";
+} from "./pull-request-thread-actions-runtime";
+import { xd as Be, bd as ze } from "./profile-page-runtime";
 import {
-  xd as Be,
-  bd as ze,
-} from "../boundaries/current-ref/profile-page-producer";
-import {
-  ArtifactSourceIcon,
   initArtifactImportPresentationChunk as He,
   shouldParseArtifactPreviewForImportKind as Ve,
-} from "../boundaries/current-ref/appgen-publication-terms-producer";
+} from "../appgen/publication-terms";
+import { JsonIcon as ArtifactSourceIcon } from "../icons/json-icon";
 import { focusComposerInput } from "../composer/focus-composer";
 import {
   initArtifactAnalyticsChunk as qe,
