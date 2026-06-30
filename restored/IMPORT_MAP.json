@@ -1389,7 +1389,10 @@
         "s": "toEsModule",
         "t": "createCommonJsModule"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "note": "Rolldown runtime helpers finalized as typed CommonJS/ESM interop helpers with semantic exports.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "modifiers.esm-BFjb-QXg": {
       "restored": "utils/drag-modifiers.ts",
@@ -14072,7 +14075,10 @@
         "s": "toEsModule",
         "t": "createCommonJsModule"
       },
-      "status": "done"
+      "status": "done",
+      "stage3Accepted": true,
+      "note": "Rolldown runtime helpers finalized as typed CommonJS/ESM interop helpers with semantic exports.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "rpc-Cp252OZG": {
       "restored": "runtime/rpc-b-ugf-axq.tsx",
