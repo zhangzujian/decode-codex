@@ -41042,6 +41042,13 @@
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T20:43:07.830Z",
       "stage3Review": "Host self-review: vendor/mermaid-pie-services-k5.ts semantically restores the Mermaid K5 Pie Langium service module, including token/value converter wiring, service registration, and current hash compatibility; it preserves recorded n/t aliases and passes quality-gate."
+    },
+    "home-conversation-starters-3NXtkj_S": {
+      "restored": "home/home-conversation-starters.tsx",
+      "exports": {
+        "HomeConversationStarters": "HomeConversationStarters"
+      },
+      "status": "done"
     }
   }
 }
