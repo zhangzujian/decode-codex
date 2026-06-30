@@ -11,4 +11,4 @@ export {
   Fo as useScopeRaw,
   Po as useScopedValueRaw,
   Io as useSignalValueRaw,
-} from "../../../ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js";
+} from "../../vendor/app-main-legacy-deps/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt";

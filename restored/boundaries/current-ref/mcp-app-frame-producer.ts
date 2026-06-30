@@ -3,4 +3,4 @@
 export {
   Zu as AppShellOverlayOutletRaw,
   nf as liveMcpAppFrameSignal,
-} from "../../../ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js";
+} from "../../vendor/app-main-legacy-buw-compat-bundle";
