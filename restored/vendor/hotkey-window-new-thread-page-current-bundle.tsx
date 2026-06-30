@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/hotkey-window-new-thread-page-DC8KDgIn.js
 // Current hotkey window new thread page backing bundle with restored dependency imports.
 
+import type { ReactElement } from "react";
 import { once } from "../runtime/commonjs-interop";
 import {
   currentAppInitialSharedCompatSlotLowerGLowerC as initReactCompilerRuntime,
@@ -37,7 +38,7 @@ import {
   initThreadScrollLayoutChunk,
   ThreadScrollLayout,
 } from "../threads/thread-scroll-layout";
-export function HotkeyWindowNewThreadPage() {
+export function HotkeyWindowNewThreadPage(): ReactElement {
   const detailLayout = {
     title: (
       <span className="max-w-full truncate">
