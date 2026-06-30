@@ -566,6 +566,7 @@ function baseForHelper35(baseForParam4) {
   };
 }
 export const _baseForT = baseForHelper35();
+export function initLodashBaseForChunk(): void {}
 export {
   baseForC,
   baseForD,

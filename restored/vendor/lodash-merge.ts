@@ -432,6 +432,7 @@ export const mergeT = mergeHelper3(
     $(mergeParam63, mergeParam64, mergeParam65);
   },
 );
+export function initLodashMergeChunk(): void {}
 export {
   mergeUnderscore,
   mergeA,

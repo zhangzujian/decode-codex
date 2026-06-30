@@ -88,4 +88,5 @@ export function isEmptyT(isEmptyParam1) {
     if (isEmptyValue20.call(isEmptyParam1, isEmptyValue22)) return false;
   return true;
 }
+export function initLodashIsEmptyChunk(): void {}
 export { isEmptyI, isEmptyN, isEmptyR };
