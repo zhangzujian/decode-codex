@@ -15278,7 +15278,7 @@
     "worktree-init-v2-page-BAfwy1p_": {
       "restored": "worktree/pending-worktree-conversation-ui.tsx",
       "status": "done",
-      "note": "Deep-restored the pending worktree route UI, activity status model, local fallback conversation flow, edit-environment routing, and auto-fix repair thread creation against the restored pending-worktree store. The boundary and vendor facade now preserve original short exports only.",
+      "note": "Deep-restored the pending worktree route UI, activity status model, local fallback conversation flow, edit-environment routing, and auto-fix repair thread creation against the restored pending-worktree store. The import map preserves original raw aliases while the vendor facade now exposes semantic exports.",
       "lastUpdated": "2026-06-28T00:00:00.000Z",
       "exports": {
         "n": "initPendingWorktreeChunk",
