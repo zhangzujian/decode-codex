@@ -15,7 +15,9 @@ export function isPdfCommentAttachment(attachment: unknown): boolean {
   );
 }
 
-export function isArtifactAnnotationCommentAttachment(attachment: unknown): boolean {
+export function isArtifactAnnotationCommentAttachment(
+  attachment: unknown,
+): boolean {
   const kind =
     (attachment as { type?: string; kind?: string } | null)?.type ??
     (attachment as { kind?: string } | null)?.kind;
@@ -37,11 +39,15 @@ export function formatRendererSentryRelease(version: string): string {
   return `codex@${version}`;
 }
 
-export function normalizeRendererSentryVersion(version: unknown): string | null {
+export function normalizeRendererSentryVersion(
+  version: unknown,
+): string | null {
   return typeof version === "string" && version.trim() ? version.trim() : null;
 }
 
-export function toFeatureConfigKeyPath(value: string | readonly string[]): string {
+export function toFeatureConfigKeyPath(
+  value: string | readonly string[],
+): string {
   return Array.isArray(value) ? value.join(".") : value;
 }
 
@@ -154,7 +160,8 @@ export const _srcZn = "chrome://settings/handlers";
 export const srcBn = "/settings/browser-use/downloads";
 export const srcGn = "persist:codex-extension-settings";
 export const srcHn = "persist:codex-browser-app";
-export const srcIn = ["chrome://settings/addresses", "chrome://settings/contactInfo"];
+export const srcRn = "chrome://settings/addresses";
+export const srcIn = [srcRn, "chrome://settings/contactInfo"];
 export const srcJn = "chrome://password-manager/passwords";
 export const srcKn = "chrome://password-manager/";
 export const srcLn = "/settings/browser-use/contact-info";
@@ -164,6 +171,8 @@ export const srcUn = "/settings/browser-use/extensions";
 export const srcVn = "chrome://downloads/";
 export const srcWn = "chrome://extensions/";
 export const srcYn = "persist:codex-password-manager-settings";
+export const contactInfoSettingsPartition =
+  "persist:codex-contact-info-settings";
 export const srcQ = "chatgpt-workspace";
 export const _srcOt = "openai-curated-remote";
 export const _srcAt = "openai-curated";

@@ -17931,6 +17931,16 @@
       "note": "Current wrapper calls the browser-use settings producer init and re-exports the restored BrowserUseSettings page.",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
     },
+    "browser-use-settings-dXP5LB7D": {
+      "restored": "browser/browser-use-settings/index.tsx",
+      "exports": {
+        "BrowserUseSettings": "BrowserUseSettings"
+      },
+      "status": "done",
+      "aliasOf": "browser-use-settings-BL-oqesM",
+      "note": "Current ref wrapper calls the browser-use settings producer init and re-exports the restored BrowserUseSettings page.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
     "worktree-init-v2-page-CAOv319r": {
       "restored": "worktree/pending-worktree-conversation-ui.tsx",
       "exports": {
@@ -19432,6 +19442,17 @@
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current utility chunk keeps the restored public API; alias added after current ref sync."
     },
+    "settings-empty-state-DuD1OXBp": {
+      "restored": "utils/settings-empty-state.tsx",
+      "exports": {
+        "n": "initSettingsEmptyStateChunk",
+        "t": "SettingsEmptyState"
+      },
+      "status": "done",
+      "aliasOf": "settings-empty-state-DoYKl5S1",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current ref hash keeps the restored settings empty-state component and initializer surface."
+    },
     "setup-codex-wizard-step-view-DkZFzDpn": {
       "restored": "utils/setup-codex-wizard-step-view.ts",
       "exports": {
@@ -19870,6 +19891,17 @@
       "aliasOf": "thread-browser-panel-tabs-DuBf4ycc",
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current app chunk keeps the restored public export surface; alias added after current ref sync."
+    },
+    "thread-browser-panel-tabs-BBhz5qN_": {
+      "restored": "app-shell/thread-browser-panel-tabs.ts",
+      "exports": {
+        "getConversationBrowserTabIdsForTransfer": "getConversationBrowserTabIdsForTransfer",
+        "getLastFocusedBrowserTabId": "getLastFocusedBrowserTabId"
+      },
+      "status": "done",
+      "aliasOf": "thread-browser-panel-tabs-DuBf4ycc",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current ref wrapper keeps the restored browser panel transfer export surface."
     },
     "app-initial~app-main~hotkey-window-thread-page~automations-page~local-conversation-page-Dacd6Pdw": {
       "restored": "automation/heartbeat-permissions.ts",

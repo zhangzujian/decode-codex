@@ -25,4 +25,5 @@ export const BROWSER_EXTENSIONS_SETTINGS_PATH = chromeSettingsRuntime.srcUn;
 export const CHROME_DOWNLOADS_URL = chromeSettingsRuntime.srcVn;
 export const CHROME_EXTENSIONS_URL = chromeSettingsRuntime.srcWn;
 export const PASSWORD_MANAGER_PARTITION = chromeSettingsRuntime.srcYn;
-export const CONTACT_INFO_PARTITION = chromeSettingsRuntime.srcZn;
+export const CONTACT_INFO_PARTITION =
+  chromeSettingsRuntime.contactInfoSettingsPartition;
