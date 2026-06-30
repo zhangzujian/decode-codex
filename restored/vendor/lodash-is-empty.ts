@@ -1,92 +1,151 @@
 // Restored from ref/webview/assets/isEmpty-CKN2Jii3.js
-// IsEmpty chunk restored from the Codex webview bundle.
+// Also matches current ref asset ref/webview/assets/isEmpty-BJ4mdsaY.js.
+// Lodash isEmpty chunk restored from the Codex webview bundle.
 import {
+  _baseForC,
+  _baseForO,
   baseForA,
   baseForB,
-  baseForC,
   baseForD,
   baseForG,
   baseForI,
   baseForM,
-  baseForO,
   baseForP,
   baseForS,
   baseForT,
   baseForX,
 } from "./lodash-base-for";
-var isEmptyValue1 = baseForA(Object.keys, Object),
-  isEmptyValue2 = Object.prototype.hasOwnProperty;
-function isEmptyI(isEmptyParam3) {
-  if (!baseForO(isEmptyParam3)) return isEmptyValue1(isEmptyParam3);
-  var isEmptyValue26 = [];
-  for (var isEmptyValue27 in Object(isEmptyParam3))
-    isEmptyValue2.call(isEmptyParam3, isEmptyValue27) &&
-      isEmptyValue27 != "constructor" &&
-      isEmptyValue26.push(isEmptyValue27);
-  return isEmptyValue26;
+
+type DataViewConstructorLike = new (buffer: ArrayBuffer) => DataView;
+type MapConstructorLike = new () => Map<unknown, unknown>;
+type PromiseConstructorLike = {
+  resolve(value?: unknown): Promise<unknown>;
+};
+type SetConstructorLike = new (
+  values?: Iterable<unknown> | null,
+) => Set<unknown>;
+type WeakMapConstructorLike = new () => WeakMap<object, unknown>;
+
+const mapTag = "[object Map]";
+const objectTag = "[object Object]";
+const promiseTag = "[object Promise]";
+const setTag = "[object Set]";
+const weakMapTag = "[object WeakMap]";
+const dataViewTag = "[object DataView]";
+
+const nativeKeys = baseForA(Object.keys, Object) as (
+  value: unknown,
+) => string[];
+const hasOwnProperty = Object.prototype.hasOwnProperty;
+const isPrototype = _baseForO as (value: unknown) => boolean;
+const isTypedArray = _baseForC as (value: unknown) => boolean;
+
+export function isEmptyI(value: unknown): string[] {
+  if (!isPrototype(value)) {
+    return nativeKeys(value);
+  }
+
+  const keys: string[] = [];
+  for (const key in Object(value)) {
+    if (hasOwnProperty.call(value, key) && key !== "constructor") {
+      keys.push(key);
+    }
+  }
+
+  return keys;
 }
-var isEmptyValue3 = baseForX(baseForD, "DataView"),
-  isEmptyValue4 = baseForX(baseForD, "Promise"),
-  isEmptyR = baseForX(baseForD, "Set"),
-  isEmptyValue5 = baseForX(baseForD, "WeakMap"),
-  isEmptyValue12 = baseForS(isEmptyValue3),
-  isEmptyValue13 = baseForS(baseForB),
-  isEmptyValue14 = baseForS(isEmptyValue4),
-  isEmptyValue15 = baseForS(isEmptyR),
-  isEmptyValue16 = baseForS(isEmptyValue5),
-  isEmptyValue17 = baseForT;
-((isEmptyValue3 &&
-  isEmptyValue17(new isEmptyValue3(new ArrayBuffer(1))) !=
-    "[object DataView]") ||
-  (baseForB && isEmptyValue17(new baseForB()) != "[object Map]") ||
-  (isEmptyValue4 &&
-    isEmptyValue17(isEmptyValue4.resolve()) != "[object Promise]") ||
-  (isEmptyR && isEmptyValue17(new isEmptyR()) != "[object Set]") ||
-  (isEmptyValue5 &&
-    isEmptyValue17(new isEmptyValue5()) != "[object WeakMap]")) &&
-  (isEmptyValue17 = function (isEmptyParam2) {
-    var isEmptyValue23 = baseForT(isEmptyParam2),
-      isEmptyValue24 =
-        isEmptyValue23 == "[object Object]"
-          ? isEmptyParam2.constructor
-          : undefined,
-      isEmptyValue25 = isEmptyValue24 ? baseForS(isEmptyValue24) : "";
-    if (isEmptyValue25)
-      switch (isEmptyValue25) {
-        case isEmptyValue12:
-          return "[object DataView]";
-        case isEmptyValue13:
-          return "[object Map]";
-        case isEmptyValue14:
-          return "[object Promise]";
-        case isEmptyValue15:
-          return "[object Set]";
-        case isEmptyValue16:
-          return "[object WeakMap]";
-      }
-    return isEmptyValue23;
-  });
-var isEmptyN = isEmptyValue17,
-  isEmptyValue20 = Object.prototype.hasOwnProperty;
-export function isEmptyT(isEmptyParam1) {
-  if (isEmptyParam1 == null) return true;
+
+const nativeDataView = baseForX(baseForD, "DataView") as
+  | DataViewConstructorLike
+  | undefined;
+const nativePromise = baseForX(baseForD, "Promise") as
+  | PromiseConstructorLike
+  | undefined;
+export const isEmptyR = baseForX(baseForD, "Set") as
+  | SetConstructorLike
+  | undefined;
+const nativeWeakMap = baseForX(baseForD, "WeakMap") as
+  | WeakMapConstructorLike
+  | undefined;
+
+const dataViewCtorSource = baseForS(nativeDataView);
+const mapCtorSource = baseForS(baseForB as MapConstructorLike | undefined);
+const promiseCtorSource = baseForS(nativePromise);
+const setCtorSource = baseForS(isEmptyR);
+const weakMapCtorSource = baseForS(nativeWeakMap);
+
+let getTag = baseForT as (value: unknown) => string;
+
+if (
+  (nativeDataView &&
+    getTag(new nativeDataView(new ArrayBuffer(1))) !== dataViewTag) ||
+  (baseForB && getTag(new (baseForB as MapConstructorLike)()) !== mapTag) ||
+  (nativePromise && getTag(nativePromise.resolve()) !== promiseTag) ||
+  (isEmptyR && getTag(new isEmptyR()) !== setTag) ||
+  (nativeWeakMap && getTag(new nativeWeakMap()) !== weakMapTag)
+) {
+  getTag = function getTagByConstructorSource(value: unknown): string {
+    const tag = baseForT(value);
+    const constructorValue =
+      tag === objectTag
+        ? (value as { constructor?: unknown }).constructor
+        : undefined;
+    const constructorSource = constructorValue
+      ? baseForS(constructorValue)
+      : "";
+
+    switch (constructorSource) {
+      case dataViewCtorSource:
+        return dataViewTag;
+      case mapCtorSource:
+        return mapTag;
+      case promiseCtorSource:
+        return promiseTag;
+      case setCtorSource:
+        return setTag;
+      case weakMapCtorSource:
+        return weakMapTag;
+      default:
+        return tag;
+    }
+  };
+}
+
+export const isEmptyN = getTag;
+
+export function isEmptyT(value: unknown): boolean {
+  if (value == null) {
+    return true;
+  }
+
   if (
-    baseForI(isEmptyParam1) &&
-    (baseForG(isEmptyParam1) ||
-      typeof isEmptyParam1 == "string" ||
-      typeof isEmptyParam1.splice == "function" ||
-      baseForP(isEmptyParam1) ||
-      baseForC(isEmptyParam1) ||
-      baseForM(isEmptyParam1))
-  )
-    return !isEmptyParam1.length;
-  var isEmptyValue21 = isEmptyN(isEmptyParam1);
-  if (isEmptyValue21 == "[object Map]" || isEmptyValue21 == "[object Set]")
-    return !isEmptyParam1.size;
-  if (baseForO(isEmptyParam1)) return !isEmptyI(isEmptyParam1).length;
-  for (var isEmptyValue22 in isEmptyParam1)
-    if (isEmptyValue20.call(isEmptyParam1, isEmptyValue22)) return false;
+    baseForI(value) &&
+    (baseForG(value) ||
+      typeof value === "string" ||
+      typeof (value as { splice?: unknown }).splice === "function" ||
+      baseForP(value) ||
+      isTypedArray(value) ||
+      baseForM(value))
+  ) {
+    return !(value as { length: number }).length;
+  }
+
+  const tag = isEmptyN(value);
+  if (tag === mapTag || tag === setTag) {
+    return !(value as { size: number }).size;
+  }
+
+  if (isPrototype(value)) {
+    return isEmptyI(value).length === 0;
+  }
+
+  for (const key in Object(value)) {
+    if (hasOwnProperty.call(value, key)) {
+      return false;
+    }
+  }
+
   return true;
 }
+
 export function initLodashIsEmptyChunk(): void {}
-export { isEmptyI, isEmptyN, isEmptyR };

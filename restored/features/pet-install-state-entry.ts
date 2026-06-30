@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/pet-install-state-DJxALilf.js
+// Also matches current ref asset ref/webview/assets/pet-install-state-DSjWxlxg.js.
 // Entry wrapper that initializes pet install state before exposing the API.
 import {
   closePetInstallSession,
