@@ -6424,6 +6424,18 @@
       "aliasOf": "use-hotkey-window-detail-layout-QBnCCIVd",
       "note": "Current hash adds a rolldown init export and shifts the hook to export r."
     },
+    "use-hotkey-window-detail-layout-D-pNZzEr": {
+      "restored": "utils/use-hotkey-window-detail-layout.tsx",
+      "exports": {
+        "n": "initHotkeyWindowDetailLayoutChunk",
+        "r": "useHotkeyWindowDetailLayout",
+        "t": "HotkeyWindowDetailLayoutContext"
+      },
+      "status": "done",
+      "aliasOf": "use-hotkey-window-detail-layout-QBnCCIVd",
+      "note": "Current ref hash keeps the restored hotkey window detail layout context surface.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
     "format-currency-CMEP8JPI": {
       "restored": "utils/format-currency.ts",
       "exports": {
@@ -10738,6 +10750,17 @@
       "aliasOf": "use-hotkey-window-dismiss-on-escape-CATf2BNk",
       "note": "Current hash adds a rolldown init export and exposes the hook as n."
     },
+    "use-hotkey-window-dismiss-on-escape-D4r0Oase": {
+      "restored": "utils/use-hotkey-window-dismiss-on-escape.ts",
+      "exports": {
+        "n": "useHotkeyWindowDismissOnEscape",
+        "t": "initHotkeyWindowDismissOnEscapeChunk"
+      },
+      "status": "done",
+      "aliasOf": "use-hotkey-window-dismiss-on-escape-CATf2BNk",
+      "note": "Current ref hash keeps the restored dismiss-on-Escape hook and initializer surface.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
+    },
     "windows-tabs-open-SksOQNvg": {
       "restored": "runtime/windows-tabs-open.ts",
       "exports": {
@@ -14314,6 +14337,17 @@
       "status": "done",
       "note": "Synced current Codex worktrees query hook with semantic hook and initializer exports.",
       "lastUpdated": "2026-06-27T21:36:04.728Z"
+    },
+    "use-codex-worktrees-DzKC3qS4": {
+      "restored": "utils/use-codex-worktrees.ts",
+      "exports": {
+        "n": "useCodexWorktrees",
+        "t": "initUseCodexWorktreesChunk"
+      },
+      "status": "done",
+      "aliasOf": "use-codex-worktrees-CPZNHmi3",
+      "note": "Current ref hash keeps the restored Codex worktrees query hook surface.",
+      "lastUpdated": "2026-06-30T00:00:00.000Z"
     },
     "keyboard-event-accelerator-DMT_0ZVa": {
       "restored": "utils/keyboard-event-accelerator.ts",
@@ -19396,6 +19430,17 @@
       "aliasOf": "artifact-file-preview-icon-LMyZNsDA",
       "lastUpdated": "2026-06-29T00:00:00.000Z",
       "note": "Current utility chunk keeps the restored public API; alias added after current ref sync."
+    },
+    "artifact-file-preview-icon-tUwFASV6": {
+      "restored": "utils/artifact-file-preview-icon.tsx",
+      "exports": {
+        "n": "initArtifactFilePreviewIconChunk",
+        "t": "ArtifactFilePreviewIcon"
+      },
+      "status": "done",
+      "aliasOf": "artifact-file-preview-icon-LMyZNsDA",
+      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current ref hash keeps the restored artifact file preview icon surface."
     },
     "chunk-KS23V3DP-CXu2WtWu": {
       "restored": "utils/chunk-ks23-v3-dp.ts",
