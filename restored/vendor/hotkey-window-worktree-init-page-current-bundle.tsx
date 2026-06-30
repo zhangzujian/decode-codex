@@ -1,29 +1,29 @@
 // Restored from ref/webview/assets/hotkey-window-worktree-init-page-CDrG7Phs.js
 // Current hotkey window worktree init page backing bundle with restored dependency imports.
 
+import type { ReactElement } from "react";
 import { once } from "../runtime/commonjs-interop";
 import {
-  currentAppInitialSharedCompatSlotLowerGLowerC,
-  currentAppInitialSharedCompatSlotUpperKLowerT,
-  currentAppInitialSharedCompatSlotLowerLLowerC,
-  currentAppInitialSharedCompatSlotUpperO,
-  currentAppInitialSharedCompatSlotLowerQLowerO,
-  currentAppInitialSharedCompatSlotUpperQLowerT,
-  currentAppInitialSharedCompatSlotUpperVLowerO,
-  currentAppInitialSharedCompatSlotUpperZLowerT,
+  currentAppInitialSharedCompatSlotLowerGLowerC as initReactCompilerRuntime,
+  currentAppInitialSharedCompatSlotLowerQLowerO as useQuery,
+  currentAppInitialSharedCompatSlotUpperKLowerT as buildHotkeyWindowConversationPath,
+  currentAppInitialSharedCompatSlotUpperO as initReactRuntime,
+  currentAppInitialSharedCompatSlotUpperQLowerT as buildHotkeyWindowHomePath,
+  currentAppInitialSharedCompatSlotUpperVLowerO as initHotkeyWindowRoutingRuntime,
+  currentAppInitialSharedCompatSlotUpperZLowerT as buildPendingWorktreeMainWindowPath,
 } from "../runtime/current-app-initial/current-app-initial-shared-runtime";
 import {
-  currentAppInitialSharedMember0084,
-  intlFormatDateTimeRuntime,
-  currentAppInitialSharedMember0194,
-  currentAppInitialSharedRuntime0710,
-  currentAppInitialSharedMember0815,
-  openAiNativeAppDefinition,
-  currentAppInitialSharedMember0924,
+  currentAppInitialSharedMember0084 as Navigate,
+  currentAppInitialSharedMember0194 as usePendingWorktreeRouteParams,
+  currentAppInitialSharedMember0815 as appHostServices,
+  currentAppInitialSharedMember0924 as FormattedMessage,
+  currentAppInitialSharedRuntime0710 as initAppHostServicesRuntime,
+  intlFormatDateTimeRuntime as initIntlFormattingRuntime,
+  openAiNativeAppDefinition as initOpenAiNativeAppDefinition,
 } from "../runtime/current-app-initial/remote-projects-app-shared-runtime";
 import {
-  launcherHotkeyStateQuery,
   initLauncherHotkeyStateChunk,
+  launcherHotkeyStateQuery,
 } from "../features/hotkey-window-state";
 import {
   initHotkeyWindowDetailLayoutChunk,
@@ -33,78 +33,58 @@ import {
   initPendingWorktreeChunk,
   PendingWorktreeConversation,
 } from "../worktree/pending-worktree-conversation-ui";
-export function HotkeyWindowWorktreeInitPage() {
-  let { pendingWorktreeId } = currentAppInitialSharedMember0194(),
-    { data } = currentAppInitialSharedCompatSlotLowerQLowerO(
-      launcherHotkeyStateQuery,
-    ),
-    hotkeyWindowWorktreeInitPageValue4 =
-      data == null || data.configuredHotkey != null,
-    hotkeyWindowWorktreeInitPageValue5 =
-      currentAppInitialSharedCompatSlotUpperQLowerT(
-        hotkeyWindowWorktreeInitPageValue4,
-      );
-  let hotkeyWindowWorktreeInitPageValue6 = hotkeyWindowWorktreeInitPageValue5,
-    hotkeyWindowWorktreeInitPageValue7;
-  if (
-    ((hotkeyWindowWorktreeInitPageValue7 =
-      pendingWorktreeId == null
-        ? null
-        : {
-            title: (
-              <span className="max-w-full truncate">
-                {hotkeyWindowWorktreeInitPageValue2.jsx(
-                  currentAppInitialSharedMember0924,
-                  {
-                    id: "worktreeInitV2.title",
-                    defaultMessage: "Creating worktree",
-                    description: "Title for the worktree init v2 page",
-                  },
-                )}
-              </span>
-            ),
-            mainWindowPath:
-              currentAppInitialSharedCompatSlotUpperZLowerT(pendingWorktreeId),
-          }),
-    useHotkeyWindowDetailLayout(hotkeyWindowWorktreeInitPageValue7),
-    !pendingWorktreeId)
-  ) {
-    let hotkeyWindowWorktreeInitPageValue9;
-    return hotkeyWindowWorktreeInitPageValue2.jsx(
-      currentAppInitialSharedMember0084,
-      {
-        to: hotkeyWindowWorktreeInitPageValue6,
-        replace: true,
-      },
-    );
+
+export function HotkeyWindowWorktreeInitPage(): ReactElement {
+  const { pendingWorktreeId } = usePendingWorktreeRouteParams();
+  const { data: launcherHotkeyState } = useQuery(launcherHotkeyStateQuery);
+  const hasConfiguredHotkey =
+    launcherHotkeyState == null || launcherHotkeyState.configuredHotkey != null;
+  const homePath = buildHotkeyWindowHomePath(hasConfiguredHotkey);
+
+  const detailLayout =
+    pendingWorktreeId == null
+      ? null
+      : {
+          title: (
+            <span className="max-w-full truncate">
+              <FormattedMessage
+                id="worktreeInitV2.title"
+                defaultMessage="Creating worktree"
+                description="Title for the worktree init v2 page"
+              />
+            </span>
+          ),
+          mainWindowPath: buildPendingWorktreeMainWindowPath(pendingWorktreeId),
+        };
+  useHotkeyWindowDetailLayout(detailLayout);
+
+  if (!pendingWorktreeId) {
+    return <Navigate to={homePath} replace />;
   }
-  return hotkeyWindowWorktreeInitPageValue2.jsx(PendingWorktreeConversation, {
-    homePath: hotkeyWindowWorktreeInitPageValue6,
-    conversationPathBuilder: currentAppInitialSharedCompatSlotUpperKLowerT,
-    onConversationReady: hotkeyWindowWorktreeInitPageHelper1,
+
+  return (
+    <PendingWorktreeConversation
+      homePath={homePath}
+      conversationPathBuilder={buildHotkeyWindowConversationPath}
+      onConversationReady={openConversationInHotkeyWindow}
+    />
+  );
+}
+
+function openConversationInHotkeyWindow(conversationId: string): void {
+  appHostServices.hotkeyWindowHotkeys?.open({
+    path: buildHotkeyWindowConversationPath(conversationId),
   });
 }
-function hotkeyWindowWorktreeInitPageHelper1(
-  hotkeyWindowWorktreeInitPageParam1,
-) {
-  currentAppInitialSharedMember0815.hotkeyWindowHotkeys?.open({
-    path: currentAppInitialSharedCompatSlotUpperKLowerT(
-      hotkeyWindowWorktreeInitPageParam1,
-    ),
-  });
-}
-var hotkeyWindowWorktreeInitPageValue1, hotkeyWindowWorktreeInitPageValue2;
+
 once(() => {
-  hotkeyWindowWorktreeInitPageValue1 =
-    currentAppInitialSharedCompatSlotLowerGLowerC();
-  currentAppInitialSharedCompatSlotUpperVLowerO();
-  currentAppInitialSharedCompatSlotUpperO();
-  intlFormatDateTimeRuntime();
-  openAiNativeAppDefinition();
-  currentAppInitialSharedRuntime0710();
+  initReactCompilerRuntime();
+  initHotkeyWindowRoutingRuntime();
+  initReactRuntime();
+  initIntlFormattingRuntime();
+  initOpenAiNativeAppDefinition();
+  initAppHostServicesRuntime();
   initPendingWorktreeChunk();
   initLauncherHotkeyStateChunk();
   initHotkeyWindowDetailLayoutChunk();
-  hotkeyWindowWorktreeInitPageValue2 =
-    currentAppInitialSharedCompatSlotLowerLLowerC();
 })();
