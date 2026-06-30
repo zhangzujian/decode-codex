@@ -39545,6 +39545,34 @@
       "note": "Shiki bundled theme data chunk mapped to npm leaf @shikijs/themes/xcode-dark; JSON payload is intentionally not copied into restored/.",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "avatar-overlay-pill-dismiss-button-Br8FWkZZ": {
+      "restored": "features/avatar-overlay-pill/index.tsx",
+      "exports": {
+        "_": "initAvatarOverlayActivityStatusChunk",
+        "a": "createAvatarOverlayMascotWidthStyle",
+        "c": "getAvatarOverlayPillVisibilityMode",
+        "d": "getLatestAvatarOverlayActivitySubtitle",
+        "f": "initAvatarOverlayPillActivityItemsChunk",
+        "g": "getAvatarOverlayActivityStatusConfig",
+        "h": "initCompactWaitingRequestChunk",
+        "i": "clampAvatarOverlayMascotWidth",
+        "l": "initAvatarOverlayPillEmptyChunk",
+        "m": "getWaitingRequestSearchText",
+        "n": "initAvatarOverlayPillDismissButtonChunk",
+        "o": "initAvatarOverlayMascotWidthChunk",
+        "p": "formatWaitingRequestAccessibleLabel",
+        "r": "AVATAR_OVERLAY_MASCOT_ASPECT_RATIO",
+        "s": "useAvatarOverlayMascotWidth",
+        "t": "AvatarOverlayPillDismissButton",
+        "u": "buildAvatarOverlayPillActivityItems",
+        "v": "observeElementSize",
+        "y": "initAvatarOverlayPillChunk"
+      },
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
+      "stage3Review": "Host self-review: compared avatar-overlay-pill-dismiss-button-Br8FWkZZ.js against the restored avatar-overlay-pill modules; current alias exports cover activity status, compact waiting request helpers, activity item building with automation tray visibility, mascot width persistence/style helpers, resize observation, and the dismiss button component."
     }
   }
 }
