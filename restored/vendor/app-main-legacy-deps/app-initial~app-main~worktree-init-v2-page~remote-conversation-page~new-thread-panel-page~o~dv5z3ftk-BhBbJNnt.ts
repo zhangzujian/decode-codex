@@ -21723,7 +21723,6 @@ var Zj,
           ;
           this.headIndex < this.entries.length &&
           this.entries[this.headIndex].atMs < t;
-
         )
           ((this.rollingSum -= this.entries[this.headIndex].value),
             (this.headIndex += 1));
