@@ -2626,7 +2626,11 @@
       "exports": {
         "default": "default"
       },
-      "status": "done"
+      "status": "done",
+      "lastUpdated": "2026-06-30T21:50:14.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:50:14.000Z",
+      "stage3Review": "Host self-review: historical Segment analytics video plugins wrapper is absent from the current ref, current index.umd-BU1Bn__H preserves the default export surface, vendor/analytics-video-plugins.ts has semantic Vimeo/YouTube analytics wrapper names, and the vendored quality gate plus default-export coverage pass."
     },
     "index.umd-0glM-ceB": {
       "restored": "vendor/analytics-video-plugins.ts",
@@ -2635,7 +2639,10 @@
       },
       "status": "done",
       "aliasOf": "index.umd-CqGTwgME",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "lastUpdated": "2026-06-30T21:50:14.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:50:14.000Z",
+      "stage3Review": "Host self-review: historical Segment analytics video plugins alias points at vendor/analytics-video-plugins.ts; the restored module preserves the default export and passes vendored quality gate."
     },
     "useForm-Dc2s3Q7s": {
       "restored": "vendor/tanstack-react-form.ts",
@@ -24814,6 +24821,8 @@
       "status": "done",
       "lastUpdated": "2026-06-30T08:19:23.819Z",
       "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T21:50:14.000Z",
+      "stage3Review": "Host self-review: current Segment analytics video plugins UMD wrapper maps to vendor/analytics-video-plugins.ts, whose VimeoAnalytics and YouTubeAnalytics classes preserve the default export surface; sourcemap file is referenced but absent, export coverage passes, and the vendored quality gate passes.",
       "stage3Note": "Accepted as typed Segment Vimeo and YouTube analytics plugin wrappers with current-bundle provenance."
     },
     "chunk-QZHKN3VN-bO7GNZwy": {
