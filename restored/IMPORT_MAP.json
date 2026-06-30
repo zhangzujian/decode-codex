@@ -33237,6 +33237,19 @@
       "note": "Current ref lodash isEmpty chunk re-derived from isEmpty-BJ4mdsaY.js. Rolldown lazy init exports map to initLodashIsEmptyChunk because the restored module has those side effects flattened.",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+    },
+    "chunk-ZZ45TVLE-DzHSn4eK": {
+      "restored": "vendor/chunk-zz45tvle.ts",
+      "exports": {
+        "n": "chunkZZ45TVLEN",
+        "r": "initChunkZZ45TVLE",
+        "t": "chunkZZ45TVLET"
+      },
+      "status": "done",
+      "aliasOf": "chunk-ZZ45TVLE-CvzuGe_q",
+      "note": "Current chunk-ZZ45TVLE hash re-derived from chunk-ZZ45TVLE-DzHSn4eK.js. Alias r is the Rolldown lazy init thunk; n/t preserve the restored margin and label-image helper surface.",
+      "stage3Accepted": true,
+      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
     }
   }
 }

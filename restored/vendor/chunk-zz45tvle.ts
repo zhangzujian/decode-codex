@@ -50,4 +50,5 @@ async function chunkZZ45TVLET(_chunkZZ45TVLEN, _chunkZZ45TVLET) {
   );
 }
 chunkAGHRB4JFN(chunkZZ45TVLET, "configureLabelImages");
+export function initChunkZZ45TVLE(): void {}
 export { chunkZZ45TVLET };
