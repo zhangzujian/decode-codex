@@ -118,7 +118,7 @@ import {
   yn as at,
   zs as ot,
   zt as st,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~automations-page~th~bnlvjk3w-ClqKjb2h.js";
+} from "./current-app-initial-bnlvjk3w-shared-bundle";
 import {
   $_ as ct,
   $p as lt,

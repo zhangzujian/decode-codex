@@ -60,7 +60,7 @@ import {
   us as Se,
   v as Ce,
   xo as we,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~automations-page~th~bnlvjk3w-ClqKjb2h.js";
+} from "./current-app-initial-bnlvjk3w-shared-bundle";
 import {
   B_ as Te,
   C as Ee,

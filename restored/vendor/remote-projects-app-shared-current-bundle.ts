@@ -214,7 +214,7 @@ import {
   z as nn,
   zo as rn,
   zs as an,
-} from "../../ref/webview/assets/app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~automations-page~th~bnlvjk3w-ClqKjb2h.js";
+} from "./current-app-initial-bnlvjk3w-shared-bundle";
 function on(e, t) {
   if (typeof t != `function` && t !== null)
     throw TypeError(
