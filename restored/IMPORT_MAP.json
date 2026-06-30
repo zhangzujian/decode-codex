@@ -42563,17 +42563,43 @@
     "debug-modal-B1KfgYMB": {
       "restored": "runtime/current-app-initial/debug-modal-current-runtime.ts",
       "exports": {
-        "n": "DebugPanel",
-        "r": "initDebugModalChunk",
-        "t": "DebugModal"
+        "n": "debugModalN",
+        "r": "debugModalR",
+        "t": "debugModalT"
       },
       "status": "done",
-      "note": "Current debug modal hash maps to a dedicated current-ref runtime over vendor/debug-modal-current-bundle.tsx; aliases are re-derived from the current file and exposed as DebugPanel, initDebugModalChunk, and DebugModal.",
-      "lastUpdated": "2026-06-30T23:59:59.900Z",
+      "note": "Current debug modal hash maps to a dedicated current-ref runtime over vendor/debug-modal-current-bundle.tsx; aliases are derived from the current file and dependencies are rewritten through restored current bundles where available.",
+      "lastUpdated": "2026-06-30T23:11:15.204Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:59:59.900Z",
-      "stage3Review": "Host self-review: parsed debug-modal-B1KfgYMB.js exports, identified r as the initializer, t as the modal/dialog component, and n as the debug panel surface; rewrote dependency imports through restored/IMPORT_MAP.json and passed quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of DebugModal remains future cleanup."
+      "stage3AcceptedAt": "2026-06-30T23:11:15.204Z",
+      "stage3Review": "Host self-review: parsed debug-modal-B1KfgYMB.js exports, rebuilt n/r/t alias compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json with consumer rename aliases.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of the debug panel sections remains future cleanup."
+    },
+    "debug-modal-DauBwyxs": {
+      "restored": "runtime/current-app-initial/debug-modal-route-current-runtime.ts",
+      "exports": {
+        "DebugModal": "DebugModal"
+      },
+      "status": "done",
+      "note": "Current DebugModal wrapper maps to the debug modal producer runtime; the wrapper initializes the producer chunk and re-exports the current modal component as DebugModal.",
+      "lastUpdated": "2026-06-30T23:59:59.950Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:59:59.950Z",
+      "stage3Review": "Host self-review: verified debug-modal-DauBwyxs.js imports r/t from the current debug modal producer, invokes r(), and exports t as DebugModal; runtime wrapper preserves that surface and passes quality-gate.",
+      "stage3Note": "Accepted as a current-ref route wrapper over runtime/current-app-initial/debug-modal-current-runtime.ts; the producer body remains a compatibility backing bundle pending future semantic split."
+    },
+    "debug-window-page-DHU1KOnj": {
+      "restored": "runtime/current-app-initial/debug-window-page-current-runtime.ts",
+      "exports": {
+        "DebugWindowPage": "DebugWindowPage"
+      },
+      "status": "done",
+      "note": "Current DebugWindowPage hash maps to a dedicated current-ref runtime over vendor/debug-window-page-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "lastUpdated": "2026-06-30T23:59:59.950Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-06-30T23:59:59.950Z",
+      "stage3Review": "Host self-review: verified the current file exports DebugWindowPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
+      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of DebugWindowPage remains a later cleanup."
     }
   }
 }
