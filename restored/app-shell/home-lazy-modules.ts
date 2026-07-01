@@ -26,9 +26,7 @@ export const LazyHomeAnnouncements = lazyLoadWithSuspense(
     (
       await preloadDynamicImport(
         async () => {
-          const { HomeAnnouncements } = await import(
-            "./home-announcements"
-          );
+          const { HomeAnnouncements } = await import("./home-announcements");
           return { HomeAnnouncements };
         },
         [],
