@@ -350,7 +350,7 @@ import {
   appMainCurrentCompatSlotUpperVLowerA as ha,
   setPinnedThreadsOrder as ga,
   automationsQuerySignal as _a,
-  appMainCurrentCompatSlotUpperWLowerT as va,
+  AlertIcon as va,
   CloudIcon as ya,
   initCloudIconChunk as ba,
   appMainCurrentCompatSlotUnderscoreLowerD as xa,

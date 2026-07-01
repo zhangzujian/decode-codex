@@ -8,6 +8,5 @@ export {
   Wo as appMainCurrentCompatSlotUpperWLowerO,
   Wp as appMainCurrentCompatSlotUpperWLowerP,
   Ws as appMainCurrentCompatSlotUpperWLowerS,
-  Wt as appMainCurrentCompatSlotUpperWLowerT,
   Wu as appMainCurrentCompatSlotUpperWLowerU,
 } from "../app-main-current-cgnc-bundle";
