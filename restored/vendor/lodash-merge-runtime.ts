@@ -1507,3 +1507,5 @@ export {
   mergeYt,
   _mergeZ,
 };
+
+export const initLodashMergeRuntime = __mergeT;

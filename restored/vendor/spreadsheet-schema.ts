@@ -9385,3 +9385,5 @@ export {
   spreadsheetZ,
   spreadsheetZt,
 };
+
+export const legacySpreadsheetB = __spreadsheetT;

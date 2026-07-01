@@ -98,6 +98,16 @@ const appShellStateExportUt = appShellStateImpl.appShellStateUtState;
 const appShellStateExportVAlias = appShellStateImpl.appShellStateVState;
 const ensureBottomPanelLauncherVisibilityDefault =
   appShellStateImpl.appShellStateVState;
+const appShellStateDSignal = appShellStateExportDAlias;
+const appShellStateISignal = appShellStateExportIAlias;
+const appShellStateKSignal = appShellStateExportKAlias;
+const appShellStateNSignal = appShellStateExportNAlias;
+const appShellStatePSignal = appShellStateExportPAlias;
+const appShellStateQSignal = appShellStateExportQAlias;
+const appShellStateTSignal = appShellStateExportTAlias;
+const appShellStateVSignal = appShellStateExportVAlias;
+const appShellStateYSignal = appShellStateExportYAlias;
+const appShellStateZSignal = appShellStateExportZAlias;
 const appShellStateExportWAlias = setReviewFileTreeOpen;
 const appShellStateExportXAlias = setRightPanelOpenWithOptions;
 const appShellStateExportYAlias = appShellStateImpl.appShellStateYState;
@@ -129,6 +139,16 @@ export {
   setReviewFileTreeOpen,
   setActiveAppShellFocusArea,
   setRightPanelOpenWithOptions,
+  appShellStateDSignal,
+  appShellStateISignal,
+  appShellStateKSignal,
+  appShellStateNSignal,
+  appShellStatePSignal,
+  appShellStateQSignal,
+  appShellStateTSignal,
+  appShellStateVSignal,
+  appShellStateYSignal,
+  appShellStateZSignal,
   appShellStateExportDollar,
   appShellStateExportA,
   appShellStateExportB,

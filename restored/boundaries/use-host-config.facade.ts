@@ -222,3 +222,7 @@ export function getWorkspaceRelativePath(
     ? normalizedFilePath.slice(prefix.length)
     : filePath;
 }
+
+export const useHostConfigLegacyTt = __useHostConfigT;
+export const useHostConfigLegacyUnderscore = __useHostConfigN;
+export const useHostConfigLegacyW = ___useHostConfigT;

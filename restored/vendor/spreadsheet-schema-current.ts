@@ -12905,3 +12905,7 @@ export {
   _spreadsheetZ,
   _spreadsheetZt,
 };
+
+export const currentSpreadsheetT = __spreadsheetT;
+export const currentSpreadsheetLowerT = ___spreadsheetT;
+export const currentSpreadsheetN = __spreadsheetN;

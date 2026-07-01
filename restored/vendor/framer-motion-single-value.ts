@@ -244,3 +244,5 @@ export function singleValueY(
 }
 export const singleValueNt = (options: Record<string, unknown>) => options;
 export const singleValueRt = (options: Record<string, unknown>) => options;
+
+export const animateSingleMotionValue = __singleValueT;

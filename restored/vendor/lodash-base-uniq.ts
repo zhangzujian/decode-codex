@@ -1495,3 +1495,5 @@ export {
   baseUniqHelper17,
   baseUniqValue14,
 };
+
+export const baseUniqGetSymbols = baseUniqValue14;

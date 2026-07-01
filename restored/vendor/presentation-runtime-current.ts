@@ -28512,3 +28512,9 @@ export {
   _presentationZn,
   presentationZt,
 };
+
+export const currentPresentationN = __presentationN;
+export const currentPresentationR = __presentationR;
+export const currentPresentationT = __presentationT;
+export const currentPresentationLowerN = ___presentationN;
+export const currentPresentationLowerT = ___presentationT;
