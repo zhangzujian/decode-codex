@@ -2485,6 +2485,70 @@ function isEmptyExportPlaceholder(source: string): boolean {
   return stripped === "export {};" || stripped === "export {}";
 }
 
+/**
+ * Names a boundary facade exports as bare `any` placeholders (unresolved open
+ * boundaries: `export const X: any = undefined as any;` / `export declare const
+ * X: any;`) — as opposed to real re-exports (`export { X } from "…"`) or real
+ * values. These are the entries that still mean "owning module not restored yet".
+ */
+function collectAnyFacadePlaceholderNames(targetDir: string): Set<string> {
+  const names = new Set<string>();
+  let files: string[];
+  try {
+    files = collectFiles(targetDir);
+  } catch {
+    return names;
+  }
+  const placeholderRe =
+    /export\s+(?:declare\s+)?const\s+([A-Za-z_$][\w$]*)\s*:\s*any\b/g;
+  for (const file of files) {
+    if (!/\.facade\.[cm]?[jt]sx?$/i.test(file)) continue;
+    let source: string;
+    try {
+      source = fs.readFileSync(file, "utf-8");
+    } catch {
+      continue;
+    }
+    let m: RegExpExecArray | null;
+    placeholderRe.lastIndex = 0;
+    while ((m = placeholderRe.exec(source)) !== null) names.add(m[1]);
+  }
+  return names;
+}
+
+/**
+ * Imported names in `file` that come from a boundary facade path and resolve only
+ * to an `any` placeholder — the signature of an incomplete restoration (the file
+ * compiles, but its dependency is a stub backed by no real code).
+ */
+function findUnresolvedFacadeImports(
+  file: string,
+  anyFacadeNames: Set<string>,
+): string[] {
+  if (anyFacadeNames.size === 0) return [];
+  let source: string;
+  try {
+    source = fs.readFileSync(file, "utf-8");
+  } catch {
+    return [];
+  }
+  const hits = new Set<string>();
+  const importRe =
+    /import\s+(?:type\s+)?\{([^}]*)\}\s*from\s*["'][^"']*\.facade(?:\.[cm]?[jt]sx?)?["']/g;
+  let m: RegExpExecArray | null;
+  while ((m = importRe.exec(source)) !== null) {
+    for (const raw of m[1].split(",")) {
+      const name = raw
+        .trim()
+        .split(/\s+as\s+/)[0]
+        .replace(/^type\s+/, "")
+        .trim();
+      if (name && anyFacadeNames.has(name)) hits.add(name);
+    }
+  }
+  return [...hits].sort();
+}
+
 export function collectBoundaryCheckpointImportFiles(
   targetDir: string,
 ): Set<string> {
@@ -2859,7 +2923,10 @@ function analyzeOrganizePromoteState(
 
 export function analyzeFullRestorationCoverage(
   targetDir: string,
-  coverageOpts: { allowOrganizeIncomplete?: boolean } = {},
+  coverageOpts: {
+    allowOrganizeIncomplete?: boolean;
+    allowOpenBoundaries?: boolean;
+  } = {},
 ): FileQualityReport[] {
   const stat = fs.statSync(targetDir);
   if (!stat.isDirectory()) return [];
@@ -2901,6 +2968,14 @@ export function analyzeFullRestorationCoverage(
   const npmResolvableFacades: Array<{ basename: string; specifier: string }> =
     [];
   const targetInspectionIssues: QualityGateIssue[] = [];
+  // Open-boundary detection: a promoted app-feature deliverable whose imports
+  // resolve only to `any` placeholders in a boundary facade is not truly
+  // restored (it compiles against stubs). Built once, checked per deliverable.
+  const anyFacadeNames = collectAnyFacadePlaceholderNames(targetDir);
+  const appFeatureAnyFacadeImports: Array<{
+    file: string;
+    symbols: string[];
+  }> = [];
 
   for (const [fallbackBasename, file] of manifestFiles(manifest)) {
     if (file.kind !== "local" && file.kind !== "oversized-local") continue;
@@ -2981,6 +3056,34 @@ export function analyzeFullRestorationCoverage(
     }
   }
 
+  // Open-boundary scan across EVERY restored app deliverable (not only
+  // manifest-mapped public targets) — residue modules like home-page-body.tsx
+  // are restored as their own files, not a chunk's single mapped target, so a
+  // manifest-only pass would miss exactly the files this check exists for.
+  if (anyFacadeNames.size > 0) {
+    let allFiles: string[] = [];
+    try {
+      allFiles = collectFiles(targetDir);
+    } catch {
+      allFiles = [];
+    }
+    for (const deliverable of allFiles) {
+      const rel = path.relative(targetDir, deliverable);
+      if (
+        rel.startsWith(".deobfuscate-javascript") ||
+        /(^|\/)(boundaries|vendor|locales|node_modules)\//.test(rel) ||
+        /\.facade\.[cm]?[jt]sx?$/i.test(deliverable) ||
+        !/\.[cm]?[jt]sx?$/.test(deliverable)
+      ) {
+        continue;
+      }
+      const unresolved = findUnresolvedFacadeImports(deliverable, anyFacadeNames);
+      if (unresolved.length > 0) {
+        appFeatureAnyFacadeImports.push({ file: rel, symbols: unresolved });
+      }
+    }
+  }
+
   if (oversizedLocalChunks.length > 0) {
     issues.push({
       code: "full-restoration-oversized-local",
@@ -3050,6 +3153,19 @@ export function analyzeFullRestorationCoverage(
       detail: unacceptedAppFeatures.sort(),
     });
   }
+  if (
+    appFeatureAnyFacadeImports.length > 0 &&
+    !coverageOpts.allowOpenBoundaries
+  ) {
+    issues.push({
+      code: "full-restoration-app-feature-imports-any-facade",
+      message:
+        "App/feature deliverables import symbols that are only `any` placeholders in a boundary facade — the file compiles but those dependencies are unrestored stubs backed by no real code. Restore the owning modules and replace each facade placeholder with a real re-export (make-facade.ts --resolve <name>=<module>), then rewire the consumer. Pass --allow-open-boundaries to suppress for an intermediate mid-restore run.",
+      detail: appFeatureAnyFacadeImports
+        .sort((a, b) => b.symbols.length - a.symbols.length)
+        .slice(0, 100),
+    });
+  }
   for (const issue of targetInspectionIssues) {
     const existing = issues.find((item) => item.code === issue.code);
     if (
@@ -3083,7 +3199,7 @@ function printHumanReport(reports: FileQualityReport[]): void {
 }
 
 const USAGE =
-  "Usage: bun scripts/quality-gate.ts <file-or-dir> [--json] [--allow-flat] [--allow-mechanical-names] [--allow-missing-provenance] [--allow-untyped] [--vendored] [--allow-organize-incomplete] [--check-format] " +
+  "Usage: bun scripts/quality-gate.ts <file-or-dir> [--json] [--allow-flat] [--allow-mechanical-names] [--allow-missing-provenance] [--allow-untyped] [--vendored] [--allow-organize-incomplete] [--allow-open-boundaries] [--check-format] " +
   "[--max-cryptic-params N] [--max-cryptic-bindings N] " +
   "[--max-short-ref-count N] [--max-flat-lines N] [--max-flat-exports N]";
 
@@ -3114,6 +3230,7 @@ async function main(): Promise<void> {
         "allow-untyped": { type: "boolean", default: false },
         vendored: { type: "boolean", default: false },
         "allow-organize-incomplete": { type: "boolean", default: false },
+        "allow-open-boundaries": { type: "boolean", default: false },
         "check-format": { type: "boolean", default: false },
         "max-cryptic-params": { type: "string" },
         "max-cryptic-bindings": { type: "string" },
@@ -3196,6 +3313,7 @@ async function main(): Promise<void> {
   reports.push(
     ...analyzeFullRestorationCoverage(input, {
       allowOrganizeIncomplete: values["allow-organize-incomplete"] ?? false,
+      allowOpenBoundaries: values["allow-open-boundaries"] ?? false,
     }),
   );
   if (values["check-format"]) {
