@@ -48,7 +48,7 @@ import {
   appMainCurrentCompatSlotUnderscoreLowerD as initAppMainQueuedMessageRuntime,
   appMainCurrentCompatSlotLowerALowerD as initAppMainAttachmentRendererRuntime,
   appMainCurrentCompatSlotLowerALowerI as initMessageTextRendererRuntime,
-  appMainCurrentCompatSlotLowerGLowerD as DragHandleGripIcon,
+  DragIcon as DragHandleGripIcon,
   appMainCurrentCompatSlotLowerILowerD as TrashIcon,
   appMainCurrentCompatSlotLowerILowerI as MessageTextRenderer,
   appMainCurrentCompatSlotLowerILowerM as initAppMainMessageTextRuntime,
