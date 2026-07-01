@@ -3,11 +3,11 @@
 // navigation step (home page "pick workspace / continue" auto-launch flow).
 // The emitter is the generic product-event dispatcher; the descriptor is the
 // CodexOnboardingWorkspaceContinueClicked analytics event.
-import { logProductEvent } from "../generated/product-logger";
+import { logProductEvent } from "../analytics/product-logger";
 import type {
   ProductEventDescriptor,
   ProductLoggerScope,
-} from "../generated/product-logger";
+} from "../analytics/product-logger";
 
 export interface WorkspaceOnboardingNavigationEventPayload {
   selectedWorkspacesCount: number;

@@ -8,7 +8,7 @@ import {
   remoteTextEditSessionB as PreviousResultIcon,
   remoteTextEditSessionD as CloseIcon,
   remoteTextEditSessionY as NextResultIcon,
-} from "../generated/remote-text-edit-session";
+} from "../runtime/current-app-initial/remote-text-edit-session-current-runtime";
 type ArtifactKind = "shared" | "workbook" | "presentation" | "document";
 type FeatureCatalogItem = {
   artifact: ArtifactKind;

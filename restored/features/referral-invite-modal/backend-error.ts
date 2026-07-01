@@ -5,7 +5,7 @@ import { _vscodeApiC as VscodeApiError } from "../../boundaries/vscode-api";
 import {
   _productLoggerJn as referralInviteBackendErrorType,
   productLoggerYn as referralInviteErrorResponsibility,
-} from "../../generated/product-logger";
+} from "../../analytics/product-logger";
 import type {
   ParsedReferralBackendError,
   ReferralBackendErrorAnalytics,

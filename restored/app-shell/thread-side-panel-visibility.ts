@@ -4,7 +4,7 @@ import {
   logProductEvent,
   threadSidePanelClosedEvent,
   threadSidePanelOpenedEvent,
-} from "../generated/product-logger";
+} from "../analytics/product-logger";
 import { rightPanelExpandedSignal } from "./app-shell-state";
 import {
   getAppShellTabAnalyticsKind,

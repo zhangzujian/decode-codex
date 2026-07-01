@@ -3,7 +3,7 @@
 import {
   CodexAvatarOverlayNotificationSource,
   CodexAvatarOverlayPetKind,
-} from "../generated/product-logger";
+} from "../analytics/product-logger";
 type AvatarOverlayNotification = {
   source: "cloud" | "local" | string;
 };

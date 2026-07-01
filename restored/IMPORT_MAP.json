@@ -8931,7 +8931,7 @@
       "status": "done"
     },
     "use-rate-limit-DfBgdYGx": {
-      "restored": "utils/use-rate-limit.ts",
+      "restored": "utils/use-rate-limit/index.ts",
       "status": "done"
     },
     "mcp-tool-item-content-utils-BoJx2r_K": {
@@ -9502,7 +9502,7 @@
       "status": "done"
     },
     "product-logger-ibAP2Yp2": {
-      "restored": "generated/product-logger.ts",
+      "restored": "analytics/product-logger.ts",
       "exports": {
         "$": "$",
         "$n": "productLoggerN",
@@ -9895,7 +9895,7 @@
       "stage3Review": "Host self-review: current ref dagre-6UL2VRFP-CTBugNjf.js exports only render; restored/vendor/mermaid-dagre-renderer.ts preserves that surface through dagre6UL2VRFP/render and passes vendored quality-gate."
     },
     "remote-text-edit-session-DjCWscO4": {
-      "restored": "generated/remote-text-edit-session.tsx",
+      "restored": "runtime/current-app-initial/remote-text-edit-session-current-runtime.ts",
       "exports": {
         "A": "remoteTextEditSessionA",
         "B": "_remoteTextEditSessionB",
@@ -11567,7 +11567,7 @@
       "stage3Review": "Host self-review: current ref pieDiagram-ADFJNKIX-P_2Ro0Kn.js exports R as diagram with the same Pie DB, populateDb, createPieArcs, renderer, legend, and styles surface; vendor/mermaid-pie-diagram-fpaj.ts preserves that behavior with semantic names and passes quality-gate."
     },
     "PopcornElectronDocumentPanel-LEVj37uj": {
-      "restored": "generated/popcorn-electron-document-panel.tsx",
+      "restored": "runtime/current-app-initial/popcorn-electron-document-panel-current-runtime.ts",
       "exports": {
         "PopcornElectronDocumentPanel": "PopcornElectronDocumentPanel"
       },
@@ -11606,7 +11606,7 @@
       "status": "done"
     },
     "popcorn-electron-surface-style-jyyIi7EC": {
-      "restored": "generated/popcorn-electron-surface-style.tsx",
+      "restored": "runtime/current-app-initial/popcorn-electron-surface-style-current-runtime.ts",
       "exports": {
         "$": "popcornElectronSurfaceStyleDollar",
         "A": "popcornElectronSurfaceStyleA",
@@ -11737,14 +11737,14 @@
       "stage3Review": "Host self-review: current ref dagre-KV5264BT-DW4I2eVN.js exports only render; restored/vendor/mermaid-dagre-renderer-k5.ts preserves that surface through dagreKV5264BT/render and passes vendored quality-gate."
     },
     "PopcornElectronPresentationPanel-DyLT7PAB": {
-      "restored": "generated/popcorn-electron-presentation-panel.tsx",
+      "restored": "runtime/current-app-initial/popcorn-electron-presentation-panel-current-runtime.tsx",
       "exports": {
         "PopcornElectronPresentationPanel": "PopcornElectronPresentationPanel"
       },
       "status": "done"
     },
     "PopcornElectronWorkbookPanel-Drl2YYRf": {
-      "restored": "generated/popcorn-electron-workbook-panel.tsx",
+      "restored": "runtime/current-app-initial/popcorn-electron-workbook-panel-current-runtime.tsx",
       "exports": {
         "PopcornElectronWorkbookPanel": "PopcornElectronWorkbookPanel"
       },
@@ -26942,7 +26942,7 @@
       "migratedFrom": "app-initial~app-main~remote-conversation-page~pull-requests-page~new-thread-panel-page~proj~jolrh1c9-BEnPH27A",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:11:37.000Z",
-      "stage3Review": "Host self-review: moved the current exact-hash git config query surface into github/git-config-value-current.ts, reused the semantic gitQuerySignal helper, preserved all five current export aliases through the runtime, and kept vendor/git-config-value-current-bundle.ts as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the current exact-hash git config query surface into github/git-config-value-current.ts, reused the semantic gitQuerySignal helper, preserved all five current export aliases through the runtime, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic current git config value query surface with current-ref runtime and vendor shim exports."
     },
     "app-initial~app-main~onboarding-page-CgNc-Bk2": {
@@ -42218,11 +42218,11 @@
         "EditorDiffPage": "EditorDiffPage"
       },
       "status": "done",
-      "note": "Current EditorDiffPage hash maps to a dedicated current-ref runtime over review/editor-diff-page.tsx; vendor/editor-diff-page-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current EditorDiffPage hash maps to a dedicated current-ref runtime over review/editor-diff-page.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T01:49:45.238Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T01:49:45.238Z",
-      "stage3Review": "Host self-review: moved the readable EditorDiffPage body into review/editor-diff-page.tsx, preserved the current runtime public export, and kept vendor/editor-diff-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable EditorDiffPage body into review/editor-diff-page.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic review editor diff page surface with current-ref runtime and vendor shim exports."
     },
     "page-DCDVYlOa": {
@@ -42244,7 +42244,7 @@
         "PetInstallModalHost": "PetInstallModalHost"
       },
       "status": "done",
-      "note": "Current PetInstallModalHost hash maps to a dedicated current-ref runtime over features/pet-install-modal-host.tsx; vendor/pet-install-modal-host-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current PetInstallModalHost hash maps to a dedicated current-ref runtime over features/pet-install-modal-host.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-06-30T22:18:04.757Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T22:18:04.757Z",
@@ -42283,11 +42283,11 @@
         "ReviewModeContent": "ReviewModeContent"
       },
       "status": "done",
-      "note": "Current ReviewModeContent hash maps to a dedicated current-ref runtime over review/review-mode-content.tsx; vendor/review-mode-content-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current ReviewModeContent hash maps to a dedicated current-ref runtime over review/review-mode-content.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:17:29.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:17:29.000Z",
-      "stage3Review": "Host self-review: moved the ReviewModeContent body into review/review-mode-content.tsx, preserved the current runtime public export, corrected the moved app-main runtime import, and kept vendor/review-mode-content-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the ReviewModeContent body into review/review-mode-content.tsx, preserved the current runtime public export, corrected the moved app-main runtime import, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic review mode command content surface with current-ref runtime and vendor shim exports."
     },
     "appgen-library-page-ky7mDvfs": {
@@ -42322,11 +42322,11 @@
         "AppgenPublicationTermsRoute": "AppgenPublicationTermsRoute"
       },
       "status": "done",
-      "note": "Current AppgenPublicationTermsRoute hash maps to a dedicated current-ref runtime over appgen/publication-terms/route.tsx; vendor/appgen-publication-terms-route-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current AppgenPublicationTermsRoute hash maps to a dedicated current-ref runtime over appgen/publication-terms/route.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:01:05.642Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:01:05.642Z",
-      "stage3Review": "Host self-review: moved the readable AppgenPublicationTermsRoute body into appgen/publication-terms/route.tsx, preserved the current runtime public export, and kept vendor/appgen-publication-terms-route-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable AppgenPublicationTermsRoute body into appgen/publication-terms/route.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic Appgen publication terms route wrapper with current-ref runtime and vendor shim exports."
     },
     "new-thread-panel-page-DkFQ6OWQ": {
@@ -42335,11 +42335,11 @@
         "NewThreadPanelPage": "NewThreadPanelPage"
       },
       "status": "done",
-      "note": "Current NewThreadPanelPage hash maps to a dedicated current-ref runtime over routes/new-thread-panel-page.tsx; vendor/new-thread-panel-page-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current NewThreadPanelPage hash maps to a dedicated current-ref runtime over routes/new-thread-panel-page.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:01:05.642Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:01:05.642Z",
-      "stage3Review": "Host self-review: moved the readable NewThreadPanelPage body into routes/new-thread-panel-page.tsx, preserved the current runtime public export, and kept vendor/new-thread-panel-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable NewThreadPanelPage body into routes/new-thread-panel-page.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic new thread panel page wrapper with current-ref runtime and vendor shim exports."
     },
     "queued-message-list-B8Ie-nMz": {
@@ -42348,11 +42348,11 @@
         "QueuedMessageList": "QueuedMessageList"
       },
       "status": "done",
-      "note": "Current QueuedMessageList hash maps to a dedicated current-ref runtime over composer/queued-message-list.tsx; vendor/queued-message-list-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current QueuedMessageList hash maps to a dedicated current-ref runtime over composer/queued-message-list.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T01:47:07.512Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T01:47:07.512Z",
-      "stage3Review": "Host self-review: moved the readable QueuedMessageList body into composer/queued-message-list.tsx, preserved the current runtime public export, and kept vendor/queued-message-list-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable QueuedMessageList body into composer/queued-message-list.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic composer queued message list surface with current-ref runtime and vendor shim exports."
     },
     "mindmap-definition-QFDTVHPH-C-RA3VgZ": {
@@ -42383,7 +42383,7 @@
       "stage3Note": "Accepted as a docx-preview vendor/runtime wrapper over the existing restored backing module; generated document preview payloads are intentionally gated as vendored output rather than split as app features."
     },
     "PopcornElectronPresentationPanel-B56eXPt5": {
-      "restored": "generated/popcorn-electron-presentation-panel.tsx",
+      "restored": "runtime/current-app-initial/popcorn-electron-presentation-panel-current-runtime.tsx",
       "exports": {
         "PopcornElectronPresentationPanel": "PopcornElectronPresentationPanel"
       },
@@ -42394,11 +42394,11 @@
       "lastUpdated": "2026-06-30T23:06:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:06:00.000Z",
-      "stage3Review": "Host self-review: current ref PopcornElectronPresentationPanel-B56eXPt5.js exports only PopcornElectronPresentationPanel; restored/generated/popcorn-electron-presentation-panel.tsx declares the current hash match and passes generated-runtime quality-gate.",
+      "stage3Review": "Host self-review: current ref PopcornElectronPresentationPanel-B56eXPt5.js exports only PopcornElectronPresentationPanel; restored/runtime/current-app-initial/popcorn-electron-presentation-panel-current-runtime.tsx declares the current hash match and passes generated-runtime quality-gate.",
       "stage3Note": "Accepted as a generated Popcorn runtime compatibility export over the existing restored backing module; generated runtime payloads are intentionally gated as vendored/generated output rather than split as app features."
     },
     "PopcornElectronWorkbookPanel-DEXqsHf5": {
-      "restored": "generated/popcorn-electron-workbook-panel.tsx",
+      "restored": "runtime/current-app-initial/popcorn-electron-workbook-panel-current-runtime.tsx",
       "exports": {
         "PopcornElectronWorkbookPanel": "PopcornElectronWorkbookPanel"
       },
@@ -42409,7 +42409,7 @@
       "lastUpdated": "2026-06-30T23:06:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:06:00.000Z",
-      "stage3Review": "Host self-review: current ref PopcornElectronWorkbookPanel-DEXqsHf5.js exports only PopcornElectronWorkbookPanel; restored/generated/popcorn-electron-workbook-panel.tsx declares the current hash match and passes generated-runtime quality-gate.",
+      "stage3Review": "Host self-review: current ref PopcornElectronWorkbookPanel-DEXqsHf5.js exports only PopcornElectronWorkbookPanel; restored/runtime/current-app-initial/popcorn-electron-workbook-panel-current-runtime.tsx declares the current hash match and passes generated-runtime quality-gate.",
       "stage3Note": "Accepted as a generated Popcorn runtime compatibility export over the existing restored backing module; generated runtime payloads are intentionally gated as vendored/generated output rather than split as app features."
     },
     "select-workspace-page-Dpe6Qyul": {
@@ -42681,11 +42681,11 @@
         "PluginsSettings": "PluginsSettings"
       },
       "status": "done",
-      "note": "Current PluginsSettings hash maps to a dedicated current-ref runtime over settings/plugins-settings.tsx; vendor/plugins-settings-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current PluginsSettings hash maps to a dedicated current-ref runtime over settings/plugins-settings.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:01:05.642Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:01:05.642Z",
-      "stage3Review": "Host self-review: moved the readable PluginsSettings body into settings/plugins-settings.tsx, preserved the current runtime public export, and kept vendor/plugins-settings-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable PluginsSettings body into settings/plugins-settings.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic plugins settings wrapper with current-ref runtime and vendor shim exports."
     },
     "skills-page-zCIrhInI": {
@@ -42721,11 +42721,11 @@
         "SkillsSettings": "SkillsSettings"
       },
       "status": "done",
-      "note": "Current SkillsSettings hash maps to a dedicated current-ref runtime over settings/skills-settings.tsx; vendor/skills-settings-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current SkillsSettings hash maps to a dedicated current-ref runtime over settings/skills-settings.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:01:05.642Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:01:05.642Z",
-      "stage3Review": "Host self-review: moved the readable SkillsSettings body into settings/skills-settings.tsx, preserved the current runtime public export, and kept vendor/skills-settings-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable SkillsSettings body into settings/skills-settings.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic skills settings wrapper with current-ref runtime and vendor shim exports."
     },
     "general-settings-CyYw_gZ3": {
@@ -42788,11 +42788,11 @@
         "AppearanceSettings": "AppearanceSettings"
       },
       "status": "done",
-      "note": "Current AppearanceSettings hash maps to a dedicated current-ref runtime over settings/appearance-settings.tsx; vendor/appearance-settings-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current AppearanceSettings hash maps to a dedicated current-ref runtime over settings/appearance-settings.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:01:05.642Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:01:05.642Z",
-      "stage3Review": "Host self-review: moved the readable AppearanceSettings body into settings/appearance-settings.tsx, preserved the current runtime public export, and kept vendor/appearance-settings-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable AppearanceSettings body into settings/appearance-settings.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic appearance settings wrapper with current-ref runtime and vendor shim exports."
     },
     "codex-mobile-setup-flow-XFbY7C-Z": {
@@ -42813,11 +42813,11 @@
         "u": "codexMobileSetupFlowU"
       },
       "status": "done",
-      "note": "Current Codex mobile setup flow hash maps to a dedicated current-ref runtime over codex-mobile/setup-flow.tsx; vendor/codex-mobile-setup-flow-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current Codex mobile setup flow hash maps to a dedicated current-ref runtime over codex-mobile/setup-flow.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:14:44.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:14:44.000Z",
-      "stage3Review": "Host self-review: pointed the current runtime aliases directly at codex-mobile/setup-flow.tsx, preserved all thirteen current export aliases, and left vendor/codex-mobile-setup-flow-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: pointed the current runtime aliases directly at codex-mobile/setup-flow.tsx, preserved all thirteen current export aliases, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic Codex Mobile setup flow split with current-ref runtime and vendor shim exports."
     },
     "codex-mobile-page-CB-Xg-VQ": {
@@ -42826,7 +42826,7 @@
         "CodexMobilePage": "CodexMobilePage"
       },
       "status": "done",
-      "note": "Current Codex mobile page hash maps to a dedicated current-ref runtime over codex-mobile/page.tsx; vendor/codex-mobile-page-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current Codex mobile page hash maps to a dedicated current-ref runtime over codex-mobile/page.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-06-30T23:08:42.578Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:08:42.578Z",
@@ -42867,11 +42867,11 @@
         "DebugWindowPage": "DebugWindowPage"
       },
       "status": "done",
-      "note": "Current DebugWindowPage hash maps to a dedicated current-ref runtime over debug/debug-window-page.tsx; vendor/debug-window-page-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current DebugWindowPage hash maps to a dedicated current-ref runtime over debug/debug-window-page.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T01:52:49.349Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T01:52:49.349Z",
-      "stage3Review": "Host self-review: moved the readable DebugWindowPage body into debug/debug-window-page.tsx, preserved the current runtime public export, and kept vendor/debug-window-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable DebugWindowPage body into debug/debug-window-page.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic debug window page surface with current-ref runtime and vendor shim exports."
     },
     "hotkey-window-thread-page-DGErqu4u": {
@@ -42880,11 +42880,11 @@
         "HotkeyWindowThreadPage": "HotkeyWindowThreadPage"
       },
       "status": "done",
-      "note": "Current hotkey window thread page hash maps to a dedicated current-ref runtime over hotkey-window/thread-page.tsx; vendor/hotkey-window-thread-page-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current hotkey window thread page hash maps to a dedicated current-ref runtime over hotkey-window/thread-page.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:05:35.581Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:05:35.581Z",
-      "stage3Review": "Host self-review: moved the readable HotkeyWindowThreadPage body into hotkey-window/thread-page.tsx, preserved the current runtime public export, and kept vendor/hotkey-window-thread-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable HotkeyWindowThreadPage body into hotkey-window/thread-page.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic hotkey window thread page surface with current-ref runtime and vendor shim exports."
     },
     "app-prefetch-impl-DeWg99La": {
@@ -42893,11 +42893,11 @@
         "AppPrefetchImpl": "appPrefetchImpl"
       },
       "status": "done",
-      "note": "Current app prefetch implementation hash maps to a dedicated current-ref runtime over app-shell/app-prefetch-impl.tsx; vendor/app-prefetch-impl-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current app prefetch implementation hash maps to a dedicated current-ref runtime over app-shell/app-prefetch-impl.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:14:44.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:14:44.000Z",
-      "stage3Review": "Host self-review: moved AppPrefetchImpl into app-shell/app-prefetch-impl.tsx, preserved Vite dependency preloading as a named prefetch dependency mapper, updated moved relative imports, and kept vendor/app-prefetch-impl-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved AppPrefetchImpl into app-shell/app-prefetch-impl.tsx, preserved Vite dependency preloading as a named prefetch dependency mapper, updated moved relative imports, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic app prefetch implementation surface with current-ref runtime and vendor shim exports."
     },
     "pets-settings-CeDsTNTI": {
@@ -42910,7 +42910,7 @@
       "lastUpdated": "2026-07-01T01:43:40.617Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T01:43:40.617Z",
-      "stage3Review": "Host self-review: migrated the readable pets settings body from vendor backing bundle into settings/pets-settings.tsx, preserved PetsSettings export parity, and kept vendor/pets-settings-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: migrated the readable pets settings body from vendor backing bundle into settings/pets-settings.tsx, preserved PetsSettings export parity, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic pets settings surface with current-ref runtime and vendor shim exports."
     },
     "personalization-settings-B1J6eU5_": {
@@ -42971,11 +42971,11 @@
         "AvatarOverlayFeatureGatePage": "AvatarOverlayFeaturegatePage"
       },
       "status": "done",
-      "note": "Current avatar overlay feature gate page hash maps to a dedicated current-ref runtime over features/avatar-overlay-featuregate-page.tsx; vendor/avatar-overlay-featuregate-page-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current avatar overlay feature gate page hash maps to a dedicated current-ref runtime over features/avatar-overlay-featuregate-page.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T01:55:03.633Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T01:55:03.633Z",
-      "stage3Review": "Host self-review: moved the readable avatar overlay feature gate body into features/avatar-overlay-featuregate-page.tsx, preserved the current runtime public export alias, and kept vendor/avatar-overlay-featuregate-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable avatar overlay feature gate body into features/avatar-overlay-featuregate-page.tsx, preserved the current runtime public export alias, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic avatar overlay feature gate surface with current-ref runtime and vendor shim exports."
     },
     "hotkey-window-home-page-HuAbYFeH": {
@@ -42997,11 +42997,11 @@
         "HotkeyWindowNewThreadPage": "HotkeyWindowNewThreadPage"
       },
       "status": "done",
-      "note": "Current hotkey window new thread page hash maps to a dedicated current-ref runtime over hotkey-window/new-thread-page.tsx; vendor/hotkey-window-new-thread-page-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current hotkey window new thread page hash maps to a dedicated current-ref runtime over hotkey-window/new-thread-page.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T02:05:35.581Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T02:05:35.581Z",
-      "stage3Review": "Host self-review: moved the readable HotkeyWindowNewThreadPage body into hotkey-window/new-thread-page.tsx, preserved the current runtime public export, and kept vendor/hotkey-window-new-thread-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable HotkeyWindowNewThreadPage body into hotkey-window/new-thread-page.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic hotkey window new thread page surface with current-ref runtime and vendor shim exports."
     },
     "hotkey-window-worktree-init-page-CDrG7Phs": {
@@ -43010,11 +43010,11 @@
         "HotkeyWindowWorktreeInitPage": "HotkeyWindowWorktreeInitPage"
       },
       "status": "done",
-      "note": "Current hotkey window worktree init page hash maps to a dedicated current-ref runtime over worktree/hotkey-window-worktree-init-page.tsx; vendor/hotkey-window-worktree-init-page-current-bundle.tsx remains only as a compatibility shim.",
+      "note": "Current hotkey window worktree init page hash maps to a dedicated current-ref runtime over worktree/hotkey-window-worktree-init-page.tsx; obsolete vendor compatibility shim was removed.",
       "lastUpdated": "2026-07-01T01:57:28.183Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T01:57:28.183Z",
-      "stage3Review": "Host self-review: moved the readable hotkey window worktree init page body into worktree/hotkey-window-worktree-init-page.tsx, preserved the current runtime public export, and kept vendor/hotkey-window-worktree-init-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Review": "Host self-review: moved the readable hotkey window worktree init page body into worktree/hotkey-window-worktree-init-page.tsx, preserved the current runtime public export, and removed the obsolete vendor compatibility shim.",
       "stage3Note": "Accepted as a semantic hotkey window worktree init surface with current-ref runtime and vendor shim exports."
     },
     "settings-page-Czsl4aZl": {

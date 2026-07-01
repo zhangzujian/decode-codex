@@ -5,7 +5,7 @@ import React from "react";
 import {
   remoteTextEditSessionC as ChevronLeftIcon,
   remoteTextEditSessionW as ChevronRightIcon,
-} from "../generated/remote-text-edit-session";
+} from "../runtime/current-app-initial/remote-text-edit-session-current-runtime";
 import { once } from "../runtime/commonjs-interop";
 type PopcornPageNumberNavigationProps = {
   currentIndex: number;

@@ -4,7 +4,7 @@ import {
   codexThreadSwitchCompletedEvent,
   codexThreadSwitchKind,
   logProductEvent,
-} from "../../generated/product-logger";
+} from "../../analytics/product-logger";
 import type {
   ProductLoggerScope,
   ThreadSwitchCompletion,

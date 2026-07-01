@@ -4,6 +4,6 @@
 export { DocxPreviewPanel } from "./docx-preview-panel-current-bundle";
 export { NotebookPreviewPanel } from "../artifacts/notebook-preview-panel";
 export { PdfPreviewPanel } from "./pdf-preview-panel-current-bundle";
-export { PopcornElectronDocumentPanel } from "../generated/popcorn-electron-document-panel";
-export { PopcornElectronPresentationPanel } from "../generated/popcorn-electron-presentation-panel";
-export { PopcornElectronWorkbookPanel } from "../generated/popcorn-electron-workbook-panel";
+export { PopcornElectronDocumentPanel } from "../runtime/current-app-initial/popcorn-electron-document-panel-current-runtime";
+export { PopcornElectronPresentationPanel } from "../runtime/current-app-initial/popcorn-electron-presentation-panel-current-runtime";
+export { PopcornElectronWorkbookPanel } from "../runtime/current-app-initial/popcorn-electron-workbook-panel-current-runtime";

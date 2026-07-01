@@ -3,8 +3,8 @@
 // lifecycle, app-access, task-execution, role-selection and task-selection
 // events. (The "access denied" emitter lives in
 // ./conversational-onboarding-access-analytics.)
-import { logProductEvent } from "../generated/product-logger";
-import type { ProductLoggerScope } from "../generated/product-logger";
+import { logProductEvent } from "../analytics/product-logger";
+import type { ProductLoggerScope } from "../analytics/product-logger";
 // Generated protobuf enums + event descriptors for conversational-onboarding
 // analytics (aliases `Gn`, `Hu`, `gr`, `Qi`, `Ta`, `Tr`, `pi`, `Xc`, `yee`,
 // `eo`, `pa`, `sa`, `Ir` in the source chunk). These live in a generated module
@@ -21,7 +21,7 @@ import {
   conversationalOnboardingExecutionEvent,
   conversationalOnboardingRoleEvent,
   conversationalOnboardingTaskEvent,
-} from "../generated/conversational-onboarding-product-events";
+} from "./conversational-onboarding-product-events";
 import {
   mapConversationalOnboardingAccessType,
   mapConversationalOnboardingTaskType,

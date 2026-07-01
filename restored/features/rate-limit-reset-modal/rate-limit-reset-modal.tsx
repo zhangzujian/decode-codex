@@ -6,7 +6,7 @@ import { useAppScopeValue } from "../../boundaries/app-scope";
 import {
   __productLoggerR as productLoggerSignal,
   _productLoggerUn as rateLimitResetCreditRedeemedEvent,
-} from "../../generated/product-logger";
+} from "../../analytics/product-logger";
 import {
   useConsumeRateLimitResetCreditMutation,
   useSelectedAccountQuery,

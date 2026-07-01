@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/primary-runtime-install-action-Cpk3XYUC.js
-import * as productLoggerEnums from "../generated/product-logger";
+import * as productLoggerEnums from "../analytics/product-logger";
 import { vscodeApiH as vscodeLogger } from "../boundaries/vscode-api";
 import { requestPrimaryRuntimeInstall } from "./primary-runtime-install-state";
 type PrimaryRuntimeRelease = "latest" | "latest-alpha" | string;

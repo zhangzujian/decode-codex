@@ -14,7 +14,7 @@ import { findLastIndex } from "../../utils/markdown-to-search-text";
 import {
   _r as productLogger,
   productLoggerZn as userMessageNavigationRailEvent,
-} from "../../generated/product-logger";
+} from "../../analytics/product-logger";
 import { appShellElementContext } from "../../app-shell/app-shell-ref";
 import { useThreadScrollController } from "../thread-scroll-layout/scroll-controller-context";
 import {

@@ -24,7 +24,7 @@ import { useStatsigLoading } from "../vendor/statsig-current-runtime";
 import {
   ___productLoggerT as trackProductEvent,
   productLoggerX as appshotShortcutChangedEvent,
-} from "../generated/product-logger";
+} from "../analytics/product-logger";
 import { invalidateQueriesAndBroadcast } from "../utils/invalidate-queries-and-broadcast";
 import { usePlatform } from "../utils/use-platform";
 import { getCommandShortcutLabel } from "../utils/electron-menu-shortcuts";

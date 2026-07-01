@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/artifact-analytics-DeyIRgFu.js
 
-import { __productLoggerR as productLoggerSignal } from "../generated/product-logger";
+import { __productLoggerR as productLoggerSignal } from "../analytics/product-logger";
 
 type ProductLogger = {
   logProductEvent(event: unknown, payload?: unknown): void;
@@ -81,7 +81,7 @@ export function initArtifactAnalyticsEventDescriptors(): void {
 }
 
 export function initProductLoggerRuntime(): void {
-  // The restored product logger signal is initialized by generated/product-logger.
+  // The restored product logger signal is initialized by analytics/product-logger.
 }
 
 export function logProductEvent(

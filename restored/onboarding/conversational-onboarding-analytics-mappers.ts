@@ -3,7 +3,7 @@
 import {
   ConversationalOnboardingAccessType,
   ConversationalOnboardingTaskType,
-} from "../generated/conversational-onboarding-product-events";
+} from "./conversational-onboarding-product-events";
 import type { ConversationalOnboardingTaskId } from "./conversational-onboarding-task-registry";
 
 export function mapConversationalOnboardingAccessType(

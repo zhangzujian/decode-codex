@@ -7,7 +7,7 @@ import {
 import {
   ___productLoggerT as logProductEvent,
   _productLoggerVr as threadSidePanelTabViewedEvent,
-} from "../../generated/product-logger";
+} from "../../analytics/product-logger";
 import type { AppShellStore, AppShellTabRecord } from "./types";
 export function getAppShellTabAnalyticsKind(
   tab: AppShellTabRecord | null | undefined,

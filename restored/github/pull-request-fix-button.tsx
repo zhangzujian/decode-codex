@@ -8,7 +8,7 @@ import {
   _productLoggerBn as pullRequestActionClickedEvent,
   _productLoggerHn as pullRequestSelectedEvent,
   _productLoggerVn as pullRequestCommentPostedEvent,
-} from "../generated/product-logger";
+} from "../analytics/product-logger";
 type ProductLoggerScope = Parameters<typeof logProductEvent>[0];
 type PullRequestItemAnalytics = {
   state: string;

@@ -7,7 +7,7 @@ import {
   _r as productLoggerSignal,
   productLoggerQn as referralInviteModalAction,
   productLoggerXn as referralInviteModalEvent,
-} from "../../generated/product-logger";
+} from "../../analytics/product-logger";
 import {
   useReferralEligibilityRulesQuery,
   useReferralInviteMutation,

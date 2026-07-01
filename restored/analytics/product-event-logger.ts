@@ -18,7 +18,7 @@ import {
   _appScopeO as useAppScope,
   appScopeRoot,
 } from "../boundaries/app-scope";
-import { __productLoggerR as globalProductLoggerSignal } from "../generated/product-logger";
+import { __productLoggerR as globalProductLoggerSignal } from "./product-logger";
 import {
   codexMetadataEventProtoNamespaces,
   emptyCodexEventDescriptor,

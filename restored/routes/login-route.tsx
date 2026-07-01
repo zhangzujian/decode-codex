@@ -27,7 +27,7 @@ import {
   productLoggerT as logProductEvent,
   productLoggerUt as loginSucceededEvent,
   productLoggerVt as loginStartedEvent,
-} from "../generated/product-logger";
+} from "../analytics/product-logger";
 import { useNavigate } from "../vendor/react-router";
 import { useAuth } from "../auth/use-auth";
 import {

@@ -21,26 +21,21 @@ import { shouldReduceMotionSignal as reducedMotionPreferenceR } from "../../util
 import * as motionRuntime from "../../vendor/framer-motion-single-value";
 const MotionValue = motionRuntime["singleValueK"];
 import { appShellStateMtState } from "./motion-sequence-impl";
-var appShellStateState8 = `app-shell:right-panel-width:v2`,
-  appShellStateState9 = 352;
-function appShellStateLtState(appShellStateInput124) {
-  return `${appShellStateState8}:${appShellStateInput124}`;
+var rightPanelWidthStorageKeyPrefix = `app-shell:right-panel-width:v2`,
+  rightPanelReservedWidth = 352;
+function appShellStateLtState(routeTemplate) {
+  return `${rightPanelWidthStorageKeyPrefix}:${routeTemplate}`;
 }
-function appShellStateHelper23(
-  appShellStateInput49,
-  appShellStateInput50,
-  appShellStateInput51 = `regular`,
+function clampRightPanelWidth(
+  rawWidth,
+  mainContentWidth,
+  widthMode = `regular`,
 ) {
-  let appShellStateState95 = Number.isFinite(appShellStateInput49)
-      ? appShellStateInput49
-      : 600,
-    appShellStateState96 = appShellStateHelper24(
-      appShellStateInput50,
-      appShellStateInput51,
-    );
+  let resolvedWidth = Number.isFinite(rawWidth) ? rawWidth : 600,
+    availableWidth = getAvailableRightPanelWidth(mainContentWidth, widthMode);
   return Math.max(
-    Math.min(320, appShellStateState96),
-    Math.min(appShellStateState95, appShellStateState96),
+    Math.min(320, availableWidth),
+    Math.min(resolvedWidth, availableWidth),
   );
 }
 function appShellStateUtState({
@@ -49,12 +44,12 @@ function appShellStateUtState({
   storageKey: storageKey,
   widthMode: widthMode,
 }: any): number {
-  let appShellStateState87 = persistedAtomStoreA(storageKey, null);
-  return appShellStateState87 == null || !Number.isFinite(appShellStateState87)
+  let storedWidthOrRatio = persistedAtomStoreA(storageKey, null);
+  return storedWidthOrRatio == null || !Number.isFinite(storedWidthOrRatio)
     ? appShellStateFtState(defaultWidth, mainContentWidth, widthMode)
-    : appShellStateState87 <= 1
-      ? appShellStateHelper26(appShellStateState87)
-      : appShellStateFtState(appShellStateState87, mainContentWidth, widthMode);
+    : storedWidthOrRatio <= 1
+      ? clamp01(storedWidthOrRatio)
+      : appShellStateFtState(storedWidthOrRatio, mainContentWidth, widthMode);
 }
 function appShellStatePtState({
   mainContentWidth: mainContentWidth,
@@ -68,71 +63,56 @@ function appShellStatePtState({
   );
 }
 function appShellStateFtState(
-  appShellStateInput54: number,
-  appShellStateInput55: number,
-  appShellStateInput56: string = `regular`,
+  width: number,
+  mainContentWidth: number,
+  widthMode: string = `regular`,
 ): number {
-  let appShellStateState99 = appShellStateHelper25(
-      appShellStateInput55,
-      appShellStateInput56,
-    ),
-    appShellStateState100 =
-      appShellStateState99.maximum - appShellStateState99.minimum;
-  return appShellStateState100 === 0
+  let widthRange = getRightPanelWidthRange(mainContentWidth, widthMode),
+    rangeSpan = widthRange.maximum - widthRange.minimum;
+  return rangeSpan === 0
     ? 0
-    : appShellStateHelper26(
-        (appShellStateHelper23(
-          appShellStateInput54,
-          appShellStateInput55,
-          appShellStateInput56,
-        ) -
-          appShellStateState99.minimum) /
-          appShellStateState100,
+    : clamp01(
+        (clampRightPanelWidth(width, mainContentWidth, widthMode) -
+          widthRange.minimum) /
+          rangeSpan,
       );
 }
 function appShellStateDtState(
-  appShellStateInput64: number,
-  appShellStateInput65: number,
-  appShellStateInput66: string = `regular`,
+  ratio: number,
+  mainContentWidth: number,
+  widthMode: string = `regular`,
 ): number {
-  let appShellStateState103 = appShellStateHelper25(
-    appShellStateInput65,
-    appShellStateInput66,
-  );
-  return appShellStateHelper23(
-    appShellStateState103.minimum +
-      appShellStateHelper26(appShellStateInput64) *
-        (appShellStateState103.maximum - appShellStateState103.minimum),
-    appShellStateInput65,
-    appShellStateInput66,
+  let widthRange = getRightPanelWidthRange(mainContentWidth, widthMode);
+  return clampRightPanelWidth(
+    widthRange.minimum +
+      clamp01(ratio) * (widthRange.maximum - widthRange.minimum),
+    mainContentWidth,
+    widthMode,
   );
 }
-function appShellStateHelper24(appShellStateInput79, appShellStateInput80) {
-  return appShellStateInput80 === `full`
-    ? Math.max(320, appShellStateInput79)
-    : Math.max(320, appShellStateInput79 - appShellStateState9);
+function getAvailableRightPanelWidth(mainContentWidth, widthMode) {
+  return widthMode === `full`
+    ? Math.max(320, mainContentWidth)
+    : Math.max(320, mainContentWidth - rightPanelReservedWidth);
 }
-function appShellStateHelper25(appShellStateInput75, appShellStateInput76) {
-  let appShellStateState109 = appShellStateHelper24(
-    appShellStateInput75,
-    appShellStateInput76,
-  );
+function getRightPanelWidthRange(mainContentWidth, widthMode) {
+  let availableWidth = getAvailableRightPanelWidth(mainContentWidth, widthMode);
   return {
-    maximum: appShellStateState109,
-    minimum: Math.min(320, appShellStateState109),
+    maximum: availableWidth,
+    minimum: Math.min(320, availableWidth),
   };
 }
-function appShellStateHelper26(appShellStateInput109) {
-  return Math.max(0, Math.min(1, appShellStateInput109));
+function clamp01(value) {
+  return Math.max(0, Math.min(1, value));
 }
 var appShellStateItState = {
     type: `spring`,
     duration: 0.5,
     bounce: 0.1,
   },
-  appShellStateState11 = 0.5;
-function appShellStateStState(appShellStateInput131: number): number {
-  return appShellStateInput131 * appShellStateState11;
+  sidebarWidthScaleFactor = 0.5;
+function appShellStateStState(value: number): number {
+  return value * sidebarWidthScaleFactor;
 }
 function appShellStateOtState({
   isRightPanelOpen: isRightPanelOpen,
@@ -152,14 +132,14 @@ function appShellStateOtState({
       )
     : mainContentWidth;
 }
-var appShellStateAtState = (0, React.createContext)(null);
+var appShellStateAtState = React.createContext(null);
 function appShellStateCtState(): any {
-  let appShellStateState101 = (0, React.useContext)(appShellStateAtState);
-  if (appShellStateState101 == null)
+  let motionContext = React.useContext(appShellStateAtState);
+  if (motionContext == null)
     throw Error(`AppShellLayoutMotionContext is missing`);
-  return appShellStateState101;
+  return motionContext;
 }
-var appShellStateState12 = `main`,
+var defaultAppShellFocusArea = `main`,
   appShellStateGState = appScopeG(persistedSignalG, !1),
   appShellStateEtState = appScopeG(persistedSignalF, null),
   _appShellStateJState = appScopeG(persistedSignalG, `main`),
@@ -178,7 +158,10 @@ const _appShellStateKState = appScopeG(persistedSignalF, `default`);
 const appShellStateJState = appScopeG(persistedSignalF, null);
 const appShellStateIState = appScopeG(persistedSignalF, null);
 const appShellStateFState = appScopeG(persistedSignalF, null);
-const appShellStateAState = appScopeG(persistedSignalG, appShellStateState12);
+const appShellStateAState = appScopeG(
+  persistedSignalG,
+  defaultAppShellFocusArea,
+);
 const appShellStateDollarState = appScopeC(
   persistedSignalF,
   ({ get: get, scope: scope }) =>
@@ -187,46 +170,30 @@ const appShellStateDollarState = appScopeC(
       storageKey: appShellStateLtState(scope.value.routeTemplate),
     },
 );
-function appShellStateTtState(
-  appShellStateInput110: any,
-  appShellStateInput111: any,
-): void {
-  appShellStateInput110.get(_appShellStateJState) !== appShellStateInput111 &&
-    appShellStateInput110.set(_appShellStateJState, appShellStateInput111);
+function appShellStateTtState(appScope: any, focusArea: any): void {
+  appScope.get(_appShellStateJState) !== focusArea &&
+    appScope.set(_appShellStateJState, focusArea);
 }
-function appShellStateRtState(
-  appShellStateInput112: any,
-  appShellStateInput113: boolean,
-): void {
-  appShellStateInput112.get(appShellStateNState) !== appShellStateInput113 &&
-    appShellStateInput112.set(appShellStateNState, appShellStateInput113);
+function appShellStateRtState(appScope: any, isEnabled: boolean): void {
+  appScope.get(appShellStateNState) !== isEnabled &&
+    appScope.set(appShellStateNState, isEnabled);
 }
-function appShellStateNtState(
-  appShellStateInput114: any,
-  appShellStateInput115: any,
-): void {
-  appShellStateInput114.get(appShellStateMState) !== appShellStateInput115 &&
-    appShellStateInput114.set(appShellStateMState, appShellStateInput115);
+function appShellStateNtState(appScope: any, value: any): void {
+  appScope.get(appShellStateMState) !== value &&
+    appScope.set(appShellStateMState, value);
 }
-function appShellStateHelper27() {
-  let appShellStateState69 = appScopeG(persistedSignalF, []),
-    appShellStateState70 = appScopeUnderscore(
-      persistedSignalF,
-      (appShellStateInput135) => null,
-    );
+function createOrderedActionRegistry() {
+  let actionIds = appScopeG(persistedSignalF, []),
+    actionById = appScopeUnderscore(persistedSignalF, (actionId) => null);
   return {
     entries$: appScopeC(persistedSignalF, ({ get: get }) =>
-      get(appShellStateState69)
+      get(actionIds)
         .map((item) => ({
-          action: get(appShellStateState70, item),
+          action: get(actionById, item),
           actionId: item,
         }))
         .filter((item) => item.action != null)
-        .sort(
-          (appShellStateInput125, appShellStateInput126) =>
-            appShellStateInput125.action.order -
-            appShellStateInput126.action.order,
-        )
+        .sort((entryA, entryB) => entryA.action.order - entryB.action.order)
         .map(({ action: action, actionId: actionId }) => ({
           align: action.align,
           actionId: actionId,
@@ -234,57 +201,51 @@ function appShellStateHelper27() {
           order: action.order,
         })),
     ),
-    byId: appShellStateState70,
-    ids$: appShellStateState69,
+    byId: actionById,
+    ids$: actionIds,
   };
 }
-function appShellStateHelper28() {
-  let appShellStateState83 = appScopeG(persistedSignalF, []),
-    appShellStateState84 = appScopeUnderscore(
-      persistedSignalF,
-      (appShellStateInput136) => null,
-    );
+function createActionListRegistry() {
+  let actionIds = appScopeG(persistedSignalF, []),
+    actionById = appScopeUnderscore(persistedSignalF, (actionId) => null);
   return {
-    byId: appShellStateState84,
+    byId: actionById,
     entries$: appScopeC(persistedSignalF, ({ get: get }) =>
-      get(appShellStateState83).flatMap((item) => {
-        let appShellStateState110 = get(appShellStateState84, item);
-        return appShellStateState110 == null ? [] : [appShellStateState110];
+      get(actionIds).flatMap((item) => {
+        let action = get(actionById, item);
+        return action == null ? [] : [action];
       }),
     ),
-    ids$: appShellStateState83,
+    ids$: actionIds,
   };
 }
-var appShellStateState13 = appShellStateHelper27(),
-  appShellStateState14 = appShellStateHelper27(),
-  appShellStateState15 = appShellStateHelper27(),
-  appShellStateVState = appShellStateHelper28(),
-  appShellStateState16 = 520,
-  appShellStateState17 = `sidebar-width`;
+var centerActionRegistry = createOrderedActionRegistry(),
+  leftActionRegistry = createOrderedActionRegistry(),
+  rightActionRegistry = createOrderedActionRegistry(),
+  appShellStateVState = createActionListRegistry(),
+  maxSidebarWidth = 520,
+  sidebarWidthStorageKey = `sidebar-width`;
 const _appShellStateZState = {
-  center: appShellStateState13,
-  left: appShellStateState14,
-  right: appShellStateState15,
+  center: centerActionRegistry,
+  left: leftActionRegistry,
+  right: rightActionRegistry,
 };
-const appShellStateWState = appShellStateState15.entries$;
-const appShellStateUState = appShellStateState14.entries$;
+const appShellStateWState = rightActionRegistry.entries$;
+const appShellStateUState = leftActionRegistry.entries$;
 const appShellStateHState = appShellStateVState.entries$;
-const appShellStateBState = appShellStateState13.entries$;
+const appShellStateBState = centerActionRegistry.entries$;
 function appShellStateEState() {
-  return appShellStateDState(persistedAtomStoreA(appShellStateState17, 300));
+  return appShellStateDState(persistedAtomStoreA(sidebarWidthStorageKey, 300));
 }
-function appShellStateOState(appShellStateInput132: number): void {
-  persistedAtomStoreL(
-    appShellStateState17,
-    appShellStateDState(appShellStateInput132),
-  );
+function appShellStateOState(width: number): void {
+  persistedAtomStoreL(sidebarWidthStorageKey, appShellStateDState(width));
 }
-function appShellStateDState(appShellStateInput81) {
-  return Number.isFinite(appShellStateInput81)
-    ? Math.min(Math.max(appShellStateInput81, 240), appShellStateState16)
+function appShellStateDState(width) {
+  return Number.isFinite(width)
+    ? Math.min(Math.max(width, 240), maxSidebarWidth)
     : 300;
 }
-var appShellStateState18 = `app-shell-bottom-panel-launcher-visible`,
+var bottomPanelLauncherVisibleStorageKey = `app-shell-bottom-panel-launcher-visible`,
   sidebarHoverLauncherDelayMs = 100,
   sidebarOpenSignal = appScopeG(appScopeT, !0),
   sidebarHoverSignal = appScopeG(appScopeT, !1),
@@ -292,13 +253,16 @@ var appShellStateState18 = `app-shell-bottom-panel-launcher-visible`,
   sidebarAnimatingSignal = appScopeG(appScopeT, !1),
   sidebarAnimationSequenceSignal = appScopeG(appScopeT, 0),
   sidebarOpenAnimationSignal = appScopeG(appScopeT, () => new MotionValue(1)),
-  _appShellStateNState = persistedSignalT(appShellStateState18, !0),
+  _appShellStateNState = persistedSignalT(
+    bottomPanelLauncherVisibleStorageKey,
+    !0,
+  ),
   _appShellStateRState = appScopeG(persistedSignalG, !1),
   appShellStateTState = appScopeG(persistedSignalG, () => new MotionValue(0)),
   _appShellStateAState = appScopeG(persistedSignalG, !1),
   _appShellStateIState = appScopeG(persistedSignalG, () => new MotionValue(0)),
   _appShellStateOState = appScopeG(persistedSignalG, !1),
-  appShellStateState21 = appScopeG(persistedSignalG, !1),
+  pendingRestoreRightPanelFullWidthSignal = appScopeG(persistedSignalG, !1),
   reviewFileTreeOpenSignal = appScopeG(appScopeT, !1),
   reviewFileTreeOpenAnimationSignal = appScopeG(
     appScopeT,
@@ -374,66 +338,57 @@ function setSidebarOpen(
     };
   openAnimation.then(clearAnimatingIfCurrent, clearAnimatingIfCurrent);
 }
-function _appShellStateYState(
-  appShellStateInput129: any,
-  appShellStateInput130: boolean,
-): void {
-  appShellStateInput129.set(_appShellStateNState, appShellStateInput130);
+function _appShellStateYState(appScope: any, isVisible: boolean): void {
+  appScope.set(_appShellStateNState, isVisible);
 }
 function _appShellStateVState(): void {
   persistedAtomStoreA(`app-shell-bottom-panel-launcher-visible`, void 0) ??
-    persistedAtomStoreL(appShellStateState18, !1);
+    persistedAtomStoreL(bottomPanelLauncherVisibleStorageKey, !1);
 }
-function _appShellStateBState(
-  appShellStateInput98: any,
-  appShellStateInput99: boolean,
-): void {
-  (appShellStateInput98.set(_appShellStateRState, appShellStateInput99),
-    appShellStateHelper30(
-      appShellStateInput98.get(appShellStateTState),
-      appShellStateInput99,
-      appShellStateInput98.get(reducedMotionPreferenceR),
+function _appShellStateBState(appScope: any, isOpen: boolean): void {
+  (appScope.set(_appShellStateRState, isOpen),
+    setOrAnimateBooleanMotionValue(
+      appScope.get(appShellStateTState),
+      isOpen,
+      appScope.get(reducedMotionPreferenceR),
     ));
 }
 function _appShellStateXState(
-  appShellStateInput27: any,
-  appShellStateInput28: boolean,
-  appShellStateInput29: any = {},
+  appScope: any,
+  isOpen: boolean,
+  options: any = {},
 ): void {
-  appShellStateInput27.set(_appShellStateAState, appShellStateInput28);
-  let appShellStateState82 = appShellStateInput27.get(_appShellStateIState);
+  appScope.set(_appShellStateAState, isOpen);
+  let rightPanelMotionValue = appScope.get(_appShellStateIState);
   if (
-    (appShellStateState82.stop(),
-    appShellStateHelper30(
-      appShellStateState82,
-      appShellStateInput28,
-      appShellStateInput27.get(reducedMotionPreferenceR),
+    (rightPanelMotionValue.stop(),
+    setOrAnimateBooleanMotionValue(
+      rightPanelMotionValue,
+      isOpen,
+      appScope.get(reducedMotionPreferenceR),
     ),
-    appShellStateInput28)
+    isOpen)
   ) {
-    appShellStateInput27.get(appShellStateState21) &&
-      (appShellStateInput27.set(appShellStateGState, !0),
-      appShellStateInput27.set(appShellStateState21, !1));
+    appScope.get(pendingRestoreRightPanelFullWidthSignal) &&
+      (appScope.set(appShellStateGState, !0),
+      appScope.set(pendingRestoreRightPanelFullWidthSignal, !1));
     return;
   }
-  (appShellStateInput27.set(_appShellStateOState, !1),
-    appShellStateInput27.set(
-      appShellStateState21,
-      appShellStateInput29.restoreFullWidthOnNextOpen === !0 &&
-        appShellStateInput27.get(appShellStateGState),
+  (appScope.set(_appShellStateOState, !1),
+    appScope.set(
+      pendingRestoreRightPanelFullWidthSignal,
+      options.restoreFullWidthOnNextOpen === !0 &&
+        appScope.get(appShellStateGState),
     ),
-    appShellStateInput27.set(appShellStateGState, !1));
+    appScope.set(appShellStateGState, !1));
 }
-function _appShellStateSState(
-  appShellStateInput77: any,
-  appShellStateInput78: boolean,
-): void {
-  if (appShellStateInput78) {
-    (appShellStateInput77.set(_appShellStateOState, !0),
-      _appShellStateXState(appShellStateInput77, !0));
+function _appShellStateSState(appScope: any, isOpen: boolean): void {
+  if (isOpen) {
+    (appScope.set(_appShellStateOState, !0),
+      _appShellStateXState(appScope, !0));
     return;
   }
-  _appShellStateXState(appShellStateInput77, !1);
+  _appShellStateXState(appScope, !1);
 }
 function setReviewFileTreeOpen(
   appScope: any,
@@ -460,21 +415,17 @@ function animateBooleanMotionValue(
   }
   appShellStateMtState(motionValue, enabled ? 1 : 0, appShellStateItState);
 }
-function appShellStateHelper30(
-  appShellStateInput68,
-  appShellStateInput69,
-  appShellStateInput70,
+function setOrAnimateBooleanMotionValue(
+  motionValue,
+  enabled,
+  shouldReduceMotion,
 ) {
-  let appShellStateState106 = appShellStateInput69 ? 1 : 0;
-  if (appShellStateInput70) {
-    appShellStateInput68.set(appShellStateState106);
+  let targetValue = enabled ? 1 : 0;
+  if (shouldReduceMotion) {
+    motionValue.set(targetValue);
     return;
   }
-  appShellStateMtState(
-    appShellStateInput68,
-    appShellStateState106,
-    appShellStateItState,
-  );
+  appShellStateMtState(motionValue, targetValue, appShellStateItState);
 }
 export {
   appShellStateDollarState,
