@@ -14,7 +14,9 @@ type ImportableBrowserProfile = {
   hasPasswords?: boolean;
 };
 
-const atlasBrowserIconUrl =
+export function initAtlasBrowserIconUrlChunk(): void {}
+
+export const atlasBrowserIconUrl =
   "" + new URL("atlas-app-BbZ7-u67.png", import.meta.url).href;
 
 function ChromeBrandIcon(props: SVGProps<SVGSVGElement>) {

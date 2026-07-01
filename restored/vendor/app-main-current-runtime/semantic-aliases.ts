@@ -412,6 +412,10 @@ export {
   initBrowserProfileImportNuxStateChunk,
 } from "../../browser/browser-profile-import-nux-state";
 export {
+  atlasBrowserIconUrl,
+  initAtlasBrowserIconUrlChunk,
+} from "../../browser/browser-profile-import-nux-banner";
+export {
   formatModelDisplayName,
   initFormatModelDisplayNameChunk,
 } from "../../utils/format-model-display-name";
