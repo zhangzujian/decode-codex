@@ -12,6 +12,7 @@ import {
   appScopeUnderscore as createScopedAtom,
   useAppScopeValue,
 } from "./app-scope";
+import { motion } from "framer-motion";
 
 export { appLogger as logger } from "../runtime/app-logger";
 export { LOCAL_HOST_ID } from "./use-host-config.facade";
@@ -19,6 +20,25 @@ export { sendHostRequest } from "../runtime/host-request-runtime";
 export { joinPath, normalizePath } from "../runtime/path-helpers-runtime";
 export { useQueryClient } from "../runtime/query-client/react-query-context";
 export { useFeatureGate } from "../statsig/use-feature-gate";
+export { Button } from "../ui/button";
+export { Checkbox } from "../utils/checkbox";
+export {
+  DialogBody,
+  DialogFooter,
+  DialogHeader,
+  DialogLayout as Dialog,
+  DialogSection,
+} from "../ui/dialog-layout";
+export { Dropdown, DropdownMenu as Menu } from "../ui/dropdown";
+export { IconButton } from "../review/action-popover-primitives/row-primitives";
+export { Spinner } from "../ui/spinner";
+export { Tooltip } from "../ui/tooltip-b";
+export {
+  toastApiSignal as toastControllerAtom,
+  toastApiSignal as toastControllerSignal,
+  toastApiSignal as toastControllerToken,
+  toastApiSignal as toastNotificationAtom,
+} from "../ui/toast-signal";
 export {
   createComputedAtom,
   createParametricAtom,
@@ -44,6 +64,8 @@ export const queryAtomFamily = createParametricAtom;
 export const routeAtom = appScopeH("routeAtom");
 export const useAtomFamilyValue = useAppScopeValue;
 export const useScopedAtomValue = useAppScopeValue;
+export { motion };
+export const MotionButton = motion.button;
 
 export const // Geometry / spring helpers live in the shared `hee()` module of this chunk
   // (not restored). Imported through the boundary facade with semantic aliases.
@@ -117,7 +139,6 @@ export const BrowserSiteSettingsIcon: any = undefined as any;
 export const BrowserTabTrailingIndicators: any = undefined as any;
 export const BrowserTabType: any = undefined as any;
 export const BrowserWebviewHost: any = undefined as any;
-export const Button: any = undefined as any;
 export const CLOSED_AGENT_ERROR_MESSAGE: any = undefined as any;
 export const COMMENT_EDITOR_FOOTER_CLASS: any = undefined as any;
 export const COMMENT_EDITOR_INPUT_CLASS: any = undefined as any;
@@ -127,7 +148,6 @@ export const CONTENT_SAMPLE_MAX_FILE_BYTES: any = undefined as any;
 export const Callout: any = undefined as any;
 export const ChatGptBrandLogo: any = undefined as any;
 export const CheckIcon: any = undefined as any;
-export const Checkbox: any = undefined as any;
 export const CheckmarkIcon: any = undefined as any;
 export const ChevronDownIcon: any = undefined as any;
 export const ChevronRightIcon: any = undefined as any;
@@ -183,16 +203,11 @@ export const DRAGGABLE_ID_PREFIX: any = undefined as any;
 export const DROPPABLE_ID_PREFIX: any = undefined as any;
 export const DURATIONS: any = undefined as any;
 export const DeleteCommentIcon: any = undefined as any;
-export const Dialog: any = undefined as any;
-export const DialogBody: any = undefined as any;
-export const DialogFooter: any = undefined as any;
 export const DialogFooterRow: any = undefined as any;
 export const DialogForm: any = undefined as any;
-export const DialogHeader: any = undefined as any;
 export const DialogHeaderRow: any = undefined as any;
 export const DialogHeading: any = undefined as any;
 export const DialogPanel: any = undefined as any;
-export const DialogSection: any = undefined as any;
 export const DialogSubtitle: any = undefined as any;
 export const DialogTitleBlock: any = undefined as any;
 export const DictationButton: any = undefined as any;
@@ -210,7 +225,6 @@ export const DonutProgress: any = undefined as any;
 export const DownloadIcon: any = undefined as any;
 export const DownloadsEmptyIcon: any = undefined as any;
 export const DriveFileTypeIcon: any = undefined as any;
-export const Dropdown: any = undefined as any;
 export const DropdownMenu: any = undefined as any;
 export const DroppableContainersMap: any = undefined as any;
 export const Durations: any = undefined as any;
@@ -251,7 +265,6 @@ export const GoogleWorkspaceExportMenuItems: any = undefined as any;
 export const HANDOFF_STEP_ORDER: any = undefined as any;
 export const HOURLY_STANDALONE_OPTION_KEYS: any = undefined as any;
 export const HookActivityIcon: any = undefined as any;
-export const IconButton: any = undefined as any;
 export const IconButtonTooltip: any = undefined as any;
 export const ImageCommentEditorPositioner: any = undefined as any;
 export const ImageFilePreview: any = undefined as any;
@@ -286,7 +299,6 @@ export const MessageAttachmentChip: any = undefined as any;
 export const MessagingPlaceholderIcon: any = undefined as any;
 export const ModelChangedIcon: any = undefined as any;
 export const MoleculeFilePreview: any = undefined as any;
-export const MotionButton: any = undefined as any;
 export const MotionValue: any = undefined as any;
 export const MultiAgentGroup: any = undefined as any;
 export const NamedErrorBoundary: any = undefined as any;
@@ -374,7 +386,6 @@ export const SidePanelTabKind: any = undefined as any;
 export const SkillMentionAutocomplete: any = undefined as any;
 export const SourceListItemButton: any = undefined as any;
 export const SourceSearchController: any = undefined as any;
-export const Spinner: any = undefined as any;
 export const SplitDiffModeIcon: any = undefined as any;
 export const SpreadsheetFileTypeIcon: any = undefined as any;
 export const SubagentAvatar: any = undefined as any;
@@ -389,7 +400,6 @@ export const TodoListProgressPill: any = undefined as any;
 export const ToolActivityCard: any = undefined as any;
 export const ToolActivityDisclosureHeader: any = undefined as any;
 export const ToolActivityIcon: any = undefined as any;
-export const Tooltip: any = undefined as any;
 export const TraversalOrder: any = undefined as any;
 export const TruncatedBranchName: any = undefined as any;
 export const TurnActionsRow: any = undefined as any;
@@ -1065,7 +1075,6 @@ export const mergeFileAttachments: any = undefined as any;
 export const mergeRuntimeWorkspaceRoots: any = undefined as any;
 export const mergeSandboxPolicyRoots: any = undefined as any;
 export const modelSelectionWriteQueueFamily: any = undefined as any;
-export const motion: any = undefined as any;
 export const motionTemplate: any = undefined as any;
 export const multiBrowserTabsEnabledAtom: any = undefined as any;
 export const navigateToReviewFilePath: any = undefined as any;
@@ -1512,9 +1521,6 @@ export const toServiceTierThreadOverride: any = undefined as any;
 export const toThemeVariant: any = undefined as any;
 export const toToolActivitySummaryUnit: any = undefined as any;
 export const toWorkspaceRootPath: any = undefined as any;
-export const toastControllerAtom: any = undefined as any;
-export const toastControllerSignal: any = undefined as any;
-export const toastControllerToken: any = undefined as any;
 export const toggleArtifactPreview: any = undefined as any;
 export const toggleBrowserFloatingComposer: any = undefined as any;
 export const trackGoogleWorkspaceResourceClick: any = undefined as any;
@@ -1788,7 +1794,6 @@ export const waitForPluginInstalled: any = undefined as any;
 
 // --- automations-page Bc0ZtIBr remote-connections cluster (open boundary) ---
 export const ErrorIcon: any = undefined as any;
-export const Menu: any = undefined as any;
 export const ProjectStorageKey: any = undefined as any;
 export const RemoteDirectoryPathInput: any = undefined as any;
 export const RemoteHostIcon: any = undefined as any;
@@ -1825,7 +1830,6 @@ export const resolveRemoteControlConnections: any = undefined as any;
 export const sendRemoteHostRequest: any = undefined as any;
 export const setRemoteConnectionProgress: any = undefined as any;
 export const toComparableRemotePath: any = undefined as any;
-export const toastNotificationAtom: any = undefined as any;
 export const updateRemoteConnectionState: any = undefined as any;
 export const useAppServerQuery: any = undefined as any;
 export const useFeatureGateClient: any = undefined as any;

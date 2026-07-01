@@ -3,6 +3,7 @@
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
 export { LOCAL_HOST_ID } from "./use-host-config.facade";
+export { motion } from "framer-motion";
 
 export const ComposerAnchoredOverlay: any = undefined as any;
 export const MentionAutocompletePanel: any = undefined as any;
@@ -22,7 +23,6 @@ export const handleComposerSuggestionEvent: any = undefined as any;
 export const isFlyoutSubmenuDisabled: any = undefined as any;
 export const isVerboseModelDescriptionLocale: any = undefined as any;
 export const modelSupportsServiceTier: any = undefined as any;
-export const motion: any = undefined as any;
 export const normalizeModelDisplayName: any = undefined as any;
 export const resolveReasoningEffort: any = undefined as any;
 export const selectActivePlugins: any = undefined as any;
