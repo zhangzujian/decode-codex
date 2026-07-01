@@ -42075,12 +42075,12 @@
         "AppgenLibraryPage": "AppgenLibraryPage"
       },
       "status": "done",
-      "note": "Current AppgenLibraryPage hash maps to a dedicated current-ref runtime over vendor/appgen-library-page-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "note": "Current AppgenLibraryPage hash maps to explicit compatibility aliases backed by the semantic appgen/library-page.tsx entry.",
       "lastUpdated": "2026-06-30T22:22:31.375Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T22:22:31.375Z",
-      "stage3Review": "Host self-review: verified the current file exports AppgenLibraryPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of AppgenLibraryPage remains a later cleanup."
+      "stage3Review": "Host self-review: verified the current file exports AppgenLibraryPage, preserved the current restored-dependency backing bundle, and mapped the page export through appgen/library-page.tsx.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic AppgenLibraryPage entry; deeper internal helper splitting remains future cleanup."
     },
     "home-ambient-suggestions-content-QPiHWv2t": {
       "restored": "runtime/current-app-initial/home-ambient-suggestions-content-current-runtime.ts",
@@ -42314,12 +42314,12 @@
         "Profile": "Profile"
       },
       "status": "done",
-      "note": "Current Profile hash maps to a dedicated current-ref runtime over vendor/profile-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "note": "Current Profile hash maps to explicit compatibility aliases backed by the semantic profile/page.tsx entry.",
       "lastUpdated": "2026-06-30T23:45:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:45:00.000Z",
-      "stage3Review": "Host self-review: verified the current file exports Profile, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of Profile remains a later cleanup."
+      "stage3Review": "Host self-review: verified the current file exports Profile, preserved the current restored-dependency backing bundle, and mapped the page export through profile/page.tsx.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic Profile entry; deeper internal helper splitting remains future cleanup."
     },
     "usage-settings-D_gEzTFv": {
       "restored": "runtime/current-app-initial/usage-settings-current-runtime.ts",
@@ -42737,12 +42737,12 @@
         "AutomationsLayoutPage": "AutomationsPage"
       },
       "status": "done",
-      "note": "Current automations page hash maps to a dedicated current-ref runtime over vendor/automations-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "note": "Current automations page hash maps to explicit compatibility aliases backed by the semantic automations/page.tsx entry.",
       "lastUpdated": "2026-06-30T23:21:25.587Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed automations-page-CXHLOmAw.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+      "stage3Review": "Host self-review: parsed automations-page-CXHLOmAw.js exports, preserved the current restored-dependency backing bundle, and mapped AutomationsPage through automations/page.tsx.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic AutomationsPage entry; deeper internal helper splitting remains future cleanup."
     },
     "avatar-overlay-featuregate-page-CD3wz3Jd": {
       "restored": "runtime/current-app-initial/avatar-overlay-featuregate-page-current-runtime.ts",
@@ -42828,12 +42828,12 @@
         "PullRequestsPage": "PullRequestsPage"
       },
       "status": "done",
-      "note": "Current pull requests page hash maps to a dedicated current-ref runtime over vendor/pull-requests-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
+      "note": "Current pull requests page hash maps to explicit compatibility aliases backed by the semantic review/pull-requests-page.tsx entry.",
       "lastUpdated": "2026-06-30T23:21:25.587Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed pull-requests-page-CqwsTUV0.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+      "stage3Review": "Host self-review: parsed pull-requests-page-CqwsTUV0.js exports, preserved the current restored-dependency backing bundle, and mapped PullRequestsPage through review/pull-requests-page.tsx.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic PullRequestsPage entry; deeper internal helper splitting remains future cleanup."
     },
     "remote-conversation-page-CSJXivxd": {
       "restored": "runtime/current-app-initial/remote-conversation-page-current-runtime.ts",
