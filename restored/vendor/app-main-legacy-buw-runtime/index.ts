@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Directory barrel for the legacy BUw app-main/onboarding semantic alias layer.
+export * from "./stable-exports";
 export * from "./compat-underscore";
 export * from "./compat-dollar";
 export * from "./compat-lower-a";
