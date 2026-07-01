@@ -1726,3 +1726,17 @@ export const useHostInfoQuery: any = undefined as any;
 export const useHostResourceQuery: any = undefined as any;
 export const useStatsigAnalyticsLogger: any = undefined as any;
 export const useStatsigFeatureOverride: any = undefined as any;
+
+// --- automations-page Bc0ZtIBr analytics + feedback clusters cross-chunk symbols (open boundary) ---
+export const AnalyticsLogger: any = undefined as any;
+export const analyticsApiClient: any = undefined as any;
+export const buildAnalyticsRequestInit: any = undefined as any;
+export const codexMetadataEventProtoNamespaces: any = undefined as any;
+export const emptyCodexEventDescriptor: any = undefined as any;
+export const useAnalyticsEnabledQuery: any = undefined as any;
+export const FeedbackIcon: any = undefined as any;
+export const appServerHostSetupConfig: any = undefined as any;
+export const buildThreadFeedbackTags: any = undefined as any;
+export const useActiveHost: any = undefined as any;
+export const useAppServerHostSetup: any = undefined as any;
+export const useRegisterComposerSlashCommand: any = undefined as any;
