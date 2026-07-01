@@ -109,3 +109,10 @@ export function OrderedListGroup(props: OrderedListGroupData) {
     </ol>
   );
 }
+
+export function initReasoningMarkdownHelpersChunk(): void {
+  void stripReasoningHeadingPrefix;
+  void extractReasoningHeading;
+  void stripBoldPrefix;
+  void OrderedListGroup;
+}

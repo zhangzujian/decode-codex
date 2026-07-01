@@ -112,3 +112,7 @@ export function useHeartbeatThreadOptions(
     hasPinnedThreads: options.some(isPinnedOption),
   };
 }
+
+export function initHeartbeatThreadOptionsChunk(): void {
+  void useHeartbeatThreadOptions;
+}

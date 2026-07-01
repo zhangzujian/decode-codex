@@ -465,6 +465,10 @@ export {
   initGoogleResourceKindIconChunk,
 } from "../../conversations/google-resource-kind-icon";
 export {
+  extractReasoningHeading,
+  initReasoningMarkdownHelpersChunk,
+} from "../../conversations/local-conversation-thread-parts/reasoning-markdown-helpers";
+export {
   initPlanSummaryCardChunk,
   openPlanSummarySidePanelTab,
   PlanSummaryCard,
@@ -524,6 +528,10 @@ export {
 export { AutomationExecutionEnvironmentDropdown } from "../../automations/automation-execution-environment-dropdown";
 export { AutomationHeartbeatThreadDropdown } from "../../automations/automation-heartbeat-thread-dropdown";
 export { AutomationModelReasoningDropdown } from "../../automations/automation-model-reasoning-dropdown";
+export {
+  initHeartbeatThreadOptionsChunk,
+  useHeartbeatThreadOptions,
+} from "../../automations/use-heartbeat-thread-options";
 export {
   AutomationSaveTooltip,
   initAutomationSaveTooltipChunk,
