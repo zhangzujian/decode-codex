@@ -351,7 +351,7 @@ import {
   setPinnedThreadsOrder as ga,
   automationsQuerySignal as _a,
   appMainCurrentCompatSlotUpperWLowerT as va,
-  appMainCurrentCompatSlotUpperXLowerT as ya,
+  CloudIcon as ya,
   appMainCurrentCompatSlotUpperZLowerT as ba,
   appMainCurrentCompatSlotUnderscoreLowerD as xa,
   openThreadBrowserSidePanelTabWithPendingState as Sa,

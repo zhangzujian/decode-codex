@@ -11,6 +11,5 @@ export {
   Xo as appMainCurrentCompatSlotUpperXLowerO,
   Xp as appMainCurrentCompatSlotUpperXLowerP,
   Xr as appMainCurrentCompatSlotUpperXLowerR,
-  Xt as appMainCurrentCompatSlotUpperXLowerT,
   Xu as appMainCurrentCompatSlotUpperXLowerU,
 } from "../app-main-current-cgnc-bundle";
