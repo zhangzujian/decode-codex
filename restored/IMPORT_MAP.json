@@ -27722,7 +27722,7 @@
         "zc": "openOrCreateBrowserTab",
         "zd": "filterImportableBrowserProfiles",
         "zf": "useAmbientSuggestionApps",
-        "zi": "appMainCurrentCompatSlotLowerZLowerI",
+        "zi": "initHooksSettingsRouteDetectionChunk",
         "zl": "useDefaultBranchQuery",
         "zn": "SidebarRowRuntime",
         "zo": "BuildingIcon",

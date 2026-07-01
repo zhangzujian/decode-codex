@@ -458,6 +458,7 @@ export {
   buildHooksSettingsRoute,
   buildHooksSettingsRouteForHooks,
   initHooksSettingsRouteChunk,
+  initHooksSettingsRouteDetectionChunk,
   updateHooksSettingsSearchParams,
 } from "../../settings/hooks-settings-route";
 export { resolveSidePanelBrowserTabId } from "../../browser/browser-tab-id-resolution";

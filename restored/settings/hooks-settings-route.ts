@@ -108,10 +108,12 @@ function getSharedHooksPluginId(hooks: HookSettingsRouteHook[]) {
 function initHooksSettingsRouteChunk(): void {
   void HOOKS_SETTINGS_ROUTE;
 }
+function initHooksSettingsRouteDetectionChunk(): void {}
 export {
   updateHooksSettingsSearchParams,
   buildHooksSettingsRouteForHooks,
   buildHooksSettingsRoute,
   buildHooksSettingsPath,
   initHooksSettingsRouteChunk,
+  initHooksSettingsRouteDetectionChunk,
 };
