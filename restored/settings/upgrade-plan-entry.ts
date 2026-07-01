@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~plugin-detail-page~new-thread-panel-page~appg~fkswc4hr-BRaBmaS8.js
 // Upgrade-plan surface selection, route state handoff, and browser fallback helpers.
 import React, { type ComponentType } from "react";
-import { c as getStatsigClientRaw } from "@statsig/js-client";
+import { getStatsigClient as getStatsigClientRaw } from "../vendor/statsig-current-runtime";
 import { useAuth } from "../auth/use-auth";
 import { codexRequest } from "../runtime/request";
 import {

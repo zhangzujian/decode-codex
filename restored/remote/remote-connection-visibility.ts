@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/remote-connection-visibility-CzDH6oqC.js
 // Remote connection visibility gates and derived remote connection state.
-import { o as readStatsigGateValue } from "@statsig/js-client";
+import { readStatsigGateValue } from "../vendor/statsig-current-runtime";
 import {
   _appScopeA as useAppScopeQueryValue,
   useAppScopeValue,

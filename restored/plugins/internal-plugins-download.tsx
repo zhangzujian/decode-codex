@@ -6,10 +6,10 @@
 
 import React from "react";
 import {
+  readStatsigGateValue,
   useDynamicConfig,
   useStatsigClient,
 } from "../vendor/statsig-current-runtime";
-import { o as readStatsigGateValue } from "@statsig/js-client";
 import { LOCAL_APP_SERVER_HOST_ID } from "../boundaries/thread-context-inputs.facade";
 import {
   INTERNAL_PLUGINS_CONFIG_KEY,

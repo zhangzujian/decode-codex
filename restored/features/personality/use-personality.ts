@@ -15,10 +15,10 @@ import {
 import { vscodeApiUnderscore as useMutation } from "../../boundaries/vscode-api";
 import { normalizePersonality } from "../../boundaries/src-l0hb-mz-p";
 import {
-  c as getStatsigClient,
-  o as readStatsigGateValue,
-  r as getStatsigDynamicConfig,
-} from "@statsig/js-client";
+  getStatsigClient,
+  getStatsigDynamicConfig,
+  readStatsigGateValue,
+} from "../../vendor/statsig-current-runtime";
 import { once } from "../../runtime/commonjs-interop";
 import {
   USER_CONFIG_QUERY_KEY,

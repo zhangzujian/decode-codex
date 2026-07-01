@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/upgrade-plan-dialog-CtSyWdd4.js
 // Upgrade-plan comparison dialog and in-app subscription update flow.
 import React, { type MouseEvent } from "react";
-import { c as getStatsigClientRaw } from "@statsig/js-client";
+import { getStatsigClient as getStatsigClientRaw } from "../vendor/statsig-current-runtime";
 import clsx from "clsx";
 
 import { useAuth } from "../auth/use-auth";

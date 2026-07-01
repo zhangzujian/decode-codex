@@ -120,6 +120,10 @@ type StatsigClientConstructor = new (
   options?: unknown,
 ) => StatsigClientLike;
 
+type StatsigClientStatic = StatsigClientConstructor & {
+  instance(statsigClientKey?: string): StatsigClientLike;
+};
+
 type StatsigProviderComponent = (
   props:
     | {
@@ -152,7 +156,7 @@ const statsigCoreModule = loadStatsigCoreModule() as {
 };
 
 const statsigReactBindingsModule = loadStatsigReactBindingsModule() as {
-  StatsigClient: StatsigClientConstructor;
+  StatsigClient: StatsigClientStatic;
   StatsigProvider: StatsigProviderComponent;
   useClientAsyncInit: UseClientAsyncInit;
   useDynamicConfig(configName: string, options?: unknown): StatsigConfigLike;
@@ -172,3 +176,31 @@ export const {
   useLayer,
   useStatsigClient,
 } = statsigReactBindingsModule;
+
+export function loadStatsigCore(): {
+  StableID: StableIDModule;
+  StatsigSession: StatsigSessionModule;
+  StatsigMetadataProvider: StatsigMetadataProviderModule;
+} {
+  return statsigCoreModule;
+}
+
+export function getStatsigClient(statsigClientKey?: string): StatsigClientLike {
+  return StatsigClient.instance(statsigClientKey);
+}
+
+export function readStatsigGateValue(gateName: string): boolean {
+  return getStatsigClient().checkGate(gateName);
+}
+
+export function getStatsigDynamicConfig(
+  client: StatsigClientLike,
+  configName: string,
+  options?: unknown,
+): StatsigConfigLike {
+  return client.getDynamicConfig(configName, options);
+}
+
+export function useStatsigLoading(): boolean {
+  return useStatsigClient().isLoading;
+}

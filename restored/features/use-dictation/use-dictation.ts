@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/use-dictation-DQROZBbT.js
 // use-dictation-DQROZBbT chunk restored from the Codex webview bundle.
 import React from "react";
-import { o as readStatsigGateValue } from "@statsig/js-client";
+import { readStatsigGateValue } from "../../vendor/statsig-current-runtime";
 import { appServices } from "../../boundaries/rpc.facade";
 import {
   vscodeApiD as vscodeBridge,

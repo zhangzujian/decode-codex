@@ -20,7 +20,7 @@ import {
 import { useSettingValue, writeSettingValue } from "./setting-storage";
 import { CheckMdIcon } from "../icons/check-md-icon";
 import { appServices } from "../boundaries/rpc.facade";
-import { u as useStatsigLoading } from "@statsig/js-client";
+import { useStatsigLoading } from "../vendor/statsig-current-runtime";
 import {
   ___productLoggerT as trackProductEvent,
   productLoggerX as appshotShortcutChangedEvent,

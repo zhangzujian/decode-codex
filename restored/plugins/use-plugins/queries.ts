@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/use-plugins-Dex8E4w_.js
 // Plugin marketplace query hooks.
 
-import { o as readStatsigGateValue } from "@statsig/js-client";
+import { readStatsigGateValue } from "../../vendor/statsig-current-runtime";
 import { useAppScopeValue } from "../../boundaries/app-scope";
 import {
   registeredAppServerHostIdsSignal,

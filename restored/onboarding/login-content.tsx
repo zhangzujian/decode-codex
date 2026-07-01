@@ -2,7 +2,7 @@
 // Updated with exports from ref/webview/assets/onboarding-login-content-BFxktxIt.js.
 // Login request helpers and onboarding login controls.
 import type { ChangeEvent, ReactNode } from "react";
-import { _ as loadStatsigCore } from "@statsig/js-client";
+import { loadStatsigCore } from "../vendor/statsig-current-runtime";
 import { FormattedMessage, useIntl } from "../vendor/react-intl";
 import {
   LOCAL_HOST_ID,

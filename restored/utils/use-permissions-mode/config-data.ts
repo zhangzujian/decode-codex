@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/use-permissions-mode-H7h2gKaw.js
 // use-permissions-mode-H7h2gKaw chunk restored from the Codex webview bundle.
-import { u as useStatsigLoading } from "@statsig/js-client";
+import { useStatsigLoading } from "../../vendor/statsig-current-runtime";
 import {
   appScopeA as useAppScopeFamilyValue,
   appScopeS as useAppScopeValue,
