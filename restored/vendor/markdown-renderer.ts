@@ -111,6 +111,8 @@ export function libO(code: number | null | undefined): CharacterClass {
   return undefined;
 }
 
+export const classifyMarkdownCharacterCode = libO;
+
 export function libY(
   node: MarkdownNode | MarkdownNode[],
   options?: TextOptions,
@@ -125,3 +127,5 @@ export function libY(
     .map((child) => libY(child, textOptions))
     .join("");
 }
+
+export const markdownNodeToText = libY;
