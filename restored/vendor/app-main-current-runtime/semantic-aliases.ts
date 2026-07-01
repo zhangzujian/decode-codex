@@ -867,6 +867,7 @@ export {
   getConversationalOnboardingMessagingPluginNames,
   mapConversationalOnboardingTasksToAppPlugins,
 } from "../../onboarding/conversational-onboarding-task-selection";
+export { acceptConversationalOnboardingPluginTaskOutput } from "../../onboarding/conversational-onboarding-plugin-task-output";
 export {
   trackConversationalOnboardingExecutionCancelled,
   trackConversationalOnboardingExecutionCompletionMissing,

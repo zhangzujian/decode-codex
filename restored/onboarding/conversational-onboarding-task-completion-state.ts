@@ -6,9 +6,9 @@ import {
 } from "../runtime/conversation-state-runtime";
 import { appScopeL, appScopeRoot } from "../boundaries/app-scope";
 import {
-  parseAcceptedConversationalOnboardingTaskResult,
-  type ConversationalOnboardingTaskOutput,
-} from "../runtime/run-app-action-in-primary-window";
+  parseAcceptedConversationalOnboardingPluginTaskResult,
+  type ConversationalOnboardingPluginTaskOutput,
+} from "./conversational-onboarding-plugin-task-output";
 
 type DynamicToolCallItem = {
   contentItems?: Array<{ type: string; text?: string }> | null;
@@ -26,7 +26,7 @@ type ConversationTurn = {
 
 function findConversationalOnboardingTaskCompletion(
   turns: ConversationTurn[] | null | undefined,
-): ConversationalOnboardingTaskOutput | null {
+): ConversationalOnboardingPluginTaskOutput | null {
   if (turns == null) return null;
   for (let turnIndex = turns.length - 1; turnIndex >= 0; --turnIndex) {
     const turn = turns[turnIndex];
@@ -43,7 +43,7 @@ function findConversationalOnboardingTaskCompletion(
       ) {
         continue;
       }
-      const completion = parseAcceptedConversationalOnboardingTaskResult(
+      const completion = parseAcceptedConversationalOnboardingPluginTaskResult(
         item.contentItems,
       );
       if (completion != null) return completion;

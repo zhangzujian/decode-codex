@@ -204,7 +204,7 @@ function trackConversationalOnboardingExecutionStarted(
   });
 }
 
-function trackConversationalOnboardingExecutionCompleted(
+export function trackConversationalOnboardingExecutionCompleted(
   scope: ProductLoggerScope,
   task: ConversationalOnboardingTaskId,
 ): void {
