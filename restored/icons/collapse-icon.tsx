@@ -3,6 +3,9 @@
 
 import type { SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement>;
+
+export function initCollapseIconChunk(): void {}
+
 export function CollapseIcon(props: IconProps) {
   return (
     <svg

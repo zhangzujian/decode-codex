@@ -234,9 +234,22 @@ export {
 } from "../../icons/regenerate-icon";
 export { initStopIconChunk, StopIcon } from "../../icons/stop-icon";
 export {
+  CirclePauseIcon,
+  initCirclePauseIconChunk,
   CirclePlayIcon,
   initCirclePlayIconChunk,
 } from "../../icons/play-circle";
+export {
+  ArrowRotateCcwIcon,
+  initArrowRotateCcwIconChunk,
+} from "../../icons/arrow-rotate-ccw-icon";
+export { CommitIcon, initCommitIconChunk } from "../../icons/commit-icon";
+export {
+  initUnselectedCircleIconChunk,
+  UnselectedCircleIcon,
+} from "../../icons/unselected-circle-icon";
+export { CollapseIcon, initCollapseIconChunk } from "../../icons/collapse-icon";
+export { ImagesIcon, initImagesIconChunk } from "../../icons/images-icon";
 export {
   ComposerContextButton,
   initComposerContextButtonChunk,
