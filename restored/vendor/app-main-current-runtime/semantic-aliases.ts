@@ -128,7 +128,10 @@ export {
   ImageAttachment,
   initImageAttachmentChunk,
 } from "../../image-side-panel/image-attachment";
-export { CommitCommandMenu } from "../../review/commit-command-menu";
+export {
+  CommitCommandMenu,
+  initCommitCommandMenuChunk,
+} from "../../review/commit-command-menu";
 export { ReviewOptionsToolbar } from "../../review/review-options-toolbar";
 export {
   CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME,

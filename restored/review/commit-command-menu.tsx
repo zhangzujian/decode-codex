@@ -51,6 +51,8 @@ import {
 type GitCommitNextStep = "commit" | "commit-and-push" | "push";
 type GitActionStatus = "loading" | "success" | "error";
 
+export function initCommitCommandMenuChunk(): void {}
+
 interface DiffSelectionSummary {
   totalAdditions: number;
   totalDeletions: number;
