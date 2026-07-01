@@ -42659,12 +42659,12 @@
         "HotkeyWindowThreadPage": "HotkeyWindowThreadPage"
       },
       "status": "done",
-      "note": "Current hotkey window thread page hash maps to a dedicated current-ref runtime over vendor/hotkey-window-thread-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
-      "lastUpdated": "2026-06-30T23:17:39.302Z",
+      "note": "Current hotkey window thread page hash maps to a dedicated current-ref runtime over hotkey-window/thread-page.tsx; vendor/hotkey-window-thread-page-current-bundle.tsx remains only as a compatibility shim.",
+      "lastUpdated": "2026-07-01T02:05:35.581Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:17:39.302Z",
-      "stage3Review": "Host self-review: parsed hotkey-window-thread-page-DGErqu4u.js exports, rebuilt the HotkeyWindowThreadPage compatibility export from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+      "stage3AcceptedAt": "2026-07-01T02:05:35.581Z",
+      "stage3Review": "Host self-review: moved the readable HotkeyWindowThreadPage body into hotkey-window/thread-page.tsx, preserved the current runtime public export, and kept vendor/hotkey-window-thread-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Note": "Accepted as a semantic hotkey window thread page surface with current-ref runtime and vendor shim exports."
     },
     "app-prefetch-impl-DeWg99La": {
       "restored": "runtime/current-app-initial/app-prefetch-impl-current-runtime.ts",
@@ -42776,12 +42776,12 @@
         "HotkeyWindowNewThreadPage": "HotkeyWindowNewThreadPage"
       },
       "status": "done",
-      "note": "Current hotkey window new thread page hash maps to a dedicated current-ref runtime over vendor/hotkey-window-new-thread-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
-      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "note": "Current hotkey window new thread page hash maps to a dedicated current-ref runtime over hotkey-window/new-thread-page.tsx; vendor/hotkey-window-new-thread-page-current-bundle.tsx remains only as a compatibility shim.",
+      "lastUpdated": "2026-07-01T02:05:35.581Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed hotkey-window-new-thread-page-DC8KDgIn.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+      "stage3AcceptedAt": "2026-07-01T02:05:35.581Z",
+      "stage3Review": "Host self-review: moved the readable HotkeyWindowNewThreadPage body into hotkey-window/new-thread-page.tsx, preserved the current runtime public export, and kept vendor/hotkey-window-new-thread-page-current-bundle.tsx as a compatibility shim.",
+      "stage3Note": "Accepted as a semantic hotkey window new thread page surface with current-ref runtime and vendor shim exports."
     },
     "hotkey-window-worktree-init-page-CDrG7Phs": {
       "restored": "runtime/current-app-initial/hotkey-window-worktree-init-page-current-runtime.ts",
