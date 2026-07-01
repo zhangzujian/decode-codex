@@ -2399,6 +2399,7 @@ function isVendoredManifestOutput(file: FullRestorationManifestFile): boolean {
   if (classification === "app-feature") return false;
   return (
     org.domain === "vendor" ||
+    classification === "generated-runtime" ||
     classification === "vendor-runtime" ||
     classification === "vendor-utility" ||
     classification === "vendor-npm"
@@ -2576,6 +2577,66 @@ function isReExportBarrel(src: string): boolean {
   return hasReExport && !hasBody;
 }
 
+function reExportSources(src: string): string[] {
+  const sources = new Set<string>();
+  const re =
+    /export\s*(?:type\s*)?(?:\*|\{[\s\S]*?\})\s*from\s*["']([^"']+)["']|export\s*\*\s*as\s+\w+\s*from\s*["']([^"']+)["']/g;
+  for (const match of src.matchAll(re)) {
+    sources.add(match[1] ?? match[2] ?? "");
+  }
+  return [...sources].filter(Boolean);
+}
+
+function resolveRelativeModuleFile(fromDir: string, source: string): string {
+  const base = path.resolve(fromDir, source);
+  for (const candidate of [
+    base,
+    `${base}.ts`,
+    `${base}.tsx`,
+    `${base}.js`,
+    `${base}.jsx`,
+    path.join(base, "index.ts"),
+    path.join(base, "index.tsx"),
+  ]) {
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+      return candidate;
+    }
+  }
+  return base;
+}
+
+function isSemanticSplitBarrel(
+  targetDir: string,
+  semanticPath: string,
+  src: string,
+): boolean {
+  const publicFile = resolvePublicTarget(targetDir, semanticPath);
+  if (!fs.existsSync(publicFile) || !fs.statSync(publicFile).isFile()) {
+    return false;
+  }
+  const sources = reExportSources(src);
+  if (sources.length === 0) return false;
+
+  const publicDir = path.dirname(publicFile);
+  const publicStem = path.basename(publicFile).replace(SOURCE_EXT_RE, "");
+  const partsRoot = path.join(publicDir, `${publicStem}-parts`);
+  const partsRootWithSep = `${partsRoot}${path.sep}`;
+  let resolvedPartCount = 0;
+
+  for (const source of sources) {
+    if (!source.startsWith(".")) return false;
+    const resolved = resolveRelativeModuleFile(publicDir, source);
+    if (!fs.existsSync(resolved) || !fs.statSync(resolved).isFile()) {
+      return false;
+    }
+    if (!resolved.startsWith(partsRootWithSep)) return false;
+    if (!SOURCE_EXT_RE.test(resolved)) return false;
+    resolvedPartCount++;
+  }
+
+  return resolvedPartCount > 0;
+}
+
 /**
  * Source-line count above which a `kind: local` app-feature chunk promoted to a
  * pure re-export barrel is treated as a facade-promotion (body never restored),
@@ -2645,7 +2706,11 @@ function analyzeOrganizePromoteState(
         } catch {
           src = null;
         }
-        if (src != null && isReExportBarrel(src)) {
+        if (
+          src != null &&
+          isReExportBarrel(src) &&
+          !isSemanticSplitBarrel(targetDir, org.semanticPath, src)
+        ) {
           facadePromoted.push({
             basename,
             semanticPath: org.semanticPath,

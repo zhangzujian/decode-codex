@@ -1528,6 +1528,46 @@ export function __rest(value) {
     );
   });
 
+  test("aggregator-body-not-restored does NOT fire: large app-feature split barrel re-exports semantic parts", () => {
+    const targetDir = makeTmpRoot();
+    writePromotedFile(
+      targetDir,
+      "conversations/local-conversation-thread.tsx",
+      "// Restored from ref/webview/assets/local-conversation-thread-BvhTyO40.js\n" +
+        'export { LocalConversationThread } from "./local-conversation-thread-parts/local-conversation-thread-route";\n' +
+        'export type { LocalConversationThreadProps } from "./local-conversation-thread-parts/local-conversation-thread-route";\n',
+    );
+    writePromotedFile(
+      targetDir,
+      "conversations/local-conversation-thread-parts/local-conversation-thread-route.tsx",
+      "// Restored from ref/webview/assets/local-conversation-thread-BvhTyO40.js\n" +
+        "export type LocalConversationThreadProps = { threadId: string };\n" +
+        "export function LocalConversationThread(\n" +
+        "  _props: LocalConversationThreadProps,\n" +
+        ") {\n" +
+        "  return null;\n" +
+        "}\n",
+    );
+    writeFullManifest(targetDir, {
+      "local-conversation-thread-BvhTyO40": {
+        basename: "local-conversation-thread-BvhTyO40",
+        kind: "local",
+        lineCount: 17602,
+        stages: { promoted: true },
+        organization: {
+          domain: "conversations",
+          semanticPath: "conversations/local-conversation-thread.tsx",
+          classification: "app-feature",
+        },
+      },
+    });
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain(
+      "full-restoration-aggregator-body-not-restored",
+    );
+  });
+
   test("aggregator-body-not-restored does NOT fire: genuine vendor-runtime barrel is exempt", () => {
     const targetDir = makeTmpRoot();
     writePromotedFile(
@@ -2033,11 +2073,14 @@ describe("vendored / facade relaxation", () => {
     );
   });
 
-  test("CLI relaxes current manifest vendor outputs but not app-feature outputs", () => {
+  test("CLI relaxes current manifest vendor/generated outputs but not app-feature outputs", () => {
     const targetDir = makeTmpRoot();
     const vendorDir = path.join(targetDir, "vendor");
+    const generatedDir = path.join(targetDir, "generated");
     fs.mkdirSync(vendorDir, { recursive: true });
+    fs.mkdirSync(generatedDir, { recursive: true });
     const vendorFile = path.join(vendorDir, "vendor-runtime.ts");
+    const generatedFile = path.join(generatedDir, "popcorn-runtime.ts");
     const appFeatureFile = path.join(vendorDir, "docx-preview-panel.ts");
     const mechanicalSource = [
       "// Restored from ref/webview/assets/vendor-runtime-AbCdEf12.js",
@@ -2051,6 +2094,7 @@ describe("vendored / facade relaxation", () => {
       "",
     ].join("\n");
     fs.writeFileSync(vendorFile, mechanicalSource);
+    fs.writeFileSync(generatedFile, mechanicalSource);
     fs.writeFileSync(appFeatureFile, mechanicalSource);
     fs.mkdirSync(
       path.join(targetDir, ".deobfuscate-javascript", "_full"),
@@ -2081,6 +2125,16 @@ describe("vendored / facade relaxation", () => {
                 classification: "app-feature",
               },
             },
+            "popcorn-runtime-MnOpQr56": {
+              basename: "popcorn-runtime-MnOpQr56",
+              kind: "local",
+              stages: { finalized: true, promoted: true },
+              organization: {
+                domain: "generated",
+                semanticPath: "generated/popcorn-runtime.ts",
+                classification: "generated-runtime",
+              },
+            },
           },
         },
         null,
@@ -2101,6 +2155,10 @@ describe("vendored / facade relaxation", () => {
               status: "done",
               stage3Accepted: true,
             },
+            "popcorn-runtime-MnOpQr56": {
+              restored: "generated/popcorn-runtime.ts",
+              status: "done",
+            },
           },
         },
         null,
@@ -2110,6 +2168,7 @@ describe("vendored / facade relaxation", () => {
 
     const vendoredFiles = collectManifestVendoredFiles(targetDir);
     expect(vendoredFiles).toContain(path.resolve(vendorFile));
+    expect(vendoredFiles).toContain(path.resolve(generatedFile));
     expect(vendoredFiles).not.toContain(path.resolve(appFeatureFile));
 
     const result = spawnSync(
@@ -2136,8 +2195,15 @@ describe("vendored / facade relaxation", () => {
         (report) => path.resolve(report.file) === path.resolve(appFeatureFile),
       )
       .flatMap((report) => codes(report));
+    const generatedCodes = reports
+      .filter(
+        (report) => path.resolve(report.file) === path.resolve(generatedFile),
+      )
+      .flatMap((report) => codes(report));
     expect(vendorCodes).not.toContain("mechanical-names");
     expect(vendorCodes).not.toContain("split-required");
+    expect(generatedCodes).not.toContain("mechanical-names");
+    expect(generatedCodes).not.toContain("split-required");
     expect(appFeatureCodes).toContain("mechanical-names");
     expect(appFeatureCodes).toContain("split-required");
   });
