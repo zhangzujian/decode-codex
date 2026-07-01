@@ -18,6 +18,10 @@ type BrowserProfileImportOptions = {
   [key: string]: any;
 };
 const BROWSER_PROFILE_IMPORT_STALE_TIME_MS = 30_000;
+export function initBrowserProfileImportQueryConstantsChunk(): void {
+  void BROWSER_PROFILE_IMPORT_STALE_TIME_MS;
+}
+
 export function filterImportableBrowserProfiles(profiles: BrowserProfile[]) {
   return profiles.filter(
     (profile) => profile.hasCookies || profile.hasPasswords,

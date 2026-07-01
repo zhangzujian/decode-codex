@@ -291,6 +291,7 @@ export {
   browserProfileImportProfilesQuery,
   filterImportableBrowserProfiles,
   importBrowserProfile,
+  initBrowserProfileImportQueryConstantsChunk,
   initBrowserProfileImportQueryChunk,
 } from "../../browser/browser-profile-import-query";
 export {
