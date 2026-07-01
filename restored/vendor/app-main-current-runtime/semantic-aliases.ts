@@ -45,7 +45,7 @@ export {
   initCodexLinksChunk,
   OPENAI_APPS_SDK_DOCS_URL,
 } from "../../utils/links-bd-mmkun-d";
-export { resolveSidePanelBrowserTabId } from "../../browser/side-panel-browser-tab-commands";
+export { resolveSidePanelBrowserTabId } from "../../browser/browser-tab-id-resolution";
 export { normalizeWorkspacePath } from "../../boundaries/src-l0hb/paths";
 export { pinnedThreadsQuery } from "../../utils/pinned-threads-query";
 export { setPinnedThreadsOrder } from "../../utils/set-pinned-thread";

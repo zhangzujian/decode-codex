@@ -2,6 +2,13 @@
 // Imperative commands for opening / creating browser tabs in the thread side panel.
 import { createElement } from "react";
 import { defineMessage } from "../vendor/react-intl";
+import { resolveSidePanelBrowserTabId } from "./browser-tab-id-resolution";
+import type {
+  AppStore,
+  OpenBrowserTabOptions,
+  OpenOrCreateBrowserTabOptions,
+  SidePanelTarget,
+} from "./side-panel-browser-tab-types";
 import {
   resolveActiveBrowserConversationId,
   browserSidebarTabManager,
@@ -34,78 +41,12 @@ import {
   toBrowserTabId,
 } from "../boundaries/onboarding-commons-externals.facade";
 
-interface AppStore {
-  get(atom: unknown, key?: unknown): any;
-  set(atom: unknown, value: unknown): void;
-}
-
-type SidePanelTarget = string;
-
-export interface OpenBrowserTabOptions {
-  browserConversationId?: string | null;
-  browserTabId?: string;
-  browserHostDisplayName?: string;
-  cwd?: string;
-  insertAfterTabId?: string;
-  browserTransferSourceConversationId?: string | null;
-  browserTransferSourceBrowserTabId?: string;
-}
-
-export interface OpenOrCreateBrowserTabOptions {
-  browserConversationId?: string | null;
-  browserHostDisplayName?: string;
-  browserTabId?: string;
-  cwd?: string;
-  hostId?: string;
-  initialUrl?: string;
-  initiator?: string;
-  insertAfterTabId?: string;
-  restore?: { browserStorageId: string } | null;
-  source?: string;
-  target?: SidePanelTarget;
-}
-
 interface BrowserTabContextMenuConfig {
   browserConversationId: string;
   browserHostDisplayName: string;
   browserTabId: string;
   cwd?: string;
   target: SidePanelTarget;
-}
-
-export function resolveSidePanelBrowserTabId(
-  store: AppStore,
-  conversationId: string,
-  browserTabId?: string,
-): string {
-  const summaryTabId =
-    browserSidebarTabManager.getBrowserUseSummaryBrowserTabId(conversationId);
-  if (store.get(multiBrowserTabsEnabledAtom)) {
-    return browserTabId ?? toBrowserTabId(crypto.randomUUID());
-  }
-  if (
-    browserTabId != null &&
-    (isKnownBrowserTab(store, conversationId, browserTabId) ||
-      (browserSidebarTabManager.isBrowserUseTab(conversationId, browserTabId) &&
-        summaryTabId === browserTabId))
-  ) {
-    return browserTabId;
-  }
-  return (
-    resolveExistingBrowserTabId(store, conversationId, browserTabId) ??
-    getDefaultBrowserTabId(conversationId)
-  );
-}
-
-function resolveExistingBrowserTabId(
-  store: AppStore,
-  conversationId: string,
-  browserTabId?: string,
-): string | null {
-  return browserTabId != null &&
-    getBrowserTabPlacement(store, conversationId, browserTabId) != null
-    ? browserTabId
-    : getActiveBrowserTabId(store, conversationId);
 }
 
 function isBrowserTabExternallyFocused(browserTabId: string): boolean {
@@ -239,7 +180,7 @@ function duplicateBrowserTabFromContextMenu(
 
 export function openBrowserTab(
   store: AppStore,
-  activate = true,
+  activate: boolean = true,
   options: OpenBrowserTabOptions = {},
   target: SidePanelTarget = "right",
 ): boolean {
