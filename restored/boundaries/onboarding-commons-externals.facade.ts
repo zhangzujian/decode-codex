@@ -12,11 +12,19 @@ import {
   appScopeUnderscore as createScopedAtom,
   useAppScopeValue,
 } from "./app-scope";
-import { motion } from "framer-motion";
+import { motion, motionTemplate } from "framer-motion";
 
 export { appLogger as logger } from "../runtime/app-logger";
+export {
+  ActivityDisclosureHeaderRow,
+  ActivityDisclosureLayout,
+  ActivityDisclosurePaddedRegion,
+  activityDisclosureTransition,
+  useMeasuredElementHeight,
+} from "../conversations/activity-disclosure";
 export { LOCAL_HOST_ID } from "./use-host-config.facade";
 export { sendHostRequest } from "../runtime/host-request-runtime";
+export { useHostQuery } from "../runtime/host-query-runtime";
 export { joinPath, normalizePath } from "../runtime/path-helpers-runtime";
 export { useQueryClient } from "../runtime/query-client/react-query-context";
 export { useFeatureGate } from "../statsig/use-feature-gate";
@@ -52,6 +60,12 @@ export {
   readAppScopeStore as useStore,
 };
 export { useAtomValue } from "../vendor/jotai-runtime";
+export { usePlatform } from "../utils/use-platform";
+export {
+  useStableCallback,
+  useStableCallback as useEventCallback,
+} from "../utils/use-stable-callback";
+export { useWindowZoom } from "../utils/window-zoom-context";
 
 export const appAtomScope = appScopeH("appAtomScope");
 export const appRootScope = appScopeRoot;
@@ -66,6 +80,7 @@ export const useAtomFamilyValue = useAppScopeValue;
 export const useScopedAtomValue = useAppScopeValue;
 export { motion };
 export const MotionButton = motion.button;
+export { motionTemplate };
 
 export const // Geometry / spring helpers live in the shared `hee()` module of this chunk
   // (not restored). Imported through the boundary facade with semantic aliases.
@@ -83,9 +98,6 @@ export const ActionMenu: any = undefined as any;
 export const ActionPopover: any = undefined as any;
 export const ActiveDraggableContext: any = undefined as any;
 export const ActivityDisclosureChevron: any = undefined as any;
-export const ActivityDisclosureHeaderRow: any = undefined as any;
-export const ActivityDisclosureLayout: any = undefined as any;
-export const ActivityDisclosurePaddedRegion: any = undefined as any;
 export const ActivityResultCard: any = undefined as any;
 export const ActivityResultCardAction: any = undefined as any;
 export const ActivityResultCardRow: any = undefined as any;
@@ -447,7 +459,6 @@ export const activeReviewFilePathAtom: any = undefined as any;
 export const activeReviewSearchMatchAtom: any = undefined as any;
 export const activeSidePanelKindAtom: any = undefined as any;
 export const activeWorkspaceRootsQuery: any = undefined as any;
-export const activityDisclosureTransition: any = undefined as any;
 export const addCoordinates: any = undefined as any;
 export const adjustCollapsedActivitySummary: any = undefined as any;
 export const agentModeFromPermissions: any = undefined as any;
@@ -1075,7 +1086,6 @@ export const mergeFileAttachments: any = undefined as any;
 export const mergeRuntimeWorkspaceRoots: any = undefined as any;
 export const mergeSandboxPolicyRoots: any = undefined as any;
 export const modelSelectionWriteQueueFamily: any = undefined as any;
-export const motionTemplate: any = undefined as any;
 export const multiBrowserTabsEnabledAtom: any = undefined as any;
 export const navigateToReviewFilePath: any = undefined as any;
 export const navigationBackChevronIcon: any = undefined as any;
@@ -1579,7 +1589,6 @@ export const useDraggable: any = undefined as any;
 export const useDroppable: any = undefined as any;
 export const useEffectEvent: any = undefined as any;
 export const useEvent: any = undefined as any;
-export const useEventCallback: any = undefined as any;
 export const useFeatureGateExposure: any = undefined as any;
 export const useFormattedAcceleratorLabel: any = undefined as any;
 export const useHost: any = undefined as any;
@@ -1587,7 +1596,6 @@ export const useHostConfig: any = undefined as any;
 export const useHostKey: any = undefined as any;
 export const useHostMessage: any = undefined as any;
 export const useHostMessageSubscription: any = undefined as any;
-export const useHostQuery: any = undefined as any;
 export const useHostRequest: any = undefined as any;
 export const useImagePreviewSources: any = undefined as any;
 export const useInterval: any = undefined as any;
@@ -1603,7 +1611,6 @@ export const useLazyMemo: any = undefined as any;
 export const useMcpAppId: any = undefined as any;
 export const useMcpAppResourceQuery: any = undefined as any;
 export const useMcpServerStatuses: any = undefined as any;
-export const useMeasuredElementHeight: any = undefined as any;
 export const useMeasuredSizeCallback: any = undefined as any;
 export const useMeasuredWidth: any = undefined as any;
 export const useModalController: any = undefined as any;
@@ -1626,7 +1633,6 @@ export const usePanelResizeAnimation: any = undefined as any;
 export const usePendingWorktreeController: any = undefined as any;
 export const usePermissionSettings: any = undefined as any;
 export const usePersistedToggleSetter: any = undefined as any;
-export const usePlatform: any = undefined as any;
 export const usePrefersReducedMotion: any = undefined as any;
 export const usePrevious: any = undefined as any;
 export const useProductLogger: any = undefined as any;
@@ -1659,7 +1665,6 @@ export const useSetting: any = undefined as any;
 export const useSignalFamilyValue: any = undefined as any;
 export const useSkillMentionController: any = undefined as any;
 export const useSkills: any = undefined as any;
-export const useStableCallback: any = undefined as any;
 export const useStableEventCallback: any = undefined as any;
 export const useStatsigDynamicConfig: any = undefined as any;
 export const useSubscriptionQuery: any = undefined as any;
@@ -1673,7 +1678,6 @@ export const useTurnFixedContentPortalContainer: any = undefined as any;
 export const useTurnFollowState: any = undefined as any;
 export const useUniqueId: any = undefined as any;
 export const useWebviewExecutionTarget: any = undefined as any;
-export const useWindowZoom: any = undefined as any;
 export const useWorktreeTargetRoots: any = undefined as any;
 export const waitForNextFrame: any = undefined as any;
 export const webSearchFaviconUrl: any = undefined as any;
