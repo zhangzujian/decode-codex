@@ -4,6 +4,14 @@
 
 import * as React from "react";
 
+import type {
+  CursorElements,
+  CursorState,
+  Point,
+  Spring,
+  SpringConfig,
+  ViewportSize,
+} from "./browser-agent-cursor-types";
 import { vscodeApiF } from "../boundaries/vscode-api";
 import {
   // Geometry / spring helpers live in the shared `hee()` module of this chunk
@@ -15,74 +23,6 @@ import {
   pointDistance,
   clamp,
 } from "../boundaries/onboarding-commons-externals.facade";
-
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
-
-interface Point {
-  x: number;
-  y: number;
-}
-
-interface SpringConfig {
-  dampingFraction: number;
-  response: number;
-}
-
-interface Spring {
-  dampingFraction: number;
-  force: number;
-  response: number;
-  simulationTime: number;
-  scriptTime: number;
-  target: number;
-  value: number;
-  velocity: number;
-}
-
-interface BezierMotion {
-  mode: "bezier";
-  path: unknown;
-  progressSpring: Spring;
-}
-
-interface ScootMotion {
-  mode: "scoot";
-  axisRotation: number;
-  end: Point;
-  progressSpring: Spring;
-  rotationTarget: number;
-  start: Point;
-}
-
-type CursorMotion = BezierMotion | ScootMotion | null;
-
-interface CursorState {
-  motion: CursorMotion;
-  point: Point;
-  positionXSpring: Spring;
-  positionYSpring: Spring;
-  rotation: number;
-  rotationSpring: Spring;
-  scootAxisRotation: number;
-  scootAxisSpring: Spring;
-  scootRotationSpring: Spring;
-  scootStretchSpring: Spring;
-  stretchSpring: Spring;
-  thinkStartedAt: number | null;
-  visibilitySpring: Spring;
-}
-
-interface CursorElements {
-  cursor: HTMLDivElement;
-  layer: HTMLDivElement;
-}
-
-interface ViewportSize {
-  height: number;
-  width: number;
-}
 
 export interface BrowserAgentCursorInput {
   animateMovement?: boolean;
