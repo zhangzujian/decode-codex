@@ -411,6 +411,7 @@ function linearHelper22(linearParam16, linearParam17, linearParam18) {
     ((linearParam16 = linearParam16.slice().reverse()),
     (linearParam17 = linearParam17.slice().reverse()));
     ++linearValue50 < linearValue47;
+
   ) {
     linearValue48[linearValue50] = linearHelper19(
       linearParam16[linearValue50],
@@ -614,6 +615,7 @@ function linearN(linearParam2) {
         (linearValue38 = linearValue39),
         (linearValue39 = linearValue43));
         linearValue44-- > 0;
+
       ) {
         if (
           ((linearValue43 = linearHelper16(

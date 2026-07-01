@@ -117,7 +117,7 @@ function resolveCreateThreadTarget(
       };
 }
 
-async function handleForkThread({
+export async function handleForkThread({
   scope,
   argumentsValue,
   sourceThreadId,

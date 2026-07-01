@@ -123,3 +123,5 @@ export function hasServerRateLimitReached(
   const rateLimit = getRateLimit(status);
   return rateLimit?.limit_reached === true || rateLimit?.allowed === false;
 }
+
+export function initRateLimitStatusChunk(): void {}

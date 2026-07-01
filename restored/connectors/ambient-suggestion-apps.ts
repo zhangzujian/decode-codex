@@ -105,3 +105,7 @@ export function normalizeAmbientSuggestionAppKey(value: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-");
 }
+
+export function initAmbientSuggestionAppsChunk(): void {
+  void ambientSuggestionAppIndexSignal;
+}

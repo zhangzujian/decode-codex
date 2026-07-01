@@ -46238,6 +46238,7 @@ function Z6(e, t, n, r) {
       for (
         ;
         e < t && o.text[o.text.length - e - 1] == s.text[s.text.length - e - 1];
+
       )
         (e++, n--, r--);
       return { a: n, b: r };

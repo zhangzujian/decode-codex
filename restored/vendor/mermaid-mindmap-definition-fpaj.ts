@@ -605,6 +605,7 @@ var mindmapDefinitionVGOIOE7TValue1 = (function () {
             mindmapDefinitionVGOIOE7TValue51,
             mindmapDefinitionVGOIOE7TValue52;
           ;
+
         ) {
           if (
             ((mindmapDefinitionVGOIOE7TValue45 =

@@ -4,8 +4,9 @@ import * as React from "react";
 import { FormattedMessage } from "../vendor/react-intl";
 
 const ArtifactTabContentLazy = React.lazy(async () => {
-  const { ArtifactTabContent } =
-    await import("../vendor/artifact-tab-content-electron");
+  const { ArtifactTabContent } = await import(
+    "../vendor/artifact-tab-content-electron"
+  );
   return { default: ArtifactTabContent };
 });
 

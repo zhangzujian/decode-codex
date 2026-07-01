@@ -268,6 +268,7 @@ function useComposerControllerHelper3(
     let useComposerControllerValue135 = useComposerControllerParam56.childCount,
       _useComposerControllerV = useComposerControllerParam57.childCount;
     ;
+
   ) {
     if (useComposerControllerValue135 == 0 || _useComposerControllerV == 0)
       return useComposerControllerValue135 == _useComposerControllerV
@@ -317,6 +318,7 @@ function useComposerControllerHelper3(
               useComposerControllerValue522 -
               1
           ];
+
       )
         (useComposerControllerValue522++,
           useComposerControllerParam58--,
@@ -1879,6 +1881,7 @@ var useComposerControllerValue2 = class UseComposerControllerClass3 {
       for (
         let useComposerControllerValue543 = useComposerControllerParam192;
         ;
+
       ) {
         let { index: index, offset: offset } =
             useComposerControllerValue543.content.findIndex(
@@ -5310,6 +5313,7 @@ export const useComposerControllerUnderscore = class UseComposerControllerClass1
             useComposerControllerValue209 <
               useComposerControllerValue116.length &&
             useComposerControllerValue210 < item.marks.length;
+
           ) {
             let useComposerControllerValue569 =
               item.marks[useComposerControllerValue210];
@@ -5330,6 +5334,7 @@ export const useComposerControllerUnderscore = class UseComposerControllerClass1
             ;
             useComposerControllerValue209 <
             useComposerControllerValue116.length;
+
           )
             useComposerControllerValue115 =
               useComposerControllerValue116.pop()[1];
@@ -6943,6 +6948,7 @@ function useComposerControllerHelper51(
     useComposerControllerValue325.indexAfter(useComposerControllerValue327) ==
       useComposerControllerValue325.node(useComposerControllerValue327)
         .childCount;
+
   )
     (useComposerControllerValue327--, useComposerControllerValue326--);
   if (useComposerControllerValue326 > 0) {
@@ -7068,6 +7074,7 @@ function useComposerControllerHelper53(
           (useComposerControllerValue720 = useComposerControllerParam46.isInSet(
             useComposerControllerValue719,
           ));
+
         )
           ((useComposerControllerValue148 ||= []).push(
             useComposerControllerValue720,
@@ -7207,6 +7214,7 @@ function useComposerControllerHelper54(
           (useComposerControllerValue470 = useComposerControllerValue471.exec(
             useComposerControllerValue162.text,
           ));
+
         )
           ((useComposerControllerValue472 ||= new useComposerControllerS(
             useComposerControllerV.from(
@@ -7487,6 +7495,7 @@ function useComposerControllerHelper58(
         (_useComposerControllerV = useComposerControllerValue483.exec(
           item.text,
         ));
+
       ) {
         let useComposerControllerValue596 =
           useComposerControllerParam281.mapping
@@ -7998,6 +8007,7 @@ var useComposerControllerValue39 = class {
       useComposerControllerValue130 &&
       _useComposerControllerV &&
       useComposerControllerValue129.childCount == 1;
+
     )
       ((useComposerControllerValue129 =
         useComposerControllerValue129.firstChild.content),
@@ -8216,6 +8226,7 @@ var useComposerControllerValue39 = class {
     for (
       ;
       useComposerControllerValue75 < useComposerControllerValue73.childCount;
+
     ) {
       let useComposerControllerValue458 = useComposerControllerValue73.child(
           useComposerControllerValue75,
@@ -8323,6 +8334,7 @@ var useComposerControllerValue39 = class {
     for (
       ;
       depth > 1 && useComposerControllerValue202 == this.$to.end(--depth);
+
     )
       ++useComposerControllerValue202;
     return useComposerControllerValue202;
@@ -9512,6 +9524,7 @@ var useComposerControllerValue43 = class {
             useComposerControllerParam159.isInSet(
               useComposerControllerValue554,
             ));
+
         )
           (useComposerControllerValue556.push(
             new useComposerControllerValue36(

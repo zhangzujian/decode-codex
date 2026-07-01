@@ -145,7 +145,9 @@ export function ensureBrowserSidebarCommentRootHost(): HTMLDivElement {
   return rootHost;
 }
 
-class BrowserSidebarCommentRuntimeMountController implements BrowserSidebarRuntimeController {
+class BrowserSidebarCommentRuntimeMountController
+  implements BrowserSidebarRuntimeController
+{
   #disposed = false;
   #latestForwardedMessage: BrowserSidebarHostMessage | null = null;
   #runtimeState: BrowserSidebarRuntimeState;

@@ -37,7 +37,8 @@ export interface ConversationalOnboardingTaskBase {
   getDeclinedRetryPrompt?: (...args: unknown[]) => ReactNode | string;
 }
 
-export interface ConversationalOnboardingMessagingTask extends ConversationalOnboardingTaskBase {
+export interface ConversationalOnboardingMessagingTask
+  extends ConversationalOnboardingTaskBase {
   getPluginName: (
     accountType: string,
   ) => ConversationalOnboardingPluginName | null;

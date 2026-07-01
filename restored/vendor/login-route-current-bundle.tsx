@@ -1594,6 +1594,7 @@ function loginRouteHelper12(loginRouteParam2) {
               item.x === loginRouteValue256.x &&
               item.y === loginRouteValue256.y,
           );
+
         )
           loginRouteValue256 = {
             x: Math.floor(Math.random() * loginRouteValue84.current.columns),

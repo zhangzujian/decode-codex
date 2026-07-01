@@ -60,9 +60,9 @@ function toElementArray<TElement extends Element>(
 function isModifiedClick(event: MouseEvent): boolean {
   return Boolean(
     event.ctrlKey ||
-    event.shiftKey ||
-    event.metaKey ||
-    (event.button && event.button === 1),
+      event.shiftKey ||
+      event.metaKey ||
+      (event.button && event.button === 1),
   );
 }
 function opensInNewBrowsingContext(

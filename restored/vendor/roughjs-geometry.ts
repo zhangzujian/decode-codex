@@ -229,6 +229,7 @@ function srcHelper4(srcParam4, srcParam5, srcParam6, srcParam7) {
         for (
           var srcValue409 = -1, srcValue410 = srcValue113.length, srcValue411;
           ++srcValue409 < srcValue410;
+
         )
           srcValue112[(srcValue411 = srcValue113[srcValue409]).i] =
             srcValue411.x(srcParam226);
@@ -772,6 +773,7 @@ function srcHelper36(srcParam9, srcParam10) {
         for (
           srcValue50 >= srcValue51 && (srcValue51 = srcValue50 + 1);
           !(srcValue53 = srcValue49[srcValue51]) && ++srcValue51 < srcValue47;
+
         );
         srcValue52._next = srcValue53 || null;
       }
@@ -846,6 +848,7 @@ function srcHelper41() {
       srcValue256 = -1,
       srcValue257 = srcValue255.length;
     ++srcValue256 < srcValue257;
+
   )
     for (
       var srcValue258 = srcValue255[srcValue256],
@@ -853,6 +856,7 @@ function srcHelper41() {
         srcValue260 = srcValue258[srcValue259],
         srcValue261;
       --srcValue259 >= 0;
+
     )
       (srcValue261 = srcValue258[srcValue259]) &&
         (srcValue260 &&
@@ -1123,6 +1127,7 @@ function srcHelper69(srcParam268, srcParam269) {
       srcValue429 = -1,
       srcValue430 = srcParam269.length;
     ++srcValue429 < srcValue430;
+
   )
     srcValue428.add(srcParam269[srcValue429]);
 }
@@ -1132,6 +1137,7 @@ function srcHelper70(srcParam261, srcParam262) {
       srcValue425 = -1,
       srcValue426 = srcParam262.length;
     ++srcValue425 < srcValue426;
+
   )
     srcValue424.remove(srcParam262[srcValue425]);
 }
@@ -1161,6 +1167,7 @@ function srcHelper73(srcParam90, srcParam91) {
         srcValue264 = -1,
         srcValue265 = srcValue262.length;
       ++srcValue264 < srcValue265;
+
     )
       if (!srcValue263.contains(srcValue262[srcValue264])) return false;
     return true;
@@ -1602,6 +1609,7 @@ function srcHelper114() {
   for (
     var srcValue331, srcValue332 = srcValue15, srcValue333, srcValue334 = 1 / 0;
     srcValue332;
+
   )
     srcValue332._call
       ? (srcValue334 > srcValue332._time && (srcValue334 = srcValue332._time),
@@ -1778,6 +1786,7 @@ function srcHelper121(srcParam1, srcParam2, srcParam3) {
         srcValue253 = -1,
         srcValue254 = srcValue30.length;
       ++srcValue253 < srcValue254;
+
     )
       srcValue30[srcValue253].call(srcParam1, srcValue252);
     srcParam3.state === 5 &&
@@ -2668,6 +2677,7 @@ function srcHelper178(srcParam155, srcParam156) {
     var srcValue347;
     !(srcValue347 = srcParam155.__transition) ||
     !(srcValue347 = srcValue347[srcParam156]);
+
   )
     if (!(srcParam155 = srcParam155.parentNode))
       throw Error(`transition ${srcParam156} not found`);

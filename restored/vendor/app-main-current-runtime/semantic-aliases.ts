@@ -130,6 +130,10 @@ export {
 } from "../../icons/regenerate-icon";
 export { initStopIconChunk, StopIcon } from "../../icons/stop-icon";
 export {
+  CirclePlayIcon,
+  initCirclePlayIconChunk,
+} from "../../icons/play-circle";
+export {
   ComposerContextButton,
   initComposerContextButtonChunk,
 } from "../../features/use-dictation/context-button";
@@ -188,8 +192,89 @@ export {
   OPENAI_APPS_SDK_DOCS_URL,
   OPENAI_PLUGINS_GITHUB_URL,
 } from "../../utils/links-bd-mmkun-d";
+export {
+  browserProfileImportProfilesQuery,
+  filterImportableBrowserProfiles,
+  importBrowserProfile,
+  initBrowserProfileImportQueryChunk,
+} from "../../browser/browser-profile-import-query";
+export { BROWSER_PROFILE_IMPORT_NUX_SEEN_STORAGE_KEY } from "../../browser/browser-profile-import-nux-state";
+export { formatModelDisplayName } from "../../utils/format-model-display-name";
+export {
+  formatFallbackHookTitle,
+  formatHookEventDescription,
+  formatHookEventName,
+  getHookPluginDisplayId,
+  initHooksSettingsCopyChunk,
+} from "../../settings/hooks-settings-copy";
+export {
+  buildHooksSettingsRoute,
+  buildHooksSettingsRouteForHooks,
+  initHooksSettingsRouteChunk,
+  updateHooksSettingsSearchParams,
+} from "../../settings/hooks-settings-route";
 export { resolveSidePanelBrowserTabId } from "../../browser/browser-tab-id-resolution";
 export { normalizeWorkspacePath } from "../../boundaries/src-l0hb/paths";
+export { useCreateGitRepository } from "../../review/use-create-git-repository";
+export {
+  getMonthlySpendLimitUsage,
+  hasCredits,
+  hasRateLimitReached,
+  isSpendControlBlockedByWorkspaceCap,
+  isSpendControlNearWorkspaceCap,
+  isWorkspaceCreditsExhausted,
+  isWorkspaceSpendControlReached,
+  shouldUseCreditsRateLimitDisplay,
+} from "../../utils/rate-limit-status/account-status";
+export {
+  DAY_MINUTES,
+  getLatestRateLimitResetAt,
+  hasRateLimitWindow,
+  initRateLimitStatusChunk,
+  MONTH_MINUTES,
+  parseUnixSeconds,
+  remainingUsagePercent,
+  secondsUntilUnixSeconds,
+  selectRateLimitAlert,
+  WEEK_MINUTES,
+  YEAR_MINUTES,
+} from "../../utils/rate-limit-status/windows";
+export {
+  formatDateAndTime,
+  formatRateLimitWindowLabel,
+  formatRemainingPercent,
+  formatResetDate,
+} from "../../utils/rate-limit-status/formatting";
+export { formatScheduleConfigSummary } from "../../automation/automation-schedule";
+export { useImageAssetDownload } from "../../image-side-panel/use-image-asset-download";
+export { openImagePreviewTab } from "../../image-side-panel/open-image-preview-tab";
+export {
+  applyBrowserCommentPopupShake,
+  initBrowserCommentPopupShakeChunk,
+} from "../../browser/browser-comment-popup-shake";
+export { isCurrentLocationCodexPage } from "../../utils/is-codex-page-route";
+export { remapDiffCommentsForHandoff } from "../../conversations/remap-diff-comments-for-handoff";
+export { handleForkThread } from "../../conversations/thread-management-tool-handlers";
+export {
+  CREATE_THREAD_TOOL_NAME,
+  FORK_THREAD_TOOL_NAME,
+  LIST_PROJECTS_TOOL_NAME,
+  LIST_THREADS_TOOL_NAME,
+  READ_THREAD_TOOL_NAME,
+  SEND_MESSAGE_TO_THREAD_TOOL_NAME,
+  SET_THREAD_ARCHIVED_TOOL_NAME,
+  SET_THREAD_PINNED_TOOL_NAME,
+  SET_THREAD_TITLE_TOOL_NAME,
+} from "../../conversations/codex-app-tool-names";
+export {
+  openAutomationSuggestionTab,
+  openAutomationTab,
+} from "../../automations/automation-side-panel-tabs";
+export {
+  initThinkingShimmerChunk,
+  ThinkingShimmer,
+  ThinkingShimmerMessage,
+} from "../../ui/thinking-shimmer";
 export {
   formatAutomationNextRunLabel,
   initAutomationNextRunLabelChunk,
@@ -327,6 +412,34 @@ export {
   initUseServiceTierChunk,
   useServiceTier,
 } from "../../composer/use-service-tier";
+export {
+  initUseServiceTierSettingsChunk,
+  useServiceTierSettings,
+} from "../../composer/use-service-tier-settings";
+export {
+  findAmbientSuggestionApps,
+  hasUnknownAmbientSuggestionAppIcon,
+  initAmbientSuggestionAppsChunk,
+  useAmbientSuggestionApps,
+} from "../../connectors/ambient-suggestion-apps";
+export {
+  DocumentSearchIcon,
+  initDocumentSearchIconChunk,
+} from "../../icons/document-search-icon";
+export {
+  initWindowsTabsOpenSchemaChunk,
+  windowsTabsOpenActionSchema,
+} from "../../runtime/windows-tabs-open-schema";
+export {
+  areEquivalentLocales,
+  DEFAULT_LOCALE,
+  getLocaleLanguageDisplayName,
+  getSupportedLocales,
+  isEnglishLocale,
+  loadLocaleMessages,
+  normalizeLocale,
+  resolveLocale,
+} from "../../i18n/locale-resolver";
 export { initPrimaryRuntimeInstallStatusMessageChunk } from "../../runtime/primary-runtime-install-status-message";
 export {
   aboveComposerSuggestionDismissalsAtom,

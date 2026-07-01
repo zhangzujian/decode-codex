@@ -64,10 +64,8 @@ export function RemoteThreadRightPanelChrome({
   );
 }
 
-export interface LocalThreadRightPanelChromeProps extends Omit<
-  ThreadPanelNewTabModelOptions,
-  "target"
-> {
+export interface LocalThreadRightPanelChromeProps
+  extends Omit<ThreadPanelNewTabModelOptions, "target"> {
   activeRightTabId?: string | null;
   browserConversationId?: string | null;
   labels?: {

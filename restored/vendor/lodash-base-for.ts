@@ -325,6 +325,7 @@ function baseForHelper31(baseForParam31, __baseForO) {
   for (
     var baseForValue111 = -1, baseForValue112 = Array(baseForParam31);
     ++baseForValue111 < baseForParam31;
+
   )
     baseForValue112[baseForValue111] = __baseForO(baseForValue111);
   return baseForValue112;
@@ -548,6 +549,7 @@ function baseForHelper35(baseForParam4) {
         baseForValue90 = baseForParam8(__baseForO),
         baseForValue91 = baseForValue90.length;
       baseForValue91--;
+
     ) {
       var baseForValue92 =
         baseForValue90[baseForParam4 ? baseForValue91 : ++baseForValue88];

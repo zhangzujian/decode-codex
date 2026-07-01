@@ -18,4 +18,5 @@ export function DocumentSearchIcon(props: IconProps) {
     </svg>
   );
 }
+export function initDocumentSearchIconChunk(): void {}
 export default DocumentSearchIcon;

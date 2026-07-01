@@ -57,4 +57,5 @@ export const windowsTabsOpenActionSchema = windowsTabsOpenRequestSchema.extend({
   type: zLiteral("windows.tabs.open"),
   windowId: currentWindowIdSchema,
 });
+export function initWindowsTabsOpenSchemaChunk(): void {}
 export { windowsTabsOpenRequestSchema };

@@ -236,6 +236,7 @@ function walkSimpleLines(
       !hasLine &&
       ((index = skipLeadingBreaks(layout, index)), index >= widths.length)
     );
+
   ) {
     const width = widths[index];
     const kind = kinds[index];

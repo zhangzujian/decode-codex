@@ -59,9 +59,9 @@ function isFlattenable(value: unknown): value is ArrayLike<unknown> {
     getTag(value) === "[object Arguments]" ||
     Boolean(
       isObjectLike(value) &&
-      (value as { [Symbol.isConcatSpreadable]?: unknown })[
-        Symbol.isConcatSpreadable
-      ],
+        (value as { [Symbol.isConcatSpreadable]?: unknown })[
+          Symbol.isConcatSpreadable
+        ],
     )
   );
 }

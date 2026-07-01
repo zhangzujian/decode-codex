@@ -14,10 +14,8 @@ import type {
 const bottomPanelTabPanelSelector =
   '[role="tabpanel"][data-app-shell-tab-panel-controller="bottom"]';
 
-export interface ThreadBottomPanelChromeProps extends Omit<
-  ThreadPanelNewTabModelOptions,
-  "target"
-> {
+export interface ThreadBottomPanelChromeProps
+  extends Omit<ThreadPanelNewTabModelOptions, "target"> {
   actionIdPrefix: string;
   activeBottomTabId?: string | null;
   bottomPanelLauncherVisible?: boolean;

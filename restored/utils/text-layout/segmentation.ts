@@ -395,6 +395,7 @@ function mergeNumericRuns(segmented: SegmentedText): SegmentedText {
         scan < segmented.len &&
         segmented.kinds[scan] === "text" &&
         isNumericLike(segmented.texts[scan]);
+
       ) {
         parts.push(segmented.texts[scan]);
         scan++;
@@ -442,6 +443,7 @@ function mergeWordsWithTrailingPunctuation(
         segmented.kinds[scan] === "text" &&
         segmented.isWordLike[scan] &&
         WORD_WITH_TRAILING_PUNCTUATION.test(segmented.texts[scan]);
+
       ) {
         const nextText = segmented.texts[scan];
         parts.push(nextText);
@@ -526,6 +528,7 @@ function mergeGlueSegments(segmented: SegmentedText): SegmentedText {
       for (
         index++;
         index < segmented.len && segmented.kinds[index] === "glue";
+
       ) {
         glueParts.push(segmented.texts[index]);
         index++;

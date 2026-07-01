@@ -6,7 +6,8 @@ export type LegacyVideoPluginTarget = {
 export async function loadLegacyVideoPlugins(
   target: LegacyVideoPluginTarget,
 ): Promise<void> {
-  const { default: analyticsVideoPlugins } =
-    await import("../vendor/analytics-video-plugins");
+  const { default: analyticsVideoPlugins } = await import(
+    "../vendor/analytics-video-plugins"
+  );
   target._plugins = analyticsVideoPlugins;
 }

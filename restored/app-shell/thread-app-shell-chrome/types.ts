@@ -117,7 +117,8 @@ export interface ThreadPanelHandlers {
 }
 
 export interface ThreadPanelNewTabModelOptions
-  extends ThreadPanelAvailability, ThreadPanelHandlers {
+  extends ThreadPanelAvailability,
+    ThreadPanelHandlers {
   mcpActions?: readonly ThreadPanelAction[];
   onClose?: () => void;
   outputArtifacts?: readonly OutputArtifact[];
@@ -135,7 +136,8 @@ export interface ThreadPanelNewTabModel {
 }
 
 export interface ThreadAppShellChromeProps
-  extends ThreadPanelAvailability, ThreadPanelHandlers {
+  extends ThreadPanelAvailability,
+    ThreadPanelHandlers {
   activeBottomTabId?: string | null;
   activeRightTabId?: string | null;
   bottomPanelLauncherVisible?: boolean;

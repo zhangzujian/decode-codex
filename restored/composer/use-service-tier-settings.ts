@@ -221,3 +221,5 @@ export function useServiceTierSettings(
     setServiceTier,
   };
 }
+
+export function initUseServiceTierSettingsChunk(): void {}

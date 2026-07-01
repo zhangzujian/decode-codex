@@ -105,9 +105,13 @@ function getSharedHooksPluginId(hooks: HookSettingsRouteHook[]) {
   if (pluginIds.size === 1) return pluginIds.values().next().value ?? null;
   return undefined;
 }
+function initHooksSettingsRouteChunk(): void {
+  void HOOKS_SETTINGS_ROUTE;
+}
 export {
   updateHooksSettingsSearchParams,
   buildHooksSettingsRouteForHooks,
   buildHooksSettingsRoute,
   buildHooksSettingsPath,
+  initHooksSettingsRouteChunk,
 };

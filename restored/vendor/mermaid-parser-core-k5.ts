@@ -72,8 +72,9 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   info: chunkK5T4RW27M(async () => {
     let { createInfoServices } = await PreloadHelper(
       async () => {
-        let { createInfoServices: _createInfoServices } =
-          await import("./mermaid-info-definition-k5");
+        let { createInfoServices: _createInfoServices } = await import(
+          "./mermaid-info-definition-k5"
+        );
         return {
           createInfoServices: _createInfoServices,
         };
@@ -86,8 +87,9 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   packet: chunkK5T4RW27M(async () => {
     let { createPacketServices } = await PreloadHelper(
       async () => {
-        let { createPacketServices: _createPacketServices } =
-          await import("./mermaid-packet-definition-k5");
+        let { createPacketServices: _createPacketServices } = await import(
+          "./mermaid-packet-definition-k5"
+        );
         return {
           createPacketServices: _createPacketServices,
         };
@@ -101,8 +103,9 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   pie: chunkK5T4RW27M(async () => {
     let { createPieServices } = await PreloadHelper(
       async () => {
-        let { createPieServices: _createPieServices } =
-          await import("./mermaid-pie-definition-k5");
+        let { createPieServices: _createPieServices } = await import(
+          "./mermaid-pie-definition-k5"
+        );
         return {
           createPieServices: _createPieServices,
         };
@@ -115,8 +118,9 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   treeView: chunkK5T4RW27M(async () => {
     let { createTreeViewServices } = await PreloadHelper(
       async () => {
-        let { createTreeViewServices: _createTreeViewServices } =
-          await import("./mermaid-tree-view-definition-k5");
+        let { createTreeViewServices: _createTreeViewServices } = await import(
+          "./mermaid-tree-view-definition-k5"
+        );
         return {
           createTreeViewServices: _createTreeViewServices,
         };
@@ -145,8 +149,9 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   gitGraph: chunkK5T4RW27M(async () => {
     let { createGitGraphServices } = await PreloadHelper(
       async () => {
-        let { createGitGraphServices: _createGitGraphServices } =
-          await import("./mermaid-git-graph-definition-k5");
+        let { createGitGraphServices: _createGitGraphServices } = await import(
+          "./mermaid-git-graph-definition-k5"
+        );
         return {
           createGitGraphServices: _createGitGraphServices,
         };
@@ -160,8 +165,9 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   radar: chunkK5T4RW27M(async () => {
     let { createRadarServices } = await PreloadHelper(
       async () => {
-        let { createRadarServices: _createRadarServices } =
-          await import("./mermaid-radar-definition-k5");
+        let { createRadarServices: _createRadarServices } = await import(
+          "./mermaid-radar-definition-k5"
+        );
         return {
           createRadarServices: _createRadarServices,
         };
@@ -175,8 +181,9 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   treemap: chunkK5T4RW27M(async () => {
     let { createTreemapServices } = await PreloadHelper(
       async () => {
-        let { createTreemapServices: _createTreemapServices } =
-          await import("./mermaid-treemap-definition-k5");
+        let { createTreemapServices: _createTreemapServices } = await import(
+          "./mermaid-treemap-definition-k5"
+        );
         return {
           createTreemapServices: _createTreemapServices,
         };
@@ -190,8 +197,9 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   wardley: chunkK5T4RW27M(async () => {
     let { createWardleyServices } = await PreloadHelper(
       async () => {
-        let { createWardleyServices: _createWardleyServices } =
-          await import("./mermaid-wardley-definition-k5");
+        let { createWardleyServices: _createWardleyServices } = await import(
+          "./mermaid-wardley-definition-k5"
+        );
         return {
           createWardleyServices: _createWardleyServices,
         };

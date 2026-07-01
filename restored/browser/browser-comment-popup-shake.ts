@@ -24,6 +24,8 @@ export function applyBrowserCommentPopupShake({
   });
 }
 
+export function initBrowserCommentPopupShakeChunk(): void {}
+
 export function resolveLightDismissBehavior({
   isLightDismissible,
   isLightDismissArmed,

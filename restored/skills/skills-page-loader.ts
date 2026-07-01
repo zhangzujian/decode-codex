@@ -7,7 +7,9 @@ import { preloadDynamicImport } from "../runtime/dynamic-module-preload";
 export async function prefetchSkillsPage(): Promise<void> {
   await preloadDynamicImport(
     () =>
-      import("../runtime/current-app-initial/skills-page-route-current-runtime"),
+      import(
+        "../runtime/current-app-initial/skills-page-route-current-runtime"
+      ),
     [],
     import.meta.url,
   );

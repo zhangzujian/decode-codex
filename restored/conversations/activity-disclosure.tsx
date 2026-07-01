@@ -43,7 +43,8 @@ export interface ActivityDisclosureHeaderRowProps {
   testId?: string;
 }
 
-export interface ActivityDisclosureLayoutProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ActivityDisclosureLayoutProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   body?: React.ReactNode;
   header?: React.ReactNode;
 }

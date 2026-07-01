@@ -71,3 +71,5 @@ export function browserProfileImportProfilesQuery(
     staleTime: BROWSER_PROFILE_IMPORT_STALE_TIME_MS,
   });
 }
+
+export function initBrowserProfileImportQueryChunk(): void {}

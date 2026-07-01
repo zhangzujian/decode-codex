@@ -165,9 +165,13 @@ function formatHookEventDescription(eventName: HookEventName, intl: IntlShape) {
       return intl.formatMessage(hookEventMessages.stopDescription);
   }
 }
+function initHooksSettingsCopyChunk(): void {
+  void hookEventMessages;
+}
 export {
   getHookPluginDisplayId,
   formatHookEventName,
   formatFallbackHookTitle,
   formatHookEventDescription,
+  initHooksSettingsCopyChunk,
 };
