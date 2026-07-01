@@ -11,10 +11,14 @@ type ImportableBrowserProfile = {
 export const BROWSER_PROFILE_IMPORT_NUX_SEEN_STORAGE_KEY =
   "has-seen-browser-profile-import-nux-v1";
 
+export function initBrowserProfileImportNuxStorageKeyChunk(): void {}
+
 export const browserProfileImportNuxSeenAtom = persistedAtom<boolean>(
   BROWSER_PROFILE_IMPORT_NUX_SEEN_STORAGE_KEY,
   false,
 );
+
+export function initBrowserProfileImportNuxStateChunk(): void {}
 
 export type ShouldShowBrowserProfileImportNuxArgs = {
   baseGateEnabled: boolean;

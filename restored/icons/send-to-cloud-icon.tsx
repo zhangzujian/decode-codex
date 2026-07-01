@@ -3,6 +3,9 @@
 
 import type { SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement>;
+
+export function initSendToCloudIconChunk(): void {}
+
 export function SendToCloudIcon(props: IconProps) {
   return (
     <svg

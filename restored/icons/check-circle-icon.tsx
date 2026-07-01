@@ -3,6 +3,9 @@
 
 import type { SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement>;
+
+export function initCheckCircleIconChunk(): void {}
+
 export function CheckCircleIcon(props: IconProps) {
   return (
     <svg

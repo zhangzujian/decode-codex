@@ -13,8 +13,29 @@ export { DragIcon, initDragIconChunk } from "../../icons/drag-icon";
 export { LaptopIcon, initLaptopIconChunk } from "../../icons/laptop-icon";
 export { LockIcon, initLockIconChunk } from "../../icons/lock-icon";
 export { PinIcon, initPinIconChunk } from "../../icons/pin-icon";
-export { UploadIcon } from "../../icons/upload-icon";
+export { initUploadIconChunk, UploadIcon } from "../../icons/upload-icon";
 export { WarningIcon, initWarningIconChunk } from "../../icons/warning-icon";
+export {
+  GoogleChromeIcon,
+  initGoogleChromeIconChunk,
+} from "../../icons/google-chrome-icon";
+export {
+  CheckCircleIcon,
+  initCheckCircleIconChunk,
+} from "../../icons/check-circle-icon";
+export {
+  ArrowUpRightLgIcon,
+  initArrowUpRightLgIconChunk,
+} from "../../icons/arrow-up-right-lg-icon";
+export { initUndoIconChunk, UndoIcon } from "../../icons/undo-icon";
+export {
+  initSendToCloudIconChunk,
+  SendToCloudIcon,
+} from "../../icons/send-to-cloud-icon";
+export {
+  initMicrosoftIconChunk,
+  MicrosoftIcon,
+} from "../../icons/microsoft-icon";
 export { FileSourceTab } from "../../review/file-source-tab";
 export {
   initPullRequestStatusRuntimeChunk,
@@ -93,6 +114,8 @@ export {
   OPEN_IN_CODEX_TOOL_NAME,
   runAppActionInPrimaryWindow,
 } from "../../runtime/run-app-action-in-primary-window";
+export { openInCodex } from "../../runtime/open-in-codex-tool";
+export { navigateToCodexPage } from "../../runtime/navigate-to-codex-page-tool";
 export {
   finishPrimaryRuntimeInstallBeforeFirstTurn,
   initPrimaryRuntimeInstallStateChunk,
@@ -118,6 +141,11 @@ export {
   setSettingsSelectedHostId,
   useSettingsHostContext,
 } from "../../settings/settings-host-context";
+export {
+  initSettingsToolDefinitionsChunk,
+  READ_SETTINGS_TOOL_NAME,
+  WRITE_SETTINGS_TOOL_NAME,
+} from "../../settings/settings-tool-definitions";
 export {
   BrowserOptionsMenuTriggerButton,
   initBrowserOptionsMenuTriggerButtonChunk,
@@ -232,7 +260,12 @@ export {
   importBrowserProfile,
   initBrowserProfileImportQueryChunk,
 } from "../../browser/browser-profile-import-query";
-export { BROWSER_PROFILE_IMPORT_NUX_SEEN_STORAGE_KEY } from "../../browser/browser-profile-import-nux-state";
+export {
+  BROWSER_PROFILE_IMPORT_NUX_SEEN_STORAGE_KEY,
+  browserProfileImportNuxSeenAtom,
+  initBrowserProfileImportNuxStorageKeyChunk,
+  initBrowserProfileImportNuxStateChunk,
+} from "../../browser/browser-profile-import-nux-state";
 export { formatModelDisplayName } from "../../utils/format-model-display-name";
 export {
   formatFallbackHookTitle,
@@ -387,6 +420,10 @@ export {
 } from "../../conversations/turn-collapse-state";
 export { scrollConversationItemIntoView } from "../../conversations/scroll-conversation-item-into-view";
 export { commandExecutionCommand } from "../../utils/command-execution-command";
+export {
+  getAutomaticApprovalReviewActionSummary,
+  initAutomaticApprovalReviewMessagesChunk,
+} from "../../utils/automatic-approval-review";
 export {
   GoogleResourceKindIcon,
   initGoogleResourceKindIconChunk,

@@ -3,6 +3,9 @@
 
 import type { SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement>;
+
+export function initGoogleChromeIconChunk(): void {}
+
 export function GoogleChromeIcon(props: IconProps) {
   return (
     <svg

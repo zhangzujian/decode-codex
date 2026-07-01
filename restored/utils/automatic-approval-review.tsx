@@ -49,6 +49,9 @@ const useEffectEvent = (
     useEffectEvent: UseEffectEvent;
   }
 ).useEffectEvent;
+
+export function initAutomaticApprovalReviewMessagesChunk(): void {}
+
 const automaticApprovalReviewMessages = defineMessages({
   actionSummaryEditingFile: {
     id: "localConversation.automaticApprovalReview.actionSummary.editingFile",

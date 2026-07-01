@@ -3,6 +3,9 @@
 
 import type { SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement>;
+
+export function initArrowUpRightLgIconChunk(): void {}
+
 export function ArrowUpRightLgIcon(props: IconProps) {
   return (
     <svg

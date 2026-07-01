@@ -3,6 +3,9 @@
 
 import type { SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement>;
+
+export function initUndoIconChunk(): void {}
+
 export function UndoIcon(props: IconProps) {
   return (
     <svg
