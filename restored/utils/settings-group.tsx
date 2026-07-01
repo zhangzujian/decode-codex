@@ -80,3 +80,5 @@ export const SettingsGroup = Object.assign(SettingsGroupRoot, {
   Header: SettingsGroupHeader,
   Content: SettingsGroupContent,
 });
+
+export function initSettingsGroupChunk(): void {}

@@ -4,9 +4,8 @@ import type { ReactNode } from "react";
 import type { ExternalAgentImportItem } from "../general-appearance-runtime/types";
 
 export const EXTERNAL_AGENT_IMPORT_PROVIDER_IDS = [
-  "claude",
-  "cursor",
-  "windsurf",
+  "claude-code",
+  "claude-cowork",
 ] as const;
 
 export type ExternalAgentImportProviderId =
@@ -42,6 +41,34 @@ export type ExternalAgentImportSelection = {
   includeSessions?: boolean;
   includeSkills?: boolean;
   includeSubagents?: boolean;
+};
+
+type ExternalAgentImportChoiceSelection = Record<string, boolean | undefined>;
+
+type ExternalAgentImportProviderBreakdown = {
+  providerId: string;
+  projectCount?: number;
+  recentChatCount?: number;
+  toolsAndSetupCount?: number;
+};
+
+type ExternalAgentImportCustomizeItem = {
+  group?: "projects" | "toolsAndSetup" | string;
+  id: string;
+  item?: {
+    itemType?: ExternalAgentImportItem["itemType"];
+    providerId?: string;
+  };
+  providerId?: string;
+};
+
+type ExternalAgentImportSummaryLike = {
+  chatChoiceKey?: string | null;
+  customizeItems: readonly ExternalAgentImportCustomizeItem[];
+  projectChoiceKey?: string | null;
+  providerBreakdowns?: readonly ExternalAgentImportProviderBreakdown[];
+  projectCount?: number;
+  recentChatCount?: number;
 };
 
 type ExternalAgentImportStepProps = {
@@ -158,6 +185,108 @@ export function createExternalAgentImportEventPayload(
   providerIds: readonly string[],
 ): Record<string, unknown> {
   return { providerIds: [...providerIds], selectedCount, summary };
+}
+
+export function createDefaultExternalAgentImportSelection(
+  summary: ExternalAgentImportSummaryLike,
+): ExternalAgentImportChoiceSelection {
+  return {
+    ...Object.fromEntries(
+      summary.customizeItems.map((item) => [item.id, true]),
+    ),
+    ...(summary.projectChoiceKey == null
+      ? {}
+      : { [summary.projectChoiceKey]: true }),
+    ...(summary.chatChoiceKey == null ? {} : { [summary.chatChoiceKey]: true }),
+  };
+}
+
+export function createExternalAgentImportSelectionEventPayload(
+  summary: ExternalAgentImportSummaryLike,
+  selection: ExternalAgentImportChoiceSelection,
+  providerIds: readonly string[] = getProviderIdsFromSummary(summary),
+): Record<string, unknown> {
+  const itemCountKeys: Record<string, string> = {
+    AGENTS_MD: "instructionsSelectedCount",
+    COMMANDS: "commandsSelectedCount",
+    CONFIG: "settingsSelectedCount",
+    HOOKS: "hooksSelectedCount",
+    MCP_SERVER_CONFIG: "mcpServersSelectedCount",
+    PLUGINS: "pluginsSelectedCount",
+    SKILLS: "skillsSelectedCount",
+    SUBAGENTS: "agentsSelectedCount",
+  };
+  const selectedCounts: Record<string, number> = {
+    agentsSelectedCount: 0,
+    commandsSelectedCount: 0,
+    hooksSelectedCount: 0,
+    instructionsSelectedCount: 0,
+    mcpServersSelectedCount: 0,
+    pluginsSelectedCount: 0,
+    settingsSelectedCount: 0,
+    skillsSelectedCount: 0,
+  };
+  let totalItemsCount = 0;
+
+  for (const item of summary.customizeItems) {
+    const itemType = item.item?.itemType ?? item.id.split(":")[0];
+    const countKey = itemCountKeys[itemType];
+    if (countKey == null) continue;
+    totalItemsCount += 1;
+    if (selection[item.id] === true) {
+      selectedCounts[countKey] = (selectedCounts[countKey] ?? 0) + 1;
+    }
+  }
+
+  const selectedItemsCount = Object.values(selectedCounts).reduce(
+    (total, count) => total + count,
+    0,
+  );
+  const chatsSelected =
+    summary.chatChoiceKey == null
+      ? false
+      : selection[summary.chatChoiceKey] === true;
+  const projectsSelected =
+    summary.projectChoiceKey == null
+      ? false
+      : selection[summary.projectChoiceKey] === true;
+  const selectedProviderIds = providerIds.filter((providerId) => {
+    const providerBreakdown = summary.providerBreakdowns?.find(
+      (breakdown) => breakdown.providerId === providerId,
+    );
+    const providerToolCount = summary.customizeItems.filter((item) => {
+      const itemProviderId = item.providerId ?? item.item?.providerId;
+      return itemProviderId === providerId && selection[item.id] === true;
+    }).length;
+    return (
+      providerToolCount > 0 ||
+      (projectsSelected && (providerBreakdown?.projectCount ?? 0) > 0) ||
+      (chatsSelected && (providerBreakdown?.recentChatCount ?? 0) > 0)
+    );
+  });
+
+  return {
+    ...selectedCounts,
+    chatsCount: summary.recentChatCount ?? 0,
+    chatsSelected,
+    detectedProviderCount: providerIds.length,
+    detectedProviderIds: providerIds.join(","),
+    projectsCount: summary.projectCount ?? 0,
+    projectsSelected,
+    selectedItemsCount,
+    selectedProviderCount: selectedProviderIds.length,
+    selectedProviderIds: selectedProviderIds.join(","),
+    totalItemsCount,
+  };
+}
+
+function getProviderIdsFromSummary(
+  summary: ExternalAgentImportSummaryLike,
+): readonly string[] {
+  return (
+    summary.providerBreakdowns?.map((breakdown) => breakdown.providerId) ??
+    EXTERNAL_AGENT_IMPORT_PROVIDER_IDS
+  );
 }
 
 export function useExternalAgentImportDetection({
