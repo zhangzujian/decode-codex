@@ -42685,12 +42685,12 @@
         "PetsSettings": "PetsSettings"
       },
       "status": "done",
-      "note": "Current pets settings hash maps to a dedicated current-ref runtime over vendor/pets-settings-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
-      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "note": "Current pets settings hash maps to a dedicated current-ref runtime over settings/pets-settings.tsx; dependencies are rewritten through restored current bundles.",
+      "lastUpdated": "2026-07-01T01:43:40.617Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed pets-settings-CeDsTNTI.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+      "stage3AcceptedAt": "2026-07-01T01:43:40.617Z",
+      "stage3Review": "Host self-review: migrated the readable pets settings body from vendor backing bundle into settings/pets-settings.tsx, preserved PetsSettings export parity, and kept vendor/pets-settings-current-bundle.tsx as a compatibility shim.",
+      "stage3Note": "Accepted as a semantic pets settings surface with current-ref runtime and vendor shim exports."
     },
     "personalization-settings-B1J6eU5_": {
       "restored": "runtime/current-app-initial/personalization-settings-current-runtime.ts",
