@@ -3,6 +3,7 @@
 
 const CONVERSATION_ITEM_TARGET_ATTRIBUTE =
   "data-local-conversation-item-target-ids";
+const SCROLL_TARGET_WAIT_TIMEOUT_MS = 1000;
 
 function findConversationItemElement(itemId: string): Element | null {
   const encodedId = encodeURIComponent(itemId);
@@ -31,4 +32,40 @@ export function scrollConversationItemIntoView(
   element.scrollIntoView({ block: "center", behavior });
   (element as HTMLElement).focus({ preventScroll: true });
   return true;
+}
+
+export function scrollConversationItemIntoViewWhenReady(
+  itemId: string,
+  behavior?: ScrollBehavior,
+): Promise<boolean> {
+  if (scrollConversationItemIntoView(itemId, behavior)) {
+    return Promise.resolve(true);
+  }
+
+  return new Promise((resolve) => {
+    const startedAt = performance.now();
+    let animationFrameId: number | null = null;
+
+    const finish = (result: boolean) => {
+      if (animationFrameId != null) {
+        window.cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+      resolve(result);
+    };
+
+    const poll = () => {
+      if (scrollConversationItemIntoView(itemId, behavior)) {
+        finish(true);
+        return;
+      }
+      if (performance.now() - startedAt >= SCROLL_TARGET_WAIT_TIMEOUT_MS) {
+        finish(false);
+        return;
+      }
+      animationFrameId = window.requestAnimationFrame(poll);
+    };
+
+    animationFrameId = window.requestAnimationFrame(poll);
+  });
 }

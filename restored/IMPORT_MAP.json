@@ -27581,7 +27581,7 @@
         "pp": "initPermissionProfilesQueryChunk",
         "pr": "readProjectSignal",
         "ps": "applyRequestUserInputAutoResolutionChange",
-        "pt": "appMainCurrentCompatSlotLowerPLowerT",
+        "pt": "scrollConversationItemIntoViewWhenReady",
         "pu": "initDiffStatsChunk",
         "q": "resolveRenderableAgentItems",
         "qa": "WRITE_SETTINGS_TOOL_NAME",
