@@ -41845,13 +41845,14 @@
         "z": "remoteTextEditSessionCurrentCompatSlotLowerZ"
       },
       "status": "done",
-      "note": "Current remote text edit session hash has a re-derived export alias table; it maps to a dedicated current-ref compatibility runtime over vendor/remote-text-edit-session-current-bundle.ts so the older DjCWscO4 alias surface remains distinct.",
+      "vendor": "popcorn-electron-runtime",
+      "note": "Current remote text edit session hash has a re-derived export alias table; it maps to a generated Popcorn text-edit compatibility runtime over vendor/remote-text-edit-session-current-bundle.ts so the older DjCWscO4 alias surface remains distinct.",
       "lastUpdated": "2026-06-30T22:00:09.432Z",
       "migratedFrom": "remote-text-edit-session-DjCWscO4",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T22:00:09.433Z",
       "stage3Review": "Host self-review: re-derived the current export table from auto-renamed.js, verified the backing bundle import rewrites against IMPORT_MAP dependencies, and passed quality-gate --vendored on the backing bundle plus quality-gate --check-format on the compatibility runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export surface over a restored-dependency backing bundle; full semantic splitting of the large Popcorn text-edit implementation remains a later cleanup."
+      "stage3Note": "Accepted as a generated Popcorn text-edit runtime compatibility export surface over a restored-dependency backing bundle; generated Popcorn editing payloads are intentionally gated as generated output rather than split as app features."
     },
     "popcorn-electron-surface-style-mUJ9CmvY": {
       "restored": "runtime/current-app-initial/popcorn-electron-surface-style-current-runtime.ts",
