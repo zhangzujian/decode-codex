@@ -269,6 +269,10 @@ export {
   ServiceTierCopyIcon2,
 } from "../../icons/service-tier-copy";
 export {
+  initPaperPlaneDuotoneIconChunk,
+  PaperPlaneDuotoneIcon,
+} from "../../icons/paper-plane-duotone-icon";
+export {
   initNotePlusIconChunk,
   NotePlusIcon,
 } from "../../icons/note-plus-icon";
