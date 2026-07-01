@@ -27129,7 +27129,7 @@
         "Lu": "useBrowserUseSettingsVisibility",
         "M": "initConversationalOnboardingWorkflowStateChunk",
         "Ma": "getThreadHandoffComposerBlockReason",
-        "Mc": "appMainCurrentCompatSlotUpperMLowerC",
+        "Mc": "mergeVisibleThreadIdsIntoThreadOrder",
         "Md": "GoogleChromeIcon",
         "Mf": "DocumentSearchIcon",
         "Mi": "groupPendingMcpToolCalls",

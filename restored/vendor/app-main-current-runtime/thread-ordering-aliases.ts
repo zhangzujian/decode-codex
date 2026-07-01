@@ -2,6 +2,7 @@
 // Current app-main aliases for thread/sidebar ordering helpers.
 export {
   getResolvedVisibleThreadOrder,
+  mergeVisibleThreadIdsIntoThreadOrder,
   getSidebarThreadEntityIds,
   getSidebarThreadKeyFromValue,
   getThreadMoveTarget,
