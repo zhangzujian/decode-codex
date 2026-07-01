@@ -42984,12 +42984,12 @@
         "HotkeyWindowHomePage": "HotkeyWindowHomePage"
       },
       "status": "done",
-      "note": "Current hotkey window home page hash maps to a dedicated current-ref runtime over vendor/hotkey-window-home-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
-      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "note": "Current hotkey window home page hash maps to a dedicated current-ref runtime over hotkey-window/home-page.tsx with controls split into hotkey-window/home-page-controls-impl.tsx.",
+      "lastUpdated": "2026-07-01T23:33:21Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed hotkey-window-home-page-HuAbYFeH.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+      "stage3AcceptedAt": "2026-07-01T23:33:21Z",
+      "stage3Review": "Host self-review: promoted the hotkey window home page body into semantic hotkey-window modules, restored React/createElement usage, fixed appgen local-environment import aliases from the source chunk, and preserved the current runtime public export alias.",
+      "stage3Note": "Accepted as a semantic hotkey window home page surface with a split controls implementation and no vendor backing bundle."
     },
     "hotkey-window-new-thread-page-DC8KDgIn": {
       "restored": "runtime/current-app-initial/hotkey-window-new-thread-page-current-runtime.ts",
