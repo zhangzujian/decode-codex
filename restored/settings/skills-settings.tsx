@@ -9,7 +9,7 @@ import {
 import {
   initSkillsPageChunk,
   SkillsPage,
-} from "../runtime/current-app-initial/skills-page-current-runtime";
+} from "./skills-page";
 function SkillsSettings() {
   return (
     <SettingsContentLayout>

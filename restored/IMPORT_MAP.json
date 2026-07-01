@@ -42689,18 +42689,18 @@
       "stage3Note": "Accepted as a semantic plugins settings wrapper with current-ref runtime and vendor shim exports."
     },
     "skills-page-zCIrhInI": {
-      "restored": "runtime/current-app-initial/skills-page-current-runtime.ts",
+      "restored": "settings/skills-page.tsx",
       "exports": {
         "n": "initSkillsPageChunk",
         "t": "SkillsPage"
       },
       "status": "done",
-      "note": "Current SkillsPage hash maps to a dedicated current-ref runtime over vendor/skills-page-current-bundle.tsx; current aliases are re-derived from the file and exposed as initSkillsPageChunk and SkillsPage.",
-      "lastUpdated": "2026-06-30T23:59:45.000Z",
+      "note": "Current SkillsPage hash maps to the semantic settings/skills-page.tsx body; the current-ref runtime now re-exports initSkillsPageChunk and SkillsPage from that file.",
+      "lastUpdated": "2026-07-01T23:10:18.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:59:45.000Z",
-      "stage3Review": "Host self-review: verified skills-page-zCIrhInI.js exports n/t, exposed them as initSkillsPageChunk and SkillsPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of SkillsPage remains a later cleanup."
+      "stage3AcceptedAt": "2026-07-01T23:10:18.000Z",
+      "stage3Review": "Host self-review: moved the restored SkillsPage body into settings/skills-page.tsx, replaced JSX/runtime shim residue with semantic React calls, preserved initSkillsPageChunk and SkillsPage exports, and removed the obsolete vendor backing bundle.",
+      "stage3Note": "Accepted as a semantic skills settings page body with a current-ref runtime facade."
     },
     "skills-page-DtQIsz1q": {
       "restored": "runtime/current-app-initial/skills-page-route-current-runtime.ts",
@@ -42713,7 +42713,7 @@
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:59:55.000Z",
       "stage3Review": "Host self-review: verified skills-page-DtQIsz1q.js imports n/t from the current skills page producer, invokes n(), and exports t as SkillsPage; runtime wrapper preserves that surface and passes quality-gate.",
-      "stage3Note": "Accepted as a current-ref route wrapper over runtime/current-app-initial/skills-page-current-runtime.ts; the producer body remains a compatibility backing bundle pending future semantic split."
+      "stage3Note": "Accepted as a current-ref route wrapper over runtime/current-app-initial/skills-page-current-runtime.ts; the producer body now lives in settings/skills-page.tsx."
     },
     "skills-settings-77Mu8VFb": {
       "restored": "runtime/current-app-initial/skills-settings-current-runtime.ts",
