@@ -272,4 +272,7 @@ function renderBannerCtas({
     </div>
   );
 }
-export { Banner };
+
+function initBannerChunk(): void {}
+
+export { Banner, initBannerChunk };

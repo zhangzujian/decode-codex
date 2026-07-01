@@ -239,6 +239,7 @@ export {
   BrowserOptionsMenuTriggerButton,
   initBrowserOptionsMenuTriggerButtonChunk,
 } from "../../browser/browser-options-menu-trigger-button";
+export { Banner, initBannerChunk } from "../../ui/banner";
 export {
   CommandKeymapStateListener,
   initCommandKeymapStateListenerChunk,
