@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/app-prefetch-impl-DeWg99La.js
 // Current app prefetch implementation backing bundle with restored dependency imports.
+import { useEffect } from "react";
 
 const __vite__mapDeps = (
   dependencyIndexes: number[],
@@ -109,13 +110,11 @@ const __vite__mapDeps = (
       "./thread-side-panel-tabs-DDAJVj-n.js",
     ]),
 ) => dependencyIndexes.map((index) => dependencyPaths[index]);
-import { once, toEsModule } from "../runtime/commonjs-interop";
+import { once as runOnce } from "../runtime/commonjs-interop";
 import {
   currentAppInitialSharedCompatSlotLowerALowerR,
-  currentAppInitialSharedCompatSlotUnderscoreLowerC as loadReactRuntime,
   currentAppInitialSharedCompatSlotUpperDLowerT as isWorkspaceCwdEnabled,
   currentAppInitialSharedCompatSlotUpperFLowerN,
-  currentAppInitialSharedCompatSlotLowerGLowerC as initReactCompilerRuntime,
   currentAppInitialSharedCompatSlotUpperGLowerO as useCurrentAppInitialQuery,
   currentAppInitialSharedCompatSlotLowerH,
   currentAppInitialSharedCompatSlotUpperILowerR as preloadDynamicRoute,
@@ -210,14 +209,13 @@ function useGitSubmodulePathsPrefetch(
   };
   return useCurrentAppInitialQuery(gitSubmodulePathsQuerySignal, queryParams);
 }
-const initGitSubmodulePrefetchRuntime = once(() => {
-    initReactCompilerRuntime();
+const initGitSubmodulePrefetchRuntime = runOnce(() => {
     currentAppInitialSharedCompatSlotUpperVLowerO();
     currentAppInitialSharedCompatSlotLowerH();
     workspaceWatchRepoUnwatchSignal();
     initGitSubmodulePathsQueryChunk();
   }),
-  initSyncedBranchPrefetchRuntime = once(() => {
+  initSyncedBranchPrefetchRuntime = runOnce(() => {
     currentAppInitialSharedCompatSlotLowerH();
     gitConfigValueCurrentCompatSlotLowerA();
     const syncedBranchConfig = gitConfigValueCurrentCompatSlotLowerI({
@@ -250,15 +248,14 @@ function useSyncedBranchPrefetch(
   };
   return useCurrentAppInitialQuery(syncedBranchFromCwdQuerySignal, queryParams);
 }
-const initSyncedBranchPrefetchHooks = once(() => {
-  initReactCompilerRuntime();
+const initSyncedBranchPrefetchHooks = runOnce(() => {
   currentAppInitialSharedCompatSlotUpperVLowerO();
   currentAppInitialSharedCompatSlotUpperO();
   worktreeNewThreadQueryCompatSlotUpperNLowerF();
   initSyncedBranchPrefetchRuntime();
 });
 export function appPrefetchImpl(): null {
-  ReactRuntime.useEffect(() => {
+  useEffect(() => {
     preloadDynamicRoute(
       () => import("../conversations/local-conversation-page"),
       __vite__mapDeps([
@@ -394,11 +391,9 @@ export function appPrefetchImpl(): null {
     null
   );
 }
-let ReactRuntime: typeof import("react");
-once(() => {
+runOnce(() => {
   currentAppInitialSharedCompatSlotUpperVLowerO();
   currentAppInitialSharedCompatSlotUpperO();
-  ReactRuntime = toEsModule(loadReactRuntime(), 1) as typeof import("react");
   appServerDisconnectedAppServerSignal();
   initAppgenAccessQueryRuntimeChunk();
   appgenProjectAccessSchemas();
