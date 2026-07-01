@@ -654,6 +654,10 @@ export {
   updateCollapsedTurnState,
 } from "../../conversations/turn-collapse-state";
 export {
+  initWorktreeInitActivityListChunk,
+  WorktreeInitActivityList,
+} from "../../conversations/worktree-init-activity-list";
+export {
   scrollConversationItemIntoView,
   scrollConversationItemIntoViewWhenReady,
 } from "../../conversations/scroll-conversation-item-into-view";
