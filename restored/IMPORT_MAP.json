@@ -27226,7 +27226,7 @@
         "g": "appMainCurrentCompatSlotLowerG",
         "ga": "appMainCurrentCompatSlotLowerGLowerA",
         "gc": "appMainCurrentCompatSlotLowerGLowerC",
-        "gd": "appMainCurrentCompatSlotLowerGLowerD",
+        "gd": "DragIcon",
         "gf": "appMainCurrentCompatSlotLowerGLowerF",
         "gi": "appMainCurrentCompatSlotLowerGLowerI",
         "gl": "openThreadBrowserSidePanelTab",

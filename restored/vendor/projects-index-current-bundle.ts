@@ -357,7 +357,7 @@ import {
   openThreadBrowserSidePanelTabWithPendingState as Sa,
   ClockIcon as Ca,
   openThreadReviewSidePanelTab as wa,
-  appMainCurrentCompatSlotLowerGLowerD as Ta,
+  DragIcon as Ta,
   openThreadBrowserSidePanelTab as Ea,
   appMainCurrentCompatSlotLowerHLowerS as Da,
   appMainCurrentCompatSlotLowerILowerM as Oa,

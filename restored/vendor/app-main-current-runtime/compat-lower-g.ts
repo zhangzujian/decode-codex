@@ -4,7 +4,6 @@ export {
   g as appMainCurrentCompatSlotLowerG,
   ga as appMainCurrentCompatSlotLowerGLowerA,
   gc as appMainCurrentCompatSlotLowerGLowerC,
-  gd as appMainCurrentCompatSlotLowerGLowerD,
   gf as appMainCurrentCompatSlotLowerGLowerF,
   gi as appMainCurrentCompatSlotLowerGLowerI,
   gn as appMainCurrentCompatSlotLowerGLowerN,
