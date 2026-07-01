@@ -5,6 +5,8 @@ import type { SVGProps } from "react";
 
 export type IconProps = SVGProps<SVGSVGElement>;
 
+export function initPlanProgressIconChunk(): void {}
+
 export function PlanProgressIcon(props: IconProps) {
   return (
     <svg

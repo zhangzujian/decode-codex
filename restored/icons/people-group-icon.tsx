@@ -4,6 +4,8 @@ import type { SVGProps } from "react";
 
 export type PeopleGroupIconProps = SVGProps<SVGSVGElement>;
 
+export function initPeopleGroupIconChunk(): void {}
+
 export function PeopleGroupIcon(props: PeopleGroupIconProps) {
   return (
     <svg

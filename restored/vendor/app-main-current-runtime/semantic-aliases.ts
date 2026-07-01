@@ -252,6 +252,14 @@ export { CollapseIcon, initCollapseIconChunk } from "../../icons/collapse-icon";
 export { ImagesIcon, initImagesIconChunk } from "../../icons/images-icon";
 export { HooksIcon, initHooksIconChunk } from "../../icons/hooks-icon";
 export {
+  initPlanProgressIconChunk,
+  PlanProgressIcon,
+} from "../../icons/plan-progress-icon";
+export {
+  initPeopleGroupIconChunk,
+  PeopleGroupIcon,
+} from "../../icons/people-group-icon";
+export {
   initServiceTierCopyIcon2Chunk,
   initServiceTierCopyIconChunk,
   ServiceTierCopyIcon,
