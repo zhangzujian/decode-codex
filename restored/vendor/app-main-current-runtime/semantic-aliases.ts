@@ -37,7 +37,15 @@ export {
   initSettingsControlRowChunk,
   SettingsControlRow,
 } from "../../ui/settings-row";
-export { CHATGPT_PRICING_URL } from "../../utils/links-bd-mmkun-d";
+export {
+  CHATGPT_ADMIN_BILLING_ADD_CREDITS_URL,
+  CHATGPT_ADMIN_URL,
+  CHATGPT_ADMIN_USAGE_LIMITS_URL,
+  CHATGPT_PRICING_HASH_URL,
+  CHATGPT_PRICING_URL,
+  OPENAI_APPS_SDK_DOCS_URL,
+} from "../../utils/links-bd-mmkun-d";
+export { resolveSidePanelBrowserTabId } from "../../browser/side-panel-browser-tab-commands";
 export { normalizeWorkspacePath } from "../../boundaries/src-l0hb/paths";
 export { setPinnedThreadsOrder } from "../../utils/set-pinned-thread";
 export {
@@ -67,6 +75,7 @@ export {
   composeEventHandlers,
   initComposeEventHandlersRuntime,
 } from "../radix-event-helpers";
+export { isComposerDictationTarget } from "../../composer/composer-dictation-focus";
 
 export {
   $l as SidebarSection,
@@ -114,7 +123,6 @@ export {
   ho as forkConversationMessages,
   hp as useComposedRefs,
   ki as SidebarRowIcon,
-  ld as ToastContent,
   ml as openSessionSandboxSidePanel,
   mo as initForkConversationMessagesChunk,
   nf as liveMcpAppFrameSignal,
@@ -122,7 +130,6 @@ export {
   of as closeThreadMcpAppSidePanelTab,
   pl as initThreadSidePanelTabsChunk,
   pr as readProjectSignal,
-  rc as ErrorCircleIcon,
   rl as SidebarRowKeyboardScope,
   sf as getThreadMcpAppSidePanelTabId,
   sl as SidebarRowShortcutScope,

@@ -20,3 +20,5 @@ export function isComposerFocusedForDictation({
       focusedElement?.closest(DICTATION_TEXT_INPUT_SELECTOR) == null)
   );
 }
+
+export const isComposerDictationTarget = isComposerFocusedForDictation;

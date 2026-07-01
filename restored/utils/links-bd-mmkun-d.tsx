@@ -29,6 +29,7 @@ const CHATGPT_ADMIN_URL = "https://chatgpt.com/admin";
 const CHATGPT_ADMIN_BILLING_URL = "https://chatgpt.com/admin/billing";
 const CHATGPT_ADMIN_USAGE_LIMITS_URL =
   "https://chatgpt.com/admin/usage-limits/workspace";
+const CHATGPT_ADMIN_BILLING_ADD_CREDITS_URL = `${CHATGPT_ADMIN_BILLING_URL}?codex_credit_action=add_credits`;
 const OPENAI_APPS_SDK_DOCS_URL = "https://developers.openai.com/apps-sdk";
 export {
   OPENAI_PLUGINS_GITHUB_URL,
@@ -47,6 +48,7 @@ export {
   CODEX_HOOKS_DOCS_URL,
   OPENAI_APPS_SDK_DOCS_URL,
   CODEX_USAGE_CREDITS_MODAL_URL,
+  CHATGPT_ADMIN_BILLING_ADD_CREDITS_URL,
   CHATGPT_ADMIN_BILLING_URL,
   CODEX_CONFIG_DOCS_URL,
   CODEX_RULES_DOCS_URL,

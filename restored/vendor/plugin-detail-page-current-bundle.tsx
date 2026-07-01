@@ -255,7 +255,7 @@ import {
   appMainCurrentCompatSlotLowerFLowerI as AppInitialAppMainOnboardingPageFi,
   appMainCurrentCompatSlotLowerGLowerI as appInitialAppMainOnboardingPageGi,
   appMainCurrentCompatSlotLowerHLowerD as appInitialAppMainOnboardingPageHd,
-  getConversationPanelLayoutSnapshot as appInitialAppMainOnboardingPageIc,
+  OPENAI_APPS_SDK_DOCS_URL as appInitialAppMainOnboardingPageIc,
   appMainCurrentCompatSlotLowerILowerD as appInitialAppMainOnboardingPageId,
   appMainCurrentCompatSlotLowerILowerM as appInitialAppMainOnboardingPageIm,
   appMainCurrentCompatSlotLowerMLowerD as appInitialAppMainOnboardingPageMd,
