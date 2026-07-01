@@ -8,7 +8,6 @@ export {
   si as appMainCurrentCompatSlotLowerSLowerI,
   sn as appMainCurrentCompatSlotLowerSLowerN,
   so as appMainCurrentCompatSlotLowerSLowerO,
-  sp as appMainCurrentCompatSlotLowerSLowerP,
   sr as appMainCurrentCompatSlotLowerSLowerR,
   ss as appMainCurrentCompatSlotLowerSLowerS,
   st as appMainCurrentCompatSlotLowerSLowerT,

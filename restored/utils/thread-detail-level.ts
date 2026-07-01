@@ -15,6 +15,18 @@ function normalizeThreadDetailLevel(
     ? THREAD_DETAIL_LEVEL_COMMANDS
     : (detailLevel ?? THREAD_DETAIL_LEVEL_COMMANDS);
 }
+function isThreadDetailLevelProseFromSetting(
+  getSetting: (setting: unknown) => unknown,
+) {
+  return (
+    normalizeThreadDetailLevel(
+      getSetting(conversationDetailModeSetting) as
+        | ThreadDetailLevel
+        | null
+        | undefined,
+    ) === THREAD_DETAIL_LEVEL_PROSE
+  );
+}
 function useThreadDetailLevel() {
   return normalizeThreadDetailLevel(
     useSettingValue(conversationDetailModeSetting),
@@ -22,6 +34,7 @@ function useThreadDetailLevel() {
 }
 export {
   useThreadDetailLevel,
+  isThreadDetailLevelProseFromSetting,
   THREAD_DETAIL_LEVEL_PROSE,
   normalizeThreadDetailLevel,
   THREAD_DETAIL_LEVEL_COMMANDS,

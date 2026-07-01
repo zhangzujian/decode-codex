@@ -49,6 +49,10 @@ export {
   requestUserInputAutoResolutionState,
 } from "../../runtime/request-user-input-auto-resolution";
 export {
+  initConversationDetailModeRuntime,
+  isConversationDetailModeProse,
+} from "../../runtime/conversation-detail-runtime";
+export {
   initSettingsControlRowChunk,
   SettingsControlRow,
 } from "../../ui/settings-row";

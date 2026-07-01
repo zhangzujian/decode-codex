@@ -9,7 +9,6 @@ export {
   lm as appMainCurrentCompatSlotLowerLLowerM,
   ln as appMainCurrentCompatSlotLowerLLowerN,
   lo as appMainCurrentCompatSlotLowerLLowerO,
-  lp as appMainCurrentCompatSlotLowerLLowerP,
   lr as appMainCurrentCompatSlotLowerLLowerR,
   ls as appMainCurrentCompatSlotLowerLLowerS,
   lu as appMainCurrentCompatSlotLowerLLowerU,
