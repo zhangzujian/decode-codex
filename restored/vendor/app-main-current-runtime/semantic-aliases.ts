@@ -685,6 +685,10 @@ export {
   scrollConversationItemIntoView,
   scrollConversationItemIntoViewWhenReady,
 } from "../../conversations/scroll-conversation-item-into-view";
+export {
+  ConversationTurnRenderer,
+  initConversationTurnRendererRuntime,
+} from "../../conversations/local-conversation-thread-parts/conversation-content-runtime";
 export { commandExecutionCommand } from "../../utils/command-execution-command";
 export {
   getAutomaticApprovalReviewActionSummary,
