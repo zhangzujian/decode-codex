@@ -83,6 +83,10 @@ export {
 } from "../../runtime/codex-api";
 export { LocalConversationGitActions } from "../../conversations/local-conversation-git-actions";
 export { CollapsedTurnSummaryLabel } from "../../conversations/collapsed-turn-summary-label";
+export {
+  CreatePullRequestIcon,
+  initCreatePullRequestIconChunk,
+} from "../../conversations/git-action-icons";
 export { PullRequestMergeTaskPill } from "../../conversations/pull-request-merge-task-pill";
 export { SentCommentAttachmentList } from "../../conversations/sent-comment-attachments";
 export { UserMessage } from "../../conversations/user-message";

@@ -4,6 +4,8 @@
 
 import type { SVGProps } from "react";
 
+export function initCreatePullRequestIconChunk(): void {}
+
 export function OpenPullRequestExternalIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
