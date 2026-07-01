@@ -106,6 +106,15 @@ export {
 export { PullRequestMergeTaskPill } from "../../conversations/pull-request-merge-task-pill";
 export { SentCommentAttachmentList } from "../../conversations/sent-comment-attachments";
 export { UserMessage } from "../../conversations/user-message";
+export {
+  initDisclosureContentHeightChunk,
+  useMeasuredElementHeight,
+} from "../../conversations/activity-disclosure";
+export {
+  ActivityScrollContainer,
+  initActivityScrollContainerChunk,
+} from "../../conversations/activity-scroll-container";
+export { ComputerUseGlyphIcon } from "../../conversations/tool-activity-source-icon";
 export { DiffStats, initDiffStatsChunk } from "../../git/git-review-primitives";
 export {
   ImageAttachment,

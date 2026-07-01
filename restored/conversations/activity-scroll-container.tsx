@@ -75,3 +75,5 @@ export function ActivityScrollContainer({
     </div>
   );
 }
+
+export function initActivityScrollContainerChunk(): void {}
