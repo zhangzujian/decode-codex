@@ -334,7 +334,7 @@ import {
   PinIcon as $i,
   initAlertIconChunk as ea,
   setPinnedThreadOptimistically as ta,
-  appMainCurrentCompatSlotUpperJLowerN as na,
+  initLaptopIconChunk as na,
   initPinIconChunk as ra,
   appMainCurrentCompatSlotUpperLLowerA as ia,
   getSidebarThreadKeyFromValue as aa,
