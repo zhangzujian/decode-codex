@@ -455,6 +455,14 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
 const CRYPTIC_RE = /^(?:_0x[0-9a-fA-F]+|[a-zA-Z_]\d*|[a-zA-Z]{1,2})$/;
 const MECHANICAL_NAME_RE =
   /^(?:(?:ImportedBinding|callbackValue|localValue|elementNode|hookValue|restoredHelper|RestoredComponent|argument|local|param|value|data|arg)\d+|[A-Za-z][A-Za-z0-9]*(?:Param|Value|Data|Arg)\d+|Dist[A-Z])$/;
+// A mechanical-name family the plain MECHANICAL_NAME_RE misses: a shared prefix
+// with a `State`/`Input`/`Helper`/`Local`/`Arg` + counter suffix
+// (`appShellStateHelper23`, `appShellStateInput124`). Flagged only above a
+// density threshold so an isolated legit name never trips it; `use…`-prefixed
+// hook aliases from bundlers are excluded.
+const MECHANICAL_NAME_FAMILY_RE =
+  /^[a-z][A-Za-z]*(?:State|Input|Helper|Local|Arg)\d+$/;
+const MECHANICAL_NAME_FAMILY_MIN_DISTINCT = 5;
 const MECHANICAL_IMPORT_BINDING_RE =
   /^(?:_{0,3}appServerManager[A-Z]|appServerManager(?:Dollar|Underscore)$|_{0,3}(?:chrome|single|setting)(?:[A-Z][A-Za-z]*|Underscore)$|_{0,3}(?:src|dist|lib|pkg)[A-Z][A-Za-z]*|Dist(?:$|[A-Z])|windowAppAction[A-Z]|windowAppActionUnderscore$)/;
 const SOURCE_EXT_RE = /\.[cm]?[jt]sx?$/i;
@@ -484,6 +492,15 @@ export type QualityGateOptions = {
    * output is auto-detected by its marker even without this flag.
    */
   vendored: boolean;
+  /**
+   * Honor the header-based vendored exemption (`isLegacyVendoredBoundaryFacade`)
+   * for this file. The directory runner sets this to `false` for files outside
+   * `boundaries/`, `vendor/`, or `runtime/` so an app-feature page cannot
+   * self-certify as vendored via a `// Flat boundary` / `vendored` header. When
+   * unset (single-file callers with no target-root context), the exemption is
+   * honored — single-file behavior is unchanged.
+   */
+  vendoredHeaderExemptAllowed?: boolean;
   allowedCheckpointImportFiles?: Set<string>;
 };
 
@@ -502,6 +519,8 @@ export type FileQualityReport = {
   crypticBindings: number;
   shortIdentifierOffenders: Array<{ name: string; count: number }>;
   mechanicalNames: string[];
+  mechanicalNameFamily: string[];
+  vendored: boolean;
   duplicateImportNames: Array<{
     source: string;
     imported: string;
@@ -785,6 +804,32 @@ function collectMechanicalNames(
   for (const match of source.matchAll(/\b[$A-Za-z_][$A-Za-z0-9_]*\b/g)) {
     flag(match[0]!);
   }
+  return [...names].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
+}
+
+/**
+ * Detect the `<prefix>State<N>` / `<prefix>Input<N>` / `<prefix>Helper<N>` /
+ * `<prefix>Local<N>` / `<prefix>Arg<N>` mechanical-name family. Returns the
+ * distinct offending identifiers only when at least
+ * `MECHANICAL_NAME_FAMILY_MIN_DISTINCT` of them share the shape, so a lone
+ * legitimate name (`formStep2`) or a bundler hook alias (`useState2`) does not
+ * trip it.
+ */
+function collectMechanicalNameFamily(
+  source: string,
+  symbols: SymbolEntry[],
+): string[] {
+  const names = new Set<string>();
+  const flag = (name: string): void => {
+    if (!MECHANICAL_NAME_FAMILY_RE.test(name)) return;
+    if (/^use[A-Z]/.test(name)) return;
+    names.add(name);
+  };
+  for (const symbol of symbols) flag(symbol.name);
+  for (const match of source.matchAll(/\b[$A-Za-z_][$A-Za-z0-9_]*\b/g)) {
+    flag(match[0]!);
+  }
+  if (names.size < MECHANICAL_NAME_FAMILY_MIN_DISTINCT) return [];
   return [...names].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
 }
 
@@ -1802,6 +1847,7 @@ export function analyzeSource(
   const crypticSymbols = symbols.filter(isCrypticSymbol);
   const crypticParams = crypticSymbols.filter((s) => s.kind === "param").length;
   const mechanicalNames = collectMechanicalNames(source, symbols);
+  const mechanicalNameFamily = collectMechanicalNameFamily(source, symbols);
   const shortIdentifierOffenders = countShortIdentifiers(source).filter(
     (item) => item.count > options.maxShortRefCount,
   );
@@ -1815,10 +1861,17 @@ export function analyzeSource(
   // checks that would false-positive on a package's own short API names or a
   // wall of `any` stubs. Faithfulness checks (provenance, non-JSX-runtime
   // residue, checkpoint imports, unbound refs, JSX sanity) still apply.
+  // The `// Flat boundary` / `vendored` header is written by the same restore
+  // process the gate is checking — it is self-certification. Honor it only when
+  // the directory runner has confirmed the file lives under a genuine boundary
+  // dir (`vendoredHeaderExemptAllowed !== false`); single-file callers keep the
+  // exemption (no target-root context). Marker facades (`make-facade.ts`) and
+  // path/content-keyed data modules stay exempt regardless.
+  const headerExemptAllowed = options.vendoredHeaderExemptAllowed !== false;
   const vendored =
     options.vendored ||
     isGeneratedFacade(source) ||
-    isLegacyVendoredBoundaryFacade(source) ||
+    (headerExemptAllowed && isLegacyVendoredBoundaryFacade(source)) ||
     isVendoredDataModule(file, source);
   const residueMatches = collectResidueMatches(source).filter(
     (label) => !(vendored && label === "JSX runtime import/call residue"),
@@ -1892,6 +1945,17 @@ export function analyzeSource(
       code: "mechanical-names",
       message: `Generated fallback names remain: ${mechanicalNames.slice(0, 25).join(", ")}`,
       detail: mechanicalNames,
+    });
+  }
+  if (
+    !options.allowMechanicalNames &&
+    !vendored &&
+    mechanicalNameFamily.length > 0
+  ) {
+    issues.push({
+      code: "mechanical-name-family",
+      message: `Mechanical <prefix>State/Input/Helper/Local/Arg<N> names remain (${mechanicalNameFamily.length} distinct): ${mechanicalNameFamily.slice(0, 25).join(", ")}`,
+      detail: mechanicalNameFamily,
     });
   }
   if (!vendored && astFacts.duplicateImportNames.length > 0) {
@@ -2040,6 +2104,8 @@ export function analyzeSource(
     crypticBindings: crypticSymbols.length,
     shortIdentifierOffenders,
     mechanicalNames,
+    mechanicalNameFamily,
+    vendored,
     duplicateImportNames: astFacts.duplicateImportNames,
     mechanicalImportBindings: astFacts.mechanicalImportBindings,
     missingRelativeExports: astFacts.missingRelativeExports,
@@ -2096,6 +2162,8 @@ function emptyReport(
     crypticBindings: 0,
     shortIdentifierOffenders: [],
     mechanicalNames: [],
+    mechanicalNameFamily: [],
+    vendored: false,
     duplicateImportNames: [],
     mechanicalImportBindings: [],
     missingRelativeExports: [],
@@ -3217,9 +3285,15 @@ function printHumanReport(reports: FileQualityReport[]): void {
 }
 
 const USAGE =
-  "Usage: bun scripts/quality-gate.ts <file-or-dir> [--json] [--allow-flat] [--allow-mechanical-names] [--allow-missing-provenance] [--allow-untyped] [--vendored] [--allow-organize-incomplete] [--allow-open-boundaries] [--check-format] " +
+  "Usage: bun scripts/quality-gate.ts <file-or-dir> [--json] [--allow-flat] [--allow-mechanical-names] [--allow-missing-provenance] [--allow-untyped] [--vendored] [--allow-organize-incomplete] [--allow-open-boundaries] [--check-format] [--no-cache] " +
   "[--max-cryptic-params N] [--max-cryptic-bindings N] " +
-  "[--max-short-ref-count N] [--max-flat-lines N] [--max-flat-exports N]";
+  "[--max-short-ref-count N] [--max-flat-lines N] [--max-flat-exports N]\n" +
+  "\n" +
+  "Directory runs cache per-file analysis in <dir>/.deobfuscate-javascript/gate-cache.json\n" +
+  "(mtime+size keyed; --no-cache disables). The `// Flat boundary`/`vendored` header\n" +
+  "exemption is honored only for files under boundaries/, vendor/, or runtime/; app-feature\n" +
+  "pages elsewhere cannot self-certify as vendored. A vendored-exempt coverage line is\n" +
+  "printed to stderr after each directory run.";
 
 function parseNonNegativeInt(
   raw: string | undefined,
@@ -3233,6 +3307,112 @@ function parseNonNegativeInt(
     process.exit(64);
   }
   return parsed;
+}
+
+/**
+ * Bump whenever the per-file analysis (`analyzeSource` / any check it runs)
+ * changes so a stale cache can never mask a check that would now fire. The
+ * option flags that steer analysis are also folded into the cache signature, so
+ * different flag combos never share cache entries.
+ */
+const GATE_CACHE_VERSION = 2;
+
+const GATE_CACHE_DIRNAME = ".deobfuscate-javascript";
+const GATE_CACHE_BASENAME = "gate-cache.json";
+
+type GateCacheEntry = {
+  mtimeMs: number;
+  size: number;
+  report: FileQualityReport;
+};
+
+type GateCacheFile = {
+  signature: string;
+  entries: Record<string, GateCacheEntry>;
+};
+
+/** mtime+size fingerprint of an external file, or a fixed miss token. */
+function externalFingerprint(filePath: string): string {
+  try {
+    const stat = fs.statSync(filePath);
+    return `${stat.mtimeMs}:${stat.size}`;
+  } catch {
+    return "0:0";
+  }
+}
+
+/**
+ * A signature every cache entry is validated against. Encodes the gate version,
+ * every analysis-steering option flag, and the mtime/size of the external maps
+ * that drive per-file vendored classification (IMPORT_MAP.json, the full
+ * restoration manifest). Any change discards the whole cache.
+ */
+function gateCacheSignature(
+  targetDir: string,
+  options: QualityGateOptions,
+  checkFormat: boolean,
+): string {
+  const optionKey = JSON.stringify({
+    version: GATE_CACHE_VERSION,
+    maxCrypticParams: options.maxCrypticParams,
+    maxCrypticBindings: options.maxCrypticBindings,
+    maxShortRefCount: options.maxShortRefCount,
+    maxFlatLines: options.maxFlatLines,
+    maxFlatExports: options.maxFlatExports,
+    allowFlat: options.allowFlat,
+    allowMechanicalNames: options.allowMechanicalNames,
+    requireProvenanceHeader: options.requireProvenanceHeader,
+    allowUntyped: options.allowUntyped ?? false,
+    vendored: options.vendored,
+    checkFormat,
+  });
+  const externals = [
+    path.join(targetDir, "IMPORT_MAP.json"),
+    path.join(targetDir, GATE_CACHE_DIRNAME, "_full", "manifest.json"),
+  ]
+    .map(externalFingerprint)
+    .join("|");
+  return `${optionKey}|${externals}`;
+}
+
+function loadGateCache(
+  cachePath: string,
+  signature: string,
+): Record<string, GateCacheEntry> {
+  try {
+    const raw = JSON.parse(fs.readFileSync(cachePath, "utf-8")) as GateCacheFile;
+    if (raw && raw.signature === signature && raw.entries) {
+      return raw.entries;
+    }
+  } catch {
+    // Missing / unreadable / stale cache: start cold.
+  }
+  return {};
+}
+
+function saveGateCache(
+  cachePath: string,
+  signature: string,
+  entries: Record<string, GateCacheEntry>,
+): void {
+  try {
+    fs.mkdirSync(path.dirname(cachePath), { recursive: true });
+    fs.writeFileSync(
+      cachePath,
+      JSON.stringify({ signature, entries } satisfies GateCacheFile),
+    );
+  } catch {
+    // Unwritable cache dir: degrade to no caching, never fail the gate.
+  }
+}
+
+/** Files under `boundaries/`, `vendor/`, or `runtime/` may keep the header exemption. */
+function isVendoredHeaderExemptEligible(
+  targetDir: string,
+  file: string,
+): boolean {
+  const rel = path.relative(targetDir, file).split(path.sep).join("/");
+  return /^(?:boundaries|vendor|runtime)\//.test(rel);
 }
 
 async function main(): Promise<void> {
@@ -3250,6 +3430,7 @@ async function main(): Promise<void> {
         "allow-organize-incomplete": { type: "boolean", default: false },
         "allow-open-boundaries": { type: "boolean", default: false },
         "check-format": { type: "boolean", default: false },
+        "no-cache": { type: "boolean", default: false },
         "max-cryptic-params": { type: "string" },
         "max-cryptic-bindings": { type: "string" },
         "max-short-ref-count": { type: "string" },
@@ -3327,23 +3508,91 @@ async function main(): Promise<void> {
     ).Bun?.gc?.(false);
   };
 
+  const inputIsDir = fs.statSync(input).isDirectory();
+  const checkFormat = values["check-format"] ?? false;
+  const cacheEnabled = inputIsDir && !(values["no-cache"] ?? false);
+  const cachePath = path.join(input, GATE_CACHE_DIRNAME, GATE_CACHE_BASENAME);
+  const cacheSignature = cacheEnabled
+    ? gateCacheSignature(input, options, checkFormat)
+    : "";
+  const oldCache = cacheEnabled ? loadGateCache(cachePath, cacheSignature) : {};
+  const newCache: Record<string, GateCacheEntry> = {};
+
   const reports: FileQualityReport[] = [];
-  if (values["check-format"]) {
+  if (checkFormat) {
     reports.push(...checkFormatting(input));
   }
+  let vendoredExemptFiles = 0;
+  let vendoredExemptLines = 0;
+  let totalLines = 0;
   for (const [index, file] of files.entries()) {
-    reports.push(
-      analyzeSource(fs.readFileSync(file, "utf-8"), file, {
+    const resolved = path.resolve(file);
+    let report: FileQualityReport | undefined;
+    let cacheKey = "";
+    if (cacheEnabled) {
+      cacheKey = path.relative(input, file).split(path.sep).join("/");
+      try {
+        const stat = fs.statSync(file);
+        const hit = oldCache[cacheKey];
+        if (hit && hit.mtimeMs === stat.mtimeMs && hit.size === stat.size) {
+          report = hit.report;
+        }
+        if (!report) {
+          report = analyzeSource(fs.readFileSync(file, "utf-8"), file, {
+            ...options,
+            vendored:
+              options.vendored ||
+              importMapBoundaryFiles.has(resolved) ||
+              manifestVendoredFiles.has(resolved),
+            vendoredHeaderExemptAllowed: isVendoredHeaderExemptEligible(
+              input,
+              file,
+            ),
+          });
+        }
+        newCache[cacheKey] = {
+          mtimeMs: stat.mtimeMs,
+          size: stat.size,
+          report,
+        };
+      } catch {
+        // stat/read failure: fall through to a fresh, uncached analysis.
+        report = undefined;
+      }
+    }
+    if (!report) {
+      report = analyzeSource(fs.readFileSync(file, "utf-8"), file, {
         ...options,
         vendored:
           options.vendored ||
-          importMapBoundaryFiles.has(path.resolve(file)) ||
-          manifestVendoredFiles.has(path.resolve(file)),
-      }),
-    );
+          importMapBoundaryFiles.has(resolved) ||
+          manifestVendoredFiles.has(resolved),
+        vendoredHeaderExemptAllowed: inputIsDir
+          ? isVendoredHeaderExemptEligible(input, file)
+          : true,
+      });
+    }
+    reports.push(report);
+    totalLines += report.lineCount;
+    if (report.vendored) {
+      vendoredExemptFiles += 1;
+      vendoredExemptLines += report.lineCount;
+    }
     if (index % 100 === 0) maybeCollectGarbage();
   }
   maybeCollectGarbage();
+  if (cacheEnabled) {
+    saveGateCache(cachePath, cacheSignature, newCache);
+  }
+  if (inputIsDir) {
+    const pct =
+      totalLines > 0
+        ? Math.round((vendoredExemptLines / totalLines) * 100)
+        : 0;
+    console.error(
+      `quality-gate: vendored-exempt coverage: ${vendoredExemptFiles} files, ${vendoredExemptLines} lines (${pct}% of tree)`,
+    );
+  }
   reports.push(
     ...analyzeFullRestorationCoverage(input, {
       allowOrganizeIncomplete: values["allow-organize-incomplete"] ?? false,

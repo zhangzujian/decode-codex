@@ -2769,3 +2769,256 @@ describe("checkFormatting", () => {
     }
   });
 });
+
+describe("mechanical-name family detection", () => {
+  const codes = (r: { issues: Array<{ code: string }> }) =>
+    r.issues.map((i) => i.code);
+
+  test("fails on a dense <prefix>Helper<N> / <prefix>Input<N> family", () => {
+    const src =
+      `export function initAppShellState() {\n` +
+      Array.from(
+        { length: 6 },
+        (_, i) => `  const appShellStateHelper${i} = ${i};`,
+      ).join("\n") +
+      `\n  const appShellStateInput7 = 7;\n` +
+      `  return appShellStateHelper0 + appShellStateInput7;\n}\n`;
+    const report = analyzeSource(src, "app-shell-state.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(codes(report)).toContain("mechanical-name-family");
+    expect(report.mechanicalNameFamily).toContain("appShellStateHelper0");
+    expect(report.mechanicalNameFamily).toContain("appShellStateInput7");
+  });
+
+  test("stays silent below the density threshold", () => {
+    const src =
+      `export function initAppShellState() {\n` +
+      Array.from(
+        { length: 4 },
+        (_, i) => `  const appShellStateHelper${i} = ${i};`,
+      ).join("\n") +
+      `\n  return appShellStateHelper0;\n}\n`;
+    const report = analyzeSource(src, "app-shell-state.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(codes(report)).not.toContain("mechanical-name-family");
+    expect(report.mechanicalNameFamily).toEqual([]);
+  });
+
+  test("does not flag bundler use<Hook><N> aliases or legit step names", () => {
+    const src =
+      `export function useThing() {\n` +
+      Array.from({ length: 6 }, (_, i) => `  const useState${i} = ${i};`).join(
+        "\n",
+      ) +
+      `\n  const formStep2 = 2;\n` +
+      `  return useState0 + formStep2;\n}\n`;
+    const report = analyzeSource(src, "use-thing.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(codes(report)).not.toContain("mechanical-name-family");
+    expect(report.mechanicalNameFamily).toEqual([]);
+  });
+
+  test("--allow-mechanical-names suppresses the family finding", () => {
+    const src =
+      `export function initAppShellState() {\n` +
+      Array.from(
+        { length: 6 },
+        (_, i) => `  const appShellStateHelper${i} = ${i};`,
+      ).join("\n") +
+      `\n  return appShellStateHelper0;\n}\n`;
+    const report = analyzeSource(src, "app-shell-state.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowMechanicalNames: true,
+    });
+    expect(codes(report)).not.toContain("mechanical-name-family");
+  });
+});
+
+describe("header-based vendored exemption is path-gated", () => {
+  const codes = (r: { issues: Array<{ code: string }> }) =>
+    r.issues.map((i) => i.code);
+  const selfCertifiedAppPage = () =>
+    `// Restored from ref/.vite/build/appgen-analytics-XYZ.js\n` +
+    `// Flat boundary facade — vendored alternate build of the same module.\n` +
+    Array.from(
+      { length: 30 },
+      (_, i) => `export const publicThing${i}: any = undefined as any;`,
+    ).join("\n") +
+    `\nfunction q(e) { return e + 1; }\nexport const z1 = q(1);\n`;
+
+  test("honors the exemption for single-file callers (no target root)", () => {
+    const report = analyzeSource(selfCertifiedAppPage(), "analytics-page.tsx", {
+      ...DEFAULT_OPTIONS,
+      maxFlatLines: 3,
+    });
+    expect(report.vendored).toBe(true);
+    expect(report.issues).toEqual([]);
+  });
+
+  test("honors the exemption when eligible by path", () => {
+    const report = analyzeSource(selfCertifiedAppPage(), "analytics-page.tsx", {
+      ...DEFAULT_OPTIONS,
+      maxFlatLines: 3,
+      vendoredHeaderExemptAllowed: true,
+    });
+    expect(report.vendored).toBe(true);
+    expect(report.issues).toEqual([]);
+  });
+
+  test("ignores the exemption for files outside boundary dirs", () => {
+    const report = analyzeSource(selfCertifiedAppPage(), "analytics-page.tsx", {
+      ...DEFAULT_OPTIONS,
+      maxFlatLines: 3,
+      vendoredHeaderExemptAllowed: false,
+    });
+    expect(report.vendored).toBe(false);
+    expect(codes(report)).toContain("public-cryptic-names");
+    expect(codes(report)).toContain("split-required");
+  });
+
+  test("CLI: app-feature page self-certifying as vendored fails; same file under vendor/ passes", () => {
+    const targetDir = makeTmpRoot();
+    const header =
+      `// Restored from ref/.vite/build/appgen-analytics-XYZ.js\n` +
+      `// Flat boundary facade — vendored alternate build of the same module.\n`;
+    const body =
+      `export function initAppShellState() {\n` +
+      Array.from(
+        { length: 6 },
+        (_, i) => `  const appShellStateHelper${i} = ${i};`,
+      ).join("\n") +
+      `\n  return appShellStateHelper0;\n}\n`;
+
+    fs.mkdirSync(path.join(targetDir, "appgen"), { recursive: true });
+    fs.writeFileSync(
+      path.join(targetDir, "appgen", "analytics-page.tsx"),
+      header + body,
+    );
+    fs.mkdirSync(path.join(targetDir, "vendor"), { recursive: true });
+    fs.writeFileSync(
+      path.join(targetDir, "vendor", "analytics-page.tsx"),
+      header + body,
+    );
+
+    const run = spawnSync(
+      "bun",
+      [
+        path.join(import.meta.dir, "quality-gate.ts"),
+        targetDir,
+        "--json",
+        "--allow-flat",
+        "--no-cache",
+      ],
+      { encoding: "utf8" },
+    );
+    expect(run.status).toBe(1);
+    const reports = JSON.parse(run.stdout) as Array<{
+      file: string;
+      issues: Array<{ code: string }>;
+    }>;
+    const appReport = reports.find((r) => r.file.includes("appgen/"));
+    const vendorReport = reports.find((r) => r.file.includes("vendor/"));
+    expect(appReport?.issues.map((i) => i.code)).toContain(
+      "mechanical-name-family",
+    );
+    expect(vendorReport?.issues ?? []).toEqual([]);
+    expect(run.stderr).toContain("vendored-exempt coverage:");
+  });
+});
+
+describe("per-file analysis cache", () => {
+  const gateArgs = (dir: string, extra: string[] = []) => [
+    path.join(import.meta.dir, "quality-gate.ts"),
+    dir,
+    "--json",
+    "--allow-flat",
+    ...extra,
+  ];
+
+  test("directory run writes a cache and a warm run reproduces the verdict", () => {
+    const targetDir = makeTmpRoot();
+    fs.writeFileSync(
+      path.join(targetDir, "widget.tsx"),
+      `// Restored from ref/.vite/build/widget-ABC.js\n` +
+        `export interface WidgetProps { label: string }\n` +
+        `export function Widget({ label }: WidgetProps) { return <button>{label}</button>; }\n`,
+    );
+
+    const cachePath = path.join(
+      targetDir,
+      ".deobfuscate-javascript",
+      "gate-cache.json",
+    );
+    expect(fs.existsSync(cachePath)).toBe(false);
+
+    const cold = spawnSync("bun", gateArgs(targetDir), { encoding: "utf8" });
+    expect(cold.status).toBe(0);
+    expect(fs.existsSync(cachePath)).toBe(true);
+    const cache = JSON.parse(fs.readFileSync(cachePath, "utf8"));
+    expect(typeof cache.signature).toBe("string");
+    expect(Object.keys(cache.entries)).toContain("widget.tsx");
+
+    const warm = spawnSync("bun", gateArgs(targetDir), { encoding: "utf8" });
+    expect(warm.status).toBe(0);
+    expect(JSON.parse(warm.stdout)).toEqual(JSON.parse(cold.stdout));
+  });
+
+  test("--no-cache does not write a cache file", () => {
+    const targetDir = makeTmpRoot();
+    fs.writeFileSync(
+      path.join(targetDir, "widget.tsx"),
+      `// Restored from ref/.vite/build/widget-ABC.js\n` +
+        `export const value = 1;\n`,
+    );
+    const run = spawnSync("bun", gateArgs(targetDir, ["--no-cache"]), {
+      encoding: "utf8",
+    });
+    expect(run.status).toBe(0);
+    expect(
+      fs.existsSync(
+        path.join(targetDir, ".deobfuscate-javascript", "gate-cache.json"),
+      ),
+    ).toBe(false);
+  });
+
+  test("editing a file invalidates its cache entry and re-detects issues", () => {
+    const targetDir = makeTmpRoot();
+    const file = path.join(targetDir, "widget.ts");
+    fs.writeFileSync(
+      file,
+      `// Restored from ref/.vite/build/widget-ABC.js\nexport const value = 1;\n`,
+    );
+    const cold = spawnSync("bun", gateArgs(targetDir), { encoding: "utf8" });
+    expect(cold.status).toBe(0);
+
+    // Rewrite the file with a dense mechanical-name family; bump mtime.
+    const later = new Date(Date.now() + 4000);
+    fs.writeFileSync(
+      file,
+      `// Restored from ref/.vite/build/widget-ABC.js\n` +
+        `export function initAppShellState() {\n` +
+        Array.from(
+          { length: 6 },
+          (_, i) => `  const appShellStateHelper${i} = ${i};`,
+        ).join("\n") +
+        `\n  return appShellStateHelper0;\n}\n`,
+    );
+    fs.utimesSync(file, later, later);
+
+    const warm = spawnSync("bun", gateArgs(targetDir), { encoding: "utf8" });
+    expect(warm.status).toBe(1);
+    const reports = JSON.parse(warm.stdout) as Array<{
+      issues: Array<{ code: string }>;
+    }>;
+    expect(reports.flatMap((r) => r.issues.map((i) => i.code))).toContain(
+      "mechanical-name-family",
+    );
+  });
+});
