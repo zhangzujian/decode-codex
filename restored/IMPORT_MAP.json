@@ -27585,7 +27585,7 @@
         "pu": "initDiffStatsChunk",
         "q": "resolveRenderableAgentItems",
         "qa": "WRITE_SETTINGS_TOOL_NAME",
-        "qc": "appMainCurrentCompatSlotLowerQLowerC",
+        "qc": "initReviewSidePanelTabContentChunk",
         "qd": "resolveKeyboardLayoutKey",
         "qf": "usePermissionsConfigData",
         "qi": "LIST_THREADS_TOOL_NAME",

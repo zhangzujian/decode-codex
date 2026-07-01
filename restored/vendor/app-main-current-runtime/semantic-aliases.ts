@@ -575,6 +575,10 @@ export {
   openReviewTab,
   openReviewTabForConversation,
 } from "../../review/review-side-panel-tab-commands";
+export {
+  initReviewSidePanelTabContentChunk,
+  ReviewSidePanelTabContent,
+} from "../../review/review-side-panel-tab-content";
 export { isCurrentLocationCodexPage } from "../../utils/is-codex-page-route";
 export {
   initGetMoveToLocalTargetsChunk,

@@ -80,3 +80,5 @@ export function ReviewSidePanelTabContent({
     </div>
   );
 }
+
+export function initReviewSidePanelTabContentChunk(): void {}
