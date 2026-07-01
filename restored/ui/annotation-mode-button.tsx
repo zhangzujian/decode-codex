@@ -145,4 +145,5 @@ function getDocumentDirection() {
       ? "rtl"
       : "ltr";
 }
-export { AnnotationModeButton };
+function initAnnotationModeButtonChunk(): void {}
+export { AnnotationModeButton, initAnnotationModeButtonChunk };

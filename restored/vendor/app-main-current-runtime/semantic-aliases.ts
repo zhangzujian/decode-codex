@@ -134,6 +134,7 @@ export {
 export {
   getBrowserSidebarTweaksState,
   initBrowserSidebarTweaksStateChunk,
+  initBrowserSidebarTweaksSubmitRequestChunk,
 } from "../../app-shell/thread-side-panel-active-signals";
 export {
   initPullRequestFooterClassesChunk,
@@ -241,6 +242,8 @@ export { resolveSidePanelBrowserTabId } from "../../browser/browser-tab-id-resol
 export { normalizeWorkspacePath } from "../../boundaries/src-l0hb/paths";
 export { useCreateGitRepository } from "../../review/use-create-git-repository";
 export {
+  hasBasicRateLimitReached,
+  getSpendControlWarningThreshold,
   getMonthlySpendLimitUsage,
   hasCredits,
   hasRateLimitReached,
@@ -290,6 +293,8 @@ export {
 export { useImageAssetDownload } from "../../image-side-panel/use-image-asset-download";
 export { openImagePreviewTab } from "../../image-side-panel/open-image-preview-tab";
 export {
+  ANNOTATION_EDITOR_ENTER_CLASS,
+  AnnotationHighlightRect,
   AnnotationSelectionRect,
   applyAbsolutePosition,
   AskForEditButton,
@@ -305,10 +310,24 @@ export {
   applyBrowserCommentPopupShake,
   initBrowserCommentPopupShakeChunk,
 } from "../../browser/browser-comment-popup-shake";
+export {
+  browserSidebarCommentModeCoachmarkDismissedAtom,
+  initBrowserSidebarCommentModeCoachmarkStateChunk,
+} from "../../browser/browser-sidebar-comment-mode-coachmark-state";
 export { isCurrentLocationCodexPage } from "../../utils/is-codex-page-route";
 export { remapDiffCommentsForHandoff } from "../../conversations/remap-diff-comments-for-handoff";
 export { handleForkThread } from "../../conversations/thread-management-tool-handlers";
-export { buildCodexAppToolNamespace } from "../../conversations/codex-app-tool-namespace";
+export {
+  buildCodexAppToolNamespace,
+  initCodexAppToolNamespaceModelGuidanceChunk,
+  loadAllModelsWithTimeout,
+} from "../../conversations/codex-app-tool-namespace";
+export { getThreadHandoffComposerBlockReason } from "../../threads/thread-handoff-composer-block-state";
+export { hasWorkspaceDependenciesFeature } from "../../features/workspace-dependencies";
+export {
+  AnnotationModeButton,
+  initAnnotationModeButtonChunk,
+} from "../../ui/annotation-mode-button";
 const threadManagementToolHandlers = getThreadManagementToolHandlers();
 export const handleCreateThread =
   threadManagementToolHandlers.handleCreateThread;

@@ -53,4 +53,7 @@ export const browserSidebarCommentModeCoachmarkDismissedAtom = persistedAtom(
 export function dismissBrowserSidebarCommentModeCoachmark(): void {
   setPersistedAtomItem(browserSidebarCommentModeCoachmarkDismissedKey, true);
 }
+export function initBrowserSidebarCommentModeCoachmarkStateChunk(): void {
+  void browserSidebarCommentModeCoachmarkDismissedKey;
+}
 export { HAS_SEEN_BROWSER_PROFILE_IMPORT_NUX_KEY };

@@ -71,6 +71,10 @@ function subscribeBrowserSidebarTweaksSubmit(
   };
 }
 
+function initBrowserSidebarTweaksSubmitRequestChunk(): void {
+  void BROWSER_SIDEBAR_TWEAKS_SUBMIT_REQUEST_EVENT;
+}
+
 const browserSidebarTweaksStateByTarget = createSignalFamily(
   appScopeRoot,
   () => null,
@@ -177,6 +181,7 @@ export {
   BrowserSidebarTweaksIcon,
   getBrowserSidebarTweaksState,
   initBrowserSidebarTweaksStateChunk,
+  initBrowserSidebarTweaksSubmitRequestChunk,
   requestBrowserSidebarTweaksSubmit,
   setBrowserSidebarTweaksState,
   activeSidePanelBrowserTabIdSignal,

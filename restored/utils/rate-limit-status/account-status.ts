@@ -96,6 +96,12 @@ export function hasCredits(status: RateLimitStatusPayload | null | undefined) {
   const credits = getCredits(status);
   return credits?.unlimited === true || credits?.has_credits === true;
 }
+export function hasBasicRateLimitReached(
+  status: RateLimitStatusPayload | null | undefined,
+) {
+  const rateLimit = status?.rate_limit;
+  return rateLimit?.limit_reached === true || rateLimit?.allowed === false;
+}
 export function hasRateLimitReached(
   status: RateLimitStatusPayload | null | undefined,
 ) {
@@ -108,8 +114,7 @@ export function hasRateLimitReached(
     status?.credits?.unlimited === false &&
     status?.credits?.has_credits === false;
   return !!(
-    rateLimit?.limit_reached === true ||
-    rateLimit?.allowed === false ||
+    hasBasicRateLimitReached(status) ||
     hasNoEnterpriseCredits ||
     isSpendControlReached(status)
   );
