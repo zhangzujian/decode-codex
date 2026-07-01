@@ -119,6 +119,10 @@ export {
   ActivityScrollContainer,
   initActivityScrollContainerChunk,
 } from "../../conversations/activity-scroll-container";
+export {
+  computeGeneratedImageOutputs,
+  initGeneratedImageOutputsChunk,
+} from "../../conversations/generated-image-outputs";
 export { ComputerUseGlyphIcon } from "../../conversations/tool-activity-source-icon";
 export {
   initSubagentAvatarChunk,

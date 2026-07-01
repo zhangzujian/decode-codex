@@ -10,11 +10,11 @@ import {
   TurnDiffView,
   WebSearchSources,
   computeEndResources,
-  computeGeneratedImageOutputs,
   extractReviewComments,
   getEndResourcePaths,
   shouldHideTurnDiff,
 } from "../boundaries/onboarding-commons-externals.facade";
+import { computeGeneratedImageOutputs } from "./generated-image-outputs";
 
 interface BuildTurnArtifactNodesOptions {
   assistantItem: any;
