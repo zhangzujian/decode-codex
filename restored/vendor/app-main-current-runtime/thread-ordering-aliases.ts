@@ -8,3 +8,4 @@ export {
   getThreadTaskKeys,
   sortThreadTasksByPinnedOrder,
 } from "../../threads/thread-actions";
+export { initSidebarThreadKeysRuntimeChunk } from "../../threads/sidebar-thread-keys";

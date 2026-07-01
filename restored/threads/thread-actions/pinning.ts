@@ -87,3 +87,4 @@ export async function setPinnedThreadOptimistically(
     });
   }
 }
+export function initThreadPinningRuntimeChunk(): void {}

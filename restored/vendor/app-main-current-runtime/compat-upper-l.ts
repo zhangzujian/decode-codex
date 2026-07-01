@@ -2,7 +2,6 @@
 // Uppercase L compatibility aliases for the current app-main producer.
 export { setConversationalOnboardingPermissionStatus as appMainCurrentCompatSlotUpperL } from "../../onboarding/conversational-onboarding-workflow-state";
 export {
-  La as appMainCurrentCompatSlotUpperLLowerA,
   Lc as appMainCurrentCompatSlotUpperLLowerC,
   Ld as appMainCurrentCompatSlotUpperLLowerD,
   Lf as appMainCurrentCompatSlotUpperLLowerF,

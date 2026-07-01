@@ -2,7 +2,6 @@
 // Uppercase V compatibility aliases for the current app-main producer.
 export {
   V as appMainCurrentCompatSlotUpperV,
-  Va as appMainCurrentCompatSlotUpperVLowerA,
   Vc as appMainCurrentCompatSlotUpperVLowerC,
   Vd as appMainCurrentCompatSlotUpperVLowerD,
   Vf as appMainCurrentCompatSlotUpperVLowerF,

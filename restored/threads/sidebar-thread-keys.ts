@@ -122,7 +122,9 @@ function getSidebarThreadRoutePath(key: string | null | undefined) {
       throw Error("Invalid sidebar thread key");
   }
 }
+function initSidebarThreadKeysRuntimeChunk(): void {}
 export {
+  initSidebarThreadKeysRuntimeChunk,
   getSidebarThreadEntityId,
   parseSidebarThreadKey,
   getLocalConversationIdFromSidebarThreadKey,

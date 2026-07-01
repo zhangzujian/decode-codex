@@ -183,3 +183,4 @@ function markThreadAsUnread({
         }),
   });
 }
+export function initThreadActionsRuntimeChunk(): void {}
