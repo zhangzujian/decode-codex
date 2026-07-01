@@ -2117,11 +2117,10 @@ function emptyReport(
 }
 
 /**
- * Run `prettier --check` once over the whole input and turn every unformatted
- * file into a gate issue. A single invocation (vs per-file) keeps the check
- * cheap on a large tree. Degrades gracefully when prettier is unavailable —
- * we cannot positively identify unformatted files, so we soft-skip rather than
- * fail the gate on a missing toolchain.
+ * Run `prettier --check` over the input in bounded batches and turn every
+ * unformatted file into a gate issue. Degrades gracefully when prettier is
+ * unavailable — we cannot positively identify unformatted files, so we
+ * soft-skip rather than fail the gate on a missing toolchain.
  */
 export function checkFormatting(
   input: string,
@@ -2139,30 +2138,46 @@ export function checkFormatting(
     targets = [input];
   }
   if (targets.length === 0) return [];
-  const res = runCheck(targets);
-  if (res.ok) return []; // everything is prettier-clean
-  const combined = `${res.stdout}\n${res.stderr}`;
+
   // prettier --check prints `[warn] <path>` per unformatted file, plus a
   // `[warn] Code style issues found in N files.` summary line we must exclude.
   const offenders: string[] = [];
-  let sawHiddenWorkspaceOffender = false;
-  for (const line of combined.split("\n")) {
-    const m = line.match(/^\[warn\]\s+(.+?)\s*$/);
-    if (!m) continue;
-    const p = m[1]!;
-    if (/code style issues/i.test(p) || !SOURCE_EXT_RE.test(p)) continue;
-    if (isHiddenCheckpointPath(p)) {
-      sawHiddenWorkspaceOffender = true;
-      continue;
+  let formatterFailure = "";
+  let failedWithoutOffenders = false;
+  const batchSize = 200;
+  for (let start = 0; start < targets.length; start += batchSize) {
+    const res = runCheck(targets.slice(start, start + batchSize));
+    if (res.ok) continue;
+    const combined = `${res.stdout}\n${res.stderr}`;
+    let batchOffenders = 0;
+    let batchHiddenOffenders = 0;
+    for (const line of combined.split("\n")) {
+      const m = line.match(/^\[warn\]\s+(.+?)\s*$/);
+      if (!m) continue;
+      const p = m[1]!;
+      if (/code style issues/i.test(p) || !SOURCE_EXT_RE.test(p)) continue;
+      if (isHiddenCheckpointPath(p)) {
+        batchHiddenOffenders++;
+        continue;
+      }
+      offenders.push(p);
+      batchOffenders++;
     }
-    offenders.push(p);
+    if (batchOffenders === 0 && batchHiddenOffenders === 0) {
+      failedWithoutOffenders = true;
+      if (!formatterFailure) {
+        formatterFailure = (res.stderr || res.stdout || "no output")
+          .trim()
+          .slice(0, 200);
+      }
+    }
   }
-  if (offenders.length === 0 && sawHiddenWorkspaceOffender) return [];
+  if (offenders.length === 0 && !failedWithoutOffenders) return [];
   if (offenders.length === 0) {
     // No file paths surfaced: prettier likely isn't installed/reachable.
     // Soft-skip with a single advisory note (not a hard gate failure).
     console.error(
-      `[quality-gate] prettier --check could not run (${(res.stderr || res.stdout || "no output").trim().slice(0, 200)}); skipping format check`,
+      `[quality-gate] prettier --check could not run (${formatterFailure || "no output"}); skipping format check`,
     );
     return [];
   }
@@ -2285,11 +2300,11 @@ function publicEntryForBasename(
 function isBoundaryLikeEntry(entry: FullRestorationImportMapEntry): boolean {
   return Boolean(
     entry.boundary ||
-    entry.openBoundary ||
-    entry.status?.toLowerCase() === "faced" ||
-    entry.dependencyBoundary ||
-    Object.keys(entry.dependencyBoundaryFacades ?? {}).length > 0 ||
-    Object.keys(entry.publicFacades ?? {}).length > 0,
+      entry.openBoundary ||
+      entry.status?.toLowerCase() === "faced" ||
+      entry.dependencyBoundary ||
+      Object.keys(entry.dependencyBoundaryFacades ?? {}).length > 0 ||
+      Object.keys(entry.publicFacades ?? {}).length > 0,
   );
 }
 

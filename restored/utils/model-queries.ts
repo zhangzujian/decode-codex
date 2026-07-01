@@ -76,6 +76,9 @@ const modelFilterConfigSignal = createAppScopeSignal(
     isEqual,
   },
 );
+
+function initModelFilterConfigChunk(): void {}
+
 function isRawModelFilterConfig(value: unknown): value is RawModelFilterConfig {
   return value != null && typeof value === "object";
 }
@@ -178,7 +181,13 @@ function isModelListQueryReady(status: string): boolean {
   return status !== "pending";
 }
 
+function initModelListQueryChunk(): void {
+  initModelFilterConfigChunk();
+}
+
 export {
+  initModelFilterConfigChunk,
+  initModelListQueryChunk,
   parseModelFilterConfig,
   modelFilterConfigSignal,
   useModelListQuery,

@@ -40,7 +40,6 @@ var i = t((e, t) => {
         for (
           var a = r.length, o = t ? a : -1, s = Object(r);
           (t ? o-- : ++o < a) && i(s[o], o, s) !== !1;
-
         );
         return r;
       };

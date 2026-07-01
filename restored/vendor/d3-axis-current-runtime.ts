@@ -852,7 +852,6 @@ function srcHelper40(srcParam8, srcParam9) {
           srcValue168 >= srcValue169 && (srcValue169 = srcValue168 + 1);
           !(srcValue171 = srcValue167[srcValue169]) &&
           ++srcValue169 < srcValue165;
-
         );
         srcValue170._next = srcValue171 || null;
       }
@@ -940,7 +939,6 @@ function srcHelper45() {
       srcValue361 = -1,
       srcValue362 = srcValue360.length;
     ++srcValue361 < srcValue362;
-
   )
     for (
       var srcValue363 = srcValue360[srcValue361],
@@ -948,7 +946,6 @@ function srcHelper45() {
         srcValue365 = srcValue363[srcValue364],
         srcValue366;
       --srcValue364 >= 0;
-
     )
       (srcValue366 = srcValue363[srcValue364]) &&
         (srcValue365 &&
@@ -1221,7 +1218,6 @@ function srcHelper73(srcParam243, srcParam244) {
       srcValue538 = -1,
       srcValue539 = srcParam244.length;
     ++srcValue538 < srcValue539;
-
   )
     srcValue537.add(srcParam244[srcValue538]);
 }
@@ -1231,7 +1227,6 @@ function $t(srcParam235, srcParam236) {
       srcValue535 = -1,
       srcValue536 = srcParam236.length;
     ++srcValue535 < srcValue536;
-
   )
     srcValue534.remove(srcParam236[srcValue535]);
 }
@@ -1258,7 +1253,6 @@ function srcHelper77(srcParam87, srcParam88) {
         srcValue399 = -1,
         srcValue400 = srcValue397.length;
       ++srcValue399 < srcValue400;
-
     )
       if (!srcValue398.contains(srcValue397[srcValue399])) return !1;
     return !0;
@@ -1747,7 +1741,6 @@ function srcHelper116() {
   for (
     var srcValue417, srcValue418 = srcValue65, srcValue419, srcValue420 = 1 / 0;
     srcValue418;
-
   )
     srcValue418._call
       ? (srcValue420 > srcValue418._time && (srcValue420 = srcValue418._time),
@@ -1976,7 +1969,6 @@ function _r(srcParam4, srcParam5, srcParam6) {
         srcValue327 = -1,
         srcValue328 = srcValue148.length;
       ++srcValue327 < srcValue328;
-
     )
       srcValue148[srcValue327].call(srcParam4, srcValue326);
     srcParam6.state === 5 &&
@@ -2979,7 +2971,6 @@ function srcHelper181(srcParam157, srcParam158) {
     var srcValue494;
     !(srcValue494 = srcParam157.__transition) ||
     !(srcValue494 = srcValue494[srcParam158]);
-
   )
     if (!(srcParam157 = srcParam157.parentNode))
       throw Error(`transition ${srcParam158} not found`);

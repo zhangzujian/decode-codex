@@ -184,7 +184,6 @@ function serializerHelper21(serializerParam36, serializerParam37) {
       (serializerValue14 > 57 && serializerValue14 < 65) ||
       (serializerValue14 > 70 && serializerValue14 < 97)
     );
-
   );
   return serializerHelper15(
     serializerParam36,
@@ -223,7 +222,6 @@ function serializerHelper23(serializerParam38, serializerParam39) {
       serializerParam38 + serializerValue14 === 84 &&
       serializerHelper13() === 47
     );
-
   );
   return (
     "/*" +
@@ -281,7 +279,6 @@ function serializerHelper25(
       _serializerT = serializerParam4,
       _serializerN = serializerValue26;
     serializerValue23;
-
   )
     switch (
       ((serializerValue21 = serializerValue25),

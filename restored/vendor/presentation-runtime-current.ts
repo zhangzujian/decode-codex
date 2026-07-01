@@ -549,7 +549,6 @@ var presentationValue8,
           for (
             presentationHelper16(presentationParam1085);
             presentationParam1085 > 127;
-
           )
             (this.buf.push((presentationParam1085 & 127) | 128),
               (presentationParam1085 >>>= 7));

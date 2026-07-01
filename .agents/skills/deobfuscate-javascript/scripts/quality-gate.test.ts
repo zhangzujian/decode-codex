@@ -2267,10 +2267,9 @@ describe("vendored / facade relaxation", () => {
     fs.writeFileSync(vendorFile, mechanicalSource);
     fs.writeFileSync(generatedFile, mechanicalSource);
     fs.writeFileSync(appFeatureFile, mechanicalSource);
-    fs.mkdirSync(
-      path.join(targetDir, ".deobfuscate-javascript", "_full"),
-      { recursive: true },
-    );
+    fs.mkdirSync(path.join(targetDir, ".deobfuscate-javascript", "_full"), {
+      recursive: true,
+    });
     fs.writeFileSync(
       path.join(targetDir, ".deobfuscate-javascript", "_full", "manifest.json"),
       JSON.stringify(
@@ -2359,7 +2358,9 @@ describe("vendored / facade relaxation", () => {
       issues: Array<{ code: string }>;
     }>;
     const vendorCodes = reports
-      .filter((report) => path.resolve(report.file) === path.resolve(vendorFile))
+      .filter(
+        (report) => path.resolve(report.file) === path.resolve(vendorFile),
+      )
       .flatMap((report) => codes(report));
     const appFeatureCodes = reports
       .filter(
@@ -2663,33 +2664,48 @@ describe("checkFormatting", () => {
   });
 
   test("flags each file prettier --check reports as unformatted", () => {
+    const root = makeTmpRoot();
+    const buttonFile = path.join(root, "ui", "button.tsx");
+    const badgeFile = path.join(root, "ui", "badge.tsx");
+    fs.mkdirSync(path.dirname(buttonFile), { recursive: true });
+    fs.writeFileSync(buttonFile, "export const Button = () => null;\n");
+    fs.writeFileSync(badgeFile, "export const Badge = () => null;\n");
+
     const fakeRun = () => ({
       ok: false,
-      stdout:
-        "Checking formatting...\n[warn] restored/ui/button.tsx\n[warn] restored/ui/badge.tsx\n[warn] Code style issues found in 2 files. Run Prettier with --write to fix.\n",
+      stdout: `Checking formatting...\n[warn] ${buttonFile}\n[warn] ${badgeFile}\n[warn] Code style issues found in 2 files. Run Prettier with --write to fix.\n`,
       stderr: "",
     });
-    const reports = checkFormatting("restored", fakeRun);
-    expect(reports.map((r) => r.file)).toEqual([
-      "restored/ui/button.tsx",
-      "restored/ui/badge.tsx",
-    ]);
+    const reports = checkFormatting(root, fakeRun);
+    expect(reports.map((r) => r.file)).toEqual([buttonFile, badgeFile]);
     expect(reports.every((r) => r.issues[0]!.code === "unformatted")).toBe(
       true,
     );
   });
 
   test("ignores unformatted files under the hidden restoration workspace", () => {
+    const root = makeTmpRoot();
+    const publicFile = path.join(root, "preload", "electron-bridge-preload.ts");
+    const hiddenFile = path.join(
+      root,
+      ".deobfuscate-javascript",
+      "_full",
+      "files",
+      "preload",
+      "candidate.ts",
+    );
+    fs.mkdirSync(path.dirname(publicFile), { recursive: true });
+    fs.mkdirSync(path.dirname(hiddenFile), { recursive: true });
+    fs.writeFileSync(publicFile, "export const Preload = true;\n");
+    fs.writeFileSync(hiddenFile, "export const Hidden = true;\n");
+
     const fakeRun = () => ({
       ok: false,
-      stdout:
-        "Checking formatting...\n[warn] restored/main/.deobfuscate-javascript/_full/files/preload/candidate.ts\n[warn] restored/main/preload/electron-bridge-preload.ts\n[warn] Code style issues found in 2 files.\n",
+      stdout: `Checking formatting...\n[warn] ${hiddenFile}\n[warn] ${publicFile}\n[warn] Code style issues found in 2 files.\n`,
       stderr: "",
     });
-    const reports = checkFormatting("restored/main", fakeRun);
-    expect(reports.map((r) => r.file)).toEqual([
-      "restored/main/preload/electron-bridge-preload.ts",
-    ]);
+    const reports = checkFormatting(root, fakeRun);
+    expect(reports.map((r) => r.file)).toEqual([publicFile]);
   });
 
   test("returns no issues when everything is prettier-clean", () => {
@@ -2701,12 +2717,55 @@ describe("checkFormatting", () => {
     expect(reports).toEqual([]);
   });
 
+  test("does not soft-skip when every formatting batch is prettier-clean", () => {
+    const root = makeTmpRoot();
+    for (let i = 0; i < 201; i++) {
+      const targetFile = path.join(root, `module-${i}.ts`);
+      fs.writeFileSync(targetFile, "export const value = true;\n");
+    }
+
+    const batchSizes: number[] = [];
+    const errors: unknown[][] = [];
+    const originalError = console.error;
+    console.error = (...args: unknown[]) => {
+      errors.push(args);
+    };
+    try {
+      const reports = checkFormatting(root, (paths) => {
+        batchSizes.push(paths.length);
+        return {
+          ok: true,
+          stdout: "All matched files use Prettier code style!\n",
+          stderr: "",
+        };
+      });
+
+      expect(reports).toEqual([]);
+      expect(batchSizes).toEqual([200, 1]);
+      expect(errors).toEqual([]);
+    } finally {
+      console.error = originalError;
+    }
+  });
+
   test("soft-skips (no failures) when prettier is unavailable", () => {
-    const reports = checkFormatting("restored", () => ({
-      ok: false,
-      stdout: "",
-      stderr: "bunx: prettier: command not found\n",
-    }));
-    expect(reports).toEqual([]);
+    const errors: unknown[][] = [];
+    const originalError = console.error;
+    console.error = (...args: unknown[]) => {
+      errors.push(args);
+    };
+    try {
+      const reports = checkFormatting("restored", () => ({
+        ok: false,
+        stdout: "",
+        stderr: "bunx: prettier: command not found\n",
+      }));
+      expect(reports).toEqual([]);
+      expect(String(errors[0]?.[0])).toContain(
+        "prettier --check could not run",
+      );
+    } finally {
+      console.error = originalError;
+    }
   });
 });

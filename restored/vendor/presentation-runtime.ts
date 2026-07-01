@@ -487,7 +487,6 @@ var presentationPr = class {
       for (
         presentationHelper16(presentationParam1067);
         presentationParam1067 > 127;
-
       )
         (this.buf.push((presentationParam1067 & 127) | 128),
           (presentationParam1067 >>>= 7));

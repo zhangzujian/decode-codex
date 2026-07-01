@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-CgNc-Bk2.js
 // Named app-main current runtime aliases recovered from the current producer.
+// Flat boundary. Vendored app-main current runtime semantic alias barrel.
 export { GlobeIcon } from "../../icons/globe-icon";
 export { AlertIcon, initAlertIconChunk } from "../../icons/alert-icon";
 export { FolderIcon, initFolderIconChunk } from "../../icons/folder-icon";
@@ -35,6 +36,7 @@ export { QueryClientProvider } from "../../runtime/query-client/react-query-cont
 export { useQueries } from "../../runtime/query-client/react-query-hooks";
 export { createToolErrorResult } from "../../runtime/tool-result-runtime";
 export { OpenAiMcpCapabilityView } from "../../review/openai-mcp-capability-view";
+export { AppShellOverlayOutlet } from "../../app-shell/mcp-app-frame";
 export {
   useCloudEnvironmentsQuery,
   useReferralInviteMutation,
@@ -64,14 +66,105 @@ export {
   runAppActionInPrimaryWindow,
 } from "../../runtime/run-app-action-in-primary-window";
 export {
+  CONVERSATION_DETAIL_STEPS_COMMANDS,
+  CONVERSATION_DETAIL_STEPS_PROSE,
   initConversationDetailModeRuntime,
   isConversationDetailModeProse,
+  setConversationDetailMode,
+  useConversationDetailMode,
 } from "../../runtime/conversation-detail-runtime";
 export {
   initSettingsControlRowChunk,
   SettingsControlRow,
 } from "../../ui/settings-row";
-export { initSettingsHostContextRuntimeChunk } from "../../settings/settings-host-context";
+export {
+  filterProjectsForSettingsHost,
+  getValidSettingsHostId,
+  initSettingsHostContextRuntimeChunk,
+  initSettingsHostProjectFilterChunk,
+  setSettingsSelectedHostId,
+  useSettingsHostContext,
+} from "../../settings/settings-host-context";
+export {
+  BrowserOptionsMenuTriggerButton,
+  initBrowserOptionsMenuTriggerButtonChunk,
+} from "../../browser/browser-options-menu-trigger-button";
+export {
+  browserUseOriginStateQuery,
+  initBrowserUseOriginStateQueriesChunk,
+  useAddBrowserUseFileTransferOriginMutation,
+  useAddBrowserUseOriginMutation,
+  useBrowserUseFullCdpAccessEnabledMutation,
+  useClearBrowserBrowsingDataMutation,
+  useRemoveBrowserUseFileTransferOriginMutation,
+  useRemoveBrowserUseOriginMutation,
+  useUpdateBrowserUseApprovalModeMutation,
+  useUpdateBrowserUseFileTransferApprovalModeMutation,
+  useUpdateBrowserUseHistoryApprovalModeMutation,
+  useUpdateBrowserUseOriginRulesMutation,
+} from "../../browser/browser-use-origin-state-queries";
+export {
+  initBrowserUseSettingsVisibilityChunk,
+  useBrowserUseSettingsVisibility,
+} from "../../browser/browser-use-settings-visibility";
+export {
+  getBrowserSidebarTweaksState,
+  initBrowserSidebarTweaksStateChunk,
+} from "../../app-shell/thread-side-panel-active-signals";
+export {
+  initPullRequestFooterClassesChunk,
+  pullRequestFooterClasses,
+} from "../../composer/pull-request-footer-item/classes";
+export { PullRequestFooterLabel } from "../../composer/pull-request-footer-item/label";
+export {
+  initPullRequestFooterLayoutChunk,
+  PullRequestFooterRoot,
+} from "../../composer/pull-request-footer-item/root";
+export {
+  initUseRecordingWaveformIconChunk,
+  UseRecordingWaveformIcon,
+} from "../../utils/use-recording-waveform";
+export {
+  initRegenerateIconChunk,
+  RegenerateIcon,
+} from "../../icons/regenerate-icon";
+export { initStopIconChunk, StopIcon } from "../../icons/stop-icon";
+export {
+  ComposerContextButton,
+  initComposerContextButtonChunk,
+} from "../../features/use-dictation/context-button";
+export {
+  DictationButton,
+  initDictationButtonChunk,
+} from "../../features/use-dictation/dictation-button";
+export {
+  DictationRecordingFooter,
+  initDictationRecordingFooterChunk,
+} from "../../features/use-dictation/recording-footer";
+export {
+  initUseDictationRuntimeChunk,
+  initUseDictationUiRuntimeChunk,
+  useDictation,
+  useDictationCore,
+} from "../../features/use-dictation";
+export {
+  dictationStreamingUploadHeaderValue,
+  initDictationTranscriptCleanupChunk,
+  initDictationStreamingTranscriberRuntimeChunk,
+  initDictationStreamingUploadHeaderChunk,
+  initTranscribeAudioMultipartChunk,
+  cleanupDictationTranscript,
+  StreamingDictationTranscriber,
+  transcribeAudio,
+} from "../../utils/transcribe-audio";
+export {
+  getMicrophoneInputStream,
+  initMicrophoneInputChunk,
+} from "../../utils/microphone-input";
+export {
+  initUseRecordingWaveformChunk,
+  useRecordingWaveform,
+} from "../../utils/use-recording-waveform";
 export {
   CHATGPT_ADMIN_BILLING_ADD_CREDITS_URL,
   CHATGPT_ADMIN_URL,
@@ -185,94 +278,110 @@ export {
   initComposeEventHandlersRuntime,
 } from "../radix-event-helpers";
 export { isComposerDictationTarget } from "../../composer/composer-dictation-focus";
-export { buildCreateConversationParams } from "../../composer/build-create-conversation-params";
-export { openConfigInEditor } from "../../composer/open-config-in-editor";
+export {
+  buildCreateConversationParams,
+  initBuildCreateConversationParamsChunk,
+} from "../../composer/build-create-conversation-params";
+export {
+  initOpenConfigInEditorChunk,
+  openConfigInEditor,
+} from "../../composer/open-config-in-editor";
+export {
+  initUserSavedConfigQueryChunk,
+  userSavedConfigQueryOptions,
+} from "../../config/user-saved-config-query";
+export {
+  initOpenConfigTomlButtonChunk,
+  OpenConfigTomlButton,
+} from "../../composer/open-config-toml-button";
+export {
+  DEFAULT_MODEL,
+  initModelsAndReasoningEffortsChunk,
+  isReasoningEffort,
+} from "../../utils/models-and-reasoning-efforts";
+export {
+  enabledReasoningEffortsSetSignal,
+  initEnabledReasoningEffortsChunk,
+  setEnabledReasoningEffort,
+} from "../../composer/enabled-reasoning-efforts";
+export {
+  initModelFilterConfigChunk,
+  initModelListQueryChunk,
+  isModelListQueryReady,
+  modelFilterConfigSignal,
+  parseModelFilterConfig,
+  useModelFilterConfig,
+  useModelListQuery,
+} from "../../utils/model-queries";
+export {
+  findModelByName,
+  initModelSettingsCoreChunk,
+  SELECTABLE_REASONING_EFFORTS,
+} from "../../composer/model-settings-core";
+export { useModelSettings } from "../../composer/use-resolved-model-settings";
+export {
+  initUseModelSettingsControllerChunk,
+  useModelSettingsController,
+} from "../../composer/use-model-settings-controller";
+export {
+  initUseServiceTierChunk,
+  useServiceTier,
+} from "../../composer/use-service-tier";
 export { initPrimaryRuntimeInstallStatusMessageChunk } from "../../runtime/primary-runtime-install-status-message";
-
 export {
-  $c as initFileDiffLayoutRuntime,
-  Bt as summarizeParsedDiffs,
-  Ln as AutomationScheduleEditor,
-  Qc as UnifiedDiffIcon,
-  Vt as initFileDiffRuntime,
-  Hc as setThreadBrowserSidePanelExpanded,
-  In as initSettingsRowRuntime,
-  Kt as RemoteConversationShell,
-  ad as initAppMainAttachmentRendererRuntime,
-  ai as initMessageTextRendererRuntime,
-  fo as XcodeLicenseWarningIcon,
-  id as TrashIcon,
-  ii as MessageTextRenderer,
-  kn as AutomationDraftActionForm,
-  ou as FileDiff,
-  po as initReviewModeIconsRuntime,
-  su as initFileDiffSupportRuntime,
-  t as OnboardingStepView,
-} from "../app-main-current-cgnc-bundle";
-
+  aboveComposerSuggestionDismissalsAtom,
+  composerPromptHistorySignal,
+  initComposerInteractionStateChunk,
+  skipFullAccessConfirmSignal,
+} from "../../composer/composer-interaction-state";
 export {
-  $l as SidebarSection,
-  Bn as ArchiveMenuItem,
-  Cl as toggleThreadSidePanel,
-  Ff as initThreadRowLayoutRuntimeChunk,
-  Gd as ThreadRow,
-  Gl as projectGroupRepositoryDataSignal,
-  Hd as initThreadRowRuntimeChunk,
-  Jd as ThreadRowHoverCard,
-  Jl as ThreadRowTitle,
-  Kd as ThreadRowMeta,
-  Ac as areArraysEqual,
-  Mr as initSidebarRowPrimitivesChunk,
-  Nn as SidebarRowActionButton,
-  Nr as SidebarRowContextMenu,
-  Oi as SidebarRowOverflowMenu,
-  Pf as initSidebarTaskRowRuntimeChunk,
-  Pn as SidebarTaskRow,
-  Ql as SidebarTaskRowActions,
-  Qp as SidebarTaskRowTitle,
-  Sl as initPullRequestStatusBadgeChunk,
-  To as registerForkedConversation,
-  Ud as ThreadRowPinAction,
-  Wc as primeBrowserTabTransfers,
-  Wc as transferForkedConversationBrowserTabs,
-  Wd as ThreadRowUnreadState,
-  Wl as SidebarListSection,
-  Yd as ThreadRowHoverActions,
-  Zu as AppShellOverlayOutlet,
-  _l as openThreadBrowserSidePanelTabWithPendingState,
-  al as SidebarRowMenuSeparator,
-  bl as openThreadReviewSidePanelTab,
-  cf as openThreadMcpAppSidePanelTab,
-  cm as ThreadRowEnvironmentMeta,
-  cp as ThreadRowTimestamp,
-  dl as SidebarRowDragHandle,
-  el as initOpenInBrowserRuntimeChunk,
-  eu as SidebarRowUnreadDot,
-  fl as getBrowserTabIdForSidePanelOpen,
-  fr as normalizeFilesystemPathForDisplay,
-  gl as openThreadBrowserSidePanelTab,
-  gm as SidebarRowProjectLabel,
-  go as associateBranchWithConversation,
-  hl as openThreadBranchReviewSidePanelTab,
-  hm as SidebarRowHostLabel,
-  ho as forkConversationMessages,
-  hp as useComposedRefs,
-  ki as SidebarRowIcon,
-  ml as openSessionSandboxSidePanel,
-  mo as initForkConversationMessagesChunk,
-  nf as liveMcpAppFrameSignal,
-  nm as SidebarRowHoverCard,
-  of as closeThreadMcpAppSidePanelTab,
-  pl as initThreadSidePanelTabsChunk,
-  pr as readProjectSignal,
-  rl as SidebarRowKeyboardScope,
-  sf as getThreadMcpAppSidePanelTabId,
-  sl as SidebarRowShortcutScope,
-  sm as SidebarRowContextMenuItem,
-  ud as initExternalAgentImportStatusIconsChunk,
-  vl as openThreadBrowserSidePanelTabWithoutAnimation,
-  xl as openThreadTimelineSidePanel,
-  xo as initForkConversationToastRuntime,
-  yl as openThreadLastTurnReviewSidePanelTab,
-  zn as SidebarRowRuntime,
-} from "../app-main-current-cgnc-bundle";
+  initCollaborationModeQueriesChunk,
+  selectedHostCollaborationModesQuerySignal,
+} from "../../collaboration/collaboration-mode-queries";
+export {
+  initUseCollaborationModeChunk,
+  useCollaborationMode,
+} from "../../collaboration/use-collaboration-mode";
+export {
+  initPermissionProfilesQueryChunk,
+  selectAvailablePermissionProfiles,
+} from "../../utils/use-permissions-mode/permission-profiles";
+export {
+  canUseWorkspaceWriteOnRequest,
+  getAvailablePermissionModeState,
+  getDetailLevelDefaultAgentMode,
+  permissionProfileIdToAgentMode,
+} from "../../utils/use-permissions-mode/mode-availability";
+export {
+  canAgentModeUseOverrides,
+  getDefaultWorkspaceWriteMode,
+  initPermissionModeSelectionChunk,
+  resolveNextFallbackAgentMode,
+  resolveNonFullAccessAgentMode,
+  selectFallbackAgentMode,
+  shouldWaitForPermissionModeSelection,
+} from "../../utils/use-permissions-mode/mode-selection";
+export { usePermissionsConfigData } from "../../utils/use-permissions-mode/config-data";
+export {
+  initUsePermissionsModeChunk,
+  usePermissionsMode,
+} from "../../utils/use-permissions-mode/use-permissions-mode";
+export { usePreferredNonFullAccessMode } from "../../utils/use-permissions-mode/preferred-mode";
+export {
+  resetDraftPermissionModeState,
+  setThreadPreferredNonFullAccessModeFromDefault,
+} from "../../utils/use-permissions-mode/state";
+export { setThreadArchivedTool } from "../../threads/thread-dynamic-tools/archive-thread-tool";
+export {
+  initThreadDynamicToolsChunk,
+  readThreadTurnsTool,
+} from "../../threads/thread-dynamic-tools/read-thread-turns-tool";
+export {
+  convertUnistTest,
+  initMdastToMarkdownRuntimeChunk,
+  initUnistUtilIsRuntimeChunk,
+  initUnistUtilVisitParentsRuntimeChunk,
+  mdastToMarkdownDefaultHandlers,
+  visitUnistParents,
+} from "../markdown-ast-runtime";
+export * from "./semantic-legacy-aliases";

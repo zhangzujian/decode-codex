@@ -54,7 +54,6 @@ function defaultLocaleHelper3(defaultLocaleParam7, defaultLocaleParam8) {
       !(
         (defaultLocaleValue41 += defaultLocaleValue40 + 1) > defaultLocaleParam9
       ));
-
     )
       defaultLocaleValue40 =
         defaultLocaleParam7[
@@ -388,7 +387,6 @@ function defaultLocaleR(defaultLocaleParam1) {
             defaultLocaleValue26 = -1,
               defaultLocaleValue27 = defaultLocaleParam3.length;
             ++defaultLocaleValue26 < defaultLocaleValue27;
-
           )
             if (
               ((defaultLocaleValue28 =

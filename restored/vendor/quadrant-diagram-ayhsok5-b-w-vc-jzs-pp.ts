@@ -1339,7 +1339,6 @@ var quadrantDiagramAYHSOK5BValue1 = (function () {
             quadrantDiagramAYHSOK5BValue114,
             quadrantDiagramAYHSOK5BValue115;
           ;
-
         ) {
           if (
             ((quadrantDiagramAYHSOK5BValue108 =

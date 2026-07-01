@@ -16,3 +16,7 @@ export const pullRequestFooterClasses = {
   secondaryChevron: "_secondaryChevron_z984f_2",
   secondaryLabel: "_secondaryLabel_z984f_2",
 } as const;
+
+export function initPullRequestFooterClassesChunk(): void {
+  void pullRequestFooterClasses;
+}

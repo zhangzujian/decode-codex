@@ -2961,7 +2961,6 @@ function _n(
     (popcornElectronWorkbookPanelParam277[
       popcornElectronWorkbookPanelValue1266 + 1
     ] ?? 0) <= popcornElectronWorkbookPanelParam276;
-
   )
     popcornElectronWorkbookPanelValue1266 += 1;
   return popcornElectronWorkbookPanelHelper57(
@@ -10141,7 +10140,6 @@ function popcornElectronWorkbookPanelHelper136(
     (popcornElectronWorkbookPanelParam258[
       popcornElectronWorkbookPanelValue1251 + 1
     ] ?? 0) <= popcornElectronWorkbookPanelParam257;
-
   )
     popcornElectronWorkbookPanelValue1251 += 1;
   return Math.max(
@@ -13196,7 +13194,6 @@ function popcornElectronWorkbookPanelHelper156(
     ;
     popcornElectronWorkbookPanelValue689 <
     popcornElectronWorkbookPanelParam63.length;
-
   ) {
     let popcornElectronWorkbookPanelValue1208 =
       popcornElectronWorkbookPanelParam63[popcornElectronWorkbookPanelValue689];

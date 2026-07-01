@@ -1131,7 +1131,6 @@ function popcornElectronDocumentPanelHelper15(
         ;
         popcornElectronDocumentPanelValue627 <
         popcornElectronDocumentPanelValue586.cells.length;
-
       ) {
         let popcornElectronDocumentPanelValue944 =
           popcornElectronDocumentPanelValue586.cells[
@@ -2454,7 +2453,6 @@ function popcornElectronDocumentPanelHelper73(
     !popcornElectronDocumentPanelValue932.has(
       popcornElectronDocumentPanelValue931,
     );
-
   ) {
     popcornElectronDocumentPanelValue932.add(
       popcornElectronDocumentPanelValue931,
@@ -3657,7 +3655,6 @@ function popcornElectronDocumentPanelHelper107(
         ;
         popcornElectronDocumentPanelValue676 <
         popcornElectronDocumentPanelParam147.length;
-
       ) {
         let popcornElectronDocumentPanelValue854 =
             popcornElectronDocumentPanelParam147[
@@ -4841,7 +4838,6 @@ function popcornElectronDocumentPanelHelper122({
     ;
     popcornElectronDocumentPanelValue463 <=
     popcornElectronDocumentPanelValue464;
-
   ) {
     let popcornElectronDocumentPanelValue697 = Math.floor(
         (popcornElectronDocumentPanelValue463 +
@@ -6165,7 +6161,6 @@ function popcornElectronDocumentPanelHelper158(
       ;
       popcornElectronDocumentPanelValue672 >=
       popcornElectronDocumentPanelValue1057;
-
     )
       ((popcornElectronDocumentPanelValue673 +=
         popcornElectronDocumentPanelValue1058),
@@ -6857,7 +6852,6 @@ function popcornElectronDocumentPanelHelper166(
           ;
           popcornElectronDocumentPanelValue340 <
           popcornElectronDocumentPanelValue339.rows.length;
-
         ) {
           let popcornElectronDocumentPanelValue344 =
               settings.columns.widths[popcornElectronDocumentPanelValue202] ??

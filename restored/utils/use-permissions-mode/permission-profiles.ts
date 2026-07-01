@@ -75,3 +75,7 @@ export const permissionProfilesQuery = createAppScopeQueryFamily(
     staleTime: queryTimes.ONE_MINUTE,
   }),
 );
+
+export function initPermissionProfilesQueryChunk(): void {
+  void permissionProfilesQuery;
+}

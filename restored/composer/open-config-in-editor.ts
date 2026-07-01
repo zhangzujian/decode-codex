@@ -11,6 +11,8 @@ export interface OpenConfigInEditorOptions {
   range?: { start: { line: number; column: number } } | null;
 }
 
+export function initOpenConfigInEditorChunk(): void {}
+
 async function resolvePreferredOpenTarget(
   hostId: string,
 ): Promise<string | undefined> {

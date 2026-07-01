@@ -1,6 +1,9 @@
 // Restored from ref/webview/assets/use-recording-waveform-Cfd-Ecbb.js
 // use-recording-waveform-Cfd-Ecbb chunk restored from the Codex webview bundle.
 import type { SVGProps } from "react";
+
+export function initUseRecordingWaveformIconChunk(): void {}
+
 export function UseRecordingWaveformIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

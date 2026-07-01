@@ -58,6 +58,13 @@ export const generalSettingDefinitions = settingsProxy({
   ),
   dictationDictionary: setting("dictationDictionary", [] as string[]),
   downloadDirectory: setting("browser-download-directory", null),
+  enabledReasoningEfforts: setting("enabled-reasoning-efforts", [
+    "low",
+    "medium",
+    "high",
+    "xhigh",
+    "ultra",
+  ] as string[]),
   followUpQueueMode: setting("followUpQueueMode", "queue"),
   openLinkInTargetPreference: setting(
     "open-link-in-target-preference",

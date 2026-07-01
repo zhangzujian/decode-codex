@@ -34,13 +34,36 @@ function which(cmd: string): string | null {
   return res.stdout.trim() || null;
 }
 
+export function resolvePrettierCommand(
+  prettierArgs: string[],
+  findCommand: (cmd: string) => string | null = which,
+): [runner: string, args: string[]] {
+  const direct = findCommand("prettier");
+  if (direct) return ["node", ["--stack-size=65500", direct, ...prettierArgs]];
+  if (findCommand("bunx")) return ["bunx", ["prettier", ...prettierArgs]];
+  return ["npx", ["prettier", ...prettierArgs]];
+}
+
 function runPrettier(
   targets: string[],
   opts: FormatOptions = {},
 ): FormatResult {
+  const cacheArgs = opts.check
+    ? [
+        "--cache",
+        "--cache-location",
+        path.join(
+          process.env.TMPDIR ?? "/tmp",
+          "deobfuscate-javascript-prettier-cache",
+        ),
+        "--cache-strategy",
+        "content",
+      ]
+    : [];
   const prettierArgs = [
     opts.check ? "--check" : "--write",
     "--no-error-on-unmatched-pattern",
+    ...cacheArgs,
     // Prettier 3 honours `.gitignore` by default. Restore deliverables routinely
     // live under a gitignored tree (e.g. a repo that gitignores `restored/`), so
     // the default would SILENTLY skip every file we mean to format. Pin the ignore
@@ -53,12 +76,7 @@ function runPrettier(
 
   // Prefer a `prettier` already on PATH (no network fetch, works offline); fall
   // back to `bunx`, then `npx`, which fetch the package on demand.
-  const direct = which("prettier");
-  const [runner, args] = direct
-    ? ["node", ["--stack-size=65500", direct, ...prettierArgs]]
-    : which("bunx")
-      ? ["bunx", ["prettier", ...prettierArgs]]
-      : ["npx", ["prettier", ...prettierArgs]];
+  const [runner, args] = resolvePrettierCommand(prettierArgs);
   const command = `${runner} ${args.join(" ")}`;
   const res = spawnSync(runner, args, { encoding: "utf-8" });
   return {

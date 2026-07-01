@@ -30,6 +30,8 @@ export interface BuildCreateConversationParamsInput {
   additionalDeveloperInstructions: unknown;
 }
 
+export function initBuildCreateConversationParamsChunk(): void {}
+
 export function buildCreateConversationParams({
   agentMode,
   permissionProfileId,

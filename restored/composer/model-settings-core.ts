@@ -40,6 +40,8 @@ export interface NextTurnModelOverride {
 /** Reasoning efforts a user may toggle on for a model. */
 export const SELECTABLE_REASONING_EFFORTS = ["low", "medium", "high", "xhigh"];
 
+export function initModelSettingsCoreChunk(): void {}
+
 export function findModelByName(
   models: ModelListEntry[] | undefined | null,
   modelName: string,

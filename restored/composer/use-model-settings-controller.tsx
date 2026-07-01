@@ -97,6 +97,8 @@ export interface ModelSettingsController {
   modelSettings: ModelSettings;
 }
 
+export function initUseModelSettingsControllerChunk(): void {}
+
 export function useModelSettingsController(
   conversationId: string | null = null,
 ): ModelSettingsController {

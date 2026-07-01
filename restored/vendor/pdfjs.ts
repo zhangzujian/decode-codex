@@ -1849,7 +1849,6 @@ function _pdfL(pdfParam246, pdfParam247) {
         ? ((pdfValue1807 = pdfValue772[2]), (pdfValue1808 = 1))
         : ((pdfValue1807 = 0), (pdfValue1808 = pdfValue772[2]));
       pdfValue1808 - pdfValue1807 > 0.005;
-
     ) {
       let ___pdfY = (pdfValue772[2] = (pdfValue1807 + pdfValue1808) / 2);
       __pdfS ===
@@ -6871,7 +6870,6 @@ var pdfValue26 = class {
           ),
             pdfValue1300.done = !0;
           __pdfY.length > 0 && __pdfY[0].done;
-
         ) {
           let pdfValue2200 = __pdfY.shift();
           setTimeout(pdfValue2200.callback, 0);
@@ -10001,7 +9999,6 @@ function _n(pdfParam47, pdfParam48) {
           pdfValue393 = 0,
           pdfValue394 = pdfValue395;
         pdfValue394--;
-
       )
         ((__pdfR[pdfValue393++] = __pdfI[__pdfS++]),
           (__pdfR[pdfValue393++] = __pdfI[__pdfS++]),
@@ -10287,7 +10284,6 @@ var pdfValue86 = [`butt`, `round`, `square`],
         ;
         (pdfValue742 > 2 && pdfValue744 > 1) ||
         (pdfValue743 > 2 && pdfValue745 > 1);
-
       ) {
         let pdfValue1121 = pdfValue744,
           ___pdfY = pdfValue745;
@@ -10767,7 +10763,6 @@ var pdfValue86 = [`butt`, `round`, `square`],
         for (
           let pdfValue1105 = 0, ___pdfY = pdfValue550.length;
           pdfValue1105 < ___pdfY;
-
         )
           switch (pdfValue550[pdfValue1105++]) {
             case pdfValue9.moveTo:
@@ -21635,7 +21630,6 @@ var pdfValue123 = class {
           pdfValue796 = [pdfValue1349, pdfValue1351],
             pdfValue795.push(pdfValue796);
           ;
-
         ) {
           let pdfValue1691;
           if (__pdfY.has(pdfValue1352)) pdfValue1691 = pdfValue1352;
@@ -26189,7 +26183,6 @@ var pdfValue123 = class {
       for (
         ;
         pdfValue1118 > 2 * pdfParam401 || pdfValue1119 > 2 * pdfParam402;
-
       ) {
         let ___pdfY = pdfValue1118,
           pdfValue1383 = pdfValue1119;

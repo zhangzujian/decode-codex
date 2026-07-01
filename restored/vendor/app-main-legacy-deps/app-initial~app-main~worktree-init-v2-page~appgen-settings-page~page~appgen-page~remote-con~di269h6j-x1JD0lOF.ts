@@ -420,7 +420,6 @@ function E(e, t = {}) {
       i++ < 5 &&
       ((o = jt(n, s)),
       !(o === `html` || (i > 1 && a + r.length * 3 + o.length >= c)));
-
     )
       (r.push(o), (a += o.length), (n = n.parentNode));
     return r.reverse().join(` > `);

@@ -5,6 +5,11 @@ export const dictationStreamingUploadHeaderValue = [
   "dictation",
   "streaming",
 ].join("-");
+
+export function initDictationStreamingUploadHeaderChunk(): void {
+  void dictationStreamingUploadHeaderValue;
+}
+
 export type DictationStreamErrorPayload = {
   code: string;
   message: string;

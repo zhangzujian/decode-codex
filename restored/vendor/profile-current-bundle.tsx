@@ -2340,7 +2340,6 @@ function profileHelper40(profileParam125, profileParam126, profileParam127) {
     ;
     profileValue617.length > 1 &&
     profileParam125.measureText(`${profileValue617}…`).width > profileParam127;
-
   )
     profileValue617 = profileValue617.slice(0, -1);
   return `${profileValue617}…`;

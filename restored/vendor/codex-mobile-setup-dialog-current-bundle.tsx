@@ -1373,7 +1373,7 @@ var codexMobileSetupDialogValue41,
             this.buffer.push(0);
           codexMobileSetupDialogParam213 &&
             (this.buffer[codexMobileSetupDialogValue806] |=
-              128 >>> this.length % 8);
+              128 >>> (this.length % 8));
           this.length++;
         },
       };
@@ -2054,7 +2054,6 @@ var codexMobileSetupDialogValue41,
           codexMobileSetupDialogValue746.length -
             codexMobileSetupDialogParam169.length >=
           0;
-
         ) {
           let codexMobileSetupDialogValue810 =
             codexMobileSetupDialogValue746[0];
@@ -2076,7 +2075,6 @@ var codexMobileSetupDialogValue41,
               codexMobileSetupDialogValue746.length &&
             codexMobileSetupDialogValue746[codexMobileSetupDialogValue811] ===
               0;
-
           )
             codexMobileSetupDialogValue811++;
           codexMobileSetupDialogValue746 = codexMobileSetupDialogValue746.slice(
@@ -2513,7 +2511,6 @@ var codexMobileSetupDialogValue41,
           ) -
             codexMobileSetupDialogValue411 >=
           0;
-
         )
           codexMobileSetupDialogValue799 ^=
             7973 <<
@@ -2548,7 +2545,6 @@ var codexMobileSetupDialogValue41,
           ) -
             codexMobileSetupDialogValue761 >=
           0;
-
         )
           codexMobileSetupDialogValue829 ^=
             1335 <<
@@ -2809,7 +2805,6 @@ var codexMobileSetupDialogValue41,
               codexMobileSetupDialogValue581,
               codexMobileSetupDialogValue582;
             !codexMobileSetupDialogValue573.empty();
-
           )
             for (codexMobileSetupDialogValue576 in ((codexMobileSetupDialogValue574 =
               codexMobileSetupDialogValue573.pop()),
@@ -2874,7 +2869,6 @@ var codexMobileSetupDialogValue41,
             var codexMobileSetupDialogValue854 = [],
               codexMobileSetupDialogValue855 = codexMobileSetupDialogParam276;
             codexMobileSetupDialogValue855;
-
           ) {
             codexMobileSetupDialogValue854.push(codexMobileSetupDialogValue855);
             codexMobileSetupDialogParam275[codexMobileSetupDialogValue855];
@@ -2987,7 +2981,6 @@ var codexMobileSetupDialogValue41,
           (codexMobileSetupDialogValue822 = codexMobileSetupDialogParam219.exec(
             codexMobileSetupDialogParam221,
           )) !== null;
-
         )
           codexMobileSetupDialogValue821.push({
             data: codexMobileSetupDialogValue822[0],
@@ -3685,7 +3678,6 @@ var codexMobileSetupDialogValue41,
             codexMobileSetupDialogValue679 === 6 &&
             codexMobileSetupDialogValue679--;
             ;
-
           ) {
             for (
               let codexMobileSetupDialogValue775 = 0;
@@ -3765,7 +3757,6 @@ var codexMobileSetupDialogValue41,
             codexMobileSetupDialogValue634 &&
           codexMobileSetupDialogValue633.put(0, 4);
           codexMobileSetupDialogValue633.getLengthInBits() % 8 != 0;
-
         )
           codexMobileSetupDialogValue633.putBit(0);
         let codexMobileSetupDialogValue635 =
@@ -4754,7 +4745,6 @@ function codexMobileSetupDialogHelper11({ onArtworkReady, svgMarkup }) {
                 codexMobileSetupDialogValue710.length - 1
               ].sampledAt >=
               codexMobileSetupDialogValue78;
-
           )
             codexMobileSetupDialogValue710.pop();
           for (let [

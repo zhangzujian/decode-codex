@@ -29,6 +29,11 @@ const ORB_ALPHA = 0.6;
 const ORB_FADE_IN_STOP = 0.25;
 const ORB_FADE_OUT_STOP = 0.95;
 const ORB_BUCKET_INTERVAL_MS = 200;
+
+export function initUseRecordingWaveformChunk(): void {
+  void useRecordingWaveform;
+}
+
 export function useRecordingWaveform(
   options: UseRecordingWaveformOptions = {},
 ) {

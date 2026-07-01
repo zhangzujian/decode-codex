@@ -129,7 +129,6 @@ function handleO(handleParam7, handleParam8, handleParam9, handleParam10) {
               handleValue17,
               handleValue89 = handleParam18.concat(handleValue99);
             handleValue88 > -1 && handleValue88 < handleValue99.children.length;
-
           ) {
             let handleValue135 = handleValue99.children[handleValue88];
             if (
@@ -658,7 +657,6 @@ function handleHelper31(handleParam40, handleParam41, _handleS) {
       /^`|`$/.test(handleValue82)) &&
     (handleValue82 = " " + handleValue82 + " ");
     ++handleValue84 < _handleS.unsafe.length;
-
   ) {
     let handleValue106 = _handleS.unsafe[handleValue84],
       handleValue107 = _handleS.compilePattern(handleValue106),

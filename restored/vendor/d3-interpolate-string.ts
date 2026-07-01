@@ -639,7 +639,6 @@ export function stringT(_stringD, _stringF) {
     _stringD += "", _stringF += "";
     (stringValue16 = stringValue14.exec(_stringD)) &&
     (stringValue17 = stringValue15.exec(_stringF));
-
   ) {
     (stringValue18 = stringValue17.index) > _stringS &&
       ((stringValue18 = _stringF.slice(_stringS, stringValue18)),

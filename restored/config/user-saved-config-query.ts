@@ -12,6 +12,9 @@ import { vscodeApiU as queryTimes } from "../boundaries/vscode-api";
 import { readConfigForHost } from "./config-queries";
 import { queryOptions } from "../utils/query-options";
 const USER_SAVED_CONFIG_QUERY_KEY = ["user-saved-config"];
+
+export function initUserSavedConfigQueryChunk(): void {}
+
 function createUserSavedConfigQueryOptions({
   queryClient,
   hostId,

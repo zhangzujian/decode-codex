@@ -1,7 +1,10 @@
 // Restored from ref/webview/assets/thread-detail-level-CGt2uMmR.js
 // Normalizes the thread detail setting used by conversation step rendering.
 import { useSettingValue } from "../settings/setting-storage";
-type ThreadDetailLevel = "STEPS_PROSE" | "STEPS_COMMANDS" | "STEPS_EXECUTION";
+export type ThreadDetailLevel =
+  | "STEPS_PROSE"
+  | "STEPS_COMMANDS"
+  | "STEPS_EXECUTION";
 const THREAD_DETAIL_LEVEL_PROSE = "STEPS_PROSE";
 const THREAD_DETAIL_LEVEL_COMMANDS = "STEPS_COMMANDS";
 const conversationDetailModeSetting = {
@@ -38,4 +41,5 @@ export {
   THREAD_DETAIL_LEVEL_PROSE,
   normalizeThreadDetailLevel,
   THREAD_DETAIL_LEVEL_COMMANDS,
+  conversationDetailModeSetting,
 };

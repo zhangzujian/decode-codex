@@ -30,8 +30,10 @@ export interface TooltipContextValue {
   setHoverHandoffLockTooltipId(tooltipId: string): void;
   skipDelayActive: boolean;
 }
-export interface TooltipProps
-  extends Omit<React.HTMLAttributes<HTMLElement>, "content"> {
+export interface TooltipProps extends Omit<
+  React.HTMLAttributes<HTMLElement>,
+  "content"
+> {
   tooltipContent?: React.ReactNode;
   shortcut?: React.ReactNode;
   disabled?: boolean;

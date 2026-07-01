@@ -83,4 +83,8 @@ async function getMicrophoneInputStream(options: MicrophoneInputOptions = {}) {
     return getFallbackMicrophoneInputStream(options);
   }
 }
+export function initMicrophoneInputChunk(): void {
+  void getMicrophoneInputStream;
+}
+
 export { getMicrophoneInputStream };

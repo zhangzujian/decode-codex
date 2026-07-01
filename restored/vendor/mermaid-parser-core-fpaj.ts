@@ -57,9 +57,8 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   info: chunkFPAJGGOCF(async () => {
     let { createInfoServices } = await PreloadHelper(
       async () => {
-        let { createInfoServices: _createInfoServices } = await import(
-          "./mermaid-info-definition-fpaj"
-        );
+        let { createInfoServices: _createInfoServices } =
+          await import("./mermaid-info-definition-fpaj");
         return {
           createInfoServices: _createInfoServices,
         };
@@ -72,9 +71,8 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   packet: chunkFPAJGGOCF(async () => {
     let { createPacketServices } = await PreloadHelper(
       async () => {
-        let { createPacketServices: _createPacketServices } = await import(
-          "./mermaid-packet-definition-fpaj"
-        );
+        let { createPacketServices: _createPacketServices } =
+          await import("./mermaid-packet-definition-fpaj");
         return {
           createPacketServices: _createPacketServices,
         };
@@ -88,9 +86,8 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   pie: chunkFPAJGGOCF(async () => {
     let { createPieServices } = await PreloadHelper(
       async () => {
-        let { createPieServices: _createPieServices } = await import(
-          "./mermaid-pie-definition-fpaj"
-        );
+        let { createPieServices: _createPieServices } =
+          await import("./mermaid-pie-definition-fpaj");
         return {
           createPieServices: _createPieServices,
         };
@@ -118,9 +115,8 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   gitGraph: chunkFPAJGGOCF(async () => {
     let { createGitGraphServices } = await PreloadHelper(
       async () => {
-        let { createGitGraphServices: _createGitGraphServices } = await import(
-          "./mermaid-git-graph-definition-fpaj"
-        );
+        let { createGitGraphServices: _createGitGraphServices } =
+          await import("./mermaid-git-graph-definition-fpaj");
         return {
           createGitGraphServices: _createGitGraphServices,
         };
@@ -134,9 +130,8 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   radar: chunkFPAJGGOCF(async () => {
     let { createRadarServices } = await PreloadHelper(
       async () => {
-        let { createRadarServices: _createRadarServices } = await import(
-          "./mermaid-radar-definition-fpaj"
-        );
+        let { createRadarServices: _createRadarServices } =
+          await import("./mermaid-radar-definition-fpaj");
         return {
           createRadarServices: _createRadarServices,
         };
@@ -150,9 +145,8 @@ const parserLoaderByDiagramType: Record<string, () => Promise<void>> = {
   treemap: chunkFPAJGGOCF(async () => {
     let { createTreemapServices } = await PreloadHelper(
       async () => {
-        let { createTreemapServices: _createTreemapServices } = await import(
-          "./mermaid-treemap-definition-fpaj"
-        );
+        let { createTreemapServices: _createTreemapServices } =
+          await import("./mermaid-treemap-definition-fpaj");
         return {
           createTreemapServices: _createTreemapServices,
         };

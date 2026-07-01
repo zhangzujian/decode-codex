@@ -758,7 +758,6 @@ You have to call mermaid.initialize.`);
       for (
         ;
         flowDiagramNV44I4VSValue208 < flowDiagramNV44I4VSValue207.length;
-
       ) {
         let flowDiagramNV44I4VSValue241 = this.getPosForId(
           flowDiagramNV44I4VSValue207[flowDiagramNV44I4VSValue208],
@@ -4245,7 +4244,6 @@ You have to call mermaid.initialize.`);
               flowDiagramNV44I4VSValue142,
               flowDiagramNV44I4VSValue143;
             ;
-
           ) {
             if (
               ((flowDiagramNV44I4VSValue136 =

@@ -1,13 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // In-app browser options dropdown menu (zoom, reload, device toolbar, clear data, settings).
 import * as React from "react";
-import type { ComponentProps } from "react";
 import {
   FormattedMessage,
   useIntl,
   defineMessages,
 } from "../vendor/react-intl";
-import { Button } from "../ui/button";
 import { DropdownMenu, Dropdown } from "../ui/dropdown";
 import { MinusIcon } from "../icons/minus-icon";
 import { PlusIcon } from "../icons/plus-icon";
@@ -27,8 +25,8 @@ import {
   downloadsChromiumPageId,
   extensionsChromiumPageId,
   ResetZoomIcon,
-  BrowserOptionsIcon,
 } from "../boundaries/onboarding-commons-externals.facade";
+import { BrowserOptionsMenuTriggerButton } from "./browser-options-menu-trigger-button";
 
 const messages = defineMessages({
   hideFloatingComposer: {
@@ -44,43 +42,6 @@ const messages = defineMessages({
       "Menu item that shows the floating composer in the expanded browser panel",
   },
 });
-
-type BrowserOptionsMenuTriggerButtonProps = {
-  label: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  size?: ComponentProps<typeof Button>["size"];
-  iconClassName?: string;
-  uniform?: boolean;
-} & Omit<ComponentProps<typeof Button>, "size" | "onClick" | "children">;
-
-function BrowserOptionsMenuTriggerButton(
-  props: BrowserOptionsMenuTriggerButtonProps,
-) {
-  const {
-    label,
-    onClick,
-    size = "toolbar",
-    iconClassName = "icon-xs",
-    uniform = true,
-    ...rest
-  } = props;
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-    onClick?.(event);
-  };
-  return (
-    <Button
-      color="ghost"
-      size={size}
-      uniform={uniform}
-      aria-label={label}
-      {...rest}
-      onClick={handleClick}
-    >
-      <BrowserOptionsIcon className={iconClassName} />
-    </Button>
-  );
-}
 
 function handleZoomButtonClick(
   event: React.MouseEvent<HTMLButtonElement>,

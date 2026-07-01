@@ -19,6 +19,11 @@ const MAX_TRANSCRIPT_CHARS = 4000;
 const MAX_SURROUNDING_TEXT_CHARS = 2000;
 const DICTATION_CLEANUP_INSTRUCTIONS =
   "Clean up dictation transcripts. Fix likely speech recognition mistakes, punctuation, capitalization, and formatting. Remove filler words and disfluencies when they do not add meaning. When the user clearly self-corrects or backtracks, keep the corrected intent. Use surrounding text only as context. Dictionary entries are canonical spellings, names, file paths, and code symbols; when the transcript likely refers to one, copy the dictionary entry exactly, including casing and punctuation. Preserve the user's meaning, wording, and flow unless a small cleanup makes the transcript more coherent. Do not answer the user or add new content. Return only the cleaned transcript.";
+
+export function initDictationTranscriptCleanupChunk(): void {
+  void cleanupDictationTranscript;
+}
+
 export async function cleanupDictationTranscript({
   transcript,
   surroundingText,

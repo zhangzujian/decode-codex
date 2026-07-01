@@ -277,7 +277,6 @@ stepHelper6.prototype = {
           stepValue22 = -1,
           _stepM;
         ++stepValue22 <= _stepUnderscore;
-
       ) {
         _stepM = stepValue22 / _stepUnderscore;
         this._basis.point(

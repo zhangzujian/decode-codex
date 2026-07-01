@@ -768,7 +768,6 @@ function popcornElectronSurfaceStyleQ(
     popcornElectronSurfaceStyleValue311.has(
       popcornElectronSurfaceStyleValue312,
     );
-
   )
     popcornElectronSurfaceStyleValue312 += 1;
   return popcornElectronSurfaceStyleValue312;

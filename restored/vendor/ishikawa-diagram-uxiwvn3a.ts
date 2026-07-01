@@ -337,7 +337,6 @@ var ishikawaDiagramUXIWVN3AValue1 = (function () {
             ishikawaDiagramUXIWVN3AValue66,
             ishikawaDiagramUXIWVN3AValue67;
           ;
-
         ) {
           if (
             ((ishikawaDiagramUXIWVN3AValue60 =
@@ -988,7 +987,6 @@ var ishikawaDiagramUXIWVN3AValue2 = ishikawaDiagramUXIWVN3AValue1,
         this.stack.length > 1 &&
         this.stack[this.stack.length - 1].level >=
           ishikawaDiagramUXIWVN3AValue136;
-
       )
         this.stack.pop();
       let ishikawaDiagramUXIWVN3AValue137 =

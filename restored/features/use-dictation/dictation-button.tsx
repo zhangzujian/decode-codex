@@ -1,20 +1,30 @@
 // Restored from ref/webview/assets/use-dictation-DQROZBbT.js
 // use-dictation-DQROZBbT chunk restored from the Codex webview bundle.
 import React from "react";
+import clsx from "clsx";
 import { Button } from "../../ui/button";
 import { FormattedMessage, useIntl } from "../../vendor/react-intl";
-import { RegenerateIcon } from "../../icons/regenerate-icon";
+import {
+  initRegenerateIconChunk,
+  RegenerateIcon,
+} from "../../icons/regenerate-icon";
 import { Spinner } from "../../ui/spinner";
-import { StopIcon } from "../../icons/stop-icon";
+import { initStopIconChunk, StopIcon } from "../../icons/stop-icon";
 import { Tooltip } from "../../ui/tooltip-b";
-import { UseRecordingWaveformIcon } from "../../utils/use-recording-waveform";
+import {
+  initUseRecordingWaveformIconChunk,
+  UseRecordingWaveformIcon,
+} from "../../utils/use-recording-waveform";
+import { useGateValue } from "../../vendor/statsig-current-runtime";
 import { dictationMessages } from "./messages";
 import type { DictationButtonProps } from "./types";
+
+const COMPACT_COMPOSER_CONTROLS_GATE = "2700454473";
 const HOLD_TO_DICTATE_DELAY_MS = 150;
 function DictationButton({
   className,
   color = "ghost",
-  idleIcon = <UseRecordingWaveformIcon className="icon-xs" />,
+  idleIcon,
   isDictating = false,
   isVisible,
   isTranscribing,
@@ -33,6 +43,9 @@ function DictationButton({
   const holdStartPendingRef = React.useRef(false);
   const stopAfterHoldStartRef = React.useRef(false);
   const suppressNextClickRef = React.useRef(false);
+  const compactComposerControlsEnabled = useGateValue(
+    COMPACT_COMPOSER_CONTROLS_GATE,
+  );
   React.useEffect(
     () => () => {
       if (holdTimeoutRef.current != null) {
@@ -50,7 +63,14 @@ function DictationButton({
       : "idle";
   const { ariaLabel, icon, tooltipContent } = dictationButtonStateUi({
     buttonState,
-    idleIcon,
+    idleIcon: idleIcon ?? (
+      <UseRecordingWaveformIcon
+        className={clsx(
+          "icon-xs",
+          compactComposerControlsEnabled && "text-token-foreground",
+        )}
+      />
+    ),
     intl,
   });
   const clearHoldTimeout = () => {
@@ -202,5 +222,11 @@ function dictationButtonStateUi({
         ),
       };
   }
+}
+export function initDictationButtonChunk(): void {
+  initUseRecordingWaveformIconChunk();
+  initRegenerateIconChunk();
+  initStopIconChunk();
+  void DictationButton;
 }
 export { DictationButton };

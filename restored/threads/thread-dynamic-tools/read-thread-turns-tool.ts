@@ -2,6 +2,7 @@
 // Dynamic-tool action that reads a paginated, newest-first view of a thread's
 // turns (with optional truncated outputs) for the agent.
 import { parseCodexDelegation } from "../../boundaries/onboarding-commons-externals.facade";
+import { setThreadArchivedTool } from "./archive-thread-tool";
 import { resolveThreadHost } from "./resolve-thread-host";
 
 interface AppScope {
@@ -293,4 +294,9 @@ export async function readThreadTurnsTool({
       serializeTurn(turn, includeOutputs, maxOutputCharsPerItem),
     ),
   };
+}
+
+export function initThreadDynamicToolsChunk(): void {
+  void setThreadArchivedTool;
+  void readThreadTurnsTool;
 }

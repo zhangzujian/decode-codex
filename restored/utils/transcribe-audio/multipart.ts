@@ -5,6 +5,11 @@ import * as appRuntime from "../../boundaries/src-l0hb-mz-p";
 import { getOpenAIRequestHeaders } from "../../runtime/request";
 import { encodeBase64Bytes } from "../base64";
 import type { TranscribeAudioOptions } from "./types";
+
+export function initTranscribeAudioMultipartChunk(): void {
+  void transcribeAudio;
+}
+
 export async function transcribeAudio(
   blob: Blob,
   options: TranscribeAudioOptions = {},

@@ -1092,7 +1092,6 @@ function pdfPreviewPanelHelper18(
     ;
     pdfPreviewPanelValue566 != null &&
     pdfPreviewPanelValue566 !== pdfPreviewPanelParam79;
-
   ) {
     if (pdfPreviewPanelParam80(pdfPreviewPanelValue566))
       return pdfPreviewPanelValue566;

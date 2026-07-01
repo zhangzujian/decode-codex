@@ -2814,7 +2814,6 @@ function debugModalHelper72(debugModalParam106, debugModalParam107, event) {
           for (
             debugModalParam484 = String(debugModalParam484);
             debugModalParam484.length < debugModalParam485;
-
           )
             debugModalParam484 = " " + debugModalParam484;
           return debugModalParam484;
@@ -4829,7 +4828,6 @@ var debugModalValue29,
                 for (
                   ;
                   debugModalValue1448.length && debugModalValue1447.length;
-
                 ) {
                   let debugModalValue1600 = debugModalValue1447.shift(),
                     debugModalValue1601 = debugModalValue1448.findIndex(
@@ -8336,7 +8334,6 @@ function debugModalHelper132(debugModalParam262) {
     ;
     debugModalValue1472 >= 1024 &&
     debugModalValue1473 < debugModalValue1471.length - 1;
-
   ) {
     debugModalValue1472 /= 1024;
     debugModalValue1473 += 1;

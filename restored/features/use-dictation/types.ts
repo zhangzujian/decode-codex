@@ -43,6 +43,7 @@ export type FooterAction = {
   tooltipContent: React.ReactNode;
 };
 export type ComposerContextButtonProps = {
+  active?: boolean;
   disabled?: boolean;
   onOpen: () => void;
 };

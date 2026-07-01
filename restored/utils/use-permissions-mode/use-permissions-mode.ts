@@ -405,6 +405,8 @@ export function usePermissionsMode({
     setPermissionProfileId: setConversationPermissionProfileId,
   };
 }
+
+export function initUsePermissionsModeChunk(): void {}
 function buildDraftPermissionsState({
   draftAgentMode,
   initialAgentMode,

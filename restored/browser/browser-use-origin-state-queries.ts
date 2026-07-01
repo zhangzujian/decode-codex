@@ -267,3 +267,8 @@ function removeBrowserUseFileTransferOrigin({
     },
   });
 }
+
+export function initBrowserUseOriginStateQueriesChunk(): void {
+  void browserUseOriginStateQuery;
+  void browserUseOriginStateQueryKey;
+}

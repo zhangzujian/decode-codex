@@ -106,6 +106,15 @@ function hasNonPrivilegedAgentMode(agentModes: AgentMode[]) {
   );
 }
 
+export function initPermissionModeSelectionChunk(): void {
+  void canAgentModeUseOverrides;
+  void shouldWaitForPermissionModeSelection;
+  void getDefaultWorkspaceWriteMode;
+  void selectFallbackAgentMode;
+  void resolveNextFallbackAgentMode;
+  void resolveNonFullAccessAgentMode;
+}
+
 function getValidPreferredNonFullAccessMode(
   preferredMode: AgentMode | null | undefined,
   availableAgentModes: AgentMode[],

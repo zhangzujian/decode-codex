@@ -671,7 +671,6 @@ var chunkK5T4RW27Value5 = class extends chunkK5T4RW27Value2 {
             chunkK5T4RW27Param705.pruned &&=
               (chunkK5T4RW27Param705.iterators.pop(), false);
             chunkK5T4RW27Param705.iterators.length > 0;
-
           ) {
             let chunkK5T4RW27Value1914 =
               chunkK5T4RW27Param705.iterators[
@@ -802,7 +801,6 @@ function chunkK5T4RW27Helper17(chunkK5T4RW27Param236, chunkK5T4RW27Param237) {
       for (
         ;
         chunkK5T4RW27Param360.keyIndex < chunkK5T4RW27Param360.keys.length;
-
       ) {
         let chunkK5T4RW27Value1224 =
           chunkK5T4RW27Param360.keys[chunkK5T4RW27Param360.keyIndex];
@@ -825,7 +823,6 @@ function chunkK5T4RW27Helper17(chunkK5T4RW27Param236, chunkK5T4RW27Param237) {
             for (
               ;
               chunkK5T4RW27Param360.arrayIndex < chunkK5T4RW27Value1383.length;
-
             ) {
               let chunkK5T4RW27Value2218 =
                 chunkK5T4RW27Value1383[chunkK5T4RW27Param360.arrayIndex++];
@@ -890,7 +887,6 @@ function chunkK5T4RW27Helper21(chunkK5T4RW27Param188) {
       for (
         ;
         chunkK5T4RW27Param223.keyIndex < chunkK5T4RW27Param223.keys.length;
-
       ) {
         let chunkK5T4RW27Value1032 =
           chunkK5T4RW27Param223.keys[chunkK5T4RW27Param223.keyIndex];
@@ -916,7 +912,6 @@ function chunkK5T4RW27Helper21(chunkK5T4RW27Param188) {
             for (
               ;
               chunkK5T4RW27Param223.arrayIndex < chunkK5T4RW27Value1118.length;
-
             ) {
               let chunkK5T4RW27Value1660 = chunkK5T4RW27Param223.arrayIndex++,
                 chunkK5T4RW27Value1661 =
@@ -2490,7 +2485,6 @@ var chunkK5T4RW27Value61 = [
       for (
         chunkK5T4RW27Value1696.push(this.alternative());
         this.peekChar() === "|";
-
       ) {
         this.consumeChar("|");
         chunkK5T4RW27Value1696.push(this.alternative());
@@ -2845,7 +2839,6 @@ var chunkK5T4RW27Value61 = [
           this.peekChar(0) === "^" &&
             (this.consumeChar("^"), (chunkK5T4RW27Value997 = true));
         this.isClassAtom();
-
       ) {
         let chunkK5T4RW27Value1277 = this.classAtom();
         if (
@@ -3698,7 +3691,6 @@ function chunkK5T4RW27Helper85(chunkK5T4RW27Param1412) {
   for (
     ;
     chunkK5T4RW27Value2052 === chunkK5T4RW27Param1412.container?.astNode;
-
   ) {
     let chunkK5T4RW27Value2398 = chunkK5T4RW27Helper13(
       chunkK5T4RW27Param1412.grammarSource,
@@ -6365,7 +6357,6 @@ var chunkK5T4RW27Value103 = class {
           ;
           chunkK5T4RW27Value893 === false &&
           chunkK5T4RW27Value595 < chunkK5T4RW27Value594;
-
         )
           for (
             chunkK5T4RW27Value595++, chunkK5T4RW27Value579 = 0;
@@ -7052,7 +7043,6 @@ function chunkK5T4RW27Helper175(
     ;
     chunkK5T4RW27Param72.length < chunkK5T4RW27Param71 &&
     chunkK5T4RW27Value763 < chunkK5T4RW27Param70.length;
-
   ) {
     let chunkK5T4RW27Value855 = chunkK5T4RW27Param70[chunkK5T4RW27Value763];
     if (
@@ -7146,7 +7136,6 @@ function chunkK5T4RW27Helper176(
       occurrenceStack: [],
     });
     chunkK5T4RW27Value645.length !== 0;
-
   ) {
     let chunkK5T4RW27Value658 = chunkK5T4RW27Value645.pop();
     if (chunkK5T4RW27Value658 === "EXIT_ALTERNATIVE") {
@@ -8937,7 +8926,6 @@ var chunkK5T4RW27Value133 = class extends Error {
         ;
         this.tokenMatcher(chunkK5T4RW27Value1871, chunkK5T4RW27Param1084) ===
         false;
-
       ) {
         chunkK5T4RW27Value1871 = this.SKIP_TOKEN();
         this.addToResyncTokens(chunkK5T4RW27Value1871, chunkK5T4RW27Value1870);
@@ -10442,7 +10430,6 @@ var chunkK5T4RW27Value149 = class {
           ;
           chunkK5T4RW27Value989.call(this) === true &&
           chunkK5T4RW27Value2125 === true;
-
         )
           chunkK5T4RW27Value2125 = this.doSingleRepetition(
             chunkK5T4RW27Value990,
@@ -10487,7 +10474,6 @@ var chunkK5T4RW27Value149 = class {
         for (
           ;
           this.tokenMatcher(this.LA_FAST(1), chunkK5T4RW27Value1051) === true;
-
         ) {
           this.CONSUME(chunkK5T4RW27Value1051);
           chunkK5T4RW27Value1050.call(this);
@@ -10548,7 +10534,6 @@ var chunkK5T4RW27Value149 = class {
         ;
         chunkK5T4RW27Value1166.call(this) === true &&
         chunkK5T4RW27Value1168 === true;
-
       )
         chunkK5T4RW27Value1168 = this.doSingleRepetition(
           chunkK5T4RW27Value1167,
@@ -10588,7 +10573,6 @@ var chunkK5T4RW27Value149 = class {
         for (
           ;
           this.tokenMatcher(this.LA_FAST(1), chunkK5T4RW27Value1199) === true;
-
         ) {
           this.CONSUME(chunkK5T4RW27Value1199);
           chunkK5T4RW27Value1198.call(this);
@@ -20036,7 +20020,6 @@ var chunkK5T4RW27Value229 = class {
           ;
           chunkK5T4RW27Value1393 &&
           chunkK5T4RW27Value1394 > chunkK5T4RW27Param595;
-
         ) {
           this._map.delete(chunkK5T4RW27Value1393.key);
           chunkK5T4RW27Value1393 = chunkK5T4RW27Value1393.next;
@@ -20812,7 +20795,6 @@ var chunkK5T4RW27Value229 = class {
           column: for (
             ;
             chunkK5T4RW27Value728 < chunkK5T4RW27Value927.length;
-
           ) {
             switch (chunkK5T4RW27Value927[chunkK5T4RW27Value728]) {
               case 13:
@@ -23039,7 +23021,9 @@ var chunkK5T4RW27Value229 = class {
       value: true,
     });
     var chunkK5T4RW27Value614 = chunkK5T4RW27Value239(),
-      chunkK5T4RW27Value615 = class ChunkK5T4RW27Class7 extends chunkK5T4RW27Value614.AbstractMessageBuffer {
+      chunkK5T4RW27Value615 = class ChunkK5T4RW27Class7
+        extends chunkK5T4RW27Value614.AbstractMessageBuffer
+      {
         constructor(chunkK5T4RW27Param1691 = "utf-8") {
           super(chunkK5T4RW27Param1691);
           this.asciiDecoder = new TextDecoder("ascii");
@@ -26635,14 +26619,12 @@ var chunkK5T4RW27Value270 = chunkK5T4RW27Value268(),
           ;
           chunkK5T4RW27Value1581 < chunkK5T4RW27Param768.length &&
           this.hasTextDocument(chunkK5T4RW27Param768[chunkK5T4RW27Value1581]);
-
         )
           chunkK5T4RW27Value1581++;
         for (
           ;
           chunkK5T4RW27Value1582 >= 0 &&
           !this.hasTextDocument(chunkK5T4RW27Param768[chunkK5T4RW27Value1582]);
-
         )
           chunkK5T4RW27Value1582--;
         chunkK5T4RW27Value1581 < chunkK5T4RW27Value1582 &&
@@ -27777,7 +27759,6 @@ function chunkK5T4RW27Helper317(chunkK5T4RW27Param901) {
     chunkK5T4RW27Value1713 &&
     chunkK5T4RW27Value1713.type !== "break" &&
     chunkK5T4RW27Value1713.type !== "tag";
-
   ) {
     chunkK5T4RW27Value1716.push(chunkK5T4RW27Helper318(chunkK5T4RW27Param901));
     chunkK5T4RW27Value1715 = chunkK5T4RW27Value1713;

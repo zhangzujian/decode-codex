@@ -4,14 +4,21 @@ import React from "react";
 import clsx from "clsx";
 import { ArrowUpIcon } from "../../icons/arrow-up-icon";
 import { Button } from "../../ui/button";
-import { ComposerFooterRoot } from "../../composer/composer-footer";
+import {
+  initPullRequestFooterLayoutChunk,
+  PullRequestFooterRoot,
+} from "../../composer/pull-request-footer-item/root";
 import { formatRecordingDuration } from "../../utils/use-recording-waveform";
 import { FormattedMessage, useIntl } from "../../vendor/react-intl";
-import { StopIcon } from "../../icons/stop-icon";
+import { initStopIconChunk, StopIcon } from "../../icons/stop-icon";
 import { Tooltip } from "../../ui/tooltip-b";
+import { useGateValue } from "../../vendor/statsig-current-runtime";
 import { ComposerContextButton } from "./context-button";
 import { dictationMessages } from "./messages";
 import type { DictationRecordingFooterProps, FooterAction } from "./types";
+
+const COMPACT_COMPOSER_CONTROLS_GATE = "2700454473";
+
 function noop() {}
 function RecordingControlFooter({
   leadingAccessory,
@@ -30,6 +37,9 @@ function RecordingControlFooter({
   tooltipPortalContainer?: HTMLElement | null;
   waveformCanvasRef: React.RefObject<HTMLCanvasElement | null>;
 }) {
+  const compactComposerControlsEnabled = useGateValue(
+    COMPACT_COMPOSER_CONTROLS_GATE,
+  );
   const marginClassName = noBottomMargin ? "mb-0" : "mb-2";
   const accessory =
     leadingAccessory === undefined ? (
@@ -38,7 +48,7 @@ function RecordingControlFooter({
       leadingAccessory
     );
   return (
-    <ComposerFooterRoot
+    <PullRequestFooterRoot
       className={clsx("flex items-center gap-2 px-2", marginClassName)}
     >
       {accessory}
@@ -64,7 +74,9 @@ function RecordingControlFooter({
           onClick={stopAction.onClick}
           disabled={stopAction.disabled}
         >
-          <StopIcon className="icon-2xs" />
+          <StopIcon
+            className={compactComposerControlsEnabled ? "icon-xs" : "icon-2xs"}
+          />
         </Button>
       </Tooltip>
       {primaryAction == null ? null : (
@@ -87,7 +99,7 @@ function RecordingControlFooter({
           </button>
         </Tooltip>
       )}
-    </ComposerFooterRoot>
+    </PullRequestFooterRoot>
   );
 }
 function DictationRecordingFooter({
@@ -100,6 +112,9 @@ function DictationRecordingFooter({
   tooltipPortalContainer,
 }: DictationRecordingFooterProps) {
   const intl = useIntl();
+  const compactComposerControlsEnabled = useGateValue(
+    COMPACT_COMPOSER_CONTROLS_GATE,
+  );
   const stopAction: FooterAction = {
     tooltipContent: <FormattedMessage {...dictationMessages.stopTooltip} />,
     ariaLabel: intl.formatMessage(dictationMessages.stopAria),
@@ -121,7 +136,14 @@ function DictationRecordingFooter({
     }),
     onClick: () => stopDictation("send"),
     disabled: isTranscribing,
-    icon: <ArrowUpIcon className="icon-sm text-token-dropdown-background" />,
+    icon: (
+      <ArrowUpIcon
+        className={clsx(
+          compactComposerControlsEnabled ? "icon-xs" : "icon-sm",
+          "text-token-dropdown-background",
+        )}
+      />
+    ),
   };
   return (
     <RecordingControlFooter
@@ -134,5 +156,11 @@ function DictationRecordingFooter({
       primaryAction={submitAction}
     />
   );
+}
+export function initDictationRecordingFooterChunk(): void {
+  initPullRequestFooterLayoutChunk();
+  initStopIconChunk();
+  void DictationRecordingFooter;
+  void RecordingControlFooter;
 }
 export { DictationRecordingFooter, RecordingControlFooter };

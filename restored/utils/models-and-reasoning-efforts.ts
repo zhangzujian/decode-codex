@@ -12,6 +12,8 @@ export const REASONING_EFFORTS = [
 export const DEFAULT_MODEL = "gpt-5.5";
 export const DEFAULT_REASONING_EFFORT = "medium";
 
+export function initModelsAndReasoningEffortsChunk(): void {}
+
 export function isReasoningEffort(value: string): boolean {
   return (
     value === "none" ||
@@ -20,6 +22,7 @@ export function isReasoningEffort(value: string): boolean {
     value === "medium" ||
     value === "high" ||
     value === "xhigh" ||
-    value === "max"
+    value === "max" ||
+    value === "ultra"
   );
 }

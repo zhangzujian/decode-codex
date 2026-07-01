@@ -4,17 +4,25 @@ import React from "react";
 import { Badge } from "../../utils/badge";
 import { Button } from "../../ui/button";
 import { FormattedMessage, useIntl } from "../../vendor/react-intl";
-import { PlusIcon } from "../../icons/plus-icon";
+import { initPlusIcon, PlusIcon } from "../../icons/plus-icon";
 import { Tooltip } from "../../ui/tooltip-b";
+import { useGateValue } from "../../vendor/statsig-current-runtime";
 import type { ComposerContextButtonProps } from "./types";
+
+const COMPACT_COMPOSER_CONTROLS_GATE = "2700454473";
+
 function preventMouseDownDefault(event: React.MouseEvent) {
   event.preventDefault();
 }
 function ComposerContextButton({
+  active = false,
   disabled = false,
   onOpen,
 }: ComposerContextButtonProps) {
   const intl = useIntl();
+  const compactComposerControlsEnabled = useGateValue(
+    COMPACT_COMPOSER_CONTROLS_GATE,
+  );
   const tooltipContent = (
     <div className="flex items-center gap-1">
       <FormattedMessage
@@ -46,16 +54,28 @@ function ComposerContextButton({
     >
       <Button
         aria-label={ariaLabel}
-        color="ghost"
+        aria-expanded={active}
+        data-state={active ? "open" : "closed"}
+        color={active ? "ghostActive" : "ghost"}
         disabled={disabled}
         size="composer"
         uniform
         onMouseDown={preventMouseDownDefault}
         onClick={onOpen}
       >
-        <PlusIcon className="icon-sm" />
+        <PlusIcon
+          className={
+            compactComposerControlsEnabled
+              ? "icon-xs text-token-foreground"
+              : "icon-sm"
+          }
+        />
       </Button>
     </Tooltip>
   );
+}
+export function initComposerContextButtonChunk(): void {
+  initPlusIcon();
+  void ComposerContextButton;
 }
 export { ComposerContextButton };

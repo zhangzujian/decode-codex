@@ -19,6 +19,8 @@ export interface ServiceTierState {
   isLoading: boolean;
 }
 
+export function initUseServiceTierChunk(): void {}
+
 export function useServiceTier(
   options?: UseServiceTierOptions,
 ): ServiceTierState {

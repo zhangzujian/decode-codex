@@ -30,8 +30,7 @@ export interface FileTreeIconResolverConfig {
   [key: string]: unknown;
 }
 
-export interface NormalizedFileTreeIconResolverConfig
-  extends FileTreeIconResolverConfig {
+export interface NormalizedFileTreeIconResolverConfig extends FileTreeIconResolverConfig {
   set: FileTreeIconSet;
   colored: boolean;
 }

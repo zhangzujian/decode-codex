@@ -2,13 +2,17 @@
 // Composer collaboration-mode selection (plan/default/...) bound to a conversation or draft.
 import { useEffect } from "react";
 import { useAtom } from "jotai";
-import {
-  appScopeA as useAppScopeFamilyValue,
-  appScopeX as createAtom,
-} from "../boundaries/app-scope";
+import { appScopeA as useAppScopeFamilyValue } from "../boundaries/app-scope";
 import { sendAppServerRequest } from "../boundaries/use-host-config.facade";
 import { useModelSettingsController } from "../composer/use-model-settings";
-import { collaborationModesQuerySignalFamily } from "./collaboration-mode-queries";
+import {
+  draftCollaborationModeAtom,
+  initComposerInteractionStateChunk,
+} from "../composer/composer-interaction-state";
+import {
+  collaborationModesQuerySignalFamily,
+  initCollaborationModeQueriesChunk,
+} from "./collaboration-mode-queries";
 import {
   DEFAULT_COLLABORATION_MODE,
   dismissActivePopover,
@@ -44,7 +48,11 @@ export interface UseCollaborationModeResult {
   isLoading: boolean;
 }
 
-const draftCollaborationModeAtom = createAtom<string | null>(null);
+export function initUseCollaborationModeChunk(): void {
+  initComposerInteractionStateChunk();
+  initCollaborationModeQueriesChunk();
+  void useCollaborationMode;
+}
 
 export function useCollaborationMode(
   conversationId?: string | null,

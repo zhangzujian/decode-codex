@@ -56,3 +56,8 @@ export const selectedHostCollaborationModesQuerySignal = createQuerySignal(
   appScopeRoot,
   ({ get }: any) => collaborationModesQueryOptions(get(selectedHostIdSignal)),
 );
+
+export function initCollaborationModeQueriesChunk(): void {
+  void collaborationModesQuerySignalFamily;
+  void selectedHostCollaborationModesQuerySignal;
+}

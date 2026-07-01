@@ -168,10 +168,15 @@ const timelineRightPanelActiveSignal = createComputedSignal(
 
 void timelineRightPanelActiveSignal;
 
+function initBrowserSidebarTweaksStateChunk(): void {
+  void browserSidebarTweaksStateByTarget;
+}
+
 export {
   subscribeBrowserSidebarTweaksSubmit,
   BrowserSidebarTweaksIcon,
   getBrowserSidebarTweaksState,
+  initBrowserSidebarTweaksStateChunk,
   requestBrowserSidebarTweaksSubmit,
   setBrowserSidebarTweaksState,
   activeSidePanelBrowserTabIdSignal,

@@ -1192,7 +1192,6 @@ function pluginDetailPageHelper9(
     ;
     pluginDetailPageValue871 < pluginDetailPageValue870.length &&
     pluginDetailPageValue870[pluginDetailPageValue871].trim() === ``;
-
   )
     pluginDetailPageValue871 += 1;
   if (pluginDetailPageValue871 >= pluginDetailPageValue870.length)
@@ -1204,7 +1203,6 @@ function pluginDetailPageHelper9(
     pluginDetailPageValue871 += 1;
     pluginDetailPageValue871 < pluginDetailPageValue870.length &&
     pluginDetailPageValue870[pluginDetailPageValue871].trim() === ``;
-
   )
     pluginDetailPageValue871 += 1;
   return pluginDetailPageValue870.slice(pluginDetailPageValue871).join(`

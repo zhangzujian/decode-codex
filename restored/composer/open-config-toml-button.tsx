@@ -9,7 +9,10 @@ import { useOsInfo } from "../utils/use-os-info";
 import { useCodexHome } from "../utils/use-codex-home";
 import { useSettingValue } from "../settings/setting-storage";
 import { generalSettingDefinitions } from "../boundaries/src-l0hb-mz-p";
-import { openConfigInEditor } from "./open-config-in-editor";
+import {
+  initOpenConfigInEditorChunk,
+  openConfigInEditor,
+} from "./open-config-in-editor";
 
 const openConfigTomlMessages = defineMessages({
   openConfigToml: {
@@ -52,6 +55,10 @@ function useConfigTomlPath(hostId: string): ConfigTomlPath {
 
 export interface OpenConfigTomlButtonProps {
   hostId: string;
+}
+
+export function initOpenConfigTomlButtonChunk(): void {
+  initOpenConfigInEditorChunk();
 }
 
 export function OpenConfigTomlButton({ hostId }: OpenConfigTomlButtonProps) {

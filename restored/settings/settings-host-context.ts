@@ -94,4 +94,13 @@ function getRemoteConnectionHostId(
 ): string {
   return remoteConnection.hostId;
 }
-export function initSettingsHostContextRuntimeChunk(): void {}
+export function initSettingsHostProjectFilterChunk(): void {
+  void getValidSettingsHostId;
+  void filterProjectsForSettingsHost;
+}
+
+export function initSettingsHostContextRuntimeChunk(): void {
+  initSettingsHostProjectFilterChunk();
+  void useSettingsHostContext;
+  void setSettingsSelectedHostId;
+}
