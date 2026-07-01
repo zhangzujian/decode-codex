@@ -2271,3 +2271,12 @@ export const useStopTurnConfirmation: any = undefined as any;
 export const useWindowsSandboxRequirement: any = undefined as any;
 export const useWindowsSandboxSetup: any = undefined as any;
 export const useWorktreeGitContext: any = undefined as any;
+
+// --- djo67r4n composer body wave-1 internals (open boundary) ---
+export const logger: any = undefined as any;
+export const normalizePath: any = undefined as any;
+export const sendHostRequest: any = undefined as any;
+export const useAppStore: any = undefined as any;
+export const useHostQuery: any = undefined as any;
+export const usePlatform: any = undefined as any;
+export const useStableCallback: any = undefined as any;
