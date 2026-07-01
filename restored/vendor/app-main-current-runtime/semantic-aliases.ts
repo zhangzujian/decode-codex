@@ -250,6 +250,13 @@ export {
 } from "../../icons/unselected-circle-icon";
 export { CollapseIcon, initCollapseIconChunk } from "../../icons/collapse-icon";
 export { ImagesIcon, initImagesIconChunk } from "../../icons/images-icon";
+export { HooksIcon, initHooksIconChunk } from "../../icons/hooks-icon";
+export {
+  initServiceTierCopyIcon2Chunk,
+  initServiceTierCopyIconChunk,
+  ServiceTierCopyIcon,
+  ServiceTierCopyIcon2,
+} from "../../icons/service-tier-copy";
 export {
   ComposerContextButton,
   initComposerContextButtonChunk,
