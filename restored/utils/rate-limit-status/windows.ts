@@ -5,6 +5,7 @@ import type {
   RateLimitStatusPayload,
   RateLimitWindow,
 } from "./types";
+import { initSkuRuntimeChunk } from "../skus";
 export const DAY_MINUTES = 1440;
 export const WEEK_MINUTES = 7 * DAY_MINUTES;
 export const MONTH_MINUTES = 30 * DAY_MINUTES;
@@ -125,3 +126,8 @@ export function hasServerRateLimitReached(
 }
 
 export function initRateLimitStatusChunk(): void {}
+
+export function initRateLimitStatusDependenciesChunk(): void {
+  initRateLimitStatusChunk();
+  initSkuRuntimeChunk();
+}

@@ -465,6 +465,7 @@ export {
   getLatestRateLimitResetAt,
   hasRateLimitWindow,
   initRateLimitStatusChunk,
+  initRateLimitStatusDependenciesChunk,
   MONTH_MINUTES,
   parseUnixSeconds,
   remainingUsagePercent,
