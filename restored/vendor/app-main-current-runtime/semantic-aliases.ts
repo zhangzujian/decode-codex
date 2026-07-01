@@ -165,6 +165,10 @@ export {
   initReviewOptionsToolbarChunk,
   ReviewOptionsToolbar,
 } from "../../review/review-options-toolbar";
+export {
+  initUnifiedFileDiffRendererChunk,
+  UnifiedFileDiffRenderer,
+} from "../../review/unified-file-diff-renderer";
 export { initReviewExpandedDiffsProviderCompatChunk } from "../../review/review-expanded-diffs-provider";
 export {
   initReviewPersistentSettingsChunk,
