@@ -6,7 +6,6 @@ export {
   oc as appMainCurrentCompatSlotLowerOLowerC,
   od as appMainCurrentCompatSlotLowerOLowerD,
   oi as appMainCurrentCompatSlotLowerOLowerI,
-  om as appMainCurrentCompatSlotLowerOLowerM,
   on as appMainCurrentCompatSlotLowerOLowerN,
   oo as appMainCurrentCompatSlotLowerOLowerO,
   op as appMainCurrentCompatSlotLowerOLowerP,

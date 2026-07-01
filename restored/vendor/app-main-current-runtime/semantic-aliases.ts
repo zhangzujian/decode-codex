@@ -3,12 +3,12 @@
 export { GlobeIcon } from "../../icons/globe-icon";
 export { AlertIcon, initAlertIconChunk } from "../../icons/alert-icon";
 export { FolderIcon, initFolderIconChunk } from "../../icons/folder-icon";
-export { ClockIcon } from "../../icons/clock-icon";
+export { ClockIcon, initClockIconChunk } from "../../icons/clock-icon";
 export { CloudIcon, initCloudIconChunk } from "../../icons/cloud-icon";
 export { DragIcon } from "../../icons/drag-icon";
 export { LaptopIcon } from "../../icons/laptop-icon";
 export { PinIcon, initPinIconChunk } from "../../icons/pin-icon";
-export { WarningIcon } from "../../icons/warning-icon";
+export { WarningIcon, initWarningIconChunk } from "../../icons/warning-icon";
 export { FileSourceTab } from "../../review/file-source-tab";
 export {
   PullRequestCheckStatusIcon,

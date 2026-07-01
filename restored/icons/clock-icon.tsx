@@ -3,6 +3,9 @@
 
 import type { SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement>;
+
+export function initClockIconChunk(): void {}
+
 export function ClockIcon(props: IconProps) {
   return (
     <svg
