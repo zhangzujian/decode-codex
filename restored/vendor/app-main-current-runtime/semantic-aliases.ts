@@ -547,6 +547,8 @@ export {
   initRemapDiffCommentsForHandoffChunk,
   remapDiffCommentsForHandoff,
 } from "../../conversations/remap-diff-comments-for-handoff";
+export { getAvailableHandoffHosts } from "../../conversations/available-handoff-hosts";
+export { initThreadHandoffToolRuntimeChunk } from "../../conversations/thread-handoff-tool-runtime";
 export {
   buildHookSourceGroups,
   countHooksNeedingReview,
