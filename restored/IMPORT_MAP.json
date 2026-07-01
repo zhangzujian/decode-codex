@@ -27043,7 +27043,7 @@
         "Fu": "getValidSettingsHostId",
         "G": "getTurnAgentItemGroups",
         "Ga": "setPinnedThread",
-        "Gc": "appMainCurrentCompatSlotUpperGLowerC",
+        "Gc": "setThreadSidePanelExpanded",
         "Gd": "ThreadRow",
         "Gf": "initUsePermissionsModeChunk",
         "Gi": "isLocalHost",

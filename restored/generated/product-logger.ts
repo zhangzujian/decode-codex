@@ -30,6 +30,12 @@ export const codexThreadSwitchCompletedEvent = event(
 export const productLoggerX = event("codex_appshot_shortcut_changed");
 export const productLoggerZn = event("codex_prompt_rail_navigation_clicked");
 export const _productLoggerVr = event("codex_thread_side_panel_tab_viewed");
+export const threadSidePanelOpenedEvent = {
+  $type: "protobuf_analytics_events.v1.CodexThreadSidePanelOpened",
+};
+export const threadSidePanelClosedEvent = {
+  $type: "protobuf_analytics_events.v1.CodexThreadSidePanelClosed",
+};
 export const codexThreadSwitchKind = {
   CODEX_THREAD_SWITCH_KIND_COLD: "CODEX_THREAD_SWITCH_KIND_COLD",
   CODEX_THREAD_SWITCH_KIND_HOT: "CODEX_THREAD_SWITCH_KIND_HOT",

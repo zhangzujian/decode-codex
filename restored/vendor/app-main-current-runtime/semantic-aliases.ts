@@ -304,6 +304,7 @@ export {
   initBrowserSidebarTweaksSubmitRequestChunk,
   subscribeBrowserSidebarTweaksSubmit,
 } from "../../app-shell/thread-side-panel-active-signals";
+export { setThreadSidePanelExpanded } from "../../app-shell/thread-side-panel-visibility";
 export {
   initPullRequestFooterClassesChunk,
   pullRequestFooterClasses,
