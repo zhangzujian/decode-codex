@@ -150,6 +150,10 @@ export {
   ReviewOptionsToolbar,
 } from "../../review/review-options-toolbar";
 export {
+  initReviewPersistentSettingsChunk,
+  reviewLoadFullFilesEnabledAtom,
+} from "../../review/review-persistent-settings";
+export {
   initToggleAllDiffsEventChunk,
   useToggleAllDiffsEvent,
 } from "../../review/toggle-all-diffs-event";

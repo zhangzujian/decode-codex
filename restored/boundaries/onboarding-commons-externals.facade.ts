@@ -27,6 +27,10 @@ export { sendHostRequest } from "../runtime/host-request-runtime";
 export { useHostQuery } from "../runtime/host-query-runtime";
 export { joinPath, normalizePath } from "../runtime/path-helpers-runtime";
 export { useQueryClient } from "../runtime/query-client/react-query-context";
+export {
+  reviewLoadFullFilesEnabledAtom,
+  skipRevertConfirmationAtom,
+} from "../review/review-persistent-settings";
 export { useFeatureGate } from "../statsig/use-feature-gate";
 export { Button } from "../ui/button";
 export { Checkbox } from "../utils/checkbox";
@@ -1338,7 +1342,6 @@ export const reviewHostConfigAtom = undefined as never;
 export const reviewHostIdAtom = undefined as never;
 export const reviewHostKeyAtom = undefined as never;
 export const reviewLastTurnDiffAtom = undefined as never;
-export const reviewLoadFullFilesEnabledAtom = undefined as never;
 export const reviewMetadataScope = undefined as never;
 export const reviewPatchActionEvent = undefined as never;
 export const reviewPatchActionInFlightAtom = undefined as never;
@@ -1456,7 +1459,6 @@ export const sidebarPeekLockedSignal = undefined as never;
 export const sidebarTriggerHoveredSignal = undefined as never;
 export const sidebarUnreadIcon = undefined as never;
 export const sidebarVisibleSignal = undefined as never;
-export const skipRevertConfirmationAtom = undefined as never;
 export const speakToUserFeatureKey = undefined as never;
 export const speakToUserToolDefinition = undefined as never;
 export const speakToUserToolDefinitions = undefined as never;
