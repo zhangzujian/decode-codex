@@ -27213,7 +27213,7 @@
         "Rp": "SELECTABLE_REASONING_EFFORTS",
         "Rr": "getDefaultHeartbeatScheduleConfig",
         "Rs": "hasRateLimitReached",
-        "Rt": "appMainCurrentCompatSlotUpperRLowerT",
+        "Rt": "initImageAssetDownloadRuntimeChunk",
         "Ru": "browserUseOriginStateQuery",
         "S": "conversationalOnboardingTaskRequestVisibleSignal",
         "Sa": "moveThreadToHostWorktree",

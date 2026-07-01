@@ -495,7 +495,10 @@ export {
   isAutomationRecordInSync,
   toAutomationRecordWithStatus,
 } from "../../automations/automation-record-sync";
-export { useImageAssetDownload } from "../../image-side-panel/use-image-asset-download";
+export {
+  initImageAssetDownloadRuntimeChunk,
+  useImageAssetDownload,
+} from "../../image-side-panel/use-image-asset-download";
 export {
   initOpenImagePreviewTabChunk,
   openImagePreviewTab,

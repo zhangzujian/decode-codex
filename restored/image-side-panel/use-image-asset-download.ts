@@ -37,6 +37,10 @@ const downloadResponseSchema = objectSchema({
   contentType: stringSchema().optional(),
 });
 
+export function initImageAssetDownloadRuntimeChunk(): void {
+  void downloadResponseSchema;
+}
+
 export function isImageAssetPointer(pointer: string): boolean {
   return (
     pointer.startsWith(FILE_SERVICE_SCHEME) ||
