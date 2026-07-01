@@ -9,7 +9,6 @@ export {
   hi as appMainCurrentCompatSlotLowerHLowerI,
   hn as appMainCurrentCompatSlotLowerHLowerN,
   hr as appMainCurrentCompatSlotLowerHLowerR,
-  hs as appMainCurrentCompatSlotLowerHLowerS,
   ht as appMainCurrentCompatSlotLowerHLowerT,
   hu as appMainCurrentCompatSlotLowerHLowerU,
 } from "../app-main-current-cgnc-bundle";

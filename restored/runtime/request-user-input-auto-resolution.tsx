@@ -33,6 +33,9 @@ export const requestUserInputAutoResolutionState = appScopeUnderscore(
       JSON.stringify([hostId, conversationId]),
   },
 );
+
+export function initRequestUserInputAutoResolutionRuntime(): void {}
+
 export function applyRequestUserInputAutoResolutionChange(
   store: ScopedStore,
   hostId: string,

@@ -45,6 +45,10 @@ export {
 } from "../../conversations/fork-conversation-panel-state-deps";
 export { serializeError } from "../../runtime/app-logger";
 export {
+  initRequestUserInputAutoResolutionRuntime,
+  requestUserInputAutoResolutionState,
+} from "../../runtime/request-user-input-auto-resolution";
+export {
   initSettingsControlRowChunk,
   SettingsControlRow,
 } from "../../ui/settings-row";

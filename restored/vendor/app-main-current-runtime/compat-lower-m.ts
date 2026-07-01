@@ -9,7 +9,6 @@ export {
   mm as appMainCurrentCompatSlotLowerMLowerM,
   mn as appMainCurrentCompatSlotLowerMLowerN,
   mr as appMainCurrentCompatSlotLowerMLowerR,
-  ms as appMainCurrentCompatSlotLowerMLowerS,
   mt as appMainCurrentCompatSlotLowerMLowerT,
   mu as appMainCurrentCompatSlotLowerMLowerU,
 } from "../app-main-current-cgnc-bundle";
