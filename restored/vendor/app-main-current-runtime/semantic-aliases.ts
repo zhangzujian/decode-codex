@@ -3,6 +3,12 @@
 export { GlobeIcon } from "../../icons/globe-icon";
 export { FolderIcon } from "../../icons/folder-icon";
 export { FileSourceTab } from "../../review/file-source-tab";
+export {
+  FastServiceTierIcon,
+  initFastServiceTierIcon,
+  initUltraFastServiceTierIcon,
+  UltraFastServiceTierIcon,
+} from "../../composer/service-tier-speed-icon";
 export { composeRefs } from "../../utils/compose-refs";
 export { SettingsControlRow } from "../../ui/settings-row";
 export { composeEventHandlers } from "../radix-event-helpers";
@@ -10,7 +16,6 @@ export { composeEventHandlers } from "../radix-event-helpers";
 export {
   $l as SidebarSection,
   Bn as ArchiveMenuItem,
-  Br as UltraFastServiceTierIcon,
   Cl as toggleThreadSidePanel,
   Ds as getBrowserTabIdForPanelTab,
   Eo as copyConversationStateToFork,
@@ -19,7 +24,6 @@ export {
   Gd as ThreadRow,
   Gl as projectGroupRepositoryDataSignal,
   Hd as initThreadRowRuntimeChunk,
-  Hr as FastServiceTierIcon,
   Jd as ThreadRowHoverCard,
   Jl as ThreadRowTitle,
   Kd as ThreadRowMeta,
@@ -39,8 +43,6 @@ export {
   To as registerForkedConversation,
   Ud as ThreadRowPinAction,
   Un as hostBridge,
-  Ur as initFastServiceTierIcon,
-  Vr as initUltraFastServiceTierIcon,
   Wa as pathsMatch,
   Wd as ThreadRowUnreadState,
   Wl as SidebarListSection,
