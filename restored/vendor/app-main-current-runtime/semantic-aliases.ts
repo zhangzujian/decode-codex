@@ -249,6 +249,10 @@ export {
   initBrowserSidebarWebviewChunk,
 } from "../../browser/sidebar-webview";
 export {
+  openBrowserRouteSidePanelTabUnavailable,
+  openExistingBrowserRouteSidePanelTabUnavailable,
+} from "../../browser/browser-route-side-panel-stubs";
+export {
   browserUseOriginStateQuery,
   initBrowserUseOriginStateQueriesChunk,
   useAddBrowserUseFileTransferOriginMutation,
