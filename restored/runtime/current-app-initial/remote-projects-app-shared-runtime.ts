@@ -2,6 +2,65 @@
 // Semantic export map for the current app-initial remote/projects shared runtime chunk.
 // Every minified public binding is exposed below with a stable restored name.
 
+import {
+  Bl as logProductEvent,
+  Ea as Navigate,
+  Fa as useWorkspaceNavigation,
+  fn as initRemoteControlConnectionRuntime,
+  Iy as initIntlFormattingRuntime,
+  Kp as initRemoteControlRefreshSourceRuntime,
+  La as useHotkeyRouteParams,
+  mn as remoteControlStatusSignal,
+  nv as initAppHostServicesRuntime,
+  om as useLocalStorageSetting,
+  pn as remoteControlHostEnabledSignal,
+  Qf as codexMobileSetupStepViewedEvent,
+  Qp as initCurrentSharedDisplayRuntime,
+  Rl as initRemoteConnectionRuntime,
+  ry as useFeatureFlag,
+  tv as appHostServices,
+  ty as initCurrentSharedRemoteRuntime,
+  xa as initOpenAiNativeAppRuntime,
+  Zf as codexMobileSetupActionEvent,
+  zy as FormattedMessage,
+  em as localRemoteControlHostId,
+} from "../../vendor/remote-projects-app-shared-current-bundle";
+
+export {
+  appHostServices,
+  codexMobileSetupActionEvent,
+  codexMobileSetupStepViewedEvent,
+  FormattedMessage,
+  initAppHostServicesRuntime,
+  initCurrentSharedDisplayRuntime,
+  initCurrentSharedRemoteRuntime,
+  initIntlFormattingRuntime,
+  initOpenAiNativeAppRuntime,
+  initRemoteConnectionRuntime,
+  initRemoteControlConnectionRuntime,
+  initRemoteControlRefreshSourceRuntime,
+  localRemoteControlHostId,
+  logProductEvent,
+  Navigate,
+  remoteControlHostEnabledSignal,
+  remoteControlStatusSignal,
+  useFeatureFlag,
+  useHotkeyRouteParams,
+  useLocalStorageSetting,
+  useWorkspaceNavigation,
+};
+
+export function initRemoteProjectsAppSharedSemanticRuntime(): void {
+  initAppHostServicesRuntime();
+  initIntlFormattingRuntime();
+  initOpenAiNativeAppRuntime();
+  initRemoteControlConnectionRuntime();
+  initRemoteControlRefreshSourceRuntime();
+  initCurrentSharedDisplayRuntime();
+  initRemoteConnectionRuntime();
+  initCurrentSharedRemoteRuntime();
+}
+
 // App Host Services
 // prettier-ignore
 export { nv as initAppHostServicesRuntimeChunkRaw, rv as connectAppHostServicesRaw, tv as appHostServicesRaw } from "../../vendor/remote-projects-app-shared-current-bundle";
