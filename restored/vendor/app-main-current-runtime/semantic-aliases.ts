@@ -801,6 +801,7 @@ export {
   trackConversationalOnboardingRoleSelected,
   trackConversationalOnboardingTaskSelected,
 } from "../../onboarding/conversational-onboarding-analytics";
+export { initConversationalOnboardingAccessPromptCardChunk } from "../../onboarding/conversational-onboarding-access-prompt-card";
 export { trackConversationalOnboardingAccessDenied } from "../../onboarding/conversational-onboarding-access-analytics";
 export {
   appConnectionLinkQueryOptions,

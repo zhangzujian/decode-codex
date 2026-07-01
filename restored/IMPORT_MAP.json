@@ -27323,7 +27323,7 @@
         "Zi": "SET_THREAD_TITLE_TOOL_NAME",
         "Zl": "initLocalGitActionStateChunk",
         "Zn": "initIntelligenceDropdownChunk",
-        "Zo": "appMainCurrentCompatSlotUpperZLowerO",
+        "Zo": "initConversationalOnboardingAccessPromptCardChunk",
         "Zp": "initMdastToMarkdownRuntimeChunk",
         "Zr": "initCommentAttachmentPillChunk",
         "Zs": "remainingUsagePercent",
