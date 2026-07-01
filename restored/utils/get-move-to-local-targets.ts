@@ -16,6 +16,9 @@ export type MoveToLocalTarget = {
   gitRoot: string;
   workspaceRoot: string;
 };
+
+export function initGetMoveToLocalTargetsChunk(): void {}
+
 export function getMoveToLocalTargets({
   cwd,
   sourceWorktreeRoot,

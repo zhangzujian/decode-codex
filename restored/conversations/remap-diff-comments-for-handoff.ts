@@ -12,6 +12,8 @@ type RemapDiffCommentsOptions<TComment> = {
   diffComments: DiffCommentsByConversationId<TComment> | null | undefined;
 };
 
+export function initRemapDiffCommentsForHandoffChunk(): void {}
+
 export function remapDiffCommentsForHandoff<TComment>({
   sourceConversationId,
   targetConversationId,

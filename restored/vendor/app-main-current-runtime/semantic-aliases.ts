@@ -405,7 +405,14 @@ export {
 } from "../../browser/side-panel-browser-tab-commands";
 export { openReviewTabForConversation } from "../../review/review-side-panel-tab-commands";
 export { isCurrentLocationCodexPage } from "../../utils/is-codex-page-route";
-export { remapDiffCommentsForHandoff } from "../../conversations/remap-diff-comments-for-handoff";
+export {
+  initGetMoveToLocalTargetsChunk,
+  getMoveToLocalTargets,
+} from "../../utils/get-move-to-local-targets";
+export {
+  initRemapDiffCommentsForHandoffChunk,
+  remapDiffCommentsForHandoff,
+} from "../../conversations/remap-diff-comments-for-handoff";
 export {
   buildHookSourceGroups,
   countHooksNeedingReview,
