@@ -17,43 +17,16 @@ import {
   buildCollapsedActivityKey,
   adjustCollapsedActivitySummary,
 } from "../boundaries/onboarding-commons-externals.facade";
+import type {
+  ActivityGroup,
+  ActivityUnit,
+  BuildConversationActivityUnitsOptions,
+  ConversationDetailLevel,
+  RenderEntry,
+  ToolActivityItem,
+} from "./conversation-activity-types";
 
-export type ConversationDetailLevel = "STEPS_PROSE" | (string & {});
-
-export type ToolActivityItem = {
-  type: string;
-  action?: string;
-  id?: string;
-  callId?: string;
-  query?: string;
-  completed?: boolean;
-  [key: string]: unknown;
-};
-
-export type RenderEntry =
-  | { kind: "item"; item: ToolActivityItem }
-  | { kind: "exploration"; items: ToolActivityItem[] }
-  | { kind: string; [key: string]: unknown };
-
-export type ActivityGroup =
-  | { kind: "entry"; entry: RenderEntry }
-  | { kind: "multi-agent-group"; items: ToolActivityItem[] }
-  | { kind: "web-search-group"; items: ToolActivityItem[] };
-
-export type ActivityUnit =
-  | ActivityGroup
-  | {
-      kind:
-        | "collapsed-tool-activity"
-        | "pending-mcp-tool-calls"
-        | "dynamic-tool-call-group";
-      key: string;
-      items?: ToolActivityItem[];
-      units?: ActivityUnit[];
-      summary?: unknown;
-    };
-
-export type GroupPendingMcpToolCallsOptions = {
+type GroupPendingMcpToolCallsOptions = {
   units: ActivityUnit[];
   isActivitySliceClosed: boolean;
   mcpServerStatuses: unknown;
@@ -62,12 +35,12 @@ export type GroupPendingMcpToolCallsOptions = {
   keepLatestLiveActivityInGroup?: boolean;
 };
 
-export type GroupDynamicToolCallsOptions = {
+type GroupDynamicToolCallsOptions = {
   units: ActivityUnit[];
   keepLatestLiveActivityInGroup?: boolean;
 };
 
-export type CollapseToolActivityOptions = {
+type CollapseToolActivityOptions = {
   units: ActivityUnit[];
   isActivitySliceClosed: boolean;
   conversationDetailLevel: ConversationDetailLevel;
@@ -82,7 +55,7 @@ export type CollapseToolActivityOptions = {
 // Hit: fold consecutive web-search items into a single web-search-group and
 // consecutive multi-agent actions sharing an action into a multi-agent-group;
 // everything else passes through as a plain entry.
-export function groupConversationActivityEntries(
+function groupConversationActivityEntries(
   entries: RenderEntry[],
 ): ActivityGroup[] {
   const groups: ActivityGroup[] = [];
@@ -126,7 +99,7 @@ export function groupConversationActivityEntries(
 
 // Uit: while the activity slice is open, merge runs of adjacent MCP tool calls
 // that share a group key into a single pending-mcp-tool-calls unit.
-export function groupPendingMcpToolCalls({
+function groupPendingMcpToolCalls({
   units,
   isActivitySliceClosed,
   mcpServerStatuses,
@@ -184,7 +157,7 @@ export function groupPendingMcpToolCalls({
 
 // Wit: fold runs of dynamic-tool-call items into a dynamic-tool-call-group,
 // honoring descriptors that must stand alone in the conversation.
-export function groupDynamicToolCalls({
+function groupDynamicToolCalls({
   units,
   keepLatestLiveActivityInGroup = false,
 }: GroupDynamicToolCallsOptions): ActivityUnit[] {
@@ -263,7 +236,7 @@ export function shouldRenderActivityGroup(
 
 // Xit: collapse contiguous tool-activity into collapsed-tool-activity units with
 // rolled-up summaries, keeping the current (open) activity expanded.
-export function collapseToolActivityUnits({
+function collapseToolActivityUnits({
   units,
   isActivitySliceClosed,
   conversationDetailLevel,
@@ -382,4 +355,42 @@ export function collapseToolActivityUnits({
     index += 1;
   }
   return result;
+}
+
+// zit: full grouping pipeline (entries -> collapse -> dynamic groups -> pending MCP).
+export function buildConversationActivityUnits({
+  entries,
+  conversationDetailLevel,
+  isTurnInProgress,
+  isActivitySliceClosed,
+  mcpServerStatuses,
+  shouldAutoExpandMcpApps = false,
+  modelProvider = null,
+  resolvedApps,
+  isTurnCancelled = false,
+  collapseMixedDynamicToolActivity = false,
+}: BuildConversationActivityUnitsOptions): ActivityUnit[] {
+  const keepLatestLiveActivityInGroup =
+    isTurnInProgress && !isActivitySliceClosed;
+  return groupPendingMcpToolCalls({
+    units: groupDynamicToolCalls({
+      units: collapseToolActivityUnits({
+        units: groupConversationActivityEntries(entries),
+        isActivitySliceClosed,
+        conversationDetailLevel,
+        mcpServerStatuses,
+        resolvedApps,
+        shouldAutoExpandMcpApps,
+        modelProvider,
+        isTurnCancelled,
+        collapseMixedDynamicToolActivity,
+      }),
+      keepLatestLiveActivityInGroup,
+    }),
+    isActivitySliceClosed,
+    mcpServerStatuses,
+    shouldAutoExpandMcpApps,
+    resolvedApps,
+    keepLatestLiveActivityInGroup,
+  });
 }

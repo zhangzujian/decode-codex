@@ -4,7 +4,7 @@
 // collapse state of the agent activity slice, and assembles the ordered list of
 // rendered sections (messages, activity, plan, diff, end resources, review
 // comments, generated images, actions) for the local conversation thread.
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useEffect } from "react";
 import type { ReactNode } from "react";
 import { useIntl } from "../vendor/react-intl";
 import {
@@ -12,6 +12,11 @@ import {
   sliceTurnItemsAfterIntro,
   type TurnItem,
 } from "./partition-turn-items";
+import type {
+  PushSectionOptions,
+  TurnContentProps,
+  TurnSection,
+} from "./turn-content-types";
 import { resolveRenderableAgentItems } from "./group-renderable-agent-items";
 import { filterTurnDiffToProjectlessOutput } from "./filter-diff-to-projectless-output";
 import {
@@ -19,9 +24,9 @@ import {
   partitionCollapsibleEntries,
   type RenderableTurnEntry,
 } from "./turn-collapse-state";
-import { EndResourcesList } from "./end-resource-cards";
-import { ReviewCommentsCard } from "./review-comments-card";
-import { SubagentActivityInlineGroup } from "./subagent-activity-inline-group";
+import { buildTurnArtifactNodes } from "./turn-artifacts";
+import { buildSafetyBufferingNode } from "./turn-safety-buffering";
+import { useTurnSubagentActivity } from "./turn-subagent-activity";
 import {
   DEFAULT_RESOLVED_APPS,
   EVERYDAY_WORK_DETAIL_LEVEL,
@@ -32,21 +37,13 @@ import {
   useDefaultConversationDetailLevel,
   useAppgenEndCardEnabled,
   useTurnFollowState,
-  useBackgroundSubagents,
   useMcpServerStatuses,
   useProductLogger,
   buildToolActivityTurnKey,
-  buildSubagentActivityRows,
-  summarizeSubagentActivityStatus,
   buildContentSearchKey,
   getTurnMessageId,
   getTurnInputMessageId,
   openResourceFromAssistant,
-  computeEndResources,
-  getEndResourcePaths,
-  shouldHideTurnDiff,
-  extractReviewComments,
-  computeGeneratedImageOutputs,
   hasAssistantStarted,
   isAssistantFinalAnswer,
   summarizeHookRuns,
@@ -60,11 +57,8 @@ import {
   isDynamicToolCallSummaryActive,
   getFirstNonEmptyEntryIndex,
   shouldShowThinkingFallback,
-  sendHostRequest,
   renderTurnSections,
   McpAppsRenderer,
-  SafetyBufferingContainer,
-  SafetyBufferingPrompt,
   CollapsibleTurnActivity,
   TurnEntryList,
   TurnItemRenderer,
@@ -73,73 +67,9 @@ import {
   ThinkingPlaceholder,
   TurnInProgressFixedContent,
   AssistantResourcesProvider,
-  TurnDiffView,
-  GeneratedImagesGrid,
-  GeneratedImagePlaceholder,
-  WebSearchSources,
 } from "../boundaries/onboarding-commons-externals.facade";
 
 const EMPTY_ENTRIES: RenderableTurnEntry[] = [];
-
-interface TurnSection {
-  key: string;
-  node: ReactNode;
-  canOwnLatestTurnFollowContent: boolean;
-  gapAfter?: number;
-}
-
-interface PushSectionOptions {
-  canOwnLatestTurnFollowContent?: boolean;
-  gapAfter?: number;
-}
-
-export interface TurnContentProps {
-  conversationId: string;
-  hostId: string;
-  turnSearchKey?: string;
-  turnId?: string;
-  mcpTurn?: Record<string, any> | null;
-  turn: {
-    status: string;
-    items: TurnItem[];
-    cwd?: string | null;
-    hookRuns?: unknown;
-    [key: string]: unknown;
-  };
-  isBackgroundSubagentsEnabled?: boolean;
-  workedDurationMs?: number | null;
-  interruptedByThisClient?: boolean;
-  conversationDetailLevel?: string;
-  cwd: string | null;
-  isMostRecentTurn?: boolean;
-  isReadOnly?: boolean;
-  previousTurnNumber?: number | null;
-  totalTurnCount?: number;
-  isProjectlessConversation?: boolean;
-  projectlessOutputDirectory?: string | null;
-  isCollapsed?: boolean | null;
-  onSetCollapsed?: (collapsed: boolean) => void;
-  emptyUserMessageOverride?: ReactNode;
-  parentThreadAttachment?: unknown;
-  resolvedApps?: unknown;
-  renderMcpApps?: boolean;
-  keepMcpAppEntriesPersistent?: boolean;
-  reportEntityType?: string;
-  shouldAutoExpandMcpApps?: boolean;
-  onEditUserMessage?: (...args: unknown[]) => void;
-  onForkTurn?: (...args: unknown[]) => void;
-  completedThreadGoal?: unknown;
-  generatedImages?: unknown;
-  startAfterTurnIntro?: boolean;
-  showInProgressFixedContent?: boolean;
-  deferOffscreenDiffRendering?: boolean;
-  modelProvider?: unknown;
-  transcriptBlock?: unknown;
-  includeTranscriptTurnExtras?: boolean;
-  latestTurnFollowContentRef?: unknown;
-  onOpenAeonDetails?: (...args: unknown[]) => void;
-  showFullTranscript?: boolean;
-}
 
 export function TurnContent({
   conversationId,
@@ -184,8 +114,15 @@ export function TurnContent({
   const isTurnInProgress = turn.status === "in_progress";
   const isTurnCancelled = turn.status === "cancelled";
   const safetyBuffering = mcpTurn?.safetyBuffering ?? null;
-  const showBufferingUi = safetyBuffering?.showBufferingUi === true;
-  const isBufferingVisible = showBufferingUi && isTurnInProgress;
+  const { isBufferingVisible, node: safetyBufferingNode } =
+    buildSafetyBufferingNode({
+      conversationId,
+      hostId,
+      isTurnInProgress,
+      mcpTurn,
+      safetyBuffering,
+      turnId,
+    });
   const turnKey = turnId ?? turnSearchKey;
   const toolActivityTurnKey =
     turnKey == null
@@ -254,104 +191,18 @@ export function TurnContent({
     () => getTurnAgentItemGroups(filteredItems, turn.status),
     [filteredItems, turn.status],
   );
-  const backgroundAgents = useBackgroundSubagents(
-    isBackgroundSubagentsEnabled ? conversationId : null,
-  );
-  const subagentActivityGroups = useMemo(() => {
-    if (!isBackgroundSubagentsEnabled) {
-      return [];
-    }
-    if (subagentActivityItemGroups.length > 0) {
-      return subagentActivityItemGroups.map((group: any) => {
-        const rows = buildSubagentActivityRows({
-          activityItems: group,
-          backgroundAgents,
-          intl,
-        });
-        return {
-          anchorItemId: group[0]?.id ?? null,
-          rows,
-          statusLabel: summarizeSubagentActivityStatus(
-            intl,
-            rows.map((row: any) => row.activityStatus),
-          ),
-        };
-      });
-    }
-    const inlineRows = backgroundAgents
-      .filter(
-        (agent: any) =>
-          agent.showInlineActivity && agent.parentTurnKey === turnKey,
-      )
-      .map((agent: any) => ({
-        activityStatus: agent.status === "done" ? "done" : "active",
-        conversationId: agent.conversationId,
-        displayName: agent.displayName,
-        status: agent.status,
-        statusSummary: agent.statusSummary,
-      }));
-    return inlineRows.length === 0
-      ? []
-      : [
-          {
-            anchorItemId: null,
-            rows: inlineRows,
-            statusLabel: summarizeSubagentActivityStatus(
-              intl,
-              inlineRows.map((row: any) => row.activityStatus),
-            ),
-          },
-        ];
-  }, [
-    backgroundAgents,
+  const {
+    hasActiveSubagentActivity,
+    hasSubagentActivity,
+    subagentActivityContentByItemId,
+    subagentActivityRows,
+  } = useTurnSubagentActivity({
+    conversationId,
     intl,
     isBackgroundSubagentsEnabled,
     subagentActivityItemGroups,
     turnKey,
-  ]);
-  const subagentActivityRows = subagentActivityGroups.flatMap(
-    ({ rows }: any) => rows,
-  );
-  const [animatedConversationIds, setAnimatedConversationIds] = useState(
-    () =>
-      new Set(
-        subagentActivityRows.map(
-          ({ conversationId: rowConversationId }: any) => rowConversationId,
-        ),
-      ),
-  );
-  const markEntranceAnimated = useStableCallback(
-    (rowConversationId: string) => {
-      setAnimatedConversationIds((current: Set<string>) => {
-        if (current.has(rowConversationId)) {
-          return current;
-        }
-        const next = new Set(current);
-        next.add(rowConversationId);
-        return next;
-      });
-    },
-  );
-  const subagentActivityContentByItemId = new Map<string, ReactNode>();
-  for (const group of subagentActivityGroups) {
-    if (group.anchorItemId != null) {
-      subagentActivityContentByItemId.set(
-        group.anchorItemId,
-        <SubagentActivityInlineGroup
-          rows={group.rows}
-          statusLabel={group.statusLabel}
-          shouldAnimateEntrance={(rowConversationId: string) =>
-            !animatedConversationIds.has(rowConversationId)
-          }
-          onEntranceAnimationEnd={markEntranceAnimated}
-        />,
-      );
-    }
-  }
-  const hasSubagentActivity = subagentActivityRows.length > 0;
-  const hasActiveSubagentActivity = subagentActivityRows.some(
-    ({ status }: any) => status !== "done",
-  );
+  });
   const searchKeyByItem = useMemo(() => {
     const keyByItem = new Map<TurnItem, string>();
     filteredItems.forEach((item, index) => {
@@ -449,34 +300,6 @@ export function TurnContent({
       : null;
   const hookStats = isTurnInProgress ? null : summarizeHookRuns(turn.hookRuns);
   const hasFinalAssistantStarted = hasAssistantStarted(assistantItem);
-  const safetyBufferingNode = showBufferingUi ? (
-    <SafetyBufferingContainer isVisible={isBufferingVisible}>
-      <SafetyBufferingPrompt
-        fasterModel={safetyBuffering.fasterModel}
-        isShimmering={isTurnInProgress}
-        onRetry={(model: string) => {
-          const retryTurnId = mcpTurn?.turnId ?? turnId;
-          if (retryTurnId != null) {
-            sendHostRequest("retry-safety-buffered-turn-for-host", {
-              hostId,
-              conversationId,
-              turnId: retryTurnId,
-              model,
-            }).catch((error: unknown) => {
-              logger.error("Failed to retry safety-buffered turn", {
-                safe: {},
-                sensitive: { error },
-              });
-            });
-          }
-        }}
-        reasons={safetyBuffering.reasons}
-        threadId={conversationId}
-        turnId={mcpTurn?.turnId ?? turnId ?? null}
-        useCases={safetyBuffering.useCases}
-      />
-    </SafetyBufferingContainer>
-  ) : null;
   const isAssistantFinal = isAssistantFinalAnswer(assistantItem);
   const showAssistantInlineInActivity =
     hasSubagentActivity &&
@@ -658,94 +481,42 @@ export function TurnContent({
       onSetCollapsed(!isActivityCollapsed);
     }
   });
-  const endResources = computeEndResources({
-    assistantContent: assistantItem?.content ?? null,
-    projectlessOutputDirectory,
+  const {
+    appgenResources,
+    assistantArtifactsNode,
+    endResourcesNode,
+    generatedImagesNode,
+    hasArtifacts,
+    shouldRenderGeneratedImageOutputs,
+    turnDiffNode,
+    webSearchSourcesNode,
+  } = buildTurnArtifactNodes({
+    assistantItem,
+    completedGeneratedImages,
+    completedTurnId,
+    conversationId,
+    cwd,
+    deferOffscreenDiffRendering,
+    endResourceOpenSource: "resource_card",
+    filteredUnifiedDiffItem,
+    generatedImages,
+    hasPendingToolOutputs,
+    hostId,
+    inputMessageId,
     isAppgenEndCardEnabled,
+    isAssistantFinal,
+    isEverydayDetail,
+    isTurnInProgress,
+    messageId,
+    onFileOpen: openResource,
+    projectlessOutputDirectory,
     turn,
+    webSearchSources,
   });
-  const appgenResources = endResources.filter(
-    (resource: any) => resource.type === "appgen-app",
-  );
-  const endResourcePaths = getEndResourcePaths(endResources);
-  const endResourcesNode =
-    endResources.length === 0 ? null : (
-      <EndResourcesList
-        turnId={completedTurnId ?? undefined}
-        conversationId={conversationId}
-        cwd={turn.cwd ?? cwd}
-        hostId={hostId}
-        inputMessageId={inputMessageId}
-        messageId={messageId}
-        onFileOpen={(resourcePath) => {
-          openResource(resourcePath, "resource_card");
-        }}
-        resources={endResources}
-      />
-    );
-  const reviewComments =
-    !isTurnInProgress && assistantItem != null
-      ? extractReviewComments(assistantItem.content, turn.cwd ?? cwd)
-      : [];
-  const reviewCommentsNode =
-    reviewComments.length === 0 ? null : (
-      <ReviewCommentsCard comments={reviewComments} />
-    );
-  const { visibleCompletedGeneratedImages, shouldRenderGeneratedImageOutputs } =
-    computeGeneratedImageOutputs({
-      completedGeneratedImages,
-      endResourcePaths,
-      hasPendingGeneratedImages: hasPendingToolOutputs,
-    });
   const pendingHookStats =
     assistantItem == null && !shouldRenderGeneratedImageOutputs
       ? hookStats
       : null;
-  const hasArtifacts =
-    endResources.length > 0 || shouldRenderGeneratedImageOutputs;
-  const turnDiffNode =
-    !isTurnInProgress &&
-    filteredUnifiedDiffItem != null &&
-    !isEverydayDetail &&
-    !shouldHideTurnDiff({ endResources, turn }) ? (
-      <TurnDiffView
-        isInProgress={false}
-        item={filteredUnifiedDiffItem}
-        deferOffscreenRendering={deferOffscreenDiffRendering}
-        conversationId={conversationId}
-        cwd={cwd}
-        hostId={hostId}
-      />
-    ) : null;
-  const generatedImagesNode = shouldRenderGeneratedImageOutputs ? (
-    <div className="flex flex-col gap-3">
-      {visibleCompletedGeneratedImages.length > 0 ? (
-        <GeneratedImagesGrid
-          images={visibleCompletedGeneratedImages}
-          conversationImages={generatedImages}
-          conversationId={conversationId}
-        />
-      ) : null}
-      {hasPendingToolOutputs ? <GeneratedImagePlaceholder /> : null}
-    </div>
-  ) : null;
-  const webSearchSourcesNode =
-    webSearchSources.length === 0 ? null : (
-      <WebSearchSources className="mt-0" sources={webSearchSources} />
-    );
-  const assistantArtifactsNode =
-    isAssistantFinal &&
-    (endResourcesNode != null ||
-      reviewCommentsNode != null ||
-      generatedImagesNode != null ||
-      turnDiffNode != null) ? (
-      <div className="flex w-full flex-col gap-3">
-        {generatedImagesNode}
-        {endResourcesNode}
-        {reviewCommentsNode}
-        {turnDiffNode}
-      </div>
-    ) : null;
   const turnActionsRow = (
     <TurnActionsRow
       alwaysShowActions={isMostRecentTurn}

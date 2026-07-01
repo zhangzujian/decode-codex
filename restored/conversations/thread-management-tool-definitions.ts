@@ -3,7 +3,6 @@
 // tools (fork/create/list/read/send/pin/archive/rename/list-projects), plus the
 // builder that assembles the full thread-tool set and the model-description
 // augmenter (localConversation domain).
-import { z } from "zod";
 import {
   FORK_THREAD_TOOL_NAME,
   LIST_PROJECTS_TOOL_NAME,
@@ -20,101 +19,6 @@ import {
   buildGetHandoffStatusToolDefinition,
 } from "./thread-handoff-tool-definitions";
 import type { HandoffHostConfig } from "./available-handoff-hosts";
-
-export const INVALID_TOOL_ARGUMENTS_MESSAGE = "received invalid arguments.";
-export const DEFAULT_LIST_THREADS_LIMIT = 10;
-export const DEFAULT_READ_THREAD_TURN_LIMIT = 1;
-export const DEFAULT_READ_THREAD_MAX_OUTPUT_CHARS = 2_000;
-
-export const reasoningEffortEnum = z.enum([
-  "low",
-  "medium",
-  "high",
-  "xhigh",
-  "max",
-  "ultra",
-]);
-
-const worktreeStartingStateSchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("working-tree") }),
-  z.object({ type: z.literal("branch"), branchName: z.string().min(1) }),
-]);
-
-const threadEnvironmentSchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("local") }),
-  z.object({
-    type: z.literal("worktree"),
-    startingState: worktreeStartingStateSchema.optional(),
-  }),
-]);
-
-const createThreadTargetSchema = z.discriminatedUnion("type", [
-  z.object({
-    type: z.literal("project"),
-    projectId: z.string().min(1),
-    environment: threadEnvironmentSchema,
-  }),
-  z.object({
-    type: z.literal("projectless"),
-    directoryName: z.string().min(1).optional(),
-  }),
-]);
-
-const forkEnvironmentSchema = z.discriminatedUnion("type", [
-  z.object({ type: z.literal("same-directory") }),
-  z.object({ type: z.literal("worktree") }),
-]);
-
-export const createThreadParamsSchema = z.object({
-  prompt: z.string().min(1),
-  target: createThreadTargetSchema,
-  model: z.string().min(1).optional(),
-  thinking: reasoningEffortEnum.optional(),
-});
-
-export const forkThreadParamsSchema = z.object({
-  threadId: z.string().min(1).optional(),
-  environment: forkEnvironmentSchema.optional(),
-});
-
-export const listProjectsParamsSchema = z.object({});
-
-export const listThreadsParamsSchema = z.object({
-  query: z.string().optional(),
-  limit: z.number().int().min(1).max(50).optional(),
-});
-
-export const readThreadParamsSchema = z.object({
-  threadId: z.string().min(1),
-  hostId: z.string().min(1).optional(),
-  cursor: z.string().min(1).optional(),
-  turnLimit: z.number().int().min(1).max(10).optional(),
-  includeOutputs: z.boolean().optional(),
-  maxOutputCharsPerItem: z.number().int().min(0).max(20_000).optional(),
-});
-
-export const sendMessageToThreadParamsSchema = z.object({
-  threadId: z.string().min(1),
-  hostId: z.string().min(1).optional(),
-  prompt: z.string().min(1),
-  model: z.string().min(1).optional(),
-  thinking: reasoningEffortEnum.optional(),
-});
-
-export const setThreadPinnedParamsSchema = z.object({
-  threadId: z.string().min(1),
-  pinned: z.boolean(),
-});
-
-export const setThreadArchivedParamsSchema = z.object({
-  threadId: z.string().min(1).optional(),
-  archived: z.boolean(),
-});
-
-export const setThreadTitleParamsSchema = z.object({
-  threadId: z.string().min(1),
-  title: z.string().min(1),
-});
 
 type ModelGuidance = { model: string; description: string };
 
@@ -398,7 +302,7 @@ const setThreadTitleToolDefinition: McpToolDefinition = {
   },
 };
 
-export function augmentToolModelDescription(
+function augmentToolModelDescription(
   toolDefinition: McpToolDefinition,
   models: ModelGuidance[],
 ): McpToolDefinition {

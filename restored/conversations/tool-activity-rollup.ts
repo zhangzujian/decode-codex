@@ -3,67 +3,18 @@
 // units, plus the predicates that decide whether/how to render and expand the
 // resulting tool-activity slice (localConversation domain).
 import {
-  groupConversationActivityEntries,
-  groupPendingMcpToolCalls,
-  groupDynamicToolCalls,
-  collapseToolActivityUnits,
+  buildConversationActivityUnits,
   shouldRenderActivityGroup,
-  type ActivityGroup,
-  type ActivityUnit,
-  type ConversationDetailLevel,
-  type RenderEntry,
 } from "./conversation-activity-grouping";
+import type {
+  ActivityGroup,
+  ActivityUnit,
+  BuildConversationActivityUnitsOptions,
+  ConversationDetailLevel,
+} from "./conversation-activity-types";
 
-export type BuildConversationActivityUnitsOptions = {
-  entries: RenderEntry[];
-  conversationDetailLevel: ConversationDetailLevel;
-  isTurnInProgress: boolean;
-  isActivitySliceClosed: boolean;
-  mcpServerStatuses: unknown;
-  shouldAutoExpandMcpApps?: boolean;
-  modelProvider?: unknown;
-  resolvedApps: unknown;
-  isTurnCancelled?: boolean;
-  collapseMixedDynamicToolActivity?: boolean;
-};
-
-// zit: full grouping pipeline (entries → collapse → dynamic groups → pending MCP).
-export function buildConversationActivityUnits({
-  entries,
-  conversationDetailLevel,
-  isTurnInProgress,
-  isActivitySliceClosed,
-  mcpServerStatuses,
-  shouldAutoExpandMcpApps = false,
-  modelProvider = null,
-  resolvedApps,
-  isTurnCancelled = false,
-  collapseMixedDynamicToolActivity = false,
-}: BuildConversationActivityUnitsOptions): ActivityUnit[] {
-  const keepLatestLiveActivityInGroup =
-    isTurnInProgress && !isActivitySliceClosed;
-  return groupPendingMcpToolCalls({
-    units: groupDynamicToolCalls({
-      units: collapseToolActivityUnits({
-        units: groupConversationActivityEntries(entries),
-        isActivitySliceClosed,
-        conversationDetailLevel,
-        mcpServerStatuses,
-        resolvedApps,
-        shouldAutoExpandMcpApps,
-        modelProvider,
-        isTurnCancelled,
-        collapseMixedDynamicToolActivity,
-      }),
-      keepLatestLiveActivityInGroup,
-    }),
-    isActivitySliceClosed,
-    mcpServerStatuses,
-    shouldAutoExpandMcpApps,
-    resolvedApps,
-    keepLatestLiveActivityInGroup,
-  });
-}
+export { buildConversationActivityUnits };
+export type { BuildConversationActivityUnitsOptions };
 
 // Vit: whether a unit kind renders as a collapsed/grouped activity card.
 export function isCollapsibleActivityKind(unit: ActivityUnit): boolean {

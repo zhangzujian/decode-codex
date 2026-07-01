@@ -22,7 +22,7 @@ type McpToolDefinition = {
 
 export function buildHandoffThreadToolDefinition(
   availableHosts: HandoffHostConfig[],
-  crossHostHandoffEnabled = false,
+  crossHostHandoffEnabled: boolean = false,
 ): McpToolDefinition {
   return {
     name: HANDOFF_THREAD_TOOL_NAME,

@@ -1,10 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Resolves the human-readable display label for an MCP tool invocation by matching
 // app/tool keys against the activity registry and per-app label builders.
-import {
-  srcAa as zodString,
-  srcTa as zodObject,
-} from "../../boundaries/src-l0hb-mz-p";
+import { zodObject, zodString } from "../../boundaries/src-l0hb-mz-p";
 import {
   getComputerUseMcpToolLabel,
   getFigmaMcpToolLabel,

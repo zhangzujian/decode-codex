@@ -28,7 +28,7 @@ import {
   setThreadPinnedParamsSchema,
   setThreadArchivedParamsSchema,
   setThreadTitleParamsSchema,
-} from "./thread-management-tool-definitions";
+} from "./thread-management-tool-params";
 import {
   // Routed through the boundary facade (reported under facadeNeeded):
   buildToolErrorResult,
@@ -117,7 +117,7 @@ function resolveCreateThreadTarget(
       };
 }
 
-export async function handleForkThread({
+async function handleForkThread({
   scope,
   argumentsValue,
   sourceThreadId,
@@ -153,7 +153,7 @@ export async function handleForkThread({
   }
 }
 
-export async function handleCreateThread({
+async function handleCreateThread({
   argumentsValue,
   scope,
   sourceThreadId,
@@ -189,7 +189,7 @@ export async function handleCreateThread({
   }
 }
 
-export async function handleListProjects({
+async function handleListProjects({
   scope,
   argumentsValue,
 }: {
@@ -210,7 +210,7 @@ export async function handleListProjects({
   }
 }
 
-export async function handleListThreads({
+async function handleListThreads({
   scope,
   argumentsValue,
 }: {
@@ -238,7 +238,7 @@ export async function handleListThreads({
   }
 }
 
-export async function handleReadThread({
+async function handleReadThread({
   scope,
   argumentsValue,
   sourceHostId,
@@ -274,7 +274,7 @@ export async function handleReadThread({
   }
 }
 
-export async function handleSendMessageToThread({
+async function handleSendMessageToThread({
   argumentsValue,
   scope,
   sourceHostId,
@@ -311,7 +311,7 @@ export async function handleSendMessageToThread({
   }
 }
 
-export async function handleSetThreadPinned({
+async function handleSetThreadPinned({
   argumentsValue,
 }: {
   argumentsValue: unknown;
@@ -331,7 +331,7 @@ export async function handleSetThreadPinned({
   }
 }
 
-export async function handleSetThreadArchived({
+async function handleSetThreadArchived({
   argumentsValue,
   sourceThreadId,
   scope,
@@ -363,7 +363,7 @@ export async function handleSetThreadArchived({
   }
 }
 
-export async function handleSetThreadTitle({
+async function handleSetThreadTitle({
   argumentsValue,
   scope,
 }: {

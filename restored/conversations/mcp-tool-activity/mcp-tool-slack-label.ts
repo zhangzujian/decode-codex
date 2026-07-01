@@ -2,12 +2,12 @@
 // Builds Slack MCP tool activity labels: previews of messages/queries, read counts,
 // search-target nouns, and user-id → display-name substitution in search queries.
 import {
-  srcAa as zodString,
-  srcMa as zodJson,
-  srcPa as zodArray,
-  srcTa as zodObject,
-  srcWa as zodNumber,
-  srcXa as zodLiteral,
+  zodArray,
+  zodJson,
+  zodLiteral,
+  zodNumber,
+  zodObject,
+  zodString,
 } from "../../boundaries/src-l0hb-mz-p";
 import { countToolResultItems } from "../../boundaries/onboarding-commons-externals.facade";
 import type { IntlShape } from "../../vendor/react-intl";

@@ -94,7 +94,7 @@ export function buildAddedLinesText(
 }
 
 // pat: command activity segment (ran / running / creating folders / searching web).
-export function buildCommandSummarySegment(
+function buildCommandSummarySegment(
   summary: ToolActivitySummary,
   intl: IntlShape,
   showRunning: boolean,
@@ -206,7 +206,7 @@ export function buildCommandSummarySegment(
 }
 
 // mat: exploration activity segment (read / search / list of files).
-export function buildExplorationSummarySegment(
+function buildExplorationSummarySegment(
   summary: ToolActivitySummary,
   intl: IntlShape,
   isLeading: boolean,
@@ -330,7 +330,7 @@ export function buildExplorationSummarySegment(
     : intl.formatList(segments, { type: "conjunction" });
 }
 
-export type BuildToolActivitySummaryTextOptions = {
+type BuildToolActivitySummaryTextOptions = {
   showRunningCommandSummary?: boolean;
   isWebSearchInProgress?: boolean;
   showRunningCreatedLineCount?: boolean;

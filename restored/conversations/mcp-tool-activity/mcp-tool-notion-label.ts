@@ -2,10 +2,10 @@
 // Builds Notion MCP tool activity labels with short text previews extracted from
 // the tool arguments (page titles, queries, etc.).
 import {
-  srcAa as zodString,
-  srcMa as zodJson,
-  srcPa as zodArray,
-  srcTa as zodObject,
+  zodArray,
+  zodJson,
+  zodObject,
+  zodString,
 } from "../../boundaries/src-l0hb-mz-p";
 import type { IntlShape } from "../../vendor/react-intl";
 import type {

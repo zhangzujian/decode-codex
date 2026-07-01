@@ -22,7 +22,7 @@ import {
   workspaceRootsQueryAtom,
 } from "../boundaries/onboarding-commons-externals.facade";
 
-export type WorktreeStatus =
+type WorktreeStatus =
   | { kind: "available" }
   | { kind: "restorable"; worktreePath: string | null; [key: string]: unknown }
   | { kind: "gone"; worktreePath: string | null }
@@ -32,7 +32,7 @@ export type WorktreeStatus =
       worktreePath: string | null;
     };
 
-export interface WorktreeStatusTarget {
+interface WorktreeStatusTarget {
   conversationId: string;
   cwd: string | null;
   hostId: string;
@@ -60,11 +60,11 @@ const INSPECTION_FAILED_STATUS: WorktreeStatus = {
   worktreePath: null,
 };
 
-export const WORKTREE_RESTORE_REQUIRED = "worktree_restore_required";
-export const WORKTREE_GONE = "worktree_gone";
-export const WORKTREE_STATUS_UNAVAILABLE = "worktree_status_unavailable";
+const WORKTREE_RESTORE_REQUIRED = "worktree_restore_required";
+const WORKTREE_GONE = "worktree_gone";
+const WORKTREE_STATUS_UNAVAILABLE = "worktree_status_unavailable";
 
-export const worktreeStatusQueryAtom = queryAtomFamily(
+const worktreeStatusQueryAtom = queryAtomFamily(
   appAtomScope,
   (
     { conversationId, cwd, hostId }: WorktreeStatusTarget,
@@ -197,7 +197,7 @@ export const worktreeStatusQueryAtom = queryAtomFamily(
   },
 );
 
-export const worktreeStatusForConversationAtom = derivedAtomFamily(
+const worktreeStatusForConversationAtom = derivedAtomFamily(
   appAtomScope,
   (
     conversationId: string,
@@ -210,7 +210,7 @@ export const worktreeStatusForConversationAtom = derivedAtomFamily(
     }),
 );
 
-export const worktreeStatusKindAtom = derivedAtomFamily(
+const worktreeStatusKindAtom = derivedAtomFamily(
   appAtomScope,
   (
     conversationId: string,
@@ -228,7 +228,7 @@ export const worktreeStatusKindAtom = derivedAtomFamily(
   },
 );
 
-export async function refreshWorktreeStatus(
+async function refreshWorktreeStatus(
   store: QueryStateHandle,
   { conversationId, cwd, hostId }: WorktreeStatusTarget,
 ): Promise<WorktreeStatus> {
@@ -236,7 +236,7 @@ export async function refreshWorktreeStatus(
   return refetchWorktreeStatus(store, { conversationId, cwd, hostId });
 }
 
-export async function invalidateWorktreeStatusForHost(
+async function invalidateWorktreeStatusForHost(
   store: QueryStateHandle,
   hostId: string,
 ): Promise<void> {
@@ -246,7 +246,7 @@ export async function invalidateWorktreeStatusForHost(
   });
 }
 
-export async function ensureWorktreeAvailable(
+async function ensureWorktreeAvailable(
   store: QueryStateHandle,
   { conversationId, cwd, hostId }: WorktreeStatusTarget,
 ): Promise<void> {
@@ -272,7 +272,7 @@ export async function ensureWorktreeAvailable(
   }
 }
 
-export async function refetchWorktreeStatus(
+async function refetchWorktreeStatus(
   store: QueryStateHandle,
   { conversationId, cwd, hostId }: WorktreeStatusTarget,
 ): Promise<WorktreeStatus> {

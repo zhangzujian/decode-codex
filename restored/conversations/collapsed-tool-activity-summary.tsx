@@ -20,11 +20,11 @@ import {
 } from "./tool-activity-summary-text";
 import type { ToolActivitySummary } from "./tool-activity-summary-accumulator";
 
-export type CollapsedActivitySourceSummary = {
+type CollapsedActivitySourceSummary = {
   sources: ToolActivitySource[];
 };
 
-export type CollapsedToolActivitySummaryProps = {
+type CollapsedToolActivitySummaryProps = {
   summary: ToolActivitySummary;
   activeSummary?: ReactNode | null;
   activeSummaryKey?: string | null;
@@ -40,7 +40,7 @@ export type CollapsedToolActivitySummaryProps = {
 };
 
 // Dat: whether the summary reflects any web-search activity.
-export function hasWebSearchSummary(summary: ToolActivitySummary): boolean {
+function hasWebSearchSummary(summary: ToolActivitySummary): boolean {
   return (
     summary.webSearchCount > 0 ||
     summary.runningWebSearchCount > 0 ||
@@ -50,7 +50,7 @@ export function hasWebSearchSummary(summary: ToolActivitySummary): boolean {
 }
 
 // Oat: whether the summary reflects any exploration (read/search/list) activity.
-export function hasExplorationSummary(summary: ToolActivitySummary): boolean {
+function hasExplorationSummary(summary: ToolActivitySummary): boolean {
   return (
     summary.exploredFileCount > 0 ||
     summary.runningExploredFileCount > 0 ||
@@ -62,9 +62,7 @@ export function hasExplorationSummary(summary: ToolActivitySummary): boolean {
 }
 
 // kat: choose the icon name for exploration activity.
-export function resolveExplorationIconName(
-  summary: ToolActivitySummary,
-): string {
+function resolveExplorationIconName(summary: ToolActivitySummary): string {
   return summary.searchCount > 0 || summary.runningSearchCount > 0
     ? "code-searching"
     : summary.listCount > 0 || summary.runningListCount > 0
@@ -73,7 +71,7 @@ export function resolveExplorationIconName(
 }
 
 // Aat: whether the summary reflects any file change activity.
-export function hasFileChangeSummary(summary: ToolActivitySummary): boolean {
+function hasFileChangeSummary(summary: ToolActivitySummary): boolean {
   return (
     summary.createdFileCount > 0 ||
     summary.runningCreatedFileCount > 0 ||
@@ -86,7 +84,7 @@ export function hasFileChangeSummary(summary: ToolActivitySummary): boolean {
 }
 
 // jat: whether the summary reflects any non-web-search shell command activity.
-export function hasCommandSummary(summary: ToolActivitySummary): boolean {
+function hasCommandSummary(summary: ToolActivitySummary): boolean {
   const completedCommands =
     summary.commandCount -
     summary.completedWebSearchCommandCount -
@@ -99,7 +97,7 @@ export function hasCommandSummary(summary: ToolActivitySummary): boolean {
 }
 
 // Cat: pick the leading icon for a tool-activity summary.
-export function resolveActivitySummaryIcon(
+function resolveActivitySummaryIcon(
   summary: ToolActivitySummary,
   icon: string | null | undefined,
 ): ReactNode {
@@ -119,9 +117,7 @@ export function resolveActivitySummaryIcon(
 }
 
 // wat: icon for a source-only summary.
-export function resolveSourceSummaryIcon(
-  sources: ToolActivitySource[],
-): ReactNode {
+function resolveSourceSummaryIcon(sources: ToolActivitySource[]): ReactNode {
   const firstSource = sources[0];
   return firstSource == null ? null : (
     <ToolActivitySourceIcon source={firstSource} />
@@ -129,19 +125,19 @@ export function resolveSourceSummaryIcon(
 }
 
 // vat: a source's display name.
-export function getSourceName(source: ToolActivitySource): string {
+function getSourceName(source: ToolActivitySource): string {
   return source.name ?? "";
 }
 
 // bat: stable key for a source-only summary.
-export function buildSourceSummaryKey(
+function buildSourceSummaryKey(
   sourceSummary: CollapsedActivitySourceSummary,
 ): string {
   return `sources:${sourceSummary.sources.map((source) => source.key).join("|")}`;
 }
 
 // xat: stable key for a completed activity summary.
-export function buildCompletedSummaryKey(summary: ToolActivitySummary): string {
+function buildCompletedSummaryKey(summary: ToolActivitySummary): string {
   return [
     "completed",
     summary.createdFileCount,
@@ -168,7 +164,7 @@ export function buildCompletedSummaryKey(summary: ToolActivitySummary): string {
 }
 
 // Sat: wrap a summary node with an optional leading icon.
-export function ActivitySummaryWithIcon({
+function ActivitySummaryWithIcon({
   children,
   icon,
 }: {
@@ -185,7 +181,7 @@ export function ActivitySummaryWithIcon({
 }
 
 // yat: optionally apply the shimmer treatment to the summary text.
-export function renderShimmeringSummary({
+function renderShimmeringSummary({
   runningCreatedLineText,
   shouldShimmer,
   summaryText,
@@ -215,7 +211,7 @@ export function renderShimmeringSummary({
 }
 
 // _at: the collapsed tool-activity summary disclosure.
-export function CollapsedToolActivitySummary({
+function CollapsedToolActivitySummary({
   summary,
   activeSummary,
   activeSummaryKey,

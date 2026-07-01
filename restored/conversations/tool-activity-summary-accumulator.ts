@@ -3,18 +3,18 @@
 // summary counters used by collapsed activity rendering (localConversation domain).
 import { assertUnreachableToolActivity } from "../boundaries/onboarding-commons-externals.facade";
 
-export type ApprovalReviewFailure = {
+type ApprovalReviewFailure = {
   id: string;
   status: "denied" | "timedOut" | string;
 };
 
-export type ToolActivitySummaryUnit = {
+type ToolActivitySummaryUnit = {
   type: string;
   automaticApprovalReviewFailures?: ApprovalReviewFailure[];
   [key: string]: unknown;
 };
 
-export type McpToolCallSourceAccumulator = {
+type McpToolCallSourceAccumulator = {
   logoUrl?: string | null;
   logoUrlDark?: string | null;
   name?: string | null;
@@ -23,7 +23,7 @@ export type McpToolCallSourceAccumulator = {
   runningCount: number;
 };
 
-export type ToolActivityAccumulator = {
+type ToolActivityAccumulator = {
   createdPaths: Set<string>;
   runningCreatedPaths: Set<string>;
   stoppedCreatedPaths: Set<string>;
@@ -65,14 +65,14 @@ export type ToolActivitySummary = ReturnType<
   typeof finalizeToolActivitySummary
 >;
 
-export type ToolActivitySummaryRange = {
+type ToolActivitySummaryRange = {
   startIndex: number;
   endIndex: number;
   summary: ToolActivitySummary;
 };
 
 // Mit: compute the [start, end) ranges of units between assistant messages.
-export function findAssistantMessageSliceRanges(
+function findAssistantMessageSliceRanges(
   units: ToolActivitySummaryUnit[],
   isActivitySliceClosed: boolean,
 ): Array<{ startIndex: number; endIndex: number }> {
@@ -97,9 +97,7 @@ export function findAssistantMessageSliceRanges(
 }
 
 // Nit: whether a unit contributes to a rolled-up tool activity summary.
-export function isSummarizableActivityUnit(
-  unit: ToolActivitySummaryUnit,
-): boolean {
+function isSummarizableActivityUnit(unit: ToolActivitySummaryUnit): boolean {
   if (unit.type === "assistant-message" || unit.type === "other") return false;
   if (
     unit.type === "exploration" ||
@@ -114,7 +112,7 @@ export function isSummarizableActivityUnit(
 }
 
 // Pit: create an empty accumulator.
-export function createToolActivityAccumulator(): ToolActivityAccumulator {
+function createToolActivityAccumulator(): ToolActivityAccumulator {
   return {
     createdPaths: new Set(),
     runningCreatedPaths: new Set(),
@@ -151,7 +149,7 @@ export function createToolActivityAccumulator(): ToolActivityAccumulator {
 }
 
 // Lit: fold a single automatic-approval-review failure into the accumulator.
-export function accumulateApprovalReviewFailure(
+function accumulateApprovalReviewFailure(
   accumulator: ToolActivityAccumulator,
   failure: ApprovalReviewFailure,
 ): void {
@@ -168,7 +166,7 @@ export function accumulateApprovalReviewFailure(
 }
 
 // qG: fold a list of approval-review failures.
-export function accumulateApprovalReviewFailures(
+function accumulateApprovalReviewFailures(
   accumulator: ToolActivityAccumulator,
   failures: ApprovalReviewFailure[] | undefined,
 ): void {
@@ -177,7 +175,7 @@ export function accumulateApprovalReviewFailures(
 }
 
 // Fit: fold a single tool-activity unit into the accumulator.
-export function accumulateToolActivityUnit(
+function accumulateToolActivityUnit(
   accumulator: ToolActivityAccumulator,
   unit: any,
 ): void {
@@ -292,9 +290,7 @@ export function accumulateToolActivityUnit(
 }
 
 // Iit: project the accumulator into the serializable summary shape.
-export function finalizeToolActivitySummary(
-  accumulator: ToolActivityAccumulator,
-) {
+function finalizeToolActivitySummary(accumulator: ToolActivityAccumulator) {
   return {
     createdFileCount: accumulator.createdPaths.size,
     runningCreatedFileCount: accumulator.runningCreatedPaths.size,

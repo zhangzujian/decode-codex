@@ -1,10 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Builds Vercel MCP tool activity labels: project/team/deployment targets parsed
 // from a wide range of argument aliases, with hostname and domain normalization.
-import {
-  srcAa as zodString,
-  srcTa as zodObject,
-} from "../../boundaries/src-l0hb-mz-p";
+import { zodObject, zodString } from "../../boundaries/src-l0hb-mz-p";
 import { defineMessages } from "../../vendor/react-intl";
 import type { IntlShape } from "../../vendor/react-intl";
 import type {
