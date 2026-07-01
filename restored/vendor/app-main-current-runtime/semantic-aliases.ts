@@ -15,7 +15,10 @@ export {
   PullRequestCheckStatusIcon,
   PullRequestStatusIcon,
 } from "../../github/pull-request-status";
-export { PullRequestStatusTooltip } from "../../utils/pull-request-visual-state";
+export {
+  initPullRequestStatusTooltipChunk,
+  PullRequestStatusTooltip,
+} from "../../utils/pull-request-visual-state";
 export {
   FastServiceTierIcon,
   initFastServiceTierIcon,

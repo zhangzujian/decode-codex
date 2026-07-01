@@ -27023,7 +27023,7 @@
         "T": "appMainCurrentCompatSlotUpperT",
         "Ta": "appMainCurrentCompatSlotUpperTLowerA",
         "Tc": "sortThreadTasksByPinnedOrder",
-        "Td": "appMainCurrentCompatSlotUpperTLowerD",
+        "Td": "initPullRequestStatusTooltipChunk",
         "Tf": "appMainCurrentCompatSlotUpperTLowerF",
         "Ti": "appMainCurrentCompatSlotUpperTLowerI",
         "Tl": "PullRequestCheckStatusIcon",

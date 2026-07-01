@@ -343,7 +343,7 @@ import {
   threadActionMessages as ca,
   initPullRequestStatusBadgeChunk as la,
   sortThreadTasksByPinnedOrder as ua,
-  appMainCurrentCompatSlotUpperTLowerD as da,
+  initPullRequestStatusTooltipChunk as da,
   PullRequestCheckStatusIcon as fa,
   appMainCurrentCompatSlotUpperULowerA as pa,
   initFastServiceTierIcon as ma,
