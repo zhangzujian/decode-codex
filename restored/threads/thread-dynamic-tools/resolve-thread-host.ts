@@ -133,3 +133,7 @@ export async function resolveThreadHost({
       .join(", ")}`,
   );
 }
+
+export function initResolveThreadHostChunk(): void {
+  void resolveThreadHost;
+}

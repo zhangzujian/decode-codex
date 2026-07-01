@@ -27572,7 +27572,7 @@
         "pa": "handleGetHandoffStatus",
         "pc": "CODEX_LOCAL_ENVIRONMENTS_DOCS_URL",
         "pd": "initImageAttachmentChunk",
-        "pf": "appMainCurrentCompatSlotLowerPLowerF",
+        "pf": "initResolveThreadHostChunk",
         "pi": "getPluginHooksNeedingReview",
         "pl": "initThreadSidePanelTabsChunk",
         "pm": "transcribeAudio",

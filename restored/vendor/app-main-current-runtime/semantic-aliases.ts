@@ -1084,6 +1084,7 @@ export {
   setThreadPreferredNonFullAccessModeFromDefault,
 } from "../../utils/use-permissions-mode/state";
 export { setThreadArchivedTool } from "../../threads/thread-dynamic-tools/archive-thread-tool";
+export { initResolveThreadHostChunk } from "../../threads/thread-dynamic-tools/resolve-thread-host";
 export {
   initThreadDynamicToolsChunk,
   readThreadTurnsTool,
