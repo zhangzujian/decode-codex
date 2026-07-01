@@ -3694,10 +3694,11 @@
       },
       "status": "done",
       "lastUpdated": "2026-06-30T22:20:00.000Z",
+      "vendor": "@segment/analytics-next",
       "note": "Current Segment metric helper chunk has a shifted export table relative to the historical hashes; the current aliases now map to the restored online/offline helpers, integration merge and stats helpers, persisted queue class, retry helper, and no-op init facades for Rolldown init thunks.",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T22:20:00.000Z",
-      "stage3Review": "Host self-review: re-derived metric-helpers-DG5zp00d from the current ref export table (a=retry init, c=persisted queue init, d=offline, f=online, i=integration merge, l=analytics-core init, n=integration stats, o=retry helper, r=tslib init, s=persisted queue class, t=no-op init, u=load-script init), preserved historical aliases in vendor/segment-metric-helpers.ts, and quality-gate/prettier passed."
+      "stage3Review": "Host self-review: re-derived metric-helpers-DG5zp00d from the current ref export table (a=retry init, c=persisted queue init, d=offline, f=online, i=integration merge, l=analytics-core init, n=integration stats, o=retry helper, r=tslib init, s=persisted queue class, t=no-op init, u=load-script init), preserved historical aliases in vendor/segment-metric-helpers.ts, and vendored quality-gate/prettier passed."
     },
     "middleware-Az7vHdEh": {
       "restored": "vendor/segment-middleware-entry.ts",
@@ -42150,12 +42151,13 @@
         "DocxPreviewPanel": "DocxPreviewPanel"
       },
       "status": "done",
-      "note": "Current DocxPreviewPanel hash maps to the restored docx preview backing bundle; the single semantic export is re-derived from the current file.",
+      "vendor": "docx-preview-panel-runtime",
+      "note": "Current DocxPreviewPanel hash maps to the restored docx preview vendor/runtime backing bundle; the single semantic export is re-derived from the current file.",
       "lastUpdated": "2026-06-30T23:06:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:06:00.000Z",
       "stage3Review": "Host self-review: current ref docx-preview-panel-BsZXEpj7.js exports only DocxPreviewPanel; restored/vendor/docx-preview-panel-current-bundle.ts preserves that surface and passes vendored quality-gate.",
-      "stage3Note": "Accepted as a current-ref compatibility export over an existing restored backing module; full semantic split of DocxPreviewPanel remains future cleanup."
+      "stage3Note": "Accepted as a docx-preview vendor/runtime wrapper over the existing restored backing module; generated document preview payloads are intentionally gated as vendored output rather than split as app features."
     },
     "PopcornElectronPresentationPanel-B56eXPt5": {
       "restored": "generated/popcorn-electron-presentation-panel.tsx",
@@ -42164,12 +42166,13 @@
       },
       "status": "done",
       "aliasOf": "PopcornElectronPresentationPanel-DyLT7PAB",
-      "note": "Current PopcornElectronPresentationPanel hash maps to the existing presentation panel backing module; current export surface is a single re-derived component export.",
+      "vendor": "popcorn-electron-runtime",
+      "note": "Current PopcornElectronPresentationPanel hash maps to the existing generated Popcorn presentation runtime backing module; current export surface is a single re-derived component export.",
       "lastUpdated": "2026-06-30T23:06:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:06:00.000Z",
-      "stage3Review": "Host self-review: current ref PopcornElectronPresentationPanel-B56eXPt5.js exports only PopcornElectronPresentationPanel; restored/generated/popcorn-electron-presentation-panel.tsx declares the current hash match and passes vendored quality-gate.",
-      "stage3Note": "Accepted as a current-ref compatibility export over an existing restored backing module; full semantic split of PopcornElectronPresentationPanel remains future cleanup."
+      "stage3Review": "Host self-review: current ref PopcornElectronPresentationPanel-B56eXPt5.js exports only PopcornElectronPresentationPanel; restored/generated/popcorn-electron-presentation-panel.tsx declares the current hash match and passes generated-runtime quality-gate.",
+      "stage3Note": "Accepted as a generated Popcorn runtime compatibility export over the existing restored backing module; generated runtime payloads are intentionally gated as vendored/generated output rather than split as app features."
     },
     "PopcornElectronWorkbookPanel-DEXqsHf5": {
       "restored": "generated/popcorn-electron-workbook-panel.tsx",
@@ -42178,12 +42181,13 @@
       },
       "status": "done",
       "aliasOf": "PopcornElectronWorkbookPanel-Drl2YYRf",
-      "note": "Current PopcornElectronWorkbookPanel hash maps to the existing workbook panel backing module; current export surface is a single re-derived component export.",
+      "vendor": "popcorn-electron-runtime",
+      "note": "Current PopcornElectronWorkbookPanel hash maps to the existing generated Popcorn workbook runtime backing module; current export surface is a single re-derived component export.",
       "lastUpdated": "2026-06-30T23:06:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:06:00.000Z",
-      "stage3Review": "Host self-review: current ref PopcornElectronWorkbookPanel-DEXqsHf5.js exports only PopcornElectronWorkbookPanel; restored/generated/popcorn-electron-workbook-panel.tsx declares the current hash match and passes vendored quality-gate.",
-      "stage3Note": "Accepted as a current-ref compatibility export over an existing restored backing module; full semantic split of PopcornElectronWorkbookPanel remains future cleanup."
+      "stage3Review": "Host self-review: current ref PopcornElectronWorkbookPanel-DEXqsHf5.js exports only PopcornElectronWorkbookPanel; restored/generated/popcorn-electron-workbook-panel.tsx declares the current hash match and passes generated-runtime quality-gate.",
+      "stage3Note": "Accepted as a generated Popcorn runtime compatibility export over the existing restored backing module; generated runtime payloads are intentionally gated as vendored/generated output rather than split as app features."
     },
     "select-workspace-page-Dpe6Qyul": {
       "restored": "runtime/current-app-initial/select-workspace-page-current-runtime.ts",
