@@ -27,6 +27,8 @@ export interface CreateGitRepositoryResult {
   isCreatingGitRepository: boolean;
 }
 
+export function initUseCreateGitRepositoryChunk(): void {}
+
 export function useCreateGitRepository(
   options: CreateGitRepositoryOptions,
 ): CreateGitRepositoryResult {

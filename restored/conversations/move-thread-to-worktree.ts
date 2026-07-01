@@ -62,6 +62,8 @@ function createStreamId(): string {
   return crypto.randomUUID();
 }
 
+export function initMoveThreadToWorktreeChunk(): void {}
+
 export async function moveThreadToWorktree({
   conversationId,
   currentBranch,

@@ -321,7 +321,10 @@ export {
 } from "../../settings/hooks-settings-route";
 export { resolveSidePanelBrowserTabId } from "../../browser/browser-tab-id-resolution";
 export { normalizeWorkspacePath } from "../../boundaries/src-l0hb/paths";
-export { useCreateGitRepository } from "../../review/use-create-git-repository";
+export {
+  initUseCreateGitRepositoryChunk,
+  useCreateGitRepository,
+} from "../../review/use-create-git-repository";
 export {
   hasBasicRateLimitReached,
   getSpendControlWarningThreshold,
@@ -429,8 +432,14 @@ export {
   handleHandoffThread,
 } from "../../conversations/handoff-thread-tool-handlers";
 export { moveThreadToHostWorktree } from "../../conversations/move-thread-to-host-worktree";
-export { moveThreadToLocal } from "../../conversations/move-thread-to-local";
-export { moveThreadToWorktree } from "../../conversations/move-thread-to-worktree";
+export {
+  initMoveThreadToLocalChunk,
+  moveThreadToLocal,
+} from "../../conversations/move-thread-to-local";
+export {
+  initMoveThreadToWorktreeChunk,
+  moveThreadToWorktree,
+} from "../../conversations/move-thread-to-worktree";
 export {
   buildCodexAppToolNamespace,
   CODEX_APP_TOOL_NAMESPACE,

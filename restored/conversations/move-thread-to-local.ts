@@ -69,6 +69,8 @@ type MoveThreadResult =
   | { status: "success"; conversationId: string }
   | { status: "error"; message: string; execOutput?: unknown };
 
+export function initMoveThreadToLocalChunk(): void {}
+
 export async function moveThreadToLocal({
   conversationId,
   currentBranch,
