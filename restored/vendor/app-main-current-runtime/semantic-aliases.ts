@@ -18,7 +18,15 @@ export { QueryClientProvider } from "../../runtime/query-client/react-query-cont
 export { useQueries } from "../../runtime/query-client/react-query-hooks";
 export { createToolErrorResult } from "../../runtime/tool-result-runtime";
 export { OpenAiMcpCapabilityView } from "../../review/openai-mcp-capability-view";
+export {
+  isUncPath,
+  isWindowsStyleAbsolutePath,
+  terminalSessionSnapshotStore,
+} from "../../conversations/fork-conversation-panel-state-deps";
+export { serializeError } from "../../runtime/app-logger";
 export { SettingsControlRow } from "../../ui/settings-row";
+export { CHATGPT_PRICING_URL } from "../../utils/links-bd-mmkun-d";
+export { normalizeWorkspacePath } from "../../boundaries/src-l0hb/paths";
 export {
   initResolvedHighlightThemesChunk,
   initSharedHighlightThemeRegistryChunk,
@@ -45,12 +53,10 @@ export {
   Nn as SidebarRowActionButton,
   Nr as SidebarRowContextMenu,
   Oi as SidebarRowOverflowMenu,
-  Pc as CHATGPT_PRICING_URL,
   Pf as initSidebarTaskRowRuntimeChunk,
   Pn as SidebarTaskRow,
   Ql as SidebarTaskRowActions,
   Qp as SidebarTaskRowTitle,
-  Rd as terminalSessionSnapshotStore,
   Sl as primeBrowserTabTransfers,
   To as registerForkedConversation,
   Ud as ThreadRowPinAction,
@@ -60,7 +66,6 @@ export {
   Wl as SidebarListSection,
   Yd as ThreadRowHoverActions,
   Zu as AppShellOverlayOutlet,
-  _i as isWindowsStyleAbsolutePath,
   _l as openThreadBrowserSidePanelTabWithPendingState,
   al as SidebarRowMenuSeparator,
   bl as openThreadReviewSidePanelTab,
@@ -84,12 +89,10 @@ export {
   hp as useComposedRefs,
   ic as getConversationPanelLayoutSnapshot,
   il as useCloudEnvironmentsQuery,
-  jr as normalizeWorkspacePath,
   ki as SidebarRowIcon,
   ld as ToastContent,
   ll as initArrayEqualityRuntimeChunk,
   lt as getCommandExecutionText,
-  mi as serializeError,
   ml as openSessionSandboxSidePanel,
   mo as initForkConversationMessagesChunk,
   nf as liveMcpAppFrameSignal,
@@ -107,7 +110,6 @@ export {
   ud as initExternalAgentImportStatusIconsChunk,
   ul as mergeVisibleThreadOrder,
   ut as initCommandExecutionTextRuntime,
-  vi as isUncPath,
   vl as openThreadBrowserSidePanelTabWithoutAnimation,
   ws as browserTabIdForConversation,
   xl as openThreadTimelineSidePanel,
