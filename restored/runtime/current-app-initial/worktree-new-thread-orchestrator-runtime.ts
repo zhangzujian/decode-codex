@@ -1,5 +1,62 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~kg2pu5rs-N3llppXI.js
 // Semantic alias layer for worktree/new-thread orchestrator runtime.
+import {
+  An as initPointerEventRuntime,
+  Ao as AtMentionList,
+  At as historyCanGoBackAtom,
+  Bc as fetchThreadToolAuthMethod,
+  b as WorktreeRootOptionsList,
+  Hf as initWorktreeHostRuntime,
+  Jt as historyCanGoForwardAtom,
+  Lc as initCodeReviewHostRuntime,
+  Mo as initAtMentionListChunk,
+  nr as WorktreeEnvironmentSelect,
+  Nt as historySwipeOverlayBoundsAtom,
+  Og as initSortableContextRuntime,
+  ot as appShellLayout,
+  Qt as historySwipeThemeAtom,
+  Rf as initWorktreeNewThreadOrchestratorRuntime,
+  Sf as initDiffRendererRuntime,
+  st as initAppShellLayoutRuntime,
+  Uf as activeTabStore,
+  Yd as openReviewSidePanelForBranch,
+} from "../../vendor/worktree-new-thread-orchestrator-current-bundle";
+
+export {
+  activeTabStore,
+  appShellLayout,
+  appShellLayout as SetupPageHeader,
+  AtMentionList,
+  fetchThreadToolAuthMethod,
+  historyCanGoBackAtom,
+  historyCanGoForwardAtom,
+  historySwipeOverlayBoundsAtom,
+  historySwipeThemeAtom,
+  initAppShellLayoutRuntime,
+  initAppShellLayoutRuntime as initSetupPageHeaderRuntime,
+  initAtMentionListChunk,
+  initCodeReviewHostRuntime,
+  initDiffRendererRuntime,
+  initPointerEventRuntime,
+  initSortableContextRuntime,
+  initWorktreeHostRuntime,
+  initWorktreeNewThreadOrchestratorRuntime,
+  openReviewSidePanelForBranch,
+  WorktreeEnvironmentSelect,
+  WorktreeRootOptionsList,
+};
+
+export function initWorktreeNewThreadOrchestratorSemanticRuntime(): void {
+  initWorktreeNewThreadOrchestratorRuntime();
+  initWorktreeHostRuntime();
+  initCodeReviewHostRuntime();
+  initAtMentionListChunk();
+  initSortableContextRuntime();
+  initDiffRendererRuntime();
+  initPointerEventRuntime();
+  initAppShellLayoutRuntime();
+}
+
 // prettier-ignore
 export {
   _ as worktreeNewThreadOrchestratorCompatSlotUnderscore, _a as worktreeNewThreadOrchestratorCompatSlotUnderscoreLowerA, _c as worktreeNewThreadOrchestratorCompatSlotUnderscoreLowerC, _d as worktreeNewThreadOrchestratorCompatSlotUnderscoreLowerD,
