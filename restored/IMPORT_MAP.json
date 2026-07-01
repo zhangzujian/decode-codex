@@ -42200,17 +42200,17 @@
       "stage3Review": "Host self-review: current ref kanban-definition-6JOO6SKY-BPmh8gj-.js exports only diagram; restored/vendor/mermaid-kanban-definition.ts preserves that surface through KanbanDefinition6JOO6SKY and passes quality-gate --vendored."
     },
     "appgen-page-Cnpqx68h": {
-      "restored": "runtime/current-app-initial/appgen-page-current-runtime.ts",
+      "restored": "appgen/appgen-page.tsx",
       "exports": {
         "AppgenPage": "AppgenPage"
       },
       "status": "done",
-      "note": "Current AppgenPage hash maps to a dedicated current-ref runtime over vendor/appgen-page-current-bundle.tsx; the single semantic export is re-derived from the current file.",
-      "lastUpdated": "2026-06-30T22:18:04.757Z",
+      "note": "Current AppgenPage hash maps to the semantic appgen/appgen-page.tsx body; the current-ref runtime now re-exports AppgenPage from that file.",
+      "lastUpdated": "2026-07-01T23:16:56.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T22:18:04.757Z",
-      "stage3Review": "Host self-review: verified the current file exports AppgenPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of AppgenPage remains a later cleanup."
+      "stage3AcceptedAt": "2026-07-01T23:16:56.000Z",
+      "stage3Review": "Host self-review: moved the restored Sites/AppgenPage body into appgen/appgen-page.tsx, stripped React Compiler/runtime shim residue, replaced mechanical appgenPageValue/helper names with page, list, row, thumbnail, and access-button names, and removed the obsolete vendor backing bundle.",
+      "stage3Note": "Accepted as a semantic Sites appgen page body with a current-ref runtime facade."
     },
     "editor-diff-page-DhkTy3wR": {
       "restored": "runtime/current-app-initial/editor-diff-page-current-runtime.ts",
