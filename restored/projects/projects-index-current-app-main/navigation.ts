@@ -228,3 +228,17 @@ export function navigateToPluginDirectory(
     },
   });
 }
+
+export function navigateToPluginDirectoryFromSidebar(
+  productLoggerScope: unknown,
+  navigate: NavigateLike,
+  pluginsSelected: boolean = false,
+): void {
+  void productLoggerScope;
+  void pluginsSelected;
+  navigate("/skills", {
+    state: {
+      pluginDirectoryEntrypoint: "sidebar",
+    },
+  });
+}
