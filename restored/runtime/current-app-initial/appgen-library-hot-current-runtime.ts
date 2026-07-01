@@ -1,5 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~fjhbmao5-BWbJojtu.js
 // Semantic alias layer for current appgen library hot-path runtime.
+const appgenLibraryHotCurrentRuntime = () =>
+  "appgen-library-hot-current-runtime";
+
+void appgenLibraryHotCurrentRuntime;
+
 export {
   _ as hasAdditionalRateLimitNamed,
   $ as updateSubscriptionPlan,
