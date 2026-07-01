@@ -323,7 +323,7 @@ import {
   pullRequestNewThreadCompatSlotLowerZ as Wi,
 } from "../runtime/current-app-initial/pull-request-new-thread-runtime";
 import {
-  appMainCurrentCompatSlotUpperALowerC as Gi,
+  areArraysEqual as Gi,
   appMainCurrentCompatSlotUpperALowerU as Ki,
   appMainCurrentCompatSlotUpperBLowerA as qi,
   appMainCurrentCompatSlotUpperCLowerC as Ji,

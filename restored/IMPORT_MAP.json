@@ -26744,7 +26744,7 @@
         "$u": "appMainCurrentCompatSlotDollarLowerU",
         "A": "appMainCurrentCompatSlotUpperA",
         "Aa": "appMainCurrentCompatSlotUpperALowerA",
-        "Ac": "appMainCurrentCompatSlotUpperALowerC",
+        "Ac": "areArraysEqual",
         "Ad": "appMainCurrentCompatSlotUpperALowerD",
         "Af": "appMainCurrentCompatSlotUpperALowerF",
         "Ai": "appMainCurrentCompatSlotUpperALowerI",

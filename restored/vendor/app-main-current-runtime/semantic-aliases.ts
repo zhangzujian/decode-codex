@@ -90,6 +90,7 @@ export {
   Jd as ThreadRowHoverCard,
   Jl as ThreadRowTitle,
   Kd as ThreadRowMeta,
+  Ac as areArraysEqual,
   Mr as initSidebarRowPrimitivesChunk,
   Nn as SidebarRowActionButton,
   Nr as SidebarRowContextMenu,
