@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/sankeyDiagram-TZEHDZUN-DaYrOv_J.js
-// SankeyDiagramTZEHDZUN chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored sankeyDiagramTZEHDZUN chunk restored from the Codex webview bundle.
 import { tableau10T } from "./d3-tableau10";
 import { Src } from "./roughjs-geometry";
 import { Ordinal } from "../utils/ordinal";
@@ -321,7 +321,6 @@ var sankeyDiagramTZEHDZUNValue1 = (function () {
             sankeyDiagramTZEHDZUNValue48,
             sankeyDiagramTZEHDZUNValue49;
           ;
-
         ) {
           if (
             ((sankeyDiagramTZEHDZUNValue42 =

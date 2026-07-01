@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/appgen-page-Cnpqx68h.js
-// Current AppgenPage backing bundle with restored dependency imports.
+// Flat boundary. Vendored current AppgenPage backing bundle with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/sankeyLinkHorizontal-DCfEjaVP.js
-// SankeyLinkHorizontal chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored sankeyLinkHorizontal chunk restored from the Codex webview bundle.
 function sankeyLinkHorizontalHelper1(
   sankeyLinkHorizontalParam21,
   sankeyLinkHorizontalParam22,

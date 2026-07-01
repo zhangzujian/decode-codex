@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/cose-bilkent-S5V4N54A-o3JY66ky.js
-// Also covers current ref asset ref/webview/assets/cose-bilkent-S5V4N54A-DOa-Zu-d.js.
+// Flat boundary. Vendored also covers current ref asset ref/webview/assets/cose-bilkent-S5V4N54A-DOa-Zu-d.js.
 // Vendored Cytoscape cose-bilkent layout wrapper restored from the Codex webview bundle.
 import { toEsModule } from "../runtime/commonjs-interop";
 import { Src } from "./roughjs-geometry";

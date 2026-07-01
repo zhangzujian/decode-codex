@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/string-CKccV857.js
-// String chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored string chunk restored from the Codex webview bundle.
 function stringD(_stringD, _stringF, _stringS) {
   _stringD.prototype = _stringF.prototype = _stringS;
   _stringS.constructor = _stringD;
@@ -639,7 +639,6 @@ export function stringT(_stringD, _stringF) {
     _stringD += "", _stringF += "";
     (stringValue16 = stringValue14.exec(_stringD)) &&
     (stringValue17 = stringValue15.exec(_stringF));
-
   ) {
     (stringValue18 = stringValue17.index) > _stringS &&
       ((stringValue18 = _stringF.slice(_stringS, stringValue18)),

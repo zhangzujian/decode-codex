@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/data-controls-CwyuAPUl.js
-// Current DataControlsSettings backing bundle with restored dependency imports.
+// Flat boundary. Vendored current DataControlsSettings backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

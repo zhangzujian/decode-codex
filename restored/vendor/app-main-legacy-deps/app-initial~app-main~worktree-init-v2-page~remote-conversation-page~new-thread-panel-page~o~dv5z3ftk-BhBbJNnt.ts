@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~dv5z3ftk-BhBbJNnt.js
-// Vendored legacy app-main compatibility dependency.
+// Flat boundary. Vendored legacy app-main compatibility dependency.
 import {
   once as e,
   exportGetters as t,
@@ -21728,7 +21728,6 @@ var Zj,
           ;
           this.headIndex < this.entries.length &&
           this.entries[this.headIndex].atMs < t;
-
         )
           ((this.rollingSum -= this.entries[this.headIndex].value),
             (this.headIndex += 1));

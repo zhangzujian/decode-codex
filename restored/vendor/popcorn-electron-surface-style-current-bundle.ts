@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/popcorn-electron-surface-style-mUJ9CmvY.js
-// Current Popcorn electron surface style backing bundle with restored dependency imports.
+// Flat boundary. Vendored current Popcorn electron surface style backing bundle with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,
@@ -813,7 +813,6 @@ function popcornElectronSurfaceStyleDt(
     popcornElectronSurfaceStyleValue346.has(
       popcornElectronSurfaceStyleValue347,
     );
-
   )
     popcornElectronSurfaceStyleValue347 += 1;
   return popcornElectronSurfaceStyleValue347;

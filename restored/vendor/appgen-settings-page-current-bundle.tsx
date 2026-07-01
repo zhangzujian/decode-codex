@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/appgen-settings-page-BxhhSHRZ.js
-// Current AppgenSettingsPage backing bundle with restored dependency imports.
+// Flat boundary. Vendored current AppgenSettingsPage backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

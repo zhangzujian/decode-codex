@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/pricing-plan-page-CdwnkT4j.js
-// Current PricingPlanPage backing bundle with restored dependency imports.
+// Flat boundary. Vendored current PricingPlanPage backing bundle with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,

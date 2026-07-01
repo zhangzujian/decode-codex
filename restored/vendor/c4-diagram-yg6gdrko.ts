@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/c4Diagram-YG6GDRKO-84gmUwHW.js
-// C4DiagramYG6GDRKO chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored c4DiagramYG6GDRKO chunk restored from the Codex webview bundle.
 import {
   chunkS3R3BYOJUnderscore,
   chunkS3R3BYOJL,
@@ -1719,7 +1719,6 @@ var c4DiagramYG6GDRKOValue1 = dist(),
               c4DiagramYG6GDRKOValue165,
               c4DiagramYG6GDRKOValue166;
             ;
-
           ) {
             if (
               ((c4DiagramYG6GDRKOValue159 =

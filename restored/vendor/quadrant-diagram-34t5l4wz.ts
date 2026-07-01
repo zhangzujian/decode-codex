@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/quadrantDiagram-34T5L4WZ-EFHmpxs2.js
-// QuadrantDiagram34T5L4WZ chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored quadrantDiagram34T5L4WZ chunk restored from the Codex webview bundle.
 import { linearT } from "./d3-scale-linear";
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
@@ -1339,7 +1339,6 @@ var quadrantDiagram34T5L4WZValue1 = (function () {
             quadrantDiagram34T5L4WZValue114,
             quadrantDiagram34T5L4WZValue115;
           ;
-
         ) {
           if (
             ((quadrantDiagram34T5L4WZValue108 =

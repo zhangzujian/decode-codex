@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-5PVQY5BW-CsieDbRK.js
-// Updated with exports from ref/webview/assets/chunk-5PVQY5BW-MckrTAit.js.
+// Flat boundary. Vendored updated with exports from ref/webview/assets/chunk-5PVQY5BW-MckrTAit.js.
 // Chunk5PVQY5BW chunk restored from the Codex webview bundle.
 import { baseForR } from "./lodash-base-for";
 import { Src } from "./roughjs-geometry";
@@ -112,7 +112,6 @@ var chunk5PVQY5BWValue1 = dist(),
         ;
         (chunk5PVQY5BWValue35 = chunkICPOFSXXD.exec(chunk5PVQY5BWParam3)) !==
         null;
-
       )
         if (
           (chunk5PVQY5BWValue35.index === chunkICPOFSXXD.lastIndex &&

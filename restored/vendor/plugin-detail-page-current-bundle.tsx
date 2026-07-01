@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/plugin-detail-page-B_JVFW0l.js
-// Current plugin detail page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current plugin detail page backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

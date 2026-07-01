@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/onboarding-page-DtzKDTbH.js
-// Current onboarding page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current onboarding page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

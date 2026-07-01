@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/abap-CqU2lyQI.js
-// Also covers Shiki language grammar chunks in ref/webview/assets.
+// Flat boundary. Vendored also covers Shiki language grammar chunks in ref/webview/assets.
 // Shiki bundled grammar data is kept as npm leaf imports instead of copying JSON dumps.
 import abapGrammar from "@shikijs/langs/abap";
 import actionscript3Grammar from "@shikijs/langs/actionscript-3";

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/requirementDiagram-MS252O5E-C4g-RuEW.js
-// RequirementDiagramMS252O5E chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored requirementDiagramMS252O5E chunk restored from the Codex webview bundle.
 import {
   chunkAGHRB4JFN,
   chunkAGHRB4JFR,
@@ -1934,7 +1934,6 @@ var requirementDiagramMS252O5EValue1 = (function () {
             requirementDiagramMS252O5EValue95,
             requirementDiagramMS252O5EValue96;
           ;
-
         ) {
           if (
             ((__RequirementDiagramMS252O5E =

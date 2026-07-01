@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-XPW4576I-C68fwtjN.js
-// Vendored js-yaml wrapper restored from the Codex webview bundle.
+// Flat boundary. Vendored js-yaml wrapper restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dayjs-core-alt";
 function chunkXPW4576IHelper1(chunkXPW4576IParam230) {
   return chunkXPW4576IParam230 == null;
@@ -169,7 +169,6 @@ function chunkXPW4576IHelper11(chunkXPW4576IParam23, chunkXPW4576IParam24) {
     (chunkXPW4576IValue159 = chunkXPW4576IValue156.exec(
       chunkXPW4576IParam23.buffer,
     ));
-
   ) {
     chunkXPW4576IValue158.push(chunkXPW4576IValue159.index);
     chunkXPW4576IValue157.push(
@@ -920,7 +919,6 @@ function chunkXPW4576IHelper34(chunkXPW4576IParam71) {
     for (
       chunkXPW4576IValue239 = chunkXPW4576IValue232[7].slice(0, 3);
       chunkXPW4576IValue239.length < 3;
-
     )
       chunkXPW4576IValue239 += "0";
     chunkXPW4576IValue239 = +chunkXPW4576IValue239;
@@ -1735,7 +1733,6 @@ function chunkXPW4576IHelper65(
         chunkXPW4576IParam72.position,
       );
     chunkXPW4576IValue245 !== 0;
-
   ) {
     for (; chunkXPW4576IHelper49(chunkXPW4576IValue245); ) {
       chunkXPW4576IValue245 === 9 &&
@@ -1764,7 +1761,6 @@ function chunkXPW4576IHelper65(
           chunkXPW4576IValue244++,
           chunkXPW4576IParam72.lineIndent = 0;
         chunkXPW4576IValue245 === 32;
-
       ) {
         chunkXPW4576IParam72.lineIndent++;
         chunkXPW4576IValue245 = chunkXPW4576IParam72.input.charCodeAt(
@@ -1858,7 +1854,6 @@ function chunkXPW4576IHelper68(
         chunkXPW4576IParam25.position,
       chunkXPW4576IValue170 = false;
     chunkXPW4576IValue176 !== 0;
-
   ) {
     if (chunkXPW4576IValue176 === 58) {
       if (
@@ -1955,7 +1950,6 @@ function chunkXPW4576IHelper69(chunkXPW4576IParam66, chunkXPW4576IParam67) {
     (chunkXPW4576IValue222 = chunkXPW4576IParam66.input.charCodeAt(
       chunkXPW4576IParam66.position,
     )) !== 0;
-
   )
     if (chunkXPW4576IValue222 === 39) {
       if (
@@ -2025,7 +2019,6 @@ function chunkXPW4576IHelper70(chunkXPW4576IParam28, chunkXPW4576IParam29) {
     (chunkXPW4576IValue182 = chunkXPW4576IParam28.input.charCodeAt(
       chunkXPW4576IParam28.position,
     )) !== 0;
-
   )
     if (chunkXPW4576IValue182 === 34)
       return (
@@ -2163,7 +2156,6 @@ function chunkXPW4576IHelper71(chunkXPW4576IParam12, chunkXPW4576IParam13) {
         ++chunkXPW4576IParam12.position,
       );
     chunkXPW4576IValue140 !== 0;
-
   ) {
     if (
       (chunkXPW4576IHelper65(chunkXPW4576IParam12, true, chunkXPW4576IParam13),
@@ -2304,7 +2296,6 @@ function chunkXPW4576IHelper72(chunkXPW4576IParam9, chunkXPW4576IParam10) {
   for (
     chunkXPW4576IParam9.kind = "scalar", chunkXPW4576IParam9.result = "";
     chunkXPW4576IValue117 !== 0;
-
   )
     if (
       ((chunkXPW4576IValue117 = chunkXPW4576IParam9.input.charCodeAt(
@@ -2362,7 +2353,6 @@ function chunkXPW4576IHelper72(chunkXPW4576IParam9, chunkXPW4576IParam10) {
       (!chunkXPW4576IValue112 ||
         chunkXPW4576IParam9.lineIndent < chunkXPW4576IValue113) &&
       chunkXPW4576IValue117 === 32;
-
     ) {
       chunkXPW4576IParam9.lineIndent++;
       chunkXPW4576IValue117 = chunkXPW4576IParam9.input.charCodeAt(
@@ -2425,7 +2415,6 @@ function chunkXPW4576IHelper72(chunkXPW4576IParam9, chunkXPW4576IParam10) {
         chunkXPW4576IValue108 = chunkXPW4576IParam9.position;
       !chunkXPW4576IHelper48(chunkXPW4576IValue117) &&
       chunkXPW4576IValue117 !== 0;
-
     )
       chunkXPW4576IValue117 = chunkXPW4576IParam9.input.charCodeAt(
         ++chunkXPW4576IParam9.position,
@@ -2470,7 +2459,6 @@ function chunkXPW4576IHelper73(chunkXPW4576IParam33, chunkXPW4576IParam34) {
       )),
       !chunkXPW4576IHelper50(chunkXPW4576IValue187))
     ));
-
   ) {
     if (
       ((chunkXPW4576IValue188 = true),
@@ -2547,7 +2535,6 @@ function chunkXPW4576IHelper74(
         chunkXPW4576IParam6.position,
       );
     chunkXPW4576IValue107 !== 0;
-
   ) {
     if (
       (!chunkXPW4576IValue105 &&
@@ -2612,7 +2599,6 @@ function chunkXPW4576IHelper74(
             chunkXPW4576IParam6.position,
           );
           chunkXPW4576IHelper49(chunkXPW4576IValue107);
-
         )
           chunkXPW4576IValue107 = chunkXPW4576IParam6.input.charCodeAt(
             ++chunkXPW4576IParam6.position,
@@ -2795,7 +2781,6 @@ function chunkXPW4576IHelper75(chunkXPW4576IParam21) {
       ;
       chunkXPW4576IValue152 !== 0 &&
       !chunkXPW4576IHelper50(chunkXPW4576IValue152);
-
     ) {
       chunkXPW4576IValue152 === 33 &&
         (chunkXPW4576IValue149
@@ -2884,7 +2869,6 @@ function chunkXPW4576IHelper76(chunkXPW4576IParam97) {
     chunkXPW4576IValue287 !== 0 &&
     !chunkXPW4576IHelper50(chunkXPW4576IValue287) &&
     !chunkXPW4576IHelper51(chunkXPW4576IValue287);
-
   )
     chunkXPW4576IValue287 = chunkXPW4576IParam97.input.charCodeAt(
       ++chunkXPW4576IParam97.position,
@@ -2918,7 +2902,6 @@ function chunkXPW4576IHelper77(chunkXPW4576IParam91) {
     chunkXPW4576IValue277 !== 0 &&
     !chunkXPW4576IHelper50(chunkXPW4576IValue277) &&
     !chunkXPW4576IHelper51(chunkXPW4576IValue277);
-
   )
     chunkXPW4576IValue277 = chunkXPW4576IParam91.input.charCodeAt(
       ++chunkXPW4576IParam91.position,
@@ -2993,7 +2976,6 @@ function chunkXPW4576IHelper78(
       ;
       chunkXPW4576IHelper75(chunkXPW4576IParam1) ||
       chunkXPW4576IHelper76(chunkXPW4576IParam1);
-
     )
       chunkXPW4576IHelper65(chunkXPW4576IParam1, true, -1)
         ? ((chunkXPW4576IValue84 = true),
@@ -3185,7 +3167,6 @@ function chunkXPW4576IHelper79(chunkXPW4576IParam11) {
       chunkXPW4576IParam11.position,
     )),
     !(chunkXPW4576IParam11.lineIndent > 0 || chunkXPW4576IValue123 !== 37));
-
   ) {
     for (
       chunkXPW4576IValue122 = true,
@@ -3195,7 +3176,6 @@ function chunkXPW4576IHelper79(chunkXPW4576IParam11) {
         chunkXPW4576IValue119 = chunkXPW4576IParam11.position;
       chunkXPW4576IValue123 !== 0 &&
       !chunkXPW4576IHelper50(chunkXPW4576IValue123);
-
     )
       chunkXPW4576IValue123 = chunkXPW4576IParam11.input.charCodeAt(
         ++chunkXPW4576IParam11.position,
@@ -3212,7 +3192,6 @@ function chunkXPW4576IHelper79(chunkXPW4576IParam11) {
             "directive name must not be less than one character in length",
           );
       chunkXPW4576IValue123 !== 0;
-
     ) {
       for (; chunkXPW4576IHelper49(chunkXPW4576IValue123); )
         chunkXPW4576IValue123 = chunkXPW4576IParam11.input.charCodeAt(
@@ -3234,7 +3213,6 @@ function chunkXPW4576IHelper79(chunkXPW4576IParam11) {
         chunkXPW4576IValue119 = chunkXPW4576IParam11.position;
         chunkXPW4576IValue123 !== 0 &&
         !chunkXPW4576IHelper50(chunkXPW4576IValue123);
-
       )
         chunkXPW4576IValue123 = chunkXPW4576IParam11.input.charCodeAt(
           ++chunkXPW4576IParam11.position,
@@ -3335,7 +3313,6 @@ function chunkXPW4576IHelper80(chunkXPW4576IParam87, chunkXPW4576IParam88) {
       chunkXPW4576IValue266.input += "\0";
     chunkXPW4576IValue266.input.charCodeAt(chunkXPW4576IValue266.position) ===
     32;
-
   ) {
     chunkXPW4576IValue266.lineIndent += 1;
     chunkXPW4576IValue266.position += 1;
@@ -3532,7 +3509,6 @@ function chunkXPW4576IHelper86(chunkXPW4576IParam111, chunkXPW4576IParam112) {
       chunkXPW4576IValue325,
       chunkXPW4576IValue326 = chunkXPW4576IParam111.length;
     chunkXPW4576IValue322 < chunkXPW4576IValue326;
-
   ) {
     chunkXPW4576IValue323 = chunkXPW4576IParam111.indexOf(
       "\n",
@@ -3931,7 +3907,6 @@ function chunkXPW4576IHelper100(chunkXPW4576IParam89, chunkXPW4576IParam90) {
       chunkXPW4576IValue271,
       chunkXPW4576IValue272;
     (chunkXPW4576IValue272 = chunkXPW4576IValue268.exec(chunkXPW4576IParam89));
-
   ) {
     var chunkXPW4576IValue273 = chunkXPW4576IValue272[1],
       chunkXPW4576IValue274 = chunkXPW4576IValue272[2];
@@ -3961,7 +3936,6 @@ function chunkXPW4576IHelper101(chunkXPW4576IParam98, chunkXPW4576IParam99) {
       chunkXPW4576IValue293 = 0,
       chunkXPW4576IValue294 = "";
     (chunkXPW4576IValue289 = chunkXPW4576IValue288.exec(chunkXPW4576IParam98));
-
   ) {
     chunkXPW4576IValue293 = chunkXPW4576IValue289.index;
     chunkXPW4576IValue293 - chunkXPW4576IValue290 > chunkXPW4576IParam99 &&

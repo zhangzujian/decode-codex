@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/home-ambient-suggestions-content-QPiHWv2t.js
-// Current HomeAmbientSuggestionsContent backing bundle with restored dependency imports.
+// Flat boundary. Vendored current HomeAmbientSuggestionsContent backing bundle with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,

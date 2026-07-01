@@ -59,3 +59,15 @@ export * from "./compat-lower-w";
 export * from "./compat-lower-x";
 export * from "./compat-lower-y";
 export * from "./compat-lower-z";
+
+export { DragIcon } from "../../icons/drag-icon";
+export { appMainCurrentCompatSlotLowerALowerM } from "../app-main-legacy-buw-runtime/compat-lower-a";
+export { appMainCurrentCompatSlotLowerQLowerN } from "../app-main-legacy-buw-runtime/compat-lower-q";
+export { appMainCurrentCompatSlotLowerRLowerM } from "../app-main-legacy-buw-runtime/compat-lower-r";
+export { appMainCurrentCompatSlotLowerWLowerL } from "../app-main-legacy-buw-runtime/compat-lower-w";
+export { appMainCurrentCompatSlotUpperHLowerA } from "../app-main-legacy-buw-runtime/compat-upper-h";
+export { appMainCurrentCompatSlotUpperRLowerA } from "../app-main-legacy-buw-runtime/compat-upper-r";
+export { appMainCurrentCompatSlotUpperTLowerL } from "../app-main-legacy-buw-runtime/compat-upper-t";
+export { appMainCurrentCompatSlotUpperWLowerR } from "../app-main-legacy-buw-runtime/compat-upper-w";
+export { appMainCurrentCompatSlotUpperXLowerT } from "../app-main-legacy-buw-runtime/compat-upper-x";
+export { appMainCurrentCompatSlotUpperZLowerT } from "../app-main-legacy-buw-runtime/compat-upper-z";

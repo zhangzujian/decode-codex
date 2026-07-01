@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/plugins-page-D95-xrxa.js
-// Current plugins page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current plugins page backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

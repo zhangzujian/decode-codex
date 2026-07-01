@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/skills-page-zCIrhInI.js
-// Current SkillsPage backing bundle with restored dependency imports.
+// Flat boundary. Vendored current SkillsPage backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/personalization-settings-B1J6eU5_.js
-// Current personalization settings backing bundle with restored dependency imports.
+// Flat boundary. Vendored current personalization settings backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-JZLCHNYA-Dn_DumwI.js
-// ChunkJZLCHNYA chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored chunkJZLCHNYA chunk restored from the Codex webview bundle.
 import {
   chunkS3R3BYOJA,
   chunkS3R3BYOJD,
@@ -7981,7 +7981,6 @@ async function chunkJZLCHNYAHelper72(
         .replaceAll("&lt;", "<")
         .replaceAll("&gt;", ">");
       chunkJZLCHNYAValue946.childNodes[0];
-
     ) {
       chunkJZLCHNYAValue946 = chunkJZLCHNYAValue946.childNodes[0];
       chunkJZLCHNYAValue946.textContent = chunkJZLCHNYAValue946.textContent

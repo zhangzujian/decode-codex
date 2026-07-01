@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/remote-connections-settings-DnApG523.js
-// Current remote connections settings backing bundle with restored dependency imports.
+// Flat boundary. Vendored current remote connections settings backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

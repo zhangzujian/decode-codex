@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/flowDiagram-NV44I4VS-QsAiBWP0.js
-// FlowDiagramNV44I4VS chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored flowDiagramNV44I4VS chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJC, chunkS3R3BYOJR } from "./chunk-s3r3byoj";
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";
@@ -758,7 +758,6 @@ You have to call mermaid.initialize.`);
       for (
         ;
         flowDiagramNV44I4VSValue208 < flowDiagramNV44I4VSValue207.length;
-
       ) {
         let flowDiagramNV44I4VSValue241 = this.getPosForId(
           flowDiagramNV44I4VSValue207[flowDiagramNV44I4VSValue208],
@@ -4245,7 +4244,6 @@ You have to call mermaid.initialize.`);
               flowDiagramNV44I4VSValue142,
               flowDiagramNV44I4VSValue143;
             ;
-
           ) {
             if (
               ((flowDiagramNV44I4VSValue136 =

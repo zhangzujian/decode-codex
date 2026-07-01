@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/spreadsheet-C5mWVSPz.js
-// Spreadsheet chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored spreadsheet chunk restored from the Codex webview bundle.
 import {
   spreadsheetT as spreadsheetAnchorMarker,
   spreadsheetN as spreadsheetAnnotationTarget,

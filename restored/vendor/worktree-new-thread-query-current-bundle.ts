@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~ko8xg8gw-DEdbMp8p.js
-// Vendored current worktree/new-thread query bundle copied from the Codex webview chunk.
+// Flat boundary. Vendored current worktree/new-thread query bundle copied from the Codex webview chunk.
 declare const __REACT_DEVTOOLS_GLOBAL_HOOK__: unknown;
 
 import {
@@ -46238,7 +46238,6 @@ function Z6(e, t, n, r) {
       for (
         ;
         e < t && o.text[o.text.length - e - 1] == s.text[s.text.length - e - 1];
-
       )
         (e++, n--, r--);
       return { a: n, b: r };

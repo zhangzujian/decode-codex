@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/_baseUniq-C2aVs9t8.js
-// BaseUniq chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored baseUniq chunk restored from the Codex webview bundle.
 import {
   isArrayLikeObjectA as _isArrayLikeObjectA,
   isArrayLikeObjectB as _isArrayLikeObjectB,
@@ -46,7 +46,6 @@ function baseUniqM(baseUniqParam88, baseUniqParam89) {
       baseUniqValue203 = baseUniqParam88 == null ? 0 : baseUniqParam88.length,
       baseUniqValue204 = Array(baseUniqValue203);
     ++baseUniqValue202 < baseUniqValue203;
-
   )
     baseUniqValue204[baseUniqValue202] = baseUniqParam89(
       baseUniqParam88[baseUniqValue202],
@@ -82,7 +81,6 @@ function baseUniqHelper2(baseUniqParam92, baseUniqParam93) {
       baseUniqValue209,
       baseUniqParam92,
     ) !== false;
-
   );
   return baseUniqParam92;
 }
@@ -98,7 +96,6 @@ function baseUniqA(
     baseUniqParam80
       ? baseUniqValue195--
       : ++baseUniqValue195 < baseUniqValue194;
-
   )
     if (
       baseUniqParam78(
@@ -118,7 +115,6 @@ function baseUniqHelper4(baseUniqParam112, baseUniqParam113, baseUniqParam114) {
     var baseUniqValue224 = baseUniqParam114 - 1,
       baseUniqValue225 = baseUniqParam112.length;
     ++baseUniqValue224 < baseUniqValue225;
-
   )
     if (baseUniqParam112[baseUniqValue224] === baseUniqParam113)
       return baseUniqValue224;
@@ -217,7 +213,6 @@ function baseUniqC(baseUniqParam75, baseUniqParam76) {
   for (
     var baseUniqValue192 = 0, baseUniqValue193 = baseUniqParam76.length;
     baseUniqParam75 != null && baseUniqValue192 < baseUniqValue193;
-
   )
     baseUniqParam75 =
       baseUniqParam75[baseUniqW(baseUniqParam76[baseUniqValue192++])];
@@ -238,7 +233,6 @@ function baseUniqHelper8(baseUniqParam115, baseUniqParam116) {
       baseUniqValue227 = baseUniqParam116.length,
       baseUniqValue228 = baseUniqParam115.length;
     ++baseUniqValue226 < baseUniqValue227;
-
   )
     baseUniqParam115[baseUniqValue228 + baseUniqValue226] =
       baseUniqParam116[baseUniqValue226];
@@ -266,7 +260,6 @@ function baseUniqS(
   for (
     baseUniqParam49 ||= baseUniqHelper9, baseUniqParam51 ||= [];
     ++baseUniqValue173 < baseUniqValue174;
-
   ) {
     var baseUniqValue175 = baseUniqParam47[baseUniqValue173];
     baseUniqParam48 > 0 && baseUniqParam49(baseUniqValue175)
@@ -297,7 +290,6 @@ function baseUniqHelper10(
     baseUniqValue191 &&
     (baseUniqParam73 = baseUniqParam71[++baseUniqValue190]);
     ++baseUniqValue190 < baseUniqValue191;
-
   )
     baseUniqParam73 = baseUniqParam72(
       baseUniqParam73,
@@ -334,7 +326,6 @@ function baseUniqX(baseUniqParam64, baseUniqParam65) {
       baseUniqValue187 = 0,
       baseUniqValue188 = [];
     ++baseUniqValue185 < baseUniqValue186;
-
   ) {
     var baseUniqValue189 = baseUniqParam64[baseUniqValue185];
     baseUniqParam65(baseUniqValue189, baseUniqValue185, baseUniqParam64) &&
@@ -673,7 +664,6 @@ function baseUniqV(baseUniqParam104) {
   for (
     this.__data__ = new _isArrayLikeObjectD();
     ++baseUniqValue217 < baseUniqValue218;
-
   )
     this.add(baseUniqParam104[baseUniqValue217]);
 }
@@ -684,7 +674,6 @@ function baseUniqUnderscore(baseUniqParam94, baseUniqParam95) {
     var baseUniqValue211 = -1,
       baseUniqValue212 = baseUniqParam94 == null ? 0 : baseUniqParam94.length;
     ++baseUniqValue211 < baseUniqValue212;
-
   )
     if (
       baseUniqParam95(
@@ -728,7 +717,6 @@ function baseUniqHelper27(
     baseUniqParam25.set(baseUniqParam20, baseUniqParam21),
       baseUniqParam25.set(baseUniqParam21, baseUniqParam20);
     ++baseUniqValue132 < baseUniqValue128;
-
   ) {
     var baseUniqValue135 = baseUniqParam20[baseUniqValue132],
       baseUniqValue136 = baseUniqParam21[baseUniqValue132];
@@ -931,7 +919,6 @@ function baseUniqHelper30(
   for (
     var baseUniqValue117 = baseUniqValue109;
     ++baseUniqValue112 < baseUniqValue111;
-
   ) {
     baseUniqValue113 = baseUniqValue110[baseUniqValue112];
     var baseUniqValue118 = baseUniqParam7[baseUniqValue113],
@@ -1176,7 +1163,6 @@ function baseUniqHelper35(baseUniqParam82) {
     var baseUniqValue198 = baseUniqD(baseUniqParam82),
       baseUniqValue199 = baseUniqValue198.length;
     baseUniqValue199--;
-
   ) {
     var baseUniqValue200 = baseUniqValue198[baseUniqValue199],
       baseUniqValue201 = baseUniqParam82[baseUniqValue200];
@@ -1220,7 +1206,6 @@ function baseUniqH(baseUniqParam42, baseUniqParam43, baseUniqParam44) {
       baseUniqValue170 = baseUniqParam43.length,
       baseUniqValue171 = false;
     ++baseUniqValue169 < baseUniqValue170;
-
   ) {
     var baseUniqValue172 = baseUniqW(baseUniqParam43[baseUniqValue169]);
     if (
@@ -1310,7 +1295,6 @@ function baseUniqHelper42(baseUniqParam45, baseUniqParam46) {
         baseUniqValue177,
         baseUniqValue178,
       ) !== false;
-
     );
     return baseUniqParam52;
   };
@@ -1321,7 +1305,6 @@ function baseUniqL(baseUniqParam96, baseUniqParam97, baseUniqParam98) {
     var baseUniqValue213 = -1,
       baseUniqValue214 = baseUniqParam96 == null ? 0 : baseUniqParam96.length;
     ++baseUniqValue213 < baseUniqValue214;
-
   )
     if (baseUniqParam98(baseUniqParam97, baseUniqParam96[baseUniqValue213]))
       return true;

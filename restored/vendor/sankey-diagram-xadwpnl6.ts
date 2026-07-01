@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/sankeyDiagram-XADWPNL6-CXgjy9x6.js
-// SankeyDiagramXADWPNL6 chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored sankeyDiagramXADWPNL6 chunk restored from the Codex webview bundle.
 import { tableau10T } from "./d3-tableau10";
 import { Src } from "./roughjs-geometry";
 import { Ordinal } from "../utils/ordinal";
@@ -321,7 +321,6 @@ var sankeyDiagramXADWPNL6Value1 = (function () {
             sankeyDiagramXADWPNL6Value48,
             sankeyDiagramXADWPNL6Value49;
           ;
-
         ) {
           if (
             ((sankeyDiagramXADWPNL6Value42 =

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-AGHRB4JF-DNCNxfKz.js
-// ChunkAGHRB4JF chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored chunkAGHRB4JF chunk restored from the Codex webview bundle.
 import { toEsModule, createCommonJsModule } from "../runtime/commonjs-interop";
 var chunkAGHRB4JFA = createCommonJsModule(
     (chunkAGHRB4JFParam1, chunkAGHRB4JFParam2) => {

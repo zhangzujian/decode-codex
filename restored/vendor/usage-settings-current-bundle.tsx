@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/usage-settings-D_gEzTFv.js
-// Current UsageSettings backing bundle with restored dependency imports.
+// Flat boundary. Vendored current UsageSettings backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

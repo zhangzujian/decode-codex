@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-JA3XYJ7Z-CjR9BG5n.js
-// ChunkJA3XYJ7Z chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored chunkJA3XYJ7Z chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJD } from "./chunk-s3r3byoj";
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";

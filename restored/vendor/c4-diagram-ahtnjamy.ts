@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/c4Diagram-AHTNJAMY-D1_UKJZR.js
-// C4DiagramAHTNJAMY chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored c4DiagramAHTNJAMY chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { dist } from "./entities-escape";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
@@ -1719,7 +1719,6 @@ var c4DiagramAHTNJAMYValue1 = dist(),
               c4DiagramAHTNJAMYValue164,
               c4DiagramAHTNJAMYValue165;
             ;
-
           ) {
             if (
               ((c4DiagramAHTNJAMYValue158 =

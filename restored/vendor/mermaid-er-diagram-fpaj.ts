@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/erDiagram-Q2GNP2WA-BPM0lS04.js
-// ErDiagramQ2GNP2WA chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored erDiagramQ2GNP2WA chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJC, chunkS3R3BYOJR } from "./chunk-s3r3byoj";
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR, chunkAGHRB4JFT } from "./dompurify";
@@ -1167,7 +1167,6 @@ var erDiagramQ2GNP2WAValue1 = (function () {
             erDiagramQ2GNP2WAValue78,
             erDiagramQ2GNP2WAValue79;
           ;
-
         ) {
           if (
             ((erDiagramQ2GNP2WAValue73 =

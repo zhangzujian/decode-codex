@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-publication-ter~g5252vxb-CZkpVhg2.js
-// Vendored legacy app-main compatibility dependency.
+// Flat boundary. Vendored legacy app-main compatibility dependency.
 import {
   once as e,
   createCommonJsModule as t,
@@ -40,7 +40,6 @@ var i = t((e, t) => {
         for (
           var a = r.length, o = t ? a : -1, s = Object(r);
           (t ? o-- : ++o < a) && i(s[o], o, s) !== !1;
-
         );
         return r;
       };

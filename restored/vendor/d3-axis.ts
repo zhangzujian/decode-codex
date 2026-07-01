@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/axis-BWiM9Kg7.js
-// Axis chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored axis chunk restored from the Codex webview bundle.
 import { linearI, linearL, linearR, linearS } from "./d3-scale-linear";
 import {
   stringA,
@@ -337,7 +337,6 @@ function axisHelper14(axisParam8, axisParam9, axisParam10, axisParam11) {
                 for (
                   ;
                   axisParam9(axisParam65, -1), !axisParam46(axisParam65);
-
                 );
             else
               for (; --axisParam66 >= 0; )
@@ -934,7 +933,6 @@ function axisHelper21(axisParam1) {
       for (
         axisParam31 instanceof Date || (axisParam31 = new Date(+axisParam31));
         ++axisValue113 < axisValue115;
-
       )
         axisParam28.charCodeAt(axisValue113) === 37 &&
           (axisValue112.push(axisParam28.slice(axisValue114, axisValue113)),
@@ -1041,7 +1039,6 @@ function axisHelper21(axisParam1) {
         axisValue125,
         axisValue126;
       axisValue122 < axisValue123;
-
     ) {
       if (axisParam35 >= axisValue124) return -1;
       if (

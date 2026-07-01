@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/dist-Dcs2yc8m.js
-// Vendored Mermaid color parsing and transform helpers.
+// Flat boundary. Vendored Mermaid color parsing and transform helpers.
 
 type ColorChannel = "r" | "g" | "b" | "h" | "s" | "l" | "a";
 

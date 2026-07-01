@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~projects-index-page~hotkey-window-thread-page~ki4n9fl3-zz_Wr7F0.js
-// Vendored legacy app-main compatibility dependency.
+// Flat boundary. Vendored legacy app-main compatibility dependency.
 import {
   once as e,
   exportGetters as t,

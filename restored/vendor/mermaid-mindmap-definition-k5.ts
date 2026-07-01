@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/mindmap-definition-QFDTVHPH-BlP876d6.js
-// MindmapDefinitionQFDTVHPH chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored mindmapDefinitionQFDTVHPH chunk restored from the Codex webview bundle.
 import { invertI, invertO, invertR } from "./color-convert";
 import { uuidV4 } from "../utils/uuid-v4";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
@@ -608,7 +608,6 @@ var mindmapDefinitionQFDTVHPHValue1 = (function () {
             mindmapDefinitionQFDTVHPHValue52,
             mindmapDefinitionQFDTVHPHValue53;
           ;
-
         ) {
           if (
             ((mindmapDefinitionQFDTVHPHValue46 =

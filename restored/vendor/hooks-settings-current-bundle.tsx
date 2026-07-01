@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/hooks-settings-DUMdgBqk.js
-// Current HooksSettings backing bundle with restored dependency imports.
+// Flat boundary. Vendored current HooksSettings backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

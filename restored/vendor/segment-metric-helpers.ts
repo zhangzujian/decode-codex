@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/metric-helpers-7nP-wnaS.js
-// MetricHelpers chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored metricHelpers chunk restored from the Codex webview bundle.
 import {
   __generator as metricHelpersImport1,
   __awaiter as metricHelpersImport2,

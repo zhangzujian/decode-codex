@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/requirementDiagram-UZGBJVZJ-9RUb2zSd.js
-// RequirementDiagramUZGBJVZJ chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored requirementDiagramUZGBJVZJ chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJC } from "./chunk-s3r3byoj";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR, chunkAGHRB4JFT } from "./dompurify";
 import {
@@ -1929,7 +1929,6 @@ var requirementDiagramUZGBJVZJValue1 = (function () {
             requirementDiagramUZGBJVZJValue94,
             requirementDiagramUZGBJVZJValue95;
           ;
-
         ) {
           if (
             ((requirementDiagramUZGBJVZJValue88 =

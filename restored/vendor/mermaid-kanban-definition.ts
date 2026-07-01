@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/kanban-definition-6JOO6SKY-cHI15BWA.js
-// KanbanDefinition6JOO6SKY chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored kanbanDefinition6JOO6SKY chunk restored from the Codex webview bundle.
 import { invertI, invertO, invertR } from "./color-convert";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
 import {
@@ -711,7 +711,6 @@ var kanbanDefinition6JOO6SKYValue1 = (function () {
             kanbanDefinition6JOO6SKYValue63,
             _kanbanDefinition6JOO6SKY;
           ;
-
         ) {
           if (
             ((kanbanDefinition6JOO6SKYValue57 =

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/quadrantDiagram-AYHSOK5B-BRnrrCmT.js
-// QuadrantDiagramAYHSOK5B chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored quadrantDiagramAYHSOK5B chunk restored from the Codex webview bundle.
 import { linearT } from "./d3-scale-linear";
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";
@@ -1339,7 +1339,6 @@ var quadrantDiagramAYHSOK5BValue1 = (function () {
             quadrantDiagramAYHSOK5BValue114,
             quadrantDiagramAYHSOK5BValue115;
           ;
-
         ) {
           if (
             ((quadrantDiagramAYHSOK5BValue108 =

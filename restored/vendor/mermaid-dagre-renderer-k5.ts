@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/dagre-KV5264BT-wPJhnht8.js
-// DagreKV5264BT chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored dagreKV5264BT chunk restored from the Codex webview bundle.
 import { flattenA } from "./lodash-flatten";
 import { unionN } from "./lodash-union";
 import { clone } from "./lodash-clone-deep";

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/hotkey-window-home-page-HuAbYFeH.js
-// Current hotkey window home page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current hotkey window home page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

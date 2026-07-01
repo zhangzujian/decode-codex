@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/timeline-definition-GMOUNBTQ-BhxdX_wS.js
-// TimelineDefinitionGMOUNBTQ chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored timelineDefinitionGMOUNBTQ chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { arc } from "./d3-shape-arc";
 import { invertI, invertO, invertR } from "./color-convert";
@@ -459,7 +459,6 @@ var timelineDefinitionGMOUNBTQValue1 = (function () {
             timelineDefinitionGMOUNBTQValue113,
             timelineDefinitionGMOUNBTQValue114;
           ;
-
         ) {
           if (
             ((timelineDefinitionGMOUNBTQValue107 =
@@ -1186,7 +1185,6 @@ var timelineDefinitionGMOUNBTQValue4 = "",
       ;
       !timelineDefinitionGMOUNBTQValue290 &&
       timelineDefinitionGMOUNBTQValue291 < 100;
-
     ) {
       timelineDefinitionGMOUNBTQValue290 = timelineDefinitionGMOUNBTQValue20();
       timelineDefinitionGMOUNBTQValue291++;

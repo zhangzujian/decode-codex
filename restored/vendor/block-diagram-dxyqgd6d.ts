@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/blockDiagram-DXYQGD6D-CTLy8H2I.js
-// BlockDiagramDXYQGD6D chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored blockDiagramDXYQGD6D chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { line } from "./d3-shape-line";
 import { stepH } from "./d3-shape-curves";
@@ -904,7 +904,6 @@ var blockDiagramDXYQGD6DValue1 = (function () {
             blockDiagramDXYQGD6DValue146,
             blockDiagramDXYQGD6DValue147;
           ;
-
         ) {
           if (
             ((blockDiagramDXYQGD6DValue140 =

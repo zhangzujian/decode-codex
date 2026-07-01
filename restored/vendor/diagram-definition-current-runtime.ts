@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page~mermaid-diagram~xychartDiagram-PRI3JC2R~timeline-defin~dcen2xty-ZWKQ4q6W.js
-// Vendored Mermaid diagram definition bundle copied from the current Codex webview chunk.
+// Flat boundary. Vendored Mermaid diagram definition bundle copied from the current Codex webview chunk.
 import { once as e } from "../runtime/commonjs-interop";
 function t(e) {
   return Math.abs((e = Math.round(e))) >= 1e21
@@ -31,7 +31,6 @@ function o(e, t) {
       (c + s + 1 > r && (s = Math.max(1, r - c)),
       a.push(n.substring((i -= s), i + s)),
       !((c += s + 1) > r));
-
     )
       s = e[(o = (o + 1) % e.length)];
     return a.reverse().join(t);
@@ -1646,7 +1645,6 @@ function ar(e, t, n) {
   for (
     var r = -1, i = Math.max(0, Math.ceil((t - e) / n)) | 0, a = Array(i);
     ++r < i;
-
   )
     a[r] = e + r * n;
   return a;
@@ -1876,7 +1874,6 @@ function wr(e, t, n) {
   for (
     e[r] < e[0] && ((e = e.slice().reverse()), (t = t.slice().reverse()));
     ++o < r;
-
   )
     ((i[o] = xr(e[o], e[o + 1])), (a[o] = n(t[o], t[o + 1])));
   return function (t) {
@@ -2006,7 +2003,6 @@ function Mr(e) {
       for (
         s < o && ((l = o), (o = s), (s = l), (l = i), (i = a), (a = l));
         u-- > 0;
-
       ) {
         if (((l = Vn(o, s, n)), l === c)) return ((r[i] = o), (r[a] = s), t(r));
         if (l > 0) ((o = Math.floor(o / l) * l), (s = Math.ceil(s / l) * l));
@@ -4927,7 +4923,6 @@ var $c,
             for (
               var r = e[0], i = t[0], a = e[n] - r, o = t[n] - i, s = -1, c;
               ++s <= n;
-
             )
               ((c = s / n),
                 this._basis.point(

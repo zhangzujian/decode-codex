@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-MI3HLSF2-lTgkCAOX.js
-// Vendored Mermaid js-yaml wrapper restored from the Codex webview bundle.
+// Flat boundary. Vendored Mermaid js-yaml wrapper restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dompurify";
 function chunkMI3HLSF2Helper1(chunkMI3HLSF2Param227) {
   return chunkMI3HLSF2Param227 == null;
@@ -169,7 +169,6 @@ function chunkMI3HLSF2Helper11(chunkMI3HLSF2Param23, chunkMI3HLSF2Param24) {
     (chunkMI3HLSF2Value160 = chunkMI3HLSF2Value157.exec(
       chunkMI3HLSF2Param23.buffer,
     ));
-
   ) {
     chunkMI3HLSF2Value159.push(chunkMI3HLSF2Value160.index);
     chunkMI3HLSF2Value158.push(
@@ -920,7 +919,6 @@ function chunkMI3HLSF2Helper33(chunkMI3HLSF2Param71) {
     for (
       chunkMI3HLSF2Value240 = chunkMI3HLSF2Value233[7].slice(0, 3);
       chunkMI3HLSF2Value240.length < 3;
-
     )
       chunkMI3HLSF2Value240 += "0";
     chunkMI3HLSF2Value240 = +chunkMI3HLSF2Value240;
@@ -1720,7 +1718,6 @@ function chunkMI3HLSF2Helper63(
         chunkMI3HLSF2Param72.position,
       );
     chunkMI3HLSF2Value246 !== 0;
-
   ) {
     for (; chunkMI3HLSF2Helper48(chunkMI3HLSF2Value246); ) {
       chunkMI3HLSF2Value246 === 9 &&
@@ -1749,7 +1746,6 @@ function chunkMI3HLSF2Helper63(
           chunkMI3HLSF2Value245++,
           chunkMI3HLSF2Param72.lineIndent = 0;
         chunkMI3HLSF2Value246 === 32;
-
       ) {
         chunkMI3HLSF2Param72.lineIndent++;
         chunkMI3HLSF2Value246 = chunkMI3HLSF2Param72.input.charCodeAt(
@@ -1843,7 +1839,6 @@ function chunkMI3HLSF2Helper66(
         chunkMI3HLSF2Param25.position,
       chunkMI3HLSF2Value171 = false;
     chunkMI3HLSF2Value177 !== 0;
-
   ) {
     if (chunkMI3HLSF2Value177 === 58) {
       if (
@@ -1940,7 +1935,6 @@ function chunkMI3HLSF2Helper67(chunkMI3HLSF2Param66, chunkMI3HLSF2Param67) {
     (chunkMI3HLSF2Value223 = chunkMI3HLSF2Param66.input.charCodeAt(
       chunkMI3HLSF2Param66.position,
     )) !== 0;
-
   )
     if (chunkMI3HLSF2Value223 === 39) {
       if (
@@ -2010,7 +2004,6 @@ function chunkMI3HLSF2Helper68(chunkMI3HLSF2Param28, chunkMI3HLSF2Param29) {
     (chunkMI3HLSF2Value183 = chunkMI3HLSF2Param28.input.charCodeAt(
       chunkMI3HLSF2Param28.position,
     )) !== 0;
-
   )
     if (chunkMI3HLSF2Value183 === 34)
       return (
@@ -2148,7 +2141,6 @@ function chunkMI3HLSF2Helper69(chunkMI3HLSF2Param12, chunkMI3HLSF2Param13) {
         ++chunkMI3HLSF2Param12.position,
       );
     chunkMI3HLSF2Value141 !== 0;
-
   ) {
     if (
       (chunkMI3HLSF2Helper63(chunkMI3HLSF2Param12, true, chunkMI3HLSF2Param13),
@@ -2289,7 +2281,6 @@ function chunkMI3HLSF2Helper70(chunkMI3HLSF2Param9, chunkMI3HLSF2Param10) {
   for (
     chunkMI3HLSF2Param9.kind = "scalar", chunkMI3HLSF2Param9.result = "";
     chunkMI3HLSF2Value118 !== 0;
-
   )
     if (
       ((chunkMI3HLSF2Value118 = chunkMI3HLSF2Param9.input.charCodeAt(
@@ -2347,7 +2338,6 @@ function chunkMI3HLSF2Helper70(chunkMI3HLSF2Param9, chunkMI3HLSF2Param10) {
       (!chunkMI3HLSF2Value113 ||
         chunkMI3HLSF2Param9.lineIndent < chunkMI3HLSF2Value114) &&
       chunkMI3HLSF2Value118 === 32;
-
     ) {
       chunkMI3HLSF2Param9.lineIndent++;
       chunkMI3HLSF2Value118 = chunkMI3HLSF2Param9.input.charCodeAt(
@@ -2410,7 +2400,6 @@ function chunkMI3HLSF2Helper70(chunkMI3HLSF2Param9, chunkMI3HLSF2Param10) {
         chunkMI3HLSF2Value109 = chunkMI3HLSF2Param9.position;
       !chunkMI3HLSF2Helper47(chunkMI3HLSF2Value118) &&
       chunkMI3HLSF2Value118 !== 0;
-
     )
       chunkMI3HLSF2Value118 = chunkMI3HLSF2Param9.input.charCodeAt(
         ++chunkMI3HLSF2Param9.position,
@@ -2455,7 +2444,6 @@ function chunkMI3HLSF2Helper71(chunkMI3HLSF2Param42, chunkMI3HLSF2Param43) {
       )),
       !chunkMI3HLSF2Helper49(chunkMI3HLSF2Value190))
     ));
-
   ) {
     if (
       ((chunkMI3HLSF2Value191 = true),
@@ -2532,7 +2520,6 @@ function chunkMI3HLSF2Helper72(
         chunkMI3HLSF2Param6.position,
       );
     chunkMI3HLSF2Value108 !== 0;
-
   ) {
     if (
       (!chunkMI3HLSF2Value106 &&
@@ -2597,7 +2584,6 @@ function chunkMI3HLSF2Helper72(
             chunkMI3HLSF2Param6.position,
           );
           chunkMI3HLSF2Helper48(chunkMI3HLSF2Value108);
-
         )
           chunkMI3HLSF2Value108 = chunkMI3HLSF2Param6.input.charCodeAt(
             ++chunkMI3HLSF2Param6.position,
@@ -2780,7 +2766,6 @@ function chunkMI3HLSF2Helper73(chunkMI3HLSF2Param21) {
       ;
       chunkMI3HLSF2Value153 !== 0 &&
       !chunkMI3HLSF2Helper49(chunkMI3HLSF2Value153);
-
     ) {
       chunkMI3HLSF2Value153 === 33 &&
         (chunkMI3HLSF2Value150
@@ -2869,7 +2854,6 @@ function chunkMI3HLSF2Helper74(chunkMI3HLSF2Param97) {
     chunkMI3HLSF2Value288 !== 0 &&
     !chunkMI3HLSF2Helper49(chunkMI3HLSF2Value288) &&
     !chunkMI3HLSF2Helper50(chunkMI3HLSF2Value288);
-
   )
     chunkMI3HLSF2Value288 = chunkMI3HLSF2Param97.input.charCodeAt(
       ++chunkMI3HLSF2Param97.position,
@@ -2903,7 +2887,6 @@ function chunkMI3HLSF2Helper75(chunkMI3HLSF2Param91) {
     chunkMI3HLSF2Value278 !== 0 &&
     !chunkMI3HLSF2Helper49(chunkMI3HLSF2Value278) &&
     !chunkMI3HLSF2Helper50(chunkMI3HLSF2Value278);
-
   )
     chunkMI3HLSF2Value278 = chunkMI3HLSF2Param91.input.charCodeAt(
       ++chunkMI3HLSF2Param91.position,
@@ -2978,7 +2961,6 @@ function chunkMI3HLSF2Helper76(
       ;
       chunkMI3HLSF2Helper73(chunkMI3HLSF2Param1) ||
       chunkMI3HLSF2Helper74(chunkMI3HLSF2Param1);
-
     )
       chunkMI3HLSF2Helper63(chunkMI3HLSF2Param1, true, -1)
         ? ((chunkMI3HLSF2Value85 = true),
@@ -3170,7 +3152,6 @@ function chunkMI3HLSF2Helper77(chunkMI3HLSF2Param11) {
       chunkMI3HLSF2Param11.position,
     )),
     !(chunkMI3HLSF2Param11.lineIndent > 0 || chunkMI3HLSF2Value124 !== 37));
-
   ) {
     for (
       chunkMI3HLSF2Value123 = true,
@@ -3180,7 +3161,6 @@ function chunkMI3HLSF2Helper77(chunkMI3HLSF2Param11) {
         chunkMI3HLSF2Value120 = chunkMI3HLSF2Param11.position;
       chunkMI3HLSF2Value124 !== 0 &&
       !chunkMI3HLSF2Helper49(chunkMI3HLSF2Value124);
-
     )
       chunkMI3HLSF2Value124 = chunkMI3HLSF2Param11.input.charCodeAt(
         ++chunkMI3HLSF2Param11.position,
@@ -3197,7 +3177,6 @@ function chunkMI3HLSF2Helper77(chunkMI3HLSF2Param11) {
             "directive name must not be less than one character in length",
           );
       chunkMI3HLSF2Value124 !== 0;
-
     ) {
       for (; chunkMI3HLSF2Helper48(chunkMI3HLSF2Value124); )
         chunkMI3HLSF2Value124 = chunkMI3HLSF2Param11.input.charCodeAt(
@@ -3219,7 +3198,6 @@ function chunkMI3HLSF2Helper77(chunkMI3HLSF2Param11) {
         chunkMI3HLSF2Value120 = chunkMI3HLSF2Param11.position;
         chunkMI3HLSF2Value124 !== 0 &&
         !chunkMI3HLSF2Helper49(chunkMI3HLSF2Value124);
-
       )
         chunkMI3HLSF2Value124 = chunkMI3HLSF2Param11.input.charCodeAt(
           ++chunkMI3HLSF2Param11.position,
@@ -3320,7 +3298,6 @@ function chunkMI3HLSF2Helper78(chunkMI3HLSF2Param87, chunkMI3HLSF2Param88) {
       chunkMI3HLSF2Value267.input += "\0";
     chunkMI3HLSF2Value267.input.charCodeAt(chunkMI3HLSF2Value267.position) ===
     32;
-
   ) {
     chunkMI3HLSF2Value267.lineIndent += 1;
     chunkMI3HLSF2Value267.position += 1;
@@ -3517,7 +3494,6 @@ function chunkMI3HLSF2Helper84(chunkMI3HLSF2Param111, chunkMI3HLSF2Param112) {
       chunkMI3HLSF2Value326,
       chunkMI3HLSF2Value327 = chunkMI3HLSF2Param111.length;
     chunkMI3HLSF2Value323 < chunkMI3HLSF2Value327;
-
   ) {
     chunkMI3HLSF2Value324 = chunkMI3HLSF2Param111.indexOf(
       "\n",
@@ -3916,7 +3892,6 @@ function chunkMI3HLSF2Helper98(chunkMI3HLSF2Param89, chunkMI3HLSF2Param90) {
       chunkMI3HLSF2Value272,
       chunkMI3HLSF2Value273;
     (chunkMI3HLSF2Value273 = chunkMI3HLSF2Value269.exec(chunkMI3HLSF2Param89));
-
   ) {
     var chunkMI3HLSF2Value274 = chunkMI3HLSF2Value273[1],
       chunkMI3HLSF2Value275 = chunkMI3HLSF2Value273[2];
@@ -3946,7 +3921,6 @@ function chunkMI3HLSF2Helper99(chunkMI3HLSF2Param98, chunkMI3HLSF2Param99) {
       chunkMI3HLSF2Value294 = 0,
       chunkMI3HLSF2Value295 = "";
     (chunkMI3HLSF2Value290 = chunkMI3HLSF2Value289.exec(chunkMI3HLSF2Param98));
-
   ) {
     chunkMI3HLSF2Value294 = chunkMI3HLSF2Value290.index;
     chunkMI3HLSF2Value294 - chunkMI3HLSF2Value291 > chunkMI3HLSF2Param99 &&

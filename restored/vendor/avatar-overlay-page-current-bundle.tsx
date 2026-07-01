@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/avatar-overlay-page-DdqF43YR.js
-// Current avatar overlay page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current avatar overlay page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

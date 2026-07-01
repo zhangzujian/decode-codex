@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/codex-mobile-setup-dialog-BIUrpc8k.js
-// Current CodexMobileSetupDialog backing bundle with restored dependency imports.
+// Flat boundary. Vendored current CodexMobileSetupDialog backing bundle with restored dependency imports.
 
 import {
   once,
@@ -84,9 +84,9 @@ import {
   currentAppInitialSharedMember0924,
 } from "../runtime/current-app-initial/remote-projects-app-shared-runtime";
 import {
-  initCodexMobileSetupQueriesIconChunk as _appInitialAppMainAutomationsPageAt,
   initCodexMobileSetupQueriesIconChunk,
   CodexMobileSetupQueriesIcon,
+  SunIcon,
   initSunIconChunk,
 } from "./automations-page-current-runtime";
 import {
@@ -806,12 +806,9 @@ function codexMobileSetupDialogHelper7(codexMobileSetupDialogParam2) {
     codexMobileSetupDialogValue185.showKeepComputerAwake
       ? codexMobileSetupDialogValue42.jsx(codexMobileSetupDialogHelper9, {
           icon: codexMobileSetupDialogValue185.keepComputerAwake
-            ? codexMobileSetupDialogValue42.jsx(
-                _appInitialAppMainAutomationsPageAt,
-                {
-                  className: "icon-base",
-                },
-              )
+            ? codexMobileSetupDialogValue42.jsx(SunIcon, {
+                className: "icon-base",
+              })
             : codexMobileSetupDialogValue42.jsx(codexMobileSetupDialogValue25, {
                 className: "icon-base",
               }),

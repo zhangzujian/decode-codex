@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/kanban-definition-3W4ZIXB7-CcVjm75r.js
-// KanbanDefinition3W4ZIXB7 chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored kanbanDefinition3W4ZIXB7 chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";
 import { invertI, invertO, invertR } from "./color-convert";
 import {
@@ -708,7 +708,6 @@ var kanbanDefinition3W4ZIXB7Value1 = (function () {
             kanbanDefinition3W4ZIXB7Value63,
             _kanbanDefinition3W4ZIXB7;
           ;
-
         ) {
           if (
             ((kanbanDefinition3W4ZIXB7Value57 =

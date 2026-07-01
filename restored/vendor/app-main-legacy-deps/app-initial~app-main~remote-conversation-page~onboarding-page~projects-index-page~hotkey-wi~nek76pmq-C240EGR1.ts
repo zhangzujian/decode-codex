@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~onboarding-page~projects-index-page~hotkey-wi~nek76pmq-C240EGR1.js
-// Vendored legacy app-main compatibility dependency.
+// Flat boundary. Vendored legacy app-main compatibility dependency.
 import { once as e, toEsModule as t } from "../../runtime/commonjs-interop";
 import {
   D as n,

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/pieDiagram-DEJITSTG-D-t1CIhj.js
-// PieDiagramDEJITSTG chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored pieDiagramDEJITSTG chunk restored from the Codex webview bundle.
 import { Ordinal } from "../utils/ordinal";
 import { arc } from "./d3-shape-arc";
 import { pie } from "./d3-shape-pie";

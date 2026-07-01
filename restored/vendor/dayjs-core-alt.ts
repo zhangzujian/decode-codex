@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-AGHRB4JF-DVNPU_Qo.js
-// Also covers current ref asset ref/webview/assets/chunk-AGHRB4JF-DJZonIPK.js.
+// Flat boundary. Vendored also covers current ref asset ref/webview/assets/chunk-AGHRB4JF-DJZonIPK.js.
 // Vendored Day.js core/logger wrapper restored from the Codex webview bundle.
 import { toEsModule, createCommonJsModule } from "../runtime/commonjs-interop";
 var chunkAGHRB4JFA = createCommonJsModule(

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-S3R3BYOJ-BHdYahbs.js
-// ChunkS3R3BYOJ chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored chunkS3R3BYOJ chunk restored from the Codex webview bundle.
 import {
   isArrayLikeObjectB as _isArrayLikeObjectB,
   isArrayLikeObjectR as _isArrayLikeObjectR,
@@ -344,7 +344,6 @@ var chunkS3R3BYOJUnderscore = isArrayLikeObjectS(
         ;
         (chunkS3R3BYOJValue41 = chunkABZYJK2DC.exec(chunkS3R3BYOJParam3)) !==
         null;
-
       )
         if (
           (chunkS3R3BYOJValue41.index === chunkABZYJK2DC.lastIndex &&

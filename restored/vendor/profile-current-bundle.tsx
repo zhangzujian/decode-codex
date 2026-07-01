@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/profile-BCAO7QLd.js
-// Current Profile backing bundle with restored dependency imports.
+// Flat boundary. Vendored current Profile backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

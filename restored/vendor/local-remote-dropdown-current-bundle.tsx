@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/local-remote-dropdown-BT-TSjGN.js
-// Current local remote dropdown backing bundle with restored dependency imports.
+// Flat boundary. Vendored current local remote dropdown backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/pdf-preview-panel-KZgIg0w6.js
-// Current PdfPreviewPanel backing bundle with restored dependency imports.
+// Flat boundary. Vendored current PdfPreviewPanel backing bundle with restored dependency imports.
 const __vite__mapDeps = (
   pdfPreviewPanelParam8,
   pdfPreviewPanelParam9 = __vite__mapDeps,

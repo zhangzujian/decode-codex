@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
-// d3-shape cardinal splines: curveCardinal, curveCardinalClosed and
+// Flat boundary. Vendored d3-shape cardinal splines: curveCardinal, curveCardinalClosed and
 // curveCardinalOpen. Each interpolates through its points using tangents
 // scaled by a configurable tension.
 

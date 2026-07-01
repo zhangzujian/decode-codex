@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/pending-request-item-panel-DnKsF6y0.js
-// Current PendingRequestItemPanel backing bundle with restored dependency imports.
+// Flat boundary. Vendored current PendingRequestItemPanel backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

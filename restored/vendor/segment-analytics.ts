@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/pkg-CsBnWPsQ.js
-// Pkg chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored pkg chunk restored from the Codex webview bundle.
 const __vite__mapDeps = (
   pkgParam49,
   pkgParam50 = __vite__mapDeps,

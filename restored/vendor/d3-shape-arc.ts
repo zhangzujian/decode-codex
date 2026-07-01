@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/arc-D3MQZVTw.js
-// Arc chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored arc chunk restored from the Codex webview bundle.
 import { pathN, pathT } from "./d3-path";
 import {
   mathA,

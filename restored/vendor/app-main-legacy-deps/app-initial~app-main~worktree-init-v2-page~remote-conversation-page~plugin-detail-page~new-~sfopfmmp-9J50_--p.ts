@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~plugin-detail-page~new-~sfopfmmp-9J50_--p.js
-// Vendored legacy app-main compatibility dependency.
+// Flat boundary. Vendored legacy app-main compatibility dependency.
 declare const reportError: any;
 import {
   once as e,

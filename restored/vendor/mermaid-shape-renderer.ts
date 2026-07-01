@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-5FUZZQ4R-B4cKsdW4.js
-// Chunk5FUZZQ4R chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored chunk5FUZZQ4R chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import rough from "roughjs";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
@@ -8349,7 +8349,6 @@ async function chunk5FUZZQ4RHelper73(
         .replaceAll("&lt;", "<")
         .replaceAll("&gt;", ">");
       chunk5FUZZQ4RValue1023.childNodes[0];
-
     ) {
       chunk5FUZZQ4RValue1023 = chunk5FUZZQ4RValue1023.childNodes[0];
       chunk5FUZZQ4RValue1023.textContent = chunk5FUZZQ4RValue1023.textContent

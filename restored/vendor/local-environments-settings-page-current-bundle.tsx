@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/local-environments-settings-page-q1SLOHGN.js
-// Current local environments settings page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current local environments settings page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

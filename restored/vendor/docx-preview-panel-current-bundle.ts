@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/docx-preview-panel-BsZXEpj7.js
+// Flat boundary. Vendored runtime chunk preserved from the Codex webview bundle.
 const __vite__mapDeps = (
   i,
   m = __vite__mapDeps,

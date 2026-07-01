@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/mindmap-definition-VGOIOE7T-DdYOkKZJ.js
-// MindmapDefinitionVGOIOE7T chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored mindmapDefinitionVGOIOE7T chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";
 import { invertI, invertO, invertR } from "./color-convert";
 import {
@@ -605,7 +605,6 @@ var mindmapDefinitionVGOIOE7TValue1 = (function () {
             mindmapDefinitionVGOIOE7TValue51,
             mindmapDefinitionVGOIOE7TValue52;
           ;
-
         ) {
           if (
             ((mindmapDefinitionVGOIOE7TValue45 =

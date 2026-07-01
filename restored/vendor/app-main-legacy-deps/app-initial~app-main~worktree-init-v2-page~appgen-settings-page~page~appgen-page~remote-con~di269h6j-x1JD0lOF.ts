@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~appgen-settings-page~page~appgen-page~remote-con~di269h6j-x1JD0lOF.js
-// Vendored legacy app-main compatibility dependency.
+// Flat boundary. Vendored legacy app-main compatibility dependency.
 import { once as e, toEsModule as t } from "../../runtime/commonjs-interop";
 import {
   I as n,
@@ -420,7 +420,6 @@ function E(e, t = {}) {
       i++ < 5 &&
       ((o = jt(n, s)),
       !(o === `html` || (i > 1 && a + r.length * 3 + o.length >= c)));
-
     )
       (r.push(o), (a += o.length), (n = n.parentNode));
     return r.reverse().join(` > `);

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/login-route-BmCnkGdw.js
-// Current LoginRoute backing bundle with restored dependency imports.
+// Flat boundary. Vendored current LoginRoute backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/dist-BDOgluP9.js
-// Dist chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored dist chunk restored from the Codex webview bundle.
 import React from "react";
 function distHelper1() {
   return (distHelper1 =

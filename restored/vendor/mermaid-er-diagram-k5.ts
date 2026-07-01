@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/erDiagram-SMLLAGMA-Zcn5Tkw5.js
-// ErDiagramSMLLAGMA chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored erDiagramSMLLAGMA chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { invertS } from "./color-convert";
 import { channel } from "./color-channel";
@@ -1202,7 +1202,6 @@ var erDiagramSMLLAGMAValue1 = (function () {
             erDiagramSMLLAGMAValue83,
             erDiagramSMLLAGMAValue84;
           ;
-
         ) {
           if (
             ((erDiagramSMLLAGMAValue78 =

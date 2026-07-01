@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/projects-index-page-CJjk7dRY.js
-// Current ProjectsIndexPage backing bundle with restored dependency imports.
+// Flat boundary. Vendored current ProjectsIndexPage backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

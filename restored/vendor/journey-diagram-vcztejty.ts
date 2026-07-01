@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/journeyDiagram-VCZTEJTY-D0GHB_lA.js
-// JourneyDiagramVCZTEJTY chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored journeyDiagramVCZTEJTY chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { arc } from "./d3-shape-arc";
 import { chunkAGHRB4JFN } from "./dayjs-core-alt";
@@ -341,7 +341,6 @@ var journeyDiagramVCZTEJTYValue1 = (function () {
             journeyDiagramVCZTEJTYValue73,
             journeyDiagramVCZTEJTYValue74;
           ;
-
         ) {
           if (
             ((journeyDiagramVCZTEJTYValue67 =
@@ -1016,7 +1015,6 @@ var journeyDiagramVCZTEJTYValue2 = journeyDiagramVCZTEJTYValue1,
     for (
       ;
       !journeyDiagramVCZTEJTYValue178 && journeyDiagramVCZTEJTYValue179 < 100;
-
     ) {
       journeyDiagramVCZTEJTYValue178 = journeyDiagramVCZTEJTYValue14();
       journeyDiagramVCZTEJTYValue179++;

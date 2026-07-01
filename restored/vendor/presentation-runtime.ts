@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/presentation-iV9gDfl9.js
-// Presentation chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored presentation chunk restored from the Codex webview bundle.
 function presentationHelper1() {
   let presentationValue558 = 0,
     presentationValue559 = 0;
@@ -487,7 +487,6 @@ var presentationPr = class {
       for (
         presentationHelper16(presentationParam1067);
         presentationParam1067 > 127;
-
       )
         (this.buf.push((presentationParam1067 & 127) | 128),
           (presentationParam1067 >>>= 7));

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/flowDiagram-DWJPFMVM-C76X9T8a.js
-// FlowDiagramDWJPFMVM chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored flowDiagramDWJPFMVM chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { invertS } from "./color-convert";
 import { channel } from "./color-channel";
@@ -783,7 +783,6 @@ You have to call mermaid.initialize.`);
       for (
         ;
         flowDiagramDWJPFMVMValue200 < flowDiagramDWJPFMVMValue199.length;
-
       ) {
         let flowDiagramDWJPFMVMValue236 = this.getPosForId(
           flowDiagramDWJPFMVMValue199[flowDiagramDWJPFMVMValue200],
@@ -4232,7 +4231,6 @@ You have to call mermaid.initialize.`);
               flowDiagramDWJPFMVMValue143,
               flowDiagramDWJPFMVMValue144;
             ;
-
           ) {
             if (
               ((flowDiagramDWJPFMVMValue137 =

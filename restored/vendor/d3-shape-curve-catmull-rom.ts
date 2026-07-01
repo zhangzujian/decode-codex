@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
-// d3-shape Catmull-Rom splines: curveCatmullRom, curveCatmullRomClosed and
+// Flat boundary. Vendored d3-shape Catmull-Rom splines: curveCatmullRom, curveCatmullRomClosed and
 // curveCatmullRomOpen. Parameterized by "alpha" (0 = uniform, 0.5 = centripetal,
 // 1 = chordal). Alpha === 0 degenerates to the matching cardinal spline.
 

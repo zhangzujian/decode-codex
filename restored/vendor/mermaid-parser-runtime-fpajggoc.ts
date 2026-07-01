@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-FPAJGGOC-Cy-1bcKF.js
-// Also matches current ref asset ref/webview/assets/chunk-FPAJGGOC-Yd_bXKmT.js.
+// Flat boundary. Vendored also matches current ref asset ref/webview/assets/chunk-FPAJGGOC-Yd_bXKmT.js.
 // Vendored Mermaid/Langium parser runtime restored from the Codex webview bundle.
 import {
   copyCommonJsProperties as chunkI,
@@ -683,7 +683,6 @@ var chunkFPAJGGOCValue5 = class extends chunkFPAJGGOCValue2 {
             chunkFPAJGGOCParam562.pruned &&=
               (chunkFPAJGGOCParam562.iterators.pop(), false);
             chunkFPAJGGOCParam562.iterators.length > 0;
-
           ) {
             let chunkFPAJGGOCValue1318 =
               chunkFPAJGGOCParam562.iterators[
@@ -1853,7 +1852,6 @@ function chunkFPAJGGOCHelper52(chunkFPAJGGOCParam167, chunkFPAJGGOCParam168) {
       for (
         ;
         chunkFPAJGGOCParam261.keyIndex < chunkFPAJGGOCParam261.keys.length;
-
       ) {
         let chunkFPAJGGOCValue761 =
           chunkFPAJGGOCParam261.keys[chunkFPAJGGOCParam261.keyIndex];
@@ -1876,7 +1874,6 @@ function chunkFPAJGGOCHelper52(chunkFPAJGGOCParam167, chunkFPAJGGOCParam168) {
             for (
               ;
               chunkFPAJGGOCParam261.arrayIndex < chunkFPAJGGOCValue885.length;
-
             ) {
               let chunkFPAJGGOCValue1603 =
                 chunkFPAJGGOCValue885[chunkFPAJGGOCParam261.arrayIndex++];
@@ -1941,7 +1938,6 @@ function chunkFPAJGGOCHelper56(chunkFPAJGGOCParam124) {
       for (
         ;
         chunkFPAJGGOCParam161.keyIndex < chunkFPAJGGOCParam161.keys.length;
-
       ) {
         let chunkFPAJGGOCValue596 =
           chunkFPAJGGOCParam161.keys[chunkFPAJGGOCParam161.keyIndex];
@@ -1964,7 +1960,6 @@ function chunkFPAJGGOCHelper56(chunkFPAJGGOCParam124) {
             for (
               ;
               chunkFPAJGGOCParam161.arrayIndex < chunkFPAJGGOCValue667.length;
-
             ) {
               let chunkFPAJGGOCValue1126 = chunkFPAJGGOCParam161.arrayIndex++,
                 chunkFPAJGGOCValue1127 =
@@ -2155,7 +2150,6 @@ var chunkFPAJGGOCValue57 = [
       for (
         chunkFPAJGGOCValue1135.push(this.alternative());
         this.peekChar() === "|";
-
       ) {
         this.consumeChar("|");
         chunkFPAJGGOCValue1135.push(this.alternative());
@@ -2501,7 +2495,6 @@ var chunkFPAJGGOCValue57 = [
           this.peekChar(0) === "^" &&
             (this.consumeChar("^"), (chunkFPAJGGOCValue578 = true));
         this.isClassAtom();
-
       ) {
         let chunkFPAJGGOCValue797 = this.classAtom();
         if (
@@ -3357,7 +3350,6 @@ function chunkFPAJGGOCHelper80(chunkFPAJGGOCParam1108) {
   for (
     ;
     chunkFPAJGGOCValue1442 === chunkFPAJGGOCParam1108.container?.astNode;
-
   ) {
     let chunkFPAJGGOCValue1765 = chunkFPAJGGOCHelper49(
       chunkFPAJGGOCParam1108.grammarSource,
@@ -3706,7 +3698,6 @@ function chunkFPAJGGOCHelper99(
   for (
     var chunkFPAJGGOCValue1115 = Array(chunkFPAJGGOCValue1114);
     ++chunkFPAJGGOCValue1113 < chunkFPAJGGOCValue1114;
-
   )
     chunkFPAJGGOCValue1115[chunkFPAJGGOCValue1113] =
       chunkFPAJGGOCParam709[chunkFPAJGGOCValue1113 + chunkFPAJGGOCParam710];
@@ -3720,7 +3711,6 @@ function chunkFPAJGGOCHelper100(chunkFPAJGGOCParam1163) {
       chunkFPAJGGOCValue1493 = 0,
       chunkFPAJGGOCValue1494 = [];
     ++chunkFPAJGGOCValue1491 < chunkFPAJGGOCValue1492;
-
   ) {
     var chunkFPAJGGOCValue1495 = chunkFPAJGGOCParam1163[chunkFPAJGGOCValue1491];
     chunkFPAJGGOCValue1495 &&
@@ -3740,7 +3730,6 @@ function chunkFPAJGGOCHelper101(
       chunkFPAJGGOCValue1519 =
         chunkFPAJGGOCParam1209 == null ? 0 : chunkFPAJGGOCParam1209.length;
     ++chunkFPAJGGOCValue1518 < chunkFPAJGGOCValue1519;
-
   ) {
     var chunkFPAJGGOCValue1520 = chunkFPAJGGOCParam1209[chunkFPAJGGOCValue1518];
     chunkFPAJGGOCParam1210(
@@ -3836,7 +3825,6 @@ function chunkFPAJGGOCHelper104(
       for (
         var chunkFPAJGGOCValue726 = chunkFPAJGGOCValue723;
         chunkFPAJGGOCValue726--;
-
       )
         if (
           chunkFPAJGGOCParam291[chunkFPAJGGOCValue726] === chunkFPAJGGOCValue725
@@ -3911,7 +3899,6 @@ function chunkFPAJGGOCHelper107(
       chunkFPAJGGOCValue1579 =
         chunkFPAJGGOCParam1293 == null ? 0 : chunkFPAJGGOCParam1293.length;
     ++chunkFPAJGGOCValue1578 < chunkFPAJGGOCValue1579;
-
   )
     if (
       !chunkFPAJGGOCParam1294(
@@ -6775,7 +6762,6 @@ var chunkFPAJGGOCValue109 = class {
           ;
           chunkFPAJGGOCValue505 === false &&
           chunkFPAJGGOCValue346 < chunkFPAJGGOCValue345;
-
         )
           for (
             chunkFPAJGGOCParam6 = this.chopInput(chunkFPAJGGOCParam6, 1),
@@ -7475,7 +7461,6 @@ function chunkFPAJGGOCHelper192(
     ;
     chunkFPAJGGOCParam52.length < chunkFPAJGGOCParam51 &&
     chunkFPAJGGOCValue444 < chunkFPAJGGOCParam50.length;
-
   ) {
     let chunkFPAJGGOCValue490 = chunkFPAJGGOCParam50[chunkFPAJGGOCValue444];
     if (
@@ -7577,7 +7562,6 @@ function chunkFPAJGGOCHelper193(
       occurrenceStack: [],
     });
     !isEmptyT(chunkFPAJGGOCValue388);
-
   ) {
     let chunkFPAJGGOCValue389 = chunkFPAJGGOCValue388.pop();
     if (chunkFPAJGGOCValue389 === "EXIT_ALTERNATIVE") {
@@ -9462,7 +9446,6 @@ var chunkFPAJGGOCValue140 = class extends Error {
         ;
         this.tokenMatcher(chunkFPAJGGOCValue1343, chunkFPAJGGOCParam977) ===
         false;
-
       ) {
         chunkFPAJGGOCValue1343 = this.SKIP_TOKEN();
         this.addToResyncTokens(chunkFPAJGGOCValue1343, chunkFPAJGGOCValue1342);
@@ -10971,7 +10954,6 @@ var chunkFPAJGGOCValue156 = class {
           ;
           chunkFPAJGGOCValue574.call(this) === true &&
           chunkFPAJGGOCValue1522 === true;
-
         )
           chunkFPAJGGOCValue1522 = this.doSingleRepetition(
             chunkFPAJGGOCValue575,
@@ -11016,7 +10998,6 @@ var chunkFPAJGGOCValue156 = class {
         for (
           ;
           this.tokenMatcher(this.LA(1), chunkFPAJGGOCValue606) === true;
-
         ) {
           this.CONSUME(chunkFPAJGGOCValue606);
           chunkFPAJGGOCValue605.call(this);
@@ -11077,7 +11058,6 @@ var chunkFPAJGGOCValue156 = class {
         ;
         chunkFPAJGGOCValue696.call(this) === true &&
         chunkFPAJGGOCValue698 === true;
-
       )
         chunkFPAJGGOCValue698 = this.doSingleRepetition(chunkFPAJGGOCValue697);
       this.attemptInRepetitionRecovery(
@@ -11115,7 +11095,6 @@ var chunkFPAJGGOCValue156 = class {
         for (
           ;
           this.tokenMatcher(this.LA(1), chunkFPAJGGOCValue746) === true;
-
         ) {
           this.CONSUME(chunkFPAJGGOCValue746);
           chunkFPAJGGOCValue745.call(this);
@@ -19294,14 +19273,12 @@ var chunkFPAJGGOCValue238 = class {
           ;
           chunkFPAJGGOCValue1041 < chunkFPAJGGOCParam620.length &&
           this.hasTextDocument(chunkFPAJGGOCParam620[chunkFPAJGGOCValue1041]);
-
         )
           chunkFPAJGGOCValue1041++;
         for (
           ;
           chunkFPAJGGOCValue1042 >= 0 &&
           !this.hasTextDocument(chunkFPAJGGOCParam620[chunkFPAJGGOCValue1042]);
-
         )
           chunkFPAJGGOCValue1042--;
         chunkFPAJGGOCValue1041 < chunkFPAJGGOCValue1042 &&
@@ -20351,7 +20328,6 @@ function chunkFPAJGGOCHelper333(chunkFPAJGGOCParam755) {
     chunkFPAJGGOCValue1154 &&
     chunkFPAJGGOCValue1154.type !== "break" &&
     chunkFPAJGGOCValue1154.type !== "tag";
-
   ) {
     chunkFPAJGGOCValue1157.push(chunkFPAJGGOCHelper334(chunkFPAJGGOCParam755));
     chunkFPAJGGOCValue1156 = chunkFPAJGGOCValue1154;

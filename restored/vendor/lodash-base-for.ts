@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/_baseFor-DhUeMyzd.js
-// BaseFor chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored baseFor chunk restored from the Codex webview bundle.
 function baseForHelper1() {
   this.__data__ = [];
   this.size = 0;
@@ -325,7 +325,6 @@ function baseForHelper31(baseForParam31, __baseForO) {
   for (
     var baseForValue111 = -1, baseForValue112 = Array(baseForParam31);
     ++baseForValue111 < baseForParam31;
-
   )
     baseForValue112[baseForValue111] = __baseForO(baseForValue111);
   return baseForValue112;
@@ -549,7 +548,6 @@ function baseForHelper35(baseForParam4) {
         baseForValue90 = baseForParam8(__baseForO),
         baseForValue91 = baseForValue90.length;
       baseForValue91--;
-
     ) {
       var baseForValue92 =
         baseForValue90[baseForParam4 ? baseForValue91 : ++baseForValue88];

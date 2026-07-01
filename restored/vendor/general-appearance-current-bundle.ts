@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~pets-settings~appearance-settings~general-settings-DKOJ5iv-.js
-// Vendored current exact-hash bundle with imports rewritten to restored local boundaries.
+// Flat boundary. Vendored current exact-hash bundle with imports rewritten to restored local boundaries.
 import { once as e, toEsModule as t } from "../runtime/commonjs-interop";
 import {
   currentAppInitialSharedCompatSlotDollarLowerS as n,

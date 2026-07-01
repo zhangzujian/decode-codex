@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/diagram-TYMM5635-DG2wO4Kx.js
-// DiagramTYMM5635 chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored diagramTYMM5635 chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
 import {
   _chunkICPOFSXXA,
@@ -86,7 +86,6 @@ var diagramTYMM5635Value1 = chunkICPOFSXXD.packet,
             );
           diagramTYMM5635Value19.length <= bitsPerRow + 1 &&
           diagramTYMM5635Param5.getPacket().length < 1e4;
-
         ) {
           let [diagramTYMM5635Value34, diagramTYMM5635Value35] =
             diagramTYMM5635Value5(

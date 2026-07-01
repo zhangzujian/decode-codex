@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/vennDiagram-DHZGUBPP-DQ5AHg0F.js
-// VennDiagramDHZGUBPP chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored vennDiagramDHZGUBPP chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { invertA, invertI, invertO, invertR } from "./color-convert";
 import rough from "roughjs";
@@ -2551,7 +2551,6 @@ function vennDiagramDHZGUBPPHelper37(
       ;
       (vennDiagramDHZGUBPPValue254 = vennDiagramDHZGUBPPValue252.pop()),
         vennDiagramDHZGUBPPValue254;
-
     ) {
       vennDiagramDHZGUBPPValue255.push(vennDiagramDHZGUBPPValue254);
       let vennDiagramDHZGUBPPValue416 = vennDiagramDHZGUBPPValue255.join(" ");
@@ -3703,7 +3702,6 @@ var vennDiagramDHZGUBPPValue4 = (function () {
             vennDiagramDHZGUBPPValue132,
             vennDiagramDHZGUBPPValue133;
           ;
-
         ) {
           if (
             ((vennDiagramDHZGUBPPValue126 =

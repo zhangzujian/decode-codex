@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
-// @dnd-kit/core primitives bundled into the commons chunk: geometry/scroll
+// Flat boundary. Vendored @dnd-kit/core primitives bundled into the commons chunk: geometry/scroll
 // utilities plus the useSensor(s), getClientRect, useDraggable, useDroppable and
 // useDndMonitor hooks. Companion to ./dnd-kit-sortable.tsx.
 import * as React from "react";

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-QXUST7PY-B8nc5wSD.js
-// ChunkQXUST7PY chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored chunkQXUST7PY chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJC } from "./chunk-s3r3byoj";
 import { Src } from "./roughjs-geometry";
 import { monotoneN, monotoneR, monotoneT } from "./d3-curve-monotone";

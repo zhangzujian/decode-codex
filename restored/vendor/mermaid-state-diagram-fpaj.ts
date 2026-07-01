@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-DI55MBZ5-CK4BKk7V.js
-// Also matches current ref asset ref/webview/assets/chunk-DI55MBZ5-6W-fDgmq.js.
+// Flat boundary. Vendored also matches current ref asset ref/webview/assets/chunk-DI55MBZ5-6W-fDgmq.js.
 // Vendored Mermaid state diagram parser, renderer, database, and stylesheet runtime.
 import { chunkS3R3BYOJC, chunkS3R3BYOJN } from "./chunk-s3r3byoj";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";
@@ -897,7 +897,6 @@ var chunkDI55MBZ5Value1 = (function () {
             chunkDI55MBZ5Value112,
             chunkDI55MBZ5Value113;
           ;
-
         ) {
           if (
             ((chunkDI55MBZ5Value106 =

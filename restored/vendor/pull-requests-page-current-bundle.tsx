@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/pull-requests-page-CqwsTUV0.js
-// Current pull requests page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current pull requests page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

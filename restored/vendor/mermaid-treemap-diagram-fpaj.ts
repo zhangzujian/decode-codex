@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/diagram-PSM6KHXK-_uPuWuHP.js
-// DiagramPSM6KHXK chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored diagramPSM6KHXK chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJP } from "./chunk-s3r3byoj";
 import { defaultLocaleT } from "./d3-format-default-locale";
 import { Src } from "./roughjs-geometry";
@@ -123,7 +123,6 @@ function diagramPSM6KHXKHelper1(diagramPSM6KHXKParam10) {
         diagramPSM6KHXKValue60.length > 0 &&
         diagramPSM6KHXKValue60[diagramPSM6KHXKValue60.length - 1].level >=
           item.level;
-
       )
         diagramPSM6KHXKValue60.pop();
       if (diagramPSM6KHXKValue60.length === 0)
@@ -710,7 +709,6 @@ var diagramPSM6KHXKValue2 = chunkAGHRB4JFN(
               ;
               diagramPSM6KHXKValue34.getComputedTextLength() >
                 diagramPSM6KHXKValue35 && diagramPSM6KHXKValue37 > 8;
-
             ) {
               diagramPSM6KHXKValue37--;
               diagramPSM6KHXKValue31.style(
@@ -734,7 +732,6 @@ var diagramPSM6KHXKValue2 = chunkAGHRB4JFN(
                 Math.min(28, Math.round(diagramPSM6KHXKValue37 * 0.6)),
               )),
               !(diagramPSM6KHXKValue39 < 6 && diagramPSM6KHXKValue37 === 8));
-
             ) {
               diagramPSM6KHXKValue31.style(
                 "font-size",

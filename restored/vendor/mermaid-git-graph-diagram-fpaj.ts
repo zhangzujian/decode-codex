@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/gitGraphDiagram-NY62KEGX-CsIEzHiX.js
-// GitGraphDiagramNY62KEGX chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored gitGraphDiagramNY62KEGX chunk restored from the Codex webview bundle.
 import {
   chunkS3R3BYOJC,
   chunkS3R3BYOJO,

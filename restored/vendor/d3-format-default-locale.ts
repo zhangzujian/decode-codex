@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/defaultLocale-I5DW1pOv.js
-// DefaultLocale chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored defaultLocale chunk restored from the Codex webview bundle.
 function defaultLocaleHelper1(defaultLocaleParam16) {
   return Math.abs((defaultLocaleParam16 = Math.round(defaultLocaleParam16))) >=
     1e21
@@ -54,7 +54,6 @@ function defaultLocaleHelper3(defaultLocaleParam7, defaultLocaleParam8) {
       !(
         (defaultLocaleValue41 += defaultLocaleValue40 + 1) > defaultLocaleParam9
       ));
-
     )
       defaultLocaleValue40 =
         defaultLocaleParam7[
@@ -388,7 +387,6 @@ function defaultLocaleR(defaultLocaleParam1) {
             defaultLocaleValue26 = -1,
               defaultLocaleValue27 = defaultLocaleParam3.length;
             ++defaultLocaleValue26 < defaultLocaleValue27;
-
           )
             if (
               ((defaultLocaleValue28 =

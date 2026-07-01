@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-OYMX7WX6-DPwCFRNe.js
-// ChunkOYMX7WX6 chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored chunkOYMX7WX6 chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
 import {
   _chunkICPOFSXXA,
@@ -896,7 +896,6 @@ var chunkOYMX7WX6Value1 = (function () {
             chunkOYMX7WX6Value112,
             chunkOYMX7WX6Value113;
           ;
-
         ) {
           if (
             ((chunkOYMX7WX6Value106 =

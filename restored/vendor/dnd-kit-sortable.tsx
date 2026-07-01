@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
-// @dnd-kit/sortable primitives bundled into the commons chunk: arrayMove,
+// Flat boundary. Vendored @dnd-kit/sortable primitives bundled into the commons chunk: arrayMove,
 // the SortableContext provider and the useSortable hook.
 import * as React from "react";
 import {

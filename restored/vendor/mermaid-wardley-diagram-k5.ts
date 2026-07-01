@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/wardleyDiagram-NUSXRM2D-DlElmt-K.js
-// WardleyDiagramNUSXRM2D chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored wardleyDiagramNUSXRM2D chunk restored from the Codex webview bundle.
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
 import {
   _chunkICPOFSXXC,

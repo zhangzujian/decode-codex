@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/document-1gFz5aiQ.js
-// Document chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored document chunk restored from the Codex webview bundle.
 import {
   _presentationPt,
   presentationSn,

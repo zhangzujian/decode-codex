@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/debug-modal-B1KfgYMB.js
-// Current debug modal backing bundle with restored dependency imports.
+// Flat boundary. Vendored current debug modal backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

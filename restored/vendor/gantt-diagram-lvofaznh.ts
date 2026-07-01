@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/ganttDiagram-LVOFAZNH-O6Om1k1l.js
-// GanttDiagramLVOFAZNH chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored ganttDiagramLVOFAZNH chunk restored from the Codex webview bundle.
 import { toEsModule, createCommonJsModule } from "../runtime/commonjs-interop";
 import { chunkS3R3BYOJC } from "./chunk-s3r3byoj";
 import { linearT } from "./d3-scale-linear";
@@ -1572,7 +1572,6 @@ var ganttDiagramLVOFAZNHValue1 = createCommonJsModule(
               ganttDiagramLVOFAZNHValue159,
               ganttDiagramLVOFAZNHValue160;
             ;
-
           ) {
             if (
               ((ganttDiagramLVOFAZNHValue153 =
@@ -2482,7 +2481,6 @@ var ganttDiagramLVOFAZNHValue11 = {
     for (
       ;
       !ganttDiagramLVOFAZNHValue389 && ganttDiagramLVOFAZNHValue390 < 10;
-
     ) {
       ganttDiagramLVOFAZNHValue389 = ganttDiagramLVOFAZNHValue70();
       ganttDiagramLVOFAZNHValue390++;
@@ -3933,7 +3931,6 @@ export const GanttDiagramLVOFAZNH = {
           ;
           ganttDiagramLVOFAZNHValue179.valueOf() <=
           ganttDiagramLVOFAZNHValue175;
-
         ) {
           ganttDiagramLVOFAZNHParam4.db.isInvalidDate(
             ganttDiagramLVOFAZNHValue179,

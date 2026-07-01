@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/blockDiagram-VD42YOAC-B8jfUIDl.js
-// BlockDiagramVD42YOAC chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored blockDiagramVD42YOAC chunk restored from the Codex webview bundle.
 import {
   chunkS3R3BYOJI as chunkS3R3BYOJC,
   chunkS3R3BYOJC as chunkS3R3BYOJH,
@@ -904,7 +904,6 @@ var blockDiagramVD42YOACValue1 = (function () {
             blockDiagramVD42YOACValue148,
             blockDiagramVD42YOACValue149;
           ;
-
         ) {
           if (
             ((blockDiagramVD42YOACValue142 =

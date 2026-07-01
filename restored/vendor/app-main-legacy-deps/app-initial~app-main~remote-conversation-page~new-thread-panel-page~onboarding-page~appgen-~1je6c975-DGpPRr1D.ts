@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~onboarding-page~appgen-~1je6c975-DGpPRr1D.js
-// Vendored legacy app-main compatibility dependency.
+// Flat boundary. Vendored legacy app-main compatibility dependency.
 import {
   once as e,
   toEsModule as t,
@@ -1410,7 +1410,6 @@ var Ke,
             for (
               var e = [...arguments], t = ``, n = e.length, r = 0, i;
               n > r;
-
             ) {
               if (((i = e[r++]), i > 1114111))
                 throw RangeError(i + ` is not a valid code point`);
@@ -1915,7 +1914,6 @@ var Ke,
             for (
               var i, a = !1, o = [], s = new Set(), c = r.value, l = r.location;
               ;
-
             ) {
               if (c.length === 0) {
                 var u = this.clonePosition();

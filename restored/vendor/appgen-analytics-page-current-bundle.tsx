@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/page-DCDVYlOa.js
-// Current AppgenAnalyticsPage backing bundle with restored dependency imports.
+// Flat boundary. Vendored current AppgenAnalyticsPage backing bundle with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   exportGetters as rolldownRuntimeR,

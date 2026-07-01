@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/computer-use-settings-BIYkni3c.js
-// Current ComputerUseSettings backing bundle with restored dependency imports.
+// Flat boundary. Vendored current ComputerUseSettings backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

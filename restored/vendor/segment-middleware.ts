@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/middleware-CcPovR3s.js
-// Middleware chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored middleware chunk restored from the Codex webview bundle.
 import { createCommonJsModule } from "../runtime/commonjs-interop";
 import {
   __generator as middlewareImport1,
@@ -22,7 +22,6 @@ function middlewareH(middlewareParam53, middlewareParam54, middlewareParam55) {
       middlewareValue132 === `constructor` ||
       middlewareValue132 === `prototype`
     ));
-
   )
     _middlewareH = _middlewareH[middlewareValue132] =
       middlewareValue129 === middlewareValue130
@@ -38,7 +37,6 @@ function middlewareH(middlewareParam53, middlewareParam54, middlewareParam55) {
 for (
   var middlewareValue1 = 256, middlewareValue2 = [], middlewareValue3;
   middlewareValue1--;
-
 )
   middlewareValue2[middlewareValue1] = (middlewareValue1 + 256)
     .toString(16)
@@ -51,7 +49,6 @@ function middlewareM() {
     for (
       middlewareValue3 = Array((middlewareValue146 = 256));
       middlewareValue146--;
-
     )
       middlewareValue3[middlewareValue146] = (256 * Math.random()) | 0;
     middlewareValue146 = middlewareValue1 = 0;

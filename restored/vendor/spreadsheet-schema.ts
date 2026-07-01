@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/spreadsheet-ByOidEXS.js
-// Spreadsheet chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored spreadsheet chunk restored from the Codex webview bundle.
 import {
   _presentationGt,
   presentationAr,

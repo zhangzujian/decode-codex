@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/invert-D9sJN2p1.js
-// Invert chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored invert chunk restored from the Codex webview bundle.
 var invertValue1 = {
     min: {
       r: 0,

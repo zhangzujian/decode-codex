@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/agent-settings-CE_EGsV1.js
-// Current AgentSettings backing bundle with restored dependency imports.
+// Flat boundary. Vendored current AgentSettings backing bundle with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,

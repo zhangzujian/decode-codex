@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/automations-page-CXHLOmAw.js
-// Current automations page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current automations page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

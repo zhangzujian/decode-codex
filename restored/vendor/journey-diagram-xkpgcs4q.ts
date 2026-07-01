@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/journeyDiagram-XKPGCS4Q-BcfnIZ-y.js
-// JourneyDiagramXKPGCS4Q chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored journeyDiagramXKPGCS4Q chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { arc } from "./d3-shape-arc";
 import { chunkAGHRB4JFN } from "./dompurify";
@@ -341,7 +341,6 @@ var journeyDiagramXKPGCS4QValue1 = (function () {
             journeyDiagramXKPGCS4QValue73,
             journeyDiagramXKPGCS4QValue74;
           ;
-
         ) {
           if (
             ((journeyDiagramXKPGCS4QValue67 =
@@ -1016,7 +1015,6 @@ var journeyDiagramXKPGCS4QValue2 = journeyDiagramXKPGCS4QValue1,
     for (
       ;
       !journeyDiagramXKPGCS4QValue178 && journeyDiagramXKPGCS4QValue179 < 100;
-
     ) {
       journeyDiagramXKPGCS4QValue178 = journeyDiagramXKPGCS4QValue14();
       journeyDiagramXKPGCS4QValue179++;

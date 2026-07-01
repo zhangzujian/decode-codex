@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/settings-page-Czsl4aZl.js
-// Current settings page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current settings page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

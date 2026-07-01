@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/architectureDiagram-VXUJARFQ-DSHF0-Hw.js
-// ArchitectureDiagramVXUJARFQ chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored architectureDiagramVXUJARFQ chunk restored from the Codex webview bundle.
 import { toEsModule } from "../runtime/commonjs-interop";
 import { chunkS3R3BYOJP, chunkS3R3BYOJR } from "./chunk-s3r3byoj";
 import { Src } from "./roughjs-geometry";

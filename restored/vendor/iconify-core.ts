@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/esm-CuAuNray.js
-// Vendored Iconify core runtime restored from the Codex webview bundle.
+// Flat boundary. Vendored Iconify core runtime restored from the Codex webview bundle.
 
 export type IconifyIconName = {
   provider: string;
@@ -99,7 +99,7 @@ function isValidIconName(
   return iconName
     ? Boolean(
         ((allowSimpleName && iconName.prefix === "") || iconName.prefix) &&
-          iconName.name,
+        iconName.name,
       )
     : false;
 }

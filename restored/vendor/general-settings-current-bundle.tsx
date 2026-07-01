@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/general-settings-CyYw_gZ3.js
-// Current GeneralSettings backing bundle with restored dependency imports.
+// Flat boundary. Vendored current GeneralSettings backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

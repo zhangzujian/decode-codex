@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/gitGraphDiagram-UUTBAWPF-DGICCt1Z.js
-// GitGraphDiagramUUTBAWPF chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored gitGraphDiagramUUTBAWPF chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
 import {

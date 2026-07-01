@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/sequenceDiagram-FGHM5R23-Bh77yTp8.js
-// SequenceDiagramFGHM5R23 chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored sequenceDiagramFGHM5R23 chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { dist } from "./entities-escape";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
@@ -2857,7 +2857,6 @@ var sequenceDiagramFGHM5R23Value1 = dist(),
               sequenceDiagramFGHM5R23Value221,
               sequenceDiagramFGHM5R23Value222;
             ;
-
           ) {
             if (
               ((sequenceDiagramFGHM5R23Value215 =

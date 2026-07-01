@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~fjhbmao5-BWbJojtu.js
-// Vendored current appgen-library hot-path runtime bundle copied from the Codex webview chunk.
+// Flat boundary. Vendored current appgen-library hot-path runtime bundle copied from the Codex webview chunk.
 const __vite__mapDeps = (
   i,
   m = __vite__mapDeps,

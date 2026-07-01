@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/select-workspace-page-Dpe6Qyul.js
-// Current SelectWorkspacePage backing bundle with restored dependency imports.
+// Flat boundary. Vendored current SelectWorkspacePage backing bundle with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,

@@ -1,8 +1,8 @@
 // Restored from ref/webview/assets/dist-eWHzKSsV.js
-// Dist chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored dist chunk restored from the Codex webview bundle.
 import React from "react";
 import { toEsModule } from "../runtime/commonjs-interop";
-import { t as distImport2 } from "react/jsx-runtime";
+import * as jsxRuntime from "react/jsx-runtime";
 import ReactDOM from "react-dom";
 typeof window < "u" && window.document && window.document.createElement;
 export function distD(
@@ -18,7 +18,7 @@ export function distD(
       return distParam31?.(distParam38);
   };
 }
-var distValue2 = distImport2();
+var distValue2 = jsxRuntime;
 export function distL(distParam10, distParam11) {
   let distValue25 = React.createContext(distParam11),
     distValue26 = (distParam28) => {

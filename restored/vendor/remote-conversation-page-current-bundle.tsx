@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/remote-conversation-page-CSJXivxd.js
-// Current remote conversation page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current remote conversation page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

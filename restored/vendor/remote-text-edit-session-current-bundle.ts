@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/remote-text-edit-session-0olsg5KH.js
-// Current remote text edit session backing bundle with restored dependency imports.
+// Flat boundary. Vendored current remote text edit session backing bundle with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/appgen-library-page-ky7mDvfs.js
-// Current AppgenLibraryPage backing bundle with restored dependency imports.
+// Flat boundary. Vendored current AppgenLibraryPage backing bundle with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,

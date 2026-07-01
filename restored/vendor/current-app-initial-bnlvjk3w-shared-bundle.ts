@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~automations-page~th~bnlvjk3w-ClqKjb2h.js
+// Flat boundary. Vendored runtime chunk preserved from the Codex webview bundle.
 import {
   createCommonJsModule as r,
   exportGetters as t,
@@ -22217,7 +22218,6 @@ var Zj,
           ;
           this.headIndex < this.entries.length &&
           this.entries[this.headIndex].atMs < t;
-
         )
           ((this.rollingSum -= this.entries[this.headIndex].value),
             (this.headIndex += 1));

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~onboarding-page~hotkey-window-thread-page~thr~jv7rs281-Cvc3K8GC.js
-// Vendored legacy app-main compatibility dependency.
+// Flat boundary. Vendored legacy app-main compatibility dependency.
 import {
   once as e,
   toEsModule as t,

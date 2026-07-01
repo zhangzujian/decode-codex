@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/stateDiagram-FKZM4ZOC-DB2Mqdbr.js
-// StateDiagramFKZM4ZOC chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored stateDiagramFKZM4ZOC chunk restored from the Codex webview bundle.
 import { Dagre } from "./dagre";
 import { chunkS3R3BYOJC } from "./chunk-s3r3byoj";
 import { Graphlib } from "./graphlib";

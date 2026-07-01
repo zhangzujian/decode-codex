@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/chunk-4TB4RGXK-B3SUDt4C.js
-// Chunk4TB4RGXK chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored chunk4TB4RGXK chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dayjs-core-alt";
 import {
@@ -1720,7 +1720,6 @@ var chunk4TB4RGXKValue1 = (function () {
             __chunk4TB4RGXKT,
             __chunk4TB4RGXKI;
           ;
-
         ) {
           if (
             ((__chunk4TB4RGXKN =

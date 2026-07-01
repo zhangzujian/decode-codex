@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/architectureDiagram-Q4EWVU46-mJ7dSian.js
-// ArchitectureDiagramQ4EWVU46 chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored architectureDiagramQ4EWVU46 chunk restored from the Codex webview bundle.
 import { toEsModule } from "../runtime/commonjs-interop";
 import { Src } from "./roughjs-geometry";
 import cytoscape from "cytoscape";

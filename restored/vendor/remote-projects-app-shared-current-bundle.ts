@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~iy8s9c2d-BUvvfhQQ.js
-// Vendored current remote/projects app shared bundle copied from the Codex webview chunk.
+// Flat boundary. Vendored current remote/projects app shared bundle copied from the Codex webview chunk.
 declare const TransformStream: unknown;
 declare const WritableStream: unknown;
 declare const __STATSIG__: unknown;
@@ -1616,7 +1616,6 @@ var fr,
             for (
               var e = [...arguments], t = ``, n = e.length, r = 0, i;
               n > r;
-
             ) {
               if (((i = e[r++]), i > 1114111))
                 throw RangeError(i + ` is not a valid code point`);
@@ -2121,7 +2120,6 @@ var fr,
             for (
               var i, a = !1, o = [], s = new Set(), c = r.value, l = r.location;
               ;
-
             ) {
               if (c.length === 0) {
                 var u = this.clonePosition();
@@ -4505,7 +4503,6 @@ var vo,
         for (
           ;
           this._batches.length > n.EventRetryConstants.MAX_PENDING_BATCHES;
-
         ) {
           let e = this._batches.shift();
           e && (t += e.events.length);
@@ -5334,8 +5331,8 @@ var vo,
           let r = Math.random() * 16;
           return (
             e > 0
-              ? ((r = (e + r) % 16 | 0), (e = Math.floor(e / 16)))
-              : ((r = (t + r) % 16 | 0), (t = Math.floor(t / 16))),
+              ? ((r = ((e + r) % 16) | 0), (e = Math.floor(e / 16)))
+              : ((r = ((t + r) % 16) | 0), (t = Math.floor(t / 16))),
             (n === `x` ? r : (r & 7) | 8).toString(16)
           );
         },
@@ -6196,7 +6193,6 @@ var vo,
               this._flushInterval.hasCompletelyRecoveredFromBackoff() &&
               this.containsAtLeastOneFullBatch() &&
               (yield this._processNextBatch(a.FlushType.Limit));
-
             );
         });
       }
@@ -14899,7 +14895,6 @@ function jp(e, t) {
       p ? ((p._tokenizer = void 0), (p.previous = void 0)) : g.pop(),
       f = g.length;
     f--;
-
   ) {
     let t = s.slice(g[f], g[f + 1]),
       n = a.pop();
@@ -16596,7 +16591,6 @@ function Zte(e, t, n) {
         for (
           e = r._index, r._bufferIndex < 0 && (r._bufferIndex = 0);
           r._index === e && r._bufferIndex < t.length;
-
         )
           _(t.charCodeAt(r._bufferIndex));
       else _(t);
@@ -16815,7 +16809,6 @@ function lh() {
         t = ``,
         n &&= (i.charCodeAt(0) === 65279 && u++, void 0);
       u < i.length;
-
     ) {
       if (
         ((uh.lastIndex = u),
@@ -17057,7 +17050,6 @@ function wh(e) {
       },
         d = -1;
       ++d < t.transforms.length;
-
     )
       r = t.transforms[d](r) || r;
     return r;
@@ -21124,7 +21116,6 @@ var NC,
         for (
           this.debug && console.log(`full input:`, `>` + this.string + `<`);
           ;
-
         ) {
           let a = this.i,
             o = this.readChar();
@@ -22830,7 +22821,6 @@ ${c}`
             for (
               c.lastIndex = 0, t = t.slice(-1 * e.length + n);
               (r = c.exec(t)) != null;
-
             ) {
               if (((i = r[1] || r[2] || r[3] || r[4] || r[5] || r[6]), !i))
                 continue;
@@ -22993,7 +22983,6 @@ ${c}`
             this.options.pedantic &&
             (e = e.replace(yw.tabCharGlobal, `    `).replace(yw.spaceLine, ``));
             e;
-
           ) {
             let r;
             if (
@@ -23154,7 +23143,6 @@ ${c}`
               for (
                 ;
                 (r = this.tokenizer.rules.inline.reflinkSearch.exec(n)) != null;
-
               )
                 e.includes(r[0].slice(r[0].lastIndexOf(`[`) + 1, -1)) &&
                   (n =
@@ -23169,7 +23157,6 @@ ${c}`
           for (
             ;
             (r = this.tokenizer.rules.inline.anyPunctuation.exec(n)) != null;
-
           )
             n =
               n.slice(0, r.index) +
@@ -26747,7 +26734,6 @@ var VA,
           for (
             x = o(C).call(e), h && (v = new h()), S = x.next(), g = 0;
             !S.done;
-
           )
             ((w = t ? d.call(t, m, S.value, g) : S.value),
               h ? ((f.value = w), p(v, g, f)) : (v[g] = w),
@@ -27129,7 +27115,6 @@ var VA,
             for (
               e = a[1][o], a[0].splice(o, 1), a[1].splice(o, 1);
               !a[0].length && l.length;
-
             )
               ((o = l.pop()),
                 (a = l.pop()),
@@ -27206,7 +27191,6 @@ var VA,
             for (
               t = o[1][s], o[0].splice(s, 1), o[1].splice(s, 1);
               !o[0].length && c.length;
-
             )
               ((s = c.pop()),
                 (o = c.pop()),

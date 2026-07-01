@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/sequenceDiagram-WL72ISMW-Dy4xSVKS.js
-// SequenceDiagramWL72ISMW chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored sequenceDiagramWL72ISMW chunk restored from the Codex webview bundle.
 import { chunkS3R3BYOJA, chunkS3R3BYOJC } from "./chunk-s3r3byoj";
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";
@@ -2357,7 +2357,6 @@ var sequenceDiagramWL72ISMWValue1 = dist(),
               sequenceDiagramWL72ISMWValue166,
               sequenceDiagramWL72ISMWValue167;
             ;
-
           ) {
             if (
               ((sequenceDiagramWL72ISMWValue160 =

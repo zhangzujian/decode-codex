@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/cose-bilkent-S5V4N54A-C42L7Iw8.js
-// CoseBilkentS5V4N54A chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored coseBilkentS5V4N54A chunk restored from the Codex webview bundle.
 import { toEsModule } from "../runtime/commonjs-interop";
 import { Src } from "./roughjs-geometry";
 import { chunkAGHRB4JFN, chunkAGHRB4JFR } from "./dompurify";

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/avatar-overlay-native-page-CAxsNCX7.js
-// Current avatar overlay native page backing bundle with restored dependency imports.
+// Flat boundary. Vendored current avatar overlay native page backing bundle with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {

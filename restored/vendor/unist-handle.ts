@@ -1,6 +1,9 @@
 // Restored from ref/webview/assets/handle-D9lWAd6M.js
-// Handle chunk restored from the Codex webview bundle.
-import { libO, libY } from "./markdown-renderer";
+// Flat boundary. Vendored handle chunk restored from the Codex webview bundle.
+import {
+  classifyMarkdownCharacterCode,
+  markdownNodeToText,
+} from "./markdown-renderer";
 var handleS = function (handleParam46) {
   if (handleParam46 == null) return handleHelper5;
   if (typeof handleParam46 == "function") return handleHelper4(handleParam46);
@@ -126,7 +129,6 @@ function handleO(handleParam7, handleParam8, handleParam9, handleParam10) {
               handleValue17,
               handleValue89 = handleParam18.concat(handleValue99);
             handleValue88 > -1 && handleValue88 < handleValue99.children.length;
-
           ) {
             let handleValue135 = handleValue99.children[handleValue88];
             if (
@@ -362,8 +364,8 @@ function handleR(handleParam95) {
   return "&#x" + handleParam95.toString(16).toUpperCase() + ";";
 }
 function handleHelper20(handleParam42, _handleS, handleParam43) {
-  let handleValue85 = libO(handleParam42),
-    handleValue86 = libO(_handleS);
+  let handleValue85 = classifyMarkdownCharacterCode(handleParam42),
+    handleValue86 = classifyMarkdownCharacterCode(_handleS);
   return handleValue85 === undefined
     ? handleValue86 === undefined
       ? handleParam43 === "_"
@@ -486,7 +488,7 @@ function handleN(handleParam53, _handleS) {
     }),
     !!(
       (!handleParam53.depth || handleParam53.depth < 3) &&
-      libY(handleParam53) &&
+      markdownNodeToText(handleParam53) &&
       (_handleS.options.setext || handleValue104)
     )
   );
@@ -655,7 +657,6 @@ function handleHelper31(handleParam40, handleParam41, _handleS) {
       /^`|`$/.test(handleValue82)) &&
     (handleValue82 = " " + handleValue82 + " ");
     ++handleValue84 < _handleS.unsafe.length;
-
   ) {
     let handleValue106 = _handleS.unsafe[handleValue84],
       handleValue107 = _handleS.compilePattern(handleValue106),
@@ -678,7 +679,7 @@ function handleHelper32() {
   return "`";
 }
 function handleHelper33(handleParam45, _handleS) {
-  let handleValue91 = libY(handleParam45);
+  let handleValue91 = markdownNodeToText(handleParam45);
   return !!(
     !_handleS.options.resourceLink &&
     handleParam45.url &&

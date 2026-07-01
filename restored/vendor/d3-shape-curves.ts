@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/step-K6tEdR0Q.js
-// Step chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored step chunk restored from the Codex webview bundle.
 var stepValue1 = class {
   constructor(stepParam30, _stepG) {
     this._context = stepParam30;
@@ -277,7 +277,6 @@ stepHelper6.prototype = {
           stepValue22 = -1,
           _stepM;
         ++stepValue22 <= _stepUnderscore;
-
       ) {
         _stepM = stepValue22 / _stepUnderscore;
         this._basis.point(

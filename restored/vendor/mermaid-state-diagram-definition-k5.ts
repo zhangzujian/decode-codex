@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/stateDiagram-FHFEXIEX-CIdIE1IK.js
-// StateDiagramFHFEXIEX chunk restored from the Codex webview bundle.
+// Flat boundary. Vendored stateDiagramFHFEXIEX chunk restored from the Codex webview bundle.
 import { Src } from "./roughjs-geometry";
 import { line } from "./d3-shape-line";
 import { stepH } from "./d3-shape-curves";
