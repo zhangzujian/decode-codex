@@ -882,6 +882,10 @@ export {
   initConversationalOnboardingTaskScopeChunk,
   resetConversationalOnboardingTaskScope,
 } from "../../onboarding/conversational-onboarding-task-scope";
+export {
+  pendingConversationalOnboardingPluginNamesSignal,
+  preinstallConversationalOnboardingLocalPlugins,
+} from "../../onboarding/conversational-onboarding-local-plugin-preinstall";
 export { conversationalOnboardingTaskDefinitions } from "../../onboarding/conversational-onboarding-task-definitions";
 export {
   getConversationalOnboardingTaskOption,

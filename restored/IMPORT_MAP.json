@@ -27657,7 +27657,7 @@
         "us": "initClientThreadScopeProviderChunk",
         "ut": "initConversationItemScrollTargetRuntime",
         "uu": "UndoIcon",
-        "v": "appMainCurrentCompatSlotLowerV",
+        "v": "preinstallConversationalOnboardingLocalPlugins",
         "va": "moveThreadToWorktree",
         "vc": "OPENAI_PLUGINS_GITHUB_URL",
         "vd": "ArrowRotateCcwIcon",
