@@ -42541,12 +42541,12 @@
         "u": "codexMobileSetupDialogU"
       },
       "status": "done",
-      "note": "Current Codex mobile setup dialog hash maps to a dedicated current-ref runtime over vendor/codex-mobile-setup-dialog-current-bundle.tsx; aliases are derived from the current file and exposed as codexMobileSetupDialog* compatibility names.",
+      "note": "Current Codex mobile setup dialog hash maps to explicit compatibility aliases backed by the semantic codex-mobile/setup-dialog.ts entry.",
       "lastUpdated": "2026-06-30T23:03:34.404Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:03:34.404Z",
-      "stage3Review": "Host self-review: parsed codex-mobile-setup-dialog-BIUrpc8k.js exports, rebuilt alias-to-compatibility-name exports from auto-renames.json, rewrote dependency imports through restored/IMPORT_MAP.json with consumer rename aliases, and prepared focused quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of CodexMobileSetupDialog remains future cleanup."
+      "stage3Review": "Host self-review: parsed codex-mobile-setup-dialog-BIUrpc8k.js exports, preserved the current restored-dependency backing bundle, and mapped the current short aliases through codex-mobile/setup-dialog.ts semantic names.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic Codex mobile setup dialog entry; deeper internal helper splitting remains future cleanup."
     },
     "general-settings-BCaH5ZVP": {
       "restored": "runtime/current-app-initial/general-settings-route-current-runtime.ts",
