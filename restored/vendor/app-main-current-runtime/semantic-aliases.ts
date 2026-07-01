@@ -18,6 +18,7 @@ export { QueryClientProvider } from "../../runtime/query-client/react-query-cont
 export { useQueries } from "../../runtime/query-client/react-query-hooks";
 export { createToolErrorResult } from "../../runtime/tool-result-runtime";
 export { OpenAiMcpCapabilityView } from "../../review/openai-mcp-capability-view";
+export { useCloudEnvironmentsQuery } from "../../runtime/codex-api";
 export {
   browserTabIdForConversation,
   deriveBrowserConversationId,
@@ -31,6 +32,11 @@ export { serializeError } from "../../runtime/app-logger";
 export { SettingsControlRow } from "../../ui/settings-row";
 export { CHATGPT_PRICING_URL } from "../../utils/links-bd-mmkun-d";
 export { normalizeWorkspacePath } from "../../boundaries/src-l0hb/paths";
+export {
+  getCommandExecutionText,
+  initBrowserCommentAttachmentRuntime,
+  initCommandExecutionTextRuntime,
+} from "../../runtime/window-chrome-runtime";
 export {
   initResolvedHighlightThemesChunk,
   initSharedHighlightThemeRegistryChunk,
@@ -80,7 +86,6 @@ export {
   eu as SidebarRowUnreadDot,
   ff as initFolderIconChunk,
   fl as getBrowserTabIdForSidePanelOpen,
-  fm as initBrowserCommentAttachmentRuntime,
   fr as normalizeFilesystemPathForDisplay,
   gl as openThreadBrowserSidePanelTab,
   gm as SidebarRowProjectLabel,
@@ -89,11 +94,9 @@ export {
   hm as SidebarRowHostLabel,
   ho as forkConversationMessages,
   hp as useComposedRefs,
-  il as useCloudEnvironmentsQuery,
   ki as SidebarRowIcon,
   ld as ToastContent,
   ll as initArrayEqualityRuntimeChunk,
-  lt as getCommandExecutionText,
   ml as openSessionSandboxSidePanel,
   mo as initForkConversationMessagesChunk,
   nf as liveMcpAppFrameSignal,
@@ -110,7 +113,6 @@ export {
   tl as initComposeEventHandlersRuntime,
   ud as initExternalAgentImportStatusIconsChunk,
   ul as mergeVisibleThreadOrder,
-  ut as initCommandExecutionTextRuntime,
   vl as openThreadBrowserSidePanelTabWithoutAnimation,
   xl as openThreadTimelineSidePanel,
   xo as initForkConversationToastRuntime,
