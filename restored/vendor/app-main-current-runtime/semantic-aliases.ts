@@ -948,6 +948,7 @@ export {
   DEFAULT_LOCALE,
   getLocaleLanguageDisplayName,
   getSupportedLocales,
+  initLocaleResolverChunk,
   isEnglishLocale,
   loadLocaleMessages,
   normalizeLocale,

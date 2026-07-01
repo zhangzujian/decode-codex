@@ -27234,7 +27234,7 @@
         "Ta": "THREAD_HANDOFF_STEP_IDS",
         "Tc": "sortThreadTasksByPinnedOrder",
         "Td": "initPullRequestStatusTooltipChunk",
-        "Tf": "appMainCurrentCompatSlotUpperTLowerF",
+        "Tf": "initLocaleResolverChunk",
         "Ti": "ActivityScrollContainer",
         "Tl": "PullRequestCheckStatusIcon",
         "Tm": "PullRequestFooterRoot",

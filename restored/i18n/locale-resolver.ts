@@ -159,6 +159,13 @@ async function loadLocaleMessages(localeDescriptor: LocaleDescriptor) {
   )?.[1];
   return namedDefault ?? localeModule;
 }
+
+function initLocaleResolverChunk(): void {
+  void DEFAULT_LOCALE;
+  void localeLoaders;
+  void supportedLocales;
+}
+
 export {
   isEnglishLocale,
   normalizeLocale,
@@ -167,5 +174,6 @@ export {
   areEquivalentLocales,
   getSupportedLocales,
   loadLocaleMessages,
+  initLocaleResolverChunk,
   DEFAULT_LOCALE,
 };
