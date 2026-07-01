@@ -3,7 +3,6 @@
 export {
   w as appMainCurrentCompatSlotLowerW,
   wa as appMainCurrentCompatSlotLowerWLowerA,
-  wd as appMainCurrentCompatSlotLowerWLowerD,
   wf as appMainCurrentCompatSlotLowerWLowerF,
   wi as appMainCurrentCompatSlotLowerWLowerI,
   wl as appMainCurrentCompatSlotLowerWLowerL,

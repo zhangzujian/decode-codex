@@ -370,7 +370,7 @@ import {
   WarningIcon as Fa,
   appMainCurrentCompatSlotLowerSLowerP as Ia,
   pinnedThreadsQuery as La,
-  appMainCurrentCompatSlotLowerWLowerD as Ra,
+  PullRequestStatusTooltip as Ra,
   appMainCurrentCompatSlotLowerWLowerL as za,
   openThreadTimelineSidePanel as Ba,
 } from "./app-main-current-runtime";

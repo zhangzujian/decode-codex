@@ -7,6 +7,7 @@ export { DragIcon } from "../../icons/drag-icon";
 export { LaptopIcon } from "../../icons/laptop-icon";
 export { WarningIcon } from "../../icons/warning-icon";
 export { FileSourceTab } from "../../review/file-source-tab";
+export { PullRequestStatusTooltip } from "../../utils/pull-request-visual-state";
 export {
   FastServiceTierIcon,
   initFastServiceTierIcon,
