@@ -8,41 +8,52 @@ import { useIntl } from "../vendor/react-intl";
 import {
   aboveComposerPortalId,
   aboveComposerQueuePortalId,
+} from "./composer-portals";
+import {
   activeFollowUpAtom,
-  clsx,
-  ComposerStoreContext,
   composerDraftTextAtom,
-  composerScope,
-  createComposerStore,
-  createProjectlessPrewarmReservation,
-  dispatchLocalRuntimeCommand,
   getComposerRemountKey,
-  isDefaultCollaborationMode,
   isDraftThreadId,
-  isPlanCollaborationMode,
   isPromptDraftText,
-  NewThreadComposerBody,
-  resolvedHostIdQuery,
-  runTogglePlanMode,
-  settingsAtoms,
-  useAgentModeSettings,
-  useCancelCloudTaskMutation,
-  useCollaborationModes,
+} from "./composer-atoms";
+import { classNames as clsx } from "../utils/class-names";
+import {
+  ComposerStoreContext,
+  createComposerStore,
   useComposerStore,
-  useCreatePendingWorktree,
-  useIsMounted,
-  useMcpManager,
-  useNavigate,
+} from "./composer-store";
+import { composerScope } from "./composer-scope-runtime";
+import { createProjectlessPrewarmReservation } from "./projectless-prewarm-reservation";
+import { sendAppServerRequest as dispatchLocalRuntimeCommand } from "../boundaries/use-host-config.facade";
+import {
+  isDefaultCollaborationMode,
+  isPlanCollaborationMode,
+  runTogglePlanMode,
+} from "./collaboration-modes";
+import { NewThreadComposerBody } from "./new-thread-composer-body";
+import { settingsAtoms, useSettingValue } from "./composer-settings";
+import { usePermissionsMode as useAgentModeSettings } from "../utils/use-permissions-mode/use-permissions-mode";
+import { useCancelTaskMutation as useCancelCloudTaskMutation } from "../runtime/codex-api";
+import { useCollaborationMode as useCollaborationModes } from "../collaboration/use-collaboration-mode";
+import { useCreatePendingWorktree } from "../threads/use-create-pending-worktree";
+import { useIsMounted } from "../utils/use-is-mounted";
+import { useAppServerManager as useMcpManager } from "../app-server/app-server-manager-hooks/registry";
+import { useNavigate } from "../conversations/local-conversation-route-runtime";
+import {
   useNewThreadSubmitHandlers,
-  useRegisterCommand,
+  useStartConversationWithPrimaryRuntimeForFirstTurn,
+} from "./new-thread-submit-handlers";
+import { useRegisterCommand } from "../utils/use-register-command";
+import {
   useScopeConversationId,
   useScopedAtomValue,
   useScopedQuery,
   useScopeStore,
-  useServiceTierSettings,
-  useSettingValue,
-  useStartConversationWithPrimaryRuntimeForFirstTurn,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "./composer-scope-hooks";
+import { useServiceTierSettings } from "./use-service-tier-settings";
+// resolvedHostIdQuery still lives in the thread-context-inputs runtime (not yet
+// scoped for restore); keep it on the boundary facade until that chunk is drained.
+import { resolvedHostIdQuery } from "../boundaries/onboarding-commons-externals.facade";
 
 export type ComposerLayoutMode =
   | "multiline"

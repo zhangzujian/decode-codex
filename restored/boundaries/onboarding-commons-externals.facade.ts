@@ -42,6 +42,7 @@ export { IconButton } from "../review/action-popover-primitives/row-primitives";
 export { Spinner } from "../ui/spinner";
 export { Tooltip } from "../ui/tooltip-b";
 export {
+  toastApiSignal,
   toastApiSignal as toastControllerAtom,
   toastApiSignal as toastControllerSignal,
   toastApiSignal as toastControllerToken,
@@ -51,6 +52,7 @@ export {
   createComputedAtom,
   createParametricAtom,
   createScopedAtom,
+  useAppScopeValue,
   useAppScopeValue as useScopedValue,
   useAppScopeValue as useSignalValue,
   readAppScopeStore as useAppScope,
@@ -2059,3 +2061,213 @@ export const useScopeStore: any = undefined as any;
 export const useSettingValue: any = undefined as any;
 export const useStartConversationWithPrimaryRuntimeForFirstTurn: any =
   undefined as any;
+
+// --- composer subsystem internals (djo67r4n drain, next layer) (open boundary) ---
+export const // --- additional deep internals ---
+  cancelThreadGoal: any = undefined as any;
+export const // --- attachments / context ---
+  buildLocalContextIdeSnapshot: any = undefined as any;
+export const // --- background threads ---
+  canStopBackgroundThread: any = undefined as any;
+export const // --- composer mode / availability ---
+  buildComposerModeAvailability: any = undefined as any;
+export const // --- conversation identity / execution target ---
+  buildComposerAnalyticsId: any = undefined as any;
+export const // --- core scope / editor / atom access ---
+  appConnectClaimedFollowUpQuery: any = undefined as any;
+export const // --- entrypoints / prefill ---
+  buildNewThreadClientId: any = undefined as any;
+export const // --- misc host / analytics ---
+  buildContextualLeadingItems: any = undefined as any;
+export const // --- rate-limit / banners / status ---
+  useComposerRateLimitBanner: any = undefined as any;
+export const // --- sub-components ---
+  Composer: any = undefined as any;
+export const // --- submit orchestration ---
+  buildCloudSubmitTask: any = undefined as any;
+export const // --- suggestions / mentions ---
+  ComposerContextFilesWatcher: any = undefined as any;
+export const // --- worktree / voice / layout ---
+  useComposerDictation: any = undefined as any;
+export const AboveComposerSuggestionActions: any = undefined as any;
+export const AddContextButton: any = undefined as any;
+export const AnnouncementBanner: any = undefined as any;
+export const AppshotCaptureControls: any = undefined as any;
+export const BackgroundSubagentsPanel: any = undefined as any;
+export const BlockedSubmitDialog: any = undefined as any;
+export const CloudModeIndicator: any = undefined as any;
+export const ComposerAttachmentPills: any = undefined as any;
+export const ComposerDropOverlay: any = undefined as any;
+export const ComposerFooterControls: any = undefined as any;
+export const ComposerInputField: any = undefined as any;
+export const ComposerStatusMenuRow: any = undefined as any;
+export const FirstBlockRateLimitBanner: any = undefined as any;
+export const GoalReplacementConfirmationDialog: any = undefined as any;
+export const GoalResumePromptDialog: any = undefined as any;
+export const HooksNeedingReviewBanner: any = undefined as any;
+export const PluginContextLoader: any = undefined as any;
+export const RateLimitBanner: any = undefined as any;
+export const SelectedTextAction: any = undefined as any;
+export const SelectedTextPortal: any = undefined as any;
+export const SideChatPrompt: any = undefined as any;
+export const ThreadGoalBanner: any = undefined as any;
+export const WindowsSandboxError: any = undefined as any;
+export const WindowsSandboxSetupBanner: any = undefined as any;
+export const afterLocalConversationCreated: any = undefined as any;
+export const appendUserMessageToConversation: any = undefined as any;
+export const attachThreadGoalObjectiveToConversation: any = undefined as any;
+export const browserSidebarAvailabilitySignal: any = undefined as any;
+export const buildComposerImageInputItems: any = undefined as any;
+export const buildConversationParamsFromContext: any = undefined as any;
+export const buildPriorConversationFromTask: any = undefined as any;
+export const buildRestoreMessageFromContext: any = undefined as any;
+export const buildSideChatDisplayTitle: any = undefined as any;
+export const buildWorktreeLabelFromInput: any = undefined as any;
+export const cleanupMaterializedThreadGoal: any = undefined as any;
+export const clearGoalPromptAtomsRunner: any = undefined as any;
+export const collectStoppableBackgroundThreads: any = undefined as any;
+export const commitThreadGoalDraft: any = undefined as any;
+export const composerAddedFilesAtom: any = undefined as any;
+export const composerCommentAttachmentsAtom: any = undefined as any;
+export const composerCwdOverrideAtom: any = undefined as any;
+export const composerDropTargetPortalContext: any = undefined as any;
+export const composerEnterBehaviorFamily: any = undefined as any;
+export const composerFileAttachmentsAtom: any = undefined as any;
+export const composerImageCommentDraftAtom: any = undefined as any;
+export const composerImageInputsAtom: any = undefined as any;
+export const composerMcpAppModelContextAtom: any = undefined as any;
+export const composerModeForScopeAtom: any = undefined as any;
+export const composerPastedTextAttachmentsAtom: any = undefined as any;
+export const composerPrefillCwdAtom: any = undefined as any;
+export const composerPullRequestChecksAtom: any = undefined as any;
+export const composerPullRequestMergeConflictAtom: any = undefined as any;
+export const composerSelectedTextAttachmentsAtom: any = undefined as any;
+export const currentTurnKeyForConversation: any = undefined as any;
+export const dismissMessageLimitBanner: any = undefined as any;
+export const experimentalFeaturesQuery: any = undefined as any;
+export const extensionPageSelectionAtom: any = undefined as any;
+export const formatComposerSubmitError: any = undefined as any;
+export const formatWorktreeSubmitError: any = undefined as any;
+export const getConversationBrowserTabIdsForTransfer: any = undefined as any;
+export const getLastFocusedBrowserTabId: any = undefined as any;
+export const getTaskErrorMessage: any = undefined as any;
+export const hasActiveMentionMenu: any = undefined as any;
+export const hasSeenMultiAgentComposerBannerRunner: any = undefined as any;
+export const hostConfigForHostId: any = undefined as any;
+export const hotkeyWindowBridge: any = undefined as any;
+export const hydrateBackgroundThreads: any = undefined as any;
+export const isBackgroundThreadHydratedAtom: any = undefined as any;
+export const isComposerDictationTarget: any = undefined as any;
+export const isFollowUpHydratedAtom: any = undefined as any;
+export const isHotkeyWindowContext: any = undefined as any;
+export const isPreparePrimaryRuntimeEnabled: any = undefined as any;
+export const isProjectlessWorkspaceRoots: any = undefined as any;
+export const isPromptDraftTextValue: any = undefined as any;
+export const isRemoteConnection: any = undefined as any;
+export const localConversationTurnsSignal: any = undefined as any;
+export const localConversationWorkspaceKindSignal: any = undefined as any;
+export const localExecutionTargetForScope: any = undefined as any;
+export const logComposerMessageSent: any = undefined as any;
+export const memoryPreferencesDraftAtom: any = undefined as any;
+export const newThreadFirstRunCompletedSignal: any = undefined as any;
+export const newThreadFirstRunStartedSignal: any = undefined as any;
+export const normalizeConversationAttachments: any = undefined as any;
+export const openComposerReferencedFile: any = undefined as any;
+export const openHotkeyWindowThread: any = undefined as any;
+export const openSideChat: any = undefined as any;
+export const openTaskPath: any = undefined as any;
+export const openThreadPath: any = undefined as any;
+export const parseGoalSubmit: any = undefined as any;
+export const pendingWorktreeInitPath: any = undefined as any;
+export const performComposerSubmit: any = undefined as any;
+export const projectAssignmentsQuery: any = undefined as any;
+export const projectContextQuerySignal: any = undefined as any;
+export const promptTextFromContext: any = undefined as any;
+export const promptTextFromObjective: any = undefined as any;
+export const recordNewThreadSubmitAnalytics: any = undefined as any;
+export const registerComposerEnterKeymap: any = undefined as any;
+export const registerComposerEscapeHandler: any = undefined as any;
+export const registerComposerKeymap: any = undefined as any;
+export const registerSidebarToggleShortcut: any = undefined as any;
+export const removeAllImageComments: any = undefined as any;
+export const reportComposerSubmitError: any = undefined as any;
+export const requiredHooksFilter: any = undefined as any;
+export const reserveProjectWorkspaceForFirstTurn: any = undefined as any;
+export const resolveCloudTaskType: any = undefined as any;
+export const resolveComposerCwd: any = undefined as any;
+export const resolveComposerExecutionTarget: any = undefined as any;
+export const resolveComposerKeyAction: any = undefined as any;
+export const resolveComposerMode: any = undefined as any;
+export const resolveComposerWorkspaceRoot: any = undefined as any;
+export const resolveCurrentRemoteCwd: any = undefined as any;
+export const resolveEscapeAction: any = undefined as any;
+export const resolveLocalExecutionRemoteHostId: any = undefined as any;
+export const resolveServiceTierAndCollaborationMode: any = undefined as any;
+export const resumeThreadGoal: any = undefined as any;
+export const saveThreadStartTarget: any = undefined as any;
+export const sendMessageToLocalConversation: any = undefined as any;
+export const sendQueuedSteerMessage: any = undefined as any;
+export const setComposerScopedField: any = undefined as any;
+export const showComposerToast: any = undefined as any;
+export const splitCommentAttachmentsBySurface: any = undefined as any;
+export const splitCommentsForSubmit: any = undefined as any;
+export const steerLocalConversation: any = undefined as any;
+export const submitDirectComment: any = undefined as any;
+export const submitFollowUpApproval: any = undefined as any;
+export const submitLocalApproval: any = undefined as any;
+export const toUserMessageInput: any = undefined as any;
+export const updateConversationProjectContext: any = undefined as any;
+export const useActiveWorkspaceRoots: any = undefined as any;
+export const useAppScopeFamilyValue: any = undefined as any;
+export const useAppshotCaptureTray: any = undefined as any;
+export const useAtMentionAutocomplete: any = undefined as any;
+export const useAtomFamily: any = undefined as any;
+export const useBackgroundThreadRows: any = undefined as any;
+export const useBackgroundThreadTurnMap: any = undefined as any;
+export const useCloudAccess: any = undefined as any;
+export const useCloudTaskCreation: any = undefined as any;
+export const useCloudTaskFollowUp: any = undefined as any;
+export const useCodexHome: any = undefined as any;
+export const useComposerAttachmentActions: any = undefined as any;
+export const useComposerAttachmentSetters: any = undefined as any;
+export const useComposerContextActions: any = undefined as any;
+export const useComposerController: any = undefined as any;
+export const useComposerFileAssetAttachment: any = undefined as any;
+export const useComposerIntl: any = undefined as any;
+export const useComposerLayoutMode: any = undefined as any;
+export const useComposerLog: any = undefined as any;
+export const useComposerMessageEditing: any = undefined as any;
+export const useComposerMode: any = undefined as any;
+export const useComposerPlaceholder: any = undefined as any;
+export const useComposerPromptHistory: any = undefined as any;
+export const useComposerPrompts: any = undefined as any;
+export const useConversationPending: any = undefined as any;
+export const useFollowUpToConversation: any = undefined as any;
+export const useGitRepoRoot: any = undefined as any;
+export const useHasPendingApproval: any = undefined as any;
+export const useImageInputSupport: any = undefined as any;
+export const useInterruptThread: any = undefined as any;
+export const useIsElectronPlatform: any = undefined as any;
+export const useIsQueueingEnabled: any = undefined as any;
+export const useIsWorkspaceRequired: any = undefined as any;
+export const useIsWorktreePickerEnabled: any = undefined as any;
+export const useIsWorktreeSnapshotsEnabled: any = undefined as any;
+export const useLocation: any = undefined as any;
+export const useMcpManagerForHost: any = undefined as any;
+export const useMentionActivationHandler: any = undefined as any;
+export const useMessageLimitEvent: any = undefined as any;
+export const useOpenFileMutation: any = undefined as any;
+export const usePastedTextAttachmentHandlers: any = undefined as any;
+export const usePendingFileAttachments: any = undefined as any;
+export const useProjectAssignment: any = undefined as any;
+export const useQueuedFollowUps: any = undefined as any;
+export const useRemoteConnectivityStates: any = undefined as any;
+export const useResolvedConfigPath: any = undefined as any;
+export const useResolvedPendingApproval: any = undefined as any;
+export const useSharedComposerPrefill: any = undefined as any;
+export const useSingleLineComposerMeasure: any = undefined as any;
+export const useSkillMentionAutocomplete: any = undefined as any;
+export const useStopTurnConfirmation: any = undefined as any;
+export const useWindowsSandboxRequirement: any = undefined as any;
+export const useWindowsSandboxSetup: any = undefined as any;
+export const useWorktreeGitContext: any = undefined as any;
