@@ -659,6 +659,8 @@ export {
   WorktreeInitActivityList,
 } from "../../conversations/worktree-init-activity-list";
 export {
+  initConversationItemScrollTargetRuntime,
+  registerConversationItemScrollTarget,
   scrollConversationItemIntoView,
   scrollConversationItemIntoViewWhenReady,
 } from "../../conversations/scroll-conversation-item-into-view";

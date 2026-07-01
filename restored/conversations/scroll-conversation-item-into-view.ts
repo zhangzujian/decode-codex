@@ -1,9 +1,32 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Scrolls (and focuses) the DOM node tagged for a local-conversation item id into view.
+import { once } from "../runtime/commonjs-interop";
+import {
+  createScopedSignalFamily,
+  type ScopedSignalGetter,
+  type ScopedSignalSetter,
+} from "../runtime/app-scope-runtime";
+import {
+  initLocalConversationRouteRuntime,
+  localConversationRouteScope,
+} from "./local-conversation-route-runtime";
 
 const CONVERSATION_ITEM_TARGET_ATTRIBUTE =
   "data-local-conversation-item-target-ids";
 const SCROLL_TARGET_WAIT_TIMEOUT_MS = 1000;
+
+type ConversationItemScrollTargetStore = ScopedSignalGetter &
+  ScopedSignalSetter;
+
+export let conversationItemScrollTargetSignal: unknown;
+
+export const initConversationItemScrollTargetRuntime = once(() => {
+  initLocalConversationRouteRuntime();
+  conversationItemScrollTargetSignal = createScopedSignalFamily<
+    string,
+    string | null
+  >(localConversationRouteScope, () => null);
+});
 
 function findConversationItemElement(itemId: string): Element | null {
   const encodedId = encodeURIComponent(itemId);
@@ -68,4 +91,19 @@ export function scrollConversationItemIntoViewWhenReady(
 
     animationFrameId = window.requestAnimationFrame(poll);
   });
+}
+
+export function registerConversationItemScrollTarget(
+  store: ConversationItemScrollTargetStore,
+  itemId: string,
+  targetId: string,
+): () => void {
+  initConversationItemScrollTargetRuntime();
+  store.set(conversationItemScrollTargetSignal, itemId, targetId);
+
+  return () => {
+    if (store.get(conversationItemScrollTargetSignal, itemId) === targetId) {
+      store.set(conversationItemScrollTargetSignal, itemId, null);
+    }
+  };
 }

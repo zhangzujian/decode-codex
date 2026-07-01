@@ -112,6 +112,14 @@ export function createAppScopedSignalFamily<TKey, TValue>(
   return createScopedSignalFamilyRaw(appScopeRoot, initializer, options);
 }
 
+export function createScopedSignalFamily<TKey, TValue>(
+  scope: unknown,
+  initializer: ScopedSignalFamilyInitializer<TKey, TValue>,
+  options?: ScopedSignalOptions<TKey, TValue>,
+): unknown {
+  return createScopedSignalFamilyRaw(scope, initializer, options);
+}
+
 export function createAppScopedDerivedSignalFamily<TKey, TValue>(
   initializer: ScopedSignalFamilyInitializer<TKey, TValue>,
 ): unknown {
