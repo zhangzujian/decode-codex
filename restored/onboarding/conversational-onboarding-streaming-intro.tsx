@@ -25,6 +25,8 @@ type ConversationalOnboardingStreamingIntroProps = {
   onComplete?: (() => void) | null;
 };
 
+export function initConversationalOnboardingStreamingIntroChunk(): void {}
+
 export function ConversationalOnboardingStreamingIntro({
   animate,
   children,

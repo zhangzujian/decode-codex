@@ -174,8 +174,12 @@ function markTurnInterruptedByThisClient(
       new Set(interruptedTurnIds ?? emptyInterruptedTurnIds).add(turnId),
   );
 }
+
+function initInterruptedTurnStateChunk(): void {}
+
 export {
   ActiveConversationPresence,
+  initInterruptedTurnStateChunk,
   processManagerFocusRequestSignal,
   markTurnInterruptedByThisClient,
   requestProcessManagerFocus,

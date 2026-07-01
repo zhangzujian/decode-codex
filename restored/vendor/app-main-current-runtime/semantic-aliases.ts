@@ -489,6 +489,10 @@ export {
   FileChangePatchRow,
   initFileChangePatchRowChunk,
 } from "../../conversations/local-conversation-thread-parts/file-change-patch-row";
+export {
+  ActiveConversationPresence,
+  initInterruptedTurnStateChunk,
+} from "../../threads/interrupted-turn-state";
 export { hasWorkspaceDependenciesFeature } from "../../features/workspace-dependencies";
 export {
   AnnotationModeButton,
@@ -651,6 +655,10 @@ export {
   archiveConversationalOnboardingConversationsForHost,
   initConversationalOnboardingControllerChunk,
 } from "../../onboarding/conversational-onboarding-controller";
+export {
+  ConversationalOnboardingStreamingIntro,
+  initConversationalOnboardingStreamingIntroChunk,
+} from "../../onboarding/conversational-onboarding-streaming-intro";
 export { AutomationSchedulePicker } from "../../automations/automation-schedule-picker";
 export {
   initMeasuredTextCollapseRuntimeChunk,
