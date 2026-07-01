@@ -82,6 +82,10 @@ export {
   summarizeAppgenAccessPolicy,
 } from "../../utils/appgen-access";
 export {
+  addAppgenSelectedGroup,
+  initAppgenSelectedGroupsStateChunk,
+} from "../../features/appgen-share-dialog/selected-groups-state";
+export {
   AppgenAccessStateIcon,
   getAppgenAccessShortStateMessage,
   getAppgenAccessStateMessage,
