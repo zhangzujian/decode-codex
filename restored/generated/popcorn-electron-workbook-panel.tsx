@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/PopcornElectronWorkbookPanel-Drl2YYRf.js
+// Flat boundary. Vendored Popcorn Electron runtime backing module preserved for legacy alias compatibility.
 // Also matches current ref/webview/assets/PopcornElectronWorkbookPanel-DEXqsHf5.js.
 // PopcornElectronWorkbookPanel chunk restored from the Codex webview bundle.
 import React from "react";
