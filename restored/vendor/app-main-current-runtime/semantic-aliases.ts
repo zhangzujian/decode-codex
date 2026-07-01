@@ -82,6 +82,9 @@ export {
   useReferralInviteMutation,
 } from "../../runtime/codex-api";
 export { LocalConversationGitActions } from "../../conversations/local-conversation-git-actions";
+export { SentCommentAttachmentList } from "../../conversations/sent-comment-attachments";
+export { DiffStats, initDiffStatsChunk } from "../../git/git-review-primitives";
+export { ReviewOptionsToolbar } from "../../review/review-options-toolbar";
 export {
   CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME,
   CancelGitActionButton,
@@ -485,6 +488,9 @@ export {
   openAutomationSuggestionTab,
   openAutomationTab,
 } from "../../automations/automation-side-panel-tabs";
+export { AutomationExecutionEnvironmentDropdown } from "../../automations/automation-execution-environment-dropdown";
+export { AutomationHeartbeatThreadDropdown } from "../../automations/automation-heartbeat-thread-dropdown";
+export { AutomationModelReasoningDropdown } from "../../automations/automation-model-reasoning-dropdown";
 export {
   initThinkingShimmerChunk,
   ThinkingShimmer,
