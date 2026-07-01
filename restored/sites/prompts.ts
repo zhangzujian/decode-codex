@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/sites-DPcqhqgt.js
 // sites-DPcqhqgt chunk restored from the Codex webview bundle.
-import { d as checkStatsigGate } from "@statsig/js-client";
 import { vscodeApiF } from "../boundaries/vscode-api";
+import { featureGateSignal } from "../runtime/feature-gate-runtime";
 import {
   createLocalConversationPath,
   normalizeConversationId,
@@ -12,7 +12,7 @@ import { createSitesProjectMentionMarkdown } from "../composer/mention-item";
 import { OPENAI_BUNDLED_SITES_PLUGIN_ID } from "../plugins/plugin-config-edits";
 import { createPluginPrefillPrompt } from "../plugins/plugin-prefill-prompt";
 type AppScopeReader = {
-  get<T>(signal: unknown): T;
+  get<T>(signal: unknown, key?: unknown): T;
 };
 type NavigateToConversation = (
   path: string,
@@ -126,7 +126,7 @@ export function startSitesConversation(
       }
       break;
     case "create":
-      if (checkStatsigGate(appScope, "3696170016"))
+      if (appScope.get<boolean>(featureGateSignal, "3696170016"))
         action.setSelectedMode("plan");
       basePrompt = intl.formatMessage({
         id: "appgenConversation.createPrompt",

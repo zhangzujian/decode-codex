@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/app-server-manager-hooks-D4-J16ZL.js
 // app-server-manager-hooks-D4-J16ZL chunk restored from the Codex webview bundle.
 import React from "react";
-import { f as readStatsigGate } from "@statsig/js-client";
+import { featureGateSignal as readStatsigGate } from "../../runtime/feature-gate-runtime";
 import {
   _appScopeA as useScopedAppValue,
   _appScopeO as useAppScope,

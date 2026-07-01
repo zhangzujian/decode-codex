@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/mcp-capability-signals-Ef9PGr3z.js
 // App-scope signals exposing MCP capability catalogs and app entrypoints.
-import { f as statsigGateSignal } from "@statsig/js-client";
+import { featureGateSignal as statsigGateSignal } from "../../runtime/feature-gate-runtime";
 import {
   _appScopeC as createComputedSignal,
   _appScopeL as createComputedSignalFamily,

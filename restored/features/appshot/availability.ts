@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/appshot-availability-BgG_Trde.js
 // Appshot availability is gated by platform, Statsig, and per-host config requirements.
-import { f as readStatsigGate } from "@statsig/js-client";
+import { featureGateSignal as readStatsigGate } from "../../runtime/feature-gate-runtime";
 import {
   _appScopeC as createAppScopeSelector,
   _appScopeL as createAppScopeFamily,
