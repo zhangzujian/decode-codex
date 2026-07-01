@@ -104,6 +104,7 @@ const pluginDetailPageRt = selectUninstalledRecommendedSkills;
 const _pluginDetailPageS = pluginDetailPageBundle.s;
 const pluginDetailPageSt = pluginDetailPageBundle.st;
 const __pluginDetailPageT = pluginDetailPageBundle.t;
+const PluginDetailPage = __pluginDetailPageT;
 const pluginDetailPageTt = filterInstalledSkillsOutsideRecommendations;
 const _pluginDetailPageU = pluginDetailPageBundle.u;
 const pluginDetailPageUt = pluginDetailPageBundle.ut;
@@ -117,6 +118,7 @@ const _pluginDetailPageZ = pluginDetailPageBundle.z;
 
 export {
   __pluginDetailPageT,
+  PluginDetailPage,
   _pluginDetailPageA,
   _pluginDetailPageB,
   _pluginDetailPageC,

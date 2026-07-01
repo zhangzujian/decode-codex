@@ -7,3 +7,11 @@ export {
   initGitConfigValueCurrentChunk as gitConfigValueCurrentCompatSlotLowerR,
   gitConfigValueByMetadataQuerySignal as gitConfigValueCurrentCompatSlotLowerT,
 } from "../../github/git-config-value-current";
+
+export {
+  initGitConfigValueCurrentRuntimeDependencies,
+  createCurrentGitQuerySignal,
+  gitConfigValueFromCwdSignal,
+  initGitConfigValueCurrentChunk,
+  gitConfigValueByMetadataQuerySignal,
+} from "../../github/git-config-value-current";
