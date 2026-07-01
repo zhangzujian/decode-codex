@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-CgNc-Bk2.js
 // Named app-main current runtime aliases recovered from the current producer.
 export { GlobeIcon } from "../../icons/globe-icon";
+export { composeRefs } from "../../utils/compose-refs";
 
 export {
   $l as SidebarSection,
@@ -82,7 +83,6 @@ export {
   mi as serializeError,
   ml as openSessionSandboxSidePanel,
   mo as initForkConversationMessagesChunk,
-  mp as composeRefs,
   nf as liveMcpAppFrameSignal,
   nl as composeEventHandlers,
   nm as SidebarRowHoverCard,
