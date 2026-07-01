@@ -26846,7 +26846,7 @@
         "Gt": "appMainCurrentCompatSlotUpperGLowerT",
         "Gu": "appMainCurrentCompatSlotUpperGLowerU",
         "H": "appMainCurrentCompatSlotUpperH",
-        "Ha": "appMainCurrentCompatSlotUpperHLowerA",
+        "Ha": "setPinnedThreadOptimistically",
         "Hc": "appMainCurrentCompatSlotUpperHLowerC",
         "Hd": "initThreadRowRuntimeChunk",
         "Hf": "appMainCurrentCompatSlotUpperHLowerF",

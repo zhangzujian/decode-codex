@@ -2,7 +2,6 @@
 // Uppercase H compatibility aliases for the current app-main producer.
 export {
   H as appMainCurrentCompatSlotUpperH,
-  Ha as appMainCurrentCompatSlotUpperHLowerA,
   Hc as appMainCurrentCompatSlotUpperHLowerC,
   Hf as appMainCurrentCompatSlotUpperHLowerF,
   Hi as appMainCurrentCompatSlotUpperHLowerI,
