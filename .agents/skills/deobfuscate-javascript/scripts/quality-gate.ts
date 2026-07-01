@@ -2750,6 +2750,7 @@ function analyzeOrganizePromoteState(
         org?.semanticPath &&
         cls !== "vendor-npm" &&
         cls !== "vendor-runtime" &&
+        cls !== "generated-runtime" &&
         lineCount >= AGGREGATOR_BODY_LINE_THRESHOLD
       ) {
         const resolved = resolvePublicTarget(targetDir, org.semanticPath);

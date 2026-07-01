@@ -1647,6 +1647,34 @@ export function __rest(value) {
     );
   });
 
+  test("aggregator-body-not-restored does NOT fire: generated-runtime barrel is exempt", () => {
+    const targetDir = makeTmpRoot();
+    writePromotedFile(
+      targetDir,
+      "runtime/current-app-initial/popcorn-electron-document-panel-current-runtime.ts",
+      BARREL_FACADE,
+    );
+    writeFullManifest(targetDir, {
+      "PopcornElectronDocumentPanel-BJYIlWEb": {
+        basename: "PopcornElectronDocumentPanel-BJYIlWEb",
+        kind: "local",
+        lineCount: 23090,
+        stages: { promoted: true },
+        organization: {
+          domain: "runtime",
+          semanticPath:
+            "runtime/current-app-initial/popcorn-electron-document-panel-current-runtime.ts",
+          classification: "generated-runtime",
+        },
+      },
+    });
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    const codes = reports.flatMap((r) => r.issues.map((i) => i.code));
+    expect(codes).not.toContain(
+      "full-restoration-aggregator-body-not-restored",
+    );
+  });
+
   test("aggregator-body-not-restored does NOT fire: small chunk promoted to a barrel is fine", () => {
     const targetDir = makeTmpRoot();
     writePromotedFile(targetDir, "utils/small-index.ts", BARREL_FACADE);
