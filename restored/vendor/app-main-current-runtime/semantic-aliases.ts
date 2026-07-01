@@ -660,6 +660,10 @@ export {
   WorktreeInitActivityList,
 } from "../../conversations/worktree-init-activity-list";
 export {
+  initProcessManagerRequestSignalChunk,
+  processManagerRequestSignal,
+} from "../../conversations/process-manager-request-atom";
+export {
   initConversationItemScrollTargetRuntime,
   registerConversationItemScrollTarget,
   scrollConversationItemIntoView,
