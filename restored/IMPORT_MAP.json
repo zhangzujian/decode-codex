@@ -26717,12 +26717,13 @@
       },
       "status": "done",
       "aliasOf": "git-config-value-query-BKgFljZW",
-      "note": "Current exact-hash chunk restored through runtime/current-app-initial/git-config-value-current-runtime.ts; backing bundle is vendor/../../vendor/git-config-value-current-bundle and all current export aliases are covered by compatibility slot names.",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Current exact-hash chunk restored through runtime/current-app-initial/git-config-value-current-runtime.ts over github/git-config-value-current.ts; vendor/git-config-value-current-bundle.ts remains only as a compatibility shim.",
+      "lastUpdated": "2026-07-01T02:11:37.000Z",
       "migratedFrom": "app-initial~app-main~remote-conversation-page~pull-requests-page~new-thread-panel-page~proj~jolrh1c9-BEnPH27A",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-29T20:20:00.000Z",
-      "stage3Review": "Host self-review: quality-gate and prettier passed on the mapped public file; file read end-to-end against Stage 3 E1-E4."
+      "stage3AcceptedAt": "2026-07-01T02:11:37.000Z",
+      "stage3Review": "Host self-review: moved the current exact-hash git config query surface into github/git-config-value-current.ts, reused the semantic gitQuerySignal helper, preserved all five current export aliases through the runtime, and kept vendor/git-config-value-current-bundle.ts as a compatibility shim.",
+      "stage3Note": "Accepted as a semantic current git config value query surface with current-ref runtime and vendor shim exports."
     },
     "app-initial~app-main~onboarding-page-CgNc-Bk2": {
       "restored": "vendor/app-main-current-runtime/index.ts",
