@@ -1,158 +1,165 @@
 // Restored from ref/webview/assets/codex-mobile-page-CB-Xg-VQ.js
 // Current Codex mobile page backing bundle with restored dependency imports.
 
-import { once, toEsModule } from "../runtime/commonjs-interop";
+import { useCallback, useMemo, useState, type ReactElement } from "react";
+import { once } from "../runtime/commonjs-interop";
 import {
-  currentAppInitialSharedCompatSlotLowerALowerC,
-  currentAppInitialSharedCompatSlotUnderscoreLowerC,
-  currentAppInitialSharedCompatSlotUpperD,
-  currentAppInitialSharedCompatSlotUpperE,
-  currentAppInitialSharedCompatSlotLowerGLowerC,
-  currentAppInitialSharedCompatSlotUpperGLowerO,
-  currentAppInitialSharedCompatSlotUpperGLowerS,
-  currentAppInitialSharedCompatSlotUpperKLowerO,
-  currentAppInitialSharedCompatSlotLowerLLowerC,
-  currentAppInitialSharedCompatSlotLowerQLowerS,
-  currentAppInitialSharedCompatSlotDollarLowerS,
-  currentAppInitialSharedCompatSlotUpperVLowerO,
+  currentAppInitialSharedCompatSlotLowerALowerC as useQueryResult,
+  currentAppInitialSharedCompatSlotUpperD as initAppScopeRuntimeChunk,
+  currentAppInitialSharedCompatSlotUpperE as appScopeRoot,
+  currentAppInitialSharedCompatSlotLowerGLowerC as initReactCompilerRuntime,
+  currentAppInitialSharedCompatSlotUpperGLowerO as useScopedSignalValue,
+  currentAppInitialSharedCompatSlotUpperGLowerS as initScopedSignalRuntime,
+  currentAppInitialSharedCompatSlotUpperKLowerO as useRouteScopeContext,
+  currentAppInitialSharedCompatSlotLowerQLowerS as useAtomState,
+  currentAppInitialSharedCompatSlotDollarLowerS as initTypeScriptHelpersRuntime,
+  currentAppInitialSharedCompatSlotUpperVLowerO as initHotkeyWindowRoutingRuntime,
 } from "../runtime/current-app-initial/current-app-initial-shared-runtime";
 import {
-  worktreeNewThreadOrchestratorCompatSlotLowerOLowerT,
-  worktreeNewThreadOrchestratorCompatSlotLowerSLowerT,
+  worktreeNewThreadOrchestratorCompatSlotLowerOLowerT as appShellLayout,
+  worktreeNewThreadOrchestratorCompatSlotLowerSLowerT as initAppShellLayoutRuntime,
 } from "../runtime/current-app-initial/worktree-new-thread-orchestrator-runtime";
 import {
-  currentAppInitialSharedMember0542,
-  parseWorkspaceRootPathList,
-  currentAppInitialSharedControlConnectConnectionRuntime,
-  currentAppInitialSharedMember0686,
-  currentAppInitialSharedDisplayRuntime,
-  openAiNativeAppDefinition,
+  currentAppInitialSharedMember0542 as localHostId,
+  parseWorkspaceRootPathList as useNavigate,
+  currentAppInitialSharedControlConnectConnectionRuntime as initRemoteControlConnectionRuntime,
+  currentAppInitialSharedMember0686 as remoteControlStatusSignal,
+  currentAppInitialSharedDisplayRuntime as initDisplayRuntime,
+  openAiNativeAppDefinition as initOpenAiNativeAppDefinition,
 } from "../runtime/current-app-initial/remote-projects-app-shared-runtime";
 import {
-  pullRequestNewThreadCompatSlotLowerVLowerT,
-  pullRequestNewThreadCompatSlotLowerYLowerT,
+  pullRequestNewThreadCompatSlotLowerVLowerT as createMfaSetupRequiredQuery,
+  pullRequestNewThreadCompatSlotLowerYLowerT as initMfaSetupRequiredQueryRuntime,
 } from "../runtime/current-app-initial/pull-request-new-thread-runtime";
 import {
-  codexMobileSetupDialogA,
-  codexMobileSetupDialogD,
-  codexMobileSetupDialogR,
-  codexMobileSetupDialogU,
+  codexMobileSetupDialogA as initCodexMobileSetupDialogRuntime,
+  codexMobileSetupDialogD as initCodexMobileSetupDialogChunk,
+  codexMobileSetupDialogR as CodexMobileSetupDialog,
+  codexMobileSetupDialogU as setupStepDebugOverrideAtom,
 } from "../runtime/current-app-initial/codex-mobile-setup-dialog-current-runtime";
 import {
-  codexMobileSetupFlowA,
-  codexMobileSetupFlowI,
-  codexMobileSetupFlowN,
-  codexMobileSetupFlowR,
-  codexMobileSetupFlowT,
+  codexMobileSetupFlowA as shouldShowCodexMobileSetupFlow,
+  codexMobileSetupFlowI as initMfaSetupFlowRuntime,
+  codexMobileSetupFlowN as initCodexMobileSetupFlowChunk,
+  codexMobileSetupFlowR as getInitialCodexMobileSetupStep,
+  codexMobileSetupFlowT as CodexMobileSetupFlow,
 } from "../runtime/current-app-initial/codex-mobile-setup-flow-current-runtime";
-export function CodexMobilePage() {
-  let codexMobilePageValue14 = currentAppInitialSharedCompatSlotUpperKLowerO(
-      currentAppInitialSharedCompatSlotUpperE,
-    ),
-    codexMobilePageValue15 = currentAppInitialSharedCompatSlotUpperGLowerO(
-      currentAppInitialSharedMember0686,
-      currentAppInitialSharedMember0542,
-    ),
-    [codexMobilePageValue16] = currentAppInitialSharedCompatSlotLowerQLowerS(
-      codexMobileSetupDialogU,
-    ),
-    codexMobilePageValue17 = pullRequestNewThreadCompatSlotLowerVLowerT(
-      codexMobilePageValue14,
-    );
-  let { data, isError, isFetching, isPending } =
-    currentAppInitialSharedCompatSlotLowerALowerC(codexMobilePageValue17);
-  if (isPending || codexMobilePageValue15 == null) return null;
-  return codexMobilePageValue3.jsx(codexMobilePageHelper1, {
-    isMfaSetupRequiredError: isError,
-    isMfaSetupRequiredFetching: isFetching,
-    mfaSetupRequired: data,
-    remoteControlStatus: codexMobilePageValue15.status,
-    setupStepDebugOverride: codexMobilePageValue16,
-  });
+
+type CodexMobileSetupContentProps = {
+  isMfaSetupRequiredError: boolean;
+  isMfaSetupRequiredFetching: boolean;
+  mfaSetupRequired: unknown;
+  remoteControlStatus: unknown;
+  setupStepDebugOverride: unknown;
+};
+
+type RemoteControlStatusSnapshot = {
+  status: unknown;
+};
+
+const MainContentLayout = appShellLayout.MainContentLayout;
+
+export function CodexMobilePage(): ReactElement | null {
+  const routeScope = useRouteScopeContext(appScopeRoot);
+  const remoteControlStatus = useScopedSignalValue(
+    remoteControlStatusSignal,
+    localHostId,
+  ) as RemoteControlStatusSnapshot | null;
+  const [setupStepDebugOverride] = useAtomState(setupStepDebugOverrideAtom);
+  const mfaSetupRequiredQuery = useMemo(
+    () => createMfaSetupRequiredQuery(routeScope),
+    [routeScope],
+  );
+  const {
+    data: mfaSetupRequired,
+    isError: isMfaSetupRequiredError,
+    isFetching: isMfaSetupRequiredFetching,
+    isPending,
+  } = useQueryResult(mfaSetupRequiredQuery);
+
+  if (isPending || remoteControlStatus == null) {
+    return null;
+  }
+
+  return (
+    <CodexMobileSetupContent
+      isMfaSetupRequiredError={isMfaSetupRequiredError}
+      isMfaSetupRequiredFetching={isMfaSetupRequiredFetching}
+      mfaSetupRequired={mfaSetupRequired}
+      remoteControlStatus={remoteControlStatus.status}
+      setupStepDebugOverride={setupStepDebugOverride}
+    />
+  );
 }
-function codexMobilePageHelper1(codexMobilePageParam1) {
-  let {
-      isMfaSetupRequiredError,
-      isMfaSetupRequiredFetching,
-      mfaSetupRequired,
-      remoteControlStatus,
-      setupStepDebugOverride,
-    } = codexMobilePageParam1,
-    codexMobilePageValue5 = parseWorkspaceRootPathList(),
-    [codexMobilePageValue6] =
-      codexMobilePageValue2.useState(remoteControlStatus);
-  if (isMfaSetupRequiredFetching) return null;
+
+function CodexMobileSetupContent({
+  isMfaSetupRequiredError,
+  isMfaSetupRequiredFetching,
+  mfaSetupRequired,
+  remoteControlStatus,
+  setupStepDebugOverride,
+}: CodexMobileSetupContentProps): ReactElement | null {
+  const navigate = useNavigate();
+  const [initialRemoteControlStatus] = useState(remoteControlStatus);
+  const handleClose = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+  const handleManageConnections = useCallback(() => {
+    navigate("/settings/connections");
+  }, [navigate]);
+
+  if (isMfaSetupRequiredFetching) {
+    return null;
+  }
+
   if (
-    codexMobileSetupFlowA({
+    shouldShowCodexMobileSetupFlow({
       isMfaSetupRequiredError,
       mfaSetupRequired,
-      initialRemoteControlStatus: codexMobilePageValue6,
+      initialRemoteControlStatus,
       remoteControlStatus,
       setupStepDebugOverride,
     })
   ) {
-    let codexMobilePageValue9 = codexMobilePageValue3.jsx(
-      worktreeNewThreadOrchestratorCompatSlotLowerOLowerT.MainContentLayout,
-      {
-        layout: "full-bleed",
-      },
-    );
-    let codexMobilePageValue10 = codexMobileSetupFlowR({
+    const initialStep = getInitialCodexMobileSetupStep({
       isMfaSetupRequiredError,
       mfaSetupRequired,
       remoteControlStatus,
     });
-    let codexMobilePageValue11 = () => {
-      codexMobilePageValue5("/");
-    };
-    let codexMobilePageValue12;
+
     return (
       <>
-        {codexMobilePageValue9}
-        {codexMobilePageValue3.jsx(codexMobileSetupFlowT, {
-          initialStep: codexMobilePageValue10,
-          onClose: codexMobilePageValue11,
-          variant: "page",
-        })}
+        <MainContentLayout layout="full-bleed" />
+        <CodexMobileSetupFlow
+          initialStep={initialStep}
+          onClose={handleClose}
+          variant="page"
+        />
       </>
     );
   }
-  let codexMobilePageValue7 = codexMobilePageValue3.jsx(
-    worktreeNewThreadOrchestratorCompatSlotLowerOLowerT.MainContentLayout,
-    {
-      layout: "full-bleed",
-    },
-  );
+
   return (
     <>
-      {codexMobilePageValue7}
-      {codexMobilePageValue3.jsx(codexMobileSetupDialogR, {
-        onManageConnections: () => {
-          codexMobilePageValue5("/settings/connections");
-        },
-      })}
+      <MainContentLayout layout="full-bleed" />
+      <CodexMobileSetupDialog onManageConnections={handleManageConnections} />
     </>
   );
 }
-var codexMobilePageValue1, codexMobilePageValue2, codexMobilePageValue3;
+
 once(() => {
-  codexMobilePageValue1 = currentAppInitialSharedCompatSlotLowerGLowerC();
-  currentAppInitialSharedCompatSlotDollarLowerS();
-  currentAppInitialSharedCompatSlotUpperGLowerS();
-  currentAppInitialSharedCompatSlotUpperVLowerO();
-  codexMobilePageValue2 = toEsModule(
-    currentAppInitialSharedCompatSlotUnderscoreLowerC(),
-    1,
-  );
-  openAiNativeAppDefinition();
-  currentAppInitialSharedControlConnectConnectionRuntime();
-  worktreeNewThreadOrchestratorCompatSlotLowerSLowerT();
-  currentAppInitialSharedCompatSlotUpperD();
-  currentAppInitialSharedDisplayRuntime();
-  codexMobileSetupDialogD();
-  codexMobileSetupFlowN();
-  pullRequestNewThreadCompatSlotLowerYLowerT();
-  codexMobileSetupFlowI();
-  codexMobileSetupDialogA();
-  codexMobilePageValue3 = currentAppInitialSharedCompatSlotLowerLLowerC();
+  initReactCompilerRuntime();
+  initTypeScriptHelpersRuntime();
+  initScopedSignalRuntime();
+  initHotkeyWindowRoutingRuntime();
+  initOpenAiNativeAppDefinition();
+  initRemoteControlConnectionRuntime();
+  initAppShellLayoutRuntime();
+  initAppScopeRuntimeChunk();
+  initDisplayRuntime();
+  initCodexMobileSetupDialogChunk();
+  initCodexMobileSetupFlowChunk();
+  initMfaSetupRequiredQueryRuntime();
+  initMfaSetupFlowRuntime();
+  initCodexMobileSetupDialogRuntime();
 })();
