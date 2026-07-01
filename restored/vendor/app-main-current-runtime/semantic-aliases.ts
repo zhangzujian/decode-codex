@@ -149,6 +149,7 @@ export {
   initReviewOptionsToolbarChunk,
   ReviewOptionsToolbar,
 } from "../../review/review-options-toolbar";
+export { initReviewExpandedDiffsProviderCompatChunk } from "../../review/review-expanded-diffs-provider";
 export {
   initReviewPersistentSettingsChunk,
   reviewLoadFullFilesEnabledAtom,

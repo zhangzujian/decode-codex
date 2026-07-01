@@ -27358,7 +27358,7 @@
         "ar": "getModelReasoningEffortOptions",
         "as": "trackConversationalOnboardingLifecycleStarted",
         "at": "isConversationItemInProgress",
-        "au": "appMainCurrentCompatSlotLowerALowerU",
+        "au": "initReviewExpandedDiffsProviderCompatChunk",
         "b": "conversationalOnboardingTaskIntroCompleteSignal",
         "ba": "moveThreadToLocal",
         "bc": "CODEX_SKILLS_DOCS_URL",

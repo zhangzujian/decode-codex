@@ -17,6 +17,8 @@ const ReviewExpandedDiffsContext =
     toggleExpandedDiffs: () => {},
   });
 
+export function initReviewExpandedDiffsProviderCompatChunk(): void {}
+
 export interface ReviewExpandedDiffsProviderProps {
   children: ReactNode;
 }
