@@ -101,6 +101,7 @@ export {
   Sl as primeBrowserTabTransfers,
   To as registerForkedConversation,
   Ud as ThreadRowPinAction,
+  Wc as transferForkedConversationBrowserTabs,
   Wd as ThreadRowUnreadState,
   Wl as SidebarListSection,
   Yd as ThreadRowHoverActions,

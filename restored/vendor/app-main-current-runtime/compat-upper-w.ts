@@ -2,7 +2,6 @@
 // Uppercase W compatibility aliases for the current app-main producer.
 export {
   W as appMainCurrentCompatSlotUpperW,
-  Wc as appMainCurrentCompatSlotUpperWLowerC,
   Wf as appMainCurrentCompatSlotUpperWLowerF,
   Wi as appMainCurrentCompatSlotUpperWLowerI,
   Wn as appMainCurrentCompatSlotUpperWLowerN,
