@@ -2,6 +2,10 @@
 // Imperative commands that open the Review (diff) tab in the thread side panel.
 import { createElement } from "react";
 import {
+  openReviewCommentsInDiff,
+  type ReviewComment,
+} from "../conversations/navigate-to-review-comments";
+import {
   reviewSourceAtom,
   reviewTargetConversationIdAtom,
   focusSidePanelTab,
@@ -58,6 +62,25 @@ export function openReviewTab(
   }
   openReviewSidePanelTab(store, false, target);
   return !activate || focusSidePanelTab(store, target, SidePanelTabKind.DIFF);
+}
+
+export interface OpenBranchReviewTabOptions {
+  comment?: ReviewComment | null;
+  path?: string | null;
+}
+
+export function openBranchReviewTab(
+  store: AppStore,
+  options: OpenBranchReviewTabOptions = {},
+): boolean {
+  store.set(reviewSourceAtom, "branch");
+  const focused = openReviewTab(store);
+  if (options.comment == null) {
+    if (options.path != null) navigateToReviewFilePath(store, options.path);
+  } else {
+    openReviewCommentsInDiff(store, [options.comment]);
+  }
+  return focused;
 }
 
 export interface OpenReviewTabForConversationOptions {

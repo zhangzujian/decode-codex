@@ -70,7 +70,7 @@ import {
 } from "../runtime/current-app-initial/pull-request-new-thread-runtime";
 import {
   appMainCurrentCompatSlotUpperFLowerC as initAppMainReviewContentRuntime,
-  appMainCurrentCompatSlotUpperHLowerC as setThreadBrowserSidePanelExpanded,
+  openReviewTab,
   openThreadBrowserSidePanelTabWithPendingState as useCurrentGitBranch,
   appMainCurrentCompatSlotLowerFLowerO as XcodeLicenseWarningIcon,
   openThreadBrowserSidePanelTab as initThreadBrowserSidePanelTabRuntime,
@@ -755,10 +755,7 @@ function ReviewModeContent({
 
     openReviewSidePanelForBranch(scope, conversationId, result.baseBranch);
     const activeTabId = scope.get(activeTabStore.activeTab$)?.tabId;
-    setThreadBrowserSidePanelExpanded(
-      scope,
-      !activeTabId?.startsWith("sidechat:"),
-    );
+    openReviewTab(scope, !activeTabId?.startsWith("sidechat:"));
     scope.set(threadSidePanelExpandedSignal, false);
   };
   const { mutate, isPending, variables } = useStartReviewMutation({

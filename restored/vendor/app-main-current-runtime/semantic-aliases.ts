@@ -483,7 +483,14 @@ export {
   openBrowserTab,
   openOrCreateBrowserTab,
 } from "../../browser/side-panel-browser-tab-commands";
-export { openReviewTabForConversation } from "../../review/review-side-panel-tab-commands";
+export { initSidePanelBrowserTabCommandsChunk } from "../../browser/side-panel-browser-tab-commands-chunk";
+export { openExistingBrowserTab } from "../../browser/side-panel-browser-tab-open-existing";
+export { BrowserTabMetadataSyncEffect } from "../../browser/browser-tab-metadata-sync-effect";
+export {
+  openBranchReviewTab,
+  openReviewTab,
+  openReviewTabForConversation,
+} from "../../review/review-side-panel-tab-commands";
 export { isCurrentLocationCodexPage } from "../../utils/is-codex-page-route";
 export {
   initGetMoveToLocalTargetsChunk,
