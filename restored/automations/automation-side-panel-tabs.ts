@@ -23,6 +23,8 @@ export interface OpenAutomationSuggestionTabOptions {
   title: string;
 }
 
+export function initAutomationSidePanelTabsChunk(): void {}
+
 export function openAutomationTab({
   scope,
   automationId,

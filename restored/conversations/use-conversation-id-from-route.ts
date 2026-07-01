@@ -4,6 +4,8 @@
 import { normalizeConversationId } from "../boundaries/src-l0hb-mz-p";
 import { useRouteMatch } from "../boundaries/onboarding-commons-externals.facade";
 
+export function initUseConversationIdFromRouteChunk(): void {}
+
 export function useConversationIdFromRoute(): string | null {
   const localMatch = useRouteMatch("/local/:conversationId");
   const remoteMatch = useRouteMatch("/remote/:conversationId");

@@ -672,6 +672,7 @@ export {
   SET_THREAD_TITLE_TOOL_NAME,
 } from "../../conversations/codex-app-tool-names";
 export {
+  initAutomationSidePanelTabsChunk,
   openAutomationSuggestionTab,
   openAutomationTab,
 } from "../../automations/automation-side-panel-tabs";
@@ -682,6 +683,10 @@ export {
   initHeartbeatThreadOptionsChunk,
   useHeartbeatThreadOptions,
 } from "../../automations/use-heartbeat-thread-options";
+export {
+  initUseConversationIdFromRouteChunk,
+  useConversationIdFromRoute,
+} from "../../conversations/use-conversation-id-from-route";
 export {
   AutomationSaveTooltip,
   initAutomationSaveTooltipChunk,
