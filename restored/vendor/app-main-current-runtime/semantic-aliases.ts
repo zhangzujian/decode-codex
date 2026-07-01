@@ -18,7 +18,10 @@ export { QueryClientProvider } from "../../runtime/query-client/react-query-cont
 export { useQueries } from "../../runtime/query-client/react-query-hooks";
 export { createToolErrorResult } from "../../runtime/tool-result-runtime";
 export { OpenAiMcpCapabilityView } from "../../review/openai-mcp-capability-view";
-export { useCloudEnvironmentsQuery } from "../../runtime/codex-api";
+export {
+  useCloudEnvironmentsQuery,
+  useReferralInviteMutation,
+} from "../../runtime/codex-api";
 export {
   browserTabIdForConversation,
   deriveBrowserConversationId,
@@ -102,7 +105,6 @@ export {
   nf as liveMcpAppFrameSignal,
   nm as SidebarRowHoverCard,
   of as closeThreadMcpAppSidePanelTab,
-  ol as useReferralInviteMutation,
   pl as initThreadSidePanelTabsChunk,
   pr as readProjectSignal,
   rc as ErrorCircleIcon,
