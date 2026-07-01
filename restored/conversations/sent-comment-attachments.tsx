@@ -18,6 +18,8 @@ import {
 
 const DESIGN_TWEAK_ARROW = "→";
 
+export function initSentCommentAttachmentsChunk(): void {}
+
 type ContentPreview =
   | { type: "image"; src: string; alt?: string | null }
   | { type: "text"; text: string };

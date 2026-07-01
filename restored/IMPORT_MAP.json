@@ -27342,7 +27342,7 @@
         "_p": "selectedHostCollaborationModesQuerySignal",
         "_r": "areAutomationRecordsEqual",
         "_s": "initConversationalOnboardingStreamingIntroChunk",
-        "_t": "appMainCurrentCompatSlotUnderscoreLowerT",
+        "_t": "initSentCommentAttachmentsChunk",
         "_u": "appMainCurrentCompatSlotUnderscoreLowerU",
         "a": "getConversationalOnboardingMessagingPluginNames",
         "aa": "handleSetThreadPinned",
