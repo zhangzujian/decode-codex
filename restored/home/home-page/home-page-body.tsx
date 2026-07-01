@@ -16,64 +16,80 @@ import {
   useNavigate,
 } from "../../conversations/local-conversation-route-runtime";
 import { useOpenUpgradePlan } from "../../settings/upgrade-plan-entry";
-import { useFeatureGate } from "../../boundaries/statsig.facade";
+import { useFeatureGate } from "../../statsig/use-feature-gate";
 import { useWorkspaceOnboardingAutoLaunch } from "../../runtime/current-app-initial/onboarding-select-workspace-current-runtime";
 import { ThreadAppShellChrome } from "../../app-shell/thread-app-shell-chrome";
 import { HomeAnnouncements } from "../../app-shell/home-announcements";
 import { HomeArtifactTemplates } from "../artifact-templates";
 import { HomeConversationStarters } from "../home-conversation-starters";
 import { HomePrefillArtifactPreview } from "../home-prefill-artifact-preview";
+import { HomeComposer } from "../../composer/home-composer";
+import { HomeHeader } from "../home-header";
+import { HomeScrollContainerContext } from "../home-scroll-container-context";
+import { AppgenProjectHeader as HomeStartActionsBar } from "../../appgen/project-header";
+import { HomepageLogoIcon as HomeLogoIcon } from "../../icons/homepage-logo-icon";
+import { PlatformGate } from "../../app-shell/platform-gate";
+import { openRemoteProjectModal } from "../../remote/open-remote-project-modal";
+import { normalizeWorkspaceRoot } from "../../utils/normalize-workspace-root";
+import { electronBridgeDispatch } from "../../runtime/electron-bridge-dispatch";
+import { sidePanelSlots } from "../../app-shell/side-panel-slots";
+import {
+  logWorkspaceOnboardingEvent,
+  workspaceOnboardingNavigationEvent,
+} from "../../onboarding/workspace-onboarding-navigation-analytics";
+import { threadFooterClassName } from "../../app-shell/thread-footer-class-name";
+import {
+  motionLayoutDiv as MotionDiv,
+  motionTransitionConfig,
+} from "../../utils/motion-layout";
+import { getCodexPlanDisplayState as getPlanInfo } from "../../utils/plan-management-state";
+import {
+  WORKSPACE_ONBOARDING_PLAYGROUND_NAME as onboardingDefaultProjectName,
+  isDirectFolderPickerArm as isWorkspaceOnboardingExperimentArm,
+} from "../../onboarding/workspace-onboarding-experiment";
+import { useElectronMessageHandler } from "../../runtime/use-electron-message-handler";
+import { useIsMounted as useIsElectron } from "../../utils/use-is-mounted";
+import { useIsUpgradeEligible } from "../../settings/use-upgrade-eligibility";
+import { useHomeComposerKeyboardShortcuts } from "../../composer/use-home-composer-keyboard-shortcuts";
+import { useRegisterSidePanelAction } from "../../app-shell/use-register-side-panel-action";
+import { _vscodeApiO as useAccountInfoQuery } from "../../boundaries/vscode-api";
+import {
+  useAccountCheckQuery as useAccountsQuery,
+  useSelectedAccountQuery as useCurrentUserQuery,
+} from "../../runtime/codex-api";
+import {
+  useThreadDetailLevel as useDetailLevel,
+  THREAD_DETAIL_LEVEL_PROSE as EVERYDAY_WORK_DETAIL_LEVEL,
+} from "../../utils/thread-detail-level";
+import { getDraftThreadLocationIdForEntrypoint as useDraftLocation } from "../../runtime/persisted-signal/route-ids";
+import { useCodexPricingUrl as useGetPricingUrl } from "../../utils/use-codex-pricing";
+import { useRemoteProjects } from "../../features/remote-projects";
+import { currentRouteSignal } from "../../conversations/current-route-signal";
+import {
+  workspaceContextSignal,
+  workspaceGroupsSignal,
+  workspaceRootsSignal,
+  isRemoteProjectPendingSignal,
+} from "../../runtime/workspace-signals";
 import {
   browserHostIdSignal,
   browserHostInfoSignal,
-  buildDiffCommentsPayload,
-  clsx as cn,
-  currentRouteSignal,
-  electronBridgeDispatch,
-  EVERYDAY_WORK_DETAIL_LEVEL,
-  HomeAmbientSuggestionsContent,
-  HomeComposer,
-  HomeHeader,
-  HomeLogoIcon,
-  HomeScrollContainerContext,
-  HomeStartActionsBar,
+} from "../../runtime/browser-host-signals";
+import {
   isHomeSidePanelExpandedSignal,
   isPullRequestSyncEnabledSignal,
-  isRemoteProjectPendingSignal,
-  isWorkspaceOnboardingExperimentArm,
-  LocalConversationStateEffect,
-  logWorkspaceOnboardingEvent,
-  motionLayoutDiv as MotionDiv,
-  motionTransitionConfig,
-  normalizeWorkspaceRoot,
-  onboardingDefaultProjectName,
-  openRemoteProjectModal,
-  PlatformGate,
-  RemoteConversationStateEffect,
+} from "../../runtime/home-side-panel-signals";
+import {
   setDraftConversationId,
-  sidePanelSlots,
-  threadFooterClassName,
   updateDiffComments,
-  getPlanInfo,
-  useAccountInfoQuery,
-  useAccountsQuery,
-  useCurrentUserQuery,
-  useDetailLevel,
-  useDraftLocation,
-  useElectronMessageHandler,
-  useGetPricingUrl,
-  useHomeComposerKeyboardShortcuts,
-  useIsElectron,
-  useIsUpgradeEligible,
-  useRegisterSidePanelAction,
-  useRemoteProjects,
-  useSignalValue,
-  useStore,
-  workspaceContextSignal,
-  workspaceGroupsSignal,
-  workspaceOnboardingNavigationEvent,
-  workspaceRootsSignal,
-} from "../../boundaries/onboarding-commons-externals.facade";
+  buildDiffCommentsPayload,
+} from "../../conversations/conversation-draft-diff-helpers";
+import { ThreadFileSearchCommandMenuRegistration as LocalConversationStateEffect } from "../../threads/thread-file-search-command";
+import { LocalConversationDiffSummaryView as RemoteConversationStateEffect } from "../../conversations/local-conversation-page-parts/local-conversation-diff-summary-effects";
+import { HomeAmbientSuggestionsContent } from "../../runtime/current-app-initial/home-ambient-suggestions-content-current-runtime";
+import { useSignalValue } from "../../runtime/scope-signal-runtime";
+import { useStore } from "../../vendor/jotai-runtime";
+import { classNames as cn } from "../../utils/class-names";
 import { GetPlusButton } from "./get-plus-button";
 import { HomeSwitchWorkspaceCommand } from "./home-switch-workspace-command";
 
