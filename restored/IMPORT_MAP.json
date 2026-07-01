@@ -42418,12 +42418,12 @@
         "SelectWorkspacePage": "SelectWorkspacePage"
       },
       "status": "done",
-      "note": "Current SelectWorkspacePage hash maps to a dedicated current-ref runtime over vendor/select-workspace-page-current-bundle.tsx; the single semantic export is re-derived from the current file.",
-      "lastUpdated": "2026-06-30T23:18:00.000Z",
+      "note": "Current SelectWorkspacePage hash maps to a dedicated current-ref runtime over workspace/select-workspace-page.tsx; the semantic page implementation removes the former vendor current bundle while preserving the single public export.",
+      "lastUpdated": "2026-07-01T00:00:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:18:00.000Z",
-      "stage3Review": "Host self-review: current ref select-workspace-page-Dpe6Qyul.js exports only SelectWorkspacePage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of SelectWorkspacePage remains future cleanup."
+      "stage3Review": "Host self-review: current ref select-workspace-page-Dpe6Qyul.js exports only SelectWorkspacePage; restored/workspace/select-workspace-page.tsx rewrites the page as semantic React JSX, updates the runtime facade, removes the vendor current bundle, and passes focused quality gates.",
+      "stage3Note": "Accepted as a semantic SelectWorkspacePage implementation with current-ref provenance and restored dependency imports."
     },
     "agent-settings-CE_EGsV1": {
       "restored": "runtime/current-app-initial/agent-settings-current-runtime.ts",
