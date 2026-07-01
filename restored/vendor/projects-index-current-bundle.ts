@@ -324,7 +324,7 @@ import {
 } from "../runtime/current-app-initial/pull-request-new-thread-runtime";
 import {
   areArraysEqual as Gi,
-  appMainCurrentCompatSlotUpperALowerU as Ki,
+  initSettingsHostContextRuntimeChunk as Ki,
   useThreadActions as qi,
   initPinnedThreadsQueryChunk as Ji,
   getThreadTaskKeys as Yi,

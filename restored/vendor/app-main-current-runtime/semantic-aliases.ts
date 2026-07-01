@@ -60,6 +60,7 @@ export {
   initSettingsControlRowChunk,
   SettingsControlRow,
 } from "../../ui/settings-row";
+export { initSettingsHostContextRuntimeChunk } from "../../settings/settings-host-context";
 export {
   CHATGPT_ADMIN_BILLING_ADD_CREDITS_URL,
   CHATGPT_ADMIN_URL,

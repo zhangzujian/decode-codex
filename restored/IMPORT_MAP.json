@@ -26756,7 +26756,7 @@
         "Ar": "GlobeIcon",
         "As": "appMainCurrentCompatSlotUpperALowerS",
         "At": "appMainCurrentCompatSlotUpperALowerT",
-        "Au": "appMainCurrentCompatSlotUpperALowerU",
+        "Au": "initSettingsHostContextRuntimeChunk",
         "B": "appMainCurrentCompatSlotUpperB",
         "Ba": "useThreadActions",
         "Bc": "appMainCurrentCompatSlotUpperBLowerC",

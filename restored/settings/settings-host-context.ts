@@ -94,3 +94,4 @@ function getRemoteConnectionHostId(
 ): string {
   return remoteConnection.hostId;
 }
+export function initSettingsHostContextRuntimeChunk(): void {}
