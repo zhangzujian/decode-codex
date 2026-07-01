@@ -27,6 +27,7 @@ export {
   CheckCircleIcon,
   initCheckCircleIconChunk,
 } from "../../icons/check-circle-icon";
+export { initXCircleIconChunk, XCircleIcon } from "../../icons/x-circle-icon";
 export {
   initProgressionDonutIconChunk,
   ProgressionDonutIcon,
