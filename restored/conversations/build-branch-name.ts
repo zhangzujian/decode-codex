@@ -3,6 +3,8 @@
 
 const MAX_BRANCH_TITLE_WORDS = 5;
 
+export function initBuildBranchNameChunk(): void {}
+
 function slugifyConversationTitle(
   conversationTitle: string | null | undefined,
 ): string {

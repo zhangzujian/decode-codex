@@ -29,6 +29,7 @@ const EXPERIMENTAL_FEATURES_PAGE_SIZE = 100;
 const MODELS_PAGE_SIZE = 100;
 const MODEL_GUIDANCE_TIMEOUT_MS = 1_000;
 
+export function initCodexAppToolNamespaceChunk(): void {}
 export function initCodexAppToolNamespaceModelGuidanceChunk(): void {}
 
 type ModelGuidance = { model: string; description: string };

@@ -6,6 +6,8 @@ type FormatDurationOptions = {
   trimZeroUnits?: boolean;
 };
 
+export function initDurationFormatChunk(): void {}
+
 export function formatDurationMs(
   durationMs: number,
   {

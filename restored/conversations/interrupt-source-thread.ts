@@ -9,6 +9,8 @@ type InterruptSourceThreadOptions = {
   sourceThreadRunning: boolean;
 };
 
+export function initInterruptSourceThreadChunk(): void {}
+
 export async function interruptSourceThreadIfRunning({
   conversationId,
   sourceThreadRunning,

@@ -7,6 +7,8 @@ import {
   createPersistedToggleAtom,
 } from "../boundaries/onboarding-commons-externals.facade";
 
+export function initLocalGitActionStateChunk(): void {}
+
 export type GitActionStep = "commit" | "create-pr";
 export type ActiveGitWorkflow = {
   workflow: "commit" | "create-pr";

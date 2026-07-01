@@ -8,8 +8,10 @@ import { Button } from "../ui/button";
 import { Spinner } from "../ui/spinner";
 import { CloseIcon } from "../boundaries/onboarding-commons-externals.facade";
 
-const ICON_BUTTON_CLASS_NAME =
+export const CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME =
   "cursor-interaction flex size-4 shrink-0 items-center justify-center border-0 bg-transparent p-0 text-token-text-tertiary hover:text-token-foreground focus:outline-none";
+
+export function initCancelGitActionButtonChunk(): void {}
 
 export interface CancelGitActionButtonProps {
   variant?: "icon" | "toolbar";
@@ -58,7 +60,7 @@ export function CancelGitActionButton({
     <button
       type="button"
       aria-label={label}
-      className={ICON_BUTTON_CLASS_NAME}
+      className={CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME}
       onClick={onCancel}
     >
       <CloseIcon className="icon-xs" />

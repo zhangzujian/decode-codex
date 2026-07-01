@@ -23,6 +23,27 @@ type ThreadHandoffStep = {
   id: ThreadHandoffStepId;
   status: ThreadHandoffStepStatus;
 };
+export const THREAD_HANDOFF_STEP_IDS: readonly ThreadHandoffStepId[] = [
+  "prepare-host-transfer",
+  "transfer-host-artifacts",
+  "create-new-worktree",
+  "reuse-existing-worktree",
+  "stash-source-changes",
+  "detach-worktree-branch",
+  "checkout-local-branch",
+  "stash-target-worktree-changes",
+  "checkout-worktree-branch",
+  "apply-changes-to-worktree",
+  "apply-changes-to-local",
+  "switching-thread",
+];
+
+export function initThreadHandoffStepIdsChunk(): void {
+  void THREAD_HANDOFF_STEP_IDS;
+}
+
+export function initThreadHandoffStepRowChunk(): void {}
+
 type ThreadHandoffStepRowProps = {
   compact?: boolean;
   direction: ThreadHandoffDirection;

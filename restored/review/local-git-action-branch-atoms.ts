@@ -17,6 +17,8 @@ import { LOCAL_GIT_ACTION_OPERATION_SOURCE } from "./git-action-workflow-types";
 
 type Getter = <TValue>(atom: unknown, params?: unknown) => TValue;
 
+export function initLocalGitActionBranchAtomsChunk(): void {}
+
 export interface GitActionContext {
   cwd: string;
   hostConfig: { id: string };

@@ -62,6 +62,15 @@ export {
 } from "../../runtime/codex-api";
 export { LocalConversationGitActions } from "../../conversations/local-conversation-git-actions";
 export {
+  CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME,
+  CancelGitActionButton,
+  initCancelGitActionButtonChunk,
+} from "../../conversations/cancel-git-action-button";
+export {
+  buildBranchName,
+  initBuildBranchNameChunk,
+} from "../../conversations/build-branch-name";
+export {
   browserTabIdForConversation,
   deriveBrowserConversationId,
   getBrowserTabIdForPanelTab,
@@ -319,15 +328,41 @@ export { remapDiffCommentsForHandoff } from "../../conversations/remap-diff-comm
 export { handleForkThread } from "../../conversations/thread-management-tool-handlers";
 export {
   buildCodexAppToolNamespace,
+  CODEX_APP_TOOL_NAMESPACE,
+  initCodexAppToolNamespaceChunk,
   initCodexAppToolNamespaceModelGuidanceChunk,
   loadAllModelsWithTimeout,
 } from "../../conversations/codex-app-tool-namespace";
+export {
+  GET_HANDOFF_STATUS_TOOL_NAME,
+  HANDOFF_THREAD_TOOL_NAME,
+} from "../../conversations/codex-app-tool-names";
+export {
+  initInterruptSourceThreadChunk,
+  interruptSourceThreadIfRunning,
+} from "../../conversations/interrupt-source-thread";
 export { getThreadHandoffComposerBlockReason } from "../../threads/thread-handoff-composer-block-state";
 export { hasWorkspaceDependenciesFeature } from "../../features/workspace-dependencies";
 export {
   AnnotationModeButton,
   initAnnotationModeButtonChunk,
 } from "../../ui/annotation-mode-button";
+export {
+  initThreadHandoffStepIdsChunk,
+  initThreadHandoffStepRowChunk,
+  THREAD_HANDOFF_STEP_IDS,
+  ThreadHandoffStepRow,
+} from "../../ui/thread-handoff-step-row";
+export {
+  initDurationFormatChunk,
+  formatCompactDurationMs,
+  formatDurationMs,
+} from "../../utils/duration-format";
+export {
+  computeBranchMismatch,
+  initLocalGitActionBranchAtomsChunk,
+} from "../../review/local-git-action-branch-atoms";
+export { initLocalGitActionStateChunk } from "../../review/local-git-action-state";
 const threadManagementToolHandlers = getThreadManagementToolHandlers();
 export const handleCreateThread =
   threadManagementToolHandlers.handleCreateThread;
