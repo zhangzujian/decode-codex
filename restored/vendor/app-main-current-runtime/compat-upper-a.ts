@@ -13,4 +13,5 @@ export {
   Ap as appMainCurrentCompatSlotUpperALowerP,
   As as appMainCurrentCompatSlotUpperALowerS,
   At as appMainCurrentCompatSlotUpperALowerT,
+  Au as appMainCurrentCompatSlotUpperALowerU,
 } from "../app-main-current-cgnc-bundle";

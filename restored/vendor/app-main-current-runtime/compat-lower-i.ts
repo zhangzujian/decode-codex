@@ -6,6 +6,7 @@ export {
   id as appMainCurrentCompatSlotLowerILowerD,
   if as appMainCurrentCompatSlotLowerILowerF,
   ii as appMainCurrentCompatSlotLowerILowerI,
+  im as appMainCurrentCompatSlotLowerILowerM,
   in as appMainCurrentCompatSlotLowerILowerN,
   io as appMainCurrentCompatSlotLowerILowerO,
   ip as appMainCurrentCompatSlotLowerILowerP,

@@ -6,9 +6,11 @@ export {
   Gc as appMainCurrentCompatSlotUpperGLowerC,
   Gf as appMainCurrentCompatSlotUpperGLowerF,
   Gi as appMainCurrentCompatSlotUpperGLowerI,
+  Gn as appMainCurrentCompatSlotUpperGLowerN,
   Go as appMainCurrentCompatSlotUpperGLowerO,
   Gp as appMainCurrentCompatSlotUpperGLowerP,
   Gr as appMainCurrentCompatSlotUpperGLowerR,
   Gs as appMainCurrentCompatSlotUpperGLowerS,
+  Gt as appMainCurrentCompatSlotUpperGLowerT,
   Gu as appMainCurrentCompatSlotUpperGLowerU,
 } from "../app-main-current-cgnc-bundle";

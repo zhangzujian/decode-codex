@@ -7,6 +7,7 @@ export {
   Kf as appMainCurrentCompatSlotUpperKLowerF,
   Ki as appMainCurrentCompatSlotUpperKLowerI,
   Kl as appMainCurrentCompatSlotUpperKLowerL,
+  Kn as appMainCurrentCompatSlotUpperKLowerN,
   Ko as appMainCurrentCompatSlotUpperKLowerO,
   Kp as appMainCurrentCompatSlotUpperKLowerP,
   Kr as appMainCurrentCompatSlotUpperKLowerR,
