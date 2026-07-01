@@ -1,8 +1,7 @@
 // Restored from ref/webview/assets/plugins-settings-BqBINsWY.js
 // Current PluginsSettings backing bundle with restored dependency imports.
 
-import { once as rolldownRuntimeN } from "../runtime/commonjs-interop";
-import { currentAppInitialSharedCompatSlotLowerGLowerC as initReactCompilerRuntime } from "../runtime/current-app-initial/current-app-initial-shared-runtime";
+import { once as runOnce } from "../runtime/commonjs-interop";
 import {
   currentAppInitialSharedMember0505 as pluginDirectoryEntrypoints,
   remoteControlRefreshSourceEnum as initRemoteControlRefreshSourceEnum,
@@ -26,8 +25,7 @@ function PluginsSettings() {
     </SettingsContentLayout>
   );
 }
-rolldownRuntimeN(() => {
-  initReactCompilerRuntime();
+runOnce(() => {
   initRemoteControlRefreshSourceEnum();
   initPluginsPageChunk();
   initSettingsContentLayoutChunk();

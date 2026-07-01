@@ -2,8 +2,7 @@
 // Current NewThreadPanelPage backing bundle with restored dependency imports.
 
 import type { ReactElement } from "react";
-import { once as rolldownRuntimeN } from "../runtime/commonjs-interop";
-import { currentAppInitialSharedCompatSlotLowerGLowerC as initReactCompilerRuntime } from "../runtime/current-app-initial/current-app-initial-shared-runtime";
+import { once as runOnce } from "../runtime/commonjs-interop";
 import { worktreeNewThreadQueryCompatSlotLowerHLowerH as initClassNameRuntime } from "../runtime/current-app-initial/worktree-new-thread-query-runtime";
 import {
   currentAppInitialSharedMember0084 as Navigate,
@@ -21,8 +20,7 @@ function NewThreadPanelPage(): ReactElement {
   return <Navigate to="/" replace />;
 }
 
-rolldownRuntimeN(() => {
-  initReactCompilerRuntime();
+runOnce(() => {
   initClassNameRuntime();
   initIntlFormattingRuntime();
   initOpenAiNativeAppDefinition();

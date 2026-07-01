@@ -1,8 +1,7 @@
 // Restored from ref/webview/assets/skills-settings-77Mu8VFb.js
 // Current SkillsSettings backing bundle with restored dependency imports.
 
-import { once as rolldownRuntimeN } from "../runtime/commonjs-interop";
-import { currentAppInitialSharedCompatSlotLowerGLowerC as initReactCompilerRuntime } from "../runtime/current-app-initial/current-app-initial-shared-runtime";
+import { once as runOnce } from "../runtime/commonjs-interop";
 import {
   initSettingsContentLayoutChunk,
   SettingsContentLayout,
@@ -18,8 +17,7 @@ function SkillsSettings() {
     </SettingsContentLayout>
   );
 }
-rolldownRuntimeN(() => {
-  initReactCompilerRuntime();
+runOnce(() => {
   initSkillsPageChunk();
   initSettingsContentLayoutChunk();
 })();
