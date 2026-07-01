@@ -38,3 +38,5 @@ export function CommandKeymapStateListener({
   }, [keyboardEventTarget, store]);
   return null;
 }
+
+export function initCommandKeymapStateListenerChunk(): void {}

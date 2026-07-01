@@ -223,6 +223,10 @@ export {
   initBrowserOptionsMenuTriggerButtonChunk,
 } from "../../browser/browser-options-menu-trigger-button";
 export {
+  CommandKeymapStateListener,
+  initCommandKeymapStateListenerChunk,
+} from "../../composer/command-keymap-state-listener";
+export {
   BrowserSidebarWebview,
   initBrowserSidebarWebviewChunk,
 } from "../../browser/sidebar-webview";
