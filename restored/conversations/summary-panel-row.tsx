@@ -14,8 +14,10 @@ import clsx from "clsx";
 
 type SummaryPanelRowDensity = "compact" | "comfortable";
 
-export interface SummaryPanelRowProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, "title" | "onClick"> {
+export interface SummaryPanelRowProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "title" | "onClick"
+> {
   "aria-expanded"?: boolean;
   ariaExpanded?: boolean;
   className?: string;

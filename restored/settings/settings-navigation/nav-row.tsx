@@ -14,8 +14,10 @@ type SettingsNavIcon =
   | ComponentType<{
       className?: string;
     }>;
-export interface SettingsNavRowProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
+export interface SettingsNavRowProps extends Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "children"
+> {
   badge?: number | ReactNode;
   fullWidth?: boolean;
   hideLabel?: boolean;

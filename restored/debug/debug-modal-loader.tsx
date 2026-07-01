@@ -14,9 +14,8 @@ const LazyDebugModal = React.lazy(async () => ({
   default: (
     await preloadDynamicImport(
       async () => {
-        const { DebugModal } = await import(
-          "../runtime/current-app-initial/debug-modal-route-current-runtime"
-        );
+        const { DebugModal } =
+          await import("../runtime/current-app-initial/debug-modal-route-current-runtime");
         return { DebugModal };
       },
       [],

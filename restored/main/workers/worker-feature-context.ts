@@ -59,9 +59,7 @@ type ComputerUseCaptureWorkerDependencies = {
   startCapture?(params: Record<string, unknown>): Promise<unknown>;
 };
 
-export class ComputerUseCaptureWorkerRequestDispatcher
-  implements WorkerRequestDispatcher
-{
+export class ComputerUseCaptureWorkerRequestDispatcher implements WorkerRequestDispatcher {
   constructor(
     private readonly workerId: string,
     private readonly postMessage: (message: WorkerOutboundMessage) => void,

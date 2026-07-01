@@ -14,8 +14,10 @@ import type {
   ThreadPanelNewTabModelOptions,
 } from "./types";
 
-export interface RightPanelEmptyStateProps
-  extends Omit<ThreadPanelNewTabModelOptions, "target"> {
+export interface RightPanelEmptyStateProps extends Omit<
+  ThreadPanelNewTabModelOptions,
+  "target"
+> {
   onClose?: () => void;
 }
 

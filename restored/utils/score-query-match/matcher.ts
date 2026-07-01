@@ -415,7 +415,6 @@ export class WildcardPatternMatcher {
       ;
       input22 + matchLocal35 < input20.length &&
       input21 + matchLocal35 < this.myPattern.length;
-
     ) {
       let matchLocal74 = input20[input22 + matchLocal35];
       if (
@@ -485,7 +484,6 @@ export class WildcardPatternMatcher {
       ;
       matchLocal26 >= input14 ||
       (matchLocal26 > 0 && this.isWildcard(input11 + matchLocal26));
-
     ) {
       let matchLocal53 = null;
       if (this.isWildcard(input11 + matchLocal26))

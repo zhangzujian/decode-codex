@@ -2036,4 +2036,5 @@ export const useRegisterCommand: any = undefined as any;
 export const useScopeConversationId: any = undefined as any;
 export const useScopeStore: any = undefined as any;
 export const useSettingValue: any = undefined as any;
-export const useStartConversationWithPrimaryRuntimeForFirstTurn: any = undefined as any;
+export const useStartConversationWithPrimaryRuntimeForFirstTurn: any =
+  undefined as any;
