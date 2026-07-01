@@ -1,5 +1,53 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~ko8xg8gw-DEdbMp8p.js
 // Semantic alias layer for worktree/new-thread query runtime.
+import {
+  Ad as composerPromptScope,
+  Dm as LoadingSpinnerIcon,
+  Ed as getComposerPromptProjectKey,
+  ef as useSelectedAccountQuery,
+  Em as initButtonRuntime,
+  gp as toastControllerSignal,
+  is as openExternalUrl,
+  Jd as initSelectedAccountQueryRuntime,
+  Kc as getCurrentBuildFlavor,
+  Kl as setComposerPromptSubmitMode,
+  ls as ElectronOnlyShell,
+  mh as classNames,
+  mp as initToastControllerRuntime,
+  ns as initOpenExternalUrlRuntime,
+  qc as initDebugWindowRouteRuntime,
+  Tm as Button,
+  us as initElectronOnlyShellRuntime,
+  xp as initTooltipRuntime,
+  yp as Tooltip,
+} from "../../vendor/worktree-new-thread-query-current-bundle";
+
+export {
+  Button,
+  classNames,
+  composerPromptScope,
+  ElectronOnlyShell,
+  getComposerPromptProjectKey,
+  getCurrentBuildFlavor,
+  initButtonRuntime,
+  initDebugWindowRouteRuntime,
+  initElectronOnlyShellRuntime,
+  initOpenExternalUrlRuntime,
+  initSelectedAccountQueryRuntime,
+  initToastControllerRuntime,
+  initTooltipRuntime,
+  LoadingSpinnerIcon,
+  openExternalUrl,
+  setComposerPromptSubmitMode,
+  toastControllerSignal,
+  Tooltip,
+  useSelectedAccountQuery,
+};
+
+export function initWorktreeNewThreadQuerySemanticRuntime(): void {
+  initOpenExternalUrlRuntime();
+}
+
 // prettier-ignore
 export {
   _ as worktreeNewThreadQueryCompatSlotUnderscore, _a as worktreeNewThreadQueryCompatSlotUnderscoreLowerA, _c as worktreeNewThreadQueryCompatSlotUnderscoreLowerC, _d as worktreeNewThreadQueryCompatSlotUnderscoreLowerD,
