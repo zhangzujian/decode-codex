@@ -123,6 +123,7 @@ function diagramPSM6KHXKHelper1(diagramPSM6KHXKParam10) {
         diagramPSM6KHXKValue60.length > 0 &&
         diagramPSM6KHXKValue60[diagramPSM6KHXKValue60.length - 1].level >=
           item.level;
+
       )
         diagramPSM6KHXKValue60.pop();
       if (diagramPSM6KHXKValue60.length === 0)
@@ -709,6 +710,7 @@ var diagramPSM6KHXKValue2 = chunkAGHRB4JFN(
               ;
               diagramPSM6KHXKValue34.getComputedTextLength() >
                 diagramPSM6KHXKValue35 && diagramPSM6KHXKValue37 > 8;
+
             ) {
               diagramPSM6KHXKValue37--;
               diagramPSM6KHXKValue31.style(
@@ -732,6 +734,7 @@ var diagramPSM6KHXKValue2 = chunkAGHRB4JFN(
                 Math.min(28, Math.round(diagramPSM6KHXKValue37 * 0.6)),
               )),
               !(diagramPSM6KHXKValue39 < 6 && diagramPSM6KHXKValue37 === 8));
+
             ) {
               diagramPSM6KHXKValue31.style(
                 "font-size",

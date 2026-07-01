@@ -2,13 +2,13 @@
 // Boundary facade (thread-scope) — typed `any` placeholders for non-exported cross-slice symbols.
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
-export const ScopeProvider: any = undefined as any;
-export const clientThreadByIdSignal: any = undefined as any;
-export const clientThreadIdByRouteSignal: any = undefined as any;
-export const clientThreadScope: any = undefined as any;
-export const createComputedSignal: any = undefined as any;
-export const getClientThreadScopeKey: any = undefined as any;
-export const isNonEmptyClientThreadId: any = undefined as any;
-export const routeScope: any = undefined as any;
-export const useAppScopeValue: any = undefined as any;
-export const useScopedSignalValue: any = undefined as any;
+export const ScopeProvider = undefined as never;
+export const clientThreadByIdSignal = undefined as never;
+export const clientThreadIdByRouteSignal = undefined as never;
+export const clientThreadScope = undefined as never;
+export const createComputedSignal = undefined as never;
+export const getClientThreadScopeKey = undefined as never;
+export const isNonEmptyClientThreadId = undefined as never;
+export const routeScope = undefined as never;
+export const useAppScopeValue = undefined as never;
+export const useScopedSignalValue = undefined as never;

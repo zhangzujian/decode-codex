@@ -341,6 +341,7 @@ var journeyDiagramXKPGCS4QValue1 = (function () {
             journeyDiagramXKPGCS4QValue73,
             journeyDiagramXKPGCS4QValue74;
           ;
+
         ) {
           if (
             ((journeyDiagramXKPGCS4QValue67 =
@@ -1015,6 +1016,7 @@ var journeyDiagramXKPGCS4QValue2 = journeyDiagramXKPGCS4QValue1,
     for (
       ;
       !journeyDiagramXKPGCS4QValue178 && journeyDiagramXKPGCS4QValue179 < 100;
+
     ) {
       journeyDiagramXKPGCS4QValue178 = journeyDiagramXKPGCS4QValue14();
       journeyDiagramXKPGCS4QValue179++;

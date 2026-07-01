@@ -708,6 +708,7 @@ var kanbanDefinition3W4ZIXB7Value1 = (function () {
             kanbanDefinition3W4ZIXB7Value63,
             _kanbanDefinition3W4ZIXB7;
           ;
+
         ) {
           if (
             ((kanbanDefinition3W4ZIXB7Value57 =

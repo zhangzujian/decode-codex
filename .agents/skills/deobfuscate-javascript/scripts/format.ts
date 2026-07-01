@@ -55,7 +55,7 @@ function runPrettier(
   // back to `bunx`, then `npx`, which fetch the package on demand.
   const direct = which("prettier");
   const [runner, args] = direct
-    ? [direct, prettierArgs]
+    ? ["node", ["--stack-size=65500", direct, ...prettierArgs]]
     : which("bunx")
       ? ["bunx", ["prettier", ...prettierArgs]]
       : ["npx", ["prettier", ...prettierArgs]];

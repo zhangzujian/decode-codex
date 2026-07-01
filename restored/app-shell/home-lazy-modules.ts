@@ -10,8 +10,9 @@ export const LazyHomeAmbientSuggestionsContent = lazyLoadWithSuspense(
     (
       await preloadDynamicImport(
         async () => {
-          const { HomeAmbientSuggestionsContent } =
-            await import("../runtime/current-app-initial/home-ambient-suggestions-content-current-runtime");
+          const { HomeAmbientSuggestionsContent } = await import(
+            "../runtime/current-app-initial/home-ambient-suggestions-content-current-runtime"
+          );
           return { HomeAmbientSuggestionsContent };
         },
         [],
@@ -39,8 +40,9 @@ export const LazyHomeArtifactTemplates = lazyLoadWithSuspense(
     (
       await preloadDynamicImport(
         async () => {
-          const { HomeArtifactTemplates } =
-            await import("../home/artifact-templates");
+          const { HomeArtifactTemplates } = await import(
+            "../home/artifact-templates"
+          );
           return { HomeArtifactTemplates };
         },
         [],
@@ -54,8 +56,9 @@ export const LazyHomeConversationStarters = lazyLoadWithSuspense(
     (
       await preloadDynamicImport(
         async () => {
-          const { HomeConversationStarters } =
-            await import("../home/home-conversation-starters");
+          const { HomeConversationStarters } = await import(
+            "../home/home-conversation-starters"
+          );
           return { HomeConversationStarters };
         },
         [],
@@ -69,8 +72,9 @@ export const LazyHomePrefillArtifactPreview = lazyLoadWithSuspense(
     (
       await preloadDynamicImport(
         async () => {
-          const { HomePrefillArtifactPreview } =
-            await import("../home/home-prefill-artifact-preview");
+          const { HomePrefillArtifactPreview } = await import(
+            "../home/home-prefill-artifact-preview"
+          );
           return { HomePrefillArtifactPreview };
         },
         [],
@@ -84,8 +88,9 @@ export const LazyThreadAppShellChrome = lazyLoadWithSuspense(
     (
       await preloadDynamicImport(
         async () => {
-          const { ThreadAppShellChrome } =
-            await import("./thread-app-shell-chrome");
+          const { ThreadAppShellChrome } = await import(
+            "./thread-app-shell-chrome"
+          );
           return { ThreadAppShellChrome };
         },
         [],

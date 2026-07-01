@@ -12,10 +12,8 @@ import clsx from "clsx";
 import { XIcon } from "../icons/x-icon";
 import type { AttachmentLayout, IconComponent } from "./attachment-pill-types";
 
-export interface AttachmentPillProps extends Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  "onClick"
-> {
+export interface AttachmentPillProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
   Icon?: IconComponent;
   icon?: ReactNode;
   children?: ReactNode;

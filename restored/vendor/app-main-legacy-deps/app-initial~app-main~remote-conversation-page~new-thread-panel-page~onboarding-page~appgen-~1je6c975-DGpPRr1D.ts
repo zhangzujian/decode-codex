@@ -1410,6 +1410,7 @@ var Ke,
             for (
               var e = [...arguments], t = ``, n = e.length, r = 0, i;
               n > r;
+
             ) {
               if (((i = e[r++]), i > 1114111))
                 throw RangeError(i + ` is not a valid code point`);
@@ -1914,6 +1915,7 @@ var Ke,
             for (
               var i, a = !1, o = [], s = new Set(), c = r.value, l = r.location;
               ;
+
             ) {
               if (c.length === 0) {
                 var u = this.clonePosition();

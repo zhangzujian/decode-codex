@@ -99,7 +99,7 @@ function isValidIconName(
   return iconName
     ? Boolean(
         ((allowSimpleName && iconName.prefix === "") || iconName.prefix) &&
-        iconName.name,
+          iconName.name,
       )
     : false;
 }

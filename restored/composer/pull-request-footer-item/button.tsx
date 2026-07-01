@@ -11,10 +11,8 @@ import type {
   ComposerFooterControlIndicator,
 } from "../project-selector/types";
 
-export interface PullRequestFooterItemButtonProps extends Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  "value"
-> {
+export interface PullRequestFooterItemButtonProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value"> {
   categoryLabel?: ReactNode;
   collapse?: ComposerFooterControlCollapse;
   icon?: ReactNode;

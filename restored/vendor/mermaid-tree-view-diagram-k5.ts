@@ -52,6 +52,7 @@ var diagram5BDNPKRDValue1 = new ImperativeState(() => ({
           diagram5BDNPKRDValue1.records.stack[
             diagram5BDNPKRDValue1.records.stack.length - 1
           ].level;
+
         )
           diagram5BDNPKRDValue1.records.stack.pop();
         let diagram5BDNPKRDValue26 = {

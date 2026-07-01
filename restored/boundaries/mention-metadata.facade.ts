@@ -2,18 +2,18 @@
 // Boundary facade (mention-metadata) — typed `any` placeholders for non-exported cross-slice symbols.
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
-export const ComposerMentionController: any = undefined as any;
-export const DirectoryApp: any = undefined as any;
-export const MentionApp: any = undefined as any;
-export const MentionPlugin: any = undefined as any;
-export const formatPluginMentionLabels: any = undefined as any;
-export const lookupDirectoryApp: any = undefined as any;
-export const mergePluginAppMetadata: any = undefined as any;
-export const selectFirstPluginWithApp: any = undefined as any;
-export const useAvailablePlugins: any = undefined as any;
-export const useComposerSelector: any = undefined as any;
-export const useDirectoryApps: any = undefined as any;
-export const useNativeApps: any = undefined as any;
-export const useNativeMcpApps: any = undefined as any;
-export const useResolvedAppMetadata: any = undefined as any;
-export const useSkills: any = undefined as any;
+export const ComposerMentionController = undefined as never;
+export const DirectoryApp = undefined as never;
+export const MentionApp = undefined as never;
+export const MentionPlugin = undefined as never;
+export const formatPluginMentionLabels = undefined as never;
+export const lookupDirectoryApp = undefined as never;
+export const mergePluginAppMetadata = undefined as never;
+export const selectFirstPluginWithApp = undefined as never;
+export const useAvailablePlugins = undefined as never;
+export const useComposerSelector = undefined as never;
+export const useDirectoryApps = undefined as never;
+export const useNativeApps = undefined as never;
+export const useNativeMcpApps = undefined as never;
+export const useResolvedAppMetadata = undefined as never;
+export const useSkills = undefined as never;

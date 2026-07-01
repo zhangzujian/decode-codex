@@ -8,10 +8,8 @@ import {
 import { PlusIcon } from "./icons";
 import type { PanelTarget, ThreadPanelNewTabModelOptions } from "./types";
 
-export interface ThreadPanelOpenTabDropdownProps extends Omit<
-  ThreadPanelNewTabModelOptions,
-  "target"
-> {
+export interface ThreadPanelOpenTabDropdownProps
+  extends Omit<ThreadPanelNewTabModelOptions, "target"> {
   target: PanelTarget;
   title: ReactNode;
 }

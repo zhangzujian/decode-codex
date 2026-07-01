@@ -889,9 +889,9 @@ function isSameOwnerRepo(
 ) {
   return Boolean(
     left &&
-    right &&
-    left.owner === right.owner &&
-    left.repoName === right.repoName,
+      right &&
+      left.owner === right.owner &&
+      left.repoName === right.repoName,
   );
 }
 function groupBy<TValue, TKey>(

@@ -2,4 +2,4 @@
 // Boundary facade (app-scope-signal-family) — typed `any` placeholders for non-exported cross-slice symbols.
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
-export const createConversationKeyedSignal: any = undefined as any;
+export const createConversationKeyedSignal = undefined as never;

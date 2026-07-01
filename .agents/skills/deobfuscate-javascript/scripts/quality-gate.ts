@@ -2285,11 +2285,11 @@ function publicEntryForBasename(
 function isBoundaryLikeEntry(entry: FullRestorationImportMapEntry): boolean {
   return Boolean(
     entry.boundary ||
-      entry.openBoundary ||
-      entry.status?.toLowerCase() === "faced" ||
-      entry.dependencyBoundary ||
-      Object.keys(entry.dependencyBoundaryFacades ?? {}).length > 0 ||
-      Object.keys(entry.publicFacades ?? {}).length > 0,
+    entry.openBoundary ||
+    entry.status?.toLowerCase() === "faced" ||
+    entry.dependencyBoundary ||
+    Object.keys(entry.dependencyBoundaryFacades ?? {}).length > 0 ||
+    Object.keys(entry.publicFacades ?? {}).length > 0,
   );
 }
 
@@ -3077,7 +3077,10 @@ export function analyzeFullRestorationCoverage(
       ) {
         continue;
       }
-      const unresolved = findUnresolvedFacadeImports(deliverable, anyFacadeNames);
+      const unresolved = findUnresolvedFacadeImports(
+        deliverable,
+        anyFacadeNames,
+      );
       if (unresolved.length > 0) {
         appFeatureAnyFacadeImports.push({ file: rel, symbols: unresolved });
       }
@@ -3301,24 +3304,37 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  const reports = files.map((file) =>
-    analyzeSource(fs.readFileSync(file, "utf-8"), file, {
-      ...options,
-      vendored:
-        options.vendored ||
-        importMapBoundaryFiles.has(path.resolve(file)) ||
-        manifestVendoredFiles.has(path.resolve(file)),
-    }),
-  );
+  const maybeCollectGarbage = () => {
+    (
+      globalThis as typeof globalThis & {
+        Bun?: { gc?: (force?: boolean) => void };
+      }
+    ).Bun?.gc?.(false);
+  };
+
+  const reports: FileQualityReport[] = [];
+  if (values["check-format"]) {
+    reports.push(...checkFormatting(input));
+  }
+  for (const [index, file] of files.entries()) {
+    reports.push(
+      analyzeSource(fs.readFileSync(file, "utf-8"), file, {
+        ...options,
+        vendored:
+          options.vendored ||
+          importMapBoundaryFiles.has(path.resolve(file)) ||
+          manifestVendoredFiles.has(path.resolve(file)),
+      }),
+    );
+    if (index % 100 === 0) maybeCollectGarbage();
+  }
+  maybeCollectGarbage();
   reports.push(
     ...analyzeFullRestorationCoverage(input, {
       allowOrganizeIncomplete: values["allow-organize-incomplete"] ?? false,
       allowOpenBoundaries: values["allow-open-boundaries"] ?? false,
     }),
   );
-  if (values["check-format"]) {
-    reports.push(...checkFormatting(input));
-  }
   if (values.json) {
     process.stdout.write(JSON.stringify(reports, null, 2) + "\n");
   } else {

@@ -12,14 +12,16 @@ import {
 const AVATAR_OVERLAY_NATIVE_RENDERER_GATE = "3563904085";
 
 const LazyAvatarOverlayNativePage = lazy(async () => {
-  const { AvatarOverlayNativePage } =
-    await import("../runtime/current-app-initial/avatar-overlay-native-page-current-runtime");
+  const { AvatarOverlayNativePage } = await import(
+    "../runtime/current-app-initial/avatar-overlay-native-page-current-runtime"
+  );
   return { default: AvatarOverlayNativePage };
 });
 
 const LazyAvatarOverlayPage = lazy(async () => {
-  const { AvatarOverlayPage } =
-    await import("../runtime/current-app-initial/avatar-overlay-page-current-runtime");
+  const { AvatarOverlayPage } = await import(
+    "../runtime/current-app-initial/avatar-overlay-page-current-runtime"
+  );
   return { default: AvatarOverlayPage };
 });
 

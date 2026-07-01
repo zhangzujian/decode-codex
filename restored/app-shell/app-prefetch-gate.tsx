@@ -13,7 +13,9 @@ const APP_PREFETCH_IDLE_TIMEOUT_MS = 2000;
 const LazyAppPrefetchImpl = lazyLoadWithSuspense(async () => {
   const loadedModule = await preloadDynamicImport(
     () =>
-      import("../runtime/current-app-initial/app-prefetch-impl-current-runtime"),
+      import(
+        "../runtime/current-app-initial/app-prefetch-impl-current-runtime"
+      ),
     [],
     import.meta.url,
   );

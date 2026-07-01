@@ -264,6 +264,7 @@ function storeRoutine26(input139) {
       ;
       storeLocal314 < input139.length &&
       !storeRoutine25(input139.charCodeAt(storeLocal314));
+
     )
       storeLocal314 += 1;
     if (storeLocal314 >= input139.length) break;
@@ -274,6 +275,7 @@ function storeRoutine26(input139) {
       ;
       storeLocal314 < input139.length &&
       storeRoutine25(input139.charCodeAt(storeLocal314));
+
     ) {
       storeLocal442 =
         storeLocal442 * 10 + (input139.charCodeAt(storeLocal314) - 48);
