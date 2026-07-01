@@ -1479,6 +1479,7 @@ function chunkICPOFSXXHelper7() {
           null,
         );
         (chunkICPOFSXXValue230 = chunkICPOFSXXValue231.nextNode());
+
       ) {
         __chunkICPOFSXXO(
           chunkICPOFSXXValue119.uponSanitizeShadowNode,
@@ -1588,6 +1589,7 @@ function chunkICPOFSXXHelper7() {
               chunkICPOFSXXValue180.ownerDocument,
             );
             chunkICPOFSXXValue180.firstChild;
+
           )
             chunkICPOFSXXValue183.appendChild(chunkICPOFSXXValue180.firstChild);
         else chunkICPOFSXXValue183 = chunkICPOFSXXValue180;
@@ -9149,6 +9151,7 @@ var chunkICPOFSXXValue80 = chunkAGHRB4JFN(
       chunkICPOFSXXValue217 !== -1 &&
       chunkICPOFSXXValue218 !== -1 &&
       chunkICPOFSXXValue217 !== chunkICPOFSXXValue218;
+
     ) {
       chunkICPOFSXXValue216[chunkICPOFSXXValue217] = "<";
       chunkICPOFSXXValue216[chunkICPOFSXXValue218] = ">";
@@ -9621,6 +9624,17 @@ export function initChunkICPOFSXXDomPurifyRuntime(): void {}
 export function initChunkICPOFSXXCurrent(): void {
   initChunkICPOFSXXDomPurifyRuntime();
 }
+export {
+  invertA,
+  invertC,
+  invertI,
+  invertL,
+  invertN,
+  invertO,
+  invertR,
+  invertS,
+  invertT,
+} from "./color-convert";
 export {
   chunkICPOFSXXZ as $,
   chunkICPOFSXXA,
