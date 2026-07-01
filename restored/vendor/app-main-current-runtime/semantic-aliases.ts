@@ -143,6 +143,10 @@ export {
   initBuildBranchNameChunk,
 } from "../../conversations/build-branch-name";
 export {
+  initUseDefaultBranchQueryChunk,
+  useDefaultBranchQuery,
+} from "../../conversations/use-default-branch-query";
+export {
   browserTabIdForConversation,
   deriveBrowserConversationId,
   getBrowserTabIdForPanelTab,

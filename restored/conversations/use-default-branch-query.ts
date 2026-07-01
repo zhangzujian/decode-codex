@@ -7,6 +7,8 @@ import {
   useScopedQuery,
 } from "../boundaries/onboarding-commons-externals.facade";
 
+export function initUseDefaultBranchQueryChunk(): void {}
+
 export function useDefaultBranchQuery(
   cwd: string | null | undefined,
   hostConfig: unknown,
