@@ -726,6 +726,8 @@ export {
   SET_THREAD_PINNED_TOOL_NAME,
   SET_THREAD_TITLE_TOOL_NAME,
 } from "../../conversations/codex-app-tool-names";
+export { initThreadHandoffToolCoreChunk } from "../../conversations/thread-handoff-tool-definitions";
+export { initThreadManagementToolDefinitionsChunk } from "../../conversations/thread-management-tool-definitions";
 export {
   initAutomationSidePanelTabsChunk,
   openAutomationSuggestionTab,

@@ -14,6 +14,8 @@ export const LOCAL_HANDOFF_HOST_FALLBACK = {
   kind: "local",
 } as Pick<HandoffHostConfig, "display_name" | "kind">;
 
+export function initThreadHandoffToolCoreChunk(): void {}
+
 type McpToolDefinition = {
   name: string;
   description: string;

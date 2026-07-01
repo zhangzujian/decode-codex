@@ -33,6 +33,8 @@ type McpToolDefinition = {
   };
 };
 
+export function initThreadManagementToolDefinitionsChunk(): void {}
+
 const DEFAULT_MODEL_GUIDANCE =
   "Do not specify a model unless the user explicitly requests a specific model. Otherwise omit this field so the new thread uses the user's configured default model.";
 
