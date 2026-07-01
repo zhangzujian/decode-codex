@@ -113,7 +113,7 @@ import {
   appMainCurrentCompatSlotUpperALowerO as appInitialAppMainOnboardingPageAo,
   appMainCurrentCompatSlotUpperALowerU as AppInitialAppMainOnboardingPageAu,
   appMainCurrentCompatSlotUpperBLowerP as appInitialAppMainOnboardingPageBp,
-  copyConversationStateToFork as appInitialAppMainOnboardingPageEo,
+  initPrimaryRuntimeInstallStatusMessageChunk as appInitialAppMainOnboardingPageEo,
   appMainCurrentCompatSlotUpperFLowerN as appInitialAppMainOnboardingPageFn,
   appMainCurrentCompatSlotUpperGLowerP as AppInitialAppMainOnboardingPageGp,
   appMainCurrentCompatSlotUpperGLowerT as AppInitialAppMainOnboardingPageGt,

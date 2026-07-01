@@ -21,6 +21,8 @@ export type PrimaryRuntimeInstallStatus =
       totalBytes?: number | null;
     };
 
+export function initPrimaryRuntimeInstallStatusMessageChunk(): void {}
+
 export function primaryRuntimeInstallStatusMessage(
   status: PrimaryRuntimeInstallStatus,
   percent: number,

@@ -8,7 +8,7 @@ import {
 } from "../boundaries/onboarding-commons-externals.facade";
 import { sendAppServerRequest } from "../boundaries/use-host-config.facade";
 import { pullRequestNewThreadCompatSlotUpperD as useRecentConversationsQuery } from "../runtime/current-app-initial/pull-request-new-thread-runtime";
-import { appMainCurrentCompatSlotUpperWLowerC as pinnedThreadsForHostQueryAtom } from "../vendor/app-main-current-runtime";
+import { pinnedThreadsQuery as pinnedThreadsForHostQueryAtom } from "../utils/pinned-threads-query";
 
 interface PinnedThreadsQueryResult {
   data?: { threadIds?: string[] } | null;

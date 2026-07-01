@@ -47,6 +47,7 @@ export {
 } from "../../utils/links-bd-mmkun-d";
 export { resolveSidePanelBrowserTabId } from "../../browser/side-panel-browser-tab-commands";
 export { normalizeWorkspacePath } from "../../boundaries/src-l0hb/paths";
+export { pinnedThreadsQuery } from "../../utils/pinned-threads-query";
 export { setPinnedThreadsOrder } from "../../utils/set-pinned-thread";
 export {
   declineConversationalOnboardingTask,
@@ -76,12 +77,12 @@ export {
   initComposeEventHandlersRuntime,
 } from "../radix-event-helpers";
 export { isComposerDictationTarget } from "../../composer/composer-dictation-focus";
+export { initPrimaryRuntimeInstallStatusMessageChunk } from "../../runtime/primary-runtime-install-status-message";
 
 export {
   $l as SidebarSection,
   Bn as ArchiveMenuItem,
   Cl as toggleThreadSidePanel,
-  Eo as copyConversationStateToFork,
   Ff as initThreadRowLayoutRuntimeChunk,
   Gd as ThreadRow,
   Gl as projectGroupRepositoryDataSignal,

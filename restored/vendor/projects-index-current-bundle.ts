@@ -369,7 +369,7 @@ import {
   appMainCurrentCompatSlotLowerQLowerN as Pa,
   appMainCurrentCompatSlotLowerRLowerM as Fa,
   appMainCurrentCompatSlotLowerSLowerP as Ia,
-  appMainCurrentCompatSlotLowerWLowerC as La,
+  pinnedThreadsQuery as La,
   appMainCurrentCompatSlotLowerWLowerD as Ra,
   appMainCurrentCompatSlotLowerWLowerL as za,
   openThreadTimelineSidePanel as Ba,
