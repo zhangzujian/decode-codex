@@ -13,10 +13,17 @@ export type WindowRpcAction = {
   [key: string]: any;
 };
 
+type AppHostBoundary = {
+  dispatchWindowRpcAction?: (
+    action: WindowRpcAction,
+    options?: unknown,
+  ) => unknown;
+};
+
 export const currentWindowId = "current";
 export const currentWindowIdSchema = zLiteral(currentWindowId);
-export const appHost: any = {};
-export const appServices: any = {};
+export const appHost: AppHostBoundary = {};
+export const appServices: Record<string, unknown> = {};
 
 export function dispatchWindowRpcAction(
   action: WindowRpcAction,

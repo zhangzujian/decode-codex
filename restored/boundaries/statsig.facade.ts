@@ -2,7 +2,7 @@
 // Boundary facade (statsig) — typed `any` placeholders for non-exported cross-slice symbols.
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
-export const useFeatureGate: any = undefined as any;
+export { useFeatureGate } from "../statsig/use-feature-gate";
 
 // --- Statsig SDK symbols used by restored/statsig/ (open boundary; @statsig/client-core|js-client|react-bindings) ---
 export const StableID: any = undefined as any;

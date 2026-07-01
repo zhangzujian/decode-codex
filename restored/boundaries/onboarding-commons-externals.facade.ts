@@ -3,6 +3,48 @@
 // Typed `any` placeholders for non-exported cross-slice symbols.
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
+import {
+  appScopeC as createComputedAtom,
+  appScopeH,
+  appScopeM as createParametricAtom,
+  appScopeO as readAppScopeStore,
+  appScopeRoot,
+  appScopeUnderscore as createScopedAtom,
+  useAppScopeValue,
+} from "./app-scope";
+
+export { appLogger as logger } from "../runtime/app-logger";
+export { LOCAL_HOST_ID } from "./use-host-config.facade";
+export { sendHostRequest } from "../runtime/host-request-runtime";
+export { joinPath, normalizePath } from "../runtime/path-helpers-runtime";
+export { useQueryClient } from "../runtime/query-client/react-query-context";
+export { useFeatureGate } from "../statsig/use-feature-gate";
+export {
+  createComputedAtom,
+  createParametricAtom,
+  createScopedAtom,
+  useAppScopeValue as useScopedValue,
+  useAppScopeValue as useSignalValue,
+  readAppScopeStore as useAppScope,
+  readAppScopeStore as useAppStore,
+  readAppScopeStore as useScope,
+  readAppScopeStore as useScopedStore,
+  readAppScopeStore as useStore,
+};
+export { useAtomValue } from "../vendor/jotai-runtime";
+
+export const appAtomScope = appScopeH("appAtomScope");
+export const appRootScope = appScopeRoot;
+export const appStoreScope = appScopeH("appStoreScope");
+export const createComputedQueryAtom = createParametricAtom;
+export const createParametricStateAtom = createParametricAtom;
+export const createScopedStateAtom = createScopedAtom;
+export const defineScope = appScopeH;
+export const queryAtomFamily = createParametricAtom;
+export const routeAtom = appScopeH("routeAtom");
+export const useAtomFamilyValue = useAppScopeValue;
+export const useScopedAtomValue = useAppScopeValue;
+
 export const // Geometry / spring helpers live in the shared `hee()` module of this chunk
   // (not restored). Imported through the boundary facade with semantic aliases.
   buildBezierPath: any = undefined as any;
@@ -224,7 +266,6 @@ export const InternalContext: any = undefined as any;
 export const JumpToFileIcon: any = undefined as any;
 export const KeyboardShortcutHint: any = undefined as any;
 export const KnownAppLogo: any = undefined as any;
-export const LOCAL_HOST_ID: any = undefined as any;
 export const LinkArrowIcon: any = undefined as any;
 export const LoadFullFilesIcon: any = undefined as any;
 export const LocalConversationGitActionsContent: any = undefined as any;
@@ -410,10 +451,8 @@ export const annotationFlowKind: any = undefined as any;
 export const annotationModeEntrySource: any = undefined as any;
 export const annotationScreenshotsModeAtom: any = undefined as any;
 export const annotationViewportBaseHeight: any = undefined as any;
-export const appAtomScope: any = undefined as any;
 export const appDisplayName: any = undefined as any;
 export const appMessenger: any = undefined as any;
-export const appRootScope: any = undefined as any;
 export const appRouteScope: any = undefined as any;
 export const appScopeAtom: any = undefined as any;
 export const appShellBottomPanelHeightSubscriberContext: any = undefined as any;
@@ -425,7 +464,6 @@ export const appShellHeaderStartEntriesSignal: any = undefined as any;
 export const appShellLayoutContext: any = undefined as any;
 export const appShellPanelDragContext: any = undefined as any;
 export const appStore: any = undefined as any;
-export const appStoreScope: any = undefined as any;
 export const appWindowKind: any = undefined as any;
 export const applicationMenuIds: any = undefined as any;
 export const applyChromeThemeToElement: any = undefined as any;
@@ -621,8 +659,6 @@ export const coreToolActivityDescriptors: any = undefined as any;
 export const countToolResultItems: any = undefined as any;
 export const createBackgroundThread: any = undefined as any;
 export const createComposerController: any = undefined as any;
-export const createComputedAtom: any = undefined as any;
-export const createComputedQueryAtom: any = undefined as any;
 export const createConnectorOnboardingTask: any = undefined as any;
 export const createCwdQueryAtomFamily: any = undefined as any;
 export const createDerivedAtom: any = undefined as any;
@@ -633,9 +669,7 @@ export const createGitQueryOptions: any = undefined as any;
 export const createGitWorkflowAbortSignal: any = undefined as any;
 export const createKeyedAtomFamily: any = undefined as any;
 export const createMotionValue: any = undefined as any;
-export const createParametricAtom: any = undefined as any;
 export const createParametricQueryAtom: any = undefined as any;
-export const createParametricStateAtom: any = undefined as any;
 export const createPersistedToggleAtom: any = undefined as any;
 export const createPullRequestActionStateAtom: any = undefined as any;
 export const createPullRequestBlockedStepAtom: any = undefined as any;
@@ -646,13 +680,11 @@ export const createPullRequestRequest: any = undefined as any;
 export const createPullRequestTitleDraftAtom: any = undefined as any;
 export const createRequestAbortedError: any = undefined as any;
 export const createRouteScopedComputedAtom: any = undefined as any;
-export const createScopedAtom: any = undefined as any;
 export const createScopedComputedAtom: any = undefined as any;
 export const createScopedMutationAtom: any = undefined as any;
 export const createScopedQueryAtom: any = undefined as any;
 export const createScopedSelector: any = undefined as any;
 export const createScopedSignal: any = undefined as any;
-export const createScopedStateAtom: any = undefined as any;
 export const createScopedStoreFactory: any = undefined as any;
 export const createWritableSignalAtom: any = undefined as any;
 export const cssTransform: any = undefined as any;
@@ -681,7 +713,6 @@ export const defaultScrollIntent: any = undefined as any;
 export const defaultScrollThreshold: any = undefined as any;
 export const defaultScrollableAncestors: any = undefined as any;
 export const defineRpcQuery: any = undefined as any;
-export const defineScope: any = undefined as any;
 export const deriveAppScopeAtom: any = undefined as any;
 export const deriveBrowserTabDisplay: any = undefined as any;
 export const derivedAtomFamily: any = undefined as any;
@@ -989,7 +1020,6 @@ export const isValidRruleText: any = undefined as any;
 export const isVisibleOpenTargetMenuItem: any = undefined as any;
 export const isWindow: any = undefined as any;
 export const isWorkspaceContextLoadingSignal: any = undefined as any;
-export const joinPath: any = undefined as any;
 export const keyboardShortcutRegistry: any = undefined as any;
 export const labelFromConversationInput: any = undefined as any;
 export const last: any = undefined as any;
@@ -1005,7 +1035,6 @@ export const loadImageFileDataUrl: any = undefined as any;
 export const loadMoreReviewMatches: any = undefined as any;
 export const localConversationGitActionsScope: any = undefined as any;
 export const localProjectRootsAtom: any = undefined as any;
-export const logger: any = undefined as any;
 export const mainContentLayoutSignal: any = undefined as any;
 export const mainContentMeasurementSignal: any = undefined as any;
 export const mapPendingQueryState: any = undefined as any;
@@ -1050,7 +1079,6 @@ export const nonIntegrationSourceKey: any = undefined as any;
 export const normalizeBrowserActiveTab: any = undefined as any;
 export const normalizeBrowserRouteKind: any = undefined as any;
 export const normalizeBrowserUrl: any = undefined as any;
-export const normalizePath: any = undefined as any;
 export const normalizeRequestCwd: any = undefined as any;
 export const normalizeRruleMinute: any = undefined as any;
 export const normalizeServiceTierId: any = undefined as any;
@@ -1140,7 +1168,6 @@ export const pullRequestStatusForBranchAtom: any = undefined as any;
 export const pushBlockedReasonAtom: any = undefined as any;
 export const pushStatusAtom: any = undefined as any;
 export const pushWorkflowChanges: any = undefined as any;
-export const queryAtomFamily: any = undefined as any;
 export const queryStaleTime: any = undefined as any;
 export const rateLimitInfoAtom: any = undefined as any;
 export const readBackgroundThread: any = undefined as any;
@@ -1339,7 +1366,6 @@ export const rightPanelWidthConfigSignal: any = undefined as any;
 export const rotateDeviceToolbarState: any = undefined as any;
 export const roundLeftPanelWidth: any = undefined as any;
 export const roundToDevicePixels: any = undefined as any;
-export const routeAtom: any = undefined as any;
 export const rpcClient: any = undefined as any;
 export const rpcTimeConstants: any = undefined as any;
 export const runCommitWorkflow: any = undefined as any;
@@ -1355,7 +1381,6 @@ export const selectMcpAppRenderTarget: any = undefined as any;
 export const selectMcpToolResult: any = undefined as any;
 export const selectReviewCommit: any = undefined as any;
 export const selectedRemoteProjectAtom: any = undefined as any;
-export const sendHostRequest: any = undefined as any;
 export const sendMessageToBackgroundThread: any = undefined as any;
 export const serializeConfig: any = undefined as any;
 export const serializeMainContentMeasurement: any = undefined as any;
@@ -1510,18 +1535,14 @@ export const updateSharedObjectState: any = undefined as any;
 export const useActiveCollaborationMode: any = undefined as any;
 export const useActiveConversationId: any = undefined as any;
 export const useActivityScrollContainer: any = undefined as any;
-export const useAppScope: any = undefined as any;
 export const useAppScopeAtomValue: any = undefined as any;
 export const useAppShellLayout: any = undefined as any;
 export const useAppShellTabState: any = undefined as any;
-export const useAppStore: any = undefined as any;
 export const useAppgenEndCardEnabled: any = undefined as any;
 export const useAppgenProject: any = undefined as any;
 export const useApplicationMenuBarEnabled: any = undefined as any;
 export const useAsyncQueryValue: any = undefined as any;
 export const useAtMentionController: any = undefined as any;
-export const useAtomFamilyValue: any = undefined as any;
-export const useAtomValue: any = undefined as any;
 export const useAutomationModelsQuery: any = undefined as any;
 export const useAvailablePlugins: any = undefined as any;
 export const useBackgroundSubagents: any = undefined as any;
@@ -1553,7 +1574,6 @@ export const useDroppable: any = undefined as any;
 export const useEffectEvent: any = undefined as any;
 export const useEvent: any = undefined as any;
 export const useEventCallback: any = undefined as any;
-export const useFeatureGate: any = undefined as any;
 export const useFeatureGateExposure: any = undefined as any;
 export const useFormattedAcceleratorLabel: any = undefined as any;
 export const useHost: any = undefined as any;
@@ -1606,7 +1626,6 @@ export const usePrevious: any = undefined as any;
 export const useProductLogger: any = undefined as any;
 export const usePushToTalkHotkey: any = undefined as any;
 export const useQuery: any = undefined as any;
-export const useQueryClient: any = undefined as any;
 export const useRemUnitMultiplier: any = undefined as any;
 export const useResizableSize: any = undefined as any;
 export const useResizeObserver: any = undefined as any;
@@ -1622,13 +1641,9 @@ export const useRightPanelLayout: any = undefined as any;
 export const useRouteMatch: any = undefined as any;
 export const useRouterNavigate: any = undefined as any;
 export const useRpcQuery: any = undefined as any;
-export const useScope: any = undefined as any;
-export const useScopedAtomValue: any = undefined as any;
 export const useScopedGitQuery: any = undefined as any;
 export const useScopedPersistedValue: any = undefined as any;
 export const useScopedQuery: any = undefined as any;
-export const useScopedStore: any = undefined as any;
-export const useScopedValue: any = undefined as any;
 export const useSelectedBrowserHostId: any = undefined as any;
 export const useSelectedRemoteProject: any = undefined as any;
 export const useServiceTierSettings: any = undefined as any;
@@ -1636,13 +1651,11 @@ export const useSessionState: any = undefined as any;
 export const useSetSignal: any = undefined as any;
 export const useSetting: any = undefined as any;
 export const useSignalFamilyValue: any = undefined as any;
-export const useSignalValue: any = undefined as any;
 export const useSkillMentionController: any = undefined as any;
 export const useSkills: any = undefined as any;
 export const useStableCallback: any = undefined as any;
 export const useStableEventCallback: any = undefined as any;
 export const useStatsigDynamicConfig: any = undefined as any;
-export const useStore: any = undefined as any;
 export const useSubscriptionQuery: any = undefined as any;
 export const useTextMeasurement: any = undefined as any;
 export const useThemePreference: any = undefined as any;

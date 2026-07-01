@@ -3,6 +3,10 @@
 
 export function initPathHelpersRuntime(): void {}
 
+export function normalizePath(path: string): string {
+  return path.replace(/\\/g, "/").replace(/\/+/g, "/");
+}
+
 export function joinPath(...parts: string[]): string {
   return parts.reduce(
     (joinedPath, part) =>

@@ -2,8 +2,9 @@
 // Boundary facade (automation-editor-deps) — typed `any` placeholders for non-exported cross-slice symbols.
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
+export { LOCAL_HOST_ID } from "./use-host-config.facade";
+
 export const ComposerAnchoredOverlay: any = undefined as any;
-export const LOCAL_HOST_ID: any = undefined as any;
 export const MentionAutocompletePanel: any = undefined as any;
 export const ModelOption: any = undefined as any;
 export const PlatformGate: any = undefined as any;
