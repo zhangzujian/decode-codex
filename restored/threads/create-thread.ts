@@ -78,6 +78,8 @@ interface CreateThreadInput {
   thinking?: ThinkingEffort;
 }
 
+export function initCreateThreadChunk(): void {}
+
 export async function createThread({
   config,
   model,

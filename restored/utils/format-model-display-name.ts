@@ -1,6 +1,8 @@
 // Restored from ref/webview/assets/format-model-display-name-CDASt7Bo.js
 // Normalizes GPT/OAI model display-name casing while preserving whitespace.
 
+export function initFormatModelDisplayNameChunk(): void {}
+
 export function formatModelDisplayName(modelName: string): string {
   return modelName.trimStart().toLowerCase().startsWith("gpt")
     ? modelName

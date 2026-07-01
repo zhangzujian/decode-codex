@@ -2,6 +2,8 @@
 // Rounded-square sheet with a plus and a divider line: an "add note / new item" glyph.
 import type { SVGProps } from "react";
 
+export function initNotePlusIconChunk(): void {}
+
 export function NotePlusIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg

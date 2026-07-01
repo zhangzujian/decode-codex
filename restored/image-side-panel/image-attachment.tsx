@@ -28,6 +28,8 @@ export type ImageAttachmentProps = {
   compact?: boolean;
 };
 
+export function initImageAttachmentChunk(): void {}
+
 export function ImageAttachment({
   src,
   filename,

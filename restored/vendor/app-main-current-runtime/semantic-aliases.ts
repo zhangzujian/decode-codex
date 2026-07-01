@@ -107,7 +107,10 @@ export { PullRequestMergeTaskPill } from "../../conversations/pull-request-merge
 export { SentCommentAttachmentList } from "../../conversations/sent-comment-attachments";
 export { UserMessage } from "../../conversations/user-message";
 export { DiffStats, initDiffStatsChunk } from "../../git/git-review-primitives";
-export { ImageAttachment } from "../../image-side-panel/image-attachment";
+export {
+  ImageAttachment,
+  initImageAttachmentChunk,
+} from "../../image-side-panel/image-attachment";
 export { CommitCommandMenu } from "../../review/commit-command-menu";
 export { ReviewOptionsToolbar } from "../../review/review-options-toolbar";
 export {
@@ -266,6 +269,14 @@ export {
   ServiceTierCopyIcon2,
 } from "../../icons/service-tier-copy";
 export {
+  initNotePlusIconChunk,
+  NotePlusIcon,
+} from "../../icons/note-plus-icon";
+export {
+  FolderOpenIcon,
+  initFolderOpenIconChunk,
+} from "../../icons/folder-open-icon";
+export {
   initTwoPeopleShieldIconChunk,
   TwoPeopleShieldIcon,
 } from "../../icons/two-people-shield-icon";
@@ -323,7 +334,10 @@ export {
   initBrowserConversationFeatureGateChunk,
   isBrowserConversationFeatureGateEnabled,
 } from "../../browser/browser-conversation-feature-gate";
-export { createThread } from "../../threads/create-thread";
+export {
+  createThread,
+  initCreateThreadChunk,
+} from "../../threads/create-thread";
 export { LargeEmptyState } from "../../utils/large-empty-state";
 export {
   CHATGPT_ADMIN_BILLING_ADD_CREDITS_URL,
@@ -361,7 +375,10 @@ export {
   initBrowserProfileImportNuxStorageKeyChunk,
   initBrowserProfileImportNuxStateChunk,
 } from "../../browser/browser-profile-import-nux-state";
-export { formatModelDisplayName } from "../../utils/format-model-display-name";
+export {
+  formatModelDisplayName,
+  initFormatModelDisplayNameChunk,
+} from "../../utils/format-model-display-name";
 export {
   formatFallbackHookTitle,
   formatHookEventDescription,
