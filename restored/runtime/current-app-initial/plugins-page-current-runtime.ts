@@ -1,14 +1,18 @@
 // Restored from ref/webview/assets/plugins-page-D95-xrxa.js
 // Current-ref compatibility export surface for plugins page modules.
+const pluginsPageCurrentRuntime = () => "plugins-page-current-runtime";
+
+void pluginsPageCurrentRuntime;
+
 export {
-  a as pluginsPageA,
-  c as pluginsPageC,
-  i as pluginsPageI,
-  l as pluginsPageL,
-  n as initPluginsPageChunk,
-  o as pluginsPageO,
-  r as pluginsPageR,
-  s as pluginsPageS,
-  t as PluginsPage,
-  u as pluginsPageU,
-} from "../../vendor/plugins-page-current-bundle";
+  hasOpenedSkillCreatorPrefillAtom as pluginsPageA,
+  PluginsPageSectionContainer as pluginsPageC,
+  initPluginsPageSkillCardChunk as pluginsPageI,
+  PluginsPageGrid as pluginsPageL,
+  initPluginsPageChunk,
+  buildPluginCreatorPrefillPrompt as pluginsPageO,
+  PluginSkillCard as pluginsPageR,
+  initPluginsPageCreatorPrefillChunk as pluginsPageS,
+  PluginsPage,
+  initPluginsPageLayoutPrimitivesChunk as pluginsPageU,
+} from "../../plugins/page";

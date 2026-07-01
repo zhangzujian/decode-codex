@@ -42447,12 +42447,12 @@
         "u": "pluginsPageU"
       },
       "status": "done",
-      "note": "Current plugins page hash maps to a dedicated current-ref runtime over vendor/plugins-page-current-bundle.tsx; aliases are re-derived from the current file, with the page component exposed as PluginsPage.",
+      "note": "Current plugins page hash maps to explicit compatibility aliases backed by the semantic plugins/page.tsx entry.",
       "lastUpdated": "2026-06-30T23:59:00.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:59:00.000Z",
-      "stage3Review": "Host self-review: parsed the current export table, exposed n as initPluginsPageChunk and t as PluginsPage, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of plugins and skills page shared modules remains future cleanup."
+      "stage3Review": "Host self-review: parsed the current export table, preserved the restored-dependency backing bundle, and mapped PluginsPage plus its layout, creator prefill, and skill card helpers through plugins/page.tsx.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic PluginsPage entry; deeper plugins and skills page shared splitting remains future cleanup."
     },
     "plugins-settings-BqBINsWY": {
       "restored": "runtime/current-app-initial/plugins-settings-current-runtime.ts",
