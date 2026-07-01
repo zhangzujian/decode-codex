@@ -19,6 +19,10 @@ export { useQueries } from "../../runtime/query-client/react-query-hooks";
 export { createToolErrorResult } from "../../runtime/tool-result-runtime";
 export { OpenAiMcpCapabilityView } from "../../review/openai-mcp-capability-view";
 export {
+  browserTabIdForConversation,
+  deriveBrowserConversationId,
+  getBrowserTabIdForPanelTab,
+  getConversationPanelLayoutSnapshot,
   isUncPath,
   isWindowsStyleAbsolutePath,
   terminalSessionSnapshotStore,
@@ -38,9 +42,7 @@ export {
   $l as SidebarSection,
   Bn as ArchiveMenuItem,
   Cl as toggleThreadSidePanel,
-  Ds as getBrowserTabIdForPanelTab,
   Eo as copyConversationStateToFork,
-  Es as deriveBrowserConversationId,
   Ff as initThreadRowLayoutRuntimeChunk,
   Gd as ThreadRow,
   Gl as projectGroupRepositoryDataSignal,
@@ -87,7 +89,6 @@ export {
   hm as SidebarRowHostLabel,
   ho as forkConversationMessages,
   hp as useComposedRefs,
-  ic as getConversationPanelLayoutSnapshot,
   il as useCloudEnvironmentsQuery,
   ki as SidebarRowIcon,
   ld as ToastContent,
@@ -111,7 +112,6 @@ export {
   ul as mergeVisibleThreadOrder,
   ut as initCommandExecutionTextRuntime,
   vl as openThreadBrowserSidePanelTabWithoutAnimation,
-  ws as browserTabIdForConversation,
   xl as openThreadTimelineSidePanel,
   xo as initForkConversationToastRuntime,
   xr as initSettingsControlRowChunk,
