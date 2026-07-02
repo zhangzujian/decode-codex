@@ -43063,12 +43063,12 @@
         "RemoteConversationPage": "RemoteConversationPageIcon"
       },
       "status": "done",
-      "note": "Current remote conversation page hash maps to explicit compatibility aliases backed by the semantic conversations/remote-conversation-page.tsx entry.",
-      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "note": "Current remote conversation page hash maps to explicit compatibility aliases backed by conversations/remote-conversation-page.tsx; the body was promoted out of vendor parking, moved vendor-local imports were repaired, duplicate compatibility import aliases were collapsed, and the public RemoteConversationPage props are typed.",
+      "lastUpdated": "2026-07-02T05:35:00.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed remote-conversation-page-CSJXivxd.js exports, preserved the current restored-dependency backing bundle, and mapped RemoteConversationPage through conversations/remote-conversation-page.tsx.",
-      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic RemoteConversationPage entry; deeper internal helper splitting remains future cleanup."
+      "stage3AcceptedAt": "2026-07-02T05:35:00.000Z",
+      "stage3Review": "Host self-review: promoted remote-conversation-page-CSJXivxd from vendor parking, preserved RemoteConversationPageIcon and RemoteConversationPage exports, repaired moved app-main and automations imports, collapsed duplicate import aliases, typed the public props, passed the runtime quality gate, and verified page/runtime Bun builds; the page gate now only reports JSX factory residue and the later split.",
+      "stage3Note": "Accepted as a promoted current-ref implementation; JSX factory cleanup and component splitting remain future cleanup."
     },
     "avatar-overlay-native-page-CAxsNCX7": {
       "restored": "runtime/current-app-initial/avatar-overlay-native-page-current-runtime.ts",
