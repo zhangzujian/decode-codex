@@ -1218,6 +1218,123 @@ describe("quality-gate", () => {
     });
   });
 
+  test("fails hand-written Segment metric helper vendor runtimes", () => {
+    const source = `
+      // Restored from ref/webview/assets/metric-helpers-7nP-wnaS.js
+      export class metricHelpersD {
+        constructor() {
+          this.callbacks = {};
+        }
+        on(event, callback) {
+          (this.callbacks[event] ??= []).push(callback);
+          return this;
+        }
+      }
+      export function metricHelpersF() {
+        let resolve;
+        const promise = new Promise((done) => {
+          resolve = done;
+        });
+        return { resolve, promise };
+      }
+      export class metricHelpersU {
+        constructor(maxAttempts, queue) {
+          this.maxAttempts = maxAttempts;
+          this.queue = queue;
+        }
+      }
+      export function metricHelpersS(ctx) {
+        return Promise.resolve(ctx);
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/segment-metric-helpers.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({
+      expectedSpecifiers: [
+        "@segment/analytics-core",
+        "@segment/analytics-generic-utils",
+      ],
+    });
+  });
+
+  test("passes Segment metric helper shims that re-export npm packages", () => {
+    const source = `
+      // Restored from ref/webview/assets/metric-helpers-DG5zp00d.js
+      export {
+        ON_REMOVE_FROM_FUTURE as metricHelpersL,
+        PriorityQueue as metricHelpersU,
+        attempt as metricHelpersS,
+        ensure as metricHelpersC,
+      } from "@segment/analytics-core";
+      export {
+        Emitter as metricHelpersD,
+        createDeferred as metricHelpersF,
+      } from "@segment/analytics-generic-utils";
+      export class metricHelpersI {}
+      export function metricHelpersA() {
+        return !metricHelpersO();
+      }
+      export function metricHelpersO() {
+        return true;
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/segment-metric-helpers.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
+  test("fails Segment metric helper shims when generic-utils dependency is not declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "@segment/analytics-core": "^1.0.0",
+        },
+      }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "segment-metric-helpers.ts"),
+      `
+        // Restored from ref/webview/assets/metric-helpers-DG5zp00d.js
+        export { PriorityQueue as metricHelpersU } from "@segment/analytics-core";
+        export { Emitter as metricHelpersD } from "@segment/analytics-generic-utils";
+      `,
+    );
+
+    const reports = analyzePublicNpmVendorShimDependencies(restoredDir);
+    expect(reports).toHaveLength(1);
+    expect(reports[0]!.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-dependency-missing",
+    );
+    expect(reports[0]!.issues[0]!.detail).toMatchObject({
+      missingPackages: ["@segment/analytics-generic-utils"],
+    });
+  });
+
   test("fails hand-written Jotai vendor compatibility runtimes", () => {
     const source = `
       // Restored from ref/webview/assets/jotai-react-DpDsdUHx.js

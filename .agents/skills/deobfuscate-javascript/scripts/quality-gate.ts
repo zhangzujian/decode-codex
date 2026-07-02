@@ -510,6 +510,10 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
     "@segment/analytics-core",
     "@segment/facade",
   ],
+  "segment-metric-helpers": [
+    "@segment/analytics-core",
+    "@segment/analytics-generic-utils",
+  ],
   "tanstack-react-form": "@tanstack/react-form",
   "use-sync-external-store-selector-runtime":
     "use-sync-external-store/shim/with-selector",
@@ -535,6 +539,18 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   "katex-CjHJ1D7d": "katex",
   "lib-BWT6A3Q0": "react-intl",
   "merge-jSBXKSH5": "lodash/merge",
+  "metric-helpers-7nP-wnaS": [
+    "@segment/analytics-core",
+    "@segment/analytics-generic-utils",
+  ],
+  "metric-helpers-BidZZeRm": [
+    "@segment/analytics-core",
+    "@segment/analytics-generic-utils",
+  ],
+  "metric-helpers-DG5zp00d": [
+    "@segment/analytics-core",
+    "@segment/analytics-generic-utils",
+  ],
   "middleware-BDgBoOJW": [
     "@segment/analytics-next",
     "@segment/analytics-core",
