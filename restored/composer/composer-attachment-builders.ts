@@ -11,8 +11,12 @@
 // folding is a pure helper reconstructed inline.
 import { Og as buildComposerImageInputItemsImpl } from "../vendor/remote-projects-app-shared-current-bundle";
 import { Ag as normalizeConversationAttachmentsImpl } from "../vendor/remote-projects-app-shared-current-bundle";
-import { s as removeAllImageCommentsImpl } from "../vendor/worktree-new-thread-query-current-bundle";
-import type { ComposerImageAttachment } from "./composer-attachment-atoms";
+import {
+  composerImageCommentDraftAtom,
+  composerImageInputsAtom,
+  type ComposerImageAttachment,
+} from "./composer-attachment-atoms";
+import type { ScopeAtom } from "./composer-atoms";
 
 /** A positioned image comment carried by the image-comment overlay draft. */
 export interface ComposerImageComment {
@@ -29,8 +33,8 @@ export interface ConversationInputAttachment {
 
 /** A composer scope store handle (only its identity is needed to reset overlay state). */
 export interface ComposerScopeHandle {
-  get(atom: unknown, ...args: unknown[]): unknown;
-  set(atom: unknown, ...args: unknown[]): void;
+  get<Value>(atom: ScopeAtom<Value>): Value;
+  set<Value>(atom: ScopeAtom<Value>, value: Value): void;
   readonly [field: string]: unknown;
 }
 
@@ -77,6 +81,21 @@ export function normalizeConversationAttachments(
 }
 
 /** Clear the image-comment overlay draft for the given composer scope. */
-export function removeAllImageComments(scope: ComposerScopeHandle): void {
-  removeAllImageCommentsImpl(scope);
+export function removeAllImageComments(
+  scope: ComposerScopeHandle,
+  attachmentId?: string,
+): void {
+  const activeAttachmentId = scope.get(
+    composerImageCommentDraftAtom,
+  )?.attachmentId;
+  if (activeAttachmentId == null) return;
+  if (attachmentId != null && activeAttachmentId !== attachmentId) return;
+
+  scope.set(composerImageCommentDraftAtom, null);
+  scope.set(
+    composerImageInputsAtom,
+    scope
+      .get(composerImageInputsAtom)
+      .filter((attachment) => attachment.id !== activeAttachmentId),
+  );
 }
