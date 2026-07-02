@@ -195,6 +195,10 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `d3-axis-current-runtime.ts` (`src-*`)                                   | `d3-axis` + `d3-selection`                                                | axis/selection exports; generic `src` basename                  |
 | `d3-hierarchy.ts` (`src-BhkLFyc4`)                                       | `d3-hierarchy` + `d3-scale-chromatic`                                     | hierarchy/treemap helpers and color schemes for Mermaid         |
 | `d3-hierarchy-treemap.ts` (`treemap-*`)                                  | `d3-hierarchy`                                                            | legacy treemap helper aliases                                   |
+| `d3-array-min.ts` (`min-*`)                                              | `d3-array`                                                                | min/max aliases for Mermaid Gantt helpers                       |
+| `d3-format-default-locale.ts` (`defaultLocale-*`)                        | `d3-format`                                                               | format/default-locale aliases; keep only tiny exponent wrapper  |
+| `d3-path.ts` (`path-*`)                                                  | `d3-path`                                                                 | path builder helper aliases; keep only tiny legacy wrappers     |
+| `d3-tableau10.ts` (`Tableau10-*`)                                        | `d3-scale-chromatic`                                                      | Tableau10 palette alias                                         |
 | `d3-sankey.ts` (`src-6yFswxVy`)                                          | `d3-sankey`                                                               | Sankey layout exports for Mermaid                               |
 | `d3-sankey-link-horizontal.ts` (`sankeyLinkHorizontal-*`)                | `d3-sankey`                                                               | legacy Sankey helper aliases                                    |
 | `d3-shape-*.ts` (`arc-*`, `line-*`, `pie-*`, `step-*`, `monotone-*`)     | `d3-shape`                                                                | Mermaid arc/line/pie/stack/curve helpers and legacy aliases     |
@@ -262,14 +266,19 @@ be re-exported from `react-style-singleton`, not reimplemented.
 For D3/Mermaid helpers, `src-BhkLFyc4` is `d3-hierarchy` plus
 `d3-scale-chromatic`, `src-6yFswxVy` is `d3-sankey`, and legacy
 `treemap-*` / `sankeyLinkHorizontal-*` chunks are the same upstream public
-helpers under minified aliases. The D3 shape helper chunks (`arc-*`, `line-*`,
-`pie-*`, `step-*`, `monotone-*`, plus the semantic `d3-shape-*` public files)
-are `d3-shape`-backed surfaces; preserve legacy aliases by re-exporting real
-package exports such as `curveBasis`, `curveCardinal`, `curveCatmullRom`,
-`curveNatural`, and `curveStep*`. Mermaid's legacy `curveBumpX`/`curveBumpY`
-aliases are the exception: `d3-shape@3.2.0` does not expose them, so keep only a
-small typed wrapper under the npm-backed shim for those two curve factories
-instead of reimplementing the whole shape bundle.
+helpers under minified aliases. Utility chunks are also stock D3 packages:
+`min-*` → `d3-array`, `defaultLocale-*` → `d3-format`, `path-*` → `d3-path`,
+and `Tableau10-*` → `d3-scale-chromatic`. The D3 shape helper chunks (`arc-*`,
+`line-*`, `pie-*`, `step-*`, `monotone-*`, plus the semantic `d3-shape-*`
+public files) are `d3-shape`-backed surfaces; preserve legacy aliases by
+re-exporting real package exports such as `curveBasis`, `curveCardinal`,
+`curveCatmullRom`, `curveNatural`, and `curveStep*`. Mermaid's legacy
+`curveBumpX`/`curveBumpY` aliases are the exception: `d3-shape@3.2.0` does not
+expose them, so keep only a small typed wrapper under the npm-backed shim for
+those two curve factories instead of reimplementing the whole shape bundle.
+Likewise, keep only tiny typed wrappers for D3 utility aliases the public
+package does not expose directly (for example `defaultLocaleA` or a legacy path
+digits helper); the package APIs themselves still come from npm re-exports.
 RoughJS has both provenance and API-fingerprint coverage: `rough.esm-*` chunks
 or vendor files exporting `roughjs` plus `canvas`/`svg`/`generator` must resolve
 to the `roughjs` package.

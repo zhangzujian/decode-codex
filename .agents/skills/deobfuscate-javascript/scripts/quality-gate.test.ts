@@ -689,6 +689,203 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written D3 utility vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/min-BVs4UoI0.js
+      export function minT(values) {
+        return values[0];
+      }
+      export function minN(values) {
+        return values[values.length - 1];
+      }
+    `;
+    const report = analyzeSource(source, "restored/vendor/d3-array-min.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({ expectedSpecifiers: ["d3-array"] });
+  });
+
+  test("fails renamed D3 utility source chunks that do not re-export npm", () => {
+    const source = `
+      // Restored from ref/webview/assets/defaultLocale-gPb_B8uX.js
+      export function defaultLocaleT(format) {
+        return String(format);
+      }
+      export function defaultLocaleI(format) {
+        return { format };
+      }
+    `;
+    const report = analyzeSource(source, "restored/vendor/diagram-format.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({ expectedSpecifiers: ["d3-format"] });
+  });
+
+  test("passes D3 utility shims that re-export npm packages", () => {
+    const shimSources = new Map<string, string>([
+      [
+        "restored/vendor/d3-array-min.ts",
+        `
+          // Restored from ref/webview/assets/min-BVs4UoI0.js
+          export {
+            max as maxValue,
+            max as minN,
+            min as minT,
+            min as minValue,
+          } from "d3-array";
+        `,
+      ],
+      [
+        "restored/vendor/d3-format-default-locale.ts",
+        `
+          // Restored from ref/webview/assets/defaultLocale-I5DW1pOv.js
+          export {
+            format as defaultLocaleT,
+            formatLocale as defaultLocaleR,
+            formatPrefix as defaultLocaleN,
+            formatSpecifier as defaultLocaleI,
+          } from "d3-format";
+          export function defaultLocaleA(value: number): number {
+            return Number(value);
+          }
+        `,
+      ],
+      [
+        "restored/vendor/d3-path.ts",
+        `
+          // Restored from ref/webview/assets/path-DSoH76MG.js
+          export { path } from "d3-path";
+          export type { Path } from "d3-path";
+          export function constantAccessor<Value>(value: Value): () => Value {
+            return () => value;
+          }
+          export const pathN = constantAccessor;
+        `,
+      ],
+      [
+        "restored/vendor/d3-tableau10.ts",
+        `
+          // Restored from ref/webview/assets/Tableau10-BYZHCNVA.js
+          export {
+            schemeTableau10,
+            schemeTableau10 as tableau10T,
+          } from "d3-scale-chromatic";
+          export function decodeHexPalette(encodedPalette: string): string[] {
+            return encodedPalette.match(/.{6}/g)?.map((hex) => "#" + hex) ?? [];
+          }
+          export const tableau10N = decodeHexPalette;
+        `,
+      ],
+    ]);
+
+    for (const [file, source] of shimSources) {
+      const report = analyzeSource(source, file, {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      });
+      expect(report.issues).toEqual([]);
+    }
+  });
+
+  test("fails D3 utility shims when package dependencies are not declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "d3-array": "^3.2.4",
+          "d3-path": "^3.1.0",
+          "d3-scale-chromatic": "^3.1.0",
+        },
+      }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-format-default-locale.ts"),
+      `
+        // Restored from ref/webview/assets/defaultLocale-I5DW1pOv.js
+        export { format as defaultLocaleT } from "d3-format";
+      `,
+    );
+
+    const reports = analyzePublicNpmVendorShimDependencies(restoredDir);
+    expect(reports).toHaveLength(1);
+    expect(reports[0]!.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-dependency-missing",
+    );
+    expect(reports[0]!.issues[0]!.detail).toMatchObject({
+      missingPackages: ["d3-format"],
+    });
+  });
+
+  test("passes D3 utility shim dependency checks when package roots are declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "d3-array": "^3.2.4",
+          "d3-format": "^3.1.2",
+          "d3-path": "^3.1.0",
+          "d3-scale-chromatic": "^3.1.0",
+        },
+      }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-array-min.ts"),
+      `
+        // Restored from ref/webview/assets/min-BVs4UoI0.js
+        export { max as minN, min as minT } from "d3-array";
+      `,
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-format-default-locale.ts"),
+      `
+        // Restored from ref/webview/assets/defaultLocale-I5DW1pOv.js
+        export { format as defaultLocaleT } from "d3-format";
+      `,
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-path.ts"),
+      `
+        // Restored from ref/webview/assets/path-BiIEs4Yy.js
+        export { path } from "d3-path";
+      `,
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-tableau10.ts"),
+      `
+        // Restored from ref/webview/assets/Tableau10-BYZHCNVA.js
+        export { schemeTableau10 as tableau10T } from "d3-scale-chromatic";
+      `,
+    );
+
+    expect(analyzePublicNpmVendorShimDependencies(restoredDir)).toEqual([]);
+  });
+
   test("fails hand-written Lodash current vendor shims", () => {
     const source = `
       // Restored from ref/webview/assets/lodash-BhBwOd7I.js
