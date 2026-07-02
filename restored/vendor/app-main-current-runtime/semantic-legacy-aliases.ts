@@ -28,6 +28,16 @@ export {
 export {
   ConversationalOnboardingTaskIcon as OnboardingStepView,
 } from "../../onboarding/conversational-onboarding-task-icon";
+export {
+  SummaryPanelRow as openThreadBrowserSidePanelTabWithoutAnimation,
+} from "../../utils/summary-panel-row";
+export {
+  primaryRuntimeInstallStatusMessage as registerForkedConversation,
+} from "../../runtime/primary-runtime-install-status-message";
+export {
+  initReasoningEffortLabelChunk as normalizeFilesystemPathForDisplay,
+  REASONING_EFFORT_LABELS as readProjectSignal,
+} from "../../composer/reasoning-effort-label";
 
 export {
   Ln as AutomationScheduleEditor,
@@ -60,7 +70,6 @@ export {
   Ql as SidebarTaskRowActions,
   Qp as SidebarTaskRowTitle,
   Sl as initPullRequestStatusBadgeChunk,
-  To as registerForkedConversation,
   Ud as ThreadRowPinAction,
   Wc as primeBrowserTabTransfers,
   Wc as transferForkedConversationBrowserTabs,
@@ -76,7 +85,6 @@ export {
   el as initOpenInBrowserRuntimeChunk,
   eu as SidebarRowUnreadDot,
   fl as getBrowserTabIdForSidePanelOpen,
-  fr as normalizeFilesystemPathForDisplay,
   gl as openThreadBrowserSidePanelTab,
   gm as SidebarRowProjectLabel,
   go as associateBranchWithConversation,
@@ -91,13 +99,11 @@ export {
   nm as SidebarRowHoverCard,
   of as closeThreadMcpAppSidePanelTab,
   pl as initThreadSidePanelTabsChunk,
-  pr as readProjectSignal,
   rl as SidebarRowKeyboardScope,
   sf as getThreadMcpAppSidePanelTabId,
   sl as SidebarRowShortcutScope,
   sm as SidebarRowContextMenuItem,
   ud as initExternalAgentImportStatusIconsChunk,
-  vl as openThreadBrowserSidePanelTabWithoutAnimation,
   xo as initForkConversationToastRuntime,
   zn as SidebarRowRuntime,
 } from "../app-main-current-cgnc-bundle";
