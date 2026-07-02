@@ -4,6 +4,7 @@ export { initPullRequestIconChunk as appMainCurrentCompatSlotLowerDLowerU } from
 export { FolderIcon, SidebarRowDragHandle } from "../app-main-current-runtime";
 
 export { getPathBasename } from "../../runtime/app-main-new-thread-runtime";
+export { initDictationTranscriptCleanupChunk as appMainCurrentCompatSlotLowerDUpperC } from "../../utils/transcribe-audio/responses-cleanup";
 export { getLatestRateLimitResetAt as appMainCurrentCompatSlotLowerDLowerC } from "../../utils/rate-limit-status/windows";
 
 export {
@@ -11,7 +12,6 @@ export {
   d_ as appMainCurrentCompatSlotLowerDUnderscore,
   da as appMainCurrentCompatSlotLowerDLowerA,
   db as appMainCurrentCompatSlotLowerDLowerB,
-  dC as appMainCurrentCompatSlotLowerDUpperC,
   dd as appMainCurrentCompatSlotLowerDLowerD,
   dg as appMainCurrentCompatSlotLowerDLowerG,
   dh as appMainCurrentCompatSlotLowerDLowerH,

@@ -58,6 +58,7 @@ export { Alert as ToastContent } from "../../../utils/alert";
 export { hasRateLimitReached as legacyAppMainBuwLowerGLowerCExport } from "../../../utils/rate-limit-status/account-status";
 export { hasBasicRateLimitReached as legacyAppMainBuwLowerHLowerCExport } from "../../../utils/rate-limit-status/account-status";
 export { formatResetTimestamp as legacyAppMainBuwLowerLLowerCExport } from "../../../utils/rate-limit-status/formatting";
+export { StreamingDictationTranscriber as legacyAppMainBuwLowerHUpperCExport } from "../../../utils/transcribe-audio/streaming-transcriber";
 export {
   hasRateLimitWindow as legacyAppMainBuwLowerJLowerCExport,
   remainingUsagePercent as legacyAppMainBuwLowerKLowerCExport,
@@ -83,7 +84,6 @@ export {
   gu as legacyAppMainBuwLowerGLowerUExport,
   gx as legacyAppMainBuwLowerGLowerXExport,
   h as legacyAppMainBuwLowerHExport,
-  hC as legacyAppMainBuwLowerHUpperCExport,
   hS as legacyAppMainBuwLowerHUpperSExport,
   h_ as legacyAppMainBuwLowerHUnderscoreExport,
   ha as legacyAppMainBuwLowerHLowerAExport,

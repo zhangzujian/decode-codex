@@ -8,6 +8,7 @@ export { initLockIconChunk as legacyAppMainBuwLowerXLowerSExport } from "../../.
 export { initTwoPeopleShieldIconChunk as legacyAppMainBuwLowerWLowerHExport } from "../../../icons/two-people-shield-icon";
 
 export { transcribeAudio as legacyAppMainBuwLowerUUpperCExport } from "../../../utils/transcribe-audio/multipart";
+export { initDictationStreamingUploadHeaderChunk as legacyAppMainBuwLowerVUpperCExport } from "../../../utils/transcribe-audio/types";
 
 export { conversationalOnboardingTaskScope as legacyAppMainBuwLowerVExport } from "../../../onboarding/conversational-onboarding-task-scope";
 
@@ -99,7 +100,6 @@ export {
   us as legacyAppMainBuwLowerULowerSExport,
   uv as legacyAppMainBuwLowerULowerVExport,
   uy as legacyAppMainBuwLowerULowerYExport,
-  vC as legacyAppMainBuwLowerVUpperCExport,
   vS as legacyAppMainBuwLowerVUpperSExport,
   va as legacyAppMainBuwLowerVLowerAExport,
   vd as legacyAppMainBuwLowerVLowerDExport,

@@ -14,6 +14,7 @@ export { useRecordingWaveform as legacyAppMainBuwLowerCUpperCExport } from "../.
 export { formatHookEventName as legacyAppMainBuwLowerELowerAExport } from "../../../settings/hooks-settings-copy";
 
 export { cleanupDictationTranscript as legacyAppMainBuwLowerFUpperCExport } from "../../../utils/transcribe-audio/responses-cleanup";
+export { initDictationTranscriptCleanupChunk as legacyAppMainBuwLowerDUpperCExport } from "../../../utils/transcribe-audio/responses-cleanup";
 
 export { areArraysEqual } from "../../../utils/are-arrays-equal";
 
@@ -118,7 +119,6 @@ export {
   cv as legacyAppMainBuwLowerCLowerVExport,
   cy as legacyAppMainBuwLowerCLowerYExport,
   d as legacyAppMainBuwLowerDExport,
-  dC as legacyAppMainBuwLowerDUpperCExport,
   dS as legacyAppMainBuwLowerDUpperSExport,
   d_ as legacyAppMainBuwLowerDUnderscoreExport,
   da as legacyAppMainBuwLowerDLowerAExport,

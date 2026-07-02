@@ -11,6 +11,7 @@ export {
 
 export { openInitialReviewPanelTarget } from "../../conversations/local-conversation-page-runtime";
 export { closestCenter as ThreadRowStatusIndicator } from "../dnd-kit-core";
+export { StreamingDictationTranscriber as appMainCurrentCompatSlotLowerHUpperC } from "../../utils/transcribe-audio/streaming-transcriber";
 export { hasBasicRateLimitReached as appMainCurrentCompatSlotLowerHLowerC } from "../../utils/rate-limit-status/account-status";
 
 export {
@@ -18,7 +19,6 @@ export {
   h_ as appMainCurrentCompatSlotLowerHUnderscore,
   ha as appMainCurrentCompatSlotLowerHLowerA,
   hb as appMainCurrentCompatSlotLowerHLowerB,
-  hC as appMainCurrentCompatSlotLowerHUpperC,
   hd as appMainCurrentCompatSlotLowerHLowerD,
   hf as appMainCurrentCompatSlotLowerHLowerF,
   hg as appMainCurrentCompatSlotLowerHLowerG,

@@ -9,11 +9,11 @@ export {
 export { initTerminalMousePatchRuntime } from "../../../runtime/window-chrome-runtime";
 
 export { normalizeArtifactPathKey } from "../../../runtime/app-main-new-thread-runtime";
+export { dictationStreamingUploadHeaderValue as legacyAppMainBuwUnderscoreUpperCExport } from "../../../utils/transcribe-audio/types";
 export { isWorkspaceSpendControlReached as legacyAppMainBuwUnderscoreLowerCExport } from "../../../utils/rate-limit-status/account-status";
 
 export {
   _ as legacyAppMainBuwUnderscoreExport,
-  _C as legacyAppMainBuwUnderscoreUpperCExport,
   _S as legacyAppMainBuwUnderscoreUpperSExport,
   _a as legacyAppMainBuwUnderscoreLowerAExport,
   _b as legacyAppMainBuwUnderscoreLowerBExport,

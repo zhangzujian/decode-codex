@@ -9,13 +9,13 @@ export {
 export { initTerminalMousePatchRuntime } from "../../runtime/window-chrome-runtime";
 
 export { normalizeArtifactPathKey } from "../../runtime/app-main-new-thread-runtime";
+export { dictationStreamingUploadHeaderValue as appMainCurrentCompatSlotUnderscoreUpperC } from "../../utils/transcribe-audio/types";
 export { isWorkspaceSpendControlReached as appMainCurrentCompatSlotUnderscoreLowerC } from "../../utils/rate-limit-status/account-status";
 
 export {
   _ as appMainCurrentCompatSlotUnderscore,
   _a as appMainCurrentCompatSlotUnderscoreLowerA,
   _b as appMainCurrentCompatSlotUnderscoreLowerB,
-  _C as appMainCurrentCompatSlotUnderscoreUpperC,
   _d as appMainCurrentCompatSlotUnderscoreLowerD,
   _f as appMainCurrentCompatSlotUnderscoreLowerF,
   _g as appMainCurrentCompatSlotUnderscoreLowerG,
