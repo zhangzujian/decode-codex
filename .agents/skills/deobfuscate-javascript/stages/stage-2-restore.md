@@ -263,8 +263,9 @@ Never resolves already-bare specifiers; leaves a specifier alone on rename colli
 Do not hand-restore a stock package body after this step. If a high-confidence
 vendor chunk (for example React Router, FormatJS/`react-intl`, Day.js, Jotai,
 React companion packages, react-colorful, dotLottie React) still appears as local code, turn it
-into an npm-backed re-export/alias shim and register the package/gate entry so
-future runs resolve it automatically.
+into an npm-backed re-export/alias shim, add the package root to the nearest
+`package.json`, and register the package/gate entry so future runs resolve it
+automatically.
 
 ## Collapse npm CJS interop shims (deep-mode tail)
 

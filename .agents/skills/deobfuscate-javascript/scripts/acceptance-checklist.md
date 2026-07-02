@@ -119,7 +119,9 @@ keyof typeof buttonColorClassNames` (or equivalent).
 - Known third-party package shims re-export the npm package rather than
   hand-writing compatibility bodies. `vendor/react-intl.tsx` imports/exports
   from `react-intl`; it does not implement local `useIntl` or
-  `FormattedMessage` stand-ins.
+  `FormattedMessage` stand-ins. The nearest `package.json` declares the package
+  root (`react-intl` for `react-intl`, `use-sync-external-store` for
+  `use-sync-external-store/shim/with-selector`, etc.).
 - Finalized local sibling imports use semantic public paths. Hashed local
   imports are acceptable only when the file intentionally imports an
   unfinalized original boundary and the provenance/report makes that explicit.
