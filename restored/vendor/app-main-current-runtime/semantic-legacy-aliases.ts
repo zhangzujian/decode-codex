@@ -9,25 +9,35 @@ export {
 export {
   openReviewTabForConversation as openThreadLastTurnReviewSidePanelTab,
 } from "../../review/review-side-panel-tab-commands";
+export {
+  initUnifiedDiffIconChunk as initFileDiffLayoutRuntime,
+  UnifiedDiffIcon,
+} from "../../icons/unified-diff-icon";
+export {
+  initTrashIconChunk as initAppMainAttachmentRendererRuntime,
+  TrashIcon,
+} from "../../icons/trash-icon";
+export {
+  initMessageTextRendererRuntime,
+  MessageTextRenderer,
+} from "../../conversations/user-message-text";
+export {
+  initReviewModeIconsRuntime,
+  XcodeLicenseWarningIcon,
+} from "../../icons/xcode-license-warning-icon";
+export {
+  ConversationalOnboardingTaskIcon as OnboardingStepView,
+} from "../../onboarding/conversational-onboarding-task-icon";
 
 export {
-  $c as initFileDiffLayoutRuntime,
   Ln as AutomationScheduleEditor,
-  Qc as UnifiedDiffIcon,
   Vt as initFileDiffRuntime,
   Hc as setThreadBrowserSidePanelExpanded,
   In as initSettingsRowRuntime,
   Kt as RemoteConversationShell,
-  ad as initAppMainAttachmentRendererRuntime,
-  ai as initMessageTextRendererRuntime,
-  fo as XcodeLicenseWarningIcon,
-  id as TrashIcon,
-  ii as MessageTextRenderer,
   kn as AutomationDraftActionForm,
   ou as FileDiff,
-  po as initReviewModeIconsRuntime,
   su as initFileDiffSupportRuntime,
-  t as OnboardingStepView,
 } from "../app-main-current-cgnc-bundle";
 
 export {
