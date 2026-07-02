@@ -157,7 +157,7 @@ export {
 
 export { Banner as RemoteConversationShell } from "../../ui/banner";
 
-export { ou as FileDiff } from "../app-main-current-cgnc-bundle";
+export { FileDiff } from "../../review/file-diff";
 
 export {
   initBackgroundSubagentsRuntimeChunk as forkConversationMessages,

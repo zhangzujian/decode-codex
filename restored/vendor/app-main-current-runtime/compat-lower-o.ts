@@ -22,6 +22,6 @@ export { trackConversationalOnboardingTaskSelected as appMainCurrentCompatSlotLo
 
 export { computeGeneratedImageOutputs as appMainCurrentCompatSlotLowerOLowerT } from "../../conversations/generated-image-outputs";
 
-export { ou as appMainCurrentCompatSlotLowerOLowerU } from "../app-main-current-cgnc-bundle";
+export { FileDiff as appMainCurrentCompatSlotLowerOLowerU } from "../../review/file-diff";
 
 export { handleSetThreadTitle as appMainCurrentCompatSlotLowerOLowerA } from "./semantic-aliases";
