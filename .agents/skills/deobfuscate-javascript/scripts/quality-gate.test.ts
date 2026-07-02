@@ -106,6 +106,176 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written Cytoscape runtime vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/cytoscape.esm-gCnb3XbU.js
+      export function initCytoscapeRuntimeChunk() {}
+      export function cytoscape(options) {
+        return { options, nodes() { return []; }, edges() { return []; } };
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/cytoscape-runtime.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("fails renamed Cytoscape source chunks that do not re-export npm", () => {
+    const source = `
+      // Restored from ref/webview/assets/cytoscape.esm-CPPPPA7s.js
+      export function cytoscape(options) {
+        return { options };
+      }
+    `;
+    const report = analyzeSource(source, "restored/vendor/graph-runtime.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({ expectedSpecifiers: ["cytoscape"] });
+  });
+
+  test("passes Cytoscape runtime shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/cytoscape.esm-gCnb3XbU.js
+      export { default, default as cytoscape } from "cytoscape";
+      export function initCytoscapeRuntimeChunk(): void {}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/cytoscape-runtime.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
+  test("fails hand-written Cytoscape layout plugin shims", () => {
+    const fcoseSource = `
+      // Restored from ref/webview/assets/cytoscape-fcose-q4BaAAiB.js
+      export function loadCytoscapeFcose() {
+        return function fcoseLayoutPlugin(cytoscape) {
+          cytoscape("layout", "fcose", function Layout() {});
+        };
+      }
+    `;
+    const coseBilkentSource = `
+      // Restored from ref/webview/assets/cytoscape-cose-bilkent-Cew5xac-.js
+      export function loadCytoscapeCoseBilkent() {
+        return function coseBilkentLayoutPlugin(cytoscape) {
+          cytoscape("layout", "cose-bilkent", function Layout() {});
+        };
+      }
+    `;
+
+    const fcoseReport = analyzeSource(
+      fcoseSource,
+      "restored/vendor/cytoscape-fcose.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    const coseBilkentReport = analyzeSource(
+      coseBilkentSource,
+      "restored/vendor/cytoscape-cose-bilkent.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(fcoseReport.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(coseBilkentReport.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes Cytoscape layout plugin shims that re-export npm packages", () => {
+    const fcoseSource = `
+      // Restored from ref/webview/assets/cytoscape-fcose-q4BaAAiB.js
+      import cytoscapeFcose from "cytoscape-fcose";
+      export { default, default as cytoscapeFcose } from "cytoscape-fcose";
+      export function loadCytoscapeFcose(): typeof cytoscapeFcose {
+        return cytoscapeFcose;
+      }
+    `;
+    const coseBilkentSource = `
+      // Restored from ref/webview/assets/cytoscape-cose-bilkent-Cew5xac-.js
+      import cytoscapeCoseBilkent from "cytoscape-cose-bilkent";
+      export { default, default as cytoscapeCoseBilkent } from "cytoscape-cose-bilkent";
+      export function loadCytoscapeCoseBilkent(): typeof cytoscapeCoseBilkent {
+        return cytoscapeCoseBilkent;
+      }
+    `;
+
+    const fcoseReport = analyzeSource(
+      fcoseSource,
+      "restored/vendor/cytoscape-fcose.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    const coseBilkentReport = analyzeSource(
+      coseBilkentSource,
+      "restored/vendor/cytoscape-cose-bilkent.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(fcoseReport.issues).toEqual([]);
+    expect(coseBilkentReport.issues).toEqual([]);
+  });
+
+  test("fails Cytoscape shims when package dependencies are not declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { cytoscape: "3.33.1" } }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "cytoscape-cose-bilkent.ts"),
+      `
+        // Restored from ref/webview/assets/cytoscape-cose-bilkent-Cew5xac-.js
+        export { default, default as cytoscapeCoseBilkent } from "cytoscape-cose-bilkent";
+      `,
+    );
+
+    const reports = analyzePublicNpmVendorShimDependencies(restoredDir);
+    expect(reports).toHaveLength(1);
+    expect(reports[0]!.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-dependency-missing",
+    );
+    expect(reports[0]!.issues[0]!.detail).toMatchObject({
+      missingPackages: ["cytoscape-cose-bilkent"],
+    });
+  });
+
   test("fails hand-written TanStack React Form vendor shims", () => {
     const source = `
       // Restored from ref/webview/assets/esm-BrsRQYxN.js

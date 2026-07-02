@@ -471,6 +471,9 @@ type PublicNpmVendorSpecifiers = string | readonly string[];
 
 const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   cmdk: "cmdk",
+  "cytoscape-cose-bilkent": "cytoscape-cose-bilkent",
+  "cytoscape-fcose": "cytoscape-fcose",
+  "cytoscape-runtime": "cytoscape",
   "d3-axis-current-runtime": ["d3-axis", "d3-selection"],
   "dnd-kit-core": "@dnd-kit/core",
   "dnd-kit-sortable": "@dnd-kit/sortable",
@@ -507,6 +510,14 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   string,
   PublicNpmVendorSpecifiers
 > = {
+  "cytoscape-cose-bilkent-3yd98erd": "cytoscape-cose-bilkent",
+  "cytoscape-cose-bilkent-Cew5xac-": "cytoscape-cose-bilkent",
+  "cytoscape-cose-bilkent-CZ_nfQWZ": "cytoscape-cose-bilkent",
+  "cytoscape-fcose-CYmUq-SS": "cytoscape-fcose",
+  "cytoscape-fcose-q4BaAAiB": "cytoscape-fcose",
+  "cytoscape-fcose-w_4iexyA": "cytoscape-fcose",
+  "cytoscape.esm-CPPPPA7s": "cytoscape",
+  "cytoscape.esm-gCnb3XbU": "cytoscape",
   "esm-Bs7-NtHW": "@segment/analytics-core",
   "katex--WVKgE7E": "katex",
   "katex-BvHNzFYT": "katex",

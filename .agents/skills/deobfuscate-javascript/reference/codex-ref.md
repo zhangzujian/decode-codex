@@ -191,6 +191,9 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `cmdk.tsx` (`dist-*`)                                     | `cmdk`                         | command palette primitives                                      |
 | `tanstack-react-form.ts` (`esm-*`)                        | `@tanstack/react-form`         | form hook wrapper                                               |
 | `d3-axis-current-runtime.ts` (`src-*`)                    | `d3-axis` + `d3-selection`     | axis/selection exports; generic `src` basename                  |
+| `cytoscape-runtime.ts` (`cytoscape.esm-*`)                | `cytoscape`                    | pin to bundled Cytoscape runtime version                        |
+| `cytoscape-fcose.ts` (`cytoscape-fcose-*`)                | `cytoscape-fcose`              | layout plugin loader                                            |
+| `cytoscape-cose-bilkent.ts` (`cytoscape-cose-bilkent-*`)  | `cytoscape-cose-bilkent`       | layout plugin loader; add a local module declaration if needed  |
 | `react-dom-client.ts` (`client-*`)                        | `react-dom/client`             | client root loader/re-export shim                               |
 | `formatjs.ts` (`lib-BWT6A3Q0`)                            | `react-intl`                   | consumers import `useIntl`/`FormattedMessage`                   |
 | `react-is-runtime.ts`                                     | `react-is`                     | React companion package; keep loader shape if needed            |
@@ -219,8 +222,8 @@ unforked, high-confidence packages already listed above: `formatjs.ts` /
 `ref/node_modules/react-intl` or a `react-intl` package entry. The same rule
 applies to React Router, cmdk, TanStack React Form, React companion packages
 (`react-dom/client`, `react-is`, `use-sync-external-store`), react-colorful,
-dotLottie React, Day.js, KaTeX, RoughJS, Jotai, `@dnd-kit/*`, and other
-high-confidence registry packages. In
+dotLottie React, Day.js, KaTeX, RoughJS, Cytoscape runtime/plugins, Jotai,
+`@dnd-kit/*`, and other high-confidence registry packages. In
 that case emit the npm-backed re-export shim, add the package root to the
 restored project `package.json`, and keep ambient module declarations only when
 the package's own types are still unavailable; do not create a local "minimal"

@@ -109,6 +109,14 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
   fuse: { package: "fuse.js", defaultName: "Fuse" },
   "rough.esm": { package: "roughjs", defaultName: "rough" },
   "cytoscape.esm": { package: "cytoscape", defaultName: "cytoscape" },
+  "cytoscape-cose-bilkent": {
+    package: "cytoscape-cose-bilkent",
+    defaultName: "cytoscapeCoseBilkent",
+  },
+  "cytoscape-fcose": {
+    package: "cytoscape-fcose",
+    defaultName: "cytoscapeFcose",
+  },
   // floating-ui — the common chunk basenames are dot-delimited.
   "floating-ui.react-dom": {
     package: "@floating-ui/react-dom",
