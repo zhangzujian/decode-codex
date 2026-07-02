@@ -23,6 +23,9 @@ export {
   MessageTextRenderer,
 } from "../../conversations/user-message-text";
 export {
+  shouldShowToolActivityForDetailLevel as SidebarRowIcon,
+} from "../../conversations/tool-activity-detail-level";
+export {
   initReviewModeIconsRuntime,
   XcodeLicenseWarningIcon,
 } from "../../icons/xcode-license-warning-icon";
@@ -126,7 +129,6 @@ export {
   hl as openThreadBranchReviewSidePanelTab,
   ho as forkConversationMessages,
   hp as useComposedRefs,
-  ki as SidebarRowIcon,
   ml as openSessionSandboxSidePanel,
   mo as initForkConversationMessagesChunk,
   nm as SidebarRowHoverCard,
