@@ -76,8 +76,8 @@ import {
   browserHostInfoSignal,
 } from "../../runtime/browser-host-signals";
 import {
-  isHomeSidePanelExpandedSignal,
-  isPullRequestSyncEnabledSignal,
+  homeRightPanelFullWidthSignal,
+  homeRightPanelOpenSignal,
 } from "../../runtime/home-side-panel-signals";
 import {
   setDraftConversationId,
@@ -151,11 +151,9 @@ export function HomePageBody({
   const rootsData = useSignalValue(workspaceRootsSignal) as {
     roots?: string[];
   };
-  const isPRSyncEnabled = useSignalValue(
-    isPullRequestSyncEnabledSignal,
-  ) as boolean;
-  const isSidePanelExpanded = useSignalValue(
-    isHomeSidePanelExpandedSignal,
+  const isRightPanelOpen = useSignalValue(homeRightPanelOpenSignal) as boolean;
+  const isRightPanelFullWidth = useSignalValue(
+    homeRightPanelFullWidthSignal,
   ) as boolean;
   const { data: accountInfoData } = useAccountInfoQuery("account-info", {
     queryConfig: { enabled: authMethod === "chatgpt" },
@@ -335,7 +333,7 @@ export function HomePageBody({
     );
   });
 
-  const isSidePanelCollapsed = isPRSyncEnabled && isSidePanelExpanded;
+  const isSidePanelCollapsed = isRightPanelOpen && isRightPanelFullWidth;
   const upgradeCta = keyboardShortcuts ? (
     <GetPlusButton
       onClick={(event) =>
