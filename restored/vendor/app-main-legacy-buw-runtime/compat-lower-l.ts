@@ -5,6 +5,7 @@ export { getCommandExecutionText } from "../app-main-current-runtime";
 export { pendingReviewPanelTargetSignal } from "../../conversations/local-conversation-page-runtime";
 
 export { EllipsisHorizontalIcon as ThreadRowTooltip } from "../../icons/ellipsis-horizontal-icon";
+export { Alert as ToastContent } from "../../utils/alert";
 
 export {
   l as appMainCurrentCompatSlotLowerL,
@@ -13,7 +14,6 @@ export {
   lb as appMainCurrentCompatSlotLowerLLowerB,
   lc as appMainCurrentCompatSlotLowerLLowerC,
   lC as appMainCurrentCompatSlotLowerLUpperC,
-  ld as ToastContent,
   lf as appMainCurrentCompatSlotLowerLLowerF,
   lg as appMainCurrentCompatSlotLowerLLowerG,
   li as appMainCurrentCompatSlotLowerLLowerI,

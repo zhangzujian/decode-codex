@@ -39,6 +39,7 @@ export {
 export { initComposedRefsRuntime } from "../../../runtime/app-main-new-thread-runtime";
 export { isConversationDetailModeProse as SidebarRowArchiveToast } from "../../../runtime/conversation-detail-runtime";
 export { EllipsisHorizontalIcon as ThreadRowTooltip } from "../../../icons/ellipsis-horizontal-icon";
+export { Alert as ToastContent } from "../../../utils/alert";
 
 export { closestCenter as ThreadRowStatusIndicator } from "../../dnd-kit-core";
 
@@ -150,7 +151,6 @@ export {
   la as legacyAppMainBuwLowerLLowerAExport,
   lb as legacyAppMainBuwLowerLLowerBExport,
   lc as legacyAppMainBuwLowerLLowerCExport,
-  ld as ToastContent,
   lf as legacyAppMainBuwLowerLLowerFExport,
   lg as legacyAppMainBuwLowerLLowerGExport,
   li as legacyAppMainBuwLowerLLowerIExport,
