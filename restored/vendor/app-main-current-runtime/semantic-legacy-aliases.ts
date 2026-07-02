@@ -81,6 +81,9 @@ export {
   getMicrophoneInputStream as SidebarRowProjectLabel,
 } from "../../utils/microphone-input";
 export {
+  useDictationKeyboard as initExternalAgentImportStatusIconsChunk,
+} from "../../composer/use-dictation-keyboard";
+export {
   BranchNameFieldHeader as getBrowserTabIdForSidePanelOpen,
 } from "../../conversations/branch-name-field-header";
 export {
@@ -161,7 +164,6 @@ export {
   mo as initForkConversationMessagesChunk,
   sl as SidebarRowShortcutScope,
   sm as SidebarRowContextMenuItem,
-  ud as initExternalAgentImportStatusIconsChunk,
   xo as initForkConversationToastRuntime,
   zn as SidebarRowRuntime,
 } from "../app-main-current-cgnc-bundle";
