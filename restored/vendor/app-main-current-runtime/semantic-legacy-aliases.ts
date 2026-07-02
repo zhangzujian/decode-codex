@@ -8,6 +8,7 @@ export {
 } from "../../utils/pull-request-visual-state";
 export {
   openReviewTabForConversation as openThreadLastTurnReviewSidePanelTab,
+  openReviewTab as setThreadBrowserSidePanelExpanded,
 } from "../../review/review-side-panel-tab-commands";
 export {
   initUnifiedDiffIconChunk as initFileDiffLayoutRuntime,
@@ -58,7 +59,6 @@ export {
 export {
   Ln as AutomationScheduleEditor,
   Vt as initFileDiffRuntime,
-  Hc as setThreadBrowserSidePanelExpanded,
   In as initSettingsRowRuntime,
   Kt as RemoteConversationShell,
   kn as AutomationDraftActionForm,
