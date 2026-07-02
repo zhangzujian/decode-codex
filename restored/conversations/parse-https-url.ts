@@ -8,10 +8,10 @@ const httpsUrlSchema = z
   .url()
   .refine((value) => value.startsWith("https://"));
 
-export function parseHttpsUrl(
+export function parseHttpsUrl<TFallback = undefined>(
   value: { url?: unknown },
-  fallback: string,
-): string {
+  fallback?: TFallback,
+): string | TFallback {
   const result = httpsUrlSchema.safeParse(value.url);
   return result.success ? result.data : fallback;
 }

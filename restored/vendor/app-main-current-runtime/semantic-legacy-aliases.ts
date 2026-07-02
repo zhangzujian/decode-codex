@@ -38,6 +38,9 @@ export {
   initReasoningEffortLabelChunk as normalizeFilesystemPathForDisplay,
   REASONING_EFFORT_LABELS as readProjectSignal,
 } from "../../composer/reasoning-effort-label";
+export {
+  parseHttpsUrl as associateBranchWithConversation,
+} from "../../conversations/parse-https-url";
 
 export {
   Ln as AutomationScheduleEditor,
@@ -87,7 +90,6 @@ export {
   fl as getBrowserTabIdForSidePanelOpen,
   gl as openThreadBrowserSidePanelTab,
   gm as SidebarRowProjectLabel,
-  go as associateBranchWithConversation,
   hl as openThreadBranchReviewSidePanelTab,
   hm as SidebarRowHostLabel,
   ho as forkConversationMessages,
