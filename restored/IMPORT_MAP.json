@@ -42471,12 +42471,12 @@
         "DataControlsSettings": "DataControlsSettings"
       },
       "status": "done",
-      "note": "Current DataControlsSettings hash maps to a dedicated current-ref runtime over settings/data-controls.tsx; the settings body was lifted out of vendor parking, React Compiler cache scaffolding was stripped, and archived-chat data/query/list/filter helpers now use semantic names.",
-      "lastUpdated": "2026-07-02T04:15:00.000Z",
+      "note": "Current DataControlsSettings hash maps to a dedicated current-ref runtime over settings/data-controls.tsx; the settings body is split into focused data-controls helper modules with JSX factory residue removed.",
+      "lastUpdated": "2026-07-02T04:42:42.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-02T04:15:00.000Z",
-      "stage3Review": "Host self-review: verified the current file exports DataControlsSettings, promoted the body to settings/data-controls.tsx, stripped React Compiler cache scaffolding, fixed the app-main runtime import for the settings path, renamed archived-chat data/query/list/filter/delete helpers, passed Bun builds for the page and runtime, and passed the runtime quality gate. The page gate now reports only JSX factory residue and split-required for the large flat settings surface.",
-      "stage3Note": "Accepted as a current-ref compatibility export over the promoted DataControlsSettings implementation; JSX factory cleanup and component splitting remain later deep-restore cleanup."
+      "stage3Review": "Host self-review: verified the current file exports DataControlsSettings, converted JSX factory calls to the React runtime createElement form, split archived chat model, cloud task rows, toolbar controls, panel composition, grouped rows, dialog, and runtime wiring into focused helper modules, and verified the entry plus helpers with focused quality gates and Bun builds.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the split DataControlsSettings implementation."
     },
     "hooks-settings-DUMdgBqk": {
       "restored": "runtime/current-app-initial/hooks-settings-current-runtime.ts",
