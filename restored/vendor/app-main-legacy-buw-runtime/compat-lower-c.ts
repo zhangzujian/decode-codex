@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase c compatibility aliases for the legacy app-main/onboarding producer.
+export { areArraysEqual } from "../../utils/are-arrays-equal";
+
 export {
   c as appMainCurrentCompatSlotLowerC,
   c_ as appMainCurrentCompatSlotLowerCUnderscore,
@@ -12,7 +14,6 @@ export {
   cg as appMainCurrentCompatSlotLowerCLowerG,
   ch as appMainCurrentCompatSlotLowerCLowerH,
   ci as appMainCurrentCompatSlotLowerCLowerI,
-  cl as areArraysEqual,
   cm as ThreadRowEnvironmentMeta,
   cn as appMainCurrentCompatSlotLowerCLowerN,
   co as appMainCurrentCompatSlotLowerCLowerO,

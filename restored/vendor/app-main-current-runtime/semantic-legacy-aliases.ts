@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-CgNc-Bk2.js
 // Legacy app-main current bundle aliases that remain sourced from the current bundle.
+export { areArraysEqual } from "../../utils/are-arrays-equal";
+
 export {
   $c as initFileDiffLayoutRuntime,
   Bt as summarizeParsedDiffs,
@@ -32,7 +34,6 @@ export {
   Jd as ThreadRowHoverCard,
   Jl as ThreadRowTitle,
   Kd as ThreadRowMeta,
-  Ac as areArraysEqual,
   Mr as initSidebarRowPrimitivesChunk,
   Nn as SidebarRowActionButton,
   Nr as SidebarRowContextMenu,

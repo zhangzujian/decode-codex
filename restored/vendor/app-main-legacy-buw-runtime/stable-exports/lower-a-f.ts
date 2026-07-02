@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-a-f.
+export { areArraysEqual } from "../../../utils/are-arrays-equal";
+
 export {
   a as legacyAppMainBuwLowerAExport,
   aC as legacyAppMainBuwLowerAUpperCExport,
@@ -61,7 +63,6 @@ export {
   cg as legacyAppMainBuwLowerCLowerGExport,
   ch as legacyAppMainBuwLowerCLowerHExport,
   ci as legacyAppMainBuwLowerCLowerIExport,
-  cl as areArraysEqual,
   cm as ThreadRowEnvironmentMeta,
   cn as legacyAppMainBuwLowerCLowerNExport,
   co as legacyAppMainBuwLowerCLowerOExport,
