@@ -12,6 +12,8 @@ export { initDictationStreamingUploadHeaderChunk as legacyAppMainBuwLowerVUpperC
 export { initUseDictationUiRuntimeChunk as legacyAppMainBuwLowerWUpperCExport } from "../../../features/use-dictation";
 
 export { conversationalOnboardingTaskScope as legacyAppMainBuwLowerVExport } from "../../../onboarding/conversational-onboarding-task-scope";
+export { isConversationalOnboardingMessagingTask as legacyAppMainBuwLowerUExport } from "../../../onboarding/conversational-onboarding-task-registry";
+export { ConversationalOnboardingTaskIcon as legacyAppMainBuwLowerTExport } from "../../../onboarding/conversational-onboarding-task-icon";
 
 export { PopoverAttachmentPill as legacyAppMainBuwLowerZLowerIExport } from "../../../composer/user-message-attachment-pills";
 
@@ -69,7 +71,6 @@ export {
 export { initUserSavedConfigQueryChunk as legacyAppMainBuwLowerULowerXExport } from "../../../config/user-saved-config-query";
 
 export {
-  t as legacyAppMainBuwLowerTExport,
   tS as legacyAppMainBuwLowerTUpperSExport,
   t_ as legacyAppMainBuwLowerTUnderscoreExport,
   ta as legacyAppMainBuwLowerTLowerAExport,
@@ -90,7 +91,6 @@ export {
   tu as legacyAppMainBuwLowerTLowerUExport,
   tx as legacyAppMainBuwLowerTLowerXExport,
   ty as legacyAppMainBuwLowerTLowerYExport,
-  u as legacyAppMainBuwLowerUExport,
   uS as legacyAppMainBuwLowerUUpperSExport,
   u_ as legacyAppMainBuwLowerUUnderscoreExport,
   ua as legacyAppMainBuwLowerULowerAExport,

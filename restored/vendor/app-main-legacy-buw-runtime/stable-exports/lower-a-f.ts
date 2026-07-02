@@ -43,6 +43,10 @@ export {
 export { shouldExpandReviewPanelSignal } from "../../../conversations/local-conversation-page-runtime";
 export { initArrowUpRightLgIconChunk as SidebarRowPrBadge } from "../../../icons/arrow-up-right-lg-icon";
 export { ProgressionDonutIcon as legacyAppMainBuwLowerALowerMExport } from "../../../icons/progression-donut-icon";
+export {
+  getConversationalOnboardingMessagingPluginNames as legacyAppMainBuwLowerAExport,
+  mapConversationalOnboardingTasksToAppPlugins as legacyAppMainBuwLowerCExport,
+} from "../../../onboarding/conversational-onboarding-task-selection";
 
 export {
   getPathBasename,
@@ -63,7 +67,6 @@ export {
 export { getLatestRateLimitResetAt as legacyAppMainBuwLowerDLowerCExport } from "../../../utils/rate-limit-status/windows";
 
 export {
-  a as legacyAppMainBuwLowerAExport,
   aS as legacyAppMainBuwLowerAUpperSExport,
   a_ as legacyAppMainBuwLowerAUnderscoreExport,
   aa as legacyAppMainBuwLowerALowerAExport,
@@ -101,7 +104,6 @@ export {
   bu as legacyAppMainBuwLowerBLowerUExport,
   bv as legacyAppMainBuwLowerBLowerVExport,
   by as legacyAppMainBuwLowerBLowerYExport,
-  c as legacyAppMainBuwLowerCExport,
   cS as legacyAppMainBuwLowerCUpperSExport,
   c_ as legacyAppMainBuwLowerCUnderscoreExport,
   ca as legacyAppMainBuwLowerCLowerAExport,

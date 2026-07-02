@@ -20,6 +20,8 @@ export { CODEX_IDE_DOCS_URL as legacyAppMainBuwLowerQLowerCExport } from "../../
 export { XCircleIcon as ErrorCircleIcon } from "../../../icons/x-circle-icon";
 
 export { getConversationalOnboardingTaskOption as legacyAppMainBuwLowerSExport } from "../../../onboarding/conversational-onboarding-task-registry";
+export { getAvailableConversationalOnboardingTasks as legacyAppMainBuwLowerOExport } from "../../../onboarding/conversational-onboarding-task-selection";
+export { initConversationalOnboardingTaskIconChunk as legacyAppMainBuwLowerNExport } from "../../../onboarding/conversational-onboarding-task-icon";
 
 export {
   liveMcpAppFrameSignal,
@@ -61,7 +63,6 @@ export {
 } from "../../../review/review-diff-store";
 
 export {
-  n as legacyAppMainBuwLowerNExport,
   nS as legacyAppMainBuwLowerNUpperSExport,
   n_ as legacyAppMainBuwLowerNUnderscoreExport,
   na as legacyAppMainBuwLowerNLowerAExport,
@@ -79,7 +80,6 @@ export {
   nv as legacyAppMainBuwLowerNLowerVExport,
   nx as legacyAppMainBuwLowerNLowerXExport,
   ny as legacyAppMainBuwLowerNLowerYExport,
-  o as legacyAppMainBuwLowerOExport,
   oS as legacyAppMainBuwLowerOUpperSExport,
   o_ as legacyAppMainBuwLowerOUnderscoreExport,
   ob as legacyAppMainBuwLowerOLowerBExport,
