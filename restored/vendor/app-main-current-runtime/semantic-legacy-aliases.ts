@@ -70,6 +70,9 @@ export {
   getMicrophoneInputStream as SidebarRowProjectLabel,
 } from "../../utils/microphone-input";
 export {
+  BranchNameFieldHeader as getBrowserTabIdForSidePanelOpen,
+} from "../../conversations/branch-name-field-header";
+export {
   initGitApplyClipboardIconChunk as SidebarRowKeyboardScope,
 } from "../../icons/git-apply-clipboard-icon";
 export {
@@ -124,7 +127,6 @@ export {
   _l as openThreadBrowserSidePanelTabWithPendingState,
   al as SidebarRowMenuSeparator,
   dl as SidebarRowDragHandle,
-  fl as getBrowserTabIdForSidePanelOpen,
   gl as openThreadBrowserSidePanelTab,
   hl as openThreadBranchReviewSidePanelTab,
   ho as forkConversationMessages,
