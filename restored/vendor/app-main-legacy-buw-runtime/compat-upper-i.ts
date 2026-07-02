@@ -7,6 +7,7 @@ export { initFitAddonChunk } from "../../runtime/window-chrome-runtime";
 export { findResultAtom } from "../../find/thread-find-atoms";
 export { isPendingWorktreeInProgress as RemoteHostStatusIcon } from "../../threads/pending-worktree-store";
 export { OPENAI_APPS_SDK_DOCS_URL as appMainCurrentCompatSlotUpperILowerC } from "../../utils/links-bd-mmkun-d";
+export { trackConversationalOnboardingAccessDenied as appMainCurrentCompatSlotUpperILowerS } from "../../onboarding/conversational-onboarding-access-analytics";
 
 export {
   I as appMainCurrentCompatSlotUpperI,
@@ -22,7 +23,6 @@ export {
   Io as appMainCurrentCompatSlotUpperILowerO,
   Ip as appMainCurrentCompatSlotUpperILowerP,
   Ir as appMainCurrentCompatSlotUpperILowerR,
-  Is as appMainCurrentCompatSlotUpperILowerS,
   IS as appMainCurrentCompatSlotUpperIUpperS,
   It as appMainCurrentCompatSlotUpperILowerT,
   Iv as appMainCurrentCompatSlotUpperILowerV,

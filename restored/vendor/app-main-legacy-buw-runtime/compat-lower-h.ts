@@ -13,6 +13,7 @@ export { openInitialReviewPanelTarget } from "../../conversations/local-conversa
 export { closestCenter as ThreadRowStatusIndicator } from "../dnd-kit-core";
 export { StreamingDictationTranscriber as appMainCurrentCompatSlotLowerHUpperC } from "../../utils/transcribe-audio/streaming-transcriber";
 export { hasBasicRateLimitReached as appMainCurrentCompatSlotLowerHLowerC } from "../../utils/rate-limit-status/account-status";
+export { getAppgenAccessStateMessage as appMainCurrentCompatSlotLowerHLowerS } from "../../utils/appgen-access-state-messages";
 
 export {
   h as appMainCurrentCompatSlotLowerH,
@@ -26,7 +27,6 @@ export {
   hi as appMainCurrentCompatSlotLowerHLowerI,
   hn as appMainCurrentCompatSlotLowerHLowerN,
   hr as appMainCurrentCompatSlotLowerHLowerR,
-  hs as appMainCurrentCompatSlotLowerHLowerS,
   hS as appMainCurrentCompatSlotLowerHUpperS,
   ht as appMainCurrentCompatSlotLowerHLowerT,
   hu as appMainCurrentCompatSlotLowerHLowerU,

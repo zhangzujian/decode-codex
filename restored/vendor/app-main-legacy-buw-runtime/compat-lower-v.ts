@@ -12,6 +12,7 @@ export { initTerminalSurfaceRuntime } from "../../runtime/window-chrome-runtime"
 export { initConversationDetailModeRuntime as SidebarRowRemoteEnvironment } from "../../runtime/conversation-detail-runtime";
 export { initDictationStreamingUploadHeaderChunk as appMainCurrentCompatSlotLowerVUpperC } from "../../utils/transcribe-audio/types";
 export { shouldUseCreditsRateLimitDisplay as appMainCurrentCompatSlotLowerVLowerC } from "../../utils/rate-limit-status/account-status";
+export { AppgenAccessStateIcon as appMainCurrentCompatSlotLowerVLowerS } from "../../utils/appgen-access-state-messages";
 
 export {
   v as appMainCurrentCompatSlotLowerV,
@@ -24,7 +25,6 @@ export {
   vn as appMainCurrentCompatSlotLowerVLowerN,
   vp as appMainCurrentCompatSlotLowerVLowerP,
   vr as appMainCurrentCompatSlotLowerVLowerR,
-  vs as appMainCurrentCompatSlotLowerVLowerS,
   vS as appMainCurrentCompatSlotLowerVUpperS,
   vt as appMainCurrentCompatSlotLowerVLowerT,
   vu as appMainCurrentCompatSlotLowerVLowerU,

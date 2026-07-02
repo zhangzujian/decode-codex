@@ -11,6 +11,7 @@ export { bottomPanelTabsStore } from "../../app-shell/thread-panel-tabs-store";
 export { initAvatarIconChunk as appMainCurrentCompatSlotUpperWLowerN } from "../../icons/avatar-icon";
 export { handleGetHandoffStatus as pathsMatch } from "../../conversations/handoff-thread-tool-handlers";
 export { CODEX_GLOBAL_AGENTS_GUIDANCE_DOCS_URL as appMainCurrentCompatSlotUpperWLowerC } from "../../utils/links-bd-mmkun-d";
+export { ClientThreadScopeProvider as appMainCurrentCompatSlotUpperWLowerS } from "../../onboarding/client-thread-scope-provider";
 
 export {
   W as appMainCurrentCompatSlotUpperW,
@@ -24,7 +25,6 @@ export {
   Wo as appMainCurrentCompatSlotUpperWLowerO,
   Wp as appMainCurrentCompatSlotUpperWLowerP,
   Wr as appMainCurrentCompatSlotUpperWLowerR,
-  Ws as appMainCurrentCompatSlotUpperWLowerS,
   WS as appMainCurrentCompatSlotUpperWUpperS,
   Wt as appMainCurrentCompatSlotUpperWLowerT,
   Wu as appMainCurrentCompatSlotUpperWLowerU,

@@ -8,6 +8,7 @@ export { SelectedTextAttachmentPill as appMainCurrentCompatSlotUpperMLowerI } fr
 
 export { initSidebarRowPrimitivesChunk } from "../app-main-current-runtime";
 export { OPEN_IN_CODEX_TOOL_NAME as appMainCurrentCompatSlotUpperMLowerO } from "../../runtime/run-app-action-in-primary-window";
+export { findConnectorAppByIdentifier as appMainCurrentCompatSlotUpperMLowerS } from "../../connectors/apps-queries/onboarding-app-connection";
 
 export {
   M as appMainCurrentCompatSlotUpperM,
@@ -22,7 +23,6 @@ export {
   Ml as appMainCurrentCompatSlotUpperMLowerL,
   Mm as appMainCurrentCompatSlotUpperMLowerM,
   Mp as appMainCurrentCompatSlotUpperMLowerP,
-  Ms as appMainCurrentCompatSlotUpperMLowerS,
   MS as appMainCurrentCompatSlotUpperMUpperS,
   Mt as appMainCurrentCompatSlotUpperMLowerT,
   Mv as appMainCurrentCompatSlotUpperMLowerV,

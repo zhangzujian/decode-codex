@@ -9,6 +9,7 @@ export { ThreadRowMeta } from "../app-main-current-runtime";
 
 export { rightPanelTabsStore } from "../../app-shell/thread-panel-tabs-store";
 export { CODEX_HOOKS_DOCS_URL as appMainCurrentCompatSlotUpperKLowerC } from "../../utils/links-bd-mmkun-d";
+export { ActiveConversationPresence as appMainCurrentCompatSlotUpperKLowerS } from "../../threads/interrupted-turn-state";
 
 export {
   K as appMainCurrentCompatSlotUpperK,
@@ -23,7 +24,6 @@ export {
   Kn as appMainCurrentCompatSlotUpperKLowerN,
   Kp as appMainCurrentCompatSlotUpperKLowerP,
   Kr as appMainCurrentCompatSlotUpperKLowerR,
-  Ks as appMainCurrentCompatSlotUpperKLowerS,
   KS as appMainCurrentCompatSlotUpperKUpperS,
   Kt as appMainCurrentCompatSlotUpperKLowerT,
   Kx as appMainCurrentCompatSlotUpperKLowerX,

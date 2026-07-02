@@ -15,6 +15,7 @@ export {
 export { findOpenAtom } from "../../find/thread-find-atoms";
 
 export { createPendingWorktree } from "../../runtime/conversation-fork-runtime";
+export { initConversationalOnboardingAppConnectionQueryChunk as appMainCurrentCompatSlotUpperPLowerS } from "../../connectors/apps-queries/onboarding-app-connection";
 
 export {
   P as appMainCurrentCompatSlotUpperP,
@@ -27,7 +28,6 @@ export {
   Po as appMainCurrentCompatSlotUpperPLowerO,
   Pp as appMainCurrentCompatSlotUpperPLowerP,
   Pr as appMainCurrentCompatSlotUpperPLowerR,
-  Ps as appMainCurrentCompatSlotUpperPLowerS,
   PS as appMainCurrentCompatSlotUpperPUpperS,
   Pt as appMainCurrentCompatSlotUpperPLowerT,
   Pu as appMainCurrentCompatSlotUpperPLowerU,

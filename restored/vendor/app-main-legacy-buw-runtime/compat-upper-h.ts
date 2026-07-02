@@ -6,6 +6,7 @@ export {
 } from "../app-main-current-runtime";
 export { conversationReviewModelAtom as threadRowStatusSignal } from "../../review/conversation-review-model";
 export { CODEX_CHROME_EXTENSION_DOCS_URL as appMainCurrentCompatSlotUpperHLowerC } from "../../utils/links-bd-mmkun-d";
+export { trackConversationalOnboardingLifecycleStarted as appMainCurrentCompatSlotUpperHLowerS } from "../../onboarding/conversational-onboarding-analytics";
 
 export {
   H as appMainCurrentCompatSlotUpperH,
@@ -21,7 +22,6 @@ export {
   Hn as appMainCurrentCompatSlotUpperHLowerN,
   Ho as appMainCurrentCompatSlotUpperHLowerO,
   Hp as appMainCurrentCompatSlotUpperHLowerP,
-  Hs as appMainCurrentCompatSlotUpperHLowerS,
   HS as appMainCurrentCompatSlotUpperHUpperS,
   Ht as appMainCurrentCompatSlotUpperHLowerT,
   Hu as appMainCurrentCompatSlotUpperHLowerU,

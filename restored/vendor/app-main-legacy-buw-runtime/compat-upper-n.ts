@@ -19,6 +19,7 @@ export { findLoadingAtom } from "../../find/thread-find-atoms";
 export { logger } from "../../conversations/local-conversation-thread-parts/local-environment-action-controls-runtime";
 export { parseUnixSeconds as appMainCurrentCompatSlotUpperNLowerC } from "../../utils/rate-limit-status/windows";
 export { openInCodex as appMainCurrentCompatSlotUpperNLowerO } from "../../runtime/open-in-codex-tool";
+export { appConnectionLinkQueryOptions as appMainCurrentCompatSlotUpperNLowerS } from "../../connectors/apps-queries/onboarding-app-connection";
 
 export {
   Na as appMainCurrentCompatSlotUpperNLowerA,
@@ -29,7 +30,6 @@ export {
   Nl as appMainCurrentCompatSlotUpperNLowerL,
   Nm as appMainCurrentCompatSlotUpperNLowerM,
   Np as appMainCurrentCompatSlotUpperNLowerP,
-  Ns as appMainCurrentCompatSlotUpperNLowerS,
   NS as appMainCurrentCompatSlotUpperNUpperS,
   Nt as appMainCurrentCompatSlotUpperNLowerT,
   Nu as appMainCurrentCompatSlotUpperNLowerU,

@@ -11,6 +11,7 @@ export { initTerminalMousePatchRuntime } from "../../runtime/window-chrome-runti
 export { normalizeArtifactPathKey } from "../../runtime/app-main-new-thread-runtime";
 export { dictationStreamingUploadHeaderValue as appMainCurrentCompatSlotUnderscoreUpperC } from "../../utils/transcribe-audio/types";
 export { isWorkspaceSpendControlReached as appMainCurrentCompatSlotUnderscoreLowerC } from "../../utils/rate-limit-status/account-status";
+export { initAppgenAccessStateMessagesChunk as appMainCurrentCompatSlotUnderscoreLowerS } from "../../utils/appgen-access-state-messages";
 
 export {
   _ as appMainCurrentCompatSlotUnderscore,
@@ -24,7 +25,6 @@ export {
   _n as appMainCurrentCompatSlotUnderscoreLowerN,
   _p as appMainCurrentCompatSlotUnderscoreLowerP,
   _r as appMainCurrentCompatSlotUnderscoreLowerR,
-  _s as appMainCurrentCompatSlotUnderscoreLowerS,
   _S as appMainCurrentCompatSlotUnderscoreUpperS,
   _t as appMainCurrentCompatSlotUnderscoreLowerT,
   _u as appMainCurrentCompatSlotUnderscoreLowerU,

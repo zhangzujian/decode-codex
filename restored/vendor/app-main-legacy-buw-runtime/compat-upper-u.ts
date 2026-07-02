@@ -8,6 +8,7 @@ export {
 export { conversationTitleByIdSignal } from "../../runtime/window-chrome-runtime";
 export { AvatarIcon as hostBridge } from "../../icons/avatar-icon";
 export { CODEX_CONFIG_DOCS_URL as appMainCurrentCompatSlotUpperULowerC } from "../../utils/links-bd-mmkun-d";
+export { trackConversationalOnboardingTaskSelected as appMainCurrentCompatSlotUpperULowerS } from "../../onboarding/conversational-onboarding-analytics";
 
 export {
   U as appMainCurrentCompatSlotUpperU,
@@ -22,7 +23,6 @@ export {
   Um as appMainCurrentCompatSlotUpperULowerM,
   Uo as appMainCurrentCompatSlotUpperULowerO,
   Up as appMainCurrentCompatSlotUpperULowerP,
-  Us as appMainCurrentCompatSlotUpperULowerS,
   US as appMainCurrentCompatSlotUpperUUpperS,
   Ut as appMainCurrentCompatSlotUpperULowerT,
   Uu as appMainCurrentCompatSlotUpperULowerU,

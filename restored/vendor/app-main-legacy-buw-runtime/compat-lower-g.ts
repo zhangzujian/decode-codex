@@ -12,6 +12,7 @@ export { initDocumentSearchIconChunk as appMainCurrentCompatSlotLowerGLowerY } f
 export { initFolderOpenIconChunk as appMainCurrentCompatSlotLowerGLowerH } from "../../icons/folder-open-icon";
 export { initDictationStreamingTranscriberRuntimeChunk as appMainCurrentCompatSlotLowerGUpperC } from "../../utils/transcribe-audio";
 export { hasRateLimitReached as appMainCurrentCompatSlotLowerGLowerC } from "../../utils/rate-limit-status/account-status";
+export { getAppgenAccessShortStateMessage as appMainCurrentCompatSlotLowerGLowerS } from "../../utils/appgen-access-state-messages";
 
 export {
   g as appMainCurrentCompatSlotLowerG,
@@ -24,7 +25,6 @@ export {
   gn as appMainCurrentCompatSlotLowerGLowerN,
   gp as appMainCurrentCompatSlotLowerGLowerP,
   gr as appMainCurrentCompatSlotLowerGLowerR,
-  gs as appMainCurrentCompatSlotLowerGLowerS,
   gS as appMainCurrentCompatSlotLowerGUpperS,
   gt as appMainCurrentCompatSlotLowerGLowerT,
   gu as appMainCurrentCompatSlotLowerGLowerU,

@@ -13,6 +13,7 @@ export { initPendingWorktreeStoreRuntime as initPendingWorktreeComposerRuntimeCh
 export { initReviewRouteContextRuntime as initReviewRouteContextChunk } from "../../review/thread-review-context";
 export { CHATGPT_ADMIN_USAGE_LIMITS_URL as appMainCurrentCompatSlotUpperFLowerC } from "../../utils/links-bd-mmkun-d";
 export { COMPLETE_CONVERSATIONAL_ONBOARDING_TASK_NAME as appMainCurrentCompatSlotUpperFLowerO } from "../../runtime/run-app-action-in-primary-window";
+export { initConversationalOnboardingAnalyticsChunk as appMainCurrentCompatSlotUpperFLowerS } from "../../onboarding/conversational-onboarding-analytics";
 
 export {
   F as appMainCurrentCompatSlotUpperF,
@@ -24,7 +25,6 @@ export {
   Fn as appMainCurrentCompatSlotUpperFLowerN,
   Fp as appMainCurrentCompatSlotUpperFLowerP,
   Fr as appMainCurrentCompatSlotUpperFLowerR,
-  Fs as appMainCurrentCompatSlotUpperFLowerS,
   FS as appMainCurrentCompatSlotUpperFUpperS,
   Ft as appMainCurrentCompatSlotUpperFLowerT,
   Fu as appMainCurrentCompatSlotUpperFLowerU,

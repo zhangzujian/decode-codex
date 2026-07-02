@@ -10,6 +10,7 @@ export { patchTerminalMouseCoordsForZoom } from "../../runtime/window-chrome-run
 export { resolveWorkspacePathFromCwd } from "../../runtime/app-main-new-thread-runtime";
 export { appendPromptText as appMainCurrentCompatSlotLowerYUpperC } from "../../composer/composer-utils";
 export { isWorkspaceCreditsExhausted as appMainCurrentCompatSlotLowerYLowerC } from "../../utils/rate-limit-status/account-status";
+export { initAppgenAccessStateIconChunk as appMainCurrentCompatSlotLowerYLowerS } from "../../utils/appgen-access-state-messages";
 
 export {
   y as appMainCurrentCompatSlotLowerY,
@@ -24,7 +25,6 @@ export {
   yn as appMainCurrentCompatSlotLowerYLowerN,
   yp as appMainCurrentCompatSlotLowerYLowerP,
   yr as appMainCurrentCompatSlotLowerYLowerR,
-  ys as appMainCurrentCompatSlotLowerYLowerS,
   yS as appMainCurrentCompatSlotLowerYUpperS,
   yt as appMainCurrentCompatSlotLowerYLowerT,
   yu as appMainCurrentCompatSlotLowerYLowerU,

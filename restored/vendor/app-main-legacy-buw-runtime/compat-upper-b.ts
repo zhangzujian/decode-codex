@@ -11,6 +11,7 @@ export {
 
 export { getActiveBrowserTabId } from "../../conversations/fork-conversation-panel-state-deps";
 export { CODEX_USAGE_CREDITS_MODAL_URL as appMainCurrentCompatSlotUpperBLowerC } from "../../utils/links-bd-mmkun-d";
+export { trackConversationalOnboardingRoleSelected as appMainCurrentCompatSlotUpperBLowerS } from "../../onboarding/conversational-onboarding-analytics";
 
 export {
   B as appMainCurrentCompatSlotUpperB,
@@ -24,7 +25,6 @@ export {
   Bl as appMainCurrentCompatSlotUpperBLowerL,
   Bm as appMainCurrentCompatSlotUpperBLowerM,
   Bo as appMainCurrentCompatSlotUpperBLowerO,
-  Bs as appMainCurrentCompatSlotUpperBLowerS,
   BS as appMainCurrentCompatSlotUpperBUpperS,
   Bt as appMainCurrentCompatSlotUpperBLowerT,
   Bv as appMainCurrentCompatSlotUpperBLowerV,

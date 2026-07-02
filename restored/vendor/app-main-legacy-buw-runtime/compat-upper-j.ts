@@ -8,6 +8,7 @@ export {
 
 export { setThreadAppShellSources } from "../../runtime/window-chrome-runtime";
 export { CODEX_LOCKED_COMPUTER_USE_DOCS_URL as appMainCurrentCompatSlotUpperJLowerC } from "../../utils/links-bd-mmkun-d";
+export { applyRequestUserInputAutoResolutionChange as appMainCurrentCompatSlotUpperJLowerS } from "../../runtime/request-user-input-auto-resolution";
 
 export {
   J as appMainCurrentCompatSlotUpperJ,
@@ -21,7 +22,6 @@ export {
   Jo as appMainCurrentCompatSlotUpperJLowerO,
   Jp as appMainCurrentCompatSlotUpperJLowerP,
   Jr as appMainCurrentCompatSlotUpperJLowerR,
-  Js as appMainCurrentCompatSlotUpperJLowerS,
   JS as appMainCurrentCompatSlotUpperJUpperS,
   Jt as appMainCurrentCompatSlotUpperJLowerT,
   Ju as appMainCurrentCompatSlotUpperJLowerU,

@@ -10,6 +10,7 @@ export { getAllBrowserTabIdsForConversation } from "../../conversations/fork-con
 export { initReviewDiffFilterRuntime as initReviewSourceModeChunk } from "../../review/review-diff-model";
 export { CHATGPT_PRICING_HASH_URL as appMainCurrentCompatSlotLowerZLowerC } from "../../utils/links-bd-mmkun-d";
 export { navigateToCodexPage as appMainCurrentCompatSlotLowerZLowerO } from "../../runtime/navigate-to-codex-page-tool";
+export { trackConversationalOnboardingExecutionCompletionMissing as appMainCurrentCompatSlotLowerZLowerS } from "../../onboarding/conversational-onboarding-analytics";
 
 export {
   z as appMainCurrentCompatSlotLowerZ,
@@ -23,7 +24,6 @@ export {
   zm as appMainCurrentCompatSlotLowerZLowerM,
   zp as appMainCurrentCompatSlotLowerZLowerP,
   zr as appMainCurrentCompatSlotLowerZLowerR,
-  zs as appMainCurrentCompatSlotLowerZLowerS,
   zS as appMainCurrentCompatSlotLowerZUpperS,
   zt as appMainCurrentCompatSlotLowerZLowerT,
   zx as appMainCurrentCompatSlotLowerZLowerX,

@@ -8,6 +8,7 @@ export { AppShellOverlayOutlet } from "../app-main-current-runtime";
 
 export { bottomPanelOpenStateKey } from "../../conversations/fork-conversation-panel-state-deps";
 export { CODEX_SANDBOXING_DOCS_URL as appMainCurrentCompatSlotUpperZLowerC } from "../../utils/links-bd-mmkun-d";
+export { ConversationalOnboardingStreamingIntro as appMainCurrentCompatSlotUpperZLowerS } from "../../onboarding/conversational-onboarding-streaming-intro";
 
 export {
   Z as appMainCurrentCompatSlotUpperZ,
@@ -23,7 +24,6 @@ export {
   Zn as appMainCurrentCompatSlotUpperZLowerN,
   Zp as appMainCurrentCompatSlotUpperZLowerP,
   Zr as appMainCurrentCompatSlotUpperZLowerR,
-  Zs as appMainCurrentCompatSlotUpperZLowerS,
   Zt as appMainCurrentCompatSlotUpperZLowerT,
   Zv as appMainCurrentCompatSlotUpperZLowerV,
   Zx as appMainCurrentCompatSlotUpperZLowerX,
