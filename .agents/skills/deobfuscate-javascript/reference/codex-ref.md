@@ -230,6 +230,10 @@ Also keep API-fingerprint coverage for distinctive surfaces: a `vendor/*` file
 that exports React Intl APIs such as `useIntl`, `FormattedMessage`, or
 `IntlProvider` must be an npm-backed `react-intl` re-export even when the file
 name and provenance header are not self-identifying.
+When preserving legacy React Intl compatibility names against `react-intl@10`,
+alias the real package names instead of exporting missing members:
+`ReactIntlErrorCode as IntlErrorCode` / `ReactIntlErrorCode as
+IntlErrorCodeValue`, and `IntlConfig as ReactIntlConfig`.
 The same rule applies to Segment: a `vendor/*` file exporting
 `AnalyticsBrowser`, `ContextCancelation`, or `segmentio` should be resolved to
 `@segment/analytics-next` / `@segment/analytics-core`, not a local SDK body.
