@@ -643,6 +643,23 @@ function isUnfinishedAppFlatBoundaryBundle(source: string): boolean {
   );
 }
 
+function isRelocatedBundleBody(source: string, lineCount: number): boolean {
+  const header = source.slice(0, 1000);
+  if (!hasRestorationProvenanceHeader(source)) return false;
+  if (
+    !/\b(?:implementation|backing)\b/i.test(header) ||
+    !/\brestored dependency imports\b/i.test(header)
+  ) {
+    return false;
+  }
+
+  return (
+    lineCount > 1000 ||
+    /\b__vite__mapDeps\b/.test(source.slice(0, 20000)) ||
+    /\b[A-Za-z0-9]+CompatSlot[A-Za-z0-9]*\b/.test(source.slice(0, 20000))
+  );
+}
+
 function isLottieAnimationDataModule(file: string, source: string): boolean {
   const normalized = file.replace(/\\/g, "/");
   if (!/(?:^|\/)(?:assets|animations)\/[^/]+\.ts$/i.test(normalized)) {
@@ -1869,6 +1886,7 @@ export function analyzeSource(
   );
   const unfinishedAppFlatBoundaryBundle =
     isUnfinishedAppFlatBoundaryBundle(source);
+  const relocatedBundleBody = isRelocatedBundleBody(source, lineCount);
   // A faithful vendored module or a generated boundary facade is code we
   // deliberately did not rewrite — relax the semantic-naming/typing/split
   // checks that would false-positive on a package's own short API names or a
@@ -1930,6 +1948,13 @@ export function analyzeSource(
       code: "flat-boundary-app-bundle",
       message:
         "Flat boundary app/runtime bundle remains parked as a vendored bundle; split it into semantic files or replace it with a real third-party re-export boundary.",
+    });
+  }
+  if (!vendored && relocatedBundleBody) {
+    issues.push({
+      code: "relocated-bundle-body",
+      message:
+        "Bundle body was only moved/renamed as an implementation/backing file with dependency imports restored. Split it into maintainable semantic modules before treating the restore as complete.",
     });
   }
 

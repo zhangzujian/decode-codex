@@ -1007,6 +1007,25 @@ export function __rest(value) {
     );
   });
 
+  test("rejects relocated bundle bodies disguised as implementation files", () => {
+    const source = [
+      `// Restored from ref/webview/assets/settings-page-ABC123.js`,
+      `// Current settings page implementation with restored dependency imports.`,
+      `import { currentAppInitialSharedCompatSlotUpperD } from "../runtime/current-app-initial/current-app-initial-shared-backing";`,
+      `export function SettingsPage() { return currentAppInitialSharedCompatSlotUpperD; }`,
+      ...Array(1005).fill(`const settingsPageValue = 1;`),
+    ].join("\n");
+    const report = analyzeSource(source, "settings/settings-page-current.tsx", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      maxFlatLines: 1000,
+      maxFlatExports: 99,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "relocated-bundle-body",
+    );
+  });
+
   test("requires a split for registry-object deliverables", () => {
     const source = `
       export function Root() { return <div />; }
