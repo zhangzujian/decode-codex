@@ -69,7 +69,6 @@ import {
   worktreeNewThreadQueryCompatSlotLowerGLowerP,
   worktreeNewThreadQueryCompatSlotUpperHLowerA,
   worktreeNewThreadQueryCompatSlotLowerHLowerH,
-  worktreeNewThreadQueryCompatSlotLowerHLowerU,
   worktreeNewThreadQueryCompatSlotLowerILowerC,
   worktreeNewThreadQueryCompatSlotLowerILowerR,
   worktreeNewThreadQueryCompatSlotLowerJLowerR,
@@ -77,7 +76,6 @@ import {
   worktreeNewThreadQueryCompatSlotLowerMLowerH,
   worktreeNewThreadQueryCompatSlotLowerMLowerP,
   worktreeNewThreadQueryCompatSlotUpperMLowerR,
-  worktreeNewThreadQueryCompatSlotUpperMLowerU,
   worktreeNewThreadQueryCompatSlotUpperNLowerC,
   worktreeNewThreadQueryCompatSlotLowerNLowerO,
   worktreeNewThreadQueryCompatSlotUpperOLowerM,
@@ -125,7 +123,6 @@ import {
   currentAppInitialSharedMember0273,
   currentAppInitialSharedMember0274,
   currentAppInitialSharedDisplayRuntime,
-  currentAppInitialSharedFunction0758,
   currentAppInitialSharedMember0292,
   reactRouterMember0297,
   remoteConnectionRuntime0298,
@@ -140,7 +137,6 @@ import {
   currentAppInitialSharedMember0871,
   openAiNativeAppDefinition,
   currentAppInitialSharedFunction0895,
-  currentAppInitialSharedMember0919,
   currentAppInitialSharedMember0924,
 } from "../runtime/current-app-initial/remote-projects-app-shared-runtime";
 import {
@@ -259,11 +255,16 @@ import {
 } from "../automation/heartbeat-permissions";
 import {
   archiveAutomationHistoryItems,
+  buildAutomationMentionSourcesByAutomationId,
   buildAutomationHistoryConversationReference,
   buildAutomationDeleteAnalyticsMetadata,
   filterDeletedAutomation,
   formatAutomationRelativeTimestamp,
+  getAutomationMentionSourceName,
   isArchiveableAutomationHistoryItem,
+  isCurrentAutomation,
+  isPausedAutomation,
+  matchesAutomationSearchQuery,
   parseAutomationRestoreSnapshot,
 } from "../automations/current-automation-helpers";
 import {
@@ -995,71 +996,6 @@ function _i({
 var automationsPageValue16 = once(() => {
   intlFormatDateTimeRuntime();
 });
-function automationsPageHelper11(automationsPageParam88) {
-  return automationsPageParam88.kind === "app"
-    ? automationsPageParam88.app.name
-    : automationsPageParam88.name;
-}
-function automationsPageHelper12({ apps, automations, plugins }) {
-  let automationsPageValue449 = new Map();
-  if (apps != null)
-    for (let automationsPageValue511 of apps) {
-      let automationsPageValue513 =
-        worktreeNewThreadQueryCompatSlotLowerHLowerU(
-          automationsPageValue511.id,
-        );
-      automationsPageValue449.set(automationsPageValue513, {
-        app: automationsPageValue511,
-        kind: "app",
-        path: automationsPageValue513,
-      });
-    }
-  for (let automationsPageValue500 of plugins) {
-    let automationsPageValue501 = worktreeNewThreadQueryCompatSlotUpperMLowerU(
-      automationsPageValue500.plugin.id,
-    );
-    automationsPageValue449.set(automationsPageValue501, {
-      kind: "plugin",
-      logoUrl:
-        automationsPageValue500.composerIconPath ??
-        automationsPageValue500.logoPath,
-      name:
-        automationsPageValue500.displayName ??
-        automationsPageValue500.plugin.name,
-      path: automationsPageValue501,
-    });
-  }
-  let automationsPageValue450 = new Map();
-  for (let automationsPageValue484 of automations) {
-    let automationsPageValue485 = [],
-      automationsPageValue486 = new Set(),
-      automationsPageValue487 = 0;
-    for (; automationsPageValue487 < automationsPageValue484.prompt.length; ) {
-      let automationsPageValue502 = currentAppInitialSharedMember0919(
-        automationsPageValue484.prompt,
-        automationsPageValue487,
-      );
-      if (automationsPageValue502 == null) break;
-      let automationsPageValue503 = currentAppInitialSharedFunction0758(
-          automationsPageValue502.path,
-        ),
-        automationsPageValue504 = automationsPageValue449.get(
-          automationsPageValue503,
-        );
-      automationsPageValue504 != null &&
-        !automationsPageValue486.has(automationsPageValue503) &&
-        (automationsPageValue485.push(automationsPageValue504),
-        automationsPageValue486.add(automationsPageValue503));
-      automationsPageValue487 = automationsPageValue502.end;
-    }
-    automationsPageValue485.length > 0 &&
-      automationsPageValue450.set(
-        automationsPageValue484.id,
-        automationsPageValue485,
-      );
-  }
-  return automationsPageValue450;
-}
 var automationsPageValue17 = once(() => {
   worktreeNewThreadQueryCompatSlotLowerZLowerU();
   codexTextLinkTextLinkPromptRuntime();
@@ -1140,21 +1076,6 @@ var automationsPageValue18 = once(() => {
   currentAppInitialSharedCompatSlotUpperO();
   FastServiceTierIcon();
 });
-function automationsPageHelper15(
-  automationsPageParam75,
-  automationsPageParam76,
-) {
-  let automationsPageValue512 = automationsPageHelper16(automationsPageParam75);
-  return (
-    automationsPageValue512.length === 0 ||
-    automationsPageHelper16(automationsPageParam76.join(" ")).includes(
-      automationsPageValue512,
-    )
-  );
-}
-function automationsPageHelper16(automationsPageParam84) {
-  return automationsPageParam84.toLocaleLowerCase().replace(/\s+/g, " ").trim();
-}
 var automationsPageValue19 = once(() => {});
 function automationsPageHelper17(automationsPageParam6) {
   let { systemTemplates, onSelectSystemTemplate } = automationsPageParam6,
@@ -1164,7 +1085,7 @@ function automationsPageHelper17(automationsPageParam6) {
     automationsPageValue297;
   {
     let automationsPageValue298 = (automationsPageParam93) =>
-      automationsPageHelper15(automationsPageValue295, [
+      matchesAutomationSearchQuery(automationsPageValue295, [
         automationsPageParam93.name,
         automationsPageParam93.prompt,
         automationsPageHelper18(
@@ -1330,7 +1251,7 @@ function automationsPageHelper19(automationsPageParam25) {
       },
       {
         sources: automationsPageValue445.formatList(
-          logos.map(automationsPageHelper11),
+          logos.map(getAutomationMentionSourceName),
         ),
       },
     );
@@ -1746,20 +1667,19 @@ function automationsPageHelper23(automationsPageParam3) {
     let automationsPageValue255 = automations.filter((item) => {
         let automationsPageValue494 = automationRowSummaries.get(item.id),
           automationsPageValue495 = automationMentionLogosById.get(item.id);
-        return automationsPageHelper15(automationsPageValue219, [
+        return matchesAutomationSearchQuery(automationsPageValue219, [
           item.name,
           item.prompt,
           automationsPageValue494?.workspaceLabel,
           automationsPageValue494?.scheduleLabel,
-          ...(automationsPageValue495?.map(automationsPageHelper11) ?? []),
+          ...(automationsPageValue495?.map(getAutomationMentionSourceName) ??
+            []),
         ]);
       }),
-      automationsPageValue256 = automationsPageValue255.filter(
-        automationsPageHelper25,
-      ),
-      automationsPageValue257 = automationsPageValue255.filter(
-        automationsPageHelper24,
-      ),
+      automationsPageValue256 =
+        automationsPageValue255.filter(isCurrentAutomation),
+      automationsPageValue257 =
+        automationsPageValue255.filter(isPausedAutomation),
       automationsPageValue258 = runNowPendingAutomationId != null,
       automationsPageValue259 = [
         {
@@ -1923,12 +1843,6 @@ function automationsPageHelper23(automationsPageParam3) {
     );
   }
   return automationsPageValue221;
-}
-function automationsPageHelper24(automationsPageParam101) {
-  return automationsPageParam101.status === "PAUSED";
-}
-function automationsPageHelper25(automationsPageParam102) {
-  return automationsPageParam102.status !== "PAUSED";
 }
 var automationsPageValue32,
   automationsPageValue33,
@@ -2525,7 +2439,7 @@ function automationsPageHelper29({
     { data: ____data } = worktreeNewThreadQueryCompatSlotLowerSLowerC({
       hostId: currentAppInitialSharedMember0542,
     }),
-    automationsPageValue97 = automationsPageHelper12({
+    automationsPageValue97 = buildAutomationMentionSourcesByAutomationId({
       apps: ____data,
       automations,
       plugins: availablePlugins,
