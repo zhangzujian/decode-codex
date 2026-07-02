@@ -1,40 +1,32 @@
 // Restored from ref/webview/assets/chunk-LFPYN7LY-h_ROgi7V.js
-// chunk-LFPYN7LY-h_ROgi7V chunk restored from the Codex webview bundle.
-import {
-  useSearchParams,
-  Navigate,
-  Routes,
-  matchRoutes,
-  useLocation,
-  useParams,
-  useNavigationType,
-  MemoryRouter,
-  createRoutesFromChildren,
-  useNavigate,
-  Link,
-  useOutlet,
-  useMatch,
-  UNSAFE_LocationContext,
-  Route,
-  NavigationType,
-  matchPath,
-} from "react-router";
+// React Router npm re-export shim for the bundled route runtime chunk.
+
 export {
-  useSearchParams,
-  Navigate,
-  Routes,
-  matchRoutes,
-  useLocation,
-  useParams,
-  useNavigationType,
-  MemoryRouter,
-  createRoutesFromChildren,
-  useNavigate,
   Link,
-  useOutlet,
-  useMatch,
-  UNSAFE_LocationContext,
-  Route,
+  MemoryRouter,
+  Navigate,
   NavigationType,
+  Route,
+  Routes,
+  UNSAFE_LocationContext,
+  createRoutesFromChildren,
+  matchRoutes,
   matchPath,
-};
+  useLocation,
+  useMatch,
+  useNavigate,
+  useNavigationType,
+  useOutlet,
+  useParams,
+  useSearchParams,
+} from "react-router";
+
+export type {
+  Location,
+  NavigateOptions,
+  Params,
+  PathMatch,
+  PathPattern,
+  RouteObject,
+  To,
+} from "react-router";

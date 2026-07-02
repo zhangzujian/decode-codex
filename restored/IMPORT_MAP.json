@@ -9471,6 +9471,8 @@
     "chunk-LFPYN7LY-h_ROgi7V": {
       "restored": "vendor/react-router.ts",
       "status": "done",
+      "vendor": "react-router",
+      "note": "Stock React Router runtime chunk restored as a typed npm re-export shim; root package.json now declares react-router so this dependency resolves directly.",
       "exports": {
         "_": "useSearchParams",
         "a": "Navigate",
@@ -9491,8 +9493,9 @@
         "u": "matchPath"
       },
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T00:00:00.000Z",
-      "stage3Review": "Host self-review: compared the stored original chunk-LFPYN7LY-h_ROgi7V.js export table to vendor/react-router.ts; the restored module preserves the mapped React Router exports as a third-party re-export shim and passes quality-gate."
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Review": "Host self-review: compared the stored original chunk-LFPYN7LY-h_ROgi7V.js export table to vendor/react-router.ts; the restored module preserves the mapped React Router exports as a typed third-party npm re-export shim and passes quality-gate.",
+      "lastUpdated": "2026-07-02T00:00:00.000Z"
     },
     "use-active-conversation-id-CAmguZaf": {
       "restored": "utils/use-active-conversation-id.ts",
