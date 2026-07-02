@@ -1,5 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-t-z.
+export { PullRequestIcon as legacyAppMainBuwLowerULowerUExport } from "../../../icons/pull-request-icon";
+export { initArrowRotateCcwIconChunk as legacyAppMainBuwLowerULowerMExport } from "../../../icons/arrow-rotate-ccw-icon";
+export { initGoogleChromeIconChunk as legacyAppMainBuwLowerWLowerMExport } from "../../../icons/google-chrome-icon";
+export { initLockIconChunk as legacyAppMainBuwLowerXLowerSExport } from "../../../icons/lock-icon";
+export { initTwoPeopleShieldIconChunk as legacyAppMainBuwLowerWLowerHExport } from "../../../icons/two-people-shield-icon";
+
 export { transcribeAudio as legacyAppMainBuwLowerUUpperCExport } from "../../../utils/transcribe-audio/multipart";
 
 export { conversationalOnboardingTaskScope as legacyAppMainBuwLowerVExport } from "../../../onboarding/conversational-onboarding-task-scope";
@@ -78,13 +84,11 @@ export {
   uf as legacyAppMainBuwLowerULowerFExport,
   ug as legacyAppMainBuwLowerULowerGExport,
   ui as legacyAppMainBuwLowerULowerIExport,
-  um as legacyAppMainBuwLowerULowerMExport,
   un as legacyAppMainBuwLowerULowerNExport,
   uo as legacyAppMainBuwLowerULowerOExport,
   up as legacyAppMainBuwLowerULowerPExport,
   ur as legacyAppMainBuwLowerULowerRExport,
   us as legacyAppMainBuwLowerULowerSExport,
-  uu as legacyAppMainBuwLowerULowerUExport,
   uv as legacyAppMainBuwLowerULowerVExport,
   ux as legacyAppMainBuwLowerULowerXExport,
   uy as legacyAppMainBuwLowerULowerYExport,
@@ -114,10 +118,8 @@ export {
   wd as legacyAppMainBuwLowerWLowerDExport,
   wf as legacyAppMainBuwLowerWLowerFExport,
   wg as legacyAppMainBuwLowerWLowerGExport,
-  wh as legacyAppMainBuwLowerWLowerHExport,
   wi as legacyAppMainBuwLowerWLowerIExport,
   wl as legacyAppMainBuwLowerWLowerLExport,
-  wm as legacyAppMainBuwLowerWLowerMExport,
   wn as legacyAppMainBuwLowerWLowerNExport,
   wo as legacyAppMainBuwLowerWLowerOExport,
   wp as legacyAppMainBuwLowerWLowerPExport,
@@ -140,7 +142,6 @@ export {
   xm as legacyAppMainBuwLowerXLowerMExport,
   xn as legacyAppMainBuwLowerXLowerNExport,
   xp as legacyAppMainBuwLowerXLowerPExport,
-  xs as legacyAppMainBuwLowerXLowerSExport,
   xt as legacyAppMainBuwLowerXLowerTExport,
   xu as legacyAppMainBuwLowerXLowerUExport,
   xv as legacyAppMainBuwLowerXLowerVExport,

@@ -1,5 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase n compatibility aliases for the legacy app-main/onboarding producer.
+export { initPullRequestOpenIconChunk as appMainCurrentCompatSlotLowerNLowerU } from "../../icons/pull-request-open-icon";
+export { initUnselectedCircleIconChunk as appMainCurrentCompatSlotLowerNLowerC } from "../../icons/unselected-circle-icon";
+
 export {
   liveMcpAppFrameSignal,
   composeEventHandlers,
@@ -13,7 +16,6 @@ export {
   n_ as appMainCurrentCompatSlotLowerNUnderscore,
   na as appMainCurrentCompatSlotLowerNLowerA,
   nb as appMainCurrentCompatSlotLowerNLowerB,
-  nc as appMainCurrentCompatSlotLowerNLowerC,
   nd as appMainCurrentCompatSlotLowerNLowerD,
   ng as appMainCurrentCompatSlotLowerNLowerG,
   nh as appMainCurrentCompatSlotLowerNLowerH,
@@ -25,7 +27,6 @@ export {
   ns as appMainCurrentCompatSlotLowerNLowerS,
   nS as appMainCurrentCompatSlotLowerNUpperS,
   nt as appMainCurrentCompatSlotLowerNLowerT,
-  nu as appMainCurrentCompatSlotLowerNLowerU,
   nv as appMainCurrentCompatSlotLowerNLowerV,
   nx as appMainCurrentCompatSlotLowerNLowerX,
   ny as appMainCurrentCompatSlotLowerNLowerY,

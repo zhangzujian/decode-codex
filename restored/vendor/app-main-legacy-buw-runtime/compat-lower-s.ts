@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase s compatibility aliases for the legacy app-main/onboarding producer.
+export { initCursorIconChunk as appMainCurrentCompatSlotLowerSLowerA } from "../../icons/cursor-icon";
+
 export {
   getThreadMcpAppSidePanelTabId,
   SidebarRowShortcutScope,
@@ -13,7 +15,6 @@ export { focusPendingReviewPanelTarget } from "../../conversations/local-convers
 export {
   s as appMainCurrentCompatSlotLowerS,
   s_ as appMainCurrentCompatSlotLowerSUnderscore,
-  sa as appMainCurrentCompatSlotLowerSLowerA,
   sb as appMainCurrentCompatSlotLowerSLowerB,
   sc as appMainCurrentCompatSlotLowerSLowerC,
   sC as appMainCurrentCompatSlotLowerSUpperC,

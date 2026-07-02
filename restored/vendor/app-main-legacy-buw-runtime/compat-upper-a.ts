@@ -1,5 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase A compatibility aliases for the legacy app-main/onboarding producer.
+export { ExternalSiteIcon as appMainCurrentCompatSlotUpperALowerI } from "../../icons/external-site-icon";
+export { initSendToCloudIconChunk as appMainCurrentCompatSlotUpperALowerU } from "../../icons/send-to-cloud-icon";
+
 export { ComposerContextButton as appMainCurrentCompatSlotUpperAUpperC } from "../../features/use-dictation/context-button";
 
 export { GlobeIcon } from "../app-main-current-runtime";
@@ -18,7 +21,6 @@ export {
   Af as appMainCurrentCompatSlotUpperALowerF,
   Ag as appMainCurrentCompatSlotUpperALowerG,
   Ah as appMainCurrentCompatSlotUpperALowerH,
-  Ai as appMainCurrentCompatSlotUpperALowerI,
   Al as appMainCurrentCompatSlotUpperALowerL,
   Am as appMainCurrentCompatSlotUpperALowerM,
   An as appMainCurrentCompatSlotUpperALowerN,
@@ -26,7 +28,6 @@ export {
   Ap as appMainCurrentCompatSlotUpperALowerP,
   As as appMainCurrentCompatSlotUpperALowerS,
   At as appMainCurrentCompatSlotUpperALowerT,
-  Au as appMainCurrentCompatSlotUpperALowerU,
   Av as appMainCurrentCompatSlotUpperALowerV,
   Ax as appMainCurrentCompatSlotUpperALowerX,
   Ay as appMainCurrentCompatSlotUpperALowerY,

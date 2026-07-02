@@ -1,8 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase Z compatibility aliases for the legacy app-main/onboarding producer.
-export {
-  UserMessageText as appMainCurrentCompatSlotUpperZLowerI,
-} from "../../conversations/user-message-text";
+export { ShieldCodeIcon as appMainCurrentCompatSlotUpperZLowerO } from "../../icons/shield-code-icon";
+
+export { UserMessageText as appMainCurrentCompatSlotUpperZLowerI } from "../../conversations/user-message-text";
 
 export { AppShellOverlayOutlet } from "../app-main-current-runtime";
 
@@ -21,7 +21,6 @@ export {
   Zl as appMainCurrentCompatSlotUpperZLowerL,
   Zm as appMainCurrentCompatSlotUpperZLowerM,
   Zn as appMainCurrentCompatSlotUpperZLowerN,
-  Zo as appMainCurrentCompatSlotUpperZLowerO,
   Zp as appMainCurrentCompatSlotUpperZLowerP,
   Zr as appMainCurrentCompatSlotUpperZLowerR,
   Zs as appMainCurrentCompatSlotUpperZLowerS,

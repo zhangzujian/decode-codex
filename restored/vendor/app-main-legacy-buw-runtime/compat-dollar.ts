@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Dollar-prefixed compatibility aliases for the legacy app-main/onboarding producer.
+export { CollapseIcon as appMainCurrentCompatSlotDollarLowerN } from "../../icons/collapse-icon";
+
 export { SidebarSection } from "../app-main-current-runtime";
 
 export { rightPanelOpenStateKey } from "../../conversations/fork-conversation-panel-state-deps";
@@ -19,7 +21,6 @@ export {
   $g as appMainCurrentCompatSlotDollarLowerG,
   $h as appMainCurrentCompatSlotDollarLowerH,
   $i as appMainCurrentCompatSlotDollarLowerI,
-  $n as appMainCurrentCompatSlotDollarLowerN,
   $o as appMainCurrentCompatSlotDollarLowerO,
   $p as appMainCurrentCompatSlotDollarLowerP,
   $r as appMainCurrentCompatSlotDollarLowerR,

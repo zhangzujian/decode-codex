@@ -1,5 +1,13 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-n-s.
+export { CursorIcon as legacyAppMainBuwLowerOLowerAExport } from "../../../icons/cursor-icon";
+export { ImagesIcon as legacyAppMainBuwLowerRLowerTExport } from "../../../icons/images-icon";
+export { RobotIcon as legacyAppMainBuwLowerQLowerNExport } from "../../../icons/robot-icon";
+export { initCheckCircleIconChunk as legacyAppMainBuwLowerOLowerCExport } from "../../../icons/check-circle-icon";
+export { initCursorIconChunk as legacyAppMainBuwLowerSLowerAExport } from "../../../icons/cursor-icon";
+export { initPullRequestOpenIconChunk as legacyAppMainBuwLowerNLowerUExport } from "../../../icons/pull-request-open-icon";
+export { initUnselectedCircleIconChunk as legacyAppMainBuwLowerNLowerCExport } from "../../../icons/unselected-circle-icon";
+
 export { useDictationCore as legacyAppMainBuwLowerOUpperCExport } from "../../../features/use-dictation/use-dictation";
 
 export { getMicrophoneInputStream as legacyAppMainBuwLowerPUpperCExport } from "../../../utils/microphone-input";
@@ -52,7 +60,6 @@ export {
   n_ as legacyAppMainBuwLowerNUnderscoreExport,
   na as legacyAppMainBuwLowerNLowerAExport,
   nb as legacyAppMainBuwLowerNLowerBExport,
-  nc as legacyAppMainBuwLowerNLowerCExport,
   nd as legacyAppMainBuwLowerNLowerDExport,
   ng as legacyAppMainBuwLowerNLowerGExport,
   nh as legacyAppMainBuwLowerNLowerHExport,
@@ -63,16 +70,13 @@ export {
   nr as legacyAppMainBuwLowerNLowerRExport,
   ns as legacyAppMainBuwLowerNLowerSExport,
   nt as legacyAppMainBuwLowerNLowerTExport,
-  nu as legacyAppMainBuwLowerNLowerUExport,
   nv as legacyAppMainBuwLowerNLowerVExport,
   nx as legacyAppMainBuwLowerNLowerXExport,
   ny as legacyAppMainBuwLowerNLowerYExport,
   o as legacyAppMainBuwLowerOExport,
   oS as legacyAppMainBuwLowerOUpperSExport,
   o_ as legacyAppMainBuwLowerOUnderscoreExport,
-  oa as legacyAppMainBuwLowerOLowerAExport,
   ob as legacyAppMainBuwLowerOLowerBExport,
-  oc as legacyAppMainBuwLowerOLowerCExport,
   od as legacyAppMainBuwLowerOLowerDExport,
   oh as legacyAppMainBuwLowerOLowerHExport,
   oi as legacyAppMainBuwLowerOLowerIExport,
@@ -117,7 +121,6 @@ export {
   qh as legacyAppMainBuwLowerQLowerHExport,
   ql as legacyAppMainBuwLowerQLowerLExport,
   qm as legacyAppMainBuwLowerQLowerMExport,
-  qn as legacyAppMainBuwLowerQLowerNExport,
   qo as legacyAppMainBuwLowerQLowerOExport,
   qp as legacyAppMainBuwLowerQLowerPExport,
   qr as legacyAppMainBuwLowerQLowerRExport,
@@ -142,14 +145,12 @@ export {
   rp as legacyAppMainBuwLowerRLowerPExport,
   rr as legacyAppMainBuwLowerRLowerRExport,
   rs as legacyAppMainBuwLowerRLowerSExport,
-  rt as legacyAppMainBuwLowerRLowerTExport,
   ru as legacyAppMainBuwLowerRLowerUExport,
   rx as legacyAppMainBuwLowerRLowerXExport,
   ry as legacyAppMainBuwLowerRLowerYExport,
   sC as legacyAppMainBuwLowerSUpperCExport,
   sS as legacyAppMainBuwLowerSUpperSExport,
   s_ as legacyAppMainBuwLowerSUnderscoreExport,
-  sa as legacyAppMainBuwLowerSLowerAExport,
   sb as legacyAppMainBuwLowerSLowerBExport,
   sc as legacyAppMainBuwLowerSLowerCExport,
   sd as legacyAppMainBuwLowerSLowerDExport,

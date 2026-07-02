@@ -1,5 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-n-s.
+export { HomepageLogoIcon as legacyAppMainBuwUpperQLowerFExport } from "../../../icons/homepage-logo-icon";
+export { initReviewTabIconChunk as legacyAppMainBuwUpperSLowerHExport } from "../../../icons/review-tab-icon";
+export { initShieldCodeIconChunk as legacyAppMainBuwUpperQLowerOExport } from "../../../icons/shield-code-icon";
+export { initUploadIconChunk as legacyAppMainBuwUpperQExport } from "../../../icons/upload-icon";
+
 export { SelectedTextTooltip as legacyAppMainBuwUpperNLowerIExport } from "../../../composer/user-message-attachment-pills";
 
 export { cancelActiveConversationalOnboardingForHost as legacyAppMainBuwUpperOExport } from "../../../onboarding/conversational-onboarding-cancel-for-host";
@@ -102,20 +107,17 @@ export {
   Pu as legacyAppMainBuwUpperPLowerUExport,
   Pv as legacyAppMainBuwUpperPLowerVExport,
   Px as legacyAppMainBuwUpperPLowerXExport,
-  Q as legacyAppMainBuwUpperQExport,
   QS as legacyAppMainBuwUpperQUpperSExport,
   Q_ as legacyAppMainBuwUpperQUnderscoreExport,
   Qa as legacyAppMainBuwUpperQLowerAExport,
   Qb as legacyAppMainBuwUpperQLowerBExport,
   Qc as legacyAppMainBuwUpperQLowerCExport,
   Qd as legacyAppMainBuwUpperQLowerDExport,
-  Qf as legacyAppMainBuwUpperQLowerFExport,
   Qg as legacyAppMainBuwUpperQLowerGExport,
   Qh as legacyAppMainBuwUpperQLowerHExport,
   Qi as legacyAppMainBuwUpperQLowerIExport,
   Qm as legacyAppMainBuwUpperQLowerMExport,
   Qn as legacyAppMainBuwUpperQLowerNExport,
-  Qo as legacyAppMainBuwUpperQLowerOExport,
   Qr as legacyAppMainBuwUpperQLowerRExport,
   Qs as legacyAppMainBuwUpperQLowerSExport,
   Qt as legacyAppMainBuwUpperQLowerTExport,
@@ -148,7 +150,6 @@ export {
   Sc as legacyAppMainBuwUpperSLowerCExport,
   Sd as legacyAppMainBuwUpperSLowerDExport,
   Sf as legacyAppMainBuwUpperSLowerFExport,
-  Sh as legacyAppMainBuwUpperSLowerHExport,
   Si as legacyAppMainBuwUpperSLowerIExport,
   Sm as legacyAppMainBuwUpperSLowerMExport,
   Sn as legacyAppMainBuwUpperSLowerNExport,

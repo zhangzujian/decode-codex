@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: dollar.
+export { CollapseIcon as legacyAppMainBuwDollarLowerNExport } from "../../../icons/collapse-icon";
+
 export { SidebarSection } from "../../app-main-current-runtime";
 
 export { rightPanelOpenStateKey } from "../../../conversations/fork-conversation-panel-state-deps";
@@ -19,7 +21,6 @@ export {
   $g as legacyAppMainBuwDollarLowerGExport,
   $h as legacyAppMainBuwDollarLowerHExport,
   $i as legacyAppMainBuwDollarLowerIExport,
-  $n as legacyAppMainBuwDollarLowerNExport,
   $o as legacyAppMainBuwDollarLowerOExport,
   $p as legacyAppMainBuwDollarLowerPExport,
   $r as legacyAppMainBuwDollarLowerRExport,

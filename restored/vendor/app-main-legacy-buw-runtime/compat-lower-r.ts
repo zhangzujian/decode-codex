@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase r compatibility aliases for the legacy app-main/onboarding producer.
+export { ImagesIcon as appMainCurrentCompatSlotLowerRLowerT } from "../../icons/images-icon";
+
 export { SidebarRowKeyboardScope } from "../app-main-current-runtime";
 
 export { Portal } from "../../runtime/app-main-new-thread-runtime";
@@ -24,7 +26,6 @@ export {
   rr as appMainCurrentCompatSlotLowerRLowerR,
   rs as appMainCurrentCompatSlotLowerRLowerS,
   rS as appMainCurrentCompatSlotLowerRUpperS,
-  rt as appMainCurrentCompatSlotLowerRLowerT,
   ru as appMainCurrentCompatSlotLowerRLowerU,
   rx as appMainCurrentCompatSlotLowerRLowerX,
   ry as appMainCurrentCompatSlotLowerRLowerY,

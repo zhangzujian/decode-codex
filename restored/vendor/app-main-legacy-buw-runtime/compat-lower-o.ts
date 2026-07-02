@@ -1,5 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase o compatibility aliases for the legacy app-main/onboarding producer.
+export { CursorIcon as appMainCurrentCompatSlotLowerOLowerA } from "../../icons/cursor-icon";
+export { initCheckCircleIconChunk as appMainCurrentCompatSlotLowerOLowerC } from "../../icons/check-circle-icon";
+
 export { useDictationCore as appMainCurrentCompatSlotLowerOUpperC } from "../../features/use-dictation/use-dictation";
 
 export {
@@ -13,9 +16,7 @@ export { initReviewDiffStateRuntime as initReviewDiffStateChunk } from "../../re
 export {
   o as appMainCurrentCompatSlotLowerO,
   o_ as appMainCurrentCompatSlotLowerOUnderscore,
-  oa as appMainCurrentCompatSlotLowerOLowerA,
   ob as appMainCurrentCompatSlotLowerOLowerB,
-  oc as appMainCurrentCompatSlotLowerOLowerC,
   od as appMainCurrentCompatSlotLowerOLowerD,
   oh as appMainCurrentCompatSlotLowerOLowerH,
   oi as appMainCurrentCompatSlotLowerOLowerI,

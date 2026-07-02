@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase h compatibility aliases for the legacy app-main/onboarding producer.
+export { DocumentSearchIcon as appMainCurrentCompatSlotLowerHLowerY } from "../../icons/document-search-icon";
+
 export {
   openThreadBranchReviewSidePanelTab,
   SidebarRowHostLabel,
@@ -28,5 +30,4 @@ export {
   hS as appMainCurrentCompatSlotLowerHUpperS,
   ht as appMainCurrentCompatSlotLowerHLowerT,
   hu as appMainCurrentCompatSlotLowerHLowerU,
-  hy as appMainCurrentCompatSlotLowerHLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

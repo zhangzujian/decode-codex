@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase F compatibility aliases for the legacy app-main/onboarding producer.
+export { initRegenerateIconChunk as appMainCurrentCompatSlotUpperFUpperC } from "../../icons/regenerate-icon";
+
 export { CommentAttachmentPill as appMainCurrentCompatSlotUpperFLowerI } from "../../composer/user-message-attachment-pills";
 
 export { initThreadRowLayoutRuntimeChunk } from "../app-main-current-runtime";
@@ -15,7 +17,6 @@ export {
   Fa as appMainCurrentCompatSlotUpperFLowerA,
   Fb as appMainCurrentCompatSlotUpperFLowerB,
   Fc as appMainCurrentCompatSlotUpperFLowerC,
-  FC as appMainCurrentCompatSlotUpperFUpperC,
   Fd as appMainCurrentCompatSlotUpperFLowerD,
   Fl as appMainCurrentCompatSlotUpperFLowerL,
   Fm as appMainCurrentCompatSlotUpperFLowerM,

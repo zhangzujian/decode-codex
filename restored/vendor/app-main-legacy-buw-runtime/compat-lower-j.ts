@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase j compatibility aliases for the legacy app-main/onboarding producer.
+export { TasksIcon as appMainCurrentCompatSlotLowerJLowerN } from "../../icons/tasks-icon";
+export { initExternalSiteIconChunk as appMainCurrentCompatSlotLowerJLowerI } from "../../icons/external-site-icon";
+export { initGitApplyClipboardIconChunk as appMainCurrentCompatSlotLowerJLowerL } from "../../icons/git-apply-clipboard-icon";
+
 export { normalizeWorkspacePath } from "../app-main-current-runtime";
 
 export { findActiveDomainAtom } from "../../find/thread-find-atoms";
@@ -15,10 +19,7 @@ export {
   jd as appMainCurrentCompatSlotLowerJLowerD,
   jf as appMainCurrentCompatSlotLowerJLowerF,
   jh as appMainCurrentCompatSlotLowerJLowerH,
-  ji as appMainCurrentCompatSlotLowerJLowerI,
-  jl as appMainCurrentCompatSlotLowerJLowerL,
   jm as appMainCurrentCompatSlotLowerJLowerM,
-  jn as appMainCurrentCompatSlotLowerJLowerN,
   jo as appMainCurrentCompatSlotLowerJLowerO,
   jp as appMainCurrentCompatSlotLowerJLowerP,
   js as appMainCurrentCompatSlotLowerJLowerS,

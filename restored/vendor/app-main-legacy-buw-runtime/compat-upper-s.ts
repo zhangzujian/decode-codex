@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase S compatibility aliases for the legacy app-main/onboarding producer.
+export { initReviewTabIconChunk as appMainCurrentCompatSlotUpperSLowerH } from "../../icons/review-tab-icon";
+
 export { DictationButton as appMainCurrentCompatSlotUpperSUpperC } from "../../features/use-dictation/dictation-button";
 
 export { primeBrowserTabTransfers } from "../app-main-current-runtime";
@@ -16,7 +18,6 @@ export {
   Sc as appMainCurrentCompatSlotUpperSLowerC,
   Sd as appMainCurrentCompatSlotUpperSLowerD,
   Sf as appMainCurrentCompatSlotUpperSLowerF,
-  Sh as appMainCurrentCompatSlotUpperSLowerH,
   Si as appMainCurrentCompatSlotUpperSLowerI,
   Sm as appMainCurrentCompatSlotUpperSLowerM,
   Sn as appMainCurrentCompatSlotUpperSLowerN,

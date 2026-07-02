@@ -1,5 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-a-f.
+export { ExternalSiteIcon as legacyAppMainBuwUpperALowerIExport } from "../../../icons/external-site-icon";
+export { GoogleChromeIcon as legacyAppMainBuwUpperCLowerMExport } from "../../../icons/google-chrome-icon";
+export { TrashIcon as legacyAppMainBuwUpperBLowerPExport } from "../../../icons/trash-icon";
+export { initBuildingIconChunk as legacyAppMainBuwUpperCLowerSExport } from "../../../icons/building-icon";
+export { initRegenerateIconChunk as legacyAppMainBuwUpperFUpperCExport } from "../../../icons/regenerate-icon";
+export { initSendToCloudIconChunk as legacyAppMainBuwUpperALowerUExport } from "../../../icons/send-to-cloud-icon";
+
 export { ComposerContextButton as legacyAppMainBuwUpperAUpperCExport } from "../../../features/use-dictation/context-button";
 
 export { countCommentsByFilePath as legacyAppMainBuwUpperBLowerUExport } from "../../../review/review-comment-utils";
@@ -60,7 +67,6 @@ export {
   Af as legacyAppMainBuwUpperALowerFExport,
   Ag as legacyAppMainBuwUpperALowerGExport,
   Ah as legacyAppMainBuwUpperALowerHExport,
-  Ai as legacyAppMainBuwUpperALowerIExport,
   Al as legacyAppMainBuwUpperALowerLExport,
   Am as legacyAppMainBuwUpperALowerMExport,
   An as legacyAppMainBuwUpperALowerNExport,
@@ -68,7 +74,6 @@ export {
   Ap as legacyAppMainBuwUpperALowerPExport,
   As as legacyAppMainBuwUpperALowerSExport,
   At as legacyAppMainBuwUpperALowerTExport,
-  Au as legacyAppMainBuwUpperALowerUExport,
   Av as legacyAppMainBuwUpperALowerVExport,
   Ax as legacyAppMainBuwUpperALowerXExport,
   Ay as legacyAppMainBuwUpperALowerYExport,
@@ -85,7 +90,6 @@ export {
   Bl as legacyAppMainBuwUpperBLowerLExport,
   Bm as legacyAppMainBuwUpperBLowerMExport,
   Bo as legacyAppMainBuwUpperBLowerOExport,
-  Bp as legacyAppMainBuwUpperBLowerPExport,
   Bs as legacyAppMainBuwUpperBLowerSExport,
   Bt as legacyAppMainBuwUpperBLowerTExport,
   Bv as legacyAppMainBuwUpperBLowerVExport,
@@ -101,12 +105,10 @@ export {
   Cg as legacyAppMainBuwUpperCLowerGExport,
   Ch as legacyAppMainBuwUpperCLowerHExport,
   Ci as legacyAppMainBuwUpperCLowerIExport,
-  Cm as legacyAppMainBuwUpperCLowerMExport,
   Cn as legacyAppMainBuwUpperCLowerNExport,
   Co as legacyAppMainBuwUpperCLowerOExport,
   Cp as legacyAppMainBuwUpperCLowerPExport,
   Cr as legacyAppMainBuwUpperCLowerRExport,
-  Cs as legacyAppMainBuwUpperCLowerSExport,
   Ct as legacyAppMainBuwUpperCLowerTExport,
   Cu as legacyAppMainBuwUpperCLowerUExport,
   Cv as legacyAppMainBuwUpperCLowerVExport,
@@ -152,7 +154,6 @@ export {
   Ex as legacyAppMainBuwUpperELowerXExport,
   Ey as legacyAppMainBuwUpperELowerYExport,
   F as legacyAppMainBuwUpperFExport,
-  FC as legacyAppMainBuwUpperFUpperCExport,
   FS as legacyAppMainBuwUpperFUpperSExport,
   Fa as legacyAppMainBuwUpperFLowerAExport,
   Fb as legacyAppMainBuwUpperFLowerBExport,

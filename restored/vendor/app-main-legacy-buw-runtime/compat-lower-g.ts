@@ -9,7 +9,6 @@ export {
 export { syncReviewPanelForRestoredSource } from "../../conversations/local-conversation-page-runtime";
 export { isConversationDetailModeProse as SidebarRowArchiveToast } from "../../runtime/conversation-detail-runtime";
 export { initDocumentSearchIconChunk as appMainCurrentCompatSlotLowerGLowerY } from "../../icons/document-search-icon";
-export { DragIcon as appMainCurrentCompatSlotLowerGLowerD } from "../../icons/drag-icon";
 export { initFolderOpenIconChunk as appMainCurrentCompatSlotLowerGLowerH } from "../../icons/folder-open-icon";
 
 export {
@@ -17,6 +16,7 @@ export {
   g_ as appMainCurrentCompatSlotLowerGUnderscore,
   ga as appMainCurrentCompatSlotLowerGLowerA,
   gc as appMainCurrentCompatSlotLowerGLowerC,
+  gd as appMainCurrentCompatSlotLowerGLowerD,
   gC as appMainCurrentCompatSlotLowerGUpperC,
   gf as appMainCurrentCompatSlotLowerGLowerF,
   gg as appMainCurrentCompatSlotLowerGLowerG,

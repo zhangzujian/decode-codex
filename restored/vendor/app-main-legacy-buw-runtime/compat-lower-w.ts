@@ -1,5 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase w compatibility aliases for the legacy app-main/onboarding producer.
+export { initGoogleChromeIconChunk as appMainCurrentCompatSlotLowerWLowerM } from "../../icons/google-chrome-icon";
+export { initTwoPeopleShieldIconChunk as appMainCurrentCompatSlotLowerWLowerH } from "../../icons/two-people-shield-icon";
+
 export { browserTabIdForConversation } from "../app-main-current-runtime";
 
 export { initTerminalMouseCoordinatePatchRuntime } from "../../runtime/window-chrome-runtime";
@@ -14,10 +17,8 @@ export {
   wd as appMainCurrentCompatSlotLowerWLowerD,
   wf as appMainCurrentCompatSlotLowerWLowerF,
   wg as appMainCurrentCompatSlotLowerWLowerG,
-  wh as appMainCurrentCompatSlotLowerWLowerH,
   wi as appMainCurrentCompatSlotLowerWLowerI,
   wl as appMainCurrentCompatSlotLowerWLowerL,
-  wm as appMainCurrentCompatSlotLowerWLowerM,
   wn as appMainCurrentCompatSlotLowerWLowerN,
   wo as appMainCurrentCompatSlotLowerWLowerO,
   wp as appMainCurrentCompatSlotLowerWLowerP,

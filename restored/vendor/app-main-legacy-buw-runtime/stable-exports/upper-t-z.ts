@@ -1,5 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-t-z.
+export { BrowserWindowIcon as legacyAppMainBuwUpperYExport } from "../../../icons/browser-window-icon";
+export { CanvasCubeIcon as legacyAppMainBuwUpperYLowerNExport } from "../../../icons/canvas-cube-icon";
+export { ShieldCodeIcon as legacyAppMainBuwUpperZLowerOExport } from "../../../icons/shield-code-icon";
+export { UploadIcon as legacyAppMainBuwUpperZExport } from "../../../icons/upload-icon";
+export { initBrowserWindowIconChunk as legacyAppMainBuwUpperXExport } from "../../../icons/browser-window-icon";
+export { initTrashIconChunk as legacyAppMainBuwUpperVLowerPExport } from "../../../icons/trash-icon";
+
 export { ComposerFooterRoot as legacyAppMainBuwUpperTUpperCExport } from "../../../composer/composer-footer";
 
 export { AttachmentPill as legacyAppMainBuwUpperVLowerIExport } from "../../../composer/user-message-attachment-pills";
@@ -99,7 +106,6 @@ export {
   Vm as legacyAppMainBuwUpperVLowerMExport,
   Vn as legacyAppMainBuwUpperVLowerNExport,
   Vo as legacyAppMainBuwUpperVLowerOExport,
-  Vp as legacyAppMainBuwUpperVLowerPExport,
   Vs as legacyAppMainBuwUpperVLowerSExport,
   Vt as legacyAppMainBuwUpperVLowerTExport,
   Vu as legacyAppMainBuwUpperVLowerUExport,
@@ -122,7 +128,6 @@ export {
   Wt as legacyAppMainBuwUpperWLowerTExport,
   Wu as legacyAppMainBuwUpperWLowerUExport,
   Wx as legacyAppMainBuwUpperWLowerXExport,
-  X as legacyAppMainBuwUpperXExport,
   XS as legacyAppMainBuwUpperXUpperSExport,
   X_ as legacyAppMainBuwUpperXUnderscoreExport,
   Xa as legacyAppMainBuwUpperXLowerAExport,
@@ -143,7 +148,6 @@ export {
   Xv as legacyAppMainBuwUpperXLowerVExport,
   Xx as legacyAppMainBuwUpperXLowerXExport,
   Xy as legacyAppMainBuwUpperXLowerYExport,
-  Y as legacyAppMainBuwUpperYExport,
   YS as legacyAppMainBuwUpperYUpperSExport,
   Y_ as legacyAppMainBuwUpperYUnderscoreExport,
   Ya as legacyAppMainBuwUpperYLowerAExport,
@@ -153,14 +157,12 @@ export {
   Yg as legacyAppMainBuwUpperYLowerGExport,
   Yh as legacyAppMainBuwUpperYLowerHExport,
   Ym as legacyAppMainBuwUpperYLowerMExport,
-  Yn as legacyAppMainBuwUpperYLowerNExport,
   Yo as legacyAppMainBuwUpperYLowerOExport,
   Yp as legacyAppMainBuwUpperYLowerPExport,
   Yr as legacyAppMainBuwUpperYLowerRExport,
   Yt as legacyAppMainBuwUpperYLowerTExport,
   Yx as legacyAppMainBuwUpperYLowerXExport,
   Yy as legacyAppMainBuwUpperYLowerYExport,
-  Z as legacyAppMainBuwUpperZExport,
   Z_ as legacyAppMainBuwUpperZUnderscoreExport,
   Za as legacyAppMainBuwUpperZLowerAExport,
   Zb as legacyAppMainBuwUpperZLowerBExport,
@@ -172,7 +174,6 @@ export {
   Zl as legacyAppMainBuwUpperZLowerLExport,
   Zm as legacyAppMainBuwUpperZLowerMExport,
   Zn as legacyAppMainBuwUpperZLowerNExport,
-  Zo as legacyAppMainBuwUpperZLowerOExport,
   Zp as legacyAppMainBuwUpperZLowerPExport,
   Zr as legacyAppMainBuwUpperZLowerRExport,
   Zs as legacyAppMainBuwUpperZLowerSExport,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase x compatibility aliases for the legacy app-main/onboarding producer.
+export { initLockIconChunk as appMainCurrentCompatSlotLowerXLowerS } from "../../icons/lock-icon";
+
 export {
   initForkConversationToastRuntime,
   initSettingsControlRowChunk,
@@ -23,7 +25,6 @@ export {
   xm as appMainCurrentCompatSlotLowerXLowerM,
   xn as appMainCurrentCompatSlotLowerXLowerN,
   xp as appMainCurrentCompatSlotLowerXLowerP,
-  xs as appMainCurrentCompatSlotLowerXLowerS,
   xS as appMainCurrentCompatSlotLowerXUpperS,
   xt as appMainCurrentCompatSlotLowerXLowerT,
   xu as appMainCurrentCompatSlotLowerXLowerU,

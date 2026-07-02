@@ -1,8 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase M compatibility aliases for the legacy app-main/onboarding producer.
-export {
-  SelectedTextAttachmentPill as appMainCurrentCompatSlotUpperMLowerI,
-} from "../../composer/user-message-attachment-pills";
+export { StopIcon as appMainCurrentCompatSlotUpperMUpperC } from "../../icons/stop-icon";
+export { initCommitIconChunk as appMainCurrentCompatSlotUpperMLowerU } from "../../icons/commit-icon";
+
+export { SelectedTextAttachmentPill as appMainCurrentCompatSlotUpperMLowerI } from "../../composer/user-message-attachment-pills";
 
 export { initSidebarRowPrimitivesChunk } from "../app-main-current-runtime";
 
@@ -12,7 +13,6 @@ export {
   Ma as appMainCurrentCompatSlotUpperMLowerA,
   Mb as appMainCurrentCompatSlotUpperMLowerB,
   Mc as appMainCurrentCompatSlotUpperMLowerC,
-  MC as appMainCurrentCompatSlotUpperMUpperC,
   Md as appMainCurrentCompatSlotUpperMLowerD,
   Mf as appMainCurrentCompatSlotUpperMLowerF,
   Mg as appMainCurrentCompatSlotUpperMLowerG,
@@ -25,7 +25,6 @@ export {
   Ms as appMainCurrentCompatSlotUpperMLowerS,
   MS as appMainCurrentCompatSlotUpperMUpperS,
   Mt as appMainCurrentCompatSlotUpperMLowerT,
-  Mu as appMainCurrentCompatSlotUpperMLowerU,
   Mv as appMainCurrentCompatSlotUpperMLowerV,
   Mx as appMainCurrentCompatSlotUpperMLowerX,
   My as appMainCurrentCompatSlotUpperMLowerY,

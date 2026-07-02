@@ -1,8 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase Y compatibility aliases for the legacy app-main/onboarding producer.
-export {
-  MentionMetadataSync as appMainCurrentCompatSlotUpperYLowerI,
-} from "../../composer/mention-metadata-sync";
+export { CanvasCubeIcon as appMainCurrentCompatSlotUpperYLowerN } from "../../icons/canvas-cube-icon";
+
+export { MentionMetadataSync as appMainCurrentCompatSlotUpperYLowerI } from "../../composer/mention-metadata-sync";
 
 export {
   ThreadRowHoverActions,
@@ -23,7 +23,6 @@ export {
   Yg as appMainCurrentCompatSlotUpperYLowerG,
   Yh as appMainCurrentCompatSlotUpperYLowerH,
   Ym as appMainCurrentCompatSlotUpperYLowerM,
-  Yn as appMainCurrentCompatSlotUpperYLowerN,
   Yo as appMainCurrentCompatSlotUpperYLowerO,
   Yp as appMainCurrentCompatSlotUpperYLowerP,
   Yr as appMainCurrentCompatSlotUpperYLowerR,

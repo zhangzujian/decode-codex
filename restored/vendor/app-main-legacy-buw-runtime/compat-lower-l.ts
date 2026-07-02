@@ -1,5 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase l compatibility aliases for the legacy app-main/onboarding producer.
+export { ArrowRotateCcwIcon as appMainCurrentCompatSlotLowerLLowerM } from "../../icons/arrow-rotate-ccw-icon";
+export { HistoryIcon as appMainCurrentCompatSlotLowerLLowerF } from "../../icons/history-icon";
+
 export { getCommandExecutionText } from "../app-main-current-runtime";
 
 export { pendingReviewPanelTargetSignal } from "../../conversations/local-conversation-page-runtime";
@@ -15,10 +18,8 @@ export {
   lb as appMainCurrentCompatSlotLowerLLowerB,
   lc as appMainCurrentCompatSlotLowerLLowerC,
   lC as appMainCurrentCompatSlotLowerLUpperC,
-  lf as appMainCurrentCompatSlotLowerLLowerF,
   lg as appMainCurrentCompatSlotLowerLLowerG,
   li as appMainCurrentCompatSlotLowerLLowerI,
-  lm as appMainCurrentCompatSlotLowerLLowerM,
   ln as appMainCurrentCompatSlotLowerLLowerN,
   lo as appMainCurrentCompatSlotLowerLLowerO,
   lp as appMainCurrentCompatSlotLowerLLowerP,

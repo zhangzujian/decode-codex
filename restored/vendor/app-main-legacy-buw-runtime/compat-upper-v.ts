@@ -1,8 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase V compatibility aliases for the legacy app-main/onboarding producer.
-export {
-  AttachmentPill as appMainCurrentCompatSlotUpperVLowerI,
-} from "../../composer/user-message-attachment-pills";
+export { initTrashIconChunk as appMainCurrentCompatSlotUpperVLowerP } from "../../icons/trash-icon";
+
+export { AttachmentPill as appMainCurrentCompatSlotUpperVLowerI } from "../../composer/user-message-attachment-pills";
 
 export { initUltraFastServiceTierIcon } from "../app-main-current-runtime";
 
@@ -22,7 +22,6 @@ export {
   Vm as appMainCurrentCompatSlotUpperVLowerM,
   Vn as appMainCurrentCompatSlotUpperVLowerN,
   Vo as appMainCurrentCompatSlotUpperVLowerO,
-  Vp as appMainCurrentCompatSlotUpperVLowerP,
   Vs as appMainCurrentCompatSlotUpperVLowerS,
   VS as appMainCurrentCompatSlotUpperVUpperS,
   Vt as appMainCurrentCompatSlotUpperVLowerT,

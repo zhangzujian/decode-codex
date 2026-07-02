@@ -1,12 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase q compatibility aliases for the legacy app-main/onboarding producer.
-export {
-  UserMessage as appMainCurrentCompatSlotLowerQLowerI,
-} from "../../conversations/user-message";
+export { RobotIcon as appMainCurrentCompatSlotLowerQLowerN } from "../../icons/robot-icon";
 
-export {
-  createWorkspaceFileReader as appMainCurrentCompatSlotLowerQLowerU,
-} from "../../review/workspace-file-reader";
+export { UserMessage as appMainCurrentCompatSlotLowerQLowerI } from "../../conversations/user-message";
+
+export { createWorkspaceFileReader as appMainCurrentCompatSlotLowerQLowerU } from "../../review/workspace-file-reader";
 
 export {
   q as appMainCurrentCompatSlotLowerQ,
@@ -20,7 +18,6 @@ export {
   qh as appMainCurrentCompatSlotLowerQLowerH,
   ql as appMainCurrentCompatSlotLowerQLowerL,
   qm as appMainCurrentCompatSlotLowerQLowerM,
-  qn as appMainCurrentCompatSlotLowerQLowerN,
   qo as appMainCurrentCompatSlotLowerQLowerO,
   qp as appMainCurrentCompatSlotLowerQLowerP,
   qr as appMainCurrentCompatSlotLowerQLowerR,

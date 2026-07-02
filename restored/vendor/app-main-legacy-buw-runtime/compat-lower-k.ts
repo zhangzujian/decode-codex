@@ -1,5 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase k compatibility aliases for the legacy app-main/onboarding producer.
+export { SendToCloudIcon as appMainCurrentCompatSlotLowerKLowerU } from "../../icons/send-to-cloud-icon";
+export { initWhitespaceEyeIconChunk as appMainCurrentCompatSlotLowerKLowerL } from "../../icons/whitespace-eye-icon";
+
 export { SidebarRowIcon } from "../app-main-current-runtime";
 
 export { initComposedRefsRuntime } from "../../runtime/app-main-new-thread-runtime";
@@ -14,7 +17,6 @@ export {
   kf as appMainCurrentCompatSlotLowerKLowerF,
   kg as appMainCurrentCompatSlotLowerKLowerG,
   kh as appMainCurrentCompatSlotLowerKLowerH,
-  kl as appMainCurrentCompatSlotLowerKLowerL,
   km as appMainCurrentCompatSlotLowerKLowerM,
   kn as appMainCurrentCompatSlotLowerKLowerN,
   ko as appMainCurrentCompatSlotLowerKLowerO,
@@ -23,7 +25,6 @@ export {
   ks as appMainCurrentCompatSlotLowerKLowerS,
   kS as appMainCurrentCompatSlotLowerKUpperS,
   kt as appMainCurrentCompatSlotLowerKLowerT,
-  ku as appMainCurrentCompatSlotLowerKLowerU,
   kv as appMainCurrentCompatSlotLowerKLowerV,
   kx as appMainCurrentCompatSlotLowerKLowerX,
   ky as appMainCurrentCompatSlotLowerKLowerY,

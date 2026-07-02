@@ -1,5 +1,15 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-g-m.
+export { ArrowRotateCcwIcon as legacyAppMainBuwLowerLLowerMExport } from "../../../icons/arrow-rotate-ccw-icon";
+export { DocumentSearchIcon as legacyAppMainBuwLowerHLowerYExport } from "../../../icons/document-search-icon";
+export { HistoryIcon as legacyAppMainBuwLowerLLowerFExport } from "../../../icons/history-icon";
+export { SendToCloudIcon as legacyAppMainBuwLowerKLowerUExport } from "../../../icons/send-to-cloud-icon";
+export { TasksIcon as legacyAppMainBuwLowerJLowerNExport } from "../../../icons/tasks-icon";
+export { initExternalSiteIconChunk as legacyAppMainBuwLowerJLowerIExport } from "../../../icons/external-site-icon";
+export { initGitApplyClipboardIconChunk as legacyAppMainBuwLowerJLowerLExport } from "../../../icons/git-apply-clipboard-icon";
+export { initImagesIconChunk as legacyAppMainBuwLowerILowerTExport } from "../../../icons/images-icon";
+export { initWhitespaceEyeIconChunk as legacyAppMainBuwLowerKLowerLExport } from "../../../icons/whitespace-eye-icon";
+
 export { getConversationalOnboardingTaskPluginName as legacyAppMainBuwLowerIExport } from "../../../onboarding/conversational-onboarding-task-registry";
 export { initStyleSingletonRuntime as initArrayEqualityRuntimeChunk } from "../../react-style-singleton";
 
@@ -40,7 +50,6 @@ export {
 export { initComposedRefsRuntime } from "../../../runtime/app-main-new-thread-runtime";
 export { isConversationDetailModeProse as SidebarRowArchiveToast } from "../../../runtime/conversation-detail-runtime";
 export { initDocumentSearchIconChunk as legacyAppMainBuwLowerGLowerYExport } from "../../../icons/document-search-icon";
-export { DragIcon as legacyAppMainBuwLowerGLowerDExport } from "../../../icons/drag-icon";
 export { EllipsisHorizontalIcon as ThreadRowTooltip } from "../../../icons/ellipsis-horizontal-icon";
 export { initFolderOpenIconChunk as legacyAppMainBuwLowerGLowerHExport } from "../../../icons/folder-open-icon";
 export { Alert as ToastContent } from "../../../utils/alert";
@@ -54,6 +63,7 @@ export {
   g_ as legacyAppMainBuwLowerGUnderscoreExport,
   ga as legacyAppMainBuwLowerGLowerAExport,
   gc as legacyAppMainBuwLowerGLowerCExport,
+  gd as legacyAppMainBuwLowerGLowerDExport,
   gf as legacyAppMainBuwLowerGLowerFExport,
   gg as legacyAppMainBuwLowerGLowerGExport,
   gi as legacyAppMainBuwLowerGLowerIExport,
@@ -81,7 +91,6 @@ export {
   hs as legacyAppMainBuwLowerHLowerSExport,
   ht as legacyAppMainBuwLowerHLowerTExport,
   hu as legacyAppMainBuwLowerHLowerUExport,
-  hy as legacyAppMainBuwLowerHLowerYExport,
   iC as legacyAppMainBuwLowerIUpperCExport,
   iS as legacyAppMainBuwLowerIUpperSExport,
   i_ as legacyAppMainBuwLowerIUnderscoreExport,
@@ -98,7 +107,6 @@ export {
   ip as legacyAppMainBuwLowerILowerPExport,
   ir as legacyAppMainBuwLowerILowerRExport,
   is as legacyAppMainBuwLowerILowerSExport,
-  it as legacyAppMainBuwLowerILowerTExport,
   iu as legacyAppMainBuwLowerILowerUExport,
   iv as legacyAppMainBuwLowerILowerVExport,
   ix as legacyAppMainBuwLowerILowerXExport,
@@ -112,10 +120,7 @@ export {
   jd as legacyAppMainBuwLowerJLowerDExport,
   jf as legacyAppMainBuwLowerJLowerFExport,
   jh as legacyAppMainBuwLowerJLowerHExport,
-  ji as legacyAppMainBuwLowerJLowerIExport,
-  jl as legacyAppMainBuwLowerJLowerLExport,
   jm as legacyAppMainBuwLowerJLowerMExport,
-  jn as legacyAppMainBuwLowerJLowerNExport,
   jo as legacyAppMainBuwLowerJLowerOExport,
   jp as legacyAppMainBuwLowerJLowerPExport,
   js as legacyAppMainBuwLowerJLowerSExport,
@@ -134,7 +139,6 @@ export {
   kf as legacyAppMainBuwLowerKLowerFExport,
   kg as legacyAppMainBuwLowerKLowerGExport,
   kh as legacyAppMainBuwLowerKLowerHExport,
-  kl as legacyAppMainBuwLowerKLowerLExport,
   km as legacyAppMainBuwLowerKLowerMExport,
   kn as legacyAppMainBuwLowerKLowerNExport,
   ko as legacyAppMainBuwLowerKLowerOExport,
@@ -142,7 +146,6 @@ export {
   kr as legacyAppMainBuwLowerKLowerRExport,
   ks as legacyAppMainBuwLowerKLowerSExport,
   kt as legacyAppMainBuwLowerKLowerTExport,
-  ku as legacyAppMainBuwLowerKLowerUExport,
   kv as legacyAppMainBuwLowerKLowerVExport,
   kx as legacyAppMainBuwLowerKLowerXExport,
   ky as legacyAppMainBuwLowerKLowerYExport,
@@ -153,10 +156,8 @@ export {
   la as legacyAppMainBuwLowerLLowerAExport,
   lb as legacyAppMainBuwLowerLLowerBExport,
   lc as legacyAppMainBuwLowerLLowerCExport,
-  lf as legacyAppMainBuwLowerLLowerFExport,
   lg as legacyAppMainBuwLowerLLowerGExport,
   li as legacyAppMainBuwLowerLLowerIExport,
-  lm as legacyAppMainBuwLowerLLowerMExport,
   ln as legacyAppMainBuwLowerLLowerNExport,
   lo as legacyAppMainBuwLowerLLowerOExport,
   lp as legacyAppMainBuwLowerLLowerPExport,

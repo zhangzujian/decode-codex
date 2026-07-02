@@ -1,5 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-a-f.
+export { initCollapseIconChunk as legacyAppMainBuwLowerELowerRExport } from "../../../icons/collapse-icon";
+export { initMicrosoftIconChunk as legacyAppMainBuwLowerELowerCExport } from "../../../icons/microsoft-icon";
+
 export { useDictation as legacyAppMainBuwLowerAUpperCExport } from "../../../features/use-dictation/use-dictation";
 
 export { useRecordingWaveform as legacyAppMainBuwLowerCUpperCExport } from "../../../utils/use-recording-waveform/use-recording-waveform";
@@ -132,7 +135,6 @@ export {
   eS as legacyAppMainBuwLowerEUpperSExport,
   e_ as legacyAppMainBuwLowerEUnderscoreExport,
   eb as legacyAppMainBuwLowerELowerBExport,
-  ec as legacyAppMainBuwLowerELowerCExport,
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   eg as legacyAppMainBuwLowerELowerGExport,
@@ -141,7 +143,6 @@ export {
   en as legacyAppMainBuwLowerELowerNExport,
   eo as legacyAppMainBuwLowerELowerOExport,
   ep as legacyAppMainBuwLowerELowerPExport,
-  er as legacyAppMainBuwLowerELowerRExport,
   es as legacyAppMainBuwLowerELowerSExport,
   et as legacyAppMainBuwLowerELowerTExport,
   ev as legacyAppMainBuwLowerELowerVExport,
