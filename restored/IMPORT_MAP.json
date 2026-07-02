@@ -37785,12 +37785,12 @@
         "t": "initD3AxisSelectionRuntime"
       },
       "status": "done",
-      "vendor": "d3-axis/d3-selection/d3-transition/d3-zoom",
-      "note": "Current src chunk identified as a D3 axis, selection, transition, and zoom runtime; aliases were re-derived from src-CTe_6Jg1.js.",
+      "vendor": "d3-axis/d3-selection",
+      "note": "Current src chunk replaced with npm-backed D3 axis/selection re-export shim; aliases were re-derived from src-CTe_6Jg1.js.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T14:46:14.202Z",
-      "stage3AcceptedAt": "2026-06-30T14:46:14.202Z",
-      "stage3Note": "Accepted as a vendored current D3 axis/selection runtime with current chunk provenance and validated exports."
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00",
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000-05:00",
+      "stage3Note": "Accepted as a vendored current D3 axis/selection npm shim with current chunk provenance and validated exports."
     },
     "everforest-light-CUt11vS2": {
       "restored": "vendor/shiki-themes.ts",
