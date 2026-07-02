@@ -478,6 +478,8 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   dayjs: "dayjs",
   "dotlottie-react": "@lottiefiles/dotlottie-react",
   "framer-motion": "framer-motion",
+  "framer-motion-animate-sequence": "framer-motion",
+  "framer-motion-single-value": "framer-motion",
   formatjs: "react-intl",
   jotai: "jotai",
   "jotai-runtime": "jotai",

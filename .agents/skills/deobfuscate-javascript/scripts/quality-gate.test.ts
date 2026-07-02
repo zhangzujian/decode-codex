@@ -669,6 +669,99 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written Framer Motion single-value vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/single-value-sCXpwjXj.js
+      export class singleValueK {
+        constructor(initialValue) {
+          this.latest = initialValue;
+        }
+        get() {
+          return this.latest;
+        }
+        set(value) {
+          this.latest = value;
+        }
+      }
+      export function singleValueJ(initialValue) {
+        return new singleValueK(initialValue);
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/framer-motion-single-value.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes Framer Motion single-value shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/single-value-sCXpwjXj.js
+      export {
+        MotionValue as singleValueK,
+        motionValue as singleValueJ,
+      } from "framer-motion";
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/framer-motion-single-value.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
+  test("fails hand-written Framer Motion animate sequence vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/app-shell-state-QDRlZ5bT.js
+      export function animateSequence() {
+        return { finished: Promise.resolve(), stop() {} };
+      }
+      export const appShellStateMtState = animateSequence;
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/framer-motion-animate-sequence.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes Framer Motion animate sequence shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/app-shell-state-QDRlZ5bT.js
+      export {
+        animate as animateSequence,
+        animate as appShellStateMtState,
+        createScopedAnimate,
+      } from "framer-motion";
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/framer-motion-animate-sequence.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written dotLottie React vendor bodies", () => {
     const source = `
       // Restored from ref/webview/assets/browser-4rTfxlUZ.js
