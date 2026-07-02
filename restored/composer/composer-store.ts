@@ -6,7 +6,7 @@
 // worktree new-thread / shared runtime bundles they were code-split from.
 import { createContext, type Context } from "react";
 import { Ga as createComposerStoreImpl } from "../vendor/worktree-new-thread-orchestrator-current-bundle";
-import { Xs as useAmbientJotaiStore } from "../vendor/current-app-initial-bnlvjk3w-shared-bundle";
+import { useStore as useAmbientJotaiStore } from "../vendor/jotai-runtime";
 
 /**
  * The rich-text (ProseMirror) composer store. Exposes at least the enter-behavior

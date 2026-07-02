@@ -1,17 +1,13 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~automations-page~th~bnlvjk3w-ClqKjb2h.js
 // Composer-relevant settings: the registry of setting definitions (each carrying
 // a scope atom + metadata) and the hook that reads a setting's current value.
-// Both resolve to the vendored shared runtime / worktree new-thread bundles they
-// were code-split from.
-import { Nt as settingsAtomsImpl } from "../vendor/current-app-initial-bnlvjk3w-shared-bundle";
-import { Um as useSettingValueImpl } from "../vendor/worktree-new-thread-query-current-bundle";
-import type { ScopeAtom } from "./composer-atoms";
+import { useSettingValue as useStoredSettingValue } from "../settings/setting-storage";
 
 export type SettingAgentAccess = "read-write" | "read" | "hidden";
+export type ComposerEnterBehavior = "enter" | "cmdIfMultiline" | "cmdAlways";
 
-/** A single setting: its scope atom plus key/default/description metadata. */
+/** A single setting definition with key/default/description metadata. */
 export interface SettingDefinition<Value> {
-  readonly atom: ScopeAtom<Value>;
   readonly key: string;
   readonly default: Value;
   readonly description?: string;
@@ -21,13 +17,21 @@ export interface SettingDefinition<Value> {
 /** Registry of setting definitions keyed by setting name (e.g. `composerEnterBehavior`). */
 export interface SettingsAtoms {
   readonly [settingKey: string]: SettingDefinition<unknown>;
+  readonly composerEnterBehavior: SettingDefinition<ComposerEnterBehavior>;
 }
 
-export const settingsAtoms: SettingsAtoms = settingsAtomsImpl;
+export const settingsAtoms: SettingsAtoms = {
+  composerEnterBehavior: {
+    agentAccess: "read-write",
+    default: "enter",
+    description: "How Enter behaves in the composer",
+    key: "composerEnterBehavior",
+  },
+};
 
 /** Read the current value of a setting definition. */
 export function useSettingValue<Value>(
   setting: SettingDefinition<Value>,
 ): Value {
-  return useSettingValueImpl(setting);
+  return useStoredSettingValue(setting);
 }
