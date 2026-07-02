@@ -5,6 +5,7 @@ import * as path from "node:path";
 import { spawnSync } from "node:child_process";
 import {
   analyzeFullRestorationCoverage,
+  analyzePublicNpmVendorShimDependencies,
   analyzeSource,
   checkFormatting,
   collectBoundaryCheckpointImportFiles,
@@ -143,6 +144,48 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written D3 axis/selection vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/src-CTe_6Jg1.js
+      export function d3AxisTop(scale) {
+        return { scale, orient: "top" };
+      }
+      export function d3Select(node) {
+        return node;
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/d3-axis-current-runtime.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes D3 axis/selection shims that re-export the npm packages", () => {
+    const source = `
+      // Restored from ref/webview/assets/src-CTe_6Jg1.js
+      export { axisBottom as d3AxisBottom, axisTop as d3AxisTop } from "d3-axis";
+      export { select as d3Select } from "d3-selection";
+      export function initD3AxisSelectionRuntime(): void {}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/d3-axis-current-runtime.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written react-intl vendor compatibility shims", () => {
     const source = `
       // Restored from ref/webview/assets/lib-BWT6A3Q0.js
@@ -200,6 +243,57 @@ describe("quality-gate", () => {
       allowFlat: true,
     });
     expect(report.issues).toEqual([]);
+  });
+
+  test("fails npm vendor shims when package dependency is not declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: {} }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "react-intl.tsx"),
+      `
+        // Restored from ref/webview/assets/lib-BWT6A3Q0.js
+        export { FormattedMessage, useIntl } from "react-intl";
+      `,
+    );
+
+    const reports = analyzePublicNpmVendorShimDependencies(restoredDir);
+    expect(reports).toHaveLength(1);
+    expect(reports[0]!.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-dependency-missing",
+    );
+    expect(reports[0]!.issues[0]!.detail).toMatchObject({
+      missingPackages: ["react-intl"],
+    });
+  });
+
+  test("passes npm vendor subpath shims when package root is declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "use-sync-external-store": "^1.0.0",
+        },
+      }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "use-sync-external-store-with-selector.ts"),
+      `
+        // Restored from ref/webview/assets/with-selector-DgGZ42Vj.js
+        export { useSyncExternalStoreWithSelector } from "use-sync-external-store/shim/with-selector";
+      `,
+    );
+
+    expect(analyzePublicNpmVendorShimDependencies(restoredDir)).toEqual([]);
   });
 
   test("fails hand-written Jotai vendor compatibility runtimes", () => {

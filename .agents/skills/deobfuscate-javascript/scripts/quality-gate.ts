@@ -467,8 +467,11 @@ const MECHANICAL_IMPORT_BINDING_RE =
   /^(?:_{0,3}appServerManager[A-Z]|appServerManager(?:Dollar|Underscore)$|_{0,3}(?:chrome|single|setting)(?:[A-Z][A-Za-z]*|Underscore)$|_{0,3}(?:src|dist|lib|pkg)[A-Z][A-Za-z]*|Dist(?:$|[A-Z])|windowAppAction[A-Z]|windowAppActionUnderscore$)/;
 const SOURCE_EXT_RE = /\.[cm]?[jt]sx?$/i;
 const SMALL_COHESIVE_MODULE_LINE_LIMIT = 300;
-const PUBLIC_NPM_VENDOR_SHIMS: Record<string, string> = {
+type PublicNpmVendorSpecifiers = string | readonly string[];
+
+const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   cmdk: "cmdk",
+  "d3-axis-current-runtime": ["d3-axis", "d3-selection"],
   "dnd-kit-core": "@dnd-kit/core",
   "dnd-kit-sortable": "@dnd-kit/sortable",
   "dnd-kit-utilities": "@dnd-kit/utilities",
@@ -490,6 +493,13 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, string> = {
   "use-sync-external-store-with-selector":
     "use-sync-external-store/shim/with-selector",
 };
+
+const PACKAGE_DEPENDENCY_FIELDS = [
+  "dependencies",
+  "devDependencies",
+  "peerDependencies",
+  "optionalDependencies",
+] as const;
 
 export type QualityGateOptions = {
   maxCrypticParams: number;
@@ -803,7 +813,7 @@ function isVendoredDataModule(file: string, source: string): boolean {
   );
 }
 
-function expectedPublicNpmVendorSpecifier(file: string): string | null {
+function expectedPublicNpmVendorSpecifiers(file: string): string[] | null {
   const normalized = file.replace(/\\/g, "/");
   if (!/(?:^|\/)vendor\/[^/]+\.[cm]?[jt]sx?$/i.test(normalized)) {
     return null;
@@ -812,7 +822,9 @@ function expectedPublicNpmVendorSpecifier(file: string): string | null {
   const extensionlessBasename = path
     .basename(normalized)
     .replace(/\.[cm]?[jt]sx?$/i, "");
-  return PUBLIC_NPM_VENDOR_SHIMS[extensionlessBasename] ?? null;
+  const specifiers = PUBLIC_NPM_VENDOR_SHIMS[extensionlessBasename];
+  if (specifiers == null) return null;
+  return Array.isArray(specifiers) ? [...specifiers] : [specifiers];
 }
 
 function hasBareReexportFrom(source: string, specifier: string): boolean {
@@ -820,6 +832,64 @@ function hasBareReexportFrom(source: string, specifier: string): boolean {
   return new RegExp(
     String.raw`\bexport\s+(?:type\s+)?(?:\*|\{[\s\S]*?\})\s+from\s+["']${escapedSpecifier}["']`,
   ).test(source);
+}
+
+function packageNameFromSpecifier(specifier: string): string {
+  const parts = specifier.split("/");
+  if (specifier.startsWith("@")) {
+    return parts.length >= 2 ? `${parts[0]}/${parts[1]}` : specifier;
+  }
+  return parts[0] ?? specifier;
+}
+
+function findNearestPackageJson(startPath: string): string | null {
+  let dir = path.resolve(startPath);
+  try {
+    if (fs.existsSync(dir) && fs.statSync(dir).isFile()) {
+      dir = path.dirname(dir);
+    }
+  } catch {
+    dir = path.dirname(dir);
+  }
+
+  while (true) {
+    const packageJsonPath = path.join(dir, "package.json");
+    if (fs.existsSync(packageJsonPath)) return packageJsonPath;
+    const parent = path.dirname(dir);
+    if (parent === dir) return null;
+    dir = parent;
+  }
+}
+
+type PackageDependencyReadResult =
+  | { ok: true; dependencies: Set<string> }
+  | { ok: false; error: string };
+
+function readPackageDependencyNames(
+  packageJsonPath: string,
+): PackageDependencyReadResult {
+  try {
+    const packageJson = JSON.parse(
+      fs.readFileSync(packageJsonPath, "utf-8"),
+    ) as Record<string, unknown> | null;
+    const dependencies = new Set<string>();
+    for (const field of PACKAGE_DEPENDENCY_FIELDS) {
+      const fieldValue = packageJson?.[field];
+      if (
+        fieldValue == null ||
+        typeof fieldValue !== "object" ||
+        Array.isArray(fieldValue)
+      ) {
+        continue;
+      }
+      for (const dependencyName of Object.keys(fieldValue)) {
+        dependencies.add(dependencyName);
+      }
+    }
+    return { ok: true, dependencies };
+  } catch (err) {
+    return { ok: false, error: (err as Error).message };
+  }
 }
 
 function countLines(source: string): number {
@@ -1929,10 +1999,12 @@ export function analyzeSource(
   const unfinishedAppFlatBoundaryBundle =
     isUnfinishedAppFlatBoundaryBundle(source);
   const relocatedBundleBody = isRelocatedBundleBody(source, lineCount);
-  const expectedNpmVendorSpecifier = expectedPublicNpmVendorSpecifier(file);
+  const expectedNpmVendorSpecifiers = expectedPublicNpmVendorSpecifiers(file);
   const isPublicNpmVendorReexportShim =
-    expectedNpmVendorSpecifier != null &&
-    hasBareReexportFrom(source, expectedNpmVendorSpecifier);
+    expectedNpmVendorSpecifiers != null &&
+    expectedNpmVendorSpecifiers.every((specifier) =>
+      hasBareReexportFrom(source, specifier),
+    );
   // A faithful vendored module or a generated boundary facade is code we
   // deliberately did not rewrite — relax the semantic-naming/typing/split
   // checks that would false-positive on a package's own short API names or a
@@ -1997,14 +2069,15 @@ export function analyzeSource(
         "Flat boundary app/runtime bundle remains parked as a vendored bundle; split it into semantic files or replace it with a real third-party re-export boundary.",
     });
   }
-  if (expectedNpmVendorSpecifier != null && !isPublicNpmVendorReexportShim) {
+  if (expectedNpmVendorSpecifiers != null && !isPublicNpmVendorReexportShim) {
+    const expectedSpecifiers = expectedNpmVendorSpecifiers.join("', '");
     issues.push({
       code: "third-party-npm-shim-not-reexport",
       message:
-        `Known third-party npm vendor shim must re-export '${expectedNpmVendorSpecifier}' ` +
+        `Known third-party npm vendor shim must re-export '${expectedSpecifiers}' ` +
         "instead of shipping a hand-written compatibility implementation.",
       detail: {
-        expectedSpecifier: expectedNpmVendorSpecifier,
+        expectedSpecifiers: expectedNpmVendorSpecifiers,
         file: path.basename(file),
       },
     });
@@ -2287,6 +2360,79 @@ function emptyReport(
     splitRequired: false,
     issues,
   };
+}
+
+export function analyzePublicNpmVendorShimDependencies(
+  input: string,
+  files: string[] = collectFiles(input),
+): FileQualityReport[] {
+  const reports: FileQualityReport[] = [];
+  const packageJsonByDir = new Map<string, string | null>();
+  const dependencyNamesByPackageJson = new Map<
+    string,
+    PackageDependencyReadResult
+  >();
+
+  for (const file of files) {
+    const expectedSpecifiers = expectedPublicNpmVendorSpecifiers(file);
+    if (expectedSpecifiers == null) continue;
+
+    const startDir = path.dirname(path.resolve(file));
+    let packageJsonPath = packageJsonByDir.get(startDir);
+    if (packageJsonPath === undefined) {
+      packageJsonPath = findNearestPackageJson(startDir);
+      packageJsonByDir.set(startDir, packageJsonPath);
+    }
+    if (packageJsonPath == null) continue;
+
+    let dependencyRead = dependencyNamesByPackageJson.get(packageJsonPath);
+    if (dependencyRead == null) {
+      dependencyRead = readPackageDependencyNames(packageJsonPath);
+      dependencyNamesByPackageJson.set(packageJsonPath, dependencyRead);
+    }
+    if (!dependencyRead.ok) {
+      reports.push(
+        emptyReport(file, [
+          {
+            code: "third-party-npm-shim-package-json-unreadable",
+            message:
+              `Known third-party npm vendor shim is present, but '${packageJsonPath}' ` +
+              `could not be read: ${dependencyRead.error}`,
+            detail: { file, packageJsonPath },
+          },
+        ]),
+      );
+      continue;
+    }
+
+    const missingPackages = expectedSpecifiers
+      .map(packageNameFromSpecifier)
+      .filter(
+        (packageName, index, packageNames) =>
+          packageNames.indexOf(packageName) === index &&
+          !dependencyRead.dependencies.has(packageName),
+      );
+    if (missingPackages.length === 0) continue;
+
+    reports.push(
+      emptyReport(file, [
+        {
+          code: "third-party-npm-shim-dependency-missing",
+          message:
+            `Known third-party npm vendor shim must declare package dependency ` +
+            `${missingPackages.map((pkg) => `'${pkg}'`).join(", ")} in ` +
+            "the nearest package.json instead of falling back to a local compatibility implementation.",
+          detail: {
+            expectedSpecifiers,
+            missingPackages,
+            packageJsonPath,
+          },
+        },
+      ]),
+    );
+  }
+
+  return reports;
 }
 
 /**
@@ -3709,6 +3855,7 @@ async function main(): Promise<void> {
       `quality-gate: vendored-exempt coverage: ${vendoredExemptFiles} files, ${vendoredExemptLines} lines (${pct}% of tree)`,
     );
   }
+  reports.push(...analyzePublicNpmVendorShimDependencies(input, files));
   reports.push(
     ...analyzeFullRestorationCoverage(input, {
       allowOrganizeIncomplete: values["allow-organize-incomplete"] ?? false,

@@ -189,6 +189,7 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `react-router.ts` (`chunk-LFPYN7LY-*`)       | `react-router`                 |                                                                 |
 | `cmdk.tsx` (`dist-*`)                        | `cmdk`                         | command palette primitives                                      |
 | `tanstack-react-form.ts` (`esm-*`)           | `@tanstack/react-form`         | form hook wrapper                                               |
+| `d3-axis-current-runtime.ts` (`src-*`)       | `d3-axis` + `d3-selection`     | axis/selection exports; generic `src` basename                  |
 | `formatjs.ts` (`lib-BWT6A3Q0`)               | `react-intl`                   | consumers import `useIntl`/`FormattedMessage`                   |
 | `react-is-runtime.ts`                        | `react-is`                     | React companion package; keep loader shape if needed            |
 | `use-sync-external-store-*.ts`               | `use-sync-external-store`      | `shim/with-selector` selector helper                            |
@@ -213,9 +214,10 @@ unforked, high-confidence packages already listed above: `formatjs.ts` /
 applies to React Router, cmdk, TanStack React Form, React companion packages
 (`react-is`, `use-sync-external-store`), react-colorful, dotLottie React,
 Day.js, Jotai, `@dnd-kit/*`, and other high-confidence registry packages. In
-that case emit the npm-backed re-export shim and add/keep ambient module
-declarations or package install notes as needed; do not create a local
-"minimal" replacement for a stock package.
+that case emit the npm-backed re-export shim, add the package root to the
+restored project `package.json`, and keep ambient module declarations only when
+the package's own types are still unavailable; do not create a local "minimal"
+replacement for a stock package.
 For a confirmed fork keep the forked wrapper and boundary-ize it
 (`quality-gate.ts --vendored`).
 
