@@ -9,11 +9,11 @@ export {
 export { normalizeFilesystemPath } from "../../conversations/fork-conversation-panel-state-deps";
 
 export { initTerminalSurfaceRuntime } from "../../runtime/window-chrome-runtime";
+export { initConversationDetailModeRuntime as SidebarRowRemoteEnvironment } from "../../runtime/conversation-detail-runtime";
 
 export {
   v as appMainCurrentCompatSlotLowerV,
   va as appMainCurrentCompatSlotLowerVLowerA,
-  vb as SidebarRowRemoteEnvironment,
   vc as appMainCurrentCompatSlotLowerVLowerC,
   vC as appMainCurrentCompatSlotLowerVUpperC,
   vd as appMainCurrentCompatSlotLowerVLowerD,

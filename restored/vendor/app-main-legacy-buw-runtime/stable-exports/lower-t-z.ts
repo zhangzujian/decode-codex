@@ -44,6 +44,7 @@ export { initDndKitUtilitiesRuntime as ThreadRowWorktreeMeta } from "../../dnd-k
 export { initWarningIconChunk as PortalFromLowerTC } from "../../../icons/warning-icon";
 export { initEllipsisHorizontalIconChunk as SidebarRowLocalEnvironment } from "../../../icons/ellipsis-horizontal-icon";
 export { openThreadTimelineSidePanel } from "../../../app-shell/legacy-thread-timeline-side-panel";
+export { initConversationDetailModeRuntime as SidebarRowRemoteEnvironment } from "../../../runtime/conversation-detail-runtime";
 
 export {
   t as legacyAppMainBuwLowerTExport,
@@ -89,7 +90,6 @@ export {
   vC as legacyAppMainBuwLowerVUpperCExport,
   vS as legacyAppMainBuwLowerVUpperSExport,
   va as legacyAppMainBuwLowerVLowerAExport,
-  vb as SidebarRowRemoteEnvironment,
   vc as legacyAppMainBuwLowerVLowerCExport,
   vd as legacyAppMainBuwLowerVLowerDExport,
   vf as legacyAppMainBuwLowerVLowerFExport,
