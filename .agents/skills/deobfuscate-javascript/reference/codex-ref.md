@@ -264,9 +264,12 @@ For D3/Mermaid helpers, `src-BhkLFyc4` is `d3-hierarchy` plus
 `treemap-*` / `sankeyLinkHorizontal-*` chunks are the same upstream public
 helpers under minified aliases. The D3 shape helper chunks (`arc-*`, `line-*`,
 `pie-*`, `step-*`, `monotone-*`, plus the semantic `d3-shape-*` public files)
-are stock `d3-shape` surfaces; preserve legacy aliases by re-exporting real
+are `d3-shape`-backed surfaces; preserve legacy aliases by re-exporting real
 package exports such as `curveBasis`, `curveCardinal`, `curveCatmullRom`,
-`curveNatural`, and `curveStep*`.
+`curveNatural`, and `curveStep*`. Mermaid's legacy `curveBumpX`/`curveBumpY`
+aliases are the exception: `d3-shape@3.2.0` does not expose them, so keep only a
+small typed wrapper for those two curve factories instead of reimplementing the
+whole shape bundle.
 RoughJS has both provenance and API-fingerprint coverage: `rough.esm-*` chunks
 or vendor files exporting `roughjs` plus `canvas`/`svg`/`generator` must resolve
 to the `roughjs` package.

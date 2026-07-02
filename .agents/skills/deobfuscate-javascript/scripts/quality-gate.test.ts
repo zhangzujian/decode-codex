@@ -642,15 +642,25 @@ describe("quality-gate", () => {
       path.join(root, "package.json"),
       JSON.stringify({ dependencies: { "d3-shape": "^3.2.0" } }),
     );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-shape-bump-curves.ts"),
+      `
+        // Restored from ref/webview/assets/step-K6tEdR0Q.js
+        export const curveBumpX = () => {};
+        export const curveBumpY = () => {};
+      `,
+    );
 
     const source = `
       // Restored from ref/webview/assets/step-K6tEdR0Q.js
       export {
+        curveBumpX as stepG,
+        curveBumpY as stepUnderscore,
+      } from "./d3-shape-bump-curves";
+      export {
         curveBasis as stepH,
         curveBasisClosed as stepM,
         curveBasisOpen as stepP,
-        curveBumpX as stepG,
-        curveBumpY as stepUnderscore,
         curveBundle as stepF,
         curveCardinal as stepD,
         curveCardinalClosed as stepU,
