@@ -10,7 +10,7 @@ import { useCallback, useRef } from "react";
 
 import { useComposerControllerSelector } from "./use-composer-controller";
 import { openComposerReferencedFile } from "../boundaries/onboarding-commons-externals.facade";
-import { zo as resolvePluginNavigationTarget } from "../vendor/worktree-new-thread-query-current-bundle";
+import { resolvePluginNavigationTarget } from "../plugins/plugin-navigation";
 import {
   applyMentionSelection,
   buildAtMentionSelection,
