@@ -187,6 +187,7 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | ------------------------------------------------------------------------ | ------------------------------------- | --------------------------------------------------------------- |
 | `lodash.ts` (`isEqual-*`)                                                | `lodash`                              | named/star re-export                                            |
 | `lodash-current-runtime.ts` (`lodash-*`)                                 | `lodash`                              | current aggregate aliases; named re-export shim                 |
+| `lodash-merge-runtime.ts` (`merge-jSBXKSH5`)                             | `lodash/merge`                        | current Lodash merge helper chunk; npm-backed alias shim        |
 | `react-router.ts` (`chunk-LFPYN7LY-*`)                                   | `react-router`                        |                                                                 |
 | `cmdk.tsx` (`dist-*`)                                                    | `cmdk`                                | command palette primitives                                      |
 | `tanstack-react-form.ts` (`esm-*`)                                       | `@tanstack/react-form`                | form hook wrapper                                               |

@@ -559,6 +559,53 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written Lodash merge runtime shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/merge-jSBXKSH5.js
+      export function mergeT(target, ...sources) {
+        for (const source of sources) {
+          for (const key in source) target[key] = source[key];
+        }
+        return target;
+      }
+      export function initLodashMergeRuntime() {}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/lodash-merge-runtime.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+        vendored: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes Lodash merge runtime shims that re-export lodash/merge", () => {
+    const source = `
+      // Restored from ref/webview/assets/merge-jSBXKSH5.js
+      export {
+        default as _mergeN,
+        default as mergeT,
+      } from "lodash/merge";
+      export function initLodashMergeRuntime(): void {}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/lodash-merge-runtime.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        vendored: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written React DOM client vendor shims", () => {
     const source = `
       // Restored from ref/webview/assets/client-C1mrATqU.js
