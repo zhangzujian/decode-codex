@@ -10,6 +10,7 @@ export { initUltraFastServiceTierIcon } from "../app-main-current-runtime";
 export { initConversationSummarySelectorsChunk } from "../../runtime/window-chrome-runtime";
 export { CODEX_AUTOMATIONS_DOCS_URL as appMainCurrentCompatSlotUpperVLowerC } from "../../utils/links-bd-mmkun-d";
 export { trackConversationalOnboardingLifecycleSkipped as appMainCurrentCompatSlotUpperVLowerS } from "../../onboarding/conversational-onboarding-analytics";
+export { initRunAppActionInPrimaryWindowRuntime as appMainCurrentCompatSlotUpperVLowerO } from "../../runtime/run-app-action-in-primary-window";
 
 export {
   V as appMainCurrentCompatSlotUpperV,
@@ -22,7 +23,6 @@ export {
   Vl as appMainCurrentCompatSlotUpperVLowerL,
   Vm as appMainCurrentCompatSlotUpperVLowerM,
   Vn as appMainCurrentCompatSlotUpperVLowerN,
-  Vo as appMainCurrentCompatSlotUpperVLowerO,
   VS as appMainCurrentCompatSlotUpperVUpperS,
   Vt as appMainCurrentCompatSlotUpperVLowerT,
   Vu as appMainCurrentCompatSlotUpperVLowerU,

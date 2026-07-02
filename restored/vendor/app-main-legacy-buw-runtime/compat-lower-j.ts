@@ -11,6 +11,7 @@ export { findActiveDomainAtom } from "../../find/thread-find-atoms";
 export { scheduleReviewRestore } from "../../conversations/local-conversation-page-runtime";
 export { hasRateLimitWindow as appMainCurrentCompatSlotLowerJLowerC } from "../../utils/rate-limit-status/windows";
 export { markTurnInterruptedByThisClient as appMainCurrentCompatSlotLowerJLowerS } from "../../threads/interrupted-turn-state";
+export { hasWorkspaceDependenciesFeature as appMainCurrentCompatSlotLowerJLowerO } from "../../features/workspace-dependencies";
 
 export {
   j as appMainCurrentCompatSlotLowerJ,
@@ -21,7 +22,6 @@ export {
   jf as appMainCurrentCompatSlotLowerJLowerF,
   jh as appMainCurrentCompatSlotLowerJLowerH,
   jm as appMainCurrentCompatSlotLowerJLowerM,
-  jo as appMainCurrentCompatSlotLowerJLowerO,
   jp as appMainCurrentCompatSlotLowerJLowerP,
   jS as appMainCurrentCompatSlotLowerJUpperS,
   jt as appMainCurrentCompatSlotLowerJLowerT,

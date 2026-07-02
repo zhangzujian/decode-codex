@@ -70,6 +70,8 @@ export {
   trackConversationalOnboardingTaskSelected as legacyAppMainBuwUpperULowerSExport,
 } from "../../../onboarding/conversational-onboarding-analytics";
 export { ConversationalOnboardingStreamingIntro as legacyAppMainBuwUpperZLowerSExport } from "../../../onboarding/conversational-onboarding-streaming-intro";
+export { FaviconImage as legacyAppMainBuwUpperULowerOExport } from "../../../conversations/favicon-image";
+export { initRunAppActionInPrimaryWindowRuntime as legacyAppMainBuwUpperVLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 
 export {
   T as legacyAppMainBuwUpperTExport,
@@ -101,7 +103,6 @@ export {
   Ui as legacyAppMainBuwUpperULowerIExport,
   Ul as legacyAppMainBuwUpperULowerLExport,
   Um as legacyAppMainBuwUpperULowerMExport,
-  Uo as legacyAppMainBuwUpperULowerOExport,
   Up as legacyAppMainBuwUpperULowerPExport,
   Ut as legacyAppMainBuwUpperULowerTExport,
   Uu as legacyAppMainBuwUpperULowerUExport,
@@ -118,7 +119,6 @@ export {
   Vl as legacyAppMainBuwUpperVLowerLExport,
   Vm as legacyAppMainBuwUpperVLowerMExport,
   Vn as legacyAppMainBuwUpperVLowerNExport,
-  Vo as legacyAppMainBuwUpperVLowerOExport,
   Vt as legacyAppMainBuwUpperVLowerTExport,
   Vu as legacyAppMainBuwUpperVLowerUExport,
   Vx as legacyAppMainBuwUpperVLowerXExport,

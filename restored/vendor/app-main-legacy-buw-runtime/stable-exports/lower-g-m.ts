@@ -49,6 +49,7 @@ export {
 } from "../../../runtime/primary-runtime-install-state";
 export { primaryRuntimeInstallStatusMessage as legacyAppMainBuwLowerILowerSExport } from "../../../runtime/primary-runtime-install-status-message";
 export { markTurnInterruptedByThisClient as legacyAppMainBuwLowerJLowerSExport } from "../../../threads/interrupted-turn-state";
+export { hasWorkspaceDependenciesFeature as legacyAppMainBuwLowerJLowerOExport } from "../../../features/workspace-dependencies";
 
 export { findActiveDomainAtom } from "../../../find/thread-find-atoms";
 
@@ -140,7 +141,6 @@ export {
   jf as legacyAppMainBuwLowerJLowerFExport,
   jh as legacyAppMainBuwLowerJLowerHExport,
   jm as legacyAppMainBuwLowerJLowerMExport,
-  jo as legacyAppMainBuwLowerJLowerOExport,
   jp as legacyAppMainBuwLowerJLowerPExport,
   jt as legacyAppMainBuwLowerJLowerTExport,
   ju as legacyAppMainBuwLowerJLowerUExport,

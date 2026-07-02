@@ -55,6 +55,7 @@ export {
   OPENAI_APPS_SDK_DOCS_URL as legacyAppMainBuwUpperILowerCExport,
 } from "../../../utils/links-bd-mmkun-d";
 export { OPEN_IN_CODEX_TOOL_NAME as legacyAppMainBuwUpperMLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
+export { runAppActionInPrimaryWindow as legacyAppMainBuwUpperHLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 export { applyRequestUserInputAutoResolutionChange as legacyAppMainBuwUpperJLowerSExport } from "../../../runtime/request-user-input-auto-resolution";
 export { initClientThreadScopeProviderChunk as legacyAppMainBuwUpperGLowerSExport } from "../../../onboarding/client-thread-scope-provider";
 export { ActiveConversationPresence as legacyAppMainBuwUpperKLowerSExport } from "../../../threads/interrupted-turn-state";
@@ -93,7 +94,6 @@ export {
   Hl as legacyAppMainBuwUpperHLowerLExport,
   Hm as legacyAppMainBuwUpperHLowerMExport,
   Hn as legacyAppMainBuwUpperHLowerNExport,
-  Ho as legacyAppMainBuwUpperHLowerOExport,
   Hp as legacyAppMainBuwUpperHLowerPExport,
   Ht as legacyAppMainBuwUpperHLowerTExport,
   Hu as legacyAppMainBuwUpperHLowerUExport,
