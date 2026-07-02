@@ -186,6 +186,7 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | Boundary file (chunk)                        | npm specifier                  | notes                                                           |
 | -------------------------------------------- | ------------------------------ | --------------------------------------------------------------- |
 | `lodash.ts` (`isEqual-*`)                    | `lodash`                       | named/star re-export                                            |
+| `lodash-current-runtime.ts` (`lodash-*`)     | `lodash`                       | current aggregate aliases; named re-export shim                 |
 | `react-router.ts` (`chunk-LFPYN7LY-*`)       | `react-router`                 |                                                                 |
 | `cmdk.tsx` (`dist-*`)                        | `cmdk`                         | command palette primitives                                      |
 | `tanstack-react-form.ts` (`esm-*`)           | `@tanstack/react-form`         | form hook wrapper                                               |

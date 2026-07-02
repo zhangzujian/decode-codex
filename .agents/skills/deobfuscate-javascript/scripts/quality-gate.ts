@@ -482,6 +482,7 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   jotai: "jotai",
   "jotai-runtime": "jotai",
   lodash: "lodash",
+  "lodash-current-runtime": "lodash",
   motion: "framer-motion",
   "react-colorful": "react-colorful",
   "react-dom-client": "react-dom/client",

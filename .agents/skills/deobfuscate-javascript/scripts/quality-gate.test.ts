@@ -186,6 +186,51 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written Lodash current vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/lodash-BhBwOd7I.js
+      export function lodashA(value) {
+        return value && value.length ? value[0] : undefined;
+      }
+      export function _lodashK(collection, iteratee) {
+        return collection.map(iteratee);
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/lodash-current-runtime.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes Lodash current shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/lodash-BhBwOd7I.js
+      export {
+        head as lodashA,
+        map as _lodashK,
+      } from "lodash";
+      export function lodashW(): void {}
+      export function _lodashT(): void {}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/lodash-current-runtime.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written React DOM client vendor shims", () => {
     const source = `
       // Restored from ref/webview/assets/client-C1mrATqU.js
