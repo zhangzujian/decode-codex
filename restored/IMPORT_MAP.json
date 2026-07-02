@@ -3000,7 +3000,11 @@
         "t": "stringT",
         "u": "stringU"
       },
-      "status": "done"
+      "status": "done",
+      "vendor": "d3-color + d3-interpolate",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00",
+      "note": "Bundled D3 color/interpolate string chunk replaced with npm-backed compatibility aliases. stringL/stringS/stringC/stringU resolve to d3-color; stringN/stringR/stringT resolve to d3-interpolate; tiny typed wrappers preserve non-public legacy helper aliases stringA/stringD/stringF/stringI/stringO.",
+      "stage3Accepted": true
     },
     "treemap-CMHfdOyb": {
       "restored": "vendor/d3-hierarchy-treemap.ts",
@@ -3420,8 +3424,10 @@
         "t": "scaleBand"
       },
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "D3 band chunk exports re-derived semantically: n=scalePoint, r=range, t=scaleBand. bandN/bandR/bandT remain as restored compatibility aliases."
+      "vendor": "d3-array + d3-scale",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00",
+      "note": "Bundled D3 band chunk replaced with npm-backed compatibility aliases: r/range resolves to d3-array range; n/scalePoint and t/scaleBand resolve to d3-scale with bandN/bandR/bandT preserved.",
+      "stage3Accepted": true
     },
     "chunk-4BX2VUAB-CQ4cpB2N": {
       "restored": "vendor/mermaid-accessibility.ts",
@@ -3458,7 +3464,11 @@
         "s": "linearS",
         "t": "linearT"
       },
-      "status": "done"
+      "status": "done",
+      "vendor": "d3-array + d3-scale",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00",
+      "note": "Bundled D3 linear scale chunk replaced with npm-backed compatibility aliases. linearT resolves to d3-scale scaleLinear; linearL/linearS resolve to d3-array bisector/tickStep; tiny typed wrappers preserve non-public continuous-scale aliases linearA/linearC/linearI/linearN/linearO/linearR.",
+      "stage3Accepted": true
     },
     "presentation-iV9gDfl9": {
       "restored": "vendor/presentation-runtime.ts",
