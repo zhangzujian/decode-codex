@@ -3183,7 +3183,13 @@
         "r": "chunkAGHRB4JFR",
         "t": "chunkAGHRB4JFT"
       },
-      "status": "done"
+      "status": "done",
+      "vendor": "dayjs",
+      "note": "Historical chunk-AGHRB4JF Day.js/logger wrapper retained at vendor/dompurify.ts for import compatibility; implementation now delegates stock Day.js to npm and keeps typed logger/name helpers.",
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Review": "Host self-review: vendor/dompurify.ts is a typed compatibility shim over dayjs-logger-runtime; it preserves historical AGHRB4JF aliases while replacing the bundled Day.js body with the dayjs npm package."
     },
     "chunk-FMBD7UC4-DBBZVnVA": {
       "restored": "utils/chunk-fmbd7-uc4-dbbz-vn-va.ts",
@@ -3335,7 +3341,13 @@
         "r": "chunkAGHRB4JFR",
         "t": "chunkAGHRB4JFT"
       },
-      "status": "done"
+      "status": "done",
+      "vendor": "dayjs",
+      "note": "Legacy AGHRB4JF Day.js/logger wrapper now restored as a typed alias shim over vendor/dayjs-logger-runtime.ts with stock Day.js loaded from npm.",
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Review": "Host self-review: vendor/dayjs-core-alt.ts preserves the legacy AGHRB4JF export aliases and delegates implementation to the typed dayjs-logger-runtime module."
     },
     "chunk-FMBD7UC4-CT2OagM_": {
       "restored": "utils/chunk-fmbd7-uc4.ts",
@@ -35508,12 +35520,13 @@
         "t": "chunkAGHRB4JFT"
       },
       "aliasOf": "chunk-AGHRB4JF-Bxy73eEy",
-      "note": "Current Day.js/logger wrapper aliases were re-derived from this ref: a=setLogLevel, i=logger, n=defineName, o=dayjs module, r=init thunk, t=define getters.",
+      "vendor": "dayjs",
+      "note": "Current Day.js/logger wrapper aliases were re-derived from this ref: a=setLogLevel, i=logger, n=defineName, o=dayjs module, r=init thunk, t=define getters. Implementation now delegates stock Day.js to npm and keeps typed logger/name helpers.",
       "status": "done",
-      "lastUpdated": "2026-06-30T14:34:18.332Z",
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T14:34:18.332Z",
-      "stage3Note": "Accepted as a vendored Day.js core/logger wrapper with current chunk provenance and validated aliases."
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Note": "Accepted as a typed npm-backed Day.js core/logger wrapper with current chunk provenance and validated aliases."
     },
     "chunk-AGHRB4JF-DJZonIPK": {
       "restored": "vendor/dayjs-core-alt.ts",
@@ -35526,12 +35539,13 @@
         "t": "chunkAGHRB4JFT"
       },
       "aliasOf": "chunk-AGHRB4JF-Bxy73eEy",
-      "note": "Current Day.js/logger wrapper aliases were re-derived from this ref: a=setLogLevel, i=logger, n=defineName, o=dayjs module, r=init thunk, t=define getters.",
+      "vendor": "dayjs",
+      "note": "Current Day.js/logger wrapper aliases were re-derived from this ref: a=setLogLevel, i=logger, n=defineName, o=dayjs module, r=init thunk, t=define getters. Implementation now delegates stock Day.js to npm and keeps typed logger/name helpers.",
       "status": "done",
-      "lastUpdated": "2026-06-30T14:34:18.332Z",
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T14:34:18.332Z",
-      "stage3Note": "Accepted as a vendored Day.js core/logger wrapper alias sharing the typed current public module."
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Note": "Accepted as a typed npm-backed Day.js core/logger wrapper alias sharing the current public module."
     },
     "routing-middleware-DNnHn-sA": {
       "restored": "utils/routing-middleware.ts",
