@@ -3982,12 +3982,12 @@
         "setWasmUrl": "browserSetWasmUrl"
       },
       "status": "done",
-      "vendor": "runtime",
-      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals.",
+      "vendor": "@lottiefiles/dotlottie-react",
+      "note": "npm-backed @lottiefiles/dotlottie-react@0.17.13 shim preserving the bundled @lottiefiles/dotlottie-web@0.61.0 export surface and browser* compatibility aliases.",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
-      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is a vendored @lottiefiles/dotlottie-web React runtime boundary preserving DotLottieReact, DotLottieWorkerReact, and setWasmUrl compatibility; it passes quality-gate --vendored.",
-      "lastUpdated": "2026-06-30T20:52:10.762Z"
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is an npm-backed @lottiefiles/dotlottie-react re-export shim preserving DotLottieReact, DotLottieWorkerReact, setWasmUrl, and historical browser* aliases.",
+      "lastUpdated": "2026-07-02T00:00:00.000Z"
     },
     "browser-BUZask3G": {
       "restored": "vendor/dotlottie-react.tsx",
@@ -3997,12 +3997,12 @@
         "setWasmUrl": "setWasmUrl"
       },
       "status": "done",
-      "vendor": "runtime",
-      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals.",
+      "vendor": "@lottiefiles/dotlottie-react",
+      "note": "npm-backed @lottiefiles/dotlottie-react@0.17.13 shim preserving the bundled @lottiefiles/dotlottie-web@0.61.0 export surface and browser* compatibility aliases.",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
-      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is a vendored @lottiefiles/dotlottie-web React runtime boundary preserving DotLottieReact, DotLottieWorkerReact, and setWasmUrl compatibility; it passes quality-gate --vendored.",
-      "lastUpdated": "2026-06-30T20:52:10.762Z"
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is an npm-backed @lottiefiles/dotlottie-react re-export shim preserving DotLottieReact, DotLottieWorkerReact, setWasmUrl, and historical browser* aliases.",
+      "lastUpdated": "2026-07-02T00:00:00.000Z"
     },
     "browser-1Fy2HWnE": {
       "restored": "vendor/dotlottie-react.tsx",
@@ -4012,13 +4012,13 @@
         "setWasmUrl": "setWasmUrl"
       },
       "status": "done",
-      "vendor": "runtime",
-      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals.",
+      "vendor": "@lottiefiles/dotlottie-react",
+      "note": "npm-backed @lottiefiles/dotlottie-react@0.17.13 shim preserving the bundled @lottiefiles/dotlottie-web@0.61.0 export surface and browser* compatibility aliases.",
       "aliasOf": "browser-BUZask3G",
-      "lastUpdated": "2026-06-30T20:52:10.762Z",
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
-      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is a vendored @lottiefiles/dotlottie-web React runtime boundary preserving DotLottieReact, DotLottieWorkerReact, and setWasmUrl compatibility; it passes quality-gate --vendored."
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is an npm-backed @lottiefiles/dotlottie-react re-export shim preserving DotLottieReact, DotLottieWorkerReact, setWasmUrl, and historical browser* aliases."
     },
     "chunk-ABZYJK2D-8WiwWXHe": {
       "restored": "vendor/katex-auto-render.ts",
@@ -33990,13 +33990,14 @@
         "setWasmUrl": "setWasmUrl"
       },
       "aliasOf": "browser-BUZask3G",
-      "note": "Vendored @lottiefiles/dotlottie-web React runtime bundled inline by the Codex webview; kept as a vendored runtime boundary rather than hand-renaming the WASM/player internals.",
+      "vendor": "@lottiefiles/dotlottie-react",
+      "note": "npm-backed @lottiefiles/dotlottie-react@0.17.13 shim preserving the bundled @lottiefiles/dotlottie-web@0.61.0 export surface and browser* compatibility aliases.",
       "status": "done",
-      "lastUpdated": "2026-06-30T20:52:10.762Z",
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T20:52:10.762Z",
-      "stage3Note": "Accepted as a vendored dotLottie React runtime boundary with the current export surface validated.",
-      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is a vendored @lottiefiles/dotlottie-web React runtime boundary preserving DotLottieReact, DotLottieWorkerReact, and setWasmUrl compatibility; it passes quality-gate --vendored."
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Note": "Accepted as an npm-backed dotLottie React shim with the current export surface validated.",
+      "stage3Review": "Host self-review: vendor/dotlottie-react.tsx is an npm-backed @lottiefiles/dotlottie-react re-export shim preserving DotLottieReact, DotLottieWorkerReact, setWasmUrl, and historical browser* aliases."
     },
     "chunk-336JU56O-20NhwBl7": {
       "restored": "vendor/mermaid-layout-loader-k5.ts",
