@@ -140,6 +140,9 @@ export {
   initDiffSelectionSummaryChunk as SidebarRowUnreadDot,
 } from "../../review/diff-selection-summary";
 export {
+  initBranchSearchListChunk as SidebarRowMenuSeparator,
+} from "../../review/branch-search-list";
+export {
   transferForkedConversationBrowserTabs,
   transferForkedConversationBrowserTabs as primeBrowserTabTransfers,
 } from "../../app-shell/thread-browser-panel-tabs";
@@ -163,7 +166,6 @@ export {
   Nr as SidebarRowContextMenu,
   Oi as SidebarRowOverflowMenu,
   Pn as SidebarTaskRow,
-  al as SidebarRowMenuSeparator,
   ho as forkConversationMessages,
   hp as useComposedRefs,
   mo as initForkConversationMessagesChunk,

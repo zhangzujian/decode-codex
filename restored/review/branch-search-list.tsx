@@ -210,3 +210,7 @@ export function BranchSearchList({
     </div>
   );
 }
+
+export function initBranchSearchListChunk(): void {
+  void BranchSearchList;
+}
