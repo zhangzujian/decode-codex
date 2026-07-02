@@ -11,6 +11,7 @@ export { resetNewThreadRouteContext } from "../../runtime/window-chrome-runtime"
 
 export { SidebarSectionTitle } from "../../projects/home-project-selector-runtime";
 export { CODEX_USAGE_URL as appMainCurrentCompatSlotDollarLowerC } from "../../utils/links-bd-mmkun-d";
+export { CollapsedTurnSummaryLabel as appMainCurrentCompatSlotDollarLowerO } from "../../conversations/collapsed-turn-summary-label";
 
 export {
   $ as appMainCurrentCompatSlotDollar,
@@ -21,7 +22,6 @@ export {
   $g as appMainCurrentCompatSlotDollarLowerG,
   $h as appMainCurrentCompatSlotDollarLowerH,
   $i as appMainCurrentCompatSlotDollarLowerI,
-  $o as appMainCurrentCompatSlotDollarLowerO,
   $p as appMainCurrentCompatSlotDollarLowerP,
   $r as appMainCurrentCompatSlotDollarLowerR,
   $s as appMainCurrentCompatSlotDollarLowerS,

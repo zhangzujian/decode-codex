@@ -13,6 +13,7 @@ export {
 
 export { browserTabSnapshotStore } from "../../conversations/fork-conversation-panel-state-deps";
 export { CODEX_MCP_DOCS_URL as appMainCurrentCompatSlotUpperYLowerC } from "../../utils/links-bd-mmkun-d";
+export { parseHttpsUrl as appMainCurrentCompatSlotUpperYLowerO } from "../../conversations/parse-https-url";
 
 export {
   Y as appMainCurrentCompatSlotUpperY,
@@ -23,7 +24,6 @@ export {
   Yg as appMainCurrentCompatSlotUpperYLowerG,
   Yh as appMainCurrentCompatSlotUpperYLowerH,
   Ym as appMainCurrentCompatSlotUpperYLowerM,
-  Yo as appMainCurrentCompatSlotUpperYLowerO,
   Yp as appMainCurrentCompatSlotUpperYLowerP,
   Yr as appMainCurrentCompatSlotUpperYLowerR,
   YS as appMainCurrentCompatSlotUpperYUpperS,

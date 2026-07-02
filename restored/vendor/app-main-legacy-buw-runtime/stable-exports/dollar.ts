@@ -11,6 +11,7 @@ export { resetNewThreadRouteContext } from "../../../runtime/window-chrome-runti
 
 export { SidebarSectionTitle } from "../../../projects/home-project-selector-runtime";
 export { CODEX_USAGE_URL as legacyAppMainBuwDollarLowerCExport } from "../../../utils/links-bd-mmkun-d";
+export { CollapsedTurnSummaryLabel as legacyAppMainBuwDollarLowerOExport } from "../../../conversations/collapsed-turn-summary-label";
 
 export {
   $ as legacyAppMainBuwDollarExport,
@@ -21,7 +22,6 @@ export {
   $g as legacyAppMainBuwDollarLowerGExport,
   $h as legacyAppMainBuwDollarLowerHExport,
   $i as legacyAppMainBuwDollarLowerIExport,
-  $o as legacyAppMainBuwDollarLowerOExport,
   $p as legacyAppMainBuwDollarLowerPExport,
   $r as legacyAppMainBuwDollarLowerRExport,
   $s as legacyAppMainBuwDollarLowerSExport,

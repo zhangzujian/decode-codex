@@ -62,6 +62,7 @@ export {
   CODEX_SANDBOXING_DOCS_URL as legacyAppMainBuwUpperZLowerCExport,
   OPENAI_PLUGINS_GITHUB_URL as legacyAppMainBuwUpperXLowerCExport,
 } from "../../../utils/links-bd-mmkun-d";
+export { parseHttpsUrl as legacyAppMainBuwUpperYLowerOExport } from "../../../conversations/parse-https-url";
 export { summarizeAppgenAccessPolicy as legacyAppMainBuwUpperTLowerSExport } from "../../../utils/appgen-access";
 export { ClientThreadScopeProvider as legacyAppMainBuwUpperWLowerSExport } from "../../../onboarding/client-thread-scope-provider";
 export {
@@ -163,7 +164,6 @@ export {
   Yg as legacyAppMainBuwUpperYLowerGExport,
   Yh as legacyAppMainBuwUpperYLowerHExport,
   Ym as legacyAppMainBuwUpperYLowerMExport,
-  Yo as legacyAppMainBuwUpperYLowerOExport,
   Yp as legacyAppMainBuwUpperYLowerPExport,
   Yr as legacyAppMainBuwUpperYLowerRExport,
   Yt as legacyAppMainBuwUpperYLowerTExport,
