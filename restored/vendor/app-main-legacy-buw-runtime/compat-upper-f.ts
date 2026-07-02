@@ -12,6 +12,7 @@ export { findQueryAtom } from "../../find/thread-find-atoms";
 export { initPendingWorktreeStoreRuntime as initPendingWorktreeComposerRuntimeChunk } from "../../threads/pending-worktree-store";
 export { initReviewRouteContextRuntime as initReviewRouteContextChunk } from "../../review/thread-review-context";
 export { CHATGPT_ADMIN_USAGE_LIMITS_URL as appMainCurrentCompatSlotUpperFLowerC } from "../../utils/links-bd-mmkun-d";
+export { COMPLETE_CONVERSATIONAL_ONBOARDING_TASK_NAME as appMainCurrentCompatSlotUpperFLowerO } from "../../runtime/run-app-action-in-primary-window";
 
 export {
   F as appMainCurrentCompatSlotUpperF,
@@ -21,7 +22,6 @@ export {
   Fl as appMainCurrentCompatSlotUpperFLowerL,
   Fm as appMainCurrentCompatSlotUpperFLowerM,
   Fn as appMainCurrentCompatSlotUpperFLowerN,
-  Fo as appMainCurrentCompatSlotUpperFLowerO,
   Fp as appMainCurrentCompatSlotUpperFLowerP,
   Fr as appMainCurrentCompatSlotUpperFLowerR,
   Fs as appMainCurrentCompatSlotUpperFLowerS,

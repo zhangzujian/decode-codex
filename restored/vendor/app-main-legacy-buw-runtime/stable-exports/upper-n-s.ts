@@ -60,6 +60,8 @@ export {
   CHATGPT_ADMIN_URL as legacyAppMainBuwUpperRLowerCExport,
   CODEX_SKILLS_DOCS_URL as legacyAppMainBuwUpperQLowerCExport,
 } from "../../../utils/links-bd-mmkun-d";
+export { NAVIGATE_TO_CODEX_PAGE_TOOL_NAME as legacyAppMainBuwUpperRLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
+export { WRITE_SETTINGS_TOOL_NAME as legacyAppMainBuwUpperOLowerOExport } from "../../../settings/settings-tool-definitions";
 
 export {
   NC as legacyAppMainBuwUpperNUpperCExport,
@@ -87,7 +89,6 @@ export {
   Ol as legacyAppMainBuwUpperOLowerLExport,
   Om as legacyAppMainBuwUpperOLowerMExport,
   On as legacyAppMainBuwUpperOLowerNExport,
-  Oo as legacyAppMainBuwUpperOLowerOExport,
   Op as legacyAppMainBuwUpperOLowerPExport,
   Or as legacyAppMainBuwUpperOLowerRExport,
   Os as legacyAppMainBuwUpperOLowerSExport,
@@ -138,7 +139,6 @@ export {
   Rl as legacyAppMainBuwUpperRLowerLExport,
   Rm as legacyAppMainBuwUpperRLowerMExport,
   Rn as legacyAppMainBuwUpperRLowerNExport,
-  Ro as legacyAppMainBuwUpperRLowerOExport,
   Rp as legacyAppMainBuwUpperRLowerPExport,
   Rr as legacyAppMainBuwUpperRLowerRExport,
   Rs as legacyAppMainBuwUpperRLowerSExport,

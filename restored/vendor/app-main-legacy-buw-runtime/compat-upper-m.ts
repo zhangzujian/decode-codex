@@ -7,6 +7,7 @@ export { initCommitIconChunk as appMainCurrentCompatSlotUpperMLowerU } from "../
 export { SelectedTextAttachmentPill as appMainCurrentCompatSlotUpperMLowerI } from "../../composer/user-message-attachment-pills";
 
 export { initSidebarRowPrimitivesChunk } from "../app-main-current-runtime";
+export { OPEN_IN_CODEX_TOOL_NAME as appMainCurrentCompatSlotUpperMLowerO } from "../../runtime/run-app-action-in-primary-window";
 
 export {
   M as appMainCurrentCompatSlotUpperM,
@@ -20,7 +21,6 @@ export {
   Mh as appMainCurrentCompatSlotUpperMLowerH,
   Ml as appMainCurrentCompatSlotUpperMLowerL,
   Mm as appMainCurrentCompatSlotUpperMLowerM,
-  Mo as appMainCurrentCompatSlotUpperMLowerO,
   Mp as appMainCurrentCompatSlotUpperMLowerP,
   Ms as appMainCurrentCompatSlotUpperMLowerS,
   MS as appMainCurrentCompatSlotUpperMUpperS,

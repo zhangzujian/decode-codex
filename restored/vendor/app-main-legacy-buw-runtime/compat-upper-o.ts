@@ -8,6 +8,7 @@ export { findBrowserTargetAtom } from "../../find/thread-find-atoms";
 
 export { createSlotComponent } from "../../runtime/app-main-new-thread-runtime";
 export { selectRateLimitAlert as appMainCurrentCompatSlotUpperOLowerC } from "../../utils/rate-limit-status/windows";
+export { WRITE_SETTINGS_TOOL_NAME as appMainCurrentCompatSlotUpperOLowerO } from "../../settings/settings-tool-definitions";
 
 export {
   O as appMainCurrentCompatSlotUpperO,
@@ -19,7 +20,6 @@ export {
   Ol as appMainCurrentCompatSlotUpperOLowerL,
   Om as appMainCurrentCompatSlotUpperOLowerM,
   On as appMainCurrentCompatSlotUpperOLowerN,
-  Oo as appMainCurrentCompatSlotUpperOLowerO,
   Op as appMainCurrentCompatSlotUpperOLowerP,
   Or as appMainCurrentCompatSlotUpperOLowerR,
   Os as appMainCurrentCompatSlotUpperOLowerS,

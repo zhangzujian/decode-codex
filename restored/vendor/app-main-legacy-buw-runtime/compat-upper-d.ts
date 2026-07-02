@@ -7,6 +7,7 @@ export { activateTerminalLink } from "../../runtime/window-chrome-runtime";
 export { findBrowserStatusAtom } from "../../find/thread-find-atoms";
 export { initPrimitiveRuntime as initPrimitiveRuntimeChunk } from "../radix-primitive-helpers";
 export { formatResetDate as appMainCurrentCompatSlotUpperDLowerC } from "../../utils/rate-limit-status/formatting";
+export { READ_SETTINGS_TOOL_NAME as appMainCurrentCompatSlotUpperDLowerO } from "../../settings/settings-tool-definitions";
 
 export {
   D as appMainCurrentCompatSlotUpperD,
@@ -19,7 +20,6 @@ export {
   Dl as appMainCurrentCompatSlotUpperDLowerL,
   Dm as appMainCurrentCompatSlotUpperDLowerM,
   Dn as appMainCurrentCompatSlotUpperDLowerN,
-  Do as appMainCurrentCompatSlotUpperDLowerO,
   Dp as appMainCurrentCompatSlotUpperDLowerP,
   Dr as appMainCurrentCompatSlotUpperDLowerR,
   DS as appMainCurrentCompatSlotUpperDUpperS,

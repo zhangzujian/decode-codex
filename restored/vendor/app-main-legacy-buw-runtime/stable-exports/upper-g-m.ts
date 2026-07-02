@@ -54,6 +54,7 @@ export {
   CODEX_LOCKED_COMPUTER_USE_DOCS_URL as legacyAppMainBuwUpperJLowerCExport,
   OPENAI_APPS_SDK_DOCS_URL as legacyAppMainBuwUpperILowerCExport,
 } from "../../../utils/links-bd-mmkun-d";
+export { OPEN_IN_CODEX_TOOL_NAME as legacyAppMainBuwUpperMLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 
 export {
   G as legacyAppMainBuwUpperGExport,
@@ -176,7 +177,6 @@ export {
   Mh as legacyAppMainBuwUpperMLowerHExport,
   Ml as legacyAppMainBuwUpperMLowerLExport,
   Mm as legacyAppMainBuwUpperMLowerMExport,
-  Mo as legacyAppMainBuwUpperMLowerOExport,
   Mp as legacyAppMainBuwUpperMLowerPExport,
   Ms as legacyAppMainBuwUpperMLowerSExport,
   Mt as legacyAppMainBuwUpperMLowerTExport,

@@ -9,6 +9,7 @@ export {
 export { appIntlSignal as intlShapeSignal } from "../../utils/app-intl-signal";
 export { usePendingWorktreeStore as SidebarTaskRowMetadata } from "../../threads/pending-worktree-store";
 export { CHATGPT_ADMIN_URL as appMainCurrentCompatSlotUpperRLowerC } from "../../utils/links-bd-mmkun-d";
+export { NAVIGATE_TO_CODEX_PAGE_TOOL_NAME as appMainCurrentCompatSlotUpperRLowerO } from "../../runtime/run-app-action-in-primary-window";
 
 export {
   R as appMainCurrentCompatSlotUpperR,
@@ -20,7 +21,6 @@ export {
   Rl as appMainCurrentCompatSlotUpperRLowerL,
   Rm as appMainCurrentCompatSlotUpperRLowerM,
   Rn as appMainCurrentCompatSlotUpperRLowerN,
-  Ro as appMainCurrentCompatSlotUpperRLowerO,
   Rp as appMainCurrentCompatSlotUpperRLowerP,
   Rr as appMainCurrentCompatSlotUpperRLowerR,
   Rs as appMainCurrentCompatSlotUpperRLowerS,

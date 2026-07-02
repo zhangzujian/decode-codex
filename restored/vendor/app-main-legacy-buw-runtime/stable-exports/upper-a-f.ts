@@ -64,6 +64,8 @@ export {
   formatResetDate as legacyAppMainBuwUpperDLowerCExport,
 } from "../../../utils/rate-limit-status/formatting";
 export { CHATGPT_ADMIN_USAGE_LIMITS_URL as legacyAppMainBuwUpperFLowerCExport } from "../../../utils/links-bd-mmkun-d";
+export { COMPLETE_CONVERSATIONAL_ONBOARDING_TASK_NAME as legacyAppMainBuwUpperFLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
+export { READ_SETTINGS_TOOL_NAME as legacyAppMainBuwUpperDLowerOExport } from "../../../settings/settings-tool-definitions";
 export { secondsUntilUnixSeconds as legacyAppMainBuwUpperALowerCExport } from "../../../utils/rate-limit-status/windows";
 
 export {
@@ -129,7 +131,6 @@ export {
   Dl as legacyAppMainBuwUpperDLowerLExport,
   Dm as legacyAppMainBuwUpperDLowerMExport,
   Dn as legacyAppMainBuwUpperDLowerNExport,
-  Do as legacyAppMainBuwUpperDLowerOExport,
   Dp as legacyAppMainBuwUpperDLowerPExport,
   Dr as legacyAppMainBuwUpperDLowerRExport,
   Dt as legacyAppMainBuwUpperDLowerTExport,
@@ -164,7 +165,6 @@ export {
   Fl as legacyAppMainBuwUpperFLowerLExport,
   Fm as legacyAppMainBuwUpperFLowerMExport,
   Fn as legacyAppMainBuwUpperFLowerNExport,
-  Fo as legacyAppMainBuwUpperFLowerOExport,
   Fp as legacyAppMainBuwUpperFLowerPExport,
   Fr as legacyAppMainBuwUpperFLowerRExport,
   Fs as legacyAppMainBuwUpperFLowerSExport,
