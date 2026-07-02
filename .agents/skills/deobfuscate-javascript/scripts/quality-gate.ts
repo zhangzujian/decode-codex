@@ -662,6 +662,11 @@ const PACKAGE_DEPENDENCY_FIELDS = [
   "optionalDependencies",
 ] as const;
 
+const PACKAGE_DEPENDENCY_READ_CACHE = new Map<
+  string,
+  PackageDependencyReadResult
+>();
+
 export type QualityGateOptions = {
   maxCrypticParams: number;
   maxCrypticBindings: number;
@@ -1050,11 +1055,14 @@ function expectedPublicNpmVendorSpecifiers(
 
   const sourceChunkBasename =
     source == null ? null : restoredSourceChunkBasename(source);
-  return normalizePublicNpmVendorSpecifiers(
+  const sourceChunkSpecifiers = normalizePublicNpmVendorSpecifiers(
     sourceChunkBasename == null
       ? null
       : PUBLIC_NPM_VENDOR_SOURCE_CHUNKS[sourceChunkBasename],
   );
+  if (sourceChunkSpecifiers != null) return sourceChunkSpecifiers;
+
+  return expectedPublicNpmVendorSpecifiersByDeclaredDependencyName(normalized);
 }
 
 function hasBareReexportFrom(source: string, specifier: string): boolean {
@@ -1120,6 +1128,46 @@ function readPackageDependencyNames(
   } catch (err) {
     return { ok: false, error: (err as Error).message };
   }
+}
+
+function readCachedPackageDependencyNames(
+  packageJsonPath: string,
+): PackageDependencyReadResult {
+  const cached = PACKAGE_DEPENDENCY_READ_CACHE.get(packageJsonPath);
+  if (cached != null) return cached;
+  const result = readPackageDependencyNames(packageJsonPath);
+  PACKAGE_DEPENDENCY_READ_CACHE.set(packageJsonPath, result);
+  return result;
+}
+
+function vendorBasenameForPackageName(packageName: string): string {
+  return packageName.startsWith("@")
+    ? packageName.slice(1).replace("/", "-")
+    : packageName;
+}
+
+function expectedPublicNpmVendorSpecifiersByDeclaredDependencyName(
+  file: string,
+): string[] | null {
+  const extensionlessBasename = path
+    .basename(file)
+    .replace(/\.[cm]?[jt]sx?$/i, "");
+  const packageJsonPath = findNearestPackageJson(
+    path.dirname(path.resolve(file)),
+  );
+  if (packageJsonPath == null) return null;
+  const dependencyRead = readCachedPackageDependencyNames(packageJsonPath);
+  if (!dependencyRead.ok) return null;
+
+  for (const dependencyName of dependencyRead.dependencies) {
+    if (
+      vendorBasenameForPackageName(dependencyName) === extensionlessBasename
+    ) {
+      return [dependencyName];
+    }
+  }
+
+  return null;
 }
 
 function countLines(source: string): number {

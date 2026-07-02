@@ -837,6 +837,73 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written vendor shims whose filename matches a declared dependency", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "acme-widget": "^1.0.0",
+        },
+      }),
+    );
+
+    const source = `
+      // Restored from ref/webview/assets/acme-widget-ABC123.js
+      export function createWidget(options) {
+        return { options };
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      path.join(vendorDir, "acme-widget.ts"),
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({ expectedSpecifiers: ["acme-widget"] });
+  });
+
+  test("passes filename-matched declared dependency vendor shims that re-export npm", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "acme-widget": "^1.0.0",
+        },
+      }),
+    );
+
+    const source = `
+      // Restored from ref/webview/assets/acme-widget-ABC123.js
+      export { createWidget } from "acme-widget";
+      export type { WidgetOptions } from "acme-widget";
+    `;
+    const report = analyzeSource(
+      source,
+      path.join(vendorDir, "acme-widget.ts"),
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails npm vendor shims when package dependency is not declared", () => {
     const root = makeTmpRoot();
     const restoredDir = path.join(root, "restored");
