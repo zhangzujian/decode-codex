@@ -63,6 +63,7 @@ export {
   OPENAI_PLUGINS_GITHUB_URL as legacyAppMainBuwUpperXLowerCExport,
 } from "../../../utils/links-bd-mmkun-d";
 export { summarizeAppgenAccessPolicy as legacyAppMainBuwUpperTLowerSExport } from "../../../utils/appgen-access";
+export { ClientThreadScopeProvider as legacyAppMainBuwUpperWLowerSExport } from "../../../onboarding/client-thread-scope-provider";
 
 export {
   T as legacyAppMainBuwUpperTExport,
@@ -130,7 +131,6 @@ export {
   Wo as legacyAppMainBuwUpperWLowerOExport,
   Wp as legacyAppMainBuwUpperWLowerPExport,
   Wr as legacyAppMainBuwUpperWLowerRExport,
-  Ws as legacyAppMainBuwUpperWLowerSExport,
   Wt as legacyAppMainBuwUpperWLowerTExport,
   Wu as legacyAppMainBuwUpperWLowerUExport,
   Wx as legacyAppMainBuwUpperWLowerXExport,

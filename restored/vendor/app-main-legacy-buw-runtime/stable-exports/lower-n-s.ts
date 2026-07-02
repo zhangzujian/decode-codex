@@ -67,6 +67,7 @@ export {
   initReviewDiffStateRuntime as initReviewDiffStateChunk,
   initReviewFileListRuntime as initReviewFileListChunk,
 } from "../../../review/review-diff-store";
+export { initInterruptedTurnStateChunk as legacyAppMainBuwLowerQLowerSExport } from "../../../threads/interrupted-turn-state";
 
 export {
   nS as legacyAppMainBuwLowerNUpperSExport,
@@ -131,7 +132,6 @@ export {
   qo as legacyAppMainBuwLowerQLowerOExport,
   qp as legacyAppMainBuwLowerQLowerPExport,
   qr as legacyAppMainBuwLowerQLowerRExport,
-  qs as legacyAppMainBuwLowerQLowerSExport,
   qt as legacyAppMainBuwLowerQLowerTExport,
   qv as legacyAppMainBuwLowerQLowerVExport,
   qx as legacyAppMainBuwLowerQLowerXExport,

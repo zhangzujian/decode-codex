@@ -56,6 +56,8 @@ export {
 } from "../../../utils/links-bd-mmkun-d";
 export { OPEN_IN_CODEX_TOOL_NAME as legacyAppMainBuwUpperMLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 export { applyRequestUserInputAutoResolutionChange as legacyAppMainBuwUpperJLowerSExport } from "../../../runtime/request-user-input-auto-resolution";
+export { initClientThreadScopeProviderChunk as legacyAppMainBuwUpperGLowerSExport } from "../../../onboarding/client-thread-scope-provider";
+export { ActiveConversationPresence as legacyAppMainBuwUpperKLowerSExport } from "../../../threads/interrupted-turn-state";
 
 export {
   G as legacyAppMainBuwUpperGExport,
@@ -70,7 +72,6 @@ export {
   Gn as legacyAppMainBuwUpperGLowerNExport,
   Gp as legacyAppMainBuwUpperGLowerPExport,
   Gr as legacyAppMainBuwUpperGLowerRExport,
-  Gs as legacyAppMainBuwUpperGLowerSExport,
   Gt as legacyAppMainBuwUpperGLowerTExport,
   Gx as legacyAppMainBuwUpperGLowerXExport,
   Gy as legacyAppMainBuwUpperGLowerYExport,
@@ -141,7 +142,6 @@ export {
   Kn as legacyAppMainBuwUpperKLowerNExport,
   Kp as legacyAppMainBuwUpperKLowerPExport,
   Kr as legacyAppMainBuwUpperKLowerRExport,
-  Ks as legacyAppMainBuwUpperKLowerSExport,
   Kt as legacyAppMainBuwUpperKLowerTExport,
   Kx as legacyAppMainBuwUpperKLowerXExport,
   Ky as legacyAppMainBuwUpperKLowerYExport,
