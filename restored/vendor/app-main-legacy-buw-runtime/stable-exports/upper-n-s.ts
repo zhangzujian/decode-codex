@@ -64,6 +64,7 @@ export {
 export { NAVIGATE_TO_CODEX_PAGE_TOOL_NAME as legacyAppMainBuwUpperRLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 export { WRITE_SETTINGS_TOOL_NAME as legacyAppMainBuwUpperOLowerOExport } from "../../../settings/settings-tool-definitions";
 export { buildAppgenAccessPolicyWithoutUser as legacyAppMainBuwUpperOLowerSExport } from "../../../utils/appgen-access";
+export { trackConversationalOnboardingExecutionCancelled as legacyAppMainBuwUpperRLowerSExport } from "../../../onboarding/conversational-onboarding-analytics";
 
 export {
   NC as legacyAppMainBuwUpperNUpperCExport,
@@ -141,7 +142,6 @@ export {
   Rn as legacyAppMainBuwUpperRLowerNExport,
   Rp as legacyAppMainBuwUpperRLowerPExport,
   Rr as legacyAppMainBuwUpperRLowerRExport,
-  Rs as legacyAppMainBuwUpperRLowerSExport,
   Rt as legacyAppMainBuwUpperRLowerTExport,
   Ru as legacyAppMainBuwUpperRLowerUExport,
   Rx as legacyAppMainBuwUpperRLowerXExport,

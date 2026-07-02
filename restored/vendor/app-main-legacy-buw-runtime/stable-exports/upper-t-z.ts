@@ -64,6 +64,10 @@ export {
 } from "../../../utils/links-bd-mmkun-d";
 export { summarizeAppgenAccessPolicy as legacyAppMainBuwUpperTLowerSExport } from "../../../utils/appgen-access";
 export { ClientThreadScopeProvider as legacyAppMainBuwUpperWLowerSExport } from "../../../onboarding/client-thread-scope-provider";
+export {
+  trackConversationalOnboardingLifecycleSkipped as legacyAppMainBuwUpperVLowerSExport,
+  trackConversationalOnboardingTaskSelected as legacyAppMainBuwUpperULowerSExport,
+} from "../../../onboarding/conversational-onboarding-analytics";
 
 export {
   T as legacyAppMainBuwUpperTExport,
@@ -97,7 +101,6 @@ export {
   Um as legacyAppMainBuwUpperULowerMExport,
   Uo as legacyAppMainBuwUpperULowerOExport,
   Up as legacyAppMainBuwUpperULowerPExport,
-  Us as legacyAppMainBuwUpperULowerSExport,
   Ut as legacyAppMainBuwUpperULowerTExport,
   Uu as legacyAppMainBuwUpperULowerUExport,
   Ux as legacyAppMainBuwUpperULowerXExport,
@@ -114,7 +117,6 @@ export {
   Vm as legacyAppMainBuwUpperVLowerMExport,
   Vn as legacyAppMainBuwUpperVLowerNExport,
   Vo as legacyAppMainBuwUpperVLowerOExport,
-  Vs as legacyAppMainBuwUpperVLowerSExport,
   Vt as legacyAppMainBuwUpperVLowerTExport,
   Vu as legacyAppMainBuwUpperVLowerUExport,
   Vx as legacyAppMainBuwUpperVLowerXExport,

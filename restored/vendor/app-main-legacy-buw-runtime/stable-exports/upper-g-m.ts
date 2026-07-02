@@ -58,6 +58,11 @@ export { OPEN_IN_CODEX_TOOL_NAME as legacyAppMainBuwUpperMLowerOExport } from ".
 export { applyRequestUserInputAutoResolutionChange as legacyAppMainBuwUpperJLowerSExport } from "../../../runtime/request-user-input-auto-resolution";
 export { initClientThreadScopeProviderChunk as legacyAppMainBuwUpperGLowerSExport } from "../../../onboarding/client-thread-scope-provider";
 export { ActiveConversationPresence as legacyAppMainBuwUpperKLowerSExport } from "../../../threads/interrupted-turn-state";
+export {
+  trackConversationalOnboardingLifecycleCompleted as legacyAppMainBuwUpperLLowerSExport,
+  trackConversationalOnboardingLifecycleStarted as legacyAppMainBuwUpperHLowerSExport,
+} from "../../../onboarding/conversational-onboarding-analytics";
+export { trackConversationalOnboardingAccessDenied as legacyAppMainBuwUpperILowerSExport } from "../../../onboarding/conversational-onboarding-access-analytics";
 
 export {
   G as legacyAppMainBuwUpperGExport,
@@ -89,7 +94,6 @@ export {
   Hn as legacyAppMainBuwUpperHLowerNExport,
   Ho as legacyAppMainBuwUpperHLowerOExport,
   Hp as legacyAppMainBuwUpperHLowerPExport,
-  Hs as legacyAppMainBuwUpperHLowerSExport,
   Ht as legacyAppMainBuwUpperHLowerTExport,
   Hu as legacyAppMainBuwUpperHLowerUExport,
   Hx as legacyAppMainBuwUpperHLowerXExport,
@@ -107,7 +111,6 @@ export {
   Io as legacyAppMainBuwUpperILowerOExport,
   Ip as legacyAppMainBuwUpperILowerPExport,
   Ir as legacyAppMainBuwUpperILowerRExport,
-  Is as legacyAppMainBuwUpperILowerSExport,
   It as legacyAppMainBuwUpperILowerTExport,
   Iv as legacyAppMainBuwUpperILowerVExport,
   Ix as legacyAppMainBuwUpperILowerXExport,
@@ -159,7 +162,6 @@ export {
   Lo as legacyAppMainBuwUpperLLowerOExport,
   Lp as legacyAppMainBuwUpperLLowerPExport,
   Lr as legacyAppMainBuwUpperLLowerRExport,
-  Ls as legacyAppMainBuwUpperLLowerSExport,
   Lt as legacyAppMainBuwUpperLLowerTExport,
   Lu as legacyAppMainBuwUpperLLowerUExport,
   Lv as legacyAppMainBuwUpperLLowerVExport,
