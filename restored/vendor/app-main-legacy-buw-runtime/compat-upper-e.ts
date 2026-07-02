@@ -6,6 +6,8 @@ export { initTerminalLinkHandlerChunk } from "../../runtime/window-chrome-runtim
 
 export { Primitive } from "../../runtime/app-main-new-thread-runtime";
 
+export { stashPendingWorktreePanelState as copyConversationStateToFork } from "../../conversations/fork-conversation-panel-state";
+
 export {
   E as appMainCurrentCompatSlotUpperE,
   Ea as appMainCurrentCompatSlotUpperELowerA,
@@ -19,7 +21,6 @@ export {
   El as appMainCurrentCompatSlotUpperELowerL,
   Em as appMainCurrentCompatSlotUpperELowerM,
   En as appMainCurrentCompatSlotUpperELowerN,
-  Eo as copyConversationStateToFork,
   Ep as appMainCurrentCompatSlotUpperELowerP,
   Er as appMainCurrentCompatSlotUpperELowerR,
   ES as appMainCurrentCompatSlotUpperEUpperS,

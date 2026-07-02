@@ -38,6 +38,8 @@ export {
 
 export { Primitive } from "../../../runtime/app-main-new-thread-runtime";
 
+export { stashPendingWorktreePanelState as copyConversationStateToFork } from "../../../conversations/fork-conversation-panel-state";
+
 export { CSS as ThreadRowLayout } from "../../dnd-kit-utilities";
 
 export {
@@ -134,7 +136,6 @@ export {
   El as legacyAppMainBuwUpperELowerLExport,
   Em as legacyAppMainBuwUpperELowerMExport,
   En as legacyAppMainBuwUpperELowerNExport,
-  Eo as copyConversationStateToFork,
   Ep as legacyAppMainBuwUpperELowerPExport,
   Er as legacyAppMainBuwUpperELowerRExport,
   Et as legacyAppMainBuwUpperELowerTExport,
