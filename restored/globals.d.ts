@@ -4,3 +4,8 @@ declare module "cytoscape-cose-bilkent" {
   const cytoscapeCoseBilkent: (cy: typeof cytoscape) => void;
   export default cytoscapeCoseBilkent;
 }
+
+declare module "lodash/_*" {
+  const lodashInternalModule: any;
+  export default lodashInternalModule;
+}
