@@ -43089,12 +43089,12 @@
         "AvatarOverlayPage": "AvatarOverlayPage"
       },
       "status": "done",
-      "note": "Current avatar overlay page hash maps to a dedicated current-ref runtime over vendor/avatar-overlay-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
-      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "note": "Current avatar overlay page hash maps to a dedicated current-ref runtime over features/avatar-overlay-page.tsx; the page body was lifted out of vendor parking, moved-relative imports were repaired, and the surface, tray, waiting-request, and measurement helpers now use semantic names.",
+      "lastUpdated": "2026-07-02T04:55:00.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed avatar-overlay-page-DdqF43YR.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+      "stage3AcceptedAt": "2026-07-02T04:55:00.000Z",
+      "stage3Review": "Host self-review: promoted avatar-overlay-page-DdqF43YR.js out of vendor parking, fixed moved imports for automations/app-main dependencies, named the surface, notification tray, waiting-request, drag, resize, and DOM measurement helpers, and verified page/runtime builds plus the runtime quality gate.",
+      "stage3Note": "Accepted as a promoted current-ref implementation; JSX factory cleanup and splitting remain future cleanup."
     },
     "architectureDiagram-Q4EWVU46-CxNS-sgT": {
       "restored": "vendor/mermaid-architecture-diagram-k5.ts",
