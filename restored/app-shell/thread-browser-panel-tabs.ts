@@ -6,7 +6,10 @@ import {
   type BrowserPanelLocation,
 } from "../runtime/persisted-signal";
 import { Dr as browserUseMultipleTabsSignal } from "../boundaries/thread-context-inputs.facade";
-import { getBrowserSidebarTabIds } from "../browser/browser-sidebar-open-source";
+import {
+  getBrowserSidebarTabIds,
+  upsertBrowserSidebarTabSource,
+} from "../browser/browser-sidebar-open-source";
 import { browserSidebarManager } from "../browser/sidebar-manager";
 import {
   getThreadPanelController,
@@ -27,6 +30,10 @@ type BrowserPanelTabMatch = {
   controller: AppShellTabController;
   tab: AppShellTabRecord;
   target: ThreadPanelId;
+};
+type TransferForkedConversationBrowserTabsOptions = {
+  sourceConversationId: string;
+  targetConversationId: string;
 };
 function getBrowserPanelTabs(
   store: AppShellStore,
@@ -215,6 +222,40 @@ function getLastFocusedBrowserTabId(
   }
   return browserTabIds.at(-1) ?? null;
 }
+function transferForkedConversationBrowserTabs(
+  store: AppShellStore,
+  {
+    sourceConversationId,
+    targetConversationId,
+  }: TransferForkedConversationBrowserTabsOptions,
+): void {
+  const browserTabIds = getConversationBrowserTabIdsForTransfer(
+    store,
+    sourceConversationId,
+  );
+  if (browserTabIds.length === 0) return;
+
+  const lastFocusedBrowserTabId = getLastFocusedBrowserTabId(
+    store,
+    sourceConversationId,
+  );
+  const activeBrowserTabId =
+    lastFocusedBrowserTabId != null &&
+    browserTabIds.includes(lastFocusedBrowserTabId)
+      ? lastFocusedBrowserTabId
+      : (browserTabIds.at(-1) ?? null);
+
+  for (const browserTabId of browserTabIds) {
+    upsertBrowserSidebarTabSource(targetConversationId, {
+      active: browserTabId === activeBrowserTabId,
+      browserTabId,
+      target: findBrowserPanelTab(store, sourceConversationId, browserTabId)
+        ?.target,
+      transferSourceBrowserTabId: browserTabId,
+      transferSourceConversationId: sourceConversationId,
+    });
+  }
+}
 function shouldTransferAllBrowserUseTabs(store: AppShellStore): boolean {
   try {
     return store.get<boolean>(browserUseMultipleTabsSignal) === true;
@@ -227,6 +268,7 @@ export {
   getBrowserTabIdsForEnabledPanels,
   getConversationBrowserTabIdsForTransfer,
   getLastFocusedBrowserTabId,
+  transferForkedConversationBrowserTabs,
   getBrowserPanelTabs,
   choosePanelForBrowserTabTargets,
   choosePanelForEnabledBrowserTabTargets,

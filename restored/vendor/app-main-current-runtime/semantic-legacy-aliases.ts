@@ -130,6 +130,10 @@ export {
   initDiffSelectionSummaryChunk as SidebarRowUnreadDot,
 } from "../../review/diff-selection-summary";
 export {
+  transferForkedConversationBrowserTabs,
+  transferForkedConversationBrowserTabs as primeBrowserTabTransfers,
+} from "../../app-shell/thread-browser-panel-tabs";
+export {
   convertUnistTest as SidebarRowHoverCard,
   mdastToMarkdownDefaultHandlers as SidebarTaskRowTitle,
 } from "../markdown-ast-runtime";
@@ -150,8 +154,6 @@ export {
   Nr as SidebarRowContextMenu,
   Oi as SidebarRowOverflowMenu,
   Pn as SidebarTaskRow,
-  Wc as primeBrowserTabTransfers,
-  Wc as transferForkedConversationBrowserTabs,
   al as SidebarRowMenuSeparator,
   dl as SidebarRowDragHandle,
   ho as forkConversationMessages,
