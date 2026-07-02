@@ -7,6 +7,7 @@ export {
 
 export { ensureTerminalFontLoaded } from "../../runtime/window-chrome-runtime";
 export { useSensor as ThreadRowCloudMeta } from "../dnd-kit-core";
+export { openThreadTimelineSidePanel } from "../../app-shell/legacy-thread-timeline-side-panel";
 
 export {
   x as appMainCurrentCompatSlotLowerX,
@@ -19,7 +20,6 @@ export {
   xg as appMainCurrentCompatSlotLowerXLowerG,
   xh as appMainCurrentCompatSlotLowerXLowerH,
   xi as appMainCurrentCompatSlotLowerXLowerI,
-  xl as openThreadTimelineSidePanel,
   xm as appMainCurrentCompatSlotLowerXLowerM,
   xn as appMainCurrentCompatSlotLowerXLowerN,
   xp as appMainCurrentCompatSlotLowerXLowerP,

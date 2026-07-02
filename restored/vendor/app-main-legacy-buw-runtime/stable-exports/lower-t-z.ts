@@ -43,6 +43,7 @@ export { useSensor as ThreadRowCloudMeta } from "../../dnd-kit-core";
 export { initDndKitUtilitiesRuntime as ThreadRowWorktreeMeta } from "../../dnd-kit-utilities";
 export { initWarningIconChunk as PortalFromLowerTC } from "../../../icons/warning-icon";
 export { initEllipsisHorizontalIconChunk as SidebarRowLocalEnvironment } from "../../../icons/ellipsis-horizontal-icon";
+export { openThreadTimelineSidePanel } from "../../../app-shell/legacy-thread-timeline-side-panel";
 
 export {
   t as legacyAppMainBuwLowerTExport,
@@ -135,7 +136,6 @@ export {
   xg as legacyAppMainBuwLowerXLowerGExport,
   xh as legacyAppMainBuwLowerXLowerHExport,
   xi as legacyAppMainBuwLowerXLowerIExport,
-  xl as openThreadTimelineSidePanel,
   xm as legacyAppMainBuwLowerXLowerMExport,
   xn as legacyAppMainBuwLowerXLowerNExport,
   xp as legacyAppMainBuwLowerXLowerPExport,
