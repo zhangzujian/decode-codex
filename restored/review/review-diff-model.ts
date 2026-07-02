@@ -65,6 +65,11 @@ interface ReviewSummaryParams {
 // Selected diff filter for the review panel (defaults to unstaged changes).
 export const reviewDiffFilterAtom = createScopedAtom(appAtomScope, "unstaged");
 
+export function initReviewDiffFilterRuntime(): void {
+  // Legacy chunks exposed the atom factory behind a Rollup initializer.
+  void reviewDiffFilterAtom;
+}
+
 // Transient review-diff selection, cleared whenever the diff filter changes.
 const reviewDiffSelectionAtom = createScopedAtom(threadAtomScope, null);
 

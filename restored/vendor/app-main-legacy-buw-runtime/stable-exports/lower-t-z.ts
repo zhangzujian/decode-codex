@@ -29,6 +29,7 @@ export {
   normalizeFilesystemPath,
   getAllBrowserTabIdsForConversation,
 } from "../../../conversations/fork-conversation-panel-state-deps";
+export { initReviewDiffFilterRuntime as initReviewSourceModeChunk } from "../../../review/review-diff-model";
 
 export {
   initTerminalSurfaceRuntime,
@@ -180,7 +181,6 @@ export {
   zr as legacyAppMainBuwLowerZLowerRExport,
   zs as legacyAppMainBuwLowerZLowerSExport,
   zt as legacyAppMainBuwLowerZLowerTExport,
-  zv as initReviewSourceModeChunk,
   zx as legacyAppMainBuwLowerZLowerXExport,
   zy as legacyAppMainBuwLowerZLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";
