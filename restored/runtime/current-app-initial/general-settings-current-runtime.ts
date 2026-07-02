@@ -9,6 +9,6 @@ export {
   GeneralSettings as generalSettingsI,
   GeneralSettingsContent as generalSettingsN,
   initGeneralSettingsPageChunk as generalSettingsO,
-  formatPromptSubmitBehaviorLabel as generalSettingsR,
+  PromptSubmitBehaviorLabel as generalSettingsR,
   WslCodexRuntimeSetting as generalSettingsT,
 } from "../../settings/general-settings-page";

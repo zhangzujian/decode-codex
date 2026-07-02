@@ -42740,12 +42740,12 @@
         "t": "generalSettingsT"
       },
       "status": "done",
-      "note": "Current general settings hash maps to explicit compatibility aliases backed by the semantic settings/general-settings-page.tsx entry.",
-      "lastUpdated": "2026-06-30T23:03:34.404Z",
+      "note": "Current general settings hash maps to explicit compatibility aliases backed by the semantic settings/general-settings-page.tsx entry; the r export is now backed by the typed PromptSubmitBehaviorLabel component instead of the current-bundle mechanical helper.",
+      "lastUpdated": "2026-07-02T04:24:31.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T23:03:34.404Z",
-      "stage3Review": "Host self-review: parsed general-settings-CyYw_gZ3.js exports, preserved the current restored-dependency backing bundle, and mapped the public settings page helpers through settings/general-settings-page.tsx.",
-      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic GeneralSettings entry; deeper internal helper splitting remains future cleanup."
+      "stage3Review": "Host self-review: parsed general-settings-CyYw_gZ3.js exports, preserved the current restored-dependency backing bundle for remaining large page helpers, extracted the r export into typed PromptSubmitBehaviorLabel, updated the bundle's internal Enter-behavior row to use that semantic component, and kept the current compatibility aliases through settings/general-settings-page.tsx.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic GeneralSettings entry; PromptSubmitBehaviorLabel is now split out, while deeper internal helper splitting remains future cleanup."
     },
     "codex-mobile-setup-dialog-BIUrpc8k": {
       "restored": "runtime/current-app-initial/codex-mobile-setup-dialog-current-runtime.ts",

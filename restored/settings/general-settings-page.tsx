@@ -9,6 +9,9 @@ export {
   generalSettingsI as GeneralSettings,
   generalSettingsN as GeneralSettingsContent,
   generalSettingsO as initGeneralSettingsPageChunk,
-  generalSettingsR as formatPromptSubmitBehaviorLabel,
   generalSettingsT as WslCodexRuntimeSetting,
 } from "../vendor/general-settings-current-bundle";
+export {
+  PromptSubmitBehaviorLabel,
+  PromptSubmitBehaviorLabel as formatPromptSubmitBehaviorLabel,
+} from "./prompt-submit-behavior-label";

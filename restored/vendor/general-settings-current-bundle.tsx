@@ -262,6 +262,7 @@ import {
   pressedModifierAccelerator,
   keyboardEventAccelerator,
 } from "../utils/keyboard-event-accelerator";
+import { PromptSubmitBehaviorLabel } from "../settings/prompt-submit-behavior-label";
 var generalSettingsValue1,
   generalSettingsValue2,
   generalSettingsValue3 = once(() => {
@@ -6136,7 +6137,7 @@ function generalSettingsHelper71() {
   let generalSettingsValue684 = $.jsx(
     appgenLibraryHotDjo67r4nCompatSlotUpperR,
     {
-      children: $.jsx(generalSettingsR, {
+      children: $.jsx(PromptSubmitBehaviorLabel, {
         behavior: generalSettingsValue681,
         modifierSymbol,
       }),
@@ -6160,7 +6161,7 @@ function generalSettingsHelper71() {
               : undefined,
           children: (
             <span className="text-sm">
-              {$.jsx(generalSettingsR, {
+              {$.jsx(PromptSubmitBehaviorLabel, {
                 behavior: item,
                 modifierSymbol,
               })}
@@ -6226,43 +6227,6 @@ function generalSettingsHelper72() {
       ariaLabel: generalSettingsValue793,
     }),
   });
-}
-function generalSettingsR(generalSettingsParam13) {
-  let { behavior, modifierSymbol } = generalSettingsParam13;
-  switch (behavior) {
-    case "enter": {
-      let generalSettingsValue883;
-      return $.jsx(currentAppInitialSharedMember0924, {
-        id: "settings.general.enterBehavior.enter",
-        defaultMessage: "Enter",
-        description: "Option label for sending prompts with Enter",
-      });
-    }
-    case "cmdIfMultiline": {
-      let generalSettingsValue868;
-      return $.jsx(currentAppInitialSharedMember0924, {
-        id: "settings.general.enterBehavior.cmdIfMultiline",
-        defaultMessage: "{modifierSymbol} + Enter for multiline prompts",
-        description:
-          "Option label for requiring a modifier key to send multiline prompts",
-        values: {
-          modifierSymbol,
-        },
-      });
-    }
-    case "cmdAlways": {
-      let generalSettingsValue875;
-      return $.jsx(currentAppInitialSharedMember0924, {
-        id: "settings.general.enterBehavior.cmdAlways",
-        defaultMessage: "{modifierSymbol} + Enter always",
-        description:
-          "Option label for always requiring a modifier key to send prompts",
-        values: {
-          modifierSymbol,
-        },
-      });
-    }
-  }
 }
 var generalSettingsValue50,
   generalSettingsValue51,
@@ -6392,4 +6356,4 @@ export const generalSettingsO = once(() => {
     },
   };
 });
-export { generalSettingsA, generalSettingsR, generalSettingsT };
+export { generalSettingsA, generalSettingsT };
