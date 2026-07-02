@@ -68,6 +68,36 @@ Delta restore contract:
 4. Replace the mapped boundary/public file with the semantic candidate; update the import-map entry (`restored`, `exports`, `status`, drop `boundary` when it's no longer a facade).
 5. Validate: format, `quality-gate.ts` on changed public path(s), the target TypeScript check when the root has a `tsconfig.json`, and Stage 3 acceptance on changed public files only. All-tree acceptance only when the whole public tree changed or the user asked.
 
+### Vendor/npm preflight — before restoring `restored/vendor/*`
+
+Before writing or rewriting any public `restored/vendor/*` file, boundary facade,
+or compatibility shim, first prove whether the chunk is a stock third-party npm
+package. Use all available evidence: public filename, provenance chunk basename,
+exports/API fingerprints, license/banner text, consumer import names,
+`CHUNK_NAME_REGISTRY`, this repo's Codex package table, `ref/package.json`, and
+`ref/node_modules` when present. Missing extracted dependencies are weak evidence
+only; they do **not** justify reimplementing a confirmed package.
+
+If identity is high-confidence and the package is not a proven Codex fork, the
+deliverable is a thin npm-backed re-export / alias shim:
+
+1. Import or re-export from the bare npm specifier.
+2. Preserve legacy compatibility names by aliasing real package exports or by a
+   tiny typed wrapper only when the upstream API truly lacks the legacy name.
+3. Add the package root to the nearest `package.json` when the restored project
+   owns dependencies; use ambient declarations only when real package types are
+   unavailable.
+4. Register the package so the mistake cannot recur: update
+   `CHUNK_NAME_REGISTRY` / `ALIAS_REGISTRY` when the importer can automate it,
+   add `PUBLIC_NPM_VENDOR_SHIMS`, provenance source chunks, or API fingerprints
+   in `quality-gate.ts`, and include fail/pass tests for new package families.
+
+Only hand-restore a vendor body after you have evidence it is a Codex fork,
+project runtime, or package-entangled wrapper. Record that reason in the
+provenance/import-map notes and run `quality-gate.ts --vendored` only for the
+forked or intentionally vendored surface. A local "minimal implementation" of a
+stock package API is a failed restore, even if it type-checks.
+
 ### What full-restoration restores — and what it deliberately doesn't
 
 The mode makes three categories of dependencies _terminal nodes_ in the manifest. They are recorded so consumers can reference them, but never have a ledger entry, never get renamed, and never get a `<basename>/` workspace dir:
