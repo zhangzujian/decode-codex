@@ -39,6 +39,11 @@ export {
   normalizeTerminalFontFamily,
   initPermissionsModeDefaultsRuntime,
 } from "../../../runtime/window-chrome-runtime";
+export {
+  DEFAULT_LOCALE as legacyAppMainBuwLowerCLowerGExport,
+  getLocaleLanguageDisplayName as legacyAppMainBuwLowerDLowerGExport,
+  initLocaleResolverChunk as legacyAppMainBuwLowerFLowerGExport,
+} from "../../../i18n/locale-resolver";
 
 export { shouldExpandReviewPanelSignal } from "../../../conversations/local-conversation-page-runtime";
 export { initArrowUpRightLgIconChunk as SidebarRowPrBadge } from "../../../icons/arrow-up-right-lg-icon";
@@ -109,7 +114,6 @@ export {
   ca as legacyAppMainBuwLowerCLowerAExport,
   cb as legacyAppMainBuwLowerCLowerBExport,
   cd as legacyAppMainBuwLowerCLowerDExport,
-  cg as legacyAppMainBuwLowerCLowerGExport,
   ch as legacyAppMainBuwLowerCLowerHExport,
   ci as legacyAppMainBuwLowerCLowerIExport,
   cn as legacyAppMainBuwLowerCLowerNExport,
@@ -126,7 +130,6 @@ export {
   da as legacyAppMainBuwLowerDLowerAExport,
   db as legacyAppMainBuwLowerDLowerBExport,
   dd as legacyAppMainBuwLowerDLowerDExport,
-  dg as legacyAppMainBuwLowerDLowerGExport,
   dh as legacyAppMainBuwLowerDLowerHExport,
   di as legacyAppMainBuwLowerDLowerIExport,
   dm as legacyAppMainBuwLowerDLowerMExport,
@@ -159,7 +162,6 @@ export {
   f_ as legacyAppMainBuwLowerFUnderscoreExport,
   fa as legacyAppMainBuwLowerFLowerAExport,
   fd as legacyAppMainBuwLowerFLowerDExport,
-  fg as legacyAppMainBuwLowerFLowerGExport,
   fi as legacyAppMainBuwLowerFLowerIExport,
   fn as legacyAppMainBuwLowerFLowerNExport,
   fo as legacyAppMainBuwLowerFLowerOExport,

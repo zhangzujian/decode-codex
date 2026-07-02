@@ -69,6 +69,7 @@ export {
   shouldUseCreditsRateLimitDisplay as legacyAppMainBuwLowerVLowerCExport,
 } from "../../../utils/rate-limit-status/account-status";
 export { initUserSavedConfigQueryChunk as legacyAppMainBuwLowerULowerXExport } from "../../../config/user-saved-config-query";
+export { getSupportedLocales as legacyAppMainBuwLowerULowerGExport } from "../../../i18n/locale-resolver";
 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
@@ -95,7 +96,6 @@ export {
   u_ as legacyAppMainBuwLowerUUnderscoreExport,
   ua as legacyAppMainBuwLowerULowerAExport,
   ub as legacyAppMainBuwLowerULowerBExport,
-  ug as legacyAppMainBuwLowerULowerGExport,
   ui as legacyAppMainBuwLowerULowerIExport,
   un as legacyAppMainBuwLowerULowerNExport,
   uo as legacyAppMainBuwLowerULowerOExport,

@@ -37,6 +37,12 @@ export {
   getConversationPanelLayoutSnapshot,
   isWorkspaceFilePath,
 } from "../../../conversations/fork-conversation-panel-state-deps";
+export {
+  areEquivalentLocales as legacyAppMainBuwLowerMLowerGExport,
+  loadLocaleMessages as legacyAppMainBuwLowerHLowerGExport,
+  normalizeLocale as legacyAppMainBuwLowerGLowerGExport,
+  resolveLocale as legacyAppMainBuwLowerLLowerGExport,
+} from "../../../i18n/locale-resolver";
 
 export { findActiveDomainAtom } from "../../../find/thread-find-atoms";
 
@@ -76,7 +82,6 @@ export {
   ga as legacyAppMainBuwLowerGLowerAExport,
   gd as legacyAppMainBuwLowerGLowerDExport,
   gf as legacyAppMainBuwLowerGLowerFExport,
-  gg as legacyAppMainBuwLowerGLowerGExport,
   gi as legacyAppMainBuwLowerGLowerIExport,
   gn as legacyAppMainBuwLowerGLowerNExport,
   gp as legacyAppMainBuwLowerGLowerPExport,
@@ -92,7 +97,6 @@ export {
   hb as legacyAppMainBuwLowerHLowerBExport,
   hd as legacyAppMainBuwLowerHLowerDExport,
   hf as legacyAppMainBuwLowerHLowerFExport,
-  hg as legacyAppMainBuwLowerHLowerGExport,
   hh as legacyAppMainBuwLowerHLowerHExport,
   hi as legacyAppMainBuwLowerHLowerIExport,
   hn as legacyAppMainBuwLowerHLowerNExport,
@@ -160,7 +164,6 @@ export {
   l_ as legacyAppMainBuwLowerLUnderscoreExport,
   la as legacyAppMainBuwLowerLLowerAExport,
   lb as legacyAppMainBuwLowerLLowerBExport,
-  lg as legacyAppMainBuwLowerLLowerGExport,
   li as legacyAppMainBuwLowerLLowerIExport,
   ln as legacyAppMainBuwLowerLLowerNExport,
   lo as legacyAppMainBuwLowerLLowerOExport,
@@ -178,7 +181,6 @@ export {
   mc as legacyAppMainBuwLowerMLowerCExport,
   md as legacyAppMainBuwLowerMLowerDExport,
   mf as legacyAppMainBuwLowerMLowerFExport,
-  mg as legacyAppMainBuwLowerMLowerGExport,
   mm as legacyAppMainBuwLowerMLowerMExport,
   mn as legacyAppMainBuwLowerMLowerNExport,
   mr as legacyAppMainBuwLowerMLowerRExport,

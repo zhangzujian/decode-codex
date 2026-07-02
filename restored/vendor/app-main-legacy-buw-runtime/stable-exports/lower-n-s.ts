@@ -51,6 +51,7 @@ export {
   hasCredits as legacyAppMainBuwLowerPLowerCExport,
   isSpendControlBlockedByWorkspaceCap as legacyAppMainBuwLowerSLowerCExport,
 } from "../../../utils/rate-limit-status/account-status";
+export { isEnglishLocale as legacyAppMainBuwLowerPLowerGExport } from "../../../i18n/locale-resolver";
 
 export {
   initWarningContextRuntime,
@@ -102,7 +103,6 @@ export {
   pa as legacyAppMainBuwLowerPLowerAExport,
   pd as legacyAppMainBuwLowerPLowerDExport,
   pf as legacyAppMainBuwLowerPLowerFExport,
-  pg as legacyAppMainBuwLowerPLowerGExport,
   ph as legacyAppMainBuwLowerPLowerHExport,
   pi as legacyAppMainBuwLowerPLowerIExport,
   pm as legacyAppMainBuwLowerPLowerMExport,
