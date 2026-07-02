@@ -1,24 +1,16 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-n-s.
-export {
-  useDictationCore as legacyAppMainBuwLowerOUpperCExport,
-} from "../../../features/use-dictation/use-dictation";
+export { useDictationCore as legacyAppMainBuwLowerOUpperCExport } from "../../../features/use-dictation/use-dictation";
 
-export {
-  getMicrophoneInputStream as legacyAppMainBuwLowerPUpperCExport,
-} from "../../../utils/microphone-input";
+export { getMicrophoneInputStream as legacyAppMainBuwLowerPUpperCExport } from "../../../utils/microphone-input";
 
-export {
-  UserMessage as legacyAppMainBuwLowerQLowerIExport,
-} from "../../../conversations/user-message";
+export { UserMessage as legacyAppMainBuwLowerQLowerIExport } from "../../../conversations/user-message";
 
-export {
-  createWorkspaceFileReader as legacyAppMainBuwLowerQLowerUExport,
-} from "../../../review/workspace-file-reader";
+export { createWorkspaceFileReader as legacyAppMainBuwLowerQLowerUExport } from "../../../review/workspace-file-reader";
 
-export {
-  getConversationalOnboardingTaskOption as legacyAppMainBuwLowerSExport,
-} from "../../../onboarding/conversational-onboarding-task-registry";
+export { XCircleIcon as ErrorCircleIcon } from "../../../icons/x-circle-icon";
+
+export { getConversationalOnboardingTaskOption as legacyAppMainBuwLowerSExport } from "../../../onboarding/conversational-onboarding-task-registry";
 
 export {
   liveMcpAppFrameSignal,
@@ -136,7 +128,6 @@ export {
   r_ as legacyAppMainBuwLowerRUnderscoreExport,
   ra as legacyAppMainBuwLowerRLowerAExport,
   rb as legacyAppMainBuwLowerRLowerBExport,
-  rc as ErrorCircleIcon,
   rd as legacyAppMainBuwLowerRLowerDExport,
   rf as legacyAppMainBuwLowerRLowerFExport,
   rg as legacyAppMainBuwLowerRLowerGExport,

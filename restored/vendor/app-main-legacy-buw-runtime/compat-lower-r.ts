@@ -4,12 +4,13 @@ export { SidebarRowKeyboardScope } from "../app-main-current-runtime";
 
 export { Portal } from "../../runtime/app-main-new-thread-runtime";
 
+export { XCircleIcon as ErrorCircleIcon } from "../../icons/x-circle-icon";
+
 export {
   r as appMainCurrentCompatSlotLowerR,
   r_ as appMainCurrentCompatSlotLowerRUnderscore,
   ra as appMainCurrentCompatSlotLowerRLowerA,
   rb as appMainCurrentCompatSlotLowerRLowerB,
-  rc as ErrorCircleIcon,
   rd as appMainCurrentCompatSlotLowerRLowerD,
   rf as appMainCurrentCompatSlotLowerRLowerF,
   rg as appMainCurrentCompatSlotLowerRLowerG,
