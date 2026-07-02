@@ -37,6 +37,7 @@ export {
 } from "../../../conversations/local-conversation-page-runtime";
 
 export { initComposedRefsRuntime } from "../../../runtime/app-main-new-thread-runtime";
+export { EllipsisHorizontalIcon as ThreadRowTooltip } from "../../../icons/ellipsis-horizontal-icon";
 
 export { closestCenter as ThreadRowStatusIndicator } from "../../dnd-kit-core";
 
@@ -152,7 +153,6 @@ export {
   ld as ToastContent,
   lf as legacyAppMainBuwLowerLLowerFExport,
   lg as legacyAppMainBuwLowerLLowerGExport,
-  lh as ThreadRowTooltip,
   li as legacyAppMainBuwLowerLLowerIExport,
   ll as initArrayEqualityRuntimeChunk,
   lm as legacyAppMainBuwLowerLLowerMExport,

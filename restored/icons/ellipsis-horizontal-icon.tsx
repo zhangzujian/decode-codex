@@ -2,7 +2,11 @@
 // Horizontal three-dot glyph used as the downloads row overflow-menu trigger.
 import type { SVGProps } from "react";
 
-export function EllipsisHorizontalIcon(props: SVGProps<SVGSVGElement>) {
+export type IconProps = SVGProps<SVGSVGElement>;
+
+export function initEllipsisHorizontalIconChunk(): void {}
+
+export function EllipsisHorizontalIcon(props: IconProps) {
   return (
     <svg
       width={21}
@@ -27,3 +31,5 @@ export function EllipsisHorizontalIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export default EllipsisHorizontalIcon;

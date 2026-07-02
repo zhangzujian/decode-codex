@@ -1,13 +1,13 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase e compatibility aliases for the legacy app-main/onboarding producer.
-export {
-  formatHookEventName as appMainCurrentCompatSlotLowerELowerA,
-} from "../../settings/hooks-settings-copy";
+export { formatHookEventName as appMainCurrentCompatSlotLowerELowerA } from "../../settings/hooks-settings-copy";
 
 export {
   initOpenInBrowserRuntimeChunk,
   SidebarRowUnreadDot,
 } from "../app-main-current-runtime";
+
+export { initArrowUpRightLgIconChunk as SidebarRowPrBadge } from "../../icons/arrow-up-right-lg-icon";
 
 export { initPortalRuntime } from "../../runtime/app-main-new-thread-runtime";
 
@@ -18,7 +18,6 @@ export {
   ed as appMainCurrentCompatSlotLowerELowerD,
   ef as appMainCurrentCompatSlotLowerELowerF,
   eg as appMainCurrentCompatSlotLowerELowerG,
-  eh as SidebarRowPrBadge,
   ei as appMainCurrentCompatSlotLowerELowerI,
   em as appMainCurrentCompatSlotLowerELowerM,
   en as appMainCurrentCompatSlotLowerELowerN,

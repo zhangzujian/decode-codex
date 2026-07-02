@@ -41,10 +41,11 @@ export { resolveWorkspacePathFromCwd } from "../../../runtime/app-main-new-threa
 export { initThreadPanelTabsStoreChunk } from "../../../app-shell/thread-panel-tabs-store";
 export { useSensor as ThreadRowCloudMeta } from "../../dnd-kit-core";
 export { initDndKitUtilitiesRuntime as ThreadRowWorktreeMeta } from "../../dnd-kit-utilities";
+export { initWarningIconChunk as PortalFromLowerTC } from "../../../icons/warning-icon";
+export { initEllipsisHorizontalIconChunk as SidebarRowLocalEnvironment } from "../../../icons/ellipsis-horizontal-icon";
 
 export {
   t as legacyAppMainBuwLowerTExport,
-  tC as PortalFromLowerTC,
   tS as legacyAppMainBuwLowerTUpperSExport,
   t_ as legacyAppMainBuwLowerTUnderscoreExport,
   ta as legacyAppMainBuwLowerTLowerAExport,
@@ -73,7 +74,6 @@ export {
   uc as legacyAppMainBuwLowerULowerCExport,
   uf as legacyAppMainBuwLowerULowerFExport,
   ug as legacyAppMainBuwLowerULowerGExport,
-  uh as SidebarRowLocalEnvironment,
   ui as legacyAppMainBuwLowerULowerIExport,
   um as legacyAppMainBuwLowerULowerMExport,
   un as legacyAppMainBuwLowerULowerNExport,

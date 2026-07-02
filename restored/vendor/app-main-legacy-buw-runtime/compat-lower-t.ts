@@ -2,6 +2,7 @@
 // Lowercase t compatibility aliases for the legacy app-main/onboarding producer.
 export { initComposeEventHandlersRuntime } from "../app-main-current-runtime";
 export { initThreadPanelTabsStoreChunk } from "../../app-shell/thread-panel-tabs-store";
+export { initWarningIconChunk as PortalFromLowerTC } from "../../icons/warning-icon";
 
 export {
   t as appMainCurrentCompatSlotLowerT,
@@ -9,7 +10,6 @@ export {
   ta as appMainCurrentCompatSlotLowerTLowerA,
   tb as appMainCurrentCompatSlotLowerTLowerB,
   tc as appMainCurrentCompatSlotLowerTLowerC,
-  tC as PortalFromLowerTC,
   td as appMainCurrentCompatSlotLowerTLowerD,
   tf as appMainCurrentCompatSlotLowerTLowerF,
   tg as appMainCurrentCompatSlotLowerTLowerG,

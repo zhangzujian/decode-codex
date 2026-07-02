@@ -32,6 +32,7 @@ export {
 } from "../../../runtime/window-chrome-runtime";
 
 export { shouldExpandReviewPanelSignal } from "../../../conversations/local-conversation-page-runtime";
+export { initArrowUpRightLgIconChunk as SidebarRowPrBadge } from "../../../icons/arrow-up-right-lg-icon";
 
 export {
   getPathBasename,
@@ -134,7 +135,6 @@ export {
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   eg as legacyAppMainBuwLowerELowerGExport,
-  eh as SidebarRowPrBadge,
   ei as legacyAppMainBuwLowerELowerIExport,
   em as legacyAppMainBuwLowerELowerMExport,
   en as legacyAppMainBuwLowerELowerNExport,

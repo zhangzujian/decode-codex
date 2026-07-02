@@ -1,8 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase u compatibility aliases for the legacy app-main/onboarding producer.
-export {
-  transcribeAudio as appMainCurrentCompatSlotLowerUUpperC,
-} from "../../utils/transcribe-audio/multipart";
+export { transcribeAudio as appMainCurrentCompatSlotLowerUUpperC } from "../../utils/transcribe-audio/multipart";
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../threads/thread-actions";
 
@@ -10,6 +8,8 @@ export {
   initExternalAgentImportStatusIconsChunk,
   initCommandExecutionTextRuntime,
 } from "../app-main-current-runtime";
+
+export { initEllipsisHorizontalIconChunk as SidebarRowLocalEnvironment } from "../../icons/ellipsis-horizontal-icon";
 
 export {
   u as appMainCurrentCompatSlotLowerU,
@@ -19,7 +19,6 @@ export {
   uc as appMainCurrentCompatSlotLowerULowerC,
   uf as appMainCurrentCompatSlotLowerULowerF,
   ug as appMainCurrentCompatSlotLowerULowerG,
-  uh as SidebarRowLocalEnvironment,
   ui as appMainCurrentCompatSlotLowerULowerI,
   um as appMainCurrentCompatSlotLowerULowerM,
   un as appMainCurrentCompatSlotLowerULowerN,

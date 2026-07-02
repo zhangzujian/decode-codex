@@ -4,6 +4,8 @@ export { getCommandExecutionText } from "../app-main-current-runtime";
 
 export { pendingReviewPanelTargetSignal } from "../../conversations/local-conversation-page-runtime";
 
+export { EllipsisHorizontalIcon as ThreadRowTooltip } from "../../icons/ellipsis-horizontal-icon";
+
 export {
   l as appMainCurrentCompatSlotLowerL,
   l_ as appMainCurrentCompatSlotLowerLUnderscore,
@@ -14,7 +16,6 @@ export {
   ld as ToastContent,
   lf as appMainCurrentCompatSlotLowerLLowerF,
   lg as appMainCurrentCompatSlotLowerLLowerG,
-  lh as ThreadRowTooltip,
   li as appMainCurrentCompatSlotLowerLLowerI,
   ll as initArrayEqualityRuntimeChunk,
   lm as appMainCurrentCompatSlotLowerLLowerM,
