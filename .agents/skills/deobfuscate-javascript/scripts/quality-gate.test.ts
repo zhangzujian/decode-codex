@@ -805,6 +805,212 @@ describe("quality-gate", () => {
     }
   });
 
+  test("fails hand-written D3 scale/interpolate vendor shims", () => {
+    const shimSources = new Map<string, string>([
+      [
+        "restored/vendor/d3-scale-band.ts",
+        `
+          // Restored from ref/webview/assets/band-DVYrpIoC.js
+          export function scaleBand() {
+            return { domain() { return this; }, range() { return this; } };
+          }
+          export const bandT = scaleBand;
+        `,
+      ],
+      [
+        "restored/vendor/d3-scale-linear.ts",
+        `
+          // Restored from ref/webview/assets/linear-C3CxBvdt.js
+          export function linearT() {
+            return { domain() { return this; }, range() { return this; } };
+          }
+          export function linearS(start, stop, count) {
+            return (stop - start) / count;
+          }
+        `,
+      ],
+      [
+        "restored/vendor/d3-interpolate-string.ts",
+        `
+          // Restored from ref/webview/assets/string-CKccV857.js
+          export function stringN(start, end) {
+            return (t) => start * (1 - t) + end * t;
+          }
+          export function stringT(start, end) {
+            return () => String(end);
+          }
+        `,
+      ],
+      [
+        "restored/vendor/d3-interpolate-transform.ts",
+        `
+          // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
+          export function interpolateTransformCss() {
+            return () => "translate(0px, 0px)";
+          }
+        `,
+      ],
+    ]);
+
+    for (const [file, source] of shimSources) {
+      const report = analyzeSource(source, file, {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      });
+      expect(report.issues.map((issue) => issue.code)).toContain(
+        "third-party-npm-shim-not-reexport",
+      );
+    }
+  });
+
+  test("passes D3 scale/interpolate shims that re-export npm packages", () => {
+    const shimSources = new Map<string, string>([
+      [
+        "restored/vendor/d3-scale-band.ts",
+        `
+          // Restored from ref/webview/assets/band-DVYrpIoC.js
+          export { range, range as bandR } from "d3-array";
+          export {
+            scaleBand,
+            scaleBand as bandT,
+            scalePoint,
+            scalePoint as bandN,
+          } from "d3-scale";
+        `,
+      ],
+      [
+        "restored/vendor/d3-scale-linear.ts",
+        `
+          // Restored from ref/webview/assets/linear-C3CxBvdt.js
+          export { bisector as linearL, tickStep as linearS } from "d3-array";
+          export { scaleLinear as linearT } from "d3-scale";
+          export function linearA<Value>(value: Value): Value {
+            return value;
+          }
+        `,
+      ],
+      [
+        "restored/vendor/d3-interpolate-string.ts",
+        `
+          // Restored from ref/webview/assets/string-CKccV857.js
+          export {
+            color as stringL,
+            color as stringS,
+            rgb as stringC,
+            rgb as stringU,
+          } from "d3-color";
+          export {
+            interpolateNumber as stringN,
+            interpolateRgb as stringR,
+            interpolateString as stringT,
+          } from "d3-interpolate";
+          export function stringO<Value>(value: Value): () => Value {
+            return () => value;
+          }
+        `,
+      ],
+      [
+        "restored/vendor/d3-interpolate-transform.ts",
+        `
+          // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
+          export { interpolateTransformCss } from "d3-interpolate";
+        `,
+      ],
+    ]);
+
+    for (const [file, source] of shimSources) {
+      const report = analyzeSource(source, file, {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      });
+      expect(report.issues).toEqual([]);
+    }
+  });
+
+  test("fails D3 scale/interpolate shims when package dependencies are not declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "d3-array": "^3.2.4",
+          "d3-interpolate": "^3.0.1",
+        },
+      }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-scale-band.ts"),
+      `
+        // Restored from ref/webview/assets/band-DVYrpIoC.js
+        export { range as bandR } from "d3-array";
+        export { scaleBand as bandT } from "d3-scale";
+      `,
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-interpolate-string.ts"),
+      `
+        // Restored from ref/webview/assets/string-CKccV857.js
+        export { color as stringL } from "d3-color";
+        export { interpolateString as stringT } from "d3-interpolate";
+      `,
+    );
+
+    const reports = analyzePublicNpmVendorShimDependencies(restoredDir);
+    expect(reports).toHaveLength(2);
+    expect(
+      reports.flatMap((report) =>
+        report.issues.flatMap((issue) => issue.detail?.missingPackages ?? []),
+      ),
+    ).toEqual(["d3-color", "d3-scale"]);
+  });
+
+  test("passes D3 scale/interpolate dependency checks when package roots are declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "d3-array": "^3.2.4",
+          "d3-color": "^3.1.0",
+          "d3-interpolate": "^3.0.1",
+          "d3-scale": "^4.0.2",
+        },
+      }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-scale-linear.ts"),
+      `
+        // Restored from ref/webview/assets/linear-C3CxBvdt.js
+        export { tickStep as linearS } from "d3-array";
+        export { scaleLinear as linearT } from "d3-scale";
+      `,
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-interpolate-string.ts"),
+      `
+        // Restored from ref/webview/assets/string-CKccV857.js
+        export { color as stringL } from "d3-color";
+        export { interpolateString as stringT } from "d3-interpolate";
+      `,
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "d3-interpolate-transform.ts"),
+      `
+        // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
+        export { interpolateTransformCss } from "d3-interpolate";
+      `,
+    );
+
+    expect(analyzePublicNpmVendorShimDependencies(restoredDir)).toEqual([]);
+  });
+
   test("fails D3 utility shims when package dependencies are not declared", () => {
     const root = makeTmpRoot();
     const restoredDir = path.join(root, "restored");
