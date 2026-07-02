@@ -1,20 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-t-z.
-export {
-  ComposerFooterRoot as legacyAppMainBuwUpperTUpperCExport,
-} from "../../../composer/composer-footer";
+export { ComposerFooterRoot as legacyAppMainBuwUpperTUpperCExport } from "../../../composer/composer-footer";
 
-export {
-  AttachmentPill as legacyAppMainBuwUpperVLowerIExport,
-} from "../../../composer/user-message-attachment-pills";
+export { AttachmentPill as legacyAppMainBuwUpperVLowerIExport } from "../../../composer/user-message-attachment-pills";
 
-export {
-  MentionMetadataSync as legacyAppMainBuwUpperYLowerIExport,
-} from "../../../composer/mention-metadata-sync";
+export { MentionMetadataSync as legacyAppMainBuwUpperYLowerIExport } from "../../../composer/mention-metadata-sync";
 
-export {
-  UserMessageText as legacyAppMainBuwUpperZLowerIExport,
-} from "../../../conversations/user-message-text";
+export { UserMessageText as legacyAppMainBuwUpperZLowerIExport } from "../../../conversations/user-message-text";
 
 export {
   registerForkedConversation,
@@ -47,6 +39,10 @@ export {
 export { findActiveMatchIndexAtom } from "../../../find/thread-find-atoms";
 
 export { bottomPanelTabsStore } from "../../../app-shell/thread-panel-tabs-store";
+export {
+  AvatarIcon as hostBridge,
+  initAvatarIconChunk as legacyAppMainBuwUpperWLowerNExport,
+} from "../../../icons/avatar-icon";
 
 export {
   T as legacyAppMainBuwUpperTExport,
@@ -81,7 +77,6 @@ export {
   Ui as legacyAppMainBuwUpperULowerIExport,
   Ul as legacyAppMainBuwUpperULowerLExport,
   Um as legacyAppMainBuwUpperULowerMExport,
-  Un as hostBridge,
   Uo as legacyAppMainBuwUpperULowerOExport,
   Up as legacyAppMainBuwUpperULowerPExport,
   Us as legacyAppMainBuwUpperULowerSExport,
@@ -120,7 +115,6 @@ export {
   Wh as legacyAppMainBuwUpperWLowerHExport,
   Wi as legacyAppMainBuwUpperWLowerIExport,
   Wm as legacyAppMainBuwUpperWLowerMExport,
-  Wn as legacyAppMainBuwUpperWLowerNExport,
   Wo as legacyAppMainBuwUpperWLowerOExport,
   Wp as legacyAppMainBuwUpperWLowerPExport,
   Wr as legacyAppMainBuwUpperWLowerRExport,

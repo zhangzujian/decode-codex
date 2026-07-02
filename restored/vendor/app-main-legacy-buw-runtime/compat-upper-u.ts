@@ -6,6 +6,7 @@ export {
 } from "../app-main-current-runtime";
 
 export { conversationTitleByIdSignal } from "../../runtime/window-chrome-runtime";
+export { AvatarIcon as hostBridge } from "../../icons/avatar-icon";
 
 export {
   U as appMainCurrentCompatSlotUpperU,
@@ -19,7 +20,6 @@ export {
   Ui as appMainCurrentCompatSlotUpperULowerI,
   Ul as appMainCurrentCompatSlotUpperULowerL,
   Um as appMainCurrentCompatSlotUpperULowerM,
-  Un as hostBridge,
   Uo as appMainCurrentCompatSlotUpperULowerO,
   Up as appMainCurrentCompatSlotUpperULowerP,
   Us as appMainCurrentCompatSlotUpperULowerS,

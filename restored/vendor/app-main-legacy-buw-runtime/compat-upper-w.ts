@@ -8,6 +8,7 @@ export {
 export { rightPanelFullWidthStateKey } from "../../conversations/fork-conversation-panel-state-deps";
 
 export { bottomPanelTabsStore } from "../../app-shell/thread-panel-tabs-store";
+export { initAvatarIconChunk as appMainCurrentCompatSlotUpperWLowerN } from "../../icons/avatar-icon";
 
 export {
   W as appMainCurrentCompatSlotUpperW,
@@ -20,7 +21,6 @@ export {
   Wh as appMainCurrentCompatSlotUpperWLowerH,
   Wi as appMainCurrentCompatSlotUpperWLowerI,
   Wm as appMainCurrentCompatSlotUpperWLowerM,
-  Wn as appMainCurrentCompatSlotUpperWLowerN,
   Wo as appMainCurrentCompatSlotUpperWLowerO,
   Wp as appMainCurrentCompatSlotUpperWLowerP,
   Wr as appMainCurrentCompatSlotUpperWLowerR,
