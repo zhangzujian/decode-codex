@@ -196,19 +196,22 @@ var defaultAppShellFocusArea = `main`,
   activeAppShellFocusAreaSignal = appScopeG(persistedSignalG, `main`),
   appShellFocusTrapEnabledSignal = appScopeG(persistedSignalG, !1),
   appShellFocusPayloadSignal = appScopeG(persistedSignalG, null);
-const routeScopedLowerQSignal = appScopeG(persistedSignalF, null);
+const rightPanelFallbackContentSignal = appScopeG(persistedSignalF, null);
 const appShellFocusAreaAttribute = `data-app-shell-focus-area`;
-const routeScopedUpperYSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperZSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperXSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperQSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperJSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperPSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperFSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperISignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperLSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperRSignal = appScopeG(persistedSignalF, null);
-const routeScopedUpperKDefaultSignal = appScopeG(persistedSignalF, `default`);
+const rightPanelAfterListSignal = appScopeG(persistedSignalF, null);
+const rightPanelBeforeListSignal = appScopeG(persistedSignalF, null);
+const rightPanelAfterListStickySignal = appScopeG(persistedSignalF, null);
+const rightPanelEmptyStateSignal = appScopeG(persistedSignalF, null);
+const rightPanelStoredWidthSignal = appScopeG(persistedSignalF, null);
+const bottomPanelFallbackContentSignal = appScopeG(persistedSignalF, null);
+const bottomPanelAfterListSignal = appScopeG(persistedSignalF, null);
+const bottomPanelAfterListStickySignal = appScopeG(persistedSignalF, null);
+const bottomPanelEmptyStateSignal = appScopeG(persistedSignalF, null);
+const appShellHeaderContextMenuSurfaceSignal = appScopeG(
+  persistedSignalF,
+  null,
+);
+const mainContentLayoutSignal = appScopeG(persistedSignalF, `default`);
 const bottomPanelPreviousFocusAreaSignal = appScopeG(
   persistedSignalG,
   defaultAppShellFocusArea,
@@ -467,29 +470,41 @@ export {
   clampSidebarWidth as appShellStateDState,
   readInitialSidebarWidth,
   readInitialSidebarWidth as appShellStateEState,
-  routeScopedUpperFSignal as appShellStateFState,
+  bottomPanelAfterListSignal,
+  bottomPanelAfterListSignal as appShellStateFState,
   rightPanelFullscreenSignal,
   rightPanelFullscreenSignal as appShellStateGState,
+  rightPanelFullscreenSignal as rightPanelMaximizedSignal,
   panelLauncherActionsSignal as appShellStateHState,
-  routeScopedUpperISignal as appShellStateIState,
-  routeScopedUpperJSignal as appShellStateJState,
-  routeScopedUpperKDefaultSignal as appShellStateKState,
-  routeScopedUpperLSignal as appShellStateLState,
+  bottomPanelAfterListStickySignal,
+  bottomPanelAfterListStickySignal as appShellStateIState,
+  rightPanelStoredWidthSignal,
+  rightPanelStoredWidthSignal as appShellStateJState,
+  mainContentLayoutSignal,
+  mainContentLayoutSignal as appShellStateKState,
+  bottomPanelEmptyStateSignal,
+  bottomPanelEmptyStateSignal as appShellStateLState,
   appShellFocusPayloadSignal as appShellStateMState,
   appShellFocusTrapEnabledSignal as appShellStateNState,
   persistSidebarWidth,
   persistSidebarWidth as appShellStateOState,
-  routeScopedUpperPSignal as appShellStatePState,
-  routeScopedUpperQSignal as appShellStateQState,
-  routeScopedUpperRSignal as appShellStateRState,
+  bottomPanelFallbackContentSignal,
+  bottomPanelFallbackContentSignal as appShellStatePState,
+  rightPanelEmptyStateSignal,
+  rightPanelEmptyStateSignal as appShellStateQState,
+  appShellHeaderContextMenuSurfaceSignal,
+  appShellHeaderContextMenuSurfaceSignal as appShellStateRState,
   sidebarAnimatingSignal as appShellStateSState,
   sidebarFloatingPanelEnabledSignal as appShellStateTState,
   leftHeaderActionsSignal as appShellStateUState,
   panelLauncherActionRegistry as appShellStateVState,
   rightHeaderActionsSignal as appShellStateWState,
-  routeScopedUpperXSignal as appShellStateXState,
-  routeScopedUpperYSignal as appShellStateYState,
-  routeScopedUpperZSignal as appShellStateZState,
+  rightPanelAfterListStickySignal,
+  rightPanelAfterListStickySignal as appShellStateXState,
+  rightPanelAfterListSignal,
+  rightPanelAfterListSignal as appShellStateYState,
+  rightPanelBeforeListSignal,
+  rightPanelBeforeListSignal as appShellStateZState,
   sidebarCollapsedPreviewWidthSignal,
   sidebarCollapsedPreviewWidthSignal as appShellStateUnderscoreState,
   appShellLayoutMotionContext,
@@ -528,7 +543,8 @@ export {
   bottomPanelLauncherVisibleSignal as appShellStateNSignal,
   sidebarWidthSignal,
   sidebarWidthSignal as appShellStatePSignal,
-  routeScopedLowerQSignal as appShellStateQSignal,
+  rightPanelFallbackContentSignal,
+  rightPanelFallbackContentSignal as appShellStateQSignal,
   bottomPanelAnimationSignal,
   bottomPanelAnimationSignal as appShellStateTSignal,
   ensureBottomPanelLauncherVisibilityDefault as appShellStateVSignal,

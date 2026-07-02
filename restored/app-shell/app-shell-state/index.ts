@@ -34,6 +34,27 @@ const appShellFocusAreaAttribute = appShellStateImpl.appShellStateKSignal;
 const bottomPanelLauncherVisibleSignal =
   appShellStateImpl.appShellStateNSignal;
 const headerActionRegistries = appShellStateImpl.appShellStateZSignal;
+const bottomPanelAfterListSignal = appShellStateImpl.bottomPanelAfterListSignal;
+const bottomPanelAfterListStickySignal =
+  appShellStateImpl.bottomPanelAfterListStickySignal;
+const bottomPanelEmptyStateSignal =
+  appShellStateImpl.bottomPanelEmptyStateSignal;
+const bottomPanelFallbackContentSignal =
+  appShellStateImpl.bottomPanelFallbackContentSignal;
+const rightPanelAfterListSignal = appShellStateImpl.rightPanelAfterListSignal;
+const rightPanelAfterListStickySignal =
+  appShellStateImpl.rightPanelAfterListStickySignal;
+const rightPanelBeforeListSignal =
+  appShellStateImpl.rightPanelBeforeListSignal;
+const rightPanelEmptyStateSignal = appShellStateImpl.rightPanelEmptyStateSignal;
+const rightPanelFallbackContentSignal =
+  appShellStateImpl.rightPanelFallbackContentSignal;
+const rightPanelStoredWidthSignal =
+  appShellStateImpl.rightPanelStoredWidthSignal;
+const rightPanelMaximizedSignal = appShellStateImpl.rightPanelMaximizedSignal;
+const mainContentLayoutSignal = appShellStateImpl.mainContentLayoutSignal;
+const appShellHeaderContextMenuSurfaceSignal =
+  appShellStateImpl.appShellHeaderContextMenuSurfaceSignal;
 
 const appShellStateExportDollar = appShellStateImpl.appShellStateDollarState;
 const appShellStateExportA = bottomPanelPreviousFocusAreaSignal;
@@ -41,27 +62,27 @@ const appShellStateExportB = appShellStateImpl.appShellStateBState;
 const appShellStateExportC = setSidebarOpen;
 const appShellStateExportD = appShellStateImpl.appShellStateDState;
 const appShellStateExportE = appShellStateImpl.appShellStateEState;
-const appShellStateExportF = appShellStateImpl.appShellStateFState;
-const appShellStateExportG = rightPanelFullscreenSignal;
+const appShellStateExportF = bottomPanelAfterListSignal;
+const appShellStateExportG = rightPanelMaximizedSignal;
 const appShellStateExportH = appShellStateImpl.appShellStateHState;
-const appShellStateExportI = appShellStateImpl.appShellStateIState;
-const appShellStateExportJ = appShellStateImpl.appShellStateJState;
-const appShellStateExportK = appShellStateImpl.appShellStateKState;
-const appShellStateExportL = appShellStateImpl.appShellStateLState;
+const appShellStateExportI = bottomPanelAfterListStickySignal;
+const appShellStateExportJ = rightPanelStoredWidthSignal;
+const appShellStateExportK = mainContentLayoutSignal;
+const appShellStateExportL = bottomPanelEmptyStateSignal;
 const appShellStateExportM = appShellStateImpl.appShellStateMState;
 const appShellStateExportN = appShellStateImpl.appShellStateNState;
 const appShellStateExportO = appShellStateImpl.appShellStateOState;
-const appShellStateExportP = appShellStateImpl.appShellStatePState;
-const appShellStateExportQ = appShellStateImpl.appShellStateQState;
-const appShellStateExportR = appShellStateImpl.appShellStateRState;
+const appShellStateExportP = bottomPanelFallbackContentSignal;
+const appShellStateExportQ = rightPanelEmptyStateSignal;
+const appShellStateExportR = appShellHeaderContextMenuSurfaceSignal;
 const appShellStateExportS = setRightPanelOpen;
 const appShellStateExportT = appShellStateImpl.appShellStateTState;
 const appShellStateExportU = appShellStateImpl.appShellStateUState;
 const appShellStateExportV = appShellStateImpl.appShellStateVState;
 const appShellStateExportW = appShellStateImpl.appShellStateWState;
-const appShellStateExportX = appShellStateImpl.appShellStateXState;
-const appShellStateExportY = appShellStateImpl.appShellStateYState;
-const appShellStateExportZ = appShellStateImpl.appShellStateZState;
+const appShellStateExportX = rightPanelAfterListStickySignal;
+const appShellStateExportY = rightPanelAfterListSignal;
+const appShellStateExportZ = rightPanelBeforeListSignal;
 const appShellStateExportUnderscore =
   appShellStateImpl.appShellStateUnderscoreState;
 const appShellStateExportAAlias = rightPanelExpandedSignal;
@@ -90,7 +111,7 @@ const appShellStateExportOAlias = rightPanelOpenSignal;
 const appShellStateExportOt = appShellStateImpl.appShellStateOtState;
 const appShellStateExportPAlias = appShellStateImpl.appShellStatePSignal;
 const appShellStateExportPt = appShellStateImpl.appShellStatePtState;
-const appShellStateExportQAlias = appShellStateImpl.appShellStateQSignal;
+const appShellStateExportQAlias = rightPanelFallbackContentSignal;
 const appShellStateExportRAlias = bottomPanelOpenSignal;
 const appShellStateExportRt = appShellStateImpl.appShellStateRtState;
 const appShellStateExportSAlias = sidebarAnimatingSignal;
@@ -124,6 +145,7 @@ function initAppShellStateRuntimeChunk(): void {
 export {
   bottomPanelPreviousFocusAreaSignal,
   rightPanelFullscreenSignal,
+  rightPanelMaximizedSignal,
   reviewFileTreeOpenSignal,
   reviewFileTreeOpenAnimationSignal,
   rightPanelExpandedSignal,
@@ -146,6 +168,18 @@ export {
   appShellFocusAreaAttribute,
   bottomPanelLauncherVisibleSignal,
   headerActionRegistries,
+  bottomPanelAfterListSignal,
+  bottomPanelAfterListStickySignal,
+  bottomPanelEmptyStateSignal,
+  bottomPanelFallbackContentSignal,
+  rightPanelAfterListSignal,
+  rightPanelAfterListStickySignal,
+  rightPanelBeforeListSignal,
+  rightPanelEmptyStateSignal,
+  rightPanelFallbackContentSignal,
+  rightPanelStoredWidthSignal,
+  mainContentLayoutSignal,
+  appShellHeaderContextMenuSurfaceSignal,
   appShellStateDSignal,
   appShellStateISignal,
   appShellStateKSignal,
