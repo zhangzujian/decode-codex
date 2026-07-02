@@ -4,6 +4,7 @@ export {
   initThreadRowRuntimeChunk,
   FastServiceTierIcon,
 } from "../app-main-current-runtime";
+export { conversationReviewModelAtom as threadRowStatusSignal } from "../../review/conversation-review-model";
 
 export {
   H as appMainCurrentCompatSlotUpperH,
@@ -24,7 +25,6 @@ export {
   HS as appMainCurrentCompatSlotUpperHUpperS,
   Ht as appMainCurrentCompatSlotUpperHLowerT,
   Hu as appMainCurrentCompatSlotUpperHLowerU,
-  Hv as threadRowStatusSignal,
   Hx as appMainCurrentCompatSlotUpperHLowerX,
   Hy as appMainCurrentCompatSlotUpperHLowerY,
 } from "../app-main-legacy-buw-compat-bundle";
