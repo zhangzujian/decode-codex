@@ -140,6 +140,47 @@ describe("resolveNpmImports (chunk-name based)", () => {
     expect(out.stats.specifiersResolved).toBe(3);
   });
 
+  test("rewrites D3 hierarchy and color chunks to npm packages", () => {
+    const src = `
+      import {
+        a as hierarchy,
+        n as treemapSquarify,
+        o as schemeTableau10,
+        t as treemap,
+      } from "../src-BhkLFyc4.js";
+      hierarchy; treemap; treemapSquarify; schemeTableau10;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('from "d3-hierarchy"');
+    expect(n).toContain('from "d3-scale-chromatic"');
+    expect(n).toContain("hierarchy");
+    expect(n).toContain("treemap");
+    expect(n).toContain("treemapSquarify");
+    expect(n).toContain("schemeTableau10");
+    expect(n).not.toContain("src-BhkLFyc4");
+    expect(out.stats.specifiersResolved).toBe(4);
+  });
+
+  test("rewrites D3 sankey chunks to the npm package", () => {
+    const src = `
+      import {
+        n as sankeyLinkHorizontal,
+        s as sankey,
+        j as sankeyJustify,
+      } from "../src-6yFswxVy.js";
+      sankey; sankeyJustify; sankeyLinkHorizontal;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('from "d3-sankey"');
+    expect(n).toContain("sankey");
+    expect(n).toContain("sankeyJustify");
+    expect(n).toContain("sankeyLinkHorizontal");
+    expect(n).not.toContain("src-6yFswxVy");
+    expect(out.stats.specifiersResolved).toBe(3);
+  });
+
   test("rewrites dotLottie React aliases to the npm package", () => {
     const src = `
       import {

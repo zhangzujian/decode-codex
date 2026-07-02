@@ -121,6 +121,11 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
     package: "cytoscape-fcose",
     defaultName: "cytoscapeFcose",
   },
+  // D3 / Mermaid diagram chunks.
+  "src-BhkLFyc4": { package: "d3-hierarchy", namedOnly: true },
+  treemap: { package: "d3-hierarchy", namedOnly: true },
+  sankeyLinkHorizontal: { package: "d3-sankey", namedOnly: true },
+  "src-6yFswxVy": { package: "d3-sankey", namedOnly: true },
   // floating-ui — the common chunk basenames are dot-delimited.
   "floating-ui.react-dom": {
     package: "@floating-ui/react-dom",
@@ -325,6 +330,25 @@ export const ALIAS_REGISTRY: Record<string, AliasRule> = {
   useAtom: { package: "jotai", style: "named" },
   useAtomValue: { package: "jotai", style: "named" },
   useSetAtom: { package: "jotai", style: "named" },
+
+  // d3-hierarchy / d3-scale-chromatic
+  hierarchy: { package: "d3-hierarchy", style: "named" },
+  partition: { package: "d3-hierarchy", style: "named" },
+  treemap: { package: "d3-hierarchy", style: "named" },
+  treemapDice: { package: "d3-hierarchy", style: "named" },
+  treemapSlice: { package: "d3-hierarchy", style: "named" },
+  treemapSliceDice: { package: "d3-hierarchy", style: "named" },
+  treemapSquarify: { package: "d3-hierarchy", style: "named" },
+  schemeSet2: { package: "d3-scale-chromatic", style: "named" },
+  schemeTableau10: { package: "d3-scale-chromatic", style: "named" },
+
+  // d3-sankey
+  sankey: { package: "d3-sankey", style: "named" },
+  sankeyCenter: { package: "d3-sankey", style: "named" },
+  sankeyJustify: { package: "d3-sankey", style: "named" },
+  sankeyLeft: { package: "d3-sankey", style: "named" },
+  sankeyLinkHorizontal: { package: "d3-sankey", style: "named" },
+  sankeyRight: { package: "d3-sankey", style: "named" },
 };
 
 export type ResolveStats = {

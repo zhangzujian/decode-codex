@@ -432,6 +432,88 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written D3 hierarchy/treemap vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/treemap-CMHfdOyb.js
+      export function treemap(data) {
+        return { data, tile() { return this; } };
+      }
+      export function treemapSquarify(node) {
+        return node;
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/d3-hierarchy-treemap.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes D3 hierarchy/treemap shims that re-export npm packages", () => {
+    const source = `
+      // Restored from ref/webview/assets/src-BhkLFyc4.js
+      export { hierarchy, partition, treemap, treemapSquarify } from "d3-hierarchy";
+      export { schemeSet2, schemeTableau10 } from "d3-scale-chromatic";
+      export function initD3HierarchyChunk(): void {}
+    `;
+    const report = analyzeSource(source, "restored/vendor/d3-hierarchy.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(report.issues).toEqual([]);
+  });
+
+  test("fails hand-written D3 sankey vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/sankeyLinkHorizontal-DCfEjaVP.js
+      export function sankey() {
+        return { nodeWidth() { return this; }, links() { return this; } };
+      }
+      export function sankeyLinkHorizontal() {
+        return () => "M0,0";
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/d3-sankey-link-horizontal.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes D3 sankey shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/src-6yFswxVy.js
+      export {
+        sankey,
+        sankeyCenter,
+        sankeyJustify,
+        sankeyLeft,
+        sankeyLinkHorizontal,
+        sankeyRight,
+      } from "d3-sankey";
+      export function initD3SankeyChunk(): void {}
+    `;
+    const report = analyzeSource(source, "restored/vendor/d3-sankey.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written Lodash current vendor shims", () => {
     const source = `
       // Restored from ref/webview/assets/lodash-BhBwOd7I.js

@@ -475,6 +475,10 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   "cytoscape-fcose": "cytoscape-fcose",
   "cytoscape-runtime": "cytoscape",
   "d3-axis-current-runtime": ["d3-axis", "d3-selection"],
+  "d3-hierarchy": ["d3-hierarchy", "d3-scale-chromatic"],
+  "d3-hierarchy-treemap": "d3-hierarchy",
+  "d3-sankey": "d3-sankey",
+  "d3-sankey-link-horizontal": "d3-sankey",
   "dnd-kit-core": "@dnd-kit/core",
   "dnd-kit-sortable": "@dnd-kit/sortable",
   "dnd-kit-utilities": "@dnd-kit/utilities",
@@ -528,6 +532,10 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   "pkg-CsBnWPsQ": "@segment/analytics-next",
   "rough.esm-BDP__8iH": "roughjs",
   "rough.esm-BmcJJgrn": "roughjs",
+  "sankeyLinkHorizontal-DCfEjaVP": "d3-sankey",
+  "src-6yFswxVy": "d3-sankey",
+  "src-BhkLFyc4": ["d3-hierarchy", "d3-scale-chromatic"],
+  "treemap-CMHfdOyb": "d3-hierarchy",
 };
 
 const PUBLIC_NPM_VENDOR_API_FINGERPRINTS: Array<{
@@ -585,6 +593,31 @@ const PUBLIC_NPM_VENDOR_API_FINGERPRINTS: Array<{
   {
     specifiers: "react-style-singleton",
     apiNames: ["styleHookSingleton", "styleSingleton", "stylesheetSingleton"],
+    minimumUniqueApiNames: 2,
+  },
+  {
+    specifiers: "d3-hierarchy",
+    apiNames: [
+      "hierarchy",
+      "partition",
+      "treemap",
+      "treemapDice",
+      "treemapSlice",
+      "treemapSliceDice",
+      "treemapSquarify",
+    ],
+    minimumUniqueApiNames: 2,
+  },
+  {
+    specifiers: "d3-sankey",
+    apiNames: [
+      "sankey",
+      "sankeyCenter",
+      "sankeyJustify",
+      "sankeyLeft",
+      "sankeyLinkHorizontal",
+      "sankeyRight",
+    ],
     minimumUniqueApiNames: 2,
   },
 ];
