@@ -948,7 +948,7 @@ import {
   y as Mm,
   yn as Nm,
   zt as Pm,
-} from "./pull-request-new-thread-current-bundle";
+} from "./pull-request-new-thread-current-runtime";
 import {
   $d as Fm,
   $f as Im,

@@ -133,7 +133,7 @@ export {
   yt as initCodexMobileMfaSetupRuntime,
   z as setKeepProjectsInRecent,
   zt as userConfigQueryKeyPrefix,
-} from "../../vendor/pull-request-new-thread-current-bundle";
+} from "../../vendor/pull-request-new-thread-current-runtime";
 
 // prettier-ignore
 export {
@@ -170,4 +170,4 @@ export {
   Xt as pullRequestNewThreadCompatSlotUpperXLowerT, y as pullRequestNewThreadCompatSlotLowerY, Y as pullRequestNewThreadCompatSlotUpperY, yn as pullRequestNewThreadCompatSlotLowerYLowerN,
   yt as pullRequestNewThreadCompatSlotLowerYLowerT, Yt as pullRequestNewThreadCompatSlotUpperYLowerT, z as pullRequestNewThreadCompatSlotLowerZ, Z as pullRequestNewThreadCompatSlotUpperZ,
   zt as pullRequestNewThreadCompatSlotLowerZLowerT, Zt as pullRequestNewThreadCompatSlotUpperZLowerT
-} from "../../vendor/pull-request-new-thread-current-bundle";
+} from "../../vendor/pull-request-new-thread-current-runtime";

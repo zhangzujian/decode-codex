@@ -314,7 +314,7 @@ import {
   y as Br,
   yn as Vr,
   zt as Hr,
-} from "./pull-request-new-thread-current-bundle";
+} from "./pull-request-new-thread-current-runtime";
 var Xee = i((e) => {
     var t = K();
     function n(e) {

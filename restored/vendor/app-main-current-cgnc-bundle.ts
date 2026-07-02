@@ -1345,7 +1345,7 @@ import {
   xn as Nd,
   y as Pd,
   yn as Fd,
-} from "./pull-request-new-thread-current-bundle";
+} from "./pull-request-new-thread-current-runtime";
 import {
   $ as aue,
   A as oue,

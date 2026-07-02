@@ -16006,8 +16006,8 @@
     "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~new-~kvpgbdy1-mhRp2VYQ": {
       "restored": "vendor/pull-request-thread-actions-runtime.ts",
       "status": "done",
-      "note": "Legacy pull-request thread action producer is absent from the current ref. The entry is now an alias of the done current kmtatxxf-DEE2TwPG runtime; current pull-request new-thread code is covered by ozr5a6hk-DZC70s11 and vendor/pull-request-new-thread-current-bundle.ts, both verified by quality-gate.",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
+      "note": "Legacy pull-request thread action producer is absent from the current ref. The entry is now an alias of the done current kmtatxxf-DEE2TwPG runtime; current pull-request new-thread code is covered by ozr5a6hk-DZC70s11 and vendor/pull-request-new-thread-current-runtime.ts, both verified by quality-gate.",
+      "lastUpdated": "2026-07-02T02:09:42.000Z",
       "aliasOf": "app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~plug~kmtatxxf-DEE2TwPG"
     },
     "app-initial~app-main~onboarding-page~profile-QLPeiknY": {
@@ -31885,9 +31885,9 @@
         "zt": "userConfigQueryKeyPrefix"
       },
       "status": "done",
-      "note": "Current ref pull request new-thread runtime restored as semantic aliases over vendor/pull-request-new-thread-current-bundle.ts with legacy compatibility forwarding retained for existing restored consumers.",
+      "note": "Current ref pull request new-thread runtime restored as semantic aliases over vendor/pull-request-new-thread-current-runtime.ts with legacy compatibility forwarding retained for existing restored consumers.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "lastUpdated": "2026-07-02T02:09:42.000Z"
     },
     "app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~keyboard-shortcuts-~n7jwlpf0-BaxBxQFI": {
       "restored": "runtime/current-app-initial/keyboard-shortcuts-thread-runtime.ts",

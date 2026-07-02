@@ -13,7 +13,7 @@ import { ti as workspaceGroupsSignalRef } from "../vendor/worktree-new-thread-qu
 import {
   in as isRemoteProjectPendingSignalRef,
   on as workspaceRootsSignalRef,
-} from "../vendor/pull-request-new-thread-current-bundle";
+} from "../vendor/pull-request-new-thread-current-runtime";
 
 /** Discriminates how the active workspace resolves a run location. */
 export type WorkspaceContextKind = "none" | "plain" | "git";
