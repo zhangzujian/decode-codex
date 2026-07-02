@@ -484,6 +484,7 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   lodash: "lodash",
   motion: "framer-motion",
   "react-colorful": "react-colorful",
+  "react-dom-client": "react-dom/client",
   "react-router": "react-router",
   "react-intl": "react-intl",
   "react-is-runtime": "react-is",

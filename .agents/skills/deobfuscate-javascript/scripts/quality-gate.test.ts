@@ -186,6 +186,54 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written React DOM client vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/client-C1mrATqU.js
+      export function createRoot(container) {
+        return { render() {}, unmount() {}, container };
+      }
+      export function hydrateRoot(container, children) {
+        return createRoot(container);
+      }
+      export function loadReactDomClient() {
+        return { createRoot, hydrateRoot };
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/react-dom-client.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes React DOM client shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/client-C1mrATqU.js
+      import * as reactDomClient from "react-dom/client";
+      export { createRoot, hydrateRoot } from "react-dom/client";
+      export type { Root } from "react-dom/client";
+      export function loadReactDomClient(): typeof reactDomClient {
+        return reactDomClient;
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/react-dom-client.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written react-intl vendor compatibility shims", () => {
     const source = `
       // Restored from ref/webview/assets/lib-BWT6A3Q0.js

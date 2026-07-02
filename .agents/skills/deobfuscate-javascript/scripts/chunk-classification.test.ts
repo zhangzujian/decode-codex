@@ -155,6 +155,12 @@ describe("classifyBoundary", () => {
       specifier: "react-is",
     });
     expect(
+      classifyBoundary("client-XX", { vendor: "react-dom/client" }),
+    ).toEqual({
+      kind: "vendor-npm",
+      specifier: "react-dom/client",
+    });
+    expect(
       classifyBoundary("react-colorful-XX", { vendor: "react-colorful" }),
     ).toEqual({
       kind: "vendor-npm",
