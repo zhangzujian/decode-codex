@@ -135,9 +135,9 @@ The mode makes three categories of dependencies _terminal nodes_ in the manifest
    When a confirmed package-backed chunk has one or two legacy aliases that the
    current npm package does not expose (for example Mermaid's `curveBumpX` /
    `curveBumpY` next to `d3-shape@3.2.0`), keep those as tiny typed wrappers in a
-   separate helper module and re-export every real package API from npm. Do not
-   fabricate imports from nonexistent package exports, and do not let the wrapper
-   grow into a hand-written package body.
+   helper module under the npm-backed shim and re-export every real package API
+   from npm. Do not fabricate imports from nonexistent package exports, and do
+   not let the wrapper grow into a hand-written package body.
 
 2. **Genuine app/host runtime → typed facade, or an opt-in runnable interim.** For the app's own runtime (`app-scope`, the `vscode`/host bridge, `rpc`, `host-config`, `product-logger`, persisted-signal state…), the typed `make-facade.ts` `any`-facade is the **type-check-only** interim (recorded under `dependencyBoundaryFacades` + `ledger.ts mark-faced`). To make the app **runnable before** the runtime is restored, `make-facade.ts <chunk> --passthrough <ref-relpath> [--name-map]` emits a `// @ts-nocheck` + `// TODO: deep-restore` module re-exporting the **original** ref chunk (makes `restored/` depend on the unrestored `ref/` tree — a marked stopgap, not a deliverable).
 

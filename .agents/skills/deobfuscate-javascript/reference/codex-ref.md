@@ -268,8 +268,8 @@ are `d3-shape`-backed surfaces; preserve legacy aliases by re-exporting real
 package exports such as `curveBasis`, `curveCardinal`, `curveCatmullRom`,
 `curveNatural`, and `curveStep*`. Mermaid's legacy `curveBumpX`/`curveBumpY`
 aliases are the exception: `d3-shape@3.2.0` does not expose them, so keep only a
-small typed wrapper for those two curve factories instead of reimplementing the
-whole shape bundle.
+small typed wrapper under the npm-backed shim for those two curve factories
+instead of reimplementing the whole shape bundle.
 RoughJS has both provenance and API-fingerprint coverage: `rough.esm-*` chunks
 or vendor files exporting `roughjs` plus `canvas`/`svg`/`generator` must resolve
 to the `roughjs` package.

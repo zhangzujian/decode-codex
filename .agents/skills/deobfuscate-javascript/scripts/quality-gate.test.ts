@@ -642,8 +642,11 @@ describe("quality-gate", () => {
       path.join(root, "package.json"),
       JSON.stringify({ dependencies: { "d3-shape": "^3.2.0" } }),
     );
+    fs.mkdirSync(path.join(vendorDir, "d3-shape-curves"), {
+      recursive: true,
+    });
     fs.writeFileSync(
-      path.join(vendorDir, "d3-shape-bump-curves.ts"),
+      path.join(vendorDir, "d3-shape-curves", "bump-curves.ts"),
       `
         // Restored from ref/webview/assets/step-K6tEdR0Q.js
         export const curveBumpX = () => {};
@@ -656,7 +659,7 @@ describe("quality-gate", () => {
       export {
         curveBumpX as stepG,
         curveBumpY as stepUnderscore,
-      } from "./d3-shape-bump-curves";
+      } from "./d3-shape-curves/bump-curves";
       export {
         curveBasis as stepH,
         curveBasisClosed as stepM,
