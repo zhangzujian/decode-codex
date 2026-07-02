@@ -42,10 +42,11 @@ Each Stage 1 step has an _input shape_ the previous step produced. Running them 
   Extracted app snapshots can omit dependencies that were bundled into webview
   chunks. When package identity is high-confidence from fingerprints,
   `CHUNK_NAME_REGISTRY`, or the Codex package table (`react-intl`/FormatJS,
-  `react-router`, `framer-motion`, Segment, etc.), keep the boundary as a bare
-  npm re-export and record the dependency/ambient-declaration requirement. A
-  hand-written compatibility layer is only acceptable for a genuinely
-  app-specific fork or runtime bridge, not for a stock third-party package.
+  `react-router`, `react-style-singleton`, `framer-motion`, Segment, etc.), keep
+  the boundary as a bare npm re-export and record the dependency/ambient-declaration
+  requirement. A hand-written compatibility layer is only acceptable for a
+  genuinely app-specific fork or runtime bridge, not for a stock third-party
+  package.
 
 - **Tier note**: the default "readable restore" tier runs `polish.ts --fast` — the reading-aid subset only (`strip-react-compiler`, `simplify`, `jsx-runtime`, `inline-defaults`, `normalize-exports`). The import-resolution tail (`react-shim-elim`, `resolve-npm-imports`, `npm-cjs-shim-elim`, `dead-shim-elim`) only makes imports resolve against `node_modules` and runs in **deep mode** (drop `--fast`).
 - **Idempotent**: running `polish.ts` twice on the same input changes nothing on the second pass. Safe to re-run if you tweak one of `--prefer` / `--skip` / `--stop-after`.

@@ -108,6 +108,10 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
   // Mermaid and search vendor chunks surfaced in Codex.app webview bundles.
   fuse: { package: "fuse.js", defaultName: "Fuse" },
   "rough.esm": { package: "roughjs", defaultName: "rough" },
+  "react-style-singleton": {
+    package: "react-style-singleton",
+    namedOnly: true,
+  },
   "cytoscape.esm": { package: "cytoscape", defaultName: "cytoscape" },
   "cytoscape-cose-bilkent": {
     package: "cytoscape-cose-bilkent",
@@ -187,6 +191,11 @@ export const ALIAS_REGISTRY: Record<string, AliasRule> = {
   jsx: { package: "react/jsx-runtime", style: "named" },
   jsxs: { package: "react/jsx-runtime", style: "named" },
   jsxDEV: { package: "react/jsx-dev-runtime", style: "named" },
+
+  // react-style-singleton
+  styleSingleton: { package: "react-style-singleton", style: "named" },
+  stylesheetSingleton: { package: "react-style-singleton", style: "named" },
+  styleHookSingleton: { package: "react-style-singleton", style: "named" },
 
   // react-dom
   createPortal: { package: "react-dom", style: "named" },

@@ -276,6 +276,82 @@ describe("quality-gate", () => {
     });
   });
 
+  test("fails hand-written react-style-singleton vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
+      export function styleSingleton() {
+        let count = 0;
+        return {
+          add(styles) {
+            count += styles.length;
+          },
+          remove() {
+            count -= 1;
+          },
+        };
+      }
+      export function styleHookSingleton() {
+        return () => null;
+      }
+      export function stylesheetSingleton() {
+        return styleSingleton();
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/react-style-singleton.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes react-style-singleton vendor shims that re-export npm", () => {
+    const source = `
+      // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
+      export {
+        styleHookSingleton,
+        styleSingleton,
+        stylesheetSingleton,
+      } from "react-style-singleton";
+      export function initStyleSingletonRuntime(): void {}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/react-style-singleton.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
+  test("flags renamed react-style-singleton API shims by fingerprint", () => {
+    const source = `
+      // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
+      export function styleSingleton() {
+        return { add() {}, remove() {} };
+      }
+      export function stylesheetSingleton() {
+        return styleSingleton();
+      }
+    `;
+    const report = analyzeSource(source, "restored/vendor/style-runtime.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
   test("fails hand-written TanStack React Form vendor shims", () => {
     const source = `
       // Restored from ref/webview/assets/esm-BrsRQYxN.js

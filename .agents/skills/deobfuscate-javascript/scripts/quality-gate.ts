@@ -496,6 +496,7 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   "react-router": "react-router",
   "react-intl": "react-intl",
   "react-is-runtime": "react-is",
+  "react-style-singleton": "react-style-singleton",
   roughjs: "roughjs",
   analytics: "@segment/analytics-next",
   "segment-analytics": ["@segment/analytics-next", "@segment/analytics-core"],
@@ -580,6 +581,11 @@ const PUBLIC_NPM_VENDOR_API_FINGERPRINTS: Array<{
     specifiers: "roughjs",
     apiNames: ["canvas", "generator", "roughjs", "svg"],
     minimumUniqueApiNames: 3,
+  },
+  {
+    specifiers: "react-style-singleton",
+    apiNames: ["styleHookSingleton", "styleSingleton", "stylesheetSingleton"],
+    minimumUniqueApiNames: 2,
   },
 ];
 
