@@ -3254,6 +3254,7 @@
     },
     "middleware-BDgBoOJW": {
       "restored": "vendor/segment-middleware.ts",
+      "vendor": "@segment/analytics-next",
       "exports": {
         "a": "middlewareA",
         "c": "middlewareC",
@@ -3271,7 +3272,12 @@
         "t": "middlewareT",
         "u": "middlewareU"
       },
-      "status": "done"
+      "status": "done",
+      "note": "Segment middleware compatibility surface is backed by @segment/analytics-next, @segment/analytics-core, and @segment/facade; legacy middleware* aliases are preserved as typed shim exports.",
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Note": "Accepted as an npm-backed Segment middleware shim with no local SDK package body."
     },
     "query-string-FsVg0saL": {
       "restored": "vendor/segment-query-string.ts",
@@ -22109,6 +22115,7 @@
     },
     "middleware-CcPovR3s": {
       "restored": "vendor/segment-middleware.ts",
+      "vendor": "@segment/analytics-next",
       "exports": {
         "a": "middlewareA",
         "c": "middlewareC",
@@ -22128,8 +22135,11 @@
       },
       "status": "done",
       "aliasOf": "middleware-BDgBoOJW",
-      "lastUpdated": "2026-06-29T00:00:00.000Z",
-      "note": "Current Segment middleware chunk keeps the restored public API and adds _/b/g/v/y internal exports."
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
+      "note": "Current Segment middleware chunk resolves to the npm-backed @segment/analytics-next/@segment/analytics-core/@segment/facade shim while preserving legacy middleware* aliases.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Note": "Accepted as an npm-backed Segment middleware alias of middleware-BDgBoOJW."
     },
     "middleware-ClySjhR5": {
       "restored": "vendor/segment-middleware-entry.ts",
