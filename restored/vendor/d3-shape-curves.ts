@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/step-K6tEdR0Q.js
 // Flat boundary. Vendored step chunk restored from the Codex webview bundle.
+import { curveBundle } from "./d3-shape-curve-bundle-factory";
+
 var stepValue1 = class {
   constructor(stepParam30, _stepG) {
     this._context = stepParam30;
@@ -254,60 +256,7 @@ stepHelper5.prototype = {
 export function stepP(stepParam43) {
   return new stepHelper5(stepParam43);
 }
-function stepHelper6(stepParam17, _stepG) {
-  this._basis = new stepHelper3(stepParam17);
-  this._beta = _stepG;
-}
-stepHelper6.prototype = {
-  lineStart: function () {
-    this._x = [];
-    this._y = [];
-    this._basis.lineStart();
-  },
-  lineEnd: function () {
-    var stepValue18 = this._x,
-      _stepG = this._y,
-      _stepUnderscore = stepValue18.length - 1;
-    if (_stepUnderscore > 0)
-      for (
-        var stepValue19 = stepValue18[0],
-          stepValue20 = _stepG[0],
-          stepValue21 = stepValue18[_stepUnderscore] - stepValue19,
-          _stepH = _stepG[_stepUnderscore] - stepValue20,
-          stepValue22 = -1,
-          _stepM;
-        ++stepValue22 <= _stepUnderscore;
-
-      ) {
-        _stepM = stepValue22 / _stepUnderscore;
-        this._basis.point(
-          this._beta * stepValue18[stepValue22] +
-            (1 - this._beta) * (stepValue19 + _stepM * stepValue21),
-          this._beta * _stepG[stepValue22] +
-            (1 - this._beta) * (stepValue20 + _stepM * _stepH),
-        );
-      }
-    this._x = this._y = null;
-    this._basis.lineEnd();
-  },
-  point: function (stepParam18, _stepG) {
-    this._x.push(+stepParam18);
-    this._y.push(+_stepG);
-  },
-};
-export const stepF = (function stepHelper19(_stepG) {
-  function _stepUnderscore(stepParam23) {
-    return _stepG === 1
-      ? new stepHelper3(stepParam23)
-      : new stepHelper6(stepParam23, _stepG);
-  }
-  return (
-    (_stepUnderscore.beta = function (__stepG) {
-      return stepHelper19(+__stepG);
-    }),
-    _stepUnderscore
-  );
-})(0.85);
+export const stepF = curveBundle;
 function stepHelper7(stepParam15, _stepG, _stepUnderscore) {
   stepParam15._context.bezierCurveTo(
     stepParam15._x1 + stepParam15._k * (stepParam15._x2 - stepParam15._x0),
