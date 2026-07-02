@@ -269,6 +269,12 @@ into an npm-backed re-export/alias shim, add the package root to the nearest
 automatically. For generic chunk stems such as `lib-*` or `src-*`, register the
 exact provenance basename in `quality-gate.ts` as well as the public vendor
 filename, so renaming the restored file cannot bypass the npm-shim rule.
+This is a blocking preflight for every public `restored/vendor/*` edit: do not
+use `--vendored` as a waiver for a stock package body. The quality gate's
+`third-party-npm-shim-not-reexport` check must still fail hand-written
+compatibility implementations, and
+`analyzePublicNpmVendorShimDependencies()` must pass before committing so the
+nearest `package.json` declares the package root.
 
 ## Collapse npm CJS interop shims (deep-mode tail)
 

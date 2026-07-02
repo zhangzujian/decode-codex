@@ -691,6 +691,31 @@ describe("quality-gate", () => {
     ).toMatchObject({ expectedSpecifiers: ["react-intl"] });
   });
 
+  test("does not let vendored mode bypass known npm shim re-export rules", () => {
+    const source = `
+      // Restored from ref/webview/assets/lib-BWT6A3Q0.js
+      export function useIntl() {
+        return {
+          formatMessage(descriptor) {
+            return descriptor.defaultMessage ?? descriptor.id ?? "";
+          },
+        };
+      }
+      export function FormattedMessage(props) {
+        return props.defaultMessage ?? props.id ?? "";
+      }
+    `;
+    const report = analyzeSource(source, "restored/vendor/react-intl.tsx", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+      vendored: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
   test("passes react-intl vendor shims that re-export the npm package", () => {
     const source = `
       // Restored from ref/webview/assets/lib-BWT6A3Q0.js
