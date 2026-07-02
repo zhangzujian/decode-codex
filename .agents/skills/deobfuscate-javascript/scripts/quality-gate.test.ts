@@ -2903,6 +2903,99 @@ export function __rest(value) {
     expect(analyzeFullRestorationCoverage(targetDir)).toEqual([]);
   });
 
+  function writeBuwAliasMapCase(
+    targetDir: string,
+    restoredSemanticExport: boolean,
+  ): void {
+    const basename = "app-initial~app-main~onboarding-page-BUwCKIcU";
+    fs.mkdirSync(path.join(targetDir, ".deobfuscate-javascript", "_full"), {
+      recursive: true,
+    });
+    fs.mkdirSync(
+      path.join(
+        targetDir,
+        "vendor",
+        "app-main-legacy-buw-runtime",
+        "stable-exports",
+      ),
+      { recursive: true },
+    );
+    fs.writeFileSync(
+      path.join(targetDir, "vendor", "app-main-legacy-buw-runtime", "index.ts"),
+      'export * from "./stable-exports/upper-a-f";\n',
+    );
+    fs.writeFileSync(
+      path.join(
+        targetDir,
+        "vendor",
+        "app-main-legacy-buw-runtime",
+        "stable-exports",
+        "upper-a-f.ts",
+      ),
+      restoredSemanticExport
+        ? [
+            "export function computePointerVelocity() { return 1; }",
+            "export { computePointerVelocity as legacyAppMainBuwUpperALowerDExport };",
+            "",
+          ].join("\n")
+        : "export const legacyAppMainBuwUpperALowerDExport = 1;\n",
+    );
+    fs.writeFileSync(
+      path.join(targetDir, ".deobfuscate-javascript", "_full", "manifest.json"),
+      JSON.stringify({
+        files: {
+          [basename]: {
+            basename,
+            kind: "local",
+            stages: { finalized: true, promoted: true },
+          },
+        },
+      }),
+    );
+    fs.writeFileSync(
+      path.join(targetDir, "IMPORT_MAP.json"),
+      JSON.stringify({
+        chunks: {
+          [basename]: {
+            restored: "vendor/app-main-legacy-buw-runtime/index.ts",
+            exports: { Ad: "computePointerVelocity" },
+            status: "done",
+            stage3Accepted: true,
+          },
+        },
+      }),
+    );
+  }
+
+  test("full-restoration coverage rejects import-map exports missing from the public barrel", () => {
+    const targetDir = makeTmpRoot();
+    writeBuwAliasMapCase(targetDir, false);
+
+    const reports = analyzeFullRestorationCoverage(targetDir);
+    expect(reports).toHaveLength(1);
+    const issues = reports[0]!.issues;
+    expect(issues.map((issue) => issue.code)).toContain(
+      "full-restoration-import-map-export-missing",
+    );
+    expect(
+      issues.find(
+        (issue) => issue.code === "full-restoration-import-map-export-missing",
+      )?.detail,
+    ).toEqual([
+      {
+        basename: "app-initial~app-main~onboarding-page-BUwCKIcU",
+        missing: ["computePointerVelocity"],
+      },
+    ]);
+  });
+
+  test("full-restoration coverage accepts import-map exports once the public barrel re-exports them", () => {
+    const targetDir = makeTmpRoot();
+    writeBuwAliasMapCase(targetDir, true);
+
+    expect(analyzeFullRestorationCoverage(targetDir)).toEqual([]);
+  });
+
   function writeFullManifest(
     targetDir: string,
     files: Record<string, unknown>,

@@ -735,6 +735,7 @@ type FullRestorationImportMapEntry = {
   publicFacades?: Record<string, string>;
   dependencyBoundary?: string;
   dependencyBoundaryFacades?: Record<string, string>;
+  exports?: Record<string, string>;
   restored?: string;
   file?: string;
   boundary?: boolean;
@@ -2893,6 +2894,38 @@ function sourceFilesForPublicTargets(
   return [...files].sort();
 }
 
+function collectPublicTargetExportNames(
+  targetDir: string,
+  targets: string[],
+): ExportNameResolution {
+  const result: ExportNameResolution = { names: new Set(), complete: true };
+  const files = sourceFilesForPublicTargets(targetDir, targets);
+  if (files.length === 0) return result;
+
+  for (const file of files) {
+    const exports = collectExportNames(file);
+    for (const name of exports.names) result.names.add(name);
+    if (!exports.complete) result.complete = false;
+  }
+  return result;
+}
+
+function missingImportMapExportNames(
+  targetDir: string,
+  entry: FullRestorationImportMapEntry,
+  targets: string[],
+): string[] {
+  const expectedNames = [
+    ...new Set(Object.values(entry.exports ?? {}).filter(Boolean)),
+  ].sort();
+  if (expectedNames.length === 0 || targets.length === 0) return [];
+
+  const targetExports = collectPublicTargetExportNames(targetDir, targets);
+  if (!targetExports.complete) return [];
+
+  return expectedNames.filter((name) => !targetExports.names.has(name));
+}
+
 function importMapEntries(
   importMap: FullRestorationImportMap,
 ): FullRestorationImportMapEntry[] {
@@ -3501,6 +3534,10 @@ export function analyzeFullRestorationCoverage(
   const oversizedLocalChunks: string[] = [];
   const entriesWithoutTargets: string[] = [];
   const missingPublicTargets: Array<{ basename: string; target: string }> = [];
+  const missingMappedExports: Array<{
+    basename: string;
+    missing: string[];
+  }> = [];
   const appFeatureBoundaries: string[] = [];
   const mechanicalAppFeatures: string[] = [];
   const unacceptedAppFeatures: string[] = [];
@@ -3580,6 +3617,14 @@ export function analyzeFullRestorationCoverage(
       entriesWithoutTargets.push(basename);
       continue;
     }
+    const missingExports = missingImportMapExportNames(
+      targetDir,
+      publicEntry,
+      targets,
+    );
+    if (missingExports.length > 0) {
+      missingMappedExports.push({ basename, missing: missingExports });
+    }
     for (const target of targets) {
       const resolvedTarget = resolvePublicTarget(targetDir, target);
       if (!fs.existsSync(resolvedTarget)) {
@@ -3658,6 +3703,16 @@ export function analyzeFullRestorationCoverage(
         (a, b) =>
           a.basename.localeCompare(b.basename) ||
           a.target.localeCompare(b.target),
+      ),
+    });
+  }
+  if (missingMappedExports.length > 0) {
+    issues.push({
+      code: "full-restoration-import-map-export-missing",
+      message:
+        "IMPORT_MAP.json exports must name symbols actually exported by the mapped public target. A semantic alias map is not complete until the public barrel re-exports the restored symbol instead of the old bundle alias.",
+      detail: missingMappedExports.sort((a, b) =>
+        a.basename.localeCompare(b.basename),
       ),
     });
   }
