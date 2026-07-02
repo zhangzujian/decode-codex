@@ -3824,7 +3824,12 @@
         "t": "katexT",
         "u": "katexU"
       },
-      "status": "done"
+      "status": "done",
+      "vendor": "katex",
+      "note": "npm-backed katex@0.16.45 shim preserving bundled KaTeX default object and internal alias exports.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000-05:00",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00"
     },
     "katex-CjHJ1D7d": {
       "restored": "vendor/katex.ts",
@@ -3833,9 +3838,10 @@
       },
       "status": "done",
       "aliasOf": "katex--WVKgE7E",
-      "note": "Current ref full KaTeX bundle exposes the katex object as the default export.",
+      "vendor": "katex",
+      "note": "Current ref full KaTeX bundle now resolves to npm-backed katex@0.16.45 default object.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-29T22:20:00.000Z"
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00"
     },
     "katex-BvHNzFYT": {
       "restored": "vendor/katex.ts",
@@ -3844,8 +3850,9 @@
       },
       "status": "done",
       "aliasOf": "katex--WVKgE7E",
-      "lastUpdated": "2026-06-30T00:00:00.000Z",
-      "note": "Current ref hash keeps the restored KaTeX default object surface."
+      "vendor": "katex",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00",
+      "note": "Current ref hash keeps the npm-backed katex@0.16.45 default object surface."
     },
     "katex-DZmv-8PO": {
       "restored": "utils/katex.ts",

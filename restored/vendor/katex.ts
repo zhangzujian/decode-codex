@@ -1,32 +1,34 @@
 // Restored from ref/webview/assets/katex-BvHNzFYT.js
-// Current-ref KaTeX adapter: initializes the bundled runtime and exposes the KaTeX surface.
+// npm-backed KaTeX runtime shim preserving the bundled export aliases.
 
-import {
-  worktreeNewThreadOrchestratorCompatSlotLowerCLowerG as bundledKatex,
-  worktreeNewThreadOrchestratorCompatSlotLowerSLowerG as initializeBundledKatex,
-} from "../runtime/current-app-initial/worktree-new-thread-orchestrator-runtime";
-type KatexFunction = (...args: unknown[]) => unknown;
+import katex from "katex";
+import type { KatexOptions, ParseError } from "katex";
+
+export { ParseError, render, renderToString, version } from "katex";
+
+type KatexRuntimeFunction = (...args: unknown[]) => unknown;
 type KatexParseErrorConstructor = new (
   message: string,
-  token?: unknown,
-) => Error;
-interface KatexPublicApi {
+  token?: object,
+) => ParseError;
+
+interface KatexRuntimeApi {
   version: string;
-  render: KatexFunction;
-  renderToString: (...args: unknown[]) => string;
+  render: (tex: string, element: HTMLElement, options?: KatexOptions) => void;
+  renderToString: (tex: string, options?: KatexOptions) => string;
   ParseError: KatexParseErrorConstructor;
   SETTINGS_SCHEMA: Record<string, unknown>;
-  __parse: KatexFunction;
-  __renderToDomTree: KatexFunction;
-  __renderToHTMLTree: KatexFunction;
-  __setFontMetrics: KatexFunction;
-  __defineSymbol: KatexFunction;
-  __defineFunction: KatexFunction;
-  __defineMacro: KatexFunction;
+  __parse: KatexRuntimeFunction;
+  __renderToDomTree: KatexRuntimeFunction;
+  __renderToHTMLTree: KatexRuntimeFunction;
+  __setFontMetrics: KatexRuntimeFunction;
+  __defineSymbol: KatexRuntimeFunction;
+  __defineFunction: KatexRuntimeFunction;
+  __defineMacro: KatexRuntimeFunction;
   __domTree: Record<string, unknown>;
 }
-initializeBundledKatex();
-export const katexC = bundledKatex as KatexPublicApi;
+
+export const katexC = katex as unknown as KatexRuntimeApi;
 export const katexA = katexC.__defineMacro;
 export const katexD = katexC.__renderToHTMLTree;
 export const katexF = katexC.renderToString;
