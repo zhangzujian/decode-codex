@@ -5,6 +5,7 @@ export { SettingsControlRow } from "../app-main-current-runtime";
 export { normalizeTerminalFontFamily } from "../../runtime/window-chrome-runtime";
 
 export { openThreadReviewSidePanelTab } from "../../app-shell/thread-side-panel-tabs";
+export { fetchIdeContext as appMainCurrentCompatSlotLowerBUpperC } from "../../composer/composer-utils";
 
 export { useDroppable as ThreadRowBranchLabel } from "../dnd-kit-core";
 
@@ -13,7 +14,6 @@ export {
   ba as appMainCurrentCompatSlotLowerBLowerA,
   bb as appMainCurrentCompatSlotLowerBLowerB,
   bc as appMainCurrentCompatSlotLowerBLowerC,
-  bC as appMainCurrentCompatSlotLowerBUpperC,
   bd as appMainCurrentCompatSlotLowerBLowerD,
   bf as appMainCurrentCompatSlotLowerBLowerF,
   bg as appMainCurrentCompatSlotLowerBLowerG,

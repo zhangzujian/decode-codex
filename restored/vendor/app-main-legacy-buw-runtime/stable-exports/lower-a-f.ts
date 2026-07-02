@@ -8,6 +8,7 @@ export { initMicrosoftIconChunk as legacyAppMainBuwLowerELowerCExport } from "..
 export { useDictation as legacyAppMainBuwLowerAUpperCExport } from "../../../features/use-dictation/use-dictation";
 export { OpenConfigTomlButton as legacyAppMainBuwLowerALowerXExport } from "../../../composer/open-config-toml-button";
 export { openConfigInEditor as legacyAppMainBuwLowerCLowerXExport } from "../../../composer/open-config-in-editor";
+export { fetchIdeContext as legacyAppMainBuwLowerBUpperCExport } from "../../../composer/composer-utils";
 
 export { useRecordingWaveform as legacyAppMainBuwLowerCUpperCExport } from "../../../utils/use-recording-waveform/use-recording-waveform";
 
@@ -82,7 +83,6 @@ export {
   au as legacyAppMainBuwLowerALowerUExport,
   ay as legacyAppMainBuwLowerALowerYExport,
   b as legacyAppMainBuwLowerBExport,
-  bC as legacyAppMainBuwLowerBUpperCExport,
   bS as legacyAppMainBuwLowerBUpperSExport,
   ba as legacyAppMainBuwLowerBLowerAExport,
   bb as legacyAppMainBuwLowerBLowerBExport,

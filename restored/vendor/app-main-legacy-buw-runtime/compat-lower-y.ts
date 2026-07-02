@@ -8,13 +8,13 @@ export {
 export { patchTerminalMouseCoordsForZoom } from "../../runtime/window-chrome-runtime";
 
 export { resolveWorkspacePathFromCwd } from "../../runtime/app-main-new-thread-runtime";
+export { appendPromptText as appMainCurrentCompatSlotLowerYUpperC } from "../../composer/composer-utils";
 export { isWorkspaceCreditsExhausted as appMainCurrentCompatSlotLowerYLowerC } from "../../utils/rate-limit-status/account-status";
 
 export {
   y as appMainCurrentCompatSlotLowerY,
   ya as appMainCurrentCompatSlotLowerYLowerA,
   yb as appMainCurrentCompatSlotLowerYLowerB,
-  yC as appMainCurrentCompatSlotLowerYUpperC,
   yd as appMainCurrentCompatSlotLowerYLowerD,
   yf as appMainCurrentCompatSlotLowerYLowerF,
   yg as appMainCurrentCompatSlotLowerYLowerG,
