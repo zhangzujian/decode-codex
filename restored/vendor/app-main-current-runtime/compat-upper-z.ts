@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-CgNc-Bk2.js
 // Uppercase Z compatibility aliases for the current app-main producer.
+export { remainingUsagePercent as appMainCurrentCompatSlotUpperZLowerS } from "../../utils/rate-limit-status/windows";
+
 export {
   Z as appMainCurrentCompatSlotUpperZ,
   Za as appMainCurrentCompatSlotUpperZLowerA,
@@ -12,5 +14,4 @@ export {
   Zo as appMainCurrentCompatSlotUpperZLowerO,
   Zp as appMainCurrentCompatSlotUpperZLowerP,
   Zr as appMainCurrentCompatSlotUpperZLowerR,
-  Zs as appMainCurrentCompatSlotUpperZLowerS,
 } from "../app-main-current-cgnc-bundle";

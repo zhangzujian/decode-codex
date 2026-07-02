@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-CgNc-Bk2.js
 // Lowercase q compatibility aliases for the current app-main producer.
+export { formatRateLimitWindowLabel as appMainCurrentCompatSlotLowerQLowerS } from "../../utils/rate-limit-status/formatting";
+
 export {
   q as appMainCurrentCompatSlotLowerQ,
   qa as appMainCurrentCompatSlotLowerQLowerA,
@@ -11,7 +13,6 @@ export {
   qo as appMainCurrentCompatSlotLowerQLowerO,
   qp as appMainCurrentCompatSlotLowerQLowerP,
   qr as appMainCurrentCompatSlotLowerQLowerR,
-  qs as appMainCurrentCompatSlotLowerQLowerS,
   qt as appMainCurrentCompatSlotLowerQLowerT,
   qu as appMainCurrentCompatSlotLowerQLowerU,
 } from "../app-main-current-cgnc-bundle";
