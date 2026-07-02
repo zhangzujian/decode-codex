@@ -7,6 +7,8 @@ import {
   worktreeBaseBranchQueryAtom,
 } from "../boundaries/onboarding-commons-externals.facade";
 
+export function initUseWorktreeBaseBranchQueryChunk(): void {}
+
 export function useWorktreeBaseBranchQuery(
   cwd: string | null | undefined,
   hostConfig: unknown,

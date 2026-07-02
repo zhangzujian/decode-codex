@@ -18,4 +18,10 @@ const ActionPopoverPrimitives = {
   FileSection,
   Expanded,
 };
-export { useCreateGitRepositoryAction, ActionPopoverPrimitives };
+function initActionPopoverPrimitivesChunk(): void {}
+
+export {
+  useCreateGitRepositoryAction,
+  ActionPopoverPrimitives,
+  initActionPopoverPrimitivesChunk,
+};

@@ -23,15 +23,18 @@ import {
   conversationIsDetachedHeadAtom,
   gitActionCurrentBranchQueryAtom,
   gitActionDefaultBranchQueryAtom,
+  initLocalGitActionBranchAtomsChunk,
   type GitActionContext,
 } from "./local-git-action-branch-atoms";
 import {
   createPullRequestIncludeLocalChangesAtom,
+  initLocalGitActionStateChunk,
   type GitActionStep,
   type ScopedStore,
 } from "./local-git-action-state";
 import {
   gitActionsContextAtom,
+  initLocalGitActionScopedContextChunk,
   localConversationGitActionsScope,
   nextGitActionStepAtom,
   pendingGitActionStepAtom,
@@ -82,6 +85,12 @@ export {
 export type { GitActionsScopeValue } from "./local-git-action-scoped-context";
 
 type Getter = <TValue>(atom: unknown, params?: unknown) => TValue;
+
+export function initLocalGitActionsScopeChunk(): void {
+  initLocalGitActionStateChunk();
+  initLocalGitActionScopedContextChunk();
+  initLocalGitActionBranchAtomsChunk();
+}
 
 export function startCommitGitAction(scope: ScopedStore): void {
   if (scope.get(canCreateWorktreeBranchAtom)) {

@@ -30,6 +30,13 @@ export {
   normalizeAmbientSuggestionAppKey as initSidebarTaskRowRuntimeChunk,
 } from "../../connectors/ambient-suggestion-apps";
 export {
+  initUseWorktreeBaseBranchQueryChunk as openThreadBrowserSidePanelTab,
+  useWorktreeBaseBranchQuery as openThreadBrowserSidePanelTabWithPendingState,
+} from "../../conversations/use-worktree-base-branch-query";
+export {
+  initWorktreeBranchSetupModalChunk as initThreadSidePanelTabsChunk,
+} from "../../conversations/worktree-branch-setup-modal-runtime";
+export {
   initReviewModeIconsRuntime,
   XcodeLicenseWarningIcon,
 } from "../../icons/xcode-license-warning-icon";
@@ -92,6 +99,19 @@ export {
   initReviewTabIconChunk as getThreadMcpAppSidePanelTabId,
 } from "../../icons/review-tab-icon";
 export {
+  cancelGitWorkflowAbortSignal as ThreadRowTitle,
+} from "../../review/local-git-action-state";
+export {
+  initLocalGitActionsScopeChunk as SidebarListSection,
+} from "../../review/local-git-actions-scope";
+export {
+  ActionPopoverPrimitives as openSessionSandboxSidePanel,
+  initActionPopoverPrimitivesChunk as openThreadBranchReviewSidePanelTab,
+} from "../../review/action-popover-primitives";
+export {
+  PullRequestButtonLabel as toggleThreadSidePanel,
+} from "../../github/pull-request-button-label";
+export {
   TwoPeopleShieldIcon as openThreadMcpAppSidePanelTab,
 } from "../../icons/two-people-shield-icon";
 export {
@@ -117,10 +137,8 @@ export {
 
 export {
   Bn as ArchiveMenuItem,
-  Cl as toggleThreadSidePanel,
   Gl as projectGroupRepositoryDataSignal,
   Hd as initThreadRowRuntimeChunk,
-  Jl as ThreadRowTitle,
   Nn as SidebarRowActionButton,
   Nr as SidebarRowContextMenu,
   Oi as SidebarRowOverflowMenu,
@@ -129,18 +147,12 @@ export {
   Ud as ThreadRowPinAction,
   Wc as primeBrowserTabTransfers,
   Wc as transferForkedConversationBrowserTabs,
-  Wl as SidebarListSection,
-  _l as openThreadBrowserSidePanelTabWithPendingState,
   al as SidebarRowMenuSeparator,
   dl as SidebarRowDragHandle,
-  gl as openThreadBrowserSidePanelTab,
-  hl as openThreadBranchReviewSidePanelTab,
   ho as forkConversationMessages,
   hp as useComposedRefs,
-  ml as openSessionSandboxSidePanel,
   mo as initForkConversationMessagesChunk,
   nm as SidebarRowHoverCard,
-  pl as initThreadSidePanelTabsChunk,
   sl as SidebarRowShortcutScope,
   sm as SidebarRowContextMenuItem,
   ud as initExternalAgentImportStatusIconsChunk,
