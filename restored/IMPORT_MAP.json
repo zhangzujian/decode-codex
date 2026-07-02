@@ -5218,7 +5218,11 @@
         "resolveUserArguments": "resolveUserArguments",
         "segmentio": "segmentio"
       },
-      "status": "done"
+      "vendor": "@segment/analytics-next",
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: Segment pkg chunk is now a bare npm-backed shim over @segment/analytics-next, with pkgAnalyticsBrowser/pkgAnalyticsNode compatibility aliases preserved."
     },
     "pkg-CsBnWPsQ": {
       "restored": "vendor/segment-analytics.ts",
@@ -5242,7 +5246,12 @@
       },
       "status": "done",
       "aliasOf": "pkg-CJtlEP_l",
-      "lastUpdated": "2026-06-29T00:00:00.000Z"
+      "vendor": "@segment/analytics-next",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00",
+      "note": "Segment browser SDK alias chunk resolved to the npm package @segment/analytics-next; vendor/segment-analytics.ts preserves legacy Codex bundle aliases as package re-exports.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: current pkg-CsBnWPsQ aliases are covered by the @segment/analytics-next shim and no local SDK implementation remains."
     },
     "app-scope-CWE-zIhQ": {
       "restored": "boundaries/app-scope.tsx",
@@ -34740,9 +34749,13 @@
         "segmentio": "segmentio"
       },
       "aliasOf": "pkg-CJtlEP_l",
-      "note": "Current pkg hash preserves the restored public export surface; aliases re-derived from pkg-DjWRq9pR.js.",
+      "vendor": "@segment/analytics-next",
+      "note": "Current pkg hash preserves the restored public export surface; aliases re-derived from pkg-DjWRq9pR.js and resolved through the npm-backed @segment/analytics-next shim.",
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000Z"
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: pkg-DjWRq9pR aliases are covered by vendor/segment-analytics.ts without retaining the bundled SDK body.",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00"
     },
     "src-6yFswxVy": {
       "restored": "vendor/d3-sankey.ts",
@@ -36920,11 +36933,12 @@
         "y": "segmentIsString"
       },
       "status": "done",
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00",
-      "note": "Current Segment analytics ESM core chunk re-derived from esm-Bs7-NtHW.js; public exports are mapped onto the existing restored Segment analytics module plus compatibility aliases for core initializers, dispatch queue, event normalizer, timeout helper, metrics buffer, and helper predicates.",
+      "vendor": "@segment/analytics-core",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00",
+      "note": "Current Segment analytics ESM core chunk re-derived from esm-Bs7-NtHW.js; public exports are now mapped onto @segment/analytics-core plus @segment/analytics-generic-utils compatibility aliases for core initializers, dispatch queue, event normalizer, timeout helper, metrics buffer, and helper predicates.",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T21:55:00.000Z",
-      "stage3Review": "Host self-review: parsed current ref esm-Bs7-NtHW.js export table and verified ee/G/z/j/A/te/E/X/F/D/De/K/k/Q/H/Ae/N/y/_ aliases map to public vendor/segment-analytics.ts exports; the target preserves the Segment core Context, queue, dispatch, plugin, metrics, timeout, UUID, deferred, and predicate surfaces."
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: parsed current ref esm-Bs7-NtHW.js export table and verified ee/G/z/j/A/te/E/X/F/D/De/K/k/Q/H/Ae/N/y/_ aliases map to public vendor/segment-analytics.ts exports; the target preserves the Segment core Context, queue, dispatch, plugin, metrics, timeout, UUID, deferred, and predicate surfaces through npm package exports."
     },
     "esm-BrsRQYxN": {
       "restored": "vendor/tanstack-react-form.ts",
