@@ -28172,7 +28172,8 @@
       "migratedFrom": "app-initial~app-main~remote-conversation-page~projects-index-page-14pJ3ozX",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-01T00:00:00.000-05:00",
-      "stage3Review": "Host self-review: px21 current export table was re-derived from restored/vendor/projects-index-current-bundle.ts; the runtime now exposes semantic aliases for all 121 current exports while preserving compat slot exports, and the import-map entry has no remaining mechanical projectsIndexCurrentCompatSlot names."
+      "stage3Review": "Host self-review: px21 current export table was re-derived from restored/vendor/projects-index-current-runtime.ts; the runtime now exposes semantic aliases for all 121 current exports while preserving compat slot exports, and the import-map entry has no remaining mechanical projectsIndexCurrentCompatSlot names.",
+      "lastUpdated": "2026-07-02T02:20:11.000Z"
     },
     "app-initial~app-main~onboarding-page~pending-request-item-panel~home-ambient-suggestions-content-B1ROILfQ": {
       "restored": "onboarding/onboarding-mail-provider.ts",
