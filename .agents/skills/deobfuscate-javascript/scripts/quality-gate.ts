@@ -1046,6 +1046,8 @@ function expectedPublicNpmVendorSpecifiers(
     }
   }
 
+  if (!isPublicVendorFile(normalized)) return null;
+
   const sourceChunkBasename =
     source == null ? null : restoredSourceChunkBasename(source);
   return normalizePublicNpmVendorSpecifiers(

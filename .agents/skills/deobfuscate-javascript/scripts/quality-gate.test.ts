@@ -1303,6 +1303,27 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("allows split Segment metric helper wrapper modules under the npm-backed shim", () => {
+    const source = `
+      // Restored from ref/webview/assets/metric-helpers-DG5zp00d.js
+      export function isOnline(): boolean {
+        if (typeof window === "undefined") return true;
+        return window.navigator.onLine;
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/segment-metric-helpers/connection.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).not.toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
   test("fails Segment metric helper shims when generic-utils dependency is not declared", () => {
     const root = makeTmpRoot();
     const restoredDir = path.join(root, "restored");
