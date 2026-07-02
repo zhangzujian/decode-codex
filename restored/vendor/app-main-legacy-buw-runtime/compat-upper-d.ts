@@ -5,13 +5,13 @@ export { getBrowserTabIdForPanelTab } from "../app-main-current-runtime";
 export { activateTerminalLink } from "../../runtime/window-chrome-runtime";
 
 export { findBrowserStatusAtom } from "../../find/thread-find-atoms";
+export { initPrimitiveRuntime as initPrimitiveRuntimeChunk } from "../radix-primitive-helpers";
 
 export {
   D as appMainCurrentCompatSlotUpperD,
   Da as appMainCurrentCompatSlotUpperDLowerA,
   Db as appMainCurrentCompatSlotUpperDLowerB,
   Dc as appMainCurrentCompatSlotUpperDLowerC,
-  DC as initPrimitiveRuntimeChunk,
   Dd as appMainCurrentCompatSlotUpperDLowerD,
   Df as appMainCurrentCompatSlotUpperDLowerF,
   Dh as appMainCurrentCompatSlotUpperDLowerH,

@@ -36,7 +36,10 @@ export {
   findQueryAtom,
 } from "../../../find/thread-find-atoms";
 
-export { Primitive } from "../../../runtime/app-main-new-thread-runtime";
+export {
+  initPrimitiveRuntime as initPrimitiveRuntimeChunk,
+  Primitive,
+} from "../../radix-primitive-helpers";
 
 export { stashPendingWorktreePanelState as copyConversationStateToFork } from "../../../conversations/fork-conversation-panel-state";
 
@@ -103,7 +106,6 @@ export {
   Cv as legacyAppMainBuwUpperCLowerVExport,
   Cy as legacyAppMainBuwUpperCLowerYExport,
   D as legacyAppMainBuwUpperDExport,
-  DC as initPrimitiveRuntimeChunk,
   DS as legacyAppMainBuwUpperDUpperSExport,
   Da as legacyAppMainBuwUpperDLowerAExport,
   Db as legacyAppMainBuwUpperDLowerBExport,

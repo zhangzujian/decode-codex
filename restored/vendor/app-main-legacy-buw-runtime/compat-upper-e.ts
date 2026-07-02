@@ -4,7 +4,7 @@ export { deriveBrowserConversationId } from "../app-main-current-runtime";
 
 export { initTerminalLinkHandlerChunk } from "../../runtime/window-chrome-runtime";
 
-export { Primitive } from "../../runtime/app-main-new-thread-runtime";
+export { Primitive } from "../radix-primitive-helpers";
 
 export { stashPendingWorktreePanelState as copyConversationStateToFork } from "../../conversations/fork-conversation-panel-state";
 
