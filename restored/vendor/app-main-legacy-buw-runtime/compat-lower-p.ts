@@ -1,6 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase p compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  getMicrophoneInputStream as appMainCurrentCompatSlotLowerPUpperC,
+} from "../../utils/microphone-input";
+
+export {
   initThreadSidePanelTabsChunk,
   readProjectSignal,
 } from "../app-main-current-runtime";
@@ -14,7 +18,6 @@ export {
   p_ as appMainCurrentCompatSlotLowerPUnderscore,
   pa as appMainCurrentCompatSlotLowerPLowerA,
   pc as appMainCurrentCompatSlotLowerPLowerC,
-  pC as appMainCurrentCompatSlotLowerPUpperC,
   pd as appMainCurrentCompatSlotLowerPLowerD,
   pf as appMainCurrentCompatSlotLowerPLowerF,
   pg as appMainCurrentCompatSlotLowerPLowerG,

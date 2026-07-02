@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase a compatibility aliases for the legacy app-main/onboarding producer.
+export {
+  useDictation as appMainCurrentCompatSlotLowerAUpperC,
+} from "../../features/use-dictation/use-dictation";
+
 export { SidebarRowMenuSeparator } from "../app-main-current-runtime";
 
 export { shouldExpandReviewPanelSignal } from "../../conversations/local-conversation-page-runtime";
@@ -10,7 +14,6 @@ export {
   aa as appMainCurrentCompatSlotLowerALowerA,
   ab as appMainCurrentCompatSlotLowerALowerB,
   ac as appMainCurrentCompatSlotLowerALowerC,
-  aC as appMainCurrentCompatSlotLowerAUpperC,
   ad as appMainCurrentCompatSlotLowerALowerD,
   af as appMainCurrentCompatSlotLowerALowerF,
   ag as appMainCurrentCompatSlotLowerALowerG,

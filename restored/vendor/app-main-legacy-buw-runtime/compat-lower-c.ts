@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase c compatibility aliases for the legacy app-main/onboarding producer.
+export {
+  useRecordingWaveform as appMainCurrentCompatSlotLowerCUpperC,
+} from "../../utils/use-recording-waveform/use-recording-waveform";
+
 export { areArraysEqual } from "../../utils/are-arrays-equal";
 
 export {
@@ -14,7 +18,6 @@ export {
   ca as appMainCurrentCompatSlotLowerCLowerA,
   cb as appMainCurrentCompatSlotLowerCLowerB,
   cc as appMainCurrentCompatSlotLowerCLowerC,
-  cC as appMainCurrentCompatSlotLowerCUpperC,
   cd as appMainCurrentCompatSlotLowerCLowerD,
   cg as appMainCurrentCompatSlotLowerCLowerG,
   ch as appMainCurrentCompatSlotLowerCLowerH,

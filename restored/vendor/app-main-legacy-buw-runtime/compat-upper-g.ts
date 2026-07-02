@@ -1,6 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase G compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  scrollMatchIntoView as appMainCurrentCompatSlotUpperGLowerU,
+} from "../../review/review-scroll-into-view";
+
+export {
   ThreadRow,
   projectGroupRepositoryDataSignal,
 } from "../app-main-current-runtime";
@@ -25,7 +29,6 @@ export {
   Gs as appMainCurrentCompatSlotUpperGLowerS,
   GS as appMainCurrentCompatSlotUpperGUpperS,
   Gt as appMainCurrentCompatSlotUpperGLowerT,
-  Gu as appMainCurrentCompatSlotUpperGLowerU,
   Gx as appMainCurrentCompatSlotUpperGLowerX,
   Gy as appMainCurrentCompatSlotUpperGLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

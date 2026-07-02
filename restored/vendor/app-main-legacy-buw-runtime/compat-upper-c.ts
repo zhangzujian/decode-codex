@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase C compatibility aliases for the legacy app-main/onboarding producer.
+export {
+  DictationRecordingFooter as appMainCurrentCompatSlotUpperCUpperC,
+} from "../../features/use-dictation/recording-footer";
+
 export { toggleThreadSidePanel } from "../app-main-current-runtime";
 
 export { normalizeTerminalLineEndings } from "../../runtime/window-chrome-runtime";
@@ -9,7 +13,6 @@ export {
   Ca as appMainCurrentCompatSlotUpperCLowerA,
   Cb as appMainCurrentCompatSlotUpperCLowerB,
   Cc as appMainCurrentCompatSlotUpperCLowerC,
-  CC as appMainCurrentCompatSlotUpperCUpperC,
   Cd as appMainCurrentCompatSlotUpperCLowerD,
   Cf as appMainCurrentCompatSlotUpperCLowerF,
   Cg as appMainCurrentCompatSlotUpperCLowerG,

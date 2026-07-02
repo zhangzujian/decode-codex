@@ -1,6 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase B compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  countCommentsByFilePath as appMainCurrentCompatSlotUpperBLowerU,
+} from "../../review/review-comment-utils";
+
+export {
   ArchiveMenuItem,
   UltraFastServiceTierIcon,
 } from "../app-main-current-runtime";
@@ -24,7 +28,6 @@ export {
   Bs as appMainCurrentCompatSlotUpperBLowerS,
   BS as appMainCurrentCompatSlotUpperBUpperS,
   Bt as appMainCurrentCompatSlotUpperBLowerT,
-  Bu as appMainCurrentCompatSlotUpperBLowerU,
   Bv as appMainCurrentCompatSlotUpperBLowerV,
   Bx as appMainCurrentCompatSlotUpperBLowerX,
   By as appMainCurrentCompatSlotUpperBLowerY,

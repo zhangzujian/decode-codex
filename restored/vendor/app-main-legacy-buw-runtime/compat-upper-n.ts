@@ -1,6 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase N compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  SelectedTextTooltip as appMainCurrentCompatSlotUpperNLowerI,
+} from "../../composer/user-message-attachment-pills";
+
+export {
   SidebarRowActionButton,
   SidebarRowContextMenu,
 } from "../app-main-current-runtime";
@@ -22,7 +26,6 @@ export {
   Nd as appMainCurrentCompatSlotUpperNLowerD,
   Nf as appMainCurrentCompatSlotUpperNLowerF,
   Nh as appMainCurrentCompatSlotUpperNLowerH,
-  Ni as appMainCurrentCompatSlotUpperNLowerI,
   Nl as appMainCurrentCompatSlotUpperNLowerL,
   Nm as appMainCurrentCompatSlotUpperNLowerM,
   No as appMainCurrentCompatSlotUpperNLowerO,

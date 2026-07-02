@@ -1,6 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase o compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  useDictationCore as appMainCurrentCompatSlotLowerOUpperC,
+} from "../../features/use-dictation/use-dictation";
+
+export {
   closeThreadMcpAppSidePanelTab,
   useReferralInviteMutation,
 } from "../app-main-current-runtime";
@@ -13,7 +17,6 @@ export {
   oa as appMainCurrentCompatSlotLowerOLowerA,
   ob as appMainCurrentCompatSlotLowerOLowerB,
   oc as appMainCurrentCompatSlotLowerOLowerC,
-  oC as appMainCurrentCompatSlotLowerOUpperC,
   od as appMainCurrentCompatSlotLowerOLowerD,
   oh as appMainCurrentCompatSlotLowerOLowerH,
   oi as appMainCurrentCompatSlotLowerOLowerI,

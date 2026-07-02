@@ -1,6 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-g-m.
 export {
+  getConversationalOnboardingTaskPluginName as legacyAppMainBuwLowerIExport,
+} from "../../../onboarding/conversational-onboarding-task-registry";
+
+export {
   DragIcon,
   openThreadBrowserSidePanelTab,
   SidebarRowProjectLabel,
@@ -75,7 +79,6 @@ export {
   hu as legacyAppMainBuwLowerHLowerUExport,
   hx as ThreadRowStatusIndicator,
   hy as legacyAppMainBuwLowerHLowerYExport,
-  i as legacyAppMainBuwLowerIExport,
   iC as legacyAppMainBuwLowerIUpperCExport,
   iS as legacyAppMainBuwLowerIUpperSExport,
   i_ as legacyAppMainBuwLowerIUnderscoreExport,

@@ -1,6 +1,22 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-t-z.
 export {
+  ComposerFooterRoot as legacyAppMainBuwUpperTUpperCExport,
+} from "../../../composer/composer-footer";
+
+export {
+  AttachmentPill as legacyAppMainBuwUpperVLowerIExport,
+} from "../../../composer/user-message-attachment-pills";
+
+export {
+  MentionMetadataSync as legacyAppMainBuwUpperYLowerIExport,
+} from "../../../composer/mention-metadata-sync";
+
+export {
+  UserMessageText as legacyAppMainBuwUpperZLowerIExport,
+} from "../../../conversations/user-message-text";
+
+export {
   registerForkedConversation,
   ThreadRowPinAction,
   initFastServiceTierIcon,
@@ -34,7 +50,6 @@ export { bottomPanelTabsStore } from "../../../app-shell/thread-panel-tabs-store
 
 export {
   T as legacyAppMainBuwUpperTExport,
-  TC as legacyAppMainBuwUpperTUpperCExport,
   TS as legacyAppMainBuwUpperTUpperSExport,
   Ta as legacyAppMainBuwUpperTLowerAExport,
   Tb as legacyAppMainBuwUpperTLowerBExport,
@@ -84,7 +99,6 @@ export {
   Vf as legacyAppMainBuwUpperVLowerFExport,
   Vg as legacyAppMainBuwUpperVLowerGExport,
   Vh as legacyAppMainBuwUpperVLowerHExport,
-  Vi as legacyAppMainBuwUpperVLowerIExport,
   Vl as legacyAppMainBuwUpperVLowerLExport,
   Vm as legacyAppMainBuwUpperVLowerMExport,
   Vn as legacyAppMainBuwUpperVLowerNExport,
@@ -144,7 +158,6 @@ export {
   Yf as legacyAppMainBuwUpperYLowerFExport,
   Yg as legacyAppMainBuwUpperYLowerGExport,
   Yh as legacyAppMainBuwUpperYLowerHExport,
-  Yi as legacyAppMainBuwUpperYLowerIExport,
   Ym as legacyAppMainBuwUpperYLowerMExport,
   Yn as legacyAppMainBuwUpperYLowerNExport,
   Yo as legacyAppMainBuwUpperYLowerOExport,
@@ -162,7 +175,6 @@ export {
   Zf as legacyAppMainBuwUpperZLowerFExport,
   Zg as legacyAppMainBuwUpperZLowerGExport,
   Zh as legacyAppMainBuwUpperZLowerHExport,
-  Zi as legacyAppMainBuwUpperZLowerIExport,
   Zl as legacyAppMainBuwUpperZLowerLExport,
   Zm as legacyAppMainBuwUpperZLowerMExport,
   Zn as legacyAppMainBuwUpperZLowerNExport,

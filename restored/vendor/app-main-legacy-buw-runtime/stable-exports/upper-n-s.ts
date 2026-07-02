@@ -1,6 +1,18 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-n-s.
 export {
+  SelectedTextTooltip as legacyAppMainBuwUpperNLowerIExport,
+} from "../../../composer/user-message-attachment-pills";
+
+export {
+  cancelActiveConversationalOnboardingForHost as legacyAppMainBuwUpperOExport,
+} from "../../../onboarding/conversational-onboarding-cancel-for-host";
+
+export {
+  DictationButton as legacyAppMainBuwUpperSUpperCExport,
+} from "../../../features/use-dictation/dictation-button";
+
+export {
   SidebarRowActionButton,
   SidebarRowContextMenu,
   SidebarRowOverflowMenu,
@@ -48,7 +60,6 @@ export {
   Nd as legacyAppMainBuwUpperNLowerDExport,
   Nf as legacyAppMainBuwUpperNLowerFExport,
   Nh as legacyAppMainBuwUpperNLowerHExport,
-  Ni as legacyAppMainBuwUpperNLowerIExport,
   Nl as legacyAppMainBuwUpperNLowerLExport,
   Nm as legacyAppMainBuwUpperNLowerMExport,
   No as legacyAppMainBuwUpperNLowerOExport,
@@ -58,7 +69,6 @@ export {
   Nu as legacyAppMainBuwUpperNLowerUExport,
   Nv as legacyAppMainBuwUpperNLowerVExport,
   Nx as legacyAppMainBuwUpperNLowerXExport,
-  O as legacyAppMainBuwUpperOExport,
   OS as legacyAppMainBuwUpperOUpperSExport,
   Oa as legacyAppMainBuwUpperOLowerAExport,
   Ob as legacyAppMainBuwUpperOLowerBExport,
@@ -136,7 +146,6 @@ export {
   Rx as legacyAppMainBuwUpperRLowerXExport,
   Ry as legacyAppMainBuwUpperRLowerYExport,
   S as legacyAppMainBuwUpperSExport,
-  SC as legacyAppMainBuwUpperSUpperCExport,
   SS as legacyAppMainBuwUpperSUpperSExport,
   Sa as legacyAppMainBuwUpperSLowerAExport,
   Sb as legacyAppMainBuwUpperSLowerBExport,

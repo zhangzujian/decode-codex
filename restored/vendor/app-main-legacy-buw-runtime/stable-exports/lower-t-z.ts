@@ -1,5 +1,21 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-t-z.
+export {
+  transcribeAudio as legacyAppMainBuwLowerUUpperCExport,
+} from "../../../utils/transcribe-audio/multipart";
+
+export {
+  conversationalOnboardingTaskScope as legacyAppMainBuwLowerVExport,
+} from "../../../onboarding/conversational-onboarding-task-scope";
+
+export {
+  PopoverAttachmentPill as legacyAppMainBuwLowerZLowerIExport,
+} from "../../../composer/user-message-attachment-pills";
+
+export {
+  getCommentText as legacyAppMainBuwLowerZLowerUExport,
+} from "../../../review/review-comment-utils";
+
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
 
 export {
@@ -56,7 +72,6 @@ export {
   tx as legacyAppMainBuwLowerTLowerXExport,
   ty as legacyAppMainBuwLowerTLowerYExport,
   u as legacyAppMainBuwLowerUExport,
-  uC as legacyAppMainBuwLowerUUpperCExport,
   uS as legacyAppMainBuwLowerUUpperSExport,
   u_ as legacyAppMainBuwLowerUUnderscoreExport,
   ua as legacyAppMainBuwLowerULowerAExport,
@@ -76,7 +91,6 @@ export {
   uv as legacyAppMainBuwLowerULowerVExport,
   ux as legacyAppMainBuwLowerULowerXExport,
   uy as legacyAppMainBuwLowerULowerYExport,
-  v as legacyAppMainBuwLowerVExport,
   vC as legacyAppMainBuwLowerVUpperCExport,
   vS as legacyAppMainBuwLowerVUpperSExport,
   va as legacyAppMainBuwLowerVLowerAExport,
@@ -167,7 +181,6 @@ export {
   zf as legacyAppMainBuwLowerZLowerFExport,
   zg as legacyAppMainBuwLowerZLowerGExport,
   zh as legacyAppMainBuwLowerZLowerHExport,
-  zi as legacyAppMainBuwLowerZLowerIExport,
   zl as legacyAppMainBuwLowerZLowerLExport,
   zm as legacyAppMainBuwLowerZLowerMExport,
   zo as legacyAppMainBuwLowerZLowerOExport,
@@ -175,7 +188,6 @@ export {
   zr as legacyAppMainBuwLowerZLowerRExport,
   zs as legacyAppMainBuwLowerZLowerSExport,
   zt as legacyAppMainBuwLowerZLowerTExport,
-  zu as legacyAppMainBuwLowerZLowerUExport,
   zv as initReviewSourceModeChunk,
   zx as legacyAppMainBuwLowerZLowerXExport,
   zy as legacyAppMainBuwLowerZLowerYExport,

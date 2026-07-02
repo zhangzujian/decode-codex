@@ -1,6 +1,26 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-n-s.
 export {
+  useDictationCore as legacyAppMainBuwLowerOUpperCExport,
+} from "../../../features/use-dictation/use-dictation";
+
+export {
+  getMicrophoneInputStream as legacyAppMainBuwLowerPUpperCExport,
+} from "../../../utils/microphone-input";
+
+export {
+  UserMessage as legacyAppMainBuwLowerQLowerIExport,
+} from "../../../conversations/user-message";
+
+export {
+  createWorkspaceFileReader as legacyAppMainBuwLowerQLowerUExport,
+} from "../../../review/workspace-file-reader";
+
+export {
+  getConversationalOnboardingTaskOption as legacyAppMainBuwLowerSExport,
+} from "../../../onboarding/conversational-onboarding-task-registry";
+
+export {
   liveMcpAppFrameSignal,
   composeEventHandlers,
   SidebarRowHoverCard,
@@ -52,7 +72,6 @@ export {
   nx as legacyAppMainBuwLowerNLowerXExport,
   ny as legacyAppMainBuwLowerNLowerYExport,
   o as legacyAppMainBuwLowerOExport,
-  oC as legacyAppMainBuwLowerOUpperCExport,
   oS as legacyAppMainBuwLowerOUpperSExport,
   o_ as legacyAppMainBuwLowerOUnderscoreExport,
   oa as legacyAppMainBuwLowerOLowerAExport,
@@ -73,7 +92,6 @@ export {
   ox as legacyAppMainBuwLowerOLowerXExport,
   oy as legacyAppMainBuwLowerOLowerYExport,
   p as legacyAppMainBuwLowerPExport,
-  pC as legacyAppMainBuwLowerPUpperCExport,
   pS as legacyAppMainBuwLowerPUpperSExport,
   p_ as legacyAppMainBuwLowerPUnderscoreExport,
   pa as legacyAppMainBuwLowerPLowerAExport,
@@ -102,7 +120,6 @@ export {
   qf as legacyAppMainBuwLowerQLowerFExport,
   qg as legacyAppMainBuwLowerQLowerGExport,
   qh as legacyAppMainBuwLowerQLowerHExport,
-  qi as legacyAppMainBuwLowerQLowerIExport,
   ql as legacyAppMainBuwLowerQLowerLExport,
   qm as legacyAppMainBuwLowerQLowerMExport,
   qn as legacyAppMainBuwLowerQLowerNExport,
@@ -111,7 +128,6 @@ export {
   qr as legacyAppMainBuwLowerQLowerRExport,
   qs as legacyAppMainBuwLowerQLowerSExport,
   qt as legacyAppMainBuwLowerQLowerTExport,
-  qu as legacyAppMainBuwLowerQLowerUExport,
   qv as legacyAppMainBuwLowerQLowerVExport,
   qx as legacyAppMainBuwLowerQLowerXExport,
   qy as legacyAppMainBuwLowerQLowerYExport,
@@ -137,7 +153,6 @@ export {
   rv as initReviewFileListChunk,
   rx as legacyAppMainBuwLowerRLowerXExport,
   ry as legacyAppMainBuwLowerRLowerYExport,
-  s as legacyAppMainBuwLowerSExport,
   sC as legacyAppMainBuwLowerSUpperCExport,
   sS as legacyAppMainBuwLowerSUpperSExport,
   s_ as legacyAppMainBuwLowerSUnderscoreExport,

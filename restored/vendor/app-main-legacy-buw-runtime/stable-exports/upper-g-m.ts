@@ -1,6 +1,20 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-g-m.
 export {
+  scrollMatchIntoView as legacyAppMainBuwUpperGLowerUExport,
+  waitForDoubleAnimationFrame as legacyAppMainBuwUpperKLowerUExport,
+} from "../../../review/review-scroll-into-view";
+
+export {
+  setConversationalOnboardingPermissionStatus as legacyAppMainBuwUpperIExport,
+} from "../../../onboarding/conversational-onboarding-workflow-state";
+
+export {
+  FileAttachmentPill as legacyAppMainBuwUpperLLowerIExport,
+  SelectedTextAttachmentPill as legacyAppMainBuwUpperMLowerIExport,
+} from "../../../composer/user-message-attachment-pills";
+
+export {
   ThreadRow,
   projectGroupRepositoryDataSignal,
   initThreadRowRuntimeChunk,
@@ -40,7 +54,6 @@ export {
   Gr as legacyAppMainBuwUpperGLowerRExport,
   Gs as legacyAppMainBuwUpperGLowerSExport,
   Gt as legacyAppMainBuwUpperGLowerTExport,
-  Gu as legacyAppMainBuwUpperGLowerUExport,
   Gx as legacyAppMainBuwUpperGLowerXExport,
   Gy as legacyAppMainBuwUpperGLowerYExport,
   H as legacyAppMainBuwUpperHExport,
@@ -64,7 +77,6 @@ export {
   Hv as threadRowStatusSignal,
   Hx as legacyAppMainBuwUpperHLowerXExport,
   Hy as legacyAppMainBuwUpperHLowerYExport,
-  I as legacyAppMainBuwUpperIExport,
   IC as legacyAppMainBuwUpperIUpperCExport,
   IS as legacyAppMainBuwUpperIUpperSExport,
   Ia as legacyAppMainBuwUpperILowerAExport,
@@ -123,7 +135,6 @@ export {
   Kr as legacyAppMainBuwUpperKLowerRExport,
   Ks as legacyAppMainBuwUpperKLowerSExport,
   Kt as legacyAppMainBuwUpperKLowerTExport,
-  Ku as legacyAppMainBuwUpperKLowerUExport,
   Kx as legacyAppMainBuwUpperKLowerXExport,
   Ky as legacyAppMainBuwUpperKLowerYExport,
   L as legacyAppMainBuwUpperLExport,
@@ -137,7 +148,6 @@ export {
   Lf as legacyAppMainBuwUpperLLowerFExport,
   Lg as legacyAppMainBuwUpperLLowerGExport,
   Lh as legacyAppMainBuwUpperLLowerHExport,
-  Li as legacyAppMainBuwUpperLLowerIExport,
   Ll as legacyAppMainBuwUpperLLowerLExport,
   Lm as legacyAppMainBuwUpperLLowerMExport,
   Ln as legacyAppMainBuwUpperLLowerNExport,
@@ -161,7 +171,6 @@ export {
   Mf as legacyAppMainBuwUpperMLowerFExport,
   Mg as legacyAppMainBuwUpperMLowerGExport,
   Mh as legacyAppMainBuwUpperMLowerHExport,
-  Mi as legacyAppMainBuwUpperMLowerIExport,
   Ml as legacyAppMainBuwUpperMLowerLExport,
   Mm as legacyAppMainBuwUpperMLowerMExport,
   Mn as legacyAppMainBuwUpperMLowerNExport,

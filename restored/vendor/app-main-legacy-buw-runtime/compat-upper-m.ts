@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase M compatibility aliases for the legacy app-main/onboarding producer.
+export {
+  SelectedTextAttachmentPill as appMainCurrentCompatSlotUpperMLowerI,
+} from "../../composer/user-message-attachment-pills";
+
 export { initSidebarRowPrimitivesChunk } from "../app-main-current-runtime";
 
 export {
@@ -13,7 +17,6 @@ export {
   Mf as appMainCurrentCompatSlotUpperMLowerF,
   Mg as appMainCurrentCompatSlotUpperMLowerG,
   Mh as appMainCurrentCompatSlotUpperMLowerH,
-  Mi as appMainCurrentCompatSlotUpperMLowerI,
   Ml as appMainCurrentCompatSlotUpperMLowerL,
   Mm as appMainCurrentCompatSlotUpperMLowerM,
   Mn as appMainCurrentCompatSlotUpperMLowerN,

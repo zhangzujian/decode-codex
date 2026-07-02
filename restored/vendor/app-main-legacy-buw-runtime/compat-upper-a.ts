@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase A compatibility aliases for the legacy app-main/onboarding producer.
+export {
+  ComposerContextButton as appMainCurrentCompatSlotUpperAUpperC,
+} from "../../features/use-dictation/context-button";
+
 export { GlobeIcon } from "../app-main-current-runtime";
 
 export { focusAreaStateKey } from "../../conversations/fork-conversation-panel-state-deps";
@@ -11,7 +15,6 @@ export {
   Aa as appMainCurrentCompatSlotUpperALowerA,
   Ab as appMainCurrentCompatSlotUpperALowerB,
   Ac as appMainCurrentCompatSlotUpperALowerC,
-  AC as appMainCurrentCompatSlotUpperAUpperC,
   Ad as appMainCurrentCompatSlotUpperALowerD,
   Af as appMainCurrentCompatSlotUpperALowerF,
   Ag as appMainCurrentCompatSlotUpperALowerG,

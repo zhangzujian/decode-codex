@@ -1,5 +1,21 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-a-f.
+export {
+  useDictation as legacyAppMainBuwLowerAUpperCExport,
+} from "../../../features/use-dictation/use-dictation";
+
+export {
+  useRecordingWaveform as legacyAppMainBuwLowerCUpperCExport,
+} from "../../../utils/use-recording-waveform/use-recording-waveform";
+
+export {
+  formatHookEventName as legacyAppMainBuwLowerELowerAExport,
+} from "../../../settings/hooks-settings-copy";
+
+export {
+  cleanupDictationTranscript as legacyAppMainBuwLowerFUpperCExport,
+} from "../../../utils/transcribe-audio/responses-cleanup";
+
 export { areArraysEqual } from "../../../utils/are-arrays-equal";
 
 export {
@@ -34,7 +50,6 @@ export { openThreadReviewSidePanelTab } from "../../../app-shell/thread-side-pan
 
 export {
   a as legacyAppMainBuwLowerAExport,
-  aC as legacyAppMainBuwLowerAUpperCExport,
   aS as legacyAppMainBuwLowerAUpperSExport,
   a_ as legacyAppMainBuwLowerAUnderscoreExport,
   aa as legacyAppMainBuwLowerALowerAExport,
@@ -77,7 +92,6 @@ export {
   bx as ThreadRowBranchLabel,
   by as legacyAppMainBuwLowerBLowerYExport,
   c as legacyAppMainBuwLowerCExport,
-  cC as legacyAppMainBuwLowerCUpperCExport,
   cS as legacyAppMainBuwLowerCUpperSExport,
   c_ as legacyAppMainBuwLowerCUnderscoreExport,
   ca as legacyAppMainBuwLowerCLowerAExport,
@@ -119,7 +133,6 @@ export {
   dy as legacyAppMainBuwLowerDLowerYExport,
   eS as legacyAppMainBuwLowerEUpperSExport,
   e_ as legacyAppMainBuwLowerEUnderscoreExport,
-  ea as legacyAppMainBuwLowerELowerAExport,
   eb as legacyAppMainBuwLowerELowerBExport,
   ec as legacyAppMainBuwLowerELowerCExport,
   ed as legacyAppMainBuwLowerELowerDExport,
@@ -138,7 +151,6 @@ export {
   ex as legacyAppMainBuwLowerELowerXExport,
   ey as legacyAppMainBuwLowerELowerYExport,
   f as legacyAppMainBuwLowerFExport,
-  fC as legacyAppMainBuwLowerFUpperCExport,
   fS as legacyAppMainBuwLowerFUpperSExport,
   f_ as legacyAppMainBuwLowerFUnderscoreExport,
   fa as legacyAppMainBuwLowerFLowerAExport,

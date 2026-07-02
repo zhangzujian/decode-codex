@@ -1,6 +1,22 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-a-f.
 export {
+  ComposerContextButton as legacyAppMainBuwUpperAUpperCExport,
+} from "../../../features/use-dictation/context-button";
+
+export {
+  countCommentsByFilePath as legacyAppMainBuwUpperBLowerUExport,
+} from "../../../review/review-comment-utils";
+
+export {
+  DictationRecordingFooter as legacyAppMainBuwUpperCUpperCExport,
+} from "../../../features/use-dictation/recording-footer";
+
+export {
+  CommentAttachmentPill as legacyAppMainBuwUpperFLowerIExport,
+} from "../../../composer/user-message-attachment-pills";
+
+export {
   GlobeIcon,
   ArchiveMenuItem,
   UltraFastServiceTierIcon,
@@ -32,7 +48,6 @@ export { Primitive } from "../../../runtime/app-main-new-thread-runtime";
 
 export {
   A as legacyAppMainBuwUpperAExport,
-  AC as legacyAppMainBuwUpperAUpperCExport,
   Aa as legacyAppMainBuwUpperALowerAExport,
   Ab as legacyAppMainBuwUpperALowerBExport,
   Ac as legacyAppMainBuwUpperALowerCExport,
@@ -68,12 +83,10 @@ export {
   Bp as legacyAppMainBuwUpperBLowerPExport,
   Bs as legacyAppMainBuwUpperBLowerSExport,
   Bt as legacyAppMainBuwUpperBLowerTExport,
-  Bu as legacyAppMainBuwUpperBLowerUExport,
   Bv as legacyAppMainBuwUpperBLowerVExport,
   Bx as legacyAppMainBuwUpperBLowerXExport,
   By as legacyAppMainBuwUpperBLowerYExport,
   C as legacyAppMainBuwUpperCExport,
-  CC as legacyAppMainBuwUpperCUpperCExport,
   CS as legacyAppMainBuwUpperCUpperSExport,
   Ca as legacyAppMainBuwUpperCLowerAExport,
   Cb as legacyAppMainBuwUpperCLowerBExport,
@@ -144,7 +157,6 @@ export {
   Fc as legacyAppMainBuwUpperFLowerCExport,
   Fd as legacyAppMainBuwUpperFLowerDExport,
   Fh as initPendingWorktreeComposerRuntimeChunk,
-  Fi as legacyAppMainBuwUpperFLowerIExport,
   Fl as legacyAppMainBuwUpperFLowerLExport,
   Fm as legacyAppMainBuwUpperFLowerMExport,
   Fn as legacyAppMainBuwUpperFLowerNExport,

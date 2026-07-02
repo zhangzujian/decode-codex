@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase T compatibility aliases for the legacy app-main/onboarding producer.
+export {
+  ComposerFooterRoot as appMainCurrentCompatSlotUpperTUpperC,
+} from "../../composer/composer-footer";
+
 export { registerForkedConversation } from "../app-main-current-runtime";
 
 export { isTerminalScrolledToBottom } from "../../runtime/window-chrome-runtime";
@@ -11,7 +15,6 @@ export {
   Ta as appMainCurrentCompatSlotUpperTLowerA,
   Tb as appMainCurrentCompatSlotUpperTLowerB,
   Tc as appMainCurrentCompatSlotUpperTLowerC,
-  TC as appMainCurrentCompatSlotUpperTUpperC,
   Td as appMainCurrentCompatSlotUpperTLowerD,
   Tf as appMainCurrentCompatSlotUpperTLowerF,
   Th as appMainCurrentCompatSlotUpperTLowerH,
