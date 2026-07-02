@@ -183,49 +183,53 @@ a **bare re-export shim** (`make-facade.ts <chunk> --reexport <specifier>`), not
 `any`-facade — `boundaries/highlight-js-core.ts` is the model. The map seen in this
 repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 
-| Boundary file (chunk)                                                    | npm specifier                                                             | notes                                                           |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| `lodash.ts` (`isEqual-*`)                                                | `lodash`                                                                  | named/star re-export                                            |
-| `lodash-current-runtime.ts` (`lodash-*`)                                 | `lodash`                                                                  | current aggregate aliases; named re-export shim                 |
-| `lodash-merge-runtime.ts` (`merge-jSBXKSH5`)                             | `lodash/merge`                                                            | current Lodash merge helper chunk; npm-backed alias shim        |
-| `react-router.ts` (`chunk-LFPYN7LY-*`)                                   | `react-router`                                                            |                                                                 |
-| `cmdk.tsx` (`dist-*`)                                                    | `cmdk`                                                                    | command palette primitives                                      |
-| `tanstack-react-form.ts` (`esm-*`)                                       | `@tanstack/react-form`                                                    | form hook wrapper                                               |
-| `d3-axis.ts` (`axis-BWiM9Kg7`)                                           | `d3-axis` + `d3-scale` + `d3-time` + `d3-time-format` + `d3-interpolate`  | legacy Gantt axis/time aliases                                  |
-| `d3-axis-current-runtime.ts` (`src-*`)                                   | `d3-axis` + `d3-selection`                                                | axis/selection exports; generic `src` basename                  |
-| `d3-hierarchy.ts` (`src-BhkLFyc4`)                                       | `d3-hierarchy` + `d3-scale-chromatic`                                     | hierarchy/treemap helpers and color schemes for Mermaid         |
-| `d3-hierarchy-treemap.ts` (`treemap-*`)                                  | `d3-hierarchy`                                                            | legacy treemap helper aliases                                   |
-| `d3-array-min.ts` (`min-*`)                                              | `d3-array`                                                                | min/max aliases for Mermaid Gantt helpers                       |
-| `d3-format-default-locale.ts` (`defaultLocale-*`)                        | `d3-format`                                                               | format/default-locale aliases; keep only tiny exponent wrapper  |
-| `d3-path.ts` (`path-*`)                                                  | `d3-path`                                                                 | path builder helper aliases; keep only tiny legacy wrappers     |
-| `d3-tableau10.ts` (`Tableau10-*`)                                        | `d3-scale-chromatic`                                                      | Tableau10 palette alias                                         |
-| `d3-sankey.ts` (`src-6yFswxVy`)                                          | `d3-sankey`                                                               | Sankey layout exports for Mermaid                               |
-| `d3-sankey-link-horizontal.ts` (`sankeyLinkHorizontal-*`)                | `d3-sankey`                                                               | legacy Sankey helper aliases                                    |
-| `d3-shape-*.ts` (`arc-*`, `line-*`, `pie-*`, `step-*`, `monotone-*`)     | `d3-shape`                                                                | Mermaid arc/line/pie/stack/curve helpers and legacy aliases     |
-| `cytoscape-runtime.ts` (`cytoscape.esm-*`)                               | `cytoscape`                                                               | pin to bundled Cytoscape runtime version                        |
-| `cytoscape-fcose.ts` (`cytoscape-fcose-*`)                               | `cytoscape-fcose`                                                         | layout plugin loader                                            |
-| `cytoscape-cose-bilkent.ts` (`cytoscape-cose-bilkent-*`)                 | `cytoscape-cose-bilkent`                                                  | layout plugin loader; add a local module declaration if needed  |
-| `react-dom-client.ts` (`client-*`)                                       | `react-dom/client`                                                        | client root loader/re-export shim                               |
-| `formatjs.ts` (`lib-BWT6A3Q0`)                                           | `react-intl`                                                              | consumers import `useIntl`/`FormattedMessage`                   |
-| `react-is-runtime.ts`                                                    | `react-is`                                                                | React companion package; keep loader shape if needed            |
-| `react-style-singleton.ts` (`react-style-singleton-*` / API fingerprint) | `react-style-singleton`                                                   | style singleton helpers; package ships its own types            |
-| `use-sync-external-store-*.ts`                                           | `use-sync-external-store`                                                 | `shim/with-selector` selector helper                            |
-| `react-colorful.tsx` (`dist-*`)                                          | `react-colorful`                                                          | preserve `Dist` as `HexColorPicker` alias                       |
-| `react-colorful-hex-picker.ts` (`app-initial~…`)                         | `react-colorful`                                                          | current HexColorPicker chunk shim                               |
-| `dotlottie-react.tsx` (`browser-*`)                                      | `@lottiefiles/dotlottie-react`                                            | pin version to the bundled `@lottiefiles/dotlottie-web` runtime |
-| `dayjs-core-alt.ts` (`chunk-AGHRB4JF-*`)                                 | `dayjs`                                                                   | keep small typed Mermaid logger/name helper wrapper             |
-| `katex.ts` (`katex-*`)                                                   | `katex`                                                                   | pin to bundled KaTeX version; preserve internal alias exports   |
-| `roughjs.ts` (`rough.esm-*`)                                             | `roughjs`                                                                 | RoughJS generator facade; use package default export            |
-| `jotai-runtime.ts` (`jotai-react-*`)                                     | `jotai`                                                                   | atom/store hooks; keep a thin app-facing alias shim only        |
-| `dnd-kit-*.ts` (`core.esm-*`, etc.)                                      | `@dnd-kit/*`                                                              | core/sortable/utilities re-export shims                         |
-| `framer-motion-single-value.ts` (`single-value-*`)                       | `framer-motion`                                                           | MotionValue/motionValue alias shim                              |
-| `framer-motion-animate-sequence.ts` (`app-shell-state-*`)                | `framer-motion`                                                           | animate/createScopedAnimate alias shim                          |
-| `markdown-ast.ts` (`lib-CqEvD6Nn`)                                       | `mdast-util-*`                                                            | confirm the exact util                                          |
-| `parse-patch-files.ts` (`parsePatchFiles-*`)                             | `@pierre/diffs`                                                           | **forked** — see Pierre note; keep wrapper if it diverges       |
-| `src.ts` (`src-*`)                                                       | `zod`                                                                     | verify it is stock Zod, not a fork                              |
-| `segment-analytics.ts` (`pkg-*`, `esm-Bs7-NtHW`)                         | `@segment/analytics-next`                                                 | Segment browser SDK + analytics-core compatibility aliases      |
-| `segment-middleware.ts` (`middleware-BDgBoOJW` / `middleware-CcPovR3s`)  | `@segment/analytics-next` + `@segment/analytics-core` + `@segment/facade` | Segment context, middleware, and facade compatibility aliases   |
-| `radix-*.ts` (`dist-*`, `Combination-*`)                                 | `@radix-ui/react-*`                                                       | per-primitive; **may be forked**                                |
+| Boundary file (chunk)                                                     | npm specifier                                                             | notes                                                           |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `lodash.ts` (`isEqual-*`)                                                 | `lodash`                                                                  | named/star re-export                                            |
+| `lodash-current-runtime.ts` (`lodash-*`)                                  | `lodash`                                                                  | current aggregate aliases; named re-export shim                 |
+| `lodash-merge-runtime.ts` (`merge-jSBXKSH5`)                              | `lodash/merge`                                                            | current Lodash merge helper chunk; npm-backed alias shim        |
+| `react-router.ts` (`chunk-LFPYN7LY-*`)                                    | `react-router`                                                            |                                                                 |
+| `cmdk.tsx` (`dist-*`)                                                     | `cmdk`                                                                    | command palette primitives                                      |
+| `tanstack-react-form.ts` (`esm-*`)                                        | `@tanstack/react-form`                                                    | form hook wrapper                                               |
+| `d3-axis.ts` (`axis-BWiM9Kg7`)                                            | `d3-axis` + `d3-scale` + `d3-time` + `d3-time-format` + `d3-interpolate`  | legacy Gantt axis/time aliases                                  |
+| `d3-axis-current-runtime.ts` (`src-*`)                                    | `d3-axis` + `d3-selection`                                                | axis/selection exports; generic `src` basename                  |
+| `d3-hierarchy.ts` (`src-BhkLFyc4`)                                        | `d3-hierarchy` + `d3-scale-chromatic`                                     | hierarchy/treemap helpers and color schemes for Mermaid         |
+| `d3-hierarchy-treemap.ts` (`treemap-*`)                                   | `d3-hierarchy`                                                            | legacy treemap helper aliases                                   |
+| `d3-array-min.ts` (`min-*`)                                               | `d3-array`                                                                | min/max aliases for Mermaid Gantt helpers                       |
+| `d3-format-default-locale.ts` (`defaultLocale-*`)                         | `d3-format`                                                               | format/default-locale aliases; keep only tiny exponent wrapper  |
+| `d3-path.ts` (`path-*`)                                                   | `d3-path`                                                                 | path builder helper aliases; keep only tiny legacy wrappers     |
+| `d3-tableau10.ts` (`Tableau10-*`)                                         | `d3-scale-chromatic`                                                      | Tableau10 palette alias                                         |
+| `d3-scale-band.ts` (`band-*`)                                             | `d3-array` + `d3-scale`                                                   | band/point scale and range aliases                              |
+| `d3-scale-linear.ts` (`linear-*`)                                         | `d3-array` + `d3-scale`                                                   | linear scale plus tick/bisector compatibility aliases           |
+| `d3-interpolate-string.ts` (`string-*`)                                   | `d3-color` + `d3-interpolate`                                             | color parser/RGB and number/string/RGB interpolator aliases     |
+| `d3-interpolate-transform.ts` (`interpolateTransformCss` API fingerprint) | `d3-interpolate`                                                          | transform interpolation aliases                                 |
+| `d3-sankey.ts` (`src-6yFswxVy`)                                           | `d3-sankey`                                                               | Sankey layout exports for Mermaid                               |
+| `d3-sankey-link-horizontal.ts` (`sankeyLinkHorizontal-*`)                 | `d3-sankey`                                                               | legacy Sankey helper aliases                                    |
+| `d3-shape-*.ts` (`arc-*`, `line-*`, `pie-*`, `step-*`, `monotone-*`)      | `d3-shape`                                                                | Mermaid arc/line/pie/stack/curve helpers and legacy aliases     |
+| `cytoscape-runtime.ts` (`cytoscape.esm-*`)                                | `cytoscape`                                                               | pin to bundled Cytoscape runtime version                        |
+| `cytoscape-fcose.ts` (`cytoscape-fcose-*`)                                | `cytoscape-fcose`                                                         | layout plugin loader                                            |
+| `cytoscape-cose-bilkent.ts` (`cytoscape-cose-bilkent-*`)                  | `cytoscape-cose-bilkent`                                                  | layout plugin loader; add a local module declaration if needed  |
+| `react-dom-client.ts` (`client-*`)                                        | `react-dom/client`                                                        | client root loader/re-export shim                               |
+| `formatjs.ts` (`lib-BWT6A3Q0`)                                            | `react-intl`                                                              | consumers import `useIntl`/`FormattedMessage`                   |
+| `react-is-runtime.ts`                                                     | `react-is`                                                                | React companion package; keep loader shape if needed            |
+| `react-style-singleton.ts` (`react-style-singleton-*` / API fingerprint)  | `react-style-singleton`                                                   | style singleton helpers; package ships its own types            |
+| `use-sync-external-store-*.ts`                                            | `use-sync-external-store`                                                 | `shim/with-selector` selector helper                            |
+| `react-colorful.tsx` (`dist-*`)                                           | `react-colorful`                                                          | preserve `Dist` as `HexColorPicker` alias                       |
+| `react-colorful-hex-picker.ts` (`app-initial~…`)                          | `react-colorful`                                                          | current HexColorPicker chunk shim                               |
+| `dotlottie-react.tsx` (`browser-*`)                                       | `@lottiefiles/dotlottie-react`                                            | pin version to the bundled `@lottiefiles/dotlottie-web` runtime |
+| `dayjs-core-alt.ts` (`chunk-AGHRB4JF-*`)                                  | `dayjs`                                                                   | keep small typed Mermaid logger/name helper wrapper             |
+| `katex.ts` (`katex-*`)                                                    | `katex`                                                                   | pin to bundled KaTeX version; preserve internal alias exports   |
+| `roughjs.ts` (`rough.esm-*`)                                              | `roughjs`                                                                 | RoughJS generator facade; use package default export            |
+| `jotai-runtime.ts` (`jotai-react-*`)                                      | `jotai`                                                                   | atom/store hooks; keep a thin app-facing alias shim only        |
+| `dnd-kit-*.ts` (`core.esm-*`, etc.)                                       | `@dnd-kit/*`                                                              | core/sortable/utilities re-export shims                         |
+| `framer-motion-single-value.ts` (`single-value-*`)                        | `framer-motion`                                                           | MotionValue/motionValue alias shim                              |
+| `framer-motion-animate-sequence.ts` (`app-shell-state-*`)                 | `framer-motion`                                                           | animate/createScopedAnimate alias shim                          |
+| `markdown-ast.ts` (`lib-CqEvD6Nn`)                                        | `mdast-util-*`                                                            | confirm the exact util                                          |
+| `parse-patch-files.ts` (`parsePatchFiles-*`)                              | `@pierre/diffs`                                                           | **forked** — see Pierre note; keep wrapper if it diverges       |
+| `src.ts` (`src-*`)                                                        | `zod`                                                                     | verify it is stock Zod, not a fork                              |
+| `segment-analytics.ts` (`pkg-*`, `esm-Bs7-NtHW`)                          | `@segment/analytics-next`                                                 | Segment browser SDK + analytics-core compatibility aliases      |
+| `segment-middleware.ts` (`middleware-BDgBoOJW` / `middleware-CcPovR3s`)   | `@segment/analytics-next` + `@segment/analytics-core` + `@segment/facade` | Segment context, middleware, and facade compatibility aliases   |
+| `radix-*.ts` (`dist-*`, `Combination-*`)                                  | `@radix-ui/react-*`                                                       | per-primitive; **may be forked**                                |
 
 **Fork caveat:** `@pierre/*`, `@radix-ui/*`, and `zod`(`src`) may be Codex forks, not
 stock npm. Before swapping to a bare specifier, confirm the export surface matches
@@ -266,19 +270,25 @@ be re-exported from `react-style-singleton`, not reimplemented.
 For D3/Mermaid helpers, `src-BhkLFyc4` is `d3-hierarchy` plus
 `d3-scale-chromatic`, `src-6yFswxVy` is `d3-sankey`, and legacy
 `treemap-*` / `sankeyLinkHorizontal-*` chunks are the same upstream public
-helpers under minified aliases. Utility chunks are also stock D3 packages:
+helpers under minified aliases. Utility, scale, and interpolation chunks are
+also stock D3 packages:
 `min-*` → `d3-array`, `defaultLocale-*` → `d3-format`, `path-*` → `d3-path`,
-and `Tableau10-*` → `d3-scale-chromatic`. The D3 shape helper chunks (`arc-*`,
-`line-*`, `pie-*`, `step-*`, `monotone-*`, plus the semantic `d3-shape-*`
-public files) are `d3-shape`-backed surfaces; preserve legacy aliases by
+`Tableau10-*` → `d3-scale-chromatic`, `band-*` / `linear-*` → `d3-scale` plus
+`d3-array`, and `string-*` → `d3-color` plus `d3-interpolate`.
+`interpolateTransformCss`/`interpolateTransformSvg` exported from a vendor file
+is a `d3-interpolate` API fingerprint even when the provenance chunk is a larger
+app bundle. The D3 shape helper chunks (`arc-*`, `line-*`, `pie-*`, `step-*`,
+`monotone-*`, plus the semantic `d3-shape-*` public files) are
+`d3-shape`-backed surfaces; preserve legacy aliases by
 re-exporting real package exports such as `curveBasis`, `curveCardinal`,
 `curveCatmullRom`, `curveNatural`, and `curveStep*`. Mermaid's legacy
 `curveBumpX`/`curveBumpY` aliases are the exception: `d3-shape@3.2.0` does not
 expose them, so keep only a small typed wrapper under the npm-backed shim for
 those two curve factories instead of reimplementing the whole shape bundle.
-Likewise, keep only tiny typed wrappers for D3 utility aliases the public
-package does not expose directly (for example `defaultLocaleA` or a legacy path
-digits helper); the package APIs themselves still come from npm re-exports.
+Likewise, keep only tiny typed wrappers for D3 aliases the public package does
+not expose directly (for example `defaultLocaleA`, a legacy path digits helper,
+or the non-public D3 continuous-scale/color interpolation helper aliases); the
+package APIs themselves still come from npm re-exports.
 RoughJS has both provenance and API-fingerprint coverage: `rough.esm-*` chunks
 or vendor files exporting `roughjs` plus `canvas`/`svg`/`generator` must resolve
 to the `roughjs` package.
