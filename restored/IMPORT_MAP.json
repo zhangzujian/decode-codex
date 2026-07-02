@@ -26738,7 +26738,7 @@
         "zt": "currentAppInitialSharedLowerZLowerTExport"
       },
       "status": "done",
-      "note": "Current ref current-app-initial shared runtime restored as a semantic/stable alias layer over vendor/current-app-initial-bnlvjk3w-shared-bundle.ts. Hand-recovered names cover route builders, scope/query/mutation hooks, scoped signal families, settings atoms, and ambient store helpers; unresolved exact-hash exports use stable currentAppInitialShared...Export names instead of legacy CompatSlot names.",
+      "note": "Current ref current-app-initial shared runtime restored as a semantic/stable alias layer over runtime/current-app-initial/current-app-initial-shared-backing.ts, with vendor/current-app-initial-bnlvjk3w-shared-bundle.ts retained as a compatibility re-export. Hand-recovered names cover route builders, scope/query/mutation hooks, scoped signal families, settings atoms, and ambient store helpers; unresolved exact-hash exports use stable currentAppInitialShared...Export names instead of legacy CompatSlot names.",
       "lastUpdated": "2026-07-01T16:00:50.502Z",
       "migratedFrom": "app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~automations-page~th~bnlvjk3w-CKQxrGhJ",
       "stage3Accepted": true,
