@@ -2,6 +2,13 @@
 // Legacy app-main current bundle aliases that remain sourced from the current bundle.
 export { areArraysEqual } from "../../utils/are-arrays-equal";
 export { summarizeParsedDiffs } from "../../review/summarize-parsed-diffs";
+export {
+  getPullRequestMergeVisualState,
+  getPullRequestVisualState,
+} from "../../utils/pull-request-visual-state";
+export {
+  openReviewTabForConversation as openThreadLastTurnReviewSidePanelTab,
+} from "../../review/review-side-panel-tab-commands";
 
 export {
   $c as initFileDiffLayoutRuntime,
@@ -52,7 +59,6 @@ export {
   Yd as ThreadRowHoverActions,
   _l as openThreadBrowserSidePanelTabWithPendingState,
   al as SidebarRowMenuSeparator,
-  bl as openThreadReviewSidePanelTab,
   cf as openThreadMcpAppSidePanelTab,
   cm as ThreadRowEnvironmentMeta,
   cp as ThreadRowTimestamp,
@@ -82,8 +88,6 @@ export {
   sm as SidebarRowContextMenuItem,
   ud as initExternalAgentImportStatusIconsChunk,
   vl as openThreadBrowserSidePanelTabWithoutAnimation,
-  xl as openThreadTimelineSidePanel,
   xo as initForkConversationToastRuntime,
-  yl as openThreadLastTurnReviewSidePanelTab,
   zn as SidebarRowRuntime,
 } from "../app-main-current-cgnc-bundle";

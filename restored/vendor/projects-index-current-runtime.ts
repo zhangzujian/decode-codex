@@ -356,7 +356,6 @@ import {
   initDragIconChunk as xa,
   openThreadBrowserSidePanelTabWithPendingState as Sa,
   ClockIcon as Ca,
-  openThreadReviewSidePanelTab as wa,
   DragIcon as Ta,
   openThreadBrowserSidePanelTab as Ea,
   requestUserInputAutoResolutionState as Da,
@@ -372,8 +371,11 @@ import {
   pinnedThreadsQuery as La,
   PullRequestStatusTooltip as Ra,
   PullRequestStatusIcon as za,
-  openThreadTimelineSidePanel as Ba,
 } from "./app-main-current-runtime";
+import {
+  getPullRequestMergeVisualState as Ba,
+  getPullRequestVisualState as wa,
+} from "../utils/pull-request-visual-state";
 import {
   appgenLibraryHotDjo67r4nCompatSlotDollarLowerN as Va,
   appgenLibraryHotDjo67r4nCompatSlotUpperALowerR as Ha,
