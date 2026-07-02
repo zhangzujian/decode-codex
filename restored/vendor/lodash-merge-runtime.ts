@@ -51,6 +51,8 @@ const noopInit: InitFunction = () => {};
 export const initLodashMergeRuntime: InitFunction = noopInit;
 export const initLodashMergeChunk = initLodashMergeRuntime;
 export const __mergeT = initLodashMergeRuntime;
+export const initLodashTypedArrayRuntime: InitFunction = noopInit;
+export const initLodashMemoizeCacheRuntime: InitFunction = noopInit;
 
 export const mergeCt = noopInit;
 export const mergeD = noopInit;
