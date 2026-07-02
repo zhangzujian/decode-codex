@@ -41,6 +41,15 @@ export {
 export {
   parseHttpsUrl as associateBranchWithConversation,
 } from "../../conversations/parse-https-url";
+export {
+  TwoPeopleShieldIcon as openThreadMcpAppSidePanelTab,
+} from "../../icons/two-people-shield-icon";
+export {
+  NotePlusIcon as closeThreadMcpAppSidePanelTab,
+} from "../../icons/note-plus-icon";
+export {
+  FolderOpenIcon as liveMcpAppFrameSignal,
+} from "../../icons/folder-open-icon";
 
 export {
   Ln as AutomationScheduleEditor,
@@ -81,7 +90,6 @@ export {
   Yd as ThreadRowHoverActions,
   _l as openThreadBrowserSidePanelTabWithPendingState,
   al as SidebarRowMenuSeparator,
-  cf as openThreadMcpAppSidePanelTab,
   cm as ThreadRowEnvironmentMeta,
   cp as ThreadRowTimestamp,
   dl as SidebarRowDragHandle,
@@ -97,9 +105,7 @@ export {
   ki as SidebarRowIcon,
   ml as openSessionSandboxSidePanel,
   mo as initForkConversationMessagesChunk,
-  nf as liveMcpAppFrameSignal,
   nm as SidebarRowHoverCard,
-  of as closeThreadMcpAppSidePanelTab,
   pl as initThreadSidePanelTabsChunk,
   rl as SidebarRowKeyboardScope,
   sf as getThreadMcpAppSidePanelTabId,
