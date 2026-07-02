@@ -42150,13 +42150,13 @@
         "z": "popcornElectronSurfaceStyleLowerZExport"
       },
       "status": "done",
-      "note": "Current ref popcorn electron surface style runtime restored as a stable alias layer over vendor/popcorn-electron-surface-style-current-bundle.ts. Existing CompatSlot exports are retained for local consumers; import map now points at popcornElectronSurfaceStyle...Export names.",
-      "lastUpdated": "2026-07-01T16:04:13.395Z",
+      "note": "Current ref popcorn electron surface style runtime restored as a stable alias layer over vendor/popcorn-electron-surface-style-runtime.ts. Existing CompatSlot exports are retained for local consumers; backing file was moved out of the current-bundle backlog.",
+      "lastUpdated": "2026-07-02T01:43:57.000Z",
       "migratedFrom": "popcorn-electron-surface-style-jyyIi7EC",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T22:05:41.902Z",
-      "stage3Review": "Host self-review: re-derived the current export table from auto-renamed.js, verified backing bundle import rewrites against IMPORT_MAP dependencies, and passed quality-gate --vendored on the backing bundle plus quality-gate --check-format on the compatibility runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export surface over a restored-dependency backing bundle; full semantic splitting of the large Popcorn electron surface implementation remains a later cleanup."
+      "stage3Review": "Host self-review: preserved the current export table, moved the backing implementation to vendor/popcorn-electron-surface-style-runtime.ts, updated runtime facade imports, and verified no current-bundle references remain.",
+      "stage3Note": "Accepted as a current-ref compatibility export surface over the restored Popcorn electron surface runtime; full semantic splitting of the large implementation remains a later cleanup."
     },
     "PopcornElectronDocumentPanel-BJYIlWEb": {
       "restored": "runtime/current-app-initial/popcorn-electron-document-panel-current-runtime.ts",
