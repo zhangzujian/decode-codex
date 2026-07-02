@@ -37,6 +37,11 @@ export {
 } from "../../../find/thread-find-atoms";
 
 export {
+  computePointerVelocity,
+  computePointerVelocity as legacyAppMainBuwUpperALowerDExport,
+} from "../../../runtime/pointer-velocity-signals";
+
+export {
   initPrimitiveRuntime as initPrimitiveRuntimeChunk,
   Primitive,
 } from "../../radix-primitive-helpers";
@@ -52,7 +57,6 @@ export {
   Aa as legacyAppMainBuwUpperALowerAExport,
   Ab as legacyAppMainBuwUpperALowerBExport,
   Ac as legacyAppMainBuwUpperALowerCExport,
-  Ad as legacyAppMainBuwUpperALowerDExport,
   Af as legacyAppMainBuwUpperALowerFExport,
   Ag as legacyAppMainBuwUpperALowerGExport,
   Ah as legacyAppMainBuwUpperALowerHExport,
