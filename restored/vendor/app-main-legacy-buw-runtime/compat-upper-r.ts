@@ -6,10 +6,10 @@ export {
   initThreadFindStateRuntime,
   currentRouteHostIdSignal,
 } from "../../runtime/window-chrome-runtime";
+export { appIntlSignal as intlShapeSignal } from "../../utils/app-intl-signal";
 
 export {
   R as appMainCurrentCompatSlotUpperR,
-  R_ as intlShapeSignal,
   Ra as appMainCurrentCompatSlotUpperRLowerA,
   Rb as appMainCurrentCompatSlotUpperRLowerB,
   Rc as appMainCurrentCompatSlotUpperRLowerC,

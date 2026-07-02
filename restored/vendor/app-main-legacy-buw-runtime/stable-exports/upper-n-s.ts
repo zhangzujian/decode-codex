@@ -38,6 +38,7 @@ export {
   findOpenAtom,
   emptyFindBrowserStatus,
 } from "../../../find/thread-find-atoms";
+export { appIntlSignal as intlShapeSignal } from "../../../utils/app-intl-signal";
 
 export { createSlotComponent } from "../../../runtime/app-main-new-thread-runtime";
 
@@ -123,7 +124,6 @@ export {
   R as legacyAppMainBuwUpperRExport,
   RC as legacyAppMainBuwUpperRUpperCExport,
   RS as legacyAppMainBuwUpperRUpperSExport,
-  R_ as intlShapeSignal,
   Ra as legacyAppMainBuwUpperRLowerAExport,
   Rb as legacyAppMainBuwUpperRLowerBExport,
   Rc as legacyAppMainBuwUpperRLowerCExport,
