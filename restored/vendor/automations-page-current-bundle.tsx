@@ -258,6 +258,12 @@ import {
   resolveHeartbeatPermissions,
 } from "../automation/heartbeat-permissions";
 import {
+  buildAutomationDeleteAnalyticsMetadata,
+  filterDeletedAutomation,
+  formatAutomationRelativeTimestamp,
+  parseAutomationRestoreSnapshot,
+} from "../automations/current-automation-helpers";
+import {
   SearchablePageLayout,
   initSearchablePageLayoutChunk,
 } from "../ui/searchable-page-layout";
@@ -3066,10 +3072,10 @@ function automationsPageHelper29({
                   : currentAppInitialSharedMember0459.CODEX_AUTOMATION_FAILURE_REASON_HOST_ERROR,
             },
           );
-          let automationsPageValue430 = automationsPageHelper42(
+          let automationsPageValue430 = parseAutomationRestoreSnapshot(
             automationsPageParam23,
           );
-          automationsPageValue66.current = automationsPageHelper41(
+          automationsPageValue66.current = filterDeletedAutomation(
             automationsPageParam22,
           );
           let automationsPageValue431 =
@@ -3122,7 +3128,7 @@ function automationsPageHelper29({
                 ...(automationsPageValue421 == null
                   ? {}
                   : initUltraFastServiceTierIcon(automationsPageValue421)),
-                ...automationsPageHelper43({
+                ...buildAutomationDeleteAnalyticsMetadata({
                   status: automationsPageParam17.status,
                   success: automationsPageParam17.success,
                 }),
@@ -4188,7 +4194,7 @@ function _a(automationsPageParam1) {
             defaultMessage: "-",
             description: "Fallback label when an automation has not run yet",
           })
-        : automationsPageHelper44({
+        : formatAutomationRelativeTimestamp({
             timestamp: selectedAutomation.lastRunAt,
             intl: automationsPageValue140,
           });
@@ -5106,156 +5112,6 @@ function automationsPageHelper40(automationsPageParam5) {
       {automationsPageValue288}
       {automationsPageValue291}
     </div>
-  );
-}
-function automationsPageHelper41(automationsPageParam92) {
-  return automationsPageParam92.status === "DELETED"
-    ? null
-    : automationsPageParam92;
-}
-function automationsPageHelper42(automationsPageParam37) {
-  if (typeof automationsPageParam37 != "object" || !automationsPageParam37)
-    return null;
-  let automationsPageValue472,
-    automationsPageValue473 = null;
-  if ("previousAutomations" in automationsPageParam37) {
-    let automationsPageValue506 = automationsPageParam37.previousAutomations;
-    typeof automationsPageValue506 == "object" &&
-      automationsPageValue506 &&
-      "items" in automationsPageValue506 &&
-      Array.isArray(automationsPageValue506.items) &&
-      (automationsPageValue472 = {
-        items: automationsPageValue506.items,
-      });
-  }
-  if ("previousDraftStatus" in automationsPageParam37) {
-    let automationsPageValue509 = automationsPageParam37.previousDraftStatus;
-    automationsPageValue509 === "ACTIVE" ||
-    automationsPageValue509 === "PAUSED" ||
-    automationsPageValue509 === "DELETED"
-      ? (automationsPageValue473 = automationsPageValue509)
-      : (automationsPageValue509 ?? (automationsPageValue473 = null));
-  }
-  return automationsPageValue472 == null && automationsPageValue473 == null
-    ? null
-    : {
-        previousAutomations: automationsPageValue472,
-        previousDraftStatus: automationsPageValue473,
-      };
-}
-function automationsPageHelper43({ status, success }) {
-  let automationsPageValue439;
-  if (
-    (status === "deleted"
-      ? (automationsPageValue439 =
-          currentAppInitialSharedMember0690.CODEX_AUTOMATION_DELETE_STATUS_DELETED)
-      : status === "not_found" &&
-        (automationsPageValue439 =
-          currentAppInitialSharedMember0690.CODEX_AUTOMATION_DELETE_STATUS_NOT_FOUND),
-    success || status === "deleted")
-  )
-    return automationsPageValue439 == null
-      ? {}
-      : {
-          deleteStatus: automationsPageValue439,
-        };
-  switch (status) {
-    case "not_found":
-      return {
-        deleteStatus: automationsPageValue439,
-        failureReason:
-          currentAppInitialSharedMember0459.CODEX_AUTOMATION_FAILURE_REASON_MISSING_AUTOMATION,
-      };
-    case "invalid_id":
-      return {
-        failureReason:
-          currentAppInitialSharedMember0459.CODEX_AUTOMATION_FAILURE_REASON_INVALID_ID,
-      };
-    case "store_unavailable":
-      return {
-        failureReason:
-          currentAppInitialSharedMember0459.CODEX_AUTOMATION_FAILURE_REASON_STORAGE_UNAVAILABLE,
-      };
-    case "state_cleanup_failed":
-      return {
-        failureReason:
-          currentAppInitialSharedMember0459.CODEX_AUTOMATION_FAILURE_REASON_STATE_CLEANUP_FAILED,
-      };
-    case "remove_failed":
-      return {
-        failureReason:
-          currentAppInitialSharedMember0459.CODEX_AUTOMATION_FAILURE_REASON_REMOVE_FAILED,
-      };
-  }
-}
-function automationsPageHelper44({ timestamp, intl }) {
-  let automationsPageValue432 = new Date(timestamp),
-    automationsPageValue433 = automationsPageHelper45(
-      automationsPageValue432,
-      new Date(),
-    ),
-    automationsPageValue434 = intl.formatDate(automationsPageValue432, {
-      timeStyle: "short",
-    });
-  return automationsPageValue433 === 0
-    ? intl.formatMessage(
-        {
-          id: "inbox.automations.relativeDate.pastToday",
-          defaultMessage: "Today at {time}",
-          description: "Relative last-run label for a time earlier today",
-        },
-        {
-          time: automationsPageValue434,
-        },
-      )
-    : automationsPageValue433 === -1
-      ? intl.formatMessage(
-          {
-            id: "inbox.automations.relativeDate.yesterday",
-            defaultMessage: "Yesterday at {time}",
-            description: "Relative last-run label for a time yesterday",
-          },
-          {
-            time: automationsPageValue434,
-          },
-        )
-      : automationsPageValue433 < -1 && automationsPageValue433 > -7
-        ? intl.formatMessage(
-            {
-              id: "inbox.automations.relativeDate.pastWeekday",
-              defaultMessage: "{weekday} at {time}",
-              description:
-                "Relative last-run label for a day earlier this week",
-            },
-            {
-              weekday: intl.formatDate(automationsPageValue432, {
-                weekday: "long",
-              }),
-              time: automationsPageValue434,
-            },
-          )
-        : intl.formatDate(automationsPageValue432, {
-            dateStyle: "medium",
-            timeStyle: "short",
-          });
-}
-function automationsPageHelper45(
-  automationsPageParam58,
-  automationsPageParam59,
-) {
-  let automationsPageValue498 = new Date(
-      automationsPageParam58.getFullYear(),
-      automationsPageParam58.getMonth(),
-      automationsPageParam58.getDate(),
-    ),
-    automationsPageValue499 = new Date(
-      automationsPageParam59.getFullYear(),
-      automationsPageParam59.getMonth(),
-      automationsPageParam59.getDate(),
-    );
-  return Math.round(
-    (automationsPageValue498.getTime() - automationsPageValue499.getTime()) /
-      86400000,
   );
 }
 var automationsPageValue44, automationsPageValue45, $, automationsPageValue46;
