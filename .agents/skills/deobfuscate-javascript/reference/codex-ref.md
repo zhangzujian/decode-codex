@@ -316,11 +316,13 @@ heading, composer-project-list init).
 
 The same fingerprint rule applies when draining legacy aggregator barrels: a
 semantic-looking export name is only a hint until the current binding definition
-matches it. In the BUw compatibility bundle, for example, the exported binding
-`Wa` was labeled `pathsMatch` in the legacy map, but the actual definition is a
-React internal stack helper (`e.tag === 22`, `V(qa, ...)`, `B(Ba)`), not a review
-path comparator. Do not route such names to restored modules by name alone; verify
-the binding body first.
+matches it. First resolve the compatibility layer's public alias through the
+bundle tail table (`export { internal as alias }`), then inspect the resulting
+`internal` binding. In the BUw compatibility bundle, for example, the exported
+alias `Wa` was labeled `pathsMatch` in the legacy map, but `Wa` resolves to
+`jnt`, an async thread-handoff helper; it is not a review path comparator. Do not
+route such names to restored modules by name alone; verify the binding body
+first.
 
 ## Aggregator-chunk restore anti-patterns
 
