@@ -557,6 +557,43 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written react-colorful hex picker facades", () => {
+    const source = `
+      // Restored from ref/webview/assets/app-initial~app-main~projects-index-page~appearance-settings~general-settings-BpwP5uUa.js
+      import * as ReactColorfulVendor from "./react-colorful";
+      export const HexColorPicker = ReactColorfulVendor.Dist;
+      export function initReactColorfulHexPickerChunk(): void {}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/react-colorful-hex-picker.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes react-colorful hex picker shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/app-initial~app-main~projects-index-page~appearance-settings~general-settings-BpwP5uUa.js
+      export { HexColorPicker } from "react-colorful";
+      export function initReactColorfulHexPickerChunk(): void {}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/react-colorful-hex-picker.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written dotLottie React vendor bodies", () => {
     const source = `
       // Restored from ref/webview/assets/browser-4rTfxlUZ.js
