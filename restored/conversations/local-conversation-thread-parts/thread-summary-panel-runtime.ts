@@ -45,7 +45,10 @@ import {
   xl as initThreadSummaryPanelSignalsSupportChunkRaw,
   yc as initLocalConversationSummaryPanelSupportChunkRaw,
 } from "../../vendor/profile-page-runtime";
-import { backgroundAgentsSignal } from "../background-subagents-runtime";
+import {
+  backgroundAgentsSignal,
+  initBackgroundSubagentsRuntimeChunk,
+} from "../background-subagent-signals";
 import {
   initLocalConversationRouteRuntime,
   localConversationRouteScope,
@@ -106,6 +109,7 @@ export function initThreadSummaryPanelSectionRuntime(): void {
 }
 
 export function initThreadSummaryPanelModelRuntime(): void {
+  initBackgroundSubagentsRuntimeChunk();
   initThreadSummaryPanelSignalsRuntimeRaw();
   initWorkspaceRouteStateSignalsRaw();
   initProjectSourceOrMcpSignalsRaw();

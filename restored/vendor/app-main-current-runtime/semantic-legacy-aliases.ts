@@ -161,10 +161,11 @@ export {
 } from "../app-main-current-cgnc-bundle";
 
 export {
-  ho as forkConversationMessages,
-  hp as useComposedRefs,
-  mo as initForkConversationMessagesChunk,
-} from "../app-main-current-cgnc-bundle";
+  initBackgroundSubagentsRuntimeChunk as forkConversationMessages,
+  initBackgroundSubagentsRuntimeChunk as initForkConversationMessagesChunk,
+} from "../../conversations/background-subagent-signals";
+
+export { hp as useComposedRefs } from "../app-main-current-cgnc-bundle";
 
 export { AutomationNameInput as ArchiveMenuItem } from "../../automations/automation-name-input";
 export {

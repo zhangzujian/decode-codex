@@ -2,100 +2,21 @@
 // Background subagent membership/status aggregation for conversation UI.
 import { getCachedConversationTurns as getCachedConversationTurnsRaw } from "../runtime/app-host-services-runtime";
 import { normalizeConversationId as normalizeConversationIdValue } from "../boundaries/src-l0hb-mz-p";
-import { cs as backgroundAgentsSignal } from "../vendor/profile-page-runtime";
 import { parseUnifiedDiffFileSummaries } from "../utils/unified-diff-file-summaries";
-import {
-  getSubagentSourceMetadata,
-  type SubagentSourceMetadata,
-} from "./subagent-source-metadata-runtime";
-
-export { backgroundAgentsSignal };
-
-type RecordValue = Record<string, unknown>;
-
-type ConversationTurn = {
-  diff?: unknown;
-  items?: readonly RecordValue[];
-  status?: string | null;
-  turnId?: string | null;
-  turnStartedAtMs?: number | null;
-};
-
-type CachedConversation = {
-  createdAt?: number | null;
-  id: string;
-  resumeState?: unknown;
-  source?: unknown;
-  threadRuntimeStatus?: ThreadRuntimeStatus | null;
-};
-
-type SourceLinkedThread = {
-  agentRole?: string | null;
-  createdAt?: number | string | null;
-  id: string;
-  source?: unknown;
-  status?: ThreadStatus | null;
-};
-
-type ThreadStatus = {
-  type?: string | null;
-};
-
-type ThreadRuntimeStatus = {
-  type?: string | null;
-};
-
-type BackgroundAgentMembership = {
-  conversationId: string;
-  createdAtMs: number | null;
-  displayName: string | null;
-  showInlineActivity: boolean;
-  thread: SourceLinkedThread | null;
-};
-
-type AgentReference = {
-  agentState: RecordValue | null;
-  parentTurnKey: string;
-  spawnModel: unknown;
-  thread: SourceLinkedThread | null;
-  tool: string;
-  usesThreadStatus: boolean;
-};
-
-type ChildConversation = {
-  resumeState?: unknown;
-  source?: unknown;
-  threadRuntimeStatus?: ThreadRuntimeStatus | null;
-  turns: readonly ConversationTurn[];
-};
-
-export type BackgroundAgentDiffStats = {
-  linesAdded: number;
-  linesRemoved: number;
-};
-
-export type BackgroundAgentSummary = {
-  agentRole: string | null;
-  conversationId: string;
-  diffStats: BackgroundAgentDiffStats | null;
-  displayName: string;
-  parentTurnKey: string;
-  showInlineActivity: boolean;
-  spawnModel: unknown;
-  status: "active" | "done" | "waiting";
-  statusSummary: string | null;
-};
-
-export type BuildBackgroundAgentsOptions = {
-  cachedConversations: readonly CachedConversation[];
-  conversationTurns: readonly ConversationTurn[];
-  getChildSource: (conversationId: string) => unknown;
-  getChildTurns: (
-    conversationId: string,
-  ) => readonly ConversationTurn[] | null | undefined;
-  parentConversationId: string;
-  sourceLinkedThreads?: readonly SourceLinkedThread[] | null;
-};
+import { getSubagentSourceMetadata } from "./subagent-source-metadata-runtime";
+import type {
+  AgentReference,
+  BackgroundAgentDiffStats,
+  BackgroundAgentMembership,
+  BackgroundAgentSummary,
+  BuildBackgroundAgentsOptions,
+  CachedConversation,
+  ChildConversation,
+  ConversationTurn,
+  RecordValue,
+  SourceLinkedThread,
+  ThreadStatus,
+} from "./background-agent-types";
 
 export function buildBackgroundAgents({
   cachedConversations,
