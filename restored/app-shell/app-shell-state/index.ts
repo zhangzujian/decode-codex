@@ -97,7 +97,7 @@ const appShellStateExportUAlias = sidebarOpenSignal;
 const appShellStateExportUt = appShellStateImpl.appShellStateUtState;
 const appShellStateExportVAlias = appShellStateImpl.appShellStateVState;
 const ensureBottomPanelLauncherVisibilityDefault =
-  appShellStateImpl.appShellStateVState;
+  appShellStateImpl.ensureBottomPanelLauncherVisibilityDefault;
 const appShellStateDSignal = appShellStateExportDAlias;
 const appShellStateISignal = appShellStateExportIAlias;
 const appShellStateKSignal = appShellStateExportKAlias;

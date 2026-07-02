@@ -23,7 +23,7 @@ const MotionValue = motionRuntime["singleValueK"];
 import { appShellStateMtState } from "./motion-sequence-impl";
 var rightPanelWidthStorageKeyPrefix = `app-shell:right-panel-width:v2`,
   rightPanelReservedWidth = 352;
-function appShellStateLtState(routeTemplate) {
+function getRightPanelWidthStorageKey(routeTemplate) {
   return `${rightPanelWidthStorageKeyPrefix}:${routeTemplate}`;
 }
 function clampRightPanelWidth(
@@ -38,7 +38,7 @@ function clampRightPanelWidth(
     Math.min(resolvedWidth, availableWidth),
   );
 }
-function appShellStateUtState({
+function readStoredRightPanelWidthRatio({
   defaultWidth: defaultWidth,
   mainContentWidth: mainContentWidth,
   storageKey: storageKey,
@@ -46,12 +46,16 @@ function appShellStateUtState({
 }: any): number {
   let storedWidthOrRatio = persistedAtomStoreA(storageKey, null);
   return storedWidthOrRatio == null || !Number.isFinite(storedWidthOrRatio)
-    ? appShellStateFtState(defaultWidth, mainContentWidth, widthMode)
+    ? widthToRightPanelWidthRatio(defaultWidth, mainContentWidth, widthMode)
     : storedWidthOrRatio <= 1
       ? clamp01(storedWidthOrRatio)
-      : appShellStateFtState(storedWidthOrRatio, mainContentWidth, widthMode);
+      : widthToRightPanelWidthRatio(
+          storedWidthOrRatio,
+          mainContentWidth,
+          widthMode,
+        );
 }
-function appShellStatePtState({
+function persistRightPanelWidthRatio({
   mainContentWidth: mainContentWidth,
   storageKey: storageKey,
   width: width,
@@ -59,10 +63,10 @@ function appShellStatePtState({
 }: any): void {
   persistedAtomStoreL(
     storageKey,
-    appShellStateFtState(width, mainContentWidth, widthMode),
+    widthToRightPanelWidthRatio(width, mainContentWidth, widthMode),
   );
 }
-function appShellStateFtState(
+function widthToRightPanelWidthRatio(
   width: number,
   mainContentWidth: number,
   widthMode: string = `regular`,
@@ -77,7 +81,7 @@ function appShellStateFtState(
           rangeSpan,
       );
 }
-function appShellStateDtState(
+function rightPanelWidthRatioToPixels(
   ratio: number,
   mainContentWidth: number,
   widthMode: string = `regular`,
@@ -105,16 +109,16 @@ function getRightPanelWidthRange(mainContentWidth, widthMode) {
 function clamp01(value) {
   return Math.max(0, Math.min(1, value));
 }
-var appShellStateItState = {
+var appShellPanelSpringTransition = {
     type: `spring`,
     duration: 0.5,
     bounce: 0.1,
   },
   sidebarWidthScaleFactor = 0.5;
-function appShellStateStState(value: number): number {
+function scaleSidebarWidthForCollapsedPreview(value: number): number {
   return value * sidebarWidthScaleFactor;
 }
-function appShellStateOtState({
+function computeMainContentWidthWithRightPanel({
   isRightPanelOpen: isRightPanelOpen,
   mainContentWidth: mainContentWidth,
   rightPanelWidthMode: rightPanelWidthMode,
@@ -124,7 +128,7 @@ function appShellStateOtState({
     ? Math.max(
         0,
         mainContentWidth -
-          appShellStateDtState(
+          rightPanelWidthRatioToPixels(
             rightPanelWidthRatio,
             mainContentWidth,
             rightPanelWidthMode,
@@ -132,19 +136,19 @@ function appShellStateOtState({
       )
     : mainContentWidth;
 }
-var appShellStateAtState = React.createContext(null);
-function appShellStateCtState(): any {
-  let motionContext = React.useContext(appShellStateAtState);
+var appShellLayoutMotionContext = React.createContext(null);
+function useAppShellLayoutMotionContext(): any {
+  let motionContext = React.useContext(appShellLayoutMotionContext);
   if (motionContext == null)
     throw Error(`AppShellLayoutMotionContext is missing`);
   return motionContext;
 }
 var defaultAppShellFocusArea = `main`,
-  appShellStateGState = appScopeG(persistedSignalG, !1),
-  appShellStateEtState = appScopeG(persistedSignalF, null),
-  _appShellStateJState = appScopeG(persistedSignalG, `main`),
-  appShellStateNState = appScopeG(persistedSignalG, !1),
-  appShellStateMState = appScopeG(persistedSignalG, null);
+  rightPanelFullscreenSignal = appScopeG(persistedSignalG, !1),
+  rightPanelWidthConfigOverrideSignal = appScopeG(persistedSignalF, null),
+  activeAppShellFocusAreaSignal = appScopeG(persistedSignalG, `main`),
+  appShellFocusTrapEnabledSignal = appScopeG(persistedSignalG, !1),
+  appShellFocusPayloadSignal = appScopeG(persistedSignalG, null);
 const appShellStateQState = appScopeG(persistedSignalF, null);
 const appShellStateKState = `data-app-shell-focus-area`;
 const appShellStateZState = appScopeG(persistedSignalF, null);
@@ -158,29 +162,29 @@ const _appShellStateKState = appScopeG(persistedSignalF, `default`);
 const appShellStateJState = appScopeG(persistedSignalF, null);
 const appShellStateIState = appScopeG(persistedSignalF, null);
 const appShellStateFState = appScopeG(persistedSignalF, null);
-const appShellStateAState = appScopeG(
+const bottomPanelPreviousFocusAreaSignal = appScopeG(
   persistedSignalG,
   defaultAppShellFocusArea,
 );
-const appShellStateDollarState = appScopeC(
+const rightPanelWidthConfigSignal = appScopeC(
   persistedSignalF,
   ({ get: get, scope: scope }) =>
-    get(appShellStateEtState) ?? {
+    get(rightPanelWidthConfigOverrideSignal) ?? {
       defaultWidth: 600,
-      storageKey: appShellStateLtState(scope.value.routeTemplate),
+      storageKey: getRightPanelWidthStorageKey(scope.value.routeTemplate),
     },
 );
-function appShellStateTtState(appScope: any, focusArea: any): void {
-  appScope.get(_appShellStateJState) !== focusArea &&
-    appScope.set(_appShellStateJState, focusArea);
+function setActiveAppShellFocusArea(appScope: any, focusArea: any): void {
+  appScope.get(activeAppShellFocusAreaSignal) !== focusArea &&
+    appScope.set(activeAppShellFocusAreaSignal, focusArea);
 }
-function appShellStateRtState(appScope: any, isEnabled: boolean): void {
-  appScope.get(appShellStateNState) !== isEnabled &&
-    appScope.set(appShellStateNState, isEnabled);
+function setAppShellFocusTrapEnabled(appScope: any, isEnabled: boolean): void {
+  appScope.get(appShellFocusTrapEnabledSignal) !== isEnabled &&
+    appScope.set(appShellFocusTrapEnabledSignal, isEnabled);
 }
-function appShellStateNtState(appScope: any, value: any): void {
-  appScope.get(appShellStateMState) !== value &&
-    appScope.set(appShellStateMState, value);
+function setAppShellFocusPayload(appScope: any, value: any): void {
+  appScope.get(appShellFocusPayloadSignal) !== value &&
+    appScope.set(appShellFocusPayloadSignal, value);
 }
 function createOrderedActionRegistry() {
   let actionIds = appScopeG(persistedSignalF, []),
@@ -222,25 +226,25 @@ function createActionListRegistry() {
 var centerActionRegistry = createOrderedActionRegistry(),
   leftActionRegistry = createOrderedActionRegistry(),
   rightActionRegistry = createOrderedActionRegistry(),
-  appShellStateVState = createActionListRegistry(),
+  panelLauncherActionRegistry = createActionListRegistry(),
   maxSidebarWidth = 520,
   sidebarWidthStorageKey = `sidebar-width`;
-const _appShellStateZState = {
+const headerActionRegistries = {
   center: centerActionRegistry,
   left: leftActionRegistry,
   right: rightActionRegistry,
 };
-const appShellStateWState = rightActionRegistry.entries$;
-const appShellStateUState = leftActionRegistry.entries$;
-const appShellStateHState = appShellStateVState.entries$;
-const appShellStateBState = centerActionRegistry.entries$;
-function appShellStateEState() {
-  return appShellStateDState(persistedAtomStoreA(sidebarWidthStorageKey, 300));
+const rightHeaderActionsSignal = rightActionRegistry.entries$;
+const leftHeaderActionsSignal = leftActionRegistry.entries$;
+const panelLauncherActionsSignal = panelLauncherActionRegistry.entries$;
+const centerHeaderActionsSignal = centerActionRegistry.entries$;
+function readInitialSidebarWidth() {
+  return clampSidebarWidth(persistedAtomStoreA(sidebarWidthStorageKey, 300));
 }
-function appShellStateOState(width: number): void {
-  persistedAtomStoreL(sidebarWidthStorageKey, appShellStateDState(width));
+function persistSidebarWidth(width: number): void {
+  persistedAtomStoreL(sidebarWidthStorageKey, clampSidebarWidth(width));
 }
-function appShellStateDState(width) {
+function clampSidebarWidth(width) {
   return Number.isFinite(width)
     ? Math.min(Math.max(width, 240), maxSidebarWidth)
     : 300;
@@ -253,22 +257,28 @@ var bottomPanelLauncherVisibleStorageKey = `app-shell-bottom-panel-launcher-visi
   sidebarAnimatingSignal = appScopeG(appScopeT, !1),
   sidebarAnimationSequenceSignal = appScopeG(appScopeT, 0),
   sidebarOpenAnimationSignal = appScopeG(appScopeT, () => new MotionValue(1)),
-  _appShellStateNState = persistedSignalT(
+  bottomPanelLauncherVisibleSignal = persistedSignalT(
     bottomPanelLauncherVisibleStorageKey,
     !0,
   ),
-  _appShellStateRState = appScopeG(persistedSignalG, !1),
-  appShellStateTState = appScopeG(persistedSignalG, () => new MotionValue(0)),
-  _appShellStateAState = appScopeG(persistedSignalG, !1),
-  _appShellStateIState = appScopeG(persistedSignalG, () => new MotionValue(0)),
-  _appShellStateOState = appScopeG(persistedSignalG, !1),
+  bottomPanelOpenSignal = appScopeG(persistedSignalG, !1),
+  bottomPanelAnimationSignal = appScopeG(
+    persistedSignalG,
+    () => new MotionValue(0),
+  ),
+  rightPanelExpandedSignal = appScopeG(persistedSignalG, !1),
+  rightPanelAnimationSignal = appScopeG(
+    persistedSignalG,
+    () => new MotionValue(0),
+  ),
+  rightPanelOpenSignal = appScopeG(persistedSignalG, !1),
   pendingRestoreRightPanelFullWidthSignal = appScopeG(persistedSignalG, !1),
   reviewFileTreeOpenSignal = appScopeG(appScopeT, !1),
   reviewFileTreeOpenAnimationSignal = appScopeG(
     appScopeT,
     () => new MotionValue(0),
   );
-const _appShellStatePState = appScopeG(appScopeT, appShellStateEState);
+const _appShellStatePState = appScopeG(appScopeT, readInitialSidebarWidth);
 const sidebarHoverLauncherVisibleSignal = appScopeG(appScopeT, !1, {
   onMount: (setHoverLauncherVisible, sidebarScope) => {
     let hoverLauncherTimerId: ReturnType<typeof window.setTimeout> | null =
@@ -330,7 +340,7 @@ function setSidebarOpen(
   let openAnimation = appShellStateMtState(
       openMotionValue,
       targetValue,
-      appShellStateItState,
+      appShellPanelSpringTransition,
     ),
     clearAnimatingIfCurrent = () => {
       appScope.get(sidebarAnimationSequenceSignal) === animationSequence &&
@@ -339,16 +349,16 @@ function setSidebarOpen(
   openAnimation.then(clearAnimatingIfCurrent, clearAnimatingIfCurrent);
 }
 function _appShellStateYState(appScope: any, isVisible: boolean): void {
-  appScope.set(_appShellStateNState, isVisible);
+  appScope.set(bottomPanelLauncherVisibleSignal, isVisible);
 }
-function _appShellStateVState(): void {
+function ensureBottomPanelLauncherVisibilityDefault(): void {
   persistedAtomStoreA(`app-shell-bottom-panel-launcher-visible`, void 0) ??
     persistedAtomStoreL(bottomPanelLauncherVisibleStorageKey, !1);
 }
 function _appShellStateBState(appScope: any, isOpen: boolean): void {
-  (appScope.set(_appShellStateRState, isOpen),
+  (appScope.set(bottomPanelOpenSignal, isOpen),
     setOrAnimateBooleanMotionValue(
-      appScope.get(appShellStateTState),
+      appScope.get(bottomPanelAnimationSignal),
       isOpen,
       appScope.get(reducedMotionPreferenceR),
     ));
@@ -358,8 +368,8 @@ function _appShellStateXState(
   isOpen: boolean,
   options: any = {},
 ): void {
-  appScope.set(_appShellStateAState, isOpen);
-  let rightPanelMotionValue = appScope.get(_appShellStateIState);
+  appScope.set(rightPanelExpandedSignal, isOpen);
+  let rightPanelMotionValue = appScope.get(rightPanelAnimationSignal);
   if (
     (rightPanelMotionValue.stop(),
     setOrAnimateBooleanMotionValue(
@@ -370,21 +380,21 @@ function _appShellStateXState(
     isOpen)
   ) {
     appScope.get(pendingRestoreRightPanelFullWidthSignal) &&
-      (appScope.set(appShellStateGState, !0),
+      (appScope.set(rightPanelFullscreenSignal, !0),
       appScope.set(pendingRestoreRightPanelFullWidthSignal, !1));
     return;
   }
-  (appScope.set(_appShellStateOState, !1),
+  (appScope.set(rightPanelOpenSignal, !1),
     appScope.set(
       pendingRestoreRightPanelFullWidthSignal,
       options.restoreFullWidthOnNextOpen === !0 &&
-        appScope.get(appShellStateGState),
+        appScope.get(rightPanelFullscreenSignal),
     ),
-    appScope.set(appShellStateGState, !1));
+    appScope.set(rightPanelFullscreenSignal, !1));
 }
 function _appShellStateSState(appScope: any, isOpen: boolean): void {
   if (isOpen) {
-    (appScope.set(_appShellStateOState, !0),
+    (appScope.set(rightPanelOpenSignal, !0),
       _appShellStateXState(appScope, !0));
     return;
   }
@@ -413,7 +423,11 @@ function animateBooleanMotionValue(
     motionValue.set(enabled ? 1 : 0);
     return;
   }
-  appShellStateMtState(motionValue, enabled ? 1 : 0, appShellStateItState);
+  appShellStateMtState(
+    motionValue,
+    enabled ? 1 : 0,
+    appShellPanelSpringTransition,
+  );
 }
 function setOrAnimateBooleanMotionValue(
   motionValue,
@@ -425,58 +439,87 @@ function setOrAnimateBooleanMotionValue(
     motionValue.set(targetValue);
     return;
   }
-  appShellStateMtState(motionValue, targetValue, appShellStateItState);
+  appShellStateMtState(motionValue, targetValue, appShellPanelSpringTransition);
 }
 export {
-  appShellStateDollarState,
-  appShellStateAState,
-  appShellStateBState,
+  rightPanelWidthConfigSignal,
+  rightPanelWidthConfigSignal as appShellStateDollarState,
+  bottomPanelPreviousFocusAreaSignal,
+  bottomPanelPreviousFocusAreaSignal as appShellStateAState,
+  centerHeaderActionsSignal,
+  centerHeaderActionsSignal as appShellStateBState,
   sidebarOpenAnimationSignal as appShellStateCState,
-  appShellStateDState,
-  appShellStateEState,
+  clampSidebarWidth,
+  clampSidebarWidth as appShellStateDState,
+  readInitialSidebarWidth,
+  readInitialSidebarWidth as appShellStateEState,
   appShellStateFState,
-  appShellStateGState,
-  appShellStateHState,
+  rightPanelFullscreenSignal,
+  rightPanelFullscreenSignal as appShellStateGState,
+  panelLauncherActionsSignal,
+  panelLauncherActionsSignal as appShellStateHState,
   appShellStateIState,
   appShellStateJState,
   appShellStateKState,
   appShellStateLState,
-  appShellStateMState,
-  appShellStateNState,
-  appShellStateOState,
+  appShellFocusPayloadSignal,
+  appShellFocusPayloadSignal as appShellStateMState,
+  appShellFocusTrapEnabledSignal,
+  appShellFocusTrapEnabledSignal as appShellStateNState,
+  persistSidebarWidth,
+  persistSidebarWidth as appShellStateOState,
   appShellStatePState,
   appShellStateQState,
   appShellStateRState,
   sidebarAnimatingSignal as appShellStateSState,
-  appShellStateTState,
-  appShellStateUState,
-  appShellStateVState,
-  appShellStateWState,
+  bottomPanelAnimationSignal,
+  bottomPanelAnimationSignal as appShellStateTState,
+  leftHeaderActionsSignal,
+  leftHeaderActionsSignal as appShellStateUState,
+  panelLauncherActionRegistry as appShellStateVState,
+  rightHeaderActionsSignal,
+  rightHeaderActionsSignal as appShellStateWState,
   appShellStateXState,
   appShellStateYState,
   appShellStateZState,
   appShellStateUnderscoreState,
-  appShellStateAtState as appShellLayoutMotionContext,
-  appShellStateCtState,
-  appShellStateDtState,
-  appShellStateEtState,
-  appShellStateFtState,
-  appShellStateItState,
-  appShellStateLtState,
-  appShellStateNtState,
-  appShellStateOtState,
-  appShellStatePtState,
-  appShellStateRtState,
-  appShellStateStState,
-  appShellStateTtState,
-  appShellStateUtState,
+  appShellLayoutMotionContext,
+  appShellLayoutMotionContext as appShellStateAtState,
+  useAppShellLayoutMotionContext,
+  useAppShellLayoutMotionContext as appShellStateCtState,
+  rightPanelWidthRatioToPixels,
+  rightPanelWidthRatioToPixels as appShellStateDtState,
+  rightPanelWidthConfigOverrideSignal,
+  rightPanelWidthConfigOverrideSignal as appShellStateEtState,
+  widthToRightPanelWidthRatio,
+  widthToRightPanelWidthRatio as appShellStateFtState,
+  appShellPanelSpringTransition,
+  appShellPanelSpringTransition as appShellStateItState,
+  getRightPanelWidthStorageKey,
+  getRightPanelWidthStorageKey as appShellStateLtState,
+  setAppShellFocusPayload,
+  setAppShellFocusPayload as appShellStateNtState,
+  computeMainContentWidthWithRightPanel,
+  computeMainContentWidthWithRightPanel as appShellStateOtState,
+  persistRightPanelWidthRatio,
+  persistRightPanelWidthRatio as appShellStatePtState,
+  setAppShellFocusTrapEnabled,
+  setAppShellFocusTrapEnabled as appShellStateRtState,
+  scaleSidebarWidthForCollapsedPreview,
+  scaleSidebarWidthForCollapsedPreview as appShellStateStState,
+  setActiveAppShellFocusArea,
+  setActiveAppShellFocusArea as appShellStateTtState,
+  readStoredRightPanelWidthRatio,
+  readStoredRightPanelWidthRatio as appShellStateUtState,
   _appShellStateBState as setBottomPanelOpen,
-  _appShellStateRState as bottomPanelOpenSignal,
+  ensureBottomPanelLauncherVisibilityDefault,
+  ensureBottomPanelLauncherVisibilityDefault as _appShellStateVState,
+  bottomPanelOpenSignal as bottomPanelOpenSignal,
   _appShellStateSState as setRightPanelOpen,
-  _appShellStateOState as rightPanelOpenSignal,
-  _appShellStateJState as activeAppShellFocusAreaSignal,
+  rightPanelOpenSignal as rightPanelOpenSignal,
+  activeAppShellFocusAreaSignal as activeAppShellFocusAreaSignal,
   _appShellStateXState as setRightPanelOpenWithOptions,
-  _appShellStateAState as rightPanelExpandedSignal,
+  rightPanelExpandedSignal as rightPanelExpandedSignal,
   setSidebarOpen,
   sidebarOpenSignal,
   sidebarOpenAnimationSignal,
