@@ -30714,7 +30714,7 @@
         "zy": "currentAppInitialSharedMember0924"
       },
       "status": "done",
-      "note": "Current ref remote/projects app shared runtime restored as a semantic alias layer over boundaries/current-ref/current-app-initial-remote-projects-app-shared-runtime-producer.ts, with that producer re-exporting the local current bundle vendor/remote-projects-app-shared-current-bundle.ts instead of direct ref asset passthrough.",
+      "note": "Current ref remote/projects app shared runtime restored as a semantic alias layer over runtime/current-app-initial/remote-projects-app-shared-backing.ts, with vendor/remote-projects-app-shared-current-bundle.ts retained as a compatibility re-export instead of direct ref asset passthrough.",
       "stage3Accepted": true,
       "lastUpdated": "2026-06-29T22:00:01.866Z"
     },
