@@ -2,11 +2,15 @@
 // Keyboard accelerator matching and hotkey subscription hook.
 import * as React from "react";
 import {
+  initElectronMenuShortcutsChunk,
   KEYBINDING_LABEL_DEBOUNCE_MS,
   isMacOSPlatform,
   splitAcceleratorSequence,
 } from "./electron-menu-shortcuts";
-import { resolveKeyboardLayoutKey } from "./keyboard-layout-map";
+import {
+  initKeyboardLayoutMapChunk,
+  resolveKeyboardLayoutKey,
+} from "./keyboard-layout-map";
 type ParsedAcceleratorChord = {
   key: string;
   requireAlt: boolean;
@@ -278,4 +282,9 @@ function useHotkey({
     keyboardEventTarget,
   ]);
 }
-export { useHotkey, keyboardEventMatchesAccelerator };
+function initUseHotkeyChunk(): void {
+  initElectronMenuShortcutsChunk();
+  initKeyboardLayoutMapChunk();
+}
+
+export { useHotkey, keyboardEventMatchesAccelerator, initUseHotkeyChunk };

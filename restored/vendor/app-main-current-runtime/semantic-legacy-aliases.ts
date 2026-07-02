@@ -26,6 +26,10 @@ export {
   shouldShowToolActivityForDetailLevel as SidebarRowIcon,
 } from "../../conversations/tool-activity-detail-level";
 export {
+  buildAmbientSuggestionAppIndex as initThreadRowLayoutRuntimeChunk,
+  normalizeAmbientSuggestionAppKey as initSidebarTaskRowRuntimeChunk,
+} from "../../connectors/ambient-suggestion-apps";
+export {
   initReviewModeIconsRuntime,
   XcodeLicenseWarningIcon,
 } from "../../icons/xcode-license-warning-icon";
@@ -76,6 +80,15 @@ export {
   initGitApplyClipboardIconChunk as SidebarRowKeyboardScope,
 } from "../../icons/git-apply-clipboard-icon";
 export {
+  initKeyboardLayoutMapChunk as ThreadRowHoverCard,
+  setKeyboardLayoutMap as ThreadRowHoverActions,
+} from "../../utils/keyboard-layout-map";
+export {
+  initUseHotkeyChunk as ThreadRowUnreadState,
+  keyboardEventMatchesAccelerator as ThreadRow,
+  useHotkey as ThreadRowMeta,
+} from "../../utils/use-hotkey";
+export {
   initReviewTabIconChunk as getThreadMcpAppSidePanelTabId,
 } from "../../icons/review-tab-icon";
 export {
@@ -105,25 +118,18 @@ export {
 export {
   Bn as ArchiveMenuItem,
   Cl as toggleThreadSidePanel,
-  Ff as initThreadRowLayoutRuntimeChunk,
-  Gd as ThreadRow,
   Gl as projectGroupRepositoryDataSignal,
   Hd as initThreadRowRuntimeChunk,
-  Jd as ThreadRowHoverCard,
   Jl as ThreadRowTitle,
-  Kd as ThreadRowMeta,
   Nn as SidebarRowActionButton,
   Nr as SidebarRowContextMenu,
   Oi as SidebarRowOverflowMenu,
-  Pf as initSidebarTaskRowRuntimeChunk,
   Pn as SidebarTaskRow,
   Qp as SidebarTaskRowTitle,
   Ud as ThreadRowPinAction,
   Wc as primeBrowserTabTransfers,
   Wc as transferForkedConversationBrowserTabs,
-  Wd as ThreadRowUnreadState,
   Wl as SidebarListSection,
-  Yd as ThreadRowHoverActions,
   _l as openThreadBrowserSidePanelTabWithPendingState,
   al as SidebarRowMenuSeparator,
   dl as SidebarRowDragHandle,
