@@ -454,14 +454,14 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
 
 const CRYPTIC_RE = /^(?:_0x[0-9a-fA-F]+|[a-zA-Z_]\d*|[a-zA-Z]{1,2})$/;
 const MECHANICAL_NAME_RE =
-  /^(?:(?:ImportedBinding|callbackValue|localValue|elementNode|hookValue|restoredHelper|RestoredComponent|argument|local|param|value|data|arg)\d+|[A-Za-z][A-Za-z0-9]*(?:Param|Value|Data|Arg)\d+|Dist[A-Z])$/;
+  /^(?:(?:ImportedBinding|callbackValue|localValue|elementNode|hookValue|restoredHelper|RestoredComponent|argument|local|param|value|data|arg|input|helper|routine)\d+|[A-Za-z][A-Za-z0-9]*(?:Param|Value|Data|Arg)\d+|Dist[A-Z])$/;
 // A mechanical-name family the plain MECHANICAL_NAME_RE misses: a shared prefix
 // with a `State`/`Input`/`Helper`/`Local`/`Arg` + counter suffix
 // (`appShellStateHelper23`, `appShellStateInput124`). Flagged only above a
 // density threshold so an isolated legit name never trips it; `use…`-prefixed
 // hook aliases from bundlers are excluded.
 const MECHANICAL_NAME_FAMILY_RE =
-  /^[a-z][A-Za-z]*(?:State|Input|Helper|Local|Arg)\d+$/;
+  /^[a-z][A-Za-z]*(?:State|Input|Helper|Local|Arg|Routine)\d+$/;
 const MECHANICAL_NAME_FAMILY_MIN_DISTINCT = 5;
 const MECHANICAL_IMPORT_BINDING_RE =
   /^(?:_{0,3}appServerManager[A-Z]|appServerManager(?:Dollar|Underscore)$|_{0,3}(?:chrome|single|setting)(?:[A-Z][A-Za-z]*|Underscore)$|_{0,3}(?:src|dist|lib|pkg)[A-Z][A-Za-z]*|Dist(?:$|[A-Z])|windowAppAction[A-Z]|windowAppActionUnderscore$)/;
@@ -617,6 +617,7 @@ function isGeneratedFacade(source: string): boolean {
 
 function isLegacyVendoredBoundaryFacade(source: string): boolean {
   const header = source.slice(0, 700);
+  if (isUnfinishedAppFlatBoundaryBundle(source)) return false;
   const isLegacyBoundary =
     /Flat boundary(?: facade)?\b/.test(header) ||
     /\bre-export boundary\b/i.test(header) ||
@@ -629,6 +630,16 @@ function isLegacyVendoredBoundaryFacade(source: string): boolean {
     /\balternate build of the same module\b/i.test(header) ||
     /\bBare Jotai React re-export boundary\b/i.test(header) ||
     /\bi18n\/locale request\b/i.test(header)
+  );
+}
+
+function isUnfinishedAppFlatBoundaryBundle(source: string): boolean {
+  const header = source.slice(0, 700);
+  return (
+    /\bFlat boundary\b/i.test(header) &&
+    /\b(?:backing bundle|runtime bundle copied|compatibility bundle used by|runtime chunk preserved|copied from the Codex webview chunk)\b/i.test(
+      header,
+    )
   );
 }
 
@@ -1856,6 +1867,8 @@ export function analyzeSource(
     0,
     countRestorationProvenanceHeaders(source) - 1,
   );
+  const unfinishedAppFlatBoundaryBundle =
+    isUnfinishedAppFlatBoundaryBundle(source);
   // A faithful vendored module or a generated boundary facade is code we
   // deliberately did not rewrite — relax the semantic-naming/typing/split
   // checks that would false-positive on a package's own short API names or a
@@ -1909,6 +1922,14 @@ export function analyzeSource(
         `'${path.basename(file)}' is not. React component identifiers stay ` +
         `PascalCase, but their files are kebab (Button → button.tsx).`,
       detail: { basename: path.basename(file) },
+    });
+  }
+
+  if (unfinishedAppFlatBoundaryBundle) {
+    issues.push({
+      code: "flat-boundary-app-bundle",
+      message:
+        "Flat boundary app/runtime bundle remains parked as a vendored bundle; split it into semantic files or replace it with a real third-party re-export boundary.",
     });
   }
 
@@ -3315,7 +3336,7 @@ function parseNonNegativeInt(
  * option flags that steer analysis are also folded into the cache signature, so
  * different flag combos never share cache entries.
  */
-const GATE_CACHE_VERSION = 2;
+const GATE_CACHE_VERSION = 4;
 
 const GATE_CACHE_DIRNAME = ".deobfuscate-javascript";
 const GATE_CACHE_BASENAME = "gate-cache.json";
@@ -3380,7 +3401,9 @@ function loadGateCache(
   signature: string,
 ): Record<string, GateCacheEntry> {
   try {
-    const raw = JSON.parse(fs.readFileSync(cachePath, "utf-8")) as GateCacheFile;
+    const raw = JSON.parse(
+      fs.readFileSync(cachePath, "utf-8"),
+    ) as GateCacheFile;
     if (raw && raw.signature === signature && raw.entries) {
       return raw.entries;
     }
@@ -3411,6 +3434,17 @@ function isVendoredHeaderExemptEligible(
   targetDir: string,
   file: string,
 ): boolean {
+  const targetSegments = path
+    .resolve(targetDir)
+    .split(path.sep)
+    .filter(Boolean);
+  if (
+    targetSegments.some((segment) =>
+      /^(?:boundaries|vendor|runtime)$/.test(segment),
+    )
+  ) {
+    return true;
+  }
   const rel = path.relative(targetDir, file).split(path.sep).join("/");
   return /^(?:boundaries|vendor|runtime)\//.test(rel);
 }
@@ -3586,9 +3620,7 @@ async function main(): Promise<void> {
   }
   if (inputIsDir) {
     const pct =
-      totalLines > 0
-        ? Math.round((vendoredExemptLines / totalLines) * 100)
-        : 0;
+      totalLines > 0 ? Math.round((vendoredExemptLines / totalLines) * 100) : 0;
     console.error(
       `quality-gate: vendored-exempt coverage: ${vendoredExemptFiles} files, ${vendoredExemptLines} lines (${pct}% of tree)`,
     );

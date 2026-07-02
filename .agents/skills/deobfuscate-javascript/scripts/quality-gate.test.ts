@@ -2449,6 +2449,26 @@ describe("vendored / facade relaxation", () => {
     expect(codes(r)).toContain("public-cryptic-names");
   });
 
+  test("unfinished current app backing bundles are not auto-relaxed as vendor", () => {
+    const bundle =
+      `// Restored from ref/webview/assets/automations-page-CXHLOmAw.js\n` +
+      `// Flat boundary. Vendored current automations page backing bundle with restored dependency imports.\n` +
+      `export function AutomationsPage() {\n` +
+      Array.from(
+        { length: 6 },
+        (_, i) => `  const automationsPageHelper${i} = ${i};`,
+      ).join("\n") +
+      `\n  return automationsPageHelper0;\n}\n`;
+    const r = analyzeSource(bundle, "restored/vendor/automations-page.tsx", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      vendoredHeaderExemptAllowed: true,
+    });
+    expect(r.vendored).toBe(false);
+    expect(codes(r)).toContain("flat-boundary-app-bundle");
+    expect(codes(r)).toContain("mechanical-name-family");
+  });
+
   test("restored bundler interop runtime modules are auto-relaxed", () => {
     const runtime =
       `// Restored from ref/webview/assets/chunk-Cq_f4orQ.js\n` +
@@ -2824,6 +2844,34 @@ describe("mechanical-name family detection", () => {
     expect(report.mechanicalNameFamily).toEqual([]);
   });
 
+  test("fails on a dense <prefix>Routine<N> family", () => {
+    const src =
+      `export function initStore() {\n` +
+      Array.from(
+        { length: 6 },
+        (_, i) => `  const storeRoutine${i} = ${i};`,
+      ).join("\n") +
+      `\n  return storeRoutine0;\n}\n`;
+    const report = analyzeSource(src, "store.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(codes(report)).toContain("mechanical-name-family");
+    expect(report.mechanicalNameFamily).toContain("storeRoutine0");
+  });
+
+  test("bare lowercase input<N>/helper<N>/routine<N> hit the mechanical-names check", () => {
+    const src =
+      `export function score() {\n` +
+      `  const input27 = 1;\n  const helper3 = 2;\n  const routine4 = 3;\n` +
+      `  return input27 + helper3 + routine4;\n}\n`;
+    const report = analyzeSource(src, "score.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(codes(report)).toContain("mechanical-names");
+  });
+
   test("--allow-mechanical-names suppresses the family finding", () => {
     const src =
       `export function initAppShellState() {\n` +
@@ -2930,6 +2978,77 @@ describe("header-based vendored exemption is path-gated", () => {
     );
     expect(vendorReport?.issues ?? []).toEqual([]);
     expect(run.stderr).toContain("vendored-exempt coverage:");
+  });
+
+  test("CLI: direct vendor-subtree runs still honor vendored flat-boundary headers", () => {
+    const targetDir = makeTmpRoot();
+    const vendorDir = path.join(targetDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(vendorDir, "diagram-runtime.ts"),
+      `// Restored from ref/webview/assets/diagram-runtime-XYZ.js\n` +
+        `// Flat boundary. Vendored diagram/doc vendor chunk.\n` +
+        `export function initDiagramRuntime() {\n` +
+        Array.from(
+          { length: 6 },
+          (_, i) => `  const diagramRuntimeHelper${i} = ${i};`,
+        ).join("\n") +
+        `\n  return diagramRuntimeHelper0;\n}\n`,
+    );
+
+    const run = spawnSync(
+      "bun",
+      [
+        path.join(import.meta.dir, "quality-gate.ts"),
+        vendorDir,
+        "--json",
+        "--allow-flat",
+        "--no-cache",
+      ],
+      { encoding: "utf8" },
+    );
+    expect(run.status).toBe(0);
+    const reports = JSON.parse(run.stdout) as Array<{
+      issues: Array<{ code: string }>;
+    }>;
+    expect(reports[0]?.issues ?? []).toEqual([]);
+    expect(run.stderr).toContain("vendored-exempt coverage: 1 files");
+  });
+
+  test("CLI: direct vendor-subtree run rejects parked current app backing bundles", () => {
+    const targetDir = makeTmpRoot();
+    const vendorDir = path.join(targetDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(vendorDir, "automations-page-current-bundle.tsx"),
+      `// Restored from ref/webview/assets/automations-page-CXHLOmAw.js\n` +
+        `// Flat boundary. Vendored current automations page backing bundle with restored dependency imports.\n` +
+        `export function AutomationsPage() {\n` +
+        Array.from(
+          { length: 6 },
+          (_, i) => `  const automationsPageHelper${i} = ${i};`,
+        ).join("\n") +
+        `\n  return automationsPageHelper0;\n}\n`,
+    );
+
+    const run = spawnSync(
+      "bun",
+      [
+        path.join(import.meta.dir, "quality-gate.ts"),
+        vendorDir,
+        "--json",
+        "--allow-flat",
+        "--no-cache",
+      ],
+      { encoding: "utf8" },
+    );
+    expect(run.status).toBe(1);
+    const reports = JSON.parse(run.stdout) as Array<{
+      issues: Array<{ code: string }>;
+    }>;
+    expect(reports[0]?.issues.map((issue) => issue.code)).toContain(
+      "flat-boundary-app-bundle",
+    );
   });
 });
 
