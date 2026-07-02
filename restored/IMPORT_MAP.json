@@ -5323,7 +5323,11 @@
         "s": "FormattedMessage",
         "t": "FormattedDate"
       },
-      "status": "done"
+      "vendor": "react-intl",
+      "status": "done",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: React Intl shim re-exports directly from npm react-intl and preserves legacy IntlErrorCode/ReactIntlConfig compatibility names through typed aliases."
     },
     "src-l0hbMZ-p": {
       "restored": "boundaries/src-l0hb-mz-p.ts",
@@ -16172,8 +16176,12 @@
       },
       "status": "done",
       "aliasOf": "lib-BWT6A3Q0",
-      "lastUpdated": "2026-06-29T00:00:00.000Z",
-      "note": "Current app mixed producer combines embedded tslib helpers, React Intl/FormatJS exports, and automatic approval review copy."
+      "vendor": "react-intl",
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00",
+      "note": "Current mixed React Intl / tslib / automatic-approval-review facade keeps app-local approval-review helpers and tslib aliases, but all React Intl API exports now come directly from the npm react-intl package.",
+      "stage3Accepted": true,
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000-05:00",
+      "stage3Review": "Host self-review: direct react-intl package re-exports satisfy the npm vendor shim rule, while init and approval-review compatibility aliases remain typed and local."
     },
     "app-initial~app-main~projects-index-page~appearance-settings~general-settings-BpwP5uUa": {
       "restored": "vendor/react-colorful-hex-picker.ts",

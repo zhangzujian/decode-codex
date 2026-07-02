@@ -10,10 +10,7 @@ import {
   __spreadArray,
 } from "tslib";
 
-import {
-  initReactIntlRuntimeChunk,
-  type IntlErrorCode as IntlErrorCodeValue,
-} from "./react-intl";
+import { initReactIntlRuntimeChunk } from "./react-intl";
 
 export {
   createIntl,
@@ -23,12 +20,13 @@ export {
   FormattedMessage,
   FormattedNumber,
   FormattedRelativeTime,
-  IntlErrorCode,
   IntlProvider,
-  initReactIntlRuntimeChunk,
   RawIntlProvider,
+  ReactIntlErrorCode as IntlErrorCode,
   useIntl,
-} from "./react-intl";
+} from "react-intl";
+
+export type { ReactIntlErrorCode as IntlErrorCodeValue } from "react-intl";
 
 export {
   getAutomaticApprovalReviewActionSummary,
@@ -44,7 +42,7 @@ export const appendArraySlice = __spreadArray;
 export const extendClassPrototype = __extends;
 export const assignObjectProperties = __assign;
 
-export type { IntlErrorCodeValue };
+export { initReactIntlRuntimeChunk };
 
 export function initTslibHelpersChunk(): void {}
 

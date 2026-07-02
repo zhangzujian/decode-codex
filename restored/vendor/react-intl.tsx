@@ -11,18 +11,18 @@ export {
   FormattedMessage,
   FormattedNumber,
   FormattedRelativeTime,
-  IntlErrorCode,
   IntlProvider,
   RawIntlProvider,
+  ReactIntlErrorCode as IntlErrorCode,
   useIntl,
 } from "react-intl";
 
 export type {
-  IntlErrorCode as IntlErrorCodeValue,
+  IntlConfig as ReactIntlConfig,
   IntlShape,
   MessageDescriptor,
   PrimitiveType,
-  ReactIntlConfig,
+  ReactIntlErrorCode as IntlErrorCodeValue,
   ResolvedIntlConfig,
 } from "react-intl";
 
