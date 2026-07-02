@@ -2,16 +2,18 @@
 // Uppercase S compatibility aliases for the legacy app-main/onboarding producer.
 export { primeBrowserTabTransfers } from "../app-main-current-runtime";
 
+export { readTerminalThemeFromCss } from "../../runtime/window-chrome-runtime";
+
+export { emptyFindBrowserStatus } from "../../find/thread-find-atoms";
+
 export {
   S as appMainCurrentCompatSlotUpperS,
-  S_ as readTerminalThemeFromCss,
   Sa as appMainCurrentCompatSlotUpperSLowerA,
   Sb as appMainCurrentCompatSlotUpperSLowerB,
   Sc as appMainCurrentCompatSlotUpperSLowerC,
   SC as appMainCurrentCompatSlotUpperSUpperC,
   Sd as appMainCurrentCompatSlotUpperSLowerD,
   Sf as appMainCurrentCompatSlotUpperSLowerF,
-  Sg as emptyFindBrowserStatus,
   Sh as appMainCurrentCompatSlotUpperSLowerH,
   Si as appMainCurrentCompatSlotUpperSLowerI,
   Sm as appMainCurrentCompatSlotUpperSLowerM,

@@ -2,16 +2,18 @@
 // Uppercase I compatibility aliases for the legacy app-main/onboarding producer.
 export { FileSourceTab } from "../app-main-current-runtime";
 
+export { initFitAddonChunk } from "../../runtime/window-chrome-runtime";
+
+export { findResultAtom } from "../../find/thread-find-atoms";
+
 export {
   I as appMainCurrentCompatSlotUpperI,
-  I_ as initFitAddonChunk,
   Ia as appMainCurrentCompatSlotUpperILowerA,
   Ib as appMainCurrentCompatSlotUpperILowerB,
   Ic as appMainCurrentCompatSlotUpperILowerC,
   IC as appMainCurrentCompatSlotUpperIUpperC,
   Id as appMainCurrentCompatSlotUpperILowerD,
   If as appMainCurrentCompatSlotUpperILowerF,
-  Ig as findResultAtom,
   Ih as RemoteHostStatusIcon,
   Ii as appMainCurrentCompatSlotUpperILowerI,
   Il as appMainCurrentCompatSlotUpperILowerL,

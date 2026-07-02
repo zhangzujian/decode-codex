@@ -2,16 +2,18 @@
 // Uppercase D compatibility aliases for the legacy app-main/onboarding producer.
 export { getBrowserTabIdForPanelTab } from "../app-main-current-runtime";
 
+export { activateTerminalLink } from "../../runtime/window-chrome-runtime";
+
+export { findBrowserStatusAtom } from "../../find/thread-find-atoms";
+
 export {
   D as appMainCurrentCompatSlotUpperD,
-  D_ as activateTerminalLink,
   Da as appMainCurrentCompatSlotUpperDLowerA,
   Db as appMainCurrentCompatSlotUpperDLowerB,
   Dc as appMainCurrentCompatSlotUpperDLowerC,
   DC as initPrimitiveRuntimeChunk,
   Dd as appMainCurrentCompatSlotUpperDLowerD,
   Df as appMainCurrentCompatSlotUpperDLowerF,
-  Dg as findBrowserStatusAtom,
   Dh as appMainCurrentCompatSlotUpperDLowerH,
   Di as appMainCurrentCompatSlotUpperDLowerI,
   Dl as appMainCurrentCompatSlotUpperDLowerL,

@@ -24,6 +24,16 @@ export {
   isWorkspaceFilePath,
 } from "../../../conversations/fork-conversation-panel-state-deps";
 
+export { findActiveDomainAtom } from "../../../find/thread-find-atoms";
+
+export {
+  syncReviewPanelForRestoredSource,
+  openInitialReviewPanelTarget,
+  scheduleReviewRestore,
+  pendingReviewPanelTargetSignal,
+  revealChangedFilesInReviewPanel,
+} from "../../../conversations/local-conversation-page-runtime";
+
 export {
   g as legacyAppMainBuwLowerGExport,
   gC as legacyAppMainBuwLowerGUpperCExport,
@@ -42,7 +52,6 @@ export {
   gs as legacyAppMainBuwLowerGLowerSExport,
   gt as legacyAppMainBuwLowerGLowerTExport,
   gu as legacyAppMainBuwLowerGLowerUExport,
-  gv as syncReviewPanelForRestoredSource,
   gx as legacyAppMainBuwLowerGLowerXExport,
   gy as legacyAppMainBuwLowerGLowerYExport,
   h as legacyAppMainBuwLowerHExport,
@@ -62,7 +71,6 @@ export {
   hs as legacyAppMainBuwLowerHLowerSExport,
   ht as legacyAppMainBuwLowerHLowerTExport,
   hu as legacyAppMainBuwLowerHLowerUExport,
-  hv as openInitialReviewPanelTarget,
   hx as ThreadRowStatusIndicator,
   hy as legacyAppMainBuwLowerHLowerYExport,
   i as legacyAppMainBuwLowerIExport,
@@ -90,13 +98,11 @@ export {
   j as legacyAppMainBuwLowerJExport,
   jC as legacyAppMainBuwLowerJUpperCExport,
   jS as legacyAppMainBuwLowerJUpperSExport,
-  j_ as scheduleReviewRestore,
   ja as legacyAppMainBuwLowerJLowerAExport,
   jb as legacyAppMainBuwLowerJLowerBExport,
   jc as legacyAppMainBuwLowerJLowerCExport,
   jd as legacyAppMainBuwLowerJLowerDExport,
   jf as legacyAppMainBuwLowerJLowerFExport,
-  jg as findActiveDomainAtom,
   jh as legacyAppMainBuwLowerJLowerHExport,
   ji as legacyAppMainBuwLowerJLowerIExport,
   jl as legacyAppMainBuwLowerJLowerLExport,
@@ -153,7 +159,6 @@ export {
   lr as legacyAppMainBuwLowerLLowerRExport,
   ls as legacyAppMainBuwLowerLLowerSExport,
   lu as legacyAppMainBuwLowerLLowerUExport,
-  lv as pendingReviewPanelTargetSignal,
   lx as legacyAppMainBuwLowerLLowerXExport,
   ly as legacyAppMainBuwLowerLLowerYExport,
   m as legacyAppMainBuwLowerMExport,
@@ -173,6 +178,5 @@ export {
   ms as legacyAppMainBuwLowerMLowerSExport,
   mt as legacyAppMainBuwLowerMLowerTExport,
   mu as legacyAppMainBuwLowerMLowerUExport,
-  mv as revealChangedFilesInReviewPanel,
   my as legacyAppMainBuwLowerMLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";

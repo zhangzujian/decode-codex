@@ -15,6 +15,17 @@ export {
 } from "../../app-main-current-runtime";
 
 export {
+  getCodexWindowChrome,
+  setDefaultAgentModeForHost,
+  initAppFeatureRuntimeChunk,
+} from "../../../runtime/window-chrome-runtime";
+
+export {
+  resetReviewPanelEmptyState,
+  focusPendingReviewPanelTarget,
+} from "../../../conversations/local-conversation-page-runtime";
+
+export {
   n as legacyAppMainBuwLowerNExport,
   nC as initWarningContextRuntime,
   nS as legacyAppMainBuwLowerNUpperSExport,
@@ -44,7 +55,6 @@ export {
   ob as legacyAppMainBuwLowerOLowerBExport,
   oc as legacyAppMainBuwLowerOLowerCExport,
   od as legacyAppMainBuwLowerOLowerDExport,
-  og as getCodexWindowChrome,
   oh as legacyAppMainBuwLowerOLowerHExport,
   oi as legacyAppMainBuwLowerOLowerIExport,
   om as legacyAppMainBuwLowerOLowerMExport,
@@ -63,7 +73,6 @@ export {
   pS as legacyAppMainBuwLowerPUpperSExport,
   p_ as legacyAppMainBuwLowerPUnderscoreExport,
   pa as legacyAppMainBuwLowerPLowerAExport,
-  pb as setDefaultAgentModeForHost,
   pc as legacyAppMainBuwLowerPLowerCExport,
   pd as legacyAppMainBuwLowerPLowerDExport,
   pf as legacyAppMainBuwLowerPLowerFExport,
@@ -77,7 +86,6 @@ export {
   ps as legacyAppMainBuwLowerPLowerSExport,
   pt as legacyAppMainBuwLowerPLowerTExport,
   pu as legacyAppMainBuwLowerPLowerUExport,
-  pv as resetReviewPanelEmptyState,
   px as legacyAppMainBuwLowerPLowerXExport,
   py as legacyAppMainBuwLowerPLowerYExport,
   q as legacyAppMainBuwLowerQExport,
@@ -134,7 +142,6 @@ export {
   sb as legacyAppMainBuwLowerSLowerBExport,
   sc as legacyAppMainBuwLowerSLowerCExport,
   sd as legacyAppMainBuwLowerSLowerDExport,
-  sg as initAppFeatureRuntimeChunk,
   sh as legacyAppMainBuwLowerSLowerHExport,
   si as legacyAppMainBuwLowerSLowerIExport,
   sn as legacyAppMainBuwLowerSLowerNExport,
@@ -144,7 +151,6 @@ export {
   ss as legacyAppMainBuwLowerSLowerSExport,
   st as legacyAppMainBuwLowerSLowerTExport,
   su as legacyAppMainBuwLowerSLowerUExport,
-  sv as focusPendingReviewPanelTarget,
   sx as legacyAppMainBuwLowerSLowerXExport,
   sy as legacyAppMainBuwLowerSLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";

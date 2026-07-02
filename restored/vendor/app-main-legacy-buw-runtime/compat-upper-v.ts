@@ -2,6 +2,8 @@
 // Uppercase V compatibility aliases for the legacy app-main/onboarding producer.
 export { initUltraFastServiceTierIcon } from "../app-main-current-runtime";
 
+export { initConversationSummarySelectorsChunk } from "../../runtime/window-chrome-runtime";
+
 export {
   V as appMainCurrentCompatSlotUpperV,
   V_ as appMainCurrentCompatSlotUpperVUnderscore,
@@ -22,7 +24,6 @@ export {
   VS as appMainCurrentCompatSlotUpperVUpperS,
   Vt as appMainCurrentCompatSlotUpperVLowerT,
   Vu as appMainCurrentCompatSlotUpperVLowerU,
-  Vv as initConversationSummarySelectorsChunk,
   Vx as appMainCurrentCompatSlotUpperVLowerX,
   Vy as appMainCurrentCompatSlotUpperVLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

@@ -5,9 +5,10 @@ export {
   initResolvedHighlightThemesChunk,
 } from "../app-main-current-runtime";
 
+export { patchTerminalMouseCoordsForZoom } from "../../runtime/window-chrome-runtime";
+
 export {
   y as appMainCurrentCompatSlotLowerY,
-  y_ as patchTerminalMouseCoordsForZoom,
   ya as appMainCurrentCompatSlotLowerYLowerA,
   yb as appMainCurrentCompatSlotLowerYLowerB,
   yc as appMainCurrentCompatSlotLowerYLowerC,

@@ -5,6 +5,8 @@ export {
   projectGroupRepositoryDataSignal,
 } from "../app-main-current-runtime";
 
+export { initPanelTabStoresChunk } from "../../runtime/window-chrome-runtime";
+
 export {
   G as appMainCurrentCompatSlotUpperG,
   G_ as appMainCurrentCompatSlotUpperGUnderscore,
@@ -24,7 +26,6 @@ export {
   GS as appMainCurrentCompatSlotUpperGUpperS,
   Gt as appMainCurrentCompatSlotUpperGLowerT,
   Gu as appMainCurrentCompatSlotUpperGLowerU,
-  Gv as initPanelTabStoresChunk,
   Gx as appMainCurrentCompatSlotUpperGLowerX,
   Gy as appMainCurrentCompatSlotUpperGLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

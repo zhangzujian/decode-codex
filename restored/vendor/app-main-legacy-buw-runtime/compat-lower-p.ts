@@ -5,11 +5,14 @@ export {
   readProjectSignal,
 } from "../app-main-current-runtime";
 
+export { setDefaultAgentModeForHost } from "../../runtime/window-chrome-runtime";
+
+export { resetReviewPanelEmptyState } from "../../conversations/local-conversation-page-runtime";
+
 export {
   p as appMainCurrentCompatSlotLowerP,
   p_ as appMainCurrentCompatSlotLowerPUnderscore,
   pa as appMainCurrentCompatSlotLowerPLowerA,
-  pb as setDefaultAgentModeForHost,
   pc as appMainCurrentCompatSlotLowerPLowerC,
   pC as appMainCurrentCompatSlotLowerPUpperC,
   pd as appMainCurrentCompatSlotLowerPLowerD,
@@ -25,7 +28,6 @@ export {
   pS as appMainCurrentCompatSlotLowerPUpperS,
   pt as appMainCurrentCompatSlotLowerPLowerT,
   pu as appMainCurrentCompatSlotLowerPLowerU,
-  pv as resetReviewPanelEmptyState,
   px as appMainCurrentCompatSlotLowerPLowerX,
   py as appMainCurrentCompatSlotLowerPLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

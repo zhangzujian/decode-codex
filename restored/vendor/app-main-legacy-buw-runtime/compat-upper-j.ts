@@ -5,6 +5,8 @@ export {
   ThreadRowTitle,
 } from "../app-main-current-runtime";
 
+export { setThreadAppShellSources } from "../../runtime/window-chrome-runtime";
+
 export {
   J as appMainCurrentCompatSlotUpperJ,
   J_ as appMainCurrentCompatSlotUpperJUnderscore,
@@ -12,7 +14,6 @@ export {
   Jb as appMainCurrentCompatSlotUpperJLowerB,
   Jc as appMainCurrentCompatSlotUpperJLowerC,
   Jf as appMainCurrentCompatSlotUpperJLowerF,
-  Jg as setThreadAppShellSources,
   Jh as appMainCurrentCompatSlotUpperJLowerH,
   Ji as appMainCurrentCompatSlotUpperJLowerI,
   Jm as appMainCurrentCompatSlotUpperJLowerM,

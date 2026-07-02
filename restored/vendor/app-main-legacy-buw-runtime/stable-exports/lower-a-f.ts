@@ -19,6 +19,13 @@ export {
 } from "../../app-main-current-runtime";
 
 export {
+  normalizeTerminalFontFamily,
+  initPermissionsModeDefaultsRuntime,
+} from "../../../runtime/window-chrome-runtime";
+
+export { shouldExpandReviewPanelSignal } from "../../../conversations/local-conversation-page-runtime";
+
+export {
   a as legacyAppMainBuwLowerAExport,
   aC as legacyAppMainBuwLowerAUpperCExport,
   aS as legacyAppMainBuwLowerAUpperSExport,
@@ -39,13 +46,11 @@ export {
   as as legacyAppMainBuwLowerALowerSExport,
   at as legacyAppMainBuwLowerALowerTExport,
   au as legacyAppMainBuwLowerALowerUExport,
-  av as shouldExpandReviewPanelSignal,
   ax as legacyAppMainBuwLowerALowerXExport,
   ay as legacyAppMainBuwLowerALowerYExport,
   b as legacyAppMainBuwLowerBExport,
   bC as legacyAppMainBuwLowerBUpperCExport,
   bS as legacyAppMainBuwLowerBUpperSExport,
-  b_ as normalizeTerminalFontFamily,
   ba as legacyAppMainBuwLowerBLowerAExport,
   bb as legacyAppMainBuwLowerBLowerBExport,
   bc as legacyAppMainBuwLowerBLowerCExport,
@@ -133,7 +138,6 @@ export {
   fS as legacyAppMainBuwLowerFUpperSExport,
   f_ as legacyAppMainBuwLowerFUnderscoreExport,
   fa as legacyAppMainBuwLowerFLowerAExport,
-  fb as initPermissionsModeDefaultsRuntime,
   fc as legacyAppMainBuwLowerFLowerCExport,
   fd as legacyAppMainBuwLowerFLowerDExport,
   fg as legacyAppMainBuwLowerFLowerGExport,

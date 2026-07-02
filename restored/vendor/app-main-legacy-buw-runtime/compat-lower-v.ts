@@ -8,9 +8,10 @@ export {
 
 export { normalizeFilesystemPath } from "../../conversations/fork-conversation-panel-state-deps";
 
+export { initTerminalSurfaceRuntime } from "../../runtime/window-chrome-runtime";
+
 export {
   v as appMainCurrentCompatSlotLowerV,
-  v_ as initTerminalSurfaceRuntime,
   va as appMainCurrentCompatSlotLowerVLowerA,
   vb as SidebarRowRemoteEnvironment,
   vc as appMainCurrentCompatSlotLowerVLowerC,

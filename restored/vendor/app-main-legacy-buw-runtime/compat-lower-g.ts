@@ -6,6 +6,8 @@ export {
   associateBranchWithConversation,
 } from "../app-main-current-runtime";
 
+export { syncReviewPanelForRestoredSource } from "../../conversations/local-conversation-page-runtime";
+
 export {
   g as appMainCurrentCompatSlotLowerG,
   g_ as appMainCurrentCompatSlotLowerGUnderscore,
@@ -25,7 +27,6 @@ export {
   gS as appMainCurrentCompatSlotLowerGUpperS,
   gt as appMainCurrentCompatSlotLowerGLowerT,
   gu as appMainCurrentCompatSlotLowerGLowerU,
-  gv as syncReviewPanelForRestoredSource,
   gx as appMainCurrentCompatSlotLowerGLowerX,
   gy as appMainCurrentCompatSlotLowerGLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

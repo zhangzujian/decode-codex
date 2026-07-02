@@ -2,16 +2,18 @@
 // Uppercase O compatibility aliases for the legacy app-main/onboarding producer.
 export { SidebarRowOverflowMenu } from "../app-main-current-runtime";
 
+export { terminalLinkHandler } from "../../runtime/window-chrome-runtime";
+
+export { findBrowserTargetAtom } from "../../find/thread-find-atoms";
+
 export {
   O as appMainCurrentCompatSlotUpperO,
-  O_ as terminalLinkHandler,
   Oa as appMainCurrentCompatSlotUpperOLowerA,
   Ob as appMainCurrentCompatSlotUpperOLowerB,
   Oc as appMainCurrentCompatSlotUpperOLowerC,
   OC as createSlotComponent,
   Od as appMainCurrentCompatSlotUpperOLowerD,
   Of as appMainCurrentCompatSlotUpperOLowerF,
-  Og as findBrowserTargetAtom,
   Oh as appMainCurrentCompatSlotUpperOLowerH,
   Ol as appMainCurrentCompatSlotUpperOLowerL,
   Om as appMainCurrentCompatSlotUpperOLowerM,

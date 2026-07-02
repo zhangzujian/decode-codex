@@ -4,6 +4,8 @@ export { SidebarSection } from "../app-main-current-runtime";
 
 export { rightPanelOpenStateKey } from "../../conversations/fork-conversation-panel-state-deps";
 
+export { resetNewThreadRouteContext } from "../../runtime/window-chrome-runtime";
+
 export {
   $ as appMainCurrentCompatSlotDollar,
   $_ as appMainCurrentCompatSlotDollarUnderscore,
@@ -25,5 +27,4 @@ export {
   $u as appMainCurrentCompatSlotDollarLowerU,
   $v as appMainCurrentCompatSlotDollarLowerV,
   $x as appMainCurrentCompatSlotDollarLowerX,
-  $y as resetNewThreadRouteContext,
 } from "../app-main-legacy-buw-compat-bundle";

@@ -2,16 +2,18 @@
 // Uppercase T compatibility aliases for the legacy app-main/onboarding producer.
 export { registerForkedConversation } from "../app-main-current-runtime";
 
+export { isTerminalScrolledToBottom } from "../../runtime/window-chrome-runtime";
+
+export { findActiveMatchIndexAtom } from "../../find/thread-find-atoms";
+
 export {
   T as appMainCurrentCompatSlotUpperT,
-  T_ as isTerminalScrolledToBottom,
   Ta as appMainCurrentCompatSlotUpperTLowerA,
   Tb as appMainCurrentCompatSlotUpperTLowerB,
   Tc as appMainCurrentCompatSlotUpperTLowerC,
   TC as appMainCurrentCompatSlotUpperTUpperC,
   Td as appMainCurrentCompatSlotUpperTLowerD,
   Tf as appMainCurrentCompatSlotUpperTLowerF,
-  Tg as findActiveMatchIndexAtom,
   Th as appMainCurrentCompatSlotUpperTLowerH,
   Ti as appMainCurrentCompatSlotUpperTLowerI,
   Tl as appMainCurrentCompatSlotUpperTLowerL,

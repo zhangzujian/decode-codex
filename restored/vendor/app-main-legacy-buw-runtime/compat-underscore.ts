@@ -6,9 +6,10 @@ export {
   initSharedHighlightThemeRegistryChunk,
 } from "../app-main-current-runtime";
 
+export { initTerminalMousePatchRuntime } from "../../runtime/window-chrome-runtime";
+
 export {
   _ as appMainCurrentCompatSlotUnderscore,
-  __ as initTerminalMousePatchRuntime,
   _a as appMainCurrentCompatSlotUnderscoreLowerA,
   _b as appMainCurrentCompatSlotUnderscoreLowerB,
   _c as appMainCurrentCompatSlotUnderscoreLowerC,

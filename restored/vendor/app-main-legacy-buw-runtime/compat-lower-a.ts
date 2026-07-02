@@ -2,6 +2,8 @@
 // Lowercase a compatibility aliases for the legacy app-main/onboarding producer.
 export { SidebarRowMenuSeparator } from "../app-main-current-runtime";
 
+export { shouldExpandReviewPanelSignal } from "../../conversations/local-conversation-page-runtime";
+
 export {
   a as appMainCurrentCompatSlotLowerA,
   a_ as appMainCurrentCompatSlotLowerAUnderscore,
@@ -23,7 +25,6 @@ export {
   aS as appMainCurrentCompatSlotLowerAUpperS,
   at as appMainCurrentCompatSlotLowerALowerT,
   au as appMainCurrentCompatSlotLowerALowerU,
-  av as shouldExpandReviewPanelSignal,
   ax as appMainCurrentCompatSlotLowerALowerX,
   ay as appMainCurrentCompatSlotLowerALowerY,
 } from "../app-main-legacy-buw-compat-bundle";

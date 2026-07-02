@@ -2,15 +2,17 @@
 // Uppercase F compatibility aliases for the legacy app-main/onboarding producer.
 export { initThreadRowLayoutRuntimeChunk } from "../app-main-current-runtime";
 
+export { initWebLinksAddonChunk } from "../../runtime/window-chrome-runtime";
+
+export { findQueryAtom } from "../../find/thread-find-atoms";
+
 export {
   F as appMainCurrentCompatSlotUpperF,
-  F_ as initWebLinksAddonChunk,
   Fa as appMainCurrentCompatSlotUpperFLowerA,
   Fb as appMainCurrentCompatSlotUpperFLowerB,
   Fc as appMainCurrentCompatSlotUpperFLowerC,
   FC as appMainCurrentCompatSlotUpperFUpperC,
   Fd as appMainCurrentCompatSlotUpperFLowerD,
-  Fg as findQueryAtom,
   Fh as initPendingWorktreeComposerRuntimeChunk,
   Fi as appMainCurrentCompatSlotUpperFLowerI,
   Fl as appMainCurrentCompatSlotUpperFLowerL,

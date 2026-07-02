@@ -4,9 +4,10 @@ export { GlobeIcon } from "../app-main-current-runtime";
 
 export { focusAreaStateKey } from "../../conversations/fork-conversation-panel-state-deps";
 
+export { initTerminalFontSettingsChunk } from "../../runtime/window-chrome-runtime";
+
 export {
   A as appMainCurrentCompatSlotUpperA,
-  A_ as initTerminalFontSettingsChunk,
   Aa as appMainCurrentCompatSlotUpperALowerA,
   Ab as appMainCurrentCompatSlotUpperALowerB,
   Ac as appMainCurrentCompatSlotUpperALowerC,

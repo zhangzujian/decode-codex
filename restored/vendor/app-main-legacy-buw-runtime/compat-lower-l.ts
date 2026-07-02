@@ -2,6 +2,8 @@
 // Lowercase l compatibility aliases for the legacy app-main/onboarding producer.
 export { getCommandExecutionText } from "../app-main-current-runtime";
 
+export { pendingReviewPanelTargetSignal } from "../../conversations/local-conversation-page-runtime";
+
 export {
   l as appMainCurrentCompatSlotLowerL,
   l_ as appMainCurrentCompatSlotLowerLUnderscore,
@@ -23,7 +25,6 @@ export {
   ls as appMainCurrentCompatSlotLowerLLowerS,
   lS as appMainCurrentCompatSlotLowerLUpperS,
   lu as appMainCurrentCompatSlotLowerLLowerU,
-  lv as pendingReviewPanelTargetSignal,
   lx as appMainCurrentCompatSlotLowerLLowerX,
   ly as appMainCurrentCompatSlotLowerLLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

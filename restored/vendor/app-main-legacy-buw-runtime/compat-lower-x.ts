@@ -5,9 +5,10 @@ export {
   initSettingsControlRowChunk,
 } from "../app-main-current-runtime";
 
+export { ensureTerminalFontLoaded } from "../../runtime/window-chrome-runtime";
+
 export {
   x as appMainCurrentCompatSlotLowerX,
-  x_ as ensureTerminalFontLoaded,
   xa as appMainCurrentCompatSlotLowerXLowerA,
   xb as appMainCurrentCompatSlotLowerXLowerB,
   xc as appMainCurrentCompatSlotLowerXLowerC,

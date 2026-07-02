@@ -2,9 +2,10 @@
 // Lowercase b compatibility aliases for the legacy app-main/onboarding producer.
 export { SettingsControlRow } from "../app-main-current-runtime";
 
+export { normalizeTerminalFontFamily } from "../../runtime/window-chrome-runtime";
+
 export {
   b as appMainCurrentCompatSlotLowerB,
-  b_ as normalizeTerminalFontFamily,
   ba as appMainCurrentCompatSlotLowerBLowerA,
   bb as appMainCurrentCompatSlotLowerBLowerB,
   bc as appMainCurrentCompatSlotLowerBLowerC,

@@ -2,9 +2,10 @@
 // Uppercase C compatibility aliases for the legacy app-main/onboarding producer.
 export { toggleThreadSidePanel } from "../app-main-current-runtime";
 
+export { normalizeTerminalLineEndings } from "../../runtime/window-chrome-runtime";
+
 export {
   C as appMainCurrentCompatSlotUpperC,
-  C_ as normalizeTerminalLineEndings,
   Ca as appMainCurrentCompatSlotUpperCLowerA,
   Cb as appMainCurrentCompatSlotUpperCLowerB,
   Cc as appMainCurrentCompatSlotUpperCLowerC,

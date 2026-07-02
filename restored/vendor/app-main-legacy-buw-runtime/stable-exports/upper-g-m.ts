@@ -13,6 +13,14 @@ export {
 } from "../../app-main-current-runtime";
 
 export {
+  initPanelTabStoresChunk,
+  initFitAddonChunk,
+  setThreadAppShellSources,
+} from "../../../runtime/window-chrome-runtime";
+
+export { findResultAtom } from "../../../find/thread-find-atoms";
+
+export {
   G as legacyAppMainBuwUpperGExport,
   GS as legacyAppMainBuwUpperGUpperSExport,
   G_ as legacyAppMainBuwUpperGUnderscoreExport,
@@ -31,7 +39,6 @@ export {
   Gs as legacyAppMainBuwUpperGLowerSExport,
   Gt as legacyAppMainBuwUpperGLowerTExport,
   Gu as legacyAppMainBuwUpperGLowerUExport,
-  Gv as initPanelTabStoresChunk,
   Gx as legacyAppMainBuwUpperGLowerXExport,
   Gy as legacyAppMainBuwUpperGLowerYExport,
   H as legacyAppMainBuwUpperHExport,
@@ -58,13 +65,11 @@ export {
   I as legacyAppMainBuwUpperIExport,
   IC as legacyAppMainBuwUpperIUpperCExport,
   IS as legacyAppMainBuwUpperIUpperSExport,
-  I_ as initFitAddonChunk,
   Ia as legacyAppMainBuwUpperILowerAExport,
   Ib as legacyAppMainBuwUpperILowerBExport,
   Ic as legacyAppMainBuwUpperILowerCExport,
   Id as legacyAppMainBuwUpperILowerDExport,
   If as legacyAppMainBuwUpperILowerFExport,
-  Ig as findResultAtom,
   Ih as RemoteHostStatusIcon,
   Ii as legacyAppMainBuwUpperILowerIExport,
   Il as legacyAppMainBuwUpperILowerLExport,
@@ -85,7 +90,6 @@ export {
   Jb as legacyAppMainBuwUpperJLowerBExport,
   Jc as legacyAppMainBuwUpperJLowerCExport,
   Jf as legacyAppMainBuwUpperJLowerFExport,
-  Jg as setThreadAppShellSources,
   Jh as legacyAppMainBuwUpperJLowerHExport,
   Ji as legacyAppMainBuwUpperJLowerIExport,
   Jm as legacyAppMainBuwUpperJLowerMExport,

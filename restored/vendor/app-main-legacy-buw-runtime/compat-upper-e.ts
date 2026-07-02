@@ -2,9 +2,10 @@
 // Uppercase E compatibility aliases for the legacy app-main/onboarding producer.
 export { deriveBrowserConversationId } from "../app-main-current-runtime";
 
+export { initTerminalLinkHandlerChunk } from "../../runtime/window-chrome-runtime";
+
 export {
   E as appMainCurrentCompatSlotUpperE,
-  E_ as initTerminalLinkHandlerChunk,
   Ea as appMainCurrentCompatSlotUpperELowerA,
   Eb as appMainCurrentCompatSlotUpperELowerB,
   Ec as appMainCurrentCompatSlotUpperELowerC,

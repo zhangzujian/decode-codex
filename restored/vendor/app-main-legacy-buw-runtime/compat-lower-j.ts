@@ -2,16 +2,18 @@
 // Lowercase j compatibility aliases for the legacy app-main/onboarding producer.
 export { normalizeWorkspacePath } from "../app-main-current-runtime";
 
+export { findActiveDomainAtom } from "../../find/thread-find-atoms";
+
+export { scheduleReviewRestore } from "../../conversations/local-conversation-page-runtime";
+
 export {
   j as appMainCurrentCompatSlotLowerJ,
-  j_ as scheduleReviewRestore,
   ja as appMainCurrentCompatSlotLowerJLowerA,
   jb as appMainCurrentCompatSlotLowerJLowerB,
   jc as appMainCurrentCompatSlotLowerJLowerC,
   jC as appMainCurrentCompatSlotLowerJUpperC,
   jd as appMainCurrentCompatSlotLowerJLowerD,
   jf as appMainCurrentCompatSlotLowerJLowerF,
-  jg as findActiveDomainAtom,
   jh as appMainCurrentCompatSlotLowerJLowerH,
   ji as appMainCurrentCompatSlotLowerJLowerI,
   jl as appMainCurrentCompatSlotLowerJLowerL,

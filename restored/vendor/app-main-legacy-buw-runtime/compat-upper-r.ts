@@ -3,6 +3,11 @@
 export { terminalSessionSnapshotStore } from "../app-main-current-runtime";
 
 export {
+  initThreadFindStateRuntime,
+  currentRouteHostIdSignal,
+} from "../../runtime/window-chrome-runtime";
+
+export {
   R as appMainCurrentCompatSlotUpperR,
   R_ as intlShapeSignal,
   Ra as appMainCurrentCompatSlotUpperRLowerA,
@@ -10,7 +15,6 @@ export {
   Rc as appMainCurrentCompatSlotUpperRLowerC,
   RC as appMainCurrentCompatSlotUpperRUpperC,
   Rf as appMainCurrentCompatSlotUpperRLowerF,
-  Rg as initThreadFindStateRuntime,
   Rh as SidebarTaskRowMetadata,
   Ri as appMainCurrentCompatSlotUpperRLowerI,
   Rl as appMainCurrentCompatSlotUpperRLowerL,
@@ -23,7 +27,6 @@ export {
   RS as appMainCurrentCompatSlotUpperRUpperS,
   Rt as appMainCurrentCompatSlotUpperRLowerT,
   Ru as appMainCurrentCompatSlotUpperRLowerU,
-  Rv as currentRouteHostIdSignal,
   Rx as appMainCurrentCompatSlotUpperRLowerX,
   Ry as appMainCurrentCompatSlotUpperRLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

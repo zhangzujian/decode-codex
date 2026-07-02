@@ -5,6 +5,8 @@ export {
   SidebarTaskRowTitle,
 } from "../app-main-current-runtime";
 
+export { initNewThreadRouteContextChunk } from "../../runtime/window-chrome-runtime";
+
 export {
   Q as appMainCurrentCompatSlotUpperQ,
   Q_ as appMainCurrentCompatSlotUpperQUnderscore,
@@ -26,5 +28,4 @@ export {
   Qu as appMainCurrentCompatSlotUpperQLowerU,
   Qv as appMainCurrentCompatSlotUpperQLowerV,
   Qx as appMainCurrentCompatSlotUpperQLowerX,
-  Qy as initNewThreadRouteContextChunk,
 } from "../app-main-legacy-buw-compat-bundle";

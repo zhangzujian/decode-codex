@@ -7,11 +7,12 @@ export {
   normalizeFilesystemPathForDisplay,
 } from "../app-main-current-runtime";
 
+export { initPermissionsModeDefaultsRuntime } from "../../runtime/window-chrome-runtime";
+
 export {
   f as appMainCurrentCompatSlotLowerF,
   f_ as appMainCurrentCompatSlotLowerFUnderscore,
   fa as appMainCurrentCompatSlotLowerFLowerA,
-  fb as initPermissionsModeDefaultsRuntime,
   fc as appMainCurrentCompatSlotLowerFLowerC,
   fC as appMainCurrentCompatSlotLowerFUpperC,
   fd as appMainCurrentCompatSlotLowerFLowerD,

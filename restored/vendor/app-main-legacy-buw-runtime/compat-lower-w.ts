@@ -2,9 +2,10 @@
 // Lowercase w compatibility aliases for the legacy app-main/onboarding producer.
 export { browserTabIdForConversation } from "../app-main-current-runtime";
 
+export { initTerminalMouseCoordinatePatchRuntime } from "../../runtime/window-chrome-runtime";
+
 export {
   w as appMainCurrentCompatSlotLowerW,
-  w_ as initTerminalMouseCoordinatePatchRuntime,
   wa as appMainCurrentCompatSlotLowerWLowerA,
   wb as appMainCurrentCompatSlotLowerWLowerB,
   wc as appMainCurrentCompatSlotLowerWLowerC,

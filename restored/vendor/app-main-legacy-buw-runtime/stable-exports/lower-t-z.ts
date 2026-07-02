@@ -23,6 +23,13 @@ export {
 } from "../../../conversations/fork-conversation-panel-state-deps";
 
 export {
+  initTerminalSurfaceRuntime,
+  initTerminalMouseCoordinatePatchRuntime,
+  ensureTerminalFontLoaded,
+  patchTerminalMouseCoordsForZoom,
+} from "../../../runtime/window-chrome-runtime";
+
+export {
   t as legacyAppMainBuwLowerTExport,
   tC as PortalFromLowerTC,
   tS as legacyAppMainBuwLowerTUpperSExport,
@@ -70,7 +77,6 @@ export {
   v as legacyAppMainBuwLowerVExport,
   vC as legacyAppMainBuwLowerVUpperCExport,
   vS as legacyAppMainBuwLowerVUpperSExport,
-  v_ as initTerminalSurfaceRuntime,
   va as legacyAppMainBuwLowerVLowerAExport,
   vb as SidebarRowRemoteEnvironment,
   vc as legacyAppMainBuwLowerVLowerCExport,
@@ -90,7 +96,6 @@ export {
   w as legacyAppMainBuwLowerWExport,
   wC as legacyAppMainBuwLowerWUpperCExport,
   wS as legacyAppMainBuwLowerWUpperSExport,
-  w_ as initTerminalMouseCoordinatePatchRuntime,
   wa as legacyAppMainBuwLowerWLowerAExport,
   wb as legacyAppMainBuwLowerWLowerBExport,
   wc as legacyAppMainBuwLowerWLowerCExport,
@@ -113,7 +118,6 @@ export {
   x as legacyAppMainBuwLowerXExport,
   xC as legacyAppMainBuwLowerXUpperCExport,
   xS as legacyAppMainBuwLowerXUpperSExport,
-  x_ as ensureTerminalFontLoaded,
   xa as legacyAppMainBuwLowerXLowerAExport,
   xb as legacyAppMainBuwLowerXLowerBExport,
   xc as legacyAppMainBuwLowerXLowerCExport,
@@ -135,7 +139,6 @@ export {
   y as legacyAppMainBuwLowerYExport,
   yC as legacyAppMainBuwLowerYUpperCExport,
   yS as legacyAppMainBuwLowerYUpperSExport,
-  y_ as patchTerminalMouseCoordsForZoom,
   ya as legacyAppMainBuwLowerYLowerAExport,
   yb as legacyAppMainBuwLowerYLowerBExport,
   yc as legacyAppMainBuwLowerYLowerCExport,

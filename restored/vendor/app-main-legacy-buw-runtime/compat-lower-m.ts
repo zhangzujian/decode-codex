@@ -9,6 +9,8 @@ export {
 
 export { isWorkspaceFilePath } from "../../conversations/fork-conversation-panel-state-deps";
 
+export { revealChangedFilesInReviewPanel } from "../../conversations/local-conversation-page-runtime";
+
 export {
   m as appMainCurrentCompatSlotLowerM,
   m_ as appMainCurrentCompatSlotLowerMUnderscore,
@@ -27,6 +29,5 @@ export {
   mS as appMainCurrentCompatSlotLowerMUpperS,
   mt as appMainCurrentCompatSlotLowerMLowerT,
   mu as appMainCurrentCompatSlotLowerMLowerU,
-  mv as revealChangedFilesInReviewPanel,
   my as appMainCurrentCompatSlotLowerMLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

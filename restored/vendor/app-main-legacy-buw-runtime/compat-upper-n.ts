@@ -6,15 +6,20 @@ export {
 } from "../app-main-current-runtime";
 
 export {
+  initTerminalRuntimeChunk,
+  ensureBottomPanelLauncherVisibilityDefault,
+} from "../../runtime/window-chrome-runtime";
+
+export { findLoadingAtom } from "../../find/thread-find-atoms";
+
+export {
   N as logger,
-  N_ as initTerminalRuntimeChunk,
   Na as appMainCurrentCompatSlotUpperNLowerA,
   Nb as appMainCurrentCompatSlotUpperNLowerB,
   Nc as appMainCurrentCompatSlotUpperNLowerC,
   NC as appMainCurrentCompatSlotUpperNUpperC,
   Nd as appMainCurrentCompatSlotUpperNLowerD,
   Nf as appMainCurrentCompatSlotUpperNLowerF,
-  Ng as findLoadingAtom,
   Nh as appMainCurrentCompatSlotUpperNLowerH,
   Ni as appMainCurrentCompatSlotUpperNLowerI,
   Nl as appMainCurrentCompatSlotUpperNLowerL,
@@ -27,5 +32,4 @@ export {
   Nu as appMainCurrentCompatSlotUpperNLowerU,
   Nv as appMainCurrentCompatSlotUpperNLowerV,
   Nx as appMainCurrentCompatSlotUpperNLowerX,
-  Ny as ensureBottomPanelLauncherVisibilityDefault,
 } from "../app-main-legacy-buw-compat-bundle";

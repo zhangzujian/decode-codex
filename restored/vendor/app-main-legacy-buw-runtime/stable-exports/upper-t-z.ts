@@ -23,16 +23,22 @@ export {
 } from "../../../conversations/fork-conversation-panel-state-deps";
 
 export {
+  isTerminalScrolledToBottom,
+  conversationTitleByIdSignal,
+  initConversationSummarySelectorsChunk,
+} from "../../../runtime/window-chrome-runtime";
+
+export { findActiveMatchIndexAtom } from "../../../find/thread-find-atoms";
+
+export {
   T as legacyAppMainBuwUpperTExport,
   TC as legacyAppMainBuwUpperTUpperCExport,
   TS as legacyAppMainBuwUpperTUpperSExport,
-  T_ as isTerminalScrolledToBottom,
   Ta as legacyAppMainBuwUpperTLowerAExport,
   Tb as legacyAppMainBuwUpperTLowerBExport,
   Tc as legacyAppMainBuwUpperTLowerCExport,
   Td as legacyAppMainBuwUpperTLowerDExport,
   Tf as legacyAppMainBuwUpperTLowerFExport,
-  Tg as findActiveMatchIndexAtom,
   Th as legacyAppMainBuwUpperTLowerHExport,
   Ti as legacyAppMainBuwUpperTLowerIExport,
   Tl as legacyAppMainBuwUpperTLowerLExport,
@@ -64,7 +70,6 @@ export {
   Us as legacyAppMainBuwUpperULowerSExport,
   Ut as legacyAppMainBuwUpperULowerTExport,
   Uu as legacyAppMainBuwUpperULowerUExport,
-  Uv as conversationTitleByIdSignal,
   Ux as legacyAppMainBuwUpperULowerXExport,
   Uy as legacyAppMainBuwUpperULowerYExport,
   V as legacyAppMainBuwUpperVExport,
@@ -86,7 +91,6 @@ export {
   Vs as legacyAppMainBuwUpperVLowerSExport,
   Vt as legacyAppMainBuwUpperVLowerTExport,
   Vu as legacyAppMainBuwUpperVLowerUExport,
-  Vv as initConversationSummarySelectorsChunk,
   Vx as legacyAppMainBuwUpperVLowerXExport,
   Vy as legacyAppMainBuwUpperVLowerYExport,
   W as legacyAppMainBuwUpperWExport,

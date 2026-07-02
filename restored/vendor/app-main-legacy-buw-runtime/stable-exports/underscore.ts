@@ -6,11 +6,12 @@ export {
   initSharedHighlightThemeRegistryChunk,
 } from "../../app-main-current-runtime";
 
+export { initTerminalMousePatchRuntime } from "../../../runtime/window-chrome-runtime";
+
 export {
   _ as legacyAppMainBuwUnderscoreExport,
   _C as legacyAppMainBuwUnderscoreUpperCExport,
   _S as legacyAppMainBuwUnderscoreUpperSExport,
-  __ as initTerminalMousePatchRuntime,
   _a as legacyAppMainBuwUnderscoreLowerAExport,
   _b as legacyAppMainBuwUnderscoreLowerBExport,
   _c as legacyAppMainBuwUnderscoreLowerCExport,

@@ -8,12 +8,17 @@ export {
 } from "../app-main-current-runtime";
 
 export {
+  initXtermTerminalChunk,
+  initAppShellStateRuntimeChunk,
+} from "../../runtime/window-chrome-runtime";
+
+export { findOpenAtom } from "../../find/thread-find-atoms";
+
+export {
   P as appMainCurrentCompatSlotUpperP,
-  P_ as initXtermTerminalChunk,
   Pa as appMainCurrentCompatSlotUpperPLowerA,
   Pb as appMainCurrentCompatSlotUpperPLowerB,
   PC as appMainCurrentCompatSlotUpperPUpperC,
-  Pg as findOpenAtom,
   Ph as createPendingWorktree,
   Pi as appMainCurrentCompatSlotUpperPLowerI,
   Pl as appMainCurrentCompatSlotUpperPLowerL,
@@ -27,5 +32,4 @@ export {
   Pu as appMainCurrentCompatSlotUpperPLowerU,
   Pv as appMainCurrentCompatSlotUpperPLowerV,
   Px as appMainCurrentCompatSlotUpperPLowerX,
-  Py as initAppShellStateRuntimeChunk,
 } from "../app-main-legacy-buw-compat-bundle";

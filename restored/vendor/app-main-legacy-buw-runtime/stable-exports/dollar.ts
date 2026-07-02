@@ -4,6 +4,8 @@ export { SidebarSection } from "../../app-main-current-runtime";
 
 export { rightPanelOpenStateKey } from "../../../conversations/fork-conversation-panel-state-deps";
 
+export { resetNewThreadRouteContext } from "../../../runtime/window-chrome-runtime";
+
 export {
   $ as legacyAppMainBuwDollarExport,
   $_ as legacyAppMainBuwDollarUnderscoreExport,
@@ -25,5 +27,4 @@ export {
   $u as legacyAppMainBuwDollarLowerUExport,
   $v as legacyAppMainBuwDollarLowerVExport,
   $x as legacyAppMainBuwDollarLowerXExport,
-  $y as resetNewThreadRouteContext,
 } from "../../app-main-legacy-buw-compat-bundle";

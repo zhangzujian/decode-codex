@@ -5,6 +5,8 @@ export {
   useReferralInviteMutation,
 } from "../app-main-current-runtime";
 
+export { getCodexWindowChrome } from "../../runtime/window-chrome-runtime";
+
 export {
   o as appMainCurrentCompatSlotLowerO,
   o_ as appMainCurrentCompatSlotLowerOUnderscore,
@@ -13,7 +15,6 @@ export {
   oc as appMainCurrentCompatSlotLowerOLowerC,
   oC as appMainCurrentCompatSlotLowerOUpperC,
   od as appMainCurrentCompatSlotLowerOLowerD,
-  og as getCodexWindowChrome,
   oh as appMainCurrentCompatSlotLowerOLowerH,
   oi as appMainCurrentCompatSlotLowerOLowerI,
   om as appMainCurrentCompatSlotLowerOLowerM,

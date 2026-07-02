@@ -7,6 +7,8 @@ export {
   useComposedRefs,
 } from "../app-main-current-runtime";
 
+export { openInitialReviewPanelTarget } from "../../conversations/local-conversation-page-runtime";
+
 export {
   h as appMainCurrentCompatSlotLowerH,
   h_ as appMainCurrentCompatSlotLowerHUnderscore,
@@ -25,7 +27,6 @@ export {
   hS as appMainCurrentCompatSlotLowerHUpperS,
   ht as appMainCurrentCompatSlotLowerHLowerT,
   hu as appMainCurrentCompatSlotLowerHLowerU,
-  hv as openInitialReviewPanelTarget,
   hx as ThreadRowStatusIndicator,
   hy as appMainCurrentCompatSlotLowerHLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

@@ -16,9 +16,21 @@ export {
 } from "../../../conversations/fork-conversation-panel-state-deps";
 
 export {
+  initTerminalFontSettingsChunk,
+  normalizeTerminalLineEndings,
+  activateTerminalLink,
+  initTerminalLinkHandlerChunk,
+  initWebLinksAddonChunk,
+} from "../../../runtime/window-chrome-runtime";
+
+export {
+  findBrowserStatusAtom,
+  findQueryAtom,
+} from "../../../find/thread-find-atoms";
+
+export {
   A as legacyAppMainBuwUpperAExport,
   AC as legacyAppMainBuwUpperAUpperCExport,
-  A_ as initTerminalFontSettingsChunk,
   Aa as legacyAppMainBuwUpperALowerAExport,
   Ab as legacyAppMainBuwUpperALowerBExport,
   Ac as legacyAppMainBuwUpperALowerCExport,
@@ -61,7 +73,6 @@ export {
   C as legacyAppMainBuwUpperCExport,
   CC as legacyAppMainBuwUpperCUpperCExport,
   CS as legacyAppMainBuwUpperCUpperSExport,
-  C_ as normalizeTerminalLineEndings,
   Ca as legacyAppMainBuwUpperCLowerAExport,
   Cb as legacyAppMainBuwUpperCLowerBExport,
   Cc as legacyAppMainBuwUpperCLowerCExport,
@@ -84,13 +95,11 @@ export {
   D as legacyAppMainBuwUpperDExport,
   DC as initPrimitiveRuntimeChunk,
   DS as legacyAppMainBuwUpperDUpperSExport,
-  D_ as activateTerminalLink,
   Da as legacyAppMainBuwUpperDLowerAExport,
   Db as legacyAppMainBuwUpperDLowerBExport,
   Dc as legacyAppMainBuwUpperDLowerCExport,
   Dd as legacyAppMainBuwUpperDLowerDExport,
   Df as legacyAppMainBuwUpperDLowerFExport,
-  Dg as findBrowserStatusAtom,
   Dh as legacyAppMainBuwUpperDLowerHExport,
   Di as legacyAppMainBuwUpperDLowerIExport,
   Dl as legacyAppMainBuwUpperDLowerLExport,
@@ -107,7 +116,6 @@ export {
   E as legacyAppMainBuwUpperEExport,
   EC as Primitive,
   ES as legacyAppMainBuwUpperEUpperSExport,
-  E_ as initTerminalLinkHandlerChunk,
   Ea as legacyAppMainBuwUpperELowerAExport,
   Eb as legacyAppMainBuwUpperELowerBExport,
   Ec as legacyAppMainBuwUpperELowerCExport,
@@ -130,12 +138,10 @@ export {
   F as legacyAppMainBuwUpperFExport,
   FC as legacyAppMainBuwUpperFUpperCExport,
   FS as legacyAppMainBuwUpperFUpperSExport,
-  F_ as initWebLinksAddonChunk,
   Fa as legacyAppMainBuwUpperFLowerAExport,
   Fb as legacyAppMainBuwUpperFLowerBExport,
   Fc as legacyAppMainBuwUpperFLowerCExport,
   Fd as legacyAppMainBuwUpperFLowerDExport,
-  Fg as findQueryAtom,
   Fh as initPendingWorktreeComposerRuntimeChunk,
   Fi as legacyAppMainBuwUpperFLowerIExport,
   Fl as legacyAppMainBuwUpperFLowerLExport,

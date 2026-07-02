@@ -6,6 +6,10 @@ export {
   SidebarRowContextMenuItem,
 } from "../app-main-current-runtime";
 
+export { initAppFeatureRuntimeChunk } from "../../runtime/window-chrome-runtime";
+
+export { focusPendingReviewPanelTarget } from "../../conversations/local-conversation-page-runtime";
+
 export {
   s as appMainCurrentCompatSlotLowerS,
   s_ as appMainCurrentCompatSlotLowerSUnderscore,
@@ -14,7 +18,6 @@ export {
   sc as appMainCurrentCompatSlotLowerSLowerC,
   sC as appMainCurrentCompatSlotLowerSUpperC,
   sd as appMainCurrentCompatSlotLowerSLowerD,
-  sg as initAppFeatureRuntimeChunk,
   sh as appMainCurrentCompatSlotLowerSLowerH,
   si as appMainCurrentCompatSlotLowerSLowerI,
   sn as appMainCurrentCompatSlotLowerSLowerN,
@@ -25,7 +28,6 @@ export {
   sS as appMainCurrentCompatSlotLowerSUpperS,
   st as appMainCurrentCompatSlotLowerSLowerT,
   su as appMainCurrentCompatSlotLowerSLowerU,
-  sv as focusPendingReviewPanelTarget,
   sx as appMainCurrentCompatSlotLowerSLowerX,
   sy as appMainCurrentCompatSlotLowerSLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

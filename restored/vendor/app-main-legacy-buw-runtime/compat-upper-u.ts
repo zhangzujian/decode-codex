@@ -5,6 +5,8 @@ export {
   initFastServiceTierIcon,
 } from "../app-main-current-runtime";
 
+export { conversationTitleByIdSignal } from "../../runtime/window-chrome-runtime";
+
 export {
   U as appMainCurrentCompatSlotUpperU,
   U_ as appMainCurrentCompatSlotUpperUUnderscore,
@@ -24,7 +26,6 @@ export {
   US as appMainCurrentCompatSlotUpperUUpperS,
   Ut as appMainCurrentCompatSlotUpperULowerT,
   Uu as appMainCurrentCompatSlotUpperULowerU,
-  Uv as conversationTitleByIdSignal,
   Ux as appMainCurrentCompatSlotUpperULowerX,
   Uy as appMainCurrentCompatSlotUpperULowerY,
 } from "../app-main-legacy-buw-compat-bundle";
