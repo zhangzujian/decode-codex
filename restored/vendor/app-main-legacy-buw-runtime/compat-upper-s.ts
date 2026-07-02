@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase S compatibility aliases for the legacy app-main/onboarding producer.
+export { primeBrowserTabTransfers } from "../app-main-current-runtime";
+
 export {
   S as appMainCurrentCompatSlotUpperS,
   S_ as readTerminalThemeFromCss,
@@ -12,7 +14,6 @@ export {
   Sg as emptyFindBrowserStatus,
   Sh as appMainCurrentCompatSlotUpperSLowerH,
   Si as appMainCurrentCompatSlotUpperSLowerI,
-  Sl as primeBrowserTabTransfers,
   Sm as appMainCurrentCompatSlotUpperSLowerM,
   Sn as appMainCurrentCompatSlotUpperSLowerN,
   So as appMainCurrentCompatSlotUpperSLowerO,

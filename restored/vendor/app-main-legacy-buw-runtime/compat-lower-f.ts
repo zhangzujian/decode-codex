@@ -1,6 +1,13 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase f compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  initFolderIconChunk,
+  getBrowserTabIdForSidePanelOpen,
+  initBrowserCommentAttachmentRuntime,
+  normalizeFilesystemPathForDisplay,
+} from "../app-main-current-runtime";
+
+export {
   f as appMainCurrentCompatSlotLowerF,
   f_ as appMainCurrentCompatSlotLowerFUnderscore,
   fa as appMainCurrentCompatSlotLowerFLowerA,
@@ -8,16 +15,12 @@ export {
   fc as appMainCurrentCompatSlotLowerFLowerC,
   fC as appMainCurrentCompatSlotLowerFUpperC,
   fd as appMainCurrentCompatSlotLowerFLowerD,
-  ff as initFolderIconChunk,
   fg as appMainCurrentCompatSlotLowerFLowerG,
   fh as appMainCurrentCompatSlotLowerFLowerH,
   fi as appMainCurrentCompatSlotLowerFLowerI,
-  fl as getBrowserTabIdForSidePanelOpen,
-  fm as initBrowserCommentAttachmentRuntime,
   fn as appMainCurrentCompatSlotLowerFLowerN,
   fo as appMainCurrentCompatSlotLowerFLowerO,
   fp as appMainCurrentCompatSlotLowerFLowerP,
-  fr as normalizeFilesystemPathForDisplay,
   fs as appMainCurrentCompatSlotLowerFLowerS,
   fS as appMainCurrentCompatSlotLowerFUpperS,
   ft as appMainCurrentCompatSlotLowerFLowerT,

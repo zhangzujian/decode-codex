@@ -3,6 +3,12 @@
 export { areArraysEqual } from "../../utils/are-arrays-equal";
 
 export {
+  openThreadMcpAppSidePanelTab,
+  ThreadRowEnvironmentMeta,
+  ThreadRowTimestamp,
+} from "../app-main-current-runtime";
+
+export {
   c as appMainCurrentCompatSlotLowerC,
   c_ as appMainCurrentCompatSlotLowerCUnderscore,
   ca as appMainCurrentCompatSlotLowerCLowerA,
@@ -10,14 +16,11 @@ export {
   cc as appMainCurrentCompatSlotLowerCLowerC,
   cC as appMainCurrentCompatSlotLowerCUpperC,
   cd as appMainCurrentCompatSlotLowerCLowerD,
-  cf as openThreadMcpAppSidePanelTab,
   cg as appMainCurrentCompatSlotLowerCLowerG,
   ch as appMainCurrentCompatSlotLowerCLowerH,
   ci as appMainCurrentCompatSlotLowerCLowerI,
-  cm as ThreadRowEnvironmentMeta,
   cn as appMainCurrentCompatSlotLowerCLowerN,
   co as appMainCurrentCompatSlotLowerCLowerO,
-  cp as ThreadRowTimestamp,
   cr as appMainCurrentCompatSlotLowerCLowerR,
   cs as appMainCurrentCompatSlotLowerCLowerS,
   cS as appMainCurrentCompatSlotLowerCUpperS,

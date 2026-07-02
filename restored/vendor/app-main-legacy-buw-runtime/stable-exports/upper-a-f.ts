@@ -1,9 +1,23 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: upper-a-f.
 export {
+  GlobeIcon,
+  ArchiveMenuItem,
+  UltraFastServiceTierIcon,
+  toggleThreadSidePanel,
+  getBrowserTabIdForPanelTab,
+  deriveBrowserConversationId,
+  initThreadRowLayoutRuntimeChunk,
+} from "../../app-main-current-runtime";
+
+export {
+  focusAreaStateKey,
+  getActiveBrowserTabId,
+} from "../../../conversations/fork-conversation-panel-state-deps";
+
+export {
   A as legacyAppMainBuwUpperAExport,
   AC as legacyAppMainBuwUpperAUpperCExport,
-  AS as focusAreaStateKey,
   A_ as initTerminalFontSettingsChunk,
   Aa as legacyAppMainBuwUpperALowerAExport,
   Ab as legacyAppMainBuwUpperALowerBExport,
@@ -18,7 +32,6 @@ export {
   An as legacyAppMainBuwUpperALowerNExport,
   Ao as legacyAppMainBuwUpperALowerOExport,
   Ap as legacyAppMainBuwUpperALowerPExport,
-  Ar as GlobeIcon,
   As as legacyAppMainBuwUpperALowerSExport,
   At as legacyAppMainBuwUpperALowerTExport,
   Au as legacyAppMainBuwUpperALowerUExport,
@@ -27,7 +40,6 @@ export {
   Ay as legacyAppMainBuwUpperALowerYExport,
   B as legacyAppMainBuwUpperBExport,
   BS as legacyAppMainBuwUpperBUpperSExport,
-  B_ as getActiveBrowserTabId,
   Ba as legacyAppMainBuwUpperBLowerAExport,
   Bb as legacyAppMainBuwUpperBLowerBExport,
   Bc as legacyAppMainBuwUpperBLowerCExport,
@@ -38,10 +50,8 @@ export {
   Bi as legacyAppMainBuwUpperBLowerIExport,
   Bl as legacyAppMainBuwUpperBLowerLExport,
   Bm as legacyAppMainBuwUpperBLowerMExport,
-  Bn as ArchiveMenuItem,
   Bo as legacyAppMainBuwUpperBLowerOExport,
   Bp as legacyAppMainBuwUpperBLowerPExport,
-  Br as UltraFastServiceTierIcon,
   Bs as legacyAppMainBuwUpperBLowerSExport,
   Bt as legacyAppMainBuwUpperBLowerTExport,
   Bu as legacyAppMainBuwUpperBLowerUExport,
@@ -60,7 +70,6 @@ export {
   Cg as legacyAppMainBuwUpperCLowerGExport,
   Ch as legacyAppMainBuwUpperCLowerHExport,
   Ci as legacyAppMainBuwUpperCLowerIExport,
-  Cl as toggleThreadSidePanel,
   Cm as legacyAppMainBuwUpperCLowerMExport,
   Cn as legacyAppMainBuwUpperCLowerNExport,
   Co as legacyAppMainBuwUpperCLowerOExport,
@@ -90,7 +99,6 @@ export {
   Do as legacyAppMainBuwUpperDLowerOExport,
   Dp as legacyAppMainBuwUpperDLowerPExport,
   Dr as legacyAppMainBuwUpperDLowerRExport,
-  Ds as getBrowserTabIdForPanelTab,
   Dt as legacyAppMainBuwUpperDLowerTExport,
   Du as legacyAppMainBuwUpperDLowerUExport,
   Dv as legacyAppMainBuwUpperDLowerVExport,
@@ -114,7 +122,6 @@ export {
   Eo as copyConversationStateToFork,
   Ep as legacyAppMainBuwUpperELowerPExport,
   Er as legacyAppMainBuwUpperELowerRExport,
-  Es as deriveBrowserConversationId,
   Et as legacyAppMainBuwUpperELowerTExport,
   Eu as legacyAppMainBuwUpperELowerUExport,
   Ev as legacyAppMainBuwUpperELowerVExport,
@@ -128,7 +135,6 @@ export {
   Fb as legacyAppMainBuwUpperFLowerBExport,
   Fc as legacyAppMainBuwUpperFLowerCExport,
   Fd as legacyAppMainBuwUpperFLowerDExport,
-  Ff as initThreadRowLayoutRuntimeChunk,
   Fg as findQueryAtom,
   Fh as initPendingWorktreeComposerRuntimeChunk,
   Fi as legacyAppMainBuwUpperFLowerIExport,

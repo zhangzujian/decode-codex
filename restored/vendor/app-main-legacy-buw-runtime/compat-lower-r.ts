@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase r compatibility aliases for the legacy app-main/onboarding producer.
+export { SidebarRowKeyboardScope } from "../app-main-current-runtime";
+
 export {
   r as appMainCurrentCompatSlotLowerR,
   r_ as appMainCurrentCompatSlotLowerRUnderscore,
@@ -12,7 +14,6 @@ export {
   rg as appMainCurrentCompatSlotLowerRLowerG,
   rh as appMainCurrentCompatSlotLowerRLowerH,
   ri as appMainCurrentCompatSlotLowerRLowerI,
-  rl as SidebarRowKeyboardScope,
   rm as appMainCurrentCompatSlotLowerRLowerM,
   rn as appMainCurrentCompatSlotLowerRLowerN,
   ro as appMainCurrentCompatSlotLowerRLowerO,

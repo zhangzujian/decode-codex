@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase Z compatibility aliases for the legacy app-main/onboarding producer.
+export { AppShellOverlayOutlet } from "../app-main-current-runtime";
+
+export { bottomPanelOpenStateKey } from "../../conversations/fork-conversation-panel-state-deps";
+
 export {
   Z as appMainCurrentCompatSlotUpperZ,
   Z_ as appMainCurrentCompatSlotUpperZUnderscore,
@@ -18,9 +22,7 @@ export {
   Zp as appMainCurrentCompatSlotUpperZLowerP,
   Zr as appMainCurrentCompatSlotUpperZLowerR,
   Zs as appMainCurrentCompatSlotUpperZLowerS,
-  ZS as bottomPanelOpenStateKey,
   Zt as appMainCurrentCompatSlotUpperZLowerT,
-  Zu as AppShellOverlayOutlet,
   Zv as appMainCurrentCompatSlotUpperZLowerV,
   Zx as appMainCurrentCompatSlotUpperZLowerX,
   Zy as appMainCurrentCompatSlotUpperZLowerY,

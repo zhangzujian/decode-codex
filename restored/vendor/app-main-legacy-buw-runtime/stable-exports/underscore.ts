@@ -1,6 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: underscore.
 export {
+  isWindowsStyleAbsolutePath,
+  openThreadBrowserSidePanelTabWithPendingState,
+  initSharedHighlightThemeRegistryChunk,
+} from "../../app-main-current-runtime";
+
+export {
   _ as legacyAppMainBuwUnderscoreExport,
   _C as legacyAppMainBuwUnderscoreUpperCExport,
   _S as legacyAppMainBuwUnderscoreUpperSExport,
@@ -12,11 +18,8 @@ export {
   _f as legacyAppMainBuwUnderscoreLowerFExport,
   _g as legacyAppMainBuwUnderscoreLowerGExport,
   _h as legacyAppMainBuwUnderscoreLowerHExport,
-  _i as isWindowsStyleAbsolutePath,
-  _l as openThreadBrowserSidePanelTabWithPendingState,
   _m as legacyAppMainBuwUnderscoreLowerMExport,
   _n as legacyAppMainBuwUnderscoreLowerNExport,
-  _o as initSharedHighlightThemeRegistryChunk,
   _p as legacyAppMainBuwUnderscoreLowerPExport,
   _r as legacyAppMainBuwUnderscoreLowerRExport,
   _s as legacyAppMainBuwUnderscoreLowerSExport,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase d compatibility aliases for the legacy app-main/onboarding producer.
+export { FolderIcon, SidebarRowDragHandle } from "../app-main-current-runtime";
+
 export {
   d as appMainCurrentCompatSlotLowerD,
   d_ as appMainCurrentCompatSlotLowerDUnderscore,
@@ -8,11 +10,9 @@ export {
   dc as appMainCurrentCompatSlotLowerDLowerC,
   dC as appMainCurrentCompatSlotLowerDUpperC,
   dd as appMainCurrentCompatSlotLowerDLowerD,
-  df as FolderIcon,
   dg as appMainCurrentCompatSlotLowerDLowerG,
   dh as appMainCurrentCompatSlotLowerDLowerH,
   di as appMainCurrentCompatSlotLowerDLowerI,
-  dl as SidebarRowDragHandle,
   dm as appMainCurrentCompatSlotLowerDLowerM,
   dn as appMainCurrentCompatSlotLowerDLowerN,
   do as appMainCurrentCompatSlotLowerDLowerO,

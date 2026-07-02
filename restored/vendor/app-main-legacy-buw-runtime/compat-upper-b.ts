@@ -1,8 +1,14 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase B compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  ArchiveMenuItem,
+  UltraFastServiceTierIcon,
+} from "../app-main-current-runtime";
+
+export { getActiveBrowserTabId } from "../../conversations/fork-conversation-panel-state-deps";
+
+export {
   B as appMainCurrentCompatSlotUpperB,
-  B_ as getActiveBrowserTabId,
   Ba as appMainCurrentCompatSlotUpperBLowerA,
   Bb as appMainCurrentCompatSlotUpperBLowerB,
   Bc as appMainCurrentCompatSlotUpperBLowerC,
@@ -13,10 +19,8 @@ export {
   Bi as appMainCurrentCompatSlotUpperBLowerI,
   Bl as appMainCurrentCompatSlotUpperBLowerL,
   Bm as appMainCurrentCompatSlotUpperBLowerM,
-  Bn as ArchiveMenuItem,
   Bo as appMainCurrentCompatSlotUpperBLowerO,
   Bp as appMainCurrentCompatSlotUpperBLowerP,
-  Br as UltraFastServiceTierIcon,
   Bs as appMainCurrentCompatSlotUpperBLowerS,
   BS as appMainCurrentCompatSlotUpperBUpperS,
   Bt as appMainCurrentCompatSlotUpperBLowerT,

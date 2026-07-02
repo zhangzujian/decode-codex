@@ -1,8 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase z compatibility aliases for the legacy app-main/onboarding producer.
+export { SidebarRowRuntime } from "../app-main-current-runtime";
+
+export { getAllBrowserTabIdsForConversation } from "../../conversations/fork-conversation-panel-state-deps";
+
 export {
   z as appMainCurrentCompatSlotLowerZ,
-  z_ as getAllBrowserTabIdsForConversation,
   za as appMainCurrentCompatSlotLowerZLowerA,
   zb as appMainCurrentCompatSlotLowerZLowerB,
   zc as appMainCurrentCompatSlotLowerZLowerC,
@@ -13,7 +16,6 @@ export {
   zi as appMainCurrentCompatSlotLowerZLowerI,
   zl as appMainCurrentCompatSlotLowerZLowerL,
   zm as appMainCurrentCompatSlotLowerZLowerM,
-  zn as SidebarRowRuntime,
   zo as appMainCurrentCompatSlotLowerZLowerO,
   zp as appMainCurrentCompatSlotLowerZLowerP,
   zr as appMainCurrentCompatSlotLowerZLowerR,

@@ -3,13 +3,17 @@
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../threads/thread-actions";
 
 export {
+  initExternalAgentImportStatusIconsChunk,
+  initCommandExecutionTextRuntime,
+} from "../app-main-current-runtime";
+
+export {
   u as appMainCurrentCompatSlotLowerU,
   u_ as appMainCurrentCompatSlotLowerUUnderscore,
   ua as appMainCurrentCompatSlotLowerULowerA,
   ub as appMainCurrentCompatSlotLowerULowerB,
   uc as appMainCurrentCompatSlotLowerULowerC,
   uC as appMainCurrentCompatSlotLowerUUpperC,
-  ud as initExternalAgentImportStatusIconsChunk,
   uf as appMainCurrentCompatSlotLowerULowerF,
   ug as appMainCurrentCompatSlotLowerULowerG,
   uh as SidebarRowLocalEnvironment,
@@ -21,7 +25,6 @@ export {
   ur as appMainCurrentCompatSlotLowerULowerR,
   us as appMainCurrentCompatSlotLowerULowerS,
   uS as appMainCurrentCompatSlotLowerUUpperS,
-  ut as initCommandExecutionTextRuntime,
   uu as appMainCurrentCompatSlotLowerULowerU,
   uv as appMainCurrentCompatSlotLowerULowerV,
   ux as appMainCurrentCompatSlotLowerULowerX,

@@ -1,18 +1,20 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase i compatibility aliases for the legacy app-main/onboarding producer.
+export { useCloudEnvironmentsQuery } from "../app-main-current-runtime";
+
+export { getConversationPanelLayoutSnapshot } from "../../conversations/fork-conversation-panel-state-deps";
+
 export {
   i as appMainCurrentCompatSlotLowerI,
   i_ as appMainCurrentCompatSlotLowerIUnderscore,
   ia as appMainCurrentCompatSlotLowerILowerA,
   ib as appMainCurrentCompatSlotLowerILowerB,
-  ic as getConversationPanelLayoutSnapshot,
   iC as appMainCurrentCompatSlotLowerIUpperC,
   id as appMainCurrentCompatSlotLowerILowerD,
   if as appMainCurrentCompatSlotLowerILowerF,
   ig as appMainCurrentCompatSlotLowerILowerG,
   ih as appMainCurrentCompatSlotLowerILowerH,
   ii as appMainCurrentCompatSlotLowerILowerI,
-  il as useCloudEnvironmentsQuery,
   im as appMainCurrentCompatSlotLowerILowerM,
   in as appMainCurrentCompatSlotLowerILowerN,
   io as appMainCurrentCompatSlotLowerILowerO,

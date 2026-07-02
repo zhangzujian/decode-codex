@@ -1,6 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase x compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  initForkConversationToastRuntime,
+  initSettingsControlRowChunk,
+} from "../app-main-current-runtime";
+
+export {
   x as appMainCurrentCompatSlotLowerX,
   x_ as ensureTerminalFontLoaded,
   xa as appMainCurrentCompatSlotLowerXLowerA,
@@ -15,9 +20,7 @@ export {
   xl as openThreadTimelineSidePanel,
   xm as appMainCurrentCompatSlotLowerXLowerM,
   xn as appMainCurrentCompatSlotLowerXLowerN,
-  xo as initForkConversationToastRuntime,
   xp as appMainCurrentCompatSlotLowerXLowerP,
-  xr as initSettingsControlRowChunk,
   xs as appMainCurrentCompatSlotLowerXLowerS,
   xS as appMainCurrentCompatSlotLowerXUpperS,
   xt as appMainCurrentCompatSlotLowerXLowerT,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase E compatibility aliases for the legacy app-main/onboarding producer.
+export { deriveBrowserConversationId } from "../app-main-current-runtime";
+
 export {
   E as appMainCurrentCompatSlotUpperE,
   E_ as initTerminalLinkHandlerChunk,
@@ -18,7 +20,6 @@ export {
   Eo as copyConversationStateToFork,
   Ep as appMainCurrentCompatSlotUpperELowerP,
   Er as appMainCurrentCompatSlotUpperELowerR,
-  Es as deriveBrowserConversationId,
   ES as appMainCurrentCompatSlotUpperEUpperS,
   Et as appMainCurrentCompatSlotUpperELowerT,
   Eu as appMainCurrentCompatSlotUpperELowerU,

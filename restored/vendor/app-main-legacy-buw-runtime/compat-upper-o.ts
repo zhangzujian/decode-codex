@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase O compatibility aliases for the legacy app-main/onboarding producer.
+export { SidebarRowOverflowMenu } from "../app-main-current-runtime";
+
 export {
   O as appMainCurrentCompatSlotUpperO,
   O_ as terminalLinkHandler,
@@ -11,7 +13,6 @@ export {
   Of as appMainCurrentCompatSlotUpperOLowerF,
   Og as findBrowserTargetAtom,
   Oh as appMainCurrentCompatSlotUpperOLowerH,
-  Oi as SidebarRowOverflowMenu,
   Ol as appMainCurrentCompatSlotUpperOLowerL,
   Om as appMainCurrentCompatSlotUpperOLowerM,
   On as appMainCurrentCompatSlotUpperOLowerN,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase j compatibility aliases for the legacy app-main/onboarding producer.
+export { normalizeWorkspacePath } from "../app-main-current-runtime";
+
 export {
   j as appMainCurrentCompatSlotLowerJ,
   j_ as scheduleReviewRestore,
@@ -17,7 +19,6 @@ export {
   jn as appMainCurrentCompatSlotLowerJLowerN,
   jo as appMainCurrentCompatSlotLowerJLowerO,
   jp as appMainCurrentCompatSlotLowerJLowerP,
-  jr as normalizeWorkspacePath,
   js as appMainCurrentCompatSlotLowerJLowerS,
   jS as appMainCurrentCompatSlotLowerJUpperS,
   jt as appMainCurrentCompatSlotLowerJLowerT,

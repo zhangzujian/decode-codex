@@ -1,6 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase e compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  initOpenInBrowserRuntimeChunk,
+  SidebarRowUnreadDot,
+} from "../app-main-current-runtime";
+
+export {
   e_ as appMainCurrentCompatSlotLowerEUnderscore,
   ea as appMainCurrentCompatSlotLowerELowerA,
   eb as appMainCurrentCompatSlotLowerELowerB,
@@ -11,7 +16,6 @@ export {
   eg as appMainCurrentCompatSlotLowerELowerG,
   eh as SidebarRowPrBadge,
   ei as appMainCurrentCompatSlotLowerELowerI,
-  el as initOpenInBrowserRuntimeChunk,
   em as appMainCurrentCompatSlotLowerELowerM,
   en as appMainCurrentCompatSlotLowerELowerN,
   eo as appMainCurrentCompatSlotLowerELowerO,
@@ -20,7 +24,6 @@ export {
   es as appMainCurrentCompatSlotLowerELowerS,
   eS as appMainCurrentCompatSlotLowerEUpperS,
   et as appMainCurrentCompatSlotLowerELowerT,
-  eu as SidebarRowUnreadDot,
   ev as appMainCurrentCompatSlotLowerELowerV,
   ex as appMainCurrentCompatSlotLowerELowerX,
   ey as appMainCurrentCompatSlotLowerELowerY,

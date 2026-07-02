@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase M compatibility aliases for the legacy app-main/onboarding producer.
+export { initSidebarRowPrimitivesChunk } from "../app-main-current-runtime";
+
 export {
   M as appMainCurrentCompatSlotUpperM,
   M_ as appMainCurrentCompatSlotUpperMUnderscore,
@@ -17,7 +19,6 @@ export {
   Mn as appMainCurrentCompatSlotUpperMLowerN,
   Mo as appMainCurrentCompatSlotUpperMLowerO,
   Mp as appMainCurrentCompatSlotUpperMLowerP,
-  Mr as initSidebarRowPrimitivesChunk,
   Ms as appMainCurrentCompatSlotUpperMLowerS,
   MS as appMainCurrentCompatSlotUpperMUpperS,
   Mt as appMainCurrentCompatSlotUpperMLowerT,

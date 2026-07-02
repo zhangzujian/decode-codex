@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase k compatibility aliases for the legacy app-main/onboarding producer.
+export { SidebarRowIcon } from "../app-main-current-runtime";
+
 export {
   k as appMainCurrentCompatSlotLowerK,
   k_ as appMainCurrentCompatSlotLowerKUnderscore,
@@ -11,7 +13,6 @@ export {
   kf as appMainCurrentCompatSlotLowerKLowerF,
   kg as appMainCurrentCompatSlotLowerKLowerG,
   kh as appMainCurrentCompatSlotLowerKLowerH,
-  ki as SidebarRowIcon,
   kl as appMainCurrentCompatSlotLowerKLowerL,
   km as appMainCurrentCompatSlotLowerKLowerM,
   kn as appMainCurrentCompatSlotLowerKLowerN,

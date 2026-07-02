@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase F compatibility aliases for the legacy app-main/onboarding producer.
+export { initThreadRowLayoutRuntimeChunk } from "../app-main-current-runtime";
+
 export {
   F as appMainCurrentCompatSlotUpperF,
   F_ as initWebLinksAddonChunk,
@@ -8,7 +10,6 @@ export {
   Fc as appMainCurrentCompatSlotUpperFLowerC,
   FC as appMainCurrentCompatSlotUpperFUpperC,
   Fd as appMainCurrentCompatSlotUpperFLowerD,
-  Ff as initThreadRowLayoutRuntimeChunk,
   Fg as findQueryAtom,
   Fh as initPendingWorktreeComposerRuntimeChunk,
   Fi as appMainCurrentCompatSlotUpperFLowerI,

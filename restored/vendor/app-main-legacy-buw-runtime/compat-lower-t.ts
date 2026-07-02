@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase t compatibility aliases for the legacy app-main/onboarding producer.
+export { initComposeEventHandlersRuntime } from "../app-main-current-runtime";
+
 export {
   t as appMainCurrentCompatSlotLowerT,
   t_ as appMainCurrentCompatSlotLowerTUnderscore,
@@ -12,7 +14,6 @@ export {
   tg as appMainCurrentCompatSlotLowerTLowerG,
   th as appMainCurrentCompatSlotLowerTLowerH,
   ti as appMainCurrentCompatSlotLowerTLowerI,
-  tl as initComposeEventHandlersRuntime,
   tm as appMainCurrentCompatSlotLowerTLowerM,
   tn as appMainCurrentCompatSlotLowerTLowerN,
   to as appMainCurrentCompatSlotLowerTLowerO,

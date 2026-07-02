@@ -1,17 +1,22 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase W compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  ThreadRowUnreadState,
+  SidebarListSection,
+} from "../app-main-current-runtime";
+
+export { rightPanelFullWidthStateKey } from "../../conversations/fork-conversation-panel-state-deps";
+
+export {
   W as appMainCurrentCompatSlotUpperW,
   W_ as appMainCurrentCompatSlotUpperWUnderscore,
   Wa as pathsMatch,
   Wb as appMainCurrentCompatSlotUpperWLowerB,
   Wc as appMainCurrentCompatSlotUpperWLowerC,
-  Wd as ThreadRowUnreadState,
   Wf as appMainCurrentCompatSlotUpperWLowerF,
   Wg as appMainCurrentCompatSlotUpperWLowerG,
   Wh as appMainCurrentCompatSlotUpperWLowerH,
   Wi as appMainCurrentCompatSlotUpperWLowerI,
-  Wl as SidebarListSection,
   Wm as appMainCurrentCompatSlotUpperWLowerM,
   Wn as appMainCurrentCompatSlotUpperWLowerN,
   Wo as appMainCurrentCompatSlotUpperWLowerO,
@@ -23,5 +28,4 @@ export {
   Wu as appMainCurrentCompatSlotUpperWLowerU,
   Wv as bottomPanelTabsStore,
   Wx as appMainCurrentCompatSlotUpperWLowerX,
-  Wy as rightPanelFullWidthStateKey,
 } from "../app-main-legacy-buw-compat-bundle";

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase l compatibility aliases for the legacy app-main/onboarding producer.
+export { getCommandExecutionText } from "../app-main-current-runtime";
+
 export {
   l as appMainCurrentCompatSlotLowerL,
   l_ as appMainCurrentCompatSlotLowerLUnderscore,
@@ -20,7 +22,6 @@ export {
   lr as appMainCurrentCompatSlotLowerLLowerR,
   ls as appMainCurrentCompatSlotLowerLLowerS,
   lS as appMainCurrentCompatSlotLowerLUpperS,
-  lt as getCommandExecutionText,
   lu as appMainCurrentCompatSlotLowerLLowerU,
   lv as pendingReviewPanelTargetSignal,
   lx as appMainCurrentCompatSlotLowerLLowerX,

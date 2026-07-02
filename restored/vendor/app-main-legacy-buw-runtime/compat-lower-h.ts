@@ -1,6 +1,13 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase h compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  openThreadBranchReviewSidePanelTab,
+  SidebarRowHostLabel,
+  forkConversationMessages,
+  useComposedRefs,
+} from "../app-main-current-runtime";
+
+export {
   h as appMainCurrentCompatSlotLowerH,
   h_ as appMainCurrentCompatSlotLowerHUnderscore,
   ha as appMainCurrentCompatSlotLowerHLowerA,
@@ -12,11 +19,7 @@ export {
   hg as appMainCurrentCompatSlotLowerHLowerG,
   hh as appMainCurrentCompatSlotLowerHLowerH,
   hi as appMainCurrentCompatSlotLowerHLowerI,
-  hl as openThreadBranchReviewSidePanelTab,
-  hm as SidebarRowHostLabel,
   hn as appMainCurrentCompatSlotLowerHLowerN,
-  ho as forkConversationMessages,
-  hp as useComposedRefs,
   hr as appMainCurrentCompatSlotLowerHLowerR,
   hs as appMainCurrentCompatSlotLowerHLowerS,
   hS as appMainCurrentCompatSlotLowerHUpperS,

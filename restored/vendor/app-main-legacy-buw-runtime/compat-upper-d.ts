@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase D compatibility aliases for the legacy app-main/onboarding producer.
+export { getBrowserTabIdForPanelTab } from "../app-main-current-runtime";
+
 export {
   D as appMainCurrentCompatSlotUpperD,
   D_ as activateTerminalLink,
@@ -18,7 +20,6 @@ export {
   Do as appMainCurrentCompatSlotUpperDLowerO,
   Dp as appMainCurrentCompatSlotUpperDLowerP,
   Dr as appMainCurrentCompatSlotUpperDLowerR,
-  Ds as getBrowserTabIdForPanelTab,
   DS as appMainCurrentCompatSlotUpperDUpperS,
   Dt as appMainCurrentCompatSlotUpperDLowerT,
   Du as appMainCurrentCompatSlotUpperDLowerU,

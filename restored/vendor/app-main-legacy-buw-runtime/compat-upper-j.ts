@@ -1,17 +1,20 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase J compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  ThreadRowHoverCard,
+  ThreadRowTitle,
+} from "../app-main-current-runtime";
+
+export {
   J as appMainCurrentCompatSlotUpperJ,
   J_ as appMainCurrentCompatSlotUpperJUnderscore,
   Ja as appMainCurrentCompatSlotUpperJLowerA,
   Jb as appMainCurrentCompatSlotUpperJLowerB,
   Jc as appMainCurrentCompatSlotUpperJLowerC,
-  Jd as ThreadRowHoverCard,
   Jf as appMainCurrentCompatSlotUpperJLowerF,
   Jg as setThreadAppShellSources,
   Jh as appMainCurrentCompatSlotUpperJLowerH,
   Ji as appMainCurrentCompatSlotUpperJLowerI,
-  Jl as ThreadRowTitle,
   Jm as appMainCurrentCompatSlotUpperJLowerM,
   Jn as appMainCurrentCompatSlotUpperJLowerN,
   Jo as appMainCurrentCompatSlotUpperJLowerO,

@@ -1,6 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase s compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  getThreadMcpAppSidePanelTabId,
+  SidebarRowShortcutScope,
+  SidebarRowContextMenuItem,
+} from "../app-main-current-runtime";
+
+export {
   s as appMainCurrentCompatSlotLowerS,
   s_ as appMainCurrentCompatSlotLowerSUnderscore,
   sa as appMainCurrentCompatSlotLowerSLowerA,
@@ -8,12 +14,9 @@ export {
   sc as appMainCurrentCompatSlotLowerSLowerC,
   sC as appMainCurrentCompatSlotLowerSUpperC,
   sd as appMainCurrentCompatSlotLowerSLowerD,
-  sf as getThreadMcpAppSidePanelTabId,
   sg as initAppFeatureRuntimeChunk,
   sh as appMainCurrentCompatSlotLowerSLowerH,
   si as appMainCurrentCompatSlotLowerSLowerI,
-  sl as SidebarRowShortcutScope,
-  sm as SidebarRowContextMenuItem,
   sn as appMainCurrentCompatSlotLowerSLowerN,
   so as appMainCurrentCompatSlotLowerSLowerO,
   sp as appMainCurrentCompatSlotLowerSLowerP,

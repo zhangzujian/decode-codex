@@ -1,6 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase Q compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  SidebarTaskRowActions,
+  SidebarTaskRowTitle,
+} from "../app-main-current-runtime";
+
+export {
   Q as appMainCurrentCompatSlotUpperQ,
   Q_ as appMainCurrentCompatSlotUpperQUnderscore,
   Qa as appMainCurrentCompatSlotUpperQLowerA,
@@ -11,11 +16,9 @@ export {
   Qg as appMainCurrentCompatSlotUpperQLowerG,
   Qh as appMainCurrentCompatSlotUpperQLowerH,
   Qi as appMainCurrentCompatSlotUpperQLowerI,
-  Ql as SidebarTaskRowActions,
   Qm as appMainCurrentCompatSlotUpperQLowerM,
   Qn as appMainCurrentCompatSlotUpperQLowerN,
   Qo as appMainCurrentCompatSlotUpperQLowerO,
-  Qp as SidebarTaskRowTitle,
   Qr as appMainCurrentCompatSlotUpperQLowerR,
   Qs as appMainCurrentCompatSlotUpperQLowerS,
   QS as appMainCurrentCompatSlotUpperQUpperS,

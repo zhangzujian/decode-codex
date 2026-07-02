@@ -1,6 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase y compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  openThreadLastTurnReviewSidePanelTab,
+  initResolvedHighlightThemesChunk,
+} from "../app-main-current-runtime";
+
+export {
   y as appMainCurrentCompatSlotLowerY,
   y_ as patchTerminalMouseCoordsForZoom,
   ya as appMainCurrentCompatSlotLowerYLowerA,
@@ -12,10 +17,8 @@ export {
   yg as appMainCurrentCompatSlotLowerYLowerG,
   yh as appMainCurrentCompatSlotLowerYLowerH,
   yi as appMainCurrentCompatSlotLowerYLowerI,
-  yl as openThreadLastTurnReviewSidePanelTab,
   ym as appMainCurrentCompatSlotLowerYLowerM,
   yn as appMainCurrentCompatSlotLowerYLowerN,
-  yo as initResolvedHighlightThemesChunk,
   yp as appMainCurrentCompatSlotLowerYLowerP,
   yr as appMainCurrentCompatSlotLowerYLowerR,
   ys as appMainCurrentCompatSlotLowerYLowerS,

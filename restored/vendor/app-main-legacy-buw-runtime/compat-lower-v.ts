@@ -1,6 +1,14 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase v compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  isUncPath,
+  openThreadBrowserSidePanelTabWithoutAnimation,
+  sharedHighlightThemeRegistry,
+} from "../app-main-current-runtime";
+
+export { normalizeFilesystemPath } from "../../conversations/fork-conversation-panel-state-deps";
+
+export {
   v as appMainCurrentCompatSlotLowerV,
   v_ as initTerminalSurfaceRuntime,
   va as appMainCurrentCompatSlotLowerVLowerA,
@@ -11,11 +19,8 @@ export {
   vf as appMainCurrentCompatSlotLowerVLowerF,
   vg as appMainCurrentCompatSlotLowerVLowerG,
   vh as appMainCurrentCompatSlotLowerVLowerH,
-  vi as isUncPath,
-  vl as openThreadBrowserSidePanelTabWithoutAnimation,
   vm as appMainCurrentCompatSlotLowerVLowerM,
   vn as appMainCurrentCompatSlotLowerVLowerN,
-  vo as sharedHighlightThemeRegistry,
   vp as appMainCurrentCompatSlotLowerVLowerP,
   vr as appMainCurrentCompatSlotLowerVLowerR,
   vs as appMainCurrentCompatSlotLowerVLowerS,
@@ -23,6 +28,5 @@ export {
   vt as appMainCurrentCompatSlotLowerVLowerT,
   vu as appMainCurrentCompatSlotLowerVLowerU,
   vv as appMainCurrentCompatSlotLowerVLowerV,
-  vx as normalizeFilesystemPath,
   vy as appMainCurrentCompatSlotLowerVLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

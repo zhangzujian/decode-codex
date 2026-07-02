@@ -1,8 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: dollar.
+export { SidebarSection } from "../../app-main-current-runtime";
+
+export { rightPanelOpenStateKey } from "../../../conversations/fork-conversation-panel-state-deps";
+
 export {
   $ as legacyAppMainBuwDollarExport,
-  $S as rightPanelOpenStateKey,
   $_ as legacyAppMainBuwDollarUnderscoreExport,
   $a as legacyAppMainBuwDollarLowerAExport,
   $b as legacyAppMainBuwDollarLowerBExport,
@@ -12,7 +15,6 @@ export {
   $g as legacyAppMainBuwDollarLowerGExport,
   $h as legacyAppMainBuwDollarLowerHExport,
   $i as legacyAppMainBuwDollarLowerIExport,
-  $l as SidebarSection,
   $m as SidebarSectionTitle,
   $n as legacyAppMainBuwDollarLowerNExport,
   $o as legacyAppMainBuwDollarLowerOExport,

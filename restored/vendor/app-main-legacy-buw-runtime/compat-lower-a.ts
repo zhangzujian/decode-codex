@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase a compatibility aliases for the legacy app-main/onboarding producer.
+export { SidebarRowMenuSeparator } from "../app-main-current-runtime";
+
 export {
   a as appMainCurrentCompatSlotLowerA,
   a_ as appMainCurrentCompatSlotLowerAUnderscore,
@@ -12,7 +14,6 @@ export {
   ag as appMainCurrentCompatSlotLowerALowerG,
   ah as appMainCurrentCompatSlotLowerALowerH,
   ai as appMainCurrentCompatSlotLowerALowerI,
-  al as SidebarRowMenuSeparator,
   am as appMainCurrentCompatSlotLowerALowerM,
   an as appMainCurrentCompatSlotLowerALowerN,
   ao as appMainCurrentCompatSlotLowerALowerO,

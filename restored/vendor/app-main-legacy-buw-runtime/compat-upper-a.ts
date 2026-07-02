@@ -1,5 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase A compatibility aliases for the legacy app-main/onboarding producer.
+export { GlobeIcon } from "../app-main-current-runtime";
+
+export { focusAreaStateKey } from "../../conversations/fork-conversation-panel-state-deps";
+
 export {
   A as appMainCurrentCompatSlotUpperA,
   A_ as initTerminalFontSettingsChunk,
@@ -17,9 +21,7 @@ export {
   An as appMainCurrentCompatSlotUpperALowerN,
   Ao as appMainCurrentCompatSlotUpperALowerO,
   Ap as appMainCurrentCompatSlotUpperALowerP,
-  Ar as GlobeIcon,
   As as appMainCurrentCompatSlotUpperALowerS,
-  AS as focusAreaStateKey,
   At as appMainCurrentCompatSlotUpperALowerT,
   Au as appMainCurrentCompatSlotUpperALowerU,
   Av as appMainCurrentCompatSlotUpperALowerV,

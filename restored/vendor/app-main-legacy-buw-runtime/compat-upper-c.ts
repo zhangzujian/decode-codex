@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase C compatibility aliases for the legacy app-main/onboarding producer.
+export { toggleThreadSidePanel } from "../app-main-current-runtime";
+
 export {
   C as appMainCurrentCompatSlotUpperC,
   C_ as normalizeTerminalLineEndings,
@@ -12,7 +14,6 @@ export {
   Cg as appMainCurrentCompatSlotUpperCLowerG,
   Ch as appMainCurrentCompatSlotUpperCLowerH,
   Ci as appMainCurrentCompatSlotUpperCLowerI,
-  Cl as toggleThreadSidePanel,
   Cm as appMainCurrentCompatSlotUpperCLowerM,
   Cn as appMainCurrentCompatSlotUpperCLowerN,
   Co as appMainCurrentCompatSlotUpperCLowerO,

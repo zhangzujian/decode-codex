@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase V compatibility aliases for the legacy app-main/onboarding producer.
+export { initUltraFastServiceTierIcon } from "../app-main-current-runtime";
+
 export {
   V as appMainCurrentCompatSlotUpperV,
   V_ as appMainCurrentCompatSlotUpperVUnderscore,
@@ -16,7 +18,6 @@ export {
   Vn as appMainCurrentCompatSlotUpperVLowerN,
   Vo as appMainCurrentCompatSlotUpperVLowerO,
   Vp as appMainCurrentCompatSlotUpperVLowerP,
-  Vr as initUltraFastServiceTierIcon,
   Vs as appMainCurrentCompatSlotUpperVLowerS,
   VS as appMainCurrentCompatSlotUpperVUpperS,
   Vt as appMainCurrentCompatSlotUpperVLowerT,

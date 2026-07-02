@@ -1,6 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase n compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  liveMcpAppFrameSignal,
+  composeEventHandlers,
+  SidebarRowHoverCard,
+} from "../app-main-current-runtime";
+
+export {
   n as appMainCurrentCompatSlotLowerN,
   n_ as appMainCurrentCompatSlotLowerNUnderscore,
   na as appMainCurrentCompatSlotLowerNLowerA,
@@ -8,12 +14,9 @@ export {
   nc as appMainCurrentCompatSlotLowerNLowerC,
   nC as initWarningContextRuntime,
   nd as appMainCurrentCompatSlotLowerNLowerD,
-  nf as liveMcpAppFrameSignal,
   ng as appMainCurrentCompatSlotLowerNLowerG,
   nh as appMainCurrentCompatSlotLowerNLowerH,
   ni as appMainCurrentCompatSlotLowerNLowerI,
-  nl as composeEventHandlers,
-  nm as SidebarRowHoverCard,
   nn as appMainCurrentCompatSlotLowerNLowerN,
   no as appMainCurrentCompatSlotLowerNLowerO,
   np as appMainCurrentCompatSlotLowerNLowerP,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase I compatibility aliases for the legacy app-main/onboarding producer.
+export { FileSourceTab } from "../app-main-current-runtime";
+
 export {
   I as appMainCurrentCompatSlotUpperI,
   I_ as initFitAddonChunk,
@@ -21,7 +23,6 @@ export {
   Is as appMainCurrentCompatSlotUpperILowerS,
   IS as appMainCurrentCompatSlotUpperIUpperS,
   It as appMainCurrentCompatSlotUpperILowerT,
-  Iu as FileSourceTab,
   Iv as appMainCurrentCompatSlotUpperILowerV,
   Ix as appMainCurrentCompatSlotUpperILowerX,
   Iy as appMainCurrentCompatSlotUpperILowerY,

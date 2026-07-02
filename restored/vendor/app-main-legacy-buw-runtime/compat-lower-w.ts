@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase w compatibility aliases for the legacy app-main/onboarding producer.
+export { browserTabIdForConversation } from "../app-main-current-runtime";
+
 export {
   w as appMainCurrentCompatSlotLowerW,
   w_ as initTerminalMouseCoordinatePatchRuntime,
@@ -18,7 +20,6 @@ export {
   wo as appMainCurrentCompatSlotLowerWLowerO,
   wp as appMainCurrentCompatSlotLowerWLowerP,
   wr as appMainCurrentCompatSlotLowerWLowerR,
-  ws as browserTabIdForConversation,
   wS as appMainCurrentCompatSlotLowerWUpperS,
   wt as appMainCurrentCompatSlotLowerWLowerT,
   wu as appMainCurrentCompatSlotLowerWLowerU,

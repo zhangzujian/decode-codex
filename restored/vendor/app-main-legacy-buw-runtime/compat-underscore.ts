@@ -1,6 +1,12 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Underscore-prefixed compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  isWindowsStyleAbsolutePath,
+  openThreadBrowserSidePanelTabWithPendingState,
+  initSharedHighlightThemeRegistryChunk,
+} from "../app-main-current-runtime";
+
+export {
   _ as appMainCurrentCompatSlotUnderscore,
   __ as initTerminalMousePatchRuntime,
   _a as appMainCurrentCompatSlotUnderscoreLowerA,
@@ -11,11 +17,8 @@ export {
   _f as appMainCurrentCompatSlotUnderscoreLowerF,
   _g as appMainCurrentCompatSlotUnderscoreLowerG,
   _h as appMainCurrentCompatSlotUnderscoreLowerH,
-  _i as isWindowsStyleAbsolutePath,
-  _l as openThreadBrowserSidePanelTabWithPendingState,
   _m as appMainCurrentCompatSlotUnderscoreLowerM,
   _n as appMainCurrentCompatSlotUnderscoreLowerN,
-  _o as initSharedHighlightThemeRegistryChunk,
   _p as appMainCurrentCompatSlotUnderscoreLowerP,
   _r as appMainCurrentCompatSlotUnderscoreLowerR,
   _s as appMainCurrentCompatSlotUnderscoreLowerS,

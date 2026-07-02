@@ -1,6 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase N compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  SidebarRowActionButton,
+  SidebarRowContextMenu,
+} from "../app-main-current-runtime";
+
+export {
   N as logger,
   N_ as initTerminalRuntimeChunk,
   Na as appMainCurrentCompatSlotUpperNLowerA,
@@ -14,10 +19,8 @@ export {
   Ni as appMainCurrentCompatSlotUpperNLowerI,
   Nl as appMainCurrentCompatSlotUpperNLowerL,
   Nm as appMainCurrentCompatSlotUpperNLowerM,
-  Nn as SidebarRowActionButton,
   No as appMainCurrentCompatSlotUpperNLowerO,
   Np as appMainCurrentCompatSlotUpperNLowerP,
-  Nr as SidebarRowContextMenu,
   Ns as appMainCurrentCompatSlotUpperNLowerS,
   NS as appMainCurrentCompatSlotUpperNUpperS,
   Nt as appMainCurrentCompatSlotUpperNLowerT,

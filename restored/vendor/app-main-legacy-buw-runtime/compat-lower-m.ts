@@ -1,6 +1,15 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase m compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  serializeError,
+  openSessionSandboxSidePanel,
+  initForkConversationMessagesChunk,
+  composeRefs,
+} from "../app-main-current-runtime";
+
+export { isWorkspaceFilePath } from "../../conversations/fork-conversation-panel-state-deps";
+
+export {
   m as appMainCurrentCompatSlotLowerM,
   m_ as appMainCurrentCompatSlotLowerMUnderscore,
   ma as appMainCurrentCompatSlotLowerMLowerA,
@@ -11,18 +20,13 @@ export {
   mf as appMainCurrentCompatSlotLowerMLowerF,
   mg as appMainCurrentCompatSlotLowerMLowerG,
   mh as appMainCurrentCompatSlotLowerMLowerH,
-  mi as serializeError,
-  ml as openSessionSandboxSidePanel,
   mm as appMainCurrentCompatSlotLowerMLowerM,
   mn as appMainCurrentCompatSlotLowerMLowerN,
-  mo as initForkConversationMessagesChunk,
-  mp as composeRefs,
   mr as appMainCurrentCompatSlotLowerMLowerR,
   ms as appMainCurrentCompatSlotLowerMLowerS,
   mS as appMainCurrentCompatSlotLowerMUpperS,
   mt as appMainCurrentCompatSlotLowerMLowerT,
   mu as appMainCurrentCompatSlotLowerMLowerU,
   mv as revealChangedFilesInReviewPanel,
-  mx as isWorkspaceFilePath,
   my as appMainCurrentCompatSlotLowerMLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

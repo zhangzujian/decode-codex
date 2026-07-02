@@ -1,6 +1,11 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase p compatibility aliases for the legacy app-main/onboarding producer.
 export {
+  initThreadSidePanelTabsChunk,
+  readProjectSignal,
+} from "../app-main-current-runtime";
+
+export {
   p as appMainCurrentCompatSlotLowerP,
   p_ as appMainCurrentCompatSlotLowerPUnderscore,
   pa as appMainCurrentCompatSlotLowerPLowerA,
@@ -12,12 +17,10 @@ export {
   pg as appMainCurrentCompatSlotLowerPLowerG,
   ph as appMainCurrentCompatSlotLowerPLowerH,
   pi as appMainCurrentCompatSlotLowerPLowerI,
-  pl as initThreadSidePanelTabsChunk,
   pm as appMainCurrentCompatSlotLowerPLowerM,
   pn as appMainCurrentCompatSlotLowerPLowerN,
   po as appMainCurrentCompatSlotLowerPLowerO,
   pp as appMainCurrentCompatSlotLowerPLowerP,
-  pr as readProjectSignal,
   ps as appMainCurrentCompatSlotLowerPLowerS,
   pS as appMainCurrentCompatSlotLowerPUpperS,
   pt as appMainCurrentCompatSlotLowerPLowerT,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase b compatibility aliases for the legacy app-main/onboarding producer.
+export { SettingsControlRow } from "../app-main-current-runtime";
+
 export {
   b as appMainCurrentCompatSlotLowerB,
   b_ as normalizeTerminalFontFamily,
@@ -17,7 +19,6 @@ export {
   bn as appMainCurrentCompatSlotLowerBLowerN,
   bo as appMainCurrentCompatSlotLowerBLowerO,
   bp as appMainCurrentCompatSlotLowerBLowerP,
-  br as SettingsControlRow,
   bs as appMainCurrentCompatSlotLowerBLowerS,
   bS as appMainCurrentCompatSlotLowerBUpperS,
   bt as appMainCurrentCompatSlotLowerBLowerT,

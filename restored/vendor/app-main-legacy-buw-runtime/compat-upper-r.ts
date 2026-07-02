@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase R compatibility aliases for the legacy app-main/onboarding producer.
+export { terminalSessionSnapshotStore } from "../app-main-current-runtime";
+
 export {
   R as appMainCurrentCompatSlotUpperR,
   R_ as intlShapeSignal,
@@ -7,7 +9,6 @@ export {
   Rb as appMainCurrentCompatSlotUpperRLowerB,
   Rc as appMainCurrentCompatSlotUpperRLowerC,
   RC as appMainCurrentCompatSlotUpperRUpperC,
-  Rd as terminalSessionSnapshotStore,
   Rf as appMainCurrentCompatSlotUpperRLowerF,
   Rg as initThreadFindStateRuntime,
   Rh as SidebarTaskRowMetadata,
