@@ -6,6 +6,7 @@ export { pendingReviewPanelTargetSignal } from "../../conversations/local-conver
 
 export { EllipsisHorizontalIcon as ThreadRowTooltip } from "../../icons/ellipsis-horizontal-icon";
 export { Alert as ToastContent } from "../../utils/alert";
+export { initStyleSingletonRuntime as initArrayEqualityRuntimeChunk } from "../react-style-singleton";
 
 export {
   l as appMainCurrentCompatSlotLowerL,
@@ -17,7 +18,6 @@ export {
   lf as appMainCurrentCompatSlotLowerLLowerF,
   lg as appMainCurrentCompatSlotLowerLLowerG,
   li as appMainCurrentCompatSlotLowerLLowerI,
-  ll as initArrayEqualityRuntimeChunk,
   lm as appMainCurrentCompatSlotLowerLLowerM,
   ln as appMainCurrentCompatSlotLowerLLowerN,
   lo as appMainCurrentCompatSlotLowerLLowerO,

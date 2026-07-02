@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-g-m.
 export { getConversationalOnboardingTaskPluginName as legacyAppMainBuwLowerIExport } from "../../../onboarding/conversational-onboarding-task-registry";
+export { initStyleSingletonRuntime as initArrayEqualityRuntimeChunk } from "../../react-style-singleton";
 
 export {
   DragIcon,
@@ -154,7 +155,6 @@ export {
   lf as legacyAppMainBuwLowerLLowerFExport,
   lg as legacyAppMainBuwLowerLLowerGExport,
   li as legacyAppMainBuwLowerLLowerIExport,
-  ll as initArrayEqualityRuntimeChunk,
   lm as legacyAppMainBuwLowerLLowerMExport,
   ln as legacyAppMainBuwLowerLLowerNExport,
   lo as legacyAppMainBuwLowerLLowerOExport,
