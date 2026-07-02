@@ -112,6 +112,9 @@ export {
   cancelGitWorkflowAbortSignal as ThreadRowTitle,
 } from "../../review/local-git-action-state";
 export {
+  initLocalConversationGitActionsChunk as SidebarRowDragHandle,
+} from "../../conversations/local-conversation-git-actions";
+export {
   gitActionAvailabilityAtom as projectGroupRepositoryDataSignal,
   initLocalGitActionsScopeChunk as SidebarListSection,
 } from "../../review/local-git-actions-scope";
@@ -161,7 +164,6 @@ export {
   Oi as SidebarRowOverflowMenu,
   Pn as SidebarTaskRow,
   al as SidebarRowMenuSeparator,
-  dl as SidebarRowDragHandle,
   ho as forkConversationMessages,
   hp as useComposedRefs,
   mo as initForkConversationMessagesChunk,

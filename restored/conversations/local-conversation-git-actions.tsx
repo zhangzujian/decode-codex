@@ -78,5 +78,9 @@ function LocalConversationGitActions({
   );
 }
 
+export function initLocalConversationGitActionsChunk(): void {
+  void LocalConversationGitActions;
+}
+
 export { LocalConversationGitActions };
 export type { LocalConversationGitActionsProps, GitActionsSurface };
