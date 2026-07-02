@@ -168,6 +168,10 @@ describe("classifyBoundary", () => {
       kind: "vendor-npm",
       specifier: "@lottiefiles/dotlottie-react",
     });
+    expect(classifyBoundary("dayjs-XX", { vendor: "dayjs" })).toEqual({
+      kind: "vendor-npm",
+      specifier: "dayjs",
+    });
     expect(
       classifyBoundary("with-selector-XX", {
         vendor: "use-sync-external-store",

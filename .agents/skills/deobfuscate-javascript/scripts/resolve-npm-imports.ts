@@ -94,6 +94,8 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
     package: "@lottiefiles/dotlottie-react",
     namedOnly: true,
   },
+  // Day.js
+  dayjs: { package: "dayjs", defaultName: "dayjs" },
   // markdown / parsers
   "marked.esm": { package: "marked", namedOnly: true },
   marked: { package: "marked", namedOnly: true },
@@ -203,6 +205,9 @@ export const ALIAS_REGISTRY: Record<string, AliasRule> = {
     package: "@lottiefiles/dotlottie-react",
     style: "named",
   },
+
+  // Day.js
+  dayjs: { package: "dayjs", style: "default" },
 
   // clsx / classnames default exports
   clsx: { package: "clsx", style: "default" },

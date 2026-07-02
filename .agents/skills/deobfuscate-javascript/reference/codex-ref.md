@@ -192,6 +192,7 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `use-sync-external-store-*.ts`               | `use-sync-external-store`      | `shim/with-selector` selector helper                            |
 | `react-colorful.tsx` (`dist-*`)              | `react-colorful`               | preserve `Dist` as `HexColorPicker` alias                       |
 | `dotlottie-react.tsx` (`browser-*`)          | `@lottiefiles/dotlottie-react` | pin version to the bundled `@lottiefiles/dotlottie-web` runtime |
+| `dayjs-core-alt.ts` (`chunk-AGHRB4JF-*`)     | `dayjs`                        | keep small typed Mermaid logger/name helper wrapper             |
 | `jotai-runtime.ts` (`jotai-react-*`)         | `jotai`                        | atom/store hooks; keep a thin app-facing alias shim only        |
 | `dnd-kit-*.ts` (`core.esm-*`, etc.)          | `@dnd-kit/*`                   | core/sortable/utilities re-export shims                         |
 | `motion.ts` (`single-value-*`)               | `framer-motion`                |                                                                 |
@@ -208,10 +209,10 @@ unforked, high-confidence packages already listed above: `formatjs.ts` /
 `lib-BWT6A3Q0` is `react-intl` even if the extracted app snapshot lacks
 `ref/node_modules/react-intl` or a `react-intl` package entry. The same rule
 applies to React companion packages (`react-is`, `use-sync-external-store`),
-react-colorful, dotLottie React, Jotai, `@dnd-kit/*`, and other high-confidence registry
-packages. In that case emit the npm-backed re-export shim and add/keep ambient
-module declarations or package install notes as needed; do not create a local
-"minimal" replacement for a stock package.
+react-colorful, dotLottie React, Day.js, Jotai, `@dnd-kit/*`, and other
+high-confidence registry packages. In that case emit the npm-backed re-export
+shim and add/keep ambient module declarations or package install notes as
+needed; do not create a local "minimal" replacement for a stock package.
 For a confirmed fork keep the forked wrapper and boundary-ize it
 (`quality-gate.ts --vendored`).
 

@@ -246,6 +246,7 @@ export const VENDOR_NPM_SPECIFIERS: Record<string, string> = {
   "@lottiefiles/dotlottie-react": "@lottiefiles/dotlottie-react",
   dotlottie: "@lottiefiles/dotlottie-react",
   "dotlottie-react": "@lottiefiles/dotlottie-react",
+  dayjs: "dayjs",
   "react-is": "react-is",
   "use-sync-external-store": "use-sync-external-store/shim/with-selector",
   formatjs: "react-intl",

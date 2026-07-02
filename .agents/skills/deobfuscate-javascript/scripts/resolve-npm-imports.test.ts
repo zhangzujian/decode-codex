@@ -140,6 +140,19 @@ describe("resolveNpmImports (chunk-name based)", () => {
     expect(out.stats.specifiersResolved).toBe(3);
   });
 
+  test("rewrites Day.js chunks to the npm package", () => {
+    const src = `
+      import dayjsFactory from "../dayjs-AbCdEf12.js";
+      dayjsFactory;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('from "dayjs"');
+    expect(n).toContain("dayjs");
+    expect(n).not.toContain("dayjs-AbCdEf12");
+    expect(out.stats.specifiersResolved).toBe(1);
+  });
+
   test("rewrites tslib chunk as named-only", () => {
     const src = `import { a as __assign, b as __rest } from "../tslib-X.js";`;
     const out = resolveNpmImports(src);

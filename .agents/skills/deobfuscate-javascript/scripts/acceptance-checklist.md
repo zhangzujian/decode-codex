@@ -37,8 +37,8 @@ The script gate (`quality-gate.ts`) has already passed on this file — that mea
 fallback names matching `param\d+` / `callbackValue\d+` / `localValue\d+` /
 `ImportedBinding\d+` / `buttonValue3`-style names, bundler residue regex patterns, missing JSX intrinsic
 tags) have already been caught upstream. Your job is the semantic / judgment
-layer the script cannot do: *is this code a name a thoughtful engineer would
-write, or is it grammatical-but-meaningless?*
+layer the script cannot do: _is this code a name a thoughtful engineer would
+write, or is it grammatical-but-meaningless?_
 
 You must read the **entire file** before deciding. Spot-checks miss the cases
 where a name looks fine in one site but is contradicted by its use elsewhere.
@@ -90,7 +90,7 @@ A failure in any of the following is a `NEEDS_FIX:naming` finding.
   when the file contains a single icon.
 - Lookup tables use `as const` so `keyof typeof` yields a literal union, not
   `string`. Where the union is exposed as a prop type, it is `ButtonColor =
-  keyof typeof buttonColorClassNames` (or equivalent).
+keyof typeof buttonColorClassNames` (or equivalent).
 - No bundler residue. Specifically: no `jsxRuntime.jsx(...)` / `jsxs(...)` /
   `Fragment` calls (must be JSX), no `(0, fn)(...)` wrappers, no React
   Compiler `cache[N] !== x ? ...` scaffolding, no `__toESM` / `loadJsxRuntime`
@@ -116,6 +116,10 @@ A failure in any of the following is a `NEEDS_FIX:naming` finding.
   not `import { default as clsx } from "./clsx-DDuZWq6Y.js"`. The Stage 2 polish
   `resolve-npm-imports.ts` script handles this for the recognised packages;
   any residue is a fail.
+- Known third-party package shims re-export the npm package rather than
+  hand-writing compatibility bodies. `vendor/react-intl.tsx` imports/exports
+  from `react-intl`; it does not implement local `useIntl` or
+  `FormattedMessage` stand-ins.
 - Finalized local sibling imports use semantic public paths. Hashed local
   imports are acceptable only when the file intentionally imports an
   unfinalized original boundary and the provenance/report makes that explicit.
@@ -176,7 +180,7 @@ Do not include any other text, headers, or commentary outside these blocks.
   single-file example. In a full final tree where Spinner is also restored,
   the consumer should use Spinner's semantic public path.
 - **`clsx` shadowing.** Files often declare `const clsx = clsxRuntime as
-  (...) => string` after importing `clsxRuntime` from the npm package. This
+(...) => string` after importing `clsxRuntime` from the npm package. This
   is a type-narrowing pattern, not a bug.
 - **Underscored helper prefixes** (`_isBrowser`, `_internalKey`). Legitimate
   convention to flag a private helper. Not a fail.
@@ -307,7 +311,7 @@ Button.displayName = "Button";
 export default Button;
 ```
 
-Compare each candidate to this exemplar's *shape*: typed `Props` interface
+Compare each candidate to this exemplar's _shape_: typed `Props` interface
 extending DOM-element attributes; `as const` lookup tables exposed as
 `keyof typeof` unions; `forwardRef` with a named render function;
 `displayName`; default export when there is a single primary component;

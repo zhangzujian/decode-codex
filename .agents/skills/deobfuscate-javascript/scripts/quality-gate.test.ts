@@ -347,6 +347,40 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written Day.js vendor bodies", () => {
+    const source = `
+      // Restored from ref/webview/assets/dayjs-AbCdEf12.js
+      export default function dayjs(input?: unknown) {
+        return {
+          format() {
+            return String(input ?? "");
+          },
+        };
+      }
+    `;
+    const report = analyzeSource(source, "restored/vendor/dayjs.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes Day.js vendor shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/dayjs-AbCdEf12.js
+      export { default } from "dayjs";
+      export type { Dayjs, ConfigType, OpUnitType } from "dayjs";
+    `;
+    const report = analyzeSource(source, "restored/vendor/dayjs.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(report.issues).toEqual([]);
+  });
+
   test("passes Electron main build provenance headers when required", () => {
     const source = `
       // Restored from ref/.vite/build/preload.js
