@@ -43075,12 +43075,12 @@
         "AvatarOverlayNativePage": "AvatarOverlayNativePage"
       },
       "status": "done",
-      "note": "Current avatar overlay native page hash maps to a dedicated current-ref runtime over vendor/avatar-overlay-native-page-current-bundle.tsx; dependencies are rewritten through restored current bundles.",
-      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "note": "Current avatar overlay native page hash maps to a dedicated current-ref runtime over features/avatar-overlay-native-page; dependency imports are rewritten through restored current bundles.",
+      "lastUpdated": "2026-07-02T00:00:00.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed avatar-overlay-native-page-CAxsNCX7.js exports, rebuilt compatibility exports from auto-renames.json, and rewrote dependency imports through restored/IMPORT_MAP.json.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split remains future cleanup."
+      "stage3AcceptedAt": "2026-07-02T00:00:00.000Z",
+      "stage3Review": "Host self-review: promoted avatar-overlay-native-page-CAxsNCX7.js from vendor backing into features/avatar-overlay-native-page, replaced local mechanical helper/value families with semantic names, removed JSX/runtime shim residue, and kept the current-ref runtime export stable.",
+      "stage3Note": "Accepted as a semantic avatar overlay native page implementation behind the current-ref runtime facade."
     },
     "avatar-overlay-page-DdqF43YR": {
       "restored": "runtime/current-app-initial/avatar-overlay-page-current-runtime.ts",
