@@ -62,6 +62,7 @@ export {
   CODEX_SANDBOXING_DOCS_URL as legacyAppMainBuwUpperZLowerCExport,
   OPENAI_PLUGINS_GITHUB_URL as legacyAppMainBuwUpperXLowerCExport,
 } from "../../../utils/links-bd-mmkun-d";
+export { summarizeAppgenAccessPolicy as legacyAppMainBuwUpperTLowerSExport } from "../../../utils/appgen-access";
 
 export {
   T as legacyAppMainBuwUpperTExport,
@@ -77,7 +78,6 @@ export {
   Tn as legacyAppMainBuwUpperTLowerNExport,
   Tp as legacyAppMainBuwUpperTLowerPExport,
   Tr as legacyAppMainBuwUpperTLowerRExport,
-  Ts as legacyAppMainBuwUpperTLowerSExport,
   Tt as legacyAppMainBuwUpperTLowerTExport,
   Tu as legacyAppMainBuwUpperTLowerUExport,
   Tv as legacyAppMainBuwUpperTLowerVExport,

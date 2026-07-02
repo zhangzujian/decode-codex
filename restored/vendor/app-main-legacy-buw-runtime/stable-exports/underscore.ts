@@ -11,6 +11,7 @@ export { initTerminalMousePatchRuntime } from "../../../runtime/window-chrome-ru
 export { normalizeArtifactPathKey } from "../../../runtime/app-main-new-thread-runtime";
 export { dictationStreamingUploadHeaderValue as legacyAppMainBuwUnderscoreUpperCExport } from "../../../utils/transcribe-audio/types";
 export { isWorkspaceSpendControlReached as legacyAppMainBuwUnderscoreLowerCExport } from "../../../utils/rate-limit-status/account-status";
+export { initAppgenAccessStateMessagesChunk as legacyAppMainBuwUnderscoreLowerSExport } from "../../../utils/appgen-access-state-messages";
 
 export {
   _ as legacyAppMainBuwUnderscoreExport,
@@ -25,7 +26,6 @@ export {
   _n as legacyAppMainBuwUnderscoreLowerNExport,
   _p as legacyAppMainBuwUnderscoreLowerPExport,
   _r as legacyAppMainBuwUnderscoreLowerRExport,
-  _s as legacyAppMainBuwUnderscoreLowerSExport,
   _t as legacyAppMainBuwUnderscoreLowerTExport,
   _u as legacyAppMainBuwUnderscoreLowerUExport,
   _v as legacyAppMainBuwUnderscoreLowerVExport,

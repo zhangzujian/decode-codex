@@ -63,6 +63,7 @@ export {
 } from "../../../utils/links-bd-mmkun-d";
 export { NAVIGATE_TO_CODEX_PAGE_TOOL_NAME as legacyAppMainBuwUpperRLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 export { WRITE_SETTINGS_TOOL_NAME as legacyAppMainBuwUpperOLowerOExport } from "../../../settings/settings-tool-definitions";
+export { buildAppgenAccessPolicyWithoutUser as legacyAppMainBuwUpperOLowerSExport } from "../../../utils/appgen-access";
 
 export {
   NC as legacyAppMainBuwUpperNUpperCExport,
@@ -91,7 +92,6 @@ export {
   On as legacyAppMainBuwUpperOLowerNExport,
   Op as legacyAppMainBuwUpperOLowerPExport,
   Or as legacyAppMainBuwUpperOLowerRExport,
-  Os as legacyAppMainBuwUpperOLowerSExport,
   Ot as legacyAppMainBuwUpperOLowerTExport,
   Ou as legacyAppMainBuwUpperOLowerUExport,
   Ov as legacyAppMainBuwUpperOLowerVExport,
