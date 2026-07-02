@@ -43,6 +43,9 @@ export {
   parseHttpsUrl as associateBranchWithConversation,
 } from "../../conversations/parse-https-url";
 export {
+  useDictation as ThreadRowEnvironmentMeta,
+} from "../../features/use-dictation/use-dictation";
+export {
   isDeeplyDifferent as initSidebarRowPrimitivesChunk,
 } from "../../utils/is-deeply-different";
 export {
@@ -104,7 +107,6 @@ export {
   Yd as ThreadRowHoverActions,
   _l as openThreadBrowserSidePanelTabWithPendingState,
   al as SidebarRowMenuSeparator,
-  cm as ThreadRowEnvironmentMeta,
   dl as SidebarRowDragHandle,
   eu as SidebarRowUnreadDot,
   fl as getBrowserTabIdForSidePanelOpen,
