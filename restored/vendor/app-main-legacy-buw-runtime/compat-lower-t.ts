@@ -3,6 +3,7 @@
 export { initComposeEventHandlersRuntime } from "../app-main-current-runtime";
 export { initThreadPanelTabsStoreChunk } from "../../app-shell/thread-panel-tabs-store";
 export { initWarningIconChunk as PortalFromLowerTC } from "../../icons/warning-icon";
+export { formatCompactDurationMs as appMainCurrentCompatSlotLowerTLowerS } from "../../utils/duration-format";
 
 export {
   t as appMainCurrentCompatSlotLowerT,
@@ -20,7 +21,6 @@ export {
   to as appMainCurrentCompatSlotLowerTLowerO,
   tp as appMainCurrentCompatSlotLowerTLowerP,
   tr as appMainCurrentCompatSlotLowerTLowerR,
-  ts as appMainCurrentCompatSlotLowerTLowerS,
   tS as appMainCurrentCompatSlotLowerTUpperS,
   tt as appMainCurrentCompatSlotLowerTLowerT,
   tu as appMainCurrentCompatSlotLowerTLowerU,

@@ -8,6 +8,7 @@ export { Portal } from "../../runtime/app-main-new-thread-runtime";
 
 export { XCircleIcon as ErrorCircleIcon } from "../../icons/x-circle-icon";
 export { initReviewFileListRuntime as initReviewFileListChunk } from "../../review/review-diff-store";
+export { primaryRuntimeInstallProgress as appMainCurrentCompatSlotLowerRLowerS } from "../../runtime/primary-runtime-install-status-message";
 
 export {
   r as appMainCurrentCompatSlotLowerR,
@@ -24,7 +25,6 @@ export {
   ro as appMainCurrentCompatSlotLowerRLowerO,
   rp as appMainCurrentCompatSlotLowerRLowerP,
   rr as appMainCurrentCompatSlotLowerRLowerR,
-  rs as appMainCurrentCompatSlotLowerRLowerS,
   rS as appMainCurrentCompatSlotLowerRUpperS,
   ru as appMainCurrentCompatSlotLowerRLowerU,
   rx as appMainCurrentCompatSlotLowerRLowerX,

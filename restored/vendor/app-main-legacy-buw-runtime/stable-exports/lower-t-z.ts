@@ -71,6 +71,7 @@ export {
 export { initUserSavedConfigQueryChunk as legacyAppMainBuwLowerULowerXExport } from "../../../config/user-saved-config-query";
 export { getSupportedLocales as legacyAppMainBuwLowerULowerGExport } from "../../../i18n/locale-resolver";
 export { primaryRuntimeInstallStatusSignal as legacyAppMainBuwLowerULowerSExport } from "../../../runtime/primary-runtime-install-state";
+export { formatCompactDurationMs as legacyAppMainBuwLowerTLowerSExport } from "../../../utils/duration-format";
 export {
   AppgenAccessStateIcon as legacyAppMainBuwLowerVLowerSExport,
   initAppgenAccessStateIconChunk as legacyAppMainBuwLowerYLowerSExport,
@@ -93,7 +94,6 @@ export {
   to as legacyAppMainBuwLowerTLowerOExport,
   tp as legacyAppMainBuwLowerTLowerPExport,
   tr as legacyAppMainBuwLowerTLowerRExport,
-  ts as legacyAppMainBuwLowerTLowerSExport,
   tt as legacyAppMainBuwLowerTLowerTExport,
   tu as legacyAppMainBuwLowerTLowerUExport,
   tx as legacyAppMainBuwLowerTLowerXExport,

@@ -48,6 +48,7 @@ export {
   requestPrimaryRuntimeInstall as legacyAppMainBuwLowerMLowerSExport,
 } from "../../../runtime/primary-runtime-install-state";
 export { primaryRuntimeInstallStatusMessage as legacyAppMainBuwLowerILowerSExport } from "../../../runtime/primary-runtime-install-status-message";
+export { markTurnInterruptedByThisClient as legacyAppMainBuwLowerJLowerSExport } from "../../../threads/interrupted-turn-state";
 
 export { findActiveDomainAtom } from "../../../find/thread-find-atoms";
 
@@ -141,7 +142,6 @@ export {
   jm as legacyAppMainBuwLowerJLowerMExport,
   jo as legacyAppMainBuwLowerJLowerOExport,
   jp as legacyAppMainBuwLowerJLowerPExport,
-  js as legacyAppMainBuwLowerJLowerSExport,
   jt as legacyAppMainBuwLowerJLowerTExport,
   ju as legacyAppMainBuwLowerJLowerUExport,
   jv as legacyAppMainBuwLowerJLowerVExport,

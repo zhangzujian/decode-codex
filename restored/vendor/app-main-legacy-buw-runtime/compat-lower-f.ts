@@ -14,6 +14,7 @@ export { initPermissionsModeDefaultsRuntime } from "../../runtime/window-chrome-
 export { DragOverlay as ThreadRowShortcutLabel } from "../dnd-kit-core";
 export { initReviewSourceRuntime as initReviewSourceChunk } from "../../review/review-diff-store";
 export { getMonthlySpendLimitUsage as appMainCurrentCompatSlotLowerFLowerC } from "../../utils/rate-limit-status/account-status";
+export { hasPendingPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerFLowerS } from "../../runtime/primary-runtime-install-state";
 
 export {
   f as appMainCurrentCompatSlotLowerF,
@@ -25,7 +26,6 @@ export {
   fn as appMainCurrentCompatSlotLowerFLowerN,
   fo as appMainCurrentCompatSlotLowerFLowerO,
   fp as appMainCurrentCompatSlotLowerFLowerP,
-  fs as appMainCurrentCompatSlotLowerFLowerS,
   fS as appMainCurrentCompatSlotLowerFUpperS,
   ft as appMainCurrentCompatSlotLowerFLowerT,
   fu as appMainCurrentCompatSlotLowerFLowerU,

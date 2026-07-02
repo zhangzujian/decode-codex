@@ -60,6 +60,7 @@ export {
 export {
   finishPrimaryRuntimeInstallBeforeFirstTurn as legacyAppMainBuwLowerOLowerSExport,
   initPrimaryRuntimeInstallStateChunk as legacyAppMainBuwLowerPLowerSExport,
+  initPrimaryRuntimeInstallStateChunk as legacyAppMainBuwLowerSLowerSExport,
 } from "../../../runtime/primary-runtime-install-state";
 export { primaryRuntimeInstallProgress as legacyAppMainBuwLowerRLowerSExport } from "../../../runtime/primary-runtime-install-status-message";
 export { initOpenConfigInEditorChunk as legacyAppMainBuwLowerSLowerXExport } from "../../../composer/open-config-in-editor";
@@ -165,7 +166,6 @@ export {
   so as legacyAppMainBuwLowerSLowerOExport,
   sp as legacyAppMainBuwLowerSLowerPExport,
   sr as legacyAppMainBuwLowerSLowerRExport,
-  ss as legacyAppMainBuwLowerSLowerSExport,
   st as legacyAppMainBuwLowerSLowerTExport,
   su as legacyAppMainBuwLowerSLowerUExport,
   sy as legacyAppMainBuwLowerSLowerYExport,

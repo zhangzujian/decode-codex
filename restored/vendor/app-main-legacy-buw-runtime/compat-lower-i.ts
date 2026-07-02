@@ -6,6 +6,7 @@ export { useCloudEnvironmentsQuery } from "../app-main-current-runtime";
 
 export { getConversationPanelLayoutSnapshot } from "../../conversations/fork-conversation-panel-state-deps";
 export { initUseDictationRuntimeChunk as appMainCurrentCompatSlotLowerIUpperC } from "../../features/use-dictation";
+export { primaryRuntimeInstallStatusMessage as appMainCurrentCompatSlotLowerILowerS } from "../../runtime/primary-runtime-install-status-message";
 
 export {
   i as appMainCurrentCompatSlotLowerI,
@@ -22,7 +23,6 @@ export {
   io as appMainCurrentCompatSlotLowerILowerO,
   ip as appMainCurrentCompatSlotLowerILowerP,
   ir as appMainCurrentCompatSlotLowerILowerR,
-  is as appMainCurrentCompatSlotLowerILowerS,
   iS as appMainCurrentCompatSlotLowerIUpperS,
   iu as appMainCurrentCompatSlotLowerILowerU,
   iv as appMainCurrentCompatSlotLowerILowerV,

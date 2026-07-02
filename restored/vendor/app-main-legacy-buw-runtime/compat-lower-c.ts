@@ -11,6 +11,7 @@ export {
 } from "../app-main-current-runtime";
 export { isSpendControlNearWorkspaceCap as appMainCurrentCompatSlotLowerCLowerC } from "../../utils/rate-limit-status/account-status";
 export { openConfigInEditor as appMainCurrentCompatSlotLowerCLowerX } from "../../composer/open-config-in-editor";
+export { isPrimaryRuntimeInstallProgressPhase as appMainCurrentCompatSlotLowerCLowerS } from "../../runtime/primary-runtime-install-state";
 
 export {
   c as appMainCurrentCompatSlotLowerC,
@@ -24,7 +25,6 @@ export {
   cn as appMainCurrentCompatSlotLowerCLowerN,
   co as appMainCurrentCompatSlotLowerCLowerO,
   cr as appMainCurrentCompatSlotLowerCLowerR,
-  cs as appMainCurrentCompatSlotLowerCLowerS,
   cS as appMainCurrentCompatSlotLowerCUpperS,
   ct as appMainCurrentCompatSlotLowerCLowerT,
   cu as appMainCurrentCompatSlotLowerCLowerU,

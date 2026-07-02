@@ -10,6 +10,7 @@ export { findActiveDomainAtom } from "../../find/thread-find-atoms";
 
 export { scheduleReviewRestore } from "../../conversations/local-conversation-page-runtime";
 export { hasRateLimitWindow as appMainCurrentCompatSlotLowerJLowerC } from "../../utils/rate-limit-status/windows";
+export { markTurnInterruptedByThisClient as appMainCurrentCompatSlotLowerJLowerS } from "../../threads/interrupted-turn-state";
 
 export {
   j as appMainCurrentCompatSlotLowerJ,
@@ -22,7 +23,6 @@ export {
   jm as appMainCurrentCompatSlotLowerJLowerM,
   jo as appMainCurrentCompatSlotLowerJLowerO,
   jp as appMainCurrentCompatSlotLowerJLowerP,
-  js as appMainCurrentCompatSlotLowerJLowerS,
   jS as appMainCurrentCompatSlotLowerJUpperS,
   jt as appMainCurrentCompatSlotLowerJLowerT,
   ju as appMainCurrentCompatSlotLowerJLowerU,

@@ -6,6 +6,7 @@ export { FolderIcon, SidebarRowDragHandle } from "../app-main-current-runtime";
 export { getPathBasename } from "../../runtime/app-main-new-thread-runtime";
 export { initDictationTranscriptCleanupChunk as appMainCurrentCompatSlotLowerDUpperC } from "../../utils/transcribe-audio/responses-cleanup";
 export { getLatestRateLimitResetAt as appMainCurrentCompatSlotLowerDLowerC } from "../../utils/rate-limit-status/windows";
+export { cancelPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerDLowerS } from "../../runtime/primary-runtime-install-state";
 
 export {
   d as appMainCurrentCompatSlotLowerD,
@@ -21,7 +22,6 @@ export {
   do as appMainCurrentCompatSlotLowerDLowerO,
   dp as appMainCurrentCompatSlotLowerDLowerP,
   dr as appMainCurrentCompatSlotLowerDLowerR,
-  ds as appMainCurrentCompatSlotLowerDLowerS,
   dS as appMainCurrentCompatSlotLowerDUpperS,
   dt as appMainCurrentCompatSlotLowerDLowerT,
   dv as appMainCurrentCompatSlotLowerDLowerV,

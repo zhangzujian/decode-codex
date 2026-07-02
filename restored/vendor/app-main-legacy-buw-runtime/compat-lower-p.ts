@@ -11,6 +11,7 @@ export { setDefaultAgentModeForHost } from "../../runtime/window-chrome-runtime"
 
 export { resetReviewPanelEmptyState } from "../../conversations/local-conversation-page-runtime";
 export { hasCredits as appMainCurrentCompatSlotLowerPLowerC } from "../../utils/rate-limit-status/account-status";
+export { initPrimaryRuntimeInstallStateChunk as appMainCurrentCompatSlotLowerPLowerS } from "../../runtime/primary-runtime-install-state";
 
 export {
   p as appMainCurrentCompatSlotLowerP,
@@ -25,7 +26,6 @@ export {
   pn as appMainCurrentCompatSlotLowerPLowerN,
   po as appMainCurrentCompatSlotLowerPLowerO,
   pp as appMainCurrentCompatSlotLowerPLowerP,
-  ps as appMainCurrentCompatSlotLowerPLowerS,
   pS as appMainCurrentCompatSlotLowerPUpperS,
   pt as appMainCurrentCompatSlotLowerPLowerT,
   pu as appMainCurrentCompatSlotLowerPLowerU,

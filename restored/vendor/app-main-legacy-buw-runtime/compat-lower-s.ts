@@ -13,6 +13,7 @@ export { initAppFeatureRuntimeChunk } from "../../runtime/window-chrome-runtime"
 export { focusPendingReviewPanelTarget } from "../../conversations/local-conversation-page-runtime";
 export { isSpendControlBlockedByWorkspaceCap as appMainCurrentCompatSlotLowerSLowerC } from "../../utils/rate-limit-status/account-status";
 export { initOpenConfigInEditorChunk as appMainCurrentCompatSlotLowerSLowerX } from "../../composer/open-config-in-editor";
+export { initPrimaryRuntimeInstallStateChunk as appMainCurrentCompatSlotLowerSLowerS } from "../../runtime/primary-runtime-install-state";
 
 export {
   s as appMainCurrentCompatSlotLowerS,
@@ -26,7 +27,6 @@ export {
   so as appMainCurrentCompatSlotLowerSLowerO,
   sp as appMainCurrentCompatSlotLowerSLowerP,
   sr as appMainCurrentCompatSlotLowerSLowerR,
-  ss as appMainCurrentCompatSlotLowerSLowerS,
   sS as appMainCurrentCompatSlotLowerSUpperS,
   st as appMainCurrentCompatSlotLowerSLowerT,
   su as appMainCurrentCompatSlotLowerSLowerU,

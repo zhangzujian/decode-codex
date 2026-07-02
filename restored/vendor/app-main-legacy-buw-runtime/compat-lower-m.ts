@@ -11,6 +11,7 @@ export {
 export { isWorkspaceFilePath } from "../../conversations/fork-conversation-panel-state-deps";
 
 export { revealChangedFilesInReviewPanel } from "../../conversations/local-conversation-page-runtime";
+export { requestPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerMLowerS } from "../../runtime/primary-runtime-install-state";
 
 export {
   m as appMainCurrentCompatSlotLowerM,
@@ -25,7 +26,6 @@ export {
   mm as appMainCurrentCompatSlotLowerMLowerM,
   mn as appMainCurrentCompatSlotLowerMLowerN,
   mr as appMainCurrentCompatSlotLowerMLowerR,
-  ms as appMainCurrentCompatSlotLowerMLowerS,
   mS as appMainCurrentCompatSlotLowerMUpperS,
   mt as appMainCurrentCompatSlotLowerMLowerT,
   mu as appMainCurrentCompatSlotLowerMLowerU,
