@@ -1111,6 +1111,101 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written RoughJS vendor bodies", () => {
+    const source = `
+      // Restored from ref/webview/assets/rough.esm-BmcJJgrn.js
+      export const roughjs = {
+        canvas() {
+          return {};
+        },
+        svg() {
+          return {};
+        },
+        generator() {
+          return {};
+        },
+      };
+      export default roughjs;
+    `;
+    const report = analyzeSource(source, "restored/vendor/roughjs.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("fails renamed RoughJS-compatible vendor shims by API fingerprint", () => {
+    const source = `
+      export const roughjs = {
+        canvas() {
+          return {};
+        },
+        svg() {
+          return {};
+        },
+        generator() {
+          return {};
+        },
+      };
+    `;
+    const report = analyzeSource(source, "restored/vendor/drawing-runtime.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({ expectedSpecifiers: ["roughjs"] });
+  });
+
+  test("passes RoughJS vendor shims that re-export the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/rough.esm-BmcJJgrn.js
+      export { default, default as roughjs } from "roughjs";
+      export function initRoughjsChunk(): void {}
+    `;
+    const report = analyzeSource(source, "restored/vendor/roughjs.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(report.issues).toEqual([]);
+  });
+
+  test("fails RoughJS shims when package dependency is not declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: {} }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "roughjs.ts"),
+      `
+        // Restored from ref/webview/assets/rough.esm-BmcJJgrn.js
+        export { default, default as roughjs } from "roughjs";
+      `,
+    );
+
+    const reports = analyzePublicNpmVendorShimDependencies(restoredDir);
+    expect(reports).toHaveLength(1);
+    expect(reports[0]!.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-dependency-missing",
+    );
+    expect(reports[0]!.issues[0]!.detail).toMatchObject({
+      missingPackages: ["roughjs"],
+    });
+  });
+
   test("passes Electron main build provenance headers when required", () => {
     const source = `
       // Restored from ref/.vite/build/preload.js

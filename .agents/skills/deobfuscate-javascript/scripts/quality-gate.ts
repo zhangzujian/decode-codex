@@ -493,6 +493,7 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   "react-router": "react-router",
   "react-intl": "react-intl",
   "react-is-runtime": "react-is",
+  roughjs: "roughjs",
   analytics: "@segment/analytics-next",
   "segment-analytics": ["@segment/analytics-next", "@segment/analytics-core"],
   "tanstack-react-form": "@tanstack/react-form",
@@ -513,6 +514,8 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   "lib-BWT6A3Q0": "react-intl",
   "pkg-CJtlEP_l": "@segment/analytics-next",
   "pkg-CsBnWPsQ": "@segment/analytics-next",
+  "rough.esm-BDP__8iH": "roughjs",
+  "rough.esm-BmcJJgrn": "roughjs",
 };
 
 const PUBLIC_NPM_VENDOR_API_FINGERPRINTS: Array<{
@@ -560,6 +563,11 @@ const PUBLIC_NPM_VENDOR_API_FINGERPRINTS: Array<{
       "renderToString",
       "version",
     ],
+    minimumUniqueApiNames: 3,
+  },
+  {
+    specifiers: "roughjs",
+    apiNames: ["canvas", "generator", "roughjs", "svg"],
     minimumUniqueApiNames: 3,
   },
 ];

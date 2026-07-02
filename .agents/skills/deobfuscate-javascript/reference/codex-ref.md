@@ -200,6 +200,7 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `dotlottie-react.tsx` (`browser-*`)                       | `@lottiefiles/dotlottie-react` | pin version to the bundled `@lottiefiles/dotlottie-web` runtime |
 | `dayjs-core-alt.ts` (`chunk-AGHRB4JF-*`)                  | `dayjs`                        | keep small typed Mermaid logger/name helper wrapper             |
 | `katex.ts` (`katex-*`)                                    | `katex`                        | pin to bundled KaTeX version; preserve internal alias exports   |
+| `roughjs.ts` (`rough.esm-*`)                              | `roughjs`                      | RoughJS generator facade; use package default export            |
 | `jotai-runtime.ts` (`jotai-react-*`)                      | `jotai`                        | atom/store hooks; keep a thin app-facing alias shim only        |
 | `dnd-kit-*.ts` (`core.esm-*`, etc.)                       | `@dnd-kit/*`                   | core/sortable/utilities re-export shims                         |
 | `framer-motion-single-value.ts` (`single-value-*`)        | `framer-motion`                | MotionValue/motionValue alias shim                              |
@@ -218,8 +219,8 @@ unforked, high-confidence packages already listed above: `formatjs.ts` /
 `ref/node_modules/react-intl` or a `react-intl` package entry. The same rule
 applies to React Router, cmdk, TanStack React Form, React companion packages
 (`react-dom/client`, `react-is`, `use-sync-external-store`), react-colorful,
-dotLottie React, Day.js, Jotai, `@dnd-kit/*`, and other high-confidence registry
-packages. In
+dotLottie React, Day.js, KaTeX, RoughJS, Jotai, `@dnd-kit/*`, and other
+high-confidence registry packages. In
 that case emit the npm-backed re-export shim, add the package root to the
 restored project `package.json`, and keep ambient module declarations only when
 the package's own types are still unavailable; do not create a local "minimal"
@@ -238,6 +239,9 @@ IntlErrorCodeValue`, and `IntlConfig as ReactIntlConfig`.
 The same rule applies to Segment: a `vendor/*` file exporting
 `AnalyticsBrowser`, `ContextCancelation`, or `segmentio` should be resolved to
 `@segment/analytics-next` / `@segment/analytics-core`, not a local SDK body.
+RoughJS has both provenance and API-fingerprint coverage: `rough.esm-*` chunks
+or vendor files exporting `roughjs` plus `canvas`/`svg`/`generator` must resolve
+to the `roughjs` package.
 For a confirmed fork keep the forked wrapper and boundary-ize it
 (`quality-gate.ts --vendored`).
 
