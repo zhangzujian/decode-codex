@@ -18,6 +18,7 @@ export { PopoverAttachmentPill as legacyAppMainBuwLowerZLowerIExport } from "../
 export { getCommentText as legacyAppMainBuwLowerZLowerUExport } from "../../../review/review-comment-utils";
 
 export { appendPromptText as legacyAppMainBuwLowerYUpperCExport } from "../../../composer/composer-utils";
+export { initComposerUtilsChunk as legacyAppMainBuwLowerXUpperCExport } from "../../../composer/composer-utils";
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
 
@@ -136,7 +137,6 @@ export {
   wv as legacyAppMainBuwLowerWLowerVExport,
   wy as legacyAppMainBuwLowerWLowerYExport,
   x as legacyAppMainBuwLowerXExport,
-  xC as legacyAppMainBuwLowerXUpperCExport,
   xS as legacyAppMainBuwLowerXUpperSExport,
   xa as legacyAppMainBuwLowerXLowerAExport,
   xb as legacyAppMainBuwLowerXLowerBExport,

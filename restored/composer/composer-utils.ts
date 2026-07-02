@@ -35,4 +35,16 @@ async function fetchIdeContext(
     return null;
   }
 }
-export { appendPromptText, fetchIdeContext, CLOSED_AGENT_SEND_FAILED_EVENT };
+
+function initComposerUtilsChunk(): void {
+  void appendPromptText;
+  void fetchIdeContext;
+  void CLOSED_AGENT_SEND_FAILED_EVENT;
+}
+
+export {
+  appendPromptText,
+  fetchIdeContext,
+  CLOSED_AGENT_SEND_FAILED_EVENT,
+  initComposerUtilsChunk,
+};

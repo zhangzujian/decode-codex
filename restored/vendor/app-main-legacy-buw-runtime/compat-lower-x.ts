@@ -10,13 +10,13 @@ export {
 export { ensureTerminalFontLoaded } from "../../runtime/window-chrome-runtime";
 export { useSensor as ThreadRowCloudMeta } from "../dnd-kit-core";
 export { openThreadTimelineSidePanel } from "../../app-shell/legacy-thread-timeline-side-panel";
+export { initComposerUtilsChunk as appMainCurrentCompatSlotLowerXUpperC } from "../../composer/composer-utils";
 
 export {
   x as appMainCurrentCompatSlotLowerX,
   xa as appMainCurrentCompatSlotLowerXLowerA,
   xb as appMainCurrentCompatSlotLowerXLowerB,
   xc as appMainCurrentCompatSlotLowerXLowerC,
-  xC as appMainCurrentCompatSlotLowerXUpperC,
   xd as appMainCurrentCompatSlotLowerXLowerD,
   xf as appMainCurrentCompatSlotLowerXLowerF,
   xg as appMainCurrentCompatSlotLowerXLowerG,
