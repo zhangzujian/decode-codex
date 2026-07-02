@@ -221,7 +221,10 @@ packages. In
 that case emit the npm-backed re-export shim, add the package root to the
 restored project `package.json`, and keep ambient module declarations only when
 the package's own types are still unavailable; do not create a local "minimal"
-replacement for a stock package.
+replacement for a stock package. For generic package chunks whose public name is
+not self-identifying, keep a provenance-keyed gate entry too: the current
+FormatJS chunk `lib-BWT6A3Q0` must be treated as `react-intl` even if a future
+restore writes it to a differently named `vendor/*` shim.
 For a confirmed fork keep the forked wrapper and boundary-ize it
 (`quality-gate.ts --vendored`).
 
@@ -309,6 +312,14 @@ exports) → `Bc0ZtIBr` (105 exports); aliases fully repacked (`B` went from
 `isKeyboardShortcutCommandFeatureEnabled` to `isSameProcessRow`), and 6 exports
 were net-new (remote-hosted-pip state, keyboard-shortcuts dialog, home-hero
 heading, composer-project-list init).
+
+The same fingerprint rule applies when draining legacy aggregator barrels: a
+semantic-looking export name is only a hint until the current binding definition
+matches it. In the BUw compatibility bundle, for example, the exported binding
+`Wa` was labeled `pathsMatch` in the legacy map, but the actual definition is a
+React internal stack helper (`e.tag === 22`, `V(qa, ...)`, `B(Ba)`), not a review
+path comparator. Do not route such names to restored modules by name alone; verify
+the binding body first.
 
 ## Aggregator-chunk restore anti-patterns
 
