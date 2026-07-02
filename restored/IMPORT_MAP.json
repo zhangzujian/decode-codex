@@ -42166,7 +42166,7 @@
       },
       "status": "done",
       "vendor": "popcorn-electron-runtime",
-      "note": "Current PopcornElectronDocumentPanel hash maps to a generated Popcorn document runtime wrapper over vendor/popcorn-electron-document-panel-current-bundle.tsx; the single semantic export is re-derived from the current file.",
+      "note": "Current PopcornElectronDocumentPanel hash maps to a generated Popcorn document runtime wrapper over features/popcorn-electron-document-panel-current.tsx; the single semantic export is re-derived from the current file.",
       "lastUpdated": "2026-06-30T22:10:15.915Z",
       "migratedFrom": "PopcornElectronDocumentPanel-LEVj37uj",
       "stage3Accepted": true,

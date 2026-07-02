@@ -8,4 +8,4 @@ export {
   debugModalN as DebugPanel,
   debugModalR as initDebugModalChunk,
   debugModalT as DebugModalDialog,
-} from "../vendor/debug-modal-current-bundle";
+} from "./debug-modal-current";

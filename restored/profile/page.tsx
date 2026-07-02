@@ -4,4 +4,4 @@ const profilePageSemanticEntry = () => "profile-page";
 
 void profilePageSemanticEntry;
 
-export { Profile } from "../vendor/profile-current-bundle";
+export { Profile } from "./profile-current";

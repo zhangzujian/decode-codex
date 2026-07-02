@@ -4,4 +4,4 @@ const appgenLibraryPageSemanticEntry = () => "appgen-library-page";
 
 void appgenLibraryPageSemanticEntry;
 
-export { AppgenLibraryPage } from "../vendor/appgen-library-page-current-bundle";
+export { AppgenLibraryPage } from "./library-page-current";

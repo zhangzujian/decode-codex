@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/profile-BCAO7QLd.js
-// Flat boundary. Vendored current Profile backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,
@@ -118,7 +118,7 @@ import {
   appMainCurrentCompatSlotLowerELowerN as appInitialAppMainOnboardingPageEn,
   appMainCurrentCompatSlotLowerTLowerN as AppInitialAppMainOnboardingPageTn,
   appMainCurrentCompatSlotLowerULowerR as appInitialAppMainOnboardingPageUr,
-} from "./app-main-current-runtime/index";
+} from "../vendor/app-main-current-runtime/index";
 import {
   projectHoverCardCurrentCompatSlotUpperT as appInitialAppMainProjectsIndexPageLocalConversationPageT,
   projectHoverCardCurrentCompatSlotLowerW as appInitialAppMainProjectsIndexPageLocalConversationPageW,

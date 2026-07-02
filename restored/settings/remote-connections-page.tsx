@@ -5,4 +5,4 @@ const remoteConnectionsSettingsPageSemanticEntry = () =>
 
 void remoteConnectionsSettingsPageSemanticEntry;
 
-export { RemoteConnectionsSettingsIcon as RemoteConnectionsSettings } from "../vendor/remote-connections-settings-current-bundle";
+export { RemoteConnectionsSettingsIcon as RemoteConnectionsSettings } from "./remote-connections-settings-current";

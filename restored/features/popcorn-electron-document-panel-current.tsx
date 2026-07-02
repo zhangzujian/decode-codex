@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/PopcornElectronDocumentPanel-BJYIlWEb.js
-// Flat boundary. Vendored current Popcorn electron document panel backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,
@@ -25,7 +25,7 @@ import {
   presentationJ as presentationJ,
   presentationUr as presentationUr,
   presentationYr as presentationYr,
-} from "./presentation-runtime-current";
+} from "../vendor/presentation-runtime-current";
 import {
   $ as workbookDollar,
   A as workbookA,
@@ -94,7 +94,7 @@ import {
   documentC as documentC,
   documentO as documentO,
   documentW as documentW,
-} from "./document-schema-current";
+} from "../vendor/document-schema-current";
 import {
   remoteTextEditSessionCurrentCompatSlotUpperA as remoteTextEditSessionA,
   remoteTextEditSessionCurrentCompatSlotUpperC as remoteTextEditSessionC,

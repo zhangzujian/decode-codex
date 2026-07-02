@@ -4,4 +4,4 @@ const appgenAnalyticsPageSemanticEntry = () => "appgen-analytics-page";
 
 void appgenAnalyticsPageSemanticEntry;
 
-export { AppgenAnalyticsPage } from "../vendor/appgen-analytics-page-current-bundle";
+export { AppgenAnalyticsPage } from "./analytics-page-current";

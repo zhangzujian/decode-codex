@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/codex-mobile-setup-dialog-BIUrpc8k.js
-// Flat boundary. Vendored current CodexMobileSetupDialog backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import {
   once,
@@ -88,7 +88,7 @@ import {
   CodexMobileSetupQueriesIcon,
   SunIcon,
   initSunIconChunk,
-} from "./automations-page-current-runtime";
+} from "../vendor/automations-page-current-runtime";
 import {
   pullRequestNewThreadCompatSlotUpperCLowerT,
   pullRequestNewThreadCompatSlotLowerF,
@@ -106,7 +106,7 @@ import {
   appMainCurrentCompatSlotUpperOLowerS,
   appMainCurrentCompatSlotUpperPLowerM,
   initCodexLinksChunk,
-} from "./app-main-current-runtime";
+} from "../vendor/app-main-current-runtime";
 import {
   appgenLibraryHotDjo67r4nCompatSlotUpperXLowerT as _appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nXt,
   appgenLibraryHotDjo67r4nCompatSlotLowerALowerT,

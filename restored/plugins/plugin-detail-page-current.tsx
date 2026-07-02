@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/plugin-detail-page-B_JVFW0l.js
-// Flat boundary. Vendored current plugin detail page backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,
@@ -266,7 +266,7 @@ import {
   appMainCurrentCompatSlotLowerWLowerI as appInitialAppMainOnboardingPageWi,
   appMainCurrentCompatSlotLowerXLowerU as _appInitialAppMainOnboardingPageXu,
   appMainCurrentCompatSlotLowerZLowerO as appInitialAppMainOnboardingPageZo,
-} from "./app-main-current-runtime/index";
+} from "../vendor/app-main-current-runtime/index";
 import {
   appgenLibraryHotDjo67r4nCompatSlotUpperALowerT as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nAt,
   appgenLibraryHotDjo67r4nCompatSlotUpperBLowerT as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nBt,

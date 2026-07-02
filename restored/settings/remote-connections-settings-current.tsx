@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/remote-connections-settings-DnApG523.js
-// Flat boundary. Vendored current remote connections settings backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {
@@ -151,7 +151,10 @@ import {
   permissionApprovalThreadProjectAssignmentMessages,
   currentAppInitialSharedMember0924,
 } from "../runtime/current-app-initial/remote-projects-app-shared-runtime";
-import { SunIcon, initSunIconChunk } from "./automations-page-current-runtime";
+import {
+  SunIcon,
+  initSunIconChunk,
+} from "../vendor/automations-page-current-runtime";
 import {
   pullRequestNewThreadCompatSlotLowerALowerT,
   pullRequestNewThreadCompatSlotLowerBLowerT,
@@ -186,7 +189,7 @@ import {
   appMainCurrentCompatSlotLowerQLowerN,
   appMainCurrentCompatSlotUpperXLowerU,
   AppShellOverlayOutlet,
-} from "./app-main-current-runtime";
+} from "../vendor/app-main-current-runtime";
 import {
   appgenLibraryHotDjo67r4nCompatSlotUpperFLowerN,
   appgenLibraryHotDjo67r4nCompatSlotUpperH,
@@ -261,7 +264,10 @@ import {
   OnboardingLoginContent,
 } from "../onboarding/login-content";
 import { initTabsChunk, Tabs } from "../utils/tabs";
-import { useForm, initTanstackReactFormChunk } from "./tanstack-react-form";
+import {
+  useForm,
+  initTanstackReactFormChunk,
+} from "../vendor/tanstack-react-form";
 var remoteConnectionsSettingsValue1,
   remoteConnectionsSettingsValue2,
   remoteConnectionsSettingsValue3 = once(() => {

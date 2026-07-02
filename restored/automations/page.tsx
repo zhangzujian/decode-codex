@@ -4,4 +4,4 @@ const automationsPageSemanticEntry = () => "automations-page";
 
 void automationsPageSemanticEntry;
 
-export { AutomationsPage } from "../vendor/automations-page-current-bundle";
+export { AutomationsPage } from "./automations-page-current";

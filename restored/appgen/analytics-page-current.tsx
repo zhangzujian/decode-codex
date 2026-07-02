@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/page-DCDVYlOa.js
-// Flat boundary. Vendored current AppgenAnalyticsPage backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   exportGetters as rolldownRuntimeR,
@@ -93,7 +93,7 @@ import {
   appMainCurrentCompatSlotLowerG as appInitialAppMainOnboardingPageG,
   appMainCurrentCompatSlotLowerH as AppInitialAppMainOnboardingPageH,
   appMainCurrentCompatSlotLowerP as appInitialAppMainOnboardingPageP,
-} from "./app-main-current-runtime/index";
+} from "../vendor/app-main-current-runtime/index";
 import {
   appgenLibraryHotDjo67r4nCompatSlotUpperH as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nH,
   appgenLibraryHotDjo67r4nCompatSlotUpperR as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nR,

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/general-settings-CyYw_gZ3.js
-// Flat boundary. Vendored current GeneralSettings backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {
@@ -130,7 +130,10 @@ import {
   openAiNativeAppDefinition,
   currentAppInitialSharedMember0924,
 } from "../runtime/current-app-initial/remote-projects-app-shared-runtime";
-import { SunIcon, initSunIconChunk } from "./automations-page-current-runtime";
+import {
+  SunIcon,
+  initSunIconChunk,
+} from "../vendor/automations-page-current-runtime";
 import {
   pullRequestNewThreadCompatSlotLowerALowerN,
   pullRequestNewThreadCompatSlotLowerBLowerN,
@@ -183,7 +186,7 @@ import {
   appMainCurrentCompatSlotUpperVLowerF,
   appMainCurrentCompatSlotUpperWLowerF,
   appMainCurrentCompatSlotLowerXLowerF,
-} from "./app-main-current-runtime";
+} from "../vendor/app-main-current-runtime";
 import {
   appgenLibraryHotDjo67r4nCompatSlotUpperD,
   appgenLibraryHotDjo67r4nCompatSlotUpperF,

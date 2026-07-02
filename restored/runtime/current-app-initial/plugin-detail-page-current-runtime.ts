@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/plugin-detail-page-B_JVFW0l.js
 // Current-ref compatibility surface for plugin detail, backed by semantic helpers where restored.
 
-import * as pluginDetailPageBundle from "../../vendor/plugin-detail-page-current-bundle";
+import * as pluginDetailPageBundle from "../../plugins/plugin-detail-page-current";
 import {
   PLUGIN_DETAIL_COPY_LINK_RESET_MS,
   PLUGIN_DETAIL_INSTALL_PROGRESS_RESET_MS,

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/automations-page-CXHLOmAw.js
-// Flat boundary. Vendored current automations page backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {
@@ -142,7 +142,7 @@ import {
 import {
   NotificationsBellIcon,
   initNotificationsBellIconChunk,
-} from "./automations-page-current-runtime";
+} from "../vendor/automations-page-current-runtime";
 import {
   initBulletSeparatorChunk,
   BulletSeparator,
@@ -229,7 +229,7 @@ import {
   SidebarRowRuntime,
   appMainCurrentCompatSlotLowerZLowerR,
   AppShellOverlayOutlet,
-} from "./app-main-current-runtime";
+} from "../vendor/app-main-current-runtime";
 import {
   appgenLibraryHotDjo67r4nCompatSlotUpperGLowerN,
   appgenLibraryHotDjo67r4nCompatSlotLowerILowerR,

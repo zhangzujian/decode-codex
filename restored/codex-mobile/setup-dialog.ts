@@ -16,4 +16,4 @@ export {
   codexMobileSetupDialogS as initCodexMobileSetupFeatureListChunk,
   codexMobileSetupDialogT as CodexMobileSetupDialog,
   codexMobileSetupDialogU as codexMobileSetupStepDebugOverrideAtom,
-} from "../vendor/codex-mobile-setup-dialog-current-bundle";
+} from "./setup-dialog-current";

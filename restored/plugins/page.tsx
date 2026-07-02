@@ -15,4 +15,4 @@ export {
   s as initPluginsPageCreatorPrefillChunk,
   t as PluginsPage,
   u as initPluginsPageLayoutPrimitivesChunk,
-} from "../vendor/plugins-page-current-bundle";
+} from "./plugins-page-current";

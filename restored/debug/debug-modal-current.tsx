@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/debug-modal-B1KfgYMB.js
-// Flat boundary. Vendored current debug modal backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {
@@ -156,7 +156,7 @@ import {
   initProductEventDebugLogEntriesChunk,
   appServerNotificationDebugEntriesSignal,
   clearNotificationDebugEntriesForHost,
-} from "./automations-page-current-runtime";
+} from "../vendor/automations-page-current-runtime";
 import {
   pullRequestNewThreadCompatSlotLowerL,
   pullRequestNewThreadCompatSlotUpperSLowerN,
@@ -185,7 +185,7 @@ import {
   appMainCurrentCompatSlotLowerTLowerF,
   appMainCurrentCompatSlotUpperXLowerD,
   appMainCurrentCompatSlotUpperZLowerD,
-} from "./app-main-current-runtime";
+} from "../vendor/app-main-current-runtime";
 import {
   projectsIndexCurrentCompatSlotUpperJLowerT,
   projectsIndexCurrentCompatSlotUpperYLowerT,

@@ -4,4 +4,4 @@ const pullRequestsPageSemanticEntry = () => "pull-requests-page";
 
 void pullRequestsPageSemanticEntry;
 
-export { PullRequestsPage } from "../vendor/pull-requests-page-current-bundle";
+export { PullRequestsPage } from "./pull-requests-page-current";

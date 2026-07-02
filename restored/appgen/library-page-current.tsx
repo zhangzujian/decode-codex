@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/appgen-library-page-ky7mDvfs.js
-// Flat boundary. Vendored current AppgenLibraryPage backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 import {
   once as rolldownRuntimeN,
   toEsModule as rolldownRuntimeS,
@@ -132,7 +132,7 @@ import {
   appMainCurrentCompatSlotLowerRLowerT as _appInitialAppMainOnboardingPageRt,
   appMainCurrentCompatSlotLowerTLowerU as appInitialAppMainOnboardingPageTu,
   appMainCurrentCompatSlotLowerZLowerT as appInitialAppMainOnboardingPageZt,
-} from "./app-main-current-runtime/index";
+} from "../vendor/app-main-current-runtime/index";
 import {
   appgenLibraryHotDjo67r4nCompatSlotLowerILowerR as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nIr,
   appgenLibraryHotDjo67r4nCompatSlotLowerN as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nN,

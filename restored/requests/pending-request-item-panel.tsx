@@ -4,4 +4,4 @@ const pendingRequestItemPanelSemanticEntry = () => "pending-request-item-panel";
 
 void pendingRequestItemPanelSemanticEntry;
 
-export { PendingRequestItemPanel } from "../vendor/pending-request-item-panel-current-bundle";
+export { PendingRequestItemPanel } from "./pending-request-item-panel-current";

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/pull-requests-page-CqwsTUV0.js
-// Flat boundary. Vendored current pull requests page backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import { once, toEsModule } from "../runtime/commonjs-interop";
 import {
@@ -148,7 +148,7 @@ import {
   useIsPullRequestMergeHelperEnabledA,
   initPullRequestMergeHelperStateChunk,
   useIsPullRequestMergeHelperEnabled,
-} from "./automations-page-current-runtime";
+} from "../vendor/automations-page-current-runtime";
 import {
   initBulletSeparatorChunk,
   BulletSeparator,
@@ -190,7 +190,7 @@ import {
   appMainCurrentCompatSlotLowerXLowerU,
   appMainCurrentCompatSlotUpperYLowerC,
   openThreadLastTurnReviewSidePanelTab,
-} from "./app-main-current-runtime";
+} from "../vendor/app-main-current-runtime";
 import {
   appgenLibraryHotDjo67r4nCompatSlotUpperALowerN,
   appgenLibraryHotDjo67r4nCompatSlotLowerJLowerN,

@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/pending-request-item-panel-DnKsF6y0.js
-// Flat boundary. Vendored current PendingRequestItemPanel backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,
@@ -178,7 +178,7 @@ import {
   SidebarRowShortcutScope as appInitialAppMainOnboardingPageSl,
   appMainCurrentCompatSlotLowerSLowerS as appInitialAppMainOnboardingPageSs,
   appMainCurrentCompatSlotLowerZLowerU as appInitialAppMainOnboardingPageZu,
-} from "./app-main-current-runtime/index";
+} from "../vendor/app-main-current-runtime/index";
 import {
   appgenLibraryHotDjo67r4nCompatSlotLowerALowerT as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nAt,
   appgenLibraryHotDjo67r4nCompatSlotLowerBLowerT as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nBt,

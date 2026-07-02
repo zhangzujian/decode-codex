@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/plugins-page-D95-xrxa.js
-// Flat boundary. Vendored current plugins page backing bundle with restored dependency imports.
+// Current implementation with restored dependency imports.
 
 import {
   once as rolldownRuntimeN,
@@ -191,7 +191,7 @@ import {
   appMainCurrentCompatSlotLowerQLowerN as appInitialAppMainOnboardingPageQn,
   appMainCurrentCompatSlotLowerQLowerT as AppInitialAppMainOnboardingPageQt,
   appMainCurrentCompatSlotLowerXLowerU as _appInitialAppMainOnboardingPageXu,
-} from "./app-main-current-runtime/index";
+} from "../vendor/app-main-current-runtime/index";
 import {
   appgenLibraryHotDjo67r4nCompatSlotUpperALowerT as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nAt,
   appgenLibraryHotDjo67r4nCompatSlotUpperBLowerT as appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotDjo67r4nBt,
@@ -383,7 +383,7 @@ import { initTabsChunk as tabsN, Tabs as tabsT } from "../utils/tabs";
 import {
   useForm as esmN,
   initTanstackReactFormChunk as esmT,
-} from "./tanstack-react-form";
+} from "../vendor/tanstack-react-form";
 import {
   initControlGroupChunk as controlGroupN,
   ControlGroup as controlGroupT,
