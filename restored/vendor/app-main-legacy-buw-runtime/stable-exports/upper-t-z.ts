@@ -43,6 +43,7 @@ export {
   AvatarIcon as hostBridge,
   initAvatarIconChunk as legacyAppMainBuwUpperWLowerNExport,
 } from "../../../icons/avatar-icon";
+export { handleGetHandoffStatus as pathsMatch } from "../../../conversations/handoff-thread-tool-handlers";
 
 export {
   T as legacyAppMainBuwUpperTExport,
@@ -107,7 +108,6 @@ export {
   W as legacyAppMainBuwUpperWExport,
   WS as legacyAppMainBuwUpperWUpperSExport,
   W_ as legacyAppMainBuwUpperWUnderscoreExport,
-  Wa as pathsMatch,
   Wb as legacyAppMainBuwUpperWLowerBExport,
   Wc as legacyAppMainBuwUpperWLowerCExport,
   Wf as legacyAppMainBuwUpperWLowerFExport,

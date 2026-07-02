@@ -9,11 +9,11 @@ export { rightPanelFullWidthStateKey } from "../../conversations/fork-conversati
 
 export { bottomPanelTabsStore } from "../../app-shell/thread-panel-tabs-store";
 export { initAvatarIconChunk as appMainCurrentCompatSlotUpperWLowerN } from "../../icons/avatar-icon";
+export { handleGetHandoffStatus as pathsMatch } from "../../conversations/handoff-thread-tool-handlers";
 
 export {
   W as appMainCurrentCompatSlotUpperW,
   W_ as appMainCurrentCompatSlotUpperWUnderscore,
-  Wa as pathsMatch,
   Wb as appMainCurrentCompatSlotUpperWLowerB,
   Wc as appMainCurrentCompatSlotUpperWLowerC,
   Wf as appMainCurrentCompatSlotUpperWLowerF,
