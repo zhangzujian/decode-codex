@@ -331,6 +331,38 @@ describe("quality-gate", () => {
     );
   });
 
+  test("fails react-intl-compatible vendor shims by API fingerprint", () => {
+    const source = `
+      export function useIntl() {
+        return {
+          formatMessage(descriptor) {
+            return descriptor.defaultMessage ?? descriptor.id ?? "";
+          },
+        };
+      }
+      export function FormattedMessage(props) {
+        return props.defaultMessage ?? props.id ?? "";
+      }
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/i18n-formatting.tsx",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({ expectedSpecifiers: ["react-intl"] });
+  });
+
   test("passes react-intl vendor shims that re-export the npm package", () => {
     const source = `
       // Restored from ref/webview/assets/lib-BWT6A3Q0.js
@@ -386,6 +418,25 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("passes react-intl API fingerprint shims that re-export the npm package", () => {
+    const source = `
+      export {
+        FormattedMessage,
+        IntlProvider,
+        useIntl,
+      } from "react-intl";
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/i18n-formatting.tsx",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails npm vendor shims when package dependency is not declared", () => {
     const root = makeTmpRoot();
     const restoredDir = path.join(root, "restored");
@@ -427,6 +478,32 @@ describe("quality-gate", () => {
       `
         // Restored from ref/webview/assets/lib-BWT6A3Q0.js
         export { FormattedMessage, useIntl } from "react-intl";
+      `,
+    );
+
+    const reports = analyzePublicNpmVendorShimDependencies(restoredDir);
+    expect(reports).toHaveLength(1);
+    expect(reports[0]!.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-dependency-missing",
+    );
+    expect(reports[0]!.issues[0]!.detail).toMatchObject({
+      missingPackages: ["react-intl"],
+    });
+  });
+
+  test("fails react-intl API fingerprint shims when package dependency is not declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: {} }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "i18n-formatting.tsx"),
+      `
+        export { FormattedMessage, IntlProvider, useIntl } from "react-intl";
       `,
     );
 

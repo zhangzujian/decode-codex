@@ -506,6 +506,28 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   "lib-BWT6A3Q0": "react-intl",
 };
 
+const PUBLIC_NPM_VENDOR_API_FINGERPRINTS: Array<{
+  specifiers: PublicNpmVendorSpecifiers;
+  apiNames: readonly string[];
+  minimumUniqueApiNames: number;
+}> = [
+  {
+    specifiers: "react-intl",
+    apiNames: [
+      "FormattedMessage",
+      "IntlProvider",
+      "RawIntlProvider",
+      "createIntl",
+      "createIntlCache",
+      "defineMessage",
+      "defineMessages",
+      "formatMessage",
+      "useIntl",
+    ],
+    minimumUniqueApiNames: 2,
+  },
+];
+
 const PACKAGE_DEPENDENCY_FIELDS = [
   "dependencies",
   "devDependencies",
@@ -841,12 +863,46 @@ function normalizePublicNpmVendorSpecifiers(
   return Array.isArray(specifiers) ? [...specifiers] : [specifiers];
 }
 
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function isPublicVendorFile(file: string): boolean {
+  return /(?:^|\/)vendor\/[^/]+\.[cm]?[jt]sx?$/i.test(file.replace(/\\/g, "/"));
+}
+
+function isExportedApiName(source: string, apiName: string): boolean {
+  const escapedApiName = escapeRegExp(apiName);
+  return new RegExp(
+    String.raw`\bexport\s+(?:declare\s+)?(?:async\s+)?(?:function|const|let|var|class|interface|type)\s+${escapedApiName}\b|` +
+      String.raw`\bexport\s*\{[\s\S]*?\b${escapedApiName}\b[\s\S]*?\}`,
+  ).test(source);
+}
+
+function expectedPublicNpmVendorSpecifiersByApiFingerprint(
+  source: string,
+): string[] | null {
+  for (const fingerprint of PUBLIC_NPM_VENDOR_API_FINGERPRINTS) {
+    const matchedApiNames = fingerprint.apiNames.filter((apiName) =>
+      new RegExp(String.raw`\b${escapeRegExp(apiName)}\b`).test(source),
+    );
+    if (matchedApiNames.length < fingerprint.minimumUniqueApiNames) continue;
+    if (
+      !matchedApiNames.some((apiName) => isExportedApiName(source, apiName))
+    ) {
+      continue;
+    }
+    return normalizePublicNpmVendorSpecifiers(fingerprint.specifiers);
+  }
+  return null;
+}
+
 function expectedPublicNpmVendorSpecifiers(
   file: string,
   source?: string,
 ): string[] | null {
   const normalized = file.replace(/\\/g, "/");
-  if (/(?:^|\/)vendor\/[^/]+\.[cm]?[jt]sx?$/i.test(normalized)) {
+  if (isPublicVendorFile(normalized)) {
     const extensionlessBasename = path
       .basename(normalized)
       .replace(/\.[cm]?[jt]sx?$/i, "");
@@ -854,6 +910,12 @@ function expectedPublicNpmVendorSpecifiers(
       PUBLIC_NPM_VENDOR_SHIMS[extensionlessBasename],
     );
     if (specifiers != null) return specifiers;
+
+    if (source != null) {
+      const apiFingerprintSpecifiers =
+        expectedPublicNpmVendorSpecifiersByApiFingerprint(source);
+      if (apiFingerprintSpecifiers != null) return apiFingerprintSpecifiers;
+    }
   }
 
   const sourceChunkBasename =

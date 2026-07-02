@@ -226,6 +226,10 @@ replacement for a stock package. For generic package chunks whose public name is
 not self-identifying, keep a provenance-keyed gate entry too: the current
 FormatJS chunk `lib-BWT6A3Q0` must be treated as `react-intl` even if a future
 restore writes it to a differently named `vendor/*` shim.
+Also keep API-fingerprint coverage for distinctive surfaces: a `vendor/*` file
+that exports React Intl APIs such as `useIntl`, `FormattedMessage`, or
+`IntlProvider` must be an npm-backed `react-intl` re-export even when the file
+name and provenance header are not self-identifying.
 For a confirmed fork keep the forked wrapper and boundary-ize it
 (`quality-gate.ts --vendored`).
 
