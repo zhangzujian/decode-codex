@@ -4,4 +4,4 @@ const onboardingPageCurrentRuntime = () => "onboarding-page-current-runtime";
 
 void onboardingPageCurrentRuntime;
 
-export { OnboardingPage as OnboardingPageIcon } from "../../onboarding/page";
+export { OnboardingPage } from "../../onboarding/page";

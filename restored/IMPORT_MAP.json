@@ -43034,15 +43034,15 @@
     "onboarding-page-DtzKDTbH": {
       "restored": "runtime/current-app-initial/onboarding-page-current-runtime.ts",
       "exports": {
-        "OnboardingPage": "OnboardingPageIcon"
+        "OnboardingPage": "OnboardingPage"
       },
       "status": "done",
-      "note": "Current onboarding page hash maps to explicit compatibility aliases backed by the semantic onboarding/page.tsx entry.",
-      "lastUpdated": "2026-06-30T23:21:25.587Z",
+      "note": "Current onboarding page hash maps to a dedicated current-ref runtime over onboarding/page.tsx; the page body was promoted out of vendor parking, moved app-main/automations imports were repaired, and local helpers now avoid generated fallback names.",
+      "lastUpdated": "2026-07-02T02:48:27.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:21:25.587Z",
-      "stage3Review": "Host self-review: parsed onboarding-page-DtzKDTbH.js exports, preserved the current restored-dependency backing bundle, and mapped OnboardingPage through onboarding/page.tsx.",
-      "stage3Note": "Accepted as a current-ref compatibility export backed by the semantic OnboardingPage entry; deeper internal helper splitting remains future cleanup."
+      "stage3AcceptedAt": "2026-07-02T02:48:27.000Z",
+      "stage3Review": "Host self-review: promoted OnboardingPage from vendor parking, repaired moved app-main and automations imports, renamed the generated onboardingPage Value/Param/Helper families, cleared duplicate-import and short-identifier page gate findings, passed the current runtime gate, and verified Bun builds; the page gate now only reports JSX runtime residue and the later split.",
+      "stage3Note": "Accepted as a current-ref compatibility export backed by the promoted OnboardingPage entry; deeper component splitting remains future cleanup."
     },
     "pull-requests-page-CqwsTUV0": {
       "restored": "runtime/current-app-initial/pull-requests-page-current-runtime.ts",
