@@ -4152,6 +4152,7 @@
         "z": "pdfZ",
         "pdfDollar": "$"
       },
+      "vendor": "pdfjs-dist",
       "status": "done"
     },
     "chunk-55IACEB6-Qk_p6M41": {
@@ -4890,6 +4891,7 @@
         "updateUrlHash": "updateUrlHash",
         "version": "version"
       },
+      "vendor": "pdfjs-dist",
       "status": "done"
     },
     "pdf-BMUvP2KZ": {
@@ -4952,6 +4954,7 @@
         "updateUrlHash": "updateUrlHash",
         "version": "version"
       },
+      "vendor": "pdfjs-dist",
       "status": "done",
       "aliasOf": "pdf-c2WnNMiD",
       "lastUpdated": "2026-06-29T00:00:00.000Z"
@@ -25224,6 +25227,7 @@
         "updateUrlHash": "updateUrlHash",
         "version": "version"
       },
+      "vendor": "pdfjs-dist",
       "status": "done",
       "aliasOf": "pdf-c2WnNMiD",
       "lastUpdated": "2026-06-30T00:00:00.000Z",
