@@ -1,5 +1,4 @@
 // Restored from ref/webview/assets/dist-BLGenw3M.js
-// cmdk 1.1.1 vendor facade.
+// cmdk npm re-export shim for the bundled command palette runtime.
 
-import { Command, useCommandState } from "cmdk";
-export { Command, useCommandState };
+export { Command, useCommandState } from "cmdk";
