@@ -8,6 +8,9 @@ export {
 
 export { syncReviewPanelForRestoredSource } from "../../conversations/local-conversation-page-runtime";
 export { isConversationDetailModeProse as SidebarRowArchiveToast } from "../../runtime/conversation-detail-runtime";
+export { initDocumentSearchIconChunk as appMainCurrentCompatSlotLowerGLowerY } from "../../icons/document-search-icon";
+export { DragIcon as appMainCurrentCompatSlotLowerGLowerD } from "../../icons/drag-icon";
+export { initFolderOpenIconChunk as appMainCurrentCompatSlotLowerGLowerH } from "../../icons/folder-open-icon";
 
 export {
   g as appMainCurrentCompatSlotLowerG,
@@ -15,10 +18,8 @@ export {
   ga as appMainCurrentCompatSlotLowerGLowerA,
   gc as appMainCurrentCompatSlotLowerGLowerC,
   gC as appMainCurrentCompatSlotLowerGUpperC,
-  gd as appMainCurrentCompatSlotLowerGLowerD,
   gf as appMainCurrentCompatSlotLowerGLowerF,
   gg as appMainCurrentCompatSlotLowerGLowerG,
-  gh as appMainCurrentCompatSlotLowerGLowerH,
   gi as appMainCurrentCompatSlotLowerGLowerI,
   gn as appMainCurrentCompatSlotLowerGLowerN,
   gp as appMainCurrentCompatSlotLowerGLowerP,
@@ -28,5 +29,4 @@ export {
   gt as appMainCurrentCompatSlotLowerGLowerT,
   gu as appMainCurrentCompatSlotLowerGLowerU,
   gx as appMainCurrentCompatSlotLowerGLowerX,
-  gy as appMainCurrentCompatSlotLowerGLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

@@ -39,7 +39,10 @@ export {
 
 export { initComposedRefsRuntime } from "../../../runtime/app-main-new-thread-runtime";
 export { isConversationDetailModeProse as SidebarRowArchiveToast } from "../../../runtime/conversation-detail-runtime";
+export { initDocumentSearchIconChunk as legacyAppMainBuwLowerGLowerYExport } from "../../../icons/document-search-icon";
+export { DragIcon as legacyAppMainBuwLowerGLowerDExport } from "../../../icons/drag-icon";
 export { EllipsisHorizontalIcon as ThreadRowTooltip } from "../../../icons/ellipsis-horizontal-icon";
+export { initFolderOpenIconChunk as legacyAppMainBuwLowerGLowerHExport } from "../../../icons/folder-open-icon";
 export { Alert as ToastContent } from "../../../utils/alert";
 
 export { closestCenter as ThreadRowStatusIndicator } from "../../dnd-kit-core";
@@ -53,7 +56,6 @@ export {
   gc as legacyAppMainBuwLowerGLowerCExport,
   gf as legacyAppMainBuwLowerGLowerFExport,
   gg as legacyAppMainBuwLowerGLowerGExport,
-  gh as legacyAppMainBuwLowerGLowerHExport,
   gi as legacyAppMainBuwLowerGLowerIExport,
   gn as legacyAppMainBuwLowerGLowerNExport,
   gp as legacyAppMainBuwLowerGLowerPExport,
@@ -62,7 +64,6 @@ export {
   gt as legacyAppMainBuwLowerGLowerTExport,
   gu as legacyAppMainBuwLowerGLowerUExport,
   gx as legacyAppMainBuwLowerGLowerXExport,
-  gy as legacyAppMainBuwLowerGLowerYExport,
   h as legacyAppMainBuwLowerHExport,
   hC as legacyAppMainBuwLowerHUpperCExport,
   hS as legacyAppMainBuwLowerHUpperSExport,
