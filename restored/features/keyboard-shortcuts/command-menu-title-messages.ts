@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/keyboard-shortcuts-search-input-C1dmntOi.js
 // keyboard-shortcuts-search-input-C1dmntOi chunk restored from the Codex webview bundle.
-import * as reactIntlRuntime from "../../vendor/react-intl";
-export const commandMenuTitleMessages = reactIntlRuntime.libI({
+import { defineMessages } from "../../vendor/react-intl";
+export const commandMenuTitleMessages = defineMessages({
   "codex.commandMenuTitle.newThread": {
     id: "codex.commandMenuTitle.newThread",
     defaultMessage: "New Chat",

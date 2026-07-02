@@ -8,7 +8,7 @@ import React, {
   type SVGProps,
 } from "react";
 import clsx from "clsx";
-import * as reactIntlRuntime from "../../vendor/react-intl";
+import { useIntl } from "../../vendor/react-intl";
 import { CopyButton } from "../copy-button";
 import { Button } from "../button";
 import { Tooltip } from "../tooltip-b";
@@ -223,7 +223,7 @@ function CodeSnippet({
   onToggleWrapCode,
 }: CodeSnippetProps) {
   const codeContainerRef = React.useRef<HTMLDivElement | null>(null);
-  const intl = reactIntlRuntime.libL();
+  const intl = useIntl();
   const [highlightedCode, setHighlightedCode] =
     React.useState<HighlightCodeResult | null>(null);
   const highlightStateRef = React.useRef<HighlightState>({

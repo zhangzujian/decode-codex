@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/format-relative-date-time-DLmXX0fU.js
 // format-relative-date-time-DLmXX0fU chunk restored from the Codex webview bundle.
 import React from "react";
-import * as reactIntlRuntime from "../vendor/react-intl";
+import { useIntl } from "../vendor/react-intl";
 const MINUTE_MS = 60_000;
 const WEEK_DAYS = 7;
 const MONTH_DAYS = 30;
@@ -52,7 +52,7 @@ function getCurrentNow() {
   return currentNow;
 }
 function formatCompactRelativeDateTime(dateString: string, now: Date) {
-  const intl = reactIntlRuntime.libL();
+  const intl = useIntl();
   const date = new Date(dateString);
   const elapsedMinutes = minutesBetween(now, date);
   const elapsedDays = daysBetween(now, date);

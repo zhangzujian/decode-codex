@@ -2,7 +2,7 @@
 // copy-button-CRbl2OgP chunk restored from the Codex webview bundle.
 import React from "react";
 import clsx from "clsx";
-import * as reactIntlRuntime from "../vendor/react-intl";
+import { FormattedMessage, useIntl } from "../vendor/react-intl";
 import { Button } from "./button";
 import { CheckMdIcon } from "../icons/check-md-icon";
 import { CopyIcon } from "../icons/copy-icon";
@@ -33,7 +33,7 @@ function CopyButton({
   className,
   iconOnly = false,
 }: CopyButtonProps) {
-  const intl = reactIntlRuntime.libL();
+  const intl = useIntl();
   const [copied, setCopied] = React.useState(false);
   const isMounted = useIsMounted();
   const handleCopy = React.useCallback(
@@ -48,7 +48,7 @@ function CopyButton({
     [isMounted, onCopy],
   );
   const copiedLabel = (
-    <reactIntlRuntime.libS
+    <FormattedMessage
       id="copyButton.copied"
       defaultMessage="Copied"
       description="Text displayed when the content has been copied"
@@ -57,7 +57,7 @@ function CopyButton({
   let visibleText = copied ? copiedLabel : buttonText;
   if (visibleText === true) {
     visibleText = (
-      <reactIntlRuntime.libS
+      <FormattedMessage
         id="copyButton.copy"
         defaultMessage="Copy"
         description="Text displayed when the content can be copied"
@@ -67,7 +67,7 @@ function CopyButton({
   const tooltipContent = copied
     ? copiedLabel
     : (buttonText ?? (
-        <reactIntlRuntime.libS
+        <FormattedMessage
           id="CopyButton.copyTooltip"
           defaultMessage="Copy"
           description="Tooltip on copy message icon button"

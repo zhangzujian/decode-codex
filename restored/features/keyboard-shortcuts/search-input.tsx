@@ -2,7 +2,7 @@
 // keyboard-shortcuts-search-input-C1dmntOi chunk restored from the Codex webview bundle.
 import type { KeyboardEvent, ReactNode } from "react";
 import clsx from "clsx";
-import * as reactIntlRuntime from "../../vendor/react-intl";
+import { useIntl } from "../../vendor/react-intl";
 export type KeyboardShortcutsSearchInputProps = {
   autoFocus?: boolean;
   ariaLabel?: string;
@@ -23,7 +23,7 @@ export function KeyboardShortcutsSearchInput({
   value,
   onValueChange,
 }: KeyboardShortcutsSearchInputProps) {
-  const intl = reactIntlRuntime.libL();
+  const intl = useIntl();
   const inputKey = isSearchingByKeystrokes ? "keystrokes" : "text";
   const shortcutCaptureMode = isSearchingByKeystrokes || undefined;
   const inputClassName = clsx(

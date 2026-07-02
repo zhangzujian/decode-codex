@@ -2,7 +2,7 @@
 // mention-item-Cs3Au6lU chunk restored from the Codex webview bundle.
 // Semantic implementation for composer mention item hrefs and menu item models.
 import * as sourceRuntime from "../../boundaries/src-l0hb-mz-p";
-import * as reactIntlRuntime from "../../vendor/react-intl";
+import { defineMessages } from "../../vendor/react-intl";
 import { formatDirectiveMention } from "../../utils/parse-directives";
 import { getSkillDisplayName } from "../../plugins/skill-utils";
 type MessageDescriptor = {
@@ -77,9 +77,6 @@ type McpResourceMention = {
   resourceUri: string;
   server: string;
 };
-const defineMessages = reactIntlRuntime.libI as <TMessages>(
-  messages: TMessages,
-) => TMessages;
 export const pluginMentionMessages = defineMessages({
   label: {
     id: "composer.pluginMention.browserUse.label",
