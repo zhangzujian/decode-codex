@@ -129,6 +129,10 @@ export {
   computeFileLineStats as SidebarTaskRowActions,
   initDiffSelectionSummaryChunk as SidebarRowUnreadDot,
 } from "../../review/diff-selection-summary";
+export {
+  convertUnistTest as SidebarRowHoverCard,
+  mdastToMarkdownDefaultHandlers as SidebarTaskRowTitle,
+} from "../markdown-ast-runtime";
 
 export {
   Ln as AutomationScheduleEditor,
@@ -146,7 +150,6 @@ export {
   Nr as SidebarRowContextMenu,
   Oi as SidebarRowOverflowMenu,
   Pn as SidebarTaskRow,
-  Qp as SidebarTaskRowTitle,
   Wc as primeBrowserTabTransfers,
   Wc as transferForkedConversationBrowserTabs,
   al as SidebarRowMenuSeparator,
@@ -154,7 +157,6 @@ export {
   ho as forkConversationMessages,
   hp as useComposedRefs,
   mo as initForkConversationMessagesChunk,
-  nm as SidebarRowHoverCard,
   sl as SidebarRowShortcutScope,
   sm as SidebarRowContextMenuItem,
   ud as initExternalAgentImportStatusIconsChunk,
