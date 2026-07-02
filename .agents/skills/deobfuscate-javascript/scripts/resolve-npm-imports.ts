@@ -84,6 +84,8 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
   proxy: { package: "framer-motion", namedOnly: true },
   // react-intl
   "react-intl": { package: "react-intl", namedOnly: true },
+  // React Router chunks in Codex.app are emitted under an internal chunk stem.
+  "chunk-LFPYN7LY": { package: "react-router", namedOnly: true },
   // Jotai
   jotai: { package: "jotai", namedOnly: true },
   "jotai-react": { package: "jotai", namedOnly: true },
@@ -271,6 +273,25 @@ export const ALIAS_REGISTRY: Record<string, AliasRule> = {
   useIntl: { package: "react-intl", style: "named" },
   defineMessages: { package: "react-intl", style: "named" },
   defineMessage: { package: "react-intl", style: "named" },
+
+  // React Router
+  Link: { package: "react-router", style: "named" },
+  MemoryRouter: { package: "react-router", style: "named" },
+  Navigate: { package: "react-router", style: "named" },
+  NavigationType: { package: "react-router", style: "named" },
+  Route: { package: "react-router", style: "named" },
+  Routes: { package: "react-router", style: "named" },
+  UNSAFE_LocationContext: { package: "react-router", style: "named" },
+  createRoutesFromChildren: { package: "react-router", style: "named" },
+  matchRoutes: { package: "react-router", style: "named" },
+  matchPath: { package: "react-router", style: "named" },
+  useLocation: { package: "react-router", style: "named" },
+  useMatch: { package: "react-router", style: "named" },
+  useNavigate: { package: "react-router", style: "named" },
+  useNavigationType: { package: "react-router", style: "named" },
+  useOutlet: { package: "react-router", style: "named" },
+  useParams: { package: "react-router", style: "named" },
+  useSearchParams: { package: "react-router", style: "named" },
 
   // jotai
   useAtom: { package: "jotai", style: "named" },

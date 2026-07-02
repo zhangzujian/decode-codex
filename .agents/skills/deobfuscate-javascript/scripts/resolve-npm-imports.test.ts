@@ -153,6 +153,25 @@ describe("resolveNpmImports (chunk-name based)", () => {
     expect(out.stats.specifiersResolved).toBe(1);
   });
 
+  test("rewrites Codex React Router chunks to the npm package", () => {
+    const src = `
+      import {
+        a as Navigate,
+        f as useLocation,
+        m as useNavigate,
+      } from "../chunk-LFPYN7LY-h_ROgi7V.js";
+      Navigate; useLocation; useNavigate;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('from "react-router"');
+    expect(n).toContain("Navigate");
+    expect(n).toContain("useLocation");
+    expect(n).toContain("useNavigate");
+    expect(n).not.toContain("chunk-LFPYN7LY-h_ROgi7V");
+    expect(out.stats.specifiersResolved).toBe(3);
+  });
+
   test("rewrites tslib chunk as named-only", () => {
     const src = `import { a as __assign, b as __rest } from "../tslib-X.js";`;
     const out = resolveNpmImports(src);
