@@ -372,16 +372,18 @@ describe("quality-gate", () => {
         path.join(vendorDir, "graphlib.ts"),
         `
           // Restored from ref/webview/assets/graphlib-DGNlaJmK.js
-          export { Graph as Graphlib } from "graphlib";
+          import graphlib from "graphlib";
           export type { Edge as GraphlibEdge } from "graphlib";
+          export const Graphlib = graphlib.Graph;
         `,
       ],
       [
         path.join(vendorDir, "graphlib-alt.ts"),
         `
           // Restored from ref/webview/assets/graphlib-ichArG6F.js
-          export { Graph as Graphlib } from "graphlib";
+          import graphlib from "graphlib";
           export type { Edge as GraphlibEdge } from "graphlib";
+          export const Graphlib = graphlib.Graph;
           export function initGraphlibAltChunk(): void {}
         `,
       ],
@@ -389,7 +391,9 @@ describe("quality-gate", () => {
         path.join(vendorDir, "dagre.ts"),
         `
           // Restored from ref/webview/assets/dagre-BqhzN4_p.js
-          export { layout as Dagre } from "dagre";
+          import dagre from "dagre";
+          export type { GraphLabel as DagreGraphLabel } from "dagre";
+          export const Dagre = dagre.layout;
           export function initDagre(): void {}
         `,
       ],
@@ -397,7 +401,9 @@ describe("quality-gate", () => {
         path.join(vendorDir, "dagre-alt.ts"),
         `
           // Restored from ref/webview/assets/dagre-Ba2O9HBx.js
-          export { layout as Dagre } from "dagre";
+          import dagre from "dagre";
+          export type { GraphLabel as DagreGraphLabel } from "dagre";
+          export const Dagre = dagre.layout;
         `,
       ],
     ]);

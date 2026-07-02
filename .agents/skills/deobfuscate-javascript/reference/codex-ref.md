@@ -296,7 +296,11 @@ For Graphlib/Dagre, the package-body chunks `graphlib-*`, `dagre-BqhzN4_p`,
 `dagre-D3FnCVRr`, and `dagre-bCFXQEZA` are stock `graphlib` / `dagre` package
 surfaces. Mermaid renderer chunks such as `dagre-6UL2VRFP-*` and
 `dagre-KV5264BT-*` are not the Dagre package body; restore those as Mermaid
-renderer modules while keeping their Graphlib/Dagre imports npm-backed.
+renderer modules while keeping their Graphlib/Dagre imports npm-backed. Both
+packages are CommonJS at runtime, so prefer a default import plus typed alias
+exports (`const Dagre = dagre.layout`, `const Graphlib = graphlib.Graph`) and
+keep a type-only bare re-export from the package so the shim remains
+quality-gate visible.
 RoughJS has both provenance and API-fingerprint coverage: `rough.esm-*` chunks
 or vendor files exporting `roughjs` plus `canvas`/`svg`/`generator` must resolve
 to the `roughjs` package.
