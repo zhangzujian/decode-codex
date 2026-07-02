@@ -68,6 +68,7 @@ export {
   trackConversationalOnboardingLifecycleSkipped as legacyAppMainBuwUpperVLowerSExport,
   trackConversationalOnboardingTaskSelected as legacyAppMainBuwUpperULowerSExport,
 } from "../../../onboarding/conversational-onboarding-analytics";
+export { ConversationalOnboardingStreamingIntro as legacyAppMainBuwUpperZLowerSExport } from "../../../onboarding/conversational-onboarding-streaming-intro";
 
 export {
   T as legacyAppMainBuwUpperTExport,
@@ -180,7 +181,6 @@ export {
   Zn as legacyAppMainBuwUpperZLowerNExport,
   Zp as legacyAppMainBuwUpperZLowerPExport,
   Zr as legacyAppMainBuwUpperZLowerRExport,
-  Zs as legacyAppMainBuwUpperZLowerSExport,
   Zt as legacyAppMainBuwUpperZLowerTExport,
   Zv as legacyAppMainBuwUpperZLowerVExport,
   Zx as legacyAppMainBuwUpperZLowerXExport,

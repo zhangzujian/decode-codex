@@ -30,6 +30,8 @@ import type { ConversationalOnboardingTaskId } from "./conversational-onboarding
 
 type ConversationalOnboardingRoleType = string;
 
+export function initConversationalOnboardingAnalyticsChunk(): void {}
+
 // --- Lifecycle ---------------------------------------------------------------
 
 export function trackConversationalOnboardingLifecycleStarted(

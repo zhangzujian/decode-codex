@@ -69,6 +69,7 @@ export {
   appConnectionLinkQueryOptions as legacyAppMainBuwUpperNLowerSExport,
   initConversationalOnboardingAppConnectionQueryChunk as legacyAppMainBuwUpperPLowerSExport,
 } from "../../../connectors/apps-queries/onboarding-app-connection";
+export { initConversationalOnboardingStreamingIntroChunk as legacyAppMainBuwUpperQLowerSExport } from "../../../onboarding/conversational-onboarding-streaming-intro";
 
 export {
   NC as legacyAppMainBuwUpperNUpperCExport,
@@ -127,7 +128,6 @@ export {
   Qm as legacyAppMainBuwUpperQLowerMExport,
   Qn as legacyAppMainBuwUpperQLowerNExport,
   Qr as legacyAppMainBuwUpperQLowerRExport,
-  Qs as legacyAppMainBuwUpperQLowerSExport,
   Qt as legacyAppMainBuwUpperQLowerTExport,
   Qu as legacyAppMainBuwUpperQLowerUExport,
   Qv as legacyAppMainBuwUpperQLowerVExport,

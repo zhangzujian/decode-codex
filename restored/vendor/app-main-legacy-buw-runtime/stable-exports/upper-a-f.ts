@@ -48,7 +48,10 @@ export {
   computePointerVelocity as legacyAppMainBuwUpperALowerDExport,
 } from "../../../runtime/pointer-velocity-signals";
 export { CODEX_USAGE_CREDITS_MODAL_URL as legacyAppMainBuwUpperBLowerCExport } from "../../../utils/links-bd-mmkun-d";
-export { trackConversationalOnboardingRoleSelected as legacyAppMainBuwUpperBLowerSExport } from "../../../onboarding/conversational-onboarding-analytics";
+export {
+  initConversationalOnboardingAnalyticsChunk as legacyAppMainBuwUpperFLowerSExport,
+  trackConversationalOnboardingRoleSelected as legacyAppMainBuwUpperBLowerSExport,
+} from "../../../onboarding/conversational-onboarding-analytics";
 
 export {
   initPrimitiveRuntime as initPrimitiveRuntimeChunk,
@@ -167,7 +170,6 @@ export {
   Fn as legacyAppMainBuwUpperFLowerNExport,
   Fp as legacyAppMainBuwUpperFLowerPExport,
   Fr as legacyAppMainBuwUpperFLowerRExport,
-  Fs as legacyAppMainBuwUpperFLowerSExport,
   Ft as legacyAppMainBuwUpperFLowerTExport,
   Fu as legacyAppMainBuwUpperFLowerUExport,
   Fx as legacyAppMainBuwUpperFLowerXExport,
