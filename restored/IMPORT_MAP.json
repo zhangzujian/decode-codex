@@ -42549,12 +42549,12 @@
         "UsageSettings": "UsageSettings"
       },
       "status": "done",
-      "note": "Current UsageSettings hash maps to a dedicated current-ref runtime over vendor/usage-settings-current-bundle.tsx; the single semantic export is re-derived from the current file.",
-      "lastUpdated": "2026-06-30T23:45:00.000Z",
+      "note": "Current UsageSettings hash maps to a dedicated current-ref runtime over settings/usage-settings.tsx; the body was promoted out of vendor parking, React compiler cache scaffolding was stripped, moved app-main and TanStack imports were repaired, and local helpers now avoid generated fallback names.",
+      "lastUpdated": "2026-07-02T05:45:00.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-06-30T23:45:00.000Z",
-      "stage3Review": "Host self-review: verified the current file exports UsageSettings, rewrote dependency imports through restored/IMPORT_MAP.json, and passed quality gates on the backing bundle and runtime.",
-      "stage3Note": "Accepted as a current-ref compatibility export over a restored-dependency backing bundle; full semantic split of UsageSettings remains a later cleanup."
+      "stage3AcceptedAt": "2026-07-02T05:45:00.000Z",
+      "stage3Review": "Host self-review: promoted UsageSettings from vendor parking, stripped React compiler cache scaffolding, repaired moved app-main and TanStack imports, preserved the UsageSettings export, passed the runtime quality gate, and verified page/runtime Bun builds; the page gate now only reports JSX factory residue and the later split.",
+      "stage3Note": "Accepted as a promoted current-ref implementation; JSX factory cleanup and component splitting remain future cleanup."
     },
     "plugin-detail-page-B_JVFW0l": {
       "restored": "runtime/current-app-initial/plugin-detail-page-current-runtime.ts",
