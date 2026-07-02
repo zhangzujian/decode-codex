@@ -1,8 +1,6 @@
 // Restored from ref/webview/assets/rough.esm-BmcJJgrn.js
-// RoughJS is a bundled third-party drawing library; keep the clean restore as an npm facade.
-import rough from "roughjs";
+// npm-backed RoughJS runtime shim preserving bundled export aliases.
 
-export function initRoughjsChunk() {}
+export { default, default as roughjs } from "roughjs";
 
-export const roughjs = rough;
-export default roughjs;
+export function initRoughjsChunk(): void {}

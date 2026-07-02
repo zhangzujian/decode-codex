@@ -41709,9 +41709,9 @@
       },
       "status": "done",
       "vendor": "roughjs",
-      "note": "RoughJS bundled ESM chunk mapped to npm leaf roughjs; init alias is a no-op because the bare import is already initialized.",
+      "note": "RoughJS bundled ESM chunk mapped to npm leaf roughjs@4.6.6; init alias is a no-op because the bare import is already initialized.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00"
     },
     "rough.esm-BDP__8iH": {
       "restored": "vendor/roughjs.ts",
@@ -41720,9 +41720,9 @@
       },
       "status": "done",
       "vendor": "roughjs",
-      "note": "Alternate current RoughJS bundled ESM chunk mapped to the same npm leaf facade.",
+      "note": "Alternate current RoughJS bundled ESM chunk mapped to the same npm leaf roughjs@4.6.6 facade.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+      "lastUpdated": "2026-07-02T00:00:00.000-05:00"
     },
     "codex-dark-C0SGGgEz": {
       "restored": "vendor/codex-shiki-themes/codex-dark.ts",
