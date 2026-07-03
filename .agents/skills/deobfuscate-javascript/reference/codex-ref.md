@@ -212,6 +212,7 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `graphlib.ts` / `graphlib-alt.ts` (`graphlib-*`)                          | `graphlib`                                                                | graph runtime aliases for Mermaid/Dagre                         |
 | `dagre.ts` / `dagre-alt.ts` (`dagre-*` package chunks)                    | `dagre`                                                                   | layout aliases; renderer chunks stay Mermaid                    |
 | `pdfjs.ts` / `pdfjs-entry.ts` (`pdf-*` package chunks)                    | `pdfjs-dist`                                                              | PDF.js library aliases; worker stays an asset                   |
+| `docx-preview.ts` (`docx-preview-*`)                                       | `docx-preview`                                                            | Word document renderer; preserve renderAsync re-export          |
 | `entities-escape.ts` (`dist-CD74BDfk` and synced `dist-*` hashes)         | `@braintree/sanitize-url`                                                 | Mermaid URL sanitizer CommonJS compatibility shim               |
 | `react-dom-client.ts` (`client-*`)                                        | `react-dom/client`                                                        | client root loader/re-export shim                               |
 | `formatjs.ts` (`lib-BWT6A3Q0`)                                            | `react-intl`                                                              | consumers import `useIntl`/`FormattedMessage`                   |
@@ -309,6 +310,11 @@ contains `getDocument`, `GlobalWorkerOptions`, `AnnotationLayer`, `TextLayer`,
 such as `pdf.worker.min-*.mjs` as assets, but the library/entry chunks become
 typed npm-backed shims over `pdfjs-dist`; do not hand-write a minimal renderer
 or annotation/text-layer compatibility body.
+For Word document rendering, `docx-preview-*` chunks whose public API exports
+`renderAsync` are stock `docx-preview` surfaces. The public file can remain a
+small `vendor/docx-preview.ts` compatibility shim, but it must re-export from
+the npm package and the restored project `package.json` must declare
+`docx-preview`.
 For Mermaid URL sanitizer helpers, exact source chunks `dist-CD74BDfk`,
 `dist-BO3qvbGN`, `dist-Kh8ku4yn`, and `dist-WEF1yh7f` match
 `@braintree/sanitize-url` (`sanitizeUrl`). The public file may retain the

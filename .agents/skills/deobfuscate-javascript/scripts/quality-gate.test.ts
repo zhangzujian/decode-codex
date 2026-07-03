@@ -687,6 +687,78 @@ describe("quality-gate", () => {
     });
   });
 
+  test("fails hand-written docx-preview vendor shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/docx-preview-G1XqxLZP.js
+      export async function renderAsync(data, bodyContainer) {
+        bodyContainer.textContent = String(data);
+      }
+    `;
+    const report = analyzeSource(source, "restored/vendor/docx-preview.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      allowUntyped: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({ expectedSpecifiers: ["docx-preview"] });
+  });
+
+  test("passes docx-preview shims that re-export the npm package", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { "docx-preview": "0.3.7" } }),
+    );
+    const source = `
+      // Restored from ref/webview/assets/docx-preview-G1XqxLZP.js
+      export { renderAsync } from "docx-preview";
+    `;
+    const report = analyzeSource(
+      source,
+      path.join(vendorDir, "docx-preview.ts"),
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+    fs.writeFileSync(path.join(vendorDir, "docx-preview.ts"), source);
+    expect(analyzePublicNpmVendorShimDependencies(restoredDir)).toEqual([]);
+  });
+
+  test("fails docx-preview shims when the package dependency is not declared", () => {
+    const root = makeTmpRoot();
+    const restoredDir = path.join(root, "restored");
+    const vendorDir = path.join(restoredDir, "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+    fs.writeFileSync(
+      path.join(vendorDir, "docx-preview.ts"),
+      `
+        // Restored from ref/webview/assets/docx-preview-G1XqxLZP.js
+        export { renderAsync } from "docx-preview";
+      `,
+    );
+
+    const reports = analyzePublicNpmVendorShimDependencies(restoredDir);
+    expect(reports).toHaveLength(1);
+    expect(reports[0]!.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-dependency-missing",
+    );
+    expect(reports[0]!.issues[0]!.detail).toMatchObject({
+      missingPackages: ["docx-preview"],
+    });
+  });
+
   test("fails hand-written react-style-singleton vendor shims", () => {
     const source = `
       // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js

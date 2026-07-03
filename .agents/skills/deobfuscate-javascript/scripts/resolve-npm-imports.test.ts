@@ -309,6 +309,19 @@ describe("resolveNpmImports (chunk-name based)", () => {
     expect(n).not.toContain("pdf-CaT3Fa-k");
     expect(out.stats.specifiersResolved).toBe(3);
   });
+
+  test("rewrites docx-preview chunks to the npm package", () => {
+    const src = `
+      import { renderAsync } from "../docx-preview-G1XqxLZP.js";
+      renderAsync;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('from "docx-preview"');
+    expect(n).toContain("renderAsync");
+    expect(n).not.toContain("docx-preview-G1XqxLZP");
+    expect(out.stats.specifiersResolved).toBe(1);
+  });
 });
 
 describe("resolveNpmImports (alias-based)", () => {

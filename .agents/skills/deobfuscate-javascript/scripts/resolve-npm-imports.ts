@@ -126,6 +126,7 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
   // PDF.js distribution chunks are emitted as `pdf-HASH.js`; worker files stay
   // assets, but runtime imports should resolve to the package entry.
   pdf: { package: "pdfjs-dist", namedOnly: true },
+  "docx-preview": { package: "docx-preview", namedOnly: true },
   // D3 / Mermaid diagram chunks.
   "src-BhkLFyc4": { package: "d3-hierarchy", namedOnly: true },
   treemap: { package: "d3-hierarchy", namedOnly: true },
@@ -508,11 +509,10 @@ type Resolution = {
  *   2. **Default-export chunks** (e.g. `clsx`, `react`) trust the chunk rule
  *      for un-aliased specifiers — the local binding name is irrelevant
  *      because everything resolves to the same default export.
- *   3. **Named-only chunks** (e.g. `@dnd-kit/core`, `react/jsx-runtime`) require
- *      a matching alias rule. Without one, we can't safely guess whether the
- *      local binding name is a real named export of the package, so we leave
- *      the specifier on the original chunk path for the Stage D agent to
- *      decide.
+ *   3. **Named-only chunks** (e.g. `@dnd-kit/core`, `react/jsx-runtime`) usually
+ *      require a matching alias rule. The safe exception is an unaliased named
+ *      import (`{ renderAsync }`), where the bundle is already exposing the
+ *      real package export name.
  */
 function resolveSpecifier(
   info: SpecInfo,
@@ -521,6 +521,13 @@ function resolveSpecifier(
 ): Resolution | null {
   if (aliasRule) return resolveByAlias(info, aliasRule);
   if (chunkRule && (chunkRule.defaultName || !chunkRule.namedOnly)) {
+    return resolveByChunk(info, chunkRule);
+  }
+  if (
+    chunkRule?.namedOnly &&
+    info.kind === "named" &&
+    info.importedName === info.localName
+  ) {
     return resolveByChunk(info, chunkRule);
   }
   return null;
