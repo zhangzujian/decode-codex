@@ -16,6 +16,7 @@ export { initAppgenAccessStateIconChunk as appMainCurrentCompatSlotLowerYLowerS 
 export { isHotkeyWindowContext as appMainCurrentCompatSlotLowerYLowerA } from "../../utils/is-hotkey-window-context";
 export { SettingsKeyValueRow as appMainCurrentCompatSlotLowerYLowerR } from "../../ui/settings-row";
 export { PullRequestMergeTaskPill as appMainCurrentCompatSlotLowerYLowerT } from "../../conversations/pull-request-merge-task-pill";
+export { isReviewBranchModeAtom as appMainCurrentCompatSlotLowerYLowerV } from "../../review/review-diff-mode-atoms";
 
 export {
   y as appMainCurrentCompatSlotLowerY,
@@ -29,6 +30,5 @@ export {
   yp as appMainCurrentCompatSlotLowerYLowerP,
   yS as appMainCurrentCompatSlotLowerYUpperS,
   yu as appMainCurrentCompatSlotLowerYLowerU,
-  yv as appMainCurrentCompatSlotLowerYLowerV,
   yy as appMainCurrentCompatSlotLowerYLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

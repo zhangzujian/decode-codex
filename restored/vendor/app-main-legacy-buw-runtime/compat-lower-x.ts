@@ -13,6 +13,7 @@ export { openThreadTimelineSidePanel } from "../../app-shell/legacy-thread-timel
 export { initComposerUtilsChunk as appMainCurrentCompatSlotLowerXUpperC } from "../../composer/composer-utils";
 export { buildCodexAppToolNamespace as appMainCurrentCompatSlotLowerXLowerA } from "../../conversations/codex-app-tool-namespace";
 export { ReviewTabIcon as appMainCurrentCompatSlotLowerXLowerH } from "../../icons/review-tab-icon";
+export { isReviewIndexModeAtom as appMainCurrentCompatSlotLowerXLowerV } from "../../review/review-diff-mode-atoms";
 
 export {
   x as appMainCurrentCompatSlotLowerX,
@@ -27,6 +28,5 @@ export {
   xS as appMainCurrentCompatSlotLowerXUpperS,
   xt as appMainCurrentCompatSlotLowerXLowerT,
   xu as appMainCurrentCompatSlotLowerXLowerU,
-  xv as appMainCurrentCompatSlotLowerXLowerV,
   xy as appMainCurrentCompatSlotLowerXLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

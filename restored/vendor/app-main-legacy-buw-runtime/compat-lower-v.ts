@@ -17,6 +17,7 @@ export { AppgenAccessStateIcon as appMainCurrentCompatSlotLowerVLowerS } from ".
 export { initHotkeyWindowContextChunk as appMainCurrentCompatSlotLowerVLowerA } from "../../utils/is-hotkey-window-context";
 export { SettingsButtonRow as appMainCurrentCompatSlotLowerVLowerR } from "../../ui/settings-row";
 export { initAnnotationModeButtonChunk as appMainCurrentCompatSlotLowerVLowerM } from "../../ui/annotation-mode-button";
+export { setReviewBaseBranchOverride as appMainCurrentCompatSlotLowerVLowerV } from "../../review/review-diff-model";
 
 export {
   vd as appMainCurrentCompatSlotLowerVLowerD,
@@ -28,6 +29,5 @@ export {
   vS as appMainCurrentCompatSlotLowerVUpperS,
   vt as appMainCurrentCompatSlotLowerVLowerT,
   vu as appMainCurrentCompatSlotLowerVLowerU,
-  vv as appMainCurrentCompatSlotLowerVLowerV,
   vy as appMainCurrentCompatSlotLowerVLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

@@ -13,6 +13,7 @@ export { formatRemainingPercent as appMainCurrentCompatSlotLowerWLowerC } from "
 
 export { AutomationSandboxBanner as appMainCurrentCompatSlotLowerWLowerR } from "../../automations/automation-sandbox-banner";
 export { useClearBrowserBrowsingDataMutation as appMainCurrentCompatSlotLowerWLowerP } from "../../browser/browser-use-origin-state-queries";
+export { reviewDiffSelectionAtom as appMainCurrentCompatSlotLowerWLowerV } from "../../review/review-diff-model";
 
 export {
   w as appMainCurrentCompatSlotLowerW,
@@ -28,6 +29,5 @@ export {
   wS as appMainCurrentCompatSlotLowerWUpperS,
   wt as appMainCurrentCompatSlotLowerWLowerT,
   wu as appMainCurrentCompatSlotLowerWLowerU,
-  wv as appMainCurrentCompatSlotLowerWLowerV,
   wy as appMainCurrentCompatSlotLowerWLowerY,
 } from "../app-main-legacy-buw-compat-bundle";
