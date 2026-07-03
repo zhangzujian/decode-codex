@@ -181,6 +181,18 @@ describe("resolveNpmImports (chunk-name based)", () => {
     expect(out.stats.specifiersResolved).toBe(3);
   });
 
+  test("does not rewrite Segment ajs-destination chunks as the integration factory package", () => {
+    const src = `
+      import { ajsDestinations } from "../ajs-destination-BeM_T5LQ.js";
+      ajsDestinations;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('from "../ajs-destination-BeM_T5LQ.js"');
+    expect(n).not.toContain("@segment/analytics.js-integration");
+    expect(out.stats.specifiersResolved).toBe(0);
+  });
+
   test("rewrites dotLottie React aliases to the npm package", () => {
     const src = `
       import {

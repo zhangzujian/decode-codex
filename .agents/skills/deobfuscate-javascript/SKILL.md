@@ -83,7 +83,11 @@ profile (`rg "<stem>|<export>" .agents/skills/deobfuscate-javascript`), inspect
 the nearest `package.json`, inspect consumers, then run
 `bun .agents/skills/deobfuscate-javascript/scripts/vendor-npm-preflight.ts <target-or-restored/vendor>`
 to catch known stock-package compatibility bodies and missing package
-dependencies with only npm-shim issues reported. Then run
+dependencies with only npm-shim issues reported. For declared bare-package
+re-exports, the preflight resolves the installed package runtime and checks the
+named members; if the package cannot be resolved, the preflight fails instead of
+letting `export { missingAlias } from "pkg"` pass just because the specifier
+looks right. Then run
 `bun .agents/skills/deobfuscate-javascript/scripts/quality-gate.ts <target> --allow-flat --vendored`
 on the current target to see whether a stock package rule already exists. If the
 target is a new package family, add the registry/gate/test entry first, in a
@@ -103,6 +107,9 @@ deliverable is a thin npm-backed re-export / alias shim:
 1. Import or re-export from the bare npm specifier.
 2. Preserve legacy compatibility names by aliasing real package exports or by a
    tiny typed wrapper only when the upstream API truly lacks the legacy name.
+   Do not re-export names that the package does not actually export; import the
+   real export and wrap it, or restore the module semantically if it is not a
+   stock package surface.
 3. Add the package root to the nearest `package.json` when the restored project
    owns dependencies; use ambient declarations only when real package types are
    unavailable.
@@ -295,7 +302,7 @@ Every script is described once here, with its "Run when" routing. Tables use com
 | **`scripts/dead-shim-elim.ts`**       | Final pass — iteratively removes top-level `var X = lazyY()` with 0 refs whose callee is an unused import specifier (Vite/Rolldown lazy-namespace); drops orphaned specifiers/imports; strips a trailing stale `//# sourceMappingURL=…`.                                                                                                                                                                                                            | Always last in `polish.ts`. No-op on hand-written files. Loops to a fixpoint so cascades collapse in one run.                 |
 | **`scripts/format.ts`**               | Shell out to `bunx prettier --write` (or `npx`). File or directory (`**/*.{ts,tsx,js,jsx,mjs,cjs}`).                                                                                                                                                                                                                                                                                                                                                | Final pipeline step, after `polish.ts` (and multi-export split)                                                               |
 | **`scripts/polish.ts`**               | One-shot Stage 2 polish: strip-react-compiler → simplify → jsx-runtime → inline-defaults → normalize-exports → react-shim-elim → resolve-npm-imports → npm-cjs-shim-elim → **dead-shim-elim**. `--rename` runs `smart-rename` + `apply` first (so `polish.ts <file> --rename --fast --format` is the default-tier one-shot). `--fast` skips the import-resolution tail (**deep mode only**). Defaults `--prefer local`; `--format` chains prettier. | `--rename --fast` for the readable tier; the full chain (no `--fast`) in deep mode to resolve npm imports                     |
-| **`scripts/vendor-npm-preflight.ts`** | Focused guard for `restored/vendor/*`: reuses `quality-gate.ts` npm-shim rules, but reports only `third-party-npm-shim-*` failures (stock package body not re-exported from npm, or missing package dependency).                                                                                                                                                                                                                                    | Before editing or committing any public vendor shim; run on the target file, `restored/vendor`, or the whole `restored` tree. |
+| **`scripts/vendor-npm-preflight.ts`** | Focused guard for `restored/vendor/*`: reuses `quality-gate.ts` npm-shim rules, but reports only `third-party-npm-shim-*` failures (stock package body not re-exported from npm, missing package dependency, or a bare re-export that names members absent from the installed package runtime).                                                                                                                                                       | Before editing or committing any public vendor shim; run on the target file, `restored/vendor`, or the whole `restored` tree. |
 
 ### Stage 3 (semantic finalize)
 

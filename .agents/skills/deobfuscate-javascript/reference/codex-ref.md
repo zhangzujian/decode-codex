@@ -236,6 +236,7 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `src.ts` (`src-*`)                                                        | `zod`                                                                     | verify it is stock Zod, not a fork                              |
 | `segment-analytics.ts` (`pkg-*`, `esm-Bs7-NtHW`)                          | `@segment/analytics-next`                                                 | Segment browser SDK + analytics-core compatibility aliases      |
 | `segment-middleware.ts` (`middleware-BDgBoOJW` / `middleware-CcPovR3s`)   | `@segment/analytics-next` + `@segment/analytics-core` + `@segment/facade` | Segment context, middleware, and facade compatibility aliases   |
+| `segment-analytics-integration.ts` (`ajs-destination-*`)                  | restore semantically                                                      | legacy destination loader; not a direct npm re-export boundary  |
 | `radix-*.ts` (`dist-*`, `Combination-*`)                                  | `@radix-ui/react-*`                                                       | per-primitive; **may be forked**                                |
 
 **Fork caveat:** `@pierre/*`, `@radix-ui/*`, and `zod`(`src`) may be Codex forks, not
@@ -271,6 +272,14 @@ The middleware chunks `middleware-BDgBoOJW` and `middleware-CcPovR3s` are the sa
 rule with the Segment facade layer included: use `@segment/analytics-next`,
 `@segment/analytics-core`, and `@segment/facade` as the backing packages, keeping
 only tiny typed wrappers for legacy alias names that the packages do not export.
+Do **not** classify `ajs-destination-*` as a stock
+`@segment/analytics.js-integration` re-export. That package exports the base
+integration factory; the Codex `ajs-destination-*` chunk exports an
+`ajsDestinations` loader that combines CDN loading, middleware, plan filtering,
+and queue/flush behavior. Restore that chunk as a typed semantic module and use
+real Segment packages only for the pieces they actually export. A shim such as
+`export { ajsDestinations } from "@segment/analytics.js-integration"` is invalid
+because the package has no `ajsDestinations` export.
 And to react-style-singleton: exports such as `styleHookSingleton`,
 `styleSingleton`, or `stylesheetSingleton` are package fingerprints and should
 be re-exported from `react-style-singleton`, not reimplemented.

@@ -83,10 +83,28 @@ describe("vendor-npm-preflight CLI", () => {
   test("passes thin npm re-export shims with declared dependencies", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");
+    const packageDir = path.join(root, "node_modules", "react-intl");
     fs.mkdirSync(vendorDir, { recursive: true });
+    fs.mkdirSync(packageDir, { recursive: true });
     fs.writeFileSync(
       path.join(root, "package.json"),
       JSON.stringify({ dependencies: { "react-intl": "^10.0.0" } }),
+    );
+    fs.writeFileSync(
+      path.join(packageDir, "package.json"),
+      JSON.stringify({
+        name: "react-intl",
+        version: "10.0.0",
+        main: "index.cjs",
+      }),
+    );
+    fs.writeFileSync(
+      path.join(packageDir, "index.cjs"),
+      [
+        "exports.FormattedMessage = function FormattedMessage() {};",
+        "exports.IntlProvider = function IntlProvider() {};",
+        "exports.useIntl = function useIntl() {};",
+      ].join("\n"),
     );
     fs.writeFileSync(
       path.join(vendorDir, "react-intl.tsx"),
@@ -99,5 +117,40 @@ describe("vendor-npm-preflight CLI", () => {
     const result = runCLI(path.join(root, "restored"));
     expect(result.code).toBe(0);
     expect(result.stderr).toContain("vendor-npm-preflight: PASS");
+  });
+
+  test("fails npm re-export shims that reference missing package exports", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    const packageDir = path.join(root, "node_modules", "acme-shim");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.mkdirSync(packageDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { "acme-shim": "1.0.0" } }),
+    );
+    fs.writeFileSync(
+      path.join(packageDir, "package.json"),
+      JSON.stringify({
+        name: "acme-shim",
+        version: "1.0.0",
+        main: "index.cjs",
+      }),
+    );
+    fs.writeFileSync(
+      path.join(packageDir, "index.cjs"),
+      "exports.realThing = 1;",
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "acme-shim.ts"),
+      `
+        // Restored from ref/webview/assets/acme-shim-AbCdEf12.js
+        export { missingThing } from "acme-shim";
+      `,
+    );
+
+    const result = runCLI(path.join(root, "restored"));
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("third-party-npm-shim-export-missing");
   });
 });

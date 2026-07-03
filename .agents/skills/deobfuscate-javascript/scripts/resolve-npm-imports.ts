@@ -144,11 +144,6 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
   "floating-ui.react": { package: "@floating-ui/react", namedOnly: true },
   // Statsig SDKs
   statsig: { package: "@statsig/js-client", namedOnly: true },
-  // analytics.js / segment
-  "ajs-destination": {
-    package: "@segment/analytics.js-integration",
-    namedOnly: true,
-  },
 };
 
 /**
