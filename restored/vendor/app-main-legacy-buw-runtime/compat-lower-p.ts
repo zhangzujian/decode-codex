@@ -17,19 +17,19 @@ export { hasCredits as appMainCurrentCompatSlotLowerPLowerC } from "../../utils/
 export { initPrimaryRuntimeInstallStateChunk as appMainCurrentCompatSlotLowerPLowerS } from "../../runtime/primary-runtime-install-state";
 export { copySessionId as appMainCurrentCompatSlotLowerPLowerO } from "../../threads/thread-actions/actions";
 export { getValidSettingsHostId as appMainCurrentCompatSlotLowerPLowerP } from "../../settings/settings-host-context";
+export { requireLodashIsPlainObject as appMainCurrentCompatSlotLowerP } from "../lodash-object-runtime";
+export { rightPanelContext as appMainCurrentCompatSlotLowerPLowerD } from "../../app-shell/right-panel";
+export { browserSidebarCommentModeCoachmarkDismissedAtom as appMainCurrentCompatSlotLowerPLowerM } from "../../browser/browser-sidebar-comment-mode-coachmark-state";
+export { timeSunday as appMainCurrentCompatSlotLowerPUpperS } from "d3-time";
+export { KeyboardCode as appMainCurrentCompatSlotLowerPLowerX } from "../dnd-kit-core";
+export { scrollConversationItemIntoView as appMainCurrentCompatSlotLowerPLowerT } from "../../conversations/scroll-conversation-item-into-view";
 
 export {
-  p as appMainCurrentCompatSlotLowerP,
   p_ as appMainCurrentCompatSlotLowerPUnderscore,
   pa as appMainCurrentCompatSlotLowerPLowerA,
-  pd as appMainCurrentCompatSlotLowerPLowerD,
   pf as appMainCurrentCompatSlotLowerPLowerF,
   ph as appMainCurrentCompatSlotLowerPLowerH,
-  pm as appMainCurrentCompatSlotLowerPLowerM,
   pn as appMainCurrentCompatSlotLowerPLowerN,
-  pS as appMainCurrentCompatSlotLowerPUpperS,
-  pt as appMainCurrentCompatSlotLowerPLowerT,
   pu as appMainCurrentCompatSlotLowerPLowerU,
-  px as appMainCurrentCompatSlotLowerPLowerX,
   py as appMainCurrentCompatSlotLowerPLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

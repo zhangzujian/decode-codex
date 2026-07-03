@@ -10,6 +10,8 @@ export { CODEX_IDE_DOCS_URL as appMainCurrentCompatSlotLowerQLowerC } from "../.
 export { initInterruptedTurnStateChunk as appMainCurrentCompatSlotLowerQLowerS } from "../../threads/interrupted-turn-state";
 export { resolveReasoningEffortOption as appMainCurrentCompatSlotLowerQLowerR } from "../../composer/reasoning-effort-options";
 export { setThreadFindQuery as appMainCurrentCompatSlotLowerQLowerG } from "../../find/thread-find-store";
+export { formatLocale as appMainCurrentCompatSlotLowerQUpperS } from "d3-format";
+export { curveBundle as appMainCurrentCompatSlotLowerQLowerX } from "../d3-shape-curve-bundle-factory";
 
 export {
   q as appMainCurrentCompatSlotLowerQ,
@@ -23,9 +25,7 @@ export {
   qm as appMainCurrentCompatSlotLowerQLowerM,
   qo as appMainCurrentCompatSlotLowerQLowerO,
   qp as appMainCurrentCompatSlotLowerQLowerP,
-  qS as appMainCurrentCompatSlotLowerQUpperS,
   qt as appMainCurrentCompatSlotLowerQLowerT,
   qv as appMainCurrentCompatSlotLowerQLowerV,
-  qx as appMainCurrentCompatSlotLowerQLowerX,
   qy as appMainCurrentCompatSlotLowerQLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

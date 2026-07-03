@@ -20,6 +20,8 @@ export { isSpendControlBlockedByWorkspaceCap as appMainCurrentCompatSlotLowerSLo
 export { initOpenConfigInEditorChunk as appMainCurrentCompatSlotLowerSLowerX } from "../../composer/open-config-in-editor";
 export { initPrimaryRuntimeInstallStateChunk as appMainCurrentCompatSlotLowerSLowerS } from "../../runtime/primary-runtime-install-state";
 export { shouldRefreshSearchHighlightMutations as appMainCurrentCompatSlotLowerSUnderscore } from "../../runtime/conversation-search-runtime";
+export { timeFormat as appMainCurrentCompatSlotLowerSUpperS } from "d3-time-format";
+export { computeGeneratedImageOutputs as appMainCurrentCompatSlotLowerSLowerT } from "../../conversations/generated-image-outputs";
 
 export {
   sb as appMainCurrentCompatSlotLowerSLowerB,
@@ -29,8 +31,6 @@ export {
   sn as appMainCurrentCompatSlotLowerSLowerN,
   so as appMainCurrentCompatSlotLowerSLowerO,
   sp as appMainCurrentCompatSlotLowerSLowerP,
-  sS as appMainCurrentCompatSlotLowerSUpperS,
-  st as appMainCurrentCompatSlotLowerSLowerT,
   su as appMainCurrentCompatSlotLowerSLowerU,
   sy as appMainCurrentCompatSlotLowerSLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

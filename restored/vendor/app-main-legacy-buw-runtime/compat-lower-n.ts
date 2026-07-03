@@ -6,6 +6,9 @@ export { initUnselectedCircleIconChunk as appMainCurrentCompatSlotLowerNLowerC }
 export { initConversationalOnboardingTaskIconChunk as appMainCurrentCompatSlotLowerN } from "../../onboarding/conversational-onboarding-task-icon";
 export { areAutomationRecordsEqual as appMainCurrentCompatSlotLowerNLowerI } from "../../automations/automation-record-sync";
 export { usePermissionsMode as appMainCurrentCompatSlotLowerNLowerB } from "../../utils/use-permissions-mode/use-permissions-mode";
+export { arc as appMainCurrentCompatSlotLowerNUpperS } from "../d3-shape-arc";
+export { getHookPluginDisplayId as appMainCurrentCompatSlotLowerNLowerA } from "../../settings/hooks-settings-copy";
+export { buildImageInputItems as appMainCurrentCompatSlotLowerNLowerN } from "../../composer/build-image-input-items";
 
 export {
   liveMcpAppFrameSignal,
@@ -17,16 +20,13 @@ export { initWarningContextRuntime } from "../../runtime/app-main-new-thread-run
 export { getLocalConversationSearchMatchId as appMainCurrentCompatSlotLowerNUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
-  na as appMainCurrentCompatSlotLowerNLowerA,
   nd as appMainCurrentCompatSlotLowerNLowerD,
   ng as appMainCurrentCompatSlotLowerNLowerG,
   nh as appMainCurrentCompatSlotLowerNLowerH,
-  nn as appMainCurrentCompatSlotLowerNLowerN,
   no as appMainCurrentCompatSlotLowerNLowerO,
   np as appMainCurrentCompatSlotLowerNLowerP,
   nr as appMainCurrentCompatSlotLowerNLowerR,
   ns as appMainCurrentCompatSlotLowerNLowerS,
-  nS as appMainCurrentCompatSlotLowerNUpperS,
   nt as appMainCurrentCompatSlotLowerNLowerT,
   nv as appMainCurrentCompatSlotLowerNLowerV,
   nx as appMainCurrentCompatSlotLowerNLowerX,

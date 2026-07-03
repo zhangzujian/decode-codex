@@ -13,10 +13,10 @@ export { primaryRuntimeInstallProgress as appMainCurrentCompatSlotLowerRLowerS }
 export { automationDirectiveResultAtom as appMainCurrentCompatSlotLowerRLowerI } from "../../automations/shared";
 export { PullRequestMergedIcon as appMainCurrentCompatSlotLowerRLowerU } from "../../github/pull-request-status";
 export { joinThreadFindItemId as appMainCurrentCompatSlotLowerRUnderscore } from "../../runtime/conversation-search-runtime";
+export { initHooksSettingsCopyChunk as appMainCurrentCompatSlotLowerRLowerA } from "../../settings/hooks-settings-copy";
 
 export {
   r as appMainCurrentCompatSlotLowerR,
-  ra as appMainCurrentCompatSlotLowerRLowerA,
   rb as appMainCurrentCompatSlotLowerRLowerB,
   rd as appMainCurrentCompatSlotLowerRLowerD,
   rf as appMainCurrentCompatSlotLowerRLowerF,

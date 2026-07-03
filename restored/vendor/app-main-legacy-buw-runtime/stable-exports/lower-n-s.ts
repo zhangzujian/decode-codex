@@ -9,6 +9,12 @@ export { initCursorIconChunk as legacyAppMainBuwLowerSLowerAExport } from "../..
 export { initPullRequestOpenIconChunk as legacyAppMainBuwLowerNLowerUExport } from "../../../icons/pull-request-open-icon";
 export { initUnselectedCircleIconChunk as legacyAppMainBuwLowerNLowerCExport } from "../../../icons/unselected-circle-icon";
 
+export { arc as legacyAppMainBuwLowerNUpperSExport } from "../../d3-shape-arc";
+export { timeSunday as legacyAppMainBuwLowerPUpperSExport } from "d3-time";
+export { formatLocale as legacyAppMainBuwLowerQUpperSExport } from "d3-format";
+export { timeFormat as legacyAppMainBuwLowerSUpperSExport } from "d3-time-format";
+export { KeyboardCode as legacyAppMainBuwLowerPLowerXExport } from "../../dnd-kit-core";
+export { curveBundle as legacyAppMainBuwLowerQLowerXExport } from "../../d3-shape-curve-bundle-factory";
 export { useDictationCore as legacyAppMainBuwLowerOUpperCExport } from "../../../features/use-dictation/use-dictation";
 
 export { getMicrophoneInputStream as legacyAppMainBuwLowerPUpperCExport } from "../../../utils/microphone-input";
@@ -88,6 +94,9 @@ export {
   initReviewDiffStateRuntime as initReviewDiffStateChunk,
   initReviewFileListRuntime as initReviewFileListChunk,
 } from "../../../review/review-diff-store";
+export { requireLodashIsPlainObject as legacyAppMainBuwLowerPExport } from "../../lodash-object-runtime";
+export { rightPanelContext as legacyAppMainBuwLowerPLowerDExport } from "../../../app-shell/right-panel";
+export { browserSidebarCommentModeCoachmarkDismissedAtom as legacyAppMainBuwLowerPLowerMExport } from "../../../browser/browser-sidebar-comment-mode-coachmark-state";
 export { initInterruptedTurnStateChunk as legacyAppMainBuwLowerQLowerSExport } from "../../../threads/interrupted-turn-state";
 export { copySessionId as legacyAppMainBuwLowerPLowerOExport } from "../../../threads/thread-actions/actions";
 export { getMoveToLocalTargets as legacyAppMainBuwLowerOLowerOExport } from "../../../utils/get-move-to-local-targets";
@@ -103,14 +112,20 @@ export {
 } from "../../../browser/browser-sidebar-open-source";
 export { getBrowserSidebarTabRegistryGeneration as legacyAppMainBuwLowerRLowerYExport } from "../../../browser/browser-sidebar-open-source/tab-registry-mutations";
 export { initMcpAppFrameStateChunk as legacyAppMainBuwLowerRLowerFExport } from "../../../plugins/mcp-app-frame-state";
+export {
+  getHookPluginDisplayId as legacyAppMainBuwLowerNLowerAExport,
+  initHooksSettingsCopyChunk as legacyAppMainBuwLowerRLowerAExport,
+} from "../../../settings/hooks-settings-copy";
+export { buildImageInputItems as legacyAppMainBuwLowerNLowerNExport } from "../../../composer/build-image-input-items";
+export { isSteerTurnInactiveError as legacyAppMainBuwLowerOLowerNExport } from "../../../composer/steer-turn-inactive-error";
+export { isConversationItemInProgress as legacyAppMainBuwLowerOLowerTExport } from "../../../conversations/local-conversation-thread-parts/conversation-item-in-progress";
+export { scrollConversationItemIntoView as legacyAppMainBuwLowerPLowerTExport } from "../../../conversations/scroll-conversation-item-into-view";
+export { computeGeneratedImageOutputs as legacyAppMainBuwLowerSLowerTExport } from "../../../conversations/generated-image-outputs";
 
 export {
-  nS as legacyAppMainBuwLowerNUpperSExport,
-  na as legacyAppMainBuwLowerNLowerAExport,
   nd as legacyAppMainBuwLowerNLowerDExport,
   ng as legacyAppMainBuwLowerNLowerGExport,
   nh as legacyAppMainBuwLowerNLowerHExport,
-  nn as legacyAppMainBuwLowerNLowerNExport,
   no as legacyAppMainBuwLowerNLowerOExport,
   np as legacyAppMainBuwLowerNLowerPExport,
   nr as legacyAppMainBuwLowerNLowerRExport,
@@ -122,25 +137,16 @@ export {
   od as legacyAppMainBuwLowerOLowerDExport,
   oh as legacyAppMainBuwLowerOLowerHExport,
   om as legacyAppMainBuwLowerOLowerMExport,
-  on as legacyAppMainBuwLowerOLowerNExport,
   op as legacyAppMainBuwLowerOLowerPExport,
-  ot as legacyAppMainBuwLowerOLowerTExport,
   ou as legacyAppMainBuwLowerOLowerUExport,
   ox as legacyAppMainBuwLowerOLowerXExport,
-  p as legacyAppMainBuwLowerPExport,
-  pS as legacyAppMainBuwLowerPUpperSExport,
   p_ as legacyAppMainBuwLowerPUnderscoreExport,
   pa as legacyAppMainBuwLowerPLowerAExport,
-  pd as legacyAppMainBuwLowerPLowerDExport,
   pf as legacyAppMainBuwLowerPLowerFExport,
   ph as legacyAppMainBuwLowerPLowerHExport,
-  pm as legacyAppMainBuwLowerPLowerMExport,
   pn as legacyAppMainBuwLowerPLowerNExport,
-  pt as legacyAppMainBuwLowerPLowerTExport,
   pu as legacyAppMainBuwLowerPLowerUExport,
-  px as legacyAppMainBuwLowerPLowerXExport,
   q as legacyAppMainBuwLowerQExport,
-  qS as legacyAppMainBuwLowerQUpperSExport,
   q_ as legacyAppMainBuwLowerQUnderscoreExport,
   qa as legacyAppMainBuwLowerQLowerAExport,
   qb as legacyAppMainBuwLowerQLowerBExport,
@@ -153,10 +159,8 @@ export {
   qp as legacyAppMainBuwLowerQLowerPExport,
   qt as legacyAppMainBuwLowerQLowerTExport,
   qv as legacyAppMainBuwLowerQLowerVExport,
-  qx as legacyAppMainBuwLowerQLowerXExport,
   r as legacyAppMainBuwLowerRExport,
   rS as legacyAppMainBuwLowerRUpperSExport,
-  ra as legacyAppMainBuwLowerRLowerAExport,
   rd as legacyAppMainBuwLowerRLowerDExport,
   rg as legacyAppMainBuwLowerRLowerGExport,
   rh as legacyAppMainBuwLowerRLowerHExport,
@@ -167,13 +171,11 @@ export {
   rr as legacyAppMainBuwLowerRLowerRExport,
   rx as legacyAppMainBuwLowerRLowerXExport,
   sC as legacyAppMainBuwLowerSUpperCExport,
-  sS as legacyAppMainBuwLowerSUpperSExport,
   sb as legacyAppMainBuwLowerSLowerBExport,
   sd as legacyAppMainBuwLowerSLowerDExport,
   sh as legacyAppMainBuwLowerSLowerHExport,
   sn as legacyAppMainBuwLowerSLowerNExport,
   so as legacyAppMainBuwLowerSLowerOExport,
   sp as legacyAppMainBuwLowerSLowerPExport,
-  st as legacyAppMainBuwLowerSLowerTExport,
   su as legacyAppMainBuwLowerSLowerUExport,
 } from "../../app-main-legacy-buw-compat-bundle";

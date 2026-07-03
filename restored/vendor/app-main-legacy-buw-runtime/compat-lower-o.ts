@@ -20,16 +20,16 @@ export { initReviewDiffStateRuntime as initReviewDiffStateChunk } from "../../re
 export { finishPrimaryRuntimeInstallBeforeFirstTurn as appMainCurrentCompatSlotLowerOLowerS } from "../../runtime/primary-runtime-install-state";
 export { getMoveToLocalTargets as appMainCurrentCompatSlotLowerOLowerO } from "../../utils/get-move-to-local-targets";
 export { setContentSearchMatchIdAttribute as appMainCurrentCompatSlotLowerOUnderscore } from "../../runtime/conversation-search-runtime";
+export { isSteerTurnInactiveError as appMainCurrentCompatSlotLowerOLowerN } from "../../composer/steer-turn-inactive-error";
+export { isConversationItemInProgress as appMainCurrentCompatSlotLowerOLowerT } from "../../conversations/local-conversation-thread-parts/conversation-item-in-progress";
 
 export {
   ob as appMainCurrentCompatSlotLowerOLowerB,
   od as appMainCurrentCompatSlotLowerOLowerD,
   oh as appMainCurrentCompatSlotLowerOLowerH,
   om as appMainCurrentCompatSlotLowerOLowerM,
-  on as appMainCurrentCompatSlotLowerOLowerN,
   op as appMainCurrentCompatSlotLowerOLowerP,
   oS as appMainCurrentCompatSlotLowerOUpperS,
-  ot as appMainCurrentCompatSlotLowerOLowerT,
   ou as appMainCurrentCompatSlotLowerOLowerU,
   ox as appMainCurrentCompatSlotLowerOLowerX,
   oy as appMainCurrentCompatSlotLowerOLowerY,
