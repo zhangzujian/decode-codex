@@ -5,6 +5,8 @@ import { FormattedMessage } from "../vendor/react-intl";
 import { AttachmentPill } from "../composer/user-message-attachment-pills";
 import { WarningIcon } from "../icons/warning-icon";
 
+export function initPullRequestAttachmentPillsChunk(): void {}
+
 export interface PullRequestChecksAttachmentPillProps {
   checkNames: string[];
 }

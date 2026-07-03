@@ -21,15 +21,15 @@ export { initEnabledReasoningEffortsChunk as appMainCurrentCompatSlotLowerELower
 export { sendRestoreMessage as appMainCurrentCompatSlotLowerELowerN } from "../../composer/start-composer-turn";
 export { initReadServiceTierForRequestChunk as appMainCurrentCompatSlotLowerELowerG } from "../../utils/read-service-tier-for-request";
 export { BrowserSidebarWebview as appMainCurrentCompatSlotLowerELowerP } from "../../browser/sidebar-webview";
+export { refreshPendingWorktrees as appMainCurrentCompatSlotLowerELowerF } from "../../worktree/pending-worktree-atoms";
+export { initCollapsedTurnSummaryLabelChunk as appMainCurrentCompatSlotLowerELowerS } from "../../conversations/collapsed-turn-summary-label";
+export { initPlanSummaryCardChunk as appMainCurrentCompatSlotLowerELowerT } from "../../conversations/local-conversation-thread-parts/plan-summary-card";
 
 export {
   eb as appMainCurrentCompatSlotLowerELowerB,
   ed as appMainCurrentCompatSlotLowerELowerD,
-  ef as appMainCurrentCompatSlotLowerELowerF,
   em as appMainCurrentCompatSlotLowerELowerM,
   eo as appMainCurrentCompatSlotLowerELowerO,
-  es as appMainCurrentCompatSlotLowerELowerS,
   eS as appMainCurrentCompatSlotLowerEUpperS,
-  et as appMainCurrentCompatSlotLowerELowerT,
   ey as appMainCurrentCompatSlotLowerELowerY,
 } from "../app-main-legacy-buw-compat-bundle";

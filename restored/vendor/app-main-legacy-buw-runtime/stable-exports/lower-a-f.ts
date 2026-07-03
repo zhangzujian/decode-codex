@@ -147,16 +147,20 @@ export { filterProjectsForSettingsHost as legacyAppMainBuwLowerDLowerPExport } f
 export { formatBranchRef as legacyAppMainBuwLowerDLowerVExport } from "../../../review/review-diff-model";
 export { remapDiffCommentsForHandoff as legacyAppMainBuwLowerELowerOExport } from "../../../conversations/remap-diff-comments-for-handoff";
 export { getCommandKeyBindings as legacyAppMainBuwLowerELowerMExport } from "../../../composer/command-shortcut-bindings";
+export { refreshPendingWorktrees as legacyAppMainBuwLowerELowerFExport } from "../../../worktree/pending-worktree-atoms";
 export {
   readReferencedPriorConversations as legacyAppMainBuwLowerDLowerNExport,
   initReferencedPriorConversationsChunk as legacyAppMainBuwLowerFLowerNExport,
 } from "../../../composer/referenced-prior-conversations";
 export { groupDynamicToolCalls as legacyAppMainBuwLowerFLowerAExport } from "../../../conversations/conversation-activity-grouping/dynamic-tool-call-groups";
 export { collapseToolActivityUnits as legacyAppMainBuwLowerDLowerAExport } from "../../../conversations/conversation-activity-grouping/collapsed-tool-activity";
+export { initPullRequestAttachmentPillsChunk as legacyAppMainBuwLowerBLowerTExport } from "../../../conversations/pull-request-attachment-pills";
+export { initCollapsedTurnSummaryLabelChunk as legacyAppMainBuwLowerELowerSExport } from "../../../conversations/collapsed-turn-summary-label";
 export {
   initConversationItemScrollTargetRuntime as legacyAppMainBuwLowerDLowerTExport,
   registerConversationItemScrollTarget as legacyAppMainBuwLowerFLowerTExport,
 } from "../../../conversations/scroll-conversation-item-into-view";
+export { initPlanSummaryCardChunk as legacyAppMainBuwLowerELowerTExport } from "../../../conversations/local-conversation-thread-parts/plan-summary-card";
 export {
   hasTerminalPanelTarget as legacyAppMainBuwLowerCUnderscoreExport,
   openTerminalPanel as legacyAppMainBuwLowerFUnderscoreExport,
@@ -190,10 +194,4 @@ export { ReactReduxProvider as legacyAppMainBuwLowerDExport } from "../../react-
 export { initReactReduxProviderRuntimeChunk as legacyAppMainBuwLowerFExport } from "../../react-redux-provider-runtime";
 export { isReviewDiffEnabledAtom as legacyAppMainBuwLowerBLowerVExport } from "../../../review/review-diff-mode-atoms";
 
-export {
-  bt as legacyAppMainBuwLowerBLowerTExport,
-  cv as legacyAppMainBuwLowerCLowerVExport,
-  ef as legacyAppMainBuwLowerELowerFExport,
-  es as legacyAppMainBuwLowerELowerSExport,
-  et as legacyAppMainBuwLowerELowerTExport,
-} from "../../app-main-legacy-buw-compat-bundle";
+export { cv as legacyAppMainBuwLowerCLowerVExport } from "../../app-main-legacy-buw-compat-bundle";
