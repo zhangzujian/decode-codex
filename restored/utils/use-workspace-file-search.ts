@@ -41,6 +41,11 @@ type WorkspaceFileSearchManager = AppServerManager & {
     onCompleted: () => void;
   }): Promise<WorkspaceFileSearchSession>;
 };
+type WorkspaceFileSearchSortResult = {
+  file: WorkspaceFileSearchFile;
+  score: number;
+  index: number;
+};
 export type UseWorkspaceFileSearchOptions = {
   hostId: string;
   includeDirectories?: boolean;
@@ -64,6 +69,9 @@ const IGNORED_PATH_SEGMENTS = new Set([
   "dist",
   "node_modules",
 ]);
+
+export function initWorkspaceFileSearchRuntime(): void {}
+
 export function useWorkspaceFileSearch({
   hostId,
   includeDirectories = false,
@@ -278,18 +286,18 @@ function sortWorkspaceFilesByQuery(
 ): WorkspaceFileSearchFile[] {
   const trimmedQuery = query.trim();
   if (trimmedQuery.length === 0) return files;
-  return sortBy(
-    files.map((file, index) => ({
+  const scoredFiles: WorkspaceFileSearchSortResult[] = files.map(
+    (file, index) => ({
       file,
       score: scoreQueryMatch(file.label, trimmedQuery),
       index,
-    })),
-    [
-      (result) => -result.score,
-      (result) => result.file.label,
-      (result) => result.index,
-    ],
-  ).map((result) => result.file);
+    }),
+  );
+  return sortBy<WorkspaceFileSearchSortResult>(scoredFiles, [
+    (result: WorkspaceFileSearchSortResult) => -result.score,
+    (result: WorkspaceFileSearchSortResult) => result.file.label,
+    (result: WorkspaceFileSearchSortResult) => result.index,
+  ]).map((result) => result.file);
 }
 function logFuzzySearchCloseFailure(error: unknown): void {
   vscodeLogger.warning("Failed to close fuzzy file search session", {

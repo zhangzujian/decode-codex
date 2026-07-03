@@ -108,6 +108,7 @@ export const vscodeApiH = {
   error(_message: string, _context?: unknown): void {},
   info(_message: string, _context?: unknown): void {},
   warn(_message: string, _context?: unknown): void {},
+  warning(_message: string, _context?: unknown): void {},
 };
 export const vscodeLogger = vscodeApiH;
 export const vscodeApiT = vscodeApiH;

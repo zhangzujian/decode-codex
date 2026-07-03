@@ -67,14 +67,12 @@ import {
   D as Oe,
   E as ke,
   Fc as Ae,
-  Fv as je,
   G_ as Me,
   J_ as Ne,
   K_ as M,
   L_ as Pe,
   Mc as Fe,
   N as Ie,
-  Pv as Le,
   Qp as Re,
   R_ as ze,
   Rv as Be,
@@ -127,6 +125,10 @@ import {
   initScoreQueryMatchRuntime as Wa,
   scoreQueryMatch as ga,
 } from "../utils/score-query-match";
+import {
+  initWorkspaceFileSearchRuntime as po,
+  useWorkspaceFileSearch as no,
+} from "../utils/use-workspace-file-search";
 import {
   loadLodashBaseEach as aa,
   loadLodashBaseFlatten as Ka,
@@ -1885,281 +1887,6 @@ function fa(e) {
 var pa,
   ma = e(() => {
     ((pa = D()), ea(), Qe());
-  });
-function no(e) {
-  let t = (0, co.c)(14),
-    { hostId: n, includeDirectories: r, onFiles: i, query: a, roots: o } = e,
-    s = r === void 0 ? !1 : r,
-    { platform: c } = da(),
-    l;
-  t[0] !== s || t[1] !== i || t[2] !== c || t[3] !== o
-    ? ((l = (e) => {
-        o != null &&
-          i?.({
-            files: io({
-              files: e.files,
-              includeDirectories: s,
-              isWindowsHost: c === `windows`,
-              query: e.query,
-              roots: o,
-            }),
-            query: e.query,
-          });
-      }),
-      (t[0] = s),
-      (t[1] = i),
-      (t[2] = c),
-      (t[3] = o),
-      (t[4] = l))
-    : (l = t[4]);
-  let { response: u, isLoading: d } = fo(n, o, a, St(l)),
-    f = a.trim(),
-    p = u != null && f.length > 0 ? u : null,
-    m;
-  bb0: {
-    if (p == null || o == null) {
-      m = null;
-      break bb0;
-    }
-    let e = c === `windows`,
-      n;
-    (t[5] !== s ||
-    t[6] !== o ||
-    t[7] !== e ||
-    t[8] !== p.files ||
-    t[9] !== p.query
-      ? ((n = io({
-          files: p.files,
-          includeDirectories: s,
-          isWindowsHost: e,
-          query: p.query,
-          roots: o,
-        })),
-        (t[5] = s),
-        (t[6] = o),
-        (t[7] = e),
-        (t[8] = p.files),
-        (t[9] = p.query),
-        (t[10] = n))
-      : (n = t[10]),
-      (m = n));
-  }
-  let h = m,
-    g;
-  return (
-    t[11] !== h || t[12] !== d
-      ? ((g = { files: h, isLoading: d }),
-        (t[11] = h),
-        (t[12] = d),
-        (t[13] = g))
-      : (g = t[13]),
-    g
-  );
-}
-function ro(e, t) {
-  return (
-    (e.match_type === `file` || (t && e.match_type === `directory`)) &&
-    !e.path.split(/[\\/]+/).some((e) => uo.has(e))
-  );
-}
-function io({
-  files: e,
-  includeDirectories: t,
-  isWindowsHost: n,
-  query: r,
-  roots: i,
-}) {
-  return oo(
-    e.filter((e) => ro(e, t)).map((e) => ao(e, i.length > 1, n)),
-    r,
-  );
-}
-function ao({ file_name: e, match_type: t, path: n, root: r }, i, a) {
-  let o = Le({ root: r, relativePath: n, includeWorkspaceRootLabel: i }),
-    s = o.lastIndexOf(`/`);
-  return {
-    label: e,
-    matchType: t,
-    path: i ? je(r, n, a) : o,
-    relativePathWithoutFileName: o.substring(0, s),
-    fsPath: je(r, n, a),
-  };
-}
-function oo(e, t) {
-  let n = t.trim();
-  return n.length === 0
-    ? e
-    : (0, lo.default)(
-        e.map((e, t) => ({ file: e, score: ga(e.label, n), index: t })),
-        [(e) => -e.score, (e) => e.file.label, (e) => e.index],
-      ).map((e) => e.file);
-}
-function so(e) {
-  o.warning(`Failed to close fuzzy file search session`, {
-    safe: {},
-    sensitive: { error: e },
-  });
-}
-var co,
-  lo,
-  $,
-  uo,
-  fo,
-  po = e(() => {
-    ((co = D()),
-      (lo = t(to(), 1)),
-      ($ = t(w(), 1)),
-      Zi(),
-      Wa(),
-      ma(),
-      b(),
-      Be(),
-      Et(),
-      (uo = new Set([
-        `.git`,
-        `.hg`,
-        `.next`,
-        `.pnpm-store`,
-        `.svn`,
-        `.turbo`,
-        `.yarn`,
-        `build`,
-        `coverage`,
-        `dist`,
-        `node_modules`,
-      ])),
-      (fo = (e, t, n, r) => {
-        let i = (0, co.c)(24),
-          a = Vi(e),
-          [s, c] = (0, $.useState)(null),
-          [l, u] = (0, $.useState)(!1),
-          d = (0, $.useRef)(null),
-          f = (0, $.useRef)(null),
-          p = t != null && t.length > 0,
-          m;
-        i[0] === t
-          ? (m = i[1])
-          : ((m = t?.join(`\0`) ?? ``), (i[0] = t), (i[1] = m));
-        let h = m,
-          g;
-        i[2] !== a || i[3] !== r || i[4] !== t
-          ? ((g = async () => {
-              if (t == null || t.length === 0) return null;
-              if (d.current != null) return d.current;
-              let e = {};
-              f.current = e;
-              let n = a
-                .createFuzzyFileSearchSession({
-                  roots: t,
-                  onUpdated: (t) => {
-                    if (f.current !== e) return;
-                    let n = { query: t.query, files: t.files };
-                    (c(n), r(n), u(!0));
-                  },
-                  onCompleted: () => {
-                    f.current === e && u(!1);
-                  },
-                })
-                .catch((t) => {
-                  throw (
-                    d.current === n && (d.current = null),
-                    f.current === e && (f.current = null),
-                    t
-                  );
-                });
-              return ((d.current = n), n);
-            }),
-            (i[2] = a),
-            (i[3] = r),
-            (i[4] = t),
-            (i[5] = g))
-          : (g = i[5]);
-        let _ = (0, $.useEffectEvent)(g),
-          v;
-        i[6] === Symbol.for(`react.memo_cache_sentinel`)
-          ? ((v = async () => {
-              let e = d.current;
-              e != null &&
-                ((d.current = null),
-                (f.current = null),
-                await (await e).stop());
-            }),
-            (i[6] = v))
-          : (v = i[6]);
-        let y = (0, $.useEffectEvent)(v),
-          b;
-        i[7] === y
-          ? (b = i[8])
-          : ((b = () => (
-              c(null),
-              u(!1),
-              () => {
-                y().catch(so);
-              }
-            )),
-            (i[7] = y),
-            (i[8] = b));
-        let x;
-        (i[9] !== a || i[10] !== h
-          ? ((x = [a, h]), (i[9] = a), (i[10] = h), (i[11] = x))
-          : (x = i[11]),
-          (0, $.useEffect)(b, x));
-        let S;
-        i[12] !== _ || i[13] !== p || i[14] !== n
-          ? ((S = () => {
-              let e = !1;
-              return (
-                (async () => {
-                  if (!p || n.length === 0) {
-                    (c(null), u(!1));
-                    return;
-                  }
-                  try {
-                    u(!0);
-                    let t = await _();
-                    if (e || t == null) return;
-                    await t.update(n);
-                  } catch (t) {
-                    let n = t;
-                    e ||
-                      (o.error(`Error fetching fuzzy file search`, {
-                        safe: {},
-                        sensitive: { error: n },
-                      }),
-                      u(!1));
-                  }
-                })(),
-                () => {
-                  e = !0;
-                }
-              );
-            }),
-            (i[12] = _),
-            (i[13] = p),
-            (i[14] = n),
-            (i[15] = S))
-          : (S = i[15]);
-        let C;
-        (i[16] !== p || i[17] !== a || i[18] !== n || i[19] !== h
-          ? ((C = [p, a, n, h]),
-            (i[16] = p),
-            (i[17] = a),
-            (i[18] = n),
-            (i[19] = h),
-            (i[20] = C))
-          : (C = i[20]),
-          (0, $.useEffect)(S, C));
-        let w;
-        return (
-          i[21] !== l || i[22] !== s
-            ? ((w = { response: s, isLoading: l }),
-              (i[21] = l),
-              (i[22] = s),
-              (i[23] = w))
-            : (w = i[23]),
-          w
-        );
-      }));
   });
 export {
   Ei as $,

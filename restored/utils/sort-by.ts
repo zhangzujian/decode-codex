@@ -97,12 +97,15 @@ function isIterateeCall(value: unknown, index: unknown, object: unknown) {
   const isValidIndex =
     indexType === "number"
       ? isArrayLike(object) && isIndex(index, object.length)
-      : indexType === "string" && index in object;
+      : indexType === "string" && (index as string) in object;
   return isValidIndex
     ? eq((object as Record<PropertyKey, unknown>)[index as PropertyKey], value)
     : false;
 }
-function sortBy<T>(collection: Collection<T>, ...iteratees: SortIteratee<T>[]) {
+function sortBy<T>(
+  collection: Collection<T>,
+  ...iteratees: SortIteratee<T>[]
+): T[] {
   if (collection == null) return [];
   let normalizedIteratees: unknown[] = iteratees;
   const iterateeCount = normalizedIteratees.length;
@@ -125,6 +128,6 @@ function sortBy<T>(collection: Collection<T>, ...iteratees: SortIteratee<T>[]) {
     collection,
     baseFlatten(normalizedIteratees, 1) as never[],
     [],
-  );
+  ) as T[];
 }
 export { sortBy };
