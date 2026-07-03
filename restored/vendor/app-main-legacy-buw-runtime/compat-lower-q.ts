@@ -8,6 +8,8 @@ export { createWorkspaceFileReader as appMainCurrentCompatSlotLowerQLowerU } fro
 export { CODEX_IDE_DOCS_URL as appMainCurrentCompatSlotLowerQLowerC } from "../../utils/links-bd-mmkun-d";
 
 export { initInterruptedTurnStateChunk as appMainCurrentCompatSlotLowerQLowerS } from "../../threads/interrupted-turn-state";
+export { resolveReasoningEffortOption as appMainCurrentCompatSlotLowerQLowerR } from "../../composer/reasoning-effort-options";
+
 export {
   q as appMainCurrentCompatSlotLowerQ,
   q_ as appMainCurrentCompatSlotLowerQUnderscore,
@@ -21,7 +23,6 @@ export {
   qm as appMainCurrentCompatSlotLowerQLowerM,
   qo as appMainCurrentCompatSlotLowerQLowerO,
   qp as appMainCurrentCompatSlotLowerQLowerP,
-  qr as appMainCurrentCompatSlotLowerQLowerR,
   qS as appMainCurrentCompatSlotLowerQUpperS,
   qt as appMainCurrentCompatSlotLowerQLowerT,
   qv as appMainCurrentCompatSlotLowerQLowerV,

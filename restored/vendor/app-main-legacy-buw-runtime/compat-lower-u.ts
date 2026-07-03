@@ -10,6 +10,8 @@ export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from 
 
 export { isConversationalOnboardingMessagingTask as appMainCurrentCompatSlotLowerU } from "../../onboarding/conversational-onboarding-task-registry";
 export { getSupportedLocales as appMainCurrentCompatSlotLowerULowerG } from "../../i18n/locale-resolver";
+export { isAutomationRecordInSync as appMainCurrentCompatSlotLowerULowerI } from "../../automations/automation-record-sync";
+
 export {
   initExternalAgentImportStatusIconsChunk,
   initCommandExecutionTextRuntime,
@@ -25,7 +27,6 @@ export {
   u_ as appMainCurrentCompatSlotLowerUUnderscore,
   ua as appMainCurrentCompatSlotLowerULowerA,
   ub as appMainCurrentCompatSlotLowerULowerB,
-  ui as appMainCurrentCompatSlotLowerULowerI,
   un as appMainCurrentCompatSlotLowerULowerN,
   up as appMainCurrentCompatSlotLowerULowerP,
   ur as appMainCurrentCompatSlotLowerULowerR,

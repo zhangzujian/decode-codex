@@ -17,12 +17,13 @@ export { getThreadHandoffComposerDisabledReason as appMainCurrentCompatSlotLower
 
 export { resolveLocale as appMainCurrentCompatSlotLowerLLowerG } from "../../i18n/locale-resolver";
 export { primaryRuntimeInstallReleaseSignal as appMainCurrentCompatSlotLowerLLowerS } from "../../runtime/primary-runtime-install-state";
+export { toAutomationUpdatePayload as appMainCurrentCompatSlotLowerLLowerI } from "../../automations/shared";
+
 export {
   l as appMainCurrentCompatSlotLowerL,
   l_ as appMainCurrentCompatSlotLowerLUnderscore,
   la as appMainCurrentCompatSlotLowerLLowerA,
   lb as appMainCurrentCompatSlotLowerLLowerB,
-  li as appMainCurrentCompatSlotLowerLLowerI,
   ln as appMainCurrentCompatSlotLowerLLowerN,
   lp as appMainCurrentCompatSlotLowerLLowerP,
   lr as appMainCurrentCompatSlotLowerLLowerR,

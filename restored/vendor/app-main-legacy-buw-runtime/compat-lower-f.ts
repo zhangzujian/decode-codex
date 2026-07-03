@@ -4,6 +4,8 @@ export { initCirclePlayIconChunk as appMainCurrentCompatSlotLowerFLowerH } from 
 export { cleanupDictationTranscript as appMainCurrentCompatSlotLowerFUpperC } from "../../utils/transcribe-audio/responses-cleanup";
 
 export { initLocaleResolverChunk as appMainCurrentCompatSlotLowerFLowerG } from "../../i18n/locale-resolver";
+export { validateAutomationDraft as appMainCurrentCompatSlotLowerFLowerI } from "../../automations/shared";
+
 export {
   initFolderIconChunk,
   getBrowserTabIdForSidePanelOpen,
@@ -23,7 +25,6 @@ export {
   f_ as appMainCurrentCompatSlotLowerFUnderscore,
   fa as appMainCurrentCompatSlotLowerFLowerA,
   fd as appMainCurrentCompatSlotLowerFLowerD,
-  fi as appMainCurrentCompatSlotLowerFLowerI,
   fn as appMainCurrentCompatSlotLowerFLowerN,
   fp as appMainCurrentCompatSlotLowerFLowerP,
   fS as appMainCurrentCompatSlotLowerFUpperS,

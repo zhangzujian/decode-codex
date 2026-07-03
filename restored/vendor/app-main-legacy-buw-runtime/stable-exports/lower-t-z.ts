@@ -24,6 +24,9 @@ export { initComposerUtilsChunk as legacyAppMainBuwLowerXUpperCExport } from "..
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
 
+export { applyAutomationScheduleDraft as legacyAppMainBuwLowerTLowerIExport } from "../../../automations/shared";
+export { isAutomationRecordInSync as legacyAppMainBuwLowerULowerIExport } from "../../../automations/automation-record-sync";
+
 export {
   initComposeEventHandlersRuntime,
   initExternalAgentImportStatusIconsChunk,
@@ -94,7 +97,6 @@ export {
   tf as legacyAppMainBuwLowerTLowerFExport,
   tg as legacyAppMainBuwLowerTLowerGExport,
   th as legacyAppMainBuwLowerTLowerHExport,
-  ti as legacyAppMainBuwLowerTLowerIExport,
   tm as legacyAppMainBuwLowerTLowerMExport,
   tn as legacyAppMainBuwLowerTLowerNExport,
   to as legacyAppMainBuwLowerTLowerOExport,
@@ -108,7 +110,6 @@ export {
   u_ as legacyAppMainBuwLowerUUnderscoreExport,
   ua as legacyAppMainBuwLowerULowerAExport,
   ub as legacyAppMainBuwLowerULowerBExport,
-  ui as legacyAppMainBuwLowerULowerIExport,
   un as legacyAppMainBuwLowerULowerNExport,
   up as legacyAppMainBuwLowerULowerPExport,
   ur as legacyAppMainBuwLowerULowerRExport,

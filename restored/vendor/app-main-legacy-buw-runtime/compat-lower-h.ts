@@ -3,6 +3,8 @@
 export { DocumentSearchIcon as appMainCurrentCompatSlotLowerHLowerY } from "../../icons/document-search-icon";
 
 export { loadLocaleMessages as appMainCurrentCompatSlotLowerHLowerG } from "../../i18n/locale-resolver";
+export { setAutomationDraftDestination as appMainCurrentCompatSlotLowerHLowerI } from "../../automations/shared";
+
 export {
   openThreadBranchReviewSidePanelTab,
   SidebarRowHostLabel,
@@ -24,7 +26,6 @@ export {
   hd as appMainCurrentCompatSlotLowerHLowerD,
   hf as appMainCurrentCompatSlotLowerHLowerF,
   hh as appMainCurrentCompatSlotLowerHLowerH,
-  hi as appMainCurrentCompatSlotLowerHLowerI,
   hn as appMainCurrentCompatSlotLowerHLowerN,
   hr as appMainCurrentCompatSlotLowerHLowerR,
   hS as appMainCurrentCompatSlotLowerHUpperS,

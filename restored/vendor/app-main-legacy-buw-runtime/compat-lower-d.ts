@@ -10,6 +10,8 @@ export { cancelPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerDLowerS } f
 export { pendingPastedTextAttachmentCountStore as appMainCurrentCompatSlotLowerDLowerO } from "../../conversations/thread-handoff-composer-status";
 
 export { getLocaleLanguageDisplayName as appMainCurrentCompatSlotLowerDLowerG } from "../../i18n/locale-resolver";
+export { getAutomationDraftDestination as appMainCurrentCompatSlotLowerDLowerI } from "../../automations/shared";
+
 export {
   d as appMainCurrentCompatSlotLowerD,
   d_ as appMainCurrentCompatSlotLowerDUnderscore,
@@ -17,7 +19,6 @@ export {
   db as appMainCurrentCompatSlotLowerDLowerB,
   dd as appMainCurrentCompatSlotLowerDLowerD,
   dh as appMainCurrentCompatSlotLowerDLowerH,
-  di as appMainCurrentCompatSlotLowerDLowerI,
   dm as appMainCurrentCompatSlotLowerDLowerM,
   dn as appMainCurrentCompatSlotLowerDLowerN,
   dp as appMainCurrentCompatSlotLowerDLowerP,

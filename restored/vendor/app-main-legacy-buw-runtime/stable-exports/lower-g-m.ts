@@ -14,6 +14,10 @@ export { initWhitespaceEyeIconChunk as legacyAppMainBuwLowerKLowerLExport } from
 export { getConversationalOnboardingTaskPluginName as legacyAppMainBuwLowerIExport } from "../../../onboarding/conversational-onboarding-task-registry";
 export { initStyleSingletonRuntime as initArrayEqualityRuntimeChunk } from "../../react-style-singleton";
 
+export { applyHeartbeatTargetThread as legacyAppMainBuwLowerGLowerIExport } from "../../../automations/shared";
+export { setAutomationDraftDestination as legacyAppMainBuwLowerHLowerIExport } from "../../../automations/shared";
+export { toAutomationUpdatePayload as legacyAppMainBuwLowerLLowerIExport } from "../../../automations/shared";
+
 export {
   DragIcon,
   openThreadBrowserSidePanelTab,
@@ -90,6 +94,7 @@ export {
   handleCreateThread as legacyAppMainBuwLowerKLowerAExport,
   handleListProjects as legacyAppMainBuwLowerJLowerAExport,
 } from "../../../conversations/thread-management-tool-handlers";
+export { buildBranchName as legacyAppMainBuwLowerGLowerUExport } from "../../../conversations/build-branch-name";
 
 export { closestCenter as ThreadRowStatusIndicator } from "../../dnd-kit-core";
 
@@ -99,12 +104,10 @@ export {
   g_ as legacyAppMainBuwLowerGUnderscoreExport,
   gd as legacyAppMainBuwLowerGLowerDExport,
   gf as legacyAppMainBuwLowerGLowerFExport,
-  gi as legacyAppMainBuwLowerGLowerIExport,
   gn as legacyAppMainBuwLowerGLowerNExport,
   gp as legacyAppMainBuwLowerGLowerPExport,
   gr as legacyAppMainBuwLowerGLowerRExport,
   gt as legacyAppMainBuwLowerGLowerTExport,
-  gu as legacyAppMainBuwLowerGLowerUExport,
   gx as legacyAppMainBuwLowerGLowerXExport,
   h as legacyAppMainBuwLowerHExport,
   hS as legacyAppMainBuwLowerHUpperSExport,
@@ -114,7 +117,6 @@ export {
   hd as legacyAppMainBuwLowerHLowerDExport,
   hf as legacyAppMainBuwLowerHLowerFExport,
   hh as legacyAppMainBuwLowerHLowerHExport,
-  hi as legacyAppMainBuwLowerHLowerIExport,
   hn as legacyAppMainBuwLowerHLowerNExport,
   hr as legacyAppMainBuwLowerHLowerRExport,
   ht as legacyAppMainBuwLowerHLowerTExport,
@@ -174,7 +176,6 @@ export {
   l_ as legacyAppMainBuwLowerLUnderscoreExport,
   la as legacyAppMainBuwLowerLLowerAExport,
   lb as legacyAppMainBuwLowerLLowerBExport,
-  li as legacyAppMainBuwLowerLLowerIExport,
   ln as legacyAppMainBuwLowerLLowerNExport,
   lp as legacyAppMainBuwLowerLLowerPExport,
   lr as legacyAppMainBuwLowerLLowerRExport,

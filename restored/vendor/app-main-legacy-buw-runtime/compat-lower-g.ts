@@ -1,6 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase g compatibility aliases for the legacy app-main/onboarding producer.
 export { normalizeLocale as appMainCurrentCompatSlotLowerGLowerG } from "../../i18n/locale-resolver";
+export { applyHeartbeatTargetThread as appMainCurrentCompatSlotLowerGLowerI } from "../../automations/shared";
+
 export {
   openThreadBrowserSidePanelTab,
   SidebarRowProjectLabel,
@@ -15,18 +17,17 @@ export { initDictationStreamingTranscriberRuntimeChunk as appMainCurrentCompatSl
 export { hasRateLimitReached as appMainCurrentCompatSlotLowerGLowerC } from "../../utils/rate-limit-status/account-status";
 export { getAppgenAccessShortStateMessage as appMainCurrentCompatSlotLowerGLowerS } from "../../utils/appgen-access-state-messages";
 export { ThreadHandoffStepRow as appMainCurrentCompatSlotLowerGLowerA } from "../../ui/thread-handoff-step-row";
+export { buildBranchName as appMainCurrentCompatSlotLowerGLowerU } from "../../conversations/build-branch-name";
 
 export {
   g as appMainCurrentCompatSlotLowerG,
   g_ as appMainCurrentCompatSlotLowerGUnderscore,
   gd as appMainCurrentCompatSlotLowerGLowerD,
   gf as appMainCurrentCompatSlotLowerGLowerF,
-  gi as appMainCurrentCompatSlotLowerGLowerI,
   gn as appMainCurrentCompatSlotLowerGLowerN,
   gp as appMainCurrentCompatSlotLowerGLowerP,
   gr as appMainCurrentCompatSlotLowerGLowerR,
   gS as appMainCurrentCompatSlotLowerGUpperS,
   gt as appMainCurrentCompatSlotLowerGLowerT,
-  gu as appMainCurrentCompatSlotLowerGLowerU,
   gx as appMainCurrentCompatSlotLowerGLowerX,
 } from "../app-main-legacy-buw-compat-bundle";

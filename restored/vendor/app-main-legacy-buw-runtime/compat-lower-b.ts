@@ -10,6 +10,8 @@ export { fetchIdeContext as appMainCurrentCompatSlotLowerBUpperC } from "../../c
 export { useDroppable as ThreadRowBranchLabel } from "../dnd-kit-core";
 export { clearPendingWorktreePanelState as appMainCurrentCompatSlotLowerBLowerO } from "../../conversations/fork-conversation-panel-state";
 
+export { isDefaultAutomationDraft as appMainCurrentCompatSlotLowerBLowerI } from "../../automations/shared";
+
 export {
   b as appMainCurrentCompatSlotLowerB,
   ba as appMainCurrentCompatSlotLowerBLowerA,
@@ -19,7 +21,6 @@ export {
   bf as appMainCurrentCompatSlotLowerBLowerF,
   bg as appMainCurrentCompatSlotLowerBLowerG,
   bh as appMainCurrentCompatSlotLowerBLowerH,
-  bi as appMainCurrentCompatSlotLowerBLowerI,
   bm as appMainCurrentCompatSlotLowerBLowerM,
   bn as appMainCurrentCompatSlotLowerBLowerN,
   bp as appMainCurrentCompatSlotLowerBLowerP,

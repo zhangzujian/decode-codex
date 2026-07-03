@@ -6,6 +6,8 @@ export { areArraysEqual } from "../../utils/are-arrays-equal";
 
 export { DEFAULT_LOCALE as appMainCurrentCompatSlotLowerCLowerG } from "../../i18n/locale-resolver";
 export { mapConversationalOnboardingTasksToAppPlugins as appMainCurrentCompatSlotLowerC } from "../../onboarding/conversational-onboarding-task-selection";
+export { toAutomationRecordWithStatus as appMainCurrentCompatSlotLowerCLowerI } from "../../automations/automation-record-sync";
+
 export {
   openThreadMcpAppSidePanelTab,
   ThreadRowEnvironmentMeta,
@@ -22,7 +24,6 @@ export {
   cb as appMainCurrentCompatSlotLowerCLowerB,
   cd as appMainCurrentCompatSlotLowerCLowerD,
   ch as appMainCurrentCompatSlotLowerCLowerH,
-  ci as appMainCurrentCompatSlotLowerCLowerI,
   cn as appMainCurrentCompatSlotLowerCLowerN,
   cr as appMainCurrentCompatSlotLowerCLowerR,
   cS as appMainCurrentCompatSlotLowerCUpperS,

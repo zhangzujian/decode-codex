@@ -3,6 +3,8 @@
 export { getMicrophoneInputStream as appMainCurrentCompatSlotLowerPUpperC } from "../../utils/microphone-input";
 
 export { isEnglishLocale as appMainCurrentCompatSlotLowerPLowerG } from "../../i18n/locale-resolver";
+export { getAutomationDestinationOptions as appMainCurrentCompatSlotLowerPLowerI } from "../../automations/shared";
+
 export {
   initThreadSidePanelTabsChunk,
   readProjectSignal,
@@ -22,7 +24,6 @@ export {
   pd as appMainCurrentCompatSlotLowerPLowerD,
   pf as appMainCurrentCompatSlotLowerPLowerF,
   ph as appMainCurrentCompatSlotLowerPLowerH,
-  pi as appMainCurrentCompatSlotLowerPLowerI,
   pm as appMainCurrentCompatSlotLowerPLowerM,
   pn as appMainCurrentCompatSlotLowerPLowerN,
   pp as appMainCurrentCompatSlotLowerPLowerP,

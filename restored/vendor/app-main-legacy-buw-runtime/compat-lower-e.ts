@@ -5,6 +5,8 @@ export { initMicrosoftIconChunk as appMainCurrentCompatSlotLowerELowerC } from "
 
 export { formatHookEventName as appMainCurrentCompatSlotLowerELowerA } from "../../settings/hooks-settings-copy";
 
+export { applyAutomationDraftModelDefaults as appMainCurrentCompatSlotLowerELowerI } from "../../automations/shared";
+
 export {
   initOpenInBrowserRuntimeChunk,
   SidebarRowUnreadDot,
@@ -20,7 +22,6 @@ export {
   ed as appMainCurrentCompatSlotLowerELowerD,
   ef as appMainCurrentCompatSlotLowerELowerF,
   eg as appMainCurrentCompatSlotLowerELowerG,
-  ei as appMainCurrentCompatSlotLowerELowerI,
   em as appMainCurrentCompatSlotLowerELowerM,
   en as appMainCurrentCompatSlotLowerELowerN,
   eo as appMainCurrentCompatSlotLowerELowerO,

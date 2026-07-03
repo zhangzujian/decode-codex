@@ -6,6 +6,8 @@ export { initWarningIconChunk as PortalFromLowerTC } from "../../icons/warning-i
 export { formatCompactDurationMs as appMainCurrentCompatSlotLowerTLowerS } from "../../utils/duration-format";
 
 export { ConversationalOnboardingTaskIcon as appMainCurrentCompatSlotLowerT } from "../../onboarding/conversational-onboarding-task-icon";
+export { applyAutomationScheduleDraft as appMainCurrentCompatSlotLowerTLowerI } from "../../automations/shared";
+
 export {
   t_ as appMainCurrentCompatSlotLowerTUnderscore,
   ta as appMainCurrentCompatSlotLowerTLowerA,
@@ -15,7 +17,6 @@ export {
   tf as appMainCurrentCompatSlotLowerTLowerF,
   tg as appMainCurrentCompatSlotLowerTLowerG,
   th as appMainCurrentCompatSlotLowerTLowerH,
-  ti as appMainCurrentCompatSlotLowerTLowerI,
   tm as appMainCurrentCompatSlotLowerTLowerM,
   tn as appMainCurrentCompatSlotLowerTLowerN,
   to as appMainCurrentCompatSlotLowerTLowerO,

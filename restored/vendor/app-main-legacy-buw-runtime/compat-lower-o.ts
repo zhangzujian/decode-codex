@@ -6,6 +6,8 @@ export { initCheckCircleIconChunk as appMainCurrentCompatSlotLowerOLowerC } from
 export { useDictationCore as appMainCurrentCompatSlotLowerOUpperC } from "../../features/use-dictation/use-dictation";
 
 export { getAvailableConversationalOnboardingTasks as appMainCurrentCompatSlotLowerO } from "../../onboarding/conversational-onboarding-task-selection";
+export { createAutomationDraftFromAutomation as appMainCurrentCompatSlotLowerOLowerI } from "../../automations/shared";
+
 export {
   closeThreadMcpAppSidePanelTab,
   useReferralInviteMutation,
@@ -21,7 +23,6 @@ export {
   ob as appMainCurrentCompatSlotLowerOLowerB,
   od as appMainCurrentCompatSlotLowerOLowerD,
   oh as appMainCurrentCompatSlotLowerOLowerH,
-  oi as appMainCurrentCompatSlotLowerOLowerI,
   om as appMainCurrentCompatSlotLowerOLowerM,
   on as appMainCurrentCompatSlotLowerOLowerN,
   op as appMainCurrentCompatSlotLowerOLowerP,

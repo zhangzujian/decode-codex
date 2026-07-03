@@ -23,6 +23,11 @@ export { getConversationalOnboardingTaskOption as legacyAppMainBuwLowerSExport }
 export { getAvailableConversationalOnboardingTasks as legacyAppMainBuwLowerOExport } from "../../../onboarding/conversational-onboarding-task-selection";
 export { initConversationalOnboardingTaskIconChunk as legacyAppMainBuwLowerNExport } from "../../../onboarding/conversational-onboarding-task-icon";
 
+export { createAutomationDraftFromAutomation as legacyAppMainBuwLowerOLowerIExport } from "../../../automations/shared";
+export { getAutomationDestinationOptions as legacyAppMainBuwLowerPLowerIExport } from "../../../automations/shared";
+export { resolveReasoningEffortOption as legacyAppMainBuwLowerQLowerRExport } from "../../../composer/reasoning-effort-options";
+export { createAutomationDraftFromSeed as legacyAppMainBuwLowerSLowerIExport } from "../../../automations/shared";
+
 export {
   liveMcpAppFrameSignal,
   composeEventHandlers,
@@ -95,7 +100,6 @@ export {
   ob as legacyAppMainBuwLowerOLowerBExport,
   od as legacyAppMainBuwLowerOLowerDExport,
   oh as legacyAppMainBuwLowerOLowerHExport,
-  oi as legacyAppMainBuwLowerOLowerIExport,
   om as legacyAppMainBuwLowerOLowerMExport,
   on as legacyAppMainBuwLowerOLowerNExport,
   op as legacyAppMainBuwLowerOLowerPExport,
@@ -111,7 +115,6 @@ export {
   pd as legacyAppMainBuwLowerPLowerDExport,
   pf as legacyAppMainBuwLowerPLowerFExport,
   ph as legacyAppMainBuwLowerPLowerHExport,
-  pi as legacyAppMainBuwLowerPLowerIExport,
   pm as legacyAppMainBuwLowerPLowerMExport,
   pn as legacyAppMainBuwLowerPLowerNExport,
   pp as legacyAppMainBuwLowerPLowerPExport,
@@ -132,7 +135,6 @@ export {
   qm as legacyAppMainBuwLowerQLowerMExport,
   qo as legacyAppMainBuwLowerQLowerOExport,
   qp as legacyAppMainBuwLowerQLowerPExport,
-  qr as legacyAppMainBuwLowerQLowerRExport,
   qt as legacyAppMainBuwLowerQLowerTExport,
   qv as legacyAppMainBuwLowerQLowerVExport,
   qx as legacyAppMainBuwLowerQLowerXExport,
@@ -161,7 +163,6 @@ export {
   sb as legacyAppMainBuwLowerSLowerBExport,
   sd as legacyAppMainBuwLowerSLowerDExport,
   sh as legacyAppMainBuwLowerSLowerHExport,
-  si as legacyAppMainBuwLowerSLowerIExport,
   sn as legacyAppMainBuwLowerSLowerNExport,
   so as legacyAppMainBuwLowerSLowerOExport,
   sp as legacyAppMainBuwLowerSLowerPExport,

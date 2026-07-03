@@ -19,6 +19,12 @@ export { initDictationTranscriptCleanupChunk as legacyAppMainBuwLowerDUpperCExpo
 
 export { areArraysEqual } from "../../../utils/are-arrays-equal";
 
+export { isDefaultAutomationDraft as legacyAppMainBuwLowerBLowerIExport } from "../../../automations/shared";
+export { toAutomationRecordWithStatus as legacyAppMainBuwLowerCLowerIExport } from "../../../automations/automation-record-sync";
+export { getAutomationDraftDestination as legacyAppMainBuwLowerDLowerIExport } from "../../../automations/shared";
+export { applyAutomationDraftModelDefaults as legacyAppMainBuwLowerELowerIExport } from "../../../automations/shared";
+export { validateAutomationDraft as legacyAppMainBuwLowerFLowerIExport } from "../../../automations/shared";
+
 export {
   SidebarRowMenuSeparator,
   SettingsControlRow,
@@ -110,7 +116,6 @@ export {
   bf as legacyAppMainBuwLowerBLowerFExport,
   bg as legacyAppMainBuwLowerBLowerGExport,
   bh as legacyAppMainBuwLowerBLowerHExport,
-  bi as legacyAppMainBuwLowerBLowerIExport,
   bm as legacyAppMainBuwLowerBLowerMExport,
   bn as legacyAppMainBuwLowerBLowerNExport,
   bp as legacyAppMainBuwLowerBLowerPExport,
@@ -125,7 +130,6 @@ export {
   cb as legacyAppMainBuwLowerCLowerBExport,
   cd as legacyAppMainBuwLowerCLowerDExport,
   ch as legacyAppMainBuwLowerCLowerHExport,
-  ci as legacyAppMainBuwLowerCLowerIExport,
   cn as legacyAppMainBuwLowerCLowerNExport,
   cr as legacyAppMainBuwLowerCLowerRExport,
   ct as legacyAppMainBuwLowerCLowerTExport,
@@ -139,7 +143,6 @@ export {
   db as legacyAppMainBuwLowerDLowerBExport,
   dd as legacyAppMainBuwLowerDLowerDExport,
   dh as legacyAppMainBuwLowerDLowerHExport,
-  di as legacyAppMainBuwLowerDLowerIExport,
   dm as legacyAppMainBuwLowerDLowerMExport,
   dn as legacyAppMainBuwLowerDLowerNExport,
   dp as legacyAppMainBuwLowerDLowerPExport,
@@ -153,7 +156,6 @@ export {
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   eg as legacyAppMainBuwLowerELowerGExport,
-  ei as legacyAppMainBuwLowerELowerIExport,
   em as legacyAppMainBuwLowerELowerMExport,
   en as legacyAppMainBuwLowerELowerNExport,
   eo as legacyAppMainBuwLowerELowerOExport,
@@ -168,7 +170,6 @@ export {
   f_ as legacyAppMainBuwLowerFUnderscoreExport,
   fa as legacyAppMainBuwLowerFLowerAExport,
   fd as legacyAppMainBuwLowerFLowerDExport,
-  fi as legacyAppMainBuwLowerFLowerIExport,
   fn as legacyAppMainBuwLowerFLowerNExport,
   fp as legacyAppMainBuwLowerFLowerPExport,
   ft as legacyAppMainBuwLowerFLowerTExport,
