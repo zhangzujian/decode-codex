@@ -42378,12 +42378,12 @@
       },
       "status": "done",
       "vendor": "docx-preview-panel-runtime",
-      "note": "Current DocxPreviewPanel hash maps to the restored docx preview vendor/runtime backing file, moved out of the current-bundle backlog.",
+      "note": "Current DocxPreviewPanel hash maps to the restored docx preview runtime compatibility entry. DOCX annotation geometry, metadata, and DOM selection helpers now live in features/documents/docx-preview-panel while the remaining panel component body still needs further semantic splitting out of vendor.",
       "lastUpdated": "2026-07-02T01:40:29.000Z",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-07-02T01:40:29.000Z",
-      "stage3Review": "Host self-review: current ref docx-preview-panel-BsZXEpj7.js exports only DocxPreviewPanel; vendor/docx-preview-panel-runtime.ts preserves that surface, artifact preview producers were updated, and no current-bundle references remain.",
-      "stage3Note": "Accepted as a docx-preview vendor/runtime wrapper over the existing restored backing module; generated document preview payloads are intentionally gated as vendored output rather than split as app features."
+      "stage3Review": "Host self-review: current ref docx-preview-panel-BsZXEpj7.js exports only DocxPreviewPanel; vendor/docx-preview-panel-runtime.ts preserves that surface and now delegates annotation geometry, metadata, and DOM selection helpers to features/documents/docx-preview-panel.",
+      "stage3Note": "Partial semantic split in progress: helper modules pass quality-gate, but vendor/docx-preview-panel-runtime.ts still fails flat-boundary-app-bundle until the remaining panel component body is split or moved behind a small compatibility shim."
     },
     "PopcornElectronPresentationPanel-B56eXPt5": {
       "restored": "runtime/current-app-initial/popcorn-electron-presentation-panel-current-runtime.tsx",
