@@ -24,8 +24,6 @@ export { GoogleResourceKindIcon as appMainCurrentCompatSlotLowerQ } from "../../
 export { initImageUploadChunk as appMainCurrentCompatSlotLowerQLowerT } from "../../image-side-panel/upload-image";
 export { initThreadHandoffToolRuntimeChunk as appMainCurrentCompatSlotLowerQLowerA } from "../../conversations/thread-handoff-tool-runtime";
 export { initGitActionsSummaryPanelChunk as appMainCurrentCompatSlotLowerQLowerL } from "../../conversations/git-actions-summary-panel";
+export { summaryPanelBackgroundAgentsSignal as appMainCurrentCompatSlotLowerQLowerO } from "../../conversations/background-subagent-signals";
 
-export {
-  qo as appMainCurrentCompatSlotLowerQLowerO,
-  qy as appMainCurrentCompatSlotLowerQLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { qy as appMainCurrentCompatSlotLowerQLowerY } from "../app-main-legacy-buw-compat-bundle";

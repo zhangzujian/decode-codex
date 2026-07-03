@@ -19,12 +19,28 @@ import type {
   SourceLinkedThread,
 } from "./background-agent-types";
 
+export type OpaqueSignalFamily<TKey, TValue> = {
+  readonly __signalFamilyKey?: TKey;
+  readonly __signalFamilyValue?: TValue;
+};
+
+export type BackgroundAgentsSignal = OpaqueSignalFamily<
+  string | null,
+  BackgroundAgentSummary[]
+>;
+
+type SourceLinkedSubagentThreadsSignal = OpaqueSignalFamily<
+  string | null,
+  readonly SourceLinkedThread[] | null
+>;
+
 const emptyCachedConversations: readonly CachedConversation[] = [];
 const emptyConversationTurns: readonly ConversationTurn[] = [];
 
-let sourceLinkedSubagentThreadsSignal: unknown;
+let sourceLinkedSubagentThreadsSignal: SourceLinkedSubagentThreadsSignal;
 
-export let backgroundAgentsSignal: unknown;
+export let backgroundAgentsSignal: BackgroundAgentsSignal;
+export let summaryPanelBackgroundAgentsSignal: BackgroundAgentsSignal;
 
 export const initBackgroundSubagentsRuntimeChunk = once(() => {
   initAppScopeSignalRuntime();
@@ -33,7 +49,7 @@ export const initBackgroundSubagentsRuntimeChunk = once(() => {
   sourceLinkedSubagentThreadsSignal = createAppScopedSignalFamily<
     string | null,
     readonly SourceLinkedThread[] | null
-  >(() => null);
+  >(() => null) as SourceLinkedSubagentThreadsSignal;
 
   backgroundAgentsSignal = createAppScopedDerivedSignalFamily<
     string | null,
@@ -42,27 +58,29 @@ export const initBackgroundSubagentsRuntimeChunk = once(() => {
     if (parentConversationId == null) return [];
 
     const conversationTurns =
-      (get(
-        conversationTurnsSignal,
-        parentConversationId,
-      ) as readonly ConversationTurn[] | null | undefined) ??
-      emptyConversationTurns;
+      (get(conversationTurnsSignal, parentConversationId) as
+        | readonly ConversationTurn[]
+        | null
+        | undefined) ?? emptyConversationTurns;
     if (conversationTurns.length === 0) return [];
 
     return buildBackgroundAgents({
       cachedConversations: emptyCachedConversations,
       conversationTurns,
-      getChildSource: (conversationId) => get(threadSourceSignal, conversationId),
+      getChildSource: (conversationId) =>
+        get(threadSourceSignal, conversationId),
       getChildTurns: (conversationId) =>
-        get(
-          conversationTurnsSignal,
-          conversationId,
-        ) as readonly ConversationTurn[] | null | undefined,
+        get(conversationTurnsSignal, conversationId) as
+          | readonly ConversationTurn[]
+          | null
+          | undefined,
       parentConversationId,
       sourceLinkedThreads: get(
         sourceLinkedSubagentThreadsSignal,
         parentConversationId,
       ) as readonly SourceLinkedThread[] | null | undefined,
     });
-  });
+  }) as BackgroundAgentsSignal;
+
+  summaryPanelBackgroundAgentsSignal = backgroundAgentsSignal;
 });
