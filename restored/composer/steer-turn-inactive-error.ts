@@ -4,6 +4,11 @@ import { getErrorMessage } from "../utils/config-load-error";
 
 export const STEER_TURN_INACTIVE_ERROR_NAME = "SteerTurnInactiveError";
 
+export function initSteerTurnInactiveErrorChunk(): void {
+  void STEER_TURN_INACTIVE_ERROR_NAME;
+  void isSteerTurnInactiveError;
+}
+
 export function isSteerTurnInactiveError(error: unknown): boolean {
   return (
     (error instanceof Error && error.name === STEER_TURN_INACTIVE_ERROR_NAME) ||

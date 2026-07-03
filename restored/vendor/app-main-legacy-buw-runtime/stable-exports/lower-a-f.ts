@@ -103,6 +103,10 @@ export { CancelGitActionButton as legacyAppMainBuwLowerCLowerUExport } from "../
 export { getWorktreeSubmitToastMessage as legacyAppMainBuwLowerCLowerNExport } from "../../../composer/submit-toast-messages";
 export { initBrowserNotSecureIconChunk as legacyAppMainBuwLowerALowerPExport } from "../../../browser/browser-address-security-indicator";
 export { BrowserUseGlyphIcon as legacyAppMainBuwLowerCLowerAExport } from "../../../conversations/tool-activity-source-icon";
+export { initDiffCommentSourcesChunk as legacyAppMainBuwLowerALowerHExport } from "../../../github/diff-comments/use-diff-comment-sources";
+export { initSteerTurnInactiveErrorChunk as legacyAppMainBuwLowerALowerNExport } from "../../../composer/steer-turn-inactive-error";
+export { initTurnSourcesPopoverChunk as legacyAppMainBuwLowerALowerSExport } from "../../../conversations/turn-sources-popover";
+export { initThinkingFallbackStateChunk as legacyAppMainBuwLowerALowerTExport } from "../../../conversations/thinking-fallback-state";
 export { initContentSearchRuntime as legacyAppMainBuwLowerAUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 export { activeContentSearchMatchClassName as legacyAppMainBuwLowerEUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 
@@ -112,10 +116,6 @@ export {
   ab as legacyAppMainBuwLowerALowerBExport,
   af as legacyAppMainBuwLowerALowerFExport,
   ag as legacyAppMainBuwLowerALowerGExport,
-  ah as legacyAppMainBuwLowerALowerHExport,
-  an as legacyAppMainBuwLowerALowerNExport,
-  as as legacyAppMainBuwLowerALowerSExport,
-  at as legacyAppMainBuwLowerALowerTExport,
   au as legacyAppMainBuwLowerALowerUExport,
   ay as legacyAppMainBuwLowerALowerYExport,
   b as legacyAppMainBuwLowerBExport,

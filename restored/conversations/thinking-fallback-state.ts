@@ -30,6 +30,10 @@ export type ResolveThinkingFallbackStateInput = {
   forceThinking: boolean;
 };
 
+export function initThinkingFallbackStateChunk(): void {
+  void resolveThinkingFallbackState;
+}
+
 export function resolveThinkingFallbackState({
   isTurnInProgress,
   assistantItem,

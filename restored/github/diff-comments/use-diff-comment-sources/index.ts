@@ -81,6 +81,14 @@ const turnModelCommentsSelectorFamily = createAppScopeFamily(
     );
   },
 );
+
+function initDiffCommentSourcesChunk(): void {
+  void addDiffCommentsForConversation;
+  void turnModelCommentsSelectorFamily;
+  void useConversationDiffComments;
+  void useDiffCommentSources;
+}
+
 function useConversationDiffComments(
   conversationId: string,
   localConversationId?: string,
@@ -184,6 +192,7 @@ function useDiffCommentSources({
 }
 export {
   addDiffCommentsForConversation,
+  initDiffCommentSourcesChunk,
   useConversationDiffComments,
   parseCodeCommentDirectives,
   useDiffCommentSources,

@@ -27,6 +27,11 @@ export type TurnSourcesPopoverProps = {
   sources: readonly TurnSource[];
 };
 
+export function initTurnSourcesPopoverChunk(): void {
+  void TurnSourcesPopover;
+  void collectWebSearchTurnSources;
+}
+
 export function TurnSourcesPopover({
   className,
   sources,
