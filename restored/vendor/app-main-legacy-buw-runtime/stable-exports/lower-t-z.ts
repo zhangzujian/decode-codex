@@ -34,6 +34,7 @@ export { initHeartbeatThreadOptionsChunk as legacyAppMainBuwLowerULowerRExport }
 
 export { AutomationSandboxBanner as legacyAppMainBuwLowerWLowerRExport } from "../../../automations/automation-sandbox-banner";
 export { renderMessageOrString as legacyAppMainBuwLowerZLowerRExport } from "../../../composer/render-message-or-string";
+export { useClearBrowserBrowsingDataMutation as legacyAppMainBuwLowerWLowerPExport } from "../../../browser/browser-use-origin-state-queries";
 export { SettingsButtonRow as legacyAppMainBuwLowerVLowerRExport } from "../../../ui/settings-row";
 export { initSettingsControlRowChunk } from "../../../ui/settings-row";
 export { SettingsKeyValueRow as legacyAppMainBuwLowerYLowerRExport } from "../../../ui/settings-row";
@@ -148,7 +149,6 @@ export {
   wl as legacyAppMainBuwLowerWLowerLExport,
   wn as legacyAppMainBuwLowerWLowerNExport,
   wo as legacyAppMainBuwLowerWLowerOExport,
-  wp as legacyAppMainBuwLowerWLowerPExport,
   wt as legacyAppMainBuwLowerWLowerTExport,
   wu as legacyAppMainBuwLowerWLowerUExport,
   wv as legacyAppMainBuwLowerWLowerVExport,

@@ -10,6 +10,7 @@ export { findBrowserStatusAtom } from "../../find/thread-find-atoms";
 export { initPrimitiveRuntime as initPrimitiveRuntimeChunk } from "../radix-primitive-helpers";
 export { formatResetDate as appMainCurrentCompatSlotUpperDLowerC } from "../../utils/rate-limit-status/formatting";
 export { READ_SETTINGS_TOOL_NAME as appMainCurrentCompatSlotUpperDLowerO } from "../../settings/settings-tool-definitions";
+export { useUpdateBrowserUseApprovalModeMutation as appMainCurrentCompatSlotUpperDLowerP } from "../../browser/browser-use-origin-state-queries";
 
 export {
   D as appMainCurrentCompatSlotUpperD,
@@ -22,7 +23,6 @@ export {
   Dl as appMainCurrentCompatSlotUpperDLowerL,
   Dm as appMainCurrentCompatSlotUpperDLowerM,
   Dn as appMainCurrentCompatSlotUpperDLowerN,
-  Dp as appMainCurrentCompatSlotUpperDLowerP,
   DS as appMainCurrentCompatSlotUpperDUpperS,
   Dt as appMainCurrentCompatSlotUpperDLowerT,
   Du as appMainCurrentCompatSlotUpperDLowerU,

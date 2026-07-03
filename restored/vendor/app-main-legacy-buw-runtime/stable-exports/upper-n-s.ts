@@ -9,6 +9,8 @@ export { SelectedTextTooltip as legacyAppMainBuwUpperNLowerIExport } from "../..
 
 export { cancelActiveConversationalOnboardingForHost as legacyAppMainBuwUpperOExport } from "../../../onboarding/conversational-onboarding-cancel-for-host";
 export { AutomationSchedulePicker as legacyAppMainBuwUpperOLowerRExport } from "../../../automations/automation-schedule-picker";
+export { useUpdateBrowserUseFileTransferApprovalModeMutation as legacyAppMainBuwUpperOLowerPExport } from "../../../browser/browser-use-origin-state-queries";
+export { useAddBrowserUseFileTransferOriginMutation as legacyAppMainBuwUpperSLowerPExport } from "../../../browser/browser-use-origin-state-queries";
 
 export { DictationButton as legacyAppMainBuwUpperSUpperCExport } from "../../../features/use-dictation/dictation-button";
 
@@ -104,7 +106,6 @@ export {
   Ol as legacyAppMainBuwUpperOLowerLExport,
   Om as legacyAppMainBuwUpperOLowerMExport,
   On as legacyAppMainBuwUpperOLowerNExport,
-  Op as legacyAppMainBuwUpperOLowerPExport,
   Ot as legacyAppMainBuwUpperOLowerTExport,
   Ou as legacyAppMainBuwUpperOLowerUExport,
   Ov as legacyAppMainBuwUpperOLowerVExport,
@@ -162,7 +163,6 @@ export {
   Sm as legacyAppMainBuwUpperSLowerMExport,
   Sn as legacyAppMainBuwUpperSLowerNExport,
   So as legacyAppMainBuwUpperSLowerOExport,
-  Sp as legacyAppMainBuwUpperSLowerPExport,
   Sr as legacyAppMainBuwUpperSLowerRExport,
   Ss as legacyAppMainBuwUpperSLowerSExport,
   St as legacyAppMainBuwUpperSLowerTExport,

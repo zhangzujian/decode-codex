@@ -10,6 +10,7 @@ export { Primitive } from "../radix-primitive-helpers";
 
 export { stashPendingWorktreePanelState as copyConversationStateToFork } from "../../conversations/fork-conversation-panel-state";
 export { formatDateAndTime as appMainCurrentCompatSlotUpperELowerC } from "../../utils/rate-limit-status/formatting";
+export { useRemoveBrowserUseOriginMutation as appMainCurrentCompatSlotUpperELowerP } from "../../browser/browser-use-origin-state-queries";
 
 export {
   E as appMainCurrentCompatSlotUpperE,
@@ -23,7 +24,6 @@ export {
   El as appMainCurrentCompatSlotUpperELowerL,
   Em as appMainCurrentCompatSlotUpperELowerM,
   En as appMainCurrentCompatSlotUpperELowerN,
-  Ep as appMainCurrentCompatSlotUpperELowerP,
   ES as appMainCurrentCompatSlotUpperEUpperS,
   Et as appMainCurrentCompatSlotUpperELowerT,
   Eu as appMainCurrentCompatSlotUpperELowerU,

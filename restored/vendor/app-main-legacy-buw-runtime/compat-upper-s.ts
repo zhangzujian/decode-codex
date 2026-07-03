@@ -10,6 +10,7 @@ export { readTerminalThemeFromCss } from "../../runtime/window-chrome-runtime";
 
 export { emptyFindBrowserStatus } from "../../find/thread-find-atoms";
 export { useSensors as ThreadRowArchiveAction } from "../dnd-kit-core";
+export { useAddBrowserUseFileTransferOriginMutation as appMainCurrentCompatSlotUpperSLowerP } from "../../browser/browser-use-origin-state-queries";
 
 export {
   S as appMainCurrentCompatSlotUpperS,
@@ -22,7 +23,6 @@ export {
   Sm as appMainCurrentCompatSlotUpperSLowerM,
   Sn as appMainCurrentCompatSlotUpperSLowerN,
   So as appMainCurrentCompatSlotUpperSLowerO,
-  Sp as appMainCurrentCompatSlotUpperSLowerP,
   Sr as appMainCurrentCompatSlotUpperSLowerR,
   Ss as appMainCurrentCompatSlotUpperSLowerS,
   SS as appMainCurrentCompatSlotUpperSUpperS,

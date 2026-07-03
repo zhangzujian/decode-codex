@@ -12,6 +12,7 @@ export { createSlotComponent } from "../../runtime/app-main-new-thread-runtime";
 export { selectRateLimitAlert as appMainCurrentCompatSlotUpperOLowerC } from "../../utils/rate-limit-status/windows";
 export { WRITE_SETTINGS_TOOL_NAME as appMainCurrentCompatSlotUpperOLowerO } from "../../settings/settings-tool-definitions";
 export { buildAppgenAccessPolicyWithoutUser as appMainCurrentCompatSlotUpperOLowerS } from "../../utils/appgen-access";
+export { useUpdateBrowserUseFileTransferApprovalModeMutation as appMainCurrentCompatSlotUpperOLowerP } from "../../browser/browser-use-origin-state-queries";
 
 export { cancelActiveConversationalOnboardingForHost as appMainCurrentCompatSlotUpperO } from "../../onboarding/conversational-onboarding-cancel-for-host";
 export {
@@ -23,7 +24,6 @@ export {
   Ol as appMainCurrentCompatSlotUpperOLowerL,
   Om as appMainCurrentCompatSlotUpperOLowerM,
   On as appMainCurrentCompatSlotUpperOLowerN,
-  Op as appMainCurrentCompatSlotUpperOLowerP,
   OS as appMainCurrentCompatSlotUpperOUpperS,
   Ot as appMainCurrentCompatSlotUpperOLowerT,
   Ou as appMainCurrentCompatSlotUpperOLowerU,

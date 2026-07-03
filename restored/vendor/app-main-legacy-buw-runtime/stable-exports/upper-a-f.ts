@@ -16,6 +16,10 @@ export { DictationRecordingFooter as legacyAppMainBuwUpperCUpperCExport } from "
 export { AutomationModelReasoningDropdown as legacyAppMainBuwUpperCLowerRExport } from "../../../automations/automation-model-reasoning-dropdown";
 export { AutomationHeartbeatThreadDropdown as legacyAppMainBuwUpperDLowerRExport } from "../../../automations/automation-heartbeat-thread-dropdown";
 export { AutomationExecutionEnvironmentDropdown as legacyAppMainBuwUpperELowerRExport } from "../../../automations/automation-execution-environment-dropdown";
+export { useUpdateBrowserUseHistoryApprovalModeMutation as legacyAppMainBuwUpperALowerPExport } from "../../../browser/browser-use-origin-state-queries";
+export { useAddBrowserUseOriginMutation as legacyAppMainBuwUpperCLowerPExport } from "../../../browser/browser-use-origin-state-queries";
+export { useUpdateBrowserUseApprovalModeMutation as legacyAppMainBuwUpperDLowerPExport } from "../../../browser/browser-use-origin-state-queries";
+export { useRemoveBrowserUseOriginMutation as legacyAppMainBuwUpperELowerPExport } from "../../../browser/browser-use-origin-state-queries";
 
 export { CommentAttachmentPill as legacyAppMainBuwUpperFLowerIExport } from "../../../composer/user-message-attachment-pills";
 export { ModelLabel as legacyAppMainBuwUpperFLowerRExport } from "../../../composer/model-label";
@@ -92,7 +96,6 @@ export {
   Am as legacyAppMainBuwUpperALowerMExport,
   An as legacyAppMainBuwUpperALowerNExport,
   Ao as legacyAppMainBuwUpperALowerOExport,
-  Ap as legacyAppMainBuwUpperALowerPExport,
   As as legacyAppMainBuwUpperALowerSExport,
   At as legacyAppMainBuwUpperALowerTExport,
   Av as legacyAppMainBuwUpperALowerVExport,
@@ -125,7 +128,6 @@ export {
   Ch as legacyAppMainBuwUpperCLowerHExport,
   Ci as legacyAppMainBuwUpperCLowerIExport,
   Cn as legacyAppMainBuwUpperCLowerNExport,
-  Cp as legacyAppMainBuwUpperCLowerPExport,
   Ct as legacyAppMainBuwUpperCLowerTExport,
   Cu as legacyAppMainBuwUpperCLowerUExport,
   Cv as legacyAppMainBuwUpperCLowerVExport,
@@ -141,7 +143,6 @@ export {
   Dl as legacyAppMainBuwUpperDLowerLExport,
   Dm as legacyAppMainBuwUpperDLowerMExport,
   Dn as legacyAppMainBuwUpperDLowerNExport,
-  Dp as legacyAppMainBuwUpperDLowerPExport,
   Dt as legacyAppMainBuwUpperDLowerTExport,
   Du as legacyAppMainBuwUpperDLowerUExport,
   Dv as legacyAppMainBuwUpperDLowerVExport,
@@ -159,7 +160,6 @@ export {
   El as legacyAppMainBuwUpperELowerLExport,
   Em as legacyAppMainBuwUpperELowerMExport,
   En as legacyAppMainBuwUpperELowerNExport,
-  Ep as legacyAppMainBuwUpperELowerPExport,
   Et as legacyAppMainBuwUpperELowerTExport,
   Eu as legacyAppMainBuwUpperELowerUExport,
   Ev as legacyAppMainBuwUpperELowerVExport,

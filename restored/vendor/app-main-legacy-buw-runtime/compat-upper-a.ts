@@ -14,6 +14,7 @@ export { initTerminalFontSettingsChunk } from "../../runtime/window-chrome-runti
 export { computePointerVelocity as appMainCurrentCompatSlotUpperALowerD } from "../../runtime/pointer-velocity-signals";
 export { secondsUntilUnixSeconds as appMainCurrentCompatSlotUpperALowerC } from "../../utils/rate-limit-status/windows";
 export { handleForkThread as appMainCurrentCompatSlotUpperALowerA } from "../../conversations/thread-management-tool-handlers";
+export { useUpdateBrowserUseHistoryApprovalModeMutation as appMainCurrentCompatSlotUpperALowerP } from "../../browser/browser-use-origin-state-queries";
 
 export {
   A as appMainCurrentCompatSlotUpperA,
@@ -25,7 +26,6 @@ export {
   Am as appMainCurrentCompatSlotUpperALowerM,
   An as appMainCurrentCompatSlotUpperALowerN,
   Ao as appMainCurrentCompatSlotUpperALowerO,
-  Ap as appMainCurrentCompatSlotUpperALowerP,
   As as appMainCurrentCompatSlotUpperALowerS,
   At as appMainCurrentCompatSlotUpperALowerT,
   Av as appMainCurrentCompatSlotUpperALowerV,

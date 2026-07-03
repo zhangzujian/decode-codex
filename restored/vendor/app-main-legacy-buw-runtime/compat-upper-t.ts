@@ -11,6 +11,7 @@ export { isTerminalScrolledToBottom } from "../../runtime/window-chrome-runtime"
 export { findActiveMatchIndexAtom } from "../../find/thread-find-atoms";
 export { formatRateLimitWindowLabel as appMainCurrentCompatSlotUpperTLowerC } from "../../utils/rate-limit-status/formatting";
 export { summarizeAppgenAccessPolicy as appMainCurrentCompatSlotUpperTLowerS } from "../../utils/appgen-access";
+export { useRemoveBrowserUseFileTransferOriginMutation as appMainCurrentCompatSlotUpperTLowerP } from "../../browser/browser-use-origin-state-queries";
 
 export {
   T as appMainCurrentCompatSlotUpperT,
@@ -23,7 +24,6 @@ export {
   Tl as appMainCurrentCompatSlotUpperTLowerL,
   Tm as appMainCurrentCompatSlotUpperTLowerM,
   Tn as appMainCurrentCompatSlotUpperTLowerN,
-  Tp as appMainCurrentCompatSlotUpperTLowerP,
   TS as appMainCurrentCompatSlotUpperTUpperS,
   Tt as appMainCurrentCompatSlotUpperTLowerT,
   Tu as appMainCurrentCompatSlotUpperTLowerU,

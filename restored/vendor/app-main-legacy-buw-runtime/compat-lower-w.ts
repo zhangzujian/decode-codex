@@ -12,6 +12,7 @@ export { initDndKitUtilitiesRuntime as ThreadRowWorktreeMeta } from "../dnd-kit-
 export { formatRemainingPercent as appMainCurrentCompatSlotLowerWLowerC } from "../../utils/rate-limit-status/formatting";
 
 export { AutomationSandboxBanner as appMainCurrentCompatSlotLowerWLowerR } from "../../automations/automation-sandbox-banner";
+export { useClearBrowserBrowsingDataMutation as appMainCurrentCompatSlotLowerWLowerP } from "../../browser/browser-use-origin-state-queries";
 
 export {
   w as appMainCurrentCompatSlotLowerW,
@@ -24,7 +25,6 @@ export {
   wl as appMainCurrentCompatSlotLowerWLowerL,
   wn as appMainCurrentCompatSlotLowerWLowerN,
   wo as appMainCurrentCompatSlotLowerWLowerO,
-  wp as appMainCurrentCompatSlotLowerWLowerP,
   wS as appMainCurrentCompatSlotLowerWUpperS,
   wt as appMainCurrentCompatSlotLowerWLowerT,
   wu as appMainCurrentCompatSlotLowerWLowerU,

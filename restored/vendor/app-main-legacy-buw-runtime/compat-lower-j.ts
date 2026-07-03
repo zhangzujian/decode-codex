@@ -13,6 +13,7 @@ export { hasRateLimitWindow as appMainCurrentCompatSlotLowerJLowerC } from "../.
 export { markTurnInterruptedByThisClient as appMainCurrentCompatSlotLowerJLowerS } from "../../threads/interrupted-turn-state";
 export { hasWorkspaceDependenciesFeature as appMainCurrentCompatSlotLowerJLowerO } from "../../features/workspace-dependencies";
 export { handleListProjects as appMainCurrentCompatSlotLowerJLowerA } from "../../conversations/thread-management-tool-handlers";
+export { useUpdateBrowserUseOriginRulesMutation as appMainCurrentCompatSlotLowerJLowerP } from "../../browser/browser-use-origin-state-queries";
 
 export {
   j as appMainCurrentCompatSlotLowerJ,
@@ -22,7 +23,6 @@ export {
   jf as appMainCurrentCompatSlotLowerJLowerF,
   jh as appMainCurrentCompatSlotLowerJLowerH,
   jm as appMainCurrentCompatSlotLowerJLowerM,
-  jp as appMainCurrentCompatSlotLowerJLowerP,
   jS as appMainCurrentCompatSlotLowerJUpperS,
   jt as appMainCurrentCompatSlotLowerJLowerT,
   ju as appMainCurrentCompatSlotLowerJLowerU,

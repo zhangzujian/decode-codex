@@ -89,6 +89,8 @@ export { initUseRecordingWaveformChunk as legacyAppMainBuwLowerLUpperCExport } f
 export { AutomationDetailSection as legacyAppMainBuwLowerGLowerRExport } from "../../../automations/automation-side-panel/status-components";
 export { initAutomationSaveTooltipChunk as legacyAppMainBuwLowerHLowerRExport } from "../../../automations/automation-save-tooltip";
 export { AutomationSaveTooltip as legacyAppMainBuwLowerMLowerRExport } from "../../../automations/automation-save-tooltip";
+export { useUpdateBrowserUseOriginRulesMutation as legacyAppMainBuwLowerJLowerPExport } from "../../../browser/browser-use-origin-state-queries";
+export { useBrowserUseFullCdpAccessEnabledMutation as legacyAppMainBuwLowerKLowerPExport } from "../../../browser/browser-use-origin-state-queries";
 export {
   getAppgenAccessShortStateMessage as legacyAppMainBuwLowerGLowerSExport,
   getAppgenAccessStateMessage as legacyAppMainBuwLowerHLowerSExport,
@@ -152,7 +154,6 @@ export {
   jf as legacyAppMainBuwLowerJLowerFExport,
   jh as legacyAppMainBuwLowerJLowerHExport,
   jm as legacyAppMainBuwLowerJLowerMExport,
-  jp as legacyAppMainBuwLowerJLowerPExport,
   jt as legacyAppMainBuwLowerJLowerTExport,
   ju as legacyAppMainBuwLowerJLowerUExport,
   jv as legacyAppMainBuwLowerJLowerVExport,
@@ -169,7 +170,6 @@ export {
   km as legacyAppMainBuwLowerKLowerMExport,
   kn as legacyAppMainBuwLowerKLowerNExport,
   ko as legacyAppMainBuwLowerKLowerOExport,
-  kp as legacyAppMainBuwLowerKLowerPExport,
   ks as legacyAppMainBuwLowerKLowerSExport,
   kt as legacyAppMainBuwLowerKLowerTExport,
   kv as legacyAppMainBuwLowerKLowerVExport,

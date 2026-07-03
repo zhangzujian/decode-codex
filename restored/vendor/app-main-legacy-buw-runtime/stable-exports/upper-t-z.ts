@@ -25,6 +25,7 @@ export { ReasoningEffortLabel as legacyAppMainBuwUpperYLowerRExport } from "../.
 
 export { getModelReasoningEffortOptions as legacyAppMainBuwUpperWLowerRExport } from "../../../composer/reasoning-effort-options";
 export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperXLowerRExport } from "../../../composer/reasoning-effort-label";
+export { useRemoveBrowserUseFileTransferOriginMutation as legacyAppMainBuwUpperTLowerPExport } from "../../../browser/browser-use-origin-state-queries";
 
 export {
   registerForkedConversation,
@@ -99,7 +100,6 @@ export {
   Tl as legacyAppMainBuwUpperTLowerLExport,
   Tm as legacyAppMainBuwUpperTLowerMExport,
   Tn as legacyAppMainBuwUpperTLowerNExport,
-  Tp as legacyAppMainBuwUpperTLowerPExport,
   Tt as legacyAppMainBuwUpperTLowerTExport,
   Tu as legacyAppMainBuwUpperTLowerUExport,
   Tv as legacyAppMainBuwUpperTLowerVExport,

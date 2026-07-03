@@ -12,6 +12,7 @@ export { toggleThreadSidePanel } from "../app-main-current-runtime";
 export { normalizeTerminalLineEndings } from "../../runtime/window-chrome-runtime";
 export { CSS as ThreadRowLayout } from "../dnd-kit-utilities";
 export { applyPendingWorktreePanelState as appMainCurrentCompatSlotUpperCLowerO } from "../../conversations/fork-conversation-panel-state";
+export { useAddBrowserUseOriginMutation as appMainCurrentCompatSlotUpperCLowerP } from "../../browser/browser-use-origin-state-queries";
 
 export {
   C as appMainCurrentCompatSlotUpperC,
@@ -24,7 +25,6 @@ export {
   Ch as appMainCurrentCompatSlotUpperCLowerH,
   Ci as appMainCurrentCompatSlotUpperCLowerI,
   Cn as appMainCurrentCompatSlotUpperCLowerN,
-  Cp as appMainCurrentCompatSlotUpperCLowerP,
   CS as appMainCurrentCompatSlotUpperCUpperS,
   Ct as appMainCurrentCompatSlotUpperCLowerT,
   Cu as appMainCurrentCompatSlotUpperCLowerU,
