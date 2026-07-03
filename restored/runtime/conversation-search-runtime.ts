@@ -2,23 +2,26 @@
 // Conversation search, highlight, and lazy navigation rail helpers.
 import type { ComponentType } from "react";
 import {
+  activeContentSearchMatchClassName,
+  clearContentSearchHighlights as clearDomContentSearchHighlights,
+  joinContentSearchKey,
+  searchContentForMatches,
+  setContentSearchMatchId,
+  shouldRefreshSearchHighlightMutations as shouldRefreshDomSearchHighlightMutations,
+} from "../find/dom-content-search";
+import {
+  findCaseInsensitiveMatchOffsets,
+  sliceMatchWithContext,
+} from "../find/find-match-offsets";
+import {
   Bo as conversationSearchResultSignal,
-  Cs as setContentSearchMatchIdAttributeRaw,
   Ho as activeConversationSearchMatchSignal,
   Oi as initContentSearchMatchAttributeRuntimeRaw,
   Ss as initContentSearchRuntimeRaw,
-  _s as activeContentSearchMatchClassName,
-  bs as joinThreadFindItemIdRaw,
   cn as initConversationSearchMatcherRaw,
   gs as initConversationSearchSnippetBuilderRaw,
-  hs as findConversationTextMatchesRaw,
   ln as scrollToConversationSearchMatchRaw,
-  ms as buildConversationSearchSnippetRaw,
   ts as initConversationSearchSignalsRaw,
-  vs as clearContentSearchHighlightsRaw,
-  ws as shouldRefreshSearchHighlightMutationsRaw,
-  xs as highlightContentSearchMatchesRaw,
-  ys as getConversationSearchMatchIdRaw,
 } from "../vendor/projects-app-shared-runtime";
 import {
   createLazyNavigationRailComponent as createLazyNavigationRailComponentRaw,
@@ -36,6 +39,7 @@ export type ContentSearchMatch = {
 
 export type ContentSearchHighlightResult = {
   matches: Element[];
+  isCapped: boolean;
 };
 
 export type ConversationSearchLocationLike = {
@@ -91,7 +95,7 @@ export function clearContentSearchHighlights(
   target: Element,
   options: { includeShadowRoots: boolean },
 ): void {
-  clearContentSearchHighlightsRaw(target, options);
+  clearDomContentSearchHighlights(target, options);
 }
 
 export function groupConversationSearchMatchesByContentUnitKey(
@@ -121,22 +125,20 @@ export function highlightContentSearchMatches(options: {
   query: string;
   target: Element;
 }): ContentSearchHighlightResult {
-  return highlightContentSearchMatchesRaw(
-    options,
-  ) as ContentSearchHighlightResult;
+  return searchContentForMatches(options);
 }
 
 export function setContentSearchMatchIdAttribute(options: {
   element: Element;
   matchId: string;
 }): void {
-  setContentSearchMatchIdAttributeRaw(options);
+  setContentSearchMatchId(options);
 }
 
 export function shouldRefreshSearchHighlightMutations(
   mutationRecords: readonly MutationRecord[],
 ): boolean {
-  return shouldRefreshSearchHighlightMutationsRaw(mutationRecords);
+  return shouldRefreshDomSearchHighlightMutations(mutationRecords);
 }
 
 export function createLazyNavigationRailComponent<TProps>(
@@ -150,11 +152,7 @@ export function findLocalConversationTextMatches(
   query: string,
   maxMatches: number,
 ): ConversationTextMatchResult {
-  return findConversationTextMatchesRaw(
-    text,
-    query,
-    maxMatches,
-  ) as ConversationTextMatchResult;
+  return findCaseInsensitiveMatchOffsets(text, query, maxMatches);
 }
 
 export function buildLocalConversationSearchSnippet(
@@ -162,13 +160,13 @@ export function buildLocalConversationSearchSnippet(
   start: number,
   end: number,
 ): unknown {
-  return buildConversationSearchSnippetRaw(text, start, end);
+  return sliceMatchWithContext(text, start, end);
 }
 
 export function getLocalConversationSearchMatchId(
   location: ConversationSearchLocationLike,
 ): string {
-  return getConversationSearchMatchIdRaw(location);
+  return `conversation:${location.turnKey}:${location.unitId}:${location.start}`;
 }
 
 export function scrollToLocalConversationSearchMatch(options: {
@@ -184,5 +182,5 @@ export function joinThreadFindItemId(
   turnSearchKey: string,
   itemKey: string,
 ): string {
-  return joinThreadFindItemIdRaw(turnSearchKey, itemKey);
+  return joinContentSearchKey(turnSearchKey, itemKey);
 }
