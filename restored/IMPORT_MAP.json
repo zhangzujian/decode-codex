@@ -41808,10 +41808,10 @@
         "ajsDestinations": "ajsDestinations"
       },
       "status": "done",
-      "vendor": "@segment/analytics.js-integration",
-      "note": "Segment analytics.js integration chunk mapped to the npm leaf @segment/analytics.js-integration.",
+      "vendor": "@segment/analytics-next/dist/cjs/plugins/ajs-destination",
+      "note": "Segment AJS legacy destination chunk maps to @segment/analytics-next's internal ajs-destination plugin; this is not @segment/analytics.js-integration.",
       "stage3Accepted": true,
-      "lastUpdated": "2026-06-30T00:00:00.000-05:00"
+      "lastUpdated": "2026-07-03T00:00:00.000-05:00"
     },
     "raycast-light-qgM2ighB": {
       "restored": "vendor/shiki-themes.ts",

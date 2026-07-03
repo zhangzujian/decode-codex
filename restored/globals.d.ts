@@ -9,3 +9,7 @@ declare module "lodash/_*" {
   const lodashInternalModule: any;
   export default lodashInternalModule;
 }
+
+declare module "@segment/analytics-next/dist/cjs/plugins/ajs-destination" {
+  export * from "@segment/analytics-next/dist/types/plugins/ajs-destination";
+}
