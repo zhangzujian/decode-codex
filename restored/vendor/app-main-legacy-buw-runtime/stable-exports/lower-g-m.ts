@@ -13,6 +13,7 @@ export { initImagesIconChunk as legacyAppMainBuwLowerILowerTExport } from "../..
 export { initWhitespaceEyeIconChunk as legacyAppMainBuwLowerKLowerLExport } from "../../../icons/whitespace-eye-icon";
 
 export { getConversationalOnboardingTaskPluginName as legacyAppMainBuwLowerIExport } from "../../../onboarding/conversational-onboarding-task-registry";
+export { initConversationalOnboardingTaskRegistryChunk as legacyAppMainBuwLowerLExport } from "../../../onboarding/conversational-onboarding-task-registry";
 export { initConversationalOnboardingLocalPluginPreinstallChunk as legacyAppMainBuwLowerGExport } from "../../../onboarding/conversational-onboarding-local-plugin-preinstall";
 export { initStyleSingletonRuntime as initArrayEqualityRuntimeChunk } from "../../react-style-singleton";
 export { timeWednesday as legacyAppMainBuwLowerGUpperSExport } from "d3-time";
@@ -31,6 +32,7 @@ export { openAutomationSuggestionTab as legacyAppMainBuwLowerLLowerRExport } fro
 export { initAutomationEditorControlsChunk as legacyAppMainBuwLowerKLowerRExport } from "../../../automations/automation-side-panel/body";
 export { initCancelGitActionButtonChunk as legacyAppMainBuwLowerLLowerUExport } from "../../../conversations/cancel-git-action-button";
 export { initConversationalOnboardingWorkflowStateChunk as legacyAppMainBuwLowerJExport } from "../../../onboarding/conversational-onboarding-workflow-state";
+export { conversationalOnboardingWorkflowSignal as legacyAppMainBuwLowerKExport } from "../../../onboarding/conversational-onboarding-workflow-state";
 export { CommentPreview as legacyAppMainBuwLowerJLowerTExport } from "../../../image-side-panel/paged-annotation-comment-preview";
 export { getThreadReferenceToastMessage as legacyAppMainBuwLowerLLowerNExport } from "../../../composer/submit-toast-messages";
 
@@ -84,6 +86,8 @@ export { findEffectiveDomainAtom as legacyAppMainBuwLowerKLowerGExport } from ".
 export { quantileSorted as legacyAppMainBuwLowerJUpperSExport } from "d3-array";
 export { range as legacyAppMainBuwLowerKUpperSExport } from "d3-array";
 export { stackOffsetExpand as legacyAppMainBuwLowerJLowerXExport } from "d3-shape";
+export { initD3ShapeRuntimeChunk as legacyAppMainBuwLowerKLowerXExport } from "../../d3-shape-stack";
+export { summarizeTurnDiffStats as legacyAppMainBuwLowerKLowerNExport } from "../../../conversations/local-conversation-thread-parts/turn-diff-summaries";
 
 export {
   syncReviewPanelForRestoredSource,
@@ -203,11 +207,7 @@ export {
 } from "../../../composer/right-panel-composer-overlay-scroll-reserve";
 
 export {
-  k as legacyAppMainBuwLowerKExport,
-  kn as legacyAppMainBuwLowerKLowerNExport,
   ks as legacyAppMainBuwLowerKLowerSExport,
-  kx as legacyAppMainBuwLowerKLowerXExport,
-  l as legacyAppMainBuwLowerLExport,
   la as legacyAppMainBuwLowerLLowerAExport,
   m as legacyAppMainBuwLowerMExport,
   md as legacyAppMainBuwLowerMLowerDExport,

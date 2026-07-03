@@ -25,9 +25,9 @@ export { initCancelGitActionButtonChunk as appMainCurrentCompatSlotLowerLLowerU 
 export { getThreadReferenceToastMessage as appMainCurrentCompatSlotLowerLLowerN } from "../../composer/submit-toast-messages";
 export { setSettingsSelectedHostId as appMainCurrentCompatSlotLowerLLowerP } from "../../settings/settings-host-context";
 export { initTerminalPanelRoutingChunk as appMainCurrentCompatSlotLowerLUnderscore } from "../../terminal/terminal-panel-routing";
+export { initConversationalOnboardingTaskRegistryChunk as appMainCurrentCompatSlotLowerL } from "../../onboarding/conversational-onboarding-task-registry";
 
 export {
-  l as appMainCurrentCompatSlotLowerL,
   la as appMainCurrentCompatSlotLowerLLowerA,
   lb as appMainCurrentCompatSlotLowerLLowerB,
   ly as appMainCurrentCompatSlotLowerLLowerY,

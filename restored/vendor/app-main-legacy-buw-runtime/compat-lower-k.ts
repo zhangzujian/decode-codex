@@ -21,12 +21,12 @@ export { initSettingsToolDefinitionsChunk as appMainCurrentCompatSlotLowerKLower
 export { readThreadTurnsTool as appMainCurrentCompatSlotLowerKLowerH } from "../../threads/thread-dynamic-tools/read-thread-turns-tool";
 export { findEffectiveDomainAtom as appMainCurrentCompatSlotLowerKLowerG } from "../../find/thread-find-atoms";
 export { ANNOTATION_EDITOR_ENTER_CLASS as appMainCurrentCompatSlotLowerKLowerT } from "../../image-side-panel/paged-annotation-overlays";
+export { initD3ShapeRuntimeChunk as appMainCurrentCompatSlotLowerKLowerX } from "../d3-shape-stack";
+export { conversationalOnboardingWorkflowSignal as appMainCurrentCompatSlotLowerK } from "../../onboarding/conversational-onboarding-workflow-state";
+export { summarizeTurnDiffStats as appMainCurrentCompatSlotLowerKLowerN } from "../../conversations/local-conversation-thread-parts/turn-diff-summaries";
 
 export {
-  k as appMainCurrentCompatSlotLowerK,
   kf as appMainCurrentCompatSlotLowerKLowerF,
-  kn as appMainCurrentCompatSlotLowerKLowerN,
   ks as appMainCurrentCompatSlotLowerKLowerS,
-  kx as appMainCurrentCompatSlotLowerKLowerX,
   ky as appMainCurrentCompatSlotLowerKLowerY,
 } from "../app-main-legacy-buw-compat-bundle";
