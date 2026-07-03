@@ -11,7 +11,11 @@ export { transcribeAudio as legacyAppMainBuwLowerUUpperCExport } from "../../../
 export { initDictationStreamingUploadHeaderChunk as legacyAppMainBuwLowerVUpperCExport } from "../../../utils/transcribe-audio/types";
 export { initUseDictationUiRuntimeChunk as legacyAppMainBuwLowerWUpperCExport } from "../../../features/use-dictation";
 
-export { conversationalOnboardingTaskScope as legacyAppMainBuwLowerVExport } from "../../../onboarding/conversational-onboarding-task-scope";
+export {
+  conversationalOnboardingTaskIntroCompleteSignal as legacyAppMainBuwLowerYExport,
+  conversationalOnboardingTaskRequestVisibleSignal as legacyAppMainBuwLowerXExport,
+  conversationalOnboardingTaskScope as legacyAppMainBuwLowerVExport,
+} from "../../../onboarding/conversational-onboarding-task-scope";
 export { isConversationalOnboardingMessagingTask as legacyAppMainBuwLowerUExport } from "../../../onboarding/conversational-onboarding-task-registry";
 export { ConversationalOnboardingTaskIcon as legacyAppMainBuwLowerTExport } from "../../../onboarding/conversational-onboarding-task-icon";
 export { canAgentModeUseOverrides as legacyAppMainBuwLowerULowerBExport } from "../../../utils/use-permissions-mode/mode-selection";
@@ -148,20 +152,28 @@ export {
   queueBrowserSidebarTab as legacyAppMainBuwLowerULowerYExport,
 } from "../../../browser/browser-sidebar-open-source";
 export { selectMcpAppFrameContent as legacyAppMainBuwLowerTLowerFExport } from "../../../plugins/mcp-app-frame-state";
+export { formatFallbackHookTitle as legacyAppMainBuwLowerTLowerAExport } from "../../../settings/hooks-settings-copy";
+export { readServiceTierAuthMethod as legacyAppMainBuwLowerTLowerGExport } from "../../../utils/read-service-tier-for-request";
+export { initDiffCommentSourcesChunk as legacyAppMainBuwLowerTLowerHExport } from "../../../github/diff-comments/use-diff-comment-sources";
+export { hasDefaultCommandKeybinding as legacyAppMainBuwLowerTLowerMExport } from "../../../utils/command-keybindings";
+export { FeedbackFormDialog as legacyAppMainBuwLowerTLowerRExport } from "../../../ui/feedback-form-dialog";
+export { initPlanSummaryCardChunk as legacyAppMainBuwLowerTLowerTExport } from "../../../conversations/local-conversation-thread-parts/plan-summary-card";
+export { setEnabledReasoningEffort as legacyAppMainBuwLowerTLowerXExport } from "../../../composer/enabled-reasoning-efforts";
 export { useWindowControlsSafeArea as legacyAppMainBuwLowerVLowerDExport } from "../../../runtime/use-window-controls-safe-area";
 export { initReviewDiffFindHighlightChunk as legacyAppMainBuwLowerZLowerFExport } from "../../../review/diff-find-highlight";
+export {
+  reviewDiffSelectionAtom as legacyAppMainBuwLowerWLowerVExport,
+  setReviewBaseBranchOverride as legacyAppMainBuwLowerVLowerVExport,
+} from "../../../review/review-diff-model";
+export {
+  isReviewBranchModeAtom as legacyAppMainBuwLowerYLowerVExport,
+  isReviewIndexModeAtom as legacyAppMainBuwLowerXLowerVExport,
+} from "../../../review/review-diff-mode-atoms";
 
 export {
-  ta as legacyAppMainBuwLowerTLowerAExport,
-  tg as legacyAppMainBuwLowerTLowerGExport,
-  th as legacyAppMainBuwLowerTLowerHExport,
-  tm as legacyAppMainBuwLowerTLowerMExport,
   tn as legacyAppMainBuwLowerTLowerNExport,
   to as legacyAppMainBuwLowerTLowerOExport,
   tp as legacyAppMainBuwLowerTLowerPExport,
-  tr as legacyAppMainBuwLowerTLowerRExport,
-  tt as legacyAppMainBuwLowerTLowerTExport,
-  tx as legacyAppMainBuwLowerTLowerXExport,
   u_ as legacyAppMainBuwLowerUUnderscoreExport,
   ua as legacyAppMainBuwLowerULowerAExport,
   un as legacyAppMainBuwLowerULowerNExport,
@@ -171,7 +183,6 @@ export {
   vp as legacyAppMainBuwLowerVLowerPExport,
   vt as legacyAppMainBuwLowerVLowerTExport,
   vu as legacyAppMainBuwLowerVLowerUExport,
-  vv as legacyAppMainBuwLowerVLowerVExport,
   w as legacyAppMainBuwLowerWExport,
   wa as legacyAppMainBuwLowerWLowerAExport,
   wb as legacyAppMainBuwLowerWLowerBExport,
@@ -182,8 +193,6 @@ export {
   wo as legacyAppMainBuwLowerWLowerOExport,
   wt as legacyAppMainBuwLowerWLowerTExport,
   wu as legacyAppMainBuwLowerWLowerUExport,
-  wv as legacyAppMainBuwLowerWLowerVExport,
-  x as legacyAppMainBuwLowerXExport,
   xb as legacyAppMainBuwLowerXLowerBExport,
   xd as legacyAppMainBuwLowerXLowerDExport,
   xg as legacyAppMainBuwLowerXLowerGExport,
@@ -191,15 +200,12 @@ export {
   xp as legacyAppMainBuwLowerXLowerPExport,
   xt as legacyAppMainBuwLowerXLowerTExport,
   xu as legacyAppMainBuwLowerXLowerUExport,
-  xv as legacyAppMainBuwLowerXLowerVExport,
-  y as legacyAppMainBuwLowerYExport,
   yb as legacyAppMainBuwLowerYLowerBExport,
   yg as legacyAppMainBuwLowerYLowerGExport,
   yh as legacyAppMainBuwLowerYLowerHExport,
   ym as legacyAppMainBuwLowerYLowerMExport,
   yp as legacyAppMainBuwLowerYLowerPExport,
   yu as legacyAppMainBuwLowerYLowerUExport,
-  yv as legacyAppMainBuwLowerYLowerVExport,
   z as legacyAppMainBuwLowerZExport,
   za as legacyAppMainBuwLowerZLowerAExport,
   zb as legacyAppMainBuwLowerZLowerBExport,
