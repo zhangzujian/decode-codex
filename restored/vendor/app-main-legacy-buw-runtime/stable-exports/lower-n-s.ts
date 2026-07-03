@@ -80,6 +80,7 @@ export {
   initPrimaryRuntimeInstallStateChunk as legacyAppMainBuwLowerPLowerSExport,
   initPrimaryRuntimeInstallStateChunk as legacyAppMainBuwLowerSLowerSExport,
 } from "../../../runtime/primary-runtime-install-state";
+export { DEVICE_TOOLBAR_PRESETS as legacyAppMainBuwLowerPLowerYExport } from "../../../browser/sidebar-manager/device-toolbar";
 export { primaryRuntimeInstallProgress as legacyAppMainBuwLowerRLowerSExport } from "../../../runtime/primary-runtime-install-status-message";
 export { initOpenConfigInEditorChunk as legacyAppMainBuwLowerSLowerXExport } from "../../../composer/open-config-in-editor";
 export {
@@ -133,7 +134,6 @@ export {
   pt as legacyAppMainBuwLowerPLowerTExport,
   pu as legacyAppMainBuwLowerPLowerUExport,
   px as legacyAppMainBuwLowerPLowerXExport,
-  py as legacyAppMainBuwLowerPLowerYExport,
   q as legacyAppMainBuwLowerQExport,
   qS as legacyAppMainBuwLowerQUpperSExport,
   q_ as legacyAppMainBuwLowerQUnderscoreExport,

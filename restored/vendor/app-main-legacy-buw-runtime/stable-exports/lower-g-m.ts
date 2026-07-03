@@ -124,6 +124,7 @@ export {
   rightPanelExpandedSignal as legacyAppMainBuwLowerKLowerYExport,
   sidebarOpenSignal as legacyAppMainBuwLowerJLowerYExport,
 } from "../../../app-shell/app-shell-state";
+export { initBrowserSidebarDeviceToolbarChunk as legacyAppMainBuwLowerMLowerYExport } from "../../../browser/sidebar-manager/device-toolbar";
 
 export {
   g as legacyAppMainBuwLowerGExport,
@@ -200,5 +201,4 @@ export {
   mn as legacyAppMainBuwLowerMLowerNExport,
   mt as legacyAppMainBuwLowerMLowerTExport,
   mu as legacyAppMainBuwLowerMLowerUExport,
-  my as legacyAppMainBuwLowerMLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";

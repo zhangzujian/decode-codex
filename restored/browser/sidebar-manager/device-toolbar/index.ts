@@ -88,6 +88,7 @@ export const DEFAULT_DEVICE_TOOLBAR_STATE: BrowserSidebarDeviceToolbarState = {
   width: RESPONSIVE_DEVICE_PRESET.width,
   height: RESPONSIVE_DEVICE_PRESET.height,
 };
+export function initBrowserSidebarDeviceToolbarChunk(): void {}
 export function computeDeviceToolbarLayout(
   hostBounds: BrowserSidebarBounds | null,
   toolbarState: BrowserSidebarDeviceToolbarState,
