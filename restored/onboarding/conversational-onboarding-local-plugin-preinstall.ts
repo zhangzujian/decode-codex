@@ -148,3 +148,8 @@ async function installMissingConversationalOnboardingPlugins(
 function buildInstallKey(hostId: string, plugin: PluginDisplayItem): string {
   return `${hostId}:${plugin.marketplaceName}:${plugin.plugin.name}`;
 }
+
+export function initConversationalOnboardingLocalPluginPreinstallChunk(): void {
+  void pendingConversationalOnboardingPluginNamesSignal;
+  void preinstallConversationalOnboardingLocalPlugins;
+}

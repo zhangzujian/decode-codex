@@ -13,11 +13,13 @@ export { initImagesIconChunk as legacyAppMainBuwLowerILowerTExport } from "../..
 export { initWhitespaceEyeIconChunk as legacyAppMainBuwLowerKLowerLExport } from "../../../icons/whitespace-eye-icon";
 
 export { getConversationalOnboardingTaskPluginName as legacyAppMainBuwLowerIExport } from "../../../onboarding/conversational-onboarding-task-registry";
+export { initConversationalOnboardingLocalPluginPreinstallChunk as legacyAppMainBuwLowerGExport } from "../../../onboarding/conversational-onboarding-local-plugin-preinstall";
 export { initStyleSingletonRuntime as initArrayEqualityRuntimeChunk } from "../../react-style-singleton";
 export { timeWednesday as legacyAppMainBuwLowerGUpperSExport } from "d3-time";
 export { timeTuesday as legacyAppMainBuwLowerHUpperSExport } from "d3-time";
 export { timeMonth as legacyAppMainBuwLowerLUpperSExport } from "d3-time";
 export { timeThursday as legacyAppMainBuwLowerMUpperSExport } from "d3-time";
+export { toggleTerminalPanel as legacyAppMainBuwLowerGUnderscoreExport } from "../../../terminal/terminal-panel-tabs";
 
 export { applyHeartbeatTargetThread as legacyAppMainBuwLowerGLowerIExport } from "../../../automations/shared";
 export { setAutomationDraftDestination as legacyAppMainBuwLowerHLowerIExport } from "../../../automations/shared";
@@ -144,13 +146,11 @@ export {
 export { fullScreenMcpAppIdsAtom as legacyAppMainBuwLowerILowerFExport } from "../../../plugins/mcp-app-frame-state";
 export { initRemoteConnectionStateByHostIdChunk as legacyAppMainBuwLowerGLowerPExport } from "../../../remote/use-connected-remote-connections";
 export { setSettingsSelectedHostId as legacyAppMainBuwLowerLLowerPExport } from "../../../settings/settings-host-context";
+export { initWorktreeStatusRuntimeChunk as legacyAppMainBuwLowerGLowerNExport } from "../../../conversations/worktree-status-runtime";
+export { initLocalConversationTurnRowChunk as legacyAppMainBuwLowerGLowerTExport } from "../../../conversations/local-conversation-thread-parts/local-conversation-turn-row";
+export { readElementBounds as legacyAppMainBuwLowerGLowerXExport } from "../../../utils/dom-rect";
 
 export {
-  g as legacyAppMainBuwLowerGExport,
-  g_ as legacyAppMainBuwLowerGUnderscoreExport,
-  gn as legacyAppMainBuwLowerGLowerNExport,
-  gt as legacyAppMainBuwLowerGLowerTExport,
-  gx as legacyAppMainBuwLowerGLowerXExport,
   h as legacyAppMainBuwLowerHExport,
   h_ as legacyAppMainBuwLowerHUnderscoreExport,
   ha as legacyAppMainBuwLowerHLowerAExport,
