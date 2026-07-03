@@ -95,6 +95,12 @@ export { setContentSearchMatchIdAttribute as legacyAppMainBuwLowerOUnderscoreExp
 export { joinThreadFindItemId as legacyAppMainBuwLowerRUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 export { shouldRefreshSearchHighlightMutations as legacyAppMainBuwLowerSUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 export { appShellLayoutMotionContext as legacyAppMainBuwLowerQLowerYExport } from "../../../app-shell/app-shell-state";
+export {
+  getBrowserSidebarInitialUrl as legacyAppMainBuwLowerNLowerYExport,
+  initBrowserSidebarOpenSourceChunk as legacyAppMainBuwLowerOLowerYExport,
+  queueAdoptedBrowserTabId as legacyAppMainBuwLowerSLowerYExport,
+} from "../../../browser/browser-sidebar-open-source";
+export { getBrowserSidebarTabRegistryGeneration as legacyAppMainBuwLowerRLowerYExport } from "../../../browser/browser-sidebar-open-source/tab-registry-mutations";
 
 export {
   nS as legacyAppMainBuwLowerNUpperSExport,
@@ -110,7 +116,6 @@ export {
   nt as legacyAppMainBuwLowerNLowerTExport,
   nv as legacyAppMainBuwLowerNLowerVExport,
   nx as legacyAppMainBuwLowerNLowerXExport,
-  ny as legacyAppMainBuwLowerNLowerYExport,
   oS as legacyAppMainBuwLowerOUpperSExport,
   od as legacyAppMainBuwLowerOLowerDExport,
   oh as legacyAppMainBuwLowerOLowerHExport,
@@ -120,7 +125,6 @@ export {
   ot as legacyAppMainBuwLowerOLowerTExport,
   ou as legacyAppMainBuwLowerOLowerUExport,
   ox as legacyAppMainBuwLowerOLowerXExport,
-  oy as legacyAppMainBuwLowerOLowerYExport,
   p as legacyAppMainBuwLowerPExport,
   pS as legacyAppMainBuwLowerPUpperSExport,
   p_ as legacyAppMainBuwLowerPUnderscoreExport,
@@ -162,7 +166,6 @@ export {
   rp as legacyAppMainBuwLowerRLowerPExport,
   rr as legacyAppMainBuwLowerRLowerRExport,
   rx as legacyAppMainBuwLowerRLowerXExport,
-  ry as legacyAppMainBuwLowerRLowerYExport,
   sC as legacyAppMainBuwLowerSUpperCExport,
   sS as legacyAppMainBuwLowerSUpperSExport,
   sb as legacyAppMainBuwLowerSLowerBExport,
@@ -173,5 +176,4 @@ export {
   sp as legacyAppMainBuwLowerSLowerPExport,
   st as legacyAppMainBuwLowerSLowerTExport,
   su as legacyAppMainBuwLowerSLowerUExport,
-  sy as legacyAppMainBuwLowerSLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";

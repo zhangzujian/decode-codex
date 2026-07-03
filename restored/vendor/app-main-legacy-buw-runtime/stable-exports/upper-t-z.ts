@@ -38,6 +38,7 @@ export {
   initAppShellStateRuntimeChunk as legacyAppMainBuwUpperULowerYExport,
   reviewFileTreeOpenSignal as legacyAppMainBuwUpperVLowerYExport,
 } from "../../../app-shell/app-shell-state";
+export { unregisterBrowserSidebarTab as legacyAppMainBuwUpperZLowerVExport } from "../../../browser/browser-sidebar-open-source/tab-registry-mutations";
 
 export {
   registerForkedConversation,
@@ -194,6 +195,5 @@ export {
   Zn as legacyAppMainBuwUpperZLowerNExport,
   Zp as legacyAppMainBuwUpperZLowerPExport,
   Zt as legacyAppMainBuwUpperZLowerTExport,
-  Zv as legacyAppMainBuwUpperZLowerVExport,
   Zx as legacyAppMainBuwUpperZLowerXExport,
 } from "../../app-main-legacy-buw-compat-bundle";

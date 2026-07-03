@@ -95,6 +95,7 @@ export { selectConversationalOnboardingRole as legacyAppMainBuwUpperPExport } fr
 export { rightPanelAnimationSignal as legacyAppMainBuwUpperOLowerYExport } from "../../../app-shell/app-shell-state";
 export { setRightPanelOpen as legacyAppMainBuwUpperRLowerYExport } from "../../../app-shell/app-shell-state";
 export { useAmbientSuggestionApps as legacyAppMainBuwUpperSLowerYExport } from "../../../connectors/ambient-suggestion-apps";
+export { consumeAdoptedBrowserTabIds as legacyAppMainBuwUpperQLowerVExport } from "../../../browser/browser-sidebar-open-source";
 
 export {
   NS as legacyAppMainBuwUpperNUpperSExport,
@@ -138,7 +139,6 @@ export {
   Qn as legacyAppMainBuwUpperQLowerNExport,
   Qt as legacyAppMainBuwUpperQLowerTExport,
   Qu as legacyAppMainBuwUpperQLowerUExport,
-  Qv as legacyAppMainBuwUpperQLowerVExport,
   Qx as legacyAppMainBuwUpperQLowerXExport,
   R as legacyAppMainBuwUpperRExport,
   RC as legacyAppMainBuwUpperRUpperCExport,

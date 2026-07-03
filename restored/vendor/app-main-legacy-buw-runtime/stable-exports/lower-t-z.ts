@@ -114,6 +114,10 @@ export {
   hasUnknownAmbientSuggestionAppIcon as legacyAppMainBuwLowerXLowerYExport,
 } from "../../../connectors/ambient-suggestion-apps";
 export { useServiceTierSettings as legacyAppMainBuwLowerWLowerYExport } from "../../../composer/use-service-tier-settings";
+export {
+  getAdoptedWebContentsId as legacyAppMainBuwLowerTLowerYExport,
+  queueBrowserSidebarTab as legacyAppMainBuwLowerULowerYExport,
+} from "../../../browser/browser-sidebar-open-source";
 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
@@ -128,14 +132,12 @@ export {
   tr as legacyAppMainBuwLowerTLowerRExport,
   tt as legacyAppMainBuwLowerTLowerTExport,
   tx as legacyAppMainBuwLowerTLowerXExport,
-  ty as legacyAppMainBuwLowerTLowerYExport,
   uS as legacyAppMainBuwLowerUUpperSExport,
   u_ as legacyAppMainBuwLowerUUnderscoreExport,
   ua as legacyAppMainBuwLowerULowerAExport,
   un as legacyAppMainBuwLowerULowerNExport,
   up as legacyAppMainBuwLowerULowerPExport,
   uv as legacyAppMainBuwLowerULowerVExport,
-  uy as legacyAppMainBuwLowerULowerYExport,
   vS as legacyAppMainBuwLowerVUpperSExport,
   vd as legacyAppMainBuwLowerVLowerDExport,
   vf as legacyAppMainBuwLowerVLowerFExport,

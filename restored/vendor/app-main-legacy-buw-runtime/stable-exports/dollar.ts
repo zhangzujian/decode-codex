@@ -17,6 +17,7 @@ export { readServiceTierForRequest as legacyAppMainBuwDollarLowerHExport } from 
 
 export { DEFAULT_AUTOMATION_DRAFT as legacyAppMainBuwDollarLowerRExport } from "../../../automations/shared";
 export { initConversationSearchSnippetBuilderRuntime as legacyAppMainBuwDollarLowerGExport } from "../../../runtime/conversation-search-runtime";
+export { consumeQueuedBrowserTabIds as legacyAppMainBuwDollarLowerVExport } from "../../../browser/browser-sidebar-open-source";
 
 export {
   $ as legacyAppMainBuwDollarExport,
@@ -28,6 +29,5 @@ export {
   $s as legacyAppMainBuwDollarLowerSExport,
   $t as legacyAppMainBuwDollarLowerTExport,
   $u as legacyAppMainBuwDollarLowerUExport,
-  $v as legacyAppMainBuwDollarLowerVExport,
   $x as legacyAppMainBuwDollarLowerXExport,
 } from "../../app-main-legacy-buw-compat-bundle";

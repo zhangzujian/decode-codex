@@ -24,6 +24,8 @@ import {
   upsertBrowserSidebarTabSource,
 } from "./tabs";
 
+export function initBrowserSidebarOpenSourceChunk(): void {}
+
 export {
   rememberBrowserSidebarOpenSource,
   consumeAdoptedBrowserTabIds,

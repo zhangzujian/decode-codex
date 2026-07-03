@@ -115,6 +115,15 @@ export { initThinkingFallbackStateChunk as legacyAppMainBuwLowerALowerTExport } 
 export { initContentSearchRuntime as legacyAppMainBuwLowerAUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 export { activeContentSearchMatchClassName as legacyAppMainBuwLowerEUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 export { initAmbientSuggestionAppsChunk as legacyAppMainBuwLowerBLowerYExport } from "../../../connectors/ambient-suggestion-apps";
+export {
+  consumeBrowserSidebarTabSources as legacyAppMainBuwLowerELowerYExport,
+  getBrowserSidebarAdoptionLease as legacyAppMainBuwLowerALowerYExport,
+  upsertBrowserSidebarTabSource as legacyAppMainBuwLowerCLowerYExport,
+} from "../../../browser/browser-sidebar-open-source";
+export {
+  registerAndNotifyBrowserSidebarTab as legacyAppMainBuwLowerDLowerYExport,
+  subscribeToBrowserSidebarTabRegistry as legacyAppMainBuwLowerFLowerYExport,
+} from "../../../browser/browser-sidebar-open-source/tab-registry-mutations";
 
 export {
   aS as legacyAppMainBuwLowerAUpperSExport,
@@ -122,7 +131,6 @@ export {
   af as legacyAppMainBuwLowerALowerFExport,
   ag as legacyAppMainBuwLowerALowerGExport,
   au as legacyAppMainBuwLowerALowerUExport,
-  ay as legacyAppMainBuwLowerALowerYExport,
   b as legacyAppMainBuwLowerBExport,
   bS as legacyAppMainBuwLowerBUpperSExport,
   ba as legacyAppMainBuwLowerBLowerAExport,
@@ -145,7 +153,6 @@ export {
   cr as legacyAppMainBuwLowerCLowerRExport,
   ct as legacyAppMainBuwLowerCLowerTExport,
   cv as legacyAppMainBuwLowerCLowerVExport,
-  cy as legacyAppMainBuwLowerCLowerYExport,
   d as legacyAppMainBuwLowerDExport,
   dS as legacyAppMainBuwLowerDUpperSExport,
   d_ as legacyAppMainBuwLowerDUnderscoreExport,
@@ -156,7 +163,6 @@ export {
   dp as legacyAppMainBuwLowerDLowerPExport,
   dt as legacyAppMainBuwLowerDLowerTExport,
   dv as legacyAppMainBuwLowerDLowerVExport,
-  dy as legacyAppMainBuwLowerDLowerYExport,
   eS as legacyAppMainBuwLowerEUpperSExport,
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
@@ -169,7 +175,6 @@ export {
   et as legacyAppMainBuwLowerELowerTExport,
   ev as legacyAppMainBuwLowerELowerVExport,
   ex as legacyAppMainBuwLowerELowerXExport,
-  ey as legacyAppMainBuwLowerELowerYExport,
   f as legacyAppMainBuwLowerFExport,
   fS as legacyAppMainBuwLowerFUpperSExport,
   f_ as legacyAppMainBuwLowerFUnderscoreExport,
@@ -179,5 +184,4 @@ export {
   fp as legacyAppMainBuwLowerFLowerPExport,
   ft as legacyAppMainBuwLowerFLowerTExport,
   fu as legacyAppMainBuwLowerFLowerUExport,
-  fy as legacyAppMainBuwLowerFLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";
