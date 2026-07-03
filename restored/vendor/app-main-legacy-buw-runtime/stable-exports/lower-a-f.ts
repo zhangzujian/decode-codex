@@ -99,6 +99,7 @@ export {
   getMonthlySpendLimitUsage as legacyAppMainBuwLowerFLowerCExport,
   isSpendControlNearWorkspaceCap as legacyAppMainBuwLowerCLowerCExport,
 } from "../../../utils/rate-limit-status/account-status";
+export { DAY_MINUTES as legacyAppMainBuwLowerBLowerCExport } from "../../../utils/rate-limit-status/windows";
 export { getLatestRateLimitResetAt as legacyAppMainBuwLowerDLowerCExport } from "../../../utils/rate-limit-status/windows";
 export { copyAppLink as legacyAppMainBuwLowerFLowerOExport } from "../../../threads/thread-actions/actions";
 export {
@@ -177,7 +178,6 @@ export { initSidebarNavigationControlsChunk as legacyAppMainBuwLowerBLowerDExpor
 
 export {
   ag as legacyAppMainBuwLowerALowerGExport,
-  bc as legacyAppMainBuwLowerBLowerCExport,
   bf as legacyAppMainBuwLowerBLowerFExport,
   bh as legacyAppMainBuwLowerBLowerHExport,
   bm as legacyAppMainBuwLowerBLowerMExport,
