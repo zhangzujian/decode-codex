@@ -26,6 +26,12 @@ export { initComposerUtilsChunk as legacyAppMainBuwLowerXUpperCExport } from "..
 export { goToNextThreadFindMatch as legacyAppMainBuwLowerZLowerGExport } from "../../../find/thread-find-store";
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
+export { getRepositoryPathFromGitDir as legacyAppMainBuwLowerWLowerNExport } from "../../../utils/worktree-paths";
+export {
+  invalidateWorktreeStatusForHost as legacyAppMainBuwLowerYLowerNExport,
+  refreshWorktreeStatus as legacyAppMainBuwLowerVLowerNExport,
+  worktreeStatusKindAtom as legacyAppMainBuwLowerXLowerNExport,
+} from "../../../conversations/worktree-status-runtime";
 
 export { applyAutomationScheduleDraft as legacyAppMainBuwLowerTLowerIExport } from "../../../automations/shared";
 export { isAutomationRecordInSync as legacyAppMainBuwLowerULowerIExport } from "../../../automations/automation-record-sync";
@@ -153,7 +159,6 @@ export {
   vS as legacyAppMainBuwLowerVUpperSExport,
   vg as legacyAppMainBuwLowerVLowerGExport,
   vh as legacyAppMainBuwLowerVLowerHExport,
-  vn as legacyAppMainBuwLowerVLowerNExport,
   vp as legacyAppMainBuwLowerVLowerPExport,
   vt as legacyAppMainBuwLowerVLowerTExport,
   vu as legacyAppMainBuwLowerVLowerUExport,
@@ -166,7 +171,6 @@ export {
   wg as legacyAppMainBuwLowerWLowerGExport,
   wi as legacyAppMainBuwLowerWLowerIExport,
   wl as legacyAppMainBuwLowerWLowerLExport,
-  wn as legacyAppMainBuwLowerWLowerNExport,
   wo as legacyAppMainBuwLowerWLowerOExport,
   wt as legacyAppMainBuwLowerWLowerTExport,
   wu as legacyAppMainBuwLowerWLowerUExport,
@@ -177,7 +181,6 @@ export {
   xd as legacyAppMainBuwLowerXLowerDExport,
   xg as legacyAppMainBuwLowerXLowerGExport,
   xm as legacyAppMainBuwLowerXLowerMExport,
-  xn as legacyAppMainBuwLowerXLowerNExport,
   xp as legacyAppMainBuwLowerXLowerPExport,
   xt as legacyAppMainBuwLowerXLowerTExport,
   xu as legacyAppMainBuwLowerXLowerUExport,
@@ -188,7 +191,6 @@ export {
   yg as legacyAppMainBuwLowerYLowerGExport,
   yh as legacyAppMainBuwLowerYLowerHExport,
   ym as legacyAppMainBuwLowerYLowerMExport,
-  yn as legacyAppMainBuwLowerYLowerNExport,
   yp as legacyAppMainBuwLowerYLowerPExport,
   yu as legacyAppMainBuwLowerYLowerUExport,
   yv as legacyAppMainBuwLowerYLowerVExport,
