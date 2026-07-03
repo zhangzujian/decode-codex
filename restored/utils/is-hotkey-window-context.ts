@@ -1,6 +1,9 @@
 // Restored from ref/webview/assets/is-hotkey-window-context-BeMnvcLR.js
 // is-hotkey-window-context-BeMnvcLR chunk restored from the Codex webview bundle.
 const HOTKEY_WINDOW_PATH = "/hotkey-window";
+
+export function initHotkeyWindowContextChunk(): void {}
+
 export function isHotkeyWindowContext() {
   const { pathname, initialRoute } = getCurrentRouteLocation();
   return isHotkeyWindowRoute(pathname) || isHotkeyWindowRoute(initialRoute);

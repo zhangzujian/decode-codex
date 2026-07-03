@@ -11,10 +11,10 @@ export { resolveWorkspacePathFromCwd } from "../../runtime/app-main-new-thread-r
 export { appendPromptText as appMainCurrentCompatSlotLowerYUpperC } from "../../composer/composer-utils";
 export { isWorkspaceCreditsExhausted as appMainCurrentCompatSlotLowerYLowerC } from "../../utils/rate-limit-status/account-status";
 export { initAppgenAccessStateIconChunk as appMainCurrentCompatSlotLowerYLowerS } from "../../utils/appgen-access-state-messages";
+export { isHotkeyWindowContext as appMainCurrentCompatSlotLowerYLowerA } from "../../utils/is-hotkey-window-context";
 
 export {
   y as appMainCurrentCompatSlotLowerY,
-  ya as appMainCurrentCompatSlotLowerYLowerA,
   yb as appMainCurrentCompatSlotLowerYLowerB,
   yd as appMainCurrentCompatSlotLowerYLowerD,
   yf as appMainCurrentCompatSlotLowerYLowerF,

@@ -71,6 +71,7 @@ export { Alert as ToastContent } from "../../../utils/alert";
 export { hasRateLimitReached as legacyAppMainBuwLowerGLowerCExport } from "../../../utils/rate-limit-status/account-status";
 export { hasBasicRateLimitReached as legacyAppMainBuwLowerHLowerCExport } from "../../../utils/rate-limit-status/account-status";
 export { formatResetTimestamp as legacyAppMainBuwLowerLLowerCExport } from "../../../utils/rate-limit-status/formatting";
+export { ThreadHandoffStepRow as legacyAppMainBuwLowerGLowerAExport } from "../../../ui/thread-handoff-step-row";
 export { StreamingDictationTranscriber as legacyAppMainBuwLowerHUpperCExport } from "../../../utils/transcribe-audio/streaming-transcriber";
 export { initDictationStreamingTranscriberRuntimeChunk as legacyAppMainBuwLowerGUpperCExport } from "../../../utils/transcribe-audio";
 export { initUseDictationRuntimeChunk as legacyAppMainBuwLowerIUpperCExport } from "../../../features/use-dictation";
@@ -96,7 +97,6 @@ export {
   g as legacyAppMainBuwLowerGExport,
   gS as legacyAppMainBuwLowerGUpperSExport,
   g_ as legacyAppMainBuwLowerGUnderscoreExport,
-  ga as legacyAppMainBuwLowerGLowerAExport,
   gd as legacyAppMainBuwLowerGLowerDExport,
   gf as legacyAppMainBuwLowerGLowerFExport,
   gi as legacyAppMainBuwLowerGLowerIExport,

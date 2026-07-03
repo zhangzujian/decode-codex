@@ -13,11 +13,11 @@ export { initFolderOpenIconChunk as appMainCurrentCompatSlotLowerGLowerH } from 
 export { initDictationStreamingTranscriberRuntimeChunk as appMainCurrentCompatSlotLowerGUpperC } from "../../utils/transcribe-audio";
 export { hasRateLimitReached as appMainCurrentCompatSlotLowerGLowerC } from "../../utils/rate-limit-status/account-status";
 export { getAppgenAccessShortStateMessage as appMainCurrentCompatSlotLowerGLowerS } from "../../utils/appgen-access-state-messages";
+export { ThreadHandoffStepRow as appMainCurrentCompatSlotLowerGLowerA } from "../../ui/thread-handoff-step-row";
 
 export {
   g as appMainCurrentCompatSlotLowerG,
   g_ as appMainCurrentCompatSlotLowerGUnderscore,
-  ga as appMainCurrentCompatSlotLowerGLowerA,
   gd as appMainCurrentCompatSlotLowerGLowerD,
   gf as appMainCurrentCompatSlotLowerGLowerF,
   gg as appMainCurrentCompatSlotLowerGLowerG,

@@ -63,6 +63,11 @@ export { initConversationDetailModeRuntime as SidebarRowRemoteEnvironment } from
 export { CHATGPT_PRICING_HASH_URL as legacyAppMainBuwLowerZLowerCExport } from "../../../utils/links-bd-mmkun-d";
 export { formatRemainingPercent as legacyAppMainBuwLowerWLowerCExport } from "../../../utils/rate-limit-status/formatting";
 export { navigateToCodexPage as legacyAppMainBuwLowerZLowerOExport } from "../../../runtime/navigate-to-codex-page-tool";
+export { buildCodexAppToolNamespace as legacyAppMainBuwLowerXLowerAExport } from "../../../conversations/codex-app-tool-namespace";
+export {
+  initHotkeyWindowContextChunk as legacyAppMainBuwLowerVLowerAExport,
+  isHotkeyWindowContext as legacyAppMainBuwLowerYLowerAExport,
+} from "../../../utils/is-hotkey-window-context";
 export {
   getSpendControlWarningThreshold as legacyAppMainBuwLowerULowerCExport,
   isWorkspaceCreditsExhausted as legacyAppMainBuwLowerYLowerCExport,
@@ -110,7 +115,6 @@ export {
   uv as legacyAppMainBuwLowerULowerVExport,
   uy as legacyAppMainBuwLowerULowerYExport,
   vS as legacyAppMainBuwLowerVUpperSExport,
-  va as legacyAppMainBuwLowerVLowerAExport,
   vd as legacyAppMainBuwLowerVLowerDExport,
   vf as legacyAppMainBuwLowerVLowerFExport,
   vg as legacyAppMainBuwLowerVLowerGExport,
@@ -142,7 +146,6 @@ export {
   wy as legacyAppMainBuwLowerWLowerYExport,
   x as legacyAppMainBuwLowerXExport,
   xS as legacyAppMainBuwLowerXUpperSExport,
-  xa as legacyAppMainBuwLowerXLowerAExport,
   xb as legacyAppMainBuwLowerXLowerBExport,
   xc as legacyAppMainBuwLowerXLowerCExport,
   xd as legacyAppMainBuwLowerXLowerDExport,
@@ -159,7 +162,6 @@ export {
   xy as legacyAppMainBuwLowerXLowerYExport,
   y as legacyAppMainBuwLowerYExport,
   yS as legacyAppMainBuwLowerYUpperSExport,
-  ya as legacyAppMainBuwLowerYLowerAExport,
   yb as legacyAppMainBuwLowerYLowerBExport,
   yd as legacyAppMainBuwLowerYLowerDExport,
   yf as legacyAppMainBuwLowerYLowerFExport,

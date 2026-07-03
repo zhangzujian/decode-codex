@@ -11,10 +11,10 @@ export { ensureTerminalFontLoaded } from "../../runtime/window-chrome-runtime";
 export { useSensor as ThreadRowCloudMeta } from "../dnd-kit-core";
 export { openThreadTimelineSidePanel } from "../../app-shell/legacy-thread-timeline-side-panel";
 export { initComposerUtilsChunk as appMainCurrentCompatSlotLowerXUpperC } from "../../composer/composer-utils";
+export { buildCodexAppToolNamespace as appMainCurrentCompatSlotLowerXLowerA } from "../../conversations/codex-app-tool-namespace";
 
 export {
   x as appMainCurrentCompatSlotLowerX,
-  xa as appMainCurrentCompatSlotLowerXLowerA,
   xb as appMainCurrentCompatSlotLowerXLowerB,
   xc as appMainCurrentCompatSlotLowerXLowerC,
   xd as appMainCurrentCompatSlotLowerXLowerD,

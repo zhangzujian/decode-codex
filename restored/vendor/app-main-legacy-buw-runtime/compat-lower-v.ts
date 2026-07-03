@@ -13,10 +13,10 @@ export { initConversationDetailModeRuntime as SidebarRowRemoteEnvironment } from
 export { initDictationStreamingUploadHeaderChunk as appMainCurrentCompatSlotLowerVUpperC } from "../../utils/transcribe-audio/types";
 export { shouldUseCreditsRateLimitDisplay as appMainCurrentCompatSlotLowerVLowerC } from "../../utils/rate-limit-status/account-status";
 export { AppgenAccessStateIcon as appMainCurrentCompatSlotLowerVLowerS } from "../../utils/appgen-access-state-messages";
+export { initHotkeyWindowContextChunk as appMainCurrentCompatSlotLowerVLowerA } from "../../utils/is-hotkey-window-context";
 
 export {
   v as appMainCurrentCompatSlotLowerV,
-  va as appMainCurrentCompatSlotLowerVLowerA,
   vd as appMainCurrentCompatSlotLowerVLowerD,
   vf as appMainCurrentCompatSlotLowerVLowerF,
   vg as appMainCurrentCompatSlotLowerVLowerG,
