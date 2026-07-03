@@ -52,10 +52,14 @@ Each Stage 1 step has an _input shape_ the previous step produced. Running them 
   If the nearest `package.json` declares a dependency whose package name maps to
   the vendor filename (`react-intl` -> `vendor/react-intl.tsx`,
   `@acme/widget` -> `vendor/acme-widget.ts`), treat that as high-confidence npm
-  identity before restoring the body. Run `vendor-npm-preflight.ts` on the file
-  or `restored/vendor`; a local subset implementation must fail even if the
-  chunk provenance or registry entry is missing. Ship a thin bare re-export /
-  typed alias shim and add the dependency rather than rebuilding the package API.
+  identity before restoring the body. Run
+  `vendor-npm-preflight.ts <target-vendor-file> --decision` before the file
+  exists or before editing it; `npm-shim` means stop and write a thin bare
+  re-export / typed alias shim, while `needs-proof` means document fork/runtime
+  evidence before local code. Run normal `vendor-npm-preflight.ts` on the file
+  or `restored/vendor` before committing; a local subset implementation must
+  fail even if the chunk provenance or registry entry is missing. Add the
+  dependency rather than rebuilding the package API.
 
 - **Tier note**: the default "readable restore" tier runs `polish.ts --fast` — the reading-aid subset only (`strip-react-compiler`, `simplify`, `jsx-runtime`, `inline-defaults`, `normalize-exports`). The import-resolution tail (`react-shim-elim`, `resolve-npm-imports`, `npm-cjs-shim-elim`, `dead-shim-elim`) only makes imports resolve against `node_modules` and runs in **deep mode** (drop `--fast`).
 - **Idempotent**: running `polish.ts` twice on the same input changes nothing on the second pass. Safe to re-run if you tweak one of `--prefer` / `--skip` / `--stop-after`.

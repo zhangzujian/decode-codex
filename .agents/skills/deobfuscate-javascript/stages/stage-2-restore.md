@@ -271,7 +271,12 @@ automatically. For generic chunk stems such as `lib-*` or `src-*`, register the
 exact provenance basename in `quality-gate.ts` as well as the public vendor
 filename, so renaming the restored file cannot bypass the npm-shim rule.
 This is a blocking preflight for every public `restored/vendor/*` edit: do not
-use `--vendored` as a waiver for a stock package body. The quality gate's
+start by writing code. First run
+`bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-vendor-file> --decision`.
+If the decision is `npm-shim`, create a bare npm-backed re-export/alias shim and
+add the dependency. If the decision is `needs-proof`, record the Codex fork or
+app/runtime-wrapper evidence before any local implementation. Do not use
+`--vendored` as a waiver for a stock package body. The quality gate's
 `third-party-npm-shim-not-reexport` check must still fail hand-written
 compatibility implementations, and
 `bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-or-restored/vendor>`

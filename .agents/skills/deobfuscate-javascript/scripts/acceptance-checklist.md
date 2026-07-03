@@ -124,7 +124,10 @@ keyof typeof buttonColorClassNames` (or equivalent).
   The nearest `package.json` declares the package root (`react-intl` for
   `react-intl`, `react-style-singleton` for `react-style-singleton`,
   `use-sync-external-store` for `use-sync-external-store/shim/with-selector`,
-  etc.).
+  etc.). Before a public `restored/vendor/*` body is edited,
+  `vendor-npm-preflight.ts <target> --decision` has been checked: `npm-shim`
+  means no local package body, and `needs-proof` means fork/runtime evidence is
+  recorded.
 - Finalized local sibling imports use semantic public paths. Hashed local
   imports are acceptable only when the file intentionally imports an
   unfinalized original boundary and the provenance/report makes that explicit.
