@@ -18,8 +18,11 @@ export {
 } from "../../../onboarding/conversational-onboarding-task-scope";
 export { isConversationalOnboardingMessagingTask as legacyAppMainBuwLowerUExport } from "../../../onboarding/conversational-onboarding-task-registry";
 export { ConversationalOnboardingTaskIcon as legacyAppMainBuwLowerTExport } from "../../../onboarding/conversational-onboarding-task-icon";
+export { archiveConversationalOnboardingConversationsForHost as legacyAppMainBuwLowerWExport } from "../../../onboarding/conversational-onboarding-controller";
 export { canAgentModeUseOverrides as legacyAppMainBuwLowerULowerBExport } from "../../../utils/use-permissions-mode/mode-selection";
 export { usePreferredNonFullAccessMode as legacyAppMainBuwLowerTLowerBExport } from "../../../utils/use-permissions-mode/preferred-mode";
+export { initUsePermissionsModeChunk as legacyAppMainBuwLowerWLowerBExport } from "../../../utils/use-permissions-mode/use-permissions-mode";
+export { selectAvailablePermissionProfiles as legacyAppMainBuwLowerXLowerBExport } from "../../../utils/use-permissions-mode/permission-profiles";
 
 export { PopoverAttachmentPill as legacyAppMainBuwLowerZLowerIExport } from "../../../composer/user-message-attachment-pills";
 
@@ -27,6 +30,7 @@ export { getCommentText as legacyAppMainBuwLowerZLowerUExport } from "../../../r
 
 export { appendPromptText as legacyAppMainBuwLowerYUpperCExport } from "../../../composer/composer-utils";
 export { initComposerUtilsChunk as legacyAppMainBuwLowerXUpperCExport } from "../../../composer/composer-utils";
+export { initModelSettingsCoreChunk as legacyAppMainBuwLowerZLowerBExport } from "../../../composer/model-settings-core";
 export { goToNextThreadFindMatch as legacyAppMainBuwLowerZLowerGExport } from "../../../find/thread-find-store";
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
@@ -103,6 +107,8 @@ export { UnselectedCircleIcon as legacyAppMainBuwLowerTLowerCExport } from "../.
 export { initEllipsisHorizontalIconChunk as SidebarRowLocalEnvironment } from "../../../icons/ellipsis-horizontal-icon";
 export { openThreadTimelineSidePanel } from "../../../app-shell/legacy-thread-timeline-side-panel";
 export { initConversationDetailModeRuntime as SidebarRowRemoteEnvironment } from "../../../runtime/conversation-detail-runtime";
+export { setConversationDetailMode as legacyAppMainBuwLowerYLowerBExport } from "../../../runtime/conversation-detail-runtime";
+export { sliceTurnItemsAfterIntro as legacyAppMainBuwLowerZExport } from "../../../conversations/partition-turn-items/slice-turn-items-after-intro";
 export { CHATGPT_PRICING_HASH_URL as legacyAppMainBuwLowerZLowerCExport } from "../../../utils/links-bd-mmkun-d";
 export { formatRemainingPercent as legacyAppMainBuwLowerWLowerCExport } from "../../../utils/rate-limit-status/formatting";
 export { navigateToCodexPage as legacyAppMainBuwLowerZLowerOExport } from "../../../runtime/navigate-to-codex-page-tool";
@@ -183,9 +189,7 @@ export {
   vp as legacyAppMainBuwLowerVLowerPExport,
   vt as legacyAppMainBuwLowerVLowerTExport,
   vu as legacyAppMainBuwLowerVLowerUExport,
-  w as legacyAppMainBuwLowerWExport,
   wa as legacyAppMainBuwLowerWLowerAExport,
-  wb as legacyAppMainBuwLowerWLowerBExport,
   wd as legacyAppMainBuwLowerWLowerDExport,
   wg as legacyAppMainBuwLowerWLowerGExport,
   wi as legacyAppMainBuwLowerWLowerIExport,
@@ -193,22 +197,18 @@ export {
   wo as legacyAppMainBuwLowerWLowerOExport,
   wt as legacyAppMainBuwLowerWLowerTExport,
   wu as legacyAppMainBuwLowerWLowerUExport,
-  xb as legacyAppMainBuwLowerXLowerBExport,
   xd as legacyAppMainBuwLowerXLowerDExport,
   xg as legacyAppMainBuwLowerXLowerGExport,
   xm as legacyAppMainBuwLowerXLowerMExport,
   xp as legacyAppMainBuwLowerXLowerPExport,
   xt as legacyAppMainBuwLowerXLowerTExport,
   xu as legacyAppMainBuwLowerXLowerUExport,
-  yb as legacyAppMainBuwLowerYLowerBExport,
   yg as legacyAppMainBuwLowerYLowerGExport,
   yh as legacyAppMainBuwLowerYLowerHExport,
   ym as legacyAppMainBuwLowerYLowerMExport,
   yp as legacyAppMainBuwLowerYLowerPExport,
   yu as legacyAppMainBuwLowerYLowerUExport,
-  z as legacyAppMainBuwLowerZExport,
   za as legacyAppMainBuwLowerZLowerAExport,
-  zb as legacyAppMainBuwLowerZLowerBExport,
   zd as legacyAppMainBuwLowerZLowerDExport,
   zh as legacyAppMainBuwLowerZLowerHExport,
   zl as legacyAppMainBuwLowerZLowerLExport,
