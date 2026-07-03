@@ -486,12 +486,13 @@ function decisionIntentFailures(
 ): string[] {
   if (intent == null) return [];
   if (intent === "local-body") {
-    return decisions
-      .filter((decision) => decision.decision === "npm-shim")
-      .map(
-        (decision) =>
-          `${decision.file}: local vendor body blocked; use npm shim for ${decision.specifiers.join(", ")}`,
-      );
+    return decisions.map((decision) => {
+      if (decision.decision === "npm-shim") {
+        return `${decision.file}: local vendor body blocked; use npm shim for ${decision.specifiers.join(", ")}`;
+      }
+
+      return `${decision.file}: local vendor body blocked until Codex fork or app/runtime wrapper proof is registered`;
+    });
   }
 
   return decisions

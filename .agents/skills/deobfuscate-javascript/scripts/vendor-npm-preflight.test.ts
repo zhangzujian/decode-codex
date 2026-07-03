@@ -185,6 +185,21 @@ describe("vendor-npm-preflight CLI", () => {
     expect(decisions[0]?.reason).toContain("prove Codex fork");
   });
 
+  test("blocks local-body intent for unknown public vendor targets", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+
+    const result = runDecisionCLI(path.join(vendorDir, "host-runtime.ts"), {
+      intent: "local-body",
+    });
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("INTENT FAIL");
+    expect(result.stderr).toContain("local vendor body blocked until");
+    expect(result.stderr).toContain("fork or app/runtime wrapper proof");
+  });
+
   test("blocks npm-shim intent for unknown public vendor targets until registered", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");

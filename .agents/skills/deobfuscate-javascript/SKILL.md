@@ -90,12 +90,20 @@ classifier before writing code:
 bun .agents/skills/deobfuscate-javascript/scripts/vendor-npm-preflight.ts <target-vendor-file> --decision --intent local-body
 ```
 
+This command must exit 0 before any local vendor body edit. Treat both
+`npm-shim` and `needs-proof` as blockers for `--intent local-body`: `npm-shim`
+means use the package, while `needs-proof` means no package identity was
+registered yet and fork/runtime-wrapper evidence must be recorded first. Running
+`--decision` without `--intent` is informational only; it is not permission to
+write code into `restored/vendor/<name>.ts[x]`.
+
 If the command exits non-zero with `INTENT FAIL`, stop restoring the body and
 create a bare npm-backed shim. To intentionally create a new npm shim for a
 package the registry does not know yet, first add the package fingerprint/gate
-entry and its tests, then rerun with `--intent npm-shim`. If it prints
-`needs-proof`, do not treat that as permission to hand-write the module; first
-prove and record **Codex fork** or **app/runtime wrapper** status. Then run
+entry and its tests, then rerun with `--intent npm-shim`. If an informational
+decision run prints `needs-proof`, do not treat that as permission to hand-write
+the module; first prove and record **Codex fork** or **app/runtime wrapper**
+status. Then run
 `bun .agents/skills/deobfuscate-javascript/scripts/vendor-npm-preflight.ts <target-or-restored/vendor>`
 to catch known stock-package compatibility bodies and missing package
 dependencies with only npm-shim issues reported. For declared bare-package
