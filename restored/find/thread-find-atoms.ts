@@ -7,7 +7,7 @@ import {
 } from "../boundaries/app-scope";
 import {
   activeAppShellFocusAreaSignal,
-  rightPanelOpenSignal,
+  rightPanelExpandedSignal,
 } from "../app-shell/app-shell-state";
 import { rightAppShellTabController } from "../app-shell/app-shell-tab-controller";
 
@@ -57,7 +57,7 @@ export const findEffectiveDomainAtom = createComputedSignal<ThreadFindDomain>(
   appScopeRoot,
   ({ get }: SignalReader) =>
     get<string | null>(activeAppShellFocusAreaSignal) === "right-panel" &&
-    get<boolean>(rightPanelOpenSignal) &&
+    get<boolean>(rightPanelExpandedSignal) &&
     get<{ tabId?: string } | null>(rightAppShellTabController.activeTab$)
       ?.tabId === "diff"
       ? "diff"
