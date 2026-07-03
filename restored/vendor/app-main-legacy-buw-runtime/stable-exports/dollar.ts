@@ -14,6 +14,8 @@ export { CODEX_USAGE_URL as legacyAppMainBuwDollarLowerCExport } from "../../../
 export { CollapsedTurnSummaryLabel as legacyAppMainBuwDollarLowerOExport } from "../../../conversations/collapsed-turn-summary-label";
 export { moveThreadToHostWorktree as legacyAppMainBuwDollarLowerAExport } from "../../../conversations/move-thread-to-host-worktree";
 
+export { DEFAULT_AUTOMATION_DRAFT as legacyAppMainBuwDollarLowerRExport } from "../../../automations/shared";
+
 export {
   $ as legacyAppMainBuwDollarExport,
   $_ as legacyAppMainBuwDollarUnderscoreExport,
@@ -23,7 +25,6 @@ export {
   $h as legacyAppMainBuwDollarLowerHExport,
   $i as legacyAppMainBuwDollarLowerIExport,
   $p as legacyAppMainBuwDollarLowerPExport,
-  $r as legacyAppMainBuwDollarLowerRExport,
   $s as legacyAppMainBuwDollarLowerSExport,
   $t as legacyAppMainBuwDollarLowerTExport,
   $u as legacyAppMainBuwDollarLowerUExport,

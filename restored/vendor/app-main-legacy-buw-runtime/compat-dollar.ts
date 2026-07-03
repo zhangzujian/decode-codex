@@ -14,6 +14,8 @@ export { CODEX_USAGE_URL as appMainCurrentCompatSlotDollarLowerC } from "../../u
 export { CollapsedTurnSummaryLabel as appMainCurrentCompatSlotDollarLowerO } from "../../conversations/collapsed-turn-summary-label";
 export { moveThreadToHostWorktree as appMainCurrentCompatSlotDollarLowerA } from "../../conversations/move-thread-to-host-worktree";
 
+export { DEFAULT_AUTOMATION_DRAFT as appMainCurrentCompatSlotDollarLowerR } from "../../automations/shared";
+
 export {
   $ as appMainCurrentCompatSlotDollar,
   $_ as appMainCurrentCompatSlotDollarUnderscore,
@@ -23,7 +25,6 @@ export {
   $h as appMainCurrentCompatSlotDollarLowerH,
   $i as appMainCurrentCompatSlotDollarLowerI,
   $p as appMainCurrentCompatSlotDollarLowerP,
-  $r as appMainCurrentCompatSlotDollarLowerR,
   $s as appMainCurrentCompatSlotDollarLowerS,
   $t as appMainCurrentCompatSlotDollarLowerT,
   $u as appMainCurrentCompatSlotDollarLowerU,

@@ -28,6 +28,9 @@ export { getAutomationDestinationOptions as legacyAppMainBuwLowerPLowerIExport }
 export { resolveReasoningEffortOption as legacyAppMainBuwLowerQLowerRExport } from "../../../composer/reasoning-effort-options";
 export { createAutomationDraftFromSeed as legacyAppMainBuwLowerSLowerIExport } from "../../../automations/shared";
 
+export { automationDirectiveResultAtom as legacyAppMainBuwLowerRLowerIExport } from "../../../automations/shared";
+export { areAutomationRecordsEqual as legacyAppMainBuwLowerNLowerIExport } from "../../../automations/automation-record-sync";
+
 export {
   liveMcpAppFrameSignal,
   composeEventHandlers,
@@ -85,7 +88,6 @@ export {
   nd as legacyAppMainBuwLowerNLowerDExport,
   ng as legacyAppMainBuwLowerNLowerGExport,
   nh as legacyAppMainBuwLowerNLowerHExport,
-  ni as legacyAppMainBuwLowerNLowerIExport,
   nn as legacyAppMainBuwLowerNLowerNExport,
   no as legacyAppMainBuwLowerNLowerOExport,
   np as legacyAppMainBuwLowerNLowerPExport,
@@ -148,7 +150,6 @@ export {
   rf as legacyAppMainBuwLowerRLowerFExport,
   rg as legacyAppMainBuwLowerRLowerGExport,
   rh as legacyAppMainBuwLowerRLowerHExport,
-  ri as legacyAppMainBuwLowerRLowerIExport,
   rm as legacyAppMainBuwLowerRLowerMExport,
   rn as legacyAppMainBuwLowerRLowerNExport,
   ro as legacyAppMainBuwLowerRLowerOExport,

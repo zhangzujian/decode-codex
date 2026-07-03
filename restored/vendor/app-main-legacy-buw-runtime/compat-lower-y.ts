@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase y compatibility aliases for the legacy app-main/onboarding producer.
+export { isAutomationDraftUsingDefaultCwd as appMainCurrentCompatSlotLowerYLowerI } from "../../automations/shared";
+
 export {
   openThreadLastTurnReviewSidePanelTab,
   initResolvedHighlightThemesChunk,
@@ -20,7 +22,6 @@ export {
   yf as appMainCurrentCompatSlotLowerYLowerF,
   yg as appMainCurrentCompatSlotLowerYLowerG,
   yh as appMainCurrentCompatSlotLowerYLowerH,
-  yi as appMainCurrentCompatSlotLowerYLowerI,
   ym as appMainCurrentCompatSlotLowerYLowerM,
   yn as appMainCurrentCompatSlotLowerYLowerN,
   yp as appMainCurrentCompatSlotLowerYLowerP,

@@ -18,6 +18,8 @@ export { applyHeartbeatTargetThread as legacyAppMainBuwLowerGLowerIExport } from
 export { setAutomationDraftDestination as legacyAppMainBuwLowerHLowerIExport } from "../../../automations/shared";
 export { toAutomationUpdatePayload as legacyAppMainBuwLowerLLowerIExport } from "../../../automations/shared";
 
+export { automationDirectiveSeedAtom as legacyAppMainBuwLowerILowerIExport } from "../../../automations/shared";
+
 export {
   DragIcon,
   openThreadBrowserSidePanelTab,
@@ -129,7 +131,6 @@ export {
   if as legacyAppMainBuwLowerILowerFExport,
   ig as legacyAppMainBuwLowerILowerGExport,
   ih as legacyAppMainBuwLowerILowerHExport,
-  ii as legacyAppMainBuwLowerILowerIExport,
   im as legacyAppMainBuwLowerILowerMExport,
   in as legacyAppMainBuwLowerILowerNExport,
   io as legacyAppMainBuwLowerILowerOExport,

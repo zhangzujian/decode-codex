@@ -10,6 +10,8 @@ export { ProgressionDonutIcon as appMainCurrentCompatSlotLowerALowerM } from "..
 export { OpenConfigTomlButton as appMainCurrentCompatSlotLowerALowerX } from "../../composer/open-config-toml-button";
 
 export { getConversationalOnboardingMessagingPluginNames as appMainCurrentCompatSlotLowerA } from "../../onboarding/conversational-onboarding-task-selection";
+export { toAutomationCreatePayload as appMainCurrentCompatSlotLowerALowerI } from "../../automations/shared";
+
 export {
   a_ as appMainCurrentCompatSlotLowerAUnderscore,
   aa as appMainCurrentCompatSlotLowerALowerA,
@@ -19,7 +21,6 @@ export {
   af as appMainCurrentCompatSlotLowerALowerF,
   ag as appMainCurrentCompatSlotLowerALowerG,
   ah as appMainCurrentCompatSlotLowerALowerH,
-  ai as appMainCurrentCompatSlotLowerALowerI,
   an as appMainCurrentCompatSlotLowerALowerN,
   ao as appMainCurrentCompatSlotLowerALowerO,
   ap as appMainCurrentCompatSlotLowerALowerP,

@@ -25,6 +25,8 @@ export { getAutomationDraftDestination as legacyAppMainBuwLowerDLowerIExport } f
 export { applyAutomationDraftModelDefaults as legacyAppMainBuwLowerELowerIExport } from "../../../automations/shared";
 export { validateAutomationDraft as legacyAppMainBuwLowerFLowerIExport } from "../../../automations/shared";
 
+export { toAutomationCreatePayload as legacyAppMainBuwLowerALowerIExport } from "../../../automations/shared";
+
 export {
   SidebarRowMenuSeparator,
   SettingsControlRow,
@@ -98,7 +100,6 @@ export {
   af as legacyAppMainBuwLowerALowerFExport,
   ag as legacyAppMainBuwLowerALowerGExport,
   ah as legacyAppMainBuwLowerALowerHExport,
-  ai as legacyAppMainBuwLowerALowerIExport,
   an as legacyAppMainBuwLowerALowerNExport,
   ao as legacyAppMainBuwLowerALowerOExport,
   ap as legacyAppMainBuwLowerALowerPExport,

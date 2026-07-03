@@ -10,6 +10,9 @@ export { XcodeLicenseWarningIcon as legacyAppMainBuwUpperGLowerOExport } from ".
 export { initCommitIconChunk as legacyAppMainBuwUpperMLowerUExport } from "../../../icons/commit-icon";
 export { initReviewModeIconsRuntime as legacyAppMainBuwUpperKLowerOExport } from "../../../icons/xcode-license-warning-icon";
 
+export { cycleReasoningEffortOption as legacyAppMainBuwUpperGLowerRExport } from "../../../composer/reasoning-effort-options";
+export { stepReasoningEffortOption as legacyAppMainBuwUpperKLowerRExport } from "../../../composer/reasoning-effort-options";
+
 export {
   scrollMatchIntoView as legacyAppMainBuwUpperGLowerUExport,
   waitForDoubleAnimationFrame as legacyAppMainBuwUpperKLowerUExport,
@@ -85,7 +88,6 @@ export {
   Gm as legacyAppMainBuwUpperGLowerMExport,
   Gn as legacyAppMainBuwUpperGLowerNExport,
   Gp as legacyAppMainBuwUpperGLowerPExport,
-  Gr as legacyAppMainBuwUpperGLowerRExport,
   Gt as legacyAppMainBuwUpperGLowerTExport,
   Gx as legacyAppMainBuwUpperGLowerXExport,
   Gy as legacyAppMainBuwUpperGLowerYExport,
@@ -149,7 +151,6 @@ export {
   Km as legacyAppMainBuwUpperKLowerMExport,
   Kn as legacyAppMainBuwUpperKLowerNExport,
   Kp as legacyAppMainBuwUpperKLowerPExport,
-  Kr as legacyAppMainBuwUpperKLowerRExport,
   Kt as legacyAppMainBuwUpperKLowerTExport,
   Kx as legacyAppMainBuwUpperKLowerXExport,
   Ky as legacyAppMainBuwUpperKLowerYExport,

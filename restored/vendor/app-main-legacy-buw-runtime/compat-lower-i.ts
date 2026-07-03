@@ -9,6 +9,8 @@ export { initUseDictationRuntimeChunk as appMainCurrentCompatSlotLowerIUpperC } 
 export { primaryRuntimeInstallStatusMessage as appMainCurrentCompatSlotLowerILowerS } from "../../runtime/primary-runtime-install-status-message";
 
 export { getConversationalOnboardingTaskPluginName as appMainCurrentCompatSlotLowerI } from "../../onboarding/conversational-onboarding-task-registry";
+export { automationDirectiveSeedAtom as appMainCurrentCompatSlotLowerILowerI } from "../../automations/shared";
+
 export {
   i_ as appMainCurrentCompatSlotLowerIUnderscore,
   ia as appMainCurrentCompatSlotLowerILowerA,
@@ -17,7 +19,6 @@ export {
   if as appMainCurrentCompatSlotLowerILowerF,
   ig as appMainCurrentCompatSlotLowerILowerG,
   ih as appMainCurrentCompatSlotLowerILowerH,
-  ii as appMainCurrentCompatSlotLowerILowerI,
   im as appMainCurrentCompatSlotLowerILowerM,
   in as appMainCurrentCompatSlotLowerILowerN,
   io as appMainCurrentCompatSlotLowerILowerO,

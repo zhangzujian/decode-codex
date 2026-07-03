@@ -27,6 +27,9 @@ export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from 
 export { applyAutomationScheduleDraft as legacyAppMainBuwLowerTLowerIExport } from "../../../automations/shared";
 export { isAutomationRecordInSync as legacyAppMainBuwLowerULowerIExport } from "../../../automations/automation-record-sync";
 
+export { getAutomationDraftRrule as legacyAppMainBuwLowerXLowerIExport } from "../../../automations/shared";
+export { isAutomationDraftUsingDefaultCwd as legacyAppMainBuwLowerYLowerIExport } from "../../../automations/shared";
+
 export {
   initComposeEventHandlersRuntime,
   initExternalAgentImportStatusIconsChunk,
@@ -153,7 +156,6 @@ export {
   xf as legacyAppMainBuwLowerXLowerFExport,
   xg as legacyAppMainBuwLowerXLowerGExport,
   xh as legacyAppMainBuwLowerXLowerHExport,
-  xi as legacyAppMainBuwLowerXLowerIExport,
   xm as legacyAppMainBuwLowerXLowerMExport,
   xn as legacyAppMainBuwLowerXLowerNExport,
   xp as legacyAppMainBuwLowerXLowerPExport,
@@ -168,7 +170,6 @@ export {
   yf as legacyAppMainBuwLowerYLowerFExport,
   yg as legacyAppMainBuwLowerYLowerGExport,
   yh as legacyAppMainBuwLowerYLowerHExport,
-  yi as legacyAppMainBuwLowerYLowerIExport,
   ym as legacyAppMainBuwLowerYLowerMExport,
   yn as legacyAppMainBuwLowerYLowerNExport,
   yp as legacyAppMainBuwLowerYLowerPExport,

@@ -10,6 +10,8 @@ export { XCircleIcon as ErrorCircleIcon } from "../../icons/x-circle-icon";
 export { initReviewFileListRuntime as initReviewFileListChunk } from "../../review/review-diff-store";
 export { primaryRuntimeInstallProgress as appMainCurrentCompatSlotLowerRLowerS } from "../../runtime/primary-runtime-install-status-message";
 
+export { automationDirectiveResultAtom as appMainCurrentCompatSlotLowerRLowerI } from "../../automations/shared";
+
 export {
   r as appMainCurrentCompatSlotLowerR,
   r_ as appMainCurrentCompatSlotLowerRUnderscore,
@@ -19,7 +21,6 @@ export {
   rf as appMainCurrentCompatSlotLowerRLowerF,
   rg as appMainCurrentCompatSlotLowerRLowerG,
   rh as appMainCurrentCompatSlotLowerRLowerH,
-  ri as appMainCurrentCompatSlotLowerRLowerI,
   rm as appMainCurrentCompatSlotLowerRLowerM,
   rn as appMainCurrentCompatSlotLowerRLowerN,
   ro as appMainCurrentCompatSlotLowerRLowerO,

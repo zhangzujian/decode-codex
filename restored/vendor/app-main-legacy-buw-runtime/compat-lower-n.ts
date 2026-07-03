@@ -4,6 +4,8 @@ export { initPullRequestOpenIconChunk as appMainCurrentCompatSlotLowerNLowerU } 
 export { initUnselectedCircleIconChunk as appMainCurrentCompatSlotLowerNLowerC } from "../../icons/unselected-circle-icon";
 
 export { initConversationalOnboardingTaskIconChunk as appMainCurrentCompatSlotLowerN } from "../../onboarding/conversational-onboarding-task-icon";
+export { areAutomationRecordsEqual as appMainCurrentCompatSlotLowerNLowerI } from "../../automations/automation-record-sync";
+
 export {
   liveMcpAppFrameSignal,
   composeEventHandlers,
@@ -19,7 +21,6 @@ export {
   nd as appMainCurrentCompatSlotLowerNLowerD,
   ng as appMainCurrentCompatSlotLowerNLowerG,
   nh as appMainCurrentCompatSlotLowerNLowerH,
-  ni as appMainCurrentCompatSlotLowerNLowerI,
   nn as appMainCurrentCompatSlotLowerNLowerN,
   no as appMainCurrentCompatSlotLowerNLowerO,
   np as appMainCurrentCompatSlotLowerNLowerP,

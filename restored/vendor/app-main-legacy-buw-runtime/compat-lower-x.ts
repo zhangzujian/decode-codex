@@ -2,6 +2,8 @@
 // Lowercase x compatibility aliases for the legacy app-main/onboarding producer.
 export { initLockIconChunk as appMainCurrentCompatSlotLowerXLowerS } from "../../icons/lock-icon";
 
+export { getAutomationDraftRrule as appMainCurrentCompatSlotLowerXLowerI } from "../../automations/shared";
+
 export {
   initForkConversationToastRuntime,
   initSettingsControlRowChunk,
@@ -21,7 +23,6 @@ export {
   xf as appMainCurrentCompatSlotLowerXLowerF,
   xg as appMainCurrentCompatSlotLowerXLowerG,
   xh as appMainCurrentCompatSlotLowerXLowerH,
-  xi as appMainCurrentCompatSlotLowerXLowerI,
   xm as appMainCurrentCompatSlotLowerXLowerM,
   xn as appMainCurrentCompatSlotLowerXLowerN,
   xp as appMainCurrentCompatSlotLowerXLowerP,

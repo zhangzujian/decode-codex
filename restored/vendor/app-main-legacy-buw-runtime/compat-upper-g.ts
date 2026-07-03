@@ -6,6 +6,8 @@ export { XcodeLicenseWarningIcon as appMainCurrentCompatSlotUpperGLowerO } from 
 export { scrollMatchIntoView as appMainCurrentCompatSlotUpperGLowerU } from "../../review/review-scroll-into-view";
 
 export { initClientThreadScopeProviderChunk as appMainCurrentCompatSlotUpperGLowerS } from "../../onboarding/client-thread-scope-provider";
+export { cycleReasoningEffortOption as appMainCurrentCompatSlotUpperGLowerR } from "../../composer/reasoning-effort-options";
+
 export {
   ThreadRow,
   projectGroupRepositoryDataSignal,
@@ -25,7 +27,6 @@ export {
   Gm as appMainCurrentCompatSlotUpperGLowerM,
   Gn as appMainCurrentCompatSlotUpperGLowerN,
   Gp as appMainCurrentCompatSlotUpperGLowerP,
-  Gr as appMainCurrentCompatSlotUpperGLowerR,
   GS as appMainCurrentCompatSlotUpperGUpperS,
   Gt as appMainCurrentCompatSlotUpperGLowerT,
   Gx as appMainCurrentCompatSlotUpperGLowerX,

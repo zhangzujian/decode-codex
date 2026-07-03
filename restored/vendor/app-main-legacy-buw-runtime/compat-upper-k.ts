@@ -12,6 +12,8 @@ export { CODEX_HOOKS_DOCS_URL as appMainCurrentCompatSlotUpperKLowerC } from "..
 export { ActiveConversationPresence as appMainCurrentCompatSlotUpperKLowerS } from "../../threads/interrupted-turn-state";
 export { getAvailableHandoffHosts as appMainCurrentCompatSlotUpperKLowerA } from "../../conversations/available-handoff-hosts";
 
+export { stepReasoningEffortOption as appMainCurrentCompatSlotUpperKLowerR } from "../../composer/reasoning-effort-options";
+
 export {
   K as appMainCurrentCompatSlotUpperK,
   K_ as appMainCurrentCompatSlotUpperKUnderscore,
@@ -23,7 +25,6 @@ export {
   Km as appMainCurrentCompatSlotUpperKLowerM,
   Kn as appMainCurrentCompatSlotUpperKLowerN,
   Kp as appMainCurrentCompatSlotUpperKLowerP,
-  Kr as appMainCurrentCompatSlotUpperKLowerR,
   KS as appMainCurrentCompatSlotUpperKUpperS,
   Kt as appMainCurrentCompatSlotUpperKLowerT,
   Kx as appMainCurrentCompatSlotUpperKLowerX,
