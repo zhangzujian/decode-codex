@@ -70,6 +70,7 @@ export {
   initConversationalOnboardingAppConnectionQueryChunk as legacyAppMainBuwUpperPLowerSExport,
 } from "../../../connectors/apps-queries/onboarding-app-connection";
 export { initConversationalOnboardingStreamingIntroChunk as legacyAppMainBuwUpperQLowerSExport } from "../../../onboarding/conversational-onboarding-streaming-intro";
+export { initMoveThreadToHostWorktreeChunk as legacyAppMainBuwUpperQLowerAExport } from "../../../conversations/move-thread-to-host-worktree";
 
 export {
   NC as legacyAppMainBuwUpperNUpperCExport,
@@ -119,7 +120,6 @@ export {
   Px as legacyAppMainBuwUpperPLowerXExport,
   QS as legacyAppMainBuwUpperQUpperSExport,
   Q_ as legacyAppMainBuwUpperQUnderscoreExport,
-  Qa as legacyAppMainBuwUpperQLowerAExport,
   Qb as legacyAppMainBuwUpperQLowerBExport,
   Qd as legacyAppMainBuwUpperQLowerDExport,
   Qg as legacyAppMainBuwUpperQLowerGExport,

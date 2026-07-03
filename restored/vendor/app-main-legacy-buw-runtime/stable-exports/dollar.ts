@@ -12,11 +12,11 @@ export { resetNewThreadRouteContext } from "../../../runtime/window-chrome-runti
 export { SidebarSectionTitle } from "../../../projects/home-project-selector-runtime";
 export { CODEX_USAGE_URL as legacyAppMainBuwDollarLowerCExport } from "../../../utils/links-bd-mmkun-d";
 export { CollapsedTurnSummaryLabel as legacyAppMainBuwDollarLowerOExport } from "../../../conversations/collapsed-turn-summary-label";
+export { moveThreadToHostWorktree as legacyAppMainBuwDollarLowerAExport } from "../../../conversations/move-thread-to-host-worktree";
 
 export {
   $ as legacyAppMainBuwDollarExport,
   $_ as legacyAppMainBuwDollarUnderscoreExport,
-  $a as legacyAppMainBuwDollarLowerAExport,
   $b as legacyAppMainBuwDollarLowerBExport,
   $d as legacyAppMainBuwDollarLowerDExport,
   $g as legacyAppMainBuwDollarLowerGExport,

@@ -59,6 +59,9 @@ export { runAppActionInPrimaryWindow as legacyAppMainBuwUpperHLowerOExport } fro
 export { applyRequestUserInputAutoResolutionChange as legacyAppMainBuwUpperJLowerSExport } from "../../../runtime/request-user-input-auto-resolution";
 export { initClientThreadScopeProviderChunk as legacyAppMainBuwUpperGLowerSExport } from "../../../onboarding/client-thread-scope-provider";
 export { ActiveConversationPresence as legacyAppMainBuwUpperKLowerSExport } from "../../../threads/interrupted-turn-state";
+export { handleHandoffThread as legacyAppMainBuwUpperGLowerAExport } from "../../../conversations/handoff-thread-tool-handlers";
+export { initThreadHandoffToolCoreChunk as legacyAppMainBuwUpperJLowerAExport } from "../../../conversations/thread-handoff-tool-definitions";
+export { getAvailableHandoffHosts as legacyAppMainBuwUpperKLowerAExport } from "../../../conversations/available-handoff-hosts";
 export {
   trackConversationalOnboardingLifecycleCompleted as legacyAppMainBuwUpperLLowerSExport,
   trackConversationalOnboardingLifecycleStarted as legacyAppMainBuwUpperHLowerSExport,
@@ -70,7 +73,6 @@ export {
   G as legacyAppMainBuwUpperGExport,
   GS as legacyAppMainBuwUpperGUpperSExport,
   G_ as legacyAppMainBuwUpperGUnderscoreExport,
-  Ga as legacyAppMainBuwUpperGLowerAExport,
   Gb as legacyAppMainBuwUpperGLowerBExport,
   Gf as legacyAppMainBuwUpperGLowerFExport,
   Gg as legacyAppMainBuwUpperGLowerGExport,
@@ -119,7 +121,6 @@ export {
   J as legacyAppMainBuwUpperJExport,
   JS as legacyAppMainBuwUpperJUpperSExport,
   J_ as legacyAppMainBuwUpperJUnderscoreExport,
-  Ja as legacyAppMainBuwUpperJLowerAExport,
   Jb as legacyAppMainBuwUpperJLowerBExport,
   Jf as legacyAppMainBuwUpperJLowerFExport,
   Jh as legacyAppMainBuwUpperJLowerHExport,
@@ -136,7 +137,6 @@ export {
   K as legacyAppMainBuwUpperKExport,
   KS as legacyAppMainBuwUpperKUpperSExport,
   K_ as legacyAppMainBuwUpperKUnderscoreExport,
-  Ka as legacyAppMainBuwUpperKLowerAExport,
   Kb as legacyAppMainBuwUpperKLowerBExport,
   Kf as legacyAppMainBuwUpperKLowerFExport,
   Kg as legacyAppMainBuwUpperKLowerGExport,

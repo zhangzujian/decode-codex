@@ -66,6 +66,11 @@ export { parseHttpsUrl as legacyAppMainBuwUpperYLowerOExport } from "../../../co
 export { summarizeAppgenAccessPolicy as legacyAppMainBuwUpperTLowerSExport } from "../../../utils/appgen-access";
 export { ClientThreadScopeProvider as legacyAppMainBuwUpperWLowerSExport } from "../../../onboarding/client-thread-scope-provider";
 export {
+  initMoveThreadToWorktreeChunk as legacyAppMainBuwUpperXLowerAExport,
+  moveThreadToWorktree as legacyAppMainBuwUpperYLowerAExport,
+} from "../../../conversations/move-thread-to-worktree";
+export { moveThreadToLocal as legacyAppMainBuwUpperZLowerAExport } from "../../../conversations/move-thread-to-local";
+export {
   trackConversationalOnboardingLifecycleSkipped as legacyAppMainBuwUpperVLowerSExport,
   trackConversationalOnboardingTaskSelected as legacyAppMainBuwUpperULowerSExport,
 } from "../../../onboarding/conversational-onboarding-analytics";
@@ -140,7 +145,6 @@ export {
   Wx as legacyAppMainBuwUpperWLowerXExport,
   XS as legacyAppMainBuwUpperXUpperSExport,
   X_ as legacyAppMainBuwUpperXUnderscoreExport,
-  Xa as legacyAppMainBuwUpperXLowerAExport,
   Xb as legacyAppMainBuwUpperXLowerBExport,
   Xd as legacyAppMainBuwUpperXLowerDExport,
   Xf as legacyAppMainBuwUpperXLowerFExport,
@@ -158,7 +162,6 @@ export {
   Xy as legacyAppMainBuwUpperXLowerYExport,
   YS as legacyAppMainBuwUpperYUpperSExport,
   Y_ as legacyAppMainBuwUpperYUnderscoreExport,
-  Ya as legacyAppMainBuwUpperYLowerAExport,
   Yb as legacyAppMainBuwUpperYLowerBExport,
   Yf as legacyAppMainBuwUpperYLowerFExport,
   Yg as legacyAppMainBuwUpperYLowerGExport,
@@ -170,7 +173,6 @@ export {
   Yx as legacyAppMainBuwUpperYLowerXExport,
   Yy as legacyAppMainBuwUpperYLowerYExport,
   Z_ as legacyAppMainBuwUpperZUnderscoreExport,
-  Za as legacyAppMainBuwUpperZLowerAExport,
   Zb as legacyAppMainBuwUpperZLowerBExport,
   Zd as legacyAppMainBuwUpperZLowerDExport,
   Zf as legacyAppMainBuwUpperZLowerFExport,

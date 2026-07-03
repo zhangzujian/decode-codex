@@ -12,11 +12,11 @@ export { resetNewThreadRouteContext } from "../../runtime/window-chrome-runtime"
 export { SidebarSectionTitle } from "../../projects/home-project-selector-runtime";
 export { CODEX_USAGE_URL as appMainCurrentCompatSlotDollarLowerC } from "../../utils/links-bd-mmkun-d";
 export { CollapsedTurnSummaryLabel as appMainCurrentCompatSlotDollarLowerO } from "../../conversations/collapsed-turn-summary-label";
+export { moveThreadToHostWorktree as appMainCurrentCompatSlotDollarLowerA } from "../../conversations/move-thread-to-host-worktree";
 
 export {
   $ as appMainCurrentCompatSlotDollar,
   $_ as appMainCurrentCompatSlotDollarUnderscore,
-  $a as appMainCurrentCompatSlotDollarLowerA,
   $b as appMainCurrentCompatSlotDollarLowerB,
   $d as appMainCurrentCompatSlotDollarLowerD,
   $g as appMainCurrentCompatSlotDollarLowerG,

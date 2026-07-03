@@ -66,6 +66,8 @@ type MoveThreadResult =
   | { status: "success"; conversationId: string }
   | { status: "error"; message: string; execOutput?: unknown };
 
+export function initMoveThreadToHostWorktreeChunk(): void {}
+
 export async function moveThreadToHostWorktree({
   conversationId,
   sourceBranch,

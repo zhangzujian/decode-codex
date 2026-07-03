@@ -10,11 +10,11 @@ export { ThreadRowMeta } from "../app-main-current-runtime";
 export { rightPanelTabsStore } from "../../app-shell/thread-panel-tabs-store";
 export { CODEX_HOOKS_DOCS_URL as appMainCurrentCompatSlotUpperKLowerC } from "../../utils/links-bd-mmkun-d";
 export { ActiveConversationPresence as appMainCurrentCompatSlotUpperKLowerS } from "../../threads/interrupted-turn-state";
+export { getAvailableHandoffHosts as appMainCurrentCompatSlotUpperKLowerA } from "../../conversations/available-handoff-hosts";
 
 export {
   K as appMainCurrentCompatSlotUpperK,
   K_ as appMainCurrentCompatSlotUpperKUnderscore,
-  Ka as appMainCurrentCompatSlotUpperKLowerA,
   Kb as appMainCurrentCompatSlotUpperKLowerB,
   Kf as appMainCurrentCompatSlotUpperKLowerF,
   Kg as appMainCurrentCompatSlotUpperKLowerG,

@@ -9,11 +9,11 @@ export {
 export { setThreadAppShellSources } from "../../runtime/window-chrome-runtime";
 export { CODEX_LOCKED_COMPUTER_USE_DOCS_URL as appMainCurrentCompatSlotUpperJLowerC } from "../../utils/links-bd-mmkun-d";
 export { applyRequestUserInputAutoResolutionChange as appMainCurrentCompatSlotUpperJLowerS } from "../../runtime/request-user-input-auto-resolution";
+export { initThreadHandoffToolCoreChunk as appMainCurrentCompatSlotUpperJLowerA } from "../../conversations/thread-handoff-tool-definitions";
 
 export {
   J as appMainCurrentCompatSlotUpperJ,
   J_ as appMainCurrentCompatSlotUpperJUnderscore,
-  Ja as appMainCurrentCompatSlotUpperJLowerA,
   Jb as appMainCurrentCompatSlotUpperJLowerB,
   Jf as appMainCurrentCompatSlotUpperJLowerF,
   Jh as appMainCurrentCompatSlotUpperJLowerH,

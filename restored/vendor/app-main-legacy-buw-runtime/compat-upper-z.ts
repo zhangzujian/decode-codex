@@ -9,11 +9,11 @@ export { AppShellOverlayOutlet } from "../app-main-current-runtime";
 export { bottomPanelOpenStateKey } from "../../conversations/fork-conversation-panel-state-deps";
 export { CODEX_SANDBOXING_DOCS_URL as appMainCurrentCompatSlotUpperZLowerC } from "../../utils/links-bd-mmkun-d";
 export { ConversationalOnboardingStreamingIntro as appMainCurrentCompatSlotUpperZLowerS } from "../../onboarding/conversational-onboarding-streaming-intro";
+export { moveThreadToLocal as appMainCurrentCompatSlotUpperZLowerA } from "../../conversations/move-thread-to-local";
 
 export {
   Z as appMainCurrentCompatSlotUpperZ,
   Z_ as appMainCurrentCompatSlotUpperZUnderscore,
-  Za as appMainCurrentCompatSlotUpperZLowerA,
   Zb as appMainCurrentCompatSlotUpperZLowerB,
   Zd as appMainCurrentCompatSlotUpperZLowerD,
   Zf as appMainCurrentCompatSlotUpperZLowerF,

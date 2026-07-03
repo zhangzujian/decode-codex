@@ -10,11 +10,11 @@ export {
 
 export { initNewThreadRouteContextChunk } from "../../runtime/window-chrome-runtime";
 export { CODEX_SKILLS_DOCS_URL as appMainCurrentCompatSlotUpperQLowerC } from "../../utils/links-bd-mmkun-d";
+export { initMoveThreadToHostWorktreeChunk as appMainCurrentCompatSlotUpperQLowerA } from "../../conversations/move-thread-to-host-worktree";
 
 export {
   Q as appMainCurrentCompatSlotUpperQ,
   Q_ as appMainCurrentCompatSlotUpperQUnderscore,
-  Qa as appMainCurrentCompatSlotUpperQLowerA,
   Qb as appMainCurrentCompatSlotUpperQLowerB,
   Qd as appMainCurrentCompatSlotUpperQLowerD,
   Qg as appMainCurrentCompatSlotUpperQLowerG,

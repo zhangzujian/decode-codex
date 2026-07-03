@@ -14,11 +14,11 @@ export {
 export { browserTabSnapshotStore } from "../../conversations/fork-conversation-panel-state-deps";
 export { CODEX_MCP_DOCS_URL as appMainCurrentCompatSlotUpperYLowerC } from "../../utils/links-bd-mmkun-d";
 export { parseHttpsUrl as appMainCurrentCompatSlotUpperYLowerO } from "../../conversations/parse-https-url";
+export { moveThreadToWorktree as appMainCurrentCompatSlotUpperYLowerA } from "../../conversations/move-thread-to-worktree";
 
 export {
   Y as appMainCurrentCompatSlotUpperY,
   Y_ as appMainCurrentCompatSlotUpperYUnderscore,
-  Ya as appMainCurrentCompatSlotUpperYLowerA,
   Yb as appMainCurrentCompatSlotUpperYLowerB,
   Yf as appMainCurrentCompatSlotUpperYLowerF,
   Yg as appMainCurrentCompatSlotUpperYLowerG,
