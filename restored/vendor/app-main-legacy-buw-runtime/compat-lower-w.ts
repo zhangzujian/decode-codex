@@ -11,6 +11,8 @@ export { initTerminalMouseCoordinatePatchRuntime } from "../../runtime/window-ch
 export { initDndKitUtilitiesRuntime as ThreadRowWorktreeMeta } from "../dnd-kit-utilities";
 export { formatRemainingPercent as appMainCurrentCompatSlotLowerWLowerC } from "../../utils/rate-limit-status/formatting";
 
+export { AutomationSandboxBanner as appMainCurrentCompatSlotLowerWLowerR } from "../../automations/automation-sandbox-banner";
+
 export {
   w as appMainCurrentCompatSlotLowerW,
   wa as appMainCurrentCompatSlotLowerWLowerA,
@@ -23,7 +25,6 @@ export {
   wn as appMainCurrentCompatSlotLowerWLowerN,
   wo as appMainCurrentCompatSlotLowerWLowerO,
   wp as appMainCurrentCompatSlotLowerWLowerP,
-  wr as appMainCurrentCompatSlotLowerWLowerR,
   wS as appMainCurrentCompatSlotLowerWUpperS,
   wt as appMainCurrentCompatSlotLowerWLowerT,
   wu as appMainCurrentCompatSlotLowerWLowerU,

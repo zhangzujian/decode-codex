@@ -5,6 +5,8 @@ export { initShieldCodeIconChunk as appMainCurrentCompatSlotUpperQLowerO } from 
 
 export { initUploadIconChunk as appMainCurrentCompatSlotUpperQ } from "../../icons/upload-icon";
 export { initConversationalOnboardingStreamingIntroChunk as appMainCurrentCompatSlotUpperQLowerS } from "../../onboarding/conversational-onboarding-streaming-intro";
+export { REASONING_EFFORT_LABELS as appMainCurrentCompatSlotUpperQLowerR } from "../../composer/reasoning-effort-label";
+
 export {
   SidebarTaskRowActions,
   SidebarTaskRowTitle,
@@ -23,7 +25,6 @@ export {
   Qi as appMainCurrentCompatSlotUpperQLowerI,
   Qm as appMainCurrentCompatSlotUpperQLowerM,
   Qn as appMainCurrentCompatSlotUpperQLowerN,
-  Qr as appMainCurrentCompatSlotUpperQLowerR,
   QS as appMainCurrentCompatSlotUpperQUpperS,
   Qt as appMainCurrentCompatSlotUpperQLowerT,
   Qu as appMainCurrentCompatSlotUpperQLowerU,

@@ -32,6 +32,8 @@ export { isAutomationDraftUsingDefaultCwd as legacyAppMainBuwLowerYLowerIExport 
 
 export { initHeartbeatThreadOptionsChunk as legacyAppMainBuwLowerULowerRExport } from "../../../automations/use-heartbeat-thread-options";
 
+export { AutomationSandboxBanner as legacyAppMainBuwLowerWLowerRExport } from "../../../automations/automation-sandbox-banner";
+
 export {
   initComposeEventHandlersRuntime,
   initExternalAgentImportStatusIconsChunk,
@@ -144,7 +146,6 @@ export {
   wn as legacyAppMainBuwLowerWLowerNExport,
   wo as legacyAppMainBuwLowerWLowerOExport,
   wp as legacyAppMainBuwLowerWLowerPExport,
-  wr as legacyAppMainBuwLowerWLowerRExport,
   wt as legacyAppMainBuwLowerWLowerTExport,
   wu as legacyAppMainBuwLowerWLowerUExport,
   wv as legacyAppMainBuwLowerWLowerVExport,

@@ -11,6 +11,8 @@ export { cancelActiveConversationalOnboardingForHost as legacyAppMainBuwUpperOEx
 
 export { DictationButton as legacyAppMainBuwUpperSUpperCExport } from "../../../features/use-dictation/dictation-button";
 
+export { REASONING_EFFORT_LABELS as legacyAppMainBuwUpperQLowerRExport } from "../../../composer/reasoning-effort-label";
+
 export {
   SidebarRowActionButton,
   SidebarRowContextMenu,
@@ -129,7 +131,6 @@ export {
   Qi as legacyAppMainBuwUpperQLowerIExport,
   Qm as legacyAppMainBuwUpperQLowerMExport,
   Qn as legacyAppMainBuwUpperQLowerNExport,
-  Qr as legacyAppMainBuwUpperQLowerRExport,
   Qt as legacyAppMainBuwUpperQLowerTExport,
   Qu as legacyAppMainBuwUpperQLowerUExport,
   Qv as legacyAppMainBuwUpperQLowerVExport,
