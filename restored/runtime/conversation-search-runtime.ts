@@ -4,7 +4,6 @@ import type { ComponentType } from "react";
 import {
   Bo as conversationSearchResultSignal,
   Cs as setContentSearchMatchIdAttributeRaw,
-  Di as groupConversationSearchMatchesByContentUnitKeyRaw,
   Ho as activeConversationSearchMatchSignal,
   Oi as initContentSearchMatchAttributeRuntimeRaw,
   Ss as initContentSearchRuntimeRaw,
@@ -28,6 +27,11 @@ import {
 
 export type ContentSearchMatch = {
   id: string;
+  location: {
+    domain: string;
+    turnKey?: string;
+    unitId?: string;
+  };
 };
 
 export type ContentSearchHighlightResult = {
@@ -93,10 +97,22 @@ export function clearContentSearchHighlights(
 export function groupConversationSearchMatchesByContentUnitKey(
   matches: readonly ContentSearchMatch[],
 ): Map<string, ContentSearchMatch[]> {
-  return groupConversationSearchMatchesByContentUnitKeyRaw(matches) as Map<
-    string,
-    ContentSearchMatch[]
-  >;
+  const matchesByContentUnitKey = new Map<string, ContentSearchMatch[]>();
+  for (const match of matches) {
+    const { location } = match;
+    if (
+      location.domain !== "conversation" ||
+      location.turnKey == null ||
+      location.unitId == null
+    ) {
+      continue;
+    }
+    const contentUnitKey = `${location.turnKey}:${location.unitId}`;
+    const unitMatches = matchesByContentUnitKey.get(contentUnitKey) ?? [];
+    unitMatches.push(match);
+    matchesByContentUnitKey.set(contentUnitKey, unitMatches);
+  }
+  return matchesByContentUnitKey;
 }
 
 export function highlightContentSearchMatches(options: {

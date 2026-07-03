@@ -87,6 +87,7 @@ export { RegenerateIcon as legacyAppMainBuwUpperPUpperCExport } from "../../../i
 export { initStopIconChunk as legacyAppMainBuwUpperNUpperCExport } from "../../../icons/stop-icon";
 export { WhitespaceEyeIcon as legacyAppMainBuwUpperOLowerLExport } from "../../../icons/whitespace-eye-icon";
 export { findLocalConversationTextMatches as legacyAppMainBuwUpperQLowerGExport } from "../../../runtime/conversation-search-runtime";
+export { groupConversationSearchMatchesByContentUnitKey as legacyAppMainBuwUpperRLowerFExport } from "../../../runtime/conversation-search-runtime";
 
 export {
   NS as legacyAppMainBuwUpperNUpperSExport,
@@ -142,7 +143,6 @@ export {
   RS as legacyAppMainBuwUpperRUpperSExport,
   Ra as legacyAppMainBuwUpperRLowerAExport,
   Rb as legacyAppMainBuwUpperRLowerBExport,
-  Rf as legacyAppMainBuwUpperRLowerFExport,
   Ri as legacyAppMainBuwUpperRLowerIExport,
   Rl as legacyAppMainBuwUpperRLowerLExport,
   Rm as legacyAppMainBuwUpperRLowerMExport,

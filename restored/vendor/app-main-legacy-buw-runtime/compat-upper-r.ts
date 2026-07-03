@@ -13,13 +13,13 @@ export { usePendingWorktreeStore as SidebarTaskRowMetadata } from "../../threads
 export { CHATGPT_ADMIN_URL as appMainCurrentCompatSlotUpperRLowerC } from "../../utils/links-bd-mmkun-d";
 export { NAVIGATE_TO_CODEX_PAGE_TOOL_NAME as appMainCurrentCompatSlotUpperRLowerO } from "../../runtime/run-app-action-in-primary-window";
 export { trackConversationalOnboardingExecutionCancelled as appMainCurrentCompatSlotUpperRLowerS } from "../../onboarding/conversational-onboarding-analytics";
+export { groupConversationSearchMatchesByContentUnitKey as appMainCurrentCompatSlotUpperRLowerF } from "../../runtime/conversation-search-runtime";
 
 export {
   R as appMainCurrentCompatSlotUpperR,
   Ra as appMainCurrentCompatSlotUpperRLowerA,
   Rb as appMainCurrentCompatSlotUpperRLowerB,
   RC as appMainCurrentCompatSlotUpperRUpperC,
-  Rf as appMainCurrentCompatSlotUpperRLowerF,
   Ri as appMainCurrentCompatSlotUpperRLowerI,
   Rl as appMainCurrentCompatSlotUpperRLowerL,
   Rm as appMainCurrentCompatSlotUpperRLowerM,
