@@ -19,6 +19,7 @@ export { initReviewSourceRuntime as initReviewSourceChunk } from "../../review/r
 export { getMonthlySpendLimitUsage as appMainCurrentCompatSlotLowerFLowerC } from "../../utils/rate-limit-status/account-status";
 export { hasPendingPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerFLowerS } from "../../runtime/primary-runtime-install-state";
 export { copyAppLink as appMainCurrentCompatSlotLowerFLowerO } from "../../threads/thread-actions/actions";
+export { initUseDefaultBranchQueryChunk as appMainCurrentCompatSlotLowerFLowerU } from "../../conversations/use-default-branch-query";
 
 export {
   f as appMainCurrentCompatSlotLowerF,
@@ -29,6 +30,5 @@ export {
   fp as appMainCurrentCompatSlotLowerFLowerP,
   fS as appMainCurrentCompatSlotLowerFUpperS,
   ft as appMainCurrentCompatSlotLowerFLowerT,
-  fu as appMainCurrentCompatSlotLowerFLowerU,
   fy as appMainCurrentCompatSlotLowerFLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

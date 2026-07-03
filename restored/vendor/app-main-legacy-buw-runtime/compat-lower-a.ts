@@ -17,6 +17,7 @@ export { initUseConversationIdFromRouteChunk as appMainCurrentCompatSlotLowerALo
 export { initBrowserNotSecureIconChunk as appMainCurrentCompatSlotLowerALowerP } from "../../browser/browser-address-security-indicator";
 export { initContentSearchRuntime as appMainCurrentCompatSlotLowerAUnderscore } from "../../runtime/conversation-search-runtime";
 export { initActivityScrollContainerChunk as appMainCurrentCompatSlotLowerALowerA } from "../../conversations/activity-scroll-container";
+export { GitWorkflowPhaseLabel as appMainCurrentCompatSlotLowerALowerU } from "../../conversations/git-workflow-phase-label";
 
 export {
   ab as appMainCurrentCompatSlotLowerALowerB,
@@ -29,6 +30,5 @@ export {
   as as appMainCurrentCompatSlotLowerALowerS,
   aS as appMainCurrentCompatSlotLowerAUpperS,
   at as appMainCurrentCompatSlotLowerALowerT,
-  au as appMainCurrentCompatSlotLowerALowerU,
   ay as appMainCurrentCompatSlotLowerALowerY,
 } from "../app-main-legacy-buw-compat-bundle";

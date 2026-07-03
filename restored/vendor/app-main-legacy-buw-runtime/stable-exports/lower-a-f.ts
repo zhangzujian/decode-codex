@@ -111,6 +111,7 @@ export { LockIcon as legacyAppMainBuwLowerBLowerSExport } from "../../../icons/l
 export { CirclePlayIcon as legacyAppMainBuwLowerDLowerHExport } from "../../../icons/circle-play-icon";
 export { useQueuedFollowUpsStore as legacyAppMainBuwLowerCLowerDExport } from "../../../utils/queued-follow-ups-store";
 export { CancelGitActionButton as legacyAppMainBuwLowerCLowerUExport } from "../../../conversations/cancel-git-action-button";
+export { GitWorkflowPhaseLabel as legacyAppMainBuwLowerALowerUExport } from "../../../conversations/git-workflow-phase-label";
 export { getWorktreeSubmitToastMessage as legacyAppMainBuwLowerCLowerNExport } from "../../../composer/submit-toast-messages";
 export { initBrowserNotSecureIconChunk as legacyAppMainBuwLowerALowerPExport } from "../../../browser/browser-address-security-indicator";
 export { BrowserUseGlyphIcon as legacyAppMainBuwLowerCLowerAExport } from "../../../conversations/tool-activity-source-icon";
@@ -158,6 +159,7 @@ export { initEnabledReasoningEffortsChunk as legacyAppMainBuwLowerELowerXExport 
 export { sendRestoreMessage as legacyAppMainBuwLowerELowerNExport } from "../../../composer/start-composer-turn";
 export { revealReviewFile as legacyAppMainBuwLowerBLowerGExport } from "../../../review/review-file-navigation";
 export { initReadServiceTierForRequestChunk as legacyAppMainBuwLowerELowerGExport } from "../../../utils/read-service-tier-for-request";
+export { initUseDefaultBranchQueryChunk as legacyAppMainBuwLowerFLowerUExport } from "../../../conversations/use-default-branch-query";
 export { updateMcpAppFrameState as legacyAppMainBuwLowerALowerFExport } from "../../../plugins/mcp-app-frame-state";
 export {
   initD3ChartScalesRuntimeChunk as legacyAppMainBuwLowerCUpperSExport,
@@ -170,7 +172,6 @@ export { line as legacyAppMainBuwLowerEUpperSExport } from "../../d3-shape-line"
 
 export {
   ag as legacyAppMainBuwLowerALowerGExport,
-  au as legacyAppMainBuwLowerALowerUExport,
   bc as legacyAppMainBuwLowerBLowerCExport,
   bd as legacyAppMainBuwLowerBLowerDExport,
   bf as legacyAppMainBuwLowerBLowerFExport,
@@ -193,5 +194,4 @@ export {
   f as legacyAppMainBuwLowerFExport,
   fd as legacyAppMainBuwLowerFLowerDExport,
   fp as legacyAppMainBuwLowerFLowerPExport,
-  fu as legacyAppMainBuwLowerFLowerUExport,
 } from "../../app-main-legacy-buw-compat-bundle";

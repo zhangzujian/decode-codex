@@ -2,15 +2,10 @@
 // Render the localized label for the current git workflow phase (commit / create PR).
 
 import { FormattedMessage } from "../vendor/react-intl";
-import { getGitWorkflowPhaseMessageDescriptor } from "../boundaries/onboarding-commons-externals.facade";
-
-export type GitWorkflowPhase =
-  | "generating-commit-message"
-  | "generating-pr-message"
-  | "creating-branch"
-  | "committing"
-  | "pushing"
-  | "creating-pr";
+import {
+  getGitWorkflowPhaseMessageDescriptor,
+  type GitWorkflowPhase,
+} from "../review/git-action-messages";
 
 export interface GitWorkflowPhaseLabelProps {
   phase: GitWorkflowPhase;
