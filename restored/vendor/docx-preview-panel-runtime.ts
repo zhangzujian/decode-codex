@@ -61,7 +61,6 @@ import {
 import {
   appMainCurrentCompatSlotDollarLowerU as _e,
   appMainCurrentCompatSlotUpperALowerT as ve,
-  appMainCurrentCompatSlotUpperCLowerT as ye,
   appMainCurrentCompatSlotUpperILowerT as M,
   appMainCurrentCompatSlotUpperLLowerT as xe,
   appMainCurrentCompatSlotUpperMLowerT as Se,
@@ -113,6 +112,7 @@ import {
   resolveDocxAnnotationSessionState,
   DocxAnnotationHighlightRect,
   DocxAnnotationSelectionRect,
+  DocxAskForEditOverlay,
   DocxCommentMarkerOverlay,
   DocxCommentPreviewOverlay,
   DocxDraftCommentMarkerOverlay,
@@ -899,27 +899,12 @@ function Tt(e) {
   t[200] !== S
     ? ((en =
         E != null && T == null
-          ? (0, Y.jsxs)(Y.Fragment, {
-              children: [
-                E.selectionKind === `text`
-                  ? null
-                  : (0, Y.jsx)(DocxAnnotationHighlightRect, {
-                      bordered: !0,
-                      paddingPx: 4,
-                      pageSize: _,
-                      rect: E.rect,
-                      testId: `artifact-docx-selection-outline`,
-                    }),
-                (0, Y.jsx)(ye, {
-                  anchor: E.askForEditAnchor,
-                  label: He,
-                  pageSize: _,
-                  rect: E.rect,
-                  testId: `artifact-docx-ask-for-edit-button`,
-                  zoomScale: S,
-                  onClick: () => X(E, `ask_codex_button`),
-                }),
-              ],
+          ? (0, Y.jsx)(DocxAskForEditOverlay, {
+              anchor: E,
+              label: He,
+              pageSize: _,
+              zoomScale: S,
+              onAskForEdit: (e) => X(e, `ask_codex_button`),
             })
           : null),
       (t[195] = He),

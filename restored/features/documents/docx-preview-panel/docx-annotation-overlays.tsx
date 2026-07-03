@@ -6,6 +6,7 @@ import {
   type AnnotationHighlightRectProps,
   AnnotationSelectionRect,
   type AnnotationSelectionRectProps,
+  AskForEditButton,
   CommentPreview,
   PagedAnnotationMarker,
   type Point,
@@ -52,6 +53,14 @@ export interface DocxCommentPreviewOverlayProps {
 export interface DocxDraftCommentMarkerOverlayProps {
   anchor: DocxAnnotationAnchor;
   label: string | number;
+  pageSize: Size;
+  zoomScale: number;
+}
+
+export interface DocxAskForEditOverlayProps {
+  anchor: DocxRegionAnchor | null;
+  label: string;
+  onAskForEdit: (anchor: DocxRegionAnchor) => void;
   pageSize: Size;
   zoomScale: number;
 }
@@ -111,6 +120,41 @@ export function DocxAnnotationSelectionOutline({
       rect={anchor.rect}
       testId={testId}
     />
+  );
+}
+
+export function DocxAskForEditOverlay({
+  anchor,
+  label,
+  onAskForEdit,
+  pageSize,
+  zoomScale,
+}: DocxAskForEditOverlayProps): ReactElement | null {
+  if (anchor == null) return null;
+
+  return (
+    <>
+      {anchor.selectionKind === "text" ? null : (
+        <AnnotationHighlightRect
+          bordered={true}
+          paddingPx={4}
+          pageSize={pageSize}
+          rect={anchor.rect}
+          testId="artifact-docx-selection-outline"
+        />
+      )}
+      <AskForEditButton
+        anchor={anchor.askForEditAnchor}
+        label={label}
+        pageSize={pageSize}
+        rect={anchor.rect}
+        testId="artifact-docx-ask-for-edit-button"
+        zoomScale={zoomScale}
+        onClick={() => {
+          onAskForEdit(anchor);
+        }}
+      />
+    </>
   );
 }
 
