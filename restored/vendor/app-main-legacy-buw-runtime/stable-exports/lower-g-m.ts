@@ -130,13 +130,15 @@ export {
 } from "../../../browser/browser-sidebar-open-source";
 export { initBrowserSidebarDeviceToolbarChunk as legacyAppMainBuwLowerMLowerYExport } from "../../../browser/sidebar-manager/device-toolbar";
 export { ArtifactTabPreview as legacyAppMainBuwLowerHLowerFExport } from "../../../workspace/artifact-tab-preview";
+export { initArtifactTabPreviewChunk as legacyAppMainBuwLowerGLowerFExport } from "../../../workspace/artifact-tab-preview";
+export { initWorkspaceFileTabKindChunk as legacyAppMainBuwLowerJLowerFExport } from "../../../workspace/workspace-file-source-tabs";
+export { openArtifactTab as legacyAppMainBuwLowerMLowerFExport } from "../../../workspace/open-artifact-tab";
 
 export {
   g as legacyAppMainBuwLowerGExport,
   gS as legacyAppMainBuwLowerGUpperSExport,
   g_ as legacyAppMainBuwLowerGUnderscoreExport,
   gd as legacyAppMainBuwLowerGLowerDExport,
-  gf as legacyAppMainBuwLowerGLowerFExport,
   gn as legacyAppMainBuwLowerGLowerNExport,
   gp as legacyAppMainBuwLowerGLowerPExport,
   gt as legacyAppMainBuwLowerGLowerTExport,
@@ -166,7 +168,6 @@ export {
   jS as legacyAppMainBuwLowerJUpperSExport,
   jb as legacyAppMainBuwLowerJLowerBExport,
   jd as legacyAppMainBuwLowerJLowerDExport,
-  jf as legacyAppMainBuwLowerJLowerFExport,
   jh as legacyAppMainBuwLowerJLowerHExport,
   jm as legacyAppMainBuwLowerJLowerMExport,
   jv as legacyAppMainBuwLowerJLowerVExport,
@@ -197,7 +198,6 @@ export {
   ma as legacyAppMainBuwLowerMLowerAExport,
   mb as legacyAppMainBuwLowerMLowerBExport,
   md as legacyAppMainBuwLowerMLowerDExport,
-  mf as legacyAppMainBuwLowerMLowerFExport,
   mm as legacyAppMainBuwLowerMLowerMExport,
   mn as legacyAppMainBuwLowerMLowerNExport,
   mt as legacyAppMainBuwLowerMLowerTExport,

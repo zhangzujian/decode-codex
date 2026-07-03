@@ -24,6 +24,8 @@ function ArtifactTabPreviewFallback() {
 
 export type ArtifactTabPreviewProps = Record<string, unknown>;
 
+export function initArtifactTabPreviewChunk(): void {}
+
 export function ArtifactTabPreview(props: ArtifactTabPreviewProps) {
   return (
     <React.Suspense fallback={<ArtifactTabPreviewFallback />}>

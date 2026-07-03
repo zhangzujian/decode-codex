@@ -12,6 +12,8 @@ import {
 
 export const workspaceFileTabKindPrefix = "workspaceFile:";
 
+export function initWorkspaceFileTabKindChunk(): void {}
+
 export interface WorkspaceFileTabTarget {
   hostId: string;
   path: string;

@@ -67,6 +67,7 @@ export {
   getLocaleLanguageDisplayName as legacyAppMainBuwLowerDLowerGExport,
   initLocaleResolverChunk as legacyAppMainBuwLowerFLowerGExport,
 } from "../../../i18n/locale-resolver";
+export { initFormatModelDisplayNameChunk as legacyAppMainBuwLowerALowerGExport } from "../../../utils/format-model-display-name";
 export {
   cancelPrimaryRuntimeInstall as legacyAppMainBuwLowerDLowerSExport,
   hasPendingPrimaryRuntimeInstall as legacyAppMainBuwLowerFLowerSExport,
@@ -111,9 +112,11 @@ export { CheckCircleIcon as legacyAppMainBuwLowerALowerCExport } from "../../../
 export { LockIcon as legacyAppMainBuwLowerBLowerSExport } from "../../../icons/lock-icon";
 export { CirclePlayIcon as legacyAppMainBuwLowerDLowerHExport } from "../../../icons/circle-play-icon";
 export { useQueuedFollowUpsStore as legacyAppMainBuwLowerCLowerDExport } from "../../../utils/queued-follow-ups-store";
+export { initBrowserProfileImportNuxStateChunk as legacyAppMainBuwLowerBLowerMExport } from "../../../browser/browser-profile-import-nux-state";
 export { CancelGitActionButton as legacyAppMainBuwLowerCLowerUExport } from "../../../conversations/cancel-git-action-button";
 export { GitWorkflowPhaseLabel as legacyAppMainBuwLowerALowerUExport } from "../../../conversations/git-workflow-phase-label";
 export { getWorktreeSubmitToastMessage as legacyAppMainBuwLowerCLowerNExport } from "../../../composer/submit-toast-messages";
+export { worktreeStatusForConversationAtom as legacyAppMainBuwLowerBLowerNExport } from "../../../conversations/worktree-status-runtime/atoms";
 export { initBrowserNotSecureIconChunk as legacyAppMainBuwLowerALowerPExport } from "../../../browser/browser-address-security-indicator";
 export { BrowserUseGlyphIcon as legacyAppMainBuwLowerCLowerAExport } from "../../../conversations/tool-activity-source-icon";
 export { initDiffCommentSourcesChunk as legacyAppMainBuwLowerALowerHExport } from "../../../github/diff-comments/use-diff-comment-sources";
@@ -161,6 +164,7 @@ export { sendRestoreMessage as legacyAppMainBuwLowerELowerNExport } from "../../
 export { revealReviewFile as legacyAppMainBuwLowerBLowerGExport } from "../../../review/review-file-navigation";
 export { initReadServiceTierForRequestChunk as legacyAppMainBuwLowerELowerGExport } from "../../../utils/read-service-tier-for-request";
 export { initUseDefaultBranchQueryChunk as legacyAppMainBuwLowerFLowerUExport } from "../../../conversations/use-default-branch-query";
+export { initSettingsHostProjectFilterChunk as legacyAppMainBuwLowerFLowerPExport } from "../../../settings/settings-host-context";
 export { updateMcpAppFrameState as legacyAppMainBuwLowerALowerFExport } from "../../../plugins/mcp-app-frame-state";
 export {
   initD3ChartScalesRuntimeChunk as legacyAppMainBuwLowerCUpperSExport,
@@ -178,10 +182,7 @@ export { initSidebarNavigationControlsChunk as legacyAppMainBuwLowerBLowerDExpor
 export { initWorkspaceFileSourceTabsChunk as legacyAppMainBuwLowerBLowerFExport } from "../../../workspace/workspace-file-source-tabs";
 
 export {
-  ag as legacyAppMainBuwLowerALowerGExport,
   bh as legacyAppMainBuwLowerBLowerHExport,
-  bm as legacyAppMainBuwLowerBLowerMExport,
-  bn as legacyAppMainBuwLowerBLowerNExport,
   bp as legacyAppMainBuwLowerBLowerPExport,
   bt as legacyAppMainBuwLowerBLowerTExport,
   bv as legacyAppMainBuwLowerBLowerVExport,
@@ -195,5 +196,4 @@ export {
   es as legacyAppMainBuwLowerELowerSExport,
   et as legacyAppMainBuwLowerELowerTExport,
   f as legacyAppMainBuwLowerFExport,
-  fp as legacyAppMainBuwLowerFLowerPExport,
 } from "../../app-main-legacy-buw-compat-bundle";
