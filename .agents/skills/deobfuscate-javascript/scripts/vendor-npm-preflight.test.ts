@@ -72,6 +72,41 @@ describe("vendor-npm-preflight CLI", () => {
     });
   });
 
+  test("classifies renamed React Intl API shims as npm package targets", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { "react-intl": "^10.0.0" } }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "i18n-formatting.tsx"),
+      `
+        export function useIntl() {
+          return { formatMessage: (descriptor) => descriptor.defaultMessage ?? "" };
+        }
+        export function FormattedMessage(props) {
+          return props.defaultMessage ?? props.id ?? "";
+        }
+      `,
+    );
+
+    const result = runDecisionCLI(path.join(vendorDir, "i18n-formatting.tsx"));
+    expect(result.code).toBe(0);
+    const decisions = JSON.parse(result.stdout) as Array<{
+      decision: string;
+      specifiers: string[];
+      sourceExists: boolean;
+    }>;
+    expect(decisions).toHaveLength(1);
+    expect(decisions[0]).toMatchObject({
+      decision: "npm-shim",
+      specifiers: ["react-intl"],
+      sourceExists: true,
+    });
+  });
+
   test("requires fork or runtime proof for unknown public vendor targets", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");
