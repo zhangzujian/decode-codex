@@ -10,4 +10,6 @@ export {
   scaleTime,
 } from "d3-scale";
 export { interpolateHcl } from "d3-interpolate";
-export { timeSunday } from "d3-time";
+export { timeMonday, timeSaturday, timeSecond, timeSunday } from "d3-time";
+
+export function initD3ChartScalesRuntimeChunk(): void {}

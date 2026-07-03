@@ -145,14 +145,20 @@ export {
 
 export { clearBrowserSidebarComments as legacyAppMainBuwLowerDLowerMExport } from "../../../browser/browser-sidebar-state";
 export { updateMcpAppFrameState as legacyAppMainBuwLowerALowerFExport } from "../../../plugins/mcp-app-frame-state";
+export {
+  initD3ChartScalesRuntimeChunk as legacyAppMainBuwLowerCUpperSExport,
+  scaleTime as legacyAppMainBuwLowerAUpperSExport,
+  timeMonday as legacyAppMainBuwLowerDUpperSExport,
+  timeSaturday as legacyAppMainBuwLowerFUpperSExport,
+  timeSecond as legacyAppMainBuwLowerBUpperSExport,
+} from "../../../utils/d3-chart-scales";
+export { line as legacyAppMainBuwLowerEUpperSExport } from "../../d3-shape-line";
 
 export {
-  aS as legacyAppMainBuwLowerAUpperSExport,
   aa as legacyAppMainBuwLowerALowerAExport,
   ag as legacyAppMainBuwLowerALowerGExport,
   au as legacyAppMainBuwLowerALowerUExport,
   b as legacyAppMainBuwLowerBExport,
-  bS as legacyAppMainBuwLowerBUpperSExport,
   ba as legacyAppMainBuwLowerBLowerAExport,
   bc as legacyAppMainBuwLowerBLowerCExport,
   bd as legacyAppMainBuwLowerBLowerDExport,
@@ -164,16 +170,13 @@ export {
   bp as legacyAppMainBuwLowerBLowerPExport,
   bt as legacyAppMainBuwLowerBLowerTExport,
   bv as legacyAppMainBuwLowerBLowerVExport,
-  cS as legacyAppMainBuwLowerCUpperSExport,
   c_ as legacyAppMainBuwLowerCUnderscoreExport,
   ch as legacyAppMainBuwLowerCLowerHExport,
   ct as legacyAppMainBuwLowerCLowerTExport,
   cv as legacyAppMainBuwLowerCLowerVExport,
   d as legacyAppMainBuwLowerDExport,
-  dS as legacyAppMainBuwLowerDUpperSExport,
   d_ as legacyAppMainBuwLowerDUnderscoreExport,
   dd as legacyAppMainBuwLowerDLowerDExport,
-  eS as legacyAppMainBuwLowerEUpperSExport,
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   eg as legacyAppMainBuwLowerELowerGExport,
@@ -184,7 +187,6 @@ export {
   ev as legacyAppMainBuwLowerELowerVExport,
   ex as legacyAppMainBuwLowerELowerXExport,
   f as legacyAppMainBuwLowerFExport,
-  fS as legacyAppMainBuwLowerFUpperSExport,
   f_ as legacyAppMainBuwLowerFUnderscoreExport,
   fd as legacyAppMainBuwLowerFLowerDExport,
   fp as legacyAppMainBuwLowerFLowerPExport,
