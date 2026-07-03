@@ -5,6 +5,8 @@ export { CanvasCubeIcon as appMainCurrentCompatSlotUpperYLowerN } from "../../ic
 export { MentionMetadataSync as appMainCurrentCompatSlotUpperYLowerI } from "../../composer/mention-metadata-sync";
 
 export { BrowserWindowIcon as appMainCurrentCompatSlotUpperY } from "../../icons/browser-window-icon";
+export { ReasoningEffortLabel as appMainCurrentCompatSlotUpperYLowerR } from "../../composer/reasoning-effort-label";
+
 export {
   ThreadRowHoverActions,
   hasSeenAppgenPublicationTermsDisclosureSignal,
@@ -25,7 +27,6 @@ export {
   Yh as appMainCurrentCompatSlotUpperYLowerH,
   Ym as appMainCurrentCompatSlotUpperYLowerM,
   Yp as appMainCurrentCompatSlotUpperYLowerP,
-  Yr as appMainCurrentCompatSlotUpperYLowerR,
   YS as appMainCurrentCompatSlotUpperYUpperS,
   Yt as appMainCurrentCompatSlotUpperYLowerT,
   Yx as appMainCurrentCompatSlotUpperYLowerX,

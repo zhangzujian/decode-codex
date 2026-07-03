@@ -19,6 +19,8 @@ export { UserMessageText as legacyAppMainBuwUpperZLowerIExport } from "../../../
 
 export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperZLowerRExport } from "../../../composer/reasoning-effort-label";
 
+export { ReasoningEffortLabel as legacyAppMainBuwUpperYLowerRExport } from "../../../composer/reasoning-effort-label";
+
 export {
   registerForkedConversation,
   ThreadRowPinAction,
@@ -170,7 +172,6 @@ export {
   Yh as legacyAppMainBuwUpperYLowerHExport,
   Ym as legacyAppMainBuwUpperYLowerMExport,
   Yp as legacyAppMainBuwUpperYLowerPExport,
-  Yr as legacyAppMainBuwUpperYLowerRExport,
   Yt as legacyAppMainBuwUpperYLowerTExport,
   Yx as legacyAppMainBuwUpperYLowerXExport,
   Yy as legacyAppMainBuwUpperYLowerYExport,
