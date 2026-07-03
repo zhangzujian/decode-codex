@@ -42153,13 +42153,13 @@
         "z": "popcornElectronSurfaceStyleLowerZExport"
       },
       "status": "done",
-      "note": "Current ref popcorn electron surface style runtime restored as a stable alias layer over vendor/popcorn-electron-surface-style-runtime.ts. Existing CompatSlot exports are retained for local consumers; embedded @dnd-kit/sortable code now uses vendor/dnd-kit-sortable.tsx, and external CRDT restore state/overlay logic now lives in features/popcorn/crdt-restore-state.tsx while full semantic splitting of the large backing runtime remains open.",
-      "lastUpdated": "2026-07-02T01:43:57.000Z",
+      "note": "Current ref popcorn electron surface style runtime restored as a stable alias layer over vendor/popcorn-electron-surface-style-runtime.ts. Existing CompatSlot exports are retained for local consumers; embedded @dnd-kit/sortable code now uses vendor/dnd-kit-sortable.tsx, external CRDT restore state/overlay logic now lives in features/popcorn/crdt-restore-state.tsx, and annotation numbering plus surface color helpers now live in features/popcorn while full semantic splitting of the large backing runtime remains open.",
+      "lastUpdated": "2026-07-03T03:13:00.000Z",
       "migratedFrom": "popcorn-electron-surface-style-jyyIi7EC",
       "stage3Accepted": true,
       "stage3AcceptedAt": "2026-06-30T22:05:41.902Z",
       "stage3Review": "Host self-review: preserved the current export table, moved the backing implementation to vendor/popcorn-electron-surface-style-runtime.ts, updated runtime facade imports, and verified no current-bundle references remain.",
-      "stage3Note": "Accepted as a current-ref compatibility export surface over the restored Popcorn electron surface runtime; full semantic splitting of the large implementation remains a later cleanup."
+      "stage3Note": "Accepted as a current-ref compatibility export surface over the restored Popcorn electron surface runtime. Partial semantic split in progress: features/popcorn now owns CRDT restore state, annotation numbering, and surface color helpers; full semantic splitting of the large implementation remains a later cleanup."
     },
     "PopcornElectronDocumentPanel-BJYIlWEb": {
       "restored": "runtime/current-app-initial/popcorn-electron-document-panel-current-runtime.ts",
