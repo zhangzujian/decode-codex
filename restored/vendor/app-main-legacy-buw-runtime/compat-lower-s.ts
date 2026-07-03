@@ -19,9 +19,9 @@ export { focusPendingReviewPanelTarget } from "../../conversations/local-convers
 export { isSpendControlBlockedByWorkspaceCap as appMainCurrentCompatSlotLowerSLowerC } from "../../utils/rate-limit-status/account-status";
 export { initOpenConfigInEditorChunk as appMainCurrentCompatSlotLowerSLowerX } from "../../composer/open-config-in-editor";
 export { initPrimaryRuntimeInstallStateChunk as appMainCurrentCompatSlotLowerSLowerS } from "../../runtime/primary-runtime-install-state";
+export { shouldRefreshSearchHighlightMutations as appMainCurrentCompatSlotLowerSUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
-  s_ as appMainCurrentCompatSlotLowerSUnderscore,
   sb as appMainCurrentCompatSlotLowerSLowerB,
   sC as appMainCurrentCompatSlotLowerSUpperC,
   sd as appMainCurrentCompatSlotLowerSLowerD,

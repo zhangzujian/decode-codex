@@ -16,13 +16,13 @@ export { moveThreadToHostWorktree as legacyAppMainBuwDollarLowerAExport } from "
 export { readServiceTierForRequest as legacyAppMainBuwDollarLowerHExport } from "../../../utils/read-service-tier-for-request";
 
 export { DEFAULT_AUTOMATION_DRAFT as legacyAppMainBuwDollarLowerRExport } from "../../../automations/shared";
+export { initConversationSearchSnippetBuilderRuntime as legacyAppMainBuwDollarLowerGExport } from "../../../runtime/conversation-search-runtime";
 
 export {
   $ as legacyAppMainBuwDollarExport,
   $_ as legacyAppMainBuwDollarUnderscoreExport,
   $b as legacyAppMainBuwDollarLowerBExport,
   $d as legacyAppMainBuwDollarLowerDExport,
-  $g as legacyAppMainBuwDollarLowerGExport,
   $i as legacyAppMainBuwDollarLowerIExport,
   $p as legacyAppMainBuwDollarLowerPExport,
   $s as legacyAppMainBuwDollarLowerSExport,

@@ -27,6 +27,7 @@ export { ReasoningEffortLabel as legacyAppMainBuwUpperYLowerRExport } from "../.
 export { getModelReasoningEffortOptions as legacyAppMainBuwUpperWLowerRExport } from "../../../composer/reasoning-effort-options";
 export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperXLowerRExport } from "../../../composer/reasoning-effort-label";
 export { useRemoveBrowserUseFileTransferOriginMutation as legacyAppMainBuwUpperTLowerPExport } from "../../../browser/browser-use-origin-state-queries";
+export { buildLocalConversationSearchSnippet as legacyAppMainBuwUpperZLowerGExport } from "../../../runtime/conversation-search-runtime";
 
 export {
   registerForkedConversation,
@@ -181,7 +182,6 @@ export {
   Zb as legacyAppMainBuwUpperZLowerBExport,
   Zd as legacyAppMainBuwUpperZLowerDExport,
   Zf as legacyAppMainBuwUpperZLowerFExport,
-  Zg as legacyAppMainBuwUpperZLowerGExport,
   Zh as legacyAppMainBuwUpperZLowerHExport,
   Zm as legacyAppMainBuwUpperZLowerMExport,
   Zn as legacyAppMainBuwUpperZLowerNExport,

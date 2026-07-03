@@ -14,9 +14,9 @@ export {
 } from "../app-main-current-runtime";
 
 export { initWarningContextRuntime } from "../../runtime/app-main-new-thread-runtime";
+export { getLocalConversationSearchMatchId as appMainCurrentCompatSlotLowerNUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
-  n_ as appMainCurrentCompatSlotLowerNUnderscore,
   na as appMainCurrentCompatSlotLowerNLowerA,
   nd as appMainCurrentCompatSlotLowerNLowerD,
   ng as appMainCurrentCompatSlotLowerNLowerG,

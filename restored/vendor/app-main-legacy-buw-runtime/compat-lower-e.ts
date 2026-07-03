@@ -15,9 +15,9 @@ export {
 export { initArrowUpRightLgIconChunk as SidebarRowPrBadge } from "../../icons/arrow-up-right-lg-icon";
 
 export { initPortalRuntime } from "../../runtime/app-main-new-thread-runtime";
+export { activeContentSearchMatchClassName as appMainCurrentCompatSlotLowerEUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
-  e_ as appMainCurrentCompatSlotLowerEUnderscore,
   eb as appMainCurrentCompatSlotLowerELowerB,
   ed as appMainCurrentCompatSlotLowerELowerD,
   ef as appMainCurrentCompatSlotLowerELowerF,

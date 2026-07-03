@@ -10,9 +10,9 @@ export { ConversationalOnboardingTaskIcon as appMainCurrentCompatSlotLowerT } fr
 export { applyAutomationScheduleDraft as appMainCurrentCompatSlotLowerTLowerI } from "../../automations/shared";
 export { ProjectDropdownOptions as appMainCurrentCompatSlotLowerTLowerD } from "../../ui/project-dropdown-options";
 export { PullRequestOpenIcon as appMainCurrentCompatSlotLowerTLowerU } from "../../icons/pull-request-open-icon";
+export { clearContentSearchHighlights as appMainCurrentCompatSlotLowerTUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
-  t_ as appMainCurrentCompatSlotLowerTUnderscore,
   ta as appMainCurrentCompatSlotLowerTLowerA,
   tb as appMainCurrentCompatSlotLowerTLowerB,
   tf as appMainCurrentCompatSlotLowerTLowerF,

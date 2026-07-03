@@ -113,6 +113,7 @@ export {
 } from "../../../conversations/thread-management-tool-handlers";
 export { buildBranchName as legacyAppMainBuwLowerGLowerUExport } from "../../../conversations/build-branch-name";
 export { BrowserNotSecureIcon as legacyAppMainBuwLowerILowerPExport } from "../../../browser/browser-address-security-indicator";
+export { highlightContentSearchMatches as legacyAppMainBuwLowerIUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 
 export { closestCenter as ThreadRowStatusIndicator } from "../../dnd-kit-core";
 
@@ -137,7 +138,6 @@ export {
   ht as legacyAppMainBuwLowerHLowerTExport,
   hu as legacyAppMainBuwLowerHLowerUExport,
   iS as legacyAppMainBuwLowerIUpperSExport,
-  i_ as legacyAppMainBuwLowerIUnderscoreExport,
   ib as legacyAppMainBuwLowerILowerBExport,
   id as legacyAppMainBuwLowerILowerDExport,
   if as legacyAppMainBuwLowerILowerFExport,

@@ -19,9 +19,9 @@ export { getCodexWindowChrome } from "../../runtime/window-chrome-runtime";
 export { initReviewDiffStateRuntime as initReviewDiffStateChunk } from "../../review/review-diff-store";
 export { finishPrimaryRuntimeInstallBeforeFirstTurn as appMainCurrentCompatSlotLowerOLowerS } from "../../runtime/primary-runtime-install-state";
 export { getMoveToLocalTargets as appMainCurrentCompatSlotLowerOLowerO } from "../../utils/get-move-to-local-targets";
+export { setContentSearchMatchIdAttribute as appMainCurrentCompatSlotLowerOUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
-  o_ as appMainCurrentCompatSlotLowerOUnderscore,
   ob as appMainCurrentCompatSlotLowerOLowerB,
   od as appMainCurrentCompatSlotLowerOLowerD,
   oh as appMainCurrentCompatSlotLowerOLowerH,

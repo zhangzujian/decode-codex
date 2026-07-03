@@ -12,10 +12,10 @@ export { primaryRuntimeInstallProgress as appMainCurrentCompatSlotLowerRLowerS }
 
 export { automationDirectiveResultAtom as appMainCurrentCompatSlotLowerRLowerI } from "../../automations/shared";
 export { PullRequestMergedIcon as appMainCurrentCompatSlotLowerRLowerU } from "../../github/pull-request-status";
+export { joinThreadFindItemId as appMainCurrentCompatSlotLowerRUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
   r as appMainCurrentCompatSlotLowerR,
-  r_ as appMainCurrentCompatSlotLowerRUnderscore,
   ra as appMainCurrentCompatSlotLowerRLowerA,
   rb as appMainCurrentCompatSlotLowerRLowerB,
   rd as appMainCurrentCompatSlotLowerRLowerD,

@@ -103,10 +103,10 @@ export {
 export { trackConversationalOnboardingExecutionCompletionMissing as legacyAppMainBuwLowerZLowerSExport } from "../../../onboarding/conversational-onboarding-analytics";
 export { initThreadHandoffComposerStatusChunk as legacyAppMainBuwLowerULowerOExport } from "../../../conversations/thread-handoff-composer-status";
 export { ReviewTabIcon as legacyAppMainBuwLowerXLowerHExport } from "../../../icons/review-tab-icon";
+export { clearContentSearchHighlights as legacyAppMainBuwLowerTUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
-  t_ as legacyAppMainBuwLowerTUnderscoreExport,
   ta as legacyAppMainBuwLowerTLowerAExport,
   tb as legacyAppMainBuwLowerTLowerBExport,
   tf as legacyAppMainBuwLowerTLowerFExport,

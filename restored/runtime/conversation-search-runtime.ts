@@ -61,6 +61,14 @@ export function initConversationContentSearchRuntime(): void {
   initContentSearchMatchAttributeRuntimeRaw();
 }
 
+export function initContentSearchRuntime(): void {
+  initContentSearchRuntimeRaw();
+}
+
+export function initConversationSearchSnippetBuilderRuntime(): void {
+  initConversationSearchSnippetBuilderRaw();
+}
+
 export function initLocalConversationSearchRuntime(): void {
   initContentSearchRuntimeRaw();
   initConversationSearchMatcherRaw();

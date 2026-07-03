@@ -101,10 +101,11 @@ export { CancelGitActionButton as legacyAppMainBuwLowerCLowerUExport } from "../
 export { getWorktreeSubmitToastMessage as legacyAppMainBuwLowerCLowerNExport } from "../../../composer/submit-toast-messages";
 export { initBrowserNotSecureIconChunk as legacyAppMainBuwLowerALowerPExport } from "../../../browser/browser-address-security-indicator";
 export { BrowserUseGlyphIcon as legacyAppMainBuwLowerCLowerAExport } from "../../../conversations/tool-activity-source-icon";
+export { initContentSearchRuntime as legacyAppMainBuwLowerAUnderscoreExport } from "../../../runtime/conversation-search-runtime";
+export { activeContentSearchMatchClassName as legacyAppMainBuwLowerEUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 
 export {
   aS as legacyAppMainBuwLowerAUpperSExport,
-  a_ as legacyAppMainBuwLowerAUnderscoreExport,
   aa as legacyAppMainBuwLowerALowerAExport,
   ab as legacyAppMainBuwLowerALowerBExport,
   ad as legacyAppMainBuwLowerALowerDExport,
@@ -154,7 +155,6 @@ export {
   dv as legacyAppMainBuwLowerDLowerVExport,
   dy as legacyAppMainBuwLowerDLowerYExport,
   eS as legacyAppMainBuwLowerEUpperSExport,
-  e_ as legacyAppMainBuwLowerEUnderscoreExport,
   eb as legacyAppMainBuwLowerELowerBExport,
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,

@@ -16,13 +16,13 @@ export { moveThreadToHostWorktree as appMainCurrentCompatSlotDollarLowerA } from
 export { readServiceTierForRequest as appMainCurrentCompatSlotDollarLowerH } from "../../utils/read-service-tier-for-request";
 
 export { DEFAULT_AUTOMATION_DRAFT as appMainCurrentCompatSlotDollarLowerR } from "../../automations/shared";
+export { initConversationSearchSnippetBuilderRuntime as appMainCurrentCompatSlotDollarLowerG } from "../../runtime/conversation-search-runtime";
 
 export {
   $ as appMainCurrentCompatSlotDollar,
   $_ as appMainCurrentCompatSlotDollarUnderscore,
   $b as appMainCurrentCompatSlotDollarLowerB,
   $d as appMainCurrentCompatSlotDollarLowerD,
-  $g as appMainCurrentCompatSlotDollarLowerG,
   $i as appMainCurrentCompatSlotDollarLowerI,
   $p as appMainCurrentCompatSlotDollarLowerP,
   $s as appMainCurrentCompatSlotDollarLowerS,

@@ -86,6 +86,7 @@ export { MiddleTruncatedText as legacyAppMainBuwUpperPLowerLExport } from "../..
 export { RegenerateIcon as legacyAppMainBuwUpperPUpperCExport } from "../../../icons/regenerate-icon";
 export { initStopIconChunk as legacyAppMainBuwUpperNUpperCExport } from "../../../icons/stop-icon";
 export { WhitespaceEyeIcon as legacyAppMainBuwUpperOLowerLExport } from "../../../icons/whitespace-eye-icon";
+export { findLocalConversationTextMatches as legacyAppMainBuwUpperQLowerGExport } from "../../../runtime/conversation-search-runtime";
 
 export {
   NS as legacyAppMainBuwUpperNUpperSExport,
@@ -128,7 +129,6 @@ export {
   Q_ as legacyAppMainBuwUpperQUnderscoreExport,
   Qb as legacyAppMainBuwUpperQLowerBExport,
   Qd as legacyAppMainBuwUpperQLowerDExport,
-  Qg as legacyAppMainBuwUpperQLowerGExport,
   Qh as legacyAppMainBuwUpperQLowerHExport,
   Qi as legacyAppMainBuwUpperQLowerIExport,
   Qm as legacyAppMainBuwUpperQLowerMExport,

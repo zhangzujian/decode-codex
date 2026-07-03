@@ -85,10 +85,13 @@ export {
 export { initInterruptedTurnStateChunk as legacyAppMainBuwLowerQLowerSExport } from "../../../threads/interrupted-turn-state";
 export { copySessionId as legacyAppMainBuwLowerPLowerOExport } from "../../../threads/thread-actions/actions";
 export { getMoveToLocalTargets as legacyAppMainBuwLowerOLowerOExport } from "../../../utils/get-move-to-local-targets";
+export { getLocalConversationSearchMatchId as legacyAppMainBuwLowerNUnderscoreExport } from "../../../runtime/conversation-search-runtime";
+export { setContentSearchMatchIdAttribute as legacyAppMainBuwLowerOUnderscoreExport } from "../../../runtime/conversation-search-runtime";
+export { joinThreadFindItemId as legacyAppMainBuwLowerRUnderscoreExport } from "../../../runtime/conversation-search-runtime";
+export { shouldRefreshSearchHighlightMutations as legacyAppMainBuwLowerSUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 
 export {
   nS as legacyAppMainBuwLowerNUpperSExport,
-  n_ as legacyAppMainBuwLowerNUnderscoreExport,
   na as legacyAppMainBuwLowerNLowerAExport,
   nd as legacyAppMainBuwLowerNLowerDExport,
   ng as legacyAppMainBuwLowerNLowerGExport,
@@ -103,7 +106,6 @@ export {
   nx as legacyAppMainBuwLowerNLowerXExport,
   ny as legacyAppMainBuwLowerNLowerYExport,
   oS as legacyAppMainBuwLowerOUpperSExport,
-  o_ as legacyAppMainBuwLowerOUnderscoreExport,
   ob as legacyAppMainBuwLowerOLowerBExport,
   od as legacyAppMainBuwLowerOLowerDExport,
   oh as legacyAppMainBuwLowerOLowerHExport,
@@ -147,7 +149,6 @@ export {
   qy as legacyAppMainBuwLowerQLowerYExport,
   r as legacyAppMainBuwLowerRExport,
   rS as legacyAppMainBuwLowerRUpperSExport,
-  r_ as legacyAppMainBuwLowerRUnderscoreExport,
   ra as legacyAppMainBuwLowerRLowerAExport,
   rb as legacyAppMainBuwLowerRLowerBExport,
   rd as legacyAppMainBuwLowerRLowerDExport,
@@ -163,7 +164,6 @@ export {
   ry as legacyAppMainBuwLowerRLowerYExport,
   sC as legacyAppMainBuwLowerSUpperCExport,
   sS as legacyAppMainBuwLowerSUpperSExport,
-  s_ as legacyAppMainBuwLowerSUnderscoreExport,
   sb as legacyAppMainBuwLowerSLowerBExport,
   sd as legacyAppMainBuwLowerSLowerDExport,
   sh as legacyAppMainBuwLowerSLowerHExport,

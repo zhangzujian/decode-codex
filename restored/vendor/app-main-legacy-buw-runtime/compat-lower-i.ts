@@ -12,9 +12,9 @@ export { getConversationalOnboardingTaskPluginName as appMainCurrentCompatSlotLo
 export { automationDirectiveSeedAtom as appMainCurrentCompatSlotLowerILowerI } from "../../automations/shared";
 export { ActivityScrollContainer as appMainCurrentCompatSlotLowerILowerA } from "../../conversations/activity-scroll-container";
 export { BrowserNotSecureIcon as appMainCurrentCompatSlotLowerILowerP } from "../../browser/browser-address-security-indicator";
+export { highlightContentSearchMatches as appMainCurrentCompatSlotLowerIUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
-  i_ as appMainCurrentCompatSlotLowerIUnderscore,
   ib as appMainCurrentCompatSlotLowerILowerB,
   id as appMainCurrentCompatSlotLowerILowerD,
   if as appMainCurrentCompatSlotLowerILowerF,

@@ -14,13 +14,13 @@ export { moveThreadToLocal as appMainCurrentCompatSlotUpperZLowerA } from "../..
 export { UploadIcon as appMainCurrentCompatSlotUpperZ } from "../../icons/upload-icon";
 export { initReasoningEffortLabelChunk as appMainCurrentCompatSlotUpperZLowerR } from "../../composer/reasoning-effort-label";
 export { PullRequestButtonLabel as appMainCurrentCompatSlotUpperZLowerL } from "../../github/pull-request-button-label";
+export { buildLocalConversationSearchSnippet as appMainCurrentCompatSlotUpperZLowerG } from "../../runtime/conversation-search-runtime";
 
 export {
   Z_ as appMainCurrentCompatSlotUpperZUnderscore,
   Zb as appMainCurrentCompatSlotUpperZLowerB,
   Zd as appMainCurrentCompatSlotUpperZLowerD,
   Zf as appMainCurrentCompatSlotUpperZLowerF,
-  Zg as appMainCurrentCompatSlotUpperZLowerG,
   Zh as appMainCurrentCompatSlotUpperZLowerH,
   Zm as appMainCurrentCompatSlotUpperZLowerM,
   Zn as appMainCurrentCompatSlotUpperZLowerN,
