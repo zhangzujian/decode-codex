@@ -439,7 +439,9 @@ bundle tail table (`export { internal as alias }`), then inspect the resulting
 alias `Wa` was labeled `pathsMatch` in the legacy map, but `Wa` resolves to
 `jnt`, an async thread-handoff helper; it is not a review path comparator. Do not
 route such names to restored modules by name alone; verify the binding body
-first.
+first. Use
+`scripts/resolve-direct-compat-exports.ts <stable-export-file-or-dir>` to print
+the verified alias chain and internal definition line before opening the bundle.
 
 ## Aggregator-chunk restore anti-patterns
 
