@@ -13,7 +13,6 @@ import {
   routeAtom,
   reviewCwdAtom,
   reviewHostConfigAtom,
-  reviewFileDiffModelAtom,
   reviewRichPreviewEnabledAtom,
   reviewDiffWrapAtom,
   hideWhitespaceAtom,
@@ -30,6 +29,7 @@ import {
   Tooltip,
 } from "../boundaries/onboarding-commons-externals.facade";
 import { reviewDiffFilterAtom } from "./review-diff-model";
+import { reviewFileDiffModelAtom } from "./review-file-entries";
 import {
   buildViewedFileKey,
   isFileViewed,

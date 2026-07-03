@@ -27,4 +27,4 @@ export { isReasoningEffort as appMainCurrentCompatSlotLowerILowerX } from "../..
 export { initImageAttachmentChunk as appMainCurrentCompatSlotLowerILowerM } from "../../image-side-panel/image-attachment";
 export { initD3ScaleRuntimeChunk as appMainCurrentCompatSlotLowerIUpperS } from "../../utils/d3-chart-scales";
 
-export { iv as appMainCurrentCompatSlotLowerILowerV } from "../app-main-legacy-buw-compat-bundle";
+export { reviewFileEntriesAtom as appMainCurrentCompatSlotLowerILowerV } from "../../review/review-file-entries";

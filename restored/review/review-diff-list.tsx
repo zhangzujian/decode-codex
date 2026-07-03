@@ -16,12 +16,12 @@ import {
   reviewFindActiveAtom,
   reviewVisibleFileEntriesAtom,
   reviewCappedVisibleCountAtom,
-  reviewFileEntriesAtom,
   reviewGitMetadataQueryAtom,
   useReviewGeneratedPaths,
   loadMoreReviewMatches,
 } from "../boundaries/onboarding-commons-externals.facade";
 import { ReviewDiffCard } from "./review-diff-card";
+import { reviewFileEntriesAtom } from "./review-file-entries";
 import { useReviewExpandedDiffs } from "./review-expanded-diffs-provider";
 
 export interface LoadMoreMatchesButtonProps {

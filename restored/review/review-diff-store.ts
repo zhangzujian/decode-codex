@@ -44,6 +44,10 @@ import {
   reviewFileDiffQueryFamily,
 } from "./review-file-diff-query";
 import {
+  reviewFileDiffModelAtom,
+  reviewFileEntriesAtom,
+} from "./review-file-entries";
+import {
   refetchReviewFileDiff,
   refreshReviewFilesForPaths,
   refreshReviewIndexInfo,
@@ -77,6 +81,8 @@ export function initReviewSourceRuntime(): void {
   void reviewSummaryAtom;
   void reviewDiffMetricsAtom;
   void reviewFilesByDisplayPathAtom;
+  void reviewFileEntriesAtom;
+  void reviewFileDiffModelAtom;
   void reviewFileDiffQueryFamily;
 }
 
@@ -165,6 +171,10 @@ export {
   reviewDiffTargetParsedAtom,
   reviewFileDiffQueryFamily,
 } from "./review-file-diff-query";
+export {
+  reviewFileDiffModelAtom,
+  reviewFileEntriesAtom,
+} from "./review-file-entries";
 export {
   refetchReviewFileDiff,
   refreshReviewFilesForPaths,

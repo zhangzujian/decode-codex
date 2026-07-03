@@ -181,6 +181,7 @@ export {
   currentBranchNameAtom as legacyAppMainBuwLowerJLowerVExport,
   reviewProjectRootAtom as legacyAppMainBuwLowerKLowerVExport,
 } from "../../../review/review-git-metadata";
+export { reviewFileEntriesAtom as legacyAppMainBuwLowerILowerVExport } from "../../../review/review-file-entries";
 export { initImageAttachmentChunk as legacyAppMainBuwLowerILowerMExport } from "../../../image-side-panel/image-attachment";
 export { initD3ScaleRuntimeChunk as legacyAppMainBuwLowerIUpperSExport } from "../../../utils/d3-chart-scales";
 export { initPullRequestMergedIconChunk as legacyAppMainBuwLowerILowerUExport } from "../../../github/pull-request-status";
@@ -193,7 +194,6 @@ export {
 } from "../../../composer/right-panel-composer-overlay-scroll-reserve";
 
 export {
-  iv as legacyAppMainBuwLowerILowerVExport,
   k as legacyAppMainBuwLowerKExport,
   kg as legacyAppMainBuwLowerKLowerGExport,
   kn as legacyAppMainBuwLowerKLowerNExport,
