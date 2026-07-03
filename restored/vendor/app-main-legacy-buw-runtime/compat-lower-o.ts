@@ -27,10 +27,10 @@ export { initD3TimeFormatRuntimeChunk as appMainCurrentCompatSlotLowerOUpperS } 
 export { getBrowserSidebarTweaksState as appMainCurrentCompatSlotLowerOLowerP } from "../../app-shell/thread-side-panel-active-signals";
 export { setDiffCommentsForConversation as appMainCurrentCompatSlotLowerOLowerH } from "../../github/diff-comments/set-diff-comments-for-conversation";
 export { initMcpToolItemContentUtilsChunk as appMainCurrentCompatSlotLowerOLowerD } from "../../plugins/mcp-tool-item-content-utils";
+export { initOpenConfigTomlButtonChunk as appMainCurrentCompatSlotLowerOLowerX } from "../../composer/open-config-toml-button";
+export { initGitWorkflowPhaseLabelChunk as appMainCurrentCompatSlotLowerOLowerU } from "../../conversations/git-workflow-phase-label";
 
 export {
   ob as appMainCurrentCompatSlotLowerOLowerB,
-  ou as appMainCurrentCompatSlotLowerOLowerU,
-  ox as appMainCurrentCompatSlotLowerOLowerX,
   oy as appMainCurrentCompatSlotLowerOLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

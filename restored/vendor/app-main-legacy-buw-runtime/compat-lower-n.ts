@@ -18,6 +18,7 @@ export { buildWorktreeLabelFromInput as appMainCurrentCompatSlotLowerNLowerG } f
 export { THREAD_HANDOFF_OPERATION_STEP_IDS as appMainCurrentCompatSlotLowerNLowerO } from "../../app-shell/thread-handoff-operations/steps";
 export { initFeedbackFormDialogChunk as appMainCurrentCompatSlotLowerNLowerR } from "../../ui/feedback-form-dialog";
 export { initDurationFormatChunk as appMainCurrentCompatSlotLowerNLowerS } from "../../utils/duration-format";
+export { openPlanSummarySidePanelTab as appMainCurrentCompatSlotLowerNLowerT } from "../../conversations/local-conversation-thread-parts/plan-summary-card";
 
 export {
   liveMcpAppFrameSignal,
@@ -28,7 +29,4 @@ export {
 export { initWarningContextRuntime } from "../../runtime/app-main-new-thread-runtime";
 export { getLocalConversationSearchMatchId as appMainCurrentCompatSlotLowerNUnderscore } from "../../runtime/conversation-search-runtime";
 
-export {
-  nt as appMainCurrentCompatSlotLowerNLowerT,
-  ny as appMainCurrentCompatSlotLowerNLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { ny as appMainCurrentCompatSlotLowerNLowerY } from "../app-main-legacy-buw-compat-bundle";

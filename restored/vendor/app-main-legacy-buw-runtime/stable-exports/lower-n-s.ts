@@ -149,6 +149,7 @@ export { initReferencedPriorConversationsChunk as legacyAppMainBuwLowerPLowerNEx
 export { initProjectDropdownOptionsChunk as legacyAppMainBuwLowerNLowerDExport } from "../../../ui/project-dropdown-options";
 export { isSteerTurnInactiveError as legacyAppMainBuwLowerOLowerNExport } from "../../../composer/steer-turn-inactive-error";
 export { formatComposerSubmitError as legacyAppMainBuwLowerSLowerNExport } from "../../../composer/submit-toast-status-messages";
+export { openPlanSummarySidePanelTab as legacyAppMainBuwLowerNLowerTExport } from "../../../conversations/local-conversation-thread-parts/plan-summary-card";
 export { isConversationItemInProgress as legacyAppMainBuwLowerOLowerTExport } from "../../../conversations/local-conversation-thread-parts/conversation-item-in-progress";
 export { scrollConversationItemIntoView as legacyAppMainBuwLowerPLowerTExport } from "../../../conversations/scroll-conversation-item-into-view";
 export { computeGeneratedImageOutputs as legacyAppMainBuwLowerSLowerTExport } from "../../../conversations/generated-image-outputs";
@@ -165,11 +166,13 @@ export { initDurationFormatChunk as legacyAppMainBuwLowerNLowerSExport } from ".
 export { initThreadHandoffOperationStepsChunk as legacyAppMainBuwLowerRLowerOExport } from "../../../app-shell/thread-handoff-operations/steps";
 export { initProcessManagerRequestSignalChunk as legacyAppMainBuwLowerRLowerRExport } from "../../../conversations/process-manager-request-atom";
 export { initGetMoveToLocalTargetsChunk as legacyAppMainBuwLowerSLowerOExport } from "../../../utils/get-move-to-local-targets";
+export { initOpenConfigTomlButtonChunk as legacyAppMainBuwLowerOLowerXExport } from "../../../composer/open-config-toml-button";
+export { conversationalOnboardingTaskDefinitions as legacyAppMainBuwLowerRExport } from "../../../onboarding/conversational-onboarding-task-definitions";
+export { initPermissionModeSelectionChunk as legacyAppMainBuwLowerSLowerBExport } from "../../../utils/use-permissions-mode/mode-selection";
+export { initGitWorkflowPhaseLabelChunk as legacyAppMainBuwLowerOLowerUExport } from "../../../conversations/git-workflow-phase-label";
+export { CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME as legacyAppMainBuwLowerSLowerUExport } from "../../../conversations/cancel-git-action-button";
 
 export {
-  nt as legacyAppMainBuwLowerNLowerTExport,
-  ou as legacyAppMainBuwLowerOLowerUExport,
-  ox as legacyAppMainBuwLowerOLowerXExport,
   p_ as legacyAppMainBuwLowerPUnderscoreExport,
   pa as legacyAppMainBuwLowerPLowerAExport,
   pf as legacyAppMainBuwLowerPLowerFExport,
@@ -181,9 +184,6 @@ export {
   qm as legacyAppMainBuwLowerQLowerMExport,
   qo as legacyAppMainBuwLowerQLowerOExport,
   qt as legacyAppMainBuwLowerQLowerTExport,
-  r as legacyAppMainBuwLowerRExport,
   rn as legacyAppMainBuwLowerRLowerNExport,
-  sb as legacyAppMainBuwLowerSLowerBExport,
   sh as legacyAppMainBuwLowerSLowerHExport,
-  su as legacyAppMainBuwLowerSLowerUExport,
 } from "../../app-main-legacy-buw-compat-bundle";

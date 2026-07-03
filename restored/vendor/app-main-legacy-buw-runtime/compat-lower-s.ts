@@ -27,10 +27,10 @@ export { initBrowserSidebarTweaksStateChunk as appMainCurrentCompatSlotLowerSLow
 export { formatComposerSubmitError as appMainCurrentCompatSlotLowerSLowerN } from "../../composer/submit-toast-status-messages";
 export { initQueuedFollowUpsStoreChunk as appMainCurrentCompatSlotLowerSLowerD } from "../../utils/queued-follow-ups-store";
 export { initGetMoveToLocalTargetsChunk as appMainCurrentCompatSlotLowerSLowerO } from "../../utils/get-move-to-local-targets";
+export { initPermissionModeSelectionChunk as appMainCurrentCompatSlotLowerSLowerB } from "../../utils/use-permissions-mode/mode-selection";
+export { CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME as appMainCurrentCompatSlotLowerSLowerU } from "../../conversations/cancel-git-action-button";
 
 export {
-  sb as appMainCurrentCompatSlotLowerSLowerB,
   sh as appMainCurrentCompatSlotLowerSLowerH,
-  su as appMainCurrentCompatSlotLowerSLowerU,
   sy as appMainCurrentCompatSlotLowerSLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

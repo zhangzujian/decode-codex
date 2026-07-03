@@ -23,9 +23,9 @@ export { initCodexAppsServerChunk as appMainCurrentCompatSlotLowerRLowerD } from
 export { initBuildWorktreeLabelFromInputChunk as appMainCurrentCompatSlotLowerRLowerG } from "../../utils/build-worktree-label-from-input";
 export { initThreadHandoffOperationStepsChunk as appMainCurrentCompatSlotLowerRLowerO } from "../../app-shell/thread-handoff-operations/steps";
 export { initProcessManagerRequestSignalChunk as appMainCurrentCompatSlotLowerRLowerR } from "../../conversations/process-manager-request-atom";
+export { conversationalOnboardingTaskDefinitions as appMainCurrentCompatSlotLowerR } from "../../onboarding/conversational-onboarding-task-definitions";
 
 export {
-  r as appMainCurrentCompatSlotLowerR,
   rb as appMainCurrentCompatSlotLowerRLowerB,
   rf as appMainCurrentCompatSlotLowerRLowerF,
   rn as appMainCurrentCompatSlotLowerRLowerN,
