@@ -107,242 +107,10 @@ import {
   ArtifactPreviewStatus as Ie,
   initArtifactPreviewStatusChunk as Le,
 } from "../utils/artifact-preview-status";
-function Re(e) {
-  let t = (0, He.c)(19),
-    { containerRef: n, pageSelector: r, totalPages: i } = e,
-    [a, o] = (0, Ue.useState)(1),
-    s = (0, Ue.useRef)(null),
-    c = (0, Ue.useRef)(null),
-    l = Be(a, i),
-    u,
-    d;
-  (t[0] !== n || t[1] !== r || t[2] !== i
-    ? ((u = () => {
-        let e = n.current;
-        if (e == null || i < 1 || typeof IntersectionObserver > `u`) return;
-        let t = ze(e, r);
-        if (t.length === 0) return;
-        let a = new Map(),
-          l = new IntersectionObserver(
-            (n) => {
-              for (let e of n) a.set(e.target, e.intersectionRatio);
-              let r = Ve({
-                container: e,
-                pageElements: t,
-                pageVisibilityByElement: a,
-              });
-              r != null &&
-                ((s.current != null && r !== s.current) ||
-                  (r === s.current &&
-                    ((s.current = null), c.current?.(), (c.current = null)),
-                  o(r)));
-            },
-            { root: e, threshold: We },
-          );
-        for (let e of t) (a.set(e, 0), l.observe(e));
-        let u = Ve({
-          container: e,
-          pageElements: t,
-          pageVisibilityByElement: a,
-        });
-        return (
-          u != null && o(u),
-          () => {
-            (l.disconnect(),
-              (s.current = null),
-              c.current?.(),
-              (c.current = null));
-          }
-        );
-      }),
-      (d = [n, r, i]),
-      (t[0] = n),
-      (t[1] = r),
-      (t[2] = i),
-      (t[3] = u),
-      (t[4] = d))
-    : ((u = t[3]), (d = t[4])),
-    (0, Ue.useEffect)(u, d));
-  let f;
-  t[5] !== n || t[6] !== r
-    ? ((f = (e) => {
-        let t = n.current;
-        if (t == null) return;
-        let i = ze(t, r).at(e - 1);
-        if (i == null) return;
-        (c.current?.(), (c.current = null), (s.current = e));
-        let a = null,
-          l = () => {
-            (a != null && (clearTimeout(a), (a = null)),
-              t.removeEventListener(`scroll`, d));
-          },
-          u = () => {
-            if (s.current !== e) return;
-            ((s.current = null), l());
-            let n = Ve({
-              container: t,
-              pageElements: ze(t, r),
-              pageVisibilityByElement: new Map(),
-            });
-            n != null && o(n);
-          },
-          d = () => {
-            (a != null && clearTimeout(a), (a = setTimeout(u, Ge)));
-          };
-        ((c.current = l),
-          i.scrollIntoView({ behavior: `smooth`, block: `start` }),
-          o(e),
-          d(),
-          t.addEventListener(`scroll`, d));
-      }),
-      (t[5] = n),
-      (t[6] = r),
-      (t[7] = f))
-    : (f = t[7]);
-  let p = f,
-    m;
-  t[8] !== l || t[9] !== p
-    ? ((m = () => {
-        let e = l - 1;
-        e < 1 || p(e);
-      }),
-      (t[8] = l),
-      (t[9] = p),
-      (t[10] = m))
-    : (m = t[10]);
-  let h = m,
-    g;
-  t[11] !== l || t[12] !== p || t[13] !== i
-    ? ((g = () => {
-        let e = l + 1;
-        e > i || p(e);
-      }),
-      (t[11] = l),
-      (t[12] = p),
-      (t[13] = i),
-      (t[14] = g))
-    : (g = t[14]);
-  let _ = g,
-    v;
-  return (
-    t[15] !== l || t[16] !== _ || t[17] !== h
-      ? ((v = { currentPage: l, goToNextPage: _, goToPreviousPage: h }),
-        (t[15] = l),
-        (t[16] = _),
-        (t[17] = h),
-        (t[18] = v))
-      : (v = t[18]),
-    v
-  );
-}
-function ze(e, t) {
-  return Array.from(e.querySelectorAll(t));
-}
-function Be(e, t) {
-  return Math.min(Math.max(e, 1), Math.max(t, 1));
-}
-function Ve({ container: e, pageElements: t, pageVisibilityByElement: n }) {
-  if (t.length === 0) return null;
-  let r = 0,
-    i = -1;
-  for (let [e, a] of t.entries()) {
-    let t = n.get(a) ?? 0;
-    t > i && ((i = t), (r = e));
-  }
-  if (i > 0) return r + 1;
-  let a = e.getBoundingClientRect().top,
-    o = 0,
-    s = 1 / 0;
-  for (let [e, n] of t.entries()) {
-    let t = Math.abs(n.getBoundingClientRect().top - a);
-    t < s && ((s = t), (o = e));
-  }
-  return o + 1;
-}
-var He,
-  Ue,
-  We,
-  Ge,
-  Ke = e(() => {
-    ((He = p()), (Ue = t(l(), 1)), (We = [0, 0.25, 0.5, 0.75, 1]), (Ge = 100));
-  });
-function qe(e) {
-  let t = (0, Xe.c)(9),
-    { fileDataUrl: n } = e,
-    [r, i] = (0, Ze.useState)(null),
-    [a, o] = (0, Ze.useState)(`loading`),
-    [s, c] = (0, Ze.useState)(0),
-    [l, u] = (0, Ze.useState)(null),
-    [d, f] = (0, Ze.useState)(null),
-    p,
-    m;
-  (t[0] === n
-    ? ((p = t[1]), (m = t[2]))
-    : ((p = () => {
-        let e = !1,
-          t = null;
-        return (
-          i(null),
-          o(`loading`),
-          c(0),
-          u(null),
-          f(null),
-          (async function () {
-            try {
-              let r = await Je();
-              if (e) return;
-              let a = Ye(n);
-              if (a == null) {
-                o(`error`);
-                return;
-              }
-              t = r.getDocument({ data: a });
-              let s = await t.promise,
-                l = (await s.getPage(1)).getViewport({ scale: 1 });
-              if (e) {
-                s.destroy();
-                return;
-              }
-              (f(s),
-                i(n),
-                c(Math.max(s.numPages, 1)),
-                u({ height: l.height, width: l.width }),
-                o(`ready`));
-            } catch {
-              if (e) return;
-              (f(null), i(null), c(0), u(null), o(`error`));
-            }
-          })(),
-          () => {
-            ((e = !0), t != null && !t.destroyed && t.destroy());
-          }
-        );
-      }),
-      (m = [n]),
-      (t[0] = n),
-      (t[1] = p),
-      (t[2] = m)),
-    (0, Ze.useEffect)(p, m));
-  let h;
-  return (
-    t[3] !== a || t[4] !== r || t[5] !== s || t[6] !== l || t[7] !== d
-      ? ((h = {
-          loadedFileDataUrl: r,
-          loadState: a,
-          numPages: s,
-          pageViewportSize: l,
-          pdfDocument: d,
-        }),
-        (t[3] = a),
-        (t[4] = r),
-        (t[5] = s),
-        (t[6] = l),
-        (t[7] = d),
-        (t[8] = h))
-      : (h = t[8]),
-    h
-  );
-}
+import {
+  usePdfDocumentLoader as qe,
+  usePdfPageNavigation as Re,
+} from "../features/documents/pdf-preview-panel";
 async function Je() {
   if (typeof window > `u`)
     throw Error(`pdf.js can only be loaded in the browser`);
@@ -358,28 +126,11 @@ async function Je() {
     e
   );
 }
-function Ye(e) {
-  let t = e.indexOf(`base64,`);
-  if (!e.startsWith(`data:`) || t < 0) return null;
-  let n;
-  try {
-    n = window.atob(e.slice(t + 7));
-  } catch {
-    return null;
-  }
-  let r = new Uint8Array(n.length);
-  for (let e = 0; e < n.length; e += 1) r[e] = n.charCodeAt(e);
-  return r;
-}
-var Xe,
-  Ze,
-  Qe,
+var Qe,
   $e,
   et,
   tt = e(() => {
-    ((Xe = p()),
-      (Ze = t(l(), 1)),
-      u(),
+    (u(),
       (Qe = new URL(
         `` + new URL(`pdf.worker.min-qwK7q_zL.mjs`, import.meta.url).href,
         `` + import.meta.url,
@@ -3165,7 +2916,7 @@ function Zn(e) {
   let pe;
   t[19] === r
     ? (pe = t[20])
-    : ((pe = { fileDataUrl: r }), (t[19] = r), (t[20] = pe));
+    : ((pe = { fileDataUrl: r, loadPdfJs: Je }), (t[19] = r), (t[20] = pe));
   let {
       loadedFileDataUrl: he,
       loadState: ge,
@@ -3742,7 +3493,6 @@ e(() => {
     C(),
     Fe(),
     z(),
-    Ke(),
     Le(),
     L(),
     tt(),
