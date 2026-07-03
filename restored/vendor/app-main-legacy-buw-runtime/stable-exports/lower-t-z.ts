@@ -127,6 +127,7 @@ export { useSettingsHostContext as legacyAppMainBuwLowerULowerPExport } from "..
 export { PullRequestOpenIcon as legacyAppMainBuwLowerTLowerUExport } from "../../../icons/pull-request-open-icon";
 export { formatCompactDurationMs as legacyAppMainBuwLowerTLowerSExport } from "../../../utils/duration-format";
 export { ProjectDropdownOptions as legacyAppMainBuwLowerTLowerDExport } from "../../../ui/project-dropdown-options";
+export { windowsTabsOpenActionSchema as legacyAppMainBuwLowerVLowerGExport } from "../../../runtime/windows-tabs-open-schema";
 export { initAnnotationModeButtonChunk as legacyAppMainBuwLowerVLowerMExport } from "../../../ui/annotation-mode-button";
 export {
   AppgenAccessStateIcon as legacyAppMainBuwLowerVLowerSExport,
@@ -178,7 +179,6 @@ export {
   ua as legacyAppMainBuwLowerULowerAExport,
   un as legacyAppMainBuwLowerULowerNExport,
   uv as legacyAppMainBuwLowerULowerVExport,
-  vg as legacyAppMainBuwLowerVLowerGExport,
   vh as legacyAppMainBuwLowerVLowerHExport,
   vp as legacyAppMainBuwLowerVLowerPExport,
   vt as legacyAppMainBuwLowerVLowerTExport,

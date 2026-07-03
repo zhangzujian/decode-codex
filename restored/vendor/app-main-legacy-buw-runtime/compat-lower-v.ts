@@ -18,16 +18,16 @@ export { initHotkeyWindowContextChunk as appMainCurrentCompatSlotLowerVLowerA } 
 export { SettingsButtonRow as appMainCurrentCompatSlotLowerVLowerR } from "../../ui/settings-row";
 export { initAnnotationModeButtonChunk as appMainCurrentCompatSlotLowerVLowerM } from "../../ui/annotation-mode-button";
 export { setReviewBaseBranchOverride as appMainCurrentCompatSlotLowerVLowerV } from "../../review/review-diff-model";
+export { useWindowControlsSafeArea as appMainCurrentCompatSlotLowerVLowerD } from "../../runtime/use-window-controls-safe-area";
+export { initArtifactTabNavigationChunk as appMainCurrentCompatSlotLowerVLowerF } from "../../workspace/artifact-tab-navigation";
+export { windowsTabsOpenActionSchema as appMainCurrentCompatSlotLowerVLowerG } from "../../runtime/windows-tabs-open-schema";
+export { refreshWorktreeStatus as appMainCurrentCompatSlotLowerVLowerN } from "../../conversations/worktree-status-runtime";
+export { timeHour as appMainCurrentCompatSlotLowerVUpperS } from "d3-time";
+export { buildAmbientSuggestionAppIndex as appMainCurrentCompatSlotLowerVLowerY } from "../../connectors/ambient-suggestion-apps";
 
 export {
-  vd as appMainCurrentCompatSlotLowerVLowerD,
-  vf as appMainCurrentCompatSlotLowerVLowerF,
-  vg as appMainCurrentCompatSlotLowerVLowerG,
   vh as appMainCurrentCompatSlotLowerVLowerH,
-  vn as appMainCurrentCompatSlotLowerVLowerN,
   vp as appMainCurrentCompatSlotLowerVLowerP,
-  vS as appMainCurrentCompatSlotLowerVUpperS,
   vt as appMainCurrentCompatSlotLowerVLowerT,
   vu as appMainCurrentCompatSlotLowerVLowerU,
-  vy as appMainCurrentCompatSlotLowerVLowerY,
 } from "../app-main-legacy-buw-compat-bundle";
