@@ -26,6 +26,10 @@ export { initComposerUtilsChunk as legacyAppMainBuwLowerXUpperCExport } from "..
 export { goToNextThreadFindMatch as legacyAppMainBuwLowerZLowerGExport } from "../../../find/thread-find-store";
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
+export {
+  curveLinear as legacyAppMainBuwLowerTUpperSExport,
+  curveMonotoneY as legacyAppMainBuwLowerZLowerXExport,
+} from "d3-shape";
 export { scaleBand as legacyAppMainBuwLowerWUpperSExport } from "d3-scale";
 export {
   timeFriday as legacyAppMainBuwLowerUUpperSExport,
@@ -148,7 +152,6 @@ export { useWindowControlsSafeArea as legacyAppMainBuwLowerVLowerDExport } from 
 export { initReviewDiffFindHighlightChunk as legacyAppMainBuwLowerZLowerFExport } from "../../../review/diff-find-highlight";
 
 export {
-  tS as legacyAppMainBuwLowerTUpperSExport,
   ta as legacyAppMainBuwLowerTLowerAExport,
   tg as legacyAppMainBuwLowerTLowerGExport,
   th as legacyAppMainBuwLowerTLowerHExport,
@@ -206,5 +209,4 @@ export {
   zm as legacyAppMainBuwLowerZLowerMExport,
   zp as legacyAppMainBuwLowerZLowerPExport,
   zt as legacyAppMainBuwLowerZLowerTExport,
-  zx as legacyAppMainBuwLowerZLowerXExport,
 } from "../../app-main-legacy-buw-compat-bundle";
