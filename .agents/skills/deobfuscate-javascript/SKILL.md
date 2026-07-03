@@ -102,7 +102,17 @@ matches a known npm surface, stop before hand-writing code, add the package root
 to the nearest `package.json`, and register the package/gate fingerprint in the
 skill. A "small compatible subset" is still a failed restore for stock packages;
 write local code only after proving a Codex fork, app runtime, or package
-entangled wrapper.
+entangled wrapper. The default answer for a stock package is **zero local package
+body**: `restored/vendor/react-intl.tsx`, `restored/vendor/pdfjs.ts`,
+`restored/vendor/docx-preview.ts`, and similar public vendor files must be
+npm-backed shims, even if the bundle used only a few exports or the current
+workspace does not yet declare the dependency.
+
+Before editing any public vendor target, write down the binary decision in your
+working notes or commit message: **npm shim**, **Codex fork**, or **app/runtime
+wrapper**. If you cannot prove fork/wrapper status from source, consumers, or
+project profile, choose npm shim. Do not start by recreating exported functions
+and then ask whether an npm package exists; package identity is the first gate.
 
 If identity is high-confidence and the package is not a proven Codex fork, the
 deliverable is a thin npm-backed re-export / alias shim:
