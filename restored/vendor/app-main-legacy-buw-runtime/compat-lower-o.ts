@@ -26,10 +26,10 @@ export { isConversationItemInProgress as appMainCurrentCompatSlotLowerOLowerT } 
 export { initD3TimeFormatRuntimeChunk as appMainCurrentCompatSlotLowerOUpperS } from "./compat-runtime-initializers";
 export { getBrowserSidebarTweaksState as appMainCurrentCompatSlotLowerOLowerP } from "../../app-shell/thread-side-panel-active-signals";
 export { setDiffCommentsForConversation as appMainCurrentCompatSlotLowerOLowerH } from "../../github/diff-comments/set-diff-comments-for-conversation";
+export { initMcpToolItemContentUtilsChunk as appMainCurrentCompatSlotLowerOLowerD } from "../../plugins/mcp-tool-item-content-utils";
 
 export {
   ob as appMainCurrentCompatSlotLowerOLowerB,
-  od as appMainCurrentCompatSlotLowerOLowerD,
   ou as appMainCurrentCompatSlotLowerOLowerU,
   ox as appMainCurrentCompatSlotLowerOLowerX,
   oy as appMainCurrentCompatSlotLowerOLowerY,

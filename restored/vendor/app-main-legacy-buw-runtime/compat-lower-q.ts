@@ -17,15 +17,15 @@ export { getPreferredBrowserTabId as appMainCurrentCompatSlotLowerQUnderscore } 
 export { initModelListQueryChunk as appMainCurrentCompatSlotLowerQLowerB } from "../../utils/model-queries";
 export { useDictationShortcutLabel as appMainCurrentCompatSlotLowerQLowerP } from "../../composer/composer-command-keymap";
 export { readMaterializedThreadGoalObjective as appMainCurrentCompatSlotLowerQLowerH } from "../../threads/pending-worktree-store/thread-goal-objective-file";
+export { findPendingWorktreeByClientThreadId as appMainCurrentCompatSlotLowerQLowerD } from "../../worktree/pending-worktree-atoms";
+export { initAppShellTabControllerAnalyticsChunk as appMainCurrentCompatSlotLowerQLowerV } from "../../app-shell/app-shell-tab-controller/analytics";
 
 export {
   q as appMainCurrentCompatSlotLowerQ,
   qa as appMainCurrentCompatSlotLowerQLowerA,
-  qd as appMainCurrentCompatSlotLowerQLowerD,
   ql as appMainCurrentCompatSlotLowerQLowerL,
   qm as appMainCurrentCompatSlotLowerQLowerM,
   qo as appMainCurrentCompatSlotLowerQLowerO,
   qt as appMainCurrentCompatSlotLowerQLowerT,
-  qv as appMainCurrentCompatSlotLowerQLowerV,
   qy as appMainCurrentCompatSlotLowerQLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

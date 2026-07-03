@@ -6,3 +6,5 @@ export const CODEX_APPS_SERVER_NAME = "codex_apps";
 export function isCodexAppsServer(server: string | null | undefined): boolean {
   return server === CODEX_APPS_SERVER_NAME;
 }
+
+export function initCodexAppsServerChunk(): void {}

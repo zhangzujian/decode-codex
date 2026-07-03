@@ -34,6 +34,8 @@ export function getRouteKindForTabAnalytics(routeKind: string): string {
   switch (routeKind) {
     case "chatgpt-thread":
       return "chatgpt_thread";
+    case "client-local-thread":
+      return "local_thread";
     case "home":
       return "home";
     case "local-thread":
@@ -58,4 +60,10 @@ export function logAppShellTabSelection(
     routeKind: getRouteKindForTabAnalytics(store.value.routeKind),
     tab: tabKind,
   });
+}
+
+export function initAppShellTabControllerAnalyticsChunk(): void {
+  void getAppShellTabAnalyticsKind;
+  void getRouteKindForTabAnalytics;
+  void logAppShellTabSelection;
 }

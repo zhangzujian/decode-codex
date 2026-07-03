@@ -34,3 +34,5 @@ function extractRequestText(text: string): string {
   const parts = text.split(requestMarker);
   return parts.length <= 1 ? text : parts[parts.length - 1].trim();
 }
+
+export function initBuildWorktreeLabelFromInputChunk(): void {}

@@ -19,13 +19,13 @@ export { initModelsAndReasoningEffortsChunk as appMainCurrentCompatSlotLowerRLow
 export { initBrowserSidebarTweaksSubmitRequestChunk as appMainCurrentCompatSlotLowerRLowerP } from "../../app-shell/thread-side-panel-active-signals";
 export { ImageAttachment as appMainCurrentCompatSlotLowerRLowerM } from "../../image-side-panel/image-attachment";
 export { addDiffCommentsForConversation as appMainCurrentCompatSlotLowerRLowerH } from "../../github/diff-comments/use-diff-comment-sources";
+export { initCodexAppsServerChunk as appMainCurrentCompatSlotLowerRLowerD } from "../../plugins/codex-apps-server";
+export { initBuildWorktreeLabelFromInputChunk as appMainCurrentCompatSlotLowerRLowerG } from "../../utils/build-worktree-label-from-input";
 
 export {
   r as appMainCurrentCompatSlotLowerR,
   rb as appMainCurrentCompatSlotLowerRLowerB,
-  rd as appMainCurrentCompatSlotLowerRLowerD,
   rf as appMainCurrentCompatSlotLowerRLowerF,
-  rg as appMainCurrentCompatSlotLowerRLowerG,
   rn as appMainCurrentCompatSlotLowerRLowerN,
   ro as appMainCurrentCompatSlotLowerRLowerO,
   rr as appMainCurrentCompatSlotLowerRLowerR,

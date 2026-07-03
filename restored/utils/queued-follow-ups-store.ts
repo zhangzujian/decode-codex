@@ -365,3 +365,5 @@ export function useQueuedFollowUpsStore(
     isLoading,
   };
 }
+
+export function initQueuedFollowUpsStoreChunk(): void {}

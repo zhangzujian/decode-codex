@@ -23,3 +23,5 @@ export {
   getToolResultConnectorId,
   getToolConnectorId,
 };
+
+export function initMcpToolItemContentUtilsChunk(): void {}

@@ -13,6 +13,8 @@ export { DEFAULT_MODEL as appMainCurrentCompatSlotLowerNLowerX } from "../../uti
 export { openThreadPanel as appMainCurrentCompatSlotLowerNLowerV } from "../../app-shell/thread-panel-state";
 export { subscribeBrowserSidebarTweaksSubmit as appMainCurrentCompatSlotLowerNLowerP } from "../../app-shell/thread-side-panel-active-signals";
 export { parseCodeCommentDirectives as appMainCurrentCompatSlotLowerNLowerH } from "../../github/diff-comments/use-diff-comment-sources/directive-comments";
+export { initProjectDropdownOptionsChunk as appMainCurrentCompatSlotLowerNLowerD } from "../../ui/project-dropdown-options";
+export { buildWorktreeLabelFromInput as appMainCurrentCompatSlotLowerNLowerG } from "../../utils/build-worktree-label-from-input";
 
 export {
   liveMcpAppFrameSignal,
@@ -24,8 +26,6 @@ export { initWarningContextRuntime } from "../../runtime/app-main-new-thread-run
 export { getLocalConversationSearchMatchId as appMainCurrentCompatSlotLowerNUnderscore } from "../../runtime/conversation-search-runtime";
 
 export {
-  nd as appMainCurrentCompatSlotLowerNLowerD,
-  ng as appMainCurrentCompatSlotLowerNLowerG,
   no as appMainCurrentCompatSlotLowerNLowerO,
   nr as appMainCurrentCompatSlotLowerNLowerR,
   ns as appMainCurrentCompatSlotLowerNLowerS,

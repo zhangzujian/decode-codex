@@ -25,10 +25,10 @@ export { computeGeneratedImageOutputs as appMainCurrentCompatSlotLowerSLowerT } 
 export { initUseDictationRuntimeChunk as appMainCurrentCompatSlotLowerSUpperC } from "../../features/use-dictation/runtime-init";
 export { initBrowserSidebarTweaksStateChunk as appMainCurrentCompatSlotLowerSLowerP } from "../../app-shell/thread-side-panel-active-signals";
 export { formatComposerSubmitError as appMainCurrentCompatSlotLowerSLowerN } from "../../composer/submit-toast-status-messages";
+export { initQueuedFollowUpsStoreChunk as appMainCurrentCompatSlotLowerSLowerD } from "../../utils/queued-follow-ups-store";
 
 export {
   sb as appMainCurrentCompatSlotLowerSLowerB,
-  sd as appMainCurrentCompatSlotLowerSLowerD,
   sh as appMainCurrentCompatSlotLowerSLowerH,
   so as appMainCurrentCompatSlotLowerSLowerO,
   su as appMainCurrentCompatSlotLowerSLowerU,
