@@ -87,7 +87,8 @@ export { quantileSorted as legacyAppMainBuwLowerJUpperSExport } from "d3-array";
 export { range as legacyAppMainBuwLowerKUpperSExport } from "d3-array";
 export { stackOffsetExpand as legacyAppMainBuwLowerJLowerXExport } from "d3-shape";
 export { initD3ShapeRuntimeChunk as legacyAppMainBuwLowerKLowerXExport } from "../../d3-shape-stack";
-export { summarizeTurnDiffStats as legacyAppMainBuwLowerKLowerNExport } from "../../../conversations/local-conversation-thread-parts/turn-diff-summaries";
+export { diffSummary as legacyAppMainBuwLowerKLowerNExport } from "../../../utils/diff-summary";
+export { initLodashCompactRuntimeChunk as legacyAppMainBuwLowerKLowerSExport } from "../../lodash-current-runtime";
 
 export {
   syncReviewPanelForRestoredSource,
@@ -151,6 +152,7 @@ export {
   rememberBrowserSidebarOpenSource as legacyAppMainBuwLowerLLowerYExport,
 } from "../../../browser/browser-sidebar-open-source";
 export { initBrowserSidebarDeviceToolbarChunk as legacyAppMainBuwLowerMLowerYExport } from "../../../browser/sidebar-manager/device-toolbar";
+export { initBrowserSidebarCommentModeCoachmarkStateChunk as legacyAppMainBuwLowerMLowerMExport } from "../../../browser/browser-sidebar-comment-mode-coachmark-state";
 export { ArtifactTabPreview as legacyAppMainBuwLowerHLowerFExport } from "../../../workspace/artifact-tab-preview";
 export { initArtifactTabPreviewChunk as legacyAppMainBuwLowerGLowerFExport } from "../../../workspace/artifact-tab-preview";
 export { initWorkspaceFileTabKindChunk as legacyAppMainBuwLowerJLowerFExport } from "../../../workspace/workspace-file-source-tabs";
@@ -168,9 +170,11 @@ export { requireReactIsRuntime as legacyAppMainBuwLowerHExport } from "../../rea
 export { initConversationActivityGroupingChunk as legacyAppMainBuwLowerHLowerAExport } from "../../../conversations/conversation-activity-grouping-runtime";
 export { groupConversationActivityEntries as legacyAppMainBuwLowerMLowerAExport } from "../../../conversations/conversation-activity-grouping";
 export { buildPriorConversation as legacyAppMainBuwLowerHLowerNExport } from "../../../composer/prior-conversation";
+export { buildCurrentTurnConversation as legacyAppMainBuwLowerMLowerNExport } from "../../../composer/referenced-prior-conversations";
 export { WorktreeInitActivityList as legacyAppMainBuwLowerHLowerTExport } from "../../../conversations/worktree-init-activity-list";
 export { initLocalConversationGitActionsChunk as legacyAppMainBuwLowerHLowerUExport } from "../../../conversations/local-conversation-git-actions";
 export { scrollConversationItemIntoViewWhenReady as legacyAppMainBuwLowerMLowerTExport } from "../../../conversations/scroll-conversation-item-into-view";
+export { requireLodashGetPrototypeOf as legacyAppMainBuwLowerMExport } from "../../lodash-object-runtime";
 export { fullScreenMcpAppIdsAtom as legacyAppMainBuwLowerILowerFExport } from "../../../plugins/mcp-app-frame-state";
 export { isCodexAppsServer as legacyAppMainBuwLowerILowerDExport } from "../../../plugins/codex-apps-server";
 export { initRemoteConnectionStateByHostIdChunk as legacyAppMainBuwLowerGLowerPExport } from "../../../remote/use-connected-remote-connections";
@@ -206,13 +210,7 @@ export {
   overlayReserveCssValue as legacyAppMainBuwLowerJLowerMExport,
 } from "../../../composer/right-panel-composer-overlay-scroll-reserve";
 
-export {
-  ks as legacyAppMainBuwLowerKLowerSExport,
-  la as legacyAppMainBuwLowerLLowerAExport,
-  m as legacyAppMainBuwLowerMExport,
-  md as legacyAppMainBuwLowerMLowerDExport,
-  mm as legacyAppMainBuwLowerMLowerMExport,
-  mn as legacyAppMainBuwLowerMLowerNExport,
-  mu as legacyAppMainBuwLowerMLowerUExport,
-} from "../../app-main-legacy-buw-compat-bundle";
+export { initBrowserUseGlyphIconChunk as legacyAppMainBuwLowerLLowerAExport } from "../../../conversations/tool-activity-source-icon";
+export { initRightPanelContextsChunk as legacyAppMainBuwLowerMLowerDExport } from "../../../app-shell/right-panel";
+export { initCommitCommandMenuChunk as legacyAppMainBuwLowerMLowerUExport } from "../../../review/commit-command-menu";
 export { openReviewFileSourceTabsAtom as legacyAppMainBuwLowerKLowerFExport } from "../../../workspace/workspace-file-source-tabs";

@@ -21,13 +21,13 @@ export { preferredTerminalPanelPlacementSignal as appMainCurrentCompatSlotLowerM
 export { initMicrophoneInputChunk as appMainCurrentCompatSlotLowerMUpperC } from "../../utils/microphone-input";
 export { scrollConversationItemIntoViewWhenReady as appMainCurrentCompatSlotLowerMLowerT } from "../../conversations/scroll-conversation-item-into-view";
 export { groupConversationActivityEntries as appMainCurrentCompatSlotLowerMLowerA } from "../../conversations/conversation-activity-grouping";
+export { initBrowserSidebarCommentModeCoachmarkStateChunk as appMainCurrentCompatSlotLowerMLowerM } from "../../browser/browser-sidebar-comment-mode-coachmark-state";
+export { requireLodashGetPrototypeOf as appMainCurrentCompatSlotLowerM } from "../lodash-object-runtime";
+export { buildCurrentTurnConversation as appMainCurrentCompatSlotLowerMLowerN } from "../../composer/referenced-prior-conversations";
+export { initRightPanelContextsChunk as appMainCurrentCompatSlotLowerMLowerD } from "../../app-shell/right-panel";
+export { initCommitCommandMenuChunk as appMainCurrentCompatSlotLowerMLowerU } from "../../review/commit-command-menu";
 
 export {
-  m as appMainCurrentCompatSlotLowerM,
-  md as appMainCurrentCompatSlotLowerMLowerD,
   mf as appMainCurrentCompatSlotLowerMLowerF,
-  mm as appMainCurrentCompatSlotLowerMLowerM,
-  mn as appMainCurrentCompatSlotLowerMLowerN,
-  mu as appMainCurrentCompatSlotLowerMLowerU,
   my as appMainCurrentCompatSlotLowerMLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

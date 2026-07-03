@@ -26,9 +26,9 @@ export { getThreadReferenceToastMessage as appMainCurrentCompatSlotLowerLLowerN 
 export { setSettingsSelectedHostId as appMainCurrentCompatSlotLowerLLowerP } from "../../settings/settings-host-context";
 export { initTerminalPanelRoutingChunk as appMainCurrentCompatSlotLowerLUnderscore } from "../../terminal/terminal-panel-routing";
 export { initConversationalOnboardingTaskRegistryChunk as appMainCurrentCompatSlotLowerL } from "../../onboarding/conversational-onboarding-task-registry";
+export { initBrowserUseGlyphIconChunk as appMainCurrentCompatSlotLowerLLowerA } from "../../conversations/tool-activity-source-icon";
 
 export {
-  la as appMainCurrentCompatSlotLowerLLowerA,
   lb as appMainCurrentCompatSlotLowerLLowerB,
   ly as appMainCurrentCompatSlotLowerLLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

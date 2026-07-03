@@ -51,4 +51,5 @@ export {
 } from "lodash";
 
 export function lodashW(): void {}
+export function initLodashCompactRuntimeChunk(): void {}
 export function _lodashT(): void {}

@@ -44,6 +44,11 @@ export const rightPanelContentRefContext = createContext<
 
 export const rightPanelContext = createContext<unknown>(null);
 
+export function initRightPanelContextsChunk(): void {
+  void rightPanelContentRefContext;
+  void rightPanelContext;
+}
+
 type RightPanelWidthMode = "full" | "regular";
 
 interface RightPanelWidthConfig {

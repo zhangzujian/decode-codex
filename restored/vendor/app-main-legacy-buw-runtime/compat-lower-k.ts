@@ -23,10 +23,10 @@ export { findEffectiveDomainAtom as appMainCurrentCompatSlotLowerKLowerG } from 
 export { ANNOTATION_EDITOR_ENTER_CLASS as appMainCurrentCompatSlotLowerKLowerT } from "../../image-side-panel/paged-annotation-overlays";
 export { initD3ShapeRuntimeChunk as appMainCurrentCompatSlotLowerKLowerX } from "../d3-shape-stack";
 export { conversationalOnboardingWorkflowSignal as appMainCurrentCompatSlotLowerK } from "../../onboarding/conversational-onboarding-workflow-state";
-export { summarizeTurnDiffStats as appMainCurrentCompatSlotLowerKLowerN } from "../../conversations/local-conversation-thread-parts/turn-diff-summaries";
+export { diffSummary as appMainCurrentCompatSlotLowerKLowerN } from "../../utils/diff-summary";
+export { initLodashCompactRuntimeChunk as appMainCurrentCompatSlotLowerKLowerS } from "../lodash-current-runtime";
 
 export {
   kf as appMainCurrentCompatSlotLowerKLowerF,
-  ks as appMainCurrentCompatSlotLowerKLowerS,
   ky as appMainCurrentCompatSlotLowerKLowerY,
 } from "../app-main-legacy-buw-compat-bundle";
