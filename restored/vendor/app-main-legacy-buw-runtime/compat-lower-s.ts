@@ -5,6 +5,8 @@ export { initCursorIconChunk as appMainCurrentCompatSlotLowerSLowerA } from "../
 export { getConversationalOnboardingTaskOption as appMainCurrentCompatSlotLowerS } from "../../onboarding/conversational-onboarding-task-registry";
 export { createAutomationDraftFromSeed as appMainCurrentCompatSlotLowerSLowerI } from "../../automations/shared";
 
+export { initAutomationSidePanelTabsChunk as appMainCurrentCompatSlotLowerSLowerR } from "../../automations/automation-side-panel-tabs";
+
 export {
   getThreadMcpAppSidePanelTabId,
   SidebarRowShortcutScope,
@@ -27,7 +29,6 @@ export {
   sn as appMainCurrentCompatSlotLowerSLowerN,
   so as appMainCurrentCompatSlotLowerSLowerO,
   sp as appMainCurrentCompatSlotLowerSLowerP,
-  sr as appMainCurrentCompatSlotLowerSLowerR,
   sS as appMainCurrentCompatSlotLowerSUpperS,
   st as appMainCurrentCompatSlotLowerSLowerT,
   su as appMainCurrentCompatSlotLowerSLowerU,

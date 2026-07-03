@@ -30,6 +30,8 @@ export { isAutomationRecordInSync as legacyAppMainBuwLowerULowerIExport } from "
 export { getAutomationDraftRrule as legacyAppMainBuwLowerXLowerIExport } from "../../../automations/shared";
 export { isAutomationDraftUsingDefaultCwd as legacyAppMainBuwLowerYLowerIExport } from "../../../automations/shared";
 
+export { initHeartbeatThreadOptionsChunk as legacyAppMainBuwLowerULowerRExport } from "../../../automations/use-heartbeat-thread-options";
+
 export {
   initComposeEventHandlersRuntime,
   initExternalAgentImportStatusIconsChunk,
@@ -115,7 +117,6 @@ export {
   ub as legacyAppMainBuwLowerULowerBExport,
   un as legacyAppMainBuwLowerULowerNExport,
   up as legacyAppMainBuwLowerULowerPExport,
-  ur as legacyAppMainBuwLowerULowerRExport,
   uv as legacyAppMainBuwLowerULowerVExport,
   uy as legacyAppMainBuwLowerULowerYExport,
   vS as legacyAppMainBuwLowerVUpperSExport,

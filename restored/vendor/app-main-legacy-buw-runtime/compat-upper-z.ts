@@ -12,6 +12,8 @@ export { ConversationalOnboardingStreamingIntro as appMainCurrentCompatSlotUpper
 export { moveThreadToLocal as appMainCurrentCompatSlotUpperZLowerA } from "../../conversations/move-thread-to-local";
 
 export { UploadIcon as appMainCurrentCompatSlotUpperZ } from "../../icons/upload-icon";
+export { initReasoningEffortLabelChunk as appMainCurrentCompatSlotUpperZLowerR } from "../../composer/reasoning-effort-label";
+
 export {
   Z_ as appMainCurrentCompatSlotUpperZUnderscore,
   Zb as appMainCurrentCompatSlotUpperZLowerB,
@@ -23,7 +25,6 @@ export {
   Zm as appMainCurrentCompatSlotUpperZLowerM,
   Zn as appMainCurrentCompatSlotUpperZLowerN,
   Zp as appMainCurrentCompatSlotUpperZLowerP,
-  Zr as appMainCurrentCompatSlotUpperZLowerR,
   Zt as appMainCurrentCompatSlotUpperZLowerT,
   Zv as appMainCurrentCompatSlotUpperZLowerV,
   Zx as appMainCurrentCompatSlotUpperZLowerX,

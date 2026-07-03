@@ -17,6 +17,8 @@ export { MentionMetadataSync as legacyAppMainBuwUpperYLowerIExport } from "../..
 
 export { UserMessageText as legacyAppMainBuwUpperZLowerIExport } from "../../../conversations/user-message-text";
 
+export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperZLowerRExport } from "../../../composer/reasoning-effort-label";
+
 export {
   registerForkedConversation,
   ThreadRowPinAction,
@@ -182,7 +184,6 @@ export {
   Zm as legacyAppMainBuwUpperZLowerMExport,
   Zn as legacyAppMainBuwUpperZLowerNExport,
   Zp as legacyAppMainBuwUpperZLowerPExport,
-  Zr as legacyAppMainBuwUpperZLowerRExport,
   Zt as legacyAppMainBuwUpperZLowerTExport,
   Zv as legacyAppMainBuwUpperZLowerVExport,
   Zx as legacyAppMainBuwUpperZLowerXExport,

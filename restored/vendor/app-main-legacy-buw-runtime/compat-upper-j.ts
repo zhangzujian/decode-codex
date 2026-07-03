@@ -1,6 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase J compatibility aliases for the legacy app-main/onboarding producer.
 export { initRobotIconChunk as appMainCurrentCompatSlotUpperJLowerN } from "../../icons/robot-icon";
+export { initReasoningEffortOptionsChunk as appMainCurrentCompatSlotUpperJLowerR } from "../../composer/reasoning-effort-options";
+
 export {
   ThreadRowHoverCard,
   ThreadRowTitle,
@@ -21,7 +23,6 @@ export {
   Jm as appMainCurrentCompatSlotUpperJLowerM,
   Jo as appMainCurrentCompatSlotUpperJLowerO,
   Jp as appMainCurrentCompatSlotUpperJLowerP,
-  Jr as appMainCurrentCompatSlotUpperJLowerR,
   JS as appMainCurrentCompatSlotUpperJUpperS,
   Jt as appMainCurrentCompatSlotUpperJLowerT,
   Ju as appMainCurrentCompatSlotUpperJLowerU,

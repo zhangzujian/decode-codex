@@ -13,6 +13,8 @@ export { initReviewModeIconsRuntime as legacyAppMainBuwUpperKLowerOExport } from
 export { cycleReasoningEffortOption as legacyAppMainBuwUpperGLowerRExport } from "../../../composer/reasoning-effort-options";
 export { stepReasoningEffortOption as legacyAppMainBuwUpperKLowerRExport } from "../../../composer/reasoning-effort-options";
 
+export { initReasoningEffortOptionsChunk as legacyAppMainBuwUpperJLowerRExport } from "../../../composer/reasoning-effort-options";
+
 export {
   scrollMatchIntoView as legacyAppMainBuwUpperGLowerUExport,
   waitForDoubleAnimationFrame as legacyAppMainBuwUpperKLowerUExport,
@@ -134,7 +136,6 @@ export {
   Jm as legacyAppMainBuwUpperJLowerMExport,
   Jo as legacyAppMainBuwUpperJLowerOExport,
   Jp as legacyAppMainBuwUpperJLowerPExport,
-  Jr as legacyAppMainBuwUpperJLowerRExport,
   Jt as legacyAppMainBuwUpperJLowerTExport,
   Ju as legacyAppMainBuwUpperJLowerUExport,
   Jv as legacyAppMainBuwUpperJLowerVExport,

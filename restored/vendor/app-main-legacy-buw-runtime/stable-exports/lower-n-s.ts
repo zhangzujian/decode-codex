@@ -33,6 +33,8 @@ export { areAutomationRecordsEqual as legacyAppMainBuwLowerNLowerIExport } from 
 
 export { useConversationIdFromRoute as legacyAppMainBuwLowerOLowerRExport } from "../../../conversations/use-conversation-id-from-route";
 
+export { initAutomationSidePanelTabsChunk as legacyAppMainBuwLowerSLowerRExport } from "../../../automations/automation-side-panel-tabs";
+
 export {
   liveMcpAppFrameSignal,
   composeEventHandlers,
@@ -168,7 +170,6 @@ export {
   sn as legacyAppMainBuwLowerSLowerNExport,
   so as legacyAppMainBuwLowerSLowerOExport,
   sp as legacyAppMainBuwLowerSLowerPExport,
-  sr as legacyAppMainBuwLowerSLowerRExport,
   st as legacyAppMainBuwLowerSLowerTExport,
   su as legacyAppMainBuwLowerSLowerUExport,
   sy as legacyAppMainBuwLowerSLowerYExport,

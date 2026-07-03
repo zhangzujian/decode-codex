@@ -12,6 +12,8 @@ export { isConversationalOnboardingMessagingTask as appMainCurrentCompatSlotLowe
 export { getSupportedLocales as appMainCurrentCompatSlotLowerULowerG } from "../../i18n/locale-resolver";
 export { isAutomationRecordInSync as appMainCurrentCompatSlotLowerULowerI } from "../../automations/automation-record-sync";
 
+export { initHeartbeatThreadOptionsChunk as appMainCurrentCompatSlotLowerULowerR } from "../../automations/use-heartbeat-thread-options";
+
 export {
   initExternalAgentImportStatusIconsChunk,
   initCommandExecutionTextRuntime,
@@ -29,7 +31,6 @@ export {
   ub as appMainCurrentCompatSlotLowerULowerB,
   un as appMainCurrentCompatSlotLowerULowerN,
   up as appMainCurrentCompatSlotLowerULowerP,
-  ur as appMainCurrentCompatSlotLowerULowerR,
   uS as appMainCurrentCompatSlotLowerUUpperS,
   uv as appMainCurrentCompatSlotLowerULowerV,
   uy as appMainCurrentCompatSlotLowerULowerY,
