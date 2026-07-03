@@ -12,6 +12,8 @@ export { pendingPastedTextAttachmentCountStore as appMainCurrentCompatSlotLowerD
 export { getLocaleLanguageDisplayName as appMainCurrentCompatSlotLowerDLowerG } from "../../i18n/locale-resolver";
 export { getAutomationDraftDestination as appMainCurrentCompatSlotLowerDLowerI } from "../../automations/shared";
 
+export { useHeartbeatThreadOptions as appMainCurrentCompatSlotLowerDLowerR } from "../../automations/use-heartbeat-thread-options";
+
 export {
   d as appMainCurrentCompatSlotLowerD,
   d_ as appMainCurrentCompatSlotLowerDUnderscore,
@@ -22,7 +24,6 @@ export {
   dm as appMainCurrentCompatSlotLowerDLowerM,
   dn as appMainCurrentCompatSlotLowerDLowerN,
   dp as appMainCurrentCompatSlotLowerDLowerP,
-  dr as appMainCurrentCompatSlotLowerDLowerR,
   dS as appMainCurrentCompatSlotLowerDUpperS,
   dt as appMainCurrentCompatSlotLowerDLowerT,
   dv as appMainCurrentCompatSlotLowerDLowerV,

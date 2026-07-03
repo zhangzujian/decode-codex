@@ -29,6 +29,8 @@ export { toAutomationCreatePayload as legacyAppMainBuwLowerALowerIExport } from 
 
 export { initUseConversationIdFromRouteChunk as legacyAppMainBuwLowerALowerRExport } from "../../../conversations/use-conversation-id-from-route";
 
+export { useHeartbeatThreadOptions as legacyAppMainBuwLowerDLowerRExport } from "../../../automations/use-heartbeat-thread-options";
+
 export {
   SidebarRowMenuSeparator,
   SettingsControlRow,
@@ -148,7 +150,6 @@ export {
   dm as legacyAppMainBuwLowerDLowerMExport,
   dn as legacyAppMainBuwLowerDLowerNExport,
   dp as legacyAppMainBuwLowerDLowerPExport,
-  dr as legacyAppMainBuwLowerDLowerRExport,
   dt as legacyAppMainBuwLowerDLowerTExport,
   dv as legacyAppMainBuwLowerDLowerVExport,
   dy as legacyAppMainBuwLowerDLowerYExport,
