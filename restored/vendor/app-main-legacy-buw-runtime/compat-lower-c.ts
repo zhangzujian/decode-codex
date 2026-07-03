@@ -22,7 +22,7 @@ export { CancelGitActionButton as appMainCurrentCompatSlotLowerCLowerU } from ".
 export { getWorktreeSubmitToastMessage as appMainCurrentCompatSlotLowerCLowerN } from "../../composer/submit-toast-messages";
 export { BrowserUseGlyphIcon as appMainCurrentCompatSlotLowerCLowerA } from "../../conversations/tool-activity-source-icon";
 export { initGeneratedImageOutputsChunk as appMainCurrentCompatSlotLowerCLowerT } from "../../conversations/generated-image-outputs";
-export { reviewDiffMetricsAtom as appMainCurrentCompatSlotLowerCLowerV } from "../../review/review-summary-query-atoms";
+export { reviewDiffMetricsAtom as appMainCurrentCompatSlotLowerCLowerV } from "../../review/review-diff-metrics";
 
 export {
   c_ as appMainCurrentCompatSlotLowerCUnderscore,

@@ -17,6 +17,7 @@ import {
   setReviewBaseBranchOverride,
   type ReviewDiffFilter,
 } from "./review-diff-model";
+import { reviewDiffMetricsAtom } from "./review-diff-metrics";
 import {
   useStore,
   useAtomValue,
@@ -37,7 +38,6 @@ import {
   reviewCommitShaAtom,
   reviewDiffSourceAtom,
   reviewFileCountsAtom,
-  reviewDiffMetricsAtom,
   reviewGitActionsAllowedAtom,
   reviewCanRefreshAtom,
   reviewSourceAtom,

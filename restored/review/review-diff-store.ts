@@ -31,9 +31,9 @@ import {
   reviewIndexInfoQueryFamily,
   reviewRecentBranchesQueryAtom,
 } from "./review-branch-query-atoms";
+import { reviewDiffMetricsAtom } from "./review-diff-metrics";
 import {
   reviewBranchDiffStatsQueryFamily,
-  reviewDiffMetricsAtom,
   reviewDiffStatsAtom,
   reviewFilesByDisplayPathAtom,
   reviewSummaryAtom,
@@ -146,12 +146,18 @@ export {
 } from "./review-branch-query-atoms";
 export {
   reviewBranchDiffStatsQueryFamily,
-  reviewDiffMetricsAtom,
   reviewDiffStatsAtom,
   reviewFilesByDisplayPathAtom,
   reviewSummaryAtom,
   reviewSummaryQueryAtom,
 } from "./review-summary-query-atoms";
+export {
+  buildMetricsFromDiffStats,
+  buildMetricsFromReviewSummary,
+  buildReviewDiffMetrics,
+  initReviewDiffMetricsChunk,
+  reviewDiffMetricsAtom,
+} from "./review-diff-metrics";
 export {
   reviewDiffTargetParsedAtom,
   reviewFileDiffQueryFamily,
