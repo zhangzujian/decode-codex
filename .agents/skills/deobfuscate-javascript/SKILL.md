@@ -76,7 +76,10 @@ package. Use all available evidence: public filename, provenance chunk basename,
 exports/API fingerprints, license/banner text, consumer import names,
 `CHUNK_NAME_REGISTRY`, this repo's Codex package table, `ref/package.json`, and
 `ref/node_modules` when present. Missing extracted dependencies are weak evidence
-only; they do **not** justify reimplementing a confirmed package.
+only; they do **not** justify reimplementing a confirmed package. A public
+`restored/vendor/<name>.ts[x]` filename that maps to a package declared in the
+nearest `package.json` is itself high-confidence npm identity, including scoped
+packages normalized as `@scope/name` -> `vendor/scope-name.ts`.
 
 Make the preflight concrete before edits: search the registries and project
 profile (`rg "<stem>|<export>" .agents/skills/deobfuscate-javascript`), inspect

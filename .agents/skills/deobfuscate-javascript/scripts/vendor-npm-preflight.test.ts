@@ -59,6 +59,30 @@ describe("vendor-npm-preflight CLI", () => {
     expect(result.stderr).toContain("third-party-npm-shim-not-reexport");
   });
 
+  test("fails hand-written vendor shims whose filename matches a declared dependency", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { "@acme/widget": "^1.0.0" } }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "acme-widget.ts"),
+      `
+        // Restored from ref/webview/assets/widget-ABC123.js
+        export function createWidget(options) {
+          return { options };
+        }
+      `,
+    );
+
+    const result = runCLI(path.join(root, "restored"));
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("third-party-npm-shim-not-reexport");
+    expect(result.stderr).toContain("@acme/widget");
+  });
+
   test("fails npm re-export shims when package dependencies are missing", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");
