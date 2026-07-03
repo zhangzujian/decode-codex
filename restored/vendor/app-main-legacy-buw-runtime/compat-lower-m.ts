@@ -19,6 +19,7 @@ export { requestPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerMLowerS } 
 export { AutomationSaveTooltip as appMainCurrentCompatSlotLowerMLowerR } from "../../automations/automation-save-tooltip";
 export { preferredTerminalPanelPlacementSignal as appMainCurrentCompatSlotLowerMUnderscore } from "../../terminal/terminal-panel-routing";
 export { initMicrophoneInputChunk as appMainCurrentCompatSlotLowerMUpperC } from "../../utils/microphone-input";
+export { scrollConversationItemIntoViewWhenReady as appMainCurrentCompatSlotLowerMLowerT } from "../../conversations/scroll-conversation-item-into-view";
 
 export {
   m as appMainCurrentCompatSlotLowerM,
@@ -27,7 +28,6 @@ export {
   mf as appMainCurrentCompatSlotLowerMLowerF,
   mm as appMainCurrentCompatSlotLowerMLowerM,
   mn as appMainCurrentCompatSlotLowerMLowerN,
-  mt as appMainCurrentCompatSlotLowerMLowerT,
   mu as appMainCurrentCompatSlotLowerMLowerU,
   my as appMainCurrentCompatSlotLowerMLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

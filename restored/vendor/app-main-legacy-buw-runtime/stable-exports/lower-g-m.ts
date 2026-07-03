@@ -165,6 +165,7 @@ export { initConversationActivityGroupingChunk as legacyAppMainBuwLowerHLowerAEx
 export { buildPriorConversation as legacyAppMainBuwLowerHLowerNExport } from "../../../composer/prior-conversation";
 export { WorktreeInitActivityList as legacyAppMainBuwLowerHLowerTExport } from "../../../conversations/worktree-init-activity-list";
 export { initLocalConversationGitActionsChunk as legacyAppMainBuwLowerHLowerUExport } from "../../../conversations/local-conversation-git-actions";
+export { scrollConversationItemIntoViewWhenReady as legacyAppMainBuwLowerMLowerTExport } from "../../../conversations/scroll-conversation-item-into-view";
 export { fullScreenMcpAppIdsAtom as legacyAppMainBuwLowerILowerFExport } from "../../../plugins/mcp-app-frame-state";
 export { isCodexAppsServer as legacyAppMainBuwLowerILowerDExport } from "../../../plugins/codex-apps-server";
 export { initRemoteConnectionStateByHostIdChunk as legacyAppMainBuwLowerGLowerPExport } from "../../../remote/use-connected-remote-connections";
@@ -212,7 +213,6 @@ export {
   md as legacyAppMainBuwLowerMLowerDExport,
   mm as legacyAppMainBuwLowerMLowerMExport,
   mn as legacyAppMainBuwLowerMLowerNExport,
-  mt as legacyAppMainBuwLowerMLowerTExport,
   mu as legacyAppMainBuwLowerMLowerUExport,
 } from "../../app-main-legacy-buw-compat-bundle";
 export { openReviewFileSourceTabsAtom as legacyAppMainBuwLowerKLowerFExport } from "../../../workspace/workspace-file-source-tabs";
