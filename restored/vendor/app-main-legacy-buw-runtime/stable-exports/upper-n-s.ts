@@ -12,6 +12,8 @@ export { cancelActiveConversationalOnboardingForHost as legacyAppMainBuwUpperOEx
 export { DictationButton as legacyAppMainBuwUpperSUpperCExport } from "../../../features/use-dictation/dictation-button";
 
 export { REASONING_EFFORT_LABELS as legacyAppMainBuwUpperQLowerRExport } from "../../../composer/reasoning-effort-label";
+export { IntelligenceDropdown as legacyAppMainBuwUpperPLowerRExport } from "../../../composer/intelligence-dropdown";
+export { initMessageOrStringHelpersChunk as legacyAppMainBuwUpperRLowerRExport } from "../../../composer/render-message-or-string";
 
 export {
   SidebarRowActionButton,
@@ -117,7 +119,6 @@ export {
   Pm as legacyAppMainBuwUpperPLowerMExport,
   Po as legacyAppMainBuwUpperPLowerOExport,
   Pp as legacyAppMainBuwUpperPLowerPExport,
-  Pr as legacyAppMainBuwUpperPLowerRExport,
   Pt as legacyAppMainBuwUpperPLowerTExport,
   Pu as legacyAppMainBuwUpperPLowerUExport,
   Pv as legacyAppMainBuwUpperPLowerVExport,
@@ -146,7 +147,6 @@ export {
   Rm as legacyAppMainBuwUpperRLowerMExport,
   Rn as legacyAppMainBuwUpperRLowerNExport,
   Rp as legacyAppMainBuwUpperRLowerPExport,
-  Rr as legacyAppMainBuwUpperRLowerRExport,
   Rt as legacyAppMainBuwUpperRLowerTExport,
   Ru as legacyAppMainBuwUpperRLowerUExport,
   Rx as legacyAppMainBuwUpperRLowerXExport,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase I compatibility aliases for the legacy app-main/onboarding producer.
+export { initIntelligenceDropdownChunk as appMainCurrentCompatSlotUpperILowerR } from "../../composer/intelligence-dropdown";
+
 export { FileSourceTab } from "../app-main-current-runtime";
 
 export { initFitAddonChunk } from "../../runtime/window-chrome-runtime";
@@ -22,7 +24,6 @@ export {
   In as appMainCurrentCompatSlotUpperILowerN,
   Io as appMainCurrentCompatSlotUpperILowerO,
   Ip as appMainCurrentCompatSlotUpperILowerP,
-  Ir as appMainCurrentCompatSlotUpperILowerR,
   IS as appMainCurrentCompatSlotUpperIUpperS,
   It as appMainCurrentCompatSlotUpperILowerT,
   Iv as appMainCurrentCompatSlotUpperILowerV,

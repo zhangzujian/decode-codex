@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase L compatibility aliases for the legacy app-main/onboarding producer.
+export { formatMessageOrString as appMainCurrentCompatSlotUpperLLowerR } from "../../composer/format-message-or-string";
+
 export { initUseRecordingWaveformIconChunk as appMainCurrentCompatSlotUpperLUpperC } from "../../utils/use-recording-waveform";
 export { FileAttachmentPill as appMainCurrentCompatSlotUpperLLowerI } from "../../composer/user-message-attachment-pills";
 export { initAppIntlSignalRuntime as initPendingWorktreeRouteRuntimeChunk } from "../../utils/app-intl-signal";
@@ -19,7 +21,6 @@ export {
   Ln as appMainCurrentCompatSlotUpperLLowerN,
   Lo as appMainCurrentCompatSlotUpperLLowerO,
   Lp as appMainCurrentCompatSlotUpperLLowerP,
-  Lr as appMainCurrentCompatSlotUpperLLowerR,
   LS as appMainCurrentCompatSlotUpperLUpperS,
   Lt as appMainCurrentCompatSlotUpperLLowerT,
   Lu as appMainCurrentCompatSlotUpperLLowerU,

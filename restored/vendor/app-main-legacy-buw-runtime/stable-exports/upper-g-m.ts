@@ -14,6 +14,8 @@ export { cycleReasoningEffortOption as legacyAppMainBuwUpperGLowerRExport } from
 export { stepReasoningEffortOption as legacyAppMainBuwUpperKLowerRExport } from "../../../composer/reasoning-effort-options";
 
 export { initReasoningEffortOptionsChunk as legacyAppMainBuwUpperJLowerRExport } from "../../../composer/reasoning-effort-options";
+export { initIntelligenceDropdownChunk as legacyAppMainBuwUpperILowerRExport } from "../../../composer/intelligence-dropdown";
+export { formatMessageOrString as legacyAppMainBuwUpperLLowerRExport } from "../../../composer/format-message-or-string";
 
 export {
   scrollMatchIntoView as legacyAppMainBuwUpperGLowerUExport,
@@ -121,7 +123,6 @@ export {
   In as legacyAppMainBuwUpperILowerNExport,
   Io as legacyAppMainBuwUpperILowerOExport,
   Ip as legacyAppMainBuwUpperILowerPExport,
-  Ir as legacyAppMainBuwUpperILowerRExport,
   It as legacyAppMainBuwUpperILowerTExport,
   Iv as legacyAppMainBuwUpperILowerVExport,
   Ix as legacyAppMainBuwUpperILowerXExport,
@@ -167,7 +168,6 @@ export {
   Ln as legacyAppMainBuwUpperLLowerNExport,
   Lo as legacyAppMainBuwUpperLLowerOExport,
   Lp as legacyAppMainBuwUpperLLowerPExport,
-  Lr as legacyAppMainBuwUpperLLowerRExport,
   Lt as legacyAppMainBuwUpperLLowerTExport,
   Lu as legacyAppMainBuwUpperLLowerUExport,
   Lv as legacyAppMainBuwUpperLLowerVExport,

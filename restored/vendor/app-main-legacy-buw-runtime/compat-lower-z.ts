@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase z compatibility aliases for the legacy app-main/onboarding producer.
+export { renderMessageOrString as appMainCurrentCompatSlotLowerZLowerR } from "../../composer/render-message-or-string";
+
 export { PopoverAttachmentPill as appMainCurrentCompatSlotLowerZLowerI } from "../../composer/user-message-attachment-pills";
 
 export { getCommentText as appMainCurrentCompatSlotLowerZLowerU } from "../../review/review-comment-utils";
@@ -23,7 +25,6 @@ export {
   zl as appMainCurrentCompatSlotLowerZLowerL,
   zm as appMainCurrentCompatSlotLowerZLowerM,
   zp as appMainCurrentCompatSlotLowerZLowerP,
-  zr as appMainCurrentCompatSlotLowerZLowerR,
   zS as appMainCurrentCompatSlotLowerZUpperS,
   zt as appMainCurrentCompatSlotLowerZLowerT,
   zx as appMainCurrentCompatSlotLowerZLowerX,

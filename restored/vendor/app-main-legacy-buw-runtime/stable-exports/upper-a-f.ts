@@ -14,6 +14,7 @@ export { countCommentsByFilePath as legacyAppMainBuwUpperBLowerUExport } from ".
 export { DictationRecordingFooter as legacyAppMainBuwUpperCUpperCExport } from "../../../features/use-dictation/recording-footer";
 
 export { CommentAttachmentPill as legacyAppMainBuwUpperFLowerIExport } from "../../../composer/user-message-attachment-pills";
+export { ModelLabel as legacyAppMainBuwUpperFLowerRExport } from "../../../composer/model-label";
 
 export {
   GlobeIcon,
@@ -171,7 +172,6 @@ export {
   Fm as legacyAppMainBuwUpperFLowerMExport,
   Fn as legacyAppMainBuwUpperFLowerNExport,
   Fp as legacyAppMainBuwUpperFLowerPExport,
-  Fr as legacyAppMainBuwUpperFLowerRExport,
   Ft as legacyAppMainBuwUpperFLowerTExport,
   Fu as legacyAppMainBuwUpperFLowerUExport,
   Fx as legacyAppMainBuwUpperFLowerXExport,

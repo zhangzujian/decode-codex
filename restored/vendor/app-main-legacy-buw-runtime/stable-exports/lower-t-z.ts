@@ -33,6 +33,7 @@ export { isAutomationDraftUsingDefaultCwd as legacyAppMainBuwLowerYLowerIExport 
 export { initHeartbeatThreadOptionsChunk as legacyAppMainBuwLowerULowerRExport } from "../../../automations/use-heartbeat-thread-options";
 
 export { AutomationSandboxBanner as legacyAppMainBuwLowerWLowerRExport } from "../../../automations/automation-sandbox-banner";
+export { renderMessageOrString as legacyAppMainBuwLowerZLowerRExport } from "../../../composer/render-message-or-string";
 
 export {
   initComposeEventHandlersRuntime,
@@ -191,7 +192,6 @@ export {
   zl as legacyAppMainBuwLowerZLowerLExport,
   zm as legacyAppMainBuwLowerZLowerMExport,
   zp as legacyAppMainBuwLowerZLowerPExport,
-  zr as legacyAppMainBuwLowerZLowerRExport,
   zt as legacyAppMainBuwLowerZLowerTExport,
   zx as legacyAppMainBuwLowerZLowerXExport,
   zy as legacyAppMainBuwLowerZLowerYExport,

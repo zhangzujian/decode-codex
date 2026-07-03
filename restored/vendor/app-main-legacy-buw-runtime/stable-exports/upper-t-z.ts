@@ -22,6 +22,7 @@ export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperZLowerRExport } f
 export { ReasoningEffortLabel as legacyAppMainBuwUpperYLowerRExport } from "../../../composer/reasoning-effort-label";
 
 export { getModelReasoningEffortOptions as legacyAppMainBuwUpperWLowerRExport } from "../../../composer/reasoning-effort-options";
+export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperXLowerRExport } from "../../../composer/reasoning-effort-label";
 
 export {
   registerForkedConversation,
@@ -159,7 +160,6 @@ export {
   Xm as legacyAppMainBuwUpperXLowerMExport,
   Xo as legacyAppMainBuwUpperXLowerOExport,
   Xp as legacyAppMainBuwUpperXLowerPExport,
-  Xr as legacyAppMainBuwUpperXLowerRExport,
   Xt as legacyAppMainBuwUpperXLowerTExport,
   Xu as legacyAppMainBuwUpperXLowerUExport,
   Xv as legacyAppMainBuwUpperXLowerVExport,

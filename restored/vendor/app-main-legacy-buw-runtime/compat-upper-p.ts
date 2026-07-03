@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase P compatibility aliases for the legacy app-main/onboarding producer.
+export { IntelligenceDropdown as appMainCurrentCompatSlotUpperPLowerR } from "../../composer/intelligence-dropdown";
+
 export {
   CHATGPT_PRICING_URL,
   createToolErrorResult,
@@ -27,7 +29,6 @@ export {
   Pm as appMainCurrentCompatSlotUpperPLowerM,
   Po as appMainCurrentCompatSlotUpperPLowerO,
   Pp as appMainCurrentCompatSlotUpperPLowerP,
-  Pr as appMainCurrentCompatSlotUpperPLowerR,
   PS as appMainCurrentCompatSlotUpperPUpperS,
   Pt as appMainCurrentCompatSlotUpperPLowerT,
   Pu as appMainCurrentCompatSlotUpperPLowerU,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase R compatibility aliases for the legacy app-main/onboarding producer.
+export { initMessageOrStringHelpersChunk as appMainCurrentCompatSlotUpperRLowerR } from "../../composer/render-message-or-string";
+
 export { terminalSessionSnapshotStore } from "../app-main-current-runtime";
 
 export {
@@ -23,7 +25,6 @@ export {
   Rm as appMainCurrentCompatSlotUpperRLowerM,
   Rn as appMainCurrentCompatSlotUpperRLowerN,
   Rp as appMainCurrentCompatSlotUpperRLowerP,
-  Rr as appMainCurrentCompatSlotUpperRLowerR,
   RS as appMainCurrentCompatSlotUpperRUpperS,
   Rt as appMainCurrentCompatSlotUpperRLowerT,
   Ru as appMainCurrentCompatSlotUpperRLowerU,
