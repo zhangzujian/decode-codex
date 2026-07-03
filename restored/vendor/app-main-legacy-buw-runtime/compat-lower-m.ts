@@ -13,6 +13,7 @@ export {
 
 export { isWorkspaceFilePath } from "../../conversations/fork-conversation-panel-state-deps";
 
+export { CONVERSATION_DETAIL_STEPS_COMMANDS as appMainCurrentCompatSlotLowerMLowerB } from "../../runtime/conversation-detail-runtime";
 export { revealChangedFilesInReviewPanel } from "../../conversations/local-conversation-page-runtime";
 export { requestPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerMLowerS } from "../../runtime/primary-runtime-install-state";
 export { AutomationSaveTooltip as appMainCurrentCompatSlotLowerMLowerR } from "../../automations/automation-save-tooltip";
@@ -21,7 +22,6 @@ export {
   m as appMainCurrentCompatSlotLowerM,
   m_ as appMainCurrentCompatSlotLowerMUnderscore,
   ma as appMainCurrentCompatSlotLowerMLowerA,
-  mb as appMainCurrentCompatSlotLowerMLowerB,
   mC as appMainCurrentCompatSlotLowerMUpperC,
   md as appMainCurrentCompatSlotLowerMLowerD,
   mf as appMainCurrentCompatSlotLowerMLowerF,

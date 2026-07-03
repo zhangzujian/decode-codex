@@ -88,6 +88,10 @@ export {
 
 export { initComposedRefsRuntime } from "../../../runtime/app-main-new-thread-runtime";
 export { isConversationDetailModeProse as SidebarRowArchiveToast } from "../../../runtime/conversation-detail-runtime";
+export {
+  CONVERSATION_DETAIL_STEPS_COMMANDS as legacyAppMainBuwLowerMLowerBExport,
+  CONVERSATION_DETAIL_STEPS_PROSE as legacyAppMainBuwLowerHLowerBExport,
+} from "../../../runtime/conversation-detail-runtime";
 export { userSavedConfigQueryOptions as legacyAppMainBuwLowerLLowerXExport } from "../../../config/user-saved-config-query";
 export { initDocumentSearchIconChunk as legacyAppMainBuwLowerGLowerYExport } from "../../../icons/document-search-icon";
 export { EllipsisHorizontalIcon as ThreadRowTooltip } from "../../../icons/ellipsis-horizontal-icon";
@@ -154,7 +158,6 @@ export {
   h as legacyAppMainBuwLowerHExport,
   h_ as legacyAppMainBuwLowerHUnderscoreExport,
   ha as legacyAppMainBuwLowerHLowerAExport,
-  hb as legacyAppMainBuwLowerHLowerBExport,
   hn as legacyAppMainBuwLowerHLowerNExport,
   ht as legacyAppMainBuwLowerHLowerTExport,
   hu as legacyAppMainBuwLowerHLowerUExport,
@@ -198,7 +201,6 @@ export {
   mC as legacyAppMainBuwLowerMUpperCExport,
   m_ as legacyAppMainBuwLowerMUnderscoreExport,
   ma as legacyAppMainBuwLowerMLowerAExport,
-  mb as legacyAppMainBuwLowerMLowerBExport,
   md as legacyAppMainBuwLowerMLowerDExport,
   mm as legacyAppMainBuwLowerMLowerMExport,
   mn as legacyAppMainBuwLowerMLowerNExport,
