@@ -84,9 +84,10 @@ export {
 } from "../../../conversations/thread-management-tool-handlers";
 export { MiddleTruncatedText as legacyAppMainBuwUpperPLowerLExport } from "../../../ui/middle-truncated-text";
 export { RegenerateIcon as legacyAppMainBuwUpperPUpperCExport } from "../../../icons/regenerate-icon";
+export { initStopIconChunk as legacyAppMainBuwUpperNUpperCExport } from "../../../icons/stop-icon";
+export { WhitespaceEyeIcon as legacyAppMainBuwUpperOLowerLExport } from "../../../icons/whitespace-eye-icon";
 
 export {
-  NC as legacyAppMainBuwUpperNUpperCExport,
   NS as legacyAppMainBuwUpperNUpperSExport,
   Nb as legacyAppMainBuwUpperNLowerBExport,
   Nd as legacyAppMainBuwUpperNLowerDExport,
@@ -105,7 +106,6 @@ export {
   Od as legacyAppMainBuwUpperOLowerDExport,
   Of as legacyAppMainBuwUpperOLowerFExport,
   Oh as legacyAppMainBuwUpperOLowerHExport,
-  Ol as legacyAppMainBuwUpperOLowerLExport,
   Om as legacyAppMainBuwUpperOLowerMExport,
   On as legacyAppMainBuwUpperOLowerNExport,
   Ot as legacyAppMainBuwUpperOLowerTExport,

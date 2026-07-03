@@ -13,6 +13,7 @@ export { selectRateLimitAlert as appMainCurrentCompatSlotUpperOLowerC } from "..
 export { WRITE_SETTINGS_TOOL_NAME as appMainCurrentCompatSlotUpperOLowerO } from "../../settings/settings-tool-definitions";
 export { buildAppgenAccessPolicyWithoutUser as appMainCurrentCompatSlotUpperOLowerS } from "../../utils/appgen-access";
 export { useUpdateBrowserUseFileTransferApprovalModeMutation as appMainCurrentCompatSlotUpperOLowerP } from "../../browser/browser-use-origin-state-queries";
+export { WhitespaceEyeIcon as appMainCurrentCompatSlotUpperOLowerL } from "../../icons/whitespace-eye-icon";
 
 export { cancelActiveConversationalOnboardingForHost as appMainCurrentCompatSlotUpperO } from "../../onboarding/conversational-onboarding-cancel-for-host";
 export {
@@ -21,7 +22,6 @@ export {
   Od as appMainCurrentCompatSlotUpperOLowerD,
   Of as appMainCurrentCompatSlotUpperOLowerF,
   Oh as appMainCurrentCompatSlotUpperOLowerH,
-  Ol as appMainCurrentCompatSlotUpperOLowerL,
   Om as appMainCurrentCompatSlotUpperOLowerM,
   On as appMainCurrentCompatSlotUpperOLowerN,
   OS as appMainCurrentCompatSlotUpperOUpperS,
