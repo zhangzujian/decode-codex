@@ -175,6 +175,10 @@ export {
 export { initComposerContextButtonChunk as legacyAppMainBuwLowerJUpperCExport } from "../../../features/use-dictation/context-button";
 export { diffCommentsByConversationSignal as legacyAppMainBuwLowerILowerHExport } from "../../../github/diff-comments/diff-comments-by-conversation-signal";
 export { isReasoningEffort as legacyAppMainBuwLowerILowerXExport } from "../../../utils/models-and-reasoning-efforts";
+export {
+  currentBranchNameAtom as legacyAppMainBuwLowerJLowerVExport,
+  reviewProjectRootAtom as legacyAppMainBuwLowerKLowerVExport,
+} from "../../../review/review-git-metadata";
 
 export {
   iS as legacyAppMainBuwLowerIUpperSExport,
@@ -185,7 +189,6 @@ export {
   iv as legacyAppMainBuwLowerILowerVExport,
   jh as legacyAppMainBuwLowerJLowerHExport,
   jm as legacyAppMainBuwLowerJLowerMExport,
-  jv as legacyAppMainBuwLowerJLowerVExport,
   k as legacyAppMainBuwLowerKExport,
   kg as legacyAppMainBuwLowerKLowerGExport,
   kh as legacyAppMainBuwLowerKLowerHExport,
@@ -194,7 +197,6 @@ export {
   ko as legacyAppMainBuwLowerKLowerOExport,
   ks as legacyAppMainBuwLowerKLowerSExport,
   kt as legacyAppMainBuwLowerKLowerTExport,
-  kv as legacyAppMainBuwLowerKLowerVExport,
   kx as legacyAppMainBuwLowerKLowerXExport,
   l as legacyAppMainBuwLowerLExport,
   l_ as legacyAppMainBuwLowerLUnderscoreExport,

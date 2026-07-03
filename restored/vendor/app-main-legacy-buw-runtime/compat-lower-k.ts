@@ -15,6 +15,7 @@ export { useBrowserUseFullCdpAccessEnabledMutation as appMainCurrentCompatSlotLo
 export { fontSettings as appMainCurrentCompatSlotLowerKUnderscore } from "../../utils/font-settings";
 export { viewportSizeSignal as appMainCurrentCompatSlotLowerKLowerD } from "../../runtime/pointer-velocity-signals";
 export { composerPromptHistorySignal as appMainCurrentCompatSlotLowerKLowerB } from "../../composer/composer-interaction-state";
+export { reviewProjectRootAtom as appMainCurrentCompatSlotLowerKLowerV } from "../../review/review-git-metadata";
 
 export {
   k as appMainCurrentCompatSlotLowerK,
@@ -26,7 +27,6 @@ export {
   ko as appMainCurrentCompatSlotLowerKLowerO,
   ks as appMainCurrentCompatSlotLowerKLowerS,
   kt as appMainCurrentCompatSlotLowerKLowerT,
-  kv as appMainCurrentCompatSlotLowerKLowerV,
   kx as appMainCurrentCompatSlotLowerKLowerX,
   ky as appMainCurrentCompatSlotLowerKLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

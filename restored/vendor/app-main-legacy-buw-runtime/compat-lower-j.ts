@@ -22,11 +22,11 @@ export { CommentPreview as appMainCurrentCompatSlotLowerJLowerT } from "../../im
 export { initPointerVelocityStateChunk as appMainCurrentCompatSlotLowerJLowerD } from "../../runtime/pointer-velocity-state";
 export { initComposerInteractionStateChunk as appMainCurrentCompatSlotLowerJLowerB } from "../../composer/composer-interaction-state";
 export { initComposerContextButtonChunk as appMainCurrentCompatSlotLowerJUpperC } from "../../features/use-dictation/context-button";
+export { currentBranchNameAtom as appMainCurrentCompatSlotLowerJLowerV } from "../../review/review-git-metadata";
 
 export {
   jf as appMainCurrentCompatSlotLowerJLowerF,
   jh as appMainCurrentCompatSlotLowerJLowerH,
   jm as appMainCurrentCompatSlotLowerJLowerM,
-  jv as appMainCurrentCompatSlotLowerJLowerV,
   jy as appMainCurrentCompatSlotLowerJLowerY,
 } from "../app-main-legacy-buw-compat-bundle";
