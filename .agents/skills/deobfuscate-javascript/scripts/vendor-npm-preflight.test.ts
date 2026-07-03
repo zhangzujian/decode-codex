@@ -386,6 +386,42 @@ describe("vendor-npm-preflight CLI", () => {
     expect(result.stderr).toContain("third-party-npm-shim-not-reexport");
   });
 
+  test("directory preflight catches existing hand-written react-intl bodies before nested vendor edits", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(path.join(vendorDir, "app-runtime", "stable-exports"), {
+      recursive: true,
+    });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { "react-intl": "^10.0.0" } }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "react-intl.tsx"),
+      `
+        // Restored from ref/webview/assets/lib-BWT6A3Q0.js
+        export function useIntl() {
+          return { formatMessage: (descriptor) => descriptor.defaultMessage ?? "" };
+        }
+        export function FormattedMessage(props) {
+          return props.defaultMessage ?? props.id ?? "";
+        }
+      `,
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "app-runtime", "stable-exports", "lower-a-f.ts"),
+      `
+        // Restored from ref/webview/assets/app-main.js
+        export const runtimeAlias = 1;
+      `,
+    );
+
+    const result = runCLI(vendorDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("react-intl.tsx");
+    expect(result.stderr).toContain("third-party-npm-shim-not-reexport");
+  });
+
   test("fails hand-written vendor shims whose filename matches a declared dependency", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");

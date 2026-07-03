@@ -61,6 +61,15 @@ Each Stage 1 step has an _input shape_ the previous step produced. Running them 
   fail even if the chunk provenance or registry entry is missing. Add the
   dependency rather than rebuilding the package API.
 
+- **Local target checks do not replace the vendor directory audit.**
+  A nested compatibility file such as
+  `restored/vendor/<runtime>/stable-exports/*.ts` may not be a public npm
+  package target, so `--decision` can legitimately find nothing for that leaf.
+  Before any `restored/vendor/` work, run the normal `vendor-npm-preflight.ts`
+  directory audit on `restored/vendor` and fix public package-body failures such as
+  `vendor/react-intl.tsx` first; then run target-specific `--decision` for the
+  file you plan to edit.
+
 - **Tier note**: the default "readable restore" tier runs `polish.ts --fast` — the reading-aid subset only (`strip-react-compiler`, `simplify`, `jsx-runtime`, `inline-defaults`, `normalize-exports`). The import-resolution tail (`react-shim-elim`, `resolve-npm-imports`, `npm-cjs-shim-elim`, `dead-shim-elim`) only makes imports resolve against `node_modules` and runs in **deep mode** (drop `--fast`).
 - **Idempotent**: running `polish.ts` twice on the same input changes nothing on the second pass. Safe to re-run if you tweak one of `--prefer` / `--skip` / `--stop-after`.
 - **`strip-react-compiler` detection is by callee name**: any `let X = expr.c(N)` or `let X = (0, expr.c)(N)` with a numeric literal arg is treated as a React Compiler cache. A user-defined `.c()` method that happens to match this shape would also be stripped — extremely rare in practice but possible. If you hit a false positive, run polish with `--skip strip-react-compiler` and handle the React Compiler bundle manually.

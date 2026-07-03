@@ -81,10 +81,21 @@ only; they do **not** justify reimplementing a confirmed package. A public
 nearest `package.json` is itself high-confidence npm identity, including scoped
 packages normalized as `@scope/name` -> `vendor/scope-name.ts`.
 
-Make the preflight concrete before edits: search the registries and project
-profile (`rg "<stem>|<export>" .agents/skills/deobfuscate-javascript`), inspect
-the nearest `package.json`, inspect consumers, then run the edit-intent
-classifier before writing code:
+Make the preflight concrete before edits. For any task that will touch files
+under `restored/vendor/`, start with a normal full vendor audit, not just the
+current leaf file:
+
+```bash
+bun .agents/skills/deobfuscate-javascript/scripts/vendor-npm-preflight.ts restored/vendor
+```
+
+If this fails, fix those public npm vendor shims first: stock package bodies
+must become npm-backed re-exports and missing package roots must be added to the
+nearest `package.json`. Only after the directory audit is clean should you
+inspect a specific target. Search the registries and project profile
+(`rg "<stem>|<export>" .agents/skills/deobfuscate-javascript`), inspect the
+nearest `package.json`, inspect consumers, then run the edit-intent classifier
+before writing code:
 
 ```bash
 bun .agents/skills/deobfuscate-javascript/scripts/vendor-npm-preflight.ts <target-vendor-file> --decision --intent local-body
