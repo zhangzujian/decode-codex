@@ -531,6 +531,18 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   lodash: "lodash",
   "lodash-current-runtime": "lodash",
   "lodash-merge-runtime": "lodash/merge",
+  "lodash-pull-request-helpers": [
+    "lodash/_baseEach",
+    "lodash/_baseFlatten",
+    "lodash/_baseFor",
+    "lodash/_baseOrderBy",
+    "lodash/_baseRest",
+    "lodash/_defineProperty",
+    "lodash/_isIterateeCall",
+    "lodash/_overRest",
+    "lodash/_setToString",
+    "lodash/orderBy",
+  ],
   motion: "framer-motion",
   pdfjs: "pdfjs-dist",
   "pdfjs-entry": "pdfjs-dist",
@@ -1244,13 +1256,30 @@ function hasTinyNpmBackedLegacyWrapper(
   });
 }
 
+function hasLodashHelperLoaderShim(source: string, specifier: string): boolean {
+  if (!specifier.startsWith("lodash/")) return false;
+
+  const importedLocals = bareImportLocalsFrom(source, specifier);
+  if (importedLocals.length === 0) return false;
+
+  const code = stripLineAndBlockComments(source);
+  return importedLocals.some((localName) => {
+    const escapedLocalName = escapeRegExp(localName);
+    return new RegExp(
+      String.raw`\bexport\s+const\s+[A-Za-z_$][\w$]*\s*=\s*createLodashHelperLoader\s*\(\s*${escapedLocalName}\s*\)`,
+      "m",
+    ).test(code);
+  });
+}
+
 function hasPublicNpmVendorShimFrom(
   source: string,
   specifier: string,
 ): boolean {
   return (
     hasBareReexportFrom(source, specifier) ||
-    hasTinyNpmBackedLegacyWrapper(source, specifier)
+    hasTinyNpmBackedLegacyWrapper(source, specifier) ||
+    hasLodashHelperLoaderShim(source, specifier)
   );
 }
 

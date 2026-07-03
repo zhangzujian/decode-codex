@@ -173,6 +173,152 @@ describe("vendor-npm-preflight CLI", () => {
     expect(result.stderr).toContain("registered package identity");
   });
 
+  test("classifies pull request lodash helper loaders as registered npm shims", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { lodash: "^4.17.21" } }),
+    );
+
+    const result = runDecisionCLI(
+      path.join(vendorDir, "lodash-pull-request-helpers.ts"),
+      { intent: "npm-shim" },
+    );
+    expect(result.code).toBe(0);
+    const decisions = JSON.parse(result.stdout) as Array<{
+      decision: string;
+      specifiers: string[];
+    }>;
+    expect(decisions[0]).toMatchObject({
+      decision: "npm-shim",
+    });
+    expect(decisions[0]?.specifiers).toContain("lodash/_baseEach");
+    expect(decisions[0]?.specifiers).toContain("lodash/orderBy");
+  });
+
+  test("passes npm-backed pull request lodash helper loader shims", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { lodash: "^4.17.21" } }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "lodash-pull-request-helpers.ts"),
+      `
+        // Restored from ref/webview/assets/app-main.js
+        import baseEach from "lodash/_baseEach";
+        import baseFlatten from "lodash/_baseFlatten";
+        import baseFor from "lodash/_baseFor";
+        import baseOrderBy from "lodash/_baseOrderBy";
+        import baseRest from "lodash/_baseRest";
+        import defineProperty from "lodash/_defineProperty";
+        import isIterateeCall from "lodash/_isIterateeCall";
+        import overRest from "lodash/_overRest";
+        import setToString from "lodash/_setToString";
+        import orderBy from "lodash/orderBy";
+
+        type Helper = (...args: any[]) => any;
+        function createLodashHelperLoader<THelper extends Helper>(
+          helper: THelper,
+        ): () => THelper {
+          return () => helper;
+        }
+
+        export const loadLodashBaseEach = createLodashHelperLoader(baseEach);
+        export const loadLodashBaseFlatten = createLodashHelperLoader(baseFlatten);
+        export const loadLodashBaseFor = createLodashHelperLoader(baseFor);
+        export const loadLodashBaseOrderBy = createLodashHelperLoader(baseOrderBy);
+        export const loadLodashBaseRest = createLodashHelperLoader(baseRest);
+        export const loadLodashDefineProperty = createLodashHelperLoader(defineProperty);
+        export const loadLodashIsIterateeCall = createLodashHelperLoader(isIterateeCall);
+        export const loadLodashOrderBy = createLodashHelperLoader(orderBy);
+        export const loadLodashOverRest = createLodashHelperLoader(overRest);
+        export const loadLodashSetToString = createLodashHelperLoader(setToString);
+      `,
+    );
+
+    const result = runCLI(path.join(root, "restored"));
+    expect(result.code).toBe(0);
+    expect(result.stderr).toContain("vendor-npm-preflight: PASS");
+  });
+
+  test("fails hand-written pull request lodash helper bodies", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { lodash: "^4.17.21" } }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "lodash-pull-request-helpers.ts"),
+      `
+        // Restored from ref/webview/assets/app-main.js
+        export function loadLodashBaseEach() {
+          return function baseEach(collection, iteratee) {
+            for (const key of Object.keys(collection)) iteratee(collection[key], key);
+            return collection;
+          };
+        }
+      `,
+    );
+
+    const result = runCLI(path.join(root, "restored"));
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("third-party-npm-shim-not-reexport");
+    expect(result.stderr).toContain("lodash-pull-request-helpers.ts");
+  });
+
+  test("fails pull request lodash helper shims when lodash is undeclared", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+    fs.writeFileSync(
+      path.join(vendorDir, "lodash-pull-request-helpers.ts"),
+      `
+        // Restored from ref/webview/assets/app-main.js
+        import baseEach from "lodash/_baseEach";
+        import baseFlatten from "lodash/_baseFlatten";
+        import baseFor from "lodash/_baseFor";
+        import baseOrderBy from "lodash/_baseOrderBy";
+        import baseRest from "lodash/_baseRest";
+        import defineProperty from "lodash/_defineProperty";
+        import isIterateeCall from "lodash/_isIterateeCall";
+        import overRest from "lodash/_overRest";
+        import setToString from "lodash/_setToString";
+        import orderBy from "lodash/orderBy";
+
+        type Helper = (...args: any[]) => any;
+        function createLodashHelperLoader<THelper extends Helper>(
+          helper: THelper,
+        ): () => THelper {
+          return () => helper;
+        }
+
+        export const loadLodashBaseEach = createLodashHelperLoader(baseEach);
+        export const loadLodashBaseFlatten = createLodashHelperLoader(baseFlatten);
+        export const loadLodashBaseFor = createLodashHelperLoader(baseFor);
+        export const loadLodashBaseOrderBy = createLodashHelperLoader(baseOrderBy);
+        export const loadLodashBaseRest = createLodashHelperLoader(baseRest);
+        export const loadLodashDefineProperty = createLodashHelperLoader(defineProperty);
+        export const loadLodashIsIterateeCall = createLodashHelperLoader(isIterateeCall);
+        export const loadLodashOrderBy = createLodashHelperLoader(orderBy);
+        export const loadLodashOverRest = createLodashHelperLoader(overRest);
+        export const loadLodashSetToString = createLodashHelperLoader(setToString);
+      `,
+    );
+
+    const result = runCLI(path.join(root, "restored"));
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("third-party-npm-shim-dependency-missing");
+    expect(result.stderr).toContain("lodash");
+  });
+
   test("fails hand-written react-intl compatibility shims", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");
