@@ -87,6 +87,8 @@ export interface GitActionsSummaryPanelProps {
   deferQueries?: boolean;
 }
 
+export function initGitActionsSummaryPanelChunk(): void {}
+
 export function GitActionsSummaryPanel({
   branchControlOwnsDetachedSetup,
   deferQueries,

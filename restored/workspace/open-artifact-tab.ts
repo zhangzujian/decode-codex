@@ -40,6 +40,8 @@ export interface OpenArtifactTabOptions {
   title?: string;
 }
 
+export function initOpenArtifactTabChunk(): void {}
+
 function workspaceFilePathLabel({
   cwd,
   path,

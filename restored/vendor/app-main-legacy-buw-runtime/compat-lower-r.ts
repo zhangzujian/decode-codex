@@ -24,10 +24,10 @@ export { initBuildWorktreeLabelFromInputChunk as appMainCurrentCompatSlotLowerRL
 export { initThreadHandoffOperationStepsChunk as appMainCurrentCompatSlotLowerRLowerO } from "../../app-shell/thread-handoff-operations/steps";
 export { initProcessManagerRequestSignalChunk as appMainCurrentCompatSlotLowerRLowerR } from "../../conversations/process-manager-request-atom";
 export { conversationalOnboardingTaskDefinitions as appMainCurrentCompatSlotLowerR } from "../../onboarding/conversational-onboarding-task-definitions";
+export { initStartComposerTurnChunk as appMainCurrentCompatSlotLowerRLowerN } from "../../composer/start-composer-turn";
 
 export {
   rb as appMainCurrentCompatSlotLowerRLowerB,
   rf as appMainCurrentCompatSlotLowerRLowerF,
-  rn as appMainCurrentCompatSlotLowerRLowerN,
   ry as appMainCurrentCompatSlotLowerRLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

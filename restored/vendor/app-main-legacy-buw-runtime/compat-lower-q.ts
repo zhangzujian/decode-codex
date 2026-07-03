@@ -21,11 +21,11 @@ export { findPendingWorktreeByClientThreadId as appMainCurrentCompatSlotLowerQLo
 export { initAppShellTabControllerAnalyticsChunk as appMainCurrentCompatSlotLowerQLowerV } from "../../app-shell/app-shell-tab-controller/analytics";
 export { initUseHotkeyChunk as appMainCurrentCompatSlotLowerQLowerM } from "../../utils/use-hotkey";
 export { GoogleResourceKindIcon as appMainCurrentCompatSlotLowerQ } from "../../conversations/google-resource-kind-icon";
+export { initImageUploadChunk as appMainCurrentCompatSlotLowerQLowerT } from "../../image-side-panel/upload-image";
+export { initThreadHandoffToolRuntimeChunk as appMainCurrentCompatSlotLowerQLowerA } from "../../conversations/thread-handoff-tool-runtime";
+export { initGitActionsSummaryPanelChunk as appMainCurrentCompatSlotLowerQLowerL } from "../../conversations/git-actions-summary-panel";
 
 export {
-  qa as appMainCurrentCompatSlotLowerQLowerA,
-  ql as appMainCurrentCompatSlotLowerQLowerL,
   qo as appMainCurrentCompatSlotLowerQLowerO,
-  qt as appMainCurrentCompatSlotLowerQLowerT,
   qy as appMainCurrentCompatSlotLowerQLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

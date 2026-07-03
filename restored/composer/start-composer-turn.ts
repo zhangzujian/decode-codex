@@ -55,6 +55,8 @@ export interface SendRestoreMessageArgs
   restoreMessage: { cwd: string; context: any };
 }
 
+export function initStartComposerTurnChunk(): void {}
+
 function isClosedAgentConversation(
   scope: ComposerScope,
   conversationId: string,

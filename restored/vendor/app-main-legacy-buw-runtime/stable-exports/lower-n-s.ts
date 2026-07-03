@@ -154,6 +154,8 @@ export { openPlanSummarySidePanelTab as legacyAppMainBuwLowerNLowerTExport } fro
 export { isConversationItemInProgress as legacyAppMainBuwLowerOLowerTExport } from "../../../conversations/local-conversation-thread-parts/conversation-item-in-progress";
 export { scrollConversationItemIntoView as legacyAppMainBuwLowerPLowerTExport } from "../../../conversations/scroll-conversation-item-into-view";
 export { computeGeneratedImageOutputs as legacyAppMainBuwLowerSLowerTExport } from "../../../conversations/generated-image-outputs";
+export { groupPendingMcpToolCalls as legacyAppMainBuwLowerPLowerAExport } from "../../../conversations/conversation-activity-grouping/pending-mcp-tool-calls";
+export { initImageUploadChunk as legacyAppMainBuwLowerQLowerTExport } from "../../../image-side-panel/upload-image";
 export { initQueuedFollowUpsStoreChunk as legacyAppMainBuwLowerSLowerDExport } from "../../../utils/queued-follow-ups-store";
 export { parseCodeCommentDirectives as legacyAppMainBuwLowerNLowerHExport } from "../../../github/diff-comments/use-diff-comment-sources/directive-comments";
 export { setDiffCommentsForConversation as legacyAppMainBuwLowerOLowerHExport } from "../../../github/diff-comments/set-diff-comments-for-conversation";
@@ -175,15 +177,13 @@ export { BackForwardNavigationButtons as legacyAppMainBuwLowerSLowerHExport } fr
 export { initGitWorkflowPhaseLabelChunk as legacyAppMainBuwLowerOLowerUExport } from "../../../conversations/git-workflow-phase-label";
 export { CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME as legacyAppMainBuwLowerSLowerUExport } from "../../../conversations/cancel-git-action-button";
 export { GoogleResourceKindIcon as legacyAppMainBuwLowerQExport } from "../../../conversations/google-resource-kind-icon";
+export { useDefaultBranchQuery as legacyAppMainBuwLowerPLowerUExport } from "../../../conversations/use-default-branch-query";
+export { initOpenArtifactTabChunk as legacyAppMainBuwLowerPLowerFExport } from "../../../workspace/open-artifact-tab";
+export { initThreadHandoffToolRuntimeChunk as legacyAppMainBuwLowerQLowerAExport } from "../../../conversations/thread-handoff-tool-runtime";
+export { initGitActionsSummaryPanelChunk as legacyAppMainBuwLowerQLowerLExport } from "../../../conversations/git-actions-summary-panel";
+export { initStartComposerTurnChunk as legacyAppMainBuwLowerRLowerNExport } from "../../../composer/start-composer-turn";
 
 export {
   p_ as legacyAppMainBuwLowerPUnderscoreExport,
-  pa as legacyAppMainBuwLowerPLowerAExport,
-  pf as legacyAppMainBuwLowerPLowerFExport,
-  pu as legacyAppMainBuwLowerPLowerUExport,
-  qa as legacyAppMainBuwLowerQLowerAExport,
-  ql as legacyAppMainBuwLowerQLowerLExport,
   qo as legacyAppMainBuwLowerQLowerOExport,
-  qt as legacyAppMainBuwLowerQLowerTExport,
-  rn as legacyAppMainBuwLowerRLowerNExport,
 } from "../../app-main-legacy-buw-compat-bundle";

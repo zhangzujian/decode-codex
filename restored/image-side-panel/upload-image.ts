@@ -189,3 +189,7 @@ export async function createImageAttachmentUpload({
     uploadStatus: "ready",
   };
 }
+
+export function initImageUploadChunk(): void {
+  void createImageAttachmentUpload;
+}

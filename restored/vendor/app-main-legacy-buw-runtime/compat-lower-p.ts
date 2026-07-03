@@ -25,11 +25,11 @@ export { timeSunday as appMainCurrentCompatSlotLowerPUpperS } from "d3-time";
 export { KeyboardCode as appMainCurrentCompatSlotLowerPLowerX } from "../dnd-kit-core";
 export { scrollConversationItemIntoView as appMainCurrentCompatSlotLowerPLowerT } from "../../conversations/scroll-conversation-item-into-view";
 export { initReferencedPriorConversationsChunk as appMainCurrentCompatSlotLowerPLowerN } from "../../composer/referenced-prior-conversations";
+export { groupPendingMcpToolCalls as appMainCurrentCompatSlotLowerPLowerA } from "../../conversations/conversation-activity-grouping/pending-mcp-tool-calls";
+export { useDefaultBranchQuery as appMainCurrentCompatSlotLowerPLowerU } from "../../conversations/use-default-branch-query";
+export { initOpenArtifactTabChunk as appMainCurrentCompatSlotLowerPLowerF } from "../../workspace/open-artifact-tab";
 
 export {
   p_ as appMainCurrentCompatSlotLowerPUnderscore,
-  pa as appMainCurrentCompatSlotLowerPLowerA,
-  pf as appMainCurrentCompatSlotLowerPLowerF,
-  pu as appMainCurrentCompatSlotLowerPLowerU,
   py as appMainCurrentCompatSlotLowerPLowerY,
 } from "../app-main-legacy-buw-compat-bundle";
