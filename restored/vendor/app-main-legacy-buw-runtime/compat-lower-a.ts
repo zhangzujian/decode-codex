@@ -12,6 +12,8 @@ export { OpenConfigTomlButton as appMainCurrentCompatSlotLowerALowerX } from "..
 export { getConversationalOnboardingMessagingPluginNames as appMainCurrentCompatSlotLowerA } from "../../onboarding/conversational-onboarding-task-selection";
 export { toAutomationCreatePayload as appMainCurrentCompatSlotLowerALowerI } from "../../automations/shared";
 
+export { initUseConversationIdFromRouteChunk as appMainCurrentCompatSlotLowerALowerR } from "../../conversations/use-conversation-id-from-route";
+
 export {
   a_ as appMainCurrentCompatSlotLowerAUnderscore,
   aa as appMainCurrentCompatSlotLowerALowerA,
@@ -24,7 +26,6 @@ export {
   an as appMainCurrentCompatSlotLowerALowerN,
   ao as appMainCurrentCompatSlotLowerALowerO,
   ap as appMainCurrentCompatSlotLowerALowerP,
-  ar as appMainCurrentCompatSlotLowerALowerR,
   as as appMainCurrentCompatSlotLowerALowerS,
   aS as appMainCurrentCompatSlotLowerAUpperS,
   at as appMainCurrentCompatSlotLowerALowerT,

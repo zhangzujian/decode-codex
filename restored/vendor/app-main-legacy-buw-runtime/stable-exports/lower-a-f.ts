@@ -27,6 +27,8 @@ export { validateAutomationDraft as legacyAppMainBuwLowerFLowerIExport } from ".
 
 export { toAutomationCreatePayload as legacyAppMainBuwLowerALowerIExport } from "../../../automations/shared";
 
+export { initUseConversationIdFromRouteChunk as legacyAppMainBuwLowerALowerRExport } from "../../../conversations/use-conversation-id-from-route";
+
 export {
   SidebarRowMenuSeparator,
   SettingsControlRow,
@@ -103,7 +105,6 @@ export {
   an as legacyAppMainBuwLowerALowerNExport,
   ao as legacyAppMainBuwLowerALowerOExport,
   ap as legacyAppMainBuwLowerALowerPExport,
-  ar as legacyAppMainBuwLowerALowerRExport,
   as as legacyAppMainBuwLowerALowerSExport,
   at as legacyAppMainBuwLowerALowerTExport,
   au as legacyAppMainBuwLowerALowerUExport,

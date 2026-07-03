@@ -19,6 +19,8 @@ export { resolveLocale as appMainCurrentCompatSlotLowerLLowerG } from "../../i18
 export { primaryRuntimeInstallReleaseSignal as appMainCurrentCompatSlotLowerLLowerS } from "../../runtime/primary-runtime-install-state";
 export { toAutomationUpdatePayload as appMainCurrentCompatSlotLowerLLowerI } from "../../automations/shared";
 
+export { openAutomationSuggestionTab as appMainCurrentCompatSlotLowerLLowerR } from "../../automations/automation-side-panel-tabs";
+
 export {
   l as appMainCurrentCompatSlotLowerL,
   l_ as appMainCurrentCompatSlotLowerLUnderscore,
@@ -26,7 +28,6 @@ export {
   lb as appMainCurrentCompatSlotLowerLLowerB,
   ln as appMainCurrentCompatSlotLowerLLowerN,
   lp as appMainCurrentCompatSlotLowerLLowerP,
-  lr as appMainCurrentCompatSlotLowerLLowerR,
   lS as appMainCurrentCompatSlotLowerLUpperS,
   lu as appMainCurrentCompatSlotLowerLLowerU,
   ly as appMainCurrentCompatSlotLowerLLowerY,

@@ -31,6 +31,8 @@ export { createAutomationDraftFromSeed as legacyAppMainBuwLowerSLowerIExport } f
 export { automationDirectiveResultAtom as legacyAppMainBuwLowerRLowerIExport } from "../../../automations/shared";
 export { areAutomationRecordsEqual as legacyAppMainBuwLowerNLowerIExport } from "../../../automations/automation-record-sync";
 
+export { useConversationIdFromRoute as legacyAppMainBuwLowerOLowerRExport } from "../../../conversations/use-conversation-id-from-route";
+
 export {
   liveMcpAppFrameSignal,
   composeEventHandlers,
@@ -105,7 +107,6 @@ export {
   om as legacyAppMainBuwLowerOLowerMExport,
   on as legacyAppMainBuwLowerOLowerNExport,
   op as legacyAppMainBuwLowerOLowerPExport,
-  or as legacyAppMainBuwLowerOLowerRExport,
   ot as legacyAppMainBuwLowerOLowerTExport,
   ou as legacyAppMainBuwLowerOLowerUExport,
   ox as legacyAppMainBuwLowerOLowerXExport,

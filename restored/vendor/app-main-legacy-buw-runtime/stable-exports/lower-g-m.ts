@@ -20,6 +20,8 @@ export { toAutomationUpdatePayload as legacyAppMainBuwLowerLLowerIExport } from 
 
 export { automationDirectiveSeedAtom as legacyAppMainBuwLowerILowerIExport } from "../../../automations/shared";
 
+export { openAutomationSuggestionTab as legacyAppMainBuwLowerLLowerRExport } from "../../../automations/automation-side-panel-tabs";
+
 export {
   DragIcon,
   openThreadBrowserSidePanelTab,
@@ -179,7 +181,6 @@ export {
   lb as legacyAppMainBuwLowerLLowerBExport,
   ln as legacyAppMainBuwLowerLLowerNExport,
   lp as legacyAppMainBuwLowerLLowerPExport,
-  lr as legacyAppMainBuwLowerLLowerRExport,
   lu as legacyAppMainBuwLowerLLowerUExport,
   ly as legacyAppMainBuwLowerLLowerYExport,
   m as legacyAppMainBuwLowerMExport,

@@ -8,6 +8,8 @@ export { useDictationCore as appMainCurrentCompatSlotLowerOUpperC } from "../../
 export { getAvailableConversationalOnboardingTasks as appMainCurrentCompatSlotLowerO } from "../../onboarding/conversational-onboarding-task-selection";
 export { createAutomationDraftFromAutomation as appMainCurrentCompatSlotLowerOLowerI } from "../../automations/shared";
 
+export { useConversationIdFromRoute as appMainCurrentCompatSlotLowerOLowerR } from "../../conversations/use-conversation-id-from-route";
+
 export {
   closeThreadMcpAppSidePanelTab,
   useReferralInviteMutation,
@@ -26,7 +28,6 @@ export {
   om as appMainCurrentCompatSlotLowerOLowerM,
   on as appMainCurrentCompatSlotLowerOLowerN,
   op as appMainCurrentCompatSlotLowerOLowerP,
-  or as appMainCurrentCompatSlotLowerOLowerR,
   oS as appMainCurrentCompatSlotLowerOUpperS,
   ot as appMainCurrentCompatSlotLowerOLowerT,
   ou as appMainCurrentCompatSlotLowerOLowerU,
