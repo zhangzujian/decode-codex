@@ -448,6 +448,74 @@ describe("vendor-npm-preflight CLI", () => {
     expect(result.stderr).toContain("third-party-npm-shim-not-reexport");
   });
 
+  test("blocks nested local-body decisions until full vendor audit passes", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    const nestedBarrel = path.join(
+      vendorDir,
+      "app-runtime",
+      "stable-exports",
+      "lower-a-f.ts",
+    );
+    fs.mkdirSync(path.dirname(nestedBarrel), { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { "react-intl": "^10.0.0" } }),
+    );
+    fs.writeFileSync(
+      path.join(vendorDir, "react-intl.tsx"),
+      `
+        // Restored from ref/webview/assets/lib-BWT6A3Q0.js
+        export function useIntl() {
+          return { formatMessage: (descriptor) => descriptor.defaultMessage ?? "" };
+        }
+        export function FormattedMessage(props) {
+          return props.defaultMessage ?? props.id ?? "";
+        }
+      `,
+    );
+    fs.writeFileSync(
+      nestedBarrel,
+      `
+        // Restored from ref/webview/assets/app-main.js
+        export const runtimeAlias = 1;
+      `,
+    );
+
+    const result = runDecisionCLI(nestedBarrel, { intent: "local-body" });
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("INTENT FAIL");
+    expect(result.stderr).toContain("full vendor audit passes");
+    expect(result.stderr).toContain("react-intl.tsx");
+    expect(result.stderr).toContain("third-party-npm-shim-not-reexport");
+  });
+
+  test("allows nested local-body decisions after full vendor audit passes", () => {
+    const root = makeTmpRoot();
+    const nestedBarrel = path.join(
+      root,
+      "restored",
+      "vendor",
+      "app-runtime",
+      "stable-exports",
+      "lower-a-f.ts",
+    );
+    fs.mkdirSync(path.dirname(nestedBarrel), { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+    fs.writeFileSync(
+      nestedBarrel,
+      `
+        // Restored from ref/webview/assets/app-main.js
+        export const runtimeAlias = 1;
+      `,
+    );
+
+    const result = runDecisionCLI(nestedBarrel, { intent: "local-body" });
+    expect(result.code).toBe(0);
+    expect(JSON.parse(result.stdout)).toEqual([]);
+    expect(result.stderr).toBe("");
+  });
+
   test("fails hand-written vendor shims whose filename matches a declared dependency", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");

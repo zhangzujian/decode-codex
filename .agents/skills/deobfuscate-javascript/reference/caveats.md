@@ -67,8 +67,11 @@ Each Stage 1 step has an _input shape_ the previous step produced. Running them 
   package target, so `--decision` can legitimately find nothing for that leaf.
   Before any `restored/vendor/` work, run the normal `vendor-npm-preflight.ts`
   directory audit on `restored/vendor` and fix public package-body failures such as
-  `vendor/react-intl.tsx` first; then run target-specific `--decision` for the
-  file you plan to edit.
+  `vendor/react-intl.tsx` first; then run target-specific
+  `--decision --intent local-body` for the file you plan to edit. The intent
+  check also audits the containing vendor root and fails if an existing public
+  npm package shim is still a local body, so a nested "no public vendor targets"
+  result cannot mask a broken package shim elsewhere in `vendor/`.
 
 - **"No public vendor targets" is not permission to recreate package APIs.**
   It only says the exact nested file under inspection is not itself a public

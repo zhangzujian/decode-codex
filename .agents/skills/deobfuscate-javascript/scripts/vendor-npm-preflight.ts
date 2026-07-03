@@ -74,6 +74,20 @@ function collectDecisionTargets(input: string): string[] {
   return SOURCE_EXT_RE.test(input) ? [input] : [];
 }
 
+function findContainingVendorRoot(input: string): string | null {
+  const resolvedInput = path.resolve(input);
+  const parts = resolvedInput.split(path.sep);
+  const vendorIndex = parts.lastIndexOf("vendor");
+  if (vendorIndex < 0) return null;
+
+  const vendorRoot = parts.slice(0, vendorIndex + 1).join(path.sep) || path.sep;
+  try {
+    return fs.statSync(vendorRoot).isDirectory() ? vendorRoot : null;
+  } catch {
+    return null;
+  }
+}
+
 function emptyNpmShimReport(
   file: string,
   issues: QualityGateIssue[],
@@ -503,6 +517,30 @@ function decisionIntentFailures(
     );
 }
 
+async function vendorAuditIntentFailures(
+  input: string,
+  intent: VendorNpmEditIntent | undefined,
+): Promise<string[]> {
+  if (intent !== "local-body") return [];
+
+  const vendorRoot = findContainingVendorRoot(input);
+  if (vendorRoot == null) return [];
+
+  const result = await vendorNpmPreflight(vendorRoot);
+  if (result.reports.length === 0) return [];
+
+  const failingFiles = result.reports
+    .map((report) => {
+      const codes = [...new Set(report.issues.map((issue) => issue.code))];
+      return `${report.file} (${codes.join(", ")})`;
+    })
+    .join(", ");
+
+  return [
+    `${input}: local vendor body blocked until full vendor audit passes; fix ${failingFiles}`,
+  ];
+}
+
 const USAGE =
   "Usage: bun scripts/vendor-npm-preflight.ts <restored/vendor-file-or-dir> [--json] [--decision] [--intent local-body|npm-shim]";
 
@@ -548,7 +586,10 @@ async function main(): Promise<void> {
         console.error(`  ${decision.reason}`);
       }
     }
-    const failures = decisionIntentFailures(decisions, editIntent);
+    let failures = decisionIntentFailures(decisions, editIntent);
+    if (failures.length === 0) {
+      failures = await vendorAuditIntentFailures(input, editIntent);
+    }
     if (failures.length > 0) {
       for (const failure of failures) {
         console.error(`vendor-npm-preflight: INTENT FAIL ${failure}`);
