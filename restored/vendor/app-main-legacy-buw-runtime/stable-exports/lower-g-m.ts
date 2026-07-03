@@ -21,6 +21,7 @@ export { toAutomationUpdatePayload as legacyAppMainBuwLowerLLowerIExport } from 
 export { automationDirectiveSeedAtom as legacyAppMainBuwLowerILowerIExport } from "../../../automations/shared";
 
 export { openAutomationSuggestionTab as legacyAppMainBuwLowerLLowerRExport } from "../../../automations/automation-side-panel-tabs";
+export { initAutomationEditorControlsChunk as legacyAppMainBuwLowerKLowerRExport } from "../../../automations/automation-side-panel/body";
 
 export {
   DragIcon,
@@ -168,7 +169,6 @@ export {
   kn as legacyAppMainBuwLowerKLowerNExport,
   ko as legacyAppMainBuwLowerKLowerOExport,
   kp as legacyAppMainBuwLowerKLowerPExport,
-  kr as legacyAppMainBuwLowerKLowerRExport,
   ks as legacyAppMainBuwLowerKLowerSExport,
   kt as legacyAppMainBuwLowerKLowerTExport,
   kv as legacyAppMainBuwLowerKLowerVExport,
