@@ -19,6 +19,11 @@ export const pendingWorktreesRefreshAtom = createScopedAtom(
   Symbol(),
 );
 
+export function initPendingWorktreeAtomsRuntime(): void {
+  void pendingWorktreesRefreshAtom;
+  void pendingWorktreeByClientThreadIdAtom;
+}
+
 export function refreshPendingWorktrees(store: {
   set(atom: unknown, value: unknown): void;
 }): void {

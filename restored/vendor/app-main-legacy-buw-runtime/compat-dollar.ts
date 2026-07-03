@@ -17,12 +17,12 @@ export { readServiceTierForRequest as appMainCurrentCompatSlotDollarLowerH } fro
 
 export { DEFAULT_AUTOMATION_DRAFT as appMainCurrentCompatSlotDollarLowerR } from "../../automations/shared";
 export { initConversationSearchSnippetBuilderRuntime as appMainCurrentCompatSlotDollarLowerG } from "../../runtime/conversation-search-runtime";
+export { initPendingWorktreeAtomsRuntime as appMainCurrentCompatSlotDollarLowerD } from "../../worktree/pending-worktree-atoms";
+export { getThreadPanelController as appMainCurrentCompatSlotDollarUnderscore } from "../../app-shell/thread-panel-state";
 
 export {
   $ as appMainCurrentCompatSlotDollar,
-  $_ as appMainCurrentCompatSlotDollarUnderscore,
   $b as appMainCurrentCompatSlotDollarLowerB,
-  $d as appMainCurrentCompatSlotDollarLowerD,
   $i as appMainCurrentCompatSlotDollarLowerI,
   $p as appMainCurrentCompatSlotDollarLowerP,
   $s as appMainCurrentCompatSlotDollarLowerS,

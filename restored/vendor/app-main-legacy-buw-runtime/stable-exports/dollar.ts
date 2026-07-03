@@ -26,8 +26,5 @@ export { PlanSummaryCard as legacyAppMainBuwDollarExport } from "../../../conver
 export { enabledReasoningEffortsSetSignal as legacyAppMainBuwDollarLowerBExport } from "../../../composer/enabled-reasoning-efforts";
 export { threadShortcutLabelsAtom as legacyAppMainBuwDollarLowerPExport } from "../../../composer/composer-command-keymap";
 export { startComposerTurn as legacyAppMainBuwDollarLowerTExport } from "../../../composer/start-composer-turn";
-
-export {
-  $_ as legacyAppMainBuwDollarUnderscoreExport,
-  $d as legacyAppMainBuwDollarLowerDExport,
-} from "../../app-main-legacy-buw-compat-bundle";
+export { initPendingWorktreeAtomsRuntime as legacyAppMainBuwDollarLowerDExport } from "../../../worktree/pending-worktree-atoms";
+export { getThreadPanelController as legacyAppMainBuwDollarUnderscoreExport } from "../../../app-shell/thread-panel-state";
