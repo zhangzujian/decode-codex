@@ -21,6 +21,7 @@ export type ClientRectLike = {
 };
 
 export type PointerDragState = {
+  pointerId: number;
   start: Point;
   current: Point;
   clientStart: Point;

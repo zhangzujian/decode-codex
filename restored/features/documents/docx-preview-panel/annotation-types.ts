@@ -86,20 +86,24 @@ export type DocxAnnotationMetadata = {
 };
 
 export type DocxAnnotationComment = {
+  type?: string;
   content: readonly {
     content_type: string;
     text: string;
   }[];
   localArtifactAnnotationContext?: {
+    annotationId?: string | null;
     artifactKind?: string;
     label?: string;
     path?: string;
     title?: string;
   } | null;
   localArtifactAnnotationMetadata?: DocxAnnotationMetadata | null;
+  origin?: string;
   position: {
     line: number;
     path: string;
+    side?: string;
   };
 };
 
