@@ -72,6 +72,7 @@ export {
   getDefaultWorkspaceWriteMode as legacyAppMainBuwLowerILowerBExport,
   resolveNonFullAccessAgentMode as legacyAppMainBuwLowerLLowerBExport,
 } from "../../../utils/use-permissions-mode/mode-selection";
+export { formatModelDisplayName as legacyAppMainBuwLowerILowerGExport } from "../../../utils/format-model-display-name";
 export { ActivityScrollContainer as legacyAppMainBuwLowerILowerAExport } from "../../../conversations/activity-scroll-container";
 export { markTurnInterruptedByThisClient as legacyAppMainBuwLowerJLowerSExport } from "../../../threads/interrupted-turn-state";
 export { hasWorkspaceDependenciesFeature as legacyAppMainBuwLowerJLowerOExport } from "../../../features/workspace-dependencies";
@@ -156,6 +157,7 @@ export { buildPriorConversation as legacyAppMainBuwLowerHLowerNExport } from "..
 export { WorktreeInitActivityList as legacyAppMainBuwLowerHLowerTExport } from "../../../conversations/worktree-init-activity-list";
 export { initLocalConversationGitActionsChunk as legacyAppMainBuwLowerHLowerUExport } from "../../../conversations/local-conversation-git-actions";
 export { fullScreenMcpAppIdsAtom as legacyAppMainBuwLowerILowerFExport } from "../../../plugins/mcp-app-frame-state";
+export { isCodexAppsServer as legacyAppMainBuwLowerILowerDExport } from "../../../plugins/codex-apps-server";
 export { initRemoteConnectionStateByHostIdChunk as legacyAppMainBuwLowerGLowerPExport } from "../../../remote/use-connected-remote-connections";
 export { setSettingsSelectedHostId as legacyAppMainBuwLowerLLowerPExport } from "../../../settings/settings-host-context";
 export { initWorktreeStatusRuntimeChunk as legacyAppMainBuwLowerGLowerNExport } from "../../../conversations/worktree-status-runtime";
@@ -164,8 +166,6 @@ export { readElementBounds as legacyAppMainBuwLowerGLowerXExport } from "../../.
 
 export {
   iS as legacyAppMainBuwLowerIUpperSExport,
-  id as legacyAppMainBuwLowerILowerDExport,
-  ig as legacyAppMainBuwLowerILowerGExport,
   ih as legacyAppMainBuwLowerILowerHExport,
   im as legacyAppMainBuwLowerILowerMExport,
   in as legacyAppMainBuwLowerILowerNExport,

@@ -13,12 +13,12 @@ export { automationDirectiveSeedAtom as appMainCurrentCompatSlotLowerILowerI } f
 export { ActivityScrollContainer as appMainCurrentCompatSlotLowerILowerA } from "../../conversations/activity-scroll-container";
 export { BrowserNotSecureIcon as appMainCurrentCompatSlotLowerILowerP } from "../../browser/browser-address-security-indicator";
 export { highlightContentSearchMatches as appMainCurrentCompatSlotLowerIUnderscore } from "../../runtime/conversation-search-runtime";
+export { isCodexAppsServer as appMainCurrentCompatSlotLowerILowerD } from "../../plugins/codex-apps-server";
+export { formatModelDisplayName as appMainCurrentCompatSlotLowerILowerG } from "../../utils/format-model-display-name";
+export { getDefaultWorkspaceWriteMode as appMainCurrentCompatSlotLowerILowerB } from "../../utils/use-permissions-mode/mode-selection";
 
 export {
-  ib as appMainCurrentCompatSlotLowerILowerB,
-  id as appMainCurrentCompatSlotLowerILowerD,
   if as appMainCurrentCompatSlotLowerILowerF,
-  ig as appMainCurrentCompatSlotLowerILowerG,
   ih as appMainCurrentCompatSlotLowerILowerH,
   im as appMainCurrentCompatSlotLowerILowerM,
   in as appMainCurrentCompatSlotLowerILowerN,
