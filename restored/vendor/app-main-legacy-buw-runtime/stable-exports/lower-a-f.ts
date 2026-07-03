@@ -114,6 +114,7 @@ export { initTurnSourcesPopoverChunk as legacyAppMainBuwLowerALowerSExport } fro
 export { initThinkingFallbackStateChunk as legacyAppMainBuwLowerALowerTExport } from "../../../conversations/thinking-fallback-state";
 export { initContentSearchRuntime as legacyAppMainBuwLowerAUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 export { activeContentSearchMatchClassName as legacyAppMainBuwLowerEUnderscoreExport } from "../../../runtime/conversation-search-runtime";
+export { initAmbientSuggestionAppsChunk as legacyAppMainBuwLowerBLowerYExport } from "../../../connectors/ambient-suggestion-apps";
 
 export {
   aS as legacyAppMainBuwLowerAUpperSExport,
@@ -137,7 +138,6 @@ export {
   bt as legacyAppMainBuwLowerBLowerTExport,
   bu as legacyAppMainBuwLowerBLowerUExport,
   bv as legacyAppMainBuwLowerBLowerVExport,
-  by as legacyAppMainBuwLowerBLowerYExport,
   cS as legacyAppMainBuwLowerCUpperSExport,
   c_ as legacyAppMainBuwLowerCUnderscoreExport,
   cb as legacyAppMainBuwLowerCLowerBExport,

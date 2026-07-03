@@ -100,6 +100,7 @@ export {
   setBottomPanelLauncherVisible as legacyAppMainBuwUpperFLowerYExport,
   setReviewFileTreeOpen as legacyAppMainBuwUpperBLowerYExport,
 } from "../../../app-shell/app-shell-state";
+export { initUseServiceTierSettingsChunk as legacyAppMainBuwUpperCLowerYExport } from "../../../composer/use-service-tier-settings";
 
 export {
   Ab as legacyAppMainBuwUpperALowerBExport,
@@ -140,7 +141,6 @@ export {
   Ct as legacyAppMainBuwUpperCLowerTExport,
   Cu as legacyAppMainBuwUpperCLowerUExport,
   Cv as legacyAppMainBuwUpperCLowerVExport,
-  Cy as legacyAppMainBuwUpperCLowerYExport,
   D as legacyAppMainBuwUpperDExport,
   DS as legacyAppMainBuwUpperDUpperSExport,
   Da as legacyAppMainBuwUpperDLowerAExport,

@@ -94,6 +94,7 @@ export { initBrowserUseOriginStateQueriesChunk as legacyAppMainBuwUpperNLowerPEx
 export { selectConversationalOnboardingRole as legacyAppMainBuwUpperPExport } from "../../../onboarding/conversational-onboarding-workflow-state";
 export { rightPanelAnimationSignal as legacyAppMainBuwUpperOLowerYExport } from "../../../app-shell/app-shell-state";
 export { setRightPanelOpen as legacyAppMainBuwUpperRLowerYExport } from "../../../app-shell/app-shell-state";
+export { useAmbientSuggestionApps as legacyAppMainBuwUpperSLowerYExport } from "../../../connectors/ambient-suggestion-apps";
 
 export {
   NS as legacyAppMainBuwUpperNUpperSExport,
@@ -168,5 +169,4 @@ export {
   St as legacyAppMainBuwUpperSLowerTExport,
   Su as legacyAppMainBuwUpperSLowerUExport,
   Sv as legacyAppMainBuwUpperSLowerVExport,
-  Sy as legacyAppMainBuwUpperSLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";

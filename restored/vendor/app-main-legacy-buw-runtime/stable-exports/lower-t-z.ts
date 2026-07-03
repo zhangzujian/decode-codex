@@ -108,6 +108,12 @@ export { initThreadHandoffComposerStatusChunk as legacyAppMainBuwLowerULowerOExp
 export { ReviewTabIcon as legacyAppMainBuwLowerXLowerHExport } from "../../../icons/review-tab-icon";
 export { clearContentSearchHighlights as legacyAppMainBuwLowerTUnderscoreExport } from "../../../runtime/conversation-search-runtime";
 export { setSidebarOpen as legacyAppMainBuwLowerZLowerYExport } from "../../../app-shell/app-shell-state";
+export {
+  buildAmbientSuggestionAppIndex as legacyAppMainBuwLowerVLowerYExport,
+  findAmbientSuggestionApps as legacyAppMainBuwLowerYLowerYExport,
+  hasUnknownAmbientSuggestionAppIcon as legacyAppMainBuwLowerXLowerYExport,
+} from "../../../connectors/ambient-suggestion-apps";
+export { useServiceTierSettings as legacyAppMainBuwLowerWLowerYExport } from "../../../composer/use-service-tier-settings";
 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
@@ -140,7 +146,6 @@ export {
   vt as legacyAppMainBuwLowerVLowerTExport,
   vu as legacyAppMainBuwLowerVLowerUExport,
   vv as legacyAppMainBuwLowerVLowerVExport,
-  vy as legacyAppMainBuwLowerVLowerYExport,
   w as legacyAppMainBuwLowerWExport,
   wS as legacyAppMainBuwLowerWUpperSExport,
   wa as legacyAppMainBuwLowerWLowerAExport,
@@ -155,7 +160,6 @@ export {
   wt as legacyAppMainBuwLowerWLowerTExport,
   wu as legacyAppMainBuwLowerWLowerUExport,
   wv as legacyAppMainBuwLowerWLowerVExport,
-  wy as legacyAppMainBuwLowerWLowerYExport,
   x as legacyAppMainBuwLowerXExport,
   xS as legacyAppMainBuwLowerXUpperSExport,
   xb as legacyAppMainBuwLowerXLowerBExport,
@@ -169,7 +173,6 @@ export {
   xt as legacyAppMainBuwLowerXLowerTExport,
   xu as legacyAppMainBuwLowerXLowerUExport,
   xv as legacyAppMainBuwLowerXLowerVExport,
-  xy as legacyAppMainBuwLowerXLowerYExport,
   y as legacyAppMainBuwLowerYExport,
   yS as legacyAppMainBuwLowerYUpperSExport,
   yb as legacyAppMainBuwLowerYLowerBExport,
@@ -182,7 +185,6 @@ export {
   yp as legacyAppMainBuwLowerYLowerPExport,
   yu as legacyAppMainBuwLowerYLowerUExport,
   yv as legacyAppMainBuwLowerYLowerVExport,
-  yy as legacyAppMainBuwLowerYLowerYExport,
   z as legacyAppMainBuwLowerZExport,
   zS as legacyAppMainBuwLowerZUpperSExport,
   za as legacyAppMainBuwLowerZLowerAExport,

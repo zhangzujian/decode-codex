@@ -13,6 +13,7 @@ export { dictationStreamingUploadHeaderValue as legacyAppMainBuwUnderscoreUpperC
 export { isWorkspaceSpendControlReached as legacyAppMainBuwUnderscoreLowerCExport } from "../../../utils/rate-limit-status/account-status";
 export { initAppgenAccessStateMessagesChunk as legacyAppMainBuwUnderscoreLowerSExport } from "../../../utils/appgen-access-state-messages";
 export { AnnotationModeButton as legacyAppMainBuwUnderscoreLowerMExport } from "../../../ui/annotation-mode-button";
+export { normalizeAmbientSuggestionAppKey as legacyAppMainBuwUnderscoreLowerYExport } from "../../../connectors/ambient-suggestion-apps";
 
 export {
   _ as legacyAppMainBuwUnderscoreExport,
@@ -29,5 +30,4 @@ export {
   _t as legacyAppMainBuwUnderscoreLowerTExport,
   _u as legacyAppMainBuwUnderscoreLowerUExport,
   _v as legacyAppMainBuwUnderscoreLowerVExport,
-  _y as legacyAppMainBuwUnderscoreLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";
