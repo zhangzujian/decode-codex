@@ -26,6 +26,14 @@ export { initComposerUtilsChunk as legacyAppMainBuwLowerXUpperCExport } from "..
 export { goToNextThreadFindMatch as legacyAppMainBuwLowerZLowerGExport } from "../../../find/thread-find-store";
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
+export { scaleBand as legacyAppMainBuwLowerWUpperSExport } from "d3-scale";
+export {
+  timeFriday as legacyAppMainBuwLowerUUpperSExport,
+  timeHour as legacyAppMainBuwLowerVUpperSExport,
+  timeMillisecond as legacyAppMainBuwLowerXUpperSExport,
+  timeMinute as legacyAppMainBuwLowerYUpperSExport,
+} from "d3-time";
+export { interpolateTransformSvg as legacyAppMainBuwLowerZUpperSExport } from "d3-interpolate";
 export { getRepositoryPathFromGitDir as legacyAppMainBuwLowerWLowerNExport } from "../../../utils/worktree-paths";
 export {
   invalidateWorktreeStatusForHost as legacyAppMainBuwLowerYLowerNExport,
@@ -151,12 +159,10 @@ export {
   tr as legacyAppMainBuwLowerTLowerRExport,
   tt as legacyAppMainBuwLowerTLowerTExport,
   tx as legacyAppMainBuwLowerTLowerXExport,
-  uS as legacyAppMainBuwLowerUUpperSExport,
   u_ as legacyAppMainBuwLowerUUnderscoreExport,
   ua as legacyAppMainBuwLowerULowerAExport,
   un as legacyAppMainBuwLowerULowerNExport,
   uv as legacyAppMainBuwLowerULowerVExport,
-  vS as legacyAppMainBuwLowerVUpperSExport,
   vg as legacyAppMainBuwLowerVLowerGExport,
   vh as legacyAppMainBuwLowerVLowerHExport,
   vp as legacyAppMainBuwLowerVLowerPExport,
@@ -164,7 +170,6 @@ export {
   vu as legacyAppMainBuwLowerVLowerUExport,
   vv as legacyAppMainBuwLowerVLowerVExport,
   w as legacyAppMainBuwLowerWExport,
-  wS as legacyAppMainBuwLowerWUpperSExport,
   wa as legacyAppMainBuwLowerWLowerAExport,
   wb as legacyAppMainBuwLowerWLowerBExport,
   wd as legacyAppMainBuwLowerWLowerDExport,
@@ -176,7 +181,6 @@ export {
   wu as legacyAppMainBuwLowerWLowerUExport,
   wv as legacyAppMainBuwLowerWLowerVExport,
   x as legacyAppMainBuwLowerXExport,
-  xS as legacyAppMainBuwLowerXUpperSExport,
   xb as legacyAppMainBuwLowerXLowerBExport,
   xd as legacyAppMainBuwLowerXLowerDExport,
   xg as legacyAppMainBuwLowerXLowerGExport,
@@ -186,7 +190,6 @@ export {
   xu as legacyAppMainBuwLowerXLowerUExport,
   xv as legacyAppMainBuwLowerXLowerVExport,
   y as legacyAppMainBuwLowerYExport,
-  yS as legacyAppMainBuwLowerYUpperSExport,
   yb as legacyAppMainBuwLowerYLowerBExport,
   yg as legacyAppMainBuwLowerYLowerGExport,
   yh as legacyAppMainBuwLowerYLowerHExport,
@@ -195,7 +198,6 @@ export {
   yu as legacyAppMainBuwLowerYLowerUExport,
   yv as legacyAppMainBuwLowerYLowerVExport,
   z as legacyAppMainBuwLowerZExport,
-  zS as legacyAppMainBuwLowerZUpperSExport,
   za as legacyAppMainBuwLowerZLowerAExport,
   zb as legacyAppMainBuwLowerZLowerBExport,
   zd as legacyAppMainBuwLowerZLowerDExport,
