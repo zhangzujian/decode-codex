@@ -597,6 +597,57 @@ function decisionIntentFailures(
     );
 }
 
+function npmShimIntentDependencyFailures(
+  decisions: VendorNpmDecision[],
+  intent: VendorNpmEditIntent | undefined,
+): string[] {
+  if (intent !== "npm-shim") return [];
+
+  const failures: string[] = [];
+  const dependenciesByPackageJson = new Map<string, Set<string>>();
+
+  for (const decision of decisions) {
+    if (decision.decision !== "npm-shim") continue;
+
+    const expectedPackageRoots = [
+      ...new Set(decision.specifiers.map(packageNameFromSpecifier)),
+    ];
+    if (expectedPackageRoots.length === 0) continue;
+
+    const packageJsonPath = findNearestPackageJson(decision.file);
+    if (packageJsonPath == null) {
+      failures.push(
+        `${decision.file}: npm shim intent requires a nearest package.json declaring ${expectedPackageRoots.join(", ")}`,
+      );
+      continue;
+    }
+
+    let dependencies = dependenciesByPackageJson.get(packageJsonPath);
+    if (dependencies == null) {
+      try {
+        dependencies = readPackageDependencyNames(packageJsonPath);
+      } catch (err) {
+        failures.push(
+          `${decision.file}: npm shim intent could not read ${packageJsonPath}: ${(err as Error).message}`,
+        );
+        continue;
+      }
+      dependenciesByPackageJson.set(packageJsonPath, dependencies);
+    }
+
+    const missingPackageRoots = expectedPackageRoots.filter(
+      (packageRoot) => !dependencies.has(packageRoot),
+    );
+    if (missingPackageRoots.length === 0) continue;
+
+    failures.push(
+      `${decision.file}: npm shim intent requires adding ${missingPackageRoots.join(", ")} to ${packageJsonPath} before writing the shim`,
+    );
+  }
+
+  return failures;
+}
+
 async function vendorAuditIntentFailures(
   input: string,
   intent: VendorNpmEditIntent | undefined,
@@ -672,6 +723,9 @@ async function main(): Promise<void> {
       }
     }
     let failures = decisionIntentFailures(decisions, editIntent);
+    if (failures.length === 0) {
+      failures = npmShimIntentDependencyFailures(decisions, editIntent);
+    }
     if (failures.length === 0) {
       failures = await vendorAuditIntentFailures(input, editIntent);
     }

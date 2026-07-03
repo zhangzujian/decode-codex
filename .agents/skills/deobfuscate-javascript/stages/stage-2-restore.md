@@ -295,8 +295,10 @@ bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-vendor-file> --decision 
 permission to edit. If `--intent local-body` fails with `npm-shim`, create a bare
 npm-backed re-export/alias shim and add the dependency. If it fails with
 `needs-proof`, record the Codex fork or app/runtime-wrapper evidence before any
-local implementation. Do not use `--vendored` as a waiver for a stock package
-body. The quality gate's
+local implementation. If `--intent npm-shim` fails because the package root is
+missing from the nearest `package.json`, add the dependency and rerun the intent
+gate before writing the shim. Do not use `--vendored` as a waiver for a stock
+package body. The quality gate's
 `third-party-npm-shim-not-reexport` check must still fail hand-written
 compatibility implementations, and
 `bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-or-restored/vendor>`

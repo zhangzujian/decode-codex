@@ -83,7 +83,8 @@ The renamer changes binding names but never import strings. Stage 2's `resolve-n
   provenance, export surface, consumers, `ref/package.json`, registry entries,
   and API fingerprints. High-confidence packages become bare re-export/alias
   shims plus a package dependency and gate/test registry entry; use
-  `--decision --intent npm-shim` for that path. `--vendored` only relaxes
+  `--decision --intent npm-shim` for that path, and let that intent fail until
+  the nearest `package.json` declares the package root. `--vendored` only relaxes
   naming/typing checks for true vendored/forked code; it must not bypass
   `third-party-npm-shim-not-reexport`.
 - **Separate type-only imports.** Lift type imports into `import type { … }` (e.g. `import type { ButtonHTMLAttributes, ForwardedRef } from "react"` apart from `import { forwardRef } from "react"`).

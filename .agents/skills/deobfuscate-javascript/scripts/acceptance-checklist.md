@@ -125,9 +125,12 @@ keyof typeof buttonColorClassNames` (or equivalent).
   `react-intl`, `react-style-singleton` for `react-style-singleton`,
   `use-sync-external-store` for `use-sync-external-store/shim/with-selector`,
   etc.). Before a public `restored/vendor/*` body is edited,
-  `vendor-npm-preflight.ts <target> --decision` has been checked: `npm-shim`
-  means no local package body, and `needs-proof` means fork/runtime evidence is
-  recorded.
+  `vendor-npm-preflight.ts <target> --decision --intent local-body` has passed.
+  Before an npm shim is written,
+  `vendor-npm-preflight.ts <target> --decision --intent npm-shim` has passed;
+  if it reports a missing package root, the dependency is added to the nearest
+  `package.json` before the shim is written. `npm-shim` means no local package
+  body, and `needs-proof` means fork/runtime evidence is recorded.
 - Finalized local sibling imports use semantic public paths. Hashed local
   imports are acceptable only when the file intentionally imports an
   unfinalized original boundary and the provenance/report makes that explicit.

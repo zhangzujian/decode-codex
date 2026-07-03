@@ -226,6 +226,29 @@ describe("vendor-npm-preflight CLI", () => {
     expect(result.stderr).toContain("registered package identity");
   });
 
+  test("blocks npm-shim intent for known package targets until the dependency is declared", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+
+    const result = runDecisionCLI(path.join(vendorDir, "react-intl.tsx"), {
+      intent: "npm-shim",
+    });
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("INTENT FAIL");
+    expect(result.stderr).toContain("requires adding react-intl");
+    expect(result.stderr).toContain("package.json");
+    const decisions = JSON.parse(result.stdout) as Array<{
+      decision: string;
+      specifiers: string[];
+    }>;
+    expect(decisions[0]).toMatchObject({
+      decision: "npm-shim",
+      specifiers: ["react-intl"],
+    });
+  });
+
   test("classifies pull request lodash helper loaders as registered npm shims", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");
