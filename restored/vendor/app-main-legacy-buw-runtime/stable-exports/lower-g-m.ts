@@ -164,6 +164,7 @@ export { setSettingsSelectedHostId as legacyAppMainBuwLowerLLowerPExport } from 
 export { initWorktreeStatusRuntimeChunk as legacyAppMainBuwLowerGLowerNExport } from "../../../conversations/worktree-status-runtime";
 export { initLocalConversationTurnRowChunk as legacyAppMainBuwLowerGLowerTExport } from "../../../conversations/local-conversation-thread-parts/local-conversation-turn-row";
 export { readElementBounds as legacyAppMainBuwLowerGLowerXExport } from "../../../utils/dom-rect";
+export { fontSettings as legacyAppMainBuwLowerKUnderscoreExport } from "../../../utils/font-settings";
 
 export {
   iS as legacyAppMainBuwLowerIUpperSExport,
@@ -182,7 +183,6 @@ export {
   jm as legacyAppMainBuwLowerJLowerMExport,
   jv as legacyAppMainBuwLowerJLowerVExport,
   k as legacyAppMainBuwLowerKExport,
-  k_ as legacyAppMainBuwLowerKUnderscoreExport,
   kb as legacyAppMainBuwLowerKLowerBExport,
   kd as legacyAppMainBuwLowerKLowerDExport,
   kg as legacyAppMainBuwLowerKLowerGExport,

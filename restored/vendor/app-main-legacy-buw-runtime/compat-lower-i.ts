@@ -12,13 +12,14 @@ export { getConversationalOnboardingTaskPluginName as appMainCurrentCompatSlotLo
 export { automationDirectiveSeedAtom as appMainCurrentCompatSlotLowerILowerI } from "../../automations/shared";
 export { ActivityScrollContainer as appMainCurrentCompatSlotLowerILowerA } from "../../conversations/activity-scroll-container";
 export { BrowserNotSecureIcon as appMainCurrentCompatSlotLowerILowerP } from "../../browser/browser-address-security-indicator";
+export { getBrowserSidebarTabIds as appMainCurrentCompatSlotLowerILowerY } from "../../browser/browser-sidebar-open-source";
 export { highlightContentSearchMatches as appMainCurrentCompatSlotLowerIUnderscore } from "../../runtime/conversation-search-runtime";
 export { isCodexAppsServer as appMainCurrentCompatSlotLowerILowerD } from "../../plugins/codex-apps-server";
 export { formatModelDisplayName as appMainCurrentCompatSlotLowerILowerG } from "../../utils/format-model-display-name";
 export { getDefaultWorkspaceWriteMode as appMainCurrentCompatSlotLowerILowerB } from "../../utils/use-permissions-mode/mode-selection";
+export { fullScreenMcpAppIdsAtom as appMainCurrentCompatSlotLowerILowerF } from "../../plugins/mcp-app-frame-state";
 
 export {
-  if as appMainCurrentCompatSlotLowerILowerF,
   ih as appMainCurrentCompatSlotLowerILowerH,
   im as appMainCurrentCompatSlotLowerILowerM,
   in as appMainCurrentCompatSlotLowerILowerN,
@@ -28,5 +29,4 @@ export {
   iu as appMainCurrentCompatSlotLowerILowerU,
   iv as appMainCurrentCompatSlotLowerILowerV,
   ix as appMainCurrentCompatSlotLowerILowerX,
-  iy as appMainCurrentCompatSlotLowerILowerY,
 } from "../app-main-legacy-buw-compat-bundle";

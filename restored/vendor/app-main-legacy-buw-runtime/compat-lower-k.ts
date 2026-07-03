@@ -12,10 +12,10 @@ export { range as appMainCurrentCompatSlotLowerKUpperS } from "d3-array";
 export { remainingUsagePercent as appMainCurrentCompatSlotLowerKLowerC } from "../../utils/rate-limit-status/windows";
 export { handleCreateThread as appMainCurrentCompatSlotLowerKLowerA } from "../../conversations/thread-management-tool-handlers";
 export { useBrowserUseFullCdpAccessEnabledMutation as appMainCurrentCompatSlotLowerKLowerP } from "../../browser/browser-use-origin-state-queries";
+export { fontSettings as appMainCurrentCompatSlotLowerKUnderscore } from "../../utils/font-settings";
 
 export {
   k as appMainCurrentCompatSlotLowerK,
-  k_ as appMainCurrentCompatSlotLowerKUnderscore,
   kb as appMainCurrentCompatSlotLowerKLowerB,
   kd as appMainCurrentCompatSlotLowerKLowerD,
   kf as appMainCurrentCompatSlotLowerKLowerF,
