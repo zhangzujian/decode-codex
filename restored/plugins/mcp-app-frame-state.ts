@@ -26,10 +26,12 @@ const frameStatesByAppIdAtom = createScopedAtom(
   () => new Map<string, McpAppFrameState>(),
 );
 
-const fullScreenAppIdsAtom = createScopedAtom(
+export const fullScreenMcpAppIdsAtom = createScopedAtom(
   appRootScope,
   () => new Set<string>(),
 );
+
+export function initMcpAppFrameStateChunk(): void {}
 
 // Identity passthrough used where a stable frame-content selector is required;
 // returns its argument unchanged.
@@ -38,7 +40,7 @@ export function selectMcpAppFrameContent<T>(value: T): T {
 }
 
 function markMcpAppFullScreen(store: any, mcpAppId: string) {
-  store.set(fullScreenAppIdsAtom, (current: Set<string>) => {
+  store.set(fullScreenMcpAppIdsAtom, (current: Set<string>) => {
     if (current.has(mcpAppId)) return current;
     const next = new Set(current);
     next.add(mcpAppId);

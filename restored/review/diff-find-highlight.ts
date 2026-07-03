@@ -14,6 +14,8 @@ import {
   activeFindMatchClassName,
 } from "../boundaries/onboarding-commons-externals.facade";
 
+export function initReviewDiffFindHighlightChunk(): void {}
+
 interface ReviewSearchMatch {
   id: string;
   location:

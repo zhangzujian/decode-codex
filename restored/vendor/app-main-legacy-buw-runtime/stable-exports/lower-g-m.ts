@@ -133,12 +133,16 @@ export { ArtifactTabPreview as legacyAppMainBuwLowerHLowerFExport } from "../../
 export { initArtifactTabPreviewChunk as legacyAppMainBuwLowerGLowerFExport } from "../../../workspace/artifact-tab-preview";
 export { initWorkspaceFileTabKindChunk as legacyAppMainBuwLowerJLowerFExport } from "../../../workspace/workspace-file-source-tabs";
 export { openArtifactTab as legacyAppMainBuwLowerMLowerFExport } from "../../../workspace/open-artifact-tab";
+export {
+  appShellBottomPanelHeightSubscriberContext as legacyAppMainBuwLowerHLowerDExport,
+  initAppShellBottomPanelHeightSubscriberContextChunk as legacyAppMainBuwLowerGLowerDExport,
+} from "../../../app-shell/bottom-panel-height-subscriber-context";
+export { fullScreenMcpAppIdsAtom as legacyAppMainBuwLowerILowerFExport } from "../../../plugins/mcp-app-frame-state";
 
 export {
   g as legacyAppMainBuwLowerGExport,
   gS as legacyAppMainBuwLowerGUpperSExport,
   g_ as legacyAppMainBuwLowerGUnderscoreExport,
-  gd as legacyAppMainBuwLowerGLowerDExport,
   gn as legacyAppMainBuwLowerGLowerNExport,
   gp as legacyAppMainBuwLowerGLowerPExport,
   gt as legacyAppMainBuwLowerGLowerTExport,
@@ -148,13 +152,11 @@ export {
   h_ as legacyAppMainBuwLowerHUnderscoreExport,
   ha as legacyAppMainBuwLowerHLowerAExport,
   hb as legacyAppMainBuwLowerHLowerBExport,
-  hd as legacyAppMainBuwLowerHLowerDExport,
   hn as legacyAppMainBuwLowerHLowerNExport,
   ht as legacyAppMainBuwLowerHLowerTExport,
   hu as legacyAppMainBuwLowerHLowerUExport,
   iS as legacyAppMainBuwLowerIUpperSExport,
   id as legacyAppMainBuwLowerILowerDExport,
-  if as legacyAppMainBuwLowerILowerFExport,
   ig as legacyAppMainBuwLowerILowerGExport,
   ih as legacyAppMainBuwLowerILowerHExport,
   im as legacyAppMainBuwLowerILowerMExport,

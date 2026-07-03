@@ -45,4 +45,6 @@ function BackForwardNavigationButtons({
     </>
   );
 }
-export { BackForwardNavigationButtons };
+function initBackForwardNavigationButtonsChunk(): void {}
+
+export { BackForwardNavigationButtons, initBackForwardNavigationButtonsChunk };

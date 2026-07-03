@@ -281,3 +281,5 @@ export function buildProjectDropdownOptions({
         label: formatRootLabel(item),
       }));
 }
+
+export function initProjectDropdownOptionsChunk(): void {}

@@ -113,12 +113,15 @@ export { LockIcon as legacyAppMainBuwLowerBLowerSExport } from "../../../icons/l
 export { CirclePlayIcon as legacyAppMainBuwLowerDLowerHExport } from "../../../icons/circle-play-icon";
 export { useQueuedFollowUpsStore as legacyAppMainBuwLowerCLowerDExport } from "../../../utils/queued-follow-ups-store";
 export { initBrowserProfileImportNuxStateChunk as legacyAppMainBuwLowerBLowerMExport } from "../../../browser/browser-profile-import-nux-state";
+export { browserUseOriginStateQuery as legacyAppMainBuwLowerBLowerPExport } from "../../../browser/browser-use-origin-state-queries";
 export { CancelGitActionButton as legacyAppMainBuwLowerCLowerUExport } from "../../../conversations/cancel-git-action-button";
 export { GitWorkflowPhaseLabel as legacyAppMainBuwLowerALowerUExport } from "../../../conversations/git-workflow-phase-label";
 export { getWorktreeSubmitToastMessage as legacyAppMainBuwLowerCLowerNExport } from "../../../composer/submit-toast-messages";
 export { worktreeStatusForConversationAtom as legacyAppMainBuwLowerBLowerNExport } from "../../../conversations/worktree-status-runtime/atoms";
 export { initBrowserNotSecureIconChunk as legacyAppMainBuwLowerALowerPExport } from "../../../browser/browser-address-security-indicator";
 export { BrowserUseGlyphIcon as legacyAppMainBuwLowerCLowerAExport } from "../../../conversations/tool-activity-source-icon";
+export { initBackForwardNavigationButtonsChunk as legacyAppMainBuwLowerCLowerHExport } from "../../../ui/back-forward-navigation-buttons";
+export { initProjectDropdownOptionsChunk as legacyAppMainBuwLowerELowerDExport } from "../../../ui/project-dropdown-options";
 export { initDiffCommentSourcesChunk as legacyAppMainBuwLowerALowerHExport } from "../../../github/diff-comments/use-diff-comment-sources";
 export { initSteerTurnInactiveErrorChunk as legacyAppMainBuwLowerALowerNExport } from "../../../composer/steer-turn-inactive-error";
 export { initTurnSourcesPopoverChunk as legacyAppMainBuwLowerALowerSExport } from "../../../conversations/turn-sources-popover";
@@ -183,14 +186,11 @@ export { initWorkspaceFileSourceTabsChunk as legacyAppMainBuwLowerBLowerFExport 
 
 export {
   bh as legacyAppMainBuwLowerBLowerHExport,
-  bp as legacyAppMainBuwLowerBLowerPExport,
   bt as legacyAppMainBuwLowerBLowerTExport,
   bv as legacyAppMainBuwLowerBLowerVExport,
-  ch as legacyAppMainBuwLowerCLowerHExport,
   ct as legacyAppMainBuwLowerCLowerTExport,
   cv as legacyAppMainBuwLowerCLowerVExport,
   d as legacyAppMainBuwLowerDExport,
-  ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   ep as legacyAppMainBuwLowerELowerPExport,
   es as legacyAppMainBuwLowerELowerSExport,

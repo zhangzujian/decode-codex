@@ -38,13 +38,13 @@ import {
   sidebarOpenAnimationSignal,
   sidebarOpenSignal,
 } from "./app-shell-state";
+import { appShellBottomPanelHeightSubscriberContext } from "./bottom-panel-height-subscriber-context";
 import {
   AnimatePresence,
   AppHeaderSidebarBrand,
   AppShellPortalRoot,
   APP_SHELL_FOCUS_AREA_ATTR,
   appRouteScope,
-  appShellBottomPanelHeightSubscriberContext,
   appShellLayoutContext,
   appStoreScope,
   bottomPanelAfterListSignal,

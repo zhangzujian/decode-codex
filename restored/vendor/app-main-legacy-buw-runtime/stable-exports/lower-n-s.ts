@@ -101,6 +101,7 @@ export {
   queueAdoptedBrowserTabId as legacyAppMainBuwLowerSLowerYExport,
 } from "../../../browser/browser-sidebar-open-source";
 export { getBrowserSidebarTabRegistryGeneration as legacyAppMainBuwLowerRLowerYExport } from "../../../browser/browser-sidebar-open-source/tab-registry-mutations";
+export { initMcpAppFrameStateChunk as legacyAppMainBuwLowerRLowerFExport } from "../../../plugins/mcp-app-frame-state";
 
 export {
   nS as legacyAppMainBuwLowerNUpperSExport,
@@ -157,7 +158,6 @@ export {
   rS as legacyAppMainBuwLowerRUpperSExport,
   ra as legacyAppMainBuwLowerRLowerAExport,
   rd as legacyAppMainBuwLowerRLowerDExport,
-  rf as legacyAppMainBuwLowerRLowerFExport,
   rg as legacyAppMainBuwLowerRLowerGExport,
   rh as legacyAppMainBuwLowerRLowerHExport,
   rm as legacyAppMainBuwLowerRLowerMExport,

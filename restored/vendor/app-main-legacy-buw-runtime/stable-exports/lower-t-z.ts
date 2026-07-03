@@ -128,11 +128,13 @@ export {
   getAdoptedWebContentsId as legacyAppMainBuwLowerTLowerYExport,
   queueBrowserSidebarTab as legacyAppMainBuwLowerULowerYExport,
 } from "../../../browser/browser-sidebar-open-source";
+export { selectMcpAppFrameContent as legacyAppMainBuwLowerTLowerFExport } from "../../../plugins/mcp-app-frame-state";
+export { useWindowControlsSafeArea as legacyAppMainBuwLowerVLowerDExport } from "../../../runtime/use-window-controls-safe-area";
+export { initReviewDiffFindHighlightChunk as legacyAppMainBuwLowerZLowerFExport } from "../../../review/diff-find-highlight";
 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
   ta as legacyAppMainBuwLowerTLowerAExport,
-  tf as legacyAppMainBuwLowerTLowerFExport,
   tg as legacyAppMainBuwLowerTLowerGExport,
   th as legacyAppMainBuwLowerTLowerHExport,
   tm as legacyAppMainBuwLowerTLowerMExport,
@@ -149,7 +151,6 @@ export {
   up as legacyAppMainBuwLowerULowerPExport,
   uv as legacyAppMainBuwLowerULowerVExport,
   vS as legacyAppMainBuwLowerVUpperSExport,
-  vd as legacyAppMainBuwLowerVLowerDExport,
   vg as legacyAppMainBuwLowerVLowerGExport,
   vh as legacyAppMainBuwLowerVLowerHExport,
   vn as legacyAppMainBuwLowerVLowerNExport,
@@ -196,7 +197,6 @@ export {
   za as legacyAppMainBuwLowerZLowerAExport,
   zb as legacyAppMainBuwLowerZLowerBExport,
   zd as legacyAppMainBuwLowerZLowerDExport,
-  zf as legacyAppMainBuwLowerZLowerFExport,
   zh as legacyAppMainBuwLowerZLowerHExport,
   zl as legacyAppMainBuwLowerZLowerLExport,
   zm as legacyAppMainBuwLowerZLowerMExport,
