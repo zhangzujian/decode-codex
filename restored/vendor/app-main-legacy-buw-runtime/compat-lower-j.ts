@@ -15,9 +15,10 @@ export { markTurnInterruptedByThisClient as appMainCurrentCompatSlotLowerJLowerS
 export { hasWorkspaceDependenciesFeature as appMainCurrentCompatSlotLowerJLowerO } from "../../features/workspace-dependencies";
 export { handleListProjects as appMainCurrentCompatSlotLowerJLowerA } from "../../conversations/thread-management-tool-handlers";
 export { useUpdateBrowserUseOriginRulesMutation as appMainCurrentCompatSlotLowerJLowerP } from "../../browser/browser-use-origin-state-queries";
+export { initConversationalOnboardingWorkflowStateChunk as appMainCurrentCompatSlotLowerJ } from "../../onboarding/conversational-onboarding-workflow-state";
+export { CommentPreview as appMainCurrentCompatSlotLowerJLowerT } from "../../image-side-panel/paged-annotation-comment-preview";
 
 export {
-  j as appMainCurrentCompatSlotLowerJ,
   jb as appMainCurrentCompatSlotLowerJLowerB,
   jC as appMainCurrentCompatSlotLowerJUpperC,
   jd as appMainCurrentCompatSlotLowerJLowerD,
@@ -25,7 +26,6 @@ export {
   jh as appMainCurrentCompatSlotLowerJLowerH,
   jm as appMainCurrentCompatSlotLowerJLowerM,
   jS as appMainCurrentCompatSlotLowerJUpperS,
-  jt as appMainCurrentCompatSlotLowerJLowerT,
   jv as appMainCurrentCompatSlotLowerJLowerV,
   jx as appMainCurrentCompatSlotLowerJLowerX,
   jy as appMainCurrentCompatSlotLowerJLowerY,

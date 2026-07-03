@@ -24,6 +24,9 @@ export { automationDirectiveSeedAtom as legacyAppMainBuwLowerILowerIExport } fro
 export { openAutomationSuggestionTab as legacyAppMainBuwLowerLLowerRExport } from "../../../automations/automation-side-panel-tabs";
 export { initAutomationEditorControlsChunk as legacyAppMainBuwLowerKLowerRExport } from "../../../automations/automation-side-panel/body";
 export { initCancelGitActionButtonChunk as legacyAppMainBuwLowerLLowerUExport } from "../../../conversations/cancel-git-action-button";
+export { initConversationalOnboardingWorkflowStateChunk as legacyAppMainBuwLowerJExport } from "../../../onboarding/conversational-onboarding-workflow-state";
+export { CommentPreview as legacyAppMainBuwLowerJLowerTExport } from "../../../image-side-panel/paged-annotation-comment-preview";
+export { getThreadReferenceToastMessage as legacyAppMainBuwLowerLLowerNExport } from "../../../composer/submit-toast-messages";
 
 export {
   DragIcon,
@@ -148,7 +151,6 @@ export {
   iv as legacyAppMainBuwLowerILowerVExport,
   ix as legacyAppMainBuwLowerILowerXExport,
   iy as legacyAppMainBuwLowerILowerYExport,
-  j as legacyAppMainBuwLowerJExport,
   jC as legacyAppMainBuwLowerJUpperCExport,
   jS as legacyAppMainBuwLowerJUpperSExport,
   jb as legacyAppMainBuwLowerJLowerBExport,
@@ -156,7 +158,6 @@ export {
   jf as legacyAppMainBuwLowerJLowerFExport,
   jh as legacyAppMainBuwLowerJLowerHExport,
   jm as legacyAppMainBuwLowerJLowerMExport,
-  jt as legacyAppMainBuwLowerJLowerTExport,
   jv as legacyAppMainBuwLowerJLowerVExport,
   jx as legacyAppMainBuwLowerJLowerXExport,
   jy as legacyAppMainBuwLowerJLowerYExport,
@@ -181,7 +182,6 @@ export {
   l_ as legacyAppMainBuwLowerLUnderscoreExport,
   la as legacyAppMainBuwLowerLLowerAExport,
   lb as legacyAppMainBuwLowerLLowerBExport,
-  ln as legacyAppMainBuwLowerLLowerNExport,
   lp as legacyAppMainBuwLowerLLowerPExport,
   ly as legacyAppMainBuwLowerLLowerYExport,
   m as legacyAppMainBuwLowerMExport,

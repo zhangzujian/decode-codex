@@ -98,6 +98,7 @@ export { LockIcon as legacyAppMainBuwLowerBLowerSExport } from "../../../icons/l
 export { CirclePlayIcon as legacyAppMainBuwLowerDLowerHExport } from "../../../icons/circle-play-icon";
 export { useQueuedFollowUpsStore as legacyAppMainBuwLowerCLowerDExport } from "../../../utils/queued-follow-ups-store";
 export { CancelGitActionButton as legacyAppMainBuwLowerCLowerUExport } from "../../../conversations/cancel-git-action-button";
+export { getWorktreeSubmitToastMessage as legacyAppMainBuwLowerCLowerNExport } from "../../../composer/submit-toast-messages";
 
 export {
   aS as legacyAppMainBuwLowerAUpperSExport,
@@ -136,7 +137,6 @@ export {
   ca as legacyAppMainBuwLowerCLowerAExport,
   cb as legacyAppMainBuwLowerCLowerBExport,
   ch as legacyAppMainBuwLowerCLowerHExport,
-  cn as legacyAppMainBuwLowerCLowerNExport,
   cr as legacyAppMainBuwLowerCLowerRExport,
   ct as legacyAppMainBuwLowerCLowerTExport,
   cv as legacyAppMainBuwLowerCLowerVExport,

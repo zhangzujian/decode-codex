@@ -19,13 +19,13 @@ export { isPrimaryRuntimeInstallProgressPhase as appMainCurrentCompatSlotLowerCL
 export { adjustPendingPastedTextAttachmentCount as appMainCurrentCompatSlotLowerCLowerO } from "../../conversations/thread-handoff-composer-status";
 export { useQueuedFollowUpsStore as appMainCurrentCompatSlotLowerCLowerD } from "../../utils/queued-follow-ups-store";
 export { CancelGitActionButton as appMainCurrentCompatSlotLowerCLowerU } from "../../conversations/cancel-git-action-button";
+export { getWorktreeSubmitToastMessage as appMainCurrentCompatSlotLowerCLowerN } from "../../composer/submit-toast-messages";
 
 export {
   c_ as appMainCurrentCompatSlotLowerCUnderscore,
   ca as appMainCurrentCompatSlotLowerCLowerA,
   cb as appMainCurrentCompatSlotLowerCLowerB,
   ch as appMainCurrentCompatSlotLowerCLowerH,
-  cn as appMainCurrentCompatSlotLowerCLowerN,
   cr as appMainCurrentCompatSlotLowerCLowerR,
   cS as appMainCurrentCompatSlotLowerCUpperS,
   ct as appMainCurrentCompatSlotLowerCLowerT,
