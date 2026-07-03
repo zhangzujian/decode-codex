@@ -13,6 +13,7 @@ export { SidebarSectionTitle } from "../../../projects/home-project-selector-run
 export { CODEX_USAGE_URL as legacyAppMainBuwDollarLowerCExport } from "../../../utils/links-bd-mmkun-d";
 export { CollapsedTurnSummaryLabel as legacyAppMainBuwDollarLowerOExport } from "../../../conversations/collapsed-turn-summary-label";
 export { moveThreadToHostWorktree as legacyAppMainBuwDollarLowerAExport } from "../../../conversations/move-thread-to-host-worktree";
+export { readServiceTierForRequest as legacyAppMainBuwDollarLowerHExport } from "../../../utils/read-service-tier-for-request";
 
 export { DEFAULT_AUTOMATION_DRAFT as legacyAppMainBuwDollarLowerRExport } from "../../../automations/shared";
 
@@ -22,7 +23,6 @@ export {
   $b as legacyAppMainBuwDollarLowerBExport,
   $d as legacyAppMainBuwDollarLowerDExport,
   $g as legacyAppMainBuwDollarLowerGExport,
-  $h as legacyAppMainBuwDollarLowerHExport,
   $i as legacyAppMainBuwDollarLowerIExport,
   $p as legacyAppMainBuwDollarLowerPExport,
   $s as legacyAppMainBuwDollarLowerSExport,

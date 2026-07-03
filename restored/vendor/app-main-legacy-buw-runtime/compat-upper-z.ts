@@ -13,6 +13,7 @@ export { moveThreadToLocal as appMainCurrentCompatSlotUpperZLowerA } from "../..
 
 export { UploadIcon as appMainCurrentCompatSlotUpperZ } from "../../icons/upload-icon";
 export { initReasoningEffortLabelChunk as appMainCurrentCompatSlotUpperZLowerR } from "../../composer/reasoning-effort-label";
+export { PullRequestButtonLabel as appMainCurrentCompatSlotUpperZLowerL } from "../../github/pull-request-button-label";
 
 export {
   Z_ as appMainCurrentCompatSlotUpperZUnderscore,
@@ -21,7 +22,6 @@ export {
   Zf as appMainCurrentCompatSlotUpperZLowerF,
   Zg as appMainCurrentCompatSlotUpperZLowerG,
   Zh as appMainCurrentCompatSlotUpperZLowerH,
-  Zl as appMainCurrentCompatSlotUpperZLowerL,
   Zm as appMainCurrentCompatSlotUpperZLowerM,
   Zn as appMainCurrentCompatSlotUpperZLowerN,
   Zp as appMainCurrentCompatSlotUpperZLowerP,

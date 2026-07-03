@@ -5,6 +5,7 @@ export { initUnselectedCircleIconChunk as appMainCurrentCompatSlotLowerNLowerC }
 
 export { initConversationalOnboardingTaskIconChunk as appMainCurrentCompatSlotLowerN } from "../../onboarding/conversational-onboarding-task-icon";
 export { areAutomationRecordsEqual as appMainCurrentCompatSlotLowerNLowerI } from "../../automations/automation-record-sync";
+export { usePermissionsMode as appMainCurrentCompatSlotLowerNLowerB } from "../../utils/use-permissions-mode/use-permissions-mode";
 
 export {
   liveMcpAppFrameSignal,
@@ -17,7 +18,6 @@ export { initWarningContextRuntime } from "../../runtime/app-main-new-thread-run
 export {
   n_ as appMainCurrentCompatSlotLowerNUnderscore,
   na as appMainCurrentCompatSlotLowerNLowerA,
-  nb as appMainCurrentCompatSlotLowerNLowerB,
   nd as appMainCurrentCompatSlotLowerNLowerD,
   ng as appMainCurrentCompatSlotLowerNLowerG,
   nh as appMainCurrentCompatSlotLowerNLowerH,

@@ -13,6 +13,7 @@ export { SidebarSectionTitle } from "../../projects/home-project-selector-runtim
 export { CODEX_USAGE_URL as appMainCurrentCompatSlotDollarLowerC } from "../../utils/links-bd-mmkun-d";
 export { CollapsedTurnSummaryLabel as appMainCurrentCompatSlotDollarLowerO } from "../../conversations/collapsed-turn-summary-label";
 export { moveThreadToHostWorktree as appMainCurrentCompatSlotDollarLowerA } from "../../conversations/move-thread-to-host-worktree";
+export { readServiceTierForRequest as appMainCurrentCompatSlotDollarLowerH } from "../../utils/read-service-tier-for-request";
 
 export { DEFAULT_AUTOMATION_DRAFT as appMainCurrentCompatSlotDollarLowerR } from "../../automations/shared";
 
@@ -22,7 +23,6 @@ export {
   $b as appMainCurrentCompatSlotDollarLowerB,
   $d as appMainCurrentCompatSlotDollarLowerD,
   $g as appMainCurrentCompatSlotDollarLowerG,
-  $h as appMainCurrentCompatSlotDollarLowerH,
   $i as appMainCurrentCompatSlotDollarLowerI,
   $p as appMainCurrentCompatSlotDollarLowerP,
   $s as appMainCurrentCompatSlotDollarLowerS,

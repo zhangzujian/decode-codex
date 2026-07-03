@@ -57,6 +57,7 @@ export {
   requestPrimaryRuntimeInstall as legacyAppMainBuwLowerMLowerSExport,
 } from "../../../runtime/primary-runtime-install-state";
 export { primaryRuntimeInstallStatusMessage as legacyAppMainBuwLowerILowerSExport } from "../../../runtime/primary-runtime-install-status-message";
+export { ActivityScrollContainer as legacyAppMainBuwLowerILowerAExport } from "../../../conversations/activity-scroll-container";
 export { markTurnInterruptedByThisClient as legacyAppMainBuwLowerJLowerSExport } from "../../../threads/interrupted-turn-state";
 export { hasWorkspaceDependenciesFeature as legacyAppMainBuwLowerJLowerOExport } from "../../../features/workspace-dependencies";
 
@@ -129,7 +130,6 @@ export {
   hu as legacyAppMainBuwLowerHLowerUExport,
   iS as legacyAppMainBuwLowerIUpperSExport,
   i_ as legacyAppMainBuwLowerIUnderscoreExport,
-  ia as legacyAppMainBuwLowerILowerAExport,
   ib as legacyAppMainBuwLowerILowerBExport,
   id as legacyAppMainBuwLowerILowerDExport,
   if as legacyAppMainBuwLowerILowerFExport,

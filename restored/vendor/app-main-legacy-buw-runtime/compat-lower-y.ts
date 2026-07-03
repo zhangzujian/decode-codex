@@ -15,6 +15,7 @@ export { isWorkspaceCreditsExhausted as appMainCurrentCompatSlotLowerYLowerC } f
 export { initAppgenAccessStateIconChunk as appMainCurrentCompatSlotLowerYLowerS } from "../../utils/appgen-access-state-messages";
 export { isHotkeyWindowContext as appMainCurrentCompatSlotLowerYLowerA } from "../../utils/is-hotkey-window-context";
 export { SettingsKeyValueRow as appMainCurrentCompatSlotLowerYLowerR } from "../../ui/settings-row";
+export { PullRequestMergeTaskPill as appMainCurrentCompatSlotLowerYLowerT } from "../../conversations/pull-request-merge-task-pill";
 
 export {
   y as appMainCurrentCompatSlotLowerY,
@@ -27,7 +28,6 @@ export {
   yn as appMainCurrentCompatSlotLowerYLowerN,
   yp as appMainCurrentCompatSlotLowerYLowerP,
   yS as appMainCurrentCompatSlotLowerYUpperS,
-  yt as appMainCurrentCompatSlotLowerYLowerT,
   yu as appMainCurrentCompatSlotLowerYLowerU,
   yv as appMainCurrentCompatSlotLowerYLowerV,
   yy as appMainCurrentCompatSlotLowerYLowerY,

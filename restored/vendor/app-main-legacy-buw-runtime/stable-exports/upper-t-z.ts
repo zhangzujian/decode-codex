@@ -19,6 +19,7 @@ export { MentionMetadataSync as legacyAppMainBuwUpperYLowerIExport } from "../..
 export { UserMessageText as legacyAppMainBuwUpperZLowerIExport } from "../../../conversations/user-message-text";
 
 export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperZLowerRExport } from "../../../composer/reasoning-effort-label";
+export { PullRequestButtonLabel as legacyAppMainBuwUpperZLowerLExport } from "../../../github/pull-request-button-label";
 
 export { ReasoningEffortLabel as legacyAppMainBuwUpperYLowerRExport } from "../../../composer/reasoning-effort-label";
 
@@ -182,7 +183,6 @@ export {
   Zf as legacyAppMainBuwUpperZLowerFExport,
   Zg as legacyAppMainBuwUpperZLowerGExport,
   Zh as legacyAppMainBuwUpperZLowerHExport,
-  Zl as legacyAppMainBuwUpperZLowerLExport,
   Zm as legacyAppMainBuwUpperZLowerMExport,
   Zn as legacyAppMainBuwUpperZLowerNExport,
   Zp as legacyAppMainBuwUpperZLowerPExport,

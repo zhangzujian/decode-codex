@@ -30,6 +30,7 @@ export { createAutomationDraftFromSeed as legacyAppMainBuwLowerSLowerIExport } f
 
 export { automationDirectiveResultAtom as legacyAppMainBuwLowerRLowerIExport } from "../../../automations/shared";
 export { areAutomationRecordsEqual as legacyAppMainBuwLowerNLowerIExport } from "../../../automations/automation-record-sync";
+export { usePermissionsMode as legacyAppMainBuwLowerNLowerBExport } from "../../../utils/use-permissions-mode/use-permissions-mode";
 
 export { useConversationIdFromRoute as legacyAppMainBuwLowerOLowerRExport } from "../../../conversations/use-conversation-id-from-route";
 
@@ -88,7 +89,6 @@ export {
   nS as legacyAppMainBuwLowerNUpperSExport,
   n_ as legacyAppMainBuwLowerNUnderscoreExport,
   na as legacyAppMainBuwLowerNLowerAExport,
-  nb as legacyAppMainBuwLowerNLowerBExport,
   nd as legacyAppMainBuwLowerNLowerDExport,
   ng as legacyAppMainBuwLowerNLowerGExport,
   nh as legacyAppMainBuwLowerNLowerHExport,

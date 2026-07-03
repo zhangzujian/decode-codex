@@ -10,10 +10,10 @@ export { primaryRuntimeInstallStatusMessage as appMainCurrentCompatSlotLowerILow
 
 export { getConversationalOnboardingTaskPluginName as appMainCurrentCompatSlotLowerI } from "../../onboarding/conversational-onboarding-task-registry";
 export { automationDirectiveSeedAtom as appMainCurrentCompatSlotLowerILowerI } from "../../automations/shared";
+export { ActivityScrollContainer as appMainCurrentCompatSlotLowerILowerA } from "../../conversations/activity-scroll-container";
 
 export {
   i_ as appMainCurrentCompatSlotLowerIUnderscore,
-  ia as appMainCurrentCompatSlotLowerILowerA,
   ib as appMainCurrentCompatSlotLowerILowerB,
   id as appMainCurrentCompatSlotLowerILowerD,
   if as appMainCurrentCompatSlotLowerILowerF,
