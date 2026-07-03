@@ -9,6 +9,7 @@ export { normalizeWorkspacePath } from "../app-main-current-runtime";
 
 export { findActiveDomainAtom } from "../../find/thread-find-atoms";
 export { quantileSorted as appMainCurrentCompatSlotLowerJUpperS } from "d3-array";
+export { stackOffsetExpand as appMainCurrentCompatSlotLowerJLowerX } from "d3-shape";
 
 export { scheduleReviewRestore } from "../../conversations/local-conversation-page-runtime";
 export { hasRateLimitWindow as appMainCurrentCompatSlotLowerJLowerC } from "../../utils/rate-limit-status/windows";
@@ -27,6 +28,5 @@ export {
   jh as appMainCurrentCompatSlotLowerJLowerH,
   jm as appMainCurrentCompatSlotLowerJLowerM,
   jv as appMainCurrentCompatSlotLowerJLowerV,
-  jx as appMainCurrentCompatSlotLowerJLowerX,
   jy as appMainCurrentCompatSlotLowerJLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

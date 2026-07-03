@@ -80,6 +80,7 @@ export { hasWorkspaceDependenciesFeature as legacyAppMainBuwLowerJLowerOExport }
 export { findActiveDomainAtom } from "../../../find/thread-find-atoms";
 export { quantileSorted as legacyAppMainBuwLowerJUpperSExport } from "d3-array";
 export { range as legacyAppMainBuwLowerKUpperSExport } from "d3-array";
+export { stackOffsetExpand as legacyAppMainBuwLowerJLowerXExport } from "d3-shape";
 
 export {
   syncReviewPanelForRestoredSource,
@@ -180,7 +181,6 @@ export {
   jh as legacyAppMainBuwLowerJLowerHExport,
   jm as legacyAppMainBuwLowerJLowerMExport,
   jv as legacyAppMainBuwLowerJLowerVExport,
-  jx as legacyAppMainBuwLowerJLowerXExport,
   k as legacyAppMainBuwLowerKExport,
   k_ as legacyAppMainBuwLowerKUnderscoreExport,
   kb as legacyAppMainBuwLowerKLowerBExport,
