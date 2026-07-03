@@ -51,6 +51,16 @@ If the only reason for a local body is "the dependency is not in
 `package.json`", that is a package-management miss, not restoration evidence:
 add the dependency and keep the public vendor file as a thin npm shim.
 
+Package installation is part of vendor restoration. Do not implement a
+"temporary" local subset while a public package identity is being checked, and
+do not treat "the bundle only used a few exports" as a reason to recreate those
+exports. For any public `restored/vendor/<package>.ts[x]` target, the first
+working note must answer the npm-shim question: expected package name, evidence
+from filename/provenance/API/consumers, nearest `package.json` status, and the
+intent gate command to run. If the package is missing, add it first; only start a
+local body after every npm identity check is negative and
+`--decision --intent local-body` passes.
+
 Treat public vendor files as **npm-first** targets. Before drafting code inside
 `restored/vendor/<name>.ts[x]`, map the filename, provenance chunk, and exported
 API to a package candidate. If a package candidate exists and there is no
