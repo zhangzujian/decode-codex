@@ -17,7 +17,7 @@ import {
   setReviewBaseBranchOverride,
   type ReviewDiffFilter,
 } from "./review-diff-model";
-import { reviewDiffMetricsAtom } from "./review-diff-metrics";
+import { reviewSnapshotMetricsAtom } from "./review-diff-metrics";
 import {
   useStore,
   useAtomValue,
@@ -132,7 +132,7 @@ export function ReviewHeader() {
   const commitSha = useAtomValue(reviewCommitShaAtom);
   const diffSource = useAtomValue(reviewDiffSourceAtom);
   const fileCounts = useAtomValue(reviewFileCountsAtom);
-  const snapshotMetrics = useAtomValue(reviewDiffMetricsAtom);
+  const snapshotMetrics = useAtomValue(reviewSnapshotMetricsAtom);
   const gitActionsAllowed = useAtomValue(reviewGitActionsAllowedAtom);
   const canRefresh = useAtomValue(reviewCanRefreshAtom);
   const reviewSource = useAtomValue(reviewSourceAtom);

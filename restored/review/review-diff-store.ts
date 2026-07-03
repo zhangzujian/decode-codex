@@ -154,9 +154,12 @@ export {
 export {
   buildMetricsFromDiffStats,
   buildMetricsFromReviewSummary,
+  buildMetricsFromSelectedDiff,
   buildReviewDiffMetrics,
+  buildReviewSnapshotMetrics,
   initReviewDiffMetricsChunk,
   reviewDiffMetricsAtom,
+  reviewSnapshotMetricsAtom,
 } from "./review-diff-metrics";
 export {
   reviewDiffTargetParsedAtom,

@@ -14,6 +14,7 @@ import {
   reviewDiffStatsAtom,
   reviewSummaryAtom,
 } from "./review-summary-query-atoms";
+import { reviewDiffTargetParsedAtom } from "./review-file-diff-query";
 import type {
   ComputedAtomContext,
   ReviewDiffMetrics,
@@ -34,11 +35,19 @@ interface ReviewDiffStatsData {
   fileCount: number;
 }
 
+interface ReviewSelectedDiff {
+  diff?: Array<{
+    additions?: number;
+    deletions?: number;
+  }> | null;
+  diffText?: string | null;
+}
+
 export function buildReviewDiffMetrics(
   additions: number,
   deletions: number,
   fileCount: number,
-  bytesEstimate = 0,
+  bytesEstimate: number = 0,
 ): ReviewDiffMetrics {
   return {
     additions,
@@ -67,6 +76,43 @@ export function buildMetricsFromDiffStats(
   return stats == null
     ? null
     : buildReviewDiffMetrics(stats.additions, stats.deletions, stats.fileCount);
+}
+
+export function buildMetricsFromSelectedDiff(
+  selectedDiff: ReviewSelectedDiff,
+): ReviewDiffMetrics {
+  const diffFiles = selectedDiff.diff ?? [];
+  let additions = 0;
+  let deletions = 0;
+  for (const file of diffFiles) {
+    additions += file.additions ?? 0;
+    deletions += file.deletions ?? 0;
+  }
+  return buildReviewDiffMetrics(
+    additions,
+    deletions,
+    diffFiles.length,
+    selectedDiff.diffText?.length ?? 0,
+  );
+}
+
+export function buildReviewSnapshotMetrics({
+  reviewSummary,
+  selectedDiff,
+  shouldFetchReviewSummary,
+}: {
+  reviewSummary: unknown;
+  selectedDiff: ReviewSelectedDiff;
+  shouldFetchReviewSummary: boolean;
+}): ReviewDiffMetrics {
+  if (
+    shouldFetchReviewSummary &&
+    (reviewSummary as ReviewSummarySuccess | null | undefined)?.type ===
+      "success"
+  ) {
+    return buildMetricsFromReviewSummary(reviewSummary as ReviewSummarySuccess);
+  }
+  return buildMetricsFromSelectedDiff(selectedDiff);
 }
 
 export const reviewDiffMetricsAtom = createComputedAtom(
@@ -101,6 +147,29 @@ export const reviewDiffMetricsAtom = createComputedAtom(
   },
 );
 
+export const reviewSnapshotMetricsAtom = createComputedAtom(
+  threadAtomScope,
+  ({ get }: ComputedAtomContext): ReviewDiffMetrics => {
+    if (
+      get(reviewLocationKindAtom) !== "cloud" &&
+      get(reviewDiffFilterAtom) === "branch"
+    ) {
+      const metricsState = get(reviewDiffMetricsAtom);
+      if (metricsState.metrics != null) return metricsState.metrics;
+    }
+
+    const shouldFetchReviewSummary = get(isReviewDiffEnabledAtom);
+    return buildReviewSnapshotMetrics({
+      reviewSummary: get(reviewSummaryAtom).data,
+      selectedDiff: shouldFetchReviewSummary
+        ? { diff: null, diffText: null }
+        : get(reviewDiffTargetParsedAtom),
+      shouldFetchReviewSummary,
+    });
+  },
+);
+
 export function initReviewDiffMetricsChunk(): void {
   void reviewDiffMetricsAtom;
+  void reviewSnapshotMetricsAtom;
 }
