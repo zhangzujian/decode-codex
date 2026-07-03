@@ -30,7 +30,12 @@ import {
   READ_CONFIG_RESPONSE_QUERY_KEY,
   USER_CONFIG_QUERY_KEY,
 } from "./keys";
-import type { ConfigWriteTarget, HostId, QueryClientLike } from "./types";
+import type {
+  ConfigWriteTarget,
+  HostId,
+  QueryClientLike,
+  WorkspaceRootsContext,
+} from "./types";
 import { EMPTY_LAYERED_CONFIG_RESPONSE } from "./types";
 export function useMcpServersConfigQuery(
   cwd?: string | null,
@@ -41,7 +46,9 @@ export function useMcpServersConfigQuery(
   },
 ) {
   const hostId = options?.hostId ?? LOCAL_HOST_ID;
-  const { data } = useAppScopeValue(threadWorkspaceContextSignal);
+  const { data } = useAppScopeValue<WorkspaceRootsContext>(
+    threadWorkspaceContextSignal,
+  );
   const useActiveWorkspaceRoot =
     options?.useActiveWorkspaceRoot ?? hostId === LOCAL_HOST_ID;
   const resolvedCwd =
@@ -75,34 +82,37 @@ function selectMcpServersConfig(configResponse: any) {
 }
 export const userConfigQueryOptions = createAppScopeQueryFamily(
   appScopeRoot,
-  (
-    hostId: HostId,
-    {
-      queryClient,
-    }: {
+  (hostId: unknown, context: unknown) => {
+    const { queryClient } = context as {
       queryClient: QueryClientLike;
-    },
-  ) => ({
-    queryKey: [...USER_CONFIG_QUERY_KEY, hostId],
-    queryFn: async () => {
-      try {
-        return await readConfigForHost(queryClient, hostId, null, true);
-      } catch (error) {
-        vscodeLogger.error("Failed to load config", {
-          safe: {},
-          sensitive: {
-            error,
-          },
-        });
-        return EMPTY_LAYERED_CONFIG_RESPONSE;
-      }
-    },
-    staleTime: queryTimes.FIVE_MINUTES,
-    select: ({ config, layers }: any) => ({
-      config,
-      configWriteTarget: getUserLayerWriteTarget(layers),
-    }),
-  }),
+    };
+    return {
+      queryKey: [...USER_CONFIG_QUERY_KEY, hostId],
+      queryFn: async () => {
+        try {
+          return await readConfigForHost(
+            queryClient,
+            hostId as HostId,
+            null,
+            true,
+          );
+        } catch (error) {
+          vscodeLogger.error("Failed to load config", {
+            safe: {},
+            sensitive: {
+              error,
+            },
+          });
+          return EMPTY_LAYERED_CONFIG_RESPONSE;
+        }
+      },
+      staleTime: queryTimes.FIVE_MINUTES,
+      select: ({ config, layers }: any) => ({
+        config,
+        configWriteTarget: getUserLayerWriteTarget(layers),
+      }),
+    };
+  },
 );
 export function useAnalyticsEnabledQuery(enabled: boolean = true) {
   const queryClient = useQueryClient();
@@ -123,7 +133,9 @@ export function useEffectiveConfigQuery(
   },
 ) {
   const hostId = options?.hostId ?? LOCAL_HOST_ID;
-  const { data } = useAppScopeValue(threadWorkspaceContextSignal);
+  const { data } = useAppScopeValue<WorkspaceRootsContext>(
+    threadWorkspaceContextSignal,
+  );
   const resolvedCwd =
     options?.cwdMode === "preserve-null"
       ? (cwd ?? null)

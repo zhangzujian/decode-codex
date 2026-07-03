@@ -16,7 +16,15 @@ import {
   MCP_SERVERS_CONFIG_QUERY_KEY,
   MCP_SERVER_STATUS_QUERY_KEY,
 } from "./keys";
-import type { HostId, LayeredConfigResponse, QueryClientLike } from "./types";
+import type {
+  HostId,
+  LayeredConfigResponse,
+  QueryClientLike,
+  QueryKey,
+} from "./types";
+type ToggleMcpServerEnabledContext = {
+  previousConfigResponses?: Array<[QueryKey, LayeredConfigResponse]>;
+};
 export function useWriteMcpServerConfigMutation(options?: { hostId?: HostId }) {
   const hostId = options?.hostId ?? LOCAL_HOST_ID;
   const invalidateQueries = invalidateQueriesAndBroadcast();
@@ -99,11 +107,12 @@ export function useToggleMcpServerEnabledMutation(options?: {
     },
     onError: (
       error: unknown,
-      _variables: unknown,
-      context?: {
-        previousConfigResponses?: Array<[unknown[], LayeredConfigResponse]>;
-      },
+      _variables: { enabled: boolean; key: string },
+      context?: unknown,
     ) => {
+      const rollbackContext = context as
+        | ToggleMcpServerEnabledContext
+        | undefined;
       vscodeLogger.error("Failed to update MCP server enabled state", {
         safe: {},
         sensitive: {
@@ -113,7 +122,7 @@ export function useToggleMcpServerEnabledMutation(options?: {
       for (const [
         queryKey,
         previousConfigResponse,
-      ] of context?.previousConfigResponses ?? []) {
+      ] of rollbackContext?.previousConfigResponses ?? []) {
         queryClient.setQueryData(queryKey, previousConfigResponse);
       }
     },
@@ -124,8 +133,8 @@ export function useToggleMcpServerEnabledMutation(options?: {
 }
 function getPresentQueryData(
   queryClient: QueryClientLike,
-  queryKey: unknown[],
-): Array<[unknown[], LayeredConfigResponse]> {
+  queryKey: QueryKey,
+): Array<[QueryKey, LayeredConfigResponse]> {
   return queryClient
     .getQueriesData({
       queryKey,

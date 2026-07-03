@@ -21,14 +21,19 @@ import {
   MCP_RESOURCE_QUERY_KEY,
   MCP_SERVER_STATUS_QUERY_KEY,
 } from "./keys";
-import type { HostId } from "./types";
+import type { HostId, WorkspaceRootsContext } from "./types";
 export const configRequirementsQueryOptions = createAppScopeQueryFamily(
   appScopeRoot,
-  ({ authMethod, hostId }: { authMethod?: string | null; hostId: HostId }) =>
-    buildConfigRequirementsQueryOptions({
+  (params: unknown) => {
+    const { authMethod, hostId } = params as {
+      authMethod?: string | null;
+      hostId: HostId;
+    };
+    return buildConfigRequirementsQueryOptions({
       authMethod,
       hostId,
-    }),
+    });
+  },
 );
 export function buildConfigRequirementsQueryKey({
   authMethod,
@@ -75,7 +80,9 @@ export function useLocalCustomAgents(
   roots?: string[],
   enabled: boolean = true,
 ) {
-  const { data } = useAppScopeValue(threadWorkspaceContextSignal);
+  const { data } = useAppScopeValue<WorkspaceRootsContext>(
+    threadWorkspaceContextSignal,
+  );
   const resolvedRoots = roots ?? data?.roots ?? [];
   return useAppServerQuery("local-custom-agents", {
     params: {
@@ -88,15 +95,16 @@ export function useLocalCustomAgents(
     select: (response: any) => ({
       roles: response.agents,
     }),
-  });
+  } as any);
 }
 export const mcpServerStatusFullQueryOptions = createAppScopeQueryFamily(
   appScopeRoot,
-  (hostId: HostId) => buildMcpServerStatusQueryOptions(hostId, "full"),
+  (hostId: unknown) =>
+    buildMcpServerStatusQueryOptions(hostId as HostId, "full"),
 );
 export const mcpServerStatusToolsAndAuthQueryOptions =
-  createAppScopeQueryFamily(appScopeRoot, (hostId: HostId) =>
-    buildMcpServerStatusQueryOptions(hostId, "toolsAndAuthOnly"),
+  createAppScopeQueryFamily(appScopeRoot, (hostId: unknown) =>
+    buildMcpServerStatusQueryOptions(hostId as HostId, "toolsAndAuthOnly"),
   );
 function buildMcpServerStatusQueryOptions(hostId: HostId, detail: string) {
   return {

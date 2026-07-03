@@ -45,11 +45,17 @@ export type McpServerConfig = Record<string, unknown> & {
   name?: string;
 };
 export type McpServerConfigMap = Record<string, McpServerConfig>;
+export type QueryKey = readonly unknown[];
 export type QueryClientLike = {
-  cancelQueries: (options: { queryKey: unknown[] }) => Promise<unknown>;
-  fetchQuery: (options: Record<string, unknown>) => Promise<any>;
-  getQueriesData: (options: { queryKey: unknown[] }) => Array<[unknown[], any]>;
-  setQueryData: (queryKey: unknown[], data: unknown) => void;
+  cancelQueries: (options?: { queryKey?: QueryKey }) => Promise<unknown>;
+  fetchQuery: <T = any>(options: Record<string, unknown>) => Promise<T>;
+  getQueriesData: (options?: { queryKey?: QueryKey }) => Array<[QueryKey, any]>;
+  setQueryData: (queryKey: QueryKey, data: unknown) => void;
+};
+export type WorkspaceRootsContext = {
+  data?: {
+    roots?: string[];
+  } | null;
 };
 export const EMPTY_LAYERED_CONFIG_RESPONSE: LayeredConfigResponse = {
   config: {
