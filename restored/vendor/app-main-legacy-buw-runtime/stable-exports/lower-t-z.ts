@@ -107,6 +107,7 @@ export { trackConversationalOnboardingExecutionCompletionMissing as legacyAppMai
 export { initThreadHandoffComposerStatusChunk as legacyAppMainBuwLowerULowerOExport } from "../../../conversations/thread-handoff-composer-status";
 export { ReviewTabIcon as legacyAppMainBuwLowerXLowerHExport } from "../../../icons/review-tab-icon";
 export { clearContentSearchHighlights as legacyAppMainBuwLowerTUnderscoreExport } from "../../../runtime/conversation-search-runtime";
+export { setSidebarOpen as legacyAppMainBuwLowerZLowerYExport } from "../../../app-shell/app-shell-state";
 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
@@ -194,5 +195,4 @@ export {
   zp as legacyAppMainBuwLowerZLowerPExport,
   zt as legacyAppMainBuwLowerZLowerTExport,
   zx as legacyAppMainBuwLowerZLowerXExport,
-  zy as legacyAppMainBuwLowerZLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";

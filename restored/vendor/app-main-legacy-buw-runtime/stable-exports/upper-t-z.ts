@@ -33,6 +33,7 @@ export {
   canUseWorkspaceWriteOnRequest as legacyAppMainBuwUpperYLowerYExport,
   getDetailLevelDefaultAgentMode as legacyAppMainBuwUpperZLowerYExport,
 } from "../../../utils/use-permissions-mode/mode-availability";
+export { initAppShellStateRuntimeChunk as legacyAppMainBuwUpperULowerYExport } from "../../../app-shell/app-shell-state";
 
 export {
   registerForkedConversation,
@@ -132,7 +133,6 @@ export {
   Ut as legacyAppMainBuwUpperULowerTExport,
   Uu as legacyAppMainBuwUpperULowerUExport,
   Ux as legacyAppMainBuwUpperULowerXExport,
-  Uy as legacyAppMainBuwUpperULowerYExport,
   V as legacyAppMainBuwUpperVExport,
   VS as legacyAppMainBuwUpperVUpperSExport,
   V_ as legacyAppMainBuwUpperVUnderscoreExport,

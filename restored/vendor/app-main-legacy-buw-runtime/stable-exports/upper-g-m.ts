@@ -90,6 +90,10 @@ export { trackConversationalOnboardingAccessDenied as legacyAppMainBuwUpperILowe
 export { findConnectorAppByIdentifier as legacyAppMainBuwUpperMLowerSExport } from "../../../connectors/apps-queries/onboarding-app-connection";
 export { UseRecordingWaveformIcon as legacyAppMainBuwUpperIUpperCExport } from "../../../icons/use-recording-waveform-icon";
 export { resetConversationalOnboardingWorkflowState as legacyAppMainBuwUpperMExport } from "../../../onboarding/conversational-onboarding-workflow-state";
+export {
+  initAppShellStateRuntimeChunk as legacyAppMainBuwUpperJLowerYExport,
+  setActiveAppShellFocusArea as legacyAppMainBuwUpperGLowerYExport,
+} from "../../../app-shell/app-shell-state";
 
 export {
   G as legacyAppMainBuwUpperGExport,
@@ -103,7 +107,6 @@ export {
   Gp as legacyAppMainBuwUpperGLowerPExport,
   Gt as legacyAppMainBuwUpperGLowerTExport,
   Gx as legacyAppMainBuwUpperGLowerXExport,
-  Gy as legacyAppMainBuwUpperGLowerYExport,
   H as legacyAppMainBuwUpperHExport,
   HS as legacyAppMainBuwUpperHUpperSExport,
   H_ as legacyAppMainBuwUpperHUnderscoreExport,
@@ -148,7 +151,6 @@ export {
   Ju as legacyAppMainBuwUpperJLowerUExport,
   Jv as legacyAppMainBuwUpperJLowerVExport,
   Jx as legacyAppMainBuwUpperJLowerXExport,
-  Jy as legacyAppMainBuwUpperJLowerYExport,
   K as legacyAppMainBuwUpperKExport,
   KS as legacyAppMainBuwUpperKUpperSExport,
   K_ as legacyAppMainBuwUpperKUnderscoreExport,
