@@ -20,10 +20,10 @@ export { adjustPendingPastedTextAttachmentCount as appMainCurrentCompatSlotLower
 export { useQueuedFollowUpsStore as appMainCurrentCompatSlotLowerCLowerD } from "../../utils/queued-follow-ups-store";
 export { CancelGitActionButton as appMainCurrentCompatSlotLowerCLowerU } from "../../conversations/cancel-git-action-button";
 export { getWorktreeSubmitToastMessage as appMainCurrentCompatSlotLowerCLowerN } from "../../composer/submit-toast-messages";
+export { BrowserUseGlyphIcon as appMainCurrentCompatSlotLowerCLowerA } from "../../conversations/tool-activity-source-icon";
 
 export {
   c_ as appMainCurrentCompatSlotLowerCUnderscore,
-  ca as appMainCurrentCompatSlotLowerCLowerA,
   cb as appMainCurrentCompatSlotLowerCLowerB,
   ch as appMainCurrentCompatSlotLowerCLowerH,
   cr as appMainCurrentCompatSlotLowerCLowerR,

@@ -12,6 +12,7 @@ export { useSensor as ThreadRowCloudMeta } from "../dnd-kit-core";
 export { openThreadTimelineSidePanel } from "../../app-shell/legacy-thread-timeline-side-panel";
 export { initComposerUtilsChunk as appMainCurrentCompatSlotLowerXUpperC } from "../../composer/composer-utils";
 export { buildCodexAppToolNamespace as appMainCurrentCompatSlotLowerXLowerA } from "../../conversations/codex-app-tool-namespace";
+export { ReviewTabIcon as appMainCurrentCompatSlotLowerXLowerH } from "../../icons/review-tab-icon";
 
 export {
   x as appMainCurrentCompatSlotLowerX,
@@ -20,7 +21,6 @@ export {
   xd as appMainCurrentCompatSlotLowerXLowerD,
   xf as appMainCurrentCompatSlotLowerXLowerF,
   xg as appMainCurrentCompatSlotLowerXLowerG,
-  xh as appMainCurrentCompatSlotLowerXLowerH,
   xm as appMainCurrentCompatSlotLowerXLowerM,
   xn as appMainCurrentCompatSlotLowerXLowerN,
   xp as appMainCurrentCompatSlotLowerXLowerP,

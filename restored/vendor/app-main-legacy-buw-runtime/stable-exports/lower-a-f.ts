@@ -99,6 +99,8 @@ export { CirclePlayIcon as legacyAppMainBuwLowerDLowerHExport } from "../../../i
 export { useQueuedFollowUpsStore as legacyAppMainBuwLowerCLowerDExport } from "../../../utils/queued-follow-ups-store";
 export { CancelGitActionButton as legacyAppMainBuwLowerCLowerUExport } from "../../../conversations/cancel-git-action-button";
 export { getWorktreeSubmitToastMessage as legacyAppMainBuwLowerCLowerNExport } from "../../../composer/submit-toast-messages";
+export { initBrowserNotSecureIconChunk as legacyAppMainBuwLowerALowerPExport } from "../../../browser/browser-address-security-indicator";
+export { BrowserUseGlyphIcon as legacyAppMainBuwLowerCLowerAExport } from "../../../conversations/tool-activity-source-icon";
 
 export {
   aS as legacyAppMainBuwLowerAUpperSExport,
@@ -111,7 +113,6 @@ export {
   ah as legacyAppMainBuwLowerALowerHExport,
   an as legacyAppMainBuwLowerALowerNExport,
   ao as legacyAppMainBuwLowerALowerOExport,
-  ap as legacyAppMainBuwLowerALowerPExport,
   as as legacyAppMainBuwLowerALowerSExport,
   at as legacyAppMainBuwLowerALowerTExport,
   au as legacyAppMainBuwLowerALowerUExport,
@@ -134,7 +135,6 @@ export {
   by as legacyAppMainBuwLowerBLowerYExport,
   cS as legacyAppMainBuwLowerCUpperSExport,
   c_ as legacyAppMainBuwLowerCUnderscoreExport,
-  ca as legacyAppMainBuwLowerCLowerAExport,
   cb as legacyAppMainBuwLowerCLowerBExport,
   ch as legacyAppMainBuwLowerCLowerHExport,
   cr as legacyAppMainBuwLowerCLowerRExport,

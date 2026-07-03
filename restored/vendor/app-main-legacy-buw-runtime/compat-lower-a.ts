@@ -14,6 +14,7 @@ export { getConversationalOnboardingMessagingPluginNames as appMainCurrentCompat
 export { toAutomationCreatePayload as appMainCurrentCompatSlotLowerALowerI } from "../../automations/shared";
 
 export { initUseConversationIdFromRouteChunk as appMainCurrentCompatSlotLowerALowerR } from "../../conversations/use-conversation-id-from-route";
+export { initBrowserNotSecureIconChunk as appMainCurrentCompatSlotLowerALowerP } from "../../browser/browser-address-security-indicator";
 
 export {
   a_ as appMainCurrentCompatSlotLowerAUnderscore,
@@ -25,7 +26,6 @@ export {
   ah as appMainCurrentCompatSlotLowerALowerH,
   an as appMainCurrentCompatSlotLowerALowerN,
   ao as appMainCurrentCompatSlotLowerALowerO,
-  ap as appMainCurrentCompatSlotLowerALowerP,
   as as appMainCurrentCompatSlotLowerALowerS,
   aS as appMainCurrentCompatSlotLowerAUpperS,
   at as appMainCurrentCompatSlotLowerALowerT,

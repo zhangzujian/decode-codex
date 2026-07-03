@@ -112,6 +112,7 @@ export {
   handleListProjects as legacyAppMainBuwLowerJLowerAExport,
 } from "../../../conversations/thread-management-tool-handlers";
 export { buildBranchName as legacyAppMainBuwLowerGLowerUExport } from "../../../conversations/build-branch-name";
+export { BrowserNotSecureIcon as legacyAppMainBuwLowerILowerPExport } from "../../../browser/browser-address-security-indicator";
 
 export { closestCenter as ThreadRowStatusIndicator } from "../../dnd-kit-core";
 
@@ -145,7 +146,6 @@ export {
   im as legacyAppMainBuwLowerILowerMExport,
   in as legacyAppMainBuwLowerILowerNExport,
   io as legacyAppMainBuwLowerILowerOExport,
-  ip as legacyAppMainBuwLowerILowerPExport,
   ir as legacyAppMainBuwLowerILowerRExport,
   iu as legacyAppMainBuwLowerILowerUExport,
   iv as legacyAppMainBuwLowerILowerVExport,

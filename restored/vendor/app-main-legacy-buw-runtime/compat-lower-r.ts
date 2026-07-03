@@ -11,6 +11,7 @@ export { initReviewFileListRuntime as initReviewFileListChunk } from "../../revi
 export { primaryRuntimeInstallProgress as appMainCurrentCompatSlotLowerRLowerS } from "../../runtime/primary-runtime-install-status-message";
 
 export { automationDirectiveResultAtom as appMainCurrentCompatSlotLowerRLowerI } from "../../automations/shared";
+export { PullRequestMergedIcon as appMainCurrentCompatSlotLowerRLowerU } from "../../github/pull-request-status";
 
 export {
   r as appMainCurrentCompatSlotLowerR,
@@ -27,7 +28,6 @@ export {
   rp as appMainCurrentCompatSlotLowerRLowerP,
   rr as appMainCurrentCompatSlotLowerRLowerR,
   rS as appMainCurrentCompatSlotLowerRUpperS,
-  ru as appMainCurrentCompatSlotLowerRLowerU,
   rx as appMainCurrentCompatSlotLowerRLowerX,
   ry as appMainCurrentCompatSlotLowerRLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

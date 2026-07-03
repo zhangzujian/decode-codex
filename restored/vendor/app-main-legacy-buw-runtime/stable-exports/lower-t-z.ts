@@ -102,6 +102,7 @@ export {
 } from "../../../utils/appgen-access-state-messages";
 export { trackConversationalOnboardingExecutionCompletionMissing as legacyAppMainBuwLowerZLowerSExport } from "../../../onboarding/conversational-onboarding-analytics";
 export { initThreadHandoffComposerStatusChunk as legacyAppMainBuwLowerULowerOExport } from "../../../conversations/thread-handoff-composer-status";
+export { ReviewTabIcon as legacyAppMainBuwLowerXLowerHExport } from "../../../icons/review-tab-icon";
 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
@@ -160,7 +161,6 @@ export {
   xd as legacyAppMainBuwLowerXLowerDExport,
   xf as legacyAppMainBuwLowerXLowerFExport,
   xg as legacyAppMainBuwLowerXLowerGExport,
-  xh as legacyAppMainBuwLowerXLowerHExport,
   xm as legacyAppMainBuwLowerXLowerMExport,
   xn as legacyAppMainBuwLowerXLowerNExport,
   xp as legacyAppMainBuwLowerXLowerPExport,

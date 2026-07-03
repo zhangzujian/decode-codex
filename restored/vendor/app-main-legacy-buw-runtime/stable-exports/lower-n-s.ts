@@ -3,6 +3,7 @@
 export { CursorIcon as legacyAppMainBuwLowerOLowerAExport } from "../../../icons/cursor-icon";
 export { ImagesIcon as legacyAppMainBuwLowerRLowerTExport } from "../../../icons/images-icon";
 export { RobotIcon as legacyAppMainBuwLowerQLowerNExport } from "../../../icons/robot-icon";
+export { PullRequestMergedIcon as legacyAppMainBuwLowerRLowerUExport } from "../../../github/pull-request-status";
 export { initCheckCircleIconChunk as legacyAppMainBuwLowerOLowerCExport } from "../../../icons/check-circle-icon";
 export { initCursorIconChunk as legacyAppMainBuwLowerSLowerAExport } from "../../../icons/cursor-icon";
 export { initPullRequestOpenIconChunk as legacyAppMainBuwLowerNLowerUExport } from "../../../icons/pull-request-open-icon";
@@ -158,7 +159,6 @@ export {
   ro as legacyAppMainBuwLowerRLowerOExport,
   rp as legacyAppMainBuwLowerRLowerPExport,
   rr as legacyAppMainBuwLowerRLowerRExport,
-  ru as legacyAppMainBuwLowerRLowerUExport,
   rx as legacyAppMainBuwLowerRLowerXExport,
   ry as legacyAppMainBuwLowerRLowerYExport,
   sC as legacyAppMainBuwLowerSUpperCExport,

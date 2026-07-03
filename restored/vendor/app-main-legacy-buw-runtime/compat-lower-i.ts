@@ -11,6 +11,7 @@ export { primaryRuntimeInstallStatusMessage as appMainCurrentCompatSlotLowerILow
 export { getConversationalOnboardingTaskPluginName as appMainCurrentCompatSlotLowerI } from "../../onboarding/conversational-onboarding-task-registry";
 export { automationDirectiveSeedAtom as appMainCurrentCompatSlotLowerILowerI } from "../../automations/shared";
 export { ActivityScrollContainer as appMainCurrentCompatSlotLowerILowerA } from "../../conversations/activity-scroll-container";
+export { BrowserNotSecureIcon as appMainCurrentCompatSlotLowerILowerP } from "../../browser/browser-address-security-indicator";
 
 export {
   i_ as appMainCurrentCompatSlotLowerIUnderscore,
@@ -22,7 +23,6 @@ export {
   im as appMainCurrentCompatSlotLowerILowerM,
   in as appMainCurrentCompatSlotLowerILowerN,
   io as appMainCurrentCompatSlotLowerILowerO,
-  ip as appMainCurrentCompatSlotLowerILowerP,
   ir as appMainCurrentCompatSlotLowerILowerR,
   iS as appMainCurrentCompatSlotLowerIUpperS,
   iu as appMainCurrentCompatSlotLowerILowerU,
