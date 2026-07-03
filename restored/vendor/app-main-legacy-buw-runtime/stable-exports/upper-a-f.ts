@@ -85,6 +85,7 @@ export {
   handleForkThread as legacyAppMainBuwUpperALowerAExport,
   handleSetThreadArchived as legacyAppMainBuwUpperFLowerAExport,
 } from "../../../conversations/thread-management-tool-handlers";
+export { Banner as legacyAppMainBuwUpperFLowerNExport } from "../../../ui/banner";
 
 export {
   A as legacyAppMainBuwUpperAExport,
@@ -171,7 +172,6 @@ export {
   Fd as legacyAppMainBuwUpperFLowerDExport,
   Fl as legacyAppMainBuwUpperFLowerLExport,
   Fm as legacyAppMainBuwUpperFLowerMExport,
-  Fn as legacyAppMainBuwUpperFLowerNExport,
   Fp as legacyAppMainBuwUpperFLowerPExport,
   Ft as legacyAppMainBuwUpperFLowerTExport,
   Fu as legacyAppMainBuwUpperFLowerUExport,

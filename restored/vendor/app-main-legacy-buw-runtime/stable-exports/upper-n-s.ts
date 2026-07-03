@@ -82,6 +82,7 @@ export {
   handleReadThread as legacyAppMainBuwUpperNLowerAExport,
   handleSendMessageToThread as legacyAppMainBuwUpperPLowerAExport,
 } from "../../../conversations/thread-management-tool-handlers";
+export { MiddleTruncatedText as legacyAppMainBuwUpperPLowerLExport } from "../../../ui/middle-truncated-text";
 
 export {
   NC as legacyAppMainBuwUpperNUpperCExport,
@@ -116,7 +117,6 @@ export {
   PS as legacyAppMainBuwUpperPUpperSExport,
   Pb as legacyAppMainBuwUpperPLowerBExport,
   Pi as legacyAppMainBuwUpperPLowerIExport,
-  Pl as legacyAppMainBuwUpperPLowerLExport,
   Pm as legacyAppMainBuwUpperPLowerMExport,
   Po as legacyAppMainBuwUpperPLowerOExport,
   Pp as legacyAppMainBuwUpperPLowerPExport,

@@ -17,6 +17,7 @@ export { CHATGPT_ADMIN_USAGE_LIMITS_URL as appMainCurrentCompatSlotUpperFLowerC 
 export { COMPLETE_CONVERSATIONAL_ONBOARDING_TASK_NAME as appMainCurrentCompatSlotUpperFLowerO } from "../../runtime/run-app-action-in-primary-window";
 export { initConversationalOnboardingAnalyticsChunk as appMainCurrentCompatSlotUpperFLowerS } from "../../onboarding/conversational-onboarding-analytics";
 export { handleSetThreadArchived as appMainCurrentCompatSlotUpperFLowerA } from "../../conversations/thread-management-tool-handlers";
+export { Banner as appMainCurrentCompatSlotUpperFLowerN } from "../../ui/banner";
 
 export {
   F as appMainCurrentCompatSlotUpperF,
@@ -24,7 +25,6 @@ export {
   Fd as appMainCurrentCompatSlotUpperFLowerD,
   Fl as appMainCurrentCompatSlotUpperFLowerL,
   Fm as appMainCurrentCompatSlotUpperFLowerM,
-  Fn as appMainCurrentCompatSlotUpperFLowerN,
   Fp as appMainCurrentCompatSlotUpperFLowerP,
   FS as appMainCurrentCompatSlotUpperFUpperS,
   Ft as appMainCurrentCompatSlotUpperFLowerT,

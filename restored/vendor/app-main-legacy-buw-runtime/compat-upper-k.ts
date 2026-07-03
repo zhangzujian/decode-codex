@@ -13,15 +13,15 @@ export { ActiveConversationPresence as appMainCurrentCompatSlotUpperKLowerS } fr
 export { getAvailableHandoffHosts as appMainCurrentCompatSlotUpperKLowerA } from "../../conversations/available-handoff-hosts";
 
 export { stepReasoningEffortOption as appMainCurrentCompatSlotUpperKLowerR } from "../../composer/reasoning-effort-options";
+export { LargeEmptyState as appMainCurrentCompatSlotUpperKLowerF } from "../../utils/large-empty-state";
+export { SummaryPanelRow as appMainCurrentCompatSlotUpperKLowerL } from "../../utils/summary-panel-row";
 
 export {
   K as appMainCurrentCompatSlotUpperK,
   K_ as appMainCurrentCompatSlotUpperKUnderscore,
   Kb as appMainCurrentCompatSlotUpperKLowerB,
-  Kf as appMainCurrentCompatSlotUpperKLowerF,
   Kg as appMainCurrentCompatSlotUpperKLowerG,
   Kh as appMainCurrentCompatSlotUpperKLowerH,
-  Kl as appMainCurrentCompatSlotUpperKLowerL,
   Km as appMainCurrentCompatSlotUpperKLowerM,
   Kn as appMainCurrentCompatSlotUpperKLowerN,
   Kp as appMainCurrentCompatSlotUpperKLowerP,
