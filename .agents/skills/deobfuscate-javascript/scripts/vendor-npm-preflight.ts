@@ -155,14 +155,14 @@ function shouldSkipFullQualityAnalysisForVendorPreflight(
   source: string,
 ): boolean {
   if (!isPublicVendorFile(file)) return false;
-  if (!/-bundle\.[cm]?[jt]sx?$/i.test(path.basename(file))) return false;
   if (lineCount(source) < OVERSIZED_AGGREGATOR_BUNDLE_LINE_THRESHOLD) {
     return false;
   }
 
-  // Huge app aggregator bundles are the body-restoration target, not public
-  // package shims. Keep the lightweight npm identity checks, but avoid parsing
-  // a 100k+ line bundle through the full quality gate on every preflight.
+  // Huge app/runtime/vendor data files are body-restoration targets, not public
+  // package shims unless a lightweight npm identity check says otherwise. Keep
+  // the filename/provenance/API checks, but avoid parsing 10k-100k+ line files
+  // through the full quality gate on every preflight.
   return expectedPublicNpmVendorSpecifiers(file, source) == null;
 }
 
@@ -492,9 +492,10 @@ export async function vendorNpmPreflight(
   input: string,
 ): Promise<VendorNpmPreflightResult> {
   const files = collectFiles(input);
+  const publicVendorFiles = files.filter(isPublicVendorFile);
   const reports: FileQualityReport[] = [];
 
-  for (const file of files) {
+  for (const file of publicVendorFiles) {
     const source = fs.readFileSync(file, "utf-8");
     if (shouldSkipFullQualityAnalysisForVendorPreflight(file, source)) {
       continue;
@@ -511,17 +512,22 @@ export async function vendorNpmPreflight(
     if (npmReport != null) reports.push(npmReport);
   }
 
-  for (const report of analyzePublicNpmVendorShimDependencies(input, files)) {
+  for (const report of analyzePublicNpmVendorShimDependencies(
+    input,
+    publicVendorFiles,
+  )) {
     const npmReport = withOnlyNpmShimIssues(report);
     if (npmReport != null) reports.push(npmReport);
   }
 
-  for (const report of analyzeBareReexportDependencies(files)) {
+  for (const report of analyzeBareReexportDependencies(publicVendorFiles)) {
     const npmReport = withOnlyNpmShimIssues(report);
     if (npmReport != null) reports.push(npmReport);
   }
 
-  for (const report of await analyzeBareReexportRuntimeExports(files)) {
+  for (const report of await analyzeBareReexportRuntimeExports(
+    publicVendorFiles,
+  )) {
     const npmReport = withOnlyNpmShimIssues(report);
     if (npmReport != null) reports.push(npmReport);
   }
