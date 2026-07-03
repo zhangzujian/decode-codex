@@ -12,12 +12,12 @@ export {
 export { getActiveBrowserTabId } from "../../conversations/fork-conversation-panel-state-deps";
 export { CODEX_USAGE_CREDITS_MODAL_URL as appMainCurrentCompatSlotUpperBLowerC } from "../../utils/links-bd-mmkun-d";
 export { trackConversationalOnboardingRoleSelected as appMainCurrentCompatSlotUpperBLowerS } from "../../onboarding/conversational-onboarding-analytics";
+export { PanelExpandIcon as appMainCurrentCompatSlotUpperBLowerD } from "../../icons/app-shell-panel-icons";
 
 export {
   B as appMainCurrentCompatSlotUpperB,
   Ba as appMainCurrentCompatSlotUpperBLowerA,
   Bb as appMainCurrentCompatSlotUpperBLowerB,
-  Bd as appMainCurrentCompatSlotUpperBLowerD,
   Bf as appMainCurrentCompatSlotUpperBLowerF,
   Bg as appMainCurrentCompatSlotUpperBLowerG,
   Bh as appMainCurrentCompatSlotUpperBLowerH,

@@ -86,6 +86,7 @@ export {
   handleSetThreadArchived as legacyAppMainBuwUpperFLowerAExport,
 } from "../../../conversations/thread-management-tool-handlers";
 export { Banner as legacyAppMainBuwUpperFLowerNExport } from "../../../ui/banner";
+export { PanelExpandIcon as legacyAppMainBuwUpperBLowerDExport } from "../../../icons/app-shell-panel-icons";
 
 export {
   A as legacyAppMainBuwUpperAExport,
@@ -106,7 +107,6 @@ export {
   BS as legacyAppMainBuwUpperBUpperSExport,
   Ba as legacyAppMainBuwUpperBLowerAExport,
   Bb as legacyAppMainBuwUpperBLowerBExport,
-  Bd as legacyAppMainBuwUpperBLowerDExport,
   Bf as legacyAppMainBuwUpperBLowerFExport,
   Bg as legacyAppMainBuwUpperBLowerGExport,
   Bh as legacyAppMainBuwUpperBLowerHExport,
