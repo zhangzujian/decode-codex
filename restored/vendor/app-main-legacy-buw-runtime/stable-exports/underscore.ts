@@ -18,6 +18,7 @@ export { AnnotationModeButton as legacyAppMainBuwUnderscoreLowerMExport } from "
 export { normalizeAmbientSuggestionAppKey as legacyAppMainBuwUnderscoreLowerYExport } from "../../../connectors/ambient-suggestion-apps";
 export { flushPendingArtifactNavigation as legacyAppMainBuwUnderscoreLowerFExport } from "../../../workspace/artifact-tab-navigation";
 export { useRemoteConnectionStateByHostId as legacyAppMainBuwUnderscoreLowerPExport } from "../../../remote/use-connected-remote-connections";
+export { setReviewDiffTarget as legacyAppMainBuwUnderscoreLowerVExport } from "../../../review/review-diff-actions";
 
 export {
   _ as legacyAppMainBuwUnderscoreExport,
@@ -29,5 +30,4 @@ export {
   _r as legacyAppMainBuwUnderscoreLowerRExport,
   _t as legacyAppMainBuwUnderscoreLowerTExport,
   _u as legacyAppMainBuwUnderscoreLowerUExport,
-  _v as legacyAppMainBuwUnderscoreLowerVExport,
 } from "../../app-main-legacy-buw-compat-bundle";

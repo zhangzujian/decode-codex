@@ -14,6 +14,7 @@ export { isWorkspaceSpendControlReached as appMainCurrentCompatSlotUnderscoreLow
 export { initAppgenAccessStateMessagesChunk as appMainCurrentCompatSlotUnderscoreLowerS } from "../../utils/appgen-access-state-messages";
 export { AnnotationModeButton as appMainCurrentCompatSlotUnderscoreLowerM } from "../../ui/annotation-mode-button";
 export { useRemoteConnectionStateByHostId as appMainCurrentCompatSlotUnderscoreLowerP } from "../../remote/use-connected-remote-connections";
+export { setReviewDiffTarget as appMainCurrentCompatSlotUnderscoreLowerV } from "../../review/review-diff-actions";
 
 export {
   _ as appMainCurrentCompatSlotUnderscore,
@@ -28,6 +29,5 @@ export {
   _S as appMainCurrentCompatSlotUnderscoreUpperS,
   _t as appMainCurrentCompatSlotUnderscoreLowerT,
   _u as appMainCurrentCompatSlotUnderscoreLowerU,
-  _v as appMainCurrentCompatSlotUnderscoreLowerV,
   _y as appMainCurrentCompatSlotUnderscoreLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

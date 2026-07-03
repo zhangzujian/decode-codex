@@ -15,6 +15,7 @@ export { clearPendingWorktreePanelState as appMainCurrentCompatSlotLowerBLowerO 
 
 export { isDefaultAutomationDraft as appMainCurrentCompatSlotLowerBLowerI } from "../../automations/shared";
 export { initBrowserUseGlyphIconChunk as appMainCurrentCompatSlotLowerBLowerH } from "../../conversations/tool-activity-source-icon";
+export { isReviewDiffEnabledAtom as appMainCurrentCompatSlotLowerBLowerV } from "../../review/review-diff-mode-atoms";
 
 export {
   bb as appMainCurrentCompatSlotLowerBLowerB,
@@ -28,6 +29,5 @@ export {
   bS as appMainCurrentCompatSlotLowerBUpperS,
   bt as appMainCurrentCompatSlotLowerBLowerT,
   bu as appMainCurrentCompatSlotLowerBLowerU,
-  bv as appMainCurrentCompatSlotLowerBLowerV,
   by as appMainCurrentCompatSlotLowerBLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

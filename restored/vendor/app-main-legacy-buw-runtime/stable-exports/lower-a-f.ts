@@ -188,10 +188,10 @@ export { initSidebarNavigationControlsChunk as legacyAppMainBuwLowerBLowerDExpor
 export { initWorkspaceFileSourceTabsChunk as legacyAppMainBuwLowerBLowerFExport } from "../../../workspace/workspace-file-source-tabs";
 export { ReactReduxProvider as legacyAppMainBuwLowerDExport } from "../../react-redux-provider-runtime";
 export { initReactReduxProviderRuntimeChunk as legacyAppMainBuwLowerFExport } from "../../react-redux-provider-runtime";
+export { isReviewDiffEnabledAtom as legacyAppMainBuwLowerBLowerVExport } from "../../../review/review-diff-mode-atoms";
 
 export {
   bt as legacyAppMainBuwLowerBLowerTExport,
-  bv as legacyAppMainBuwLowerBLowerVExport,
   cv as legacyAppMainBuwLowerCLowerVExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   es as legacyAppMainBuwLowerELowerSExport,
