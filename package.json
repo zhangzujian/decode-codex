@@ -34,6 +34,7 @@
     "d3-time-format": "^4.1.0",
     "dagre": "^0.8.5",
     "dayjs": "^1.11.18",
+    "docx-preview": "0.3.7",
     "framer-motion": "^12.42.2",
     "graphlib": "^2.1.8",
     "jotai": "^2.20.1",
