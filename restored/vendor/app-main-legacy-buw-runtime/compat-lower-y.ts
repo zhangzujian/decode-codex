@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase y compatibility aliases for the legacy app-main/onboarding producer.
+export { conversationalOnboardingTaskIntroCompleteSignal as appMainCurrentCompatSlotLowerY } from "../../onboarding/conversational-onboarding-task-scope";
 export { isAutomationDraftUsingDefaultCwd as appMainCurrentCompatSlotLowerYLowerI } from "../../automations/shared";
 
 export {
@@ -17,18 +18,17 @@ export { isHotkeyWindowContext as appMainCurrentCompatSlotLowerYLowerA } from ".
 export { SettingsKeyValueRow as appMainCurrentCompatSlotLowerYLowerR } from "../../ui/settings-row";
 export { PullRequestMergeTaskPill as appMainCurrentCompatSlotLowerYLowerT } from "../../conversations/pull-request-merge-task-pill";
 export { isReviewBranchModeAtom as appMainCurrentCompatSlotLowerYLowerV } from "../../review/review-diff-mode-atoms";
+export { setConversationDetailMode as appMainCurrentCompatSlotLowerYLowerB } from "../../runtime/conversation-detail-runtime";
+export { SidebarNavigationControls as appMainCurrentCompatSlotLowerYLowerD } from "../../app-shell/sidebar-navigation-controls";
+export { registerArtifactNavigationHandler as appMainCurrentCompatSlotLowerYLowerF } from "../../workspace/artifact-tab-navigation";
+export { invalidateWorktreeStatusForHost as appMainCurrentCompatSlotLowerYLowerN } from "../../conversations/worktree-status-runtime";
+export { timeMinute as appMainCurrentCompatSlotLowerYUpperS } from "d3-time";
+export { findAmbientSuggestionApps as appMainCurrentCompatSlotLowerYLowerY } from "../../connectors/ambient-suggestion-apps";
 
 export {
-  y as appMainCurrentCompatSlotLowerY,
-  yb as appMainCurrentCompatSlotLowerYLowerB,
-  yd as appMainCurrentCompatSlotLowerYLowerD,
-  yf as appMainCurrentCompatSlotLowerYLowerF,
   yg as appMainCurrentCompatSlotLowerYLowerG,
   yh as appMainCurrentCompatSlotLowerYLowerH,
   ym as appMainCurrentCompatSlotLowerYLowerM,
-  yn as appMainCurrentCompatSlotLowerYLowerN,
   yp as appMainCurrentCompatSlotLowerYLowerP,
-  yS as appMainCurrentCompatSlotLowerYUpperS,
   yu as appMainCurrentCompatSlotLowerYLowerU,
-  yy as appMainCurrentCompatSlotLowerYLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

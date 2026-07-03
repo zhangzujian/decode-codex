@@ -1,6 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase z compatibility aliases for the legacy app-main/onboarding producer.
 export { renderMessageOrString as appMainCurrentCompatSlotLowerZLowerR } from "../../composer/render-message-or-string";
+export { sliceTurnItemsAfterIntro as appMainCurrentCompatSlotLowerZ } from "../../conversations/partition-turn-items/slice-turn-items-after-intro";
+export { initModelSettingsCoreChunk as appMainCurrentCompatSlotLowerZLowerB } from "../../composer/model-settings-core";
 
 export { PopoverAttachmentPill as appMainCurrentCompatSlotLowerZLowerI } from "../../composer/user-message-attachment-pills";
 
@@ -14,19 +16,17 @@ export { CHATGPT_PRICING_HASH_URL as appMainCurrentCompatSlotLowerZLowerC } from
 export { navigateToCodexPage as appMainCurrentCompatSlotLowerZLowerO } from "../../runtime/navigate-to-codex-page-tool";
 export { trackConversationalOnboardingExecutionCompletionMissing as appMainCurrentCompatSlotLowerZLowerS } from "../../onboarding/conversational-onboarding-analytics";
 export { goToNextThreadFindMatch as appMainCurrentCompatSlotLowerZLowerG } from "../../find/thread-find-store";
+export { initReviewDiffFindHighlightChunk as appMainCurrentCompatSlotLowerZLowerF } from "../../review/diff-find-highlight";
+export { interpolateTransformSvg as appMainCurrentCompatSlotLowerZUpperS } from "d3-interpolate";
+export { curveMonotoneY as appMainCurrentCompatSlotLowerZLowerX } from "d3-shape";
+export { setSidebarOpen as appMainCurrentCompatSlotLowerZLowerY } from "../../app-shell/app-shell-state";
 
 export {
-  z as appMainCurrentCompatSlotLowerZ,
   za as appMainCurrentCompatSlotLowerZLowerA,
-  zb as appMainCurrentCompatSlotLowerZLowerB,
   zd as appMainCurrentCompatSlotLowerZLowerD,
-  zf as appMainCurrentCompatSlotLowerZLowerF,
   zh as appMainCurrentCompatSlotLowerZLowerH,
   zl as appMainCurrentCompatSlotLowerZLowerL,
   zm as appMainCurrentCompatSlotLowerZLowerM,
   zp as appMainCurrentCompatSlotLowerZLowerP,
-  zS as appMainCurrentCompatSlotLowerZUpperS,
   zt as appMainCurrentCompatSlotLowerZLowerT,
-  zx as appMainCurrentCompatSlotLowerZLowerX,
-  zy as appMainCurrentCompatSlotLowerZLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

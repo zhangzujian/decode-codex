@@ -1,6 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase x compatibility aliases for the legacy app-main/onboarding producer.
 export { initLockIconChunk as appMainCurrentCompatSlotLowerXLowerS } from "../../icons/lock-icon";
+export { conversationalOnboardingTaskRequestVisibleSignal as appMainCurrentCompatSlotLowerX } from "../../onboarding/conversational-onboarding-task-scope";
+export { selectAvailablePermissionProfiles as appMainCurrentCompatSlotLowerXLowerB } from "../../utils/use-permissions-mode/permission-profiles";
 
 export { getAutomationDraftRrule as appMainCurrentCompatSlotLowerXLowerI } from "../../automations/shared";
 export { initSettingsControlRowChunk } from "../../ui/settings-row";
@@ -14,19 +16,17 @@ export { initComposerUtilsChunk as appMainCurrentCompatSlotLowerXUpperC } from "
 export { buildCodexAppToolNamespace as appMainCurrentCompatSlotLowerXLowerA } from "../../conversations/codex-app-tool-namespace";
 export { ReviewTabIcon as appMainCurrentCompatSlotLowerXLowerH } from "../../icons/review-tab-icon";
 export { isReviewIndexModeAtom as appMainCurrentCompatSlotLowerXLowerV } from "../../review/review-diff-mode-atoms";
+export { MONTH_MINUTES as appMainCurrentCompatSlotLowerXLowerC } from "../../utils/rate-limit-status/windows";
+export { syncOpenReviewFileSourceTabs as appMainCurrentCompatSlotLowerXLowerF } from "../../workspace/workspace-file-source-tabs";
+export { worktreeStatusKindAtom as appMainCurrentCompatSlotLowerXLowerN } from "../../conversations/worktree-status-runtime";
+export { timeMillisecond as appMainCurrentCompatSlotLowerXUpperS } from "d3-time";
+export { hasUnknownAmbientSuggestionAppIcon as appMainCurrentCompatSlotLowerXLowerY } from "../../connectors/ambient-suggestion-apps";
 
 export {
-  x as appMainCurrentCompatSlotLowerX,
-  xb as appMainCurrentCompatSlotLowerXLowerB,
-  xc as appMainCurrentCompatSlotLowerXLowerC,
   xd as appMainCurrentCompatSlotLowerXLowerD,
-  xf as appMainCurrentCompatSlotLowerXLowerF,
   xg as appMainCurrentCompatSlotLowerXLowerG,
   xm as appMainCurrentCompatSlotLowerXLowerM,
-  xn as appMainCurrentCompatSlotLowerXLowerN,
   xp as appMainCurrentCompatSlotLowerXLowerP,
-  xS as appMainCurrentCompatSlotLowerXUpperS,
   xt as appMainCurrentCompatSlotLowerXLowerT,
   xu as appMainCurrentCompatSlotLowerXLowerU,
-  xy as appMainCurrentCompatSlotLowerXLowerY,
 } from "../app-main-legacy-buw-compat-bundle";
