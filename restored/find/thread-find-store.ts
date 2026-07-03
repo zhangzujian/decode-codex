@@ -8,6 +8,7 @@ import {
   findActiveMatchIndexAtom,
   findBrowserStatusAtom,
   findBrowserTargetAtom,
+  findPreferredDomainAtom,
   findLoadingAtom,
   findOpenAtom,
   findQueryAtom,
@@ -16,7 +17,6 @@ import {
 import {
   findActiveOrchestrationAtom,
   findDefaultOrchestrationAtom,
-  findPreferredDomainAtom,
   getThreadFindController,
 } from "../boundaries/onboarding-commons-externals.facade";
 

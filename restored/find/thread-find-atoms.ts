@@ -1,6 +1,15 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // App-scope atoms backing the thread find bar across conversation, diff, and browser domains.
-import { appScopeRoot, createAppScopeSignal } from "../boundaries/app-scope";
+import {
+  _appScopeC as createComputedSignal,
+  appScopeRoot,
+  createAppScopeSignal,
+} from "../boundaries/app-scope";
+import {
+  activeAppShellFocusAreaSignal,
+  rightPanelOpenSignal,
+} from "../app-shell/app-shell-state";
+import { rightAppShellTabController } from "../app-shell/app-shell-tab-controller";
 
 export type ThreadFindDomain = "conversation" | "diff" | "browser";
 
@@ -31,10 +40,28 @@ export const emptyFindBrowserStatus: ThreadFindBrowserStatus = {
   query: "",
 };
 
+type SignalReader = {
+  get<TValue>(signal: unknown, key?: unknown): TValue;
+};
+
 export const findOpenAtom = createAppScopeSignal<boolean>(appScopeRoot, false);
 export const findActiveDomainAtom = createAppScopeSignal<ThreadFindDomain>(
   appScopeRoot,
   "conversation",
+);
+export const findPreferredDomainAtom = createAppScopeSignal<ThreadFindDomain>(
+  appScopeRoot,
+  "conversation",
+);
+export const findEffectiveDomainAtom = createComputedSignal<ThreadFindDomain>(
+  appScopeRoot,
+  ({ get }: SignalReader) =>
+    get<string | null>(activeAppShellFocusAreaSignal) === "right-panel" &&
+    get<boolean>(rightPanelOpenSignal) &&
+    get<{ tabId?: string } | null>(rightAppShellTabController.activeTab$)
+      ?.tabId === "diff"
+      ? "diff"
+      : get(findPreferredDomainAtom),
 );
 export const findQueryAtom = createAppScopeSignal<string>(appScopeRoot, "");
 export const findResultAtom = createAppScopeSignal<ThreadFindResult | null>(

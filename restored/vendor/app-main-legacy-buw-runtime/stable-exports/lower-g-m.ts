@@ -80,6 +80,7 @@ export { setThreadArchivedTool as legacyAppMainBuwLowerJLowerHExport } from "../
 export { readThreadTurnsTool as legacyAppMainBuwLowerKLowerHExport } from "../../../threads/thread-dynamic-tools/read-thread-turns-tool";
 
 export { findActiveDomainAtom } from "../../../find/thread-find-atoms";
+export { findEffectiveDomainAtom as legacyAppMainBuwLowerKLowerGExport } from "../../../find/thread-find-atoms";
 export { quantileSorted as legacyAppMainBuwLowerJUpperSExport } from "d3-array";
 export { range as legacyAppMainBuwLowerKUpperSExport } from "d3-array";
 export { stackOffsetExpand as legacyAppMainBuwLowerJLowerXExport } from "d3-shape";
@@ -154,6 +155,10 @@ export {
   initAppShellBottomPanelHeightSubscriberContextChunk as legacyAppMainBuwLowerGLowerDExport,
 } from "../../../app-shell/bottom-panel-height-subscriber-context";
 export { rightTerminalPanelOpenSignal as legacyAppMainBuwLowerHUnderscoreExport } from "../../../terminal/terminal-panel-signals";
+export {
+  initTerminalPanelRoutingChunk as legacyAppMainBuwLowerLUnderscoreExport,
+  preferredTerminalPanelPlacementSignal as legacyAppMainBuwLowerMUnderscoreExport,
+} from "../../../terminal/terminal-panel-routing";
 export { requireReactIsRuntime as legacyAppMainBuwLowerHExport } from "../../react-is-runtime";
 export { initConversationActivityGroupingChunk as legacyAppMainBuwLowerHLowerAExport } from "../../../conversations/conversation-activity-grouping-runtime";
 export { buildPriorConversation as legacyAppMainBuwLowerHLowerNExport } from "../../../composer/prior-conversation";
@@ -183,6 +188,7 @@ export {
 } from "../../../review/review-git-metadata";
 export { reviewFileEntriesAtom as legacyAppMainBuwLowerILowerVExport } from "../../../review/review-file-entries";
 export { initImageAttachmentChunk as legacyAppMainBuwLowerILowerMExport } from "../../../image-side-panel/image-attachment";
+export { initMicrophoneInputChunk as legacyAppMainBuwLowerMUpperCExport } from "../../../utils/microphone-input";
 export { initD3ScaleRuntimeChunk as legacyAppMainBuwLowerIUpperSExport } from "../../../utils/d3-chart-scales";
 export { initPullRequestMergedIconChunk as legacyAppMainBuwLowerILowerUExport } from "../../../github/pull-request-status";
 export { initConversationalOnboardingTaskOutputRuntime as legacyAppMainBuwLowerILowerOExport } from "../../../runtime/run-app-action-in-primary-window";
@@ -195,17 +201,13 @@ export {
 
 export {
   k as legacyAppMainBuwLowerKExport,
-  kg as legacyAppMainBuwLowerKLowerGExport,
   kn as legacyAppMainBuwLowerKLowerNExport,
   ks as legacyAppMainBuwLowerKLowerSExport,
   kt as legacyAppMainBuwLowerKLowerTExport,
   kx as legacyAppMainBuwLowerKLowerXExport,
   l as legacyAppMainBuwLowerLExport,
-  l_ as legacyAppMainBuwLowerLUnderscoreExport,
   la as legacyAppMainBuwLowerLLowerAExport,
   m as legacyAppMainBuwLowerMExport,
-  mC as legacyAppMainBuwLowerMUpperCExport,
-  m_ as legacyAppMainBuwLowerMUnderscoreExport,
   ma as legacyAppMainBuwLowerMLowerAExport,
   md as legacyAppMainBuwLowerMLowerDExport,
   mm as legacyAppMainBuwLowerMLowerMExport,

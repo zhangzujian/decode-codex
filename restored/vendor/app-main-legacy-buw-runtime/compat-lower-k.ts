@@ -19,11 +19,11 @@ export { reviewProjectRootAtom as appMainCurrentCompatSlotLowerKLowerV } from ".
 export { overlayHeightCssVariable as appMainCurrentCompatSlotLowerKLowerM } from "../../composer/right-panel-composer-overlay-scroll-reserve";
 export { initSettingsToolDefinitionsChunk as appMainCurrentCompatSlotLowerKLowerO } from "../../settings/settings-tool-definitions";
 export { readThreadTurnsTool as appMainCurrentCompatSlotLowerKLowerH } from "../../threads/thread-dynamic-tools/read-thread-turns-tool";
+export { findEffectiveDomainAtom as appMainCurrentCompatSlotLowerKLowerG } from "../../find/thread-find-atoms";
 
 export {
   k as appMainCurrentCompatSlotLowerK,
   kf as appMainCurrentCompatSlotLowerKLowerF,
-  kg as appMainCurrentCompatSlotLowerKLowerG,
   kn as appMainCurrentCompatSlotLowerKLowerN,
   ks as appMainCurrentCompatSlotLowerKLowerS,
   kt as appMainCurrentCompatSlotLowerKLowerT,

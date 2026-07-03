@@ -24,10 +24,10 @@ export { openAutomationSuggestionTab as appMainCurrentCompatSlotLowerLLowerR } f
 export { initCancelGitActionButtonChunk as appMainCurrentCompatSlotLowerLLowerU } from "../../conversations/cancel-git-action-button";
 export { getThreadReferenceToastMessage as appMainCurrentCompatSlotLowerLLowerN } from "../../composer/submit-toast-messages";
 export { setSettingsSelectedHostId as appMainCurrentCompatSlotLowerLLowerP } from "../../settings/settings-host-context";
+export { initTerminalPanelRoutingChunk as appMainCurrentCompatSlotLowerLUnderscore } from "../../terminal/terminal-panel-routing";
 
 export {
   l as appMainCurrentCompatSlotLowerL,
-  l_ as appMainCurrentCompatSlotLowerLUnderscore,
   la as appMainCurrentCompatSlotLowerLLowerA,
   lb as appMainCurrentCompatSlotLowerLLowerB,
   ly as appMainCurrentCompatSlotLowerLLowerY,

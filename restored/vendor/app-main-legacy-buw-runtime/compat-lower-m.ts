@@ -17,12 +17,12 @@ export { CONVERSATION_DETAIL_STEPS_COMMANDS as appMainCurrentCompatSlotLowerMLow
 export { revealChangedFilesInReviewPanel } from "../../conversations/local-conversation-page-runtime";
 export { requestPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerMLowerS } from "../../runtime/primary-runtime-install-state";
 export { AutomationSaveTooltip as appMainCurrentCompatSlotLowerMLowerR } from "../../automations/automation-save-tooltip";
+export { preferredTerminalPanelPlacementSignal as appMainCurrentCompatSlotLowerMUnderscore } from "../../terminal/terminal-panel-routing";
+export { initMicrophoneInputChunk as appMainCurrentCompatSlotLowerMUpperC } from "../../utils/microphone-input";
 
 export {
   m as appMainCurrentCompatSlotLowerM,
-  m_ as appMainCurrentCompatSlotLowerMUnderscore,
   ma as appMainCurrentCompatSlotLowerMLowerA,
-  mC as appMainCurrentCompatSlotLowerMUpperC,
   md as appMainCurrentCompatSlotLowerMLowerD,
   mf as appMainCurrentCompatSlotLowerMLowerF,
   mm as appMainCurrentCompatSlotLowerMLowerM,
