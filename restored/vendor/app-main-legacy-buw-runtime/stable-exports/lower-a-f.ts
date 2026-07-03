@@ -131,6 +131,17 @@ export { computeBranchMismatch as legacyAppMainBuwLowerBLowerUExport } from "../
 export { filterProjectsForSettingsHost as legacyAppMainBuwLowerDLowerPExport } from "../../../settings/settings-host-context";
 export { formatBranchRef as legacyAppMainBuwLowerDLowerVExport } from "../../../review/review-diff-model";
 export { remapDiffCommentsForHandoff as legacyAppMainBuwLowerELowerOExport } from "../../../conversations/remap-diff-comments-for-handoff";
+export { getCommandKeyBindings as legacyAppMainBuwLowerELowerMExport } from "../../../composer/command-shortcut-bindings";
+export {
+  readReferencedPriorConversations as legacyAppMainBuwLowerDLowerNExport,
+  initReferencedPriorConversationsChunk as legacyAppMainBuwLowerFLowerNExport,
+} from "../../../composer/referenced-prior-conversations";
+export { groupDynamicToolCalls as legacyAppMainBuwLowerFLowerAExport } from "../../../conversations/conversation-activity-grouping/dynamic-tool-call-groups";
+export { collapseToolActivityUnits as legacyAppMainBuwLowerDLowerAExport } from "../../../conversations/conversation-activity-grouping/collapsed-tool-activity";
+export {
+  initConversationItemScrollTargetRuntime as legacyAppMainBuwLowerDLowerTExport,
+  registerConversationItemScrollTarget as legacyAppMainBuwLowerFLowerTExport,
+} from "../../../conversations/scroll-conversation-item-into-view";
 
 export {
   aS as legacyAppMainBuwLowerAUpperSExport,
@@ -159,16 +170,12 @@ export {
   d as legacyAppMainBuwLowerDExport,
   dS as legacyAppMainBuwLowerDUpperSExport,
   d_ as legacyAppMainBuwLowerDUnderscoreExport,
-  da as legacyAppMainBuwLowerDLowerAExport,
   dd as legacyAppMainBuwLowerDLowerDExport,
   dm as legacyAppMainBuwLowerDLowerMExport,
-  dn as legacyAppMainBuwLowerDLowerNExport,
-  dt as legacyAppMainBuwLowerDLowerTExport,
   eS as legacyAppMainBuwLowerEUpperSExport,
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   eg as legacyAppMainBuwLowerELowerGExport,
-  em as legacyAppMainBuwLowerELowerMExport,
   en as legacyAppMainBuwLowerELowerNExport,
   ep as legacyAppMainBuwLowerELowerPExport,
   es as legacyAppMainBuwLowerELowerSExport,
@@ -178,10 +185,7 @@ export {
   f as legacyAppMainBuwLowerFExport,
   fS as legacyAppMainBuwLowerFUpperSExport,
   f_ as legacyAppMainBuwLowerFUnderscoreExport,
-  fa as legacyAppMainBuwLowerFLowerAExport,
   fd as legacyAppMainBuwLowerFLowerDExport,
-  fn as legacyAppMainBuwLowerFLowerNExport,
   fp as legacyAppMainBuwLowerFLowerPExport,
-  ft as legacyAppMainBuwLowerFLowerTExport,
   fu as legacyAppMainBuwLowerFLowerUExport,
 } from "../../app-main-legacy-buw-compat-bundle";

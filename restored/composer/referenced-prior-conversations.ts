@@ -11,6 +11,8 @@ const MAX_THREAD_REFERENCES = 3;
 const THREAD_REFERENCE_LIMIT_EXCEEDED = "thread_reference_limit_exceeded";
 const THREAD_REFERENCE_READ_FAILED = "thread_reference_read_failed";
 
+export function initReferencedPriorConversationsChunk(): void {}
+
 interface TurnContentItem {
   content_type: string;
   text?: string;
