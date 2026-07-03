@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase X compatibility aliases for the legacy app-main/onboarding producer.
 export { initCanvasCubeIconChunk as appMainCurrentCompatSlotUpperXLowerN } from "../../icons/canvas-cube-icon";
+export { initBrowserWindowIconChunk as appMainCurrentCompatSlotUpperX } from "../../icons/browser-window-icon";
 export {
   initAppgenPublicationTermsDisclosureRuntime,
   QueryClientProvider,
@@ -9,7 +10,6 @@ export { OPENAI_PLUGINS_GITHUB_URL as appMainCurrentCompatSlotUpperXLowerC } fro
 export { initMoveThreadToWorktreeChunk as appMainCurrentCompatSlotUpperXLowerA } from "../../conversations/move-thread-to-worktree";
 
 export {
-  X as appMainCurrentCompatSlotUpperX,
   X_ as appMainCurrentCompatSlotUpperXUnderscore,
   Xb as appMainCurrentCompatSlotUpperXLowerB,
   Xd as appMainCurrentCompatSlotUpperXLowerD,

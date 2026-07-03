@@ -9,8 +9,8 @@ export { shouldExpandReviewPanelSignal } from "../../conversations/local-convers
 export { ProgressionDonutIcon as appMainCurrentCompatSlotLowerALowerM } from "../../icons/progression-donut-icon";
 export { OpenConfigTomlButton as appMainCurrentCompatSlotLowerALowerX } from "../../composer/open-config-toml-button";
 
+export { getConversationalOnboardingMessagingPluginNames as appMainCurrentCompatSlotLowerA } from "../../onboarding/conversational-onboarding-task-selection";
 export {
-  a as appMainCurrentCompatSlotLowerA,
   a_ as appMainCurrentCompatSlotLowerAUnderscore,
   aa as appMainCurrentCompatSlotLowerALowerA,
   ab as appMainCurrentCompatSlotLowerALowerB,

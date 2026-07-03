@@ -7,6 +7,7 @@ export { UserMessage as appMainCurrentCompatSlotLowerQLowerI } from "../../conve
 export { createWorkspaceFileReader as appMainCurrentCompatSlotLowerQLowerU } from "../../review/workspace-file-reader";
 export { CODEX_IDE_DOCS_URL as appMainCurrentCompatSlotLowerQLowerC } from "../../utils/links-bd-mmkun-d";
 
+export { initInterruptedTurnStateChunk as appMainCurrentCompatSlotLowerQLowerS } from "../../threads/interrupted-turn-state";
 export {
   q as appMainCurrentCompatSlotLowerQ,
   q_ as appMainCurrentCompatSlotLowerQUnderscore,
@@ -21,7 +22,6 @@ export {
   qo as appMainCurrentCompatSlotLowerQLowerO,
   qp as appMainCurrentCompatSlotLowerQLowerP,
   qr as appMainCurrentCompatSlotLowerQLowerR,
-  qs as appMainCurrentCompatSlotLowerQLowerS,
   qS as appMainCurrentCompatSlotLowerQUpperS,
   qt as appMainCurrentCompatSlotLowerQLowerT,
   qv as appMainCurrentCompatSlotLowerQLowerV,

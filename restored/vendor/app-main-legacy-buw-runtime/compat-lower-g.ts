@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase g compatibility aliases for the legacy app-main/onboarding producer.
+export { normalizeLocale as appMainCurrentCompatSlotLowerGLowerG } from "../../i18n/locale-resolver";
 export {
   openThreadBrowserSidePanelTab,
   SidebarRowProjectLabel,
@@ -20,7 +21,6 @@ export {
   g_ as appMainCurrentCompatSlotLowerGUnderscore,
   gd as appMainCurrentCompatSlotLowerGLowerD,
   gf as appMainCurrentCompatSlotLowerGLowerF,
-  gg as appMainCurrentCompatSlotLowerGLowerG,
   gi as appMainCurrentCompatSlotLowerGLowerI,
   gn as appMainCurrentCompatSlotLowerGLowerN,
   gp as appMainCurrentCompatSlotLowerGLowerP,

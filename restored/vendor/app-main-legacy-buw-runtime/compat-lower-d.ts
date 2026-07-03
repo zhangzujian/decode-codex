@@ -9,13 +9,13 @@ export { getLatestRateLimitResetAt as appMainCurrentCompatSlotLowerDLowerC } fro
 export { cancelPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerDLowerS } from "../../runtime/primary-runtime-install-state";
 export { pendingPastedTextAttachmentCountStore as appMainCurrentCompatSlotLowerDLowerO } from "../../conversations/thread-handoff-composer-status";
 
+export { getLocaleLanguageDisplayName as appMainCurrentCompatSlotLowerDLowerG } from "../../i18n/locale-resolver";
 export {
   d as appMainCurrentCompatSlotLowerD,
   d_ as appMainCurrentCompatSlotLowerDUnderscore,
   da as appMainCurrentCompatSlotLowerDLowerA,
   db as appMainCurrentCompatSlotLowerDLowerB,
   dd as appMainCurrentCompatSlotLowerDLowerD,
-  dg as appMainCurrentCompatSlotLowerDLowerG,
   dh as appMainCurrentCompatSlotLowerDLowerH,
   di as appMainCurrentCompatSlotLowerDLowerI,
   dm as appMainCurrentCompatSlotLowerDLowerM,

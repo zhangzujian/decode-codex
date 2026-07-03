@@ -3,6 +3,7 @@
 export { initCirclePlayIconChunk as appMainCurrentCompatSlotLowerFLowerH } from "../../icons/play-circle";
 export { cleanupDictationTranscript as appMainCurrentCompatSlotLowerFUpperC } from "../../utils/transcribe-audio/responses-cleanup";
 
+export { initLocaleResolverChunk as appMainCurrentCompatSlotLowerFLowerG } from "../../i18n/locale-resolver";
 export {
   initFolderIconChunk,
   getBrowserTabIdForSidePanelOpen,
@@ -22,7 +23,6 @@ export {
   f_ as appMainCurrentCompatSlotLowerFUnderscore,
   fa as appMainCurrentCompatSlotLowerFLowerA,
   fd as appMainCurrentCompatSlotLowerFLowerD,
-  fg as appMainCurrentCompatSlotLowerFLowerG,
   fi as appMainCurrentCompatSlotLowerFLowerI,
   fn as appMainCurrentCompatSlotLowerFLowerN,
   fp as appMainCurrentCompatSlotLowerFLowerP,

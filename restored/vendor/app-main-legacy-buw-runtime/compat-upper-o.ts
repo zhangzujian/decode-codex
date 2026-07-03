@@ -11,8 +11,8 @@ export { selectRateLimitAlert as appMainCurrentCompatSlotUpperOLowerC } from "..
 export { WRITE_SETTINGS_TOOL_NAME as appMainCurrentCompatSlotUpperOLowerO } from "../../settings/settings-tool-definitions";
 export { buildAppgenAccessPolicyWithoutUser as appMainCurrentCompatSlotUpperOLowerS } from "../../utils/appgen-access";
 
+export { cancelActiveConversationalOnboardingForHost as appMainCurrentCompatSlotUpperO } from "../../onboarding/conversational-onboarding-cancel-for-host";
 export {
-  O as appMainCurrentCompatSlotUpperO,
   Oa as appMainCurrentCompatSlotUpperOLowerA,
   Ob as appMainCurrentCompatSlotUpperOLowerB,
   Od as appMainCurrentCompatSlotUpperOLowerD,

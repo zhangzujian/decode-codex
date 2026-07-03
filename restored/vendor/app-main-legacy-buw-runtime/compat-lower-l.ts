@@ -15,17 +15,17 @@ export { userSavedConfigQueryOptions as appMainCurrentCompatSlotLowerLLowerX } f
 export { initUseRecordingWaveformChunk as appMainCurrentCompatSlotLowerLUpperC } from "../../utils/use-recording-waveform";
 export { getThreadHandoffComposerDisabledReason as appMainCurrentCompatSlotLowerLLowerO } from "../../conversations/thread-handoff-composer-status";
 
+export { resolveLocale as appMainCurrentCompatSlotLowerLLowerG } from "../../i18n/locale-resolver";
+export { primaryRuntimeInstallReleaseSignal as appMainCurrentCompatSlotLowerLLowerS } from "../../runtime/primary-runtime-install-state";
 export {
   l as appMainCurrentCompatSlotLowerL,
   l_ as appMainCurrentCompatSlotLowerLUnderscore,
   la as appMainCurrentCompatSlotLowerLLowerA,
   lb as appMainCurrentCompatSlotLowerLLowerB,
-  lg as appMainCurrentCompatSlotLowerLLowerG,
   li as appMainCurrentCompatSlotLowerLLowerI,
   ln as appMainCurrentCompatSlotLowerLLowerN,
   lp as appMainCurrentCompatSlotLowerLLowerP,
   lr as appMainCurrentCompatSlotLowerLLowerR,
-  ls as appMainCurrentCompatSlotLowerLLowerS,
   lS as appMainCurrentCompatSlotLowerLUpperS,
   lu as appMainCurrentCompatSlotLowerLLowerU,
   ly as appMainCurrentCompatSlotLowerLLowerY,

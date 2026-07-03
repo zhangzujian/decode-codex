@@ -8,8 +8,8 @@ export { getConversationPanelLayoutSnapshot } from "../../conversations/fork-con
 export { initUseDictationRuntimeChunk as appMainCurrentCompatSlotLowerIUpperC } from "../../features/use-dictation";
 export { primaryRuntimeInstallStatusMessage as appMainCurrentCompatSlotLowerILowerS } from "../../runtime/primary-runtime-install-status-message";
 
+export { getConversationalOnboardingTaskPluginName as appMainCurrentCompatSlotLowerI } from "../../onboarding/conversational-onboarding-task-registry";
 export {
-  i as appMainCurrentCompatSlotLowerI,
   i_ as appMainCurrentCompatSlotLowerIUnderscore,
   ia as appMainCurrentCompatSlotLowerILowerA,
   ib as appMainCurrentCompatSlotLowerILowerB,

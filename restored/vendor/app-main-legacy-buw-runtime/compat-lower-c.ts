@@ -4,6 +4,8 @@ export { useRecordingWaveform as appMainCurrentCompatSlotLowerCUpperC } from "..
 
 export { areArraysEqual } from "../../utils/are-arrays-equal";
 
+export { DEFAULT_LOCALE as appMainCurrentCompatSlotLowerCLowerG } from "../../i18n/locale-resolver";
+export { mapConversationalOnboardingTasksToAppPlugins as appMainCurrentCompatSlotLowerC } from "../../onboarding/conversational-onboarding-task-selection";
 export {
   openThreadMcpAppSidePanelTab,
   ThreadRowEnvironmentMeta,
@@ -15,12 +17,10 @@ export { isPrimaryRuntimeInstallProgressPhase as appMainCurrentCompatSlotLowerCL
 export { adjustPendingPastedTextAttachmentCount as appMainCurrentCompatSlotLowerCLowerO } from "../../conversations/thread-handoff-composer-status";
 
 export {
-  c as appMainCurrentCompatSlotLowerC,
   c_ as appMainCurrentCompatSlotLowerCUnderscore,
   ca as appMainCurrentCompatSlotLowerCLowerA,
   cb as appMainCurrentCompatSlotLowerCLowerB,
   cd as appMainCurrentCompatSlotLowerCLowerD,
-  cg as appMainCurrentCompatSlotLowerCLowerG,
   ch as appMainCurrentCompatSlotLowerCLowerH,
   ci as appMainCurrentCompatSlotLowerCLowerI,
   cn as appMainCurrentCompatSlotLowerCLowerN,

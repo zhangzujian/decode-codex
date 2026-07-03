@@ -10,8 +10,8 @@ export { OPENAI_APPS_SDK_DOCS_URL as appMainCurrentCompatSlotUpperILowerC } from
 export { trackConversationalOnboardingAccessDenied as appMainCurrentCompatSlotUpperILowerS } from "../../onboarding/conversational-onboarding-access-analytics";
 export { handleSetThreadPinned as appMainCurrentCompatSlotUpperILowerA } from "../../conversations/thread-management-tool-handlers";
 
+export { setConversationalOnboardingPermissionStatus as appMainCurrentCompatSlotUpperI } from "../../onboarding/conversational-onboarding-workflow-state";
 export {
-  I as appMainCurrentCompatSlotUpperI,
   Ib as appMainCurrentCompatSlotUpperILowerB,
   IC as appMainCurrentCompatSlotUpperIUpperC,
   Id as appMainCurrentCompatSlotUpperILowerD,

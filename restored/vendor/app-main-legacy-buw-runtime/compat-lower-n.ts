@@ -3,6 +3,7 @@
 export { initPullRequestOpenIconChunk as appMainCurrentCompatSlotLowerNLowerU } from "../../icons/pull-request-open-icon";
 export { initUnselectedCircleIconChunk as appMainCurrentCompatSlotLowerNLowerC } from "../../icons/unselected-circle-icon";
 
+export { initConversationalOnboardingTaskIconChunk as appMainCurrentCompatSlotLowerN } from "../../onboarding/conversational-onboarding-task-icon";
 export {
   liveMcpAppFrameSignal,
   composeEventHandlers,
@@ -12,7 +13,6 @@ export {
 export { initWarningContextRuntime } from "../../runtime/app-main-new-thread-runtime";
 
 export {
-  n as appMainCurrentCompatSlotLowerN,
   n_ as appMainCurrentCompatSlotLowerNUnderscore,
   na as appMainCurrentCompatSlotLowerNLowerA,
   nb as appMainCurrentCompatSlotLowerNLowerB,

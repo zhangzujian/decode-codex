@@ -5,6 +5,7 @@ export { XcodeLicenseWarningIcon as appMainCurrentCompatSlotUpperGLowerO } from 
 
 export { scrollMatchIntoView as appMainCurrentCompatSlotUpperGLowerU } from "../../review/review-scroll-into-view";
 
+export { initClientThreadScopeProviderChunk as appMainCurrentCompatSlotUpperGLowerS } from "../../onboarding/client-thread-scope-provider";
 export {
   ThreadRow,
   projectGroupRepositoryDataSignal,
@@ -25,7 +26,6 @@ export {
   Gn as appMainCurrentCompatSlotUpperGLowerN,
   Gp as appMainCurrentCompatSlotUpperGLowerP,
   Gr as appMainCurrentCompatSlotUpperGLowerR,
-  Gs as appMainCurrentCompatSlotUpperGLowerS,
   GS as appMainCurrentCompatSlotUpperGUpperS,
   Gt as appMainCurrentCompatSlotUpperGLowerT,
   Gx as appMainCurrentCompatSlotUpperGLowerX,

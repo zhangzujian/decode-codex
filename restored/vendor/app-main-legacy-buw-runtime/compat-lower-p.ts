@@ -2,6 +2,7 @@
 // Lowercase p compatibility aliases for the legacy app-main/onboarding producer.
 export { getMicrophoneInputStream as appMainCurrentCompatSlotLowerPUpperC } from "../../utils/microphone-input";
 
+export { isEnglishLocale as appMainCurrentCompatSlotLowerPLowerG } from "../../i18n/locale-resolver";
 export {
   initThreadSidePanelTabsChunk,
   readProjectSignal,
@@ -20,7 +21,6 @@ export {
   pa as appMainCurrentCompatSlotLowerPLowerA,
   pd as appMainCurrentCompatSlotLowerPLowerD,
   pf as appMainCurrentCompatSlotLowerPLowerF,
-  pg as appMainCurrentCompatSlotLowerPLowerG,
   ph as appMainCurrentCompatSlotLowerPLowerH,
   pi as appMainCurrentCompatSlotLowerPLowerI,
   pm as appMainCurrentCompatSlotLowerPLowerM,

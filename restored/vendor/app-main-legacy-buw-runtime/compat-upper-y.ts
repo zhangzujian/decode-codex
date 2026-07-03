@@ -4,6 +4,7 @@ export { CanvasCubeIcon as appMainCurrentCompatSlotUpperYLowerN } from "../../ic
 
 export { MentionMetadataSync as appMainCurrentCompatSlotUpperYLowerI } from "../../composer/mention-metadata-sync";
 
+export { BrowserWindowIcon as appMainCurrentCompatSlotUpperY } from "../../icons/browser-window-icon";
 export {
   ThreadRowHoverActions,
   hasSeenAppgenPublicationTermsDisclosureSignal,
@@ -17,7 +18,6 @@ export { parseHttpsUrl as appMainCurrentCompatSlotUpperYLowerO } from "../../con
 export { moveThreadToWorktree as appMainCurrentCompatSlotUpperYLowerA } from "../../conversations/move-thread-to-worktree";
 
 export {
-  Y as appMainCurrentCompatSlotUpperY,
   Y_ as appMainCurrentCompatSlotUpperYUnderscore,
   Yb as appMainCurrentCompatSlotUpperYLowerB,
   Yf as appMainCurrentCompatSlotUpperYLowerF,

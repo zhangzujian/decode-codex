@@ -8,6 +8,8 @@ export { transcribeAudio as appMainCurrentCompatSlotLowerUUpperC } from "../../u
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../threads/thread-actions";
 
+export { isConversationalOnboardingMessagingTask as appMainCurrentCompatSlotLowerU } from "../../onboarding/conversational-onboarding-task-registry";
+export { getSupportedLocales as appMainCurrentCompatSlotLowerULowerG } from "../../i18n/locale-resolver";
 export {
   initExternalAgentImportStatusIconsChunk,
   initCommandExecutionTextRuntime,
@@ -20,11 +22,9 @@ export { primaryRuntimeInstallStatusSignal as appMainCurrentCompatSlotLowerULowe
 export { initThreadHandoffComposerStatusChunk as appMainCurrentCompatSlotLowerULowerO } from "../../conversations/thread-handoff-composer-status";
 
 export {
-  u as appMainCurrentCompatSlotLowerU,
   u_ as appMainCurrentCompatSlotLowerUUnderscore,
   ua as appMainCurrentCompatSlotLowerULowerA,
   ub as appMainCurrentCompatSlotLowerULowerB,
-  ug as appMainCurrentCompatSlotLowerULowerG,
   ui as appMainCurrentCompatSlotLowerULowerI,
   un as appMainCurrentCompatSlotLowerULowerN,
   up as appMainCurrentCompatSlotLowerULowerP,

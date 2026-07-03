@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase v compatibility aliases for the legacy app-main/onboarding producer.
+export { conversationalOnboardingTaskScope as appMainCurrentCompatSlotLowerV } from "../../onboarding/conversational-onboarding-task-scope";
 export {
   isUncPath,
   openThreadBrowserSidePanelTabWithoutAnimation,
@@ -16,7 +17,6 @@ export { AppgenAccessStateIcon as appMainCurrentCompatSlotLowerVLowerS } from ".
 export { initHotkeyWindowContextChunk as appMainCurrentCompatSlotLowerVLowerA } from "../../utils/is-hotkey-window-context";
 
 export {
-  v as appMainCurrentCompatSlotLowerV,
   vd as appMainCurrentCompatSlotLowerVLowerD,
   vf as appMainCurrentCompatSlotLowerVLowerF,
   vg as appMainCurrentCompatSlotLowerVLowerG,

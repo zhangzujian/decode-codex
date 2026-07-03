@@ -2,6 +2,7 @@
 // Lowercase s compatibility aliases for the legacy app-main/onboarding producer.
 export { initCursorIconChunk as appMainCurrentCompatSlotLowerSLowerA } from "../../icons/cursor-icon";
 
+export { getConversationalOnboardingTaskOption as appMainCurrentCompatSlotLowerS } from "../../onboarding/conversational-onboarding-task-registry";
 export {
   getThreadMcpAppSidePanelTabId,
   SidebarRowShortcutScope,
@@ -16,7 +17,6 @@ export { initOpenConfigInEditorChunk as appMainCurrentCompatSlotLowerSLowerX } f
 export { initPrimaryRuntimeInstallStateChunk as appMainCurrentCompatSlotLowerSLowerS } from "../../runtime/primary-runtime-install-state";
 
 export {
-  s as appMainCurrentCompatSlotLowerS,
   s_ as appMainCurrentCompatSlotLowerSUnderscore,
   sb as appMainCurrentCompatSlotLowerSLowerB,
   sC as appMainCurrentCompatSlotLowerSUpperC,

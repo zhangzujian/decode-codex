@@ -3,6 +3,8 @@
 export { HomepageLogoIcon as appMainCurrentCompatSlotUpperQLowerF } from "../../icons/homepage-logo-icon";
 export { initShieldCodeIconChunk as appMainCurrentCompatSlotUpperQLowerO } from "../../icons/shield-code-icon";
 
+export { initUploadIconChunk as appMainCurrentCompatSlotUpperQ } from "../../icons/upload-icon";
+export { initConversationalOnboardingStreamingIntroChunk as appMainCurrentCompatSlotUpperQLowerS } from "../../onboarding/conversational-onboarding-streaming-intro";
 export {
   SidebarTaskRowActions,
   SidebarTaskRowTitle,
@@ -13,7 +15,6 @@ export { CODEX_SKILLS_DOCS_URL as appMainCurrentCompatSlotUpperQLowerC } from ".
 export { initMoveThreadToHostWorktreeChunk as appMainCurrentCompatSlotUpperQLowerA } from "../../conversations/move-thread-to-host-worktree";
 
 export {
-  Q as appMainCurrentCompatSlotUpperQ,
   Q_ as appMainCurrentCompatSlotUpperQUnderscore,
   Qb as appMainCurrentCompatSlotUpperQLowerB,
   Qd as appMainCurrentCompatSlotUpperQLowerD,
@@ -23,7 +24,6 @@ export {
   Qm as appMainCurrentCompatSlotUpperQLowerM,
   Qn as appMainCurrentCompatSlotUpperQLowerN,
   Qr as appMainCurrentCompatSlotUpperQLowerR,
-  Qs as appMainCurrentCompatSlotUpperQLowerS,
   QS as appMainCurrentCompatSlotUpperQUpperS,
   Qt as appMainCurrentCompatSlotUpperQLowerT,
   Qu as appMainCurrentCompatSlotUpperQLowerU,

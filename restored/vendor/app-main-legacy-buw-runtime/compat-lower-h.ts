@@ -2,6 +2,7 @@
 // Lowercase h compatibility aliases for the legacy app-main/onboarding producer.
 export { DocumentSearchIcon as appMainCurrentCompatSlotLowerHLowerY } from "../../icons/document-search-icon";
 
+export { loadLocaleMessages as appMainCurrentCompatSlotLowerHLowerG } from "../../i18n/locale-resolver";
 export {
   openThreadBranchReviewSidePanelTab,
   SidebarRowHostLabel,
@@ -22,7 +23,6 @@ export {
   hb as appMainCurrentCompatSlotLowerHLowerB,
   hd as appMainCurrentCompatSlotLowerHLowerD,
   hf as appMainCurrentCompatSlotLowerHLowerF,
-  hg as appMainCurrentCompatSlotLowerHLowerG,
   hh as appMainCurrentCompatSlotLowerHLowerH,
   hi as appMainCurrentCompatSlotLowerHLowerI,
   hn as appMainCurrentCompatSlotLowerHLowerN,

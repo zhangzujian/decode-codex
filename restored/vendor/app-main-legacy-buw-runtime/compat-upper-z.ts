@@ -11,8 +11,8 @@ export { CODEX_SANDBOXING_DOCS_URL as appMainCurrentCompatSlotUpperZLowerC } fro
 export { ConversationalOnboardingStreamingIntro as appMainCurrentCompatSlotUpperZLowerS } from "../../onboarding/conversational-onboarding-streaming-intro";
 export { moveThreadToLocal as appMainCurrentCompatSlotUpperZLowerA } from "../../conversations/move-thread-to-local";
 
+export { UploadIcon as appMainCurrentCompatSlotUpperZ } from "../../icons/upload-icon";
 export {
-  Z as appMainCurrentCompatSlotUpperZ,
   Z_ as appMainCurrentCompatSlotUpperZUnderscore,
   Zb as appMainCurrentCompatSlotUpperZLowerB,
   Zd as appMainCurrentCompatSlotUpperZLowerD,
