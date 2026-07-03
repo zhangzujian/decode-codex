@@ -11,6 +11,7 @@ export { openConfigInEditor as legacyAppMainBuwLowerCLowerXExport } from "../../
 export { fetchIdeContext as legacyAppMainBuwLowerBUpperCExport } from "../../../composer/composer-utils";
 
 export { useRecordingWaveform as legacyAppMainBuwLowerCUpperCExport } from "../../../utils/use-recording-waveform/use-recording-waveform";
+export { getToolConnectorId as legacyAppMainBuwLowerALowerDExport } from "../../../plugins/mcp-tool-item-content-utils";
 
 export { formatHookEventName as legacyAppMainBuwLowerELowerAExport } from "../../../settings/hooks-settings-copy";
 
@@ -93,6 +94,7 @@ export {
   adjustPendingPastedTextAttachmentCount as legacyAppMainBuwLowerCLowerOExport,
   pendingPastedTextAttachmentCountStore as legacyAppMainBuwLowerDLowerOExport,
 } from "../../../conversations/thread-handoff-composer-status";
+export { interruptSourceThreadIfRunning as legacyAppMainBuwLowerALowerOExport } from "../../../conversations/interrupt-source-thread";
 export { CheckCircleIcon as legacyAppMainBuwLowerALowerCExport } from "../../../icons/check-circle-icon";
 export { LockIcon as legacyAppMainBuwLowerBLowerSExport } from "../../../icons/lock-icon";
 export { CirclePlayIcon as legacyAppMainBuwLowerDLowerHExport } from "../../../icons/circle-play-icon";
@@ -108,12 +110,10 @@ export {
   aS as legacyAppMainBuwLowerAUpperSExport,
   aa as legacyAppMainBuwLowerALowerAExport,
   ab as legacyAppMainBuwLowerALowerBExport,
-  ad as legacyAppMainBuwLowerALowerDExport,
   af as legacyAppMainBuwLowerALowerFExport,
   ag as legacyAppMainBuwLowerALowerGExport,
   ah as legacyAppMainBuwLowerALowerHExport,
   an as legacyAppMainBuwLowerALowerNExport,
-  ao as legacyAppMainBuwLowerALowerOExport,
   as as legacyAppMainBuwLowerALowerSExport,
   at as legacyAppMainBuwLowerALowerTExport,
   au as legacyAppMainBuwLowerALowerUExport,

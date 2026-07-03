@@ -62,6 +62,7 @@ export { createPendingWorktree } from "../../../runtime/conversation-fork-runtim
 export { useSensors as ThreadRowArchiveAction } from "../../dnd-kit-core";
 export { openInCodex as legacyAppMainBuwUpperNLowerOExport } from "../../../runtime/open-in-codex-tool";
 export { parseUnixSeconds as legacyAppMainBuwUpperNLowerCExport } from "../../../utils/rate-limit-status/windows";
+export { shouldShowApplicationMenu as legacyAppMainBuwUpperNLowerDExport } from "../../../app-shell/application-menu-availability";
 export { selectRateLimitAlert as legacyAppMainBuwUpperOLowerCExport } from "../../../utils/rate-limit-status/windows";
 export {
   CHATGPT_ADMIN_BILLING_ADD_CREDITS_URL,
@@ -82,23 +83,22 @@ export {
   handleReadThread as legacyAppMainBuwUpperNLowerAExport,
   handleSendMessageToThread as legacyAppMainBuwUpperPLowerAExport,
 } from "../../../conversations/thread-management-tool-handlers";
+export { useDiffCommentSources as legacyAppMainBuwUpperNLowerFExport } from "../../../github/diff-comments/use-diff-comment-sources";
 export { MiddleTruncatedText as legacyAppMainBuwUpperPLowerLExport } from "../../../ui/middle-truncated-text";
 export { RegenerateIcon as legacyAppMainBuwUpperPUpperCExport } from "../../../icons/regenerate-icon";
 export { initStopIconChunk as legacyAppMainBuwUpperNUpperCExport } from "../../../icons/stop-icon";
 export { WhitespaceEyeIcon as legacyAppMainBuwUpperOLowerLExport } from "../../../icons/whitespace-eye-icon";
 export { findLocalConversationTextMatches as legacyAppMainBuwUpperQLowerGExport } from "../../../runtime/conversation-search-runtime";
 export { groupConversationSearchMatchesByContentUnitKey as legacyAppMainBuwUpperRLowerFExport } from "../../../runtime/conversation-search-runtime";
+export { initBrowserUseOriginStateQueriesChunk as legacyAppMainBuwUpperNLowerPExport } from "../../../browser/browser-use-origin-state-queries";
 export { selectConversationalOnboardingRole as legacyAppMainBuwUpperPExport } from "../../../onboarding/conversational-onboarding-workflow-state";
 
 export {
   NS as legacyAppMainBuwUpperNUpperSExport,
   Nb as legacyAppMainBuwUpperNLowerBExport,
-  Nd as legacyAppMainBuwUpperNLowerDExport,
-  Nf as legacyAppMainBuwUpperNLowerFExport,
   Nh as legacyAppMainBuwUpperNLowerHExport,
   Nl as legacyAppMainBuwUpperNLowerLExport,
   Nm as legacyAppMainBuwUpperNLowerMExport,
-  Np as legacyAppMainBuwUpperNLowerPExport,
   Nt as legacyAppMainBuwUpperNLowerTExport,
   Nu as legacyAppMainBuwUpperNLowerUExport,
   Nv as legacyAppMainBuwUpperNLowerVExport,
