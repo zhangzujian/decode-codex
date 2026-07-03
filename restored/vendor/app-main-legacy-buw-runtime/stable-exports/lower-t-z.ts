@@ -37,6 +37,7 @@ export { appendPromptText as legacyAppMainBuwLowerYUpperCExport } from "../../..
 export { initComposerUtilsChunk as legacyAppMainBuwLowerXUpperCExport } from "../../../composer/composer-utils";
 export { initModelSettingsCoreChunk as legacyAppMainBuwLowerZLowerBExport } from "../../../composer/model-settings-core";
 export { goToNextThreadFindMatch as legacyAppMainBuwLowerZLowerGExport } from "../../../find/thread-find-store";
+export { setActiveReviewFilePath as legacyAppMainBuwLowerXLowerGExport } from "../../../review/review-file-navigation";
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
 export {
@@ -78,7 +79,13 @@ export { SettingsKeyValueRow as legacyAppMainBuwLowerYLowerRExport } from "../..
 export { PullRequestMergeTaskPill as legacyAppMainBuwLowerYLowerTExport } from "../../../conversations/pull-request-merge-task-pill";
 export { openRightThreadPanel as legacyAppMainBuwLowerVLowerHExport } from "../../../app-shell/thread-right-panel-state";
 export { SidebarNavigationControls as legacyAppMainBuwLowerYLowerDExport } from "../../../app-shell/sidebar-navigation-controls";
+export { sidebarUnreadActivityCountSignal as legacyAppMainBuwLowerXLowerDExport } from "../../../app-shell/sidebar-unread-count-signal";
+export { PaperPlaneDuotoneIcon as legacyAppMainBuwLowerYLowerHExport } from "../../../icons/paper-plane-duotone-icon";
 export { MONTH_MINUTES as legacyAppMainBuwLowerXLowerCExport } from "../../../utils/rate-limit-status/windows";
+export {
+  BROWSER_PROFILE_IMPORT_NUX_SEEN_STORAGE_KEY as legacyAppMainBuwLowerXLowerMExport,
+  browserProfileImportNuxSeenAtom as legacyAppMainBuwLowerYLowerMExport,
+} from "../../../browser/browser-profile-import-nux-state";
 
 export {
   initComposeEventHandlersRuntime,
@@ -123,6 +130,10 @@ export { sliceTurnItemsAfterIntro as legacyAppMainBuwLowerZExport } from "../../
 export { CHATGPT_PRICING_HASH_URL as legacyAppMainBuwLowerZLowerCExport } from "../../../utils/links-bd-mmkun-d";
 export { formatRemainingPercent as legacyAppMainBuwLowerWLowerCExport } from "../../../utils/rate-limit-status/formatting";
 export { navigateToCodexPage as legacyAppMainBuwLowerZLowerOExport } from "../../../runtime/navigate-to-codex-page-tool";
+export {
+  CREATE_THREAD_TOOL_NAME as legacyAppMainBuwLowerZLowerAExport,
+  LIST_THREADS_TOOL_NAME as legacyAppMainBuwLowerWLowerAExport,
+} from "../../../conversations/codex-app-tool-names";
 export { buildCodexAppToolNamespace as legacyAppMainBuwLowerXLowerAExport } from "../../../conversations/codex-app-tool-namespace";
 export {
   initHotkeyWindowContextChunk as legacyAppMainBuwLowerVLowerAExport,
@@ -169,6 +180,7 @@ export {
   getAdoptedWebContentsId as legacyAppMainBuwLowerTLowerYExport,
   queueBrowserSidebarTab as legacyAppMainBuwLowerULowerYExport,
 } from "../../../browser/browser-sidebar-open-source";
+export { initBrowserSidebarWebviewChunk as legacyAppMainBuwLowerTLowerPExport } from "../../../browser/sidebar-webview";
 export { selectMcpAppFrameContent as legacyAppMainBuwLowerTLowerFExport } from "../../../plugins/mcp-app-frame-state";
 export { formatFallbackHookTitle as legacyAppMainBuwLowerTLowerAExport } from "../../../settings/hooks-settings-copy";
 export { readServiceTierAuthMethod as legacyAppMainBuwLowerTLowerGExport } from "../../../utils/read-service-tier-for-request";
@@ -199,21 +211,13 @@ export {
   isReviewIndexModeAtom as legacyAppMainBuwLowerXLowerVExport,
 } from "../../../review/review-diff-mode-atoms";
 export { PushToolbarButton as legacyAppMainBuwLowerWLowerGExport } from "../../../conversations/git-actions-review-toolbar";
+export { initSidebarPanelClosedIconChunk as legacyAppMainBuwLowerWLowerDExport } from "../../../icons/sidebar-panel-icons";
 export { applyAbsolutePosition as legacyAppMainBuwLowerZLowerTExport } from "../../../image-side-panel/paged-annotation-overlay-geometry";
 
 export {
   tn as legacyAppMainBuwLowerTLowerNExport,
-  tp as legacyAppMainBuwLowerTLowerPExport,
-  wa as legacyAppMainBuwLowerWLowerAExport,
-  wd as legacyAppMainBuwLowerWLowerDExport,
   wo as legacyAppMainBuwLowerWLowerOExport,
-  xd as legacyAppMainBuwLowerXLowerDExport,
-  xg as legacyAppMainBuwLowerXLowerGExport,
-  xm as legacyAppMainBuwLowerXLowerMExport,
   yg as legacyAppMainBuwLowerYLowerGExport,
-  yh as legacyAppMainBuwLowerYLowerHExport,
-  ym as legacyAppMainBuwLowerYLowerMExport,
-  za as legacyAppMainBuwLowerZLowerAExport,
   zd as legacyAppMainBuwLowerZLowerDExport,
   zh as legacyAppMainBuwLowerZLowerHExport,
   zl as legacyAppMainBuwLowerZLowerLExport,
