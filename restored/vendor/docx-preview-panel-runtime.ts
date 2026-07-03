@@ -106,21 +106,15 @@ import {
   pointerDragMoved as ze,
   readDocxElementAnnotationAnchorAtPoint as dt,
   readDocxTextSelectionAnchor as ut,
-  rectFromPoints as Ve,
   resolveDocxAnnotationSessionState,
-  DocxAnnotationHighlightRect,
   DocxAnnotationEditorOverlay,
-  DocxAnnotationSelectionRect,
-  DocxAskForEditOverlay,
-  DocxCommentMarkerOverlay,
-  DocxCommentPreviewOverlay,
-  DocxDraftCommentMarkerOverlay,
+  DocxPageAnnotationLayerContent,
   useDocxPageNavigation as zt,
   useDocxPreviewRenderState as X,
   useDocxPreviewZoom as Nt,
 } from "../features/documents/docx-preview-panel";
 function Tt(e) {
-  let t = (0, Ot.c)(244),
+  let t = (0, Ot.c)(254),
     {
       comments: n,
       conversationId: i,
@@ -834,119 +828,6 @@ function Tt(e) {
       (t[178] = Xt))
     : ((Yt = t[177]), (Xt = t[178]));
   let Zt;
-  if (t[179] !== F || t[180] !== A || t[181] !== S) {
-    let e;
-    (t[183] !== A || t[184] !== S
-      ? ((e = (e) =>
-          (0, Y.jsx)(
-            DocxCommentMarkerOverlay,
-            {
-              comment: e,
-              isSelected: nt(e) === A,
-              onEdit: (e) => {
-                (se(null), ue(null), me(``), P(!1), N(null), D(null), j(e));
-              },
-              onPreviewChange: N,
-              zoomScale: S,
-            },
-            nt(e),
-          )),
-        (t[183] = A),
-        (t[184] = S),
-        (t[185] = e))
-      : (e = t[185]),
-      (Zt = F.map(e)),
-      (t[179] = F),
-      (t[180] = A),
-      (t[181] = S),
-      (t[182] = Zt));
-  } else Zt = t[182];
-  let Qt;
-  t[186] !== A || t[187] !== L || t[188] !== w
-    ? ((Qt =
-        L == null || A != null
-          ? null
-          : (0, Y.jsx)(DocxCommentPreviewOverlay, { comment: L, layer: w })),
-      (t[186] = A),
-      (t[187] = L),
-      (t[188] = w),
-      (t[189] = Qt))
-    : (Qt = t[189]);
-  let $t;
-  t[190] !== T || t[191] !== A || t[192] !== fe || t[193] !== _
-    ? (($t =
-        fe != null && T == null && A == null
-          ? (0, Y.jsx)(DocxAnnotationHighlightRect, {
-              paddingPx: 4,
-              pageSize: _,
-              rect: fe.rect,
-              testId: `artifact-docx-element-hover-highlight`,
-            })
-          : null),
-      (t[190] = T),
-      (t[191] = A),
-      (t[192] = fe),
-      (t[193] = _),
-      (t[194] = $t))
-    : ($t = t[194]);
-  let en;
-  t[195] !== He ||
-  t[196] !== T ||
-  t[197] !== X ||
-  t[198] !== _ ||
-  t[199] !== E ||
-  t[200] !== S
-    ? ((en =
-        E != null && T == null
-          ? (0, Y.jsx)(DocxAskForEditOverlay, {
-              anchor: E,
-              label: He,
-              pageSize: _,
-              zoomScale: S,
-              onAskForEdit: (e) => X(e, `ask_codex_button`),
-            })
-          : null),
-      (t[195] = He),
-      (t[196] = T),
-      (t[197] = X),
-      (t[198] = _),
-      (t[199] = E),
-      (t[200] = S),
-      (t[201] = en))
-    : (en = t[201]);
-  let tn;
-  t[202] !== k || t[203] !== _
-    ? ((tn =
-        k == null
-          ? null
-          : (0, Y.jsx)(DocxAnnotationSelectionRect, {
-              pageSize: _,
-              rect: Ve(k.start, k.current),
-              testId: `artifact-docx-comment-region-outline`,
-            })),
-      (t[202] = k),
-      (t[203] = _),
-      (t[204] = tn))
-    : (tn = t[204]);
-  let nn;
-  t[205] !== T || t[206] !== le || t[207] !== s || t[208] !== _ || t[209] !== S
-    ? ((nn =
-        T == null
-          ? null
-          : (0, Y.jsx)(DocxDraftCommentMarkerOverlay, {
-              anchor: T,
-              label: s,
-              pageSize: le ?? _,
-              zoomScale: S,
-            })),
-      (t[205] = T),
-      (t[206] = le),
-      (t[207] = s),
-      (t[208] = _),
-      (t[209] = S),
-      (t[210] = nn))
-    : (nn = t[210]);
-  let rn;
   t[211] !== R ||
   t[212] !== H ||
   t[213] !== V ||
@@ -960,7 +841,7 @@ function Tt(e) {
   t[221] !== d ||
   t[222] !== f ||
   t[223] !== p
-    ? ((rn = (0, Y.jsx)(DocxAnnotationEditorOverlay, {
+    ? ((Zt = (0, Y.jsx)(DocxAnnotationEditorOverlay, {
         editorRef: ie,
         inputAriaLabel: Ie,
         placeholder: Le,
@@ -996,29 +877,77 @@ function Tt(e) {
       (t[221] = d),
       (t[222] = f),
       (t[223] = p),
-      (t[224] = rn))
-    : (rn = t[224]);
-  let an;
+      (t[224] = Zt))
+    : (Zt = t[224]);
+  let Qt;
+  t[225] !== F ||
+  t[226] !== A ||
+  t[227] !== L ||
+  t[228] !== w ||
+  t[229] !== fe ||
+  t[230] !== E ||
+  t[231] !== k ||
+  t[232] !== T ||
+  t[233] !== le ||
+  t[234] !== s ||
+  t[235] !== _ ||
+  t[236] !== S ||
+  t[237] !== He ||
+  t[238] !== X ||
+  t[239] !== Zt
+    ? ((Qt = (0, Y.jsx)(DocxPageAnnotationLayerContent, {
+        askForEditAnchor: E,
+        askForEditLabel: He,
+        comments: F,
+        draftAnchor: T,
+        draftPageSize: le,
+        editingCommentKey: A,
+        editorOverlay: Zt,
+        hoverAnchor: fe,
+        layerElement: w,
+        nextCommentNumber: s,
+        pageSize: _,
+        pointerDragState: k,
+        previewComment: L,
+        zoomScale: S,
+        onAskForEdit: (e) => X(e, `ask_codex_button`),
+        onEditComment: (e) => {
+          (se(null), ue(null), me(``), P(!1), N(null), D(null), j(e));
+        },
+        onPreviewCommentChange: N,
+      })),
+      (t[225] = F),
+      (t[226] = A),
+      (t[227] = L),
+      (t[228] = w),
+      (t[229] = fe),
+      (t[230] = E),
+      (t[231] = k),
+      (t[232] = T),
+      (t[233] = le),
+      (t[234] = s),
+      (t[235] = _),
+      (t[236] = S),
+      (t[237] = He),
+      (t[238] = X),
+      (t[239] = Zt),
+      (t[240] = Qt))
+    : (Qt = t[240]);
+  let $t;
   return (
-    t[225] !== Gt ||
-    t[226] !== Bt ||
-    t[227] !== Ht ||
-    t[228] !== Wt ||
-    t[229] !== l ||
-    t[230] !== u ||
-    t[231] !== d ||
-    t[232] !== f ||
-    t[233] !== p ||
-    t[234] !== qt ||
-    t[235] !== Jt ||
-    t[236] !== Zt ||
-    t[237] !== Qt ||
-    t[238] !== $t ||
-    t[239] !== en ||
-    t[240] !== tn ||
-    t[241] !== nn ||
-    t[242] !== rn
-      ? ((an = (0, Y.jsxs)(`div`, {
+    t[241] !== Gt ||
+    t[242] !== Bt ||
+    t[243] !== Ht ||
+    t[244] !== Wt ||
+    t[245] !== l ||
+    t[246] !== u ||
+    t[247] !== d ||
+    t[248] !== f ||
+    t[249] !== p ||
+    t[250] !== qt ||
+    t[251] !== Jt ||
+    t[252] !== Qt
+      ? (($t = (0, Y.jsx)(`div`, {
           ref: re,
           className: qt,
           "data-testid": `artifact-docx-comment-layer`,
@@ -1034,29 +963,23 @@ function Tt(e) {
           onTouchMove: d,
           onTouchStart: f,
           onWheel: p,
-          children: [Zt, Qt, $t, en, tn, nn, rn],
+          children: Qt,
         })),
-        (t[225] = Gt),
-        (t[226] = Bt),
-        (t[227] = Ht),
-        (t[228] = Wt),
-        (t[229] = l),
-        (t[230] = u),
-        (t[231] = d),
-        (t[232] = f),
-        (t[233] = p),
-        (t[234] = qt),
-        (t[235] = Jt),
-        (t[236] = Zt),
-        (t[237] = Qt),
-        (t[238] = $t),
-        (t[239] = en),
-        (t[240] = tn),
-        (t[241] = nn),
-        (t[242] = rn),
-        (t[243] = an))
-      : (an = t[243]),
-    an
+        (t[241] = Gt),
+        (t[242] = Bt),
+        (t[243] = Ht),
+        (t[244] = Wt),
+        (t[245] = l),
+        (t[246] = u),
+        (t[247] = d),
+        (t[248] = f),
+        (t[249] = p),
+        (t[250] = qt),
+        (t[251] = Jt),
+        (t[252] = Qt),
+        (t[253] = $t))
+      : ($t = t[253]),
+    $t
   );
 }
 var Ot,
