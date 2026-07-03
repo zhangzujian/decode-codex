@@ -215,12 +215,12 @@ export { initSidebarPanelClosedIconChunk as legacyAppMainBuwLowerWLowerDExport }
 export { applyAbsolutePosition as legacyAppMainBuwLowerZLowerTExport } from "../../../image-side-panel/paged-annotation-overlay-geometry";
 export { overlayVisibleSignal as legacyAppMainBuwLowerZLowerMExport } from "../../../composer/right-panel-composer-overlay-scroll-reserve";
 export { usePendingWorktrees as legacyAppMainBuwLowerZLowerHExport } from "../../../threads/pending-worktree-store";
+export { initSidebarNavigationSignalsChunk as legacyAppMainBuwLowerZLowerDExport } from "../../../app-shell/sidebar-navigation-signals";
 
 export {
   tn as legacyAppMainBuwLowerTLowerNExport,
   wo as legacyAppMainBuwLowerWLowerOExport,
   yg as legacyAppMainBuwLowerYLowerGExport,
-  zd as legacyAppMainBuwLowerZLowerDExport,
   zl as legacyAppMainBuwLowerZLowerLExport,
   zp as legacyAppMainBuwLowerZLowerPExport,
 } from "../../app-main-legacy-buw-compat-bundle";
