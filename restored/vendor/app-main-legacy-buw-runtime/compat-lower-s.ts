@@ -28,9 +28,7 @@ export { formatComposerSubmitError as appMainCurrentCompatSlotLowerSLowerN } fro
 export { initQueuedFollowUpsStoreChunk as appMainCurrentCompatSlotLowerSLowerD } from "../../utils/queued-follow-ups-store";
 export { initGetMoveToLocalTargetsChunk as appMainCurrentCompatSlotLowerSLowerO } from "../../utils/get-move-to-local-targets";
 export { initPermissionModeSelectionChunk as appMainCurrentCompatSlotLowerSLowerB } from "../../utils/use-permissions-mode/mode-selection";
+export { BackForwardNavigationButtons as appMainCurrentCompatSlotLowerSLowerH } from "../../ui/back-forward-navigation-buttons";
 export { CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME as appMainCurrentCompatSlotLowerSLowerU } from "../../conversations/cancel-git-action-button";
 
-export {
-  sh as appMainCurrentCompatSlotLowerSLowerH,
-  sy as appMainCurrentCompatSlotLowerSLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { sy as appMainCurrentCompatSlotLowerSLowerY } from "../app-main-legacy-buw-compat-bundle";

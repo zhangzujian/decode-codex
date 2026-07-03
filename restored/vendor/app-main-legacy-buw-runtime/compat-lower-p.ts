@@ -4,6 +4,7 @@ export { getMicrophoneInputStream as appMainCurrentCompatSlotLowerPUpperC } from
 
 export { isEnglishLocale as appMainCurrentCompatSlotLowerPLowerG } from "../../i18n/locale-resolver";
 export { getAutomationDestinationOptions as appMainCurrentCompatSlotLowerPLowerI } from "../../automations/shared";
+export { CirclePauseIcon as appMainCurrentCompatSlotLowerPLowerH } from "../../icons/circle-pause-icon";
 
 export {
   initThreadSidePanelTabsChunk,
@@ -29,7 +30,6 @@ export {
   p_ as appMainCurrentCompatSlotLowerPUnderscore,
   pa as appMainCurrentCompatSlotLowerPLowerA,
   pf as appMainCurrentCompatSlotLowerPLowerF,
-  ph as appMainCurrentCompatSlotLowerPLowerH,
   pu as appMainCurrentCompatSlotLowerPLowerU,
   py as appMainCurrentCompatSlotLowerPLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

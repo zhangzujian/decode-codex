@@ -19,12 +19,12 @@ export { useDictationShortcutLabel as appMainCurrentCompatSlotLowerQLowerP } fro
 export { readMaterializedThreadGoalObjective as appMainCurrentCompatSlotLowerQLowerH } from "../../threads/pending-worktree-store/thread-goal-objective-file";
 export { findPendingWorktreeByClientThreadId as appMainCurrentCompatSlotLowerQLowerD } from "../../worktree/pending-worktree-atoms";
 export { initAppShellTabControllerAnalyticsChunk as appMainCurrentCompatSlotLowerQLowerV } from "../../app-shell/app-shell-tab-controller/analytics";
+export { initUseHotkeyChunk as appMainCurrentCompatSlotLowerQLowerM } from "../../utils/use-hotkey";
+export { GoogleResourceKindIcon as appMainCurrentCompatSlotLowerQ } from "../../conversations/google-resource-kind-icon";
 
 export {
-  q as appMainCurrentCompatSlotLowerQ,
   qa as appMainCurrentCompatSlotLowerQLowerA,
   ql as appMainCurrentCompatSlotLowerQLowerL,
-  qm as appMainCurrentCompatSlotLowerQLowerM,
   qo as appMainCurrentCompatSlotLowerQLowerO,
   qt as appMainCurrentCompatSlotLowerQLowerT,
   qy as appMainCurrentCompatSlotLowerQLowerY,

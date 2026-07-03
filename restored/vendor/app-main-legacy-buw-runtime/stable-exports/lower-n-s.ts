@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Stable BUw aliases: lower-n-s.
 export { CursorIcon as legacyAppMainBuwLowerOLowerAExport } from "../../../icons/cursor-icon";
+export { CirclePauseIcon as legacyAppMainBuwLowerPLowerHExport } from "../../../icons/circle-pause-icon";
 export { ImagesIcon as legacyAppMainBuwLowerRLowerTExport } from "../../../icons/images-icon";
 export { RobotIcon as legacyAppMainBuwLowerQLowerNExport } from "../../../icons/robot-icon";
 export { PullRequestMergedIcon as legacyAppMainBuwLowerRLowerUExport } from "../../../github/pull-request-status";
@@ -163,27 +164,26 @@ export { initAppShellTabControllerAnalyticsChunk as legacyAppMainBuwLowerQLowerV
 export { THREAD_HANDOFF_OPERATION_STEP_IDS as legacyAppMainBuwLowerNLowerOExport } from "../../../app-shell/thread-handoff-operations/steps";
 export { initFeedbackFormDialogChunk as legacyAppMainBuwLowerNLowerRExport } from "../../../ui/feedback-form-dialog";
 export { initDurationFormatChunk as legacyAppMainBuwLowerNLowerSExport } from "../../../utils/duration-format";
+export { initUseHotkeyChunk as legacyAppMainBuwLowerQLowerMExport } from "../../../utils/use-hotkey";
 export { initThreadHandoffOperationStepsChunk as legacyAppMainBuwLowerRLowerOExport } from "../../../app-shell/thread-handoff-operations/steps";
 export { initProcessManagerRequestSignalChunk as legacyAppMainBuwLowerRLowerRExport } from "../../../conversations/process-manager-request-atom";
 export { initGetMoveToLocalTargetsChunk as legacyAppMainBuwLowerSLowerOExport } from "../../../utils/get-move-to-local-targets";
 export { initOpenConfigTomlButtonChunk as legacyAppMainBuwLowerOLowerXExport } from "../../../composer/open-config-toml-button";
 export { conversationalOnboardingTaskDefinitions as legacyAppMainBuwLowerRExport } from "../../../onboarding/conversational-onboarding-task-definitions";
 export { initPermissionModeSelectionChunk as legacyAppMainBuwLowerSLowerBExport } from "../../../utils/use-permissions-mode/mode-selection";
+export { BackForwardNavigationButtons as legacyAppMainBuwLowerSLowerHExport } from "../../../ui/back-forward-navigation-buttons";
 export { initGitWorkflowPhaseLabelChunk as legacyAppMainBuwLowerOLowerUExport } from "../../../conversations/git-workflow-phase-label";
 export { CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME as legacyAppMainBuwLowerSLowerUExport } from "../../../conversations/cancel-git-action-button";
+export { GoogleResourceKindIcon as legacyAppMainBuwLowerQExport } from "../../../conversations/google-resource-kind-icon";
 
 export {
   p_ as legacyAppMainBuwLowerPUnderscoreExport,
   pa as legacyAppMainBuwLowerPLowerAExport,
   pf as legacyAppMainBuwLowerPLowerFExport,
-  ph as legacyAppMainBuwLowerPLowerHExport,
   pu as legacyAppMainBuwLowerPLowerUExport,
-  q as legacyAppMainBuwLowerQExport,
   qa as legacyAppMainBuwLowerQLowerAExport,
   ql as legacyAppMainBuwLowerQLowerLExport,
-  qm as legacyAppMainBuwLowerQLowerMExport,
   qo as legacyAppMainBuwLowerQLowerOExport,
   qt as legacyAppMainBuwLowerQLowerTExport,
   rn as legacyAppMainBuwLowerRLowerNExport,
-  sh as legacyAppMainBuwLowerSLowerHExport,
 } from "../../app-main-legacy-buw-compat-bundle";
