@@ -169,11 +169,15 @@ export {
   timeSecond as legacyAppMainBuwLowerBUpperSExport,
 } from "../../../utils/d3-chart-scales";
 export { line as legacyAppMainBuwLowerEUpperSExport } from "../../d3-shape-line";
+export {
+  AppShell as legacyAppMainBuwLowerDLowerDExport,
+  initAppShellCompoundChunk as legacyAppMainBuwLowerFLowerDExport,
+} from "../../../app-shell/app-shell";
+export { initSidebarNavigationControlsChunk as legacyAppMainBuwLowerBLowerDExport } from "../../../app-shell/sidebar-navigation-controls";
 
 export {
   ag as legacyAppMainBuwLowerALowerGExport,
   bc as legacyAppMainBuwLowerBLowerCExport,
-  bd as legacyAppMainBuwLowerBLowerDExport,
   bf as legacyAppMainBuwLowerBLowerFExport,
   bh as legacyAppMainBuwLowerBLowerHExport,
   bm as legacyAppMainBuwLowerBLowerMExport,
@@ -185,13 +189,11 @@ export {
   ct as legacyAppMainBuwLowerCLowerTExport,
   cv as legacyAppMainBuwLowerCLowerVExport,
   d as legacyAppMainBuwLowerDExport,
-  dd as legacyAppMainBuwLowerDLowerDExport,
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   ep as legacyAppMainBuwLowerELowerPExport,
   es as legacyAppMainBuwLowerELowerSExport,
   et as legacyAppMainBuwLowerELowerTExport,
   f as legacyAppMainBuwLowerFExport,
-  fd as legacyAppMainBuwLowerFLowerDExport,
   fp as legacyAppMainBuwLowerFLowerPExport,
 } from "../../app-main-legacy-buw-compat-bundle";

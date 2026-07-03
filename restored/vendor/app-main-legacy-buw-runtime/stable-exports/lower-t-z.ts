@@ -42,6 +42,7 @@ export { SettingsButtonRow as legacyAppMainBuwLowerVLowerRExport } from "../../.
 export { initSettingsControlRowChunk } from "../../../ui/settings-row";
 export { SettingsKeyValueRow as legacyAppMainBuwLowerYLowerRExport } from "../../../ui/settings-row";
 export { PullRequestMergeTaskPill as legacyAppMainBuwLowerYLowerTExport } from "../../../conversations/pull-request-merge-task-pill";
+export { SidebarNavigationControls as legacyAppMainBuwLowerYLowerDExport } from "../../../app-shell/sidebar-navigation-controls";
 
 export {
   initComposeEventHandlersRuntime,
@@ -178,7 +179,6 @@ export {
   y as legacyAppMainBuwLowerYExport,
   yS as legacyAppMainBuwLowerYUpperSExport,
   yb as legacyAppMainBuwLowerYLowerBExport,
-  yd as legacyAppMainBuwLowerYLowerDExport,
   yf as legacyAppMainBuwLowerYLowerFExport,
   yg as legacyAppMainBuwLowerYLowerGExport,
   yh as legacyAppMainBuwLowerYLowerHExport,

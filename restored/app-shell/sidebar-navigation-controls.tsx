@@ -262,3 +262,5 @@ export function SidebarNavigationControls(
     </div>
   );
 }
+
+export function initSidebarNavigationControlsChunk(): void {}

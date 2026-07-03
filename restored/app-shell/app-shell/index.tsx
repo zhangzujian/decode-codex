@@ -51,3 +51,5 @@ export const AppShell = {
   RightPanelTabListBefore: memo(AppShellRightPanelTabListBeforeSlot),
   RightPanelOutlet: memo(AppShellRightPanelOutletSlot),
 };
+
+export function initAppShellCompoundChunk(): void {}
