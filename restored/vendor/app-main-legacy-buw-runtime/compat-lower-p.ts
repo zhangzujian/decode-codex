@@ -28,8 +28,8 @@ export { initReferencedPriorConversationsChunk as appMainCurrentCompatSlotLowerP
 export { groupPendingMcpToolCalls as appMainCurrentCompatSlotLowerPLowerA } from "../../conversations/conversation-activity-grouping/pending-mcp-tool-calls";
 export { useDefaultBranchQuery as appMainCurrentCompatSlotLowerPLowerU } from "../../conversations/use-default-branch-query";
 export { initOpenArtifactTabChunk as appMainCurrentCompatSlotLowerPLowerF } from "../../workspace/open-artifact-tab";
+export { bottomTerminalPanelOpenSignal as appMainCurrentCompatSlotLowerPUnderscore } from "../../terminal/terminal-panel-signals";
 
 export {
-  p_ as appMainCurrentCompatSlotLowerPUnderscore,
   py as appMainCurrentCompatSlotLowerPLowerY,
 } from "../app-main-legacy-buw-compat-bundle";

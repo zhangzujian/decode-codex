@@ -179,11 +179,11 @@ export { CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME as legacyAppMainBuwLowerSLower
 export { GoogleResourceKindIcon as legacyAppMainBuwLowerQExport } from "../../../conversations/google-resource-kind-icon";
 export { useDefaultBranchQuery as legacyAppMainBuwLowerPLowerUExport } from "../../../conversations/use-default-branch-query";
 export { initOpenArtifactTabChunk as legacyAppMainBuwLowerPLowerFExport } from "../../../workspace/open-artifact-tab";
+export { bottomTerminalPanelOpenSignal as legacyAppMainBuwLowerPUnderscoreExport } from "../../../terminal/terminal-panel-signals";
 export { initThreadHandoffToolRuntimeChunk as legacyAppMainBuwLowerQLowerAExport } from "../../../conversations/thread-handoff-tool-runtime";
 export { initGitActionsSummaryPanelChunk as legacyAppMainBuwLowerQLowerLExport } from "../../../conversations/git-actions-summary-panel";
 export { initStartComposerTurnChunk as legacyAppMainBuwLowerRLowerNExport } from "../../../composer/start-composer-turn";
 
 export {
-  p_ as legacyAppMainBuwLowerPUnderscoreExport,
   qo as legacyAppMainBuwLowerQLowerOExport,
 } from "../../app-main-legacy-buw-compat-bundle";
