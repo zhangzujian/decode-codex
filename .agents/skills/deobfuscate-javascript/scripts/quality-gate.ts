@@ -4059,7 +4059,7 @@ function printHumanReport(reports: FileQualityReport[]): void {
 }
 
 const USAGE =
-  "Usage: bun scripts/quality-gate.ts <file-or-dir> [--json] [--allow-flat] [--allow-mechanical-names] [--allow-missing-provenance] [--allow-untyped] [--vendored] [--allow-organize-incomplete] [--allow-open-boundaries] [--check-format] [--no-cache] " +
+  "Usage: bun scripts/quality-gate.ts <file-or-dir...> [--json] [--allow-flat] [--allow-mechanical-names] [--allow-missing-provenance] [--allow-untyped] [--vendored] [--allow-organize-incomplete] [--allow-open-boundaries] [--check-format] [--no-cache] " +
   "[--max-cryptic-params N] [--max-cryptic-bindings N] " +
   "[--max-short-ref-count N] [--max-flat-lines N] [--max-flat-exports N]\n" +
   "\n" +
@@ -4237,13 +4237,14 @@ async function main(): Promise<void> {
     process.exit(64);
   }
 
-  const input = positionals[0]!;
-  if (!fs.existsSync(input)) {
-    console.error(`input not found: ${input}`);
-    process.exit(1);
+  for (const input of positionals) {
+    if (!fs.existsSync(input)) {
+      console.error(`input not found: ${input}`);
+      process.exit(1);
+    }
   }
 
-  const options: QualityGateOptions = {
+  const baseOptions: QualityGateOptions = {
     maxCrypticParams: parseNonNegativeInt(
       values["max-cryptic-params"],
       "--max-cryptic-params",
@@ -4274,18 +4275,8 @@ async function main(): Promise<void> {
     requireProvenanceHeader: !(values["allow-missing-provenance"] ?? false),
     allowUntyped: values["allow-untyped"] ?? false,
     vendored: values["vendored"] ?? false,
-    allowedCheckpointImportFiles: collectBoundaryCheckpointImportFiles(input),
+    allowedCheckpointImportFiles: new Set(),
   };
-  const importMapBoundaryFiles = collectImportMapBoundaryFiles(input);
-  const manifestVendoredFiles = collectManifestVendoredFiles(input);
-
-  let files: string[];
-  try {
-    files = collectFiles(input);
-  } catch (err) {
-    console.error(`failed to read input: ${(err as Error).message}`);
-    process.exit(1);
-  }
 
   const maybeCollectGarbage = () => {
     (
@@ -4295,96 +4286,119 @@ async function main(): Promise<void> {
     ).Bun?.gc?.(false);
   };
 
-  const inputIsDir = fs.statSync(input).isDirectory();
   const checkFormat = values["check-format"] ?? false;
-  const cacheEnabled = inputIsDir && !(values["no-cache"] ?? false);
-  const cachePath = path.join(input, GATE_CACHE_DIRNAME, GATE_CACHE_BASENAME);
-  const cacheSignature = cacheEnabled
-    ? gateCacheSignature(input, options, checkFormat)
-    : "";
-  const oldCache = cacheEnabled ? loadGateCache(cachePath, cacheSignature) : {};
-  const newCache: Record<string, GateCacheEntry> = {};
-
   const reports: FileQualityReport[] = [];
-  if (checkFormat) {
-    reports.push(...checkFormatting(input));
-  }
-  let vendoredExemptFiles = 0;
-  let vendoredExemptLines = 0;
-  let totalLines = 0;
-  for (const [index, file] of files.entries()) {
-    const resolved = path.resolve(file);
-    let report: FileQualityReport | undefined;
-    let cacheKey = "";
-    if (cacheEnabled) {
-      cacheKey = path.relative(input, file).split(path.sep).join("/");
-      try {
-        const stat = fs.statSync(file);
-        const hit = oldCache[cacheKey];
-        if (hit && hit.mtimeMs === stat.mtimeMs && hit.size === stat.size) {
-          report = hit.report;
+
+  for (const input of positionals) {
+    const options: QualityGateOptions = {
+      ...baseOptions,
+      allowedCheckpointImportFiles: collectBoundaryCheckpointImportFiles(input),
+    };
+    const importMapBoundaryFiles = collectImportMapBoundaryFiles(input);
+    const manifestVendoredFiles = collectManifestVendoredFiles(input);
+
+    let files: string[];
+    try {
+      files = collectFiles(input);
+    } catch (err) {
+      console.error(`failed to read input: ${(err as Error).message}`);
+      process.exit(1);
+    }
+
+    const inputIsDir = fs.statSync(input).isDirectory();
+    const cacheEnabled = inputIsDir && !(values["no-cache"] ?? false);
+    const cachePath = path.join(input, GATE_CACHE_DIRNAME, GATE_CACHE_BASENAME);
+    const cacheSignature = cacheEnabled
+      ? gateCacheSignature(input, options, checkFormat)
+      : "";
+    const oldCache = cacheEnabled
+      ? loadGateCache(cachePath, cacheSignature)
+      : {};
+    const newCache: Record<string, GateCacheEntry> = {};
+
+    if (checkFormat) {
+      reports.push(...checkFormatting(input));
+    }
+    let vendoredExemptFiles = 0;
+    let vendoredExemptLines = 0;
+    let totalLines = 0;
+    for (const [index, file] of files.entries()) {
+      const resolved = path.resolve(file);
+      let report: FileQualityReport | undefined;
+      let cacheKey = "";
+      if (cacheEnabled) {
+        cacheKey = path.relative(input, file).split(path.sep).join("/");
+        try {
+          const stat = fs.statSync(file);
+          const hit = oldCache[cacheKey];
+          if (hit && hit.mtimeMs === stat.mtimeMs && hit.size === stat.size) {
+            report = hit.report;
+          }
+          if (!report) {
+            report = analyzeSource(fs.readFileSync(file, "utf-8"), file, {
+              ...options,
+              vendored:
+                options.vendored ||
+                importMapBoundaryFiles.has(resolved) ||
+                manifestVendoredFiles.has(resolved),
+              vendoredHeaderExemptAllowed: isVendoredHeaderExemptEligible(
+                input,
+                file,
+              ),
+            });
+          }
+          newCache[cacheKey] = {
+            mtimeMs: stat.mtimeMs,
+            size: stat.size,
+            report,
+          };
+        } catch {
+          // stat/read failure: fall through to a fresh, uncached analysis.
+          report = undefined;
         }
-        if (!report) {
-          report = analyzeSource(fs.readFileSync(file, "utf-8"), file, {
-            ...options,
-            vendored:
-              options.vendored ||
-              importMapBoundaryFiles.has(resolved) ||
-              manifestVendoredFiles.has(resolved),
-            vendoredHeaderExemptAllowed: isVendoredHeaderExemptEligible(
-              input,
-              file,
-            ),
-          });
-        }
-        newCache[cacheKey] = {
-          mtimeMs: stat.mtimeMs,
-          size: stat.size,
-          report,
-        };
-      } catch {
-        // stat/read failure: fall through to a fresh, uncached analysis.
-        report = undefined;
       }
+      if (!report) {
+        report = analyzeSource(fs.readFileSync(file, "utf-8"), file, {
+          ...options,
+          vendored:
+            options.vendored ||
+            importMapBoundaryFiles.has(resolved) ||
+            manifestVendoredFiles.has(resolved),
+          vendoredHeaderExemptAllowed: inputIsDir
+            ? isVendoredHeaderExemptEligible(input, file)
+            : true,
+        });
+      }
+      reports.push(report);
+      totalLines += report.lineCount;
+      if (report.vendored) {
+        vendoredExemptFiles += 1;
+        vendoredExemptLines += report.lineCount;
+      }
+      if (index % 100 === 0) maybeCollectGarbage();
     }
-    if (!report) {
-      report = analyzeSource(fs.readFileSync(file, "utf-8"), file, {
-        ...options,
-        vendored:
-          options.vendored ||
-          importMapBoundaryFiles.has(resolved) ||
-          manifestVendoredFiles.has(resolved),
-        vendoredHeaderExemptAllowed: inputIsDir
-          ? isVendoredHeaderExemptEligible(input, file)
-          : true,
-      });
+    maybeCollectGarbage();
+    if (cacheEnabled) {
+      saveGateCache(cachePath, cacheSignature, newCache);
     }
-    reports.push(report);
-    totalLines += report.lineCount;
-    if (report.vendored) {
-      vendoredExemptFiles += 1;
-      vendoredExemptLines += report.lineCount;
+    if (inputIsDir) {
+      const pct =
+        totalLines > 0
+          ? Math.round((vendoredExemptLines / totalLines) * 100)
+          : 0;
+      console.error(
+        `quality-gate: vendored-exempt coverage: ${vendoredExemptFiles} files, ${vendoredExemptLines} lines (${pct}% of tree)`,
+      );
     }
-    if (index % 100 === 0) maybeCollectGarbage();
-  }
-  maybeCollectGarbage();
-  if (cacheEnabled) {
-    saveGateCache(cachePath, cacheSignature, newCache);
-  }
-  if (inputIsDir) {
-    const pct =
-      totalLines > 0 ? Math.round((vendoredExemptLines / totalLines) * 100) : 0;
-    console.error(
-      `quality-gate: vendored-exempt coverage: ${vendoredExemptFiles} files, ${vendoredExemptLines} lines (${pct}% of tree)`,
+    reports.push(...analyzePublicNpmVendorShimDependencies(input, files));
+    reports.push(
+      ...analyzeFullRestorationCoverage(input, {
+        allowOrganizeIncomplete: values["allow-organize-incomplete"] ?? false,
+        allowOpenBoundaries: values["allow-open-boundaries"] ?? false,
+      }),
     );
   }
-  reports.push(...analyzePublicNpmVendorShimDependencies(input, files));
-  reports.push(
-    ...analyzeFullRestorationCoverage(input, {
-      allowOrganizeIncomplete: values["allow-organize-incomplete"] ?? false,
-      allowOpenBoundaries: values["allow-open-boundaries"] ?? false,
-    }),
-  );
+
   if (values.json) {
     process.stdout.write(JSON.stringify(reports, null, 2) + "\n");
   } else {

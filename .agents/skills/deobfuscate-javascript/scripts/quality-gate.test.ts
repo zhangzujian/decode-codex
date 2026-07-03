@@ -6391,6 +6391,42 @@ describe("header-based vendored exemption is path-gated", () => {
       "flat-boundary-app-bundle",
     );
   });
+
+  test("CLI checks every positional input instead of only the first", () => {
+    const targetDir = makeTmpRoot();
+    const goodFile = path.join(targetDir, "good.ts");
+    const badFile = path.join(targetDir, "bad.ts");
+    fs.writeFileSync(
+      goodFile,
+      `// Restored from ref/webview/assets/good-ABC.js\n` +
+        `export const goodValue = 1;\n`,
+    );
+    fs.writeFileSync(badFile, `export const badValue = 1;\n`);
+
+    const run = spawnSync(
+      "bun",
+      [
+        path.join(import.meta.dir, "quality-gate.ts"),
+        goodFile,
+        badFile,
+        "--json",
+        "--allow-flat",
+      ],
+      { encoding: "utf8" },
+    );
+    expect(run.status).toBe(1);
+    const reports = JSON.parse(run.stdout) as Array<{
+      file: string;
+      issues: Array<{ code: string }>;
+    }>;
+    expect(reports.map((report) => report.file)).toContain(goodFile);
+    expect(reports.map((report) => report.file)).toContain(badFile);
+    expect(
+      reports
+        .find((report) => report.file === badFile)
+        ?.issues.map((issue) => issue.code),
+    ).toContain("missing-provenance-header");
+  });
 });
 
 describe("per-file analysis cache", () => {
