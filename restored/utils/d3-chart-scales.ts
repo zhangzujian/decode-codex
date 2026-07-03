@@ -13,3 +13,4 @@ export { interpolateHcl } from "d3-interpolate";
 export { timeMonday, timeSaturday, timeSecond, timeSunday } from "d3-time";
 
 export function initD3ChartScalesRuntimeChunk(): void {}
+export function initD3ScaleRuntimeChunk(): void {}

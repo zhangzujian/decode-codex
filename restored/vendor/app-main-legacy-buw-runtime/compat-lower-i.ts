@@ -22,11 +22,11 @@ export { createSteerTurnInactiveError as appMainCurrentCompatSlotLowerILowerN } 
 export { diffCommentsByConversationSignal as appMainCurrentCompatSlotLowerILowerH } from "../../github/diff-comments/diff-comments-by-conversation-signal";
 export { isReasoningEffort as appMainCurrentCompatSlotLowerILowerX } from "../../utils/models-and-reasoning-efforts";
 export { initImageAttachmentChunk as appMainCurrentCompatSlotLowerILowerM } from "../../image-side-panel/image-attachment";
+export { initD3ScaleRuntimeChunk as appMainCurrentCompatSlotLowerIUpperS } from "../../utils/d3-chart-scales";
 
 export {
   io as appMainCurrentCompatSlotLowerILowerO,
   ir as appMainCurrentCompatSlotLowerILowerR,
-  iS as appMainCurrentCompatSlotLowerIUpperS,
   iu as appMainCurrentCompatSlotLowerILowerU,
   iv as appMainCurrentCompatSlotLowerILowerV,
 } from "../app-main-legacy-buw-compat-bundle";

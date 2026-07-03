@@ -180,9 +180,9 @@ export {
   reviewProjectRootAtom as legacyAppMainBuwLowerKLowerVExport,
 } from "../../../review/review-git-metadata";
 export { initImageAttachmentChunk as legacyAppMainBuwLowerILowerMExport } from "../../../image-side-panel/image-attachment";
+export { initD3ScaleRuntimeChunk as legacyAppMainBuwLowerIUpperSExport } from "../../../utils/d3-chart-scales";
 
 export {
-  iS as legacyAppMainBuwLowerIUpperSExport,
   io as legacyAppMainBuwLowerILowerOExport,
   ir as legacyAppMainBuwLowerILowerRExport,
   iu as legacyAppMainBuwLowerILowerUExport,
