@@ -61,7 +61,10 @@ export { createPendingWorktree } from "../../../runtime/conversation-fork-runtim
 
 export { useSensors as ThreadRowArchiveAction } from "../../dnd-kit-core";
 export { openInCodex as legacyAppMainBuwUpperNLowerOExport } from "../../../runtime/open-in-codex-tool";
-export { parseUnixSeconds as legacyAppMainBuwUpperNLowerCExport } from "../../../utils/rate-limit-status/windows";
+export {
+  parseUnixSeconds as legacyAppMainBuwUpperNLowerCExport,
+  WEEK_MINUTES as legacyAppMainBuwUpperSLowerCExport,
+} from "../../../utils/rate-limit-status/windows";
 export { shouldShowApplicationMenu as legacyAppMainBuwUpperNLowerDExport } from "../../../app-shell/application-menu-availability";
 export { selectRateLimitAlert as legacyAppMainBuwUpperOLowerCExport } from "../../../utils/rate-limit-status/windows";
 export {
@@ -157,7 +160,6 @@ export {
   SS as legacyAppMainBuwUpperSUpperSExport,
   Sa as legacyAppMainBuwUpperSLowerAExport,
   Sb as legacyAppMainBuwUpperSLowerBExport,
-  Sc as legacyAppMainBuwUpperSLowerCExport,
   Sd as legacyAppMainBuwUpperSLowerDExport,
   Sf as legacyAppMainBuwUpperSLowerFExport,
   Si as legacyAppMainBuwUpperSLowerIExport,

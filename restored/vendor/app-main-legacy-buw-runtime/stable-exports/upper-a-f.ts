@@ -84,7 +84,10 @@ export {
 export { CHATGPT_ADMIN_USAGE_LIMITS_URL as legacyAppMainBuwUpperFLowerCExport } from "../../../utils/links-bd-mmkun-d";
 export { COMPLETE_CONVERSATIONAL_ONBOARDING_TASK_NAME as legacyAppMainBuwUpperFLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 export { READ_SETTINGS_TOOL_NAME as legacyAppMainBuwUpperDLowerOExport } from "../../../settings/settings-tool-definitions";
-export { secondsUntilUnixSeconds as legacyAppMainBuwUpperALowerCExport } from "../../../utils/rate-limit-status/windows";
+export {
+  secondsUntilUnixSeconds as legacyAppMainBuwUpperALowerCExport,
+  YEAR_MINUTES as legacyAppMainBuwUpperCLowerCExport,
+} from "../../../utils/rate-limit-status/windows";
 export {
   handleForkThread as legacyAppMainBuwUpperALowerAExport,
   handleSetThreadArchived as legacyAppMainBuwUpperFLowerAExport,
@@ -132,7 +135,6 @@ export {
   CS as legacyAppMainBuwUpperCUpperSExport,
   Ca as legacyAppMainBuwUpperCLowerAExport,
   Cb as legacyAppMainBuwUpperCLowerBExport,
-  Cc as legacyAppMainBuwUpperCLowerCExport,
   Cd as legacyAppMainBuwUpperCLowerDExport,
   Cf as legacyAppMainBuwUpperCLowerFExport,
   Ch as legacyAppMainBuwUpperCLowerHExport,

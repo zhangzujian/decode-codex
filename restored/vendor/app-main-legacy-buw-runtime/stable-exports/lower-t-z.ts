@@ -43,6 +43,7 @@ export { initSettingsControlRowChunk } from "../../../ui/settings-row";
 export { SettingsKeyValueRow as legacyAppMainBuwLowerYLowerRExport } from "../../../ui/settings-row";
 export { PullRequestMergeTaskPill as legacyAppMainBuwLowerYLowerTExport } from "../../../conversations/pull-request-merge-task-pill";
 export { SidebarNavigationControls as legacyAppMainBuwLowerYLowerDExport } from "../../../app-shell/sidebar-navigation-controls";
+export { MONTH_MINUTES as legacyAppMainBuwLowerXLowerCExport } from "../../../utils/rate-limit-status/windows";
 
 export {
   initComposeEventHandlersRuntime,
@@ -94,6 +95,7 @@ export {
   shouldUseCreditsRateLimitDisplay as legacyAppMainBuwLowerVLowerCExport,
 } from "../../../utils/rate-limit-status/account-status";
 export { initUserSavedConfigQueryChunk as legacyAppMainBuwLowerULowerXExport } from "../../../config/user-saved-config-query";
+export { syncOpenReviewFileSourceTabs as legacyAppMainBuwLowerXLowerFExport } from "../../../workspace/workspace-file-source-tabs";
 export { getSupportedLocales as legacyAppMainBuwLowerULowerGExport } from "../../../i18n/locale-resolver";
 export { primaryRuntimeInstallStatusSignal as legacyAppMainBuwLowerULowerSExport } from "../../../runtime/primary-runtime-install-state";
 export { PullRequestOpenIcon as legacyAppMainBuwLowerTLowerUExport } from "../../../icons/pull-request-open-icon";
@@ -166,9 +168,7 @@ export {
   x as legacyAppMainBuwLowerXExport,
   xS as legacyAppMainBuwLowerXUpperSExport,
   xb as legacyAppMainBuwLowerXLowerBExport,
-  xc as legacyAppMainBuwLowerXLowerCExport,
   xd as legacyAppMainBuwLowerXLowerDExport,
-  xf as legacyAppMainBuwLowerXLowerFExport,
   xg as legacyAppMainBuwLowerXLowerGExport,
   xm as legacyAppMainBuwLowerXLowerMExport,
   xn as legacyAppMainBuwLowerXLowerNExport,

@@ -66,6 +66,7 @@ export {
   CODEX_LOCKED_COMPUTER_USE_DOCS_URL as legacyAppMainBuwUpperJLowerCExport,
   OPENAI_APPS_SDK_DOCS_URL as legacyAppMainBuwUpperILowerCExport,
 } from "../../../utils/links-bd-mmkun-d";
+export { initRateLimitStatusChunk as legacyAppMainBuwUpperMLowerCExport } from "../../../utils/rate-limit-status/windows";
 export { OPEN_IN_CODEX_TOOL_NAME as legacyAppMainBuwUpperMLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 export { runAppActionInPrimaryWindow as legacyAppMainBuwUpperHLowerOExport } from "../../../runtime/run-app-action-in-primary-window";
 export { applyRequestUserInputAutoResolutionChange as legacyAppMainBuwUpperJLowerSExport } from "../../../runtime/request-user-input-auto-resolution";
@@ -182,7 +183,6 @@ export {
   MS as legacyAppMainBuwUpperMUpperSExport,
   M_ as legacyAppMainBuwUpperMUnderscoreExport,
   Mb as legacyAppMainBuwUpperMLowerBExport,
-  Mc as legacyAppMainBuwUpperMLowerCExport,
   Md as legacyAppMainBuwUpperMLowerDExport,
   Mf as legacyAppMainBuwUpperMLowerFExport,
   Mg as legacyAppMainBuwUpperMLowerGExport,
