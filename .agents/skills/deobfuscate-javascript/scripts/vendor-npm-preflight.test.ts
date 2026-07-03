@@ -86,6 +86,9 @@ describe("vendor-npm-preflight CLI", () => {
       specifiers: ["react-intl"],
       sourceExists: false,
     });
+    expect(result.stderr).toContain("DECISION is informational only");
+    expect(result.stderr).toContain("--intent local-body");
+    expect(result.stderr).toContain("--intent npm-shim");
   });
 
   test("classifies high-confidence vendor filenames even when package dependencies are missing", () => {

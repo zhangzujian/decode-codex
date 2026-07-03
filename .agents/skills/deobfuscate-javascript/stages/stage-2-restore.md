@@ -281,12 +281,22 @@ bun <skill-dir>/scripts/vendor-npm-preflight.ts restored/vendor
 
 Fix failures before continuing; a hand-written stock package body elsewhere in
 `vendor/` is not allowed to remain just because the current target is a nested
-stable-export or runtime shim. Then run the target-specific decision:
-`bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-vendor-file> --decision`.
-If the decision is `npm-shim`, create a bare npm-backed re-export/alias shim and
-add the dependency. If the decision is `needs-proof`, record the Codex fork or
-app/runtime-wrapper evidence before any local implementation. Do not use
-`--vendored` as a waiver for a stock package body. The quality gate's
+stable-export or runtime shim. Then run the target-specific intent gate:
+
+```bash
+# Before writing local vendor/runtime code:
+bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-vendor-file> --decision --intent local-body
+
+# Before creating a package shim for a newly recognized package:
+bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-vendor-file> --decision --intent npm-shim
+```
+
+`--decision` without `--intent` is informational only; do not treat it as
+permission to edit. If `--intent local-body` fails with `npm-shim`, create a bare
+npm-backed re-export/alias shim and add the dependency. If it fails with
+`needs-proof`, record the Codex fork or app/runtime-wrapper evidence before any
+local implementation. Do not use `--vendored` as a waiver for a stock package
+body. The quality gate's
 `third-party-npm-shim-not-reexport` check must still fail hand-written
 compatibility implementations, and
 `bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-or-restored/vendor>`

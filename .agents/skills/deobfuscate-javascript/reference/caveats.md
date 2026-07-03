@@ -53,13 +53,16 @@ Each Stage 1 step has an _input shape_ the previous step produced. Running them 
   the vendor filename (`react-intl` -> `vendor/react-intl.tsx`,
   `@acme/widget` -> `vendor/acme-widget.ts`), treat that as high-confidence npm
   identity before restoring the body. Run
-  `vendor-npm-preflight.ts <target-vendor-file> --decision` before the file
-  exists or before editing it; `npm-shim` means stop and write a thin bare
-  re-export / typed alias shim, while `needs-proof` means document fork/runtime
-  evidence before local code. Run normal `vendor-npm-preflight.ts` on the file
-  or `restored/vendor` before committing; a local subset implementation must
-  fail even if the chunk provenance or registry entry is missing. Add the
-  dependency rather than rebuilding the package API.
+  `vendor-npm-preflight.ts <target-vendor-file> --decision --intent local-body`
+  before writing local code; if it reports `npm-shim`, stop and write a thin
+  bare re-export / typed alias shim instead, using
+  `--decision --intent npm-shim` for that path. `--decision` without `--intent`
+  is a classifier only, not edit permission. `needs-proof` means document
+  fork/runtime evidence before local code. Run normal
+  `vendor-npm-preflight.ts` on the file or `restored/vendor` before committing;
+  a local subset implementation must fail even if the chunk provenance or
+  registry entry is missing. Add the dependency rather than rebuilding the
+  package API.
 
 - **Local target checks do not replace the vendor directory audit.**
   A nested compatibility file such as

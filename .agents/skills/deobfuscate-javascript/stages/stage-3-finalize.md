@@ -76,12 +76,16 @@ The renamer changes binding names but never import strings. Stage 2's `resolve-n
 - **Unrecognised npm packages.** If `resolve-npm-imports.ts` missed a vendored lib (e.g. `./react-hook-form-XXXX.js`), rewrite by hand or — better — add the basename to `CHUNK_NAME_REGISTRY` so the next bundle benefits. When unsure, leave the local path (reversible; a wrong npm rewrite isn't). This is one case of the [self-improvement protocol](../SKILL.md#maintaining-this-skill-self-improvement-protocol) — register it and commit the skill change.
 - **Boundary chunks — pick the terminal state, never leave a permanent `any`-facade.** A `boundaries/*.ts` chunk that is a recognised npm package (the bundler renamed it after an internal module, so `CHUNK_NAME_REGISTRY` missed it) becomes a bare re-export shim: `make-facade.ts <chunk> --reexport <specifier> [--name-map alias→real.json]` — it resolves to real `@types` and is done. `ref/node_modules` and `ref/package.json` are useful confirmation, not a veto: if identity is high-confidence from package fingerprints, the registry, or the Codex package table, keep the npm-backed shim and add an ambient declaration/package-install note when the extracted dependency is absent. Never replace a confirmed third-party package such as `react-intl`/FormatJS with a hand-written compatibility layer merely because it is missing from `ref/node_modules`. A genuine app/host runtime stays a typed `any`-facade (type-check only) or `make-facade.ts --passthrough <ref-relpath>` (runnable `@ts-nocheck`+`// TODO` interim), and is **not** done until deep-restored out of `boundaries/`. See [SKILL.md → Boundary lifecycle](../SKILL.md#boundary-lifecycle--three-terminal-states-never-a-permanent-any-facade) and [reference/codex-ref.md](../reference/codex-ref.md) (incl. the fork caveat).
 - **Public `vendor/` files — npm preflight is blocking.** Before writing a
-  `restored/vendor/*` body, prove whether it is stock npm from filename,
+  `restored/vendor/*` body, run
+  `vendor-npm-preflight.ts restored/vendor`, then run the target with
+  `--decision --intent local-body`. `--decision` alone is only a classifier, not
+  write permission. Prove whether the target is stock npm from filename,
   provenance, export surface, consumers, `ref/package.json`, registry entries,
   and API fingerprints. High-confidence packages become bare re-export/alias
-  shims plus a package dependency and gate/test registry entry. `--vendored`
-  only relaxes naming/typing checks for true vendored/forked code; it must not
-  bypass `third-party-npm-shim-not-reexport`.
+  shims plus a package dependency and gate/test registry entry; use
+  `--decision --intent npm-shim` for that path. `--vendored` only relaxes
+  naming/typing checks for true vendored/forked code; it must not bypass
+  `third-party-npm-shim-not-reexport`.
 - **Separate type-only imports.** Lift type imports into `import type { … }` (e.g. `import type { ButtonHTMLAttributes, ForwardedRef } from "react"` apart from `import { forwardRef } from "react"`).
 
 ## D3 — Delete dead runtime stubs

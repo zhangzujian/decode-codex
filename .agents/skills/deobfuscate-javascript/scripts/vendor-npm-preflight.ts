@@ -650,6 +650,11 @@ async function main(): Promise<void> {
   const editIntent = validateEditIntent(parsed.values.intent);
   if (parsed.values.decision) {
     const decisions = vendorNpmDecision(input);
+    if (editIntent == null) {
+      console.error(
+        "vendor-npm-preflight: DECISION is informational only; rerun with --intent local-body or --intent npm-shim before editing vendor files.",
+      );
+    }
     if (parsed.values.json) {
       process.stdout.write(`${JSON.stringify(decisions, null, 2)}\n`);
     } else if (decisions.length === 0) {

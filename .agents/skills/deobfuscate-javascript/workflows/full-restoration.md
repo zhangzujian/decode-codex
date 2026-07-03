@@ -230,11 +230,20 @@ its own. The fix is a **typed boundary facade**: expose every export as `any` so
 consumers type-check now, and deep-restore the runtime only when it's scoped.
 
 Run the vendor/npm preflight before emitting any boundary or public
-`restored/vendor/*` file. If the chunk is a stock npm package, skip the
-`any`-facade and emit a bare re-export shim (`make-facade.ts --reexport` or a
-small public alias shim), add the package root to the nearest `package.json`,
-and register the package/source/API fingerprint in the skill with a fail/pass
-test. A missing extracted `ref/node_modules/<pkg>` directory is not a reason to
+`restored/vendor/*` file:
+
+```bash
+bun <skill-dir>/scripts/vendor-npm-preflight.ts restored/vendor
+bun <skill-dir>/scripts/vendor-npm-preflight.ts <target-vendor-file> --decision --intent local-body
+```
+
+`--decision` without `--intent` is only a classifier, not permission to write a
+local body. If the chunk is a stock npm package, skip the `any`-facade and emit a
+bare re-export shim (`make-facade.ts --reexport` or a small public alias shim),
+add the package root to the nearest `package.json`, and register the
+package/source/API fingerprint in the skill with a fail/pass test. Use
+`--decision --intent npm-shim` before creating a newly recognized package shim.
+A missing extracted `ref/node_modules/<pkg>` directory is not a reason to
 hand-write a compatibility implementation for high-confidence packages such as
 FormatJS/`react-intl`.
 
@@ -478,7 +487,7 @@ Before marking a file's `finalize` stage `done`, confirm:
 - [ ] `displayName` set on every exported component; `forwardRef` recovered if the bundle had a ref shim.
 - [ ] Consumers import semantic producer names (`DownloadIcon`, `Button`, `ExpandIcon`) rather than bundle aliases (`t`, `n`), and split chunks import from semantic barrels.
 - [ ] Final `bun scripts/format.ts <file-or-dir>` pass run (`promote-organized.ts` already formats each deliverable; this catches hand-edited files).
-- [ ] Every changed `restored/vendor/*` file passed npm preflight: stock npm packages are bare re-export/alias shims, `package.json` declares the package root, and the package/provenance/API fingerprint has a quality-gate fail/pass test. `--vendored` was not used to bypass `third-party-npm-shim-not-reexport`.
+- [ ] Every changed `restored/vendor/*` file passed the full directory audit plus target `--decision --intent local-body` or `--decision --intent npm-shim`; stock npm packages are bare re-export/alias shims, `package.json` declares the package root, and the package/provenance/API fingerprint has a quality-gate fail/pass test. Plain `--decision` was not treated as edit permission, and `--vendored` was not used to bypass `third-party-npm-shim-not-reexport`.
 - [ ] Every `boundaries/*.ts` is either a bare third-party re-export shim (`make-facade.ts --reexport`), a tracked runtime facade/passthrough, or already restored out of `boundaries/` — no third-party npm chunk left as an `any`-facade.
 - [ ] `scripts/promote-final.ts` or an equivalent gate-before-copy path promoted the candidate; no direct copy from `$WS`; Stage 3 acceptance still follows.
 - [ ] Final `bun scripts/quality-gate.ts <file-or-dir>` pass exits 0.
