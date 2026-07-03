@@ -13,6 +13,7 @@ export { normalizeTerminalLineEndings } from "../../runtime/window-chrome-runtim
 export { CSS as ThreadRowLayout } from "../dnd-kit-utilities";
 export { applyPendingWorktreePanelState as appMainCurrentCompatSlotUpperCLowerO } from "../../conversations/fork-conversation-panel-state";
 export { useAddBrowserUseOriginMutation as appMainCurrentCompatSlotUpperCLowerP } from "../../browser/browser-use-origin-state-queries";
+export { closeThreadFind as appMainCurrentCompatSlotUpperCLowerG } from "../../find/thread-find-store";
 
 export {
   C as appMainCurrentCompatSlotUpperC,
@@ -21,7 +22,6 @@ export {
   Cc as appMainCurrentCompatSlotUpperCLowerC,
   Cd as appMainCurrentCompatSlotUpperCLowerD,
   Cf as appMainCurrentCompatSlotUpperCLowerF,
-  Cg as appMainCurrentCompatSlotUpperCLowerG,
   Ch as appMainCurrentCompatSlotUpperCLowerH,
   Ci as appMainCurrentCompatSlotUpperCLowerI,
   Cn as appMainCurrentCompatSlotUpperCLowerN,

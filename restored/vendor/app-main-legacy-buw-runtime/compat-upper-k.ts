@@ -15,12 +15,12 @@ export { getAvailableHandoffHosts as appMainCurrentCompatSlotUpperKLowerA } from
 export { stepReasoningEffortOption as appMainCurrentCompatSlotUpperKLowerR } from "../../composer/reasoning-effort-options";
 export { LargeEmptyState as appMainCurrentCompatSlotUpperKLowerF } from "../../utils/large-empty-state";
 export { SummaryPanelRow as appMainCurrentCompatSlotUpperKLowerL } from "../../utils/summary-panel-row";
+export { setThreadFindDomain as appMainCurrentCompatSlotUpperKLowerG } from "../../find/thread-find-store";
 
 export {
   K as appMainCurrentCompatSlotUpperK,
   K_ as appMainCurrentCompatSlotUpperKUnderscore,
   Kb as appMainCurrentCompatSlotUpperKLowerB,
-  Kg as appMainCurrentCompatSlotUpperKLowerG,
   Kh as appMainCurrentCompatSlotUpperKLowerH,
   Km as appMainCurrentCompatSlotUpperKLowerM,
   Kn as appMainCurrentCompatSlotUpperKLowerN,

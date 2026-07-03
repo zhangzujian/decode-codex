@@ -15,6 +15,8 @@ export { getMicrophoneInputStream as legacyAppMainBuwLowerPUpperCExport } from "
 
 export { UserMessage as legacyAppMainBuwLowerQLowerIExport } from "../../../conversations/user-message";
 
+export { setThreadFindQuery as legacyAppMainBuwLowerQLowerGExport } from "../../../find/thread-find-store";
+
 export { createWorkspaceFileReader as legacyAppMainBuwLowerQLowerUExport } from "../../../review/workspace-file-reader";
 export { CODEX_IDE_DOCS_URL as legacyAppMainBuwLowerQLowerCExport } from "../../../utils/links-bd-mmkun-d";
 
@@ -137,7 +139,6 @@ export {
   qb as legacyAppMainBuwLowerQLowerBExport,
   qd as legacyAppMainBuwLowerQLowerDExport,
   qf as legacyAppMainBuwLowerQLowerFExport,
-  qg as legacyAppMainBuwLowerQLowerGExport,
   qh as legacyAppMainBuwLowerQLowerHExport,
   ql as legacyAppMainBuwLowerQLowerLExport,
   qm as legacyAppMainBuwLowerQLowerMExport,

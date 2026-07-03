@@ -21,6 +21,7 @@ export { getCommentText as legacyAppMainBuwLowerZLowerUExport } from "../../../r
 
 export { appendPromptText as legacyAppMainBuwLowerYUpperCExport } from "../../../composer/composer-utils";
 export { initComposerUtilsChunk as legacyAppMainBuwLowerXUpperCExport } from "../../../composer/composer-utils";
+export { goToNextThreadFindMatch as legacyAppMainBuwLowerZLowerGExport } from "../../../find/thread-find-store";
 
 export { mergeVisibleThreadIdsIntoThreadOrder as mergeVisibleThreadOrder } from "../../../threads/thread-actions";
 
@@ -187,7 +188,6 @@ export {
   zb as legacyAppMainBuwLowerZLowerBExport,
   zd as legacyAppMainBuwLowerZLowerDExport,
   zf as legacyAppMainBuwLowerZLowerFExport,
-  zg as legacyAppMainBuwLowerZLowerGExport,
   zh as legacyAppMainBuwLowerZLowerHExport,
   zl as legacyAppMainBuwLowerZLowerLExport,
   zm as legacyAppMainBuwLowerZLowerMExport,

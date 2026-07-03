@@ -13,6 +13,7 @@ export { initReviewDiffFilterRuntime as initReviewSourceModeChunk } from "../../
 export { CHATGPT_PRICING_HASH_URL as appMainCurrentCompatSlotLowerZLowerC } from "../../utils/links-bd-mmkun-d";
 export { navigateToCodexPage as appMainCurrentCompatSlotLowerZLowerO } from "../../runtime/navigate-to-codex-page-tool";
 export { trackConversationalOnboardingExecutionCompletionMissing as appMainCurrentCompatSlotLowerZLowerS } from "../../onboarding/conversational-onboarding-analytics";
+export { goToNextThreadFindMatch as appMainCurrentCompatSlotLowerZLowerG } from "../../find/thread-find-store";
 
 export {
   z as appMainCurrentCompatSlotLowerZ,
@@ -20,7 +21,6 @@ export {
   zb as appMainCurrentCompatSlotLowerZLowerB,
   zd as appMainCurrentCompatSlotLowerZLowerD,
   zf as appMainCurrentCompatSlotLowerZLowerF,
-  zg as appMainCurrentCompatSlotLowerZLowerG,
   zh as appMainCurrentCompatSlotLowerZLowerH,
   zl as appMainCurrentCompatSlotLowerZLowerL,
   zm as appMainCurrentCompatSlotLowerZLowerM,

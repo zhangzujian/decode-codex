@@ -51,6 +51,10 @@ export {
   findBrowserStatusAtom,
   findQueryAtom,
 } from "../../../find/thread-find-atoms";
+export {
+  closeThreadFind as legacyAppMainBuwUpperCLowerGExport,
+  openThreadFind as legacyAppMainBuwUpperBLowerGExport,
+} from "../../../find/thread-find-store";
 
 export {
   computePointerVelocity,
@@ -108,7 +112,6 @@ export {
   Ba as legacyAppMainBuwUpperBLowerAExport,
   Bb as legacyAppMainBuwUpperBLowerBExport,
   Bf as legacyAppMainBuwUpperBLowerFExport,
-  Bg as legacyAppMainBuwUpperBLowerGExport,
   Bh as legacyAppMainBuwUpperBLowerHExport,
   Bi as legacyAppMainBuwUpperBLowerIExport,
   Bl as legacyAppMainBuwUpperBLowerLExport,
@@ -125,7 +128,6 @@ export {
   Cc as legacyAppMainBuwUpperCLowerCExport,
   Cd as legacyAppMainBuwUpperCLowerDExport,
   Cf as legacyAppMainBuwUpperCLowerFExport,
-  Cg as legacyAppMainBuwUpperCLowerGExport,
   Ch as legacyAppMainBuwUpperCLowerHExport,
   Ci as legacyAppMainBuwUpperCLowerIExport,
   Cn as legacyAppMainBuwUpperCLowerNExport,

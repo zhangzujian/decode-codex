@@ -11,6 +11,7 @@ export { initConversationSummarySelectorsChunk } from "../../runtime/window-chro
 export { CODEX_AUTOMATIONS_DOCS_URL as appMainCurrentCompatSlotUpperVLowerC } from "../../utils/links-bd-mmkun-d";
 export { trackConversationalOnboardingLifecycleSkipped as appMainCurrentCompatSlotUpperVLowerS } from "../../onboarding/conversational-onboarding-analytics";
 export { initRunAppActionInPrimaryWindowRuntime as appMainCurrentCompatSlotUpperVLowerO } from "../../runtime/run-app-action-in-primary-window";
+export { goToPreviousThreadFindMatch as appMainCurrentCompatSlotUpperVLowerG } from "../../find/thread-find-store";
 
 export {
   V as appMainCurrentCompatSlotUpperV,
@@ -18,7 +19,6 @@ export {
   Va as appMainCurrentCompatSlotUpperVLowerA,
   Vb as appMainCurrentCompatSlotUpperVLowerB,
   Vf as appMainCurrentCompatSlotUpperVLowerF,
-  Vg as appMainCurrentCompatSlotUpperVLowerG,
   Vh as appMainCurrentCompatSlotUpperVLowerH,
   Vl as appMainCurrentCompatSlotUpperVLowerL,
   Vm as appMainCurrentCompatSlotUpperVLowerM,

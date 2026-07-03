@@ -16,13 +16,13 @@ export {
 export { initPanelTabStoresChunk } from "../../runtime/window-chrome-runtime";
 export { CODEX_LOCAL_ENVIRONMENTS_DOCS_URL as appMainCurrentCompatSlotUpperGLowerC } from "../../utils/links-bd-mmkun-d";
 export { handleHandoffThread as appMainCurrentCompatSlotUpperGLowerA } from "../../conversations/handoff-thread-tool-handlers";
+export { setThreadFindScope as appMainCurrentCompatSlotUpperGLowerG } from "../../find/thread-find-store";
 
 export {
   G as appMainCurrentCompatSlotUpperG,
   G_ as appMainCurrentCompatSlotUpperGUnderscore,
   Gb as appMainCurrentCompatSlotUpperGLowerB,
   Gf as appMainCurrentCompatSlotUpperGLowerF,
-  Gg as appMainCurrentCompatSlotUpperGLowerG,
   Gh as appMainCurrentCompatSlotUpperGLowerH,
   Gm as appMainCurrentCompatSlotUpperGLowerM,
   Gn as appMainCurrentCompatSlotUpperGLowerN,

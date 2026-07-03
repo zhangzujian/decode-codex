@@ -21,6 +21,11 @@ export {
   scrollMatchIntoView as legacyAppMainBuwUpperGLowerUExport,
   waitForDoubleAnimationFrame as legacyAppMainBuwUpperKLowerUExport,
 } from "../../../review/review-scroll-into-view";
+export { getNextThreadFindDomain as legacyAppMainBuwUpperLLowerGExport } from "../../../find/thread-find-domain";
+export {
+  setThreadFindDomain as legacyAppMainBuwUpperKLowerGExport,
+  setThreadFindScope as legacyAppMainBuwUpperGLowerGExport,
+} from "../../../find/thread-find-store";
 
 export { setConversationalOnboardingPermissionStatus as legacyAppMainBuwUpperIExport } from "../../../onboarding/conversational-onboarding-workflow-state";
 
@@ -91,7 +96,6 @@ export {
   G_ as legacyAppMainBuwUpperGUnderscoreExport,
   Gb as legacyAppMainBuwUpperGLowerBExport,
   Gf as legacyAppMainBuwUpperGLowerFExport,
-  Gg as legacyAppMainBuwUpperGLowerGExport,
   Gh as legacyAppMainBuwUpperGLowerHExport,
   Gm as legacyAppMainBuwUpperGLowerMExport,
   Gn as legacyAppMainBuwUpperGLowerNExport,
@@ -148,7 +152,6 @@ export {
   KS as legacyAppMainBuwUpperKUpperSExport,
   K_ as legacyAppMainBuwUpperKUnderscoreExport,
   Kb as legacyAppMainBuwUpperKLowerBExport,
-  Kg as legacyAppMainBuwUpperKLowerGExport,
   Kh as legacyAppMainBuwUpperKLowerHExport,
   Km as legacyAppMainBuwUpperKLowerMExport,
   Kn as legacyAppMainBuwUpperKLowerNExport,
@@ -161,7 +164,6 @@ export {
   Lb as legacyAppMainBuwUpperLLowerBExport,
   Ld as legacyAppMainBuwUpperLLowerDExport,
   Lf as legacyAppMainBuwUpperLLowerFExport,
-  Lg as legacyAppMainBuwUpperLLowerGExport,
   Lh as legacyAppMainBuwUpperLLowerHExport,
   Ll as legacyAppMainBuwUpperLLowerLExport,
   Lm as legacyAppMainBuwUpperLLowerMExport,

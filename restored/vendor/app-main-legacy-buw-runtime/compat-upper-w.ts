@@ -14,13 +14,13 @@ export { initAvatarIconChunk as appMainCurrentCompatSlotUpperWLowerN } from "../
 export { handleGetHandoffStatus as pathsMatch } from "../../conversations/handoff-thread-tool-handlers";
 export { CODEX_GLOBAL_AGENTS_GUIDANCE_DOCS_URL as appMainCurrentCompatSlotUpperWLowerC } from "../../utils/links-bd-mmkun-d";
 export { ClientThreadScopeProvider as appMainCurrentCompatSlotUpperWLowerS } from "../../onboarding/client-thread-scope-provider";
+export { setThreadFindBrowserTarget as appMainCurrentCompatSlotUpperWLowerG } from "../../find/thread-find-store";
 
 export {
   W as appMainCurrentCompatSlotUpperW,
   W_ as appMainCurrentCompatSlotUpperWUnderscore,
   Wb as appMainCurrentCompatSlotUpperWLowerB,
   Wf as appMainCurrentCompatSlotUpperWLowerF,
-  Wg as appMainCurrentCompatSlotUpperWLowerG,
   Wh as appMainCurrentCompatSlotUpperWLowerH,
   Wi as appMainCurrentCompatSlotUpperWLowerI,
   Wm as appMainCurrentCompatSlotUpperWLowerM,

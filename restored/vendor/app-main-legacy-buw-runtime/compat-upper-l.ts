@@ -8,13 +8,13 @@ export { initAppIntlSignalRuntime as initPendingWorktreeRouteRuntimeChunk } from
 export { CHATGPT_PRICING_URL as appMainCurrentCompatSlotUpperLLowerC } from "../../utils/links-bd-mmkun-d";
 export { trackConversationalOnboardingLifecycleCompleted as appMainCurrentCompatSlotUpperLLowerS } from "../../onboarding/conversational-onboarding-analytics";
 export { handleSetThreadTitle as appMainCurrentCompatSlotUpperLLowerA } from "../../conversations/thread-management-tool-handlers";
+export { getNextThreadFindDomain as appMainCurrentCompatSlotUpperLLowerG } from "../../find/thread-find-domain";
 
 export {
   L as appMainCurrentCompatSlotUpperL,
   Lb as appMainCurrentCompatSlotUpperLLowerB,
   Ld as appMainCurrentCompatSlotUpperLLowerD,
   Lf as appMainCurrentCompatSlotUpperLLowerF,
-  Lg as appMainCurrentCompatSlotUpperLLowerG,
   Lh as appMainCurrentCompatSlotUpperLLowerH,
   Ll as appMainCurrentCompatSlotUpperLLowerL,
   Lm as appMainCurrentCompatSlotUpperLLowerM,

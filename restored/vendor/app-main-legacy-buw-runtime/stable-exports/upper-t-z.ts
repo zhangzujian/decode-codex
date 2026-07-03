@@ -58,6 +58,11 @@ export {
 } from "../../../runtime/window-chrome-runtime";
 
 export { findActiveMatchIndexAtom } from "../../../find/thread-find-atoms";
+export {
+  applyThreadFindBrowserStatus as legacyAppMainBuwUpperXLowerGExport,
+  goToPreviousThreadFindMatch as legacyAppMainBuwUpperVLowerGExport,
+  setThreadFindBrowserTarget as legacyAppMainBuwUpperWLowerGExport,
+} from "../../../find/thread-find-store";
 
 export { bottomPanelTabsStore } from "../../../app-shell/thread-panel-tabs-store";
 export {
@@ -129,7 +134,6 @@ export {
   Va as legacyAppMainBuwUpperVLowerAExport,
   Vb as legacyAppMainBuwUpperVLowerBExport,
   Vf as legacyAppMainBuwUpperVLowerFExport,
-  Vg as legacyAppMainBuwUpperVLowerGExport,
   Vh as legacyAppMainBuwUpperVLowerHExport,
   Vl as legacyAppMainBuwUpperVLowerLExport,
   Vm as legacyAppMainBuwUpperVLowerMExport,
@@ -143,7 +147,6 @@ export {
   W_ as legacyAppMainBuwUpperWUnderscoreExport,
   Wb as legacyAppMainBuwUpperWLowerBExport,
   Wf as legacyAppMainBuwUpperWLowerFExport,
-  Wg as legacyAppMainBuwUpperWLowerGExport,
   Wh as legacyAppMainBuwUpperWLowerHExport,
   Wi as legacyAppMainBuwUpperWLowerIExport,
   Wm as legacyAppMainBuwUpperWLowerMExport,
@@ -156,7 +159,6 @@ export {
   X_ as legacyAppMainBuwUpperXUnderscoreExport,
   Xb as legacyAppMainBuwUpperXLowerBExport,
   Xd as legacyAppMainBuwUpperXLowerDExport,
-  Xg as legacyAppMainBuwUpperXLowerGExport,
   Xh as legacyAppMainBuwUpperXLowerHExport,
   Xi as legacyAppMainBuwUpperXLowerIExport,
   Xm as legacyAppMainBuwUpperXLowerMExport,

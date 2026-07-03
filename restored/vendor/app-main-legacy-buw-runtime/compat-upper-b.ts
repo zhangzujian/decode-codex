@@ -13,13 +13,13 @@ export { getActiveBrowserTabId } from "../../conversations/fork-conversation-pan
 export { CODEX_USAGE_CREDITS_MODAL_URL as appMainCurrentCompatSlotUpperBLowerC } from "../../utils/links-bd-mmkun-d";
 export { trackConversationalOnboardingRoleSelected as appMainCurrentCompatSlotUpperBLowerS } from "../../onboarding/conversational-onboarding-analytics";
 export { PanelExpandIcon as appMainCurrentCompatSlotUpperBLowerD } from "../../icons/app-shell-panel-icons";
+export { openThreadFind as appMainCurrentCompatSlotUpperBLowerG } from "../../find/thread-find-store";
 
 export {
   B as appMainCurrentCompatSlotUpperB,
   Ba as appMainCurrentCompatSlotUpperBLowerA,
   Bb as appMainCurrentCompatSlotUpperBLowerB,
   Bf as appMainCurrentCompatSlotUpperBLowerF,
-  Bg as appMainCurrentCompatSlotUpperBLowerG,
   Bh as appMainCurrentCompatSlotUpperBLowerH,
   Bi as appMainCurrentCompatSlotUpperBLowerI,
   Bl as appMainCurrentCompatSlotUpperBLowerL,

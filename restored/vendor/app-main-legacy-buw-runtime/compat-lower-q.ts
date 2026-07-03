@@ -9,6 +9,7 @@ export { CODEX_IDE_DOCS_URL as appMainCurrentCompatSlotLowerQLowerC } from "../.
 
 export { initInterruptedTurnStateChunk as appMainCurrentCompatSlotLowerQLowerS } from "../../threads/interrupted-turn-state";
 export { resolveReasoningEffortOption as appMainCurrentCompatSlotLowerQLowerR } from "../../composer/reasoning-effort-options";
+export { setThreadFindQuery as appMainCurrentCompatSlotLowerQLowerG } from "../../find/thread-find-store";
 
 export {
   q as appMainCurrentCompatSlotLowerQ,
@@ -17,7 +18,6 @@ export {
   qb as appMainCurrentCompatSlotLowerQLowerB,
   qd as appMainCurrentCompatSlotLowerQLowerD,
   qf as appMainCurrentCompatSlotLowerQLowerF,
-  qg as appMainCurrentCompatSlotLowerQLowerG,
   qh as appMainCurrentCompatSlotLowerQLowerH,
   ql as appMainCurrentCompatSlotLowerQLowerL,
   qm as appMainCurrentCompatSlotLowerQLowerM,
