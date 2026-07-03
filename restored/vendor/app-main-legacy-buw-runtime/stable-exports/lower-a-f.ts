@@ -56,6 +56,7 @@ export {
   selectFallbackAgentMode as legacyAppMainBuwLowerALowerBExport,
   shouldWaitForPermissionModeSelection as legacyAppMainBuwLowerDLowerBExport,
 } from "../../../utils/use-permissions-mode/mode-selection";
+export { usePermissionsConfigData as legacyAppMainBuwLowerELowerBExport } from "../../../utils/use-permissions-mode/config-data";
 export {
   DEFAULT_LOCALE as legacyAppMainBuwLowerCLowerGExport,
   getLocaleLanguageDisplayName as legacyAppMainBuwLowerDLowerGExport,
@@ -157,7 +158,6 @@ export {
   dv as legacyAppMainBuwLowerDLowerVExport,
   dy as legacyAppMainBuwLowerDLowerYExport,
   eS as legacyAppMainBuwLowerEUpperSExport,
-  eb as legacyAppMainBuwLowerELowerBExport,
   ed as legacyAppMainBuwLowerELowerDExport,
   ef as legacyAppMainBuwLowerELowerFExport,
   eg as legacyAppMainBuwLowerELowerGExport,

@@ -15,6 +15,7 @@ export { conversationalOnboardingTaskScope as legacyAppMainBuwLowerVExport } fro
 export { isConversationalOnboardingMessagingTask as legacyAppMainBuwLowerUExport } from "../../../onboarding/conversational-onboarding-task-registry";
 export { ConversationalOnboardingTaskIcon as legacyAppMainBuwLowerTExport } from "../../../onboarding/conversational-onboarding-task-icon";
 export { canAgentModeUseOverrides as legacyAppMainBuwLowerULowerBExport } from "../../../utils/use-permissions-mode/mode-selection";
+export { usePreferredNonFullAccessMode as legacyAppMainBuwLowerTLowerBExport } from "../../../utils/use-permissions-mode/preferred-mode";
 
 export { PopoverAttachmentPill as legacyAppMainBuwLowerZLowerIExport } from "../../../composer/user-message-attachment-pills";
 
@@ -110,7 +111,6 @@ export { clearContentSearchHighlights as legacyAppMainBuwLowerTUnderscoreExport 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
   ta as legacyAppMainBuwLowerTLowerAExport,
-  tb as legacyAppMainBuwLowerTLowerBExport,
   tf as legacyAppMainBuwLowerTLowerFExport,
   tg as legacyAppMainBuwLowerTLowerGExport,
   th as legacyAppMainBuwLowerTLowerHExport,

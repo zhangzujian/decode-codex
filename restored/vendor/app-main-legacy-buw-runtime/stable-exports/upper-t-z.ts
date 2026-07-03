@@ -28,6 +28,11 @@ export { getModelReasoningEffortOptions as legacyAppMainBuwUpperWLowerRExport } 
 export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperXLowerRExport } from "../../../composer/reasoning-effort-label";
 export { useRemoveBrowserUseFileTransferOriginMutation as legacyAppMainBuwUpperTLowerPExport } from "../../../browser/browser-use-origin-state-queries";
 export { buildLocalConversationSearchSnippet as legacyAppMainBuwUpperZLowerGExport } from "../../../runtime/conversation-search-runtime";
+export { setThreadPreferredNonFullAccessModeFromDefault as legacyAppMainBuwUpperXLowerYExport } from "../../../utils/use-permissions-mode/state";
+export {
+  canUseWorkspaceWriteOnRequest as legacyAppMainBuwUpperYLowerYExport,
+  getDetailLevelDefaultAgentMode as legacyAppMainBuwUpperZLowerYExport,
+} from "../../../utils/use-permissions-mode/mode-availability";
 
 export {
   registerForkedConversation,
@@ -168,7 +173,6 @@ export {
   Xu as legacyAppMainBuwUpperXLowerUExport,
   Xv as legacyAppMainBuwUpperXLowerVExport,
   Xx as legacyAppMainBuwUpperXLowerXExport,
-  Xy as legacyAppMainBuwUpperXLowerYExport,
   YS as legacyAppMainBuwUpperYUpperSExport,
   Y_ as legacyAppMainBuwUpperYUnderscoreExport,
   Yb as legacyAppMainBuwUpperYLowerBExport,
@@ -179,7 +183,6 @@ export {
   Yp as legacyAppMainBuwUpperYLowerPExport,
   Yt as legacyAppMainBuwUpperYLowerTExport,
   Yx as legacyAppMainBuwUpperYLowerXExport,
-  Yy as legacyAppMainBuwUpperYLowerYExport,
   Z_ as legacyAppMainBuwUpperZUnderscoreExport,
   Zb as legacyAppMainBuwUpperZLowerBExport,
   Zd as legacyAppMainBuwUpperZLowerDExport,
@@ -191,5 +194,4 @@ export {
   Zt as legacyAppMainBuwUpperZLowerTExport,
   Zv as legacyAppMainBuwUpperZLowerVExport,
   Zx as legacyAppMainBuwUpperZLowerXExport,
-  Zy as legacyAppMainBuwUpperZLowerYExport,
 } from "../../app-main-legacy-buw-compat-bundle";
