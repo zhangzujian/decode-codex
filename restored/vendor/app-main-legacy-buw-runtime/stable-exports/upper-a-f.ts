@@ -91,9 +91,10 @@ export {
 } from "../../../conversations/thread-management-tool-handlers";
 export { Banner as legacyAppMainBuwUpperFLowerNExport } from "../../../ui/banner";
 export { PanelExpandIcon as legacyAppMainBuwUpperBLowerDExport } from "../../../icons/app-shell-panel-icons";
+export { getConversationalOnboardingWorkflowState as legacyAppMainBuwUpperAExport } from "../../../onboarding/conversational-onboarding-workflow-state";
+export { selectConversationalOnboardingTask as legacyAppMainBuwUpperFExport } from "../../../onboarding/conversational-onboarding-workflow-state";
 
 export {
-  A as legacyAppMainBuwUpperAExport,
   Ab as legacyAppMainBuwUpperALowerBExport,
   Af as legacyAppMainBuwUpperALowerFExport,
   Ag as legacyAppMainBuwUpperALowerGExport,
@@ -168,7 +169,6 @@ export {
   Ev as legacyAppMainBuwUpperELowerVExport,
   Ex as legacyAppMainBuwUpperELowerXExport,
   Ey as legacyAppMainBuwUpperELowerYExport,
-  F as legacyAppMainBuwUpperFExport,
   FS as legacyAppMainBuwUpperFUpperSExport,
   Fb as legacyAppMainBuwUpperFLowerBExport,
   Fd as legacyAppMainBuwUpperFLowerDExport,

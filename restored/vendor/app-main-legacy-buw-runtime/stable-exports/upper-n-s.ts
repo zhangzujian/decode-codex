@@ -88,6 +88,7 @@ export { initStopIconChunk as legacyAppMainBuwUpperNUpperCExport } from "../../.
 export { WhitespaceEyeIcon as legacyAppMainBuwUpperOLowerLExport } from "../../../icons/whitespace-eye-icon";
 export { findLocalConversationTextMatches as legacyAppMainBuwUpperQLowerGExport } from "../../../runtime/conversation-search-runtime";
 export { groupConversationSearchMatchesByContentUnitKey as legacyAppMainBuwUpperRLowerFExport } from "../../../runtime/conversation-search-runtime";
+export { selectConversationalOnboardingRole as legacyAppMainBuwUpperPExport } from "../../../onboarding/conversational-onboarding-workflow-state";
 
 export {
   NS as legacyAppMainBuwUpperNUpperSExport,
@@ -115,7 +116,6 @@ export {
   Ov as legacyAppMainBuwUpperOLowerVExport,
   Ox as legacyAppMainBuwUpperOLowerXExport,
   Oy as legacyAppMainBuwUpperOLowerYExport,
-  P as legacyAppMainBuwUpperPExport,
   PS as legacyAppMainBuwUpperPUpperSExport,
   Pb as legacyAppMainBuwUpperPLowerBExport,
   Pi as legacyAppMainBuwUpperPLowerIExport,
