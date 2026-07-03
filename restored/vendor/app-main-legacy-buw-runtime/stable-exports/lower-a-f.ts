@@ -30,10 +30,10 @@ export { toAutomationCreatePayload as legacyAppMainBuwLowerALowerIExport } from 
 export { initUseConversationIdFromRouteChunk as legacyAppMainBuwLowerALowerRExport } from "../../../conversations/use-conversation-id-from-route";
 
 export { useHeartbeatThreadOptions as legacyAppMainBuwLowerDLowerRExport } from "../../../automations/use-heartbeat-thread-options";
+export { SettingsControlRow } from "../../../ui/settings-row";
 
 export {
   SidebarRowMenuSeparator,
-  SettingsControlRow,
   openThreadMcpAppSidePanelTab,
   ThreadRowEnvironmentMeta,
   ThreadRowTimestamp,

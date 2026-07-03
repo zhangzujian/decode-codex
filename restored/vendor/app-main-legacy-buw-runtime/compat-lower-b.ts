@@ -1,6 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Lowercase b compatibility aliases for the legacy app-main/onboarding producer.
-export { SettingsControlRow } from "../app-main-current-runtime";
+export { SettingsControlRow } from "../../ui/settings-row";
 
 export { normalizeTerminalFontFamily } from "../../runtime/window-chrome-runtime";
 

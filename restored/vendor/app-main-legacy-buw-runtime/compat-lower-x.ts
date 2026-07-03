@@ -3,11 +3,9 @@
 export { initLockIconChunk as appMainCurrentCompatSlotLowerXLowerS } from "../../icons/lock-icon";
 
 export { getAutomationDraftRrule as appMainCurrentCompatSlotLowerXLowerI } from "../../automations/shared";
+export { initSettingsControlRowChunk } from "../../ui/settings-row";
 
-export {
-  initForkConversationToastRuntime,
-  initSettingsControlRowChunk,
-} from "../app-main-current-runtime";
+export { initForkConversationToastRuntime } from "../app-main-current-runtime";
 
 export { ensureTerminalFontLoaded } from "../../runtime/window-chrome-runtime";
 export { useSensor as ThreadRowCloudMeta } from "../dnd-kit-core";

@@ -33,9 +33,10 @@ export { isAutomationDraftUsingDefaultCwd as legacyAppMainBuwLowerYLowerIExport 
 export { initHeartbeatThreadOptionsChunk as legacyAppMainBuwLowerULowerRExport } from "../../../automations/use-heartbeat-thread-options";
 
 export { AutomationSandboxBanner as legacyAppMainBuwLowerWLowerRExport } from "../../../automations/automation-sandbox-banner";
-export { AutomationDetailRow as legacyAppMainBuwLowerYLowerRExport } from "../../../automations/automation-side-panel/status-components";
 export { renderMessageOrString as legacyAppMainBuwLowerZLowerRExport } from "../../../composer/render-message-or-string";
 export { SettingsButtonRow as legacyAppMainBuwLowerVLowerRExport } from "../../../ui/settings-row";
+export { initSettingsControlRowChunk } from "../../../ui/settings-row";
+export { SettingsKeyValueRow as legacyAppMainBuwLowerYLowerRExport } from "../../../ui/settings-row";
 
 export {
   initComposeEventHandlersRuntime,
@@ -46,7 +47,6 @@ export {
   sharedHighlightThemeRegistry,
   browserTabIdForConversation,
   initForkConversationToastRuntime,
-  initSettingsControlRowChunk,
   openThreadLastTurnReviewSidePanelTab,
   initResolvedHighlightThemesChunk,
   SidebarRowRuntime,
