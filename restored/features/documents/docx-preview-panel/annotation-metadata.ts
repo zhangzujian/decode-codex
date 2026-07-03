@@ -231,10 +231,20 @@ export function isDocumentArtifactAnnotationForPath(
   path: string,
 ): comment is DocxAnnotationComment {
   return (
+    isDocumentArtifactAnnotation(comment) &&
+    comment.localArtifactAnnotationContext?.path === path
+  );
+}
+
+export function isDocumentArtifactAnnotation(
+  comment: unknown,
+): comment is DocxAnnotationComment {
+  return (
     isRecord(comment) &&
     isRecord(comment.localArtifactAnnotationContext) &&
     comment.localArtifactAnnotationContext.artifactKind === "document" &&
-    comment.localArtifactAnnotationContext.path === path
+    typeof comment.position === "object" &&
+    comment.position !== null
   );
 }
 

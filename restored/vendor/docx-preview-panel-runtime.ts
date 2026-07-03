@@ -10,7 +10,6 @@ import {
   D as n,
   E as r,
   Go as i,
-  Ji as a,
   Ko as o,
   O as s,
   Vo as c,
@@ -92,25 +91,26 @@ import {
   initArtifactPreviewStatusChunk as Ne,
 } from "../utils/artifact-preview-status";
 import {
-  anchorFromDocxComment as et,
   anchorFromPointerDrag as Be,
   computeDocxAskForEditPosition as Pe,
   createDocxPreviewStyleText,
   createDocxAnnotationMetadata as Xe,
-  createDocxCommentPayload as Ye,
   describeDocxAnnotationAnchor as Ze,
   docxCommentKey as nt,
-  docxCommentPageNumber as Qe,
-  docxCommentPageSize as $e,
-  docxCommentText as tt,
+  docxPageAnnotationComments,
   DOCX_PREVIEW_SCROLL_CLASS as Kt,
   docxTitleFromPath as It,
+  findDocxCommentByKey,
+  isDocumentArtifactAnnotation as Mt,
+  isDocumentArtifactAnnotationForPath as Ht,
+  isDocxElementAnnotationSelectionKind as Dt,
   measureDocxPage as Vt,
   pagePointFromPointerEvent as Fe,
   pointerDragMoved as ze,
   readDocxElementAnnotationAnchorAtPoint as dt,
   readDocxTextSelectionAnchor as ut,
   rectFromPoints as Ve,
+  resolveDocxAnnotationSessionState,
   DocxAnnotationHighlightRect,
   DocxAnnotationSelectionRect,
   DocxCommentMarkerOverlay,
@@ -159,120 +159,24 @@ function Tt(e) {
     [A, j] = (0, J.useState)(null),
     [M, N] = (0, J.useState)(null),
     [Ce, P] = (0, J.useState)(!1),
-    we;
-  if (t[0] !== n || t[1] !== g || t[2] !== v) {
-    let e;
-    (t[4] !== g || t[5] !== v
-      ? ((e = (e) =>
-          e.localArtifactAnnotationContext?.path === v && Qe(e) === g),
-        (t[4] = g),
-        (t[5] = v),
-        (t[6] = e))
-      : (e = t[6]),
-      (we = n.filter(e)),
-      (t[0] = n),
-      (t[1] = g),
-      (t[2] = v),
-      (t[3] = we));
-  } else we = t[3];
-  let F = we,
-    I;
-  t[7] !== F || t[8] !== M
-    ? ((I = M == null ? null : (F.find((e) => nt(e) === M) ?? null)),
-      (t[7] = F),
-      (t[8] = M),
-      (t[9] = I))
-    : (I = t[9]);
-  let L = I,
-    R,
-    Oe,
-    z,
-    je;
-  t[10] !== F || t[11] !== T || t[12] !== le || t[13] !== A || t[14] !== _
-    ? ((z = A == null ? null : (F.find((e) => nt(e) === A) ?? null)),
-      (Oe = z == null ? null : et(z)),
-      (R = T ?? Oe),
-      (je = T == null ? ((z == null ? null : ($e(z) ?? _)) ?? _) : (le ?? _)),
-      (t[10] = F),
-      (t[11] = T),
-      (t[12] = le),
-      (t[13] = A),
-      (t[14] = _),
-      (t[15] = R),
-      (t[16] = Oe),
-      (t[17] = z),
-      (t[18] = je))
-    : ((R = t[15]), (Oe = t[16]), (z = t[17]), (je = t[18]));
-  let B = je,
-    Me;
-  bb0: {
-    if (T != null) {
-      let e;
-      (t[19] !== B ||
-      t[20] !== i ||
-      t[21] !== T ||
-      t[22] !== pe ||
-      t[23] !== g ||
-      t[24] !== v ||
-      t[25] !== x
-        ? ((e = Ye({
-            anchor: T,
-            body: pe,
-            conversationId: i,
-            pageNumber: g,
-            pageSize: B,
-            path: v,
-            target: { mode: `create` },
-            title: x,
-          })),
-          (t[19] = B),
-          (t[20] = i),
-          (t[21] = T),
-          (t[22] = pe),
-          (t[23] = g),
-          (t[24] = v),
-          (t[25] = x),
-          (t[26] = e))
-        : (e = t[26]),
-        (Me = e));
-      break bb0;
-    }
-    if (Oe == null || z == null || A == null) {
-      Me = null;
-      break bb0;
-    }
-    let e;
-    (t[27] !== B ||
-    t[28] !== i ||
-    t[29] !== Oe ||
-    t[30] !== z ||
-    t[31] !== A ||
-    t[32] !== g ||
-    t[33] !== v ||
-    t[34] !== x
-      ? ((e = Ye({
-          anchor: Oe,
-          body: tt(z),
-          conversationId: i,
-          pageNumber: g,
-          pageSize: B,
-          path: v,
-          target: { mode: `edit`, commentId: A },
-          title: x,
-        })),
-        (t[27] = B),
-        (t[28] = i),
-        (t[29] = Oe),
-        (t[30] = z),
-        (t[31] = A),
-        (t[32] = g),
-        (t[33] = v),
-        (t[34] = x),
-        (t[35] = e))
-      : (e = t[35]),
-      (Me = e));
-  }
-  let V = Me,
+    F = docxPageAnnotationComments({ comments: n, pageNumber: g, path: v }),
+    L = findDocxCommentByKey(F, M),
+    {
+      activeAnchor: R,
+      pageSize: B,
+      session: V,
+    } = resolveDocxAnnotationSessionState({
+      comments: F,
+      conversationId: i,
+      draftAnchor: T,
+      draftBody: pe,
+      draftPageSize: le,
+      editingCommentKey: A,
+      pageNumber: g,
+      pageSize: _,
+      path: v,
+      title: x,
+    }),
     Ne;
   t[36] !== R || t[37] !== B || t[38] !== O || t[39] !== w
     ? ((Ne =
@@ -1207,9 +1111,6 @@ function Tt(e) {
 function Et(e) {
   return e.stopPropagation();
 }
-function Dt(e) {
-  return e === `image` || e === `drawing`;
-}
 var Ot,
   J,
   Y,
@@ -1543,16 +1444,6 @@ function jt(e) {
         (t[81] = Le))
       : (Le = t[81]),
     Le
-  );
-}
-function Mt(e) {
-  return e.localArtifactAnnotationContext?.artifactKind === `document`;
-}
-function Ht(e, t) {
-  return (
-    a(e) &&
-    e.localArtifactAnnotationContext?.artifactKind === `document` &&
-    e.localArtifactAnnotationContext.path === t
   );
 }
 var Wt, Z, Gt, Q, qt, Zt;
