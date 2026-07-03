@@ -83,6 +83,7 @@ export {
   handleSendMessageToThread as legacyAppMainBuwUpperPLowerAExport,
 } from "../../../conversations/thread-management-tool-handlers";
 export { MiddleTruncatedText as legacyAppMainBuwUpperPLowerLExport } from "../../../ui/middle-truncated-text";
+export { RegenerateIcon as legacyAppMainBuwUpperPUpperCExport } from "../../../icons/regenerate-icon";
 
 export {
   NC as legacyAppMainBuwUpperNUpperCExport,
@@ -113,7 +114,6 @@ export {
   Ox as legacyAppMainBuwUpperOLowerXExport,
   Oy as legacyAppMainBuwUpperOLowerYExport,
   P as legacyAppMainBuwUpperPExport,
-  PC as legacyAppMainBuwUpperPUpperCExport,
   PS as legacyAppMainBuwUpperPUpperSExport,
   Pb as legacyAppMainBuwUpperPLowerBExport,
   Pi as legacyAppMainBuwUpperPLowerIExport,

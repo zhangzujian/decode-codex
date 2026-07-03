@@ -11,11 +11,11 @@ export { isPendingWorktreeInProgress as RemoteHostStatusIcon } from "../../threa
 export { OPENAI_APPS_SDK_DOCS_URL as appMainCurrentCompatSlotUpperILowerC } from "../../utils/links-bd-mmkun-d";
 export { trackConversationalOnboardingAccessDenied as appMainCurrentCompatSlotUpperILowerS } from "../../onboarding/conversational-onboarding-access-analytics";
 export { handleSetThreadPinned as appMainCurrentCompatSlotUpperILowerA } from "../../conversations/thread-management-tool-handlers";
+export { UseRecordingWaveformIcon as appMainCurrentCompatSlotUpperIUpperC } from "../../icons/use-recording-waveform-icon";
 
 export { setConversationalOnboardingPermissionStatus as appMainCurrentCompatSlotUpperI } from "../../onboarding/conversational-onboarding-workflow-state";
 export {
   Ib as appMainCurrentCompatSlotUpperILowerB,
-  IC as appMainCurrentCompatSlotUpperIUpperC,
   Id as appMainCurrentCompatSlotUpperILowerD,
   If as appMainCurrentCompatSlotUpperILowerF,
   Ii as appMainCurrentCompatSlotUpperILowerI,

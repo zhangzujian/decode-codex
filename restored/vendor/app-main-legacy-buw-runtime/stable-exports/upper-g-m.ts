@@ -83,6 +83,7 @@ export {
 } from "../../../onboarding/conversational-onboarding-analytics";
 export { trackConversationalOnboardingAccessDenied as legacyAppMainBuwUpperILowerSExport } from "../../../onboarding/conversational-onboarding-access-analytics";
 export { findConnectorAppByIdentifier as legacyAppMainBuwUpperMLowerSExport } from "../../../connectors/apps-queries/onboarding-app-connection";
+export { UseRecordingWaveformIcon as legacyAppMainBuwUpperIUpperCExport } from "../../../icons/use-recording-waveform-icon";
 
 export {
   G as legacyAppMainBuwUpperGExport,
@@ -115,7 +116,6 @@ export {
   Hu as legacyAppMainBuwUpperHLowerUExport,
   Hx as legacyAppMainBuwUpperHLowerXExport,
   Hy as legacyAppMainBuwUpperHLowerYExport,
-  IC as legacyAppMainBuwUpperIUpperCExport,
   IS as legacyAppMainBuwUpperIUpperSExport,
   Ib as legacyAppMainBuwUpperILowerBExport,
   Id as legacyAppMainBuwUpperILowerDExport,
