@@ -8,6 +8,7 @@ export { initWhitespaceEyeIconChunk as appMainCurrentCompatSlotLowerKLowerL } fr
 export { SidebarRowIcon } from "../app-main-current-runtime";
 
 export { initComposedRefsRuntime } from "../../runtime/app-main-new-thread-runtime";
+export { range as appMainCurrentCompatSlotLowerKUpperS } from "d3-array";
 export { remainingUsagePercent as appMainCurrentCompatSlotLowerKLowerC } from "../../utils/rate-limit-status/windows";
 export { handleCreateThread as appMainCurrentCompatSlotLowerKLowerA } from "../../conversations/thread-management-tool-handlers";
 export { useBrowserUseFullCdpAccessEnabledMutation as appMainCurrentCompatSlotLowerKLowerP } from "../../browser/browser-use-origin-state-queries";
@@ -24,7 +25,6 @@ export {
   kn as appMainCurrentCompatSlotLowerKLowerN,
   ko as appMainCurrentCompatSlotLowerKLowerO,
   ks as appMainCurrentCompatSlotLowerKLowerS,
-  kS as appMainCurrentCompatSlotLowerKUpperS,
   kt as appMainCurrentCompatSlotLowerKLowerT,
   kv as appMainCurrentCompatSlotLowerKLowerV,
   kx as appMainCurrentCompatSlotLowerKLowerX,

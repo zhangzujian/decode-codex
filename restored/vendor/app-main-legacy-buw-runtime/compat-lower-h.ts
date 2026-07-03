@@ -21,14 +21,11 @@ export { StreamingDictationTranscriber as appMainCurrentCompatSlotLowerHUpperC }
 export { hasBasicRateLimitReached as appMainCurrentCompatSlotLowerHLowerC } from "../../utils/rate-limit-status/account-status";
 export { getAppgenAccessStateMessage as appMainCurrentCompatSlotLowerHLowerS } from "../../utils/appgen-access-state-messages";
 export { FolderOpenIcon as appMainCurrentCompatSlotLowerHLowerH } from "../../icons/folder-open-icon";
-
-export {
-  h as appMainCurrentCompatSlotLowerH,
-  h_ as appMainCurrentCompatSlotLowerHUnderscore,
-  ha as appMainCurrentCompatSlotLowerHLowerA,
-  hd as appMainCurrentCompatSlotLowerHLowerD,
-  hf as appMainCurrentCompatSlotLowerHLowerF,
-  hn as appMainCurrentCompatSlotLowerHLowerN,
-  ht as appMainCurrentCompatSlotLowerHLowerT,
-  hu as appMainCurrentCompatSlotLowerHLowerU,
-} from "../app-main-legacy-buw-compat-bundle";
+export { requireReactIsRuntime as appMainCurrentCompatSlotLowerH } from "../react-is-runtime";
+export { rightTerminalPanelOpenSignal as appMainCurrentCompatSlotLowerHUnderscore } from "../../terminal/terminal-panel-signals";
+export { initConversationActivityGroupingChunk as appMainCurrentCompatSlotLowerHLowerA } from "../../conversations/conversation-activity-grouping-runtime";
+export { appShellBottomPanelHeightSubscriberContext as appMainCurrentCompatSlotLowerHLowerD } from "../../app-shell/bottom-panel-height-subscriber-context";
+export { ArtifactTabPreview as appMainCurrentCompatSlotLowerHLowerF } from "../../workspace/artifact-tab-preview";
+export { buildPriorConversation as appMainCurrentCompatSlotLowerHLowerN } from "../../composer/prior-conversation";
+export { WorktreeInitActivityList as appMainCurrentCompatSlotLowerHLowerT } from "../../conversations/worktree-init-activity-list";
+export { initLocalConversationGitActionsChunk as appMainCurrentCompatSlotLowerHLowerU } from "../../conversations/local-conversation-git-actions";

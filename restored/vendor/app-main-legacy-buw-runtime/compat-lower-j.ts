@@ -8,6 +8,7 @@ export { initGitApplyClipboardIconChunk as appMainCurrentCompatSlotLowerJLowerL 
 export { normalizeWorkspacePath } from "../app-main-current-runtime";
 
 export { findActiveDomainAtom } from "../../find/thread-find-atoms";
+export { quantileSorted as appMainCurrentCompatSlotLowerJUpperS } from "d3-array";
 
 export { scheduleReviewRestore } from "../../conversations/local-conversation-page-runtime";
 export { hasRateLimitWindow as appMainCurrentCompatSlotLowerJLowerC } from "../../utils/rate-limit-status/windows";
@@ -25,7 +26,6 @@ export {
   jf as appMainCurrentCompatSlotLowerJLowerF,
   jh as appMainCurrentCompatSlotLowerJLowerH,
   jm as appMainCurrentCompatSlotLowerJLowerM,
-  jS as appMainCurrentCompatSlotLowerJUpperS,
   jv as appMainCurrentCompatSlotLowerJLowerV,
   jx as appMainCurrentCompatSlotLowerJLowerX,
   jy as appMainCurrentCompatSlotLowerJLowerY,

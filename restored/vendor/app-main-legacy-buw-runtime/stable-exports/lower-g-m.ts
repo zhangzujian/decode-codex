@@ -77,6 +77,8 @@ export { markTurnInterruptedByThisClient as legacyAppMainBuwLowerJLowerSExport }
 export { hasWorkspaceDependenciesFeature as legacyAppMainBuwLowerJLowerOExport } from "../../../features/workspace-dependencies";
 
 export { findActiveDomainAtom } from "../../../find/thread-find-atoms";
+export { quantileSorted as legacyAppMainBuwLowerJUpperSExport } from "d3-array";
+export { range as legacyAppMainBuwLowerKUpperSExport } from "d3-array";
 
 export {
   syncReviewPanelForRestoredSource,
@@ -147,6 +149,12 @@ export {
   appShellBottomPanelHeightSubscriberContext as legacyAppMainBuwLowerHLowerDExport,
   initAppShellBottomPanelHeightSubscriberContextChunk as legacyAppMainBuwLowerGLowerDExport,
 } from "../../../app-shell/bottom-panel-height-subscriber-context";
+export { rightTerminalPanelOpenSignal as legacyAppMainBuwLowerHUnderscoreExport } from "../../../terminal/terminal-panel-signals";
+export { requireReactIsRuntime as legacyAppMainBuwLowerHExport } from "../../react-is-runtime";
+export { initConversationActivityGroupingChunk as legacyAppMainBuwLowerHLowerAExport } from "../../../conversations/conversation-activity-grouping-runtime";
+export { buildPriorConversation as legacyAppMainBuwLowerHLowerNExport } from "../../../composer/prior-conversation";
+export { WorktreeInitActivityList as legacyAppMainBuwLowerHLowerTExport } from "../../../conversations/worktree-init-activity-list";
+export { initLocalConversationGitActionsChunk as legacyAppMainBuwLowerHLowerUExport } from "../../../conversations/local-conversation-git-actions";
 export { fullScreenMcpAppIdsAtom as legacyAppMainBuwLowerILowerFExport } from "../../../plugins/mcp-app-frame-state";
 export { initRemoteConnectionStateByHostIdChunk as legacyAppMainBuwLowerGLowerPExport } from "../../../remote/use-connected-remote-connections";
 export { setSettingsSelectedHostId as legacyAppMainBuwLowerLLowerPExport } from "../../../settings/settings-host-context";
@@ -155,12 +163,6 @@ export { initLocalConversationTurnRowChunk as legacyAppMainBuwLowerGLowerTExport
 export { readElementBounds as legacyAppMainBuwLowerGLowerXExport } from "../../../utils/dom-rect";
 
 export {
-  h as legacyAppMainBuwLowerHExport,
-  h_ as legacyAppMainBuwLowerHUnderscoreExport,
-  ha as legacyAppMainBuwLowerHLowerAExport,
-  hn as legacyAppMainBuwLowerHLowerNExport,
-  ht as legacyAppMainBuwLowerHLowerTExport,
-  hu as legacyAppMainBuwLowerHLowerUExport,
   iS as legacyAppMainBuwLowerIUpperSExport,
   id as legacyAppMainBuwLowerILowerDExport,
   ig as legacyAppMainBuwLowerILowerGExport,
@@ -173,7 +175,6 @@ export {
   iv as legacyAppMainBuwLowerILowerVExport,
   ix as legacyAppMainBuwLowerILowerXExport,
   jC as legacyAppMainBuwLowerJUpperCExport,
-  jS as legacyAppMainBuwLowerJUpperSExport,
   jb as legacyAppMainBuwLowerJLowerBExport,
   jd as legacyAppMainBuwLowerJLowerDExport,
   jh as legacyAppMainBuwLowerJLowerHExport,
@@ -181,7 +182,6 @@ export {
   jv as legacyAppMainBuwLowerJLowerVExport,
   jx as legacyAppMainBuwLowerJLowerXExport,
   k as legacyAppMainBuwLowerKExport,
-  kS as legacyAppMainBuwLowerKUpperSExport,
   k_ as legacyAppMainBuwLowerKUnderscoreExport,
   kb as legacyAppMainBuwLowerKLowerBExport,
   kd as legacyAppMainBuwLowerKLowerDExport,
