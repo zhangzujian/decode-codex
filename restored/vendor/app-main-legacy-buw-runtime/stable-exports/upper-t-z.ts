@@ -21,6 +21,8 @@ export { initReasoningEffortLabelChunk as legacyAppMainBuwUpperZLowerRExport } f
 
 export { ReasoningEffortLabel as legacyAppMainBuwUpperYLowerRExport } from "../../../composer/reasoning-effort-label";
 
+export { getModelReasoningEffortOptions as legacyAppMainBuwUpperWLowerRExport } from "../../../composer/reasoning-effort-options";
+
 export {
   registerForkedConversation,
   ThreadRowPinAction,
@@ -143,7 +145,6 @@ export {
   Wm as legacyAppMainBuwUpperWLowerMExport,
   Wo as legacyAppMainBuwUpperWLowerOExport,
   Wp as legacyAppMainBuwUpperWLowerPExport,
-  Wr as legacyAppMainBuwUpperWLowerRExport,
   Wt as legacyAppMainBuwUpperWLowerTExport,
   Wu as legacyAppMainBuwUpperWLowerUExport,
   Wx as legacyAppMainBuwUpperWLowerXExport,

@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Uppercase W compatibility aliases for the legacy app-main/onboarding producer.
+export { getModelReasoningEffortOptions as appMainCurrentCompatSlotUpperWLowerR } from "../../composer/reasoning-effort-options";
+
 export {
   ThreadRowUnreadState,
   SidebarListSection,
@@ -24,7 +26,6 @@ export {
   Wm as appMainCurrentCompatSlotUpperWLowerM,
   Wo as appMainCurrentCompatSlotUpperWLowerO,
   Wp as appMainCurrentCompatSlotUpperWLowerP,
-  Wr as appMainCurrentCompatSlotUpperWLowerR,
   WS as appMainCurrentCompatSlotUpperWUpperS,
   Wt as appMainCurrentCompatSlotUpperWLowerT,
   Wu as appMainCurrentCompatSlotUpperWLowerU,
