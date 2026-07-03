@@ -13,6 +13,7 @@ export { initStyleSingletonRuntime as initArrayEqualityRuntimeChunk } from "../r
 export { formatResetTimestamp as appMainCurrentCompatSlotLowerLLowerC } from "../../utils/rate-limit-status/formatting";
 export { userSavedConfigQueryOptions as appMainCurrentCompatSlotLowerLLowerX } from "../../config/user-saved-config-query";
 export { initUseRecordingWaveformChunk as appMainCurrentCompatSlotLowerLUpperC } from "../../utils/use-recording-waveform";
+export { getThreadHandoffComposerDisabledReason as appMainCurrentCompatSlotLowerLLowerO } from "../../conversations/thread-handoff-composer-status";
 
 export {
   l as appMainCurrentCompatSlotLowerL,
@@ -22,7 +23,6 @@ export {
   lg as appMainCurrentCompatSlotLowerLLowerG,
   li as appMainCurrentCompatSlotLowerLLowerI,
   ln as appMainCurrentCompatSlotLowerLLowerN,
-  lo as appMainCurrentCompatSlotLowerLLowerO,
   lp as appMainCurrentCompatSlotLowerLLowerP,
   lr as appMainCurrentCompatSlotLowerLLowerR,
   ls as appMainCurrentCompatSlotLowerLLowerS,

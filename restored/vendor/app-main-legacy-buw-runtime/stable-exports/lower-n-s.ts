@@ -70,6 +70,7 @@ export {
 } from "../../../review/review-diff-store";
 export { initInterruptedTurnStateChunk as legacyAppMainBuwLowerQLowerSExport } from "../../../threads/interrupted-turn-state";
 export { copySessionId as legacyAppMainBuwLowerPLowerOExport } from "../../../threads/thread-actions/actions";
+export { getMoveToLocalTargets as legacyAppMainBuwLowerOLowerOExport } from "../../../utils/get-move-to-local-targets";
 
 export {
   nS as legacyAppMainBuwLowerNUpperSExport,
@@ -97,7 +98,6 @@ export {
   oi as legacyAppMainBuwLowerOLowerIExport,
   om as legacyAppMainBuwLowerOLowerMExport,
   on as legacyAppMainBuwLowerOLowerNExport,
-  oo as legacyAppMainBuwLowerOLowerOExport,
   op as legacyAppMainBuwLowerOLowerPExport,
   or as legacyAppMainBuwLowerOLowerRExport,
   ot as legacyAppMainBuwLowerOLowerTExport,

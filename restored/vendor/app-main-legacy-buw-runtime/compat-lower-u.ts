@@ -17,6 +17,7 @@ export { initEllipsisHorizontalIconChunk as SidebarRowLocalEnvironment } from ".
 export { getSpendControlWarningThreshold as appMainCurrentCompatSlotLowerULowerC } from "../../utils/rate-limit-status/account-status";
 export { initUserSavedConfigQueryChunk as appMainCurrentCompatSlotLowerULowerX } from "../../config/user-saved-config-query";
 export { primaryRuntimeInstallStatusSignal as appMainCurrentCompatSlotLowerULowerS } from "../../runtime/primary-runtime-install-state";
+export { initThreadHandoffComposerStatusChunk as appMainCurrentCompatSlotLowerULowerO } from "../../conversations/thread-handoff-composer-status";
 
 export {
   u as appMainCurrentCompatSlotLowerU,
@@ -26,7 +27,6 @@ export {
   ug as appMainCurrentCompatSlotLowerULowerG,
   ui as appMainCurrentCompatSlotLowerULowerI,
   un as appMainCurrentCompatSlotLowerULowerN,
-  uo as appMainCurrentCompatSlotLowerULowerO,
   up as appMainCurrentCompatSlotLowerULowerP,
   ur as appMainCurrentCompatSlotLowerULowerR,
   uS as appMainCurrentCompatSlotLowerUUpperS,

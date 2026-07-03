@@ -77,6 +77,10 @@ export {
 } from "../../../utils/rate-limit-status/account-status";
 export { getLatestRateLimitResetAt as legacyAppMainBuwLowerDLowerCExport } from "../../../utils/rate-limit-status/windows";
 export { copyAppLink as legacyAppMainBuwLowerFLowerOExport } from "../../../threads/thread-actions/actions";
+export {
+  adjustPendingPastedTextAttachmentCount as legacyAppMainBuwLowerCLowerOExport,
+  pendingPastedTextAttachmentCountStore as legacyAppMainBuwLowerDLowerOExport,
+} from "../../../conversations/thread-handoff-composer-status";
 
 export {
   aS as legacyAppMainBuwLowerAUpperSExport,
@@ -123,7 +127,6 @@ export {
   ch as legacyAppMainBuwLowerCLowerHExport,
   ci as legacyAppMainBuwLowerCLowerIExport,
   cn as legacyAppMainBuwLowerCLowerNExport,
-  co as legacyAppMainBuwLowerCLowerOExport,
   cr as legacyAppMainBuwLowerCLowerRExport,
   ct as legacyAppMainBuwLowerCLowerTExport,
   cu as legacyAppMainBuwLowerCLowerUExport,
@@ -139,7 +142,6 @@ export {
   di as legacyAppMainBuwLowerDLowerIExport,
   dm as legacyAppMainBuwLowerDLowerMExport,
   dn as legacyAppMainBuwLowerDLowerNExport,
-  do as legacyAppMainBuwLowerDLowerOExport,
   dp as legacyAppMainBuwLowerDLowerPExport,
   dr as legacyAppMainBuwLowerDLowerRExport,
   dt as legacyAppMainBuwLowerDLowerTExport,

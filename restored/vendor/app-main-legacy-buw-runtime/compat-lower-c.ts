@@ -12,6 +12,7 @@ export {
 export { isSpendControlNearWorkspaceCap as appMainCurrentCompatSlotLowerCLowerC } from "../../utils/rate-limit-status/account-status";
 export { openConfigInEditor as appMainCurrentCompatSlotLowerCLowerX } from "../../composer/open-config-in-editor";
 export { isPrimaryRuntimeInstallProgressPhase as appMainCurrentCompatSlotLowerCLowerS } from "../../runtime/primary-runtime-install-state";
+export { adjustPendingPastedTextAttachmentCount as appMainCurrentCompatSlotLowerCLowerO } from "../../conversations/thread-handoff-composer-status";
 
 export {
   c as appMainCurrentCompatSlotLowerC,
@@ -23,7 +24,6 @@ export {
   ch as appMainCurrentCompatSlotLowerCLowerH,
   ci as appMainCurrentCompatSlotLowerCLowerI,
   cn as appMainCurrentCompatSlotLowerCLowerN,
-  co as appMainCurrentCompatSlotLowerCLowerO,
   cr as appMainCurrentCompatSlotLowerCLowerR,
   cS as appMainCurrentCompatSlotLowerCUpperS,
   ct as appMainCurrentCompatSlotLowerCLowerT,

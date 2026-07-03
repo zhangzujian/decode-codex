@@ -84,6 +84,7 @@ export {
   initRateLimitStatusDependenciesChunk as legacyAppMainBuwLowerMLowerCExport,
   remainingUsagePercent as legacyAppMainBuwLowerKLowerCExport,
 } from "../../../utils/rate-limit-status/windows";
+export { getThreadHandoffComposerDisabledReason as legacyAppMainBuwLowerLLowerOExport } from "../../../conversations/thread-handoff-composer-status";
 
 export { closestCenter as ThreadRowStatusIndicator } from "../../dnd-kit-core";
 
@@ -173,7 +174,6 @@ export {
   lb as legacyAppMainBuwLowerLLowerBExport,
   li as legacyAppMainBuwLowerLLowerIExport,
   ln as legacyAppMainBuwLowerLLowerNExport,
-  lo as legacyAppMainBuwLowerLLowerOExport,
   lp as legacyAppMainBuwLowerLLowerPExport,
   lr as legacyAppMainBuwLowerLLowerRExport,
   lu as legacyAppMainBuwLowerLLowerUExport,

@@ -77,6 +77,7 @@ export {
   initAppgenAccessStateIconChunk as legacyAppMainBuwLowerYLowerSExport,
 } from "../../../utils/appgen-access-state-messages";
 export { trackConversationalOnboardingExecutionCompletionMissing as legacyAppMainBuwLowerZLowerSExport } from "../../../onboarding/conversational-onboarding-analytics";
+export { initThreadHandoffComposerStatusChunk as legacyAppMainBuwLowerULowerOExport } from "../../../conversations/thread-handoff-composer-status";
 
 export {
   tS as legacyAppMainBuwLowerTUpperSExport,
@@ -104,7 +105,6 @@ export {
   ub as legacyAppMainBuwLowerULowerBExport,
   ui as legacyAppMainBuwLowerULowerIExport,
   un as legacyAppMainBuwLowerULowerNExport,
-  uo as legacyAppMainBuwLowerULowerOExport,
   up as legacyAppMainBuwLowerULowerPExport,
   ur as legacyAppMainBuwLowerULowerRExport,
   uv as legacyAppMainBuwLowerULowerVExport,

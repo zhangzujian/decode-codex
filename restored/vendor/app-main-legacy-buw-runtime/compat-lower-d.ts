@@ -7,6 +7,7 @@ export { getPathBasename } from "../../runtime/app-main-new-thread-runtime";
 export { initDictationTranscriptCleanupChunk as appMainCurrentCompatSlotLowerDUpperC } from "../../utils/transcribe-audio/responses-cleanup";
 export { getLatestRateLimitResetAt as appMainCurrentCompatSlotLowerDLowerC } from "../../utils/rate-limit-status/windows";
 export { cancelPrimaryRuntimeInstall as appMainCurrentCompatSlotLowerDLowerS } from "../../runtime/primary-runtime-install-state";
+export { pendingPastedTextAttachmentCountStore as appMainCurrentCompatSlotLowerDLowerO } from "../../conversations/thread-handoff-composer-status";
 
 export {
   d as appMainCurrentCompatSlotLowerD,
@@ -19,7 +20,6 @@ export {
   di as appMainCurrentCompatSlotLowerDLowerI,
   dm as appMainCurrentCompatSlotLowerDLowerM,
   dn as appMainCurrentCompatSlotLowerDLowerN,
-  do as appMainCurrentCompatSlotLowerDLowerO,
   dp as appMainCurrentCompatSlotLowerDLowerP,
   dr as appMainCurrentCompatSlotLowerDLowerR,
   dS as appMainCurrentCompatSlotLowerDUpperS,

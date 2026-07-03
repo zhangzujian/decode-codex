@@ -13,6 +13,7 @@ export {
 export { getCodexWindowChrome } from "../../runtime/window-chrome-runtime";
 export { initReviewDiffStateRuntime as initReviewDiffStateChunk } from "../../review/review-diff-store";
 export { finishPrimaryRuntimeInstallBeforeFirstTurn as appMainCurrentCompatSlotLowerOLowerS } from "../../runtime/primary-runtime-install-state";
+export { getMoveToLocalTargets as appMainCurrentCompatSlotLowerOLowerO } from "../../utils/get-move-to-local-targets";
 
 export {
   o as appMainCurrentCompatSlotLowerO,
@@ -23,7 +24,6 @@ export {
   oi as appMainCurrentCompatSlotLowerOLowerI,
   om as appMainCurrentCompatSlotLowerOLowerM,
   on as appMainCurrentCompatSlotLowerOLowerN,
-  oo as appMainCurrentCompatSlotLowerOLowerO,
   op as appMainCurrentCompatSlotLowerOLowerP,
   or as appMainCurrentCompatSlotLowerOLowerR,
   oS as appMainCurrentCompatSlotLowerOUpperS,
