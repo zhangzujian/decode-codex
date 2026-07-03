@@ -42378,12 +42378,12 @@
       },
       "status": "done",
       "vendor": "docx-preview-panel-runtime",
-      "note": "Current DocxPreviewPanel hash maps to the restored docx preview runtime compatibility entry. DOCX annotation geometry, metadata, DOM selection, rendering, style injection, page measurement, render-state hook, and fit-width/gesture zoom helpers now live in features/documents/docx-preview-panel while the remaining panel component body still needs further semantic splitting out of vendor.",
-      "lastUpdated": "2026-07-02T01:40:29.000Z",
+      "note": "Current DocxPreviewPanel hash maps to a small docx preview runtime compatibility entry. DOCX annotation geometry, metadata, DOM selection, rendering, style injection, page measurement, render-state hook, fit-width/gesture zoom helpers, toolbar, preview body, annotation portals, comment state, and the typed panel component now live in features/documents/docx-preview-panel.",
+      "lastUpdated": "2026-07-03T02:45:36.000Z",
       "stage3Accepted": true,
-      "stage3AcceptedAt": "2026-07-02T01:40:29.000Z",
-      "stage3Review": "Host self-review: current ref docx-preview-panel-BsZXEpj7.js exports only DocxPreviewPanel; vendor/docx-preview-panel-runtime.ts preserves that surface and now delegates annotation geometry, metadata, DOM selection, rendering, style injection, page measurement, render-state hook, and fit-width/gesture zoom helpers to features/documents/docx-preview-panel.",
-      "stage3Note": "Partial semantic split in progress: helper modules pass quality-gate, but vendor/docx-preview-panel-runtime.ts still fails flat-boundary-app-bundle until the remaining panel component body is split or moved behind a small compatibility shim."
+      "stage3AcceptedAt": "2026-07-03T02:45:36.000Z",
+      "stage3Review": "Host self-review: current ref docx-preview-panel-BsZXEpj7.js exports only DocxPreviewPanel; vendor/docx-preview-panel-runtime.ts preserves that public surface as a compatibility shim while delegating the typed panel, toolbar, preview body, annotation portals, comment state, annotation layer, geometry, metadata, DOM selection, rendering, style injection, page measurement, render-state hook, and fit-width/gesture zoom helpers to features/documents/docx-preview-panel.",
+      "stage3Note": "Runtime-wrapper decision: not a stock npm package body. The actual docx-preview renderer remains an npm-backed shim; this file is the Codex app-facing wrapper that wires current app state, renderer loading, analytics scope, host bridge, and bundled toolbar/file-action components into the semantic DOCX preview panel."
     },
     "PopcornElectronPresentationPanel-B56eXPt5": {
       "restored": "runtime/current-app-initial/popcorn-electron-presentation-panel-current-runtime.tsx",

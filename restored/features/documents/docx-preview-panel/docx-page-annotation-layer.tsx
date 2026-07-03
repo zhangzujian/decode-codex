@@ -83,7 +83,7 @@ export interface DocxPageAnnotationLayerProps {
   path: string;
   productLoggerScope: ProductLoggerScope;
   tabId: string;
-  threadId: string;
+  threadId?: string | null;
   title: string;
   zoomScale?: number;
 }
