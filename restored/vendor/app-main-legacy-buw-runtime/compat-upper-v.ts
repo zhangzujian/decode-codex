@@ -13,19 +13,19 @@ export { trackConversationalOnboardingLifecycleSkipped as appMainCurrentCompatSl
 export { initRunAppActionInPrimaryWindowRuntime as appMainCurrentCompatSlotUpperVLowerO } from "../../runtime/run-app-action-in-primary-window";
 export { goToPreviousThreadFindMatch as appMainCurrentCompatSlotUpperVLowerG } from "../../find/thread-find-store";
 
+export { reviewFileTreeOpenSignal as appMainCurrentCompatSlotUpperVLowerY } from "../../app-shell/app-shell-state";
+export { SEND_MESSAGE_TO_THREAD_TOOL_NAME as appMainCurrentCompatSlotUpperVLowerA } from "../../conversations/codex-app-tool-names";
+export { browserProfileImportProfilesQuery as appMainCurrentCompatSlotUpperVLowerM } from "../../browser/browser-profile-import-query";
 export {
-  V as appMainCurrentCompatSlotUpperV,
-  V_ as appMainCurrentCompatSlotUpperVUnderscore,
-  Va as appMainCurrentCompatSlotUpperVLowerA,
-  Vb as appMainCurrentCompatSlotUpperVLowerB,
-  Vf as appMainCurrentCompatSlotUpperVLowerF,
-  Vh as appMainCurrentCompatSlotUpperVLowerH,
-  Vl as appMainCurrentCompatSlotUpperVLowerL,
-  Vm as appMainCurrentCompatSlotUpperVLowerM,
-  Vn as appMainCurrentCompatSlotUpperVLowerN,
-  VS as appMainCurrentCompatSlotUpperVUpperS,
-  Vt as appMainCurrentCompatSlotUpperVLowerT,
-  Vu as appMainCurrentCompatSlotUpperVLowerU,
-  Vx as appMainCurrentCompatSlotUpperVLowerX,
-  Vy as appMainCurrentCompatSlotUpperVLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperVExport as appMainCurrentCompatSlotUpperV,
+  legacyAppMainBuwUpperVUnderscoreExport as appMainCurrentCompatSlotUpperVUnderscore,
+  legacyAppMainBuwUpperVLowerBExport as appMainCurrentCompatSlotUpperVLowerB,
+  legacyAppMainBuwUpperVLowerFExport as appMainCurrentCompatSlotUpperVLowerF,
+  legacyAppMainBuwUpperVLowerHExport as appMainCurrentCompatSlotUpperVLowerH,
+  legacyAppMainBuwUpperVLowerLExport as appMainCurrentCompatSlotUpperVLowerL,
+  legacyAppMainBuwUpperVLowerNExport as appMainCurrentCompatSlotUpperVLowerN,
+  legacyAppMainBuwUpperVUpperSExport as appMainCurrentCompatSlotUpperVUpperS,
+  legacyAppMainBuwUpperVLowerTExport as appMainCurrentCompatSlotUpperVLowerT,
+  legacyAppMainBuwUpperVLowerUExport as appMainCurrentCompatSlotUpperVLowerU,
+  legacyAppMainBuwUpperVLowerXExport as appMainCurrentCompatSlotUpperVLowerX,
+} from "./stable-exports";

@@ -11,6 +11,8 @@ export type AppLoadingScreenProps = {
   showLogo?: boolean;
 };
 
+export function initAppLoadingScreenChunk(): void {}
+
 export function AppLoadingScreen({
   overlay = false,
   fillParent = false,

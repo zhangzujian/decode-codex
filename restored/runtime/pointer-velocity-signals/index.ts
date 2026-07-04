@@ -57,3 +57,9 @@ export const pointerVelocityProjections = {
     },
   ),
 };
+
+export function initPointerVelocitySignalsChunk(): void {
+  void pointerVelocitySignal;
+  void viewportSizeSignal;
+  void pointerVelocityProjections;
+}

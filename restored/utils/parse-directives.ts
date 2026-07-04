@@ -6,7 +6,7 @@ type PromptLinkMatch = {
   path: string;
   start: number;
 };
-type ParsedDirective = {
+export type ParsedDirective = {
   attributes: Record<string, string>;
   name: string;
 };
@@ -167,7 +167,7 @@ export function parseDirectivesT(
     options.lineStartNames == null ? null : new Set(options.lineStartNames);
   const directives: ParsedDirective[] = [];
   for (const line of markdown.split(/\r?\n/)) {
-    const match = line.match(/^\s*::([A-Za-z0-9_-]+)\s*(.*)$/);
+    const match = line.match(/^\s*:{1,3}([A-Za-z][A-Za-z0-9_-]*)\s*(.*)$/);
     if (!match) continue;
     if (allowedNames != null && !allowedNames.has(match[1])) continue;
     directives.push({
@@ -177,6 +177,8 @@ export function parseDirectivesT(
   }
   return directives;
 }
+
+export const parseInlineDirectiveTags = parseDirectivesT;
 
 export function parseDirectivesD(
   error: Error,

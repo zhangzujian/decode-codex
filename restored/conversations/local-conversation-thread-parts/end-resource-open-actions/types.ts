@@ -21,7 +21,7 @@ export interface OpenTargetMenuItem {
 }
 
 export interface EndResourceOpenActionProps {
-  cwd: string;
+  cwd: string | null;
   hostId: string;
   href: string;
   openTarget: string;
@@ -36,7 +36,7 @@ export interface EndResourceOpenSubtitleProps {
 }
 
 export interface EndResourceOpenInMenuProps {
-  cwd: string;
+  cwd: string | null;
   copyLink: string | null;
   hostId: string;
   isOpen: boolean;

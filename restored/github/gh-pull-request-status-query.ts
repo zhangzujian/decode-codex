@@ -62,6 +62,9 @@ const ghCliStatusQuery = vscodeApiI(
         : vscodeApiU.FIVE_SECONDS,
   }),
 );
+
+function initGhCliStatusQueryChunk(): void {}
+
 const ghCliAvailabilitySignal = _appScopeL(
   _appScopeT,
   (hostId: string, { get }): GhCliAvailability => {
@@ -189,6 +192,7 @@ export {
   ghCliAvailabilitySignal,
   ghPullRequestUrlSignal,
   ghPullRequestStatusResultSignal,
+  initGhCliStatusQueryChunk,
   invalidateGhCliStatus,
   ghPullRequestStatusQuery,
   hasOpenPullRequestSignal,

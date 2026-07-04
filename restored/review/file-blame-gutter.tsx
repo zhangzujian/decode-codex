@@ -263,6 +263,8 @@ function formatBlameDate(authorTime: number | null | undefined): string | null {
 
 const blameRoots = new WeakMap<Element, Root>();
 
+export function initFileBlameGutterChunk(): void {}
+
 export function renderFileBlameGutter(
   host: Element,
   linesByNumber: Map<number, BlameLine> | null,

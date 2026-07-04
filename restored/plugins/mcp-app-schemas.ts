@@ -114,6 +114,11 @@ export const DEFAULT_NAVIGATION_STATE = {
   canGoForward: false,
 } as const;
 
+export function initMcpAppSchemasChunk(): void {
+  void navigationStateSchema;
+  void DEFAULT_NAVIGATION_STATE;
+}
+
 export type McpAppNavigationState = {
   canGoBack: boolean;
   canGoForward: boolean;

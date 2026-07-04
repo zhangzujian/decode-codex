@@ -18,17 +18,17 @@ export { CODEX_LOCAL_ENVIRONMENTS_DOCS_URL as appMainCurrentCompatSlotUpperGLowe
 export { handleHandoffThread as appMainCurrentCompatSlotUpperGLowerA } from "../../conversations/handoff-thread-tool-handlers";
 export { setThreadFindScope as appMainCurrentCompatSlotUpperGLowerG } from "../../find/thread-find-store";
 
+export { setActiveAppShellFocusArea as appMainCurrentCompatSlotUpperGLowerY } from "../../app-shell/app-shell-state";
+export { FileChangePatchRow as appMainCurrentCompatSlotUpperGLowerN } from "../../conversations/local-conversation-thread-parts/file-change-patch-row";
 export {
-  G as appMainCurrentCompatSlotUpperG,
-  G_ as appMainCurrentCompatSlotUpperGUnderscore,
-  Gb as appMainCurrentCompatSlotUpperGLowerB,
-  Gf as appMainCurrentCompatSlotUpperGLowerF,
-  Gh as appMainCurrentCompatSlotUpperGLowerH,
-  Gm as appMainCurrentCompatSlotUpperGLowerM,
-  Gn as appMainCurrentCompatSlotUpperGLowerN,
-  Gp as appMainCurrentCompatSlotUpperGLowerP,
-  GS as appMainCurrentCompatSlotUpperGUpperS,
-  Gt as appMainCurrentCompatSlotUpperGLowerT,
-  Gx as appMainCurrentCompatSlotUpperGLowerX,
-  Gy as appMainCurrentCompatSlotUpperGLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperGExport as appMainCurrentCompatSlotUpperG,
+  legacyAppMainBuwUpperGUnderscoreExport as appMainCurrentCompatSlotUpperGUnderscore,
+  legacyAppMainBuwUpperGLowerBExport as appMainCurrentCompatSlotUpperGLowerB,
+  legacyAppMainBuwUpperGLowerFExport as appMainCurrentCompatSlotUpperGLowerF,
+  legacyAppMainBuwUpperGLowerHExport as appMainCurrentCompatSlotUpperGLowerH,
+  legacyAppMainBuwUpperGLowerMExport as appMainCurrentCompatSlotUpperGLowerM,
+  legacyAppMainBuwUpperGLowerPExport as appMainCurrentCompatSlotUpperGLowerP,
+  legacyAppMainBuwUpperGUpperSExport as appMainCurrentCompatSlotUpperGUpperS,
+  legacyAppMainBuwUpperGLowerTExport as appMainCurrentCompatSlotUpperGLowerT,
+  legacyAppMainBuwUpperGLowerXExport as appMainCurrentCompatSlotUpperGLowerX,
+} from "./stable-exports";

@@ -29,4 +29,4 @@ export {
 export { initWarningContextRuntime } from "../../runtime/app-main-new-thread-runtime";
 export { getLocalConversationSearchMatchId as appMainCurrentCompatSlotLowerNUnderscore } from "../../runtime/conversation-search-runtime";
 
-export { ny as appMainCurrentCompatSlotLowerNLowerY } from "../app-main-legacy-buw-compat-bundle";
+export { getBrowserSidebarInitialUrl as appMainCurrentCompatSlotLowerNLowerY } from "../../browser/browser-sidebar-open-source";

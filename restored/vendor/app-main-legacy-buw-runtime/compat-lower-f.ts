@@ -22,13 +22,11 @@ export { copyAppLink as appMainCurrentCompatSlotLowerFLowerO } from "../../threa
 export { initUseDefaultBranchQueryChunk as appMainCurrentCompatSlotLowerFLowerU } from "../../conversations/use-default-branch-query";
 export { initReactReduxProviderRuntimeChunk as appMainCurrentCompatSlotLowerF } from "../react-redux-provider-runtime";
 
-export {
-  f_ as appMainCurrentCompatSlotLowerFUnderscore,
-  fa as appMainCurrentCompatSlotLowerFLowerA,
-  fd as appMainCurrentCompatSlotLowerFLowerD,
-  fn as appMainCurrentCompatSlotLowerFLowerN,
-  fp as appMainCurrentCompatSlotLowerFLowerP,
-  fS as appMainCurrentCompatSlotLowerFUpperS,
-  ft as appMainCurrentCompatSlotLowerFLowerT,
-  fy as appMainCurrentCompatSlotLowerFLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { openTerminalPanel as appMainCurrentCompatSlotLowerFUnderscore } from "../../terminal/terminal-panel-tabs";
+export { groupDynamicToolCalls as appMainCurrentCompatSlotLowerFLowerA } from "../../conversations/conversation-activity-grouping/dynamic-tool-call-groups";
+export { initAppShellCompoundChunk as appMainCurrentCompatSlotLowerFLowerD } from "../../app-shell/app-shell";
+export { initReferencedPriorConversationsChunk as appMainCurrentCompatSlotLowerFLowerN } from "../../composer/referenced-prior-conversations";
+export { initSettingsHostProjectFilterChunk as appMainCurrentCompatSlotLowerFLowerP } from "../../settings/settings-host-context";
+export { timeSaturday as appMainCurrentCompatSlotLowerFUpperS } from "../../utils/d3-chart-scales";
+export { registerConversationItemScrollTarget as appMainCurrentCompatSlotLowerFLowerT } from "../../conversations/scroll-conversation-item-into-view";
+export { subscribeToBrowserSidebarTabRegistry as appMainCurrentCompatSlotLowerFLowerY } from "../../browser/browser-sidebar-open-source/tab-registry-mutations";

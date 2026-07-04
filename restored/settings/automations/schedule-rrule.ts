@@ -1,7 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // RRULE parsing and formatting helpers for automation schedule forms.
 
-import { RRule, rrulestr } from "rrule";
 import {
   sortWeekdays,
   weekdaySetsEqual,
@@ -21,11 +20,13 @@ import {
   normalizeRruleMinute,
   parseScheduleTime,
   RRULE_WEEKDAY_BY_TOKEN,
+  RRule,
   WEEKDAYS_MONDAY_TO_FRIDAY,
   weekdaysFromByweekday,
   weekdaysFromRruleText,
   currentTimeZoneId,
-} from "../../boundaries/onboarding-commons-externals.facade";
+  rrulestr,
+} from "./schedule-rrule-helpers";
 
 export function normalizeIntervalHours(value: number): number | null {
   if (!Number.isFinite(value)) return null;

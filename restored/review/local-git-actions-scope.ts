@@ -267,3 +267,9 @@ export const scopedGitActionBlockedStepAtom = createScopedAtom(
     ).blockedStep;
   },
 );
+
+export const createPullRequestActionStateAtom = createScopedAtom(
+  localConversationGitActionsScope,
+  ({ get }: { get: Getter }): "enabled" | "disabled" =>
+    get(scopedGitActionBlockedStepAtom) == null ? "enabled" : "disabled",
+);

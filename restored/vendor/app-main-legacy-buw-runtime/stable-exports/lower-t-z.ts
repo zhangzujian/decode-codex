@@ -219,8 +219,6 @@ export { initSidebarNavigationSignalsChunk as legacyAppMainBuwLowerZLowerDExport
 export { initLocalConversationGitActionsChunk as legacyAppMainBuwLowerZLowerLExport } from "../../../conversations/local-conversation-git-actions";
 export { initBrowserSidebarCommentOverlayChunk as legacyAppMainBuwLowerZLowerPExport } from "../../../browser/browser-sidebar-comment-overlay";
 
-export {
-  tn as legacyAppMainBuwLowerTLowerNExport,
-  wo as legacyAppMainBuwLowerWLowerOExport,
-  yg as legacyAppMainBuwLowerYLowerGExport,
-} from "../../app-main-legacy-buw-compat-bundle";
+export { buildCreateConversationParamsFromContext as legacyAppMainBuwLowerTLowerNExport } from "../../../composer/build-create-conversation-params";
+export { initReviewFileListRuntime as legacyAppMainBuwLowerYLowerGExport } from "../../../review/review-diff-store";
+export { applyForkedConversationPanelState as legacyAppMainBuwLowerWLowerOExport } from "../../../conversations/fork-conversation-panel-state";

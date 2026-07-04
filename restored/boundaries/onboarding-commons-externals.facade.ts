@@ -3,16 +3,177 @@
 // Typed `any` placeholders for non-exported cross-slice symbols.
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
+import React from "react";
+import { createRoot } from "react-dom/client";
+import type { ComponentType } from "react";
+import { z } from "zod";
+import { createAtom as createJotaiAtom } from "../vendor/jotai-runtime";
 import {
-  appScopeC as createComputedAtom,
-  appScopeH,
-  appScopeM as createParametricAtom,
-  appScopeO as readAppScopeStore,
-  appScopeRoot,
-  appScopeUnderscore as createScopedAtom,
-  useAppScopeValue,
-} from "./app-scope";
+  add as addCoordinates,
+  findFirstFocusableNode,
+  isKeyboardEvent as isDndKeyboardEvent,
+  subtract as subtractCoordinates,
+} from "@dnd-kit/utilities";
+import {
+  buildLocalFileSrc as buildLocalFileSrcRuntime,
+} from "../runtime/commons-utility-runtime";
+import {
+  joinPath as joinPathRuntime,
+  normalizePath as normalizePathRuntime,
+} from "../runtime/path-helpers-runtime";
+import {
+  formatWorkspacePathLabel as formatWorkspacePathLabelRuntime,
+  isAbsolutePath as isAbsolutePathRuntime,
+  relativizePath as relativizePathRuntime,
+} from "../conversations/file-reference-link";
+import { resolveSkillPathInfoFromReadSummary } from "../conversations/exploration-skill-summary-runtime";
+import { sendHostRequest as sendHostRequestRuntime } from "../runtime/host-request-runtime";
+import { useQueryClient as useQueryClientRuntime } from "../runtime/query-client/react-query-context";
+import type { ThreadFindDomain } from "../find/thread-find-atoms";
+import {
+  findActiveDomainAtom as threadFindActiveDomainAtom,
+  findActiveMatchIndexAtom as threadFindActiveMatchIndexAtom,
+  findLoadingAtom as threadFindLoadingAtom,
+  findOpenAtom as threadFindOpenAtom,
+  findPreferredDomainAtom as threadFindPreferredDomainAtom,
+  findResultAtom as threadFindResultAtom,
+} from "../find/thread-find-atoms";
+import {
+  readSharedObjectValueWithReader as readSharedObjectValueWithReaderRuntime,
+  updateSharedObjectValue as updateSharedObjectValueRuntime,
+} from "../runtime/shared-object-host-runtime";
+import { globalSettingKeys as sharedStateKeysRuntime } from "./src-l0hb/settings";
+import {
+  configRequirementsByHostAuthSignal as serverConfigRequirementsQueryRuntime,
+  currentRouteHostIdSignal as defaultHostIdSignalRuntime,
+} from "../runtime/app-main-new-thread-runtime";
+import {
+  primaryRuntimeDiagnosticsQueryKey as buildPrimaryRuntimeStatusQueryKeyRuntime,
+} from "../runtime/primary-runtime-query-keys";
+import {
+  primaryRuntimeInstallStatusSignal as primaryRuntimeInstallProgressStorageKeyRuntime,
+} from "../runtime/primary-runtime-install-state";
+import {
+  primaryRuntimeInstallReadyAtom as primaryRuntimeInstalledAtomRuntime,
+} from "../onboarding/onboarding-state";
+import {
+  activeWorkspaceRootsQuery as activeWorkspaceRootsQueryRuntime,
+  effectiveConfigQueryKeyPrefix,
+  layeredConfigQueryKeyPrefix,
+  userConfigQueryKeyPrefix,
+} from "../runtime/current-app-initial/pull-request-new-thread-runtime";
+import {
+  conversationManagerAtom as conversationManagerAtomRuntime,
+  getConversationTurns as getConversationTurnsRuntime,
+} from "../runtime/conversation-helpers-runtime";
+import {
+  conversationCwdSignal as conversationCwdSignalRuntime,
+  conversationHostIdSignal as conversationHostIdSignalRuntime,
+  shouldResumeConversationSignal as shouldResumeConversationSignalRuntime,
+} from "../runtime/conversation-state-runtime";
+import { avatarOverlayOpenStateSignal as avatarOverlayOpenStateSignalRuntime } from "../utils/avatar-overlay-open-state-signal";
+import {
+  dismissBrowserSidebarCommentModeCoachmark as dismissBrowserSidebarCommentModeCoachmarkRuntime,
+} from "../browser/browser-sidebar-comment-mode-coachmark-state";
+import { DiscardBrowserAnnotationsDialog } from "../browser/browser-discard-annotations-dialog";
+import { browserSidebarManager } from "../browser/sidebar-manager";
+import {
+  closeModalControllerModal as closeModalControllerModalRuntime,
+  isModalControllerModalOpen as isModalControllerModalOpenRuntime,
+  openModalControllerModal as openModalControllerModalRuntime,
+} from "../ui/modal-controller-state";
+import {
+  evaluateFeatureGate as evaluateFeatureGateRuntime,
+} from "../runtime/feature-gate-runtime";
+import { ElectronHostMessageBridge } from "../runtime/app-main-host-runtime";
+import {
+  focusPreviewTabComposer as focusPreviewTabComposerRuntime,
+  previewTabManager as previewTabManagerRuntime,
+} from "../image-side-panel/image-preview-tab-runtime";
+import { ImagesIcon as ImagePreviewTabIconRuntime } from "../icons/images-icon";
+import { ImagePreviewTabContent as ImagePreviewTabContentRuntime } from "../image-side-panel/image-preview-tab-content";
+import type { AppShellStore } from "../app-shell/app-shell-tab-controller/types";
+import { workspaceContextSignal as workspaceContextSignalRuntime } from "../runtime/workspace-signals";
+import { useScopedQuery as useScopedQueryRuntime } from "../composer/composer-scope-hooks";
+import { createQueryKey as createHostQueryKeyRuntime } from "../runtime/app-server-mutation-runtime";
+import { useQuery as useReactQueryRuntime } from "../runtime/query-client/react-query-runtime";
+import { s as remoteHostsSignalRuntime } from "./thread-context-inputs.facade";
+import { appScopeO as readAppScopeStore, useAppScopeValue } from "./app-scope";
+import {
+  appAtomScope,
+  appRootScope,
+  appStoreScope,
+  createComputedAtom,
+  createComputedQueryAtom,
+  createKeyedAtomFamily,
+  createPersistedToggleAtom,
+  createParametricAtom,
+  createParametricStateAtom,
+  createScopedAtom,
+  createScopedComputedAtom,
+  createScopedStateAtom,
+  createScopedMutationAtom,
+  createScopedQueryAtom,
+  createScopedSelector,
+  derivedAtomFamily,
+  defineScope,
+  queryAtomFamily,
+  routeAtom,
+} from "../runtime/onboarding-scope-runtime";
+import {
+  buildReviewDiffQueryKey as buildGitReviewQueryKey,
+  createCwdQueryAtomFamily as createCwdQueryAtomFamilyRuntime,
+} from "../runtime/git-query-runtime";
+import { queryDurations as queryDurationsRuntime } from "../runtime/host-query-runtime";
+import {
+  canonicalizeRootPath as canonicalizeRootPathRuntime,
+  isPathWithinRoot as isPathWithinRootRuntime,
+} from "../runtime/onboarding-common-runtime";
+import { pendingWorktreeInitPath as pendingWorktreeInitPathRuntime } from "../composer/composer-route-runtime";
+import { normalizeRemoteConnectionToHostConfig as normalizeRemoteConnectionToHostConfigRuntime } from "../runtime/shared-object-host-runtime/remote-host-config";
+import { recordProductEvent as recordProductEventRuntime } from "../runtime/query-scope-runtime/index";
+import { useSelectedAccountQuery as useSelectedAccountQueryRuntime } from "../runtime/codex-api";
+import { listBackgroundThreads as listBackgroundThreadsRuntime } from "../conversations/background-thread-list";
+import { branchPushedProductEvent as branchPushedEventDescriptor } from "../analytics/analytics-runtime-externals";
+import {
+  ghPullRequestStatusQuery,
+  ghPullRequestUrlSignal,
+  hasOpenPullRequestSignal,
+} from "../github/gh-pull-request-status-query";
+import { connectedHostIdsSignal as connectedHostIdsSignalRuntime } from "../runtime/service-tier-runtime";
+import {
+  currentHostIdSignal as currentHostIdSignalRuntime,
+  getRemoteConnectionState as getRemoteConnectionStateRuntime,
+  useRemoteManagerRegistry as useRemoteManagerRegistryRuntime,
+} from "../remote-connections/remote-connection-manager-runtime";
+import { getLocalConversationPath as getLocalConversationPathRuntime } from "../conversations/local-conversation-route-runtime";
+import {
+  currentAppInitialSharedAcceptDeclineCancelFunction as buildMcpElicitationDecisionRuntime,
+  currentAppInitialSharedMember0172 as pendingMcpElicitationByConversationSignalRuntime,
+} from "../runtime/current-app-initial/remote-projects-app-shared-runtime";
+import { conversationHeadBranchAtom as localConversationHeadBranchAtom } from "../review/local-git-action-branch-atoms";
+import { uniq as uniqRuntime } from "../utils/uniq";
 import { motion, motionTemplate } from "framer-motion";
+import { sendAppServerRequest as sendAppServerRequestRuntime } from "./use-host-config.facade";
+import { useCancelTaskMutation as useCancelTaskMutationRuntime } from "../runtime/codex-api";
+import { useAppServerManager as useAppServerManagerRuntime } from "../app-server/app-server-manager-hooks/registry";
+import { usePermissionsMode as usePermissionsModeRuntime } from "../utils/use-permissions-mode/use-permissions-mode";
+import { useModelListQuery as useModelListQueryRuntime } from "../utils/model-queries";
+import { useApplyDiffFindHighlight as useApplyDiffFindHighlightRuntime } from "../review/diff-find-highlight";
+import { Toast } from "../ui/toast";
+import {
+  removeToast as removeToastRuntime,
+  toastIdsSignal as activeToastIdsSignalRuntime,
+  toastRecordSignal as toastRecordSignalRuntime,
+} from "../ui/toast-signal";
+import { _productLoggerVr as sidePanelTabViewedEventRuntime } from "../analytics/product-logger";
+import { isBrowserSidebarEnabledSignal as isBrowserSidebarEnabledSignalRuntime } from "../browser/browser-tab-state-runtime";
+import { SidePanelTabId as SidePanelTabIdRuntime } from "../app-shell/side-panel-runtime";
+import {
+  backgroundAgentsSignal as backgroundAgentsSignalRuntime,
+  initBackgroundSubagentsRuntimeChunk,
+} from "../conversations/background-subagent-signals";
+import { useWindowsSandboxSetupContext as useWindowsSandboxSetupContextRuntime } from "../features/windows-sandbox";
 
 export { appLogger as logger } from "../runtime/app-logger";
 export {
@@ -31,15 +192,103 @@ export {
   reviewLoadFullFilesEnabledAtom,
   skipRevertConfirmationAtom,
 } from "../review/review-persistent-settings";
-export { useFeatureGate } from "../statsig/use-feature-gate";
+export {
+  useFeatureGate,
+  useFeatureGate as useFeatureGateExposure,
+} from "../statsig/use-feature-gate";
 export { Button } from "../ui/button";
 export { Checkbox } from "../utils/checkbox";
+export { DiffStats as DiffLineStats } from "../ui/diff-stats";
+export { KeyboardShortcutHint } from "../ui/keyboard-shortcut-hint";
+export {
+  AppPlaceholderIcon,
+  BrowserHighlightedTabIcon,
+  BrowserSiteSettingsIcon,
+  CheckmarkIcon,
+  CodexAppToolIcon,
+  CodexThreadToolIcon,
+  CommentSendIcon,
+  GlobeFallbackIcon,
+  InfoTooltipIcon,
+  McpServerIcon,
+  NodeReplIcon,
+  OpenInIcon,
+  PushIcon,
+  ToolActivityIcon,
+  WordWrapDisabledIcon,
+  WordWrapEnabledIcon,
+} from "../icons/facade-icon-aliases";
+export { ChevronRightIcon as DisclosureChevronIcon } from "../icons/chevron-right-icon";
+export { WarningIcon as WarningCircleIcon } from "../icons/warning-icon";
+export {
+  InlineStatusDivider,
+  ModelChangedIcon,
+} from "../conversations/inline-status-runtime";
+export {
+  CollapseAllDiffsIcon,
+  ErrorIcon,
+  ExpandAllDiffsIcon,
+  FileViewerOptionsIcon,
+  GitBlameIcon,
+  LoadFullFilesIcon,
+  RawOutputIcon,
+  RefreshIcon,
+  ReviewDiffOptionsMenuItems,
+  ReviewOptionsMenuIcon,
+  ReviewToolbarIconButton,
+  RichPreviewDisabledIcon,
+  RichPreviewEnabledIcon,
+  RichViewActiveIcon,
+  RichViewIcon,
+  SplitDiffModeIcon,
+  UnifiedDiffModeIcon,
+  WordDiffEnabledIcon,
+} from "../review/review-options-runtime";
+export {
+  gitBlameEnabledAtom,
+  isReviewLoadingAtom,
+  loadMoreReviewMatches,
+  reviewBranchDiffAvailableAtom,
+  reviewCanRefreshAtom,
+  reviewCappedModeAtom,
+  reviewCappedVisibleCountAtom,
+  reviewDiffModeAtom,
+  reviewDiffWrapAtom,
+  reviewErrorAtom,
+  reviewExpandedBottomInset,
+  reviewFileCountsAtom,
+  reviewFilesVisibleAtom,
+  reviewFindActiveAtom,
+  reviewFindStateAtom,
+  reviewHasDiffsAtom,
+  reviewRichPreviewEnabledAtom,
+  reviewSearchControllerAtom,
+  reviewSearchableFileEntriesAtom,
+  reviewSelectedPathAtom,
+  reviewTestIds,
+  reviewVisibleFileEntriesAtom,
+  reviewWordDiffsEnabledAtom,
+  richPreviewEnabledAtom,
+  setReviewActivePath,
+  setReviewFilesVisible,
+  setRichPreviewEnabled,
+  toggleArtifactPreview,
+  wordWrapEnabledAtom,
+} from "../review/review-ui-state-runtime";
+export { CalendarIcon as ScheduledTaskIcon } from "../icons/calendar-icon";
+export { ConnectorLogo as ConnectorLogoImage } from "../utils/connector-logo";
 export {
   DialogBody,
   DialogFooter,
+  DialogFooterRow,
+  DialogForm,
   DialogHeader,
+  DialogHeading,
   DialogLayout as Dialog,
+  DialogPanel,
   DialogSection,
+  DialogSubtitle,
+  DialogTitleBlock,
 } from "../ui/dialog-layout";
 export { Dropdown, DropdownMenu as Menu } from "../ui/dropdown";
 export { IconButton } from "../review/action-popover-primitives/row-primitives";
@@ -54,9 +303,23 @@ export {
 } from "../ui/toast-signal";
 export {
   createComputedAtom,
+  createComputedQueryAtom,
+  createKeyedAtomFamily,
   createParametricAtom,
+  createParametricStateAtom,
+  createPersistedToggleAtom,
   createScopedAtom,
+  createScopedComputedAtom,
+  createScopedMutationAtom,
+  createScopedQueryAtom,
+  createScopedSelector,
+  createScopedStateAtom,
+  derivedAtomFamily,
+  defineScope,
+  queryAtomFamily,
+  appStoreScope as appStore,
   useAppScopeValue,
+  useAppScopeValue as useAppScopeFamilyValue,
   useAppScopeValue as useScopedValue,
   useAppScopeValue as useSignalValue,
   readAppScopeStore as useAppScope,
@@ -66,2212 +329,5192 @@ export {
   readAppScopeStore as useStore,
 };
 export { useAtomValue } from "../vendor/jotai-runtime";
+export { findModelById } from "../app-shell/home-ambient-suggestions/model-announcements";
+export {
+  useCollaborationMode as useActiveCollaborationMode,
+  useCollaborationMode as useCollaborationModes,
+} from "../collaboration/use-collaboration-mode";
+export { useElementWidth as useMeasuredWidth } from "../utils/use-resize-observer";
+export {
+  closeModalControllerModal as closeModal,
+  useModalControllerState as useModals,
+} from "../ui/modal-controller-state";
+export { projectlessOnboardingCompletedSignal } from "../onboarding/onboarding-state";
+export { setPersistedAtomValueInMemory as setPersistedAtomValue } from "../utils/persisted-atom-store";
 export { usePlatform } from "../utils/use-platform";
 export {
   useStableCallback,
   useStableCallback as useEventCallback,
+  useStableCallback as useStableEventCallback,
 } from "../utils/use-stable-callback";
 export { useWindowZoom } from "../utils/window-zoom-context";
+export {
+  formatKeyboardShortcut,
+  keyboardShortcutRegistry,
+  resolveCommandBindings,
+  useCommandHandler,
+  useCommandShortcut,
+  useKeyboardAccelerator,
+  useNamedKeyboardShortcut,
+} from "../utils/keyboard-shortcuts-runtime";
+export { HostRequestError } from "../runtime/host-error-runtime";
+export {
+  AppBuildChannel,
+  getAppBuildChannel,
+} from "../runtime/build-channel-runtime";
+export { loadImageFileDataUrl } from "../runtime/image-file-data-url-runtime";
+export {
+  mdastToText,
+  parseMarkdown,
+  stringifyMarkdown,
+} from "../runtime/markdown-lite-runtime";
+export {
+  applyChromeThemeToElement,
+  resolveChromeTheme,
+} from "../runtime/chrome-theme-runtime";
+export {
+  appDisplayName,
+  appName,
+  httpsUrlSchema,
+  isEqual,
+  isEqual as isDeepEqual,
+  last,
+  startCase,
+} from "../runtime/onboarding-basic-externals-runtime";
+export {
+  azureBlobStorageClient,
+  azureBlobUploadHeaderName,
+  buildApiRequestInit,
+  filesApiClient,
+  httpClient,
+} from "../runtime/http-client-runtime";
+export {
+  MINUTES_PER_DAY,
+  MINUTES_PER_HOUR,
+  MINUTES_PER_MONTH,
+  MINUTES_PER_WEEK,
+  MINUTES_PER_YEAR,
+  formatIntervalLabel,
+  formatRruleSummary,
+  formatScheduleSummary,
+  summarizeMinuteInterval,
+  summarizeTimeOfDay,
+} from "../runtime/automation-schedule-summary-runtime";
+export { useHostConfigValue } from "../runtime/host-config-value-runtime";
+export {
+  DocumentFileTypeIcon,
+  DriveFileTypeIcon,
+  ImageFilePreview,
+  MarkdownFilePreview,
+  MoleculeFilePreview,
+  OpenFileButton,
+  OpenFileContextMenuWrapper,
+  PdfFilePreview,
+  PresentationFileTypeIcon,
+  SpreadsheetFileTypeIcon,
+  copyFileContentsToClipboard,
+} from "../review/file-preview-runtime";
+export type { Rect } from "../image-side-panel/paged-annotation-overlay-geometry";
+export {
+  DEFAULT_COLLABORATION_MODE,
+  RequestAbortedError,
+  VisuallyHidden,
+  VisuallyHiddenDescription,
+  VisuallyHiddenTitle,
+  createRequestAbortedError,
+  dismissActivePopover,
+  getWorkspaceCwd,
+  isRemoteControlBridgeDisabled,
+  resolveQueryOptions,
+  uniqBy,
+} from "../runtime/onboarding-utility-runtime";
+export {
+  useHost,
+  useHostPlatform,
+  usePushToTalkHotkey,
+  useRouteMatch,
+  useSessionState,
+  useSetSignal,
+  useSharedStateValue,
+  useStatsigDynamicConfig,
+  setSharedObjectValue,
+} from "../runtime/onboarding-hooks-runtime";
+export {
+  ProjectStorageKey,
+  usePersistedValue,
+  writePersistedValue,
+} from "../runtime/persisted-global-state-runtime";
+export {
+  activeAutomationSeedSignal,
+  pendingAutomationDirectiveSignal,
+  threadSettingsByIdSignal,
+} from "../runtime/onboarding-state-runtime";
+export { PlanType } from "../runtime/plan-type-runtime";
+export { SettingKeys } from "../settings/settings-keys-runtime";
+export {
+  agentModeFromPermissions,
+  buildThreadPermissions,
+} from "../runtime/thread-permissions-runtime";
+export {
+  appShellLayoutContext,
+  bottomPanelHeightRatioSignal,
+  computeMainContentTargetWidth,
+  devicePixelRatioSignal,
+  floatingLeftPanelTransition,
+  getInitialLeftPanelWidth,
+  leftPanelOpacitySignal,
+  leftPanelWidthSignal,
+  mainContentMeasurementSignal,
+  measureElementSize,
+  persistLeftPanelWidth,
+  pointerPositionSignals,
+  prefersReducedMotionSignal,
+  roundLeftPanelWidth,
+  roundToDevicePixels,
+  scalePx,
+  serializeMainContentMeasurement,
+  setHoveredAppShellFocusArea,
+  sidebarPeekActiveSignal,
+  sidebarVisibleSignal,
+  useApplicationMenuBarEnabled,
+  useAppShellLayout,
+  useDevicePixelRatio,
+  useAppShellLayout as useRightPanelLayout,
+  useTitleBarSafeAreaInsets,
+} from "../app-shell/app-shell-layout-runtime";
+export {
+  appShellPanelDragContext,
+  computeRightPanelWidth,
+  computeRightPanelWidthRatio,
+  computeStoredRightPanelWidthRatio,
+  panelSpringTransition,
+  persistRightPanelWidth,
+  setRightPanelOpenPreservingMaximized,
+  showMultiTabCloseMenuSignal,
+  sidebarPeekHoverSignal,
+  sidebarPeekLockedSignal,
+  sidebarTriggerHoveredSignal,
+  TabPanelErrorBoundary,
+  useAppShellTabState,
+  workspaceProvisioningStateSignal,
+} from "../app-shell/app-shell-panel-runtime";
+export {
+  setTerminalFocused,
+  terminalFocusedSignal,
+} from "../runtime/terminal-focus-runtime";
+export { terminalSessionManager } from "../runtime/terminal-session-manager-runtime";
+export {
+  evaluateFeatureGate,
+  getFeatureGateValue,
+} from "../runtime/feature-gate-runtime";
+export {
+  labelFromConversationInput,
+  mergeRuntimeWorkspaceRoots,
+  mergeSandboxPolicyRoots,
+  resolveRuntimeWorkspaceRoots,
+  sanitizeThreadConfig,
+  serializeConfig,
+  threadPermissionsSignal,
+} from "../runtime/thread-start-runtime";
 
-export const appAtomScope = appScopeH("appAtomScope");
-export const appRootScope = appScopeRoot;
-export const appStoreScope = appScopeH("appStoreScope");
-export const createComputedQueryAtom = createParametricAtom;
-export const createParametricStateAtom = createParametricAtom;
-export const createScopedStateAtom = createScopedAtom;
-export const defineScope = appScopeH;
-export const queryAtomFamily = createParametricAtom;
-export const routeAtom = appScopeH("routeAtom");
 export const useAtomFamilyValue = useAppScopeValue;
+export const useAtomFamily = useAppScopeValue;
 export const useScopedAtomValue = useAppScopeValue;
+export const useConversationAtomValue = useAppScopeValue;
+export const useKeyedAtomValue = useAppScopeValue;
+export const createParametricQueryAtom = createScopedQueryAtom;
 export { motion };
 export const MotionButton = motion.button;
 export { motionTemplate };
 
-export const // Geometry / spring helpers live in the shared `hee()` module of this chunk
-  // (not restored). Imported through the boundary facade with semantic aliases.
-  buildBezierPath = undefined as never;
-export const // MISSING from facade (reported under facadeNeeded):
-  useConversationParentModel = undefined as never;
-export const // Routed through the boundary facade (reported under facadeNeeded):
-  buildToolErrorResult = undefined as never;
-export const ACTIVE_DOWNLOAD_STATUSES = undefined as never;
-export const ALL_WEEKDAYS = undefined as never;
-export const ANNOTATION_SETTLE_ANIMATION = undefined as never;
-export const APP_SHELL_FOCUS_AREA_ATTR = undefined as never;
-export const AccessPolicyIcon = undefined as never;
-export const ActionMenu = undefined as never;
-export const ActionPopover = undefined as never;
-export const ActiveDraggableContext = undefined as never;
-export const ActivityDisclosureChevron = undefined as never;
-export const ActivityResultCard = undefined as never;
-export const ActivityResultCardAction = undefined as never;
-export const ActivityResultCardRow = undefined as never;
-export const AnchoredOverlayLayer = undefined as never;
-export const AnimatePresence = undefined as never;
-export const AnimatedActivityLabel = undefined as never;
-export const AnimatedNumber = undefined as never;
-export const AppBrand = undefined as never;
-export const AppConnectDialog = undefined as never;
-export const AppHeaderSidebarBrand = undefined as never;
-export const AppPlaceholderIcon = undefined as never;
-export const AppShellPortalRoot = undefined as never;
-export const AppStore = undefined as never;
-export const AppgenSiteIcon = undefined as never;
-export const AssistantResourceHoverContext = undefined as never;
-export const AssistantResourcesProvider = undefined as never;
-export const AtMentionAutocomplete = undefined as never;
-export const AutoScrollActivator = undefined as never;
-export const AutoScrollingActivityList = undefined as never;
-export const AutomaticApprovalReviewIndicator = undefined as never;
-export const AutomaticApprovalReviews = undefined as never;
-export const AutomationActionProto = undefined as never;
-export const AutomationDetailRow = undefined as never;
-export const AutomationDetailSection = undefined as never;
-export const AutomationFailureReasonProto = undefined as never;
-export const AutomationKindProto = undefined as never;
-export const AutomationSourceProto = undefined as never;
-export const AutomationStatusProto = undefined as never;
-export const BROWSER_ZOOM_LEVELS = undefined as never;
-export const BackForwardNavigationButtons = undefined as never;
-export const BranchIcon = undefined as never;
-export const BreadcrumbSeparatorIcon = undefined as never;
-export const BrowserAddressInput = undefined as never;
-export const BrowserAddressSecurityIndicator = undefined as never;
-export const BrowserAnnotationTakeoverToolbar = undefined as never;
-export const BrowserCursorOverlay = undefined as never;
-export const BrowserDesignTweaksEditor = undefined as never;
-export const BrowserDeviceToolbarOverlay = undefined as never;
-export const BrowserDownloadsButton = undefined as never;
-export const BrowserDownloadsList = undefined as never;
-export const BrowserFloatingComposer = undefined as never;
-export const BrowserHighlightedTabIcon = undefined as never;
-export const BrowserOptionsIcon = undefined as never;
-export const BrowserPlaceholderIcon = undefined as never;
-export const BrowserProfileImportNux = undefined as never;
-export const BrowserScreenshotButton = undefined as never;
-export const BrowserSidebarFallbackWebview = undefined as never;
-export const BrowserSidebarPlaceholder = undefined as never;
-export const BrowserSidebarTabContent = undefined as never;
-export const BrowserSiteSettingsIcon = undefined as never;
-export const BrowserTabTrailingIndicators = undefined as never;
-export const BrowserTabType = undefined as never;
-export const BrowserWebviewHost = undefined as never;
-export const CLOSED_AGENT_ERROR_MESSAGE = undefined as never;
-export const COMMENT_EDITOR_FOOTER_CLASS = undefined as never;
-export const COMMENT_EDITOR_INPUT_CLASS = undefined as never;
-export const COMMENT_EDITOR_SURFACE_CLASS = undefined as never;
-export const COMMENT_POPUP_ROOT_ID = undefined as never;
-export const CONTENT_SAMPLE_MAX_FILE_BYTES = undefined as never;
-export const Callout = undefined as never;
-export const ChatGptBrandLogo = undefined as never;
-export const CheckIcon = undefined as never;
-export const CheckmarkIcon = undefined as never;
-export const ChevronDownIcon = undefined as never;
-export const ChevronRightIcon = undefined as never;
-export const ChevronUpIcon = undefined as never;
-export const CitationActionLabel = undefined as never;
-export const CitationCardBody = undefined as never;
-export const CitationCardFrame = undefined as never;
-export const CloseIcon = undefined as never;
-export const CodeBlock = undefined as never;
-export const CodeViewerChrome = undefined as never;
-export const CodexAgentSparkIcon = undefined as never;
-export const CodexAppToolIcon = undefined as never;
-export const CodexThreadToolIcon = undefined as never;
-export const CollapseAllDiffsIcon = undefined as never;
-export const CollapsedToolActivityCard = undefined as never;
-export const CollapsibleToolActivity = undefined as never;
-export const CollapsibleTurnActivity = undefined as never;
-export const CommandMenu = undefined as never;
-export const CommandOutputBlock = undefined as never;
-export const CommentIcon = undefined as never;
-export const CommentPopupHandle = undefined as never;
-export const CommentSaveIcon = undefined as never;
-export const CommentSendIcon = undefined as never;
-export const CommitBlockedReasonTooltip = undefined as never;
-export const CommitChangesDialog = undefined as never;
-export const CommitIcon = undefined as never;
-export const ComposerEditor = undefined as never;
-export const ConnectorLogoImage = undefined as never;
-export const ContextMenu = undefined as never;
-export const ConversationActivityIcon = undefined as never;
-export const ConversationActivitySpacer = undefined as never;
-export const ConversationCard = undefined as never;
-export const ConversationEntryRenderer = undefined as never;
-export const ConversationMarkdown = undefined as never;
-export const ConversationStatusRow = undefined as never;
-export const ConversationSummaryRow = undefined as never;
-export const ConversationalOnboardingAccessGate = undefined as never;
-export const ConversationalOnboardingArtifactCard = undefined as never;
-export const ConversationalOnboardingPermissionRequestCard = undefined as never;
-export const CopyButton = undefined as never;
-export const CopyIcon = undefined as never;
-export const CopyLinkIcon = undefined as never;
-export const CreatePullRequestDialog = undefined as never;
-export const CsvFileDarkIcon = undefined as never;
-export const CsvFileLightIcon = undefined as never;
-export const DAILY_WEEKLY_STANDALONE_OPTION_KEYS = undefined as never;
-export const DEFAULT_COLLABORATION_MODE = undefined as never;
-export const DEFAULT_RESOLVED_APPS = undefined as never;
-export const DEFAULT_SCHEDULE_TIME = undefined as never;
-export const DOWNLOAD_METADATA_SEPARATOR = undefined as never;
-export const DRAGGABLE_ID_PREFIX = undefined as never;
-export const DROPPABLE_ID_PREFIX = undefined as never;
-export const DURATIONS = undefined as never;
-export const DeleteCommentIcon = undefined as never;
-export const DialogFooterRow = undefined as never;
-export const DialogForm = undefined as never;
-export const DialogHeaderRow = undefined as never;
-export const DialogHeading = undefined as never;
-export const DialogPanel = undefined as never;
-export const DialogSubtitle = undefined as never;
-export const DialogTitleBlock = undefined as never;
-export const DictationButton = undefined as never;
-export const DictationRecordingFooter = undefined as never;
-export const DiffFileIcon = undefined as never;
-export const DiffHighlighterScope = undefined as never;
-export const DiffLineStats = undefined as never;
-export const DiffSourceRenderer = undefined as never;
-export const DisabledActionTooltip = undefined as never;
-export const DisclosureChevronIcon = undefined as never;
-export const DndAction = undefined as never;
-export const DndMonitorContext = undefined as never;
-export const DocumentFileTypeIcon = undefined as never;
-export const DonutProgress = undefined as never;
-export const DownloadIcon = undefined as never;
-export const DownloadsEmptyIcon = undefined as never;
-export const DriveFileTypeIcon = undefined as never;
-export const DropdownMenu = undefined as never;
-export const DroppableContainersMap = undefined as never;
-export const Durations = undefined as never;
-export const DynamicToolCallGroup = undefined as never;
-export const EVERYDAY_WORK_DETAIL_LEVEL = undefined as never;
-export const ElectronExtensionGate = undefined as never;
-export const ElectronOnlyGate = undefined as never;
-export const EnvironmentSetupIcon = undefined as never;
-export const ExecutionEnvironmentProto = undefined as never;
-export const ExpandAllDiffsIcon = undefined as never;
-export const ExplorationActivity = undefined as never;
-export const ExternalLinkIcon = undefined as never;
-export const ExternalOpenLink = undefined as never;
-export const FILE_TAB_KIND_PREFIX = undefined as never;
-export const FaviconImage = undefined as never;
-export const FileReferenceHoverCard = undefined as never;
-export const FileReferenceLink = undefined as never;
-export const FileSourceHoverContext = undefined as never;
-export const FileSourceHoverController = undefined as never;
-export const FileSourceRenderBoundary = undefined as never;
-export const FileSourceStatus = undefined as never;
-export const FileTabController = undefined as never;
-export const FileTree = undefined as never;
-export const FileViewerOptionsIcon = undefined as never;
-export const FollowUpConfirmationDialog = undefined as never;
-export const ForkIcon = undefined as never;
-export const FormattedCount = undefined as never;
-export const GeneratedImagePlaceholder = undefined as never;
-export const GeneratedImagesGrid = undefined as never;
-export const GeneratingChartIcon = undefined as never;
-export const GitActionBlockedStepTooltip = undefined as never;
-export const GitActionsReviewToolbar = undefined as never;
-export const GitActionsSummaryPanel = undefined as never;
-export const GitBlameIcon = undefined as never;
-export const GitBranchControl = undefined as never;
-export const GlobeFallbackIcon = undefined as never;
-export const GoogleWorkspaceExportMenuItems = undefined as never;
-export const HANDOFF_STEP_ORDER = undefined as never;
-export const HOURLY_STANDALONE_OPTION_KEYS = undefined as never;
-export const HookActivityIcon = undefined as never;
-export const IconButtonTooltip = undefined as never;
-export const ImageCommentEditorPositioner = undefined as never;
-export const ImageFilePreview = undefined as never;
-export const ImagePreviewLightbox = undefined as never;
-export const ImagePreviewTabContent = undefined as never;
-export const ImagePreviewTabIcon = undefined as never;
-export const ImageUploadSpinnerIcon = undefined as never;
-export const InfoTooltipIcon = undefined as never;
-export const InlineStatusDivider = undefined as never;
-export const InlineTranscriptStatusMessage = undefined as never;
-export const InternalContext = undefined as never;
-export const JumpToFileIcon = undefined as never;
-export const KeyboardShortcutHint = undefined as never;
-export const KnownAppLogo = undefined as never;
-export const LinkArrowIcon = undefined as never;
-export const LoadFullFilesIcon = undefined as never;
-export const LocalConversationGitActionsContent = undefined as never;
-export const MAX_BROWSER_DEVICE_HEIGHT = undefined as never;
-export const MAX_BROWSER_DEVICE_WIDTH = undefined as never;
-export const MAX_BROWSER_ZOOM_PERCENT = undefined as never;
-export const MCP_PROGRESS_META_KEY = undefined as never;
-export const MINUTELY_STANDALONE_OPTION_KEYS = undefined as never;
-export const MINUTES_PER_HOUR = undefined as never;
-export const MULTI_AGENT_MODE = undefined as never;
-export const MarkdownFilePreview = undefined as never;
-export const McpAppInlineFrame = undefined as never;
-export const McpAppInlineFramePortal = undefined as never;
-export const McpAppsRenderer = undefined as never;
-export const McpServerIcon = undefined as never;
-export const MeasuringStrategy = undefined as never;
-export const MessageAttachmentChip = undefined as never;
-export const MessagingPlaceholderIcon = undefined as never;
-export const ModelChangedIcon = undefined as never;
-export const MoleculeFilePreview = undefined as never;
-export const MotionValue = undefined as never;
-export const MultiAgentGroup = undefined as never;
-export const NamedErrorBoundary = undefined as never;
-export const NodeReplIcon = undefined as never;
-export const NullContext = undefined as never;
-export const OpenConfigLinkButton = undefined as never;
-export const OpenFileButton = undefined as never;
-export const OpenFileContextMenuWrapper = undefined as never;
-export const OpenImageInButton = undefined as never;
-export const OpenInIcon = undefined as never;
-export const OpenInTargetsHoverSubtitle = undefined as never;
-export const OpenInTargetsPreloader = undefined as never;
-export const OpenTargetDropdownMenu = undefined as never;
-export const OpenTargetMenu = undefined as never;
-export const OpenTargetsPrefetch = undefined as never;
-export const PanelResizeHandle = undefined as never;
-export const ParentChatIcon = undefined as never;
-export const PdfFilePreview = undefined as never;
-export const PendingMcpToolCalls = undefined as never;
-export const PlanIcon = undefined as never;
-export const PlanStepCompletedIcon = undefined as never;
-export const PlanStepInactiveIcon = undefined as never;
-export const PlanStepPendingIcon = undefined as never;
-export const PlanStepSpinnerIcon = undefined as never;
-export const PlanType = undefined as never;
-export const PlatformGate = undefined as never;
-export const PlatformVisibility = undefined as never;
-export const PlusIcon = undefined as never;
-export const PresentationFileTypeIcon = undefined as never;
-export const ProposedPlanCard = undefined as never;
-export const PushBlockedReasonTooltip = undefined as never;
-export const PushIcon = undefined as never;
-export const RESPONSIVE_PRESET_ID = undefined as never;
-export const RRULE_WEEKDAY_BY_TOKEN = undefined as never;
-export const RawOutputIcon = undefined as never;
-export const ReadingFileIcon = undefined as never;
-export const ReasoningEffortProto = undefined as never;
-export const Rect = undefined as never;
-export const RedoIcon = undefined as never;
-export const RefreshIcon = undefined as never;
-export const RelativeTimeLabel = undefined as never;
-export const RemoveAppshotAttachmentButton = undefined as never;
-export const RequestAbortedError = undefined as never;
-export const ResetValueIcon = undefined as never;
-export const ResetZoomIcon = undefined as never;
-export const ResourceCardHeaderRow = undefined as never;
-export const ResourceOverflowMenu = undefined as never;
-export const ReviewCappedFooterBar = undefined as never;
-export const ReviewChangedFilesSidePanel = undefined as never;
-export const ReviewDiffOptionsMenuItems = undefined as never;
-export const ReviewEmptyState = undefined as never;
-export const ReviewErrorState = undefined as never;
-export const ReviewFileSearchInput = undefined as never;
-export const ReviewLoadingState = undefined as never;
-export const ReviewMetricsContext = undefined as never;
-export const ReviewMetricsObserver = undefined as never;
-export const ReviewNoMatchesPlaceholder = undefined as never;
-export const ReviewOptionsMenuIcon = undefined as never;
-export const ReviewSidePanelTabContent = undefined as never;
-export const ReviewStagedEmptyState = undefined as never;
-export const ReviewTabIcon = undefined as never;
-export const ReviewToolbarIconButton = undefined as never;
-export const RichPreviewDisabledIcon = undefined as never;
-export const RichPreviewEnabledIcon = undefined as never;
-export const RichViewActiveIcon = undefined as never;
-export const RichViewIcon = undefined as never;
-export const SANDBOX_PORT_NAMES = undefined as never;
-export const SECTION_ACTIONS_FEATURE_GATE = undefined as never;
-export const STEPS_COMMANDS_DETAIL_LEVEL = undefined as never;
-export const STEPS_DETAIL_LEVEL = undefined as never;
-export const SafetyBufferingContainer = undefined as never;
-export const SafetyBufferingPrompt = undefined as never;
-export const ScheduleFrequencyProto = undefined as never;
-export const ScheduledTaskIcon = undefined as never;
-export const ScopedContextProvider = undefined as never;
-export const ScrollDirection = undefined as never;
-export const SettingKeys = undefined as never;
-export const SettingsToolIcon = undefined as never;
-export const ShareConversationButton = undefined as never;
-export const Sheet = undefined as never;
-export const ShimmerText = undefined as never;
-export const SidePanelIcon = undefined as never;
-export const SidePanelTabId = undefined as never;
-export const SidePanelTabKind = undefined as never;
-export const SkillMentionAutocomplete = undefined as never;
-export const SourceListItemButton = undefined as never;
-export const SourceSearchController = undefined as never;
-export const SplitDiffModeIcon = undefined as never;
-export const SpreadsheetFileTypeIcon = undefined as never;
-export const SubagentAvatar = undefined as never;
-export const SubagentInlineActivityContext = undefined as never;
-export const TERMINAL_DOWNLOAD_STATUSES = undefined as never;
-export const TabPanelErrorBoundary = undefined as never;
-export const TerminalCommandToast = undefined as never;
-export const ThinkingPlaceholder = undefined as never;
-export const ThreadResourceCard = undefined as never;
-export const TodoListActivity = undefined as never;
-export const TodoListProgressPill = undefined as never;
-export const ToolActivityCard = undefined as never;
-export const ToolActivityDisclosureHeader = undefined as never;
-export const ToolActivityIcon = undefined as never;
-export const TraversalOrder = undefined as never;
-export const TruncatedBranchName = undefined as never;
-export const TurnActionsRow = undefined as never;
-export const TurnDiffView = undefined as never;
-export const TurnEntryList = undefined as never;
-export const TurnInProgressFixedContent = undefined as never;
-export const TurnItemRenderer = undefined as never;
-export const TurnUnifiedDiffSummaryRow = undefined as never;
-export const UndoIcon = undefined as never;
-export const UnifiedDiffModeIcon = undefined as never;
-export const UnifiedFileDiffView = undefined as never;
-export const UserMessageRow = undefined as never;
-export const VisuallyHidden = undefined as never;
-export const VisuallyHiddenDescription = undefined as never;
-export const VisuallyHiddenTitle = undefined as never;
-export const WEEKDAYS_MONDAY_TO_FRIDAY = undefined as never;
-export const WarningCircleIcon = undefined as never;
-export const WebSearchIcon = undefined as never;
-export const WebSearchSources = undefined as never;
-export const WordDiffEnabledIcon = undefined as never;
-export const WordWrapDisabledIcon = undefined as never;
-export const WordWrapEnabledIcon = undefined as never;
-export const WorkHereIcon = undefined as never;
-export const WorkedForStatusItem = undefined as never;
-export const WorkedForStatusLabel = undefined as never;
-export const WorkspaceFileSourceTree = undefined as never;
-export const WorkspaceFolderDropdown = undefined as never;
-export const _commentPreviewDecodeMentionTarget = undefined as never;
-export const _commentPreviewMatchKnownMentionUri = undefined as never;
-export const _commentPreviewResolveMentionAttachment = undefined as never;
-export const _commentPreviewUnescapeMarkdownText = undefined as never;
-export const activeAutomationSeedSignal = undefined as never;
-export const activeBrowserFindTargetAtom = undefined as never;
-export const activeBrowserTabIdQuery = undefined as never;
-export const activeBrowserTabSignal = undefined as never;
-export const activeConversationCwdAtom = undefined as never;
-export const activeCwdAtom = undefined as never;
-export const activeFindMatchClassName = undefined as never;
-export const activeGitDialogAtom = undefined as never;
-export const activeGitWorkflowAtom = undefined as never;
-export const activeLocalProjectCwdAtom = undefined as never;
-export const activeLocalProjectCwdSignal = undefined as never;
-export const activeReviewDiffSearchResultAtom = undefined as never;
-export const activeReviewFilePathAtom = undefined as never;
-export const activeReviewSearchMatchAtom = undefined as never;
-export const activeSidePanelKindAtom = undefined as never;
-export const activeWorkspaceRootsQuery = undefined as never;
-export const addCoordinates = undefined as never;
-export const adjustCollapsedActivitySummary = undefined as never;
-export const agentModeFromPermissions = undefined as never;
-export const allowBrowserTabWithoutPlacementAtom = undefined as never;
-export const alwaysAvailableCodexTool = undefined as never;
-export const analyticsAttributionAtom = undefined as never;
-export const analyticsClickAction = undefined as never;
-export const analyticsClickSource = undefined as never;
-export const annotationAddModifierPressedAtom = undefined as never;
-export const annotationFlowKind = undefined as never;
-export const annotationModeEntrySource = undefined as never;
-export const annotationScreenshotsModeAtom = undefined as never;
-export const annotationViewportBaseHeight = undefined as never;
-export const appDisplayName = undefined as never;
-export const appMessenger = undefined as never;
-export const appRouteScope = undefined as never;
-export const appScopeAtom = undefined as never;
-export const appShellBottomPanelHeightSubscriberContext = undefined as never;
-export const appShellHeaderActionEntriesSignal = undefined as never;
-export const appShellHeaderContextMenuItemsSignal = undefined as never;
-export const appShellHeaderContextMenuSurfaceSignal = undefined as never;
-export const appShellHeaderEndEntriesSignal = undefined as never;
-export const appShellHeaderStartEntriesSignal = undefined as never;
-export const appShellLayoutContext = undefined as never;
-export const appShellPanelDragContext = undefined as never;
-export const appStore = undefined as never;
-export const appWindowKind = undefined as never;
-export const applicationMenuIds = undefined as never;
-export const applyChromeThemeToElement = undefined as never;
-export const applyImagePreviewZoomCommand = undefined as never;
-export const applyMatchHighlight = undefined as never;
-export const applyZoomCommand = undefined as never;
-export const appshotIconDataUrlAtomFamily = undefined as never;
-export const arePayloadsEqual = undefined as never;
-export const areReviewDiffMetricsEqual = undefined as never;
-export const assertKnownCommandId = undefined as never;
-export const assertUnreachableToolActivity = undefined as never;
-export const atomFamily = undefined as never;
-export const attachMcpAppPanelElement = undefined as never;
-export const automationActivitySummarySignal = undefined as never;
-export const azureBlobStorageClient = undefined as never;
-export const azureBlobUploadHeaderName = undefined as never;
-export const basename = undefined as never;
-export const bezierPathSpringConfig = undefined as never;
-export const bottomPanelAfterListSignal = undefined as never;
-export const bottomPanelAfterListStickySignal = undefined as never;
-export const bottomPanelAnimationSignal = undefined as never;
-export const bottomPanelEmptyStateSignal = undefined as never;
-export const bottomPanelFallbackContentSignal = undefined as never;
-export const bottomPanelHeightRatioSignal = undefined as never;
-export const bottomPanelOpenAtom = undefined as never;
-export const branchDisplayConfigAtom = undefined as never;
-export const branchExistsAtom = undefined as never;
-export const branchPrefixSetting = undefined as never;
-export const branchPushedProductEvent = undefined as never;
-export const browserAnnotationModeChangedEvent = undefined as never;
-export const browserAnnotationTakeoverEvent = undefined as never;
-export const browserCommentRouteKey = undefined as never;
-export const browserCommentSubmittedEvent = undefined as never;
-export const browserDesignRouteKey = undefined as never;
-export const browserDevicePresets = undefined as never;
-export const browserDeviceToolbarBackgroundColor = undefined as never;
-export const browserDeviceToolbarLayoutAtom = undefined as never;
-export const browserFindFocusRequestAtom = undefined as never;
-export const browserFindStateAtom = undefined as never;
-export const browserFloatingComposerVisibleAtom = undefined as never;
-export const browserHostConfigAtom = undefined as never;
-export const browserHostIdAtom = undefined as never;
-export const browserHostServices = undefined as never;
-export const browserManagedQueryAtom = undefined as never;
-export const browserMcpToolLabels = undefined as never;
-export const browserNavigatedEvent = undefined as never;
-export const browserOpenedInExternalEvent = undefined as never;
-export const browserOwlPermissionsFlag = undefined as never;
-export const browserPanelOpenedEvent = undefined as never;
-export const browserPrintEnabledFlag = undefined as never;
-export const browserProfileImportDialogOpenAtom = undefined as never;
-export const browserProfileImportNuxSeenAtom = undefined as never;
-export const browserSidebarMessenger = undefined as never;
-export const browserSidebarTabManager = undefined as never;
-export const browserTabSnapshotStore = undefined as never;
-export const browserTabType = undefined as never;
-export const browserTabTypes = undefined as never;
-export const browserToolbarActionEvent = undefined as never;
-export const browserToolbarActionType = undefined as never;
-export const buildAnnotationKey = undefined as never;
-export const buildApiRequestInit = undefined as never;
-export const buildArtifactContextMenuItems = undefined as never;
-export const buildAttachmentsPayload = undefined as never;
-export const buildBranchAheadCountQueryKey = undefined as never;
-export const buildBrowserCommentPopupFrameName = undefined as never;
-export const buildBrowserProfileImportQuery = undefined as never;
-export const buildCollapsedActivityKey = undefined as never;
-export const buildCommentImageInputItems = undefined as never;
-export const buildContentSearchKey = undefined as never;
-export const buildConversationReviewModel = undefined as never;
-export const buildConversationRoute = undefined as never;
-export const buildDelegationInput = undefined as never;
-export const buildEntrypointConversationId = undefined as never;
-export const buildFileReference = undefined as never;
-export const buildFileTabContextMenuItems = undefined as never;
-export const buildFileViewerToolArguments = undefined as never;
-export const buildGitMetadataQueryOptions = undefined as never;
-export const buildImageInputItem = undefined as never;
-export const buildLocalFileSrc = undefined as never;
-export const buildMcpAppSandboxId = undefined as never;
-export const buildMcpAppSandboxSourceUrl = undefined as never;
-export const buildMcpAppTabId = undefined as never;
-export const buildMcpToolActivityExpansionKey = undefined as never;
-export const buildMcpToolList = undefined as never;
-export const buildNavigateToCodexPageTool = undefined as never;
-export const buildOpenFileContextMenuItems = undefined as never;
-export const buildOpenInCodexTool = undefined as never;
-export const buildOpenTargetMenuItems = undefined as never;
-export const buildParentConversationReviewModel = undefined as never;
-export const buildPatchUnifiedDiff = undefined as never;
-export const buildProjectAssignment = undefined as never;
-export const buildQueryKey = undefined as never;
-export const buildReviewDiffQueryKey = undefined as never;
-export const buildReviewSummaryQueryKey = undefined as never;
-export const buildSandboxFrameSrc = undefined as never;
-export const buildScopedDiff = undefined as never;
-export const buildSearchSnippet = undefined as never;
-export const buildSubagentActivityRows = undefined as never;
-export const buildThreadPermissions = undefined as never;
-export const buildToolActivityDetailLines = undefined as never;
-export const buildToolActivitySummaries = undefined as never;
-export const buildToolActivityTurnKey = undefined as never;
-export const buildWebSearchDetail = undefined as never;
-export const buildWorkspaceFolderOptions = undefined as never;
-export const buildWorktreeLabel = undefined as never;
-export const callMcpCapabilityTool = undefined as never;
-export const callMcpToolRequestSchema = undefined as never;
-export const canExpandCollapsedActivity = undefined as never;
-export const canUseDOM = undefined as never;
-export const cancelActiveGitWorkflow = undefined as never;
-export const canonicalizeRootPath = undefined as never;
-export const capitalizeWord = undefined as never;
-export const clamp = undefined as never;
-export const clampBrowserDeviceHeight = undefined as never;
-export const clampBrowserDeviceWidth = undefined as never;
-export const clampBrowserZoomPercent = undefined as never;
-export const cleanupBrowserTabOnClose = undefined as never;
-export const cleanupGitWorkflowAbortSignal = undefined as never;
-export const clearBrowserBrowsingData = undefined as never;
-export const clearBrowserFindFocus = undefined as never;
-export const clearBrowserPendingNavigation = undefined as never;
-export const clearBrowserPendingOpen = undefined as never;
-export const clearFindHighlights = undefined as never;
-export const clearGitStatusCache = undefined as never;
-export const clientLocalCwdAtom = undefined as never;
-export const clientLocalWorkspaceRootsQueryAtom = undefined as never;
-export const closeDialog = undefined as never;
-export const closeRevertConfirmDialog = undefined as never;
-export const codexAnalyticsConfigAtom = undefined as never;
-export const codexAppToolNamespace = undefined as never;
-export const codexAutomationProductEvent = undefined as never;
-export const codexHomeQueryAtom = undefined as never;
-export const codexPreviousTurnExpandedEvent = undefined as never;
-export const collapseSidePanelLayout = undefined as never;
-export const collectDynamicToolCallItems = undefined as never;
-export const collectWorkspaceFileTabDescriptors = undefined as never;
-export const commentAttachmentToComment = undefined as never;
-export const commitAndPushBlockedReasonAtom = undefined as never;
-export const commitAttributionConfigAtom = undefined as never;
-export const commitBlockedReasonAtom = undefined as never;
-export const commitMessageDraftAtom = undefined as never;
-export const commitWorkflowChanges = undefined as never;
-export const composeTurnUnitKey = undefined as never;
-export const composerAttachmentLayoutValues = undefined as never;
-export const composerModeAtom = undefined as never;
-export const composerPendingEditCountAtom = undefined as never;
-export const composerScopeAtom = undefined as never;
-export const computeBrowserDeviceResize = undefined as never;
-export const computeBrowserDeviceToolbarLayout = undefined as never;
-export const computeEmulatedViewport = undefined as never;
-export const computeEndResources = undefined as never;
-export const computeGeneratedImageOutputs = undefined as never;
-export const computeMainContentTargetWidth = undefined as never;
-export const computeProcessTargets = undefined as never;
-export const computeRightPanelWidth = undefined as never;
-export const computeRightPanelWidthRatio = undefined as never;
-export const computeStoredRightPanelWidthRatio = undefined as never;
-export const computeTurnStatusIndicator = undefined as never;
-export const confirmRevertChanges = undefined as never;
-export const connectedHostIdsSignal = undefined as never;
-export const contactInfoChromiumPageId = undefined as never;
-export const conversationAssignmentsAtom = undefined as never;
-export const conversationByClientThreadIdAtom = undefined as never;
-export const conversationCwdAtom = undefined as never;
-export const conversationCwdByIdSignal = undefined as never;
-export const conversationCwdFamily = undefined as never;
-export const conversationFallbackTurnsAtom = undefined as never;
-export const conversationHasOpenPullRequestAtom = undefined as never;
-export const conversationHeadBranchAtom = undefined as never;
-export const conversationHostIdAtom = undefined as never;
-export const conversationHostIdByIdSignal = undefined as never;
-export const conversationIdFromRoute = undefined as never;
-export const conversationIsDetachedHeadAtom = undefined as never;
-export const conversationManagerAtom = undefined as never;
-export const conversationPullRequestUrlAtom = undefined as never;
-export const conversationRoutePath = undefined as never;
-export const conversationTitleAtom = undefined as never;
-export const conversationTurnDiffCwdAtom = undefined as never;
-export const conversationTurnUnifiedDiffAtom = undefined as never;
-export const conversationTurnsAtom = undefined as never;
-export const conversationWorkspaceStateAtom = undefined as never;
-export const conversationalOnboardingActiveTaskStateSignal = undefined as never;
-export const conversationalOnboardingAllSetSignal = undefined as never;
-export const conversationalOnboardingExecutionFailedSignal = undefined as never;
-export const conversationalOnboardingIntlAtom = undefined as never;
-export const conversationalOnboardingTaskStartedSignal = undefined as never;
-export const conversationalOnboardingTool = undefined as never;
-export const copyFileContentsToClipboard = undefined as never;
-export const copyTextToClipboard = undefined as never;
-export const coreToolActivityDescriptors = undefined as never;
-export const countToolResultItems = undefined as never;
-export const createBackgroundThread = undefined as never;
-export const createComposerController = undefined as never;
-export const createConnectorOnboardingTask = undefined as never;
-export const createCwdQueryAtomFamily = undefined as never;
-export const createDerivedAtom = undefined as never;
-export const createDiffSearchController = undefined as never;
-export const createEphemeralConversationId = undefined as never;
-export const createFileResourceReader = undefined as never;
-export const createGitQueryOptions = undefined as never;
-export const createGitWorkflowAbortSignal = undefined as never;
-export const createKeyedAtomFamily = undefined as never;
-export const createMotionValue = undefined as never;
-export const createParametricQueryAtom = undefined as never;
-export const createPersistedToggleAtom = undefined as never;
-export const createPullRequestActionStateAtom = undefined as never;
-export const createPullRequestBlockedStepAtom = undefined as never;
-export const createPullRequestBodyDraftAtom = undefined as never;
-export const createPullRequestIncludeLocalChangesAtom = undefined as never;
-export const createPullRequestNextStepAtom = undefined as never;
-export const createPullRequestRequest = undefined as never;
-export const createPullRequestTitleDraftAtom = undefined as never;
-export const createRequestAbortedError = undefined as never;
-export const createRouteScopedComputedAtom = undefined as never;
-export const createScopedComputedAtom = undefined as never;
-export const createScopedMutationAtom = undefined as never;
-export const createScopedQueryAtom = undefined as never;
-export const createScopedSelector = undefined as never;
-export const createScopedSignal = undefined as never;
-export const createScopedStoreFactory = undefined as never;
-export const createWritableSignalAtom = undefined as never;
-export const cssTransform = undefined as never;
-export const cssTransformHelpers = undefined as never;
-export const currentAppBrand = undefined as never;
-export const currentBranchQueryAtom = undefined as never;
-export const currentTimeZoneId = undefined as never;
-export const dataTransferHasImages = undefined as never;
-export const defaultActiveDraggableContext = undefined as never;
-export const defaultAnimateLayoutChanges = undefined as never;
-export const defaultBranchQueryAtom = undefined as never;
-export const defaultCoordinates = undefined as never;
-export const defaultDropAnimationConfiguration = undefined as never;
-export const defaultDroppableRectMap = undefined as never;
-export const defaultFileTabState = undefined as never;
-export const defaultGetNewIndex = undefined as never;
-export const defaultHostIdAtom = undefined as never;
-export const defaultHostIdSignal = undefined as never;
-export const defaultInternalContext = undefined as never;
-export const defaultLayoutTransition = undefined as never;
-export const defaultMeasuringConfiguration = undefined as never;
-export const defaultRects = undefined as never;
-export const defaultResizeObserverConfig = undefined as never;
-export const defaultReviewDiffMetrics = undefined as never;
-export const defaultScrollIntent = undefined as never;
-export const defaultScrollThreshold = undefined as never;
-export const defaultScrollableAncestors = undefined as never;
-export const defineRpcQuery = undefined as never;
-export const deriveAppScopeAtom = undefined as never;
-export const deriveBrowserTabDisplay = undefined as never;
-export const derivedAtomFamily = undefined as never;
-export const derivedTransformTransition = undefined as never;
-export const describeDownloadActionFailure = undefined as never;
-export const describeWorkspaceFile = undefined as never;
-export const designEditorPlacementHint = undefined as never;
-export const designModifierPressedAtom = undefined as never;
-export const detachMcpAppPanelElement = undefined as never;
-export const detectFileLanguage = undefined as never;
-export const devicePixelRatioSignal = undefined as never;
-export const diffFindResultAtom = undefined as never;
-export const diffSearchMatchId = undefined as never;
-export const diffSelectionSummaryAtom = undefined as never;
-export const directSubmitPreferenceAtom = undefined as never;
-export const disabledQueryResult = undefined as never;
-export const discardBrowserAnnotationsModalConfig = undefined as never;
-export const dismissActivePopover = undefined as never;
-export const dismissTooltips = undefined as never;
-export const dispatchAppCommand = undefined as never;
-export const dispatchHostRequest = undefined as never;
-export const dispatchProductEvent = undefined as never;
-export const displayWorkspacePath = undefined as never;
-export const downloadBlob = undefined as never;
-export const downloadsChromiumPageId = undefined as never;
-export const dynamicToolCallGroupMaxHeight = undefined as never;
-export const emptyBrowserFindState = undefined as never;
-export const encodeConversationId = undefined as never;
-export const encodeLocalConversationId = undefined as never;
-export const ensureBrowserPageState = undefined as never;
-export const ensureCommentPopupRoot = undefined as never;
-export const errorToString = undefined as never;
-export const evaluateFeatureGate = undefined as never;
-export const exitMcpAppFullScreen = undefined as never;
-export const expandTildePath = undefined as never;
-export const experimentalFileToolDefinition = undefined as never;
-export const experimentalToolPair = undefined as never;
-export const extensionsChromiumPageId = undefined as never;
-export const extractBrowserComments = undefined as never;
-export const extractImageFilesFromDataTransfer = undefined as never;
-export const extractMcpAppRenderData = undefined as never;
-export const extractReviewComments = undefined as never;
-export const extractToolResponseMetadata = undefined as never;
-export const extractWebSearchSources = undefined as never;
-export const featureFlagQuery = undefined as never;
-export const figmaMcpToolLabels = undefined as never;
-export const fileSourceMetricsEqual = undefined as never;
-export const fileTabController = undefined as never;
-export const fileTabKind = undefined as never;
-export const fileTreeOpenAtom = undefined as never;
-export const fileTypeIconMap = undefined as never;
-export const fileUrlPathnameToOsPath = undefined as never;
-export const filesApiClient = undefined as never;
-export const filterAvailableModels = undefined as never;
-export const filterDownloadsForConversation = undefined as never;
-export const filterOpenInTargets = undefined as never;
-export const findActiveOrchestrationAtom = undefined as never;
-export const findDefaultOrchestrationAtom = undefined as never;
-export const findFirstFocusableNode = undefined as never;
-export const findIndexAfterLastAssistantMessage = undefined as never;
-export const findLatestLiveDynamicToolCall = undefined as never;
-export const findLineElement = undefined as never;
-export const findLineNumberFromEventPath = undefined as never;
-export const findMatchesInElement = undefined as never;
-export const findMatchingMcpApp = undefined as never;
-export const findMcpTool = undefined as never;
-export const findModelById = undefined as never;
-export const findPreferredDomainAtom = undefined as never;
-export const findPreviewTabPanelSide = undefined as never;
-export const findSearchMatchElement = undefined as never;
-export const findTabPanelForTab = undefined as never;
-export const findTabPanelId = undefined as never;
-export const findTextMatchOffsets = undefined as never;
-export const findToolActivityDescriptor = undefined as never;
-export const flattenReviewFileEntries = undefined as never;
-export const floatingComposerMessages = undefined as never;
-export const floatingLeftPanelTransition = undefined as never;
-export const focusBrowserConversationScope = undefined as never;
-export const focusBrowserSidePanelPanel = undefined as never;
-export const focusPreviewTabComposer = undefined as never;
-export const focusReviewSidePanel = undefined as never;
-export const focusSidePanelLayout = undefined as never;
-export const focusSidePanelTab = undefined as never;
-export const focusThreadFindDomain = undefined as never;
-export const forkConversation = undefined as never;
-export const formatAgentIdLabel = undefined as never;
-export const formatBranchForDisplay = undefined as never;
-export const formatBrowserAddressDisplay = undefined as never;
-export const formatBrowserTabHostname = undefined as never;
-export const formatDownloadByteProgress = undefined as never;
-export const formatDownloadTimeRemaining = undefined as never;
-export const formatDownloadTimestamp = undefined as never;
-export const formatDownloadTransferRate = undefined as never;
-export const formatElapsedDuration = undefined as never;
-export const formatIntervalLabel = undefined as never;
-export const formatKeyboardShortcut = undefined as never;
-export const formatModelLabel = undefined as never;
-export const formatRedactedSearchQuery = undefined as never;
-export const formatRruleSummary = undefined as never;
-export const formatRruleTime = undefined as never;
-export const formatScheduleSummary = undefined as never;
-export const formatUsageLimitResetDate = undefined as never;
-export const formatWorkedDuration = undefined as never;
-export const formatWorkspacePathLabel = undefined as never;
-export const formatWorkspacePathTooltip = undefined as never;
-export const formatWorkspaceRootLabel = undefined as never;
-export const fuzzyMatchScore = undefined as never;
-export const generateCommitMessageMutationAtom = undefined as never;
-export const generateId = undefined as never;
-export const generatePullRequestMessageMutationAtom = undefined as never;
-export const getAbsoluteImageFilePath = undefined as never;
-export const getAccessPolicyMessageValues = undefined as never;
-export const getAccessPolicySubtitleDescriptor = undefined as never;
-export const getActiveBrowserTabId = undefined as never;
-export const getActiveConversationId = undefined as never;
-export const getAnnotationFlowConfig = undefined as never;
-export const getArtifactIconComponent = undefined as never;
-export const getArtifactTitle = undefined as never;
-export const getAutomationSessionKey = undefined as never;
-export const getAutomationSuggestionTabId = undefined as never;
-export const getAutomationThreadId = undefined as never;
-export const getAvailableServiceTierOptions = undefined as never;
-export const getBackgroundProjects = undefined as never;
-export const getBrowserAdoptedWebContentsId = undefined as never;
-export const getBrowserAdoptionLease = undefined as never;
-export const getBrowserOpenReason = undefined as never;
-export const getBrowserOpenSource = undefined as never;
-export const getBrowserSitePermissionsOrigin = undefined as never;
-export const getBrowserTabPlacement = undefined as never;
-export const getClientRect = undefined as never;
-export const getCloudSubmitToastMessage = undefined as never;
-export const getComposerPromptText = undefined as never;
-export const getComputerUseMcpToolLabel = undefined as never;
-export const getConversationManager = undefined as never;
-export const getConversationScopeValue = undefined as never;
-export const getConversationTurns = undefined as never;
-export const getDefaultBrowserTabId = undefined as never;
-export const getDefaultKeybindingsForCommand = undefined as never;
-export const getDefaultRightPanelStorageKey = undefined as never;
-export const getDownloadsRegistrySnapshot = undefined as never;
-export const getDownloadsSnapshot = undefined as never;
-export const getDynamicToolCallItem = undefined as never;
-export const getEndResourcePaths = undefined as never;
-export const getEventCoordinates = undefined as never;
-export const getFeatureGateValue = undefined as never;
-export const getFigmaMcpToolLabel = undefined as never;
-export const getFileExtension = undefined as never;
-export const getFileIconComponent = undefined as never;
-export const getFileTypeIconForName = undefined as never;
-export const getFirstNonEmptyEntryIndex = undefined as never;
-export const getGitActionMessageGenerationKey = undefined as never;
-export const getGitWorkflowPhaseMessageDescriptor = undefined as never;
-export const getGithubMcpToolLabel = undefined as never;
-export const getGmailMcpToolLabel = undefined as never;
-export const getGoogleCalendarMcpToolLabel = undefined as never;
-export const getGoogleDriveMcpToolLabel = undefined as never;
-export const getGoogleWorkspaceExportTarget = undefined as never;
-export const getHostBridge = undefined as never;
-export const getHostKey = undefined as never;
-export const getInitialLeftPanelWidth = undefined as never;
-export const getLinearMcpToolLabel = undefined as never;
-export const getLocalConversationId = undefined as never;
-export const getLocalPathForFile = undefined as never;
-export const getLocalSubmitToastMessage = undefined as never;
-export const getMcpAppAltText = undefined as never;
-export const getMcpToolCallGroupKey = undefined as never;
-export const getMcpToolCallItem = undefined as never;
-export const getMcpToolDisplayLabel = undefined as never;
-export const getMultiAgentToolGroupKey = undefined as never;
-export const getOwnerDocument = undefined as never;
-export const getPagePersistenceContext = undefined as never;
-export const getPendingBrowserAddressOverride = undefined as never;
-export const getPendingBrowserOpenReason = undefined as never;
-export const getPendingBrowserOpenSource = undefined as never;
-export const getPermissionOverrides = undefined as never;
-export const getPreviewTabPanel = undefined as never;
-export const getRenderUnitKey = undefined as never;
-export const getResponsiveViewportSize = undefined as never;
-export const getReviewCommentBody = undefined as never;
-export const getReviewCommentKey = undefined as never;
-export const getReviewCommentLineLabel = undefined as never;
-export const getRpcClient = undefined as never;
-export const getRpcRequester = undefined as never;
-export const getScrollableElement = undefined as never;
-export const getServiceTierForModel = undefined as never;
-export const getSidePanelController = undefined as never;
-export const getSidePanelTabControllerForTarget = undefined as never;
-export const getTerminalPanelTarget = undefined as never;
-export const getThreadDisplayName = undefined as never;
-export const getThreadFindController = undefined as never;
-export const getThreadId = undefined as never;
-export const getThreadsForkSummaryPartKey = undefined as never;
-export const getThreadsListSummaryPartKey = undefined as never;
-export const getThreadsReadSummaryPartKey = undefined as never;
-export const getTimelineTargetProps = undefined as never;
-export const getToolResultResourceUri = undefined as never;
-export const getTurnInputMessageId = undefined as never;
-export const getTurnMessageId = undefined as never;
-export const getUsageLimitResetWindow = undefined as never;
-export const getWindow = undefined as never;
-export const getWorkspaceCwd = undefined as never;
-export const getWorktreeStatusToastMessage = undefined as never;
-export const gitActionMessageGenerationControllers = undefined as never;
-export const gitActionsContextAtom = undefined as never;
-export const gitActionsParentScope = undefined as never;
-export const gitBlameEnabledAtom = undefined as never;
-export const gitBlameEnabledEventToken = undefined as never;
-export const gitCliAvailabilityQueryAtom = undefined as never;
-export const gitCommittedProductEvent = undefined as never;
-export const gitCwdParamsAtom = undefined as never;
-export const gitDirOriginsQueryAtom = undefined as never;
-export const gitMetadataFromCwdQuery = undefined as never;
-export const gitMetadataReadinessAtom = undefined as never;
-export const gitWorkflowMutationAtom = undefined as never;
-export const githubMcpToolLabels = undefined as never;
-export const gmailMcpToolLabels = undefined as never;
-export const googleCalendarMcpToolLabels = undefined as never;
-export const googleDriveMcpToolLabels = undefined as never;
-export const handleBrowserTabActivated = undefined as never;
-export const handleComposerSuggestionEvent = undefined as never;
-export const handleImageAttachmentActivation = undefined as never;
-export const handleOpenResourceLink = undefined as never;
-export const hasActiveDynamicToolCallSummary = undefined as never;
-export const hasAssistantStarted = undefined as never;
-export const hasConversationSignal = undefined as never;
-export const hasMcpAppActivity = undefined as never;
-export const hasOpenPullRequestAtom = undefined as never;
-export const hasPendingBrowserComments = undefined as never;
-export const hasQueuedDesignTweaks = undefined as never;
-export const headBranchAtom = undefined as never;
-export const hideWhitespaceAtom = undefined as never;
-export const historyChromiumPageId = undefined as never;
-export const hostBridge = undefined as never;
-export const hostConfigAtom = undefined as never;
-export const hostConfigByIdAtom = undefined as never;
-export const hostConfigQueryKey = undefined as never;
-export const hostConfigQueryOptions = undefined as never;
-export const hostConfigSignal = undefined as never;
-export const hostConnectionStatusSignal = undefined as never;
-export const hostConversationRoutePath = undefined as never;
-export const hostMessageBridge = undefined as never;
-export const httpClient = undefined as never;
-export const httpsUrlSchema = undefined as never;
-export const imageAttachmentsAtom = undefined as never;
-export const imageCommentDraftAtom = undefined as never;
-export const imagePreviewOpenStore = undefined as never;
-export const importBrowserProfiles = undefined as never;
-export const includeUnstagedChangesAtom = undefined as never;
-export const intlAtom = undefined as never;
-export const intlControllerAtom = undefined as never;
-export const invalidateBranchMetadataQueries = undefined as never;
-export const invalidateGitQueries = undefined as never;
-export const invalidatePullRequestStatus = undefined as never;
-export const invalidateReviewDiffQueries = undefined as never;
-export const isAbsolutePath = undefined as never;
-export const isAssistantContentStreaming = undefined as never;
-export const isAssistantFinalAnswer = undefined as never;
-export const isBlankText = undefined as never;
-export const isBrowserOpenableUrl = undefined as never;
-export const isBrowserSidebarEnabledAtom = undefined as never;
-export const isBrowserSidebarEnabledSignal = undefined as never;
-export const isCodexAppsServer = undefined as never;
-export const isCodexWorktreePath = undefined as never;
-export const isCommentForBrowserTab = undefined as never;
-export const isConversationItemInProgress = undefined as never;
-export const isConversationRunning = undefined as never;
-export const isDeepEqual = undefined as never;
-export const isDetachedHeadAtom = undefined as never;
-export const isDilServer = undefined as never;
-export const isDisplayableImageSrc = undefined as never;
-export const isDocument = undefined as never;
-export const isDynamicToolCallSummaryActive = undefined as never;
-export const isDynamicToolCallUnit = undefined as never;
-export const isElementFocusWithin = undefined as never;
-export const isEventWithinElement = undefined as never;
-export const isHTMLElement = undefined as never;
-export const isHotkeyWindow = undefined as never;
-export const isInlineReadCommandSummaryVisible = undefined as never;
-export const isItemInProgress = undefined as never;
-export const isKeyboardEvent = undefined as never;
-export const isKnownBrowserTab = undefined as never;
-export const isKnownReasoningEffort = undefined as never;
-export const isLocalHost = undefined as never;
-export const isMcpAppDevtoolsEnabled = undefined as never;
-export const isMcpAppWindowType = undefined as never;
-export const isMcpToolCallExcludedFromGrouping = undefined as never;
-export const isNode = undefined as never;
-export const isNonEmptyStringArray = undefined as never;
-export const isOpenInNewTabEvent = undefined as never;
-export const isOpenableArtifactType = undefined as never;
-export const isPathWithin = undefined as never;
-export const isPathWithinRoot = undefined as never;
-export const isPlatform = undefined as never;
-export const isPushActionHiddenAtom = undefined as never;
-export const isResourceInProjectlessOutput = undefined as never;
-export const isReviewDiffEnabledAtom = undefined as never;
-export const isReviewDiffOpenAtom = undefined as never;
-export const isReviewLoadingAtom = undefined as never;
-export const isReviewRefreshingAtom = undefined as never;
-export const isSidePanelVisibleAtom = undefined as never;
-export const isSvgElement = undefined as never;
-export const isUncommittedReviewSource = undefined as never;
-export const isUsableCwd = undefined as never;
-export const isValidRruleText = undefined as never;
-export const isVisibleOpenTargetMenuItem = undefined as never;
-export const isWindow = undefined as never;
-export const isWorkspaceContextLoadingSignal = undefined as never;
-export const keyboardShortcutRegistry = undefined as never;
-export const labelFromConversationInput = undefined as never;
-export const last = undefined as never;
-export const leftPanelOpacitySignal = undefined as never;
-export const leftPanelWidthSignal = undefined as never;
-export const lineStartTagNames = undefined as never;
-export const linearMcpToolLabels = undefined as never;
-export const listAtom = undefined as never;
-export const listBackgroundProjects = undefined as never;
-export const listBackgroundThreads = undefined as never;
-export const loadFileDataUrl = undefined as never;
-export const loadImageFileDataUrl = undefined as never;
-export const loadMoreReviewMatches = undefined as never;
-export const localConversationGitActionsScope = undefined as never;
-export const localProjectRootsAtom = undefined as never;
-export const mainContentLayoutSignal = undefined as never;
-export const mainContentMeasurementSignal = undefined as never;
-export const mapPendingQueryState = undefined as never;
-export const markBrowserCommentOverlayMounted = undefined as never;
-export const markBrowserTabVisited = undefined as never;
-export const markBrowserToolbarInteracted = undefined as never;
-export const markToolActivityTurnExpanded = undefined as never;
-export const matchSavedProjectForHandoff = undefined as never;
-export const matchesCodexPagePath = undefined as never;
-export const matchesResourceUrl = undefined as never;
-export const mcpAppEntriesSignal = undefined as never;
-export const mcpAppEntryFamily = undefined as never;
-export const mcpAppFrameStateFamily = undefined as never;
-export const mcpAppManualExpansionFamily = undefined as never;
-export const mcpAppSidePanelOpenFamily = undefined as never;
-export const mcpAppStateFamily = undefined as never;
-export const mcpAppTabManager = undefined as never;
-export const mcpProgressSchema = undefined as never;
-export const mcpProgressTokenSchema = undefined as never;
-export const mcpServerStatusesQueryAtom = undefined as never;
-export const mcpToolActivityExpansionFamily = undefined as never;
-export const mdastToText = undefined as never;
-export const measureElementSize = undefined as never;
-export const measureReviewDiffMetrics = undefined as never;
-export const measureTextLayout = undefined as never;
-export const measureTextLineCount = undefined as never;
-export const mergeFileAttachments = undefined as never;
-export const mergeRuntimeWorkspaceRoots = undefined as never;
-export const mergeSandboxPolicyRoots = undefined as never;
-export const modelSelectionWriteQueueFamily = undefined as never;
-export const multiBrowserTabsEnabledAtom = undefined as never;
-export const navigateToReviewFilePath = undefined as never;
-export const navigationBackChevronIcon = undefined as never;
-export const newTabPageTitle = undefined as never;
-export const nextTurnModelOverrideSignal = undefined as never;
-export const nextTurnThreadSettingsSignal = undefined as never;
-export const nodePath = undefined as never;
-export const nonDeferredCodexToolNames = undefined as never;
-export const nonIntegrationSourceKey = undefined as never;
-export const normalizeBrowserActiveTab = undefined as never;
-export const normalizeBrowserRouteKind = undefined as never;
-export const normalizeBrowserUrl = undefined as never;
-export const normalizeRequestCwd = undefined as never;
-export const normalizeRruleMinute = undefined as never;
-export const normalizeServiceTierId = undefined as never;
-export const normalizeSortableDisabled = undefined as never;
-export const normalizeThreadId = undefined as never;
-export const notifyDiffApplied = undefined as never;
-export const objectSchema = undefined as never;
-export const openAppgenShareDialog = undefined as never;
-export const openAutomationSidePanelTab = undefined as never;
-export const openBrowserFind = undefined as never;
-export const openBrowserPanelForTab = undefined as never;
-export const openChromiumInternalPage = undefined as never;
-export const openCommentPopup = undefined as never;
-export const openCreateBranchDialog = undefined as never;
-export const openCreatePullRequestDialog = undefined as never;
-export const openDialog = undefined as never;
-export const openExternalLink = undefined as never;
-export const openExternalLinkFromEvent = undefined as never;
-export const openFileAtLine = undefined as never;
-export const openFileInEditor = undefined as never;
-export const openFileInReview = undefined as never;
-export const openFileResourceFromTurn = undefined as never;
-export const openHostPath = undefined as never;
-export const openInBrowserTarget = undefined as never;
-export const openInEditor = undefined as never;
-export const openMcpAppExpandedSurface = undefined as never;
-export const openNextGitActionAfterBranchSetup = undefined as never;
-export const openResourceFromAssistant = undefined as never;
-export const openReviewView = undefined as never;
-export const openScopedConfirmModal = undefined as never;
-export const panelOverlayZIndex = undefined as never;
-export const panelSpringTransition = undefined as never;
-export const parentConversationAtom = undefined as never;
-export const parentConversationIdAtom = undefined as never;
-export const parseAgentSource = undefined as never;
-export const parseBrowserDevicePreset = undefined as never;
-export const parseCodexDelegation = undefined as never;
-export const parseCodexError = undefined as never;
-export const parseCommentBody = undefined as never;
-export const parseCommentDisplay = undefined as never;
-export const parseCommentMarkdown = undefined as never;
-export const parseCommentPreviewSegments = undefined as never;
-export const parseConversationId = undefined as never;
-export const parseFileSourceMetrics = undefined as never;
-export const parseFollowUpRequest = undefined as never;
-export const parseHookSourceKind = undefined as never;
-export const parseInlineDirectiveTags = undefined as never;
-export const parseLocalFilePointer = undefined as never;
-export const parseMarkdown = undefined as never;
-export const parsePatchDiffStats = undefined as never;
-export const parseQuotedGitPath = undefined as never;
-export const parseScheduleTime = undefined as never;
-export const parseThreadId = undefined as never;
-export const parseTurnItems = undefined as never;
-export const parseUnifiedDiff = undefined as never;
-export const parseUrlOrigin = undefined as never;
-export const passwordManagerChromiumPageId = undefined as never;
-export const pathIsCaseInsensitive = undefined as never;
-export const pathIsWindowsStyle = undefined as never;
-export const pathsEqualWithinRoot = undefined as never;
-export const pendingActivityThreadsSignal = undefined as never;
-export const pendingAutomationDirectiveSignal = undefined as never;
-export const pendingModelSelectionSignal = undefined as never;
-export const pendingQueryResult = undefined as never;
-export const pendingReviewCommentAtom = undefined as never;
-export const persistBrowserRouteEntry = undefined as never;
-export const persistLeftPanelWidth = undefined as never;
-export const persistRightPanelWidth = undefined as never;
-export const persistScopedSignalValue = undefined as never;
-export const persistedBrowserTabsGateId = undefined as never;
-export const planSidePanelEnabledAtom = undefined as never;
-export const platformAtom = undefined as never;
-export const pointDistance = undefined as never;
-export const pointerPositionSignals = undefined as never;
-export const prefersReducedMotionSignal = undefined as never;
-export const prefetchArtifactFileQueries = undefined as never;
-export const prefetchCodeThemes = undefined as never;
-export const prepareConversationForTurn = undefined as never;
-export const prepareConversationalOnboardingExecution = undefined as never;
-export const prepareProjectlessConversation = undefined as never;
-export const previewTabManager = undefined as never;
-export const processManagerScope = undefined as never;
-export const productEventTargets = undefined as never;
-export const pullRequestCreatedProductEvent = undefined as never;
-export const pullRequestStatusAtom = undefined as never;
-export const pullRequestStatusForBranchAtom = undefined as never;
-export const pushBlockedReasonAtom = undefined as never;
-export const pushStatusAtom = undefined as never;
-export const pushWorkflowChanges = undefined as never;
-export const queryStaleTime = undefined as never;
-export const rateLimitInfoAtom = undefined as never;
-export const readBackgroundThread = undefined as never;
-export const readConfigBooleanFlag = undefined as never;
-export const readFeatureGateById = undefined as never;
-export const readHostConfigValue = undefined as never;
-export const readMcpCapabilityResource = undefined as never;
-export const readMcpResourceRequestSchema = undefined as never;
-export const readPersistedRecord = undefined as never;
-export const readPersistedSignalSnapshot = undefined as never;
-export const readScopedAtom = undefined as never;
-export const readScopedSignal = undefined as never;
-export const readSettingValue = undefined as never;
-export const readSettingsToolName = undefined as never;
-export const readSharedObjectValue = undefined as never;
-export const readSharedValue = undefined as never;
-export const readStoredNumber = undefined as never;
-export const recordBranchPushed = undefined as never;
-export const recordConversationalOnboardingAccessCompleted = undefined as never;
-export const recordConversationalOnboardingAccessHostUnavailable =
-  undefined as never;
-export const recordConversationalOnboardingAccessRequestFailed =
-  undefined as never;
-export const recordConversationalOnboardingAccessRequested = undefined as never;
-export const recordConversationalOnboardingAccessStarted = undefined as never;
-export const recordConversationalOnboardingExecutionStartFailed =
-  undefined as never;
-export const recordConversationalOnboardingExecutionStarted =
-  undefined as never;
-export const recordConversationalOnboardingLifecycleStartFailed =
-  undefined as never;
-export const recordMcpResourceRead = undefined as never;
-export const recordProductEvent = undefined as never;
-export const rectSortingStrategy = undefined as never;
-export const refetchReviewGitChanges = undefined as never;
-export const refreshGitStatus = undefined as never;
-export const refreshPushStatus = undefined as never;
-export const refreshReviewPathsFast = undefined as never;
-export const registerTerminalPanelSubscription = undefined as never;
-export const registeredAppServerHostIdsSignal = undefined as never;
-export const relativePath = undefined as never;
-export const relativizePath = undefined as never;
-export const remoteConnectionSelectionSignal = undefined as never;
-export const remoteHostsAtom = undefined as never;
-export const remoteProjectsAtom = undefined as never;
-export const removeBrowserPageState = undefined as never;
-export const renderAppControlToolActivity = undefined as never;
-export const renderThreadsReadToolActivity = undefined as never;
-export const renderTurnSections = undefined as never;
-export const representativeWeekday = undefined as never;
-export const requestReviewPatchAction = undefined as never;
-export const requireConversationId = undefined as never;
-export const resetBrowserChromeAutoHide = undefined as never;
-export const resetCommandKeymapState = undefined as never;
-export const resetCreatePullRequestDrafts = undefined as never;
-export const resolveActiveBrowserConversationId = undefined as never;
-export const resolveActiveCommandLabel = undefined as never;
-export const resolveActiveExplorationLabel = undefined as never;
-export const resolveActiveServiceTier = undefined as never;
-export const resolveAppForToolCall = undefined as never;
-export const resolveArtifactDescriptor = undefined as never;
-export const resolveAssignmentCwd = undefined as never;
-export const resolveAssignmentHostId = undefined as never;
-export const resolveAutomationSession = undefined as never;
-export const resolveBrowserNavigationUrl = undefined as never;
-export const resolveBrowserTabId = undefined as never;
-export const resolveBrowserZoomPercent = undefined as never;
-export const resolveChromeTheme = undefined as never;
-export const resolveCodeTheme = undefined as never;
-export const resolveCollapsedActivitySourceSummary = undefined as never;
-export const resolveColorScheme = undefined as never;
-export const resolveCommandBindings = undefined as never;
-export const resolveCommitAttribution = undefined as never;
-export const resolveDefaultServiceTier = undefined as never;
-export const resolveDefaultTargetBranch = undefined as never;
-export const resolveFileTypeFromPath = undefined as never;
-export const resolveHostConfig = undefined as never;
-export const resolveHostConfigId = undefined as never;
-export const resolveMcpAppForToolResult = undefined as never;
-export const resolveMcpAppTabId = undefined as never;
-export const resolveMcpConnectorId = undefined as never;
-export const resolveMcpFrameHeight = undefined as never;
-export const resolveMcpSandboxOriginScope = undefined as never;
-export const resolveModelOption = undefined as never;
-export const resolvePluginToolDisplay = undefined as never;
-export const resolveProjectContext = undefined as never;
-export const resolveProjectlessThreadContext = undefined as never;
-export const resolveProjectlessWorkspace = undefined as never;
-export const resolveQueryOptions = undefined as never;
-export const resolveRuntimeWorkspaceRoots = undefined as never;
-export const resolveServiceTier = undefined as never;
-export const resolveSkillAppFromPath = undefined as never;
-export const resolveSkillPathInfoFromReadSummary = undefined as never;
-export const resolveTabController = undefined as never;
-export const resolveToolActivityAppDisplay = undefined as never;
-export const resolveTreeRowEventTarget = undefined as never;
-export const resolveTurnRenderUnits = undefined as never;
-export const resolveWorkspacePath = undefined as never;
-export const resolvedColorSchemeAtom = undefined as never;
-export const restoreScrollLeft = undefined as never;
-export const restoreScrollTop = undefined as never;
-export const resumableConversationAtom = undefined as never;
-export const retryReviewFileDiff = undefined as never;
-export const revertConfirmDialogOpenAtom = undefined as never;
-export const revertConfirmDialogSkipCheckedAtom = undefined as never;
-export const reviewBaseBranchAtom = undefined as never;
-export const reviewBaseBranchOverrideAtom = undefined as never;
-export const reviewBaseBranchOverrideKey = undefined as never;
-export const reviewBaseBranchQueryAtom = undefined as never;
-export const reviewBottomPadding = undefined as never;
-export const reviewBranchCommitsQueryAtom = undefined as never;
-export const reviewBranchDiffAvailableAtom = undefined as never;
-export const reviewCanRefreshAtom = undefined as never;
-export const reviewCappedModeAtom = undefined as never;
-export const reviewCappedVisibleCountAtom = undefined as never;
-export const reviewChangedFileEntriesAtom = undefined as never;
-export const reviewCollapsedBottomInset = undefined as never;
-export const reviewCommitShaAtom = undefined as never;
-export const reviewCurrentBranchQueryAtom = undefined as never;
-export const reviewCwdAtom = undefined as never;
-export const reviewDiffActionsAvailableAtom = undefined as never;
-export const reviewDiffMetricsAtom = undefined as never;
-export const reviewDiffModeAtom = undefined as never;
-export const reviewDiffQueryAtom = undefined as never;
-export const reviewDiffSourceAtom = undefined as never;
-export const reviewDiffStateAtom = undefined as never;
-export const reviewDiffStylesheet = undefined as never;
-export const reviewDiffViewModeAtom = undefined as never;
-export const reviewDiffWrapAtom = undefined as never;
-export const reviewErrorAtom = undefined as never;
-export const reviewExpandedActionsPortalContext = undefined as never;
-export const reviewExpandedAtom = undefined as never;
-export const reviewExpandedBottomInset = undefined as never;
-export const reviewFileCountsAtom = undefined as never;
-export const reviewFileDiffModelAtom = undefined as never;
-export const reviewFileDiffQueryAtom = undefined as never;
-export const reviewFileEntriesAtom = undefined as never;
-export const reviewFileFilterQueryAtom = undefined as never;
-export const reviewFilePathsAtom = undefined as never;
-export const reviewFilesVisibleAtom = undefined as never;
-export const reviewFilterSupportsGitActions = undefined as never;
-export const reviewFindActiveAtom = undefined as never;
-export const reviewFindStateAtom = undefined as never;
-export const reviewGitActionsAllowedAtom = undefined as never;
-export const reviewGitActionsSupportedAtom = undefined as never;
-export const reviewGitMetadataQueryAtom = undefined as never;
-export const reviewHasDiffsAtom = undefined as never;
-export const reviewHostAtom = undefined as never;
-export const reviewHostConfigAtom = undefined as never;
-export const reviewHostIdAtom = undefined as never;
-export const reviewHostKeyAtom = undefined as never;
-export const reviewLastTurnDiffAtom = undefined as never;
-export const reviewMetadataScope = undefined as never;
-export const reviewPatchActionEvent = undefined as never;
-export const reviewPatchActionInFlightAtom = undefined as never;
-export const reviewRepositorySourceAtom = undefined as never;
-export const reviewReserveBottomPaddingAtom = undefined as never;
-export const reviewReserveBottomPaddingWidthThresholdAtom = undefined as never;
-export const reviewRevertActionInFlightAtom = undefined as never;
-export const reviewRichPreviewEnabledAtom = undefined as never;
-export const reviewSearchControllerAtom = undefined as never;
-export const reviewSearchableFileEntriesAtom = undefined as never;
-export const reviewSelectedPathAtom = undefined as never;
-export const reviewShowGitRepoEmptyStateAtom = undefined as never;
-export const reviewSidePanelAnimationAtom = undefined as never;
-export const reviewSidePanelTabDefaultState = undefined as never;
-export const reviewSidePanelWidthAtom = undefined as never;
-export const reviewSourceAtom = undefined as never;
-export const reviewSummaryQueryAtom = undefined as never;
-export const reviewSummarySourceAtom = undefined as never;
-export const reviewTargetConversationIdAtom = undefined as never;
-export const reviewTestIds = undefined as never;
-export const reviewVisibleFileEntriesAtom = undefined as never;
-export const reviewWordDiffsEnabledAtom = undefined as never;
-export const reviewWorkspaceRootAtom = undefined as never;
-export const reviewWorktreeInfoAtom = undefined as never;
-export const richPreviewEnabledAtom = undefined as never;
-export const rightPanelAfterListSignal = undefined as never;
-export const rightPanelAfterListStickySignal = undefined as never;
-export const rightPanelAnimationSignal = undefined as never;
-export const rightPanelBeforeListSignal = undefined as never;
-export const rightPanelColumnCountSignal = undefined as never;
-export const rightPanelComposerReserveAtom = undefined as never;
-export const rightPanelEmptyStateSignal = undefined as never;
-export const rightPanelExpandedAtom = undefined as never;
-export const rightPanelFallbackContentSignal = undefined as never;
-export const rightPanelMaximizedSignal = undefined as never;
-export const rightPanelOpenAtom = undefined as never;
-export const rightPanelStoredWidthSignal = undefined as never;
-export const rightPanelWidthConfigSignal = undefined as never;
-export const rotateDeviceToolbarState = undefined as never;
-export const roundLeftPanelWidth = undefined as never;
-export const roundToDevicePixels = undefined as never;
-export const rpcClient = undefined as never;
-export const rpcTimeConstants = undefined as never;
-export const runCommitWorkflow = undefined as never;
-export const sampleBezierPath = undefined as never;
-export const sanitizeThreadConfig = undefined as never;
-export const scalePx = undefined as never;
-export const scaleToDevicePx = undefined as never;
-export const scrollElementIntoActivityView = undefined as never;
-export const scrollReviewFileIntoView = undefined as never;
-export const selectConversationDownloads = undefined as never;
-export const selectLocalCheckoutsForWorktree = undefined as never;
-export const selectMcpAppRenderTarget = undefined as never;
-export const selectMcpToolResult = undefined as never;
-export const selectReviewCommit = undefined as never;
-export const selectedRemoteProjectAtom = undefined as never;
-export const sendMessageToBackgroundThread = undefined as never;
-export const serializeConfig = undefined as never;
-export const serializeMainContentMeasurement = undefined as never;
-export const serializePermissionPolicy = undefined as never;
-export const serializeSandboxPartition = undefined as never;
-export const serverConfigQueryAtom = undefined as never;
-export const serverConfigRequirementsQuery = undefined as never;
-export const serviceTierChangedEvent = undefined as never;
-export const setActiveBrowserFindTarget = undefined as never;
-export const setActiveSidePanelKind = undefined as never;
-export const setBackgroundThreadArchived = undefined as never;
-export const setBackgroundThreadPinned = undefined as never;
-export const setBackgroundThreadTitle = undefined as never;
-export const setBrowserChromeForceVisible = undefined as never;
-export const setBrowserFindState = undefined as never;
-export const setConversationBranch = undefined as never;
-export const setFileTreeOpen = undefined as never;
-export const setFocusedReviewPane = undefined as never;
-export const setHoveredAppShellFocusArea = undefined as never;
-export const setMainSidebarLayout = undefined as never;
-export const setMcpAppInlineExpanded = undefined as never;
-export const setMcpToolActivityExpansion = undefined as never;
-export const setRevertConfirmDialogSkipChecked = undefined as never;
-export const setReviewActivePath = undefined as never;
-export const setReviewFileFilterQuery = undefined as never;
-export const setReviewFilesVisible = undefined as never;
-export const setRichPreviewEnabled = undefined as never;
-export const setRightPanelOpenPreservingMaximized = undefined as never;
-export const setSharedObjectValue = undefined as never;
-export const setSidebarPanelForSide = undefined as never;
-export const setTerminalFocused = undefined as never;
-export const settingsAtoms = undefined as never;
-export const settingsToolNamespaceEntries = undefined as never;
-export const setupWorkflowBranch = undefined as never;
-export const sharedStateKeys = undefined as never;
-export const shouldAutoExpandMcpToolCall = undefined as never;
-export const shouldCollapseGroupedUnits = undefined as never;
-export const shouldGroupDynamicToolCalls = undefined as never;
-export const shouldHideAutomationExecutionEnvironment = undefined as never;
-export const shouldHideMcpToolCall = undefined as never;
-export const shouldHideTurnDiff = undefined as never;
-export const shouldOfferOpenTargets = undefined as never;
-export const shouldRecordConversationBranchAtom = undefined as never;
-export const shouldRemoveSourceBrowserStateWhenEmpty = undefined as never;
-export const shouldShowBrowserProfileImportNux = undefined as never;
-export const shouldShowThinkingFallback = undefined as never;
-export const shouldShowThinkingFallbackForUnit = undefined as never;
-export const showExperimentalFileToolFeatureKey = undefined as never;
-export const showMultiTabCloseMenuSignal = undefined as never;
-export const sidePanelSlots = undefined as never;
-export const sidePanelTabController = undefined as never;
-export const sidePanelTabManager = undefined as never;
-export const sidePanelTabViewedEvent = undefined as never;
-export const sidebarPanelClosedIcon = undefined as never;
-export const sidebarPanelOpenIcon = undefined as never;
-export const sidebarPeekActiveSignal = undefined as never;
-export const sidebarPeekHoverSignal = undefined as never;
-export const sidebarPeekLockedSignal = undefined as never;
-export const sidebarTriggerHoveredSignal = undefined as never;
-export const sidebarUnreadIcon = undefined as never;
-export const sidebarVisibleSignal = undefined as never;
-export const speakToUserFeatureKey = undefined as never;
-export const speakToUserToolDefinition = undefined as never;
-export const speakToUserToolDefinitions = undefined as never;
-export const splitWorkspacePathSegments = undefined as never;
-export const stableHashSegment = undefined as never;
-export const startCase = undefined as never;
-export const startComposerTurn = undefined as never;
-export const storedThreadBranchAtom = undefined as never;
-export const stringSchema = undefined as never;
-export const stringifyMarkdown = undefined as never;
-export const subagentAvatarIcons = undefined as never;
-export const subagentToolActivityDescriptors = undefined as never;
-export const submitBrowserAnnotationComments = undefined as never;
-export const subscribeToDownloads = undefined as never;
-export const subscribeToDownloadsRegistry = undefined as never;
-export const subscribeToEditorChanges = undefined as never;
-export const subtractCoordinates = undefined as never;
-export const sumBy = undefined as never;
-export const summarizeExplorationCommand = undefined as never;
-export const summarizeHookRuns = undefined as never;
-export const summarizeMinuteInterval = undefined as never;
-export const summarizeSubagentActivityStatus = undefined as never;
-export const summarizeTimeOfDay = undefined as never;
-export const svgToDataUri = undefined as never;
-export const syncBrowserOpenState = undefined as never;
-export const syncOpenTabs = undefined as never;
-export const syncTerminalPanelTabs = undefined as never;
-export const tabKindIds = undefined as never;
-export const tangentToAngleDeg = undefined as never;
-export const terminalFocusedSignal = undefined as never;
-export const terminalSessionManager = undefined as never;
-export const themeRevisionAtom = undefined as never;
-export const threadAtomScope = undefined as never;
-export const threadCwdSignal = undefined as never;
-export const threadDiffByPathAtom = undefined as never;
-export const threadHostIdSignal = undefined as never;
-export const threadManagerListSignal = undefined as never;
-export const threadParamsByIdSignal = undefined as never;
-export const threadPermissionsSignal = undefined as never;
-export const threadServiceTierByHostSignal = undefined as never;
-export const threadSettingsByIdSignal = undefined as never;
-export const threadToolsFeatureKey = undefined as never;
-export const threadsCreateInWorktreeTool = undefined as never;
-export const threadsCreateTool = undefined as never;
-export const threadsForkInWorktreeTool = undefined as never;
-export const threadsForkTool = undefined as never;
-export const threadsListTool = undefined as never;
-export const threadsReadTool = undefined as never;
-export const threadsSendMessageTool = undefined as never;
-export const threadsSetArchivedTool = undefined as never;
-export const threadsSetPinnedTool = undefined as never;
-export const threadsSetTitleTool = undefined as never;
-export const timeConstants = undefined as never;
-export const toBrowserCommentAttachment = undefined as never;
-export const toBrowserTabId = undefined as never;
-export const toCommentAnnotationInput = undefined as never;
-export const toConversationId = undefined as never;
-export const toConversationKey = undefined as never;
-export const toFilePreviewUrl = undefined as never;
-export const toGitRelativePathKey = undefined as never;
-export const toHostConfig = undefined as never;
-export const toImageAttachmentInputs = undefined as never;
-export const toLineAnnotations = undefined as never;
-export const toSentenceCase = undefined as never;
-export const toServiceTierConfigValue = undefined as never;
-export const toServiceTierThreadOverride = undefined as never;
-export const toThemeVariant = undefined as never;
-export const toToolActivitySummaryUnit = undefined as never;
-export const toWorkspaceRootPath = undefined as never;
-export const toggleArtifactPreview = undefined as never;
-export const toggleBrowserFloatingComposer = undefined as never;
-export const trackGoogleWorkspaceResourceClick = undefined as never;
-export const trackOpenInCodexBrowser = undefined as never;
-export const trackRecentlyOpenedFile = undefined as never;
-export const trackScopedAnalyticsEvent = undefined as never;
-export const triggerPushFlow = undefined as never;
-export const truncateBranchName = undefined as never;
-export const turnDiffActionsDisabledAtom = undefined as never;
-export const turnDiffRevertProductEvent = undefined as never;
-export const unionSchema = undefined as never;
-export const uniq = undefined as never;
-export const uniqBy = undefined as never;
-export const unreadActivityCountSignal = undefined as never;
-export const updateCommandKeymapState = undefined as never;
-export const updateComposerState = undefined as never;
-export const updateSharedObjectState = undefined as never;
-export const useActiveCollaborationMode = undefined as never;
-export const useActiveConversationId = undefined as never;
-export const useActivityScrollContainer = undefined as never;
-export const useAppScopeAtomValue = undefined as never;
-export const useAppShellLayout = undefined as never;
-export const useAppShellTabState = undefined as never;
-export const useAppgenEndCardEnabled = undefined as never;
-export const useAppgenProject = undefined as never;
-export const useApplicationMenuBarEnabled = undefined as never;
-export const useAsyncQueryValue = undefined as never;
-export const useAtMentionController = undefined as never;
-export const useAutomationModelsQuery = undefined as never;
-export const useAvailablePlugins = undefined as never;
-export const useBackgroundSubagents = undefined as never;
-export const useBrowserSettingsAvailability = undefined as never;
-export const useBrowserSidebarComments = undefined as never;
-export const useBrowserSidebarEnabled = undefined as never;
-export const useCombinedRefs = undefined as never;
-export const useCommandHandler = undefined as never;
-export const useCommandShortcut = undefined as never;
-export const useComposerControllerCleanup = undefined as never;
-export const useComposerMessageSetter = undefined as never;
-export const useComposerStateValue = undefined as never;
-export const useConnectApp = undefined as never;
-export const useConnectedApps = undefined as never;
-export const useConversationAtomValue = undefined as never;
-export const useConversationComments = undefined as never;
-export const useConversationMeta = undefined as never;
-export const useCurrentWorktreeRoot = undefined as never;
-export const useDebouncedValue = undefined as never;
-export const useDefaultConversationDetailLevel = undefined as never;
-export const useDesignAdjustEntryEnabled = undefined as never;
-export const useDevicePixelRatio = undefined as never;
-export const useDictation = undefined as never;
-export const useDiffHighlighter = undefined as never;
-export const useDisclosureContentHeight = undefined as never;
-export const useDndContext = undefined as never;
-export const useDraggable = undefined as never;
-export const useDroppable = undefined as never;
-export const useEffectEvent = undefined as never;
-export const useEvent = undefined as never;
-export const useFeatureGateExposure = undefined as never;
-export const useFormattedAcceleratorLabel = undefined as never;
-export const useHost = undefined as never;
-export const useHostConfig = undefined as never;
-export const useHostKey = undefined as never;
-export const useHostMessage = undefined as never;
-export const useHostMessageSubscription = undefined as never;
-export const useHostRequest = undefined as never;
-export const useImagePreviewSources = undefined as never;
-export const useInterval = undefined as never;
-export const useInvalidateQueries = undefined as never;
-export const useIsDarkMode = undefined as never;
-export const useIsDarkTheme = undefined as never;
-export const useIsMac = undefined as never;
-export const useIsomorphicLayoutEffect = undefined as never;
-export const useKeyboardAccelerator = undefined as never;
-export const useKeyedAtomValue = undefined as never;
-export const useLatestValue = undefined as never;
-export const useLazyMemo = undefined as never;
-export const useMcpAppId = undefined as never;
-export const useMcpAppResourceQuery = undefined as never;
-export const useMcpServerStatuses = undefined as never;
-export const useMeasuredSizeCallback = undefined as never;
-export const useMeasuredWidth = undefined as never;
-export const useModalController = undefined as never;
-export const useModelSettings = undefined as never;
-export const useModelsQuery = undefined as never;
-export const useMotionTransform = undefined as never;
-export const useMotionValue = undefined as never;
-export const useMotionValueEvent = undefined as never;
-export const useMultiAgentActionsEnabled = undefined as never;
-export const useMutation = undefined as never;
-export const useNamedKeyboardShortcut = undefined as never;
-export const useNativeAppIcon = undefined as never;
-export const useNativeDesktopAppMetadata = undefined as never;
-export const useNavigate = undefined as never;
-export const useNodeRef = undefined as never;
-export const useOpenInTargets = undefined as never;
-export const useOpenTarget = undefined as never;
-export const useOpenTargets = undefined as never;
-export const usePanelResizeAnimation = undefined as never;
-export const usePendingWorktreeController = undefined as never;
-export const usePermissionSettings = undefined as never;
-export const usePersistedToggleSetter = undefined as never;
-export const usePrefersReducedMotion = undefined as never;
-export const usePrevious = undefined as never;
-export const useProductLogger = undefined as never;
-export const usePushToTalkHotkey = undefined as never;
-export const useQuery = undefined as never;
-export const useRemUnitMultiplier = undefined as never;
-export const useResizableSize = undefined as never;
-export const useResizeObserver = undefined as never;
-export const useResizeObserverRef = undefined as never;
-export const useResolvedImageSrc = undefined as never;
-export const useReviewBottomPadding = undefined as never;
-export const useReviewCommentAnnotations = undefined as never;
-export const useReviewExpandedDiffs = undefined as never;
-export const useReviewFindHighlight = undefined as never;
-export const useReviewGeneratedPaths = undefined as never;
-export const useReviewSearchScrollHandler = undefined as never;
-export const useRightPanelLayout = undefined as never;
-export const useRouteMatch = undefined as never;
-export const useRouterNavigate = undefined as never;
-export const useRpcQuery = undefined as never;
-export const useScopedGitQuery = undefined as never;
-export const useScopedPersistedValue = undefined as never;
-export const useScopedQuery = undefined as never;
-export const useSelectedBrowserHostId = undefined as never;
-export const useSelectedRemoteProject = undefined as never;
-export const useServiceTierSettings = undefined as never;
-export const useSessionState = undefined as never;
-export const useSetSignal = undefined as never;
-export const useSetting = undefined as never;
-export const useSignalFamilyValue = undefined as never;
-export const useSkillMentionController = undefined as never;
-export const useSkills = undefined as never;
-export const useStableEventCallback = undefined as never;
-export const useStatsigDynamicConfig = undefined as never;
-export const useSubscriptionQuery = undefined as never;
-export const useTextMeasurement = undefined as never;
-export const useThemePreference = undefined as never;
-export const useThreadHostContext = undefined as never;
-export const useThreadQuery = undefined as never;
-export const useThreadsQuery = undefined as never;
-export const useTitleBarSafeAreaInsets = undefined as never;
-export const useTurnFixedContentPortalContainer = undefined as never;
-export const useTurnFollowState = undefined as never;
-export const useUniqueId = undefined as never;
-export const useWebviewExecutionTarget = undefined as never;
-export const useWorktreeTargetRoots = undefined as never;
-export const waitForNextFrame = undefined as never;
-export const webSearchFaviconUrl = undefined as never;
-export const weekdaysFromByweekday = undefined as never;
-export const weekdaysFromRruleText = undefined as never;
-export const wordWrapEnabledAtom = undefined as never;
-export const workspaceFoldersQuerySignal = undefined as never;
-export const workspaceGroupsSignal = undefined as never;
-export const workspaceProvisioningStateSignal = undefined as never;
-export const workspaceRootAtom = undefined as never;
-export const workspaceRootToCwd = undefined as never;
-export const workspaceRootsQueryAtom = undefined as never;
-export const worktreeBaseBranchQueryAtom = undefined as never;
-export const worktreeBranchMutationAtom = undefined as never;
-export const worktreeOriginsQueryAtom = undefined as never;
-export const worktreeSetupRoutePath = undefined as never;
-export const worktreeStatusQueryKey = undefined as never;
-export const writeSettingsToolName = undefined as never;
-export const writeStoredValue = undefined as never;
+// RESTORED ONBOARDING COMMONS REEXPORTS START
+export {
+  AnimatePresence,
+  MotionValue,
+  useMotionTemplate,
+  useMotionValue,
+  useTransform as useMotionTransform,
+} from "framer-motion";
+export { clsx } from "../utils/class-names";
+export {
+  ActivityDisclosureChevron,
+  ToolActivityCard,
+  ToolActivityDisclosureHeader,
+  defaultLayoutTransition,
+  useDisclosureContentHeight,
+} from "../conversations/activity-disclosure";
+export {
+  ShimmerText as AnimatedActivityLabel,
+  ShimmerText,
+} from "../ui/thinking-shimmer";
+export { ActivityScrollContainer as AutoScrollingActivityList } from "../conversations/activity-scroll-container";
+export { createToolErrorResult as buildToolErrorResult } from "../runtime/tool-result-runtime";
+export { appShellStateExportKAlias as APP_SHELL_FOCUS_AREA_ATTR } from "../app-shell/app-shell-state";
+export {
+  Dropdown as ActionMenu,
+  DropdownMenu as ActionPopover,
+} from "../ui/dropdown";
+export { Command as CommandMenu } from "../vendor/cmdk";
+export {
+  CommandMenuItem,
+  initCommandMenuItemComponent,
+} from "../ui/command-menu-item";
+export {
+  CommandMenuGroup,
+  CommandMenuList,
+  CommandMenuListItem,
+  FIRST_COMMAND_ITEM_VALUE,
+  commandMenuRegistrationsSignal,
+  useCommandMenuRegistration,
+  useCommandMenuRegistrations,
+  useCommandMenuState,
+  useCommandMenuStore,
+  useRegisterCommandMenuGroup,
+} from "../runtime/command-menu-runtime";
+export { workspaceGroupsSignal as commandMenuWorkspaceGroupsAtom } from "../runtime/workspace-signals";
+export {
+  ALL_WEEKDAYS,
+  DAILY_WEEKLY_STANDALONE_OPTION_KEYS,
+  DEFAULT_SCHEDULE_TIME,
+  HOURLY_STANDALONE_OPTION_KEYS,
+  MINUTELY_STANDALONE_OPTION_KEYS,
+  RRULE_WEEKDAY_BY_TOKEN,
+  WEEKDAYS_MONDAY_TO_FRIDAY,
+  currentTimeZoneId,
+  formatRruleTime,
+  isValidRruleText,
+  normalizeRruleMinute,
+  parseScheduleTime,
+  representativeWeekday,
+  weekdaysFromByweekday,
+  weekdaysFromRruleText,
+} from "../settings/automations/schedule-rrule-helpers";
+export {
+  bezierPathSpringConfig,
+  buildBezierPath,
+  clamp,
+  pointDistance,
+  sampleBezierPath,
+  tangentToAngleDeg,
+} from "../browser/browser-agent-cursor-bezier-path";
+export { useConversationParentModel } from "../conversations/use-conversation-parent-model";
+export {
+  composerModeState as composerModeAtom,
+  imageAttachmentsState as imageAttachmentsAtom,
+  imageCommentDraftState as imageCommentDraftAtom,
+} from "../composer/composer-view-state/selectors";
+export { updateComposerState } from "../composer/composer-view-state/mutations";
+export {
+  ConversationMarkdown,
+  initConversationMarkdownViewChunk,
+  parseCommentMarkdown,
+} from "../conversations/conversation-markdown-view";
+export {
+  FileReferenceHoverCard,
+  FileReferenceLink,
+  buildFileReference,
+  formatWorkspacePathLabel,
+  getFileIconComponent,
+  isAbsolutePath,
+  relativizePath,
+} from "../conversations/file-reference-link";
+export {
+  FileTree,
+  WorkspaceFileSourceTree,
+  flattenReviewFileEntries,
+  resolveTreeRowEventTarget,
+  reviewBottomPadding,
+} from "../review/simple-file-tree-runtime";
+export {
+  commentAttachmentToComment,
+  parseCommentDisplay,
+} from "../conversations/sent-comment-attachment-helpers";
+export {
+  SubagentInlineActivityContext,
+  formatAgentIdLabel,
+  formatModelLabel,
+  getThreadDisplayName,
+  normalizeThreadId,
+  parseAgentSource,
+  useMultiAgentActionsEnabled,
+} from "../conversations/multi-agent-activity-helpers";
+export {
+  adjustCollapsedActivitySummary,
+  buildCollapsedActivityKey,
+  findIndexAfterLastAssistantMessage,
+  getDynamicToolCallItem,
+  getMcpToolCallGroupKey,
+  getMcpToolCallItem,
+  hasActiveLiveActivity,
+  isDynamicToolCallUnit,
+  isMcpToolCallExcludedFromGrouping,
+  shouldCollapseGroupedUnits,
+  shouldGroupDynamicToolCalls,
+} from "../conversations/tool-activity-grouping-helpers";
+export {
+  appControlToolActivityDescriptors,
+  buildCompletedSummaryPartKey,
+  continuesLiveActivityBetweenCalls,
+  findToolActivityDescriptor,
+  isSummaryOnlyInConversationGroup,
+  toolActivityDescriptors,
+} from "../conversations/tool-activity-descriptors";
+export { buildToolActivitySummaries } from "../conversations/tool-activity-summary-accumulator";
+export {
+  assertUnreachableToolActivity,
+  codexAppToolNamespace,
+  coreToolActivityDescriptors,
+  findMatchingMcpApp,
+  getMultiAgentToolGroupKey,
+  getThreadsForkSummaryPartKey,
+  getThreadsListSummaryPartKey,
+  getThreadsReadSummaryPartKey,
+  resolveAppForToolCall,
+  shouldAutoExpandMcpToolCall,
+  shouldHideMcpToolCall,
+  subagentToolActivityDescriptors,
+  threadsCreateInWorktreeTool,
+  threadsCreateTool,
+  threadsForkInWorktreeTool,
+  threadsForkTool,
+  threadsListTool,
+  threadsReadTool,
+  threadsSendMessageTool,
+  threadsSetArchivedTool,
+  threadsSetPinnedTool,
+  threadsSetTitleTool,
+  toToolActivitySummaryUnit,
+} from "../conversations/tool-activity-runtime";
+export {
+  getFileExtension,
+  openFileAtLine,
+  useHostRequest,
+} from "../runtime/file-open-runtime";
+export {
+  buildLocalFileSrc,
+  copyTextToClipboard,
+  errorToString,
+  fuzzyMatchScore,
+  getAbsoluteImageFilePath,
+  getLocalPathForFile,
+  isDisplayableImageSrc,
+  isBlankText,
+  loadFileDataUrl,
+  normalizeBrowserUrl,
+  openFileInEditor,
+  parseLocalFilePointer,
+  toSentenceCase,
+} from "../runtime/commons-utility-runtime";
+export { parseUnifiedDiffFileSummaries as parseUnifiedDiff } from "../utils/unified-diff-file-summaries";
+export { UnifiedFileDiffRenderer as UnifiedFileDiffView } from "../review/unified-file-diff-renderer";
+export {
+  DURATIONS,
+  Durations,
+  analyticsClickSource,
+  appMessenger,
+  basename,
+  buildQueryKey,
+  canonicalizeRootPath,
+  codexAnalyticsConfigAtom,
+  conversationAtomScope,
+  conversationHostIdAtom,
+  createEphemeralConversationId,
+  dispatchHostRequest,
+  getHostBridge,
+  getHostKey,
+  getRpcClient,
+  getThreadId,
+  intlAtom,
+  intlAtom as intlControllerAtom,
+  invokeAppServerRequest,
+  isPathWithin,
+  isPathWithinRoot,
+  normalizeRequestCwd,
+  openExternalLink,
+  openExternalLinkFromEvent,
+  pathIsCaseInsensitive,
+  pathIsWindowsStyle,
+  pushStatusAtom,
+  reviewMetadataScope,
+  showComposerToast,
+  threadAtomScope,
+  trackScopedAnalyticsEvent,
+  toWorkspaceRootPath,
+  useEffectEvent,
+  useSetting,
+  workspaceRootAtom,
+  workspaceRootToCwd,
+} from "../runtime/onboarding-common-runtime";
+export {
+  SidePanelTabId,
+  SidePanelTabKind,
+  focusBrowserSidePanelPanel,
+  focusSidePanelTab,
+  getSidePanelTabControllerForTarget,
+  sidePanelTabController,
+} from "../app-shell/side-panel-runtime";
+export {
+  activeCwdAtom,
+  allowBrowserTabWithoutPlacementAtom,
+  BrowserTabTrailingIndicators,
+  BrowserTabType,
+  browserHostConfigAtom,
+  browserHostIdAtom,
+  browserHostServices,
+  browserSidebarTabManager,
+  browserTabType,
+  browserToolbarActionEvent,
+  browserToolbarActionType,
+  deriveBrowserTabDisplay,
+  formatBrowserTabHostname,
+  getBrowserTabPlacement,
+  getBrowserSitePermissionsOrigin,
+  getDefaultBrowserTabId,
+  isKnownBrowserTab,
+  multiBrowserTabsEnabledAtom,
+  newTabPageTitle,
+  resolveActiveBrowserConversationId,
+  toBrowserTabId,
+} from "../browser/browser-tab-runtime";
+export {
+  bottomPanelOpenAtom,
+  browserAnnotationTakeoverEvent,
+  browserCommentRouteKey,
+  browserCommentSubmittedEvent,
+  browserDesignRouteKey,
+  browserFloatingComposerVisibleAtom,
+  browserOpenedInExternalEvent,
+  browserSidebarMessenger,
+  cleanupBrowserTabOnClose,
+  ensureBrowserPageState,
+  getPagePersistenceContext,
+  getPendingBrowserOpenReason,
+  getPendingBrowserOpenSource,
+  handleBrowserTabActivated,
+  isBrowserSidebarEnabledAtom,
+  isBrowserSidebarEnabledSignal,
+  markBrowserToolbarInteracted,
+  normalizeBrowserActiveTab,
+  normalizeBrowserRouteKind,
+  persistBrowserRouteEntry,
+  removeBrowserPageState,
+  resetBrowserChromeAutoHide,
+  resolveBrowserTabId,
+  rightPanelOpenAtom,
+  setBrowserChromeForceVisible,
+  shouldRemoveSourceBrowserStateWhenEmpty,
+  toggleBrowserFloatingComposer,
+} from "../browser/browser-tab-state-runtime";
+export type { CommentPopupHandle } from "../browser/browser-comment-popup-window";
+export {
+  MAX_BROWSER_DEVICE_HEIGHT,
+  MAX_BROWSER_DEVICE_WIDTH,
+  RESPONSIVE_PRESET_ID,
+  browserDevicePresets,
+  clampBrowserDeviceHeight,
+  clampBrowserDeviceWidth,
+  computeBrowserDeviceResize,
+  getResponsiveViewportSize,
+  parseBrowserDevicePreset,
+  rotateDeviceToolbarState,
+} from "../browser/browser-device-toolbar-runtime";
+export {
+  appShellHeaderActionEntriesSignal,
+  appShellHeaderContextMenuItemsSignal,
+  appShellHeaderEndEntriesSignal,
+  appShellHeaderStartEntriesSignal,
+} from "../app-shell/app-shell-header-signal-runtime";
+export const appScopeAtom = appAtomScope;
+export const appRouteScope = appRootScope;
+export const processManagerScope = appRootScope;
+export const gitCwdParamsAtom = appStoreScope;
+export const atomFamily = createParametricStateAtom;
+export const listAtom = createParametricStateAtom;
+export const createWritableSignalAtom = createParametricStateAtom;
+export const createDerivedAtom = createComputedAtom;
+export const deriveAppScopeAtom = createComputedAtom;
+export const createRouteScopedComputedAtom = createComputedAtom;
+export const storedThreadBranchAtom = createParametricStateAtom(
+  appStoreScope,
+  () => null,
+);
+export const branchDisplayConfigAtom = createParametricStateAtom(
+  appStoreScope,
+  () => ({ fallbackLabel: "current branch" }),
+);
+export const conversationPullRequestUrlAtom = createParametricAtom(
+  appStoreScope,
+  (
+    params: {
+      cwd?: string | null;
+      hostConfig?: { id?: string | null } | null;
+      operationSource?: string;
+    },
+    { get },
+  ): string | null => {
+    const headBranch =
+      get<string | null>(localConversationHeadBranchAtom, params) ?? "";
+    const hostId = params.hostConfig?.id ?? null;
+    if (hostId == null || headBranch.length === 0) return null;
+    return get<string | null>(ghPullRequestUrlSignal, {
+      cwd: params.cwd,
+      headBranch,
+      hostId,
+      operationSource:
+        params.operationSource ?? "local_conversation_git_actions",
+    });
+  },
+);
+export const conversationHasOpenPullRequestAtom = createParametricAtom(
+  appStoreScope,
+  (
+    params: {
+      cwd?: string | null;
+      hostConfig?: { id?: string | null } | null;
+      operationSource?: string;
+    },
+    { get },
+  ): boolean => {
+    const headBranch =
+      get<string | null>(localConversationHeadBranchAtom, params) ?? "";
+    const hostId = params.hostConfig?.id ?? null;
+    return (
+      hostId != null &&
+      headBranch.length > 0 &&
+      get<boolean>(hasOpenPullRequestSignal, {
+        cwd: params.cwd,
+        headBranch,
+        hostId,
+        operationSource:
+          params.operationSource ?? "local_conversation_git_actions",
+      })
+    );
+  },
+);
+
+export function createScopedStoreFactory<TKey, TValue>(
+  scope: unknown,
+  buildStore: (
+    key: TKey,
+    context: {
+      get: (atom: unknown, key?: unknown) => unknown;
+      set: (atom: unknown, keyOrValue: unknown, value?: unknown) => void;
+      signal: <TSignalValue>(initialValue: TSignalValue) => unknown;
+    },
+  ) => TValue,
+  options?: unknown,
+): unknown {
+  return createParametricAtom(
+    scope,
+    (key: TKey, context) =>
+      buildStore(key, {
+        get: context.get,
+        set: context.set,
+        signal: (initialValue) =>
+          createParametricStateAtom(scope, () => initialValue),
+      }),
+    options,
+  );
+}
+
+export function buildBranchAheadCountQueryKey(args: {
+  metadata?: { commonDir?: string; root?: string } | null;
+  method: string;
+  params?: Record<string, unknown> | null;
+  hostKey?: unknown;
+}): readonly unknown[] {
+  return buildGitReviewQueryKey({
+    ...args,
+    hostKey:
+      args.hostKey == null
+        ? null
+        : typeof args.hostKey === "string"
+          ? args.hostKey
+          : String(args.hostKey),
+  });
+}
+
+export function buildReviewSummaryQueryKey(
+  commonDir: string,
+  root: string,
+  hostKey?: unknown,
+): readonly unknown[] {
+  return buildGitReviewQueryKey({
+    metadata: { commonDir, root },
+    method: "review-summary",
+    hostKey:
+      hostKey == null
+        ? null
+        : typeof hostKey === "string"
+          ? hostKey
+          : String(hostKey),
+  });
+}
+
+type QueryClientLike = {
+  invalidateQueries?(filters?: { queryKey?: unknown } | unknown): unknown;
+};
+
+function readQueryClient(value: unknown): QueryClientLike | null {
+  if (value == null || typeof value !== "object") return null;
+  const candidate = value as {
+    invalidateQueries?: QueryClientLike["invalidateQueries"];
+    queryClient?: QueryClientLike;
+  };
+  return typeof candidate.invalidateQueries === "function"
+    ? candidate
+    : (candidate.queryClient ?? null);
+}
+
+export function formatBranchForDisplay(
+  config: { fallbackLabel?: string } | null | undefined,
+  branch: string | null | undefined,
+): string {
+  const trimmedBranch = branch?.trim();
+  return trimmedBranch && trimmedBranch.length > 0
+    ? trimmedBranch
+    : (config?.fallbackLabel ?? "current branch");
+}
+
+export function invalidateGitQueries(
+  queryClientOrScope: unknown,
+  commonDirOrMetadata?: string | { commonDir?: string; root?: string } | null,
+  options: { hostKey?: unknown } = {},
+): unknown {
+  const queryClient = readQueryClient(queryClientOrScope);
+  if (queryClient == null) return undefined;
+  const metadata =
+    typeof commonDirOrMetadata === "string"
+      ? { commonDir: commonDirOrMetadata }
+      : (commonDirOrMetadata ?? null);
+  queryClient.invalidateQueries?.({ queryKey: ["git"] });
+  return queryClient.invalidateQueries?.({
+    queryKey: buildGitReviewQueryKey({
+      metadata,
+      method: "metadata",
+      hostKey:
+        options.hostKey == null
+          ? null
+          : typeof options.hostKey === "string"
+            ? options.hostKey
+            : String(options.hostKey),
+    }),
+  });
+}
+
+export function invalidateBranchMetadataQueries(
+  queryClientOrScope: unknown,
+  metadata: { commonDir?: string; root?: string } | null | undefined,
+  options: { changeType?: string; hostKey?: unknown } = {},
+): void {
+  const queryClient = readQueryClient(queryClientOrScope);
+  if (queryClient == null || metadata == null) return;
+  for (const method of [
+    "metadata",
+    "current-branch",
+    "default-branch",
+    "branch-ahead-count",
+    "upstream-branch",
+  ]) {
+    queryClient.invalidateQueries?.({
+      queryKey: buildGitReviewQueryKey({
+        metadata,
+        method,
+        params: options.changeType ? { changeType: options.changeType } : null,
+        hostKey:
+          options.hostKey == null
+            ? null
+            : typeof options.hostKey === "string"
+              ? options.hostKey
+              : String(options.hostKey),
+      }),
+    });
+  }
+}
+
+export function invalidatePullRequestStatus(
+  queryClientOrScope: unknown,
+  hostId: string,
+): unknown {
+  const queryClient = readQueryClient(queryClientOrScope);
+  return queryClient?.invalidateQueries?.({
+    queryKey: ["gh-pr-status", { hostId }],
+  });
+}
+
+export function recordBranchPushed(
+  scope: unknown,
+  payload: {
+    branch?: string | null;
+    cwd?: string | null;
+    forced?: boolean;
+    hostConfig?: unknown;
+    operationSource?: string;
+  } = {},
+): void {
+  recordProductEventRuntime(scope, branchPushedEventDescriptor, {
+    branch: payload.branch ?? null,
+    forced: payload.forced ?? false,
+  });
+}
+
+export function resolveDefaultTargetBranch(
+  metadata:
+    | {
+        baseBranch?: string | null;
+        defaultBranch?: string | null;
+        targetBranch?: string | null;
+      }
+    | null
+    | undefined,
+): string | null {
+  return (
+    metadata?.targetBranch ??
+    metadata?.defaultBranch ??
+    metadata?.baseBranch ??
+    null
+  );
+}
+
+export { addCoordinates, findFirstFocusableNode, subtractCoordinates };
+
+export const DRAGGABLE_ID_PREFIX = "DndDraggable";
+export const DROPPABLE_ID_PREFIX = "DndDroppable";
+export const DndAction = Object.freeze({
+  DragStart: "dragStart",
+  DragMove: "dragMove",
+  DragEnd: "dragEnd",
+  DragCancel: "dragCancel",
+  DragOver: "dragOver",
+  RegisterDroppable: "registerDroppable",
+  SetDroppableDisabled: "setDroppableDisabled",
+  UnregisterDroppable: "unregisterDroppable",
+});
+export const ScrollDirection = Object.freeze({
+  Forward: 1,
+  Backward: -1,
+  1: "Forward",
+  [-1]: "Backward",
+});
+export const TraversalOrder = Object.freeze({
+  TreeOrder: 0,
+  ReversedTreeOrder: 1,
+  0: "TreeOrder",
+  1: "ReversedTreeOrder",
+});
+export const defaultCoordinates = Object.freeze({ x: 0, y: 0 });
+export const defaultRects: unknown[] = [];
+export const defaultDroppableRectMap = new Map();
+export const defaultScrollableAncestors: unknown[] = [];
+export const defaultScrollThreshold = Object.freeze({ x: 0.2, y: 0.2 });
+export const defaultScrollIntent = Object.freeze({
+  x: {
+    [ScrollDirection.Backward]: false,
+    [ScrollDirection.Forward]: false,
+  },
+  y: {
+    [ScrollDirection.Backward]: false,
+    [ScrollDirection.Forward]: false,
+  },
+});
+export const defaultResizeObserverConfig = Object.freeze({ timeout: 25 });
+export const defaultActiveDraggableContext = Object.freeze({
+  ...defaultCoordinates,
+  scaleX: 1,
+  scaleY: 1,
+});
+
+export function getClientRect(
+  element: { getBoundingClientRect: () => DOMRect | ClientRect },
+): {
+  top: number;
+  left: number;
+  right: number;
+  bottom: number;
+  width: number;
+  height: number;
+} {
+  const { top, left, right, bottom, width, height } =
+    element.getBoundingClientRect();
+  return { top, left, right, bottom, width, height };
+}
+
+export const defaultMeasuringConfiguration = Object.freeze({
+  draggable: { measure: getClientRect },
+  droppable: {
+    measure: getClientRect,
+    strategy: 2,
+    frequency: "optimized",
+  },
+  dragOverlay: { measure: getClientRect },
+});
+
+function noop(): void {}
+
+export class DroppableContainersMap<
+  TKey = unknown,
+  TValue extends {
+    disabled?: boolean;
+    node?: { current?: unknown };
+  } = {
+    disabled?: boolean;
+    node?: { current?: unknown };
+  },
+> extends Map<TKey, TValue> {
+  override get(key: TKey | null | undefined): TValue | undefined {
+    return key == null ? undefined : super.get(key);
+  }
+
+  toArray(): TValue[] {
+    return Array.from(this.values());
+  }
+
+  getEnabled(): TValue[] {
+    return this.toArray().filter((container) => !container.disabled);
+  }
+
+  getNodeFor(key: TKey | null | undefined): unknown {
+    return this.get(key)?.node?.current;
+  }
+}
+
+export const defaultInternalContext = Object.freeze({
+  activatorEvent: null,
+  active: null,
+  activeNode: null,
+  activeNodeRect: null,
+  collisions: null,
+  containerNodeRect: null,
+  draggableNodes: new Map(),
+  droppableRects: defaultDroppableRectMap,
+  droppableContainers: new DroppableContainersMap(),
+  over: null,
+  dragOverlay: {
+    nodeRef: { current: null },
+    rect: null,
+    setRef: noop,
+  },
+  scrollableAncestors: defaultScrollableAncestors,
+  scrollableAncestorRects: defaultRects,
+  measuringConfiguration: defaultMeasuringConfiguration,
+  measureDroppableContainers: noop,
+  windowRect: null,
+  measuringScheduled: false,
+});
+export const ActiveDraggableContext = React.createContext(
+  defaultActiveDraggableContext,
+);
+export const DndMonitorContext = React.createContext(null);
+export const InternalContext = React.createContext(defaultInternalContext);
+export const NullContext = React.createContext(null);
+export const defaultDropAnimationConfiguration = Object.freeze({
+  duration: 250,
+  easing: "ease",
+  keyframes: ({
+    transform,
+  }: {
+    transform: { initial: unknown; final: unknown };
+  }): { transform: unknown }[] => [
+    { transform: transform.initial },
+    { transform: transform.final },
+  ],
+});
+
+export function derivedTransformTransition(event: unknown): string | undefined {
+  return isDndKeyboardEvent(event) ? "transform 250ms ease" : undefined;
+}
+
+export function normalizeSortableDisabled(
+  disabled:
+    | boolean
+    | { draggable?: boolean; droppable?: boolean }
+    | null
+    | undefined,
+): { draggable: boolean; droppable: boolean } {
+  return typeof disabled === "boolean"
+    ? { draggable: disabled, droppable: disabled }
+    : {
+        draggable: disabled?.draggable ?? false,
+        droppable: disabled?.droppable ?? false,
+      };
+}
+
+export { logProductEvent } from "../analytics/product-logger";
+export { useProductLogger } from "../analytics/use-product-logger";
+export {
+  DialogHost,
+  activeDialogAtom,
+  closeDialog,
+  openDialog,
+} from "../runtime/dialog-runtime";
+export { ExternalOpenLink } from "../runtime/external-open-link-runtime";
+export {
+  handleOpenResourceLink,
+  openInBrowserTarget,
+} from "../runtime/open-browser-target-runtime";
+export {
+  isBrowserOpenableUrl,
+  shouldOfferOpenTargets,
+} from "../runtime/open-target-browser-runtime";
+export {
+  filterOpenInTargets,
+  buildOpenTargetMenuItems,
+  isVisibleOpenTargetMenuItem,
+} from "../runtime/open-target-menu-builders";
+export {
+  OpenTargetDropdownMenu,
+  OpenTargetMenu,
+} from "../runtime/open-target-menu-primitives";
+export { useOpenTarget } from "../runtime/open-target-selection-runtime";
+export {
+  OpenTargetsPrefetch,
+  OpenTargetsPrefetch as OpenInTargetsPreloader,
+  useOpenTargets,
+  useOpenTargets as useOpenInTargets,
+} from "../runtime/open-targets-query-runtime";
+export {
+  AppConnectDialog,
+  GoogleWorkspaceExportMenuItems,
+  analyticsClickAction,
+  getGoogleWorkspaceExportTarget,
+  trackGoogleWorkspaceResourceClick,
+  useConnectApp,
+} from "../runtime/google-workspace-resource-runtime";
+export {
+  GeneratedImagePlaceholder,
+  GeneratedImagesGrid,
+  TurnDiffView,
+  WebSearchSources,
+  extractReviewComments,
+  focusReviewSidePanel,
+  getReviewCommentBody,
+  getReviewCommentKey,
+  getReviewCommentLineLabel,
+} from "../conversations/turn-artifact-runtime";
+export {
+  computeEndResources,
+  getEndResourcePaths,
+  shouldHideTurnDiff,
+} from "../runtime/conversation-artifact-runtime";
+export { buildPatchUnifiedDiff } from "../conversations/local-conversation-thread-parts/turn-diff-patch-runtime";
+export {
+  activeFindMatchClassName,
+  applyMatchHighlight,
+  buildSearchSnippet,
+  clearFindHighlights,
+  diffSearchMatchId,
+  findLineElement,
+  findMatchesInElement,
+  findSearchMatchElement,
+  findTextMatchOffsets,
+} from "../find/review-find-runtime";
+export { createDiffSearchController } from "../review/diff-search-controller-runtime";
+export {
+  buildArtifactContextMenuItems,
+  describeWorkspaceFile,
+  findTabPanelId,
+  getArtifactIconComponent,
+  getArtifactTitle,
+  isOpenableArtifactType,
+  prefetchArtifactFileQueries,
+  resolveArtifactDescriptor,
+  rightPanelExpandedAtom,
+  setMainSidebarLayout,
+} from "../workspace/workspace-artifact-runtime";
+export {
+  appShellHeaderContextMenuSurfaceSignal,
+  bottomPanelAfterListSignal,
+  bottomPanelAfterListStickySignal,
+  bottomPanelAnimationSignal,
+  bottomPanelEmptyStateSignal,
+  bottomPanelFallbackContentSignal,
+  mainContentLayoutSignal,
+  rightPanelAfterListSignal,
+  rightPanelAfterListStickySignal,
+  rightPanelAnimationSignal,
+  rightPanelBeforeListSignal,
+  rightPanelEmptyStateSignal,
+  rightPanelFallbackContentSignal,
+  rightPanelMaximizedSignal,
+  rightPanelStoredWidthSignal,
+  rightPanelWidthConfigSignal,
+} from "../app-shell/app-shell-state/app-shell-signals-impl";
+export { appShellBottomPanelHeightSubscriberContext } from "../app-shell/bottom-panel-height-subscriber-context";
+export { PlatformGate } from "../app-shell/platform-gate";
+export { sidePanelSlots } from "../app-shell/side-panel-slots";
+export {
+  CloseIcon,
+  SidePanelIcon,
+} from "../app-shell/thread-app-shell-chrome/icons";
+export {
+  getConversationBrowserTabIdsForTransfer,
+  getLastFocusedBrowserTabId,
+} from "../app-shell/thread-browser-panel-tabs";
+export {
+  getAutomationSessionKey,
+  getAutomationSuggestionTabId,
+  resolveAutomationSession,
+} from "../automations/automation-citation-session";
+export {
+  AutomationDetailRow,
+  AutomationDetailSection,
+} from "../automations/automation-side-panel/status-components";
+export { BrowserAnnotationTakeoverToolbar } from "../browser/browser-annotation-takeover-toolbar";
+export { BrowserDesignTweaksEditor } from "../browser/browser-design-tweaks/browser-design-tweaks-editor";
+export { BrowserProfileImportNuxBanner as BrowserProfileImportNux } from "../browser/browser-profile-import-nux-banner";
+export { BrowserSidebar as BrowserWebviewHost } from "../browser/browser-sidebar";
+export {
+  BROWSER_ZOOM_LEVELS,
+  MAX_BROWSER_ZOOM_PERCENT,
+  activeBrowserFindTargetAtom,
+  activeBrowserTabIdQuery,
+  activeBrowserTabSignal,
+  activeSidePanelKindAtom,
+  annotationAddModifierPressedAtom,
+  annotationFlowKind,
+  annotationModeEntrySource,
+  browserAnnotationModeChangedEvent,
+  browserDeviceToolbarBackgroundColor,
+  browserDeviceToolbarLayoutAtom,
+  browserFindFocusRequestAtom,
+  browserFindStateAtom,
+  browserNavigatedEvent,
+  browserPanelOpenedEvent,
+  clampBrowserZoomPercent,
+  clearBrowserFindFocus,
+  clearBrowserPendingNavigation,
+  clearBrowserPendingOpen,
+  designModifierPressedAtom,
+  emptyBrowserFindState,
+  extractBrowserComments,
+  getPendingBrowserAddressOverride,
+  importBrowserProfiles,
+  isCommentForBrowserTab,
+  isSidePanelVisibleAtom,
+  markBrowserTabVisited,
+  openBrowserFind,
+  openBrowserPanelForTab,
+  setActiveBrowserFindTarget,
+  setActiveSidePanelKind,
+  setBrowserFindState,
+  syncBrowserOpenState,
+  toBrowserCommentAttachment,
+  useAsyncQueryValue,
+} from "../browser/browser-commons-runtime";
+export { browserProfileImportDialogOpenAtom } from "../browser/browser-profile-import-dialog-state";
+export { browserProfileImportProfilesQuery as buildBrowserProfileImportQuery } from "../browser/browser-profile-import-query";
+export {
+  browserProfileImportNuxSeenAtom,
+  shouldShowBrowserProfileImportNux,
+} from "../browser/browser-profile-import-nux-state";
+export { isBrowserTabMatch } from "../browser/browser-sidebar-host-utils";
+export { clearBrowserBrowsingData } from "../browser/browser-use-origin-state-queries";
+export {
+  ResetZoomIcon,
+  contactInfoChromiumPageId,
+  extensionsChromiumPageId,
+  historyChromiumPageId,
+  passwordManagerChromiumPageId,
+  useBrowserSettingsAvailability,
+  useRouterNavigate,
+  useSelectedBrowserHostId,
+} from "../browser/browser-settings-runtime";
+export { getLocalConversationTitle } from "../browser/chrome-extension-header-model";
+export {
+  isDefaultCollaborationMode,
+  isPlanCollaborationMode,
+  runTogglePlanMode,
+} from "../composer/collaboration-modes";
+export {
+  activeFollowUpAtom,
+  composerDraftTextAtom,
+  getComposerRemountKey,
+  isDraftThreadId,
+  isPromptDraftText,
+  isPromptDraftText as isPromptDraftTextValue,
+} from "../composer/composer-atoms";
+export {
+  composerAddedFilesAtom,
+  composerCommentAttachmentsAtom,
+  composerCwdOverrideAtom,
+  composerFileAttachmentsAtom,
+  composerImageCommentDraftAtom,
+  composerImageInputsAtom,
+  composerMcpAppModelContextAtom,
+  composerPastedTextAttachmentsAtom,
+  composerSelectedTextAttachmentsAtom,
+} from "../composer/composer-attachment-atoms";
+export {
+  pullRequestChecksState as composerPullRequestChecksAtom,
+  pullRequestMergeConflictState as composerPullRequestMergeConflictAtom,
+} from "../composer/composer-view-state/selectors";
+export {
+  buildComposerImageInputItems,
+  buildAttachmentsPayload,
+  getComposerPromptText,
+  mergeFileAttachments,
+  normalizeConversationAttachments,
+  removeAllImageComments,
+  splitCommentsForSubmit,
+  toImageAttachmentInputs,
+} from "../composer/composer-attachment-builders";
+export {
+  AddContextButton,
+  ComposerInputField,
+  SelectedTextPortal,
+} from "../composer/composer-editor-runtime";
+export { Composer } from "../composer/composer";
+export {
+  buildSideChatDisplayTitle,
+  openSideChat,
+} from "../composer/composer-submit";
+export { AboveComposerSuggestionActions } from "../composer/above-composer-suggestion-actions";
+export { AppshotCaptureControls } from "../composer/appshot-capture";
+export {
+  BlockedSubmitDialog,
+  CloudModeIndicator,
+  PluginContextLoader,
+  SideChatPrompt,
+} from "../composer/composer-banners/composer-inline-banners";
+export {
+  GoalReplacementConfirmationDialog,
+  GoalResumePromptDialog,
+} from "../composer/composer-banners/goal-dialogs";
+export { HooksNeedingReviewBanner } from "../composer/composer-banners/hooks-needing-review-banner";
+export {
+  AnnouncementBanner,
+  FirstBlockRateLimitBanner,
+  RateLimitBanner,
+} from "../composer/composer-banners/rate-limit-banners";
+export { ThreadGoalBanner } from "../composer/composer-banners/thread-goal-banner";
+export {
+  WindowsSandboxError,
+  WindowsSandboxSetupBanner,
+} from "../composer/composer-banners/windows-sandbox-banners";
+export { ComposerAttachmentPills } from "../composer/composer-attachment-pills";
+export { ComposerDropOverlay } from "../composer/composer-drop-overlay";
+export { ComposerFooterControls } from "../composer/composer-footer-controls";
+export { ComposerStatusMenuRow } from "../composer/composer-status-menu-row";
+export { SelectedTextAction } from "../composer/selected-text-action";
+export {
+  useComposerAttachmentActions,
+  useComposerAttachmentSetters,
+  useComposerFileAssetAttachment,
+  useImageInputSupport,
+  usePastedTextAttachmentHandlers,
+  usePendingFileAttachments,
+} from "../composer/composer-attachment-hooks";
+export { isComposerDictationTarget } from "../composer/composer-dictation-focus";
+export { CheckIcon } from "../composer/composer-footer-branch-switcher/branch-badge";
+export {
+  resolveComposerKeyAction,
+  resolveEscapeAction,
+} from "../composer/composer-keyboard-actions";
+export {
+  aboveComposerPortalId,
+  aboveComposerQueuePortalId,
+} from "../composer/composer-portals";
+export {
+  useScopeConversationId,
+  useScopeStore,
+  useScopedQuery,
+} from "../composer/composer-scope-hooks";
+export { composerScope } from "../composer/composer-scope-runtime";
+export {
+  buildConversationRoute,
+  conversationRoutePath,
+  hostConversationRoutePath,
+  hotkeyWindowBridge,
+  isHotkeyWindow,
+  openHotkeyWindowThread,
+  openTaskPath,
+  openThreadPath,
+  parseThreadId,
+  pendingWorktreeInitPath,
+} from "../composer/composer-route-runtime";
+export { openComposerReferencedFile } from "../composer/composer-reference-file-runtime";
+export {
+  composerScopeAtom,
+  dismissMessageLimitBanner,
+  hasSeenMultiAgentComposerBannerRunner,
+  logComposerMessageSent,
+  MULTI_AGENT_MODE,
+  nextTurnModelOverrideSignal,
+  reportComposerSubmitError,
+  requiredHooksFilter,
+  resolveComposerMode,
+  setComposerScopedField,
+} from "../composer/composer-state-runtime";
+export { settingsAtoms, useSettingValue } from "../composer/composer-settings";
+export {
+  ComposerStoreContext,
+  createComposerStore,
+  useComposerStore,
+} from "../composer/composer-store";
+export { hostConnectionStatusSignal } from "../composer/local-conversation-composer-bridge";
+export { resolveComposerExecutionTarget } from "../composer/resolve-composer-execution-target";
+export { resolveCloudTaskType } from "../composer/submit-cloud-task";
+export {
+  clearGoalPromptAtomsRunner,
+  parseGoalSubmit,
+  resumeThreadGoal,
+  saveThreadStartTarget,
+} from "../composer/thread-goal";
+export { useComposerController } from "../composer/use-composer-controller";
+export { useComposerLayoutMode } from "../composer/use-composer-layout-mode";
+export { useComposerMode } from "../composer/use-composer-mode";
+export { useComposerPlaceholder } from "../composer/use-composer-placeholder";
+export { useModelSettings } from "../composer/use-model-settings";
+export {
+  connectedHostIdsSignal,
+  getAvailableServiceTierOptions,
+  getServiceTierForModel as resolveServiceTier,
+  getServiceTierForModel,
+  hostConfigQueryKey,
+  hostConfigQueryOptions,
+  nextTurnThreadSettingsSignal,
+  normalizeServiceTierId,
+  resolveActiveServiceTier,
+  resolveDefaultServiceTier,
+  resolveModelOption,
+  serviceTierChangedEvent,
+  threadParamsByIdSignal,
+  threadServiceTierByHostSignal,
+  toServiceTierConfigValue,
+  toServiceTierThreadOverride,
+  useInvalidateQueries,
+} from "../runtime/service-tier-runtime";
+export { useAnalyticsEnabledQuery } from "../config/config-queries/host-config-queries";
+export { hydrateBackgroundThreads } from "../conversations/background-thread-hydrate";
+export {
+  createBackgroundThread,
+  getBackgroundProjects,
+  listBackgroundProjects,
+  listBackgroundThreads,
+  readBackgroundThread,
+  sendMessageToBackgroundThread,
+  setBackgroundThreadArchived,
+  setBackgroundThreadPinned,
+  setBackgroundThreadTitle,
+  threadManagerListSignal,
+} from "../conversations/background-thread-runtime";
+export {
+  useBackgroundThreadRows,
+  useBackgroundThreadTurnMap,
+} from "../conversations/background-thread-rows";
+export { collectStoppableBackgroundThreads } from "../conversations/background-thread-stop";
+export { currentTurnKeyForConversation } from "../conversations/background-thread-turn-key";
+export { currentRouteSignal } from "../conversations/current-route-signal";
+export { computeGeneratedImageOutputs } from "../conversations/generated-image-outputs";
+export { BackgroundSubagentsPanel } from "../conversations/local-conversation-page-parts/background-subagents-panel";
+export { hasConversationSignal } from "../conversations/local-conversation-page-runtime";
+export {
+  ConversationCard,
+  IconButtonTooltip,
+  planSidePanelEnabledAtom,
+  ShareConversationButton,
+  sidePanelTabManager,
+} from "../conversations/plan-summary-runtime";
+export {
+  useLocation,
+  useNavigate,
+} from "../conversations/local-conversation-route-runtime";
+export { ConversationActivitySpacer } from "../conversations/local-conversation-thread-parts/conversation-activity-spacer";
+export { isConversationItemInProgress } from "../conversations/local-conversation-thread-parts/conversation-item-in-progress";
+export { toConversationId } from "../conversations/local-conversation-thread-parts/conversation-title-runtime";
+export { getConversationNavigationPath } from "../conversations/local-conversation-thread-parts/local-conversation-navigation";
+export { hostConfigSignal } from "../conversations/local-conversation-thread-parts/thread-summary-panel-runtime";
+export { SubagentAvatar } from "../conversations/subagent-avatar";
+export { useRemUnitMultiplier } from "../conversations/use-rem-unit-multiplier";
+export {
+  ACTIVE_DOWNLOAD_STATUSES,
+  DOWNLOAD_METADATA_SEPARATOR,
+  TERMINAL_DOWNLOAD_STATUSES,
+  formatDownloadByteProgress,
+  formatDownloadTimeRemaining,
+  formatDownloadTimestamp,
+  formatDownloadTransferRate,
+} from "../downloads/download-formatting";
+export {
+  CodexAgentSparkIcon,
+  DownloadsEmptyIcon,
+  describeDownloadActionFailure,
+  downloadsChromiumPageId,
+  fileTypeIconMap,
+  filterDownloadsForConversation,
+  getDownloadsRegistrySnapshot,
+  getDownloadsSnapshot,
+  getFileTypeIconForName,
+  resolveFileTypeFromPath,
+  selectConversationDownloads,
+  subscribeToDownloads,
+  subscribeToDownloadsRegistry,
+} from "../downloads/download-runtime";
+export { DownloadsPopover as BrowserDownloadsList } from "../downloads/downloads-popover";
+export { useSelectedAvatar } from "../features/custom-avatars-query";
+export { DictationButton } from "../features/use-dictation/dictation-button";
+export { DictationRecordingFooter } from "../features/use-dictation/recording-footer";
+export { useDictation } from "../features/use-dictation/use-dictation";
+export { findPreferredDomainAtom } from "../find/thread-find-atoms";
+export { resolveCodeTheme } from "../github/diff-view-mode/theme-registry-impl";
+export { DEFAULT_LOCALE, loadLocaleMessages } from "../i18n/locale-resolver";
+export {
+  appSettingsSnapshot,
+  createHostInfoQuery,
+  extractBaseLocale,
+  findBestLocaleMatch,
+  isBlankLocale,
+  localeResolvedEvent,
+  normalizeLocaleOverride,
+  resolvedLocaleSignal,
+  setDocumentLocale,
+  useResolvedLocaleInfo,
+} from "../runtime/locale-runtime";
+export { BranchIcon } from "../icons/branch-icon";
+export { ChevronRightIcon } from "../icons/chevron-right-icon";
+export { CommentIcon } from "../icons/comment-icon";
+export { CommitIcon } from "../icons/commit-icon";
+export { CopyIcon } from "../icons/copy-icon";
+export { DownloadIcon } from "../icons/download-icon";
+export { ExternalLinkIcon } from "../icons/external-link-icon";
+export { PlanIcon } from "../icons/plan-icon";
+export { PlusIcon } from "../icons/plus-icon";
+export { ReviewTabIcon } from "../icons/review-tab-icon";
+export { UndoIcon } from "../icons/undo-icon";
+export { WarningIcon } from "../icons/warning-icon";
+export { ImagePreviewTabContent } from "../image-side-panel/image-side-panel";
+export { ImagePreviewLightbox } from "../image-side-panel/image-preview-lightbox";
+export { startComposerTurn } from "../image-side-panel/start-composer-turn";
+export { CopyIcon as CopyLinkIcon } from "../icons/copy-icon";
+export { stringSchema } from "../main/boundaries/shared-node-runtime-setting-schema";
+export {
+  ConversationalOnboardingAccessGate,
+  ConversationalOnboardingArtifactCard,
+  ConversationalOnboardingPermissionRequestCard,
+  CsvFileDarkIcon,
+  CsvFileLightIcon,
+  GeneratingChartIcon,
+  KnownAppLogo,
+  MessagingPlaceholderIcon,
+  ReadingFileIcon,
+  conversationalOnboardingActiveTaskStateSignal,
+  conversationalOnboardingAllSetSignal,
+  conversationalOnboardingExecutionFailedSignal,
+  conversationalOnboardingIntlAtom,
+  conversationalOnboardingTaskStartedSignal,
+  conversationalOnboardingTool,
+  createConnectorOnboardingTask,
+  openHostPath,
+  prepareConversationalOnboardingExecution,
+} from "../onboarding/conversational-onboarding-runtime";
+export { useWorkspaceOnboardingExperiment } from "../onboarding/workspace-onboarding-controller/experiment-assignment";
+export { logWorkspaceOnboardingEvent } from "../onboarding/workspace-onboarding-navigation-analytics";
+export { isCodexAppsServer } from "../plugins/codex-apps-server";
+export { parseFollowUpRequest } from "../plugins/mcp-app-follow-up-request";
+export {
+  buildMcpToolList,
+  findMcpTool,
+  resolveMcpConnectorId,
+  resolveMcpSandboxOriginScope,
+} from "../plugins/mcp-app-tool-resolver";
+export {
+  SANDBOX_PORT_NAMES,
+  buildMcpAppSandboxId,
+  buildMcpAppSandboxSourceUrl,
+  buildSandboxFrameSrc,
+  isNonEmptyStringArray,
+  parseUrlOrigin,
+  serializeSandboxPartition,
+  stableHashSegment,
+} from "../plugins/mcp-app-sandbox-runtime";
+export {
+  attachMcpAppPanelElement,
+  buildMcpAppTabId,
+  buildMcpToolActivityExpansionKey,
+  detachMcpAppPanelElement,
+  exitMcpAppFullScreen,
+  markToolActivityTurnExpanded,
+  mcpAppEntriesSignal,
+  mcpAppEntryFamily,
+  mcpAppFrameStateFamily,
+  mcpAppManualExpansionFamily,
+  mcpAppSidePanelOpenFamily,
+  mcpAppStateFamily,
+  mcpAppTabManager,
+  mcpToolActivityExpansionFamily,
+  openMcpAppExpandedSurface,
+  readScopedAtom,
+  resolveMcpAppTabId,
+  rightPanelColumnCountSignal,
+  setMcpAppInlineExpanded,
+  setMcpToolActivityExpansion,
+  toolActivityExpandedTurnKeysSignal,
+  useSignalFamilyValue,
+} from "../plugins/mcp-app-state-runtime";
+export {
+  callMcpCapabilityTool,
+  callMcpToolRequestSchema,
+  readMcpCapabilityResource,
+  readMcpResourceRequestSchema,
+  recordMcpResourceRead,
+  useMcpAppId,
+  useMcpAppResourceQuery,
+} from "../plugins/mcp-app-request-runtime";
+export {
+  AutomaticApprovalReviewIndicator,
+  AutomaticApprovalReviews,
+  Callout,
+  conversationCwdFamily,
+  extractToolResponseMetadata,
+  isDilServer,
+  isPlatform,
+  resolvePluginToolDisplay,
+  resolveToolActivityAppDisplay,
+  selectMcpToolResult,
+  useComposerMessageSetter,
+  useNativeDesktopAppMetadata,
+  usePendingWorktreeController,
+} from "../plugins/mcp-tool-activity-runtime";
+export {
+  McpAppInlineFrame,
+  McpAppInlineFramePortal,
+} from "../plugins/mcp-app-frame";
+export { resolveMcpFrameHeight } from "../plugins/mcp-app-frame-height";
+export { countToolResultItems } from "../plugins/mcp-app-tool-labels/result-item-count";
+export { mcpProgressTokenSchema } from "../plugins/mcp-capability-signals/schemas";
+export {
+  extractMcpAppRenderData,
+  selectMcpAppRenderTarget,
+} from "../plugins/mcp-tool-item-content-utils/render-data";
+export { getToolResultResourceUri } from "../plugins/mcp-tool-item-content-utils/tool-metadata";
+export { getBuildFlavor } from "../plugins/use-plugins/marketplace-constants";
+export { useSkills } from "../plugins/use-skills";
+export { setProjectPinned } from "../projects/projects-index-current-app-main/navigation";
+export {
+  CommitBlockedReasonTooltip,
+  GitActionBlockedStepTooltip,
+  PushBlockedReasonTooltip,
+} from "../review/git-action-blocked-reason-tooltips";
+export { getGitWorkflowPhaseMessageDescriptor } from "../review/git-action-messages";
+export {
+  isReviewDiffEnabledAtom,
+  isReviewRefreshingAtom,
+  reviewBaseBranchAtom,
+  reviewBaseBranchOverrideAtom,
+  reviewBaseBranchQueryAtom,
+  reviewBranchCommitsQueryAtom,
+  reviewCommitShaAtom,
+  reviewDiffMetricsAtom,
+  reviewDiffSourceAtom,
+  reviewFileDiffModelAtom,
+  reviewFileEntriesAtom,
+  reviewSummaryQueryAtom,
+  selectReviewCommit,
+} from "../review/review-diff-store";
+export { useReviewExpandedDiffs } from "../review/review-expanded-diffs-provider";
+export {
+  hostMessageBridge,
+  useHostMessageSubscription as useHostMessage,
+  useHostMessageSubscription as useHostMessageHandler,
+  useHostMessageSubscription,
+} from "../runtime/app-main-host-runtime";
+export {
+  conversationCwdByIdSignal,
+  registeredAppServerHostIdsSignal,
+} from "../runtime/app-main-new-thread-runtime";
+export { createScopedSignal } from "../runtime/app-scope-runtime";
+export { useMutation } from "../runtime/app-server-mutation-runtime";
+export {
+  conversationTitleSignal as conversationTitleAtom,
+  conversationTurnsSignal as conversationFallbackTurnsAtom,
+  conversationTurnsSignal as conversationTurnsAtom,
+} from "../runtime/conversation-state-runtime";
+export {
+  activeConversationCwdAtom,
+  conversationHostIdByIdSignal,
+  conversationManagerAtom,
+  conversationTurnDiffCwdAtom,
+  conversationTurnUnifiedDiffAtom,
+  getActiveConversationId,
+  getConversationTurns,
+} from "../runtime/conversation-helpers-runtime";
+export { resolveProjectlessWorkspace } from "../runtime/projectless-workspace-runtime";
+export {
+  formatWorkspaceRootLabel,
+  localProjectActionsEnabledAtom,
+  splitCommentAttachmentsBySurface,
+  useWindowsSandboxRequirement,
+} from "../runtime/current-app-initial/appgen-library-hot-djo67r4n-runtime";
+export { parseCommentPreviewSegments } from "../runtime/current-app-initial/conversation-title-platform-icon-runtime";
+export {
+  activeWorkspaceRootsQuery,
+  activeWorkspaceRootsQuery as useActiveWorkspaceRoots,
+  useRemoteConnections,
+} from "../runtime/current-app-initial/pull-request-new-thread-runtime";
+export {
+  queryDurations as queryStaleTime,
+  useDebouncedValue,
+} from "../runtime/host-query-runtime";
+export { ChevronDownIcon } from "../runtime/hotkey-thread-diff-runtime";
+export {
+  appshotIconDataUrlAtomFamily,
+  useNativeAppIcon,
+} from "../runtime/native-app-icon-runtime";
+export { getLocalConversationId } from "../runtime/persisted-signal/routes";
+export { useResolvedImageSrc } from "../runtime/resolved-image-src-runtime";
+export {
+  resolveActiveTheme,
+  resolveColorScheme,
+  resolvedColorSchemeAtom,
+  themeConfigSignal,
+  toThemeVariant,
+  useIsDarkMode,
+  useIsDarkTheme,
+  useThemePreference,
+} from "../runtime/theme-preference-runtime";
+export {
+  useQueries,
+  useQuery,
+} from "../runtime/query-client/react-query-hooks";
+export { useIntl as useComposerIntl } from "../vendor/react-intl";
+export {
+  ScopeProvider as ScopedContextProvider,
+  readSharedObjectValue,
+  recordProductEvent,
+  useSetAtom,
+} from "../runtime/query-scope-runtime/index";
+export { workspaceGroupsSignal } from "../runtime/workspace-signals";
+export { MoonIcon } from "../settings/general-appearance-runtime/theme-glyphs";
+export {
+  getSettingValue as readSettingValue,
+  writeSettingValue as writeScopedSetting,
+} from "../settings/setting-storage";
+export { SitesIcon } from "../sites/sites-icon";
+export { cleanupMaterializedThreadGoal } from "../threads/pending-worktree-store/thread-goal-cleanup";
+export {
+  threadCwdSignal,
+  threadHostIdSignal,
+} from "../threads/thread-context/index";
+export { resolveLocalProjectThreadContext as resolveProjectContext } from "../features/local-projects";
+export { buildProjectAssignment } from "../threads/project-assignment-runtime";
+export { useCreatePendingWorktree } from "../threads/use-create-pending-worktree";
+export { BackForwardNavigationButtons } from "../ui/back-forward-navigation-buttons";
+export { ContextMenu } from "../ui/context-menu";
+export { CopyButton, useIsMounted } from "../ui/copy-button";
+export { DialogDescription, DialogTitle } from "../ui/dialog-layout/primitives";
+export { DropdownMenu } from "../ui/dropdown/menu";
+export { ThreadResourceCard } from "../ui/thread-resource-card";
+export { isLocalHost } from "../utils/automation-host-support";
+export { buildWorktreeLabelFromInput } from "../utils/build-worktree-label-from-input";
+export { downloadBlob } from "../utils/download-blob";
+export { getDefaultKeybindingsForCommand } from "../utils/electron-menu-shortcuts/queries";
+export { isHotkeyWindowContext } from "../utils/is-hotkey-window-context";
+export { setKeyboardLayoutMap } from "../utils/keyboard-layout-map";
+export { useMotionValueEvent } from "../utils/motion-signal-runtime";
+export { parseQuotedGitPath } from "../utils/parse-diff/git-paths";
+export { sumBy } from "../utils/sum-by";
+export { dismissTooltips } from "../utils/tooltip-dismiss";
+export { uniq } from "../utils/uniq";
+export { useActiveConversationId } from "../utils/use-active-conversation-id";
+export { useCodexHome } from "../utils/use-codex-home";
+export { useInterval } from "../utils/use-interval";
+export { useIsRemoteHost } from "../utils/use-is-remote-host";
+export { useRegisterCommand } from "../utils/use-register-command";
+export {
+  useResizeObserverRef,
+  useResizeObserverRef as useResizeObserver,
+} from "../utils/use-resize-observer";
+export {
+  THREAD_DETAIL_LEVEL_COMMANDS as STEPS_COMMANDS_DETAIL_LEVEL,
+  THREAD_DETAIL_LEVEL_PROSE as EVERYDAY_WORK_DETAIL_LEVEL,
+  THREAD_DETAIL_LEVEL_PROSE as STEPS_DETAIL_LEVEL,
+  useThreadDetailLevel as useDetailLevel,
+} from "../utils/thread-detail-level";
+export { createMotionValue } from "../utils/use-transform";
+export {
+  remoteConnectionSelectionSignal,
+  useWebviewExecutionTarget,
+} from "../utils/use-webview-execution-target/index";
+export {
+  FaviconImage,
+  ReviewSidePanelTabContent,
+  useServiceTierSettings,
+} from "../vendor/app-main-current-runtime/semantic-aliases";
+export { getActiveBrowserTabId } from "../vendor/app-main-legacy-buw-runtime/compat-upper-b";
+export { hostBridge } from "../vendor/app-main-legacy-buw-runtime/compat-upper-u";
+export const browserTabSnapshotStore = Object.assign(browserSidebarManager, {
+  getForConversation(
+    _scope: unknown,
+    conversationId: string,
+    browserTabId?: string,
+  ) {
+    return browserSidebarManager.getSnapshot(conversationId, browserTabId);
+  },
+});
+export {
+  AutoScrollActivator,
+  MeasuringStrategy,
+  useDndContext,
+  useDraggable,
+  useDroppable,
+} from "../vendor/dnd-kit-core";
+export {
+  defaultAnimateLayoutChanges,
+  defaultNewIndexGetter as defaultGetNewIndex,
+  rectSortingStrategy,
+} from "../vendor/dnd-kit-sortable";
+export {
+  canUseDOM,
+  getEventCoordinates,
+  getOwnerDocument,
+  getWindow,
+  isDocument,
+  isHTMLElement,
+  isKeyboardEvent,
+  isNode,
+  isWindow,
+  useCombinedRefs,
+  useEvent,
+  useIsomorphicLayoutEffect,
+  useLatestValue,
+  useLazyMemo,
+  useNodeRef,
+  usePrevious,
+  useUniqueId,
+} from "../vendor/dnd-kit-utilities";
+export { generateId } from "../vendor/mermaid-curve-utils";
+export { Sheet } from "../vendor/spreadsheet-schema-entry-current";
+export { worktreeStatusQueryKey } from "../worktree/worktree-restore-runtime";
+export {
+  handleComposerSuggestionEvent,
+  useModelsQuery,
+} from "./automation-editor-deps.facade";
+export { useAvailablePlugins } from "./mention-metadata.facade";
+export { isCodexWorktreePath } from "./src-l0hb/paths";
+export { browserTabTypes } from "./src-l0hb/runtime-helpers";
+export {
+  buildGitMetadataQueryOptions,
+  buildReviewDiffQueryKey,
+  clearGitStatusCache,
+  createCwdQueryAtomFamily,
+  createGitQueryOptions,
+  gitMetadataFromCwdQuery,
+  gitMetadataReadinessAtom,
+  timeConstants,
+} from "../runtime/git-query-runtime";
+export {
+  disabledQueryResult,
+  pendingQueryResult,
+  pendingQueryResult as mapPendingQueryState,
+} from "../runtime/query-result-runtime";
+export {
+  activeLocalProjectCwdAtom,
+  clientLocalCwdAtom,
+  clientLocalWorkspaceRootsQueryAtom,
+  codexHomeQueryAtom,
+  conversationAssignmentsAtom,
+  conversationCwdAtom,
+  conversationWorkspaceStateAtom,
+  defaultHostIdAtom,
+  gitCliAvailabilityQueryAtom,
+  hostConfigAtom,
+  hostConfigByIdAtom,
+  hostConfigForHostId,
+  isUsableCwd,
+  localProjectRootsAtom,
+  readHostConfigValue,
+  remoteProjectsAtom,
+  resolveAssignmentCwd,
+  resolveAssignmentHostId,
+  resolveHostConfig,
+  resolveHostConfigId,
+  resolveProjectlessThreadContext,
+  selectedRemoteProjectAtom,
+  serverConfigQueryAtom,
+  useHostConfig,
+  workspaceRootsQueryAtom,
+} from "../review/review-route-runtime";
+export {
+  PanelResizeHandle,
+  activeReviewDiffSearchResultAtom,
+  activeReviewFilePathAtom,
+  activeReviewSearchMatchAtom,
+  fileTreeOpenAtom,
+  hideWhitespaceAtom,
+  navigateToReviewFilePath,
+  reviewBaseBranchOverrideKey,
+  reviewChangedFileEntriesAtom,
+  reviewExpandedAtom,
+  reviewFileFilterQueryAtom,
+  reviewFilterSupportsGitActions,
+  reviewGitActionsAllowedAtom,
+  reviewGitActionsSupportedAtom,
+  reviewHostAtom,
+  reviewReserveBottomPaddingAtom,
+  reviewReserveBottomPaddingWidthThresholdAtom,
+  reviewSidePanelAnimationAtom,
+  reviewSidePanelTabDefaultState,
+  reviewSidePanelWidthAtom,
+  reviewSourceAtom,
+  reviewTargetConversationIdAtom,
+  scaleToDevicePx,
+  setFileTreeOpen,
+  setReviewFileFilterQuery,
+  usePanelResizeAnimation,
+  useResizableSize,
+} from "../review/review-view-state-runtime";
+export { EndResourceOpenAction as OpenInTargetsHoverSubtitle } from "../conversations/local-conversation-thread-parts/end-resource-open-actions/open-action";
+export { EndResourceOpenInMenu as ResourceOverflowMenu } from "../conversations/local-conversation-thread-parts/end-resource-open-actions/open-in-menu";
+export {
+  reviewCodexHomeAtom,
+  reviewCwdAtom,
+  reviewHostConfigAtom,
+  reviewHostIdAtom,
+  reviewHostKeyAtom,
+  reviewThreadContextAtom,
+  resolveProjectThreadContext,
+} from "../review/thread-review-context";
+export {
+  currentBranchFromCwdAtom,
+  currentBranchFromCwdAtom as currentBranchQueryAtom,
+  currentBranchFromMetadataAtom,
+  currentBranchNameAtom,
+  reviewCurrentBranchQueryAtom,
+  reviewGitMetadataQueryAtom,
+  reviewProjectRootAtom,
+  workspaceReviewContextAtom,
+} from "../review/review-git-metadata";
+export {
+  activeGitDialogAtom,
+  activeGitWorkflowAtom,
+  analyticsAttributionAtom,
+  cancelActiveGitWorkflow,
+  commitAttributionConfigAtom,
+  diffSelectionSummaryAtom,
+  gitActionsContextAtom,
+  gitActionsParentScope,
+  invalidateReviewDiffQueries,
+  isPushActionHiddenAtom,
+  localConversationGitActionsScope,
+  openCreateBranchDialog,
+  openCreatePullRequestDialog,
+  refetchReviewGitChanges,
+  refreshPushStatus,
+  setConversationBranch,
+  triggerPushFlow,
+} from "../review/git-actions-runtime";
+export {
+  commitBlockedReasonAtom,
+  gitActionNextStepAtom as createPullRequestNextStepAtom,
+  pushAfterCommitBlockedReasonAtom as commitAndPushBlockedReasonAtom,
+  pushBlockedReasonAtom,
+} from "../review/git-action-availability-atoms";
+export {
+  ghPullRequestStatusQuery as pullRequestStatusAtom,
+  ghPullRequestStatusQuery as pullRequestStatusForBranchAtom,
+  hasOpenPullRequestSignal as hasOpenPullRequestAtom,
+} from "../github/gh-pull-request-status-query";
+export { CodeSnippet as CodeBlock } from "../ui/code-snippet";
+export { ComposerEditor } from "./user-message.facade";
+// RESTORED ONBOARDING COMMONS AUTO-MAPPED REEXPORTS START
+export { openAutomationSidePanelTab } from "../automations/automation-side-panel-tab-content";
+export { BrowserAddressSecurityIndicator } from "../browser/browser-address-security-indicator";
+export {
+  COMMENT_POPUP_ROOT_ID,
+  ensureCommentPopupRoot,
+  openCommentPopup,
+} from "../browser/browser-comment-popup-window";
+export { BrowserDeviceToolbarOverlay } from "../browser/browser-device-toolbar";
+export { BrowserScreenshotButton } from "../browser/browser-screenshot-button";
+export {
+  createComposerController,
+  dataTransferHasImages,
+  designEditorPlacementHint,
+  directSubmitPreferenceAtom,
+  extractImageFilesFromDataTransfer,
+  subscribeToEditorChanges,
+} from "../browser/browser-comment-composer-runtime";
+export {
+  AtMentionAutocomplete,
+  CommentSaveIcon,
+  ResetValueIcon,
+  SkillMentionAutocomplete,
+  useAtMentionController,
+  useComposerControllerCleanup,
+  useConnectedApps,
+  useDesignAdjustEntryEnabled,
+  useIsMac,
+  useSkillMentionController,
+} from "../browser/browser-comment-composer-ui-runtime";
+export {
+  isElementFocusWithin,
+  isEventWithinElement,
+} from "../browser/browser-sidebar-focus";
+export { BrowserSidebarPlaceholder } from "../browser/browser-sidebar-placeholder";
+export { BrowserSidebarTabContent } from "../browser/browser-sidebar-tab-content-wrapper";
+export { applyZoomCommand } from "../browser/browser-zoom-command";
+export { useAppshotCaptureTray } from "../composer/appshot-capture";
+export { ComposerContextFilesWatcher } from "../composer/composer-context-files-watcher";
+export { useComposerDictation } from "../composer/composer-dictation";
+export {
+  performComposerSubmit,
+  submitDirectComment,
+} from "../composer/composer-submit";
+export {
+  useAtMentionAutocomplete,
+  useMentionActivationHandler,
+  useSkillMentionAutocomplete,
+} from "../composer/mention-autocomplete";
+export { NewThreadComposerBody } from "../composer/new-thread-composer-body";
+export {
+  useNewThreadSubmitHandlers,
+  useStartConversationWithPrimaryRuntimeForFirstTurn,
+} from "../composer/new-thread-submit-handlers";
+export { createProjectlessPrewarmReservation } from "../composer/projectless-prewarm-reservation";
+export {
+  resolveComposerCwd,
+  resolveComposerWorkspaceRoot,
+} from "../composer/resolve-composer-cwd";
+export { buildCloudSubmitTask } from "../composer/submit-cloud-task";
+export {
+  CLOSED_AGENT_ERROR_MESSAGE,
+  formatComposerSubmitError,
+  formatWorktreeSubmitError,
+  getCloudSubmitToastMessage,
+  getLocalSubmitToastMessage,
+  getWorktreeStatusToastMessage,
+} from "../composer/submit-toast-status-messages";
+export { cancelThreadGoal } from "../composer/thread-goal";
+export { useComposerContextActions } from "../composer/use-composer-context-actions";
+export { useComposerMessageEditing } from "../composer/use-composer-message-editing";
+export { useComposerPromptHistory } from "../composer/use-composer-prompt-history";
+export { useComposerPrompts } from "../composer/use-composer-prompts";
+export {
+  sendQueuedSteerMessage,
+  useIsQueueingEnabled,
+  useQueuedFollowUps,
+} from "../composer/use-composer-queueing";
+export { useSingleLineComposerMeasure } from "../composer/use-single-line-composer-measure";
+export { usePermissionsMode as useAgentModeSettings } from "../utils/use-permissions-mode/use-permissions-mode";
+export { useRemoteProjects as useSelectedRemoteProject } from "../features/remote-projects";
+export {
+  appConnectClaimedFollowUpQuery,
+  buildComposerAnalyticsId,
+  buildContextualLeadingItems,
+  buildNewThreadClientId,
+  composerDropTargetPortalContext,
+  composerEnterBehaviorFamily,
+  composerModeForScopeAtom,
+  composerPrefillCwdAtom,
+  isBackgroundThreadHydratedAtom,
+  isFollowUpHydratedAtom,
+  projectAssignmentsQuery,
+} from "../composer/new-thread-composer-state-runtime";
+export {
+  localExecutionTargetForScope,
+  resolveCurrentRemoteCwd,
+  resolveLocalExecutionRemoteHostId,
+  useCloudAccess,
+  useCloudTaskCreation,
+  useCloudTaskFollowUp,
+  useComposerLog,
+  useComposerRateLimitBanner,
+  useConversationPending,
+  useFollowUpToConversation,
+  useHasPendingApproval,
+  useMcpManagerForHost,
+  useOpenFileMutation,
+  useProjectAssignment,
+  useRemoteConnectivityStates,
+  useResolvedPendingApproval,
+  useStopTurnConfirmation,
+  useWorktreeGitContext,
+} from "../composer/new-thread-composer-hooks-runtime";
+export {
+  afterLocalConversationCreated,
+  buildComposerModeAvailability,
+  buildLocalContextIdeSnapshot,
+  extensionPageSelectionAtom,
+  isRemoteConnection,
+  registerSidebarToggleShortcut,
+  useGitRepoRoot,
+  useInterruptThread,
+  useIsElectronPlatform,
+  useIsWorkspaceRequired,
+  useIsWorktreePickerEnabled,
+  useIsWorktreeSnapshotsEnabled,
+  useMessageLimitEvent,
+} from "../composer/new-thread-composer-support-runtime";
+export { useLocalEnvironmentSelection as useResolvedConfigPath } from "../environments/local-environment-selection";
+export { canStopBackgroundThread } from "../conversations/background-thread-stop";
+export { DynamicToolCallGroup } from "../conversations/dynamic-tool-call-group";
+export { GitActionsReviewToolbar } from "../conversations/git-actions-review-toolbar";
+export { GitActionsSummaryPanel } from "../conversations/git-actions-summary-panel";
+export { LocalConversationGitActionsContent } from "../conversations/local-conversation-git-actions-content";
+export {
+  appendUserMessageToConversation,
+  buildPriorConversationFromTask,
+  sendMessageToLocalConversation,
+  steerLocalConversation,
+  submitFollowUpApproval,
+  submitLocalApproval,
+} from "../conversations/local-conversation-messaging";
+export { ExplorationActivity } from "../conversations/local-conversation-thread-parts/exploration-activity";
+export { TurnInProgressFixedContent } from "../conversations/local-conversation-thread-parts/turn-in-progress-fixed-content";
+export { getMcpToolDisplayLabel } from "../conversations/mcp-tool-activity/mcp-tool-display-label";
+export { buildSubagentActivityRows } from "../conversations/subagent-activity-row";
+export { BrowserDownloadsButton } from "../downloads/download-popover";
+export { AssistantResourcesProvider } from "../features/appgen-share-dialog/assistant-resources-provider";
+export { useImagePreviewSources } from "../image-side-panel/use-image-preview-sources";
+export {
+  branchExistsAtom,
+  defaultBranchQueryAtom,
+} from "../review/branch-status-atoms";
+export { CreatePullRequestDialog } from "../review/create-pull-request-command-menu";
+export { FileSourceStatus } from "../review/file-source-helpers";
+export {
+  generateCommitMessageMutationAtom,
+  generatePullRequestMessageMutationAtom,
+} from "../review/git-action-message-mutations";
+export { gitWorkflowMutationAtom } from "../review/git-workflow-mutation";
+export {
+  commitWorkflowChanges,
+  createPullRequestRequest,
+  pushWorkflowChanges,
+  resolveCommitAttribution,
+  runCommitWorkflow,
+  setupWorkflowBranch,
+} from "../review/git-workflow-runners";
+export {
+  cleanupGitWorkflowAbortSignal,
+  commitMessageDraftAtom,
+  conversationHeadBranchAtom,
+  conversationHeadBranchAtom as headBranchAtom,
+  conversationIsDetachedHeadAtom,
+  conversationIsDetachedHeadAtom as isDetachedHeadAtom,
+  createPullRequestActionStateAtom,
+  createGitWorkflowAbortSignal,
+  scopedGitActionBlockedStepAtom as createPullRequestBlockedStepAtom,
+  createPullRequestBodyDraftAtom,
+  createPullRequestIncludeLocalChangesAtom,
+  createPullRequestTitleDraftAtom,
+  getGitActionMessageGenerationKey,
+  gitActionMessageGenerationControllers,
+  includeUnstagedChangesAtom,
+  resetCreatePullRequestDrafts,
+  resumeGitActionAfterBranchSetup as openNextGitActionAfterBranchSetup,
+  shouldRecordConversationBranchAtom,
+} from "../review/local-git-actions-scope";
+export { getSidePanelController } from "../runtime/publication-terms-runtime";
+export {
+  buildDelegationInput,
+  buildDelegationText,
+  parseCodexDelegation,
+  parseConversationId,
+} from "../runtime/thread-delegation-runtime";
+export { CollapsibleToolActivity } from "../conversations/collapsible-tool-activity";
+export {
+  openFileResourceFromTurn,
+  trackOpenInCodexBrowser,
+} from "../runtime/resource-open-runtime";
+export { useLinguistGeneratedPaths as useReviewGeneratedPaths } from "../review/use-linguist-generated-paths";
+export {
+  DEFAULT_RESOLVED_APPS,
+  buildContentSearchKey,
+  buildToolActivityTurnKey,
+  collectDynamicToolCallItems,
+  computeProcessTargets,
+  computeTurnStatusIndicator,
+  extractWebSearchSources,
+  getFirstNonEmptyEntryIndex,
+  getTurnInputMessageId,
+  getTurnMessageId,
+  hasActiveDynamicToolCallSummary,
+  hasAssistantStarted,
+  hasMcpAppActivity,
+  isAssistantContentStreaming,
+  isAssistantFinalAnswer,
+  isDynamicToolCallSummaryActive,
+  isItemInProgress,
+  openResourceFromAssistant,
+  shouldShowThinkingFallback,
+  summarizeHookRuns,
+} from "../conversations/turn-render-helpers";
+export {
+  useAppgenEndCardEnabled,
+  useDefaultConversationDetailLevel,
+  useMcpServerStatuses,
+  useTurnFollowState,
+} from "../conversations/turn-render-hooks";
+export {
+  CollapsibleTurnActivity,
+  McpAppsRenderer,
+  ProposedPlanCard,
+  ThinkingPlaceholder,
+  TurnActionsRow,
+  TurnEntryList,
+  TurnItemRenderer,
+  renderTurnSections,
+} from "../conversations/turn-render-components";
+export {
+  AnimatedNumber,
+  CollapsedToolActivityCard,
+  ConversationEntryRenderer,
+  ConversationStatusRow,
+  ConversationSummaryRow,
+  MultiAgentGroup,
+  PendingMcpToolCalls,
+  TodoListActivity,
+} from "../conversations/turn-render-activity-runtime";
+export {
+  buildToolActivityDetailLines,
+  canExpandCollapsedActivity,
+  codexPreviousTurnExpandedEvent,
+  getRenderUnitKey,
+  getTimelineTargetProps,
+  productEventTargets,
+  resolveActiveCommandLabel,
+  resolveCollapsedActivitySourceSummary,
+  resolveTurnRenderUnits,
+  shouldShowThinkingFallbackForUnit,
+} from "../conversations/turn-render-unit-runtime";
+export {
+  DiffFileIcon,
+  LinkArrowIcon,
+  PlatformVisibility,
+  RedoIcon,
+  ResourceCardHeaderRow,
+  buildOpenFileContextMenuItems,
+  buildScopedDiff,
+  dispatchProductEvent,
+  gitDirOriginsQueryAtom,
+  nodePath,
+  notifyDiffApplied,
+  openReviewView,
+  refreshGitStatus,
+  relativePath,
+  requireConversationId,
+  scrollElementIntoActivityView,
+  turnDiffActionsDisabledAtom,
+  turnDiffRevertProductEvent,
+  useActivityScrollContainer,
+} from "../conversations/local-conversation-thread-parts/turn-diff-runtime";
+export {
+  alwaysAvailableCodexTool,
+  buildNavigateToCodexPageTool,
+  buildOpenInCodexTool,
+  experimentalFileToolDefinition,
+  experimentalToolPair,
+  filterAvailableModels,
+  loadWorkspaceDependenciesToolName,
+  nonDeferredCodexToolNames,
+  readFeatureGateById,
+  settingsToolNamespaceEntries,
+  showExperimentalFileToolFeatureKey,
+  speakToUserFeatureKey,
+  speakToUserToolDefinition,
+  speakToUserToolDefinitions,
+  threadToolsFeatureKey,
+} from "../conversations/codex-app-tool-definitions-runtime";
+export {
+  RemoteDirectoryPathInput,
+  RemoteHostIcon,
+  RemoteSshConnectionAction,
+  RemoteSshConnectionErrorCategory,
+  RemoteSshConnectionEventSource,
+  RemoteSshConnectionResult,
+  findRemoteProjectForPath,
+  getRemoteProjectLabelFromPath,
+  getSelectableRemoteHosts,
+  isAbsoluteRemotePath,
+  isSshConnection,
+  isWslConnection,
+  logRemoteSshConnectionEvent,
+  normalizeRemotePath,
+  remoteConnectionsStateSignal,
+  remoteSshConnectionAnalyticsSignal,
+  toComparableRemotePath,
+  useAppServerQuery,
+  useIsRemoteProjectsEnabled,
+  useIsWorkspaceOnboardingActive,
+} from "../remote-connections/remote-project-setup-runtime";
+export {
+  getRemoteControlConnections,
+  isWslConnectionsEnabledInConfig,
+  oneToOnePairingGate,
+  remoteHostConfigQuery,
+  resolveRemoteControlConnections,
+  useFeatureGateClient,
+  useSharedQuery,
+} from "../remote-connections/remote-connection-features-runtime";
+export {
+  allRemoteHostIdsAtom,
+  createRemoteHostManager,
+  currentHostIdSignal,
+  disposeRemoteControlConnection,
+  getRemoteConnectionState,
+  initializeRemoteConnectionManagers,
+  isReservedRemoteHostId,
+  remoteHostConfigAtom,
+  sendRemoteHostRequest,
+  setRemoteConnectionProgress,
+  updateRemoteConnectionState,
+  useRemoteManagerRegistry,
+} from "../remote-connections/remote-connection-manager-runtime";
+export {
+  BrowserAddressInput,
+  BrowserCursorOverlay,
+  BrowserFloatingComposer,
+  BrowserSidebarFallbackWebview,
+  ElectronExtensionGate,
+} from "../browser/browser-sidebar-components-runtime";
+export {
+  browserManagedQueryAtom,
+  browserOwlPermissionsFlag,
+  browserPrintEnabledFlag,
+  computeBrowserDeviceToolbarLayout,
+  computeEmulatedViewport,
+  featureFlagQuery,
+  focusBrowserConversationScope,
+  getAnnotationFlowConfig,
+  getBrowserAdoptedWebContentsId,
+  getBrowserAdoptionLease,
+  getBrowserOpenReason,
+  getBrowserOpenSource,
+  getConversationScopeValue,
+  hasPendingBrowserComments,
+  hasQueuedDesignTweaks,
+  openChromiumInternalPage,
+  persistedBrowserTabsGateId,
+  resolveBrowserZoomPercent,
+  rightPanelComposerReserveAtom,
+  submitBrowserAnnotationComments,
+  useBrowserSidebarComments,
+  useFormattedAcceleratorLabel,
+} from "../browser/browser-sidebar-state-runtime";
+export {
+  ProjectThreadList,
+  SidebarChatsList,
+  SidebarCloudSection,
+  SidebarKeyboardShortcutScope,
+  SidebarThreadGroups,
+  SidebarThreadShortcutRegistrar,
+  SidebarThreadsSection,
+} from "../sidebar/sidebar-thread-list-components-runtime";
+export {
+  WORKSPACE_STATE_MOVES_GATE,
+  canStartProjectlessChatAtom,
+  featureGateAtomFamily,
+  projectsSidebarModelAtom,
+  projectsSidebarViewAtom,
+  sidebarLayoutModeAtom,
+  sidebarPreferencesAtom,
+  sidebarScrollTopByModeAtom,
+  sidebarSectionsModelAtom,
+} from "../sidebar/sidebar-thread-list-state-runtime";
+export {
+  debounce,
+  getWorktreeMoveConfirmation,
+  logProjectsSidebarExposure,
+  moveThreadToContainer,
+  resolveTargetWorktreeWorkspaceRoot,
+  setSidebarScrollPosition,
+  setThreadPinned,
+  shouldLogProjectsSidebarExposure,
+  syncDiscoveredThreadWorkspaceRootHints,
+  useCodexHomeInfo,
+} from "../sidebar/sidebar-thread-list-actions-runtime";
+export {
+  CodexWordmark,
+  SidebarAccountFooter,
+  SidebarBrowserFooter,
+  SidebarFooterSlot,
+  SidebarImportStatusBanner,
+  SidebarPrimaryNavLinks,
+  SidebarToolbarActions,
+  SidebarUpsellCard,
+  SidebarUsageAlert,
+  SidebarWorkspaceHeader,
+  getResizeObserverBoxSize,
+  hideCompletedImportStatusSignal,
+  sidebarSelectedWorkspaceRootAtom,
+  sidebarWorkspaceRootAtom,
+  useHostEventListener,
+  useIsSidebarOnboardingActive,
+  useSyncSidebarRouteState,
+} from "../sidebar/sidebar-footer-runtime";
+export {
+  buildAnnotationKey,
+  detectFileLanguage,
+  fileSourceMetricsEqual,
+  findLineNumberFromEventPath,
+  getScrollableElement,
+  parseFileSourceMetrics,
+  prefetchCodeThemes,
+  restoreScrollLeft,
+  restoreScrollTop,
+  setFocusedReviewPane,
+  threadDiffByPathAtom,
+  toCommentAnnotationInput,
+  toLineAnnotations,
+  useHostKey,
+  useMeasuredSizeCallback,
+  useReviewCommentAnnotations,
+  useReviewSearchScrollHandler,
+  useScopedGitQuery,
+  useThreadQuery,
+} from "../review/file-source-code-helpers-runtime";
+export {
+  CodeViewerChrome,
+  DiffSourceRenderer,
+  FileSourceHoverContext,
+  FileSourceHoverController,
+  FileSourceRenderBoundary,
+  SourceSearchController,
+} from "../review/file-source-code-components-runtime";
+export {
+  attachThreadGoalObjectiveToConversation,
+  browserSidebarAvailabilitySignal,
+  buildConversationParamsFromContext,
+  buildRestoreMessageFromContext,
+  commitThreadGoalDraft,
+  experimentalFeaturesQuery,
+  getTaskErrorMessage,
+  isPreparePrimaryRuntimeEnabled,
+  isProjectlessWorkspaceRoots,
+  localConversationTurnsSignal,
+  localConversationWorkspaceKindSignal,
+  memoryPreferencesDraftAtom,
+  newThreadFirstRunCompletedSignal,
+  newThreadFirstRunStartedSignal,
+  projectContextQuerySignal,
+  promptTextFromContext,
+  promptTextFromObjective,
+  recordNewThreadSubmitAnalytics,
+  reserveProjectWorkspaceForFirstTurn,
+  resolveServiceTierAndCollaborationMode,
+  toUserMessageInput,
+  updateConversationProjectContext,
+} from "../composer/new-thread-submit-runtime";
+export { forkConversation } from "../threads/fork-conversation";
+// RESTORED ONBOARDING COMMONS AUTO-MAPPED REEXPORTS END
+// RESTORED ONBOARDING COMMONS REEXPORTS END
+
+export { ANNOTATION_SETTLE_ANIMATION } from "../runtime/browser-annotation-boundary-runtime";
+export {
+  ActivityResultCard,
+  ActivityResultCardAction,
+  ActivityResultCardRow,
+  AnchoredOverlayLayer,
+} from "../runtime/onboarding-ui-boundary-runtime";
+export { AppBrand } from "../ui/app-brand-logo";
+export { AppHeaderSidebarBrand } from "../ui/app-brand-logo";
+export { AppShellPortalRoot } from "../runtime/onboarding-ui-boundary-runtime";
+export {
+  FILE_TAB_KIND_PREFIX,
+  buildFileTabContextMenuItems,
+  defaultFileTabState,
+  findTabPanelForTab,
+  formatWorkspacePathTooltip,
+  resolveTabController,
+  syncOpenTabs,
+  trackRecentlyOpenedFile,
+  type AppStore,
+  type FileTabController,
+} from "../workspace/workspace-file-tab-runtime";
+export {
+  AppgenSiteIcon,
+  AssistantResourceHoverContext,
+  matchesResourceUrl,
+  openAppgenShareDialog,
+  useAppgenProject,
+  useModalController,
+} from "../appgen/appgen-resource-runtime";
+export {
+  AppgenAccessStateIcon as AccessPolicyIcon,
+  getAppgenAccessSiteStateMessage as getAccessPolicySubtitleDescriptor,
+} from "../utils/appgen-access-state-messages";
+export {
+  AutomationActionProto,
+  AutomationFailureReasonProto,
+  AutomationKindProto,
+  AutomationSourceProto,
+  AutomationStatusProto,
+  ExecutionEnvironmentProto,
+  ReasoningEffortProto,
+  ScheduleFrequencyProto,
+  codexAutomationProductEvent,
+  isKnownReasoningEffort,
+} from "../runtime/automation-telemetry-protos-runtime";
+export {
+  FormattedCount,
+  TruncatedBranchName,
+  WebSearchIcon,
+  applyImagePreviewZoomCommand,
+  buildCommentImageInputItems,
+  buildImageInputItem,
+  findActiveOrchestrationAtom,
+  findDefaultOrchestrationAtom,
+  formatBrowserAddressDisplay,
+  formatRedactedSearchQuery,
+  getTerminalPanelTarget,
+  getThreadFindController,
+  imagePreviewOpenStore,
+  registerTerminalPanelSubscription,
+  resolveBrowserNavigationUrl,
+  summarizeExplorationCommand,
+  syncTerminalPanelTabs,
+} from "../runtime/onboarding-hot-helpers-runtime";
+export { ChevronRightIcon as BreadcrumbSeparatorIcon } from "../icons/chevron-right-icon";
+export { ThreeDotsIcon as BrowserOptionsIcon } from "../icons/three-dots-icon";
+export { GlobeIcon as BrowserPlaceholderIcon } from "../icons/globe-icon";
+export {
+  COMMENT_EDITOR_FOOTER_CLASS,
+  COMMENT_EDITOR_INPUT_CLASS,
+  COMMENT_EDITOR_SURFACE_CLASS,
+} from "../image-side-panel/image-comment-editor-runtime";
+export { READ_FILE_SAMPLE_MAX_FILE_BYTES as CONTENT_SAMPLE_MAX_FILE_BYTES } from "../appgen/publication-terms";
+export { ChatGptBrandLogo } from "../ui/app-brand-logo";
+export { ChevronUpIcon } from "../conversations/local-conversation-thread-parts/todo-plan-pill/todo-plan-visual-runtime";
+export {
+  CitationActionLabel,
+  CitationCardBody,
+  CitationCardFrame,
+} from "../automations/automation-citation-card-runtime";
+export { CommandOutputBlock } from "../worktree/worktree-activity-boundary-runtime";
+export { CommitCommandMenu as CommitChangesDialog } from "../review/commit-command-menu";
+export { ConversationActivityIcon } from "../worktree/worktree-activity-boundary-runtime";
+export { DeleteCommentIcon } from "../image-side-panel/image-comment-editor-runtime";
+export { DialogHeaderRow } from "../runtime/onboarding-ui-boundary-runtime";
+export { DiffHighlighterScope } from "../review/diff-highlighter-boundary-runtime";
+export { DisabledActionTooltip } from "../runtime/onboarding-ui-boundary-runtime";
+export { DonutProgress } from "../conversations/local-conversation-thread-parts/todo-plan-pill/todo-plan-visual-runtime";
+export { ElectronOnlyGate } from "../runtime/onboarding-ui-boundary-runtime";
+export { EnvironmentSetupIcon } from "../worktree/worktree-activity-boundary-runtime";
+export { FollowUpConfirmationDialog } from "../plugins/follow-up-confirmation-dialog-runtime";
+export { GitBranchIcon as ForkIcon } from "../icons/git-branch-icon";
+export { GitBranchControl } from "../conversations/git-action-boundary-runtime";
+export { HANDOFF_STEP_ORDER } from "../conversations/thread-handoff-boundary-runtime";
+export { HooksIcon as HookActivityIcon } from "../icons/hooks-icon";
+export { ImageCommentEditorPositioner } from "../image-side-panel/image-comment-editor-runtime";
+export { ImagesIcon as ImagePreviewTabIcon } from "../icons/images-icon";
+export { Spinner as ImageUploadSpinnerIcon } from "../ui/spinner";
+export { InlineTranscriptStatusMessage } from "../runtime/onboarding-ui-boundary-runtime";
+export { DocumentSearchIcon as JumpToFileIcon } from "../icons/document-search-icon";
+export { MCP_RELATED_TASK_META_KEY as MCP_PROGRESS_META_KEY } from "../plugins/mcp-capability-signals/schemas";
+export { MessageAttachmentChip } from "../runtime/onboarding-ui-boundary-runtime";
+export { NamedErrorBoundary } from "../runtime/onboarding-ui-boundary-runtime";
+export { OpenConfigLinkButton } from "../runtime/onboarding-ui-boundary-runtime";
+export { OpenImageInButton } from "../runtime/onboarding-ui-boundary-runtime";
+export { ChatIcon as ParentChatIcon } from "../icons/chat-icon";
+export {
+  PlanStepCompletedIcon,
+  PlanStepInactiveIcon,
+  PlanStepPendingIcon,
+  PlanStepSpinnerIcon,
+} from "../conversations/local-conversation-thread-parts/todo-plan-pill/todo-plan-visual-runtime";
+export { RelativeTimeLabel } from "../runtime/onboarding-ui-boundary-runtime";
+export { RemoveAppshotAttachmentButton } from "../runtime/onboarding-ui-boundary-runtime";
+export {
+  ReviewCappedFooterBar,
+  ReviewMetricsContext,
+  ReviewMetricsObserver,
+  ReviewNoMatchesPlaceholder,
+  SECTION_ACTIONS_FEATURE_GATE,
+  areReviewDiffMetricsEqual,
+  defaultReviewDiffMetrics,
+  measureReviewDiffMetrics,
+  reviewCollapsedBottomInset,
+  reviewDiffStylesheet,
+  useReviewBottomPadding,
+} from "../review/review-diff-container-runtime";
+export { FileSourceSidePanel as ReviewChangedFilesSidePanel } from "../review/file-source-side-panel";
+export {
+  ReviewEmptyState,
+  ReviewErrorState,
+  ReviewFileSearchInput,
+  ReviewLoadingState,
+  ReviewStagedEmptyState,
+} from "../review/review-boundary-ui-runtime";
+export {
+  SafetyBufferingContainer,
+  SafetyBufferingPrompt,
+} from "../conversations/safety-buffering-ui-runtime";
+export { SettingsGearIcon as SettingsToolIcon } from "../icons/settings-gear-icon";
+export { SummaryPanelRow as SourceListItemButton } from "../conversations/summary-panel-row";
+export { TerminalCommandToast } from "../runtime/onboarding-ui-boundary-runtime";
+export { TodoPlanWidget as TodoListProgressPill } from "../conversations/local-conversation-thread-parts/todo-plan-pill/todo-plan-pill";
+export {
+  TurnUnifiedDiffSummaryRow,
+  UserMessageRow,
+} from "../conversations/message-boundary-runtime";
+export { OpenaiBlossomIcon as WorkHereIcon } from "../icons/openai-blossom-icon";
+export {
+  WorkedForStatusLabel,
+  formatElapsedDuration,
+  formatWorkedDuration,
+} from "../conversations/worked-for-status-runtime";
+export type { WorkedForStatusItem } from "../conversations/worked-for-status-runtime";
+export { ProjectDropdownOptions as WorkspaceFolderDropdown } from "../ui/project-dropdown-options";
+export {
+  _commentPreviewDecodeMentionTarget,
+  _commentPreviewMatchKnownMentionUri,
+  _commentPreviewResolveMentionAttachment,
+  _commentPreviewUnescapeMarkdownText,
+  annotationScreenshotsModeAtom,
+  annotationViewportBaseHeight,
+  appWindowKind,
+  buildBrowserCommentPopupFrameName,
+} from "../browser/browser-comment-boundary-runtime";
+export { activeLocalProjectCwdSignal } from "../runtime/global-ui-state-boundary-runtime";
+export {
+  RouteOutlet,
+  RouteRedirect,
+  applicationMenuIds,
+  hasPreviouslyCompletedOnboardingAtom,
+  onboardingForcedOverrideSignal,
+  readScopedSignal,
+  shouldAutoCompleteWorkspaceOnboarding,
+  useFinalOnboardingStep,
+} from "../runtime/onboarding-route-boundary-runtime";
+export {
+  arePayloadsEqual,
+  floatingComposerMessages,
+  objectSchema,
+  panelOverlayZIndex,
+  parseCodexError,
+  unionSchema,
+  waitForNextFrame,
+} from "../runtime/onboarding-misc-boundary-runtime";
+export {
+  browserMcpToolLabels,
+  figmaMcpToolLabels,
+  getComputerUseMcpToolLabel,
+  getFigmaMcpToolLabel,
+  getGithubMcpToolLabel,
+  getGmailMcpToolLabel,
+  getGoogleCalendarMcpToolLabel,
+  getGoogleDriveMcpToolLabel,
+  getLinearMcpToolLabel,
+  getMcpAppAltText,
+  githubMcpToolLabels,
+  gmailMcpToolLabels,
+  googleCalendarMcpToolLabels,
+  googleDriveMcpToolLabels,
+  linearMcpToolLabels,
+  resolveMcpAppForToolResult,
+} from "../conversations/mcp-tool-activity/mcp-tool-label-runtime";
+export {
+  subagentAvatarIcons,
+  summarizeSubagentActivityStatus,
+} from "../conversations/subagent-activity-runtime";
+export {
+  assertKnownCommandId,
+  platformAtom,
+  resetCommandKeymapState,
+  updateCommandKeymapState,
+} from "../runtime/command-keymap-boundary-runtime";
+export { automationActivitySummarySignal } from "../app-shell/sidebar-activity-boundary-runtime";
+export { branchPrefixSetting } from "../conversations/thread-handoff-boundary-runtime";
+export { buildConversationReviewModel } from "../review/conversation-review-model-runtime";
+export { buildEntrypointConversationId } from "../conversations/conversation-identity-runtime";
+export {
+  createFileViewerToolArguments as buildFileViewerToolArguments,
+  createMcpFileViewerHostResource as createFileResourceReader,
+} from "../appgen/publication-terms/mcp-file-viewers";
+export { buildParentConversationReviewModel } from "../review/conversation-review-model-runtime";
+type WebSearchAction =
+  | {
+      type: "search";
+      query?: string | null;
+      queries?: readonly (string | null | undefined)[] | null;
+    }
+  | { type: "openPage"; url?: string | null }
+  | { type: "findInPage"; pattern?: string | null; url?: string | null }
+  | { type: "other" }
+  | null
+  | undefined;
+
+type WebSearchActivityLike = {
+  action?: WebSearchAction;
+  query?: string | null;
+};
+
+function normalizeSearchSiteHostname(host: string): string | null {
+  try {
+    return new URL(`https://${host}`).hostname.replace(/^www\./u, "");
+  } catch {
+    return null;
+  }
+}
+
+function formatSearchQuerySites(query: string): string {
+  const sites: string[] = [];
+  const queryWithoutSites = query.replace(
+    /\bsite:([^\s]+)/giu,
+    (fullMatch, host: string) => {
+      const normalizedHost = normalizeSearchSiteHostname(host);
+      if (normalizedHost == null) return fullMatch;
+      if (!sites.includes(normalizedHost)) sites.push(normalizedHost);
+      return "";
+    },
+  );
+  if (sites.length === 0) return query;
+
+  const displayQuery = queryWithoutSites
+    .replace(/\bOR\b/gu, " ")
+    .replace(/\s+/gu, " ")
+    .trim();
+  return displayQuery.length === 0
+    ? query
+    : `${displayQuery} | ${sites.join(" · ")}`;
+}
+
+function buildSearchActionDetail(
+  query: string | null | undefined,
+  queries: readonly (string | null | undefined)[] | null | undefined,
+): string {
+  const trimmedQuery = query?.trim() ?? "";
+  if (trimmedQuery.length > 0) return formatSearchQuerySites(trimmedQuery);
+
+  const fallbackQuery =
+    queries?.map((item) => item?.trim() ?? "").find((item) => item.length > 0) ??
+    "";
+  return queries != null && queries.length > 1 && fallbackQuery.length > 0
+    ? `${formatSearchQuerySites(fallbackQuery)} ...`
+    : formatSearchQuerySites(fallbackQuery);
+}
+
+function buildWebSearchActionDetail(action: WebSearchAction): string {
+  switch (action?.type) {
+    case "search":
+      return buildSearchActionDetail(action.query, action.queries);
+    case "openPage":
+      return action.url ?? "";
+    case "findInPage":
+      return action.pattern != null && action.url != null
+        ? `'${action.pattern}' in ${action.url}`
+        : action.pattern != null
+          ? `'${action.pattern}'`
+          : (action.url ?? "");
+    case "other":
+    case undefined:
+      return "";
+  }
+}
+
+export function buildWebSearchDetail(
+  action: WebSearchAction,
+  fallbackQuery: string | null | undefined,
+): string {
+  const detail = buildWebSearchActionDetail(action).trim();
+  return detail.length > 0 ? detail : (fallbackQuery ?? "");
+}
+export { buildWorkspaceFolderOptions } from "../runtime/workspace-folder-options-runtime";
+export { buildWorktreeLabelFromInput as buildWorktreeLabel } from "../utils/build-worktree-label-from-input";
+export { capitalizeWord } from "../runtime/onboarding-boundary-format-runtime";
+export { closeRevertConfirmDialog } from "../review/review-patch-action-boundary-runtime";
+export { collapseSidePanelLayout } from "../app-shell/side-panel-runtime";
+export { collectWorkspaceFileTabDescriptors } from "../workspace/workspace-file-tab-descriptors-runtime";
+export function composeTurnUnitKey(turnKey: string, unitId: string): string {
+  return `${turnKey}:${unitId}`;
+}
+export { composerAttachmentLayoutValues } from "../runtime/onboarding-boundary-format-runtime";
+export const composerPendingEditCountAtom = createScopedAtom(appRootScope, 0);
+export { confirmRevertChanges } from "../review/review-patch-action-boundary-runtime";
+export { va as conversationByClientThreadIdAtom } from "../runtime/current-app-initial/remote-projects-app-shared-backing";
+export { conversationIdFromRoute } from "../conversations/conversation-identity-runtime";
+export {
+  CSS as cssTransform,
+  CSS as cssTransformHelpers,
+  isSVGElement as isSvgElement,
+} from "../vendor/dnd-kit-utilities";
+export { currentAppBrand } from "../ui/app-brand-logo";
+export const defaultHostIdSignal = defaultHostIdSignalRuntime;
+export {
+  defineRpcQuery,
+  rpcClient,
+  rpcTimeConstants,
+  useRpcQuery,
+} from "../runtime/rpc-query-runtime";
+export const diffFindResultAtom = threadFindResultAtom;
+type ScopedModalStore = Parameters<typeof openModalControllerModalRuntime>[0];
+type ScopedModalComponent<TProps extends object> = ComponentType<
+  TProps & { onClose: () => void }
+>;
+
+export const discardBrowserAnnotationsModalConfig =
+  DiscardBrowserAnnotationsDialog as ScopedModalComponent<{
+    onConfirm: () => void;
+  }>;
+export { runCommand as dispatchAppCommand } from "../utils/run-command";
+export function displayWorkspacePath(path: string): string {
+  return normalizePathRuntime(path);
+}
+export const dynamicToolCallGroupMaxHeight = {
+  preview: "20rem",
+  expanded: "20rem",
+  collapsed: "0px",
+};
+export {
+  encodeConversationId,
+  encodeLocalConversationId,
+} from "../conversations/conversation-identity-runtime";
+export function expandTildePath(path: string): string {
+  if (path !== "~" && !path.startsWith("~/")) return path;
+  const home =
+    (globalThis as { process?: { env?: Record<string, string | undefined> } })
+      .process?.env?.HOME ??
+    (globalThis as { process?: { env?: Record<string, string | undefined> } })
+      .process?.env?.USERPROFILE;
+  if (home == null || home.length === 0) return path;
+  return path === "~" ? home : joinPathRuntime(home, path.slice(2));
+}
+export {
+  sidePanelTabController as fileTabController,
+  SidePanelTabKind as fileTabKind,
+} from "../app-shell/side-panel-runtime";
+export function fileUrlPathnameToOsPath(pathname: string): string {
+  const normalized = pathname.replace(/\\/gu, "/");
+  return /^\/[A-Za-z]:\//u.test(normalized) ? normalized.slice(1) : normalized;
+}
+export function findLatestLiveDynamicToolCall<
+  TItem extends { completed?: boolean | null },
+>(items: readonly TItem[]): TItem | null {
+  for (let index = items.length - 1; index >= 0; index -= 1) {
+    const item = items[index];
+    if (item != null && !item.completed) return item;
+  }
+  return null;
+}
+export {
+  findPreviewTabPanelSide,
+  focusPreviewTabComposer,
+} from "../image-side-panel/image-preview-tab-runtime";
+export { focusSidePanelLayout } from "../app-shell/side-panel-runtime";
+export function focusThreadFindDomain(
+  store: {
+    set(signal: unknown, value: unknown): void;
+  },
+  domain: ThreadFindDomain,
+): void {
+  store.set(threadFindOpenAtom, true);
+  store.set(threadFindPreferredDomainAtom, domain);
+  store.set(threadFindActiveDomainAtom, domain);
+  store.set(threadFindResultAtom, null);
+  store.set(threadFindLoadingAtom, false);
+  store.set(threadFindActiveMatchIndexAtom, null);
+}
+export { formatUsageLimitResetDate } from "../runtime/onboarding-boundary-format-runtime";
+export { summarizeAppgenAccessPolicy as getAccessPolicyMessageValues } from "../utils/appgen-access";
+export { getAutomationThreadId } from "../app-shell/sidebar-activity-boundary-runtime";
+export function getConversationManager(
+  scope: {
+    get<TValue = unknown>(signal: unknown, key?: unknown): TValue;
+  },
+  conversationId: string | null | undefined,
+): unknown | null {
+  if (conversationId == null || conversationId.trim().length === 0) {
+    return null;
+  }
+  try {
+    return scope.get(conversationManagerAtomRuntime, conversationId) ?? null;
+  } catch {
+    return null;
+  }
+}
+export { getDefaultRightPanelStorageKey } from "../app-shell/side-panel-runtime";
+export async function getPermissionOverrides(
+  requestClient: {
+    sendRequest?: (
+      method: string,
+      params?: Record<string, unknown>,
+    ) => Promise<unknown>;
+    request?: (
+      method: string,
+      params?: Record<string, unknown>,
+    ) => Promise<unknown>;
+  } | null | undefined,
+  cwd: string,
+): Promise<Record<string, unknown> | null> {
+  const params = { cwd, includeLayers: false };
+  const response =
+    requestClient?.sendRequest != null
+      ? await requestClient.sendRequest("read-config-for-host", params)
+      : requestClient?.request != null
+        ? await requestClient.request("read-config-for-host", params)
+        : await sendHostRequestRuntime("read-config-for-host", {
+            params,
+          });
+
+  if (response == null || typeof response !== "object") return null;
+  const config = (response as { config?: unknown }).config ?? response;
+  return config != null && typeof config === "object"
+    ? (config as Record<string, unknown>)
+    : null;
+}
+export { getPreviewTabPanel } from "../image-side-panel/image-preview-tab-runtime";
+type RpcRequesterRequest = {
+  method: string;
+  params?: Record<string, unknown>;
+  signal?: AbortSignal;
+  source?: string;
+};
+
+function rpcHostMethod(namespace: string, method: string): string {
+  return method.startsWith(`${namespace}-`) ? method : `${namespace}-${method}`;
+}
+
+export function getRpcRequester(namespace: string): {
+  request<TResponse = unknown>(
+    request: RpcRequesterRequest,
+  ): Promise<TResponse>;
+  subscribe(
+    eventName: string,
+    handler: (message: Record<string, unknown>) => void,
+  ): () => void;
+} {
+  return {
+    request<TResponse = unknown>({
+      method,
+      params,
+      signal,
+      source,
+    }: RpcRequesterRequest): Promise<TResponse> {
+      return sendHostRequestRuntime<TResponse>(
+        rpcHostMethod(namespace, method),
+        {
+          params,
+          signal,
+          source:
+            source ??
+            (typeof params?.operationSource === "string"
+              ? params.operationSource
+              : undefined),
+        },
+      );
+    },
+    subscribe(eventName, handler) {
+      const bridge = ElectronHostMessageBridge.getInstance();
+      const eventNames = [
+        eventName,
+        eventName.startsWith(`${namespace}-`)
+          ? eventName
+          : `${namespace}-${eventName}`,
+      ].filter((name, index, names) => names.indexOf(name) === index);
+      const unsubscribers = eventNames.map((name) =>
+        bridge.subscribe(name, (message) => {
+          handler(message);
+        }),
+      );
+      return () => {
+        unsubscribers.forEach((unsubscribe) => {
+          unsubscribe();
+        });
+      };
+    },
+  };
+}
+type UsageLimitWindow = {
+  reset_at?: number | null;
+  used_percent?: number | null;
+};
+
+function isUsageLimitWindow(value: unknown): value is UsageLimitWindow {
+  return value != null && typeof value === "object";
+}
+
+function finiteNumberOrNull(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
+export function getUsageLimitResetWindow(
+  rateLimitInfo: unknown,
+): number | null {
+  const rateLimit =
+    rateLimitInfo != null && typeof rateLimitInfo === "object"
+      ? ((rateLimitInfo as { rate_limit?: unknown }).rate_limit ?? rateLimitInfo)
+      : null;
+  if (rateLimit == null || typeof rateLimit !== "object") return null;
+
+  const windows = [
+    (rateLimit as { primary_window?: unknown }).primary_window,
+    (rateLimit as { secondary_window?: unknown }).secondary_window,
+  ].filter(isUsageLimitWindow);
+  if (windows.length === 0) return null;
+
+  const selectedWindow = windows.reduce<UsageLimitWindow | null>(
+    (selected, window) => {
+      if (selected == null) return window;
+      const selectedUsedPercent =
+        finiteNumberOrNull(selected.used_percent) ?? Number.NEGATIVE_INFINITY;
+      const currentUsedPercent =
+        finiteNumberOrNull(window.used_percent) ?? Number.NEGATIVE_INFINITY;
+      if (currentUsedPercent > selectedUsedPercent) return window;
+      if (currentUsedPercent < selectedUsedPercent) return selected;
+      const selectedResetAt =
+        finiteNumberOrNull(selected.reset_at) ?? Number.NEGATIVE_INFINITY;
+      const currentResetAt =
+        finiteNumberOrNull(window.reset_at) ?? Number.NEGATIVE_INFINITY;
+      return currentResetAt > selectedResetAt ? window : selected;
+    },
+    null,
+  );
+
+  return finiteNumberOrNull(selectedWindow?.reset_at);
+}
+const imagePreviewSidePanelGateId = "120995366";
+
+type ImageAttachmentActivationOptions = {
+  title: string;
+  [key: string]: unknown;
+};
+
+export function handleImageAttachmentActivation(
+  scope: AppShellStore,
+  { title, ...rest }: ImageAttachmentActivationOptions,
+): boolean {
+  if (!evaluateFeatureGateRuntime(scope, imagePreviewSidePanelGateId)) {
+    return false;
+  }
+  const tabId = `image:${crypto.randomUUID()}`;
+  previewTabManagerRuntime.openTab(
+    scope,
+    ImagePreviewTabContentRuntime as ComponentType<Record<string, unknown>>,
+    {
+      icon: React.createElement(ImagePreviewTabIconRuntime, {
+        className: "icon-xs shrink-0",
+      }),
+      id: tabId,
+      isPreview: true,
+      props: { ...rest, tabId },
+      title,
+      tooltip: title,
+    },
+  );
+  focusPreviewTabComposerRuntime(scope);
+  return true;
+}
+function readStatusType(status: unknown): string | null {
+  if (typeof status === "string") return status;
+  if (status == null || typeof status !== "object") return null;
+  const record = status as Record<string, unknown>;
+  return typeof record.type === "string"
+    ? record.type
+    : typeof record.status === "string"
+      ? record.status
+      : null;
+}
+
+function turnIsInProgress(turn: unknown): boolean {
+  if (turn == null || typeof turn !== "object") return false;
+  const status = readStatusType((turn as Record<string, unknown>).status);
+  return (
+    status === "inProgress" ||
+    status === "in_progress" ||
+    status === "running"
+  );
+}
+
+function hasRunningAgentState(turn: unknown): boolean {
+  if (turn == null || typeof turn !== "object") return false;
+  const items = (turn as { items?: unknown }).items;
+  if (!Array.isArray(items)) return false;
+  return items.some((item) => {
+    if (item == null || typeof item !== "object") return false;
+    const record = item as {
+      agentsStates?: Record<string, { status?: unknown } | null | undefined>;
+      type?: unknown;
+    };
+    return (
+      record.type === "collabAgentToolCall" &&
+      Object.values(record.agentsStates ?? {}).some(
+        (agentState) => agentState?.status === "running",
+      )
+    );
+  });
+}
+
+export function isConversationRunning(conversation: unknown): boolean {
+  if (conversation == null || typeof conversation !== "object") return false;
+  const record = conversation as Record<string, unknown>;
+  const status = readStatusType(
+    record.threadRuntimeStatus ??
+      record.runtimeStatus ??
+      record.status ??
+      (record.thread as Record<string, unknown> | undefined)?.status,
+  );
+  if (status === "active" || status === "running" || status === "inProgress") {
+    return true;
+  }
+  if (
+    (status === "idle" || status === "completed") &&
+    (record.threadGoal as { status?: unknown } | undefined)?.status ===
+      "active"
+  ) {
+    return true;
+  }
+
+  const turns = getConversationTurnsRuntime(conversation);
+  const latestTurn = turns.at(-1);
+  return turnIsInProgress(latestTurn) || turns.some(hasRunningAgentState);
+}
+export function isInlineReadCommandSummaryVisible({
+  summary,
+  cwd,
+}: {
+  cwd?: string | null;
+  summary: Parameters<typeof resolveSkillPathInfoFromReadSummary>[0]["summary"];
+}): boolean {
+  return (
+    resolveSkillPathInfoFromReadSummary({
+      summary,
+      cwd,
+    })?.isSkillDefinitionFile === true
+  );
+}
+export function isMcpAppDevtoolsEnabled(): boolean {
+  if (typeof window === "undefined") return false;
+  try {
+    return (
+      new URLSearchParams(window.location.search).get(
+        "mcpAppDevtools",
+      ) === "1" ||
+      window.localStorage.getItem("codex:mcp-app-devtools") === "1"
+    );
+  } catch {
+    return false;
+  }
+}
+export function isMcpAppWindowType(windowType: unknown): boolean {
+  return windowType === "electron";
+}
+export function isOpenInNewTabEvent(event: {
+  button?: number;
+  ctrlKey?: boolean;
+  metaKey?: boolean;
+}): boolean {
+  return event.button === 1 || event.metaKey === true || event.ctrlKey === true;
+}
+export {
+  isResourcePathInsideProjectlessOutput as isResourceInProjectlessOutput,
+} from "../conversations/output-artifact-runtime";
+export { isReviewDiffOpenAtom } from "../review/review-view-state-runtime";
+export { isUncommittedReviewSource } from "../review/review-diff-store";
+export const isWorkspaceContextLoadingSignal = createScopedAtom(
+  appRootScope,
+  false,
+);
+export const lineStartTagNames = "created-thread";
+export function markBrowserCommentOverlayMounted(): void {
+  dismissBrowserSidebarCommentModeCoachmarkRuntime();
+}
+type HandoffGitOrigin = {
+  dir: string;
+  originUrl?: string | null;
+  root?: string | null;
+};
+
+type HandoffProjectMatchInput = {
+  destinationGitOrigins?: HandoffGitOrigin[] | null;
+  destinationWorkspaceRoots: string[];
+  sourceGitOrigins?: HandoffGitOrigin[] | null;
+  sourceGitRoot: string | null;
+  sourceWorkspaceRoot: string | null;
+};
+
+function canonicalHandoffPath(path: string): string {
+  return canonicalizeRootPathRuntime(path).replace(/\/+/gu, "/");
+}
+
+function relativePathUnderGitRoot(
+  workspaceRoot: string | null | undefined,
+  gitRoot: string | null | undefined,
+): string | null {
+  if (workspaceRoot == null || gitRoot == null) return null;
+  const workspacePath = canonicalHandoffPath(workspaceRoot);
+  const gitPath = canonicalHandoffPath(gitRoot);
+  if (workspacePath === gitPath) return "";
+  const gitPrefix = gitPath === "/" ? gitPath : `${gitPath}/`;
+  return workspacePath.startsWith(gitPrefix)
+    ? workspacePath.slice(gitPrefix.length)
+    : null;
+}
+
+function originForDirectory(
+  directory: string | null | undefined,
+  origins: HandoffGitOrigin[] | null | undefined,
+): HandoffGitOrigin | null {
+  if (directory == null) return null;
+  const normalizedDirectory = canonicalHandoffPath(directory);
+  return (
+    origins?.find(
+      (origin) => canonicalHandoffPath(origin.dir) === normalizedDirectory,
+    ) ?? null
+  );
+}
+
+function parseGitOriginIdentity(
+  originUrl: string | null | undefined,
+): string | null {
+  if (originUrl == null) return null;
+  try {
+    let value = originUrl.trim();
+    if (value.length === 0) return null;
+
+    const scpLike = /^(?:[^@]+)@(?<host>[^:]+):(?<path>.+)$/u.exec(value);
+    if (scpLike?.groups?.host != null && scpLike.groups.path != null) {
+      value = `${scpLike.groups.host}/${scpLike.groups.path}`;
+    } else {
+      value = value.replace(/^[a-z][a-z\d+\-.]*:\/\//iu, "");
+    }
+
+    value = value
+      .replace(/^[^@/]+@/u, "")
+      .replace(/[?#].*$/u, "")
+      .replace(/\.git$/iu, "")
+      .replace(/\/+$/u, "");
+    const parts = value.split("/").filter(Boolean);
+    if (parts.length < 3) return null;
+    const host = parts[0];
+    const owner = parts.at(-2);
+    const repo = parts.at(-1);
+    return host == null || owner == null || repo == null
+      ? null
+      : `${host}/${owner}/${repo}`.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+export function matchSavedProjectForHandoff({
+  destinationGitOrigins,
+  destinationWorkspaceRoots,
+  sourceGitOrigins,
+  sourceGitRoot,
+  sourceWorkspaceRoot,
+}: HandoffProjectMatchInput): string | null {
+  const sourceOrigin = originForDirectory(
+    sourceWorkspaceRoot,
+    sourceGitOrigins,
+  );
+  const sourceOriginIdentity = parseGitOriginIdentity(sourceOrigin?.originUrl);
+  const sourceRelativePath = relativePathUnderGitRoot(
+    sourceWorkspaceRoot,
+    sourceGitRoot,
+  );
+  if (sourceOriginIdentity == null || sourceRelativePath == null) return null;
+
+  return (
+    destinationWorkspaceRoots.find((destinationWorkspaceRoot) => {
+      const destinationOrigin = originForDirectory(
+        destinationWorkspaceRoot,
+        destinationGitOrigins,
+      );
+      const destinationRelativePath = relativePathUnderGitRoot(
+        destinationWorkspaceRoot,
+        destinationOrigin?.root,
+      );
+      return (
+        destinationRelativePath === sourceRelativePath &&
+        parseGitOriginIdentity(destinationOrigin?.originUrl) ===
+          sourceOriginIdentity
+      );
+    }) ?? null
+  );
+}
+export function matchesCodexPagePath(path: string | null | undefined): boolean {
+  if (!path) return false;
+  const pathname = path.split("?")[0] ?? "";
+  return (
+    pathname === "/avatar-overlay" ||
+    pathname === "/global-dictation" ||
+    pathname.startsWith("/global-dictation/") ||
+    pathname === "/hotkey-window" ||
+    pathname.startsWith("/hotkey-window/")
+  );
+}
+export { mcpRelatedTaskMetaSchema as mcpProgressSchema } from "../plugins/mcp-capability-signals/schemas";
+export { mcpServerStatusesQueryAtom } from "../runtime/mcp-server-status-runtime";
+export {
+  measureTextLayout,
+  measureTextLineCount,
+} from "../utils/text-layout";
+type ModelSelectionWriteEvent = {
+  resolve?: () => void;
+  selection?: unknown;
+  target?: unknown;
+  write?: () => Promise<void> | void;
+};
+const modelSelectionWritePromises = new Map<string, Promise<void>>();
+export const modelSelectionWriteQueueFamily = createScopedAtom(
+  appRootScope,
+  () => (event: ModelSelectionWriteEvent) => {
+    const key = JSON.stringify(event.target ?? event.selection ?? null);
+    const previous = modelSelectionWritePromises.get(key) ?? Promise.resolve();
+    const next = previous
+      .catch(() => undefined)
+      .then(async () => {
+        await event.write?.();
+      })
+      .finally(() => {
+        event.resolve?.();
+        if (modelSelectionWritePromises.get(key) === next) {
+          modelSelectionWritePromises.delete(key);
+        }
+      });
+    modelSelectionWritePromises.set(key, next);
+  },
+);
+export { ArrowLeftIcon as navigationBackChevronIcon } from "../icons/arrow-left-icon";
+export const nonIntegrationSourceKey = "non-integration";
+export { openFileTab as openFileInReview } from "../review/open-file-tab";
+export function openInEditor(params: {
+  column?: number | null;
+  cwd?: string | null;
+  endLine?: number | null;
+  hostId?: string | null;
+  line?: number | null;
+  path: string;
+  target?: string | null;
+}): Promise<unknown> {
+  return sendHostRequestRuntime("open-file", { params });
+}
+export function openScopedConfirmModal<TProps extends object>(
+  store: ScopedModalStore,
+  ModalComponent: ScopedModalComponent<TProps>,
+  props: TProps,
+): void {
+  openModalControllerModalRuntime(
+    store,
+    ModalComponent as ComponentType<TProps & { onClose?: () => void }>,
+    props as TProps & { onClose?: () => void },
+  );
+}
+export {
+  subagentParentThreadIdSignal as parentConversationAtom,
+  subagentParentThreadIdSignal as parentConversationIdAtom,
+} from "../runtime/conversation-state-runtime";
+export {
+  parseCommentPreviewSegments as parseCommentBody,
+} from "../runtime/current-app-initial/conversation-title-platform-icon-runtime";
+export function parseHookSourceKind(
+  sources: readonly (string | null | undefined)[],
+):
+  | "admin"
+  | "user"
+  | "project"
+  | "plugin"
+  | "sessionFlags"
+  | null {
+  for (const source of sources) {
+    if (source == null) continue;
+    const normalized = source.trim();
+    switch (normalized) {
+      case "admin":
+      case "user":
+      case "project":
+      case "plugin":
+      case "sessionFlags":
+        return normalized;
+    }
+  }
+  return null;
+}
+export { parseInlineDirectiveTags } from "../utils/parse-directives";
+export { getPatchDiffStats as parsePatchDiffStats } from "../utils/patch-diff-stats";
+type ParsedTurnItem =
+  | { type: "user-message"; message: string }
+  | { type: "assistant-message"; completed: boolean; content: string }
+  | { type: "turn-diff"; unifiedDiff: string }
+  | Record<string, unknown>;
+
+function textFromContent(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) {
+    return value
+      .map((part) => {
+        if (typeof part === "string") return part;
+        if (part == null || typeof part !== "object") return "";
+        const record = part as Record<string, unknown>;
+        return typeof record.text === "string"
+          ? record.text
+          : typeof record.content === "string"
+            ? record.content
+            : "";
+      })
+      .filter((part) => part.length > 0)
+      .join("\n");
+  }
+  if (value != null && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    return typeof record.text === "string"
+      ? record.text
+      : typeof record.content === "string"
+        ? record.content
+        : "";
+  }
+  return "";
+}
+
+function parseSingleTurnItem(item: unknown): ParsedTurnItem | null {
+  if (item == null || typeof item !== "object") return null;
+  const record = item as Record<string, unknown>;
+  const type = String(record.type ?? "");
+
+  if (
+    type === "userMessage" ||
+    type === "user-message" ||
+    (type === "message" && record.role === "user")
+  ) {
+    return {
+      type: "user-message",
+      message: textFromContent(
+        record.message ?? record.content ?? record.input ?? record.text,
+      ),
+    };
+  }
+
+  if (
+    type === "assistantMessage" ||
+    type === "assistant-message" ||
+    type === "agentMessage" ||
+    (type === "message" && record.role === "assistant")
+  ) {
+    return {
+      type: "assistant-message",
+      completed:
+        record.completed === true ||
+        record.status === "completed" ||
+        record.status === "complete" ||
+        record.status == null,
+      content: textFromContent(record.content ?? record.message ?? record.text),
+    };
+  }
+
+  if (
+    type === "turnDiff" ||
+    type === "turn-diff" ||
+    type === "outputDiff" ||
+    type === "output_diff"
+  ) {
+    const unifiedDiff =
+      record.unifiedDiff ?? record.diff ?? record.output_diff ?? record.content;
+    return typeof unifiedDiff === "string"
+      ? { type: "turn-diff", unifiedDiff }
+      : null;
+  }
+
+  return record;
+}
+
+export function parseTurnItems(
+  turn: unknown,
+  _options: unknown[] = [],
+): { items: ParsedTurnItem[] } {
+  const items =
+    turn != null && typeof turn === "object"
+      ? ((turn as Record<string, unknown>).items ??
+        (turn as Record<string, unknown>).outputItems ??
+        (turn as Record<string, unknown>).events)
+      : null;
+  return {
+    items: Array.isArray(items)
+      ? items.flatMap((item) => {
+          const parsed = parseSingleTurnItem(item);
+          return parsed == null ? [] : [parsed];
+        })
+      : [],
+  };
+}
+export { pathsEqualWithinRoot } from "../utils/git-relative-display-path";
+export { pendingActivityThreadsSignal } from "../app-shell/sidebar-activity-boundary-runtime";
+export const pendingModelSelectionSignal = createScopedAtom(
+  appRootScope,
+  null,
+);
+export { pendingReviewCommentAtom } from "../review/review-view-state-runtime";
+export async function persistScopedSignalValue(
+  store: { set?(signal: unknown, keyOrValue: unknown, value?: unknown): void },
+  key: string,
+  value: unknown,
+  _options?: { throwOnFailure?: boolean },
+): Promise<void> {
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+  store.set?.(pendingModelSelectionSignal, key, value);
+}
+export async function prepareConversationForTurn(
+  scope: {
+    set(signal: unknown, keyOrValue: unknown, value?: unknown): void;
+  },
+  {
+    conversationId,
+    cwd,
+    hostId,
+  }: {
+    conversationId: string;
+    cwd?: string | null;
+    hostId?: string | null;
+  },
+): Promise<void> {
+  if (cwd != null) scope.set(conversationCwdSignalRuntime, conversationId, cwd);
+  if (hostId != null) {
+    scope.set(conversationHostIdSignalRuntime, conversationId, hostId);
+  }
+}
+export async function prepareProjectlessConversation(
+  attachments: unknown[] = [],
+  options: { prompt?: string } = {},
+): Promise<{
+  attachments: unknown[];
+  conversationId: string;
+  projectlessOutputDirectory: string;
+  prompt?: string;
+}> {
+  const conversationId =
+    typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID()
+      : `projectless:${Date.now()}`;
+  return {
+    attachments,
+    conversationId,
+    projectlessOutputDirectory: "~/Downloads",
+    prompt: options.prompt,
+  };
+}
+export { previewTabManager } from "../image-side-panel/image-preview-tab-runtime";
+export const rateLimitInfoAtom = createJotaiAtom<{ data: unknown | null }>({
+  data: null,
+});
+export function readConfigBooleanFlag(
+  config: Record<string, unknown> | null | undefined,
+  key: string,
+): boolean | undefined {
+  const value = config?.[key];
+  return typeof value === "boolean" ? value : undefined;
+}
+export {
+  hydratePersistedAtoms,
+  markPersistedAtomsSynced,
+  persistedAtomsRegistry,
+  readPersistedAtomsSnapshot,
+  readPersistedRecord,
+} from "../utils/persisted-atom-store";
+export function readPersistedSignalSnapshot(
+  get: ((signal: unknown, key?: unknown) => unknown) | null | undefined,
+  key: string,
+): unknown {
+  const scopedValue = get?.(key);
+  if (scopedValue !== undefined) return scopedValue;
+  if (typeof localStorage === "undefined") return undefined;
+  const rawValue = localStorage.getItem(key);
+  if (rawValue == null) return undefined;
+  try {
+    return JSON.parse(rawValue);
+  } catch {
+    return rawValue;
+  }
+}
+export const readSettingsToolName = "read_settings";
+export function readSharedValue<TValue = unknown>(
+  reader: (signal: unknown, key: string) => TValue,
+  key: string,
+): TValue {
+  return readSharedObjectValueWithReaderRuntime(reader, key);
+}
+export function readStoredNumber(key: string, fallback: number): number {
+  try {
+    const value = window.localStorage?.getItem(key);
+    if (value == null) return fallback;
+    const parsed = JSON.parse(value) as unknown;
+    return typeof parsed === "number" && Number.isFinite(parsed)
+      ? parsed
+      : fallback;
+  } catch {
+    return fallback;
+  }
+}
+function recordConversationalOnboardingEvent(
+  store: unknown,
+  eventName: string,
+  taskId: string,
+): void {
+  try {
+    recordProductEventRuntime(store, { eventName }, { taskId });
+  } catch {
+    // Analytics should never block onboarding task progress.
+  }
+}
+export function recordConversationalOnboardingAccessCompleted(
+  store: unknown,
+  taskId: string,
+): void {
+  recordConversationalOnboardingEvent(
+    store,
+    "conversational_onboarding_access_completed",
+    taskId,
+  );
+}
+export function recordConversationalOnboardingAccessHostUnavailable(
+  store: unknown,
+  taskId: string,
+): void {
+  recordConversationalOnboardingEvent(
+    store,
+    "conversational_onboarding_access_host_unavailable",
+    taskId,
+  );
+}
+export function recordConversationalOnboardingAccessRequestFailed(
+  store: unknown,
+  taskId: string,
+): void {
+  recordConversationalOnboardingEvent(
+    store,
+    "conversational_onboarding_access_request_failed",
+    taskId,
+  );
+}
+export function recordConversationalOnboardingAccessRequested(
+  store: unknown,
+  taskId: string,
+): void {
+  recordConversationalOnboardingEvent(
+    store,
+    "conversational_onboarding_access_requested",
+    taskId,
+  );
+}
+export function recordConversationalOnboardingAccessStarted(
+  store: unknown,
+  taskId: string,
+): void {
+  recordConversationalOnboardingEvent(
+    store,
+    "conversational_onboarding_access_started",
+    taskId,
+  );
+}
+export function recordConversationalOnboardingExecutionStartFailed(
+  store: unknown,
+  taskId: string,
+): void {
+  recordConversationalOnboardingEvent(
+    store,
+    "conversational_onboarding_execution_start_failed",
+    taskId,
+  );
+}
+export function recordConversationalOnboardingExecutionStarted(
+  store: unknown,
+  taskId: string,
+): void {
+  recordConversationalOnboardingEvent(
+    store,
+    "conversational_onboarding_execution_started",
+    taskId,
+  );
+}
+export function recordConversationalOnboardingLifecycleStartFailed(
+  store: unknown,
+  taskId: string,
+): void {
+  recordConversationalOnboardingEvent(
+    store,
+    "conversational_onboarding_lifecycle_start_failed",
+    taskId,
+  );
+}
+export { refreshReviewPathsFast } from "../review/review-diff-store";
+export const remoteHostsAtom = remoteHostsSignalRuntime;
+export {
+  renderAppControlToolCall as renderAppControlToolActivity,
+  renderAppControlToolCall as renderThreadsReadToolActivity,
+} from "../conversations/app-control-tool-call-row";
+export { requestReviewPatchAction } from "../review/review-patch-action-boundary-runtime";
+export function resolveActiveExplorationLabel({
+  items,
+}: {
+  items: Array<{ type?: string; parsedCmd?: Record<string, unknown> }>;
+  formatSearchQueryTermList?: (terms: string[]) => string;
+  threadDetailLevel?: string;
+}): {
+  icon: string;
+  message: {
+    id: string;
+    defaultMessage: string;
+    description: string;
+  };
+  values?: Record<string, unknown>;
+} | null {
+  const latest = items.at(-1);
+  const command = latest?.parsedCmd;
+  if (latest == null || latest.type !== "exec" || command == null) return null;
+  switch (command.type) {
+    case "read":
+      return {
+        icon: "file",
+        message: {
+          id: "localConversationTurn.exploration.active.reading",
+          defaultMessage: "<action>Reading</action> <detail>{path}</detail>",
+          description: "Active exploration label while reading a file",
+        },
+        values: { path: String(command.path ?? command.name ?? "file") },
+      };
+    case "search":
+      return {
+        icon: "search",
+        message: {
+          id: "localConversationTurn.exploration.active.searching",
+          defaultMessage: "<action>Searching</action> <detail>{query}</detail>",
+          description: "Active exploration label while searching files",
+        },
+        values: { query: String(command.query ?? "workspace") },
+      };
+    case "list_files":
+      return {
+        icon: "folder",
+        message: {
+          id: "localConversationTurn.exploration.active.listing",
+          defaultMessage: "<action>Listing</action> <detail>{path}</detail>",
+          description: "Active exploration label while listing files",
+        },
+        values: { path: String(command.path ?? "files") },
+      };
+    default:
+      return null;
+  }
+}
+export function resolveSkillAppFromPath({
+  resolvedApps,
+  skillPathInfo,
+}: {
+  resolvedApps: readonly Array<{
+    id: string;
+    name: string;
+    logoUrl?: string | null;
+    logoUrlDark?: string | null;
+  }>;
+  skillPathInfo: Record<string, unknown>;
+}): {
+  id: string;
+  name: string;
+  logoUrl?: string | null;
+  logoUrlDark?: string | null;
+} | null {
+  const haystack = Object.values(skillPathInfo)
+    .filter((value): value is string => typeof value === "string")
+    .join(" ")
+    .toLowerCase();
+  return (
+    resolvedApps.find((app) => {
+      const id = app.id.toLowerCase();
+      const name = app.name.toLowerCase();
+      return haystack.includes(id) || haystack.includes(name);
+    }) ??
+    resolvedApps[0] ??
+    null
+  );
+}
+export { resolveSkillPathInfoFromReadSummary };
+export function resolveWorkspacePath({
+  cwd,
+  path,
+}: {
+  cwd?: string | null;
+  path: string;
+}): string {
+  if (cwd == null || cwd.length === 0) {
+    return normalizePathRuntime(path);
+  }
+  const relativePath = relativizePathRuntime(path, cwd);
+  return isAbsolutePathRuntime(relativePath)
+    ? relativePath
+    : formatWorkspacePathLabelRuntime({
+        root: cwd,
+        relativePath,
+        includeWorkspaceRootLabel: true,
+      });
+}
+export const resumableConversationAtom = shouldResumeConversationSignalRuntime;
+export { retryReviewFileDiff } from "../review/review-diff-store";
+export {
+  revertConfirmDialogOpenAtom,
+  revertConfirmDialogSkipCheckedAtom,
+  reviewPatchActionInFlightAtom,
+  reviewRevertActionInFlightAtom,
+} from "../review/review-patch-action-boundary-runtime";
+export {
+  reviewDiffActionsAvailableAtom,
+  reviewDiffQueryAtom,
+  reviewDiffStateAtom,
+  reviewFileDiffQueryAtom,
+  reviewFilePathsAtom,
+  reviewLastTurnDiffAtom,
+  reviewRepositorySourceAtom,
+  reviewShowGitRepoEmptyStateAtom,
+  reviewSummarySourceAtom,
+  reviewWorkspaceRootAtom,
+  reviewWorktreeInfoAtom,
+} from "../review/review-diff-store";
+export { reviewDiffModeAtom as reviewDiffViewModeAtom } from "../review/review-ui-state-runtime";
+export {
+  reviewExpandedActionsPortalContext,
+  scrollReviewFileIntoView,
+} from "../review/review-view-state-runtime";
+type RepositoryWorktreeEntry = {
+  root: string;
+};
+
+type LocalCheckoutForWorktree = {
+  gitRoot: string;
+  workspaceRoot: string;
+};
+
+function worktreeRelativeWorkspacePath({
+  cwd,
+  sourceWorktreeRoot,
+}: {
+  cwd: string;
+  sourceWorktreeRoot: string;
+}): string {
+  const normalizedCwd = normalizePathRuntime(cwd);
+  const normalizedSourceRoot = normalizePathRuntime(sourceWorktreeRoot).replace(
+    /\/+$/u,
+    "",
+  );
+  const canonicalCwd = canonicalHandoffPath(cwd);
+  const canonicalSourceRoot = canonicalHandoffPath(sourceWorktreeRoot);
+  if (canonicalCwd === canonicalSourceRoot) return "";
+  const canonicalPrefix = `${canonicalSourceRoot}/`;
+  if (!canonicalCwd.startsWith(canonicalPrefix)) return "";
+  const sourcePrefix = `${normalizedSourceRoot}/`;
+  return normalizedCwd.slice(sourcePrefix.length);
+}
+
+export function selectLocalCheckoutsForWorktree({
+  cwd,
+  repoWorktreeEntries,
+  sourceWorktreeRoot,
+}: {
+  cwd: string;
+  repoWorktreeEntries?: RepositoryWorktreeEntry[] | null;
+  sourceWorktreeRoot: string;
+}): LocalCheckoutForWorktree[] {
+  const relativeWorkspacePath = worktreeRelativeWorkspacePath({
+    cwd,
+    sourceWorktreeRoot,
+  });
+  const sourceGitRoot = canonicalHandoffPath(sourceWorktreeRoot);
+  return (repoWorktreeEntries ?? [])
+    .filter((entry) => canonicalHandoffPath(entry.root) !== sourceGitRoot)
+    .map((entry) => ({
+      gitRoot: entry.root,
+      workspaceRoot:
+        relativeWorkspacePath.length > 0
+          ? joinPathRuntime(entry.root, relativeWorkspacePath)
+          : entry.root,
+    }));
+}
+type PermissionPolicyLike =
+  | {
+      type?: string | null;
+      mode?: string | null;
+    }
+  | string
+  | null
+  | undefined;
+
+function serializeSandboxPolicy(policy: PermissionPolicyLike): string | null {
+  if (typeof policy === "string") return policy;
+  switch (policy?.type) {
+    case "dangerFullAccess":
+      return "danger-full-access";
+    case "readOnly":
+      return "read-only";
+    case "workspaceWrite":
+      return "workspace-write";
+    case "externalSandbox":
+      return null;
+  }
+  return policy?.mode ?? null;
+}
+
+export function serializePermissionPolicy(
+  permissions: {
+    activePermissionProfile?: { id?: string | null } | null;
+    sandboxPolicy?: PermissionPolicyLike;
+  } | null | undefined,
+): { permissions: string } | { sandbox: string | null } {
+  const activePermissionProfile = permissions?.activePermissionProfile;
+  return activePermissionProfile?.id == null
+    ? { sandbox: serializeSandboxPolicy(permissions?.sandboxPolicy) }
+    : { permissions: activePermissionProfile.id };
+}
+export const serverConfigRequirementsQuery = serverConfigRequirementsQueryRuntime;
+export { setRevertConfirmDialogSkipChecked } from "../review/review-patch-action-boundary-runtime";
+export { setSidebarPanelForSide } from "../app-shell/side-panel-runtime";
+export const sharedStateKeys = sharedStateKeysRuntime;
+export function shouldHideAutomationExecutionEnvironment(draft: {
+  kind?: string | null;
+}): boolean {
+  return draft.kind === "heartbeat";
+}
+export const sidePanelTabViewedEvent = sidePanelTabViewedEventRuntime;
+export {
+  SidebarPanelClosedIcon as sidebarPanelClosedIcon,
+  SidebarPanelOpenIcon as sidebarPanelOpenIcon,
+  SidebarUnreadIcon as sidebarUnreadIcon,
+} from "../icons/sidebar-panel-icons";
+export function splitWorkspacePathSegments(input: {
+  cwd?: string | null;
+  path: string;
+}): string[] {
+  return displayWorkspacePath(resolveWorkspacePath(input))
+    .split("/")
+    .filter((segment) => segment.length > 0);
+}
+export { dataUrlFromSvg as svgToDataUri } from "../utils/data-url-from";
+export const tabKindIds = SidePanelTabIdRuntime;
+export const themeRevisionAtom = createScopedAtom(appStoreScope, 0);
+export { toConversationKey } from "../conversations/conversation-identity-runtime";
+export const toFilePreviewUrl = buildLocalFileSrcRuntime;
+export { toGitRelativePathKey } from "../utils/git-relative-display-path";
+export const toHostConfig = normalizeRemoteConnectionToHostConfigRuntime;
+export { truncateBranchName } from "../runtime/onboarding-hot-helpers-runtime";
+export { sidebarUnreadActivityCountSignal as unreadActivityCountSignal } from "../app-shell/sidebar-unread-count-signal";
+export function updateSharedObjectState<TValue>(
+  store: {
+    get<TSelected>(signal: unknown, key: string): TSelected | undefined;
+    set<TSelected>(signal: unknown, key: string, value: TSelected): void;
+  },
+  key: string,
+  nextValue: TValue | ((currentValue: TValue | undefined) => TValue),
+): void {
+  updateSharedObjectValueRuntime(store, key, nextValue);
+}
+export const useAppScopeAtomValue = useAppScopeValue;
+export function useAutomationModelsQuery() {
+  return useModelListQueryRuntime({ includeUltraReasoningEffort: false });
+}
+export function useBackgroundSubagents(conversationId?: string | null): unknown[] {
+  initBackgroundSubagentsRuntimeChunk();
+  return (
+    useAppScopeValue<unknown[]>(backgroundAgentsSignalRuntime, conversationId ?? null) ??
+    []
+  );
+}
+export function useBrowserSidebarEnabled(): boolean {
+  return (
+    useAppScopeValue<boolean>(isBrowserSidebarEnabledSignalRuntime) !== false
+  );
+}
+export const useComposerStateValue = useAppScopeValue;
+export { useConversationComments } from "../conversations/conversation-identity-runtime";
+export function useConversationMeta(conversationId?: string | null): {
+  conversationId: string | null;
+  cwd: string | null;
+  hostId: string;
+} {
+  const resolvedConversationId = conversationId ?? null;
+  const cwd =
+    resolvedConversationId == null
+      ? null
+      : (useAppScopeValue<string | null>(
+          conversationCwdSignalRuntime,
+          resolvedConversationId,
+        ) ?? null);
+  const hostId =
+    (resolvedConversationId == null
+      ? null
+      : useAppScopeValue<string | null>(
+          conversationHostIdSignalRuntime,
+          resolvedConversationId,
+        )) ??
+    useAppScopeValue<string | null>(defaultHostIdSignalRuntime) ??
+    "local";
+  return { conversationId: resolvedConversationId, cwd, hostId };
+}
+type WorkspaceContextLike = {
+  cwd?: string | null;
+  git?: { root?: string | null } | null;
+  kind?: string | null;
+  root?: string | null;
+  workspaceRoot?: string | null;
+};
+
+function usableCwd(value: unknown): value is string {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function normalizeOptionalPath(value: unknown): string | null {
+  return usableCwd(value) ? normalizePathRuntime(value) : null;
+}
+
+function resolveCurrentWorktreeRoot(context: unknown): string | null {
+  if (context == null || typeof context !== "object") return null;
+  const record = context as WorkspaceContextLike;
+  if (record.kind === "git") {
+    return normalizeOptionalPath(record.git?.root ?? record.root);
+  }
+  return normalizeOptionalPath(
+    record.workspaceRoot ?? record.root ?? record.cwd,
+  );
+}
+
+export function useCurrentWorktreeRoot(): string | null {
+  return resolveCurrentWorktreeRoot(
+    useAppScopeValue(workspaceContextSignalRuntime),
+  );
+}
+export { useDiffHighlighter } from "../review/diff-highlighter-boundary-runtime";
+export const usePermissionSettings = usePermissionsModeRuntime;
+export function usePersistedToggleSetter(
+  key: string,
+): (value: boolean | ((current: boolean) => boolean)) => void {
+  return (value) => {
+    const current = readPersistedSignalSnapshot(undefined, key);
+    const next =
+      typeof value === "function"
+        ? value(Boolean(current))
+        : Boolean(value);
+    persistScopedSignalValue(readAppScopeStore(), key, next);
+  };
+}
+export { useReducedMotion as usePrefersReducedMotion } from "../utils/use-reduced-motion";
+export const useReviewFindHighlight = useApplyDiffFindHighlightRuntime;
+export function useScopedPersistedValue<TValue = unknown>(
+  key: string,
+  fallback?: TValue,
+): { data: TValue | undefined; isLoading: boolean } {
+  const [data] = React.useState<TValue | undefined>(() => {
+    const value = readPersistedSignalSnapshot(undefined, key);
+    return value === undefined ? fallback : (value as TValue);
+  });
+  return { data, isLoading: false };
+}
+export const useSubscriptionQuery = useSelectedAccountQueryRuntime;
+export { useMeasuredTextMeasurement as useTextMeasurement } from "../utils/use-measured-text-collapse";
+export function useThreadHostContext(conversationId?: string | null): {
+  getHostId(): string;
+  hostId: string;
+} {
+  const resolvedConversationId = conversationId ?? null;
+  const hostId =
+    (resolvedConversationId == null
+      ? null
+      : useAppScopeValue<string | null>(
+          conversationHostIdSignalRuntime,
+          resolvedConversationId,
+        )) ??
+    useAppScopeValue<string | null>(defaultHostIdSignalRuntime) ??
+    "local";
+  return React.useMemo(
+    () => ({
+      getHostId: () => hostId,
+      hostId,
+    }),
+    [hostId],
+  );
+}
+type ThreadsQueryThreadRecord = {
+  createdAt?: number | string | null;
+  hasUnreadTurn?: boolean;
+  hostId?: string | null;
+  id: string;
+  name?: string | null;
+  preview?: string | null;
+  title?: string | null;
+  updatedAt?: number | string | null;
+};
+
+export function useThreadsQuery() {
+  return useReactQueryRuntime<ThreadsQueryThreadRecord[]>({
+    queryKey: ["background-threads", "local-options"],
+    queryFn: async () => {
+      const result = await listBackgroundThreadsRuntime({
+        scope: readAppScopeStore(),
+        limit: 200,
+        query: null,
+      });
+      return (result.threads ?? []).map((thread) => ({
+        ...thread,
+        name: thread.title,
+        preview: thread.preview ?? thread.title,
+      }));
+    },
+    staleTime: queryDurationsRuntime.FIVE_SECONDS,
+  });
+}
+export function useTurnFixedContentPortalContainer(
+  conversationId?: string | null,
+): HTMLElement | null {
+  const [container, setContainer] = React.useState<HTMLElement | null>(null);
+  React.useLayoutEffect(() => {
+    if (typeof document === "undefined") {
+      setContainer(null);
+      return;
+    }
+    const escapedConversationId =
+      conversationId == null
+        ? null
+        : typeof CSS !== "undefined" && typeof CSS.escape === "function"
+          ? CSS.escape(conversationId)
+          : conversationId.replace(/["\\]/g, "\\$&");
+    const scopedContainer =
+      escapedConversationId == null
+        ? null
+        : document.querySelector<HTMLElement>(
+            `[data-conversation-id="${escapedConversationId}"] [data-turn-fixed-content-portal]`,
+          );
+    setContainer(
+      scopedContainer ??
+        document.querySelector<HTMLElement>(
+          "[data-turn-fixed-content-portal]",
+        ) ??
+        document.body,
+    );
+  }, [conversationId]);
+  return container;
+}
+type WorktreeOrigin = {
+  dir: string;
+  originUrl?: string | null;
+  root?: string | null;
+};
+
+type WorktreeApplyTarget = {
+  gitRoot: string;
+  label: string;
+  workspaceRoot: string;
+};
+
+type WorktreeTargetRootsOptions = {
+  conversationCwd?: string | null;
+  hostConfig: unknown;
+};
+
+type WorktreeTargetRootsResult = {
+  sourceWorkspaceRoot: string | null;
+  targetRoots: WorktreeApplyTarget[];
+  worktreePath: string | null;
+};
+
+export function useWorktreeTargetRoots({
+  conversationCwd = null,
+  hostConfig,
+}: WorktreeTargetRootsOptions): WorktreeTargetRootsResult {
+  const currentWorktreeRoot = useCurrentWorktreeRoot();
+  const activeWorkspaceRoots = useAppScopeValue<{
+    data?: { roots?: string[] } | null;
+  }>(activeWorkspaceRootsQueryRuntime);
+  const candidateDirs = uniqRuntime(
+    [
+      conversationCwd,
+      ...(activeWorkspaceRoots?.data?.roots?.filter(usableCwd) ?? []),
+    ].filter((dir): dir is string => dir != null),
+  );
+
+  const { data: originsData } = useScopedQueryRuntime<{
+    data?: { origins?: WorktreeOrigin[] };
+  }>(worktreeOriginsQueryAtom, {
+    params: { dirs: candidateDirs },
+    source: "apply_worktree",
+  });
+  const origins = originsData?.origins;
+  const normalizedConversationCwd = normalizeOptionalPath(conversationCwd);
+  const conversationOrigin = origins?.find(
+    (origin) => normalizeOptionalPath(origin.dir) === normalizedConversationCwd,
+  );
+
+  const matchingOrigin =
+    conversationOrigin?.originUrl == null
+      ? null
+      : (origins?.find((origin) => {
+          if (origin.originUrl !== conversationOrigin.originUrl) return false;
+          if (
+            normalizedConversationCwd != null &&
+            normalizeOptionalPath(origin.dir) === normalizedConversationCwd
+          ) {
+            return false;
+          }
+          return currentWorktreeRoot == null
+            ? true
+            : !isPathWithinRootRuntime(origin.dir, currentWorktreeRoot);
+        }) ?? null);
+
+  const gitRoot = matchingOrigin?.root ?? null;
+  const workspaceRoot = matchingOrigin?.dir ?? null;
+  const { data: baseBranchLabel = "-" } = useScopedQueryRuntime<{
+    data?: string | null;
+  }>(worktreeBaseBranchQueryAtom, {
+    cwd: gitRoot,
+    enabled: gitRoot != null,
+    hostConfig,
+    operationSource: "apply_worktree",
+  });
+
+  return {
+    sourceWorkspaceRoot: workspaceRoot,
+    targetRoots:
+      workspaceRoot == null || gitRoot == null
+        ? []
+        : [
+            {
+              gitRoot,
+              label: baseBranchLabel ?? "-",
+              workspaceRoot,
+            },
+          ],
+    worktreePath: conversationCwd,
+  };
+}
+function parseWebSearchUrl(value: string | null | undefined): URL | null {
+  if (value == null) return null;
+  try {
+    const trimmed = value
+      .trim()
+      .replace(/^[("'`]+|[)"'`,.;!?]+$/gu, "");
+    const url = new URL(
+      /^[a-z][a-z\d+\-.]*:\/\//iu.test(trimmed)
+        ? trimmed
+        : `https://${trimmed}`,
+    );
+    return url.protocol === "http:" || url.protocol === "https:" ? url : null;
+  } catch {
+    return null;
+  }
+}
+
+function webSearchUrlFromAction(action: WebSearchAction): URL | null {
+  switch (action?.type) {
+    case "openPage":
+    case "findInPage":
+      return parseWebSearchUrl(action.url);
+    case "search":
+    case "other":
+    case undefined:
+      return null;
+  }
+}
+
+function webSearchQueryCandidates(
+  activity: WebSearchActivityLike,
+): string[] {
+  return activity.action?.type === "search"
+    ? [
+        activity.action.query,
+        ...(activity.action.queries ?? []),
+        activity.query,
+      ].flatMap((query) => (query == null ? [] : [query]))
+    : activity.query == null
+      ? []
+      : [activity.query];
+}
+
+function findWebSearchUrlInQuery(query: string): URL | null {
+  const siteMatch = /\bsite:([^\s]+)/iu.exec(query);
+  const explicitUrlMatch = /\bhttps?:\/\/[^\s"'<>]+/iu.exec(query);
+  return parseWebSearchUrl(siteMatch?.[1] ?? explicitUrlMatch?.[0]);
+}
+
+function baseFaviconDomain(hostname: string): string {
+  const parts = hostname.split(".");
+  if (parts.length <= 2) return hostname;
+  const penultimatePart = parts.at(-2);
+  return parts.at(-1)?.length === 2 &&
+    penultimatePart != null &&
+    penultimatePart.length <= 3 &&
+    parts.length >= 3
+    ? parts.slice(-3).join(".")
+    : parts.slice(-2).join(".");
+}
+
+function faviconUrlForWebSearchUrl(url: URL): string {
+  return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(
+    baseFaviconDomain(url.hostname),
+  )}&sz=32`;
+}
+
+export function webSearchFaviconUrl(
+  activity: WebSearchActivityLike,
+): string | null {
+  const actionUrl = webSearchUrlFromAction(activity.action);
+  if (actionUrl != null) return faviconUrlForWebSearchUrl(actionUrl);
+
+  for (const query of webSearchQueryCandidates(activity)) {
+    const queryUrl = findWebSearchUrlInQuery(query);
+    if (queryUrl != null) return faviconUrlForWebSearchUrl(queryUrl);
+  }
+  return null;
+}
+type WorktreeOriginsQueryParams = {
+  dirs?: string[];
+  hostId?: string;
+};
+
+type WorktreeOriginsQueryInput = {
+  enabled?: boolean;
+  params?: WorktreeOriginsQueryParams;
+  source?: string;
+};
+
+type QueryCacheLike = {
+  findAll(filters?: { queryKey?: unknown }): Array<{
+    meta?: { gitOrigins?: WorktreeOriginsQueryParams };
+    queryKey: unknown;
+  }>;
+};
+
+type QueryClientLike = {
+  getQueryCache?(): QueryCacheLike;
+  getQueryData?(queryKey: unknown): unknown;
+  invalidateQueries?(
+    filters?: { queryKey?: unknown; [key: string]: unknown },
+    options?: unknown,
+  ): Promise<unknown> | unknown;
+};
+
+function readGitOriginsPlaceholder(
+  queryClient: QueryClientLike | undefined,
+  params: WorktreeOriginsQueryParams | undefined,
+): unknown {
+  if (params?.dirs == null || params.dirs.length === 0) return undefined;
+  const queries =
+    queryClient?.getQueryCache?.().findAll({
+      queryKey: createHostQueryKeyRuntime("git-origins"),
+    }) ?? [];
+  for (const query of queries) {
+    const metadata = query.meta?.gitOrigins;
+    if (metadata?.hostId !== params.hostId || metadata.dirs == null) continue;
+    const cachedDirs = new Set(metadata.dirs);
+    if (!params.dirs.every((dir) => cachedDirs.has(dir))) continue;
+    const cachedData = queryClient?.getQueryData?.(query.queryKey);
+    if (cachedData != null) return cachedData;
+  }
+  return undefined;
+}
+
+type WorktreeBaseBranchQueryParams = {
+  commonDir?: string | null;
+  cwd?: string | null;
+  enabled?: boolean;
+  hostConfig?: unknown;
+  hostKey?: string | null;
+  operationSource?: string;
+  refetchOnWindowFocus?: boolean;
+  root?: string | null;
+  staleTime?: number | null;
+};
+
+const worktreeBaseBranchQueryFamily =
+  createCwdQueryAtomFamilyRuntime<WorktreeBaseBranchQueryParams>({
+    method: "current-branch",
+    getParams: (params) => ({
+      operationSource: params.operationSource,
+      root: params.root,
+    }),
+    getOptions: (params) => ({
+      refetchOnWindowFocus: params.refetchOnWindowFocus,
+      select: (response: unknown) =>
+        (response as { branch?: string | null } | null)?.branch ?? null,
+      ...(params.staleTime == null ? {} : { staleTime: params.staleTime }),
+    }),
+  });
+
+type WorktreeBranchMutationContext = {
+  cwd: string;
+  hostConfig?: unknown;
+  operationSource: string;
+};
+
+type WorktreeBranchMutationVariables = {
+  branch: string;
+  failIfExists?: boolean;
+  mode?: "synced" | "worktree";
+  signal?: AbortSignal;
+};
+
+type WorktreeBranchCommandResult = {
+  branch?: string;
+  conflictedPaths?: unknown;
+  error?: string;
+  errorType?: string;
+  execOutput?: unknown;
+  status?: string;
+};
+
+function hostIdFromConfig(hostConfig: unknown): string | undefined {
+  if (typeof hostConfig === "string") return hostConfig;
+  if (hostConfig == null || typeof hostConfig !== "object") return undefined;
+  const record = hostConfig as Record<string, unknown>;
+  const hostId = record.id ?? record.hostId;
+  return typeof hostId === "string" ? hostId : undefined;
+}
+
+export const workspaceFoldersQuerySignal = activeWorkspaceRootsQueryRuntime;
+export const worktreeBaseBranchQueryAtom = worktreeBaseBranchQueryFamily.fromCwd$;
+export const worktreeBranchMutationAtom = createScopedMutationAtom(
+  appStoreScope,
+  (
+    context: WorktreeBranchMutationContext,
+    { queryClient }: { queryClient?: QueryClientLike },
+  ) => {
+    const hostId = hostIdFromConfig(context.hostConfig);
+    return {
+      mutationKey: [
+        "vscode",
+        "git-create-and-checkout-branch",
+        context.cwd,
+        hostId ?? "local",
+        context.operationSource,
+      ],
+      mutationFn: async ({
+        signal,
+        ...variables
+      }: WorktreeBranchMutationVariables) => {
+        const createResult =
+          await sendHostRequestRuntime<WorktreeBranchCommandResult>(
+            "git-create-branch",
+            {
+              params: {
+                ...variables,
+                cwd: context.cwd,
+                hostId,
+              },
+              signal,
+              source: context.operationSource,
+            },
+          );
+        if (createResult.status === "error") {
+          return {
+            status: "create-error",
+            error: createResult.error,
+            execOutput: createResult.execOutput,
+          };
+        }
+
+        const checkoutResult =
+          await sendHostRequestRuntime<WorktreeBranchCommandResult>(
+            "git-checkout-branch",
+            {
+              params: {
+                branch: variables.branch,
+                cwd: context.cwd,
+                hostId,
+              },
+              signal,
+              source: context.operationSource,
+            },
+          );
+        return checkoutResult.status === "error"
+          ? {
+              status: "checkout-error",
+              error: checkoutResult.error,
+              errorType: checkoutResult.errorType,
+              conflictedPaths: checkoutResult.conflictedPaths,
+              execOutput: checkoutResult.execOutput,
+            }
+          : { status: "success", branch: checkoutResult.branch };
+      },
+      onSettled: () => {
+        void queryClient?.invalidateQueries?.({
+          queryKey: createHostQueryKeyRuntime("git-current-branch"),
+        });
+        void queryClient?.invalidateQueries?.({
+          queryKey: createHostQueryKeyRuntime("git-metadata"),
+        });
+      },
+      networkMode: "always",
+    };
+  },
+);
+export const worktreeOriginsQueryAtom = createScopedQueryAtom(
+  appStoreScope,
+  (
+    { enabled = true, params, source }: WorktreeOriginsQueryInput = {},
+    { queryClient }: { queryClient?: QueryClientLike },
+  ) => {
+    const requestParams = params ?? {};
+    return {
+      enabled:
+        enabled !== false &&
+        (requestParams.dirs == null || requestParams.dirs.length > 0),
+      meta: {
+        gitOrigins: {
+          dirs: requestParams.dirs,
+          hostId: requestParams.hostId,
+        },
+      },
+      placeholderData: () => readGitOriginsPlaceholder(queryClient, params),
+      queryFn: ({ signal }: { signal?: AbortSignal } = {}) =>
+        sendHostRequestRuntime("git-origins", {
+          params: requestParams,
+          signal,
+          source,
+        }),
+      queryKey: createHostQueryKeyRuntime("git-origins", requestParams),
+      staleTime: queryDurationsRuntime.FIVE_SECONDS,
+    };
+  },
+);
+export const worktreeSetupRoutePath = pendingWorktreeInitPathRuntime;
+export const writeSettingsToolName = "write_settings";
+export function writeStoredValue(key: string, value: unknown): void {
+  try {
+    window.localStorage?.setItem(key, JSON.stringify(value));
+  } catch {
+    // Storage is best-effort; callers already provide in-memory fallbacks.
+  }
+}
 
 // --- automations-page Bc0ZtIBr body-restoration cross-chunk symbols (open boundary; replace as owning modules are restored) ---
-export const CommandMenuItem = undefined as never;
-export const MagnifyingGlassIcon = undefined as never;
-export const MoonIcon = undefined as never;
-export const ProjectKindIcon = undefined as never;
-export const ThemeColorSwatch = undefined as never;
-export const allHostServicesAtom = undefined as never;
-export const appBadgeCountAtom = undefined as never;
-export const commandMenuWorkspaceGroupsAtom = undefined as never;
-export const computeCodeThemePreview = undefined as never;
-export const currentRouteSignal = undefined as never;
-export const findOpenConversationView = undefined as never;
-export const getConversationNavigationPath = undefined as never;
-export const getConversationTitle = undefined as never;
-export const getRemoteTaskNavigationPath = undefined as never;
-export const hasRunningTurnAtom = undefined as never;
-export const isConversationMuted = undefined as never;
-export const isHostPluggedInAtom = undefined as never;
-export const isWindowFocusedAtom = undefined as never;
-export const notificationSettings = undefined as never;
-export const pendingApprovalsAtom = undefined as never;
-export const powerSaveSettings = undefined as never;
-export const useCodeThemes = undefined as never;
-export const useCommandMenuRegistration = undefined as never;
-export const useCommandMenuState = undefined as never;
-export const useQueries = undefined as never;
-export const useRemoteTasksQuery = undefined as never;
-export const useSelectProjectForNewThread = undefined as never;
-export const writeScopedSetting = undefined as never;
+export { DropdownSearchIcon as MagnifyingGlassIcon } from "../ui/dropdown";
+export { ProjectKindIcon } from "../command-menu/new-thread-project-runtime";
+export { ThemeColorSwatch } from "../command-menu/theme-preview-runtime";
+export { appBadgeCountAtom } from "../runtime/global-ui-state-boundary-runtime";
+export { computeCodeThemePreview } from "../command-menu/theme-preview-runtime";
+export {
+  hasRunningTurnAtom,
+  isHostPluggedInAtom,
+} from "../runtime/power-save-state-runtime";
+export { powerSaveSettings } from "../runtime/onboarding-misc-boundary-runtime";
+export { useCodeThemes } from "../command-menu/theme-preview-runtime";
+export { useSelectProjectForNewThread } from "../command-menu/new-thread-project-runtime";
+
+export {
+  applyStatsigFeatureOverrides,
+  getEnabledFeaturesSnapshot,
+  onboardingDynamicConfigStoreKey,
+  owlFeatureAuth,
+  owlFeatureAutofillAndPasswords,
+  owlFeatureDownloads,
+  owlFeatureExtensions,
+  owlFeatureHistory,
+  owlFeatureOpenAiGoLinks,
+  owlFeaturePermissions,
+  owlFeaturePrinting,
+  owlFeatureWebViewEnhancements,
+  owlFeaturesQueryKey,
+  owlFeaturesQueryKeyPrefix,
+  parseOnboardingDynamicConfig,
+  useCodexAppStore,
+  useStatsigFeatureOverride,
+} from "../statsig/owl-feature-runtime";
+
+export {
+  allHostServicesAtom,
+  findOpenConversationView,
+  getConversationTitle,
+  getRemoteTaskNavigationPath,
+  isConversationMuted,
+  isWindowFocusedAtom,
+  notificationSettings,
+  pendingApprovalsAtom,
+  useRemoteTasksQuery,
+} from "../notifications/desktop-notification-runtime";
 
 // --- automations-page Bc0ZtIBr statsig cluster cross-chunk symbols (open boundary) ---
-export const HostRequestError = undefined as never;
-export const StatsigAnalyticsBridge = undefined as never;
-export const applyStatsigFeatureOverrides = undefined as never;
-export const buildStatsigUser = undefined as never;
-export const codexBrandName = undefined as never;
-export const finalizeStatsigUser = undefined as never;
-export const getEnabledFeaturesSnapshot = undefined as never;
-export const hostAppInfoQueryOptions = undefined as never;
-export const hostPlatformInfoQueryOptions = undefined as never;
-export const hostRequestBridge = undefined as never;
-export const onboardingDynamicConfigStoreKey = undefined as never;
-export const owlFeatureAuth = undefined as never;
-export const owlFeatureAutofillAndPasswords = undefined as never;
-export const owlFeatureDownloads = undefined as never;
-export const owlFeatureExtensions = undefined as never;
-export const owlFeatureHistory = undefined as never;
-export const owlFeatureOpenAiGoLinks = undefined as never;
-export const owlFeaturePermissions = undefined as never;
-export const owlFeaturePrinting = undefined as never;
-export const owlFeatureWebViewEnhancements = undefined as never;
-export const owlFeaturesQueryKey = undefined as never;
-export const owlFeaturesQueryKeyPrefix = undefined as never;
-export const parseOnboardingDynamicConfig = undefined as never;
-export const requestStatsigBootstrapPayload = undefined as never;
-export const statsigBase64BodyHeaderName = undefined as never;
-export const statsigLogEventUrl = undefined as never;
-export const statsigReadyContext = undefined as never;
-export const useCodexAppStore = undefined as never;
-export const useCurrentAccountQuery = undefined as never;
-export const useHostInfoQuery = undefined as never;
-export const useHostResourceQuery = undefined as never;
-export const useStatsigAnalyticsLogger = undefined as never;
-export const useStatsigFeatureOverride = undefined as never;
+export {
+  StatsigAnalyticsBridge,
+  buildStatsigUser,
+  codexBrandName,
+  finalizeStatsigUser,
+  hostAppInfoQueryOptions,
+  hostPlatformInfoQueryOptions,
+  hostRequestBridge,
+  requestStatsigBootstrapPayload,
+  statsigBase64BodyHeaderName,
+  statsigLogEventUrl,
+  statsigReadyContext,
+  useCurrentAccountQuery,
+  useHostInfoQuery,
+  useHostResourceQuery,
+  useStatsigAnalyticsLogger,
+} from "../statsig/statsig-provider-runtime";
 
 // --- automations-page Bc0ZtIBr analytics + feedback clusters cross-chunk symbols (open boundary) ---
-export const AnalyticsLogger = undefined as never;
-export const analyticsApiClient = undefined as never;
-export const buildAnalyticsRequestInit = undefined as never;
-export const codexMetadataEventProtoNamespaces = undefined as never;
-export const emptyCodexEventDescriptor = undefined as never;
-export const useAnalyticsEnabledQuery = undefined as never;
-export const FeedbackIcon = undefined as never;
-export const appServerHostSetupConfig = undefined as never;
-export const buildThreadFeedbackTags = undefined as never;
-export const useActiveHost = undefined as never;
-export const useAppServerHostSetup = undefined as never;
-export const useRegisterComposerSlashCommand = undefined as never;
+export {
+  AnalyticsLogger,
+  analyticsApiClient,
+  branchPushedProductEvent,
+  buildAnalyticsRequestInit,
+  gitBlameEnabledEventToken,
+  gitCommittedProductEvent,
+  pullRequestCreatedProductEvent,
+  reviewPatchActionEvent,
+} from "../analytics/analytics-runtime-externals";
+export const codexMetadataEventProtoNamespaces: unknown[] = [];
+export const emptyCodexEventDescriptor = { $type: "" };
+export function FeedbackIcon({
+  className,
+}: {
+  className?: string;
+}): React.JSX.Element {
+  return React.createElement(
+    "span",
+    {
+      "aria-hidden": true,
+      className,
+    },
+    "?",
+  );
+}
+export const appServerHostSetupConfig = { hostId: "local" };
+export function buildThreadFeedbackTags(
+  threadId: string | null | undefined,
+): Record<string, unknown> {
+  return threadId == null ? {} : { thread_id: threadId };
+}
+export function useActiveHost(): string {
+  return "local";
+}
+export function useAppServerHostSetup(): void {}
+export function useRegisterComposerSlashCommand(_command: unknown): void {}
 
 // --- automations-page Bc0ZtIBr plugins / eval-control cluster cross-chunk symbols (open boundary) ---
-export const AppBuildChannel = undefined as never;
-export const INTERNAL_PLUGINS_CONFIG_KEY = undefined as never;
-export const PLUGIN_MARKETPLACES_REFRESHED_MARKER = undefined as never;
-export const buildMcpElicitationDecision = undefined as never;
-export const conversationIdForThreadId = undefined as never;
-export const debugEvalControlBridge = undefined as never;
-export const getAppBuildChannel = undefined as never;
-export const internalPluginsConfigSchema = undefined as never;
-export const invokeMainProcessCommand = undefined as never;
-export const loadPetInstallModalHost = undefined as never;
-export const loadPetInstallState = undefined as never;
-export const parseHostConfigDocument = undefined as never;
-export const pendingMcpElicitationByConversationSignal = undefined as never;
-export const renderOverlayInScope = undefined as never;
-export const useCurrentAccountEmail = undefined as never;
-export const usePluginMarketplacesRefresher = undefined as never;
-export const waitForPluginInstalled = undefined as never;
-
-// --- automations-page Bc0ZtIBr remote-connections cluster (open boundary) ---
-export const ErrorIcon = undefined as never;
-export const ProjectStorageKey = undefined as never;
-export const RemoteDirectoryPathInput = undefined as never;
-export const RemoteHostIcon = undefined as never;
-export const RemoteSshConnectionAction = undefined as never;
-export const RemoteSshConnectionErrorCategory = undefined as never;
-export const RemoteSshConnectionEventSource = undefined as never;
-export const RemoteSshConnectionResult = undefined as never;
-export const WarningIcon = undefined as never;
-export const allRemoteHostIdsAtom = undefined as never;
-export const createRemoteHostManager = undefined as never;
-export const currentHostIdSignal = undefined as never;
-export const disposeRemoteControlConnection = undefined as never;
-export const findRemoteProjectForPath = undefined as never;
-export const getRemoteConnectionState = undefined as never;
-export const getRemoteControlConnections = undefined as never;
-export const getRemoteProjectLabelFromPath = undefined as never;
-export const getSelectableRemoteHosts = undefined as never;
-export const initializeRemoteConnectionManagers = undefined as never;
-export const invokeAppServerRequest = undefined as never;
-export const isAbsoluteRemotePath = undefined as never;
-export const isRemoteControlBridgeDisabled = undefined as never;
-export const isReservedRemoteHostId = undefined as never;
-export const isSshConnection = undefined as never;
-export const isWslConnection = undefined as never;
-export const isWslConnectionsEnabledInConfig = undefined as never;
-export const logRemoteSshConnectionEvent = undefined as never;
-export const normalizeRemotePath = undefined as never;
-export const oneToOnePairingGate = undefined as never;
-export const remoteConnectionsStateSignal = undefined as never;
-export const remoteHostConfigAtom = undefined as never;
-export const remoteHostConfigQuery = undefined as never;
-export const remoteSshConnectionAnalyticsSignal = undefined as never;
-export const resolveRemoteControlConnections = undefined as never;
-export const sendRemoteHostRequest = undefined as never;
-export const setRemoteConnectionProgress = undefined as never;
-export const toComparableRemotePath = undefined as never;
-export const updateRemoteConnectionState = undefined as never;
-export const useAppServerQuery = undefined as never;
-export const useFeatureGateClient = undefined as never;
-export const useHostMessageHandler = undefined as never;
-export const useHostPlatform = undefined as never;
-export const useIsRemoteProjectsEnabled = undefined as never;
-export const useIsWorkspaceOnboardingActive = undefined as never;
-export const usePersistedValue = undefined as never;
-export const useRemoteConnections = undefined as never;
-export const useRemoteManagerRegistry = undefined as never;
-export const useSharedQuery = undefined as never;
-export const useSharedStateValue = undefined as never;
-export const writePersistedValue = undefined as never;
+export const INTERNAL_PLUGINS_CONFIG_KEY = "codex-internal-plugins";
+export const PLUGIN_MARKETPLACES_REFRESHED_MARKER =
+  "plugin-marketplaces-refreshed";
+export const buildMcpElicitationDecision = buildMcpElicitationDecisionRuntime;
+export function conversationIdForThreadId(
+  threadId: string | null | undefined,
+): string | null {
+  return typeof threadId === "string" && threadId.trim().length > 0
+    ? threadId
+    : null;
+}
+export const debugEvalControlBridge = {
+  scope: null as unknown,
+  bindScope(scope: unknown): () => void {
+    this.scope = scope;
+    return () => {
+      if (this.scope === scope) this.scope = null;
+    };
+  },
+  getScope(): unknown {
+    return this.scope;
+  },
+};
+export const internalPluginsConfigSchema = z
+  .object({
+    version: z.string().optional(),
+  })
+  .passthrough();
+export function invokeMainProcessCommand<T = unknown>(
+  command: string,
+  payload?: Record<string, unknown>,
+): Promise<T> {
+  return sendHostRequestRuntime(command, payload ?? {}) as Promise<T>;
+}
+export function loadPetInstallModalHost(): Promise<
+  typeof import("../runtime/current-app-initial/pet-install-modal-host-current-runtime")
+> {
+  return import(
+    "../runtime/current-app-initial/pet-install-modal-host-current-runtime"
+  );
+}
+export function loadPetInstallState(): Promise<
+  typeof import("../features/pet-install-state-entry")
+> {
+  return import("../features/pet-install-state-entry");
+}
+export function parseHostConfigDocument(config: unknown): Record<string, unknown> {
+  return config != null && typeof config === "object" && !Array.isArray(config)
+    ? (config as Record<string, unknown>)
+    : {};
+}
+export const pendingMcpElicitationByConversationSignal =
+  pendingMcpElicitationByConversationSignalRuntime;
+export function renderOverlayInScope<TProps extends { onClose?: () => void }>(
+  _scope: unknown,
+  OverlayComponent: ComponentType<TProps>,
+  props?: Omit<TProps, "onClose"> & { onClose?: () => void },
+): () => void {
+  if (typeof document === "undefined") return () => {};
+  const container = document.createElement("div");
+  container.dataset.codexOverlayRoot = "true";
+  document.body.appendChild(container);
+  const root = createRoot(container);
+  const close = () => {
+    props?.onClose?.();
+    root.unmount();
+    container.remove();
+  };
+  root.render(
+    React.createElement(OverlayComponent, {
+      ...(props ?? {}),
+      onClose: close,
+    } as TProps),
+  );
+  return close;
+}
+export function useCurrentAccountEmail(): { email: string | null } {
+  const { data } = useSelectedAccountQueryRuntime();
+  const account = data as { email?: unknown } | null | undefined;
+  return { email: typeof account?.email === "string" ? account.email : null };
+}
+export function usePluginMarketplacesRefresher(): (marker?: string) => void {
+  const queryClient = useQueryClientRuntime();
+  return React.useCallback(
+    (_marker?: string) => {
+      void queryClient.invalidateQueries({ queryKey: ["plugins"] });
+      void queryClient.invalidateQueries({ queryKey: ["plugin-marketplaces"] });
+    },
+    [queryClient],
+  );
+}
+export async function waitForPluginInstalled({
+  hostId,
+  marketplacePath,
+  pluginName,
+  pollIntervalMs = 500,
+  timeoutMs = 30_000,
+}: {
+  hostId: string;
+  marketplacePath?: string | null;
+  pluginName: string;
+  pollIntervalMs?: number;
+  timeoutMs?: number;
+}): Promise<void> {
+  const startedAt = Date.now();
+  for (;;) {
+    const response = (await sendAppServerRequestRuntime("list-plugins", {
+      hostId,
+    })) as {
+      marketplaces?: Array<{
+        path?: string | null;
+        plugins?: Array<{ installed?: boolean; name?: string }>;
+      }>;
+    };
+    const isInstalled =
+      response.marketplaces?.some(
+        (marketplace) =>
+          (marketplacePath == null || marketplace.path === marketplacePath) &&
+          marketplace.plugins?.some(
+            (plugin) =>
+              plugin.name === pluginName && plugin.installed === true,
+          ),
+      ) ?? false;
+    if (isInstalled) return;
+    if (Date.now() - startedAt >= timeoutMs) {
+      throw new Error(`Timed out waiting for plugin to install: ${pluginName}`);
+    }
+    await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
+  }
+}
 
 // --- automations-page Bc0ZtIBr sidebar cluster (open boundary) ---
-export const CodexWordmark = undefined as never;
-export const DialogDescription = undefined as never;
-export const DialogTitle = undefined as never;
-export const MINUTES_PER_DAY = undefined as never;
-export const MINUTES_PER_MONTH = undefined as never;
-export const MINUTES_PER_WEEK = undefined as never;
-export const MINUTES_PER_YEAR = undefined as never;
-export const ProjectThreadList = undefined as never;
-export const SidebarAccountFooter = undefined as never;
-export const SidebarBrowserFooter = undefined as never;
-export const SidebarChatsList = undefined as never;
-export const SidebarCloudSection = undefined as never;
-export const SidebarDragDropProvider = undefined as never;
-export const SidebarImportStatusBanner = undefined as never;
-export const SidebarKeyboardShortcutScope = undefined as never;
-export const SidebarPinnedSection = undefined as never;
-export const SidebarPrimaryNavLinks = undefined as never;
-export const SidebarRouteNavRow = undefined as never;
-export const SidebarThreadGroups = undefined as never;
-export const SidebarThreadShortcutRegistrar = undefined as never;
-export const SidebarThreadsSection = undefined as never;
-export const SidebarToolbarActions = undefined as never;
-export const SidebarUpsellCard = undefined as never;
-export const SidebarUsageAlert = undefined as never;
-export const SidebarWorkspaceHeader = undefined as never;
-export const SitesIcon = undefined as never;
-export const WORKSPACE_STATE_MOVES_GATE = undefined as never;
-export const browserUseTabsStore = undefined as never;
-export const canStartProjectlessChatAtom = undefined as never;
-export const clsx = undefined as never;
-export const debounce = undefined as never;
-export const featureGateAtomFamily = undefined as never;
-export const getResizeObserverBoxSize = undefined as never;
-export const getWorktreeMoveConfirmation = undefined as never;
-export const hiddenBackgroundBrowserWebviewEnabledAtom = undefined as never;
-export const hideCompletedImportStatusSignal = undefined as never;
-export const localProjectActionsEnabledAtom = undefined as never;
-export const logProjectsSidebarExposure = undefined as never;
-export const markSidebarScrollActivity = undefined as never;
-export const moveThreadToContainer = undefined as never;
-export const openSitesRoute = undefined as never;
-export const projectsSidebarModelAtom = undefined as never;
-export const projectsSidebarViewAtom = undefined as never;
-export const resolveTargetWorktreeWorkspaceRoot = undefined as never;
-export const revertThreadWorkspaceMove = undefined as never;
-export const setProjectPinned = undefined as never;
-export const setSidebarScrollPosition = undefined as never;
-export const setThreadPinned = undefined as never;
-export const shouldLogProjectsSidebarExposure = undefined as never;
-export const sidebarLayoutModeAtom = undefined as never;
-export const sidebarPreferencesAtom = undefined as never;
-export const sidebarScrollTopByModeAtom = undefined as never;
-export const sidebarSectionsModelAtom = undefined as never;
-export const sidebarSelectedWorkspaceRootAtom = undefined as never;
-export const sidebarStyles = undefined as never;
-export const sidebarWorkspaceRootAtom = undefined as never;
-export const sitesRouteAvailabilityAtom = undefined as never;
-export const syncDiscoveredThreadWorkspaceRootHints = undefined as never;
-export const useCodexHomeInfo = undefined as never;
-export const useDetailLevel = undefined as never;
-export const useHostEventListener = undefined as never;
-export const useIsSidebarOnboardingActive = undefined as never;
-export const useSyncSidebarRouteState = undefined as never;
+export function SidebarDragDropProvider({
+  children,
+}: {
+  children:
+    | React.ReactNode
+    | ((state: {
+        isDraggingProject: boolean;
+        isDraggingThread: boolean;
+      }) => React.ReactNode);
+  homeContainerIdByThreadId?: unknown;
+  onProjectDrop?: (drop: unknown) => void;
+  onThreadDrop?: (drop: unknown) => void;
+}): React.JSX.Element {
+  return React.createElement(
+    React.Fragment,
+    null,
+    typeof children === "function"
+      ? children({ isDraggingProject: false, isDraggingThread: false })
+      : children,
+  );
+}
+export function SidebarPinnedSection(): null {
+  return null;
+}
+export function SidebarRouteNavRow({
+  icon: Icon,
+  isActive,
+  label,
+  onClick,
+}: {
+  icon?: ComponentType<{ className?: string }>;
+  isActive?: boolean;
+  label: React.ReactNode;
+  onClick?: () => void;
+}): React.JSX.Element {
+  return React.createElement(
+    "button",
+    {
+      type: "button",
+      className: [
+        "flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left",
+        isActive ? "bg-token-sidebar-surface-secondary" : "",
+      ]
+        .filter(Boolean)
+        .join(" "),
+      onClick,
+    },
+    Icon == null ? null : React.createElement(Icon, { className: "icon-sm" }),
+    React.createElement("span", { className: "truncate" }, label),
+  );
+}
+export { browserUseTabsStore } from "../runtime/onboarding-misc-boundary-runtime";
+export const hiddenBackgroundBrowserWebviewEnabledAtom = createScopedAtom(
+  appRootScope,
+  false,
+);
+let lastSidebarScrollActivityAt = 0;
+export function markSidebarScrollActivity(): void {
+  lastSidebarScrollActivityAt = Date.now();
+}
+export function openSitesRoute(
+  _store: unknown,
+  navigate: (to: string, options?: unknown) => void,
+): void {
+  navigate("/sites");
+}
+export function revertThreadWorkspaceMove(): void {}
+export const sidebarStyles = {
+  sidebarScroll: {},
+};
+export const sitesRouteAvailabilityAtom = createJotaiAtom<
+  "available" | "unavailable" | string
+>("unavailable");
 
 // --- automations-page Bc0ZtIBr runtime+overlays cluster (open boundary) ---
-export const DEFAULT_LOCALE = undefined as never;
-export const appName = undefined as never;
-export const appSettingsSnapshot = undefined as never;
-export const closeModal = undefined as never;
-export const createHostInfoQuery = undefined as never;
-export const extractBaseLocale = undefined as never;
-export const findBestLocaleMatch = undefined as never;
-export const getCommandMatchScore = undefined as never;
-export const isBlankLocale = undefined as never;
-export const loadLocaleMessages = undefined as never;
-export const localeResolvedEvent = undefined as never;
-export const logProductEvent = undefined as never;
-export const normalizeLocaleOverride = undefined as never;
-export const relaunchNoticeSignal = undefined as never;
-export const resolveActiveTheme = undefined as never;
-export const resolvedLocaleSignal = undefined as never;
-export const setDocumentLocale = undefined as never;
-export const setKeyboardLayoutMap = undefined as never;
-export const themeConfigSignal = undefined as never;
-export const useIsTitlebarTintEnabled = undefined as never;
-export const useModals = undefined as never;
-export const useRelaunchApp = undefined as never;
-export const useResolvedLocaleInfo = undefined as never;
+export function getCommandMatchScore(text: string, query: string): number {
+  const normalizedText = text.toLowerCase();
+  const tokens = query
+    .toLowerCase()
+    .split(/\s+/)
+    .filter((token) => token.length > 0);
+  if (tokens.length === 0) return 1;
+  return tokens.every((token) => normalizedText.includes(token)) ? 1 : 0;
+}
+export const relaunchNoticeSignal = createScopedAtom(appRootScope, null);
+export function useIsTitlebarTintEnabled(): boolean {
+  return true;
+}
+export function useRelaunchApp(): () => void {
+  return React.useCallback(() => {
+    void sendHostRequestRuntime("relaunch-app", {});
+  }, []);
+}
 
 // --- automations-page Bc0ZtIBr lifecycle-effects cluster (open boundary) ---
-export const AVATAR_OVERLAY_PRODUCT_EVENT_NAME = undefined as never;
-export const AppLoadingFallback = undefined as never;
-export const AvatarOverlayActionProto = undefined as never;
-export const AvatarOverlayNotificationSourceProto = undefined as never;
-export const AvatarOverlayPetKindProto = undefined as never;
-export const AvatarOverlaySourceProto = undefined as never;
-export const CommandMenuList = undefined as never;
-export const CommandMenuListItem = undefined as never;
-export const ConversationUnreadAvatar = undefined as never;
-export const FIRST_COMMAND_ITEM_VALUE = undefined as never;
-export const RouteOutlet = undefined as never;
-export const RouteRedirect = undefined as never;
-export const avatarOverlayOpenStateAtom = undefined as never;
-export const connectedHostIdsAtom = undefined as never;
-export const currentHostIdAtom = undefined as never;
-export const experimentalFeatureEnablementQueryKey = undefined as never;
-export const formatRemoteTaskTitle = undefined as never;
-export const getBuildFlavor = undefined as never;
-export const getConnectedHost = undefined as never;
-export const getLocalConversationTitle = undefined as never;
-export const getLocalConversationWorkspaceLabel = undefined as never;
-export const hasPreviouslyCompletedOnboardingAtom = undefined as never;
-export const hydratePersistedAtoms = undefined as never;
-export const isEqual = undefined as never;
-export const logWorkspaceOnboardingEvent = undefined as never;
-export const markPersistedAtomsSynced = undefined as never;
-export const navigateToThreadRoute = undefined as never;
-export const onboardingForcedOverrideSignal = undefined as never;
-export const onboardingPreviouslyCompletedEvent = undefined as never;
-export const persistedAtomsRegistry = undefined as never;
-export const productEventLoggerAtom = undefined as never;
-export const projectlessOnboardingCompletedSignal = undefined as never;
-export const queryDevtoolsToggleEventSource = undefined as never;
-export const readPersistedAtomsSnapshot = undefined as never;
-export const setAnalyticsUser = undefined as never;
-export const setPersistedAtomValue = undefined as never;
-export const shouldAutoCompleteWorkspaceOnboarding = undefined as never;
-export const threadByKeyAtomFamily = undefined as never;
-export const unreadThreadKeysAtom = undefined as never;
-export const useCommandMenuStore = undefined as never;
-export const useFinalOnboardingStep = undefined as never;
-export const useHostConfigValue = undefined as never;
-export const useHostRegistry = undefined as never;
-export const useIsQueryDevtoolsEnabled = undefined as never;
-export const useIsRemoteHost = undefined as never;
-export const useMarkRemoteTaskReadMutation = undefined as never;
-export const useRegisterCommandMenuGroup = undefined as never;
-export const useSelectedAvatar = undefined as never;
-export const useTelemetryEligibilityQuery = undefined as never;
-export const useThreadNavigationContext = undefined as never;
-export const useWorkspaceOnboardingExperiment = undefined as never;
+export const AVATAR_OVERLAY_PRODUCT_EVENT_NAME = {
+  eventName: "codex_avatar_overlay",
+};
+export function AppLoadingFallback({
+  debugName,
+}: {
+  debugName?: string;
+}): React.JSX.Element {
+  return React.createElement(
+    "div",
+    {
+      "data-debug-name": debugName,
+      className: "flex h-screen items-center justify-center text-sm",
+    },
+    "Loading...",
+  );
+}
+export const AvatarOverlayActionProto = {
+  CODEX_AVATAR_OVERLAY_ACTION_UNSPECIFIED:
+    "CODEX_AVATAR_OVERLAY_ACTION_UNSPECIFIED",
+  CODEX_AVATAR_OVERLAY_ACTION_OPEN_REQUESTED:
+    "CODEX_AVATAR_OVERLAY_ACTION_OPEN_REQUESTED",
+  CODEX_AVATAR_OVERLAY_ACTION_CLOSE_REQUESTED:
+    "CODEX_AVATAR_OVERLAY_ACTION_CLOSE_REQUESTED",
+  CODEX_AVATAR_OVERLAY_ACTION_OPENED: "CODEX_AVATAR_OVERLAY_ACTION_OPENED",
+  CODEX_AVATAR_OVERLAY_ACTION_PET_SELECTED:
+    "CODEX_AVATAR_OVERLAY_ACTION_PET_SELECTED",
+  CODEX_AVATAR_OVERLAY_ACTION_MASCOT_CLICKED:
+    "CODEX_AVATAR_OVERLAY_ACTION_MASCOT_CLICKED",
+  CODEX_AVATAR_OVERLAY_ACTION_DRAG_COMPLETED:
+    "CODEX_AVATAR_OVERLAY_ACTION_DRAG_COMPLETED",
+  CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_TRAY_OPENED:
+    "CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_TRAY_OPENED",
+  CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_TRAY_CLOSED:
+    "CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_TRAY_CLOSED",
+  CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_OPENED:
+    "CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_OPENED",
+  CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_DISMISSED:
+    "CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_DISMISSED",
+  CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_REPLY_OPENED:
+    "CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_REPLY_OPENED",
+  CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_REPLY_SUBMITTED:
+    "CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_REPLY_SUBMITTED",
+  CODEX_AVATAR_OVERLAY_ACTION_CLOSED: "CODEX_AVATAR_OVERLAY_ACTION_CLOSED",
+  CODEX_AVATAR_OVERLAY_ACTION_CUSTOM_PET_CREATE_STARTED:
+    "CODEX_AVATAR_OVERLAY_ACTION_CUSTOM_PET_CREATE_STARTED",
+  UNRECOGNIZED: "UNRECOGNIZED",
+} as const;
+export const AvatarOverlayNotificationSourceProto = {
+  CODEX_AVATAR_OVERLAY_NOTIFICATION_SOURCE_UNSPECIFIED:
+    "CODEX_AVATAR_OVERLAY_NOTIFICATION_SOURCE_UNSPECIFIED",
+  CODEX_AVATAR_OVERLAY_NOTIFICATION_SOURCE_LOCAL:
+    "CODEX_AVATAR_OVERLAY_NOTIFICATION_SOURCE_LOCAL",
+  CODEX_AVATAR_OVERLAY_NOTIFICATION_SOURCE_CLOUD:
+    "CODEX_AVATAR_OVERLAY_NOTIFICATION_SOURCE_CLOUD",
+  UNRECOGNIZED: "UNRECOGNIZED",
+} as const;
+export const AvatarOverlayPetKindProto = {
+  CODEX_AVATAR_OVERLAY_PET_KIND_UNSPECIFIED:
+    "CODEX_AVATAR_OVERLAY_PET_KIND_UNSPECIFIED",
+  CODEX_AVATAR_OVERLAY_PET_KIND_BUILT_IN:
+    "CODEX_AVATAR_OVERLAY_PET_KIND_BUILT_IN",
+  CODEX_AVATAR_OVERLAY_PET_KIND_CUSTOM:
+    "CODEX_AVATAR_OVERLAY_PET_KIND_CUSTOM",
+  UNRECOGNIZED: "UNRECOGNIZED",
+} as const;
+export const AvatarOverlaySourceProto = {
+  CODEX_AVATAR_OVERLAY_SOURCE_UNSPECIFIED:
+    "CODEX_AVATAR_OVERLAY_SOURCE_UNSPECIFIED",
+  CODEX_AVATAR_OVERLAY_SOURCE_SETTINGS: "CODEX_AVATAR_OVERLAY_SOURCE_SETTINGS",
+  CODEX_AVATAR_OVERLAY_SOURCE_CONTEXT_MENU:
+    "CODEX_AVATAR_OVERLAY_SOURCE_CONTEXT_MENU",
+  CODEX_AVATAR_OVERLAY_SOURCE_MASCOT: "CODEX_AVATAR_OVERLAY_SOURCE_MASCOT",
+  CODEX_AVATAR_OVERLAY_SOURCE_NOTIFICATION_BADGE:
+    "CODEX_AVATAR_OVERLAY_SOURCE_NOTIFICATION_BADGE",
+  CODEX_AVATAR_OVERLAY_SOURCE_NOTIFICATION_ROW:
+    "CODEX_AVATAR_OVERLAY_SOURCE_NOTIFICATION_ROW",
+  CODEX_AVATAR_OVERLAY_SOURCE_NOTIFICATION_REPLY:
+    "CODEX_AVATAR_OVERLAY_SOURCE_NOTIFICATION_REPLY",
+  UNRECOGNIZED: "UNRECOGNIZED",
+} as const;
+export function ConversationUnreadAvatar({
+  conversationId,
+}: {
+  archived?: boolean;
+  conversationId: string;
+}): React.JSX.Element {
+  return React.createElement("span", {
+    "aria-hidden": true,
+    "data-conversation-id": conversationId,
+    className: "h-2 w-2 shrink-0 rounded-full bg-token-text-primary",
+  });
+}
+export const avatarOverlayOpenStateAtom = avatarOverlayOpenStateSignalRuntime;
+export const connectedHostIdsAtom = connectedHostIdsSignalRuntime;
+export const currentHostIdAtom = currentHostIdSignalRuntime;
+export const experimentalFeatureEnablementQueryKey = [
+  "experimental-feature-enablement",
+] as const;
+export function formatRemoteTaskTitle(title: string | null | undefined): string {
+  return title?.trim() ?? "";
+}
+export function getConnectedHost(
+  scope: { get<TValue = unknown>(signal: unknown, key?: unknown): TValue },
+  hostId: string,
+): { state: string } {
+  return getRemoteConnectionStateRuntime(scope, hostId);
+}
+export function getLocalConversationWorkspaceLabel({
+  cwd,
+  workspaceKind,
+}: {
+  cwd?: string | null;
+  workspaceKind?: unknown;
+}): string {
+  if (workspaceKind === "projectless") return "Projectless";
+  if (cwd == null || cwd.length === 0) return "";
+  return cwd.split(/[\\/]/).filter(Boolean).at(-1) ?? cwd;
+}
+export function navigateToThreadRoute(
+  _scope: unknown,
+  threadKey: string,
+  _threadNavigationContext: unknown,
+  navigate: (to: string, options?: unknown) => void,
+): void {
+  navigate(getLocalConversationPathRuntime(threadKey));
+}
+export const onboardingPreviouslyCompletedEvent = {
+  eventName: "codex_onboarding_previously_completed",
+};
+export const productEventLoggerAtom = createJotaiAtom({
+  logProductEvent(): void {},
+});
+export const queryDevtoolsToggleEventSource = {
+  listener: null as (() => void) | null,
+  setEventListener(listener: (() => void) | null): () => void {
+    this.listener = listener;
+    return () => {
+      if (this.listener === listener) this.listener = null;
+    };
+  },
+  emit(): void {
+    this.listener?.();
+  },
+};
+let currentAnalyticsUser: unknown = null;
+export function setAnalyticsUser(user: unknown): void {
+  currentAnalyticsUser = user;
+}
+const threadByKeySignals = new Map<string, unknown>();
+export const threadByKeyAtomFamily = {
+  scope: appRootScope,
+  resolve(_scope: unknown, threadKey: string): unknown {
+    let signal = threadByKeySignals.get(threadKey);
+    if (signal == null) {
+      signal = createScopedAtom(appRootScope, null);
+      threadByKeySignals.set(threadKey, signal);
+    }
+    return signal;
+  },
+};
+export const unreadThreadKeysAtom = createJotaiAtom<string[]>([]);
+export const useHostRegistry = useRemoteManagerRegistryRuntime;
+export function useIsQueryDevtoolsEnabled({
+  buildFlavor,
+  isDev,
+}: {
+  buildFlavor?: string | null;
+  isDev?: boolean;
+} = {}): boolean {
+  return Boolean(isDev || buildFlavor === "dev");
+}
+export function useMarkRemoteTaskReadMutation(taskId: string): {
+  mutate(): void;
+} {
+  return {
+    mutate: () => {
+      if (taskId.length > 0) {
+        void sendHostRequestRuntime("mark-remote-task-read", { taskId });
+      }
+    },
+  };
+}
+export function useTelemetryEligibilityQuery(enabled = true) {
+  return useReactQueryRuntime<boolean>({
+    enabled,
+    queryKey: ["telemetry-eligibility"],
+    queryFn: async () => true,
+    staleTime: queryDurationsRuntime.FIVE_MINUTES,
+  });
+}
+export function useThreadNavigationContext(): null {
+  return null;
+}
 
 // --- automations-page Bc0ZtIBr features/loaders/icons cluster (open boundary) ---
-export const ToastNotification = undefined as never;
-export const activeToastIdsAtom = undefined as never;
-export const automationDeletedExternallyMessage = undefined as never;
-export const buildPrimaryRuntimeStatusQueryKey = undefined as never;
-export const closeAppModal = undefined as never;
-export const isAppModalOpen = undefined as never;
-export const loadWorkspaceDependenciesToolName = undefined as never;
-export const navigateToImplementTodo = undefined as never;
-export const openAppModal = undefined as never;
-export const primaryRuntimeInstallProgressStorageKey = undefined as never;
-export const primaryRuntimeInstalledAtom = undefined as never;
-export const primaryRuntimeReadyInvalidationQueryKeyPrefixes =
-  undefined as never;
-export const readPersistedStorageValue = undefined as never;
-export const setHeartbeatAutomationsEnabled = undefined as never;
-export const useSetAtom = undefined as never;
+type ToastRecord = {
+  content?: React.ReactNode;
+  description?: React.ReactNode;
+  duration: number;
+  hasCloseButton: boolean;
+  isShown: boolean;
+  level: "danger" | "info" | "success" | "warning";
+  testId?: string;
+  title: React.ReactNode | null;
+};
+
+export function ToastNotification({ toastId }: { toastId: string }) {
+  const toast = useAppScopeValue<ToastRecord>(
+    toastRecordSignalRuntime,
+    toastId,
+  );
+  if (toast == null) return null;
+  return React.createElement(Toast, {
+    ...toast,
+    onRemove: () => {
+        removeToastRuntime(readAppScopeStore(), toastId);
+    },
+  });
+}
+export const activeToastIdsAtom = activeToastIdsSignalRuntime;
+export const automationDeletedExternallyMessage =
+  "Automation does not exist in the app and could not be updated. It may have been deleted manually by the user.";
+export const buildPrimaryRuntimeStatusQueryKey =
+  buildPrimaryRuntimeStatusQueryKeyRuntime;
+type AppModalComponent<TProps extends object = { onClose?: () => void }> =
+  ComponentType<TProps>;
+
+export function closeAppModal(
+  scope: ScopedModalStore,
+  ModalComponent: AppModalComponent,
+): void {
+  closeModalControllerModalRuntime(scope, ModalComponent);
+}
+
+export function isAppModalOpen(
+  scope: ScopedModalStore,
+  ModalComponent: AppModalComponent,
+): boolean {
+  return isModalControllerModalOpenRuntime(scope, ModalComponent);
+}
+export function navigateToImplementTodo({
+  comment,
+  fileName,
+  hostId,
+  line,
+}: {
+  comment?: string;
+  fileName: string;
+  hostId?: string | null;
+  line: number;
+  navigate?: (to: string, options?: unknown) => void;
+  scope?: unknown;
+}): void {
+  void openInEditor({
+    hostId,
+    line,
+    path: fileName,
+    target: comment,
+  });
+}
+export function openAppModal<TProps extends object>(
+  scope: ScopedModalStore,
+  ModalComponent: AppModalComponent<TProps>,
+  props?: Omit<TProps, "onClose">,
+): void {
+  openModalControllerModalRuntime(scope, ModalComponent, (props ?? {}) as TProps);
+}
+export const primaryRuntimeInstallProgressStorageKey =
+  primaryRuntimeInstallProgressStorageKeyRuntime;
+export const primaryRuntimeInstalledAtom = primaryRuntimeInstalledAtomRuntime;
+export const primaryRuntimeReadyInvalidationQueryKeyPrefixes = [
+  effectiveConfigQueryKeyPrefix,
+  layeredConfigQueryKeyPrefix,
+  userConfigQueryKeyPrefix,
+  ["skills"],
+  ["plugins"],
+] as const;
+export function readPersistedStorageValue<TValue>(
+  key: string,
+  fallback: TValue,
+): TValue {
+  if (typeof localStorage === "undefined") return fallback;
+  const rawValue = localStorage.getItem(key);
+  if (rawValue == null) return fallback;
+  try {
+    return JSON.parse(rawValue) as TValue;
+  } catch {
+    return rawValue as TValue;
+  }
+}
+let heartbeatAutomationsEnabled = false;
+export function setHeartbeatAutomationsEnabled(enabled: boolean): void {
+  heartbeatAutomationsEnabled = enabled;
+}
 
 // --- automations-page Bc0ZtIBr final residue (open boundary) ---
-export const addForkedFromConversationSyntheticItem = undefined as never;
-export const applyConversationStateSlice = undefined as never;
-export const buildConversationStateFromThread = undefined as never;
-export const bundledMarketplaceName = undefined as never;
-export const curatedMarketplaceName = undefined as never;
-export const curatedRemoteMarketplaceName = undefined as never;
-export const firstPartyBundledAppNameA = undefined as never;
-export const firstPartyBundledAppNameB = undefined as never;
-export const firstPartyBundledAppNameC = undefined as never;
-export const firstPartyBundledAppNameD = undefined as never;
-export const firstPartyBundledAppNameE = undefined as never;
-export const firstPartyBundledAppNameF = undefined as never;
-export const firstPartyBundledAppNameG = undefined as never;
-export const getConversationDisplayTitle = undefined as never;
-export const registerThreadSnapshot = undefined as never;
-export const resolveCatalogAppIdForMcpTool = undefined as never;
+type ThreadSnapshotRecord = Record<string, unknown>;
+
+const threadSnapshotRegistry = new Map<string, ThreadSnapshotRecord>();
+
+function threadSnapshotId(thread: ThreadSnapshotRecord): string | null {
+  const id = thread.id ?? thread.threadId ?? thread.conversationId;
+  return typeof id === "string" && id.trim().length > 0 ? id : null;
+}
+
+export function addForkedFromConversationSyntheticItem(
+  store: {
+    updateConversationState?(
+      conversationId: string,
+      updater: (draft: Record<string, unknown>) => void,
+    ): void;
+  },
+  conversationId: string,
+  sourceConversationId: string,
+  sourceConversationTitle?: string | null,
+): void {
+  const itemId =
+    typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID()
+      : `forked:${Date.now()}`;
+  const item = {
+    id: itemId,
+    type: "forkedFromConversation",
+    sourceConversationId,
+    sourceConversationTitle: sourceConversationTitle ?? null,
+  };
+  store.updateConversationState?.(conversationId, (draft) => {
+    const turns = Array.isArray(draft.turns) ? draft.turns : [];
+    let latestTurn = turns.at(-1) as Record<string, unknown> | undefined;
+    if (latestTurn == null) {
+      latestTurn = { items: [] };
+      turns.push(latestTurn);
+      draft.turns = turns;
+    }
+    const items = Array.isArray(latestTurn.items) ? latestTurn.items : [];
+    items.push(item);
+    latestTurn.items = items;
+  });
+}
+
+export function applyConversationStateSlice(
+  draft: Record<string, unknown>,
+  state: Record<string, unknown>,
+  replaceTurns = false,
+): void {
+  for (const [key, value] of Object.entries(state)) {
+    if (value === undefined) continue;
+    if (key === "turns" && !replaceTurns) continue;
+    draft[key] = value;
+  }
+}
+
+export function buildConversationStateFromThread(
+  rollbackResponse: { thread?: ThreadSnapshotRecord; turns?: unknown[] },
+  options: {
+    fallbackCwd?: string | null;
+    model?: string;
+    reasoningEffort?: string | null;
+    workspaceRoots?: string[];
+  } = {},
+): Record<string, unknown> {
+  const thread = rollbackResponse.thread ?? {};
+  const threadTurns = Array.isArray((thread as { turns?: unknown[] }).turns)
+    ? (thread as { turns?: unknown[] }).turns
+    : rollbackResponse.turns;
+  return {
+    cwd:
+      typeof thread.cwd === "string" && thread.cwd.trim().length > 0
+        ? thread.cwd
+        : (options.fallbackCwd ?? null),
+    gitInfo: thread.gitInfo,
+    latestModel: options.model,
+    latestReasoningEffort: options.reasoningEffort,
+    modelProvider: thread.modelProvider,
+    parentThreadId: thread.parentThreadId,
+    source: thread.source,
+    threadRuntimeStatus: thread.status,
+    turns: Array.isArray(threadTurns) ? threadTurns : [],
+    workspaceRoots: options.workspaceRoots ?? [],
+  };
+}
+export {
+  bundledMarketplaceName,
+  curatedMarketplaceName,
+  curatedRemoteMarketplaceName,
+  firstPartyBundledAppNameA,
+  firstPartyBundledAppNameB,
+  firstPartyBundledAppNameC,
+  firstPartyBundledAppNameD,
+  firstPartyBundledAppNameE,
+  firstPartyBundledAppNameF,
+  firstPartyBundledAppNameG,
+  resolveCatalogAppIdForMcpTool,
+} from "../plugins/plugin-capability-runtime";
+export function getConversationDisplayTitle(conversation: unknown): string {
+  if (conversation == null || typeof conversation !== "object") return "";
+  const record = conversation as Record<string, unknown>;
+  const title =
+    record.title ??
+    record.name ??
+    record.preview ??
+    record.cwd ??
+    record.id ??
+    record.conversationId;
+  return typeof title === "string" ? title.trim() : "";
+}
+
+export function registerThreadSnapshot(thread: ThreadSnapshotRecord): void {
+  const id = threadSnapshotId(thread);
+  if (id != null) threadSnapshotRegistry.set(id, thread);
+}
 
 // --- homepage deps: HomeComposer internals + new-module cross-chunk deps (open boundary) ---
-export const ComposerStoreContext = undefined as never;
-export const NewThreadComposerBody = undefined as never;
-export const aboveComposerPortalId = undefined as never;
-export const aboveComposerQueuePortalId = undefined as never;
-export const activeFollowUpAtom = undefined as never;
-export const composerDraftTextAtom = undefined as never;
-export const composerScope = undefined as never;
-export const createComposerStore = undefined as never;
-export const createProjectlessPrewarmReservation = undefined as never;
-export const dispatchLocalRuntimeCommand = undefined as never;
-export const getComposerRemountKey = undefined as never;
-export const isDefaultCollaborationMode = undefined as never;
-export const isDraftThreadId = undefined as never;
-export const isPlanCollaborationMode = undefined as never;
-export const isPromptDraftText = undefined as never;
-export const resolvedHostIdQuery = undefined as never;
-export const runTogglePlanMode = undefined as never;
-export const useAgentModeSettings = undefined as never;
-export const useCancelCloudTaskMutation = undefined as never;
-export const useCollaborationModes = undefined as never;
-export const useComposerStore = undefined as never;
-export const useCreatePendingWorktree = undefined as never;
-export const useIsMounted = undefined as never;
-export const useMcpManager = undefined as never;
-export const useNewThreadSubmitHandlers = undefined as never;
-export const useRegisterCommand = undefined as never;
-export const useScopeConversationId = undefined as never;
-export const useScopeStore = undefined as never;
-export const useSettingValue = undefined as never;
-export const useStartConversationWithPrimaryRuntimeForFirstTurn =
-  undefined as never;
+export const dispatchLocalRuntimeCommand = sendAppServerRequestRuntime;
+export const resolvedHostIdQuery = createParametricAtom<
+  string | null | undefined,
+  string
+>(appRootScope, (conversationId, { get }) => {
+  const routeHostId = get<string | null>(defaultHostIdSignalRuntime) ?? null;
+  if (conversationId == null) return routeHostId ?? "local";
+  return (
+    get<string | null>(conversationHostIdSignalRuntime, conversationId) ??
+    routeHostId ??
+    "local"
+  );
+});
+export const useCancelCloudTaskMutation = useCancelTaskMutationRuntime;
+export const useMcpManager = useAppServerManagerRuntime;
 
 // --- composer subsystem internals (djo67r4n drain, next layer) (open boundary) ---
-export const // --- additional deep internals ---
-  cancelThreadGoal = undefined as never;
-export const // --- attachments / context ---
-  buildLocalContextIdeSnapshot = undefined as never;
-export const // --- background threads ---
-  canStopBackgroundThread = undefined as never;
-export const // --- composer mode / availability ---
-  buildComposerModeAvailability = undefined as never;
-export const // --- conversation identity / execution target ---
-  buildComposerAnalyticsId = undefined as never;
-export const // --- core scope / editor / atom access ---
-  appConnectClaimedFollowUpQuery = undefined as never;
-export const // --- entrypoints / prefill ---
-  buildNewThreadClientId = undefined as never;
-export const // --- misc host / analytics ---
-  buildContextualLeadingItems = undefined as never;
-export const // --- rate-limit / banners / status ---
-  useComposerRateLimitBanner = undefined as never;
-export const // --- sub-components ---
-  Composer = undefined as never;
-export const // --- submit orchestration ---
-  buildCloudSubmitTask = undefined as never;
-export const // --- suggestions / mentions ---
-  ComposerContextFilesWatcher = undefined as never;
-export const // --- worktree / voice / layout ---
-  useComposerDictation = undefined as never;
-export const AboveComposerSuggestionActions = undefined as never;
-export const AddContextButton = undefined as never;
-export const AnnouncementBanner = undefined as never;
-export const AppshotCaptureControls = undefined as never;
-export const BackgroundSubagentsPanel = undefined as never;
-export const BlockedSubmitDialog = undefined as never;
-export const CloudModeIndicator = undefined as never;
-export const ComposerAttachmentPills = undefined as never;
-export const ComposerDropOverlay = undefined as never;
-export const ComposerFooterControls = undefined as never;
-export const ComposerInputField = undefined as never;
-export const ComposerStatusMenuRow = undefined as never;
-export const FirstBlockRateLimitBanner = undefined as never;
-export const GoalReplacementConfirmationDialog = undefined as never;
-export const GoalResumePromptDialog = undefined as never;
-export const HooksNeedingReviewBanner = undefined as never;
-export const PluginContextLoader = undefined as never;
-export const RateLimitBanner = undefined as never;
-export const SelectedTextAction = undefined as never;
-export const SelectedTextPortal = undefined as never;
-export const SideChatPrompt = undefined as never;
-export const ThreadGoalBanner = undefined as never;
-export const WindowsSandboxError = undefined as never;
-export const WindowsSandboxSetupBanner = undefined as never;
-export const afterLocalConversationCreated = undefined as never;
-export const appendUserMessageToConversation = undefined as never;
-export const attachThreadGoalObjectiveToConversation = undefined as never;
-export const browserSidebarAvailabilitySignal = undefined as never;
-export const buildComposerImageInputItems = undefined as never;
-export const buildConversationParamsFromContext = undefined as never;
-export const buildPriorConversationFromTask = undefined as never;
-export const buildRestoreMessageFromContext = undefined as never;
-export const buildSideChatDisplayTitle = undefined as never;
-export const buildWorktreeLabelFromInput = undefined as never;
-export const cleanupMaterializedThreadGoal = undefined as never;
-export const clearGoalPromptAtomsRunner = undefined as never;
-export const collectStoppableBackgroundThreads = undefined as never;
-export const commitThreadGoalDraft = undefined as never;
-export const composerAddedFilesAtom = undefined as never;
-export const composerCommentAttachmentsAtom = undefined as never;
-export const composerCwdOverrideAtom = undefined as never;
-export const composerDropTargetPortalContext = undefined as never;
-export const composerEnterBehaviorFamily = undefined as never;
-export const composerFileAttachmentsAtom = undefined as never;
-export const composerImageCommentDraftAtom = undefined as never;
-export const composerImageInputsAtom = undefined as never;
-export const composerMcpAppModelContextAtom = undefined as never;
-export const composerModeForScopeAtom = undefined as never;
-export const composerPastedTextAttachmentsAtom = undefined as never;
-export const composerPrefillCwdAtom = undefined as never;
-export const composerPullRequestChecksAtom = undefined as never;
-export const composerPullRequestMergeConflictAtom = undefined as never;
-export const composerSelectedTextAttachmentsAtom = undefined as never;
-export const currentTurnKeyForConversation = undefined as never;
-export const dismissMessageLimitBanner = undefined as never;
-export const experimentalFeaturesQuery = undefined as never;
-export const extensionPageSelectionAtom = undefined as never;
-export const formatComposerSubmitError = undefined as never;
-export const formatWorktreeSubmitError = undefined as never;
-export const getConversationBrowserTabIdsForTransfer = undefined as never;
-export const getLastFocusedBrowserTabId = undefined as never;
-export const getTaskErrorMessage = undefined as never;
-export const hasActiveMentionMenu = undefined as never;
-export const hasSeenMultiAgentComposerBannerRunner = undefined as never;
-export const hostConfigForHostId = undefined as never;
-export const hotkeyWindowBridge = undefined as never;
-export const hydrateBackgroundThreads = undefined as never;
-export const isBackgroundThreadHydratedAtom = undefined as never;
-export const isComposerDictationTarget = undefined as never;
-export const isFollowUpHydratedAtom = undefined as never;
-export const isHotkeyWindowContext = undefined as never;
-export const isPreparePrimaryRuntimeEnabled = undefined as never;
-export const isProjectlessWorkspaceRoots = undefined as never;
-export const isPromptDraftTextValue = undefined as never;
-export const isRemoteConnection = undefined as never;
-export const localConversationTurnsSignal = undefined as never;
-export const localConversationWorkspaceKindSignal = undefined as never;
-export const localExecutionTargetForScope = undefined as never;
-export const logComposerMessageSent = undefined as never;
-export const memoryPreferencesDraftAtom = undefined as never;
-export const newThreadFirstRunCompletedSignal = undefined as never;
-export const newThreadFirstRunStartedSignal = undefined as never;
-export const normalizeConversationAttachments = undefined as never;
-export const openComposerReferencedFile = undefined as never;
-export const openHotkeyWindowThread = undefined as never;
-export const openSideChat = undefined as never;
-export const openTaskPath = undefined as never;
-export const openThreadPath = undefined as never;
-export const parseGoalSubmit = undefined as never;
-export const pendingWorktreeInitPath = undefined as never;
-export const performComposerSubmit = undefined as never;
-export const projectAssignmentsQuery = undefined as never;
-export const projectContextQuerySignal = undefined as never;
-export const promptTextFromContext = undefined as never;
-export const promptTextFromObjective = undefined as never;
-export const recordNewThreadSubmitAnalytics = undefined as never;
-export const registerComposerEnterKeymap = undefined as never;
-export const registerComposerEscapeHandler = undefined as never;
-export const registerComposerKeymap = undefined as never;
-export const registerSidebarToggleShortcut = undefined as never;
-export const removeAllImageComments = undefined as never;
-export const reportComposerSubmitError = undefined as never;
-export const requiredHooksFilter = undefined as never;
-export const reserveProjectWorkspaceForFirstTurn = undefined as never;
-export const resolveCloudTaskType = undefined as never;
-export const resolveComposerCwd = undefined as never;
-export const resolveComposerExecutionTarget = undefined as never;
-export const resolveComposerKeyAction = undefined as never;
-export const resolveComposerMode = undefined as never;
-export const resolveComposerWorkspaceRoot = undefined as never;
-export const resolveCurrentRemoteCwd = undefined as never;
-export const resolveEscapeAction = undefined as never;
-export const resolveLocalExecutionRemoteHostId = undefined as never;
-export const resolveServiceTierAndCollaborationMode = undefined as never;
-export const resumeThreadGoal = undefined as never;
-export const saveThreadStartTarget = undefined as never;
-export const sendMessageToLocalConversation = undefined as never;
-export const sendQueuedSteerMessage = undefined as never;
-export const setComposerScopedField = undefined as never;
-export const showComposerToast = undefined as never;
-export const splitCommentAttachmentsBySurface = undefined as never;
-export const splitCommentsForSubmit = undefined as never;
-export const steerLocalConversation = undefined as never;
-export const submitDirectComment = undefined as never;
-export const submitFollowUpApproval = undefined as never;
-export const submitLocalApproval = undefined as never;
-export const toUserMessageInput = undefined as never;
-export const updateConversationProjectContext = undefined as never;
-export const useActiveWorkspaceRoots = undefined as never;
-export const useAppScopeFamilyValue = undefined as never;
-export const useAppshotCaptureTray = undefined as never;
-export const useAtMentionAutocomplete = undefined as never;
-export const useAtomFamily = undefined as never;
-export const useBackgroundThreadRows = undefined as never;
-export const useBackgroundThreadTurnMap = undefined as never;
-export const useCloudAccess = undefined as never;
-export const useCloudTaskCreation = undefined as never;
-export const useCloudTaskFollowUp = undefined as never;
-export const useCodexHome = undefined as never;
-export const useComposerAttachmentActions = undefined as never;
-export const useComposerAttachmentSetters = undefined as never;
-export const useComposerContextActions = undefined as never;
-export const useComposerController = undefined as never;
-export const useComposerFileAssetAttachment = undefined as never;
-export const useComposerIntl = undefined as never;
-export const useComposerLayoutMode = undefined as never;
-export const useComposerLog = undefined as never;
-export const useComposerMessageEditing = undefined as never;
-export const useComposerMode = undefined as never;
-export const useComposerPlaceholder = undefined as never;
-export const useComposerPromptHistory = undefined as never;
-export const useComposerPrompts = undefined as never;
-export const useConversationPending = undefined as never;
-export const useFollowUpToConversation = undefined as never;
-export const useGitRepoRoot = undefined as never;
-export const useHasPendingApproval = undefined as never;
-export const useImageInputSupport = undefined as never;
-export const useInterruptThread = undefined as never;
-export const useIsElectronPlatform = undefined as never;
-export const useIsQueueingEnabled = undefined as never;
-export const useIsWorkspaceRequired = undefined as never;
-export const useIsWorktreePickerEnabled = undefined as never;
-export const useIsWorktreeSnapshotsEnabled = undefined as never;
-export const useLocation = undefined as never;
-export const useMcpManagerForHost = undefined as never;
-export const useMentionActivationHandler = undefined as never;
-export const useMessageLimitEvent = undefined as never;
-export const useOpenFileMutation = undefined as never;
-export const usePastedTextAttachmentHandlers = undefined as never;
-export const usePendingFileAttachments = undefined as never;
-export const useProjectAssignment = undefined as never;
-export const useQueuedFollowUps = undefined as never;
-export const useRemoteConnectivityStates = undefined as never;
-export const useResolvedConfigPath = undefined as never;
-export const useResolvedPendingApproval = undefined as never;
-export const useSharedComposerPrefill = undefined as never;
-export const useSingleLineComposerMeasure = undefined as never;
-export const useSkillMentionAutocomplete = undefined as never;
-export const useStopTurnConfirmation = undefined as never;
-export const useWindowsSandboxRequirement = undefined as never;
-export const useWindowsSandboxSetup = undefined as never;
-export const useWorktreeGitContext = undefined as never;
+export { hasActiveMentionMenu } from "../composer/mention-autocomplete";
+export {
+  registerComposerEnterKeymap,
+  registerComposerEscapeHandler,
+  registerComposerKeymap,
+} from "../composer/composer-keymap-runtime";
+type SharedComposerPrefill = {
+  clearText?: boolean;
+  commentAttachments?: unknown[] | null;
+  cwd?: string | null;
+  text?: unknown;
+};
+
+const sharedComposerPrefillSignal = createScopedAtom<
+  SharedComposerPrefill | null
+>(appRootScope, null);
+
+function readSharedComposerPrefillStorage(
+  key: string,
+): SharedComposerPrefill | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const rawValue = window.localStorage.getItem(key);
+    if (rawValue == null) return null;
+    const parsed = JSON.parse(rawValue);
+    return parsed != null && typeof parsed === "object"
+      ? (parsed as SharedComposerPrefill)
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+export function useSharedComposerPrefill(
+  key: string,
+): [
+  SharedComposerPrefill | null,
+  (nextValue?: SharedComposerPrefill | null) => void,
+] {
+  const store = readAppScopeStore();
+  const scopedPrefill =
+    useAppScopeValue<SharedComposerPrefill | null>(
+      sharedComposerPrefillSignal,
+      key,
+    ) ?? readSharedComposerPrefillStorage(key);
+  const setPrefill = React.useCallback(
+    (nextValue?: SharedComposerPrefill | null) => {
+      store.set(sharedComposerPrefillSignal, key, nextValue ?? null);
+      if (typeof window !== "undefined") {
+        try {
+          if (nextValue == null) window.localStorage.removeItem(key);
+          else window.localStorage.setItem(key, JSON.stringify(nextValue));
+        } catch {
+          // Ignore storage failures; scoped state is still updated.
+        }
+      }
+    },
+    [key, store],
+  );
+  return [scopedPrefill, setPrefill];
+}
+
+export function useWindowsSandboxSetup(): [
+  boolean,
+  React.Dispatch<React.SetStateAction<boolean>>,
+] {
+  const setupContext = useWindowsSandboxSetupContextRuntime();
+  const [isDismissed, setDismissed] = React.useState(false);
+  const showBanner = setupContext.shouldShow && !isDismissed;
+  const setShowBanner = React.useCallback<
+    React.Dispatch<React.SetStateAction<boolean>>
+  >(
+    (nextValue) => {
+      const resolved =
+        typeof nextValue === "function"
+          ? nextValue(setupContext.shouldShow && !isDismissed)
+          : nextValue;
+      setDismissed(!resolved);
+    },
+    [isDismissed, setupContext.shouldShow],
+  );
+  return [showBanner, setShowBanner];
+}
 
 // --- djo67r4n composer body wave-1 internals (open boundary) ---
-export const logger = undefined as never;
-export const normalizePath = undefined as never;
-export const sendHostRequest = undefined as never;
-export const useAppStore = undefined as never;
-export const useHostQuery = undefined as never;
-export const usePlatform = undefined as never;
-export const useStableCallback = undefined as never;

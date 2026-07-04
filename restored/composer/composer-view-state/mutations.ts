@@ -39,6 +39,7 @@ export function resetComposerViewState(scopeStore: ScopeStore): void {
   updateComposerViewState(scopeStore, (state) => {
     state.pendingThreadGoalObjective = null;
     state.aeonStartTarget = null;
+    state.imageCommentDraft = null;
     state.imageAttachments = [];
     state.appshotContexts = [];
     state.fileAttachments = [];
@@ -51,6 +52,14 @@ export function resetComposerViewState(scopeStore: ScopeStore): void {
     state.pullRequestMergeConflict = null;
   });
 }
+
+export function updateComposerState(
+  scopeStore: ScopeStore,
+  updater: (state: ComposerViewState) => void,
+): void {
+  updateComposerViewState(scopeStore, updater);
+}
+
 export function updateComposerViewStateField<
   Key extends keyof ComposerViewState,
 >(

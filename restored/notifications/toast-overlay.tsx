@@ -5,11 +5,11 @@
 import {
   activeToastIdsAtom,
   ToastNotification,
-  useAtomValue,
+  useAppScopeValue,
 } from "../boundaries/onboarding-commons-externals.facade";
 
 export function ToastOverlay() {
-  const toastIds = useAtomValue(activeToastIdsAtom) as string[];
+  const toastIds = useAppScopeValue<string[]>(activeToastIdsAtom) ?? [];
   return (
     <span className="pointer-events-none fixed inset-0 z-[60] mx-auto my-2 flex max-w-[560px] flex-col items-center justify-start md:pb-5">
       {toastIds.map((toastId) => (

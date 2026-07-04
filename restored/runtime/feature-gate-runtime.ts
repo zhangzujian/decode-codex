@@ -37,6 +37,10 @@ type StatsigScopeContext = ScopedSignalContext & {
   get<TValue = unknown>(signal: unknown, key?: unknown): TValue;
 };
 
+type FeatureGateScope = {
+  get<TValue = unknown>(signal: unknown, key?: unknown): TValue;
+};
+
 const statsigClientSignal =
   createAppScopedSignal<StatsigFeatureGateClient | null>(null);
 const mountedFeatureGateNamesSignal = createAppScopedSignal<string[]>([]);
@@ -102,6 +106,19 @@ export function syncFeatureGateSignalWithStatsigClient(
 export function useStatsigGate(gateName: string): boolean {
   return useScopedValue<boolean>(featureGateSignal, gateName);
 }
+
+export function getFeatureGateValue(
+  scope: FeatureGateScope | null | undefined,
+  gateName: string,
+): boolean {
+  try {
+    return scope?.get<boolean>(featureGateSignal, gateName) === true;
+  } catch {
+    return false;
+  }
+}
+
+export const evaluateFeatureGate = getFeatureGateValue;
 
 export function useStatsigLayer(
   layerName: string,

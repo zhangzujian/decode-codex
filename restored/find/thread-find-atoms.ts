@@ -76,6 +76,20 @@ export const findActiveMatchIndexAtom = createAppScopeSignal<number | null>(
   appScopeRoot,
   null,
 );
+export const findActiveMatchAtom = createComputedSignal<unknown | null>(
+  appScopeRoot,
+  ({ get }: SignalReader) => {
+    const result = get<ThreadFindResult | null>(findResultAtom);
+    const activeMatchIndex = get<number | null>(findActiveMatchIndexAtom);
+    return result == null || activeMatchIndex == null
+      ? null
+      : (result.matches[activeMatchIndex] ?? null);
+  },
+);
+export const findHasQueryAtom = createComputedSignal<boolean>(
+  appScopeRoot,
+  ({ get }: SignalReader) => get<string>(findQueryAtom).trim().length > 0,
+);
 export const findBrowserTargetAtom =
   createAppScopeSignal<ThreadFindBrowserTarget>(appScopeRoot, null);
 export const findBrowserStatusAtom =
@@ -83,3 +97,5 @@ export const findBrowserStatusAtom =
     appScopeRoot,
     emptyFindBrowserStatus,
   );
+
+export function initThreadFindAtomsChunk(): void {}

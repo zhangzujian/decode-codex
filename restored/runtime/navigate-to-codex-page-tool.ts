@@ -36,6 +36,11 @@ export const navigateToCodexPageTool = {
   ),
 };
 
+export function initNavigateToCodexPageToolChunk(): void {
+  void navigateToCodexPageTool;
+  void navigateToCodexPage;
+}
+
 export async function navigateToCodexPage({
   argumentsValue,
   hostId,

@@ -264,3 +264,8 @@ export function commitImageCommentDraft(
     loadLocalCommentImage(args);
   }
 }
+
+export function initImageCommentDraftStoreChunk(): void {
+  void clearImageCommentDraft;
+  void commitImageCommentDraft;
+}

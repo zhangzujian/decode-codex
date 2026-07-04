@@ -16,6 +16,8 @@ type AppScope = {
   get<TValue>(signal: unknown, key?: unknown): TValue;
 };
 
+export function initBranchStatusRuntimePreludeChunk(): void {}
+
 interface CwdQueryParams {
   operationSource: string;
   root: string;
@@ -81,6 +83,8 @@ export const defaultBranchQueryFamily = createCwdQueryAtomFamily({
     staleTime: 3e4,
   }),
 });
+
+export const defaultBranchQueryAtom = defaultBranchQueryFamily.fromCwd$;
 
 export function refetchBranchReviewInfo(
   scope: AppScope,

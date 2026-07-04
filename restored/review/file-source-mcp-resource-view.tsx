@@ -13,6 +13,8 @@ import {
   createFileResourceReader,
 } from "../boundaries/onboarding-commons-externals.facade";
 
+export function initFileSourceMcpResourceViewChunk(): void {}
+
 interface FileViewer extends McpCapabilityViewModel {
   [key: string]: unknown;
 }

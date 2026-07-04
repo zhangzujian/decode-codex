@@ -19,16 +19,14 @@ export { initContentSearchRuntime as appMainCurrentCompatSlotLowerAUnderscore } 
 export { initActivityScrollContainerChunk as appMainCurrentCompatSlotLowerALowerA } from "../../conversations/activity-scroll-container";
 export { GitWorkflowPhaseLabel as appMainCurrentCompatSlotLowerALowerU } from "../../conversations/git-workflow-phase-label";
 
-export {
-  ab as appMainCurrentCompatSlotLowerALowerB,
-  ad as appMainCurrentCompatSlotLowerALowerD,
-  af as appMainCurrentCompatSlotLowerALowerF,
-  ag as appMainCurrentCompatSlotLowerALowerG,
-  ah as appMainCurrentCompatSlotLowerALowerH,
-  an as appMainCurrentCompatSlotLowerALowerN,
-  ao as appMainCurrentCompatSlotLowerALowerO,
-  as as appMainCurrentCompatSlotLowerALowerS,
-  aS as appMainCurrentCompatSlotLowerAUpperS,
-  at as appMainCurrentCompatSlotLowerALowerT,
-  ay as appMainCurrentCompatSlotLowerALowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { selectFallbackAgentMode as appMainCurrentCompatSlotLowerALowerB } from "../../utils/use-permissions-mode/mode-selection";
+export { getToolConnectorId as appMainCurrentCompatSlotLowerALowerD } from "../../plugins/mcp-tool-item-content-utils";
+export { updateMcpAppFrameState as appMainCurrentCompatSlotLowerALowerF } from "../../plugins/mcp-app-frame-state";
+export { initFormatModelDisplayNameChunk as appMainCurrentCompatSlotLowerALowerG } from "../../utils/format-model-display-name";
+export { initDiffCommentSourcesChunk as appMainCurrentCompatSlotLowerALowerH } from "../../github/diff-comments/use-diff-comment-sources";
+export { initSteerTurnInactiveErrorChunk as appMainCurrentCompatSlotLowerALowerN } from "../../composer/steer-turn-inactive-error";
+export { interruptSourceThreadIfRunning as appMainCurrentCompatSlotLowerALowerO } from "../../conversations/interrupt-source-thread";
+export { initTurnSourcesPopoverChunk as appMainCurrentCompatSlotLowerALowerS } from "../../conversations/turn-sources-popover";
+export { scaleTime as appMainCurrentCompatSlotLowerAUpperS } from "../../utils/d3-chart-scales";
+export { initThinkingFallbackStateChunk as appMainCurrentCompatSlotLowerALowerT } from "../../conversations/thinking-fallback-state";
+export { getBrowserSidebarAdoptionLease as appMainCurrentCompatSlotLowerALowerY } from "../../browser/browser-sidebar-open-source";

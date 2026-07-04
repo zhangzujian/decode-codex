@@ -212,11 +212,18 @@ function modelSupportsServiceTier(
   );
 }
 
-function findModelById(
+export function findModelById(
   models: readonly ModelOption[],
   modelId: string,
 ): ModelOption | null {
   return models.find((model) => model.model === modelId) ?? null;
+}
+
+export function findModelByIdOrUndefined(
+  models: readonly ModelOption[] | null | undefined,
+  modelId: string,
+): ModelOption | undefined {
+  return models?.find((model) => model.model === modelId);
 }
 
 function getModelOptions(models: unknown): ModelOption[] {

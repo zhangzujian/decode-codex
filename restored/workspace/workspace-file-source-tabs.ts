@@ -9,6 +9,9 @@ import {
   activeConversationCwdAtom,
   normalizePath,
 } from "../boundaries/onboarding-commons-externals.facade";
+import { READ_FILE_SAMPLE_MAX_FILE_BYTES } from "../appgen/publication-terms";
+import { createQueryKey } from "../runtime/app-server-mutation-runtime";
+import { readFileContentSampleByteLimit } from "../runtime/publication-terms-runtime";
 
 export const workspaceFileTabKindPrefix = "workspaceFile:";
 
@@ -78,6 +81,77 @@ export const openReviewFileSourceTabsAtom = createWritableSignalAtom(
   appStoreScope,
   () => false,
 );
+
+export interface WorkspaceFileManualRefreshScope {
+  set(atom: unknown, key: string, value: boolean): void;
+}
+
+export function setWorkspaceFileManualRefreshPending(
+  scope: WorkspaceFileManualRefreshScope,
+  target: WorkspaceFileTabTarget,
+): void {
+  scope.set(openReviewFileSourceTabsAtom, workspaceFileKey(target), true);
+}
+
+export function clearWorkspaceFileManualRefreshPending(
+  scope: WorkspaceFileManualRefreshScope,
+  target: WorkspaceFileTabTarget,
+): void {
+  scope.set(openReviewFileSourceTabsAtom, workspaceFileKey(target), false);
+}
+
+export interface WorkspaceFileQueryClient {
+  refetchQueries(
+    filters: {
+      exact: true;
+      queryKey: readonly unknown[];
+      type: "all";
+    },
+    options?: { throwOnError?: boolean },
+  ): Promise<unknown> | unknown;
+}
+
+export interface RefetchOpenWorkspaceFileQueriesOptions {
+  cacheKey?: unknown[] | unknown;
+  openFiles: WorkspaceFileTabTarget[];
+  queryClient: WorkspaceFileQueryClient;
+  throwOnError?: boolean;
+}
+
+export async function refetchOpenWorkspaceFileQueries({
+  cacheKey,
+  openFiles,
+  queryClient,
+  throwOnError = false,
+}: RefetchOpenWorkspaceFileQueriesOptions): Promise<void> {
+  await Promise.all(
+    openFiles
+      .flatMap(({ hostId, path }) => [
+        createQueryKey(
+          "read-file-metadata",
+          {
+            contentSampleByteLimit: readFileContentSampleByteLimit,
+            contentSampleMaxFileBytes: READ_FILE_SAMPLE_MAX_FILE_BYTES,
+            hostId,
+            path,
+          },
+          cacheKey,
+        ),
+        createQueryKey("read-file", { hostId, path }, cacheKey),
+        createQueryKey("read-file", { path, hostId }, cacheKey),
+        createQueryKey("read-file-binary", { path, hostId }, cacheKey),
+        createQueryKey("read-file-binary", { hostId, path }, cacheKey),
+        createQueryKey("compile-latex-artifact", { path, hostId }, cacheKey),
+        createQueryKey("compile-latex-artifact", { hostId, path }, cacheKey),
+      ])
+      .map((queryKey) =>
+        queryClient.refetchQueries(
+          { exact: true, queryKey, type: "all" },
+          { throwOnError },
+        ),
+      ),
+  );
+}
 
 export function initWorkspaceFileSourceTabsChunk(): void {}
 

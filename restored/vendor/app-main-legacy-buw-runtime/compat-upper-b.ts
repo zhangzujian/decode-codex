@@ -15,19 +15,19 @@ export { trackConversationalOnboardingRoleSelected as appMainCurrentCompatSlotUp
 export { PanelExpandIcon as appMainCurrentCompatSlotUpperBLowerD } from "../../icons/app-shell-panel-icons";
 export { openThreadFind as appMainCurrentCompatSlotUpperBLowerG } from "../../find/thread-find-store";
 
+export { setReviewFileTreeOpen as appMainCurrentCompatSlotUpperBLowerY } from "../../app-shell/app-shell-state";
+export { ReviewFileTree as appMainCurrentCompatSlotUpperBLowerF } from "../../review/review-file-tree";
+export { LIST_PROJECTS_TOOL_NAME as appMainCurrentCompatSlotUpperBLowerA } from "../../conversations/codex-app-tool-names";
+export { BranchNameFieldHeader as appMainCurrentCompatSlotUpperBLowerL } from "../../conversations/branch-name-field-header";
 export {
-  B as appMainCurrentCompatSlotUpperB,
-  Ba as appMainCurrentCompatSlotUpperBLowerA,
-  Bb as appMainCurrentCompatSlotUpperBLowerB,
-  Bf as appMainCurrentCompatSlotUpperBLowerF,
-  Bh as appMainCurrentCompatSlotUpperBLowerH,
-  Bi as appMainCurrentCompatSlotUpperBLowerI,
-  Bl as appMainCurrentCompatSlotUpperBLowerL,
-  Bm as appMainCurrentCompatSlotUpperBLowerM,
-  Bo as appMainCurrentCompatSlotUpperBLowerO,
-  BS as appMainCurrentCompatSlotUpperBUpperS,
-  Bt as appMainCurrentCompatSlotUpperBLowerT,
-  Bv as appMainCurrentCompatSlotUpperBLowerV,
-  Bx as appMainCurrentCompatSlotUpperBLowerX,
-  By as appMainCurrentCompatSlotUpperBLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperBExport as appMainCurrentCompatSlotUpperB,
+  legacyAppMainBuwUpperBLowerBExport as appMainCurrentCompatSlotUpperBLowerB,
+  legacyAppMainBuwUpperBLowerHExport as appMainCurrentCompatSlotUpperBLowerH,
+  legacyAppMainBuwUpperBLowerIExport as appMainCurrentCompatSlotUpperBLowerI,
+  legacyAppMainBuwUpperBLowerMExport as appMainCurrentCompatSlotUpperBLowerM,
+  legacyAppMainBuwUpperBLowerOExport as appMainCurrentCompatSlotUpperBLowerO,
+  legacyAppMainBuwUpperBUpperSExport as appMainCurrentCompatSlotUpperBUpperS,
+  legacyAppMainBuwUpperBLowerTExport as appMainCurrentCompatSlotUpperBLowerT,
+  legacyAppMainBuwUpperBLowerVExport as appMainCurrentCompatSlotUpperBLowerV,
+  legacyAppMainBuwUpperBLowerXExport as appMainCurrentCompatSlotUpperBLowerX,
+} from "./stable-exports";

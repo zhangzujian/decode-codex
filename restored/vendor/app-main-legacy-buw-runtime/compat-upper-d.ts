@@ -12,21 +12,21 @@ export { formatResetDate as appMainCurrentCompatSlotUpperDLowerC } from "../../u
 export { READ_SETTINGS_TOOL_NAME as appMainCurrentCompatSlotUpperDLowerO } from "../../settings/settings-tool-definitions";
 export { useUpdateBrowserUseApprovalModeMutation as appMainCurrentCompatSlotUpperDLowerP } from "../../browser/browser-use-origin-state-queries";
 
+export { bottomPanelOpenSignal as appMainCurrentCompatSlotUpperDLowerY } from "../../app-shell/app-shell-state";
+export { SET_THREAD_PINNED_TOOL_NAME as appMainCurrentCompatSlotUpperDLowerA } from "../../conversations/codex-app-tool-names";
 export {
-  D as appMainCurrentCompatSlotUpperD,
-  Da as appMainCurrentCompatSlotUpperDLowerA,
-  Db as appMainCurrentCompatSlotUpperDLowerB,
-  Dd as appMainCurrentCompatSlotUpperDLowerD,
-  Df as appMainCurrentCompatSlotUpperDLowerF,
-  Dh as appMainCurrentCompatSlotUpperDLowerH,
-  Di as appMainCurrentCompatSlotUpperDLowerI,
-  Dl as appMainCurrentCompatSlotUpperDLowerL,
-  Dm as appMainCurrentCompatSlotUpperDLowerM,
-  Dn as appMainCurrentCompatSlotUpperDLowerN,
-  DS as appMainCurrentCompatSlotUpperDUpperS,
-  Dt as appMainCurrentCompatSlotUpperDLowerT,
-  Du as appMainCurrentCompatSlotUpperDLowerU,
-  Dv as appMainCurrentCompatSlotUpperDLowerV,
-  Dx as appMainCurrentCompatSlotUpperDLowerX,
-  Dy as appMainCurrentCompatSlotUpperDLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperDExport as appMainCurrentCompatSlotUpperD,
+  legacyAppMainBuwUpperDLowerBExport as appMainCurrentCompatSlotUpperDLowerB,
+  legacyAppMainBuwUpperDLowerDExport as appMainCurrentCompatSlotUpperDLowerD,
+  legacyAppMainBuwUpperDLowerFExport as appMainCurrentCompatSlotUpperDLowerF,
+  legacyAppMainBuwUpperDLowerHExport as appMainCurrentCompatSlotUpperDLowerH,
+  legacyAppMainBuwUpperDLowerIExport as appMainCurrentCompatSlotUpperDLowerI,
+  legacyAppMainBuwUpperDLowerLExport as appMainCurrentCompatSlotUpperDLowerL,
+  legacyAppMainBuwUpperDLowerMExport as appMainCurrentCompatSlotUpperDLowerM,
+  legacyAppMainBuwUpperDLowerNExport as appMainCurrentCompatSlotUpperDLowerN,
+  legacyAppMainBuwUpperDUpperSExport as appMainCurrentCompatSlotUpperDUpperS,
+  legacyAppMainBuwUpperDLowerTExport as appMainCurrentCompatSlotUpperDLowerT,
+  legacyAppMainBuwUpperDLowerUExport as appMainCurrentCompatSlotUpperDLowerU,
+  legacyAppMainBuwUpperDLowerVExport as appMainCurrentCompatSlotUpperDLowerV,
+  legacyAppMainBuwUpperDLowerXExport as appMainCurrentCompatSlotUpperDLowerX,
+} from "./stable-exports";

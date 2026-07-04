@@ -10,3 +10,4 @@ export * from "./lower-a-f";
 export * from "./lower-g-m";
 export * from "./lower-n-s";
 export * from "./lower-t-z";
+export * from "./semantic-rate-limit-actions";

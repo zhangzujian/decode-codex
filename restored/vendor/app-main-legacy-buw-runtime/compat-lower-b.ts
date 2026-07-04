@@ -18,16 +18,14 @@ export { initBrowserUseGlyphIconChunk as appMainCurrentCompatSlotLowerBLowerH } 
 export { isReviewDiffEnabledAtom as appMainCurrentCompatSlotLowerBLowerV } from "../../review/review-diff-mode-atoms";
 export { initPullRequestAttachmentPillsChunk as appMainCurrentCompatSlotLowerBLowerT } from "../../conversations/pull-request-attachment-pills";
 
-export {
-  bb as appMainCurrentCompatSlotLowerBLowerB,
-  bc as appMainCurrentCompatSlotLowerBLowerC,
-  bd as appMainCurrentCompatSlotLowerBLowerD,
-  bf as appMainCurrentCompatSlotLowerBLowerF,
-  bg as appMainCurrentCompatSlotLowerBLowerG,
-  bm as appMainCurrentCompatSlotLowerBLowerM,
-  bn as appMainCurrentCompatSlotLowerBLowerN,
-  bp as appMainCurrentCompatSlotLowerBLowerP,
-  bS as appMainCurrentCompatSlotLowerBUpperS,
-  bu as appMainCurrentCompatSlotLowerBLowerU,
-  by as appMainCurrentCompatSlotLowerBLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { useThreadDetailLevel as appMainCurrentCompatSlotLowerBLowerB } from "../../utils/thread-detail-level";
+export { DAY_MINUTES as appMainCurrentCompatSlotLowerBLowerC } from "../../utils/rate-limit-status/windows";
+export { initSidebarNavigationControlsChunk as appMainCurrentCompatSlotLowerBLowerD } from "../../app-shell/sidebar-navigation-controls";
+export { initWorkspaceFileSourceTabsChunk as appMainCurrentCompatSlotLowerBLowerF } from "../../workspace/workspace-file-source-tabs";
+export { revealReviewFile as appMainCurrentCompatSlotLowerBLowerG } from "../../review/review-file-navigation";
+export { initBrowserProfileImportNuxStateChunk as appMainCurrentCompatSlotLowerBLowerM } from "../../browser/browser-profile-import-nux-state";
+export { worktreeStatusForConversationAtom as appMainCurrentCompatSlotLowerBLowerN } from "../../conversations/worktree-status-runtime/atoms";
+export { browserUseOriginStateQuery as appMainCurrentCompatSlotLowerBLowerP } from "../../browser/browser-use-origin-state-queries";
+export { timeSecond as appMainCurrentCompatSlotLowerBUpperS } from "../../utils/d3-chart-scales";
+export { computeBranchMismatch as appMainCurrentCompatSlotLowerBLowerU } from "../../review/local-git-action-branch-atoms";
+export { initAmbientSuggestionAppsChunk as appMainCurrentCompatSlotLowerBLowerY } from "../../connectors/ambient-suggestion-apps";

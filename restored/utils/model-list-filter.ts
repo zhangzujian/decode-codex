@@ -1,5 +1,7 @@
 // Restored from ref/webview/assets/model-list-filter-BOpqDcyc.js
 // model-list-filter-BOpqDcyc chunk restored from the Codex webview bundle.
+import { isReasoningEffort } from "./models-and-reasoning-efforts";
+
 type ReasoningEffort = {
   reasoningEffort: string;
   description: string;
@@ -17,6 +19,8 @@ type ModelListFilterOptions = {
   authMethod: string;
   availableModels: Set<string>;
   defaultModel: string;
+  enabledReasoningEfforts?: ReadonlySet<string> | readonly string[] | null;
+  includeUltraReasoningEffort?: boolean;
   models: ModelListItem[];
   useHiddenModels: boolean;
 };
@@ -24,6 +28,8 @@ type ModelListFilterOptions = {
 type ModelListFilterResult = {
   models: ModelListItem[];
   defaultModel: ModelListItem | null;
+  hasModelSupportingMaxReasoningEffort: boolean;
+  hasModelSupportingUltraReasoningEffort: boolean;
 };
 
 const COPILOT_DEFAULT_REASONING_EFFORT: ReasoningEffort = {
@@ -31,10 +37,25 @@ const COPILOT_DEFAULT_REASONING_EFFORT: ReasoningEffort = {
   description: "medium effort",
 };
 
+function normalizeEnabledReasoningEfforts(
+  enabledReasoningEfforts:
+    | ReadonlySet<string>
+    | readonly string[]
+    | null
+    | undefined,
+): ReadonlySet<string> | null {
+  if (enabledReasoningEfforts == null) return null;
+  return enabledReasoningEfforts instanceof Set
+    ? enabledReasoningEfforts
+    : new Set(enabledReasoningEfforts);
+}
+
 export function modelListFilter({
   authMethod,
   availableModels,
   defaultModel,
+  enabledReasoningEfforts,
+  includeUltraReasoningEffort = true,
   models,
   useHiddenModels,
 }: ModelListFilterOptions): ModelListFilterResult {
@@ -42,6 +63,21 @@ export function modelListFilter({
   let selectedDefaultModel: ModelListItem | null = null;
   const shouldUseHiddenModels =
     useHiddenModels && authMethod !== "amazonBedrock";
+  const enabledReasoningEffortSet = normalizeEnabledReasoningEfforts(
+    enabledReasoningEfforts,
+  );
+  const hasModelSupportingMaxReasoningEffort = models.some((model) =>
+    model.supportedReasoningEfforts.some(
+      (effort) => effort.reasoningEffort === "max",
+    ),
+  );
+  const hasModelSupportingUltraReasoningEffort =
+    includeUltraReasoningEffort &&
+    models.some((model) =>
+      model.supportedReasoningEfforts.some(
+        (effort) => effort.reasoningEffort === "ultra",
+      ),
+    );
 
   models.forEach((model) => {
     const isVisible = shouldUseHiddenModels
@@ -49,21 +85,32 @@ export function modelListFilter({
       : !model.hidden;
     if (!isVisible) return;
 
-    const supportedReasoningEfforts =
+    const sourceReasoningEfforts = includeUltraReasoningEffort
+      ? model.supportedReasoningEfforts
+      : model.supportedReasoningEfforts.filter(
+          (effort) => effort.reasoningEffort !== "ultra",
+        );
+    const supportedReasoningEfforts = (
       authMethod === "copilot"
         ? [
-            model.supportedReasoningEfforts.find(
+            sourceReasoningEfforts.find(
               (effort) => effort.reasoningEffort === "medium",
             ) ?? COPILOT_DEFAULT_REASONING_EFFORT,
           ]
-        : [...model.supportedReasoningEfforts];
+        : sourceReasoningEfforts
+    ).filter(
+      (effort) =>
+        isReasoningEffort(effort.reasoningEffort) &&
+        (enabledReasoningEffortSet == null ||
+          enabledReasoningEffortSet.has(effort.reasoningEffort)),
+    );
 
     const filteredModel = {
       ...model,
       supportedReasoningEfforts,
     };
     filteredModels.push(filteredModel);
-    if (model.isDefault) selectedDefaultModel = model;
+    if (model.isDefault) selectedDefaultModel = filteredModel;
   });
 
   selectedDefaultModel ??=
@@ -72,5 +119,7 @@ export function modelListFilter({
   return {
     models: filteredModels,
     defaultModel: selectedDefaultModel,
+    hasModelSupportingMaxReasoningEffort,
+    hasModelSupportingUltraReasoningEffort,
   };
 }

@@ -212,6 +212,46 @@ describe("vendor-npm-preflight CLI", () => {
     expect(result.stderr).toContain("fork or app/runtime wrapper proof");
   });
 
+  test("allows local-body intent for public app runtime wrappers with sibling proof", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    const runtimeDir = path.join(vendorDir, "app-main-legacy-buw-runtime");
+    fs.mkdirSync(runtimeDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+    fs.writeFileSync(
+      path.join(runtimeDir, "index.ts"),
+      `
+        // Restored from ref/webview/assets/app-main.js
+        export const runtimeAlias = 1;
+      `,
+    );
+    const wrapper = path.join(
+      vendorDir,
+      "app-main-legacy-buw-compat-bundle.ts",
+    );
+    fs.writeFileSync(
+      wrapper,
+      `
+        // Restored from ref/webview/assets/app-main.js
+        // Flat boundary compatibility bundle backed by the semantic runtime.
+        export { runtimeAlias as A } from "./app-main-legacy-buw-runtime";
+      `,
+    );
+
+    const result = runDecisionCLI(wrapper, { intent: "local-body" });
+    expect(result.code).toBe(0);
+    const decisions = JSON.parse(result.stdout) as Array<{
+      decision: string;
+      specifiers: string[];
+      reason: string;
+    }>;
+    expect(decisions).toHaveLength(1);
+    expect(decisions[0]?.decision).toBe("local-body");
+    expect(decisions[0]?.specifiers).toEqual([]);
+    expect(decisions[0]?.reason).toContain("app/runtime wrapper proof");
+    expect(result.stderr).toBe("");
+  });
+
   test("blocks npm-shim intent for unknown public vendor targets until registered", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");

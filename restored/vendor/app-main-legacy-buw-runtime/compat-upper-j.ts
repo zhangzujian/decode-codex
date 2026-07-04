@@ -14,19 +14,19 @@ export { applyRequestUserInputAutoResolutionChange as appMainCurrentCompatSlotUp
 export { initThreadHandoffToolCoreChunk as appMainCurrentCompatSlotUpperJLowerA } from "../../conversations/thread-handoff-tool-definitions";
 export { AppLoadingScreen as appMainCurrentCompatSlotUpperJLowerF } from "../../ui/app-loading-screen";
 
+export { initAppShellStateRuntimeChunk as appMainCurrentCompatSlotUpperJLowerY } from "../../app-shell/app-shell-state";
+export { clearThreadGoal as appMainCurrentCompatSlotUpperJLowerH } from "../../threads/pending-worktree-store/thread-goal-actions";
 export {
-  J as appMainCurrentCompatSlotUpperJ,
-  J_ as appMainCurrentCompatSlotUpperJUnderscore,
-  Jb as appMainCurrentCompatSlotUpperJLowerB,
-  Jh as appMainCurrentCompatSlotUpperJLowerH,
-  Ji as appMainCurrentCompatSlotUpperJLowerI,
-  Jm as appMainCurrentCompatSlotUpperJLowerM,
-  Jo as appMainCurrentCompatSlotUpperJLowerO,
-  Jp as appMainCurrentCompatSlotUpperJLowerP,
-  JS as appMainCurrentCompatSlotUpperJUpperS,
-  Jt as appMainCurrentCompatSlotUpperJLowerT,
-  Ju as appMainCurrentCompatSlotUpperJLowerU,
-  Jv as appMainCurrentCompatSlotUpperJLowerV,
-  Jx as appMainCurrentCompatSlotUpperJLowerX,
-  Jy as appMainCurrentCompatSlotUpperJLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperJExport as appMainCurrentCompatSlotUpperJ,
+  legacyAppMainBuwUpperJUnderscoreExport as appMainCurrentCompatSlotUpperJUnderscore,
+  legacyAppMainBuwUpperJLowerBExport as appMainCurrentCompatSlotUpperJLowerB,
+  legacyAppMainBuwUpperJLowerIExport as appMainCurrentCompatSlotUpperJLowerI,
+  legacyAppMainBuwUpperJLowerMExport as appMainCurrentCompatSlotUpperJLowerM,
+  legacyAppMainBuwUpperJLowerOExport as appMainCurrentCompatSlotUpperJLowerO,
+  legacyAppMainBuwUpperJLowerPExport as appMainCurrentCompatSlotUpperJLowerP,
+  legacyAppMainBuwUpperJUpperSExport as appMainCurrentCompatSlotUpperJUpperS,
+  legacyAppMainBuwUpperJLowerTExport as appMainCurrentCompatSlotUpperJLowerT,
+  legacyAppMainBuwUpperJLowerUExport as appMainCurrentCompatSlotUpperJLowerU,
+  legacyAppMainBuwUpperJLowerVExport as appMainCurrentCompatSlotUpperJLowerV,
+  legacyAppMainBuwUpperJLowerXExport as appMainCurrentCompatSlotUpperJLowerX,
+} from "./stable-exports";

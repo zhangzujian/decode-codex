@@ -21,13 +21,11 @@ export { getRepositoryPathFromGitDir as appMainCurrentCompatSlotLowerWLowerN } f
 export { scaleBand as appMainCurrentCompatSlotLowerWUpperS } from "d3-scale";
 export { useServiceTierSettings as appMainCurrentCompatSlotLowerWLowerY } from "../../composer/use-service-tier-settings";
 
-export {
-  wa as appMainCurrentCompatSlotLowerWLowerA,
-  wd as appMainCurrentCompatSlotLowerWLowerD,
-  wg as appMainCurrentCompatSlotLowerWLowerG,
-  wi as appMainCurrentCompatSlotLowerWLowerI,
-  wl as appMainCurrentCompatSlotLowerWLowerL,
-  wo as appMainCurrentCompatSlotLowerWLowerO,
-  wt as appMainCurrentCompatSlotLowerWLowerT,
-  wu as appMainCurrentCompatSlotLowerWLowerU,
-} from "../app-main-legacy-buw-compat-bundle";
+export { LIST_THREADS_TOOL_NAME as appMainCurrentCompatSlotLowerWLowerA } from "../../conversations/codex-app-tool-names";
+export { initSidebarPanelClosedIconChunk as appMainCurrentCompatSlotLowerWLowerD } from "../../icons/sidebar-panel-icons";
+export { PushToolbarButton as appMainCurrentCompatSlotLowerWLowerG } from "../../conversations/git-actions-review-toolbar";
+export { formatScheduleConfigSummary as appMainCurrentCompatSlotLowerWLowerI } from "../../automation/automation-schedule";
+export { BrowserTabMetadataSyncEffect as appMainCurrentCompatSlotLowerWLowerL } from "../../browser/browser-tab-metadata-sync-effect";
+export { initAppshotAttachmentChunk as appMainCurrentCompatSlotLowerWLowerT } from "../../conversations/appshot-attachment";
+export { shouldGroupDynamicToolCalls as appMainCurrentCompatSlotLowerWLowerU } from "../../conversations/tool-activity-grouping-helpers";
+export { legacyAppMainBuwLowerWLowerOExport as appMainCurrentCompatSlotLowerWLowerO } from "./stable-exports";

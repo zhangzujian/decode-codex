@@ -39,6 +39,8 @@ import {
 const TOOL_ASSISTANT_GAP = "var(--conversation-tool-assistant-gap, 8px)";
 const PATCH_FILE_GAP = "4px";
 
+export function initRenderedConversationTurnChunk(): void {}
+
 type RenderUnit = {
   kind: string;
   [key: string]: unknown;

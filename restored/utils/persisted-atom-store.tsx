@@ -177,6 +177,36 @@ function readPersistedAtomLocalStorage(prefix: string) {
   return storage;
 }
 
+function readPersistedRecord<TRecord extends Record<string, unknown>>(
+  key: string,
+  fallback: TRecord,
+): TRecord {
+  const value = persistedAtomValues.has(key)
+    ? persistedAtomValues.get(key)
+    : readPersistedAtomLocalStorage(PERSISTED_ATOM_LOCAL_STORAGE_PREFIX)[key];
+  return value != null && typeof value === "object"
+    ? (value as TRecord)
+    : fallback;
+}
+
+function readPersistedAtomsSnapshot(_registry: unknown): PersistedAtomStorage {
+  return {
+    ...readPersistedAtomLocalStorage(PERSISTED_ATOM_LOCAL_STORAGE_PREFIX),
+    ...Object.fromEntries(persistedAtomValues),
+  };
+}
+
+function hydratePersistedAtoms(
+  state: PersistedAtomStorage,
+  writer: PersistedAtomStorageWriter,
+): void {
+  initializePersistedAtomStore(state, writer);
+}
+
+function markPersistedAtomsSynced(): void {}
+
+const persistedAtomsRegistry = {};
+
 function subscribePersistedAtomValue(
   key: string,
   fallback: unknown,
@@ -199,6 +229,11 @@ export {
   initializePersistedAtomStore,
   clearPersistedAtomLocalStorage,
   readPersistedAtomLocalStorage,
+  readPersistedRecord,
+  readPersistedAtomsSnapshot,
+  hydratePersistedAtoms,
+  markPersistedAtomsSynced,
+  persistedAtomsRegistry,
   PERSISTED_ATOM_LOCAL_STORAGE_PREFIX,
   subscribePersistedAtomValue,
 };

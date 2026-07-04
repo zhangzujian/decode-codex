@@ -16,19 +16,19 @@ export { secondsUntilUnixSeconds as appMainCurrentCompatSlotUpperALowerC } from 
 export { handleForkThread as appMainCurrentCompatSlotUpperALowerA } from "../../conversations/thread-management-tool-handlers";
 export { useUpdateBrowserUseHistoryApprovalModeMutation as appMainCurrentCompatSlotUpperALowerP } from "../../browser/browser-use-origin-state-queries";
 
+export { getConversationalOnboardingWorkflowState as appMainCurrentCompatSlotUpperA } from "../../onboarding/conversational-onboarding-workflow-state";
+export { rightPanelOpenSignal as appMainCurrentCompatSlotUpperALowerY } from "../../app-shell/app-shell-state";
+export { skipFullAccessConfirmSignal as appMainCurrentCompatSlotUpperALowerB } from "../../composer/composer-interaction-state";
+export { GitApplyClipboardIcon as appMainCurrentCompatSlotUpperALowerL } from "../../icons/git-apply-clipboard-icon";
+export { AskForEditButton as appMainCurrentCompatSlotUpperALowerT } from "../../image-side-panel/paged-annotation-ask-for-edit-button";
+export { workspaceFileTabKindPrefix as appMainCurrentCompatSlotUpperALowerF } from "../../workspace/workspace-file-source-tabs";
 export {
-  A as appMainCurrentCompatSlotUpperA,
-  Ab as appMainCurrentCompatSlotUpperALowerB,
-  Af as appMainCurrentCompatSlotUpperALowerF,
-  Ag as appMainCurrentCompatSlotUpperALowerG,
-  Ah as appMainCurrentCompatSlotUpperALowerH,
-  Al as appMainCurrentCompatSlotUpperALowerL,
-  Am as appMainCurrentCompatSlotUpperALowerM,
-  An as appMainCurrentCompatSlotUpperALowerN,
-  Ao as appMainCurrentCompatSlotUpperALowerO,
-  As as appMainCurrentCompatSlotUpperALowerS,
-  At as appMainCurrentCompatSlotUpperALowerT,
-  Av as appMainCurrentCompatSlotUpperALowerV,
-  Ax as appMainCurrentCompatSlotUpperALowerX,
-  Ay as appMainCurrentCompatSlotUpperALowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperALowerGExport as appMainCurrentCompatSlotUpperALowerG,
+  legacyAppMainBuwUpperALowerHExport as appMainCurrentCompatSlotUpperALowerH,
+  legacyAppMainBuwUpperALowerMExport as appMainCurrentCompatSlotUpperALowerM,
+  legacyAppMainBuwUpperALowerNExport as appMainCurrentCompatSlotUpperALowerN,
+  legacyAppMainBuwUpperALowerOExport as appMainCurrentCompatSlotUpperALowerO,
+  legacyAppMainBuwUpperALowerSExport as appMainCurrentCompatSlotUpperALowerS,
+  legacyAppMainBuwUpperALowerVExport as appMainCurrentCompatSlotUpperALowerV,
+  legacyAppMainBuwUpperALowerXExport as appMainCurrentCompatSlotUpperALowerX,
+} from "./stable-exports";

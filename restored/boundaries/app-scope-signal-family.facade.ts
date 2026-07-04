@@ -1,5 +1,4 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
-// Boundary facade (app-scope-signal-family) — typed `any` placeholders for non-exported cross-slice symbols.
-// Open boundary; replace as owning modules are restored. Auto-generated from imports.
+// Scoped signal-family factory used by BUw conversation-keyed state.
 
-export const createConversationKeyedSignal = undefined as never;
+export { createScopedSignalFamily as createConversationKeyedSignal } from "../runtime/app-scope-runtime";

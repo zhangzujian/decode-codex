@@ -35,6 +35,7 @@ type TransferForkedConversationBrowserTabsOptions = {
   sourceConversationId: string;
   targetConversationId: string;
 };
+function initThreadBrowserPanelTabsChunk(): void {}
 function getBrowserPanelTabs(
   store: AppShellStore,
   fallbackBrowserTabId?: string | null,
@@ -268,6 +269,7 @@ export {
   getBrowserTabIdsForEnabledPanels,
   getConversationBrowserTabIdsForTransfer,
   getLastFocusedBrowserTabId,
+  initThreadBrowserPanelTabsChunk,
   transferForkedConversationBrowserTabs,
   getBrowserPanelTabs,
   choosePanelForBrowserTabTargets,

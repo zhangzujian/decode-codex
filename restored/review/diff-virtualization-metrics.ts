@@ -24,6 +24,8 @@ export const defaultDiffVirtualizationMetrics: DiffVirtualizationMetrics = {
   spacing: 0,
 };
 
+export function initDiffVirtualizationMetricsChunk(): void {}
+
 export function readDiffVirtualizationMetrics(
   element: Element,
 ): DiffVirtualizationMetrics {

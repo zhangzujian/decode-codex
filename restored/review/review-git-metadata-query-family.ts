@@ -4,14 +4,20 @@
 import {
   createScopedQueryAtom,
   createParametricAtom,
+} from "../runtime/onboarding-scope-runtime";
+import {
+  getHostKey,
   reviewMetadataScope,
+} from "../runtime/onboarding-common-runtime";
+import {
   disabledQueryResult,
   pendingQueryResult,
+} from "../runtime/query-result-runtime";
+import {
   createGitQueryOptions,
-  getHostKey,
-  gitMetadataReadinessAtom,
   gitMetadataFromCwdQuery,
-} from "../boundaries/onboarding-commons-externals.facade";
+  gitMetadataReadinessAtom,
+} from "../runtime/git-query-runtime";
 
 interface GitMetadataQueryConfig {
   method: string;

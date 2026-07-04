@@ -167,6 +167,8 @@ export function FileAttachmentPill({
   );
 }
 
+export function initFileAttachmentPillChunk(): void {}
+
 interface FolderFileCountTooltipProps {
   children: ReactNode;
   folderPath: string;

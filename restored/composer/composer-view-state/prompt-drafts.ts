@@ -213,6 +213,7 @@ export function cloneComposerState(
     composerMode: state.composerMode,
     aeonStartTarget: state.aeonStartTarget,
     isAutoContextOn: state.isAutoContextOn,
+    imageCommentDraft: state.imageCommentDraft,
     imageAttachments: state.imageAttachments,
     appshotContexts: state.appshotContexts,
     fileAttachments: state.fileAttachments,
@@ -246,6 +247,13 @@ function produceComposerState(
 ): ComposerViewState {
   const nextState = {
     ...state,
+    imageCommentDraft:
+      state.imageCommentDraft == null
+        ? null
+        : {
+            ...state.imageCommentDraft,
+            comments: [...state.imageCommentDraft.comments],
+          },
     imageAttachments: [...state.imageAttachments],
     appshotContexts: [...state.appshotContexts],
     fileAttachments: [...state.fileAttachments],

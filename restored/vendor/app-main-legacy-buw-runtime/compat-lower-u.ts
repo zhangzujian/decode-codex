@@ -26,12 +26,10 @@ export { primaryRuntimeInstallStatusSignal as appMainCurrentCompatSlotLowerULowe
 export { initThreadHandoffComposerStatusChunk as appMainCurrentCompatSlotLowerULowerO } from "../../conversations/thread-handoff-composer-status";
 export { useSettingsHostContext as appMainCurrentCompatSlotLowerULowerP } from "../../settings/settings-host-context";
 
-export {
-  u_ as appMainCurrentCompatSlotLowerUUnderscore,
-  ua as appMainCurrentCompatSlotLowerULowerA,
-  ub as appMainCurrentCompatSlotLowerULowerB,
-  un as appMainCurrentCompatSlotLowerULowerN,
-  uS as appMainCurrentCompatSlotLowerUUpperS,
-  uv as appMainCurrentCompatSlotLowerULowerV,
-  uy as appMainCurrentCompatSlotLowerULowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { buildPullRequestStatusParams as appMainCurrentCompatSlotLowerUUnderscore } from "../../review/git-action-blocked-reasons";
+export { shouldRenderActivityGroup as appMainCurrentCompatSlotLowerULowerA } from "../../conversations/conversation-activity-grouping/activity-group-rendering";
+export { canAgentModeUseOverrides as appMainCurrentCompatSlotLowerULowerB } from "../../utils/use-permissions-mode/mode-selection";
+export { initSubmitToastStatusMessagesChunk as appMainCurrentCompatSlotLowerULowerN } from "../../composer/submit-toast-status-messages";
+export { timeFriday as appMainCurrentCompatSlotLowerUUpperS } from "d3-time";
+export { isGitActionAvailable as appMainCurrentCompatSlotLowerULowerV } from "../../conversations/git-action-availability";
+export { queueBrowserSidebarTab as appMainCurrentCompatSlotLowerULowerY } from "../../browser/browser-sidebar-open-source";

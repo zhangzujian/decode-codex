@@ -25,4 +25,4 @@ export { selectMcpAppFrameContent as appMainCurrentCompatSlotLowerTLowerF } from
 export { initThreadHandoffTransferRuntimeChunk as appMainCurrentCompatSlotLowerTLowerO } from "../../conversations/transfer-pinned-thread-order";
 export { getAdoptedWebContentsId as appMainCurrentCompatSlotLowerTLowerY } from "../../browser/browser-sidebar-open-source";
 
-export { tn as appMainCurrentCompatSlotLowerTLowerN } from "../app-main-legacy-buw-compat-bundle";
+export { legacyAppMainBuwLowerTLowerNExport as appMainCurrentCompatSlotLowerTLowerN } from "./stable-exports";

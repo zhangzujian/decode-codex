@@ -6,19 +6,23 @@ import {
   createComputedAtom,
   createComputedQueryAtom,
   createParametricAtom,
-  threadAtomScope,
+} from "../runtime/onboarding-scope-runtime";
+import {
   reviewMetadataScope,
-  pendingQueryResult,
-  gitCliAvailabilityQueryAtom,
-  buildGitMetadataQueryOptions,
-  isCodexWorktreePath,
+  threadAtomScope,
+} from "../runtime/onboarding-common-runtime";
+import { pendingQueryResult } from "../runtime/query-result-runtime";
+import { buildGitMetadataQueryOptions } from "../runtime/git-query-runtime";
+import { isCodexWorktreePath } from "../boundaries/src-l0hb/paths";
+import {
+  activeLocalProjectCwdAtom,
   conversationAssignmentsAtom,
+  gitCliAvailabilityQueryAtom,
+  isUsableCwd,
   localProjectRootsAtom,
   resolveAssignmentCwd,
-  activeLocalProjectCwdAtom,
-  isUsableCwd,
-} from "../boundaries/onboarding-commons-externals.facade";
-import { createGitMetadataQueryFamily } from "./review-diff-model";
+} from "./review-route-runtime";
+import { createGitMetadataQueryFamily } from "./review-git-metadata-query-family";
 import {
   reviewCwdAtom,
   reviewHostIdAtom,
@@ -175,6 +179,13 @@ export const workspaceReviewContextAtom = createComputedAtom(
     });
   },
 );
+
+export function initWorkspaceReviewContextRuntime(): void {
+  void reviewGitMetadataQueryAtom;
+  void reviewCurrentBranchQueryAtom;
+  void workspaceReviewContextAtom;
+  void reviewProjectRootAtom;
+}
 
 // Resolved project root for the review panel when the workspace has no git repo.
 export const reviewProjectRootAtom = createComputedAtom(

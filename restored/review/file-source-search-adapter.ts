@@ -8,6 +8,8 @@ import { waitForDoubleAnimationFrame } from "./review-scroll-into-view";
 const DEFAULT_LINE_HEIGHT = 20;
 const MAX_SCROLL_ATTEMPTS = 8;
 
+export function initFileSourceSearchAdapterChunk(): void {}
+
 export interface CreateFileSourceSearchProviderOptions {
   contents: string;
   getFileContainer: () => HTMLElement | null;

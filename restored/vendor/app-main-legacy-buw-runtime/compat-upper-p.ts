@@ -22,16 +22,16 @@ export { handleSendMessageToThread as appMainCurrentCompatSlotUpperPLowerA } fro
 export { MiddleTruncatedText as appMainCurrentCompatSlotUpperPLowerL } from "../../ui/middle-truncated-text";
 export { RegenerateIcon as appMainCurrentCompatSlotUpperPUpperC } from "../../icons/regenerate-icon";
 
+export { selectConversationalOnboardingRole as appMainCurrentCompatSlotUpperP } from "../../onboarding/conversational-onboarding-workflow-state";
+export { AnnotationSelectionRect as appMainCurrentCompatSlotUpperPLowerT } from "../../image-side-panel/paged-annotation-rects";
+export { openFileTab as appMainCurrentCompatSlotUpperPLowerU } from "../../review/open-file-tab";
 export {
-  P as appMainCurrentCompatSlotUpperP,
-  Pb as appMainCurrentCompatSlotUpperPLowerB,
-  Pi as appMainCurrentCompatSlotUpperPLowerI,
-  Pm as appMainCurrentCompatSlotUpperPLowerM,
-  Po as appMainCurrentCompatSlotUpperPLowerO,
-  Pp as appMainCurrentCompatSlotUpperPLowerP,
-  PS as appMainCurrentCompatSlotUpperPUpperS,
-  Pt as appMainCurrentCompatSlotUpperPLowerT,
-  Pu as appMainCurrentCompatSlotUpperPLowerU,
-  Pv as appMainCurrentCompatSlotUpperPLowerV,
-  Px as appMainCurrentCompatSlotUpperPLowerX,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperPLowerBExport as appMainCurrentCompatSlotUpperPLowerB,
+  legacyAppMainBuwUpperPLowerIExport as appMainCurrentCompatSlotUpperPLowerI,
+  legacyAppMainBuwUpperPLowerMExport as appMainCurrentCompatSlotUpperPLowerM,
+  legacyAppMainBuwUpperPLowerOExport as appMainCurrentCompatSlotUpperPLowerO,
+  legacyAppMainBuwUpperPLowerPExport as appMainCurrentCompatSlotUpperPLowerP,
+  legacyAppMainBuwUpperPUpperSExport as appMainCurrentCompatSlotUpperPUpperS,
+  legacyAppMainBuwUpperPLowerVExport as appMainCurrentCompatSlotUpperPLowerV,
+  legacyAppMainBuwUpperPLowerXExport as appMainCurrentCompatSlotUpperPLowerX,
+} from "./stable-exports";

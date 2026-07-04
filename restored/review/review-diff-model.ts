@@ -73,6 +73,10 @@ export function initReviewDiffFilterRuntime(): void {
 // Transient review-diff selection, cleared whenever the diff filter changes.
 export const reviewDiffSelectionAtom = createScopedAtom(threadAtomScope, null);
 
+export function initReviewDiffSelectionRuntime(): void {
+  void reviewDiffSelectionAtom;
+}
+
 export function setReviewDiffFilter(
   store: ReviewStore,
   filter: ReviewDiffFilter,

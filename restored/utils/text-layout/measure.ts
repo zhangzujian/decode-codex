@@ -339,3 +339,8 @@ function measureWrappedText(
   const lineCount = countWrappedLines(layout, maxWidth);
   return { lineCount, height: lineCount * lineHeightPx };
 }
+
+export {
+  layoutPlainText as measureTextLayout,
+  measureWrappedText as measureTextLineCount,
+};

@@ -7,6 +7,7 @@ import {
   Ug as collectAssistantOutputArtifactsRaw,
   Wg as initMarkdownResourceHelpersRaw,
 } from "../vendor/projects-app-shared-runtime";
+import { Zr as shouldHideTurnDiffRaw } from "../vendor/remote-projects-app-shared-current-bundle";
 import {
   Dt as resolveVisibleGeneratedImageOutputsRaw,
   lt as initRenderedTurnOutputItemGroupingRaw,
@@ -91,6 +92,12 @@ export function collectAssistantOutputArtifacts<TArtifact = unknown>(
   return collectAssistantOutputArtifactsRaw(options) as TArtifact[];
 }
 
+export function computeEndResources<TArtifact = unknown>(
+  options: AssistantOutputArtifactsOptions,
+): TArtifact[] {
+  return collectAssistantOutputArtifacts<TArtifact>(options);
+}
+
 export function collectLocalConversationEndResourcePaths(
   artifacts: readonly unknown[],
 ): string[] {
@@ -101,6 +108,17 @@ export function collectConversationEndResourcePaths(
   artifacts: readonly unknown[],
 ): string[] {
   return collectEndResourcePathsRaw(artifacts) as string[];
+}
+
+export function getEndResourcePaths(artifacts: readonly unknown[]): string[] {
+  return collectConversationEndResourcePaths(artifacts);
+}
+
+export function shouldHideTurnDiff(options: {
+  endResources: readonly unknown[];
+  turn: unknown;
+}): boolean {
+  return Boolean(shouldHideTurnDiffRaw(options as never));
 }
 
 export function collectRenderedTurnOutputItems(

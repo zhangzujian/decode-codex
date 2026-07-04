@@ -5,13 +5,10 @@ import type { ReactNode } from "react";
 import type { IntlShape } from "../vendor/react-intl";
 import { getErrorMessage } from "../utils/config-load-error";
 import { getThreadReferenceToastMessage } from "./submit-toast-messages";
-import {
-  CLOSED_AGENT_ERROR_MESSAGE,
-  getCloudSubmitToastMessage,
-  getLocalSubmitToastMessage,
-} from "../boundaries/onboarding-commons-externals.facade";
 
 const WORKTREE_INIT_FAILED_CODE = "worktree_init_failed";
+
+export const CLOSED_AGENT_ERROR_MESSAGE = "closed_agent_thread";
 
 export function initSubmitToastStatusMessagesChunk(): void {}
 
@@ -45,6 +42,44 @@ export function getWorktreeStatusToastMessage(
     });
   }
   return null;
+}
+
+export function getCloudSubmitToastMessage(
+  error: unknown,
+  intl: IntlShape,
+): ReactNode {
+  return intl.formatMessage(
+    {
+      id: "composer.submitToast.cloudError",
+      defaultMessage: "Couldn't start cloud task: {message}",
+      description: "Toast shown when cloud task submission fails",
+    },
+    { message: getErrorMessage(error) },
+  );
+}
+
+export function getLocalSubmitToastMessage(
+  error: unknown,
+  intl: IntlShape,
+): ReactNode {
+  return intl.formatMessage(
+    {
+      id: "composer.submitToast.localError",
+      defaultMessage: "Couldn't send message: {message}",
+      description: "Toast shown when local message submission fails",
+    },
+    { message: getErrorMessage(error) },
+  );
+}
+
+export function formatWorktreeSubmitError(
+  error: unknown,
+  intl: IntlShape,
+): ReactNode {
+  return (
+    getWorktreeStatusToastMessage(error, intl) ??
+    getLocalSubmitToastMessage(error, intl)
+  );
 }
 
 export function isClosedAgentError(error: unknown): boolean {

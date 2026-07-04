@@ -281,7 +281,12 @@ function useWebviewExecutionTarget(
     ...executionTarget,
   };
 }
+function initWebviewExecutionTargetChunk(): void {
+  void remoteConnectionSelectionSignal;
+  void connectionStateRank;
+}
 export {
+  initWebviewExecutionTargetChunk,
   reconcilePersistedRemoteHostSelection,
   useWebviewExecutionTarget,
   remoteConnectionSelectionSignal,

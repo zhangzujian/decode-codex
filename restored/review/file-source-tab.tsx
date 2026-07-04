@@ -47,6 +47,8 @@ import {
 const LOCAL_HOST_ID = "local";
 const GIT_BLAME_FEATURE_GATE = "1420162012";
 
+export function initFileSourceTabChunk(): void {}
+
 export interface FileSourceTabState {
   scrollLeft?: number;
   scrollTop?: number;

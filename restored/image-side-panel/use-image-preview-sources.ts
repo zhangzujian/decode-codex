@@ -9,14 +9,16 @@ import {
   type ImageAssetResolver,
 } from "./use-image-asset-download";
 import {
+  appScopeO as useAppStore,
+  useAppScopeValue as useAtomFamilyValue,
+} from "../boundaries/app-scope";
+import { resolveHostConfig } from "../review/review-route-runtime";
+import {
   buildLocalFileSrc,
-  conversationHostIdAtom,
   loadFileDataUrl,
   parseLocalFilePointer,
-  resolveHostConfig,
-  useAppStore,
-  useAtomFamilyValue,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "../runtime/commons-utility-runtime";
+import { conversationHostIdAtom } from "../runtime/onboarding-common-runtime";
 
 export interface UseImagePreviewSourcesParams {
   src: string;

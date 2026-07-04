@@ -14,8 +14,19 @@ const THREAD_SCREENSHOT_HEIGHT = 140;
 
 export function initAppshotAttachmentChunk(): void {}
 
+export function initAppshotAttachmentRuntimeChunk(): void {}
+
 export function computeComposerSnapshotHeight(height?: number | null): number {
   return (height ?? THREAD_SCREENSHOT_HEIGHT) + 8;
+}
+
+export function stripTrailingPageRangeFromTitle(
+  title: string,
+  enabled: boolean,
+): string {
+  return enabled
+    ? title.replace(/(?:\s+\(\s*\d+(?:-\d+)?\s*\)|\s+\d+(?:-\d+)?)(\s*)$/, "")
+    : title;
 }
 
 export type AppshotAttachmentVariant = "composer" | "thread";

@@ -30,7 +30,5 @@ export { initMcpToolItemContentUtilsChunk as appMainCurrentCompatSlotLowerOLower
 export { initOpenConfigTomlButtonChunk as appMainCurrentCompatSlotLowerOLowerX } from "../../composer/open-config-toml-button";
 export { initGitWorkflowPhaseLabelChunk as appMainCurrentCompatSlotLowerOLowerU } from "../../conversations/git-workflow-phase-label";
 
-export {
-  ob as appMainCurrentCompatSlotLowerOLowerB,
-  oy as appMainCurrentCompatSlotLowerOLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { resolveNextFallbackAgentMode as appMainCurrentCompatSlotLowerOLowerB } from "../../utils/use-permissions-mode/mode-selection";
+export { initBrowserSidebarOpenSourceChunk as appMainCurrentCompatSlotLowerOLowerY } from "../../browser/browser-sidebar-open-source";

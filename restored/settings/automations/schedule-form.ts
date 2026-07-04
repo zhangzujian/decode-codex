@@ -19,7 +19,7 @@ import {
   representativeWeekday,
   parseScheduleTime,
   isValidRruleText,
-} from "../../boundaries/onboarding-commons-externals.facade";
+} from "./schedule-rrule-helpers";
 
 export type {
   ParsedRruleSchedule,

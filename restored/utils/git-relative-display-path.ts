@@ -59,3 +59,24 @@ export function toAbsoluteGitPath({
     ? normalized
     : normalizePath(joinPath(gitRoot, normalized));
 }
+
+export function toGitRelativePathKey({
+  gitRoot,
+  gitPath,
+}: {
+  gitRoot: string | null;
+  gitPath: string;
+}): string {
+  if (isAbsolutePath(gitPath)) return normalizePath(gitPath);
+  return toAbsoluteGitPath({ gitRoot, gitPath });
+}
+
+export function pathsEqualWithinRoot(
+  leftPath: string,
+  rightPath: string,
+  root?: string | null,
+): boolean {
+  const normalizeComparablePath = (path: string) =>
+    normalizePath(root != null && !isAbsolutePath(path) ? joinPath(root, path) : path);
+  return normalizeComparablePath(leftPath) === normalizeComparablePath(rightPath);
+}

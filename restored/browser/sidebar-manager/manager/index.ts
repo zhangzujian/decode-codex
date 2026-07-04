@@ -44,6 +44,18 @@ type BrowserSidebarRetainedWebviewOptions = {
 type BrowserSidebarDeviceToolbarUpdater = (
   currentState: BrowserSidebarDeviceToolbarTabState,
 ) => BrowserSidebarDeviceToolbarTabState;
+type BrowserTabPersistenceMode =
+  | "ephemeral"
+  | "persistent"
+  | "restore-expected";
+type BrowserTabPersistenceState = {
+  browserStorageId: string;
+  mode: BrowserTabPersistenceMode;
+};
+type BrowserPagePersistence = {
+  browserStorageId: string;
+  restore: "none" | "required";
+};
 type ReassociateTabStateOptions = {
   removeSourceBrowserStateWhenEmpty?: boolean;
 };
@@ -138,6 +150,10 @@ class BrowserSidebarManager {
     BrowserSidebarPendingElectronTransfer
   >();
   private readonly snapshots = new Map<string, BrowserSidebarSnapshot>();
+  private readonly tabPersistenceStates = new Map<
+    string,
+    BrowserTabPersistenceState
+  >();
   private readonly tabCaptureActiveKeys = new Set<string>();
   private readonly transferredWebviewKeys = new Set<string>();
   private readonly webviews = new Map<string, BrowserSidebarWebviewHost>();
@@ -265,6 +281,90 @@ class BrowserSidebarManager {
       this.snapshots.get(createBrowserTabKey(conversationId, browserTabId)) ??
       null
     );
+  }
+  getBrowserStorageId(
+    conversationId: string,
+    browserTabId = getDefaultBrowserTabId(conversationId),
+  ): string {
+    const browserTabKey = createBrowserTabKey(conversationId, browserTabId);
+    const persistenceState = this.tabPersistenceStates.get(browserTabKey);
+    if (persistenceState != null) return persistenceState.browserStorageId;
+
+    const browserStorageId = getBrowserTabLegacyKey(
+      `browser:${crypto.randomUUID()}`,
+    );
+    this.tabPersistenceStates.set(browserTabKey, {
+      browserStorageId,
+      mode: "ephemeral",
+    });
+    return browserStorageId;
+  }
+  getExistingBrowserStorageId(
+    conversationId: string,
+    browserTabId: string,
+  ): string | null {
+    return (
+      this.tabPersistenceStates.get(
+        createBrowserTabKey(conversationId, browserTabId),
+      )?.browserStorageId ?? null
+    );
+  }
+  restorePersistedPageState(
+    conversationId: string,
+    browserTabId: string,
+    browserStorageId: string,
+  ): void {
+    const browserTabKey = createBrowserTabKey(conversationId, browserTabId);
+    const currentState = this.tabPersistenceStates.get(browserTabKey);
+    if (
+      currentState?.browserStorageId === browserStorageId &&
+      currentState.mode === "restore-expected"
+    ) {
+      return;
+    }
+    this.tabPersistenceStates.set(browserTabKey, {
+      browserStorageId,
+      mode: "restore-expected",
+    });
+    this.emitChange();
+  }
+  getPagePersistence(
+    conversationId: string,
+    browserTabId: string,
+    persistedTabsEnabled?: boolean,
+  ): BrowserPagePersistence | undefined {
+    if (!persistedTabsEnabled) return undefined;
+
+    const browserTabKey = createBrowserTabKey(conversationId, browserTabId);
+    const persistenceState = this.tabPersistenceStates.get(browserTabKey);
+    if (persistenceState == null) {
+      const browserStorageId = getBrowserTabLegacyKey(
+        `browser:${crypto.randomUUID()}`,
+      );
+      this.tabPersistenceStates.set(browserTabKey, {
+        browserStorageId,
+        mode: "persistent",
+      });
+      return { browserStorageId, restore: "none" };
+    }
+
+    if (persistenceState.mode === "restore-expected") {
+      return {
+        browserStorageId: persistenceState.browserStorageId,
+        restore: "required",
+      };
+    }
+
+    if (persistenceState.mode === "ephemeral") {
+      this.tabPersistenceStates.set(browserTabKey, {
+        browserStorageId: persistenceState.browserStorageId,
+        mode: "persistent",
+      });
+    }
+    return {
+      browserStorageId: persistenceState.browserStorageId,
+      restore: "none",
+    };
   }
   hasRetainedWebview(
     conversationId: string,
@@ -532,6 +632,7 @@ class BrowserSidebarManager {
     }
     this.pendingElectronTransfers.delete(browserTabKey);
     this.snapshots.delete(browserTabKey);
+    this.tabPersistenceStates.delete(browserTabKey);
     const removedBrowserUseTab = this.browserUseTabKeys.delete(browserTabKey);
     this.browserUseActiveTabKeys.delete(browserTabKey);
     this.browserUseCursorStates.delete(browserTabKey);
@@ -1103,6 +1204,8 @@ class BrowserSidebarManager {
     const hadSourceTabCapture =
       this.tabCaptureActiveKeys.delete(sourceBrowserTabKey);
     const sourceMountState = this.mountStates.get(sourceBrowserTabKey) ?? null;
+    const sourcePersistenceState =
+      this.tabPersistenceStates.get(sourceBrowserTabKey) ?? null;
     const wasSourceBrowserUseActive =
       this.browserUseActiveTabKeys.delete(sourceBrowserTabKey);
     this.browserUseCaptureSurfaceSizes.delete(sourceBrowserTabKey);
@@ -1110,6 +1213,13 @@ class BrowserSidebarManager {
     this.browserUseTabKeys.delete(sourceBrowserTabKey);
     this.browserUseViewportSizes.delete(sourceBrowserTabKey);
     this.mountStates.delete(sourceBrowserTabKey);
+    this.tabPersistenceStates.delete(sourceBrowserTabKey);
+    if (sourcePersistenceState != null) {
+      this.tabPersistenceStates.set(
+        targetBrowserTabKey,
+        sourcePersistenceState,
+      );
+    }
     this.pendingElectronTransfers.set(targetBrowserTabKey, {
       sourceBrowserTabId,
       sourceConversationId,
@@ -1417,6 +1527,11 @@ class BrowserSidebarManager {
     for (const browserTabKey of this.mountStates.keys()) {
       if (browserTabKey.startsWith(conversationKeyPrefix)) {
         this.mountStates.delete(browserTabKey);
+      }
+    }
+    for (const browserTabKey of this.tabPersistenceStates.keys()) {
+      if (browserTabKey.startsWith(conversationKeyPrefix)) {
+        this.tabPersistenceStates.delete(browserTabKey);
       }
     }
     for (const [browserTabKey, webviewHost] of this.webviews.entries()) {

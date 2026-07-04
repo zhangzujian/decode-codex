@@ -12,6 +12,8 @@ import {
 
 const DIFF_SEARCH_MATCH_CAP = 250;
 
+export function initDiffSearchAdapterChunk(): void {}
+
 interface DiffHunkText {
   hunkId: string;
   lineMapping: "contiguous" | string;

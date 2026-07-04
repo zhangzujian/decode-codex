@@ -26,7 +26,5 @@ export { currentBranchNameAtom as appMainCurrentCompatSlotLowerJLowerV } from ".
 export { overlayReserveCssValue as appMainCurrentCompatSlotLowerJLowerM } from "../../composer/right-panel-composer-overlay-scroll-reserve";
 export { setThreadArchivedTool as appMainCurrentCompatSlotLowerJLowerH } from "../../threads/thread-dynamic-tools/archive-thread-tool";
 
-export {
-  jf as appMainCurrentCompatSlotLowerJLowerF,
-  jy as appMainCurrentCompatSlotLowerJLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { initWorkspaceFileTabKindChunk as appMainCurrentCompatSlotLowerJLowerF } from "../../workspace/workspace-file-source-tabs";
+export { sidebarOpenSignal as appMainCurrentCompatSlotLowerJLowerY } from "../../app-shell/app-shell-state";

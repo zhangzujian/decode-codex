@@ -17,16 +17,16 @@ export { LargeEmptyState as appMainCurrentCompatSlotUpperKLowerF } from "../../u
 export { SummaryPanelRow as appMainCurrentCompatSlotUpperKLowerL } from "../../utils/summary-panel-row";
 export { setThreadFindDomain as appMainCurrentCompatSlotUpperKLowerG } from "../../find/thread-find-store";
 
+export { appShellPanelSpringTransition as appMainCurrentCompatSlotUpperKLowerY } from "../../app-shell/app-shell-state";
+export { materializeThreadGoalDraft as appMainCurrentCompatSlotUpperKLowerH } from "../../threads/pending-worktree-store/thread-goal-materialize";
+export { useDictationKeyboard as appMainCurrentCompatSlotUpperKLowerP } from "../../composer/use-dictation-keyboard";
 export {
-  K as appMainCurrentCompatSlotUpperK,
-  K_ as appMainCurrentCompatSlotUpperKUnderscore,
-  Kb as appMainCurrentCompatSlotUpperKLowerB,
-  Kh as appMainCurrentCompatSlotUpperKLowerH,
-  Km as appMainCurrentCompatSlotUpperKLowerM,
-  Kn as appMainCurrentCompatSlotUpperKLowerN,
-  Kp as appMainCurrentCompatSlotUpperKLowerP,
-  KS as appMainCurrentCompatSlotUpperKUpperS,
-  Kt as appMainCurrentCompatSlotUpperKLowerT,
-  Kx as appMainCurrentCompatSlotUpperKLowerX,
-  Ky as appMainCurrentCompatSlotUpperKLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperKExport as appMainCurrentCompatSlotUpperK,
+  legacyAppMainBuwUpperKUnderscoreExport as appMainCurrentCompatSlotUpperKUnderscore,
+  legacyAppMainBuwUpperKLowerBExport as appMainCurrentCompatSlotUpperKLowerB,
+  legacyAppMainBuwUpperKLowerMExport as appMainCurrentCompatSlotUpperKLowerM,
+  legacyAppMainBuwUpperKLowerNExport as appMainCurrentCompatSlotUpperKLowerN,
+  legacyAppMainBuwUpperKUpperSExport as appMainCurrentCompatSlotUpperKUpperS,
+  legacyAppMainBuwUpperKLowerTExport as appMainCurrentCompatSlotUpperKLowerT,
+  legacyAppMainBuwUpperKLowerXExport as appMainCurrentCompatSlotUpperKLowerX,
+} from "./stable-exports";

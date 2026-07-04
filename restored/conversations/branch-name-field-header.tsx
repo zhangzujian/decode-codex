@@ -40,5 +40,7 @@ function BranchNameFieldHeader({
   );
 }
 
-export { BranchNameFieldHeader };
+function initBranchNameFieldHeaderChunk(): void {}
+
+export { BranchNameFieldHeader, initBranchNameFieldHeaderChunk };
 export type { BranchNameFieldHeaderProps };

@@ -20,14 +20,12 @@ export { initConversationSearchSnippetBuilderRuntime as appMainCurrentCompatSlot
 export { initPendingWorktreeAtomsRuntime as appMainCurrentCompatSlotDollarLowerD } from "../../worktree/pending-worktree-atoms";
 export { getThreadPanelController as appMainCurrentCompatSlotDollarUnderscore } from "../../app-shell/thread-panel-state";
 
-export {
-  $ as appMainCurrentCompatSlotDollar,
-  $b as appMainCurrentCompatSlotDollarLowerB,
-  $i as appMainCurrentCompatSlotDollarLowerI,
-  $p as appMainCurrentCompatSlotDollarLowerP,
-  $s as appMainCurrentCompatSlotDollarLowerS,
-  $t as appMainCurrentCompatSlotDollarLowerT,
-  $u as appMainCurrentCompatSlotDollarLowerU,
-  $v as appMainCurrentCompatSlotDollarLowerV,
-  $x as appMainCurrentCompatSlotDollarLowerX,
-} from "../app-main-legacy-buw-compat-bundle";
+export { PlanSummaryCard as appMainCurrentCompatSlotDollar } from "../../conversations/local-conversation-thread-parts/plan-summary-card";
+export { enabledReasoningEffortsSetSignal as appMainCurrentCompatSlotDollarLowerB } from "../../composer/enabled-reasoning-efforts";
+export { formatHookEventDescription as appMainCurrentCompatSlotDollarLowerI } from "../../settings/hooks-settings-copy";
+export { threadShortcutLabelsAtom as appMainCurrentCompatSlotDollarLowerP } from "../../composer/composer-command-keymap";
+export { MicrosoftIcon as appMainCurrentCompatSlotDollarLowerS } from "../../icons/microsoft-icon";
+export { startComposerTurn as appMainCurrentCompatSlotDollarLowerT } from "../../composer/start-composer-turn";
+export { buildProjectDropdownOptions as appMainCurrentCompatSlotDollarLowerU } from "../../ui/project-dropdown-options";
+export { consumeQueuedBrowserTabIds as appMainCurrentCompatSlotDollarLowerV } from "../../browser/browser-sidebar-open-source";
+export { pie as appMainCurrentCompatSlotDollarLowerX } from "../d3-shape-pie";

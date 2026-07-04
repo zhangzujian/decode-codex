@@ -16,18 +16,18 @@ export { useUpdateBrowserUseFileTransferApprovalModeMutation as appMainCurrentCo
 export { WhitespaceEyeIcon as appMainCurrentCompatSlotUpperOLowerL } from "../../icons/whitespace-eye-icon";
 
 export { cancelActiveConversationalOnboardingForHost as appMainCurrentCompatSlotUpperO } from "../../onboarding/conversational-onboarding-cancel-for-host";
+export { rightPanelAnimationSignal as appMainCurrentCompatSlotUpperOLowerY } from "../../app-shell/app-shell-state";
+export { SET_THREAD_TITLE_TOOL_NAME as appMainCurrentCompatSlotUpperOLowerA } from "../../conversations/codex-app-tool-names";
+export { openImagePreviewTab as appMainCurrentCompatSlotUpperOLowerT } from "../../image-side-panel/open-image-preview-tab";
 export {
-  Oa as appMainCurrentCompatSlotUpperOLowerA,
-  Ob as appMainCurrentCompatSlotUpperOLowerB,
-  Od as appMainCurrentCompatSlotUpperOLowerD,
-  Of as appMainCurrentCompatSlotUpperOLowerF,
-  Oh as appMainCurrentCompatSlotUpperOLowerH,
-  Om as appMainCurrentCompatSlotUpperOLowerM,
-  On as appMainCurrentCompatSlotUpperOLowerN,
-  OS as appMainCurrentCompatSlotUpperOUpperS,
-  Ot as appMainCurrentCompatSlotUpperOLowerT,
-  Ou as appMainCurrentCompatSlotUpperOLowerU,
-  Ov as appMainCurrentCompatSlotUpperOLowerV,
-  Ox as appMainCurrentCompatSlotUpperOLowerX,
-  Oy as appMainCurrentCompatSlotUpperOLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperOLowerBExport as appMainCurrentCompatSlotUpperOLowerB,
+  legacyAppMainBuwUpperOLowerDExport as appMainCurrentCompatSlotUpperOLowerD,
+  legacyAppMainBuwUpperOLowerFExport as appMainCurrentCompatSlotUpperOLowerF,
+  legacyAppMainBuwUpperOLowerHExport as appMainCurrentCompatSlotUpperOLowerH,
+  legacyAppMainBuwUpperOLowerMExport as appMainCurrentCompatSlotUpperOLowerM,
+  legacyAppMainBuwUpperOLowerNExport as appMainCurrentCompatSlotUpperOLowerN,
+  legacyAppMainBuwUpperOUpperSExport as appMainCurrentCompatSlotUpperOUpperS,
+  legacyAppMainBuwUpperOLowerUExport as appMainCurrentCompatSlotUpperOLowerU,
+  legacyAppMainBuwUpperOLowerVExport as appMainCurrentCompatSlotUpperOLowerV,
+  legacyAppMainBuwUpperOLowerXExport as appMainCurrentCompatSlotUpperOLowerX,
+} from "./stable-exports";

@@ -26,4 +26,4 @@ export { initThreadHandoffToolRuntimeChunk as appMainCurrentCompatSlotLowerQLowe
 export { initGitActionsSummaryPanelChunk as appMainCurrentCompatSlotLowerQLowerL } from "../../conversations/git-actions-summary-panel";
 export { summaryPanelBackgroundAgentsSignal as appMainCurrentCompatSlotLowerQLowerO } from "../../conversations/background-subagent-signals";
 
-export { qy as appMainCurrentCompatSlotLowerQLowerY } from "../app-main-legacy-buw-compat-bundle";
+export { appShellLayoutMotionContext as appMainCurrentCompatSlotLowerQLowerY } from "../../app-shell/app-shell-state";

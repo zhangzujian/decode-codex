@@ -4,11 +4,15 @@ import type { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import { HomepageLogoIcon } from "../icons/homepage-logo-icon";
 import { dataUrlFromSvg } from "../utils/data-url-from";
-import {
-  AppBrand,
-  ChatGptBrandLogo,
-  currentAppBrand,
-} from "../boundaries/onboarding-commons-externals.facade";
+
+export const AppBrand = {
+  Codex: "codex",
+  ChatGPT: "chatgpt",
+} as const;
+
+export type AppBrand = (typeof AppBrand)[keyof typeof AppBrand];
+
+export function initAppBrandLogoChunk(): void {}
 
 const CHATGPT_LOGO_MASK_URL = dataUrlFromSvg(`
 <svg
@@ -33,9 +37,80 @@ const CODEX_LOGO_MASK_URL = dataUrlFromSvg(`
 </svg>
 `);
 
+function readCurrentAppBrand(): AppBrand {
+  const brand =
+    (globalThis as { CODEX_APP_BRAND?: unknown }).CODEX_APP_BRAND ??
+    (globalThis as { __CODEX_APP_BRAND__?: unknown }).__CODEX_APP_BRAND__;
+  return brand === AppBrand.ChatGPT ? AppBrand.ChatGPT : AppBrand.Codex;
+}
+
+export const currentAppBrand = readCurrentAppBrand();
+
+export function ChatGptBrandLogo({
+  className,
+  style,
+  ...props
+}: ComponentPropsWithoutRef<"span">) {
+  return (
+    <span
+      aria-hidden="true"
+      {...props}
+      className={clsx("inline-block bg-current", className)}
+      style={{
+        WebkitMaskImage: `url(${CHATGPT_LOGO_MASK_URL})`,
+        maskImage: `url(${CHATGPT_LOGO_MASK_URL})`,
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+        ...style,
+      }}
+    />
+  );
+}
+
 export type AppBrandLogoProps = {
   className?: string;
 };
+
+export type AppHeaderSidebarBrandProps = {
+  hideUnreadBadge?: boolean;
+  onToggleSidebar?: () => void;
+};
+
+export function AppHeaderSidebarBrand({
+  hideUnreadBadge = false,
+  onToggleSidebar,
+}: AppHeaderSidebarBrandProps) {
+  const content = (
+    <>
+      <AppBrandLogo className="size-5" />
+      {hideUnreadBadge ? null : (
+        <span className="size-1.5 rounded-full bg-token-text-secondary opacity-0" />
+      )}
+    </>
+  );
+  const className =
+    "flex h-toolbar-sm shrink-0 items-center gap-2 px-2 text-token-text-primary";
+  if (onToggleSidebar == null) {
+    return <div className={className}>{content}</div>;
+  }
+  return (
+    <button
+      type="button"
+      aria-label="Toggle sidebar"
+      className={clsx(
+        className,
+        "cursor-interaction rounded-md hover:bg-token-surface-hover",
+      )}
+      onClick={onToggleSidebar}
+    >
+      {content}
+    </button>
+  );
+}
 
 export function AppBrandLogo({ className }: AppBrandLogoProps) {
   const isChatGpt = currentAppBrand === AppBrand.ChatGPT;

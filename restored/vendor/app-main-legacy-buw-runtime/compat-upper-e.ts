@@ -12,22 +12,22 @@ export { stashPendingWorktreePanelState as copyConversationStateToFork } from ".
 export { formatDateAndTime as appMainCurrentCompatSlotUpperELowerC } from "../../utils/rate-limit-status/formatting";
 export { useRemoveBrowserUseOriginMutation as appMainCurrentCompatSlotUpperELowerP } from "../../browser/browser-use-origin-state-queries";
 
+export { bottomPanelLauncherVisibleSignal as appMainCurrentCompatSlotUpperELowerY } from "../../app-shell/app-shell-state";
+export { initSidebarPanelClosedIconChunk as appMainCurrentCompatSlotUpperELowerD } from "../../icons/sidebar-panel-icons";
+export { atlasBrowserIconUrl as appMainCurrentCompatSlotUpperELowerM } from "../../browser/browser-profile-import-nux-banner";
+export { useImageAssetDownload as appMainCurrentCompatSlotUpperELowerN } from "../../image-side-panel/use-image-asset-download";
+export { SET_THREAD_ARCHIVED_TOOL_NAME as appMainCurrentCompatSlotUpperELowerA } from "../../conversations/codex-app-tool-names";
 export {
-  E as appMainCurrentCompatSlotUpperE,
-  Ea as appMainCurrentCompatSlotUpperELowerA,
-  Eb as appMainCurrentCompatSlotUpperELowerB,
-  Ed as appMainCurrentCompatSlotUpperELowerD,
-  Ef as appMainCurrentCompatSlotUpperELowerF,
-  Eg as appMainCurrentCompatSlotUpperELowerG,
-  Eh as appMainCurrentCompatSlotUpperELowerH,
-  Ei as appMainCurrentCompatSlotUpperELowerI,
-  El as appMainCurrentCompatSlotUpperELowerL,
-  Em as appMainCurrentCompatSlotUpperELowerM,
-  En as appMainCurrentCompatSlotUpperELowerN,
-  ES as appMainCurrentCompatSlotUpperEUpperS,
-  Et as appMainCurrentCompatSlotUpperELowerT,
-  Eu as appMainCurrentCompatSlotUpperELowerU,
-  Ev as appMainCurrentCompatSlotUpperELowerV,
-  Ex as appMainCurrentCompatSlotUpperELowerX,
-  Ey as appMainCurrentCompatSlotUpperELowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperEExport as appMainCurrentCompatSlotUpperE,
+  legacyAppMainBuwUpperELowerBExport as appMainCurrentCompatSlotUpperELowerB,
+  legacyAppMainBuwUpperELowerFExport as appMainCurrentCompatSlotUpperELowerF,
+  legacyAppMainBuwUpperELowerGExport as appMainCurrentCompatSlotUpperELowerG,
+  legacyAppMainBuwUpperELowerHExport as appMainCurrentCompatSlotUpperELowerH,
+  legacyAppMainBuwUpperELowerIExport as appMainCurrentCompatSlotUpperELowerI,
+  legacyAppMainBuwUpperELowerLExport as appMainCurrentCompatSlotUpperELowerL,
+  legacyAppMainBuwUpperEUpperSExport as appMainCurrentCompatSlotUpperEUpperS,
+  legacyAppMainBuwUpperELowerTExport as appMainCurrentCompatSlotUpperELowerT,
+  legacyAppMainBuwUpperELowerUExport as appMainCurrentCompatSlotUpperELowerU,
+  legacyAppMainBuwUpperELowerVExport as appMainCurrentCompatSlotUpperELowerV,
+  legacyAppMainBuwUpperELowerXExport as appMainCurrentCompatSlotUpperELowerX,
+} from "./stable-exports";

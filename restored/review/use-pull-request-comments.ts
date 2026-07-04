@@ -27,6 +27,8 @@ export interface PullRequestCommentsResult {
   };
 }
 
+export function initUsePullRequestCommentsChunk(): void {}
+
 export function usePullRequestComments(
   options: PullRequestCommentsOptions,
 ): PullRequestCommentsResult {

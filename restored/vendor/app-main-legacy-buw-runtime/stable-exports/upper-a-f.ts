@@ -105,82 +105,102 @@ export {
 } from "../../../app-shell/app-shell-state";
 export { initUseServiceTierSettingsChunk as legacyAppMainBuwUpperCLowerYExport } from "../../../composer/use-service-tier-settings";
 
+export { skipFullAccessConfirmSignal as legacyAppMainBuwUpperALowerBExport } from "../../../composer/composer-interaction-state";
+export { GitApplyClipboardIcon as legacyAppMainBuwUpperALowerLExport } from "../../../icons/git-apply-clipboard-icon";
+export { AskForEditButton as legacyAppMainBuwUpperALowerTExport } from "../../../image-side-panel/paged-annotation-ask-for-edit-button";
+export { ReviewFileTree as legacyAppMainBuwUpperBLowerFExport } from "../../../review/review-file-tree";
 export {
-  Ab as legacyAppMainBuwUpperALowerBExport,
-  Af as legacyAppMainBuwUpperALowerFExport,
-  Ag as legacyAppMainBuwUpperALowerGExport,
-  Ah as legacyAppMainBuwUpperALowerHExport,
-  Al as legacyAppMainBuwUpperALowerLExport,
-  Am as legacyAppMainBuwUpperALowerMExport,
-  An as legacyAppMainBuwUpperALowerNExport,
-  Ao as legacyAppMainBuwUpperALowerOExport,
-  As as legacyAppMainBuwUpperALowerSExport,
-  At as legacyAppMainBuwUpperALowerTExport,
-  Av as legacyAppMainBuwUpperALowerVExport,
-  Ax as legacyAppMainBuwUpperALowerXExport,
-  B as legacyAppMainBuwUpperBExport,
-  BS as legacyAppMainBuwUpperBUpperSExport,
-  Ba as legacyAppMainBuwUpperBLowerAExport,
-  Bb as legacyAppMainBuwUpperBLowerBExport,
-  Bf as legacyAppMainBuwUpperBLowerFExport,
-  Bh as legacyAppMainBuwUpperBLowerHExport,
-  Bi as legacyAppMainBuwUpperBLowerIExport,
-  Bl as legacyAppMainBuwUpperBLowerLExport,
-  Bm as legacyAppMainBuwUpperBLowerMExport,
-  Bo as legacyAppMainBuwUpperBLowerOExport,
-  Bt as legacyAppMainBuwUpperBLowerTExport,
-  Bv as legacyAppMainBuwUpperBLowerVExport,
-  Bx as legacyAppMainBuwUpperBLowerXExport,
-  C as legacyAppMainBuwUpperCExport,
-  CS as legacyAppMainBuwUpperCUpperSExport,
-  Ca as legacyAppMainBuwUpperCLowerAExport,
-  Cb as legacyAppMainBuwUpperCLowerBExport,
-  Cd as legacyAppMainBuwUpperCLowerDExport,
-  Cf as legacyAppMainBuwUpperCLowerFExport,
-  Ch as legacyAppMainBuwUpperCLowerHExport,
-  Ci as legacyAppMainBuwUpperCLowerIExport,
-  Cn as legacyAppMainBuwUpperCLowerNExport,
-  Ct as legacyAppMainBuwUpperCLowerTExport,
-  Cu as legacyAppMainBuwUpperCLowerUExport,
-  Cv as legacyAppMainBuwUpperCLowerVExport,
-  D as legacyAppMainBuwUpperDExport,
-  DS as legacyAppMainBuwUpperDUpperSExport,
-  Da as legacyAppMainBuwUpperDLowerAExport,
-  Db as legacyAppMainBuwUpperDLowerBExport,
-  Dd as legacyAppMainBuwUpperDLowerDExport,
-  Df as legacyAppMainBuwUpperDLowerFExport,
-  Dh as legacyAppMainBuwUpperDLowerHExport,
-  Di as legacyAppMainBuwUpperDLowerIExport,
-  Dl as legacyAppMainBuwUpperDLowerLExport,
-  Dm as legacyAppMainBuwUpperDLowerMExport,
-  Dn as legacyAppMainBuwUpperDLowerNExport,
-  Dt as legacyAppMainBuwUpperDLowerTExport,
-  Du as legacyAppMainBuwUpperDLowerUExport,
-  Dv as legacyAppMainBuwUpperDLowerVExport,
-  Dx as legacyAppMainBuwUpperDLowerXExport,
-  E as legacyAppMainBuwUpperEExport,
-  ES as legacyAppMainBuwUpperEUpperSExport,
-  Ea as legacyAppMainBuwUpperELowerAExport,
-  Eb as legacyAppMainBuwUpperELowerBExport,
-  Ed as legacyAppMainBuwUpperELowerDExport,
-  Ef as legacyAppMainBuwUpperELowerFExport,
-  Eg as legacyAppMainBuwUpperELowerGExport,
-  Eh as legacyAppMainBuwUpperELowerHExport,
-  Ei as legacyAppMainBuwUpperELowerIExport,
-  El as legacyAppMainBuwUpperELowerLExport,
-  Em as legacyAppMainBuwUpperELowerMExport,
-  En as legacyAppMainBuwUpperELowerNExport,
-  Et as legacyAppMainBuwUpperELowerTExport,
-  Eu as legacyAppMainBuwUpperELowerUExport,
-  Ev as legacyAppMainBuwUpperELowerVExport,
-  Ex as legacyAppMainBuwUpperELowerXExport,
-  FS as legacyAppMainBuwUpperFUpperSExport,
-  Fb as legacyAppMainBuwUpperFLowerBExport,
-  Fd as legacyAppMainBuwUpperFLowerDExport,
-  Fl as legacyAppMainBuwUpperFLowerLExport,
-  Fm as legacyAppMainBuwUpperFLowerMExport,
-  Fp as legacyAppMainBuwUpperFLowerPExport,
-  Ft as legacyAppMainBuwUpperFLowerTExport,
-  Fu as legacyAppMainBuwUpperFLowerUExport,
-  Fx as legacyAppMainBuwUpperFLowerXExport,
-} from "../../app-main-legacy-buw-compat-bundle";
+  SidebarPanelClosedIcon as legacyAppMainBuwUpperCLowerDExport,
+  initSidebarPanelClosedIconChunk as legacyAppMainBuwUpperELowerDExport,
+} from "../../../icons/sidebar-panel-icons";
+export { AppshotAttachment as legacyAppMainBuwUpperCLowerTExport } from "../../../conversations/appshot-attachment";
+export { SET_THREAD_PINNED_TOOL_NAME as legacyAppMainBuwUpperDLowerAExport } from "../../../conversations/codex-app-tool-names";
+export { atlasBrowserIconUrl as legacyAppMainBuwUpperELowerMExport } from "../../../browser/browser-profile-import-nux-banner";
+export { useImageAssetDownload as legacyAppMainBuwUpperELowerNExport } from "../../../image-side-panel/use-image-asset-download";
+export {
+  workspaceFileTabKindPrefix as legacyAppMainBuwUpperALowerFExport,
+  parseWorkspaceFileTab as legacyAppMainBuwUpperCLowerFExport,
+} from "../../../workspace/workspace-file-source-tabs";
+export {
+  LIST_PROJECTS_TOOL_NAME as legacyAppMainBuwUpperBLowerAExport,
+  FORK_THREAD_TOOL_NAME as legacyAppMainBuwUpperCLowerAExport,
+  SET_THREAD_ARCHIVED_TOOL_NAME as legacyAppMainBuwUpperELowerAExport,
+} from "../../../conversations/codex-app-tool-names";
+export { BranchNameFieldHeader as legacyAppMainBuwUpperBLowerLExport } from "../../../conversations/branch-name-field-header";
+export {
+  clearWorkspaceFileManualRefreshPending as legacyAppMainBuwUpperDLowerFExport,
+  setWorkspaceFileManualRefreshPending as legacyAppMainBuwUpperELowerFExport,
+} from "../../../workspace/workspace-file-source-tabs";
+export { initNavigateToCodexPageToolChunk as legacyAppMainBuwUpperBLowerOExport } from "../../../runtime/navigate-to-codex-page-tool";
+export { TwoPeopleShieldIcon as legacyAppMainBuwUpperCLowerHExport } from "../../../icons/two-people-shield-icon";
+export { ReviewOptionsMenuCompact as legacyAppMainBuwUpperELowerLExport } from "../../../review/review-options-menu-compact";
+export { openFileTab as legacyAppMainBuwUpperFLowerUExport } from "../../../review/open-file-tab";
+export { initCodexAppToolDefinitionsRuntimeChunk as legacyAppMainBuwUpperALowerOExport } from "../../../conversations/codex-app-tool-definitions-runtime";
+export { getDefaultHeartbeatScheduleConfig as legacyAppMainBuwUpperCLowerIExport } from "../../../automation/automation-schedule/schedule-config";
+export {
+  aggregateChangedFileSummary as legacyAppMainBuwUpperDLowerUExport,
+  computeFileLineStats as legacyAppMainBuwUpperELowerUExport,
+} from "../../../review/diff-selection-summary";
+export { getAutomationAnalyticsProperties as legacyAppMainBuwUpperELowerIExport } from "../../../automation/automation-schedule/analytics";
+export { applyBrowserCommentPopupShake as legacyAppMainBuwUpperFLowerPExport } from "../../../browser/browser-comment-popup-shake";
+export { useActiveWorkspace as legacyAppMainBuwUpperBLowerBExport } from "../../../composer/use-active-workspace";
+export { setAnimatedOverlayReserve as legacyAppMainBuwUpperBLowerMExport } from "../../../composer/right-panel-composer-overlay-scroll-reserve";
+export { useServiceTier as legacyAppMainBuwUpperFLowerBExport } from "../../../composer/use-service-tier";
+export { computeRectAskForEditPosition as legacyAppMainBuwUpperBLowerTExport } from "../../../image-side-panel/paged-annotation-overlay-geometry";
+export { reviewDiffFilterAtom as legacyAppMainBuwUpperBLowerVExport } from "../../../review/review-diff-model";
+export {
+  overlayReserveCssVariable as legacyAppMainBuwUpperALowerMExport,
+  initRightPanelComposerOverlayScrollReserveChunk as legacyAppMainBuwUpperFLowerMExport,
+} from "../../../composer/right-panel-composer-overlay-scroll-reserve";
+export { findActiveMatchAtom as legacyAppMainBuwUpperELowerGExport } from "../../../find/thread-find-atoms";
+export { interpolateString as legacyAppMainBuwUpperBUpperSExport } from "d3-interpolate";
+export {
+  scaleLinear as legacyAppMainBuwUpperCUpperSExport,
+  scaleOrdinal as legacyAppMainBuwUpperEUpperSExport,
+} from "d3-scale";
+export { deviation as legacyAppMainBuwUpperFUpperSExport } from "d3-array";
+export { initD3ArrayRuntimeChunk as legacyAppMainBuwUpperDUpperSExport } from "../../../utils/d3-runtime-initializers";
+export {
+  stackOffsetDiverging as legacyAppMainBuwUpperALowerXExport,
+  curveLinearClosed as legacyAppMainBuwUpperBLowerXExport,
+} from "d3-shape";
+export {
+  currentBranchFromCwdAtom as legacyAppMainBuwUpperALowerVExport,
+  workspaceReviewContextAtom as legacyAppMainBuwUpperDLowerVExport,
+  initWorkspaceReviewContextRuntime as legacyAppMainBuwUpperELowerVExport,
+} from "../../../review/review-git-metadata";
+export { initReviewDiffSelectionRuntime as legacyAppMainBuwUpperCLowerVExport } from "../../../review/review-diff-model";
+export { useCombinedRefs as legacyAppMainBuwUpperELowerXExport } from "@dnd-kit/utilities";
+export { canNavigateBackSignal as legacyAppMainBuwUpperFLowerDExport } from "../../../app-shell/navigation-history-signals";
+export { curveStepBefore as legacyAppMainBuwUpperFLowerXExport } from "d3-shape";
+export { resolveManagedWorktreeRepositoryPath as legacyAppMainBuwUpperCLowerNExport } from "../../../worktree/managed-worktree-status";
+export { initPagedAnnotationOverlaysChunk as legacyAppMainBuwUpperFLowerTExport } from "../../../image-side-panel/paged-annotation-overlays";
+export { resetConversationalOnboardingTaskScope as legacyAppMainBuwUpperCExport } from "../../../onboarding/conversational-onboarding-task-scope";
+export {
+  isBrowserConversationFeatureGateEnabled as legacyAppMainBuwUpperDLowerHExport,
+  initBrowserConversationFeatureGateChunk as legacyAppMainBuwUpperELowerHExport,
+} from "../../../browser/browser-conversation-feature-gate";
+export { initThreadManagementToolDefinitionsChunk as legacyAppMainBuwUpperALowerHExport } from "../../../conversations/thread-management-tool-definitions";
+export { initPendingWorktreeConversationStartsChunk as legacyAppMainBuwUpperBLowerHExport } from "../../../threads/pending-worktree-store/pending-worktree-conversation-starts";
+export { initAppshotAttachmentChunk as legacyAppMainBuwUpperELowerTExport } from "../../../conversations/appshot-attachment";
+export { initAppshotIconCacheChunk as legacyAppMainBuwUpperDLowerNExport } from "../../../runtime/native-app-icon-runtime";
+export { permissionProfilesQuery as legacyAppMainBuwUpperCLowerBExport } from "../../../utils/use-permissions-mode/permission-profiles";
+export {
+  initCollaborationModeQueriesChunk as legacyAppMainBuwUpperDLowerBExport,
+  selectedHostCollaborationModesQuerySignal as legacyAppMainBuwUpperELowerBExport,
+} from "../../../collaboration/collaboration-mode-queries";
+export { useIsomorphicLayoutEffect as legacyAppMainBuwUpperDLowerXExport } from "../../../utils/use-isomorphic-layout-effect";
+export { initPopoverAttachmentPillChunk as legacyAppMainBuwUpperBLowerIExport } from "../../../composer/popover-attachment-pill";
+export { commitMessageDraftAtom as legacyAppMainBuwUpperCLowerUExport } from "../../../review/local-git-action-state";
+export { pointerVelocitySignal as legacyAppMainBuwUpperDLowerDExport } from "../../../runtime/pointer-velocity-signals/index";
+export { initAutomationScheduleConfigChunk as legacyAppMainBuwUpperDLowerIExport } from "../../../automation/automation-schedule/schedule-config";
+export { initReviewOptionsRuntime as legacyAppMainBuwUpperDLowerLExport } from "../../../review/review-options-runtime";
+export { initInterruptedTurnStateChunk as legacyAppMainBuwUpperALowerSExport } from "../../../conversations/interrupted-turn-state";
+export { initSliceTurnItemsAfterIntroChunk as legacyAppMainBuwUpperBExport } from "../../../conversations/partition-turn-items/slice-turn-items-after-intro";
+export { initConversationalOnboardingControllerChunk as legacyAppMainBuwUpperDExport } from "../../../onboarding/conversational-onboarding-controller";
+export { conversationalOnboardingTaskCompletionSignal as legacyAppMainBuwUpperEExport } from "../../../onboarding/conversational-onboarding-task-completion-state";
+export { initMiddleTruncatedTextChunk as legacyAppMainBuwUpperFLowerLExport } from "../../../review/middle-truncated-text";
+export { initThreadFindAtomsChunk as legacyAppMainBuwUpperALowerGExport } from "../../../find/thread-find-atoms";
+export { initFileReferenceLinkChunk as legacyAppMainBuwUpperALowerNExport } from "../../../conversations/file-reference-link";
+export { activeSidePanelBrowserTabIdSignal as legacyAppMainBuwUpperDLowerMExport } from "../../../app-shell/thread-side-panel-active-signals";
+export { initAppshotAttachmentRuntimeChunk as legacyAppMainBuwUpperDLowerTExport } from "../../../conversations/appshot-attachment";

@@ -12,6 +12,12 @@ const pendingWorktreeConversationStartsById = new Map<
 >();
 let pendingWorktreeConversationStartSnapshot: PendingWorktreeConversationStart[] =
   [];
+
+export function initPendingWorktreeConversationStartsChunk(): void {
+  void pendingWorktreeConversationStartSubscribers;
+  void pendingWorktreeConversationStartsById;
+}
+
 export function usePendingWorktreeConversationStarts() {
   return React.useSyncExternalStore(
     subscribePendingWorktreeConversationStarts,

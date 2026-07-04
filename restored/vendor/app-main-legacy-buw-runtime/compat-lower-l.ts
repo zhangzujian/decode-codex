@@ -28,7 +28,5 @@ export { initTerminalPanelRoutingChunk as appMainCurrentCompatSlotLowerLUndersco
 export { initConversationalOnboardingTaskRegistryChunk as appMainCurrentCompatSlotLowerL } from "../../onboarding/conversational-onboarding-task-registry";
 export { initBrowserUseGlyphIconChunk as appMainCurrentCompatSlotLowerLLowerA } from "../../conversations/tool-activity-source-icon";
 
-export {
-  lb as appMainCurrentCompatSlotLowerLLowerB,
-  ly as appMainCurrentCompatSlotLowerLLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { resolveNonFullAccessAgentMode as appMainCurrentCompatSlotLowerLLowerB } from "../../utils/use-permissions-mode/mode-selection";
+export { rememberBrowserSidebarOpenSource as appMainCurrentCompatSlotLowerLLowerY } from "../../browser/browser-sidebar-open-source";

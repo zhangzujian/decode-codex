@@ -5,7 +5,7 @@
 import {
   appRootScope,
   createScopedAtom,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "../runtime/onboarding-scope-runtime";
 
 export interface McpAppFrameState {
   intrinsicHeight: number | null;
@@ -21,7 +21,7 @@ export const defaultMcpAppFrameState: McpAppFrameState = {
   sandboxError: null,
 };
 
-const frameStatesByAppIdAtom = createScopedAtom(
+export const frameStatesByAppIdAtom = createScopedAtom(
   appRootScope,
   () => new Map<string, McpAppFrameState>(),
 );

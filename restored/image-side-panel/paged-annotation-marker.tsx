@@ -138,3 +138,7 @@ export function PagedAnnotationMarker(props: PagedAnnotationMarkerProps) {
     </div>
   );
 }
+
+export function initPagedAnnotationMarkerChunk(): void {
+  void PagedAnnotationMarker;
+}

@@ -2,25 +2,27 @@
 // Resolves the working directory / host config for the review diff model from the
 // active route (home, new-thread-panel, client-local / local / remote / chatgpt thread).
 
+import { createComputedAtom } from "../runtime/onboarding-scope-runtime";
 import {
-  createComputedAtom,
-  threadAtomScope,
+  conversationHostIdAtom,
   getHostKey,
-  resolveProjectlessThreadContext,
-  defaultHostIdAtom,
-  remoteProjectsAtom,
+  threadAtomScope,
+} from "../runtime/onboarding-common-runtime";
+import {
   activeLocalProjectCwdAtom,
-  selectedRemoteProjectAtom,
   clientLocalCwdAtom,
   clientLocalWorkspaceRootsQueryAtom,
   conversationAssignmentsAtom,
+  conversationCwdAtom,
+  defaultHostIdAtom,
+  hostConfigByIdAtom,
+  remoteProjectsAtom,
   resolveAssignmentCwd,
   resolveAssignmentHostId,
-  conversationCwdAtom,
-  conversationHostIdAtom,
-  hostConfigByIdAtom,
+  resolveProjectlessThreadContext,
+  selectedRemoteProjectAtom,
   serverConfigQueryAtom,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "./review-route-runtime";
 
 interface ComputedAtomContext {
   get: (atom: unknown, arg?: unknown) => any;

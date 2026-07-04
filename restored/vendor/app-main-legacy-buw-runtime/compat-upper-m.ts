@@ -11,21 +11,21 @@ export { OPEN_IN_CODEX_TOOL_NAME as appMainCurrentCompatSlotUpperMLowerO } from 
 export { findConnectorAppByIdentifier as appMainCurrentCompatSlotUpperMLowerS } from "../../connectors/apps-queries/onboarding-app-connection";
 export { handleListThreads as appMainCurrentCompatSlotUpperMLowerA } from "../../conversations/thread-management-tool-handlers";
 
+export { resetConversationalOnboardingWorkflowState as appMainCurrentCompatSlotUpperM } from "../../onboarding/conversational-onboarding-workflow-state";
+export { initRateLimitStatusChunk as appMainCurrentCompatSlotUpperMLowerC } from "../../utils/rate-limit-status/windows";
+export { reviewFileTreeOpenAnimationSignal as appMainCurrentCompatSlotUpperMLowerY } from "../../app-shell/app-shell-state";
+export { createThread as appMainCurrentCompatSlotUpperMLowerH } from "../../threads/create-thread";
+export { BranchSearchList as appMainCurrentCompatSlotUpperMLowerL } from "../../review/branch-search-list";
+export { AnnotationHighlightRect as appMainCurrentCompatSlotUpperMLowerT } from "../../image-side-panel/paged-annotation-rects";
 export {
-  M as appMainCurrentCompatSlotUpperM,
-  M_ as appMainCurrentCompatSlotUpperMUnderscore,
-  Mb as appMainCurrentCompatSlotUpperMLowerB,
-  Mc as appMainCurrentCompatSlotUpperMLowerC,
-  Md as appMainCurrentCompatSlotUpperMLowerD,
-  Mf as appMainCurrentCompatSlotUpperMLowerF,
-  Mg as appMainCurrentCompatSlotUpperMLowerG,
-  Mh as appMainCurrentCompatSlotUpperMLowerH,
-  Ml as appMainCurrentCompatSlotUpperMLowerL,
-  Mm as appMainCurrentCompatSlotUpperMLowerM,
-  Mp as appMainCurrentCompatSlotUpperMLowerP,
-  MS as appMainCurrentCompatSlotUpperMUpperS,
-  Mt as appMainCurrentCompatSlotUpperMLowerT,
-  Mv as appMainCurrentCompatSlotUpperMLowerV,
-  Mx as appMainCurrentCompatSlotUpperMLowerX,
-  My as appMainCurrentCompatSlotUpperMLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperMUnderscoreExport as appMainCurrentCompatSlotUpperMUnderscore,
+  legacyAppMainBuwUpperMLowerBExport as appMainCurrentCompatSlotUpperMLowerB,
+  legacyAppMainBuwUpperMLowerDExport as appMainCurrentCompatSlotUpperMLowerD,
+  legacyAppMainBuwUpperMLowerFExport as appMainCurrentCompatSlotUpperMLowerF,
+  legacyAppMainBuwUpperMLowerGExport as appMainCurrentCompatSlotUpperMLowerG,
+  legacyAppMainBuwUpperMLowerMExport as appMainCurrentCompatSlotUpperMLowerM,
+  legacyAppMainBuwUpperMLowerPExport as appMainCurrentCompatSlotUpperMLowerP,
+  legacyAppMainBuwUpperMUpperSExport as appMainCurrentCompatSlotUpperMUpperS,
+  legacyAppMainBuwUpperMLowerVExport as appMainCurrentCompatSlotUpperMLowerV,
+  legacyAppMainBuwUpperMLowerXExport as appMainCurrentCompatSlotUpperMLowerX,
+} from "./stable-exports";

@@ -23,3 +23,5 @@ export {
   SelectedTextTooltip,
 } from "./selected-text-attachment-pill";
 export { MessageSquareIcon } from "./message-square-icon";
+
+export function initUserMessageAttachmentPillsChunk(): void {}

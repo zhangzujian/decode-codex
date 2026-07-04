@@ -110,6 +110,51 @@ export function applyThreadFindBrowserStatus(
   }
 }
 
+export function setThreadFindBrowserQuery(
+  scope: AppScope,
+  query: string,
+): void {
+  preserveScrollBeforeClear(scope);
+  scope.set(findQueryAtom, query);
+  scope.set(findResultAtom, null);
+  scope.set(findLoadingAtom, false);
+  scope.set(findActiveMatchIndexAtom, null);
+  scope.set(findBrowserStatusAtom, {
+    activeMatchOrdinal: 0,
+    matches: 0,
+    query,
+  });
+}
+
+export function setThreadFindActiveOrchestration(
+  scope: AppScope,
+  orchestrationId: string | null,
+): void {
+  scope.set(findActiveOrchestrationAtom, orchestrationId);
+}
+
+export function submitThreadFindQuery(
+  scope: AppScope,
+  options?: { shift?: boolean },
+): void {
+  const query = scope.get<string>(findQueryAtom).trim();
+  if (query.length === 0) return;
+  const result = scope.get<ThreadFindResult | null>(findResultAtom);
+  if (
+    result == null ||
+    result.query !== query ||
+    result.domain !== scope.get<ThreadFindDomain>(findActiveDomainAtom)
+  ) {
+    getThreadFindController(scope)?.runSearch({ selectFirstMatch: true });
+    return;
+  }
+  if (options?.shift) {
+    goToPreviousThreadFindMatch(scope);
+    return;
+  }
+  goToNextThreadFindMatch(scope);
+}
+
 export function setThreadFindQuery(scope: AppScope, query: string): void {
   if (query.trim().length === 0) {
     preserveScrollBeforeClear(scope);
@@ -146,7 +191,9 @@ export function goToPreviousThreadFindMatch(scope: AppScope): void {
 }
 
 type ThreadFindResult = {
+  domain?: ThreadFindDomain;
   matches: unknown[];
+  query?: string;
 };
 
 function getActiveOrchestration(scope: AppScope): string | null {

@@ -4,7 +4,7 @@
 // helpers to split a multi-file diff, locate per-path/per-hunk patches, and resolve
 // the apply target (staged/unstaged + revert direction) for a patch action.
 
-import { parseUnifiedDiff } from "../boundaries/onboarding-commons-externals.facade";
+import { parseUnifiedDiffFileSummaries as parseUnifiedDiff } from "../utils/unified-diff-file-summaries";
 
 export type HunkContentEntry =
   | {

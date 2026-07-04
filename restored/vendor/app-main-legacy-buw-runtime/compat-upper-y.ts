@@ -19,16 +19,16 @@ export { CODEX_MCP_DOCS_URL as appMainCurrentCompatSlotUpperYLowerC } from "../.
 export { parseHttpsUrl as appMainCurrentCompatSlotUpperYLowerO } from "../../conversations/parse-https-url";
 export { moveThreadToWorktree as appMainCurrentCompatSlotUpperYLowerA } from "../../conversations/move-thread-to-worktree";
 
+export { canUseWorkspaceWriteOnRequest as appMainCurrentCompatSlotUpperYLowerY } from "../../utils/use-permissions-mode/mode-availability";
 export {
-  Y_ as appMainCurrentCompatSlotUpperYUnderscore,
-  Yb as appMainCurrentCompatSlotUpperYLowerB,
-  Yf as appMainCurrentCompatSlotUpperYLowerF,
-  Yg as appMainCurrentCompatSlotUpperYLowerG,
-  Yh as appMainCurrentCompatSlotUpperYLowerH,
-  Ym as appMainCurrentCompatSlotUpperYLowerM,
-  Yp as appMainCurrentCompatSlotUpperYLowerP,
-  YS as appMainCurrentCompatSlotUpperYUpperS,
-  Yt as appMainCurrentCompatSlotUpperYLowerT,
-  Yx as appMainCurrentCompatSlotUpperYLowerX,
-  Yy as appMainCurrentCompatSlotUpperYLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperYUnderscoreExport as appMainCurrentCompatSlotUpperYUnderscore,
+  legacyAppMainBuwUpperYLowerBExport as appMainCurrentCompatSlotUpperYLowerB,
+  legacyAppMainBuwUpperYLowerFExport as appMainCurrentCompatSlotUpperYLowerF,
+  legacyAppMainBuwUpperYLowerGExport as appMainCurrentCompatSlotUpperYLowerG,
+  legacyAppMainBuwUpperYLowerHExport as appMainCurrentCompatSlotUpperYLowerH,
+  legacyAppMainBuwUpperYLowerMExport as appMainCurrentCompatSlotUpperYLowerM,
+  legacyAppMainBuwUpperYLowerPExport as appMainCurrentCompatSlotUpperYLowerP,
+  legacyAppMainBuwUpperYUpperSExport as appMainCurrentCompatSlotUpperYUpperS,
+  legacyAppMainBuwUpperYLowerTExport as appMainCurrentCompatSlotUpperYLowerT,
+  legacyAppMainBuwUpperYLowerXExport as appMainCurrentCompatSlotUpperYLowerX,
+} from "./stable-exports";

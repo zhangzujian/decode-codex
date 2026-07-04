@@ -27,6 +27,11 @@ export const openInCodexTool = {
   ),
 };
 
+export function initOpenInCodexToolChunk(): void {
+  void openInCodexTool;
+  void openInCodex;
+}
+
 export async function openInCodex({
   argumentsValue,
   hostId,

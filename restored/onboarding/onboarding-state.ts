@@ -206,5 +206,6 @@ export {
   welcomeOnboardingPendingAtom,
   welcomeV2OnboardingStorageKey,
   projectlessOnboardingCompletedAtom,
+  projectlessOnboardingCompletedSignal,
   projectlessOnboardingCompletedStorageKey,
 };

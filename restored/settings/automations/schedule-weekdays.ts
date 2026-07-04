@@ -2,7 +2,7 @@
 // Weekday ordering plus human-readable weekday/time label helpers for automation schedule summaries.
 
 import type { IntlShape } from "../../vendor/react-intl";
-import { ALL_WEEKDAYS } from "../../boundaries/onboarding-commons-externals.facade";
+import { ALL_WEEKDAYS } from "./schedule-rrule-helpers";
 
 export type WeekdayToken = "SU" | "MO" | "TU" | "WE" | "TH" | "FR" | "SA";
 

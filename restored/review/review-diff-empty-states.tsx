@@ -18,6 +18,14 @@ import {
   reviewShowGitRepoEmptyStateAtom,
 } from "../boundaries/onboarding-commons-externals.facade";
 
+export function initReviewEmptyIllustrationChunk(): void {}
+
+export function initReviewDiffTooLargeEmptyStateChunk(): void {}
+
+export function initReviewNoDiffEmptyStateChunk(): void {}
+
+export function initReviewStageFilterEmptyStateChunk(): void {}
+
 function ReviewEmptyIllustration(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg

@@ -31,4 +31,4 @@ export { initPermissionModeSelectionChunk as appMainCurrentCompatSlotLowerSLower
 export { BackForwardNavigationButtons as appMainCurrentCompatSlotLowerSLowerH } from "../../ui/back-forward-navigation-buttons";
 export { CANCEL_GIT_ACTION_ICON_BUTTON_CLASS_NAME as appMainCurrentCompatSlotLowerSLowerU } from "../../conversations/cancel-git-action-button";
 
-export { sy as appMainCurrentCompatSlotLowerSLowerY } from "../app-main-legacy-buw-compat-bundle";
+export { queueAdoptedBrowserTabId as appMainCurrentCompatSlotLowerSLowerY } from "../../browser/browser-sidebar-open-source";

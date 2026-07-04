@@ -25,11 +25,9 @@ export { refreshPendingWorktrees as appMainCurrentCompatSlotLowerELowerF } from 
 export { initCollapsedTurnSummaryLabelChunk as appMainCurrentCompatSlotLowerELowerS } from "../../conversations/collapsed-turn-summary-label";
 export { initPlanSummaryCardChunk as appMainCurrentCompatSlotLowerELowerT } from "../../conversations/local-conversation-thread-parts/plan-summary-card";
 
-export {
-  eb as appMainCurrentCompatSlotLowerELowerB,
-  ed as appMainCurrentCompatSlotLowerELowerD,
-  em as appMainCurrentCompatSlotLowerELowerM,
-  eo as appMainCurrentCompatSlotLowerELowerO,
-  eS as appMainCurrentCompatSlotLowerEUpperS,
-  ey as appMainCurrentCompatSlotLowerELowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { usePermissionsConfigData as appMainCurrentCompatSlotLowerELowerB } from "../../utils/use-permissions-mode/config-data";
+export { initProjectDropdownOptionsChunk as appMainCurrentCompatSlotLowerELowerD } from "../../ui/project-dropdown-options";
+export { getCommandKeyBindings as appMainCurrentCompatSlotLowerELowerM } from "../../composer/command-shortcut-bindings";
+export { remapDiffCommentsForHandoff as appMainCurrentCompatSlotLowerELowerO } from "../../conversations/remap-diff-comments-for-handoff";
+export { line as appMainCurrentCompatSlotLowerEUpperS } from "../d3-shape-line";
+export { consumeBrowserSidebarTabSources as appMainCurrentCompatSlotLowerELowerY } from "../../browser/browser-sidebar-open-source";

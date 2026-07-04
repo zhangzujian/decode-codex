@@ -31,6 +31,8 @@ export {
 } from "./reasoning-markdown-helpers";
 export { renderThinkingLabel, useThinkingDuration } from "./reasoning-timing";
 
+export function initReasoningItemChunk(): void {}
+
 export interface ReasoningItemData {
   content: string;
   completed: boolean;

@@ -9,22 +9,22 @@ export { CODEX_CHROME_EXTENSION_DOCS_URL as appMainCurrentCompatSlotUpperHLowerC
 export { trackConversationalOnboardingLifecycleStarted as appMainCurrentCompatSlotUpperHLowerS } from "../../onboarding/conversational-onboarding-analytics";
 export { runAppActionInPrimaryWindow as appMainCurrentCompatSlotUpperHLowerO } from "../../runtime/run-app-action-in-primary-window";
 
+export { activeAppShellFocusAreaSignal as appMainCurrentCompatSlotUpperHLowerY } from "../../app-shell/app-shell-state";
+export { updateCollapsedTurnState as appMainCurrentCompatSlotUpperH } from "../../conversations/turn-collapse-state";
 export {
-  H as appMainCurrentCompatSlotUpperH,
-  H_ as appMainCurrentCompatSlotUpperHUnderscore,
-  Ha as appMainCurrentCompatSlotUpperHLowerA,
-  Hb as appMainCurrentCompatSlotUpperHLowerB,
-  Hf as appMainCurrentCompatSlotUpperHLowerF,
-  Hg as appMainCurrentCompatSlotUpperHLowerG,
-  Hh as appMainCurrentCompatSlotUpperHLowerH,
-  Hi as appMainCurrentCompatSlotUpperHLowerI,
-  Hl as appMainCurrentCompatSlotUpperHLowerL,
-  Hm as appMainCurrentCompatSlotUpperHLowerM,
-  Hn as appMainCurrentCompatSlotUpperHLowerN,
-  Hp as appMainCurrentCompatSlotUpperHLowerP,
-  HS as appMainCurrentCompatSlotUpperHUpperS,
-  Ht as appMainCurrentCompatSlotUpperHLowerT,
-  Hu as appMainCurrentCompatSlotUpperHLowerU,
-  Hx as appMainCurrentCompatSlotUpperHLowerX,
-  Hy as appMainCurrentCompatSlotUpperHLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperHUnderscoreExport as appMainCurrentCompatSlotUpperHUnderscore,
+  legacyAppMainBuwUpperHLowerAExport as appMainCurrentCompatSlotUpperHLowerA,
+  legacyAppMainBuwUpperHLowerBExport as appMainCurrentCompatSlotUpperHLowerB,
+  legacyAppMainBuwUpperHLowerFExport as appMainCurrentCompatSlotUpperHLowerF,
+  legacyAppMainBuwUpperHLowerGExport as appMainCurrentCompatSlotUpperHLowerG,
+  legacyAppMainBuwUpperHLowerHExport as appMainCurrentCompatSlotUpperHLowerH,
+  legacyAppMainBuwUpperHLowerIExport as appMainCurrentCompatSlotUpperHLowerI,
+  legacyAppMainBuwUpperHLowerLExport as appMainCurrentCompatSlotUpperHLowerL,
+  legacyAppMainBuwUpperHLowerMExport as appMainCurrentCompatSlotUpperHLowerM,
+  legacyAppMainBuwUpperHLowerNExport as appMainCurrentCompatSlotUpperHLowerN,
+  legacyAppMainBuwUpperHLowerPExport as appMainCurrentCompatSlotUpperHLowerP,
+  legacyAppMainBuwUpperHUpperSExport as appMainCurrentCompatSlotUpperHUpperS,
+  legacyAppMainBuwUpperHLowerTExport as appMainCurrentCompatSlotUpperHLowerT,
+  legacyAppMainBuwUpperHLowerUExport as appMainCurrentCompatSlotUpperHLowerU,
+  legacyAppMainBuwUpperHLowerXExport as appMainCurrentCompatSlotUpperHLowerX,
+} from "./stable-exports";

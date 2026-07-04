@@ -46,6 +46,10 @@ export const pendingGitActionStepAtom =
     null,
   );
 
+export const activeGitDialogAtom = createScopedStateAtom<
+  "commit" | "create-pr" | "worktree-branch-setup" | null
+>(localConversationGitActionsScope, null);
+
 export const gitActionsContextAtom = createScopedAtom(
   localConversationGitActionsScope,
   ({

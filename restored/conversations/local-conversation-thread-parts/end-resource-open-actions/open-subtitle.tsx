@@ -2,10 +2,8 @@
 // Hover subtitle for opening a linked conversation end-resource.
 
 import { FormattedMessage } from "../../../vendor/react-intl";
-import {
-  ExternalLinkIcon,
-  ExternalOpenLink,
-} from "../../../boundaries/onboarding-commons-externals.facade";
+import { ExternalLinkIcon } from "../../../icons/external-link-icon";
+import { ExternalOpenLink } from "../../../runtime/external-open-link-runtime";
 import type { EndResourceOpenSubtitleProps } from "./types";
 
 export function EndResourceOpenSubtitle({

@@ -4,8 +4,6 @@
 // the lookup helpers used across the grouping pipeline (localConversation domain).
 import {
   codexAppToolNamespace,
-  renderAppControlToolActivity,
-  renderThreadsReadToolActivity,
   getThreadsForkSummaryPartKey,
   getThreadsReadSummaryPartKey,
   getThreadsListSummaryPartKey,
@@ -21,7 +19,7 @@ import {
   threadsSetTitleTool,
   coreToolActivityDescriptors,
   subagentToolActivityDescriptors,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "./tool-activity-runtime";
 
 export type DynamicToolCallItem = {
   namespace: string;
@@ -49,59 +47,49 @@ export const appControlToolActivityDescriptors: ToolActivityDescriptor[] = [
   {
     getCompletedSummaryPartKey: getThreadsForkSummaryPartKey,
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     tool: threadsForkTool,
   },
   {
     getCompletedSummaryPartKey: getThreadsForkSummaryPartKey,
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     tool: threadsForkInWorktreeTool,
   },
   {
     getCompletedSummaryPartKey: getThreadsReadSummaryPartKey,
     namespace: codexAppToolNamespace,
-    render: renderThreadsReadToolActivity,
     standaloneInConversation: true,
     tool: threadsReadTool,
   },
   {
     getCompletedSummaryPartKey: getThreadsListSummaryPartKey,
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     summaryOnlyInConversationGroup: true,
     tool: threadsListTool,
   },
   {
     continuesLiveActivityBetweenCalls: true,
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     tool: threadsCreateTool,
   },
   {
     continuesLiveActivityBetweenCalls: true,
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     tool: threadsCreateInWorktreeTool,
   },
   {
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     tool: threadsSendMessageTool,
   },
   {
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     tool: threadsSetArchivedTool,
   },
   {
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     tool: threadsSetPinnedTool,
   },
   {
     namespace: codexAppToolNamespace,
-    render: renderAppControlToolActivity,
     tool: threadsSetTitleTool,
   },
 ];

@@ -27,8 +27,6 @@ export { findAmbientSuggestionApps as appMainCurrentCompatSlotLowerYLowerY } fro
 export { useBrowserUseSettingsVisibility as appMainCurrentCompatSlotLowerYLowerP } from "../../browser/browser-use-settings-visibility";
 export { gitActionAvailabilityAtom as appMainCurrentCompatSlotLowerYLowerU } from "../../review/local-git-actions-scope";
 
-export {
-  yg as appMainCurrentCompatSlotLowerYLowerG,
-  yh as appMainCurrentCompatSlotLowerYLowerH,
-  ym as appMainCurrentCompatSlotLowerYLowerM,
-} from "../app-main-legacy-buw-compat-bundle";
+export { PaperPlaneDuotoneIcon as appMainCurrentCompatSlotLowerYLowerH } from "../../icons/paper-plane-duotone-icon";
+export { browserProfileImportNuxSeenAtom as appMainCurrentCompatSlotLowerYLowerM } from "../../browser/browser-profile-import-nux-state";
+export { legacyAppMainBuwLowerYLowerGExport as appMainCurrentCompatSlotLowerYLowerG } from "./stable-exports";

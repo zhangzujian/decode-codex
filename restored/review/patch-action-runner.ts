@@ -4,17 +4,17 @@
 // git metadata / per-file diff queries, validates that the target file revision still
 // matches, then delegates to applyReviewPatch and clears the in-flight flag.
 
+import { workspaceRootAtom } from "../runtime/onboarding-common-runtime";
+import { refetchReviewGitChanges } from "./git-actions-runtime";
 import {
-  reviewHostConfigAtom,
-  reviewGitMetadataQueryAtom,
-  reviewSummaryQueryAtom,
-  workspaceRootAtom,
+  refreshReviewPathsFast,
   reviewDiffStateAtom,
   reviewFileDiffQueryAtom,
-  refetchReviewGitChanges,
-  refreshReviewPathsFast,
+  reviewSummaryQueryAtom,
   toGitRelativePathKey,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "./review-diff-store";
+import { reviewGitMetadataQueryAtom } from "./review-git-metadata";
+import { reviewHostConfigAtom } from "./thread-review-context";
 import { reviewDiffFilterAtom } from "./review-diff-model";
 import { reviewFileDiffModelAtom } from "./review-file-entries";
 import {

@@ -22,11 +22,9 @@ export { curveMonotoneY as appMainCurrentCompatSlotLowerZLowerX } from "d3-shape
 export { setSidebarOpen as appMainCurrentCompatSlotLowerZLowerY } from "../../app-shell/app-shell-state";
 export { applyAbsolutePosition as appMainCurrentCompatSlotLowerZLowerT } from "../../image-side-panel/paged-annotation-overlay-geometry";
 
-export {
-  za as appMainCurrentCompatSlotLowerZLowerA,
-  zd as appMainCurrentCompatSlotLowerZLowerD,
-  zh as appMainCurrentCompatSlotLowerZLowerH,
-  zl as appMainCurrentCompatSlotLowerZLowerL,
-  zm as appMainCurrentCompatSlotLowerZLowerM,
-  zp as appMainCurrentCompatSlotLowerZLowerP,
-} from "../app-main-legacy-buw-compat-bundle";
+export { CREATE_THREAD_TOOL_NAME as appMainCurrentCompatSlotLowerZLowerA } from "../../conversations/codex-app-tool-names";
+export { initSidebarNavigationSignalsChunk as appMainCurrentCompatSlotLowerZLowerD } from "../../app-shell/sidebar-navigation-signals";
+export { usePendingWorktrees as appMainCurrentCompatSlotLowerZLowerH } from "../../threads/pending-worktree-store";
+export { initLocalConversationGitActionsChunk as appMainCurrentCompatSlotLowerZLowerL } from "../../conversations/local-conversation-git-actions";
+export { overlayVisibleSignal as appMainCurrentCompatSlotLowerZLowerM } from "../../composer/right-panel-composer-overlay-scroll-reserve";
+export { initBrowserSidebarCommentOverlayChunk as appMainCurrentCompatSlotLowerZLowerP } from "../../browser/browser-sidebar-comment-overlay";

@@ -115,10 +115,20 @@ function setOverlayReserve(store: ScopedStore, reservePx: number): void {
     store.set(overlayAnimatedReserveSignal, reservePx);
   }
 }
+function initRightPanelComposerOverlayScrollReserveChunk(): void {
+  void overlayReserveCssVariable;
+  void overlayHeightCssVariable;
+  void overlayReserveCssValue;
+  void overlayAnimatedReserveSignal;
+  void overlayRightInsetSignal;
+  void overlayVisibilityStateSignal;
+  void overlayVisibleSignal;
+}
 export {
   cancelOverlayReserveAnimation,
   completeOverlayVisibilityTransition,
   getOverlayReservePx,
+  initRightPanelComposerOverlayScrollReserveChunk,
   overlayAnimatedReserveSignal,
   overlayHeightCssVariable,
   overlayReserveCssValue,

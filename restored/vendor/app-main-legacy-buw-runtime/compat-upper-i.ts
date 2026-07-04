@@ -14,19 +14,19 @@ export { handleSetThreadPinned as appMainCurrentCompatSlotUpperILowerA } from ".
 export { UseRecordingWaveformIcon as appMainCurrentCompatSlotUpperIUpperC } from "../../icons/use-recording-waveform-icon";
 
 export { setConversationalOnboardingPermissionStatus as appMainCurrentCompatSlotUpperI } from "../../onboarding/conversational-onboarding-workflow-state";
+export { setBottomPanelOpen as appMainCurrentCompatSlotUpperILowerY } from "../../app-shell/app-shell-state";
 export {
-  Ib as appMainCurrentCompatSlotUpperILowerB,
-  Id as appMainCurrentCompatSlotUpperILowerD,
-  If as appMainCurrentCompatSlotUpperILowerF,
-  Ii as appMainCurrentCompatSlotUpperILowerI,
-  Il as appMainCurrentCompatSlotUpperILowerL,
-  Im as appMainCurrentCompatSlotUpperILowerM,
-  In as appMainCurrentCompatSlotUpperILowerN,
-  Io as appMainCurrentCompatSlotUpperILowerO,
-  Ip as appMainCurrentCompatSlotUpperILowerP,
-  IS as appMainCurrentCompatSlotUpperIUpperS,
-  It as appMainCurrentCompatSlotUpperILowerT,
-  Iv as appMainCurrentCompatSlotUpperILowerV,
-  Ix as appMainCurrentCompatSlotUpperILowerX,
-  Iy as appMainCurrentCompatSlotUpperILowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperILowerBExport as appMainCurrentCompatSlotUpperILowerB,
+  legacyAppMainBuwUpperILowerDExport as appMainCurrentCompatSlotUpperILowerD,
+  legacyAppMainBuwUpperILowerFExport as appMainCurrentCompatSlotUpperILowerF,
+  legacyAppMainBuwUpperILowerIExport as appMainCurrentCompatSlotUpperILowerI,
+  legacyAppMainBuwUpperILowerLExport as appMainCurrentCompatSlotUpperILowerL,
+  legacyAppMainBuwUpperILowerMExport as appMainCurrentCompatSlotUpperILowerM,
+  legacyAppMainBuwUpperILowerNExport as appMainCurrentCompatSlotUpperILowerN,
+  legacyAppMainBuwUpperILowerOExport as appMainCurrentCompatSlotUpperILowerO,
+  legacyAppMainBuwUpperILowerPExport as appMainCurrentCompatSlotUpperILowerP,
+  legacyAppMainBuwUpperIUpperSExport as appMainCurrentCompatSlotUpperIUpperS,
+  legacyAppMainBuwUpperILowerTExport as appMainCurrentCompatSlotUpperILowerT,
+  legacyAppMainBuwUpperILowerVExport as appMainCurrentCompatSlotUpperILowerV,
+  legacyAppMainBuwUpperILowerXExport as appMainCurrentCompatSlotUpperILowerX,
+} from "./stable-exports";

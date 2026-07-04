@@ -49,6 +49,8 @@ export type {
   SnapshotMetrics,
 } from "./review-source-control-types";
 
+export function initReviewSourceControlsChunk(): void {}
+
 export interface DiffLineStatsProps {
   additions: number;
   deletions: number;

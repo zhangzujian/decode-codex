@@ -51,6 +51,8 @@ const taskSelectionByConversationId = new Map<
 >();
 const completedConversationIds = new Set<string>();
 
+export function initConversationalOnboardingPluginTaskOutputChunk(): void {}
+
 export function registerConversationalOnboardingPluginTaskOutput(
   conversationId: string,
   selection: ConversationalOnboardingPluginTaskSelection,

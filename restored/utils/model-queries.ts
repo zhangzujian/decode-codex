@@ -11,12 +11,16 @@ import { registeredAppServerHostIdsSignal } from "../boundaries/thread-context-i
 import { sendAppServerRequest } from "../boundaries/use-host-config.facade";
 import { vscodeApiU as queryTimings } from "../boundaries/vscode-api";
 import { useAuthForHost } from "../auth/use-auth";
+import { enabledReasoningEffortsSetSignal } from "../composer/enabled-reasoning-efforts";
+import { featureGateSignal } from "../runtime/feature-gate-runtime";
 import { _isEqualT as createIsEqual } from "../vendor/lodash-is-equal";
 import { modelListFilter } from "./model-list-filter";
 import { DEFAULT_MODEL } from "./models-and-reasoning-efforts";
 const MODEL_FILTER_DYNAMIC_CONFIG_ID = "107580212";
+const ULTRA_REASONING_EFFORT_GATE = "1186680773";
 const DEFAULT_MODEL_LIST_LIMIT = 100;
 const MODEL_LIST_QUERY_KEY = ["models", "list"] as const;
+const modelFilterReasoningEfforts = ["low", "medium", "high", "xhigh"] as const;
 type ModelFilterConfig = {
   availableModels: Set<string>;
   useHiddenModels: boolean;
@@ -33,18 +37,21 @@ type AuthState = {
 };
 type ModelListQueryOptions = {
   hostId?: string;
+  includeUltraReasoningEffort?: boolean;
   limit?: number;
 };
 type ModelListQueryParams = {
   availableModels: string[];
   authMethod: string | null;
   defaultModel: string;
+  enabledReasoningEfforts: Set<string>;
   hostId: string;
+  includeUltraReasoningEffort: boolean;
   limit: number;
   useHiddenModels: boolean;
 };
 type AppScopeGetter = {
-  get<TValue = unknown>(signal: unknown): TValue;
+  get<TValue = unknown>(signal: unknown, key?: unknown): TValue;
 };
 type ModelListItem = {
   model: string;
@@ -129,7 +136,9 @@ const modelListQueryOptions = createAppScopeQueryFamily(
       availableModels,
       authMethod,
       defaultModel,
+      enabledReasoningEfforts,
       hostId,
+      includeUltraReasoningEffort,
       limit,
       useHiddenModels,
     }: ModelListQueryParams,
@@ -150,6 +159,10 @@ const modelListQueryOptions = createAppScopeQueryFamily(
         authMethod: authMethod ?? "",
         availableModels: new Set(availableModels),
         defaultModel,
+        enabledReasoningEfforts,
+        includeUltraReasoningEffort:
+          includeUltraReasoningEffort &&
+          get<boolean>(featureGateSignal, ULTRA_REASONING_EFFORT_GATE),
         models: data,
         useHiddenModels,
       }),
@@ -157,6 +170,8 @@ const modelListQueryOptions = createAppScopeQueryFamily(
 );
 function useModelListQuery(options?: ModelListQueryOptions) {
   const hostId = options?.hostId ?? "local";
+  const includeUltraReasoningEffort =
+    options?.includeUltraReasoningEffort !== false;
   const limit = options?.limit ?? DEFAULT_MODEL_LIST_LIMIT;
   const authState = useAuthForHost(hostId) as AuthState | null | undefined;
   const filterConfig = useModelFilterConfig();
@@ -168,7 +183,11 @@ function useModelListQuery(options?: ModelListQueryOptions) {
       availableModels,
       authMethod,
       defaultModel: filterConfig.defaultModel,
+      enabledReasoningEfforts: useAppScopeQueryValue(
+        enabledReasoningEffortsSetSignal,
+      ) as Set<string>,
       hostId,
+      includeUltraReasoningEffort,
       limit,
       useHiddenModels: filterConfig.useHiddenModels,
     },
@@ -189,6 +208,7 @@ export {
   initModelFilterConfigChunk,
   initModelListQueryChunk,
   parseModelFilterConfig,
+  modelFilterReasoningEfforts,
   modelFilterConfigSignal,
   useModelListQuery,
   useModelFilterConfig,

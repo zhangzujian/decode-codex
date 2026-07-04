@@ -130,6 +130,39 @@ export function normalizeConversationAttachments(
   return normalized;
 }
 
+export function buildAttachmentsPayload(
+  attachments: readonly ConversationInputAttachment[],
+): ConversationInputAttachment[] {
+  return normalizeConversationAttachments(attachments);
+}
+
+export function mergeFileAttachments(
+  ...attachmentGroups: readonly (readonly ConversationInputAttachment[] | null | undefined)[]
+): ConversationInputAttachment[] {
+  return buildAttachmentsPayload(attachmentGroups.flatMap((group) => group ?? []));
+}
+
+export function toImageAttachmentInputs(
+  imageAttachments: readonly ComposerImageAttachment[] | null | undefined,
+): ConversationInputAttachment[] {
+  return buildComposerImageInputItems(imageAttachments ?? []);
+}
+
+export function getComposerPromptText(context: {
+  prompt?: unknown;
+}): string {
+  const prompt = context.prompt;
+  if (typeof prompt === "string") return prompt;
+  if (prompt == null) return "";
+  if (typeof prompt === "object") {
+    const record = prompt as Record<string, unknown>;
+    if (typeof record.text === "string") return record.text;
+    if (typeof record.content === "string") return record.content;
+    if (typeof record.prompt === "string") return record.prompt;
+  }
+  return "";
+}
+
 /** Clear the image-comment overlay draft for the given composer scope. */
 export function removeAllImageComments(
   scope: ComposerScopeHandle,

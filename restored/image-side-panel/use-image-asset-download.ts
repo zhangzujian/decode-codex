@@ -2,15 +2,11 @@
 // React hook that downloads an image asset (file-service:// / sediment:// pointer)
 // as bytes, exposes a transient object URL, and tracks loading/error state.
 import { useEffect, useState } from "react";
-import {
-  logger,
-  filesApiClient,
-  httpClient,
-  useQuery,
-  DURATIONS,
-  objectSchema,
-  stringSchema,
-} from "../boundaries/onboarding-commons-externals.facade";
+import { appLogger as logger } from "../runtime/app-logger";
+import { queryDurations as DURATIONS } from "../runtime/host-query-runtime";
+import { useQuery } from "../runtime/query-client/react-query-runtime";
+import { codexRequest as filesApiClient } from "../runtime/request";
+import { vscodeApiL as httpClient } from "../boundaries/vscode-api";
 
 export interface ImageAssetDownloadRequest {
   downloadUrl: string;
@@ -32,14 +28,7 @@ export interface ImageAssetDownloadResult {
 const FILE_SERVICE_SCHEME = "file-service://";
 const SEDIMENT_SCHEME = "sediment://";
 
-const downloadResponseSchema = objectSchema({
-  base64: stringSchema(),
-  contentType: stringSchema().optional(),
-});
-
-export function initImageAssetDownloadRuntimeChunk(): void {
-  void downloadResponseSchema;
-}
+export function initImageAssetDownloadRuntimeChunk(): void {}
 
 export function isImageAssetPointer(pointer: string): boolean {
   return (
@@ -107,7 +96,7 @@ async function fetchImageAssetBlob(
   const { body } = await httpClient
     .getInstance()
     .get(request.downloadUrl, request.requestHeaders, signal);
-  const parsed = downloadResponseSchema.parse(body);
+  const parsed = parseDownloadedImageResponse(body);
   const decoded = atob(parsed.base64);
   const bytes = new Uint8Array(decoded.length);
   for (let index = 0; index < decoded.length; index++)
@@ -115,6 +104,25 @@ async function fetchImageAssetBlob(
   return new Blob([bytes], {
     type: parsed.contentType || "application/octet-stream",
   });
+}
+
+function parseDownloadedImageResponse(body: unknown): {
+  base64: string;
+  contentType?: string;
+} {
+  if (typeof body !== "object" || body == null) {
+    throw Error("Invalid image download response");
+  }
+  const record = body as Record<string, unknown>;
+  if (typeof record.base64 !== "string") {
+    throw Error("Invalid image download response");
+  }
+  return {
+    base64: record.base64,
+    ...(typeof record.contentType === "string"
+      ? { contentType: record.contentType }
+      : {}),
+  };
 }
 
 function revokeObjectUrlSoon(objectUrl: string): void {

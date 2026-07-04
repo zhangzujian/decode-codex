@@ -16,17 +16,17 @@ export { initReasoningEffortLabelChunk as appMainCurrentCompatSlotUpperZLowerR }
 export { PullRequestButtonLabel as appMainCurrentCompatSlotUpperZLowerL } from "../../github/pull-request-button-label";
 export { buildLocalConversationSearchSnippet as appMainCurrentCompatSlotUpperZLowerG } from "../../runtime/conversation-search-runtime";
 
+export { unregisterBrowserSidebarTab as appMainCurrentCompatSlotUpperZLowerV } from "../../browser/browser-sidebar-open-source/tab-registry-mutations";
+export { getDetailLevelDefaultAgentMode as appMainCurrentCompatSlotUpperZLowerY } from "../../utils/use-permissions-mode/mode-availability";
+export { clientLocalThreadProvisioningStatusAtom as appMainCurrentCompatSlotUpperZLowerD } from "../../worktree/client-local-thread-provisioning-status";
+export { setThreadGoalStatus as appMainCurrentCompatSlotUpperZLowerH } from "../../threads/pending-worktree-store/thread-goal-actions";
 export {
-  Z_ as appMainCurrentCompatSlotUpperZUnderscore,
-  Zb as appMainCurrentCompatSlotUpperZLowerB,
-  Zd as appMainCurrentCompatSlotUpperZLowerD,
-  Zf as appMainCurrentCompatSlotUpperZLowerF,
-  Zh as appMainCurrentCompatSlotUpperZLowerH,
-  Zm as appMainCurrentCompatSlotUpperZLowerM,
-  Zn as appMainCurrentCompatSlotUpperZLowerN,
-  Zp as appMainCurrentCompatSlotUpperZLowerP,
-  Zt as appMainCurrentCompatSlotUpperZLowerT,
-  Zv as appMainCurrentCompatSlotUpperZLowerV,
-  Zx as appMainCurrentCompatSlotUpperZLowerX,
-  Zy as appMainCurrentCompatSlotUpperZLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperZUnderscoreExport as appMainCurrentCompatSlotUpperZUnderscore,
+  legacyAppMainBuwUpperZLowerBExport as appMainCurrentCompatSlotUpperZLowerB,
+  legacyAppMainBuwUpperZLowerFExport as appMainCurrentCompatSlotUpperZLowerF,
+  legacyAppMainBuwUpperZLowerMExport as appMainCurrentCompatSlotUpperZLowerM,
+  legacyAppMainBuwUpperZLowerNExport as appMainCurrentCompatSlotUpperZLowerN,
+  legacyAppMainBuwUpperZLowerPExport as appMainCurrentCompatSlotUpperZLowerP,
+  legacyAppMainBuwUpperZLowerTExport as appMainCurrentCompatSlotUpperZLowerT,
+  legacyAppMainBuwUpperZLowerXExport as appMainCurrentCompatSlotUpperZLowerX,
+} from "./stable-exports";

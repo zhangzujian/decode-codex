@@ -1,89 +1,29 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
-// Core turn lifecycle for the composer: decide whether to start a fresh turn or
-// steer the in-progress one, send the host request, and fall back when steering
-// races with a turn that already ended.
-import { buildImageInputItems } from "./build-image-input-items";
+// Core turn lifecycle for the composer: start a fresh turn, steer an
+// in-progress one, and fall back when steering races with a completed turn.
+import {
+  buildComposerTurnPayload,
+  buildPermissionRequestFields,
+  isClosedAgentConversation,
+} from "./composer-turn-request-builder";
+import type {
+  SendRestoreMessageArgs,
+  StartComposerTurnArgs,
+} from "./composer-turn-types";
 import { createRestoreMessage } from "./restore-message";
 import { isSteerTurnInactiveError } from "./steer-turn-inactive-error";
 import {
-  LOCAL_HOST_ID,
   CLOSED_AGENT_ERROR_MESSAGE,
   MULTI_AGENT_MODE,
-  sendHostRequest,
-  buildAttachmentsPayload,
-  buildThreadPermissions,
-  serializePermissionPolicy,
-  resolveRuntimeWorkspaceRoots,
-  getPermissionOverrides,
   prepareConversationForTurn,
-  toImageAttachmentInputs,
-  mergeFileAttachments,
-  getComposerPromptText,
   resumableConversationAtom,
   conversationTurnsAtom,
-  parentConversationAtom,
+  sendHostRequest,
 } from "../boundaries/onboarding-commons-externals.facade";
 
-const EMPTY_WORKSPACE_ROOTS: string[] = [];
-
-interface ComposerScope {
-  get(atom: unknown, key?: unknown): any;
-}
-
-interface ConversationManager {
-  getHostId(): string;
-  requestClient: unknown;
-}
-
-export interface StartComposerTurnArgs {
-  scope: ComposerScope;
-  manager: ConversationManager;
-  hostId: string;
-  context: any;
-  targetConversationId: string;
-  cwd: string;
-  agentMode: unknown;
-  permissionProfileId: string | null;
-  serviceTier: unknown;
-  shouldSendPermissionOverrides: boolean;
-  activeCollaborationMode: unknown;
-  restoreMessage?: any;
-}
-
-export interface SendRestoreMessageArgs
-  extends Omit<StartComposerTurnArgs, "context" | "cwd" | "restoreMessage"> {
-  restoreMessage: { cwd: string; context: any };
-}
+export type { SendRestoreMessageArgs, StartComposerTurnArgs };
 
 export function initStartComposerTurnChunk(): void {}
-
-function isClosedAgentConversation(
-  scope: ComposerScope,
-  conversationId: string,
-): boolean {
-  const parentConversationId = scope.get(
-    parentConversationAtom,
-    conversationId,
-  );
-  if (parentConversationId == null) return false;
-  const turns = scope.get(conversationTurnsAtom, parentConversationId);
-  if (turns == null) return false;
-
-  let isClosed = false;
-  for (const turn of turns) {
-    if (turn.items == null) continue;
-    for (const item of turn.items) {
-      if (
-        item.type === "collabAgentToolCall" &&
-        item.receiverThreadIds.includes(conversationId) &&
-        item.tool !== "wait"
-      ) {
-        isClosed = item.tool === "closeAgent";
-      }
-    }
-  }
-  return isClosed;
-}
 
 export function startComposerTurn(
   args: StartComposerTurnArgs,
@@ -95,6 +35,50 @@ export function sendRestoreMessage(
   args: SendRestoreMessageArgs,
 ): Promise<string> {
   return steerTurn(args);
+}
+
+async function maybeResumeConversation({
+  activeCollaborationMode,
+  context,
+  cwd,
+  manager,
+  scope,
+  serviceTier,
+  targetConversationId,
+}: Pick<
+  StartComposerTurnArgs,
+  | "activeCollaborationMode"
+  | "context"
+  | "cwd"
+  | "manager"
+  | "scope"
+  | "serviceTier"
+  | "targetConversationId"
+>): Promise<string | null> {
+  if (!scope.get(resumableConversationAtom, targetConversationId)) {
+    return null;
+  }
+
+  return (
+    await sendHostRequest("maybe-resume-conversation", {
+      hostId: manager.getHostId(),
+      conversationId: targetConversationId,
+      model: null,
+      serviceTier,
+      reasoningEffort: null,
+      workspaceRoots: context.workspaceRoots ?? [cwd],
+      collaborationMode: context.collaborationMode ?? activeCollaborationMode,
+    })
+  ).activeTurnId;
+}
+
+function assertConversationOpen(
+  scope: StartComposerTurnArgs["scope"],
+  conversationId: string,
+): void {
+  if (isClosedAgentConversation(scope, conversationId)) {
+    throw Error(CLOSED_AGENT_ERROR_MESSAGE);
+  }
 }
 
 async function startTurn(
@@ -114,36 +98,24 @@ async function startTurn(
   }: StartComposerTurnArgs,
   forceStart = false,
 ): Promise<string> {
-  const isRemoteHost = hostId !== LOCAL_HOST_ID;
-  if (isClosedAgentConversation(scope, targetConversationId)) {
-    throw Error(CLOSED_AGENT_ERROR_MESSAGE);
-  }
+  assertConversationOpen(scope, targetConversationId);
 
-  let activeTurnId: string | null = null;
-  if (
-    !forceStart &&
-    scope.get(resumableConversationAtom, targetConversationId) &&
-    (activeTurnId = (
-      await sendHostRequest("maybe-resume-conversation", {
-        hostId: manager.getHostId(),
-        conversationId: targetConversationId,
-        model: null,
+  const activeTurnId = forceStart
+    ? null
+    : await maybeResumeConversation({
+        activeCollaborationMode,
+        context,
+        cwd,
+        manager,
+        scope,
         serviceTier,
-        reasoningEffort: null,
-        workspaceRoots: context.workspaceRoots ?? [cwd],
-        collaborationMode: context.collaborationMode ?? activeCollaborationMode,
-      })
-    ).activeTurnId) != null
-  ) {
-    // resume side effect captured above
-  }
+        targetConversationId,
+      });
 
-  if (
-    !forceStart &&
-    (activeTurnId != null ||
-      scope.get(conversationTurnsAtom, targetConversationId)?.at(-1)?.status ===
-        "inProgress")
-  ) {
+  const latestTurn = scope.get(conversationTurnsAtom, targetConversationId)?.at(
+    -1,
+  );
+  if (!forceStart && (activeTurnId != null || latestTurn?.status === "inProgress")) {
     return steerTurn({
       scope,
       manager,
@@ -164,41 +136,18 @@ async function startTurn(
     hostId,
   });
 
-  const imageInputs = toImageAttachmentInputs(context.imageAttachments);
-  const input = [
-    { type: "text", text: getComposerPromptText(context), text_elements: [] },
-    ...buildImageInputItems(context, isRemoteHost, {
-      shouldRestrictRemoteHostImageSize: false,
-    }),
-  ];
-  const attachments = buildAttachmentsPayload([
-    ...mergeFileAttachments(
-      context.fileAttachments,
-      context.pastedTextAttachments,
-    ),
-    ...context.addedFiles,
-    ...imageInputs,
-  ]);
-  const permissionOverrides = shouldSendPermissionOverrides
-    ? await getPermissionOverrides(manager.requestClient, cwd)
-    : null;
-  const permissions =
-    permissionOverrides == null
-      ? null
-      : buildThreadPermissions(
-          agentMode,
-          context.workspaceRoots ?? EMPTY_WORKSPACE_ROOTS,
-          permissionOverrides,
-        );
-
-  if (permissions != null && permissionProfileId != null) {
-    permissions.activePermissionProfile = {
-      id: permissionProfileId,
-      extends: null,
-    };
-    permissions.runtimeWorkspaceRoots =
-      context.workspaceRoots ?? EMPTY_WORKSPACE_ROOTS;
-  }
+  const { attachments, input } = buildComposerTurnPayload({
+    context,
+    hostId,
+  });
+  const permissionFields = await buildPermissionRequestFields({
+    agentMode,
+    context,
+    cwd,
+    manager,
+    permissionProfileId,
+    shouldSendPermissionOverrides,
+  });
 
   return (
     await sendHostRequest("start-turn-for-host", {
@@ -212,22 +161,7 @@ async function startTurn(
         effort: null,
         multiAgentMode: MULTI_AGENT_MODE,
         serviceTier,
-        ...(permissions == null
-          ? {}
-          : {
-              approvalPolicy: permissions.approvalPolicy,
-              approvalsReviewer: permissions.approvalsReviewer,
-              ...serializePermissionPolicy(permissions),
-              ...(permissions.activePermissionProfile == null
-                ? {}
-                : {
-                    runtimeWorkspaceRoots:
-                      resolveRuntimeWorkspaceRoots(permissions),
-                  }),
-            }),
-        ...(shouldSendPermissionOverrides
-          ? {}
-          : { useAppServerPermissionDefault: true }),
+        ...permissionFields,
         attachments,
         collaborationMode: context.collaborationMode ?? activeCollaborationMode,
       },
@@ -247,39 +181,23 @@ async function steerTurn({
   activeCollaborationMode,
   restoreMessage,
 }: SendRestoreMessageArgs): Promise<string> {
-  const isRemoteHost = hostId !== LOCAL_HOST_ID;
   const { cwd, context } = restoreMessage;
-  if (isClosedAgentConversation(scope, targetConversationId)) {
-    throw Error(CLOSED_AGENT_ERROR_MESSAGE);
-  }
+  assertConversationOpen(scope, targetConversationId);
 
-  if (scope.get(resumableConversationAtom, targetConversationId)) {
-    await sendHostRequest("maybe-resume-conversation", {
-      hostId: manager.getHostId(),
-      conversationId: targetConversationId,
-      model: null,
-      serviceTier,
-      reasoningEffort: null,
-      workspaceRoots: context.workspaceRoots ?? [cwd],
-      collaborationMode: context.collaborationMode ?? activeCollaborationMode,
-    });
-  }
+  await maybeResumeConversation({
+    activeCollaborationMode,
+    context,
+    cwd,
+    manager,
+    scope,
+    serviceTier,
+    targetConversationId,
+  });
 
-  const imageInputs = toImageAttachmentInputs(context.imageAttachments);
-  const input = [
-    { type: "text", text: getComposerPromptText(context), text_elements: [] },
-    ...buildImageInputItems(context, isRemoteHost, {
-      shouldRestrictRemoteHostImageSize: false,
-    }),
-  ];
-  const attachments = buildAttachmentsPayload([
-    ...mergeFileAttachments(
-      context.fileAttachments,
-      context.pastedTextAttachments,
-    ),
-    ...context.addedFiles,
-    ...imageInputs,
-  ]);
+  const { attachments, input } = buildComposerTurnPayload({
+    context,
+    hostId,
+  });
 
   try {
     return (

@@ -1,7 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Folds runs of tool-activity units (between assistant messages) into rolled-up
 // summary counters used by collapsed activity rendering (localConversation domain).
-import { assertUnreachableToolActivity } from "../boundaries/onboarding-commons-externals.facade";
+import { assertUnreachableToolActivity } from "./tool-activity-runtime";
 
 type ApprovalReviewFailure = {
   id: string;

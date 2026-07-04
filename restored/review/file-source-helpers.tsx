@@ -14,6 +14,8 @@ import {
   CONTENT_SAMPLE_MAX_FILE_BYTES,
 } from "../boundaries/onboarding-commons-externals.facade";
 
+export function initFileSourceHelpersChunk(): void {}
+
 export interface FileSourceSearchRegistrationProps {
   sourceSearchSource: unknown;
 }

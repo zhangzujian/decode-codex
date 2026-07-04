@@ -122,3 +122,5 @@ export function AttachmentPill({
     </button>
   );
 }
+
+export function initAttachmentPillChunk(): void {}

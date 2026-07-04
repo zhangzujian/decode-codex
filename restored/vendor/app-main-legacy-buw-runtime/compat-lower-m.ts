@@ -27,7 +27,5 @@ export { buildCurrentTurnConversation as appMainCurrentCompatSlotLowerMLowerN } 
 export { initRightPanelContextsChunk as appMainCurrentCompatSlotLowerMLowerD } from "../../app-shell/right-panel";
 export { initCommitCommandMenuChunk as appMainCurrentCompatSlotLowerMLowerU } from "../../review/commit-command-menu";
 
-export {
-  mf as appMainCurrentCompatSlotLowerMLowerF,
-  my as appMainCurrentCompatSlotLowerMLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { openArtifactTab as appMainCurrentCompatSlotLowerMLowerF } from "../../workspace/open-artifact-tab";
+export { initBrowserSidebarDeviceToolbarChunk as appMainCurrentCompatSlotLowerMLowerY } from "../../browser/sidebar-manager/device-toolbar";

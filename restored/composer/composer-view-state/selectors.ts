@@ -31,6 +31,9 @@ export const appshotContextsState = selectComposerViewState(
 export const imageAttachmentsState = selectComposerViewState(
   (state) => state.imageAttachments,
 );
+export const imageCommentDraftState = selectComposerViewState(
+  (state) => state.imageCommentDraft,
+);
 export const aeonStartTargetState = selectComposerViewState(
   (state) => state.aeonStartTarget,
 );

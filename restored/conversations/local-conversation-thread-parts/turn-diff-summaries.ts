@@ -2,10 +2,8 @@
 // Pure helpers for summarising the unified diff of a Codex turn: line counts, file
 // summaries, and "too large to render inline" budget checks.
 
-import {
-  parseQuotedGitPath,
-  parseUnifiedDiff,
-} from "../../boundaries/onboarding-commons-externals.facade";
+import { parseQuotedGitPath } from "../../utils/parse-diff/git-paths";
+import { parseUnifiedDiffFileSummaries as parseUnifiedDiff } from "../../utils/unified-diff-file-summaries";
 
 const DIFF_GIT_HEADER_PREFIX = "diff --git ";
 const MAX_INLINE_RENDERED_LINES = 5000;

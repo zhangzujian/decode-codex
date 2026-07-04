@@ -3,10 +3,10 @@
 
 import { FormattedMessage } from "../../../vendor/react-intl";
 import {
-  PlatformGate,
-  useOpenTargets,
   OpenTargetsPrefetch,
-} from "../../../boundaries/onboarding-commons-externals.facade";
+  useOpenTargets,
+} from "../../../runtime/open-targets-query-runtime";
+import { PlatformGate } from "../../../app-shell/platform-gate";
 import { EndResourceOpenSubtitle } from "./open-subtitle";
 import type { EndResourceOpenActionProps, OpenTarget } from "./types";
 

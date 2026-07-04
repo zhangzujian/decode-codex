@@ -13,21 +13,21 @@ export { formatRateLimitWindowLabel as appMainCurrentCompatSlotUpperTLowerC } fr
 export { summarizeAppgenAccessPolicy as appMainCurrentCompatSlotUpperTLowerS } from "../../utils/appgen-access";
 export { useRemoveBrowserUseFileTransferOriginMutation as appMainCurrentCompatSlotUpperTLowerP } from "../../browser/browser-use-origin-state-queries";
 
+export { bottomPanelAnimationSignal as appMainCurrentCompatSlotUpperTLowerY } from "../../app-shell/app-shell-state";
+export { useCollaborationMode as appMainCurrentCompatSlotUpperTLowerB } from "../../collaboration/use-collaboration-mode";
+export { SidebarPanelOpenIcon as appMainCurrentCompatSlotUpperTLowerD } from "../../icons/sidebar-panel-icons";
+export { atlasBrowserIconUrl as appMainCurrentCompatSlotUpperTLowerM } from "../../browser/browser-profile-import-nux-banner";
+export { includeUnstagedChangesAtom as appMainCurrentCompatSlotUpperTLowerU } from "../../review/local-git-action-state";
+export { isManualRefreshArtifactType as appMainCurrentCompatSlotUpperTLowerF } from "../../workspace/workspace-file-source-tabs";
 export {
-  T as appMainCurrentCompatSlotUpperT,
-  Ta as appMainCurrentCompatSlotUpperTLowerA,
-  Tb as appMainCurrentCompatSlotUpperTLowerB,
-  Td as appMainCurrentCompatSlotUpperTLowerD,
-  Tf as appMainCurrentCompatSlotUpperTLowerF,
-  Th as appMainCurrentCompatSlotUpperTLowerH,
-  Ti as appMainCurrentCompatSlotUpperTLowerI,
-  Tl as appMainCurrentCompatSlotUpperTLowerL,
-  Tm as appMainCurrentCompatSlotUpperTLowerM,
-  Tn as appMainCurrentCompatSlotUpperTLowerN,
-  TS as appMainCurrentCompatSlotUpperTUpperS,
-  Tt as appMainCurrentCompatSlotUpperTLowerT,
-  Tu as appMainCurrentCompatSlotUpperTLowerU,
-  Tv as appMainCurrentCompatSlotUpperTLowerV,
-  Tx as appMainCurrentCompatSlotUpperTLowerX,
-  Ty as appMainCurrentCompatSlotUpperTLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperTExport as appMainCurrentCompatSlotUpperT,
+  legacyAppMainBuwUpperTLowerAExport as appMainCurrentCompatSlotUpperTLowerA,
+  legacyAppMainBuwUpperTLowerHExport as appMainCurrentCompatSlotUpperTLowerH,
+  legacyAppMainBuwUpperTLowerIExport as appMainCurrentCompatSlotUpperTLowerI,
+  legacyAppMainBuwUpperTLowerLExport as appMainCurrentCompatSlotUpperTLowerL,
+  legacyAppMainBuwUpperTLowerNExport as appMainCurrentCompatSlotUpperTLowerN,
+  legacyAppMainBuwUpperTUpperSExport as appMainCurrentCompatSlotUpperTUpperS,
+  legacyAppMainBuwUpperTLowerTExport as appMainCurrentCompatSlotUpperTLowerT,
+  legacyAppMainBuwUpperTLowerVExport as appMainCurrentCompatSlotUpperTLowerV,
+  legacyAppMainBuwUpperTLowerXExport as appMainCurrentCompatSlotUpperTLowerX,
+} from "./stable-exports";

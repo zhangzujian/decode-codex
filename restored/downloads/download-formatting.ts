@@ -35,6 +35,7 @@ export const TERMINAL_DOWNLOAD_STATUSES: ReadonlySet<DownloadStatus> =
   new Set<DownloadStatus>(["canceled", "complete", "failed"]);
 
 export const DOWNLOAD_DETAIL_SEPARATOR = "·";
+export const DOWNLOAD_METADATA_SEPARATOR = DOWNLOAD_DETAIL_SEPARATOR;
 
 export function isActiveDownloadStatus(status: DownloadStatus): boolean {
   return (
@@ -62,6 +63,8 @@ export function formatDownloadSpeed(
   );
   return `${formatByteSize(download.receivedBytes / elapsedSeconds, intl)}/s`;
 }
+
+export const formatDownloadTransferRate = formatDownloadSpeed;
 
 export function formatRemainingDownloadTime(
   download: DownloadItem,
@@ -119,6 +122,8 @@ export function formatRemainingDownloadTime(
       );
 }
 
+export const formatDownloadTimeRemaining = formatRemainingDownloadTime;
+
 export function formatDownloadProgress(
   download: DownloadItem,
   intl: IntlShape,
@@ -141,6 +146,10 @@ export function formatDownloadProgress(
       )
     : formatByteSize(download.receivedBytes, intl);
 }
+
+export const formatDownloadByteProgress = formatDownloadProgress;
+
+export const formatDownloadTimestamp = formatDownloadTime;
 
 export function formatByteSize(byteCount: number, intl: IntlShape): string {
   if (!Number.isFinite(byteCount) || byteCount <= 0) {

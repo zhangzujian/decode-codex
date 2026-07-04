@@ -27,6 +27,8 @@ import type {
 
 const SHARED_WITH_ME_CATALOG_GATE = "1269116100";
 
+export function initMentionMetadataSyncChunk(): void {}
+
 export interface MentionMetadataSyncProps {
   composerController: ComposerMentionController;
   hostId: string;

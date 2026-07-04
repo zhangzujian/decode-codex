@@ -145,6 +145,13 @@ export function submitDirectComment(
   );
 }
 
+export async function buildSideChatDisplayTitle(_options: {
+  conversationId: string | null | undefined;
+  scope: AppScope;
+}): Promise<string | null> {
+  return null;
+}
+
 export interface OpenSideChatOptions {
   scope: AppScope;
   prompt?: string;

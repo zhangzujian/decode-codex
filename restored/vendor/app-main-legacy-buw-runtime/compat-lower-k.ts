@@ -26,7 +26,5 @@ export { conversationalOnboardingWorkflowSignal as appMainCurrentCompatSlotLower
 export { diffSummary as appMainCurrentCompatSlotLowerKLowerN } from "../../utils/diff-summary";
 export { initLodashCompactRuntimeChunk as appMainCurrentCompatSlotLowerKLowerS } from "../lodash-current-runtime";
 
-export {
-  kf as appMainCurrentCompatSlotLowerKLowerF,
-  ky as appMainCurrentCompatSlotLowerKLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { openReviewFileSourceTabsAtom as appMainCurrentCompatSlotLowerKLowerF } from "../../workspace/workspace-file-source-tabs";
+export { rightPanelExpandedSignal as appMainCurrentCompatSlotLowerKLowerY } from "../../app-shell/app-shell-state";

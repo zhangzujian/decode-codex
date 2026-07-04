@@ -24,11 +24,9 @@ export { BrowserUseGlyphIcon as appMainCurrentCompatSlotLowerCLowerA } from "../
 export { initGeneratedImageOutputsChunk as appMainCurrentCompatSlotLowerCLowerT } from "../../conversations/generated-image-outputs";
 export { reviewDiffMetricsAtom as appMainCurrentCompatSlotLowerCLowerV } from "../../review/review-diff-metrics";
 
-export {
-  c_ as appMainCurrentCompatSlotLowerCUnderscore,
-  cb as appMainCurrentCompatSlotLowerCLowerB,
-  ch as appMainCurrentCompatSlotLowerCLowerH,
-  cr as appMainCurrentCompatSlotLowerCLowerR,
-  cS as appMainCurrentCompatSlotLowerCUpperS,
-  cy as appMainCurrentCompatSlotLowerCLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { hasTerminalPanelTarget as appMainCurrentCompatSlotLowerCUnderscore } from "../../terminal/terminal-panel-tabs";
+export { getAvailablePermissionModeState as appMainCurrentCompatSlotLowerCLowerB } from "../../utils/use-permissions-mode/mode-availability";
+export { initBackForwardNavigationButtonsChunk as appMainCurrentCompatSlotLowerCLowerH } from "../../ui/back-forward-navigation-buttons";
+export { openAutomationTab as appMainCurrentCompatSlotLowerCLowerR } from "../../automations/automation-side-panel-tabs";
+export { initD3ChartScalesRuntimeChunk as appMainCurrentCompatSlotLowerCUpperS } from "../../utils/d3-chart-scales";
+export { upsertBrowserSidebarTabSource as appMainCurrentCompatSlotLowerCLowerY } from "../../browser/browser-sidebar-open-source";

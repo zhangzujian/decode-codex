@@ -22,17 +22,17 @@ export { openInCodex as appMainCurrentCompatSlotUpperNLowerO } from "../../runti
 export { appConnectionLinkQueryOptions as appMainCurrentCompatSlotUpperNLowerS } from "../../connectors/apps-queries/onboarding-app-connection";
 export { handleReadThread as appMainCurrentCompatSlotUpperNLowerA } from "../../conversations/thread-management-tool-handlers";
 
+export { shouldShowApplicationMenu as appMainCurrentCompatSlotUpperNLowerD } from "../../app-shell/application-menu-availability";
+export { useDiffCommentSources as appMainCurrentCompatSlotUpperNLowerF } from "../../github/diff-comments/use-diff-comment-sources";
+export { initBrowserUseOriginStateQueriesChunk as appMainCurrentCompatSlotUpperNLowerP } from "../../browser/browser-use-origin-state-queries";
+export { PagedAnnotationMarker as appMainCurrentCompatSlotUpperNLowerT } from "../../image-side-panel/paged-annotation-marker";
 export {
-  Nb as appMainCurrentCompatSlotUpperNLowerB,
-  Nd as appMainCurrentCompatSlotUpperNLowerD,
-  Nf as appMainCurrentCompatSlotUpperNLowerF,
-  Nh as appMainCurrentCompatSlotUpperNLowerH,
-  Nl as appMainCurrentCompatSlotUpperNLowerL,
-  Nm as appMainCurrentCompatSlotUpperNLowerM,
-  Np as appMainCurrentCompatSlotUpperNLowerP,
-  NS as appMainCurrentCompatSlotUpperNUpperS,
-  Nt as appMainCurrentCompatSlotUpperNLowerT,
-  Nu as appMainCurrentCompatSlotUpperNLowerU,
-  Nv as appMainCurrentCompatSlotUpperNLowerV,
-  Nx as appMainCurrentCompatSlotUpperNLowerX,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperNLowerBExport as appMainCurrentCompatSlotUpperNLowerB,
+  legacyAppMainBuwUpperNLowerHExport as appMainCurrentCompatSlotUpperNLowerH,
+  legacyAppMainBuwUpperNLowerLExport as appMainCurrentCompatSlotUpperNLowerL,
+  legacyAppMainBuwUpperNLowerMExport as appMainCurrentCompatSlotUpperNLowerM,
+  legacyAppMainBuwUpperNUpperSExport as appMainCurrentCompatSlotUpperNUpperS,
+  legacyAppMainBuwUpperNLowerUExport as appMainCurrentCompatSlotUpperNLowerU,
+  legacyAppMainBuwUpperNLowerVExport as appMainCurrentCompatSlotUpperNLowerV,
+  legacyAppMainBuwUpperNLowerXExport as appMainCurrentCompatSlotUpperNLowerX,
+} from "./stable-exports";

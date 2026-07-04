@@ -24,9 +24,7 @@ export { hasUnknownAmbientSuggestionAppIcon as appMainCurrentCompatSlotLowerXLow
 export { initBrowserUseOriginStateQueriesChunk as appMainCurrentCompatSlotLowerXLowerP } from "../../browser/browser-use-origin-state-queries";
 export { initLocalGitActionBranchAtomsChunk as appMainCurrentCompatSlotLowerXLowerU } from "../../review/local-git-action-branch-atoms";
 
-export {
-  xd as appMainCurrentCompatSlotLowerXLowerD,
-  xg as appMainCurrentCompatSlotLowerXLowerG,
-  xm as appMainCurrentCompatSlotLowerXLowerM,
-  xt as appMainCurrentCompatSlotLowerXLowerT,
-} from "../app-main-legacy-buw-compat-bundle";
+export { sidebarUnreadActivityCountSignal as appMainCurrentCompatSlotLowerXLowerD } from "../../app-shell/sidebar-unread-count-signal";
+export { setActiveReviewFilePath as appMainCurrentCompatSlotLowerXLowerG } from "../../review/review-file-navigation";
+export { BROWSER_PROFILE_IMPORT_NUX_SEEN_STORAGE_KEY as appMainCurrentCompatSlotLowerXLowerM } from "../../browser/browser-profile-import-nux-state";
+export { initSentUserImageAttachmentChunk as appMainCurrentCompatSlotLowerXLowerT } from "../../conversations/sent-user-image-attachment";

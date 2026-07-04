@@ -5,17 +5,21 @@ import React from "react";
 import { FormattedMessage } from "../../../vendor/react-intl";
 import { copyToClipboard } from "../../../utils/copy-to-clipboard";
 import { AppWindowIcon } from "../../../icons/app-window-icon";
+import { ChevronIcon as ChevronDownIcon } from "../../../icons/chevron-icon";
+import { CopyIcon as CopyLinkIcon } from "../../../icons/copy-icon";
 import { Button } from "../../../ui/button";
 import {
-  ChevronDownIcon,
-  useOpenTargets,
   OpenTargetsPrefetch,
+  useOpenTargets,
+} from "../../../runtime/open-targets-query-runtime";
+import {
   buildOpenTargetMenuItems,
   isVisibleOpenTargetMenuItem,
+} from "../../../runtime/open-target-menu-builders";
+import {
   OpenTargetDropdownMenu,
   OpenTargetMenu,
-  CopyLinkIcon,
-} from "../../../boundaries/onboarding-commons-externals.facade";
+} from "../../../runtime/open-target-menu-primitives";
 import type { EndResourceOpenInMenuProps, OpenTargetMenuItem } from "./types";
 
 export function EndResourceOpenInMenu({

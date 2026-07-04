@@ -13,19 +13,19 @@ export { initMoveThreadToWorktreeChunk as appMainCurrentCompatSlotUpperXLowerA }
 export { AppBrandLogo as appMainCurrentCompatSlotUpperXLowerF } from "../../ui/app-brand-logo";
 export { applyThreadFindBrowserStatus as appMainCurrentCompatSlotUpperXLowerG } from "../../find/thread-find-store";
 
+export { setThreadPreferredNonFullAccessModeFromDefault as appMainCurrentCompatSlotUpperXLowerY } from "../../utils/use-permissions-mode/state";
 export {
-  X_ as appMainCurrentCompatSlotUpperXUnderscore,
-  Xb as appMainCurrentCompatSlotUpperXLowerB,
-  Xd as appMainCurrentCompatSlotUpperXLowerD,
-  Xh as appMainCurrentCompatSlotUpperXLowerH,
-  Xi as appMainCurrentCompatSlotUpperXLowerI,
-  Xm as appMainCurrentCompatSlotUpperXLowerM,
-  Xo as appMainCurrentCompatSlotUpperXLowerO,
-  Xp as appMainCurrentCompatSlotUpperXLowerP,
-  XS as appMainCurrentCompatSlotUpperXUpperS,
-  Xt as appMainCurrentCompatSlotUpperXLowerT,
-  Xu as appMainCurrentCompatSlotUpperXLowerU,
-  Xv as appMainCurrentCompatSlotUpperXLowerV,
-  Xx as appMainCurrentCompatSlotUpperXLowerX,
-  Xy as appMainCurrentCompatSlotUpperXLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperXUnderscoreExport as appMainCurrentCompatSlotUpperXUnderscore,
+  legacyAppMainBuwUpperXLowerBExport as appMainCurrentCompatSlotUpperXLowerB,
+  legacyAppMainBuwUpperXLowerDExport as appMainCurrentCompatSlotUpperXLowerD,
+  legacyAppMainBuwUpperXLowerHExport as appMainCurrentCompatSlotUpperXLowerH,
+  legacyAppMainBuwUpperXLowerIExport as appMainCurrentCompatSlotUpperXLowerI,
+  legacyAppMainBuwUpperXLowerMExport as appMainCurrentCompatSlotUpperXLowerM,
+  legacyAppMainBuwUpperXLowerOExport as appMainCurrentCompatSlotUpperXLowerO,
+  legacyAppMainBuwUpperXLowerPExport as appMainCurrentCompatSlotUpperXLowerP,
+  legacyAppMainBuwUpperXUpperSExport as appMainCurrentCompatSlotUpperXUpperS,
+  legacyAppMainBuwUpperXLowerTExport as appMainCurrentCompatSlotUpperXLowerT,
+  legacyAppMainBuwUpperXLowerUExport as appMainCurrentCompatSlotUpperXLowerU,
+  legacyAppMainBuwUpperXLowerVExport as appMainCurrentCompatSlotUpperXLowerV,
+  legacyAppMainBuwUpperXLowerXExport as appMainCurrentCompatSlotUpperXLowerX,
+} from "./stable-exports";

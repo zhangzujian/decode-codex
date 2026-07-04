@@ -26,8 +26,6 @@ export { initProcessManagerRequestSignalChunk as appMainCurrentCompatSlotLowerRL
 export { conversationalOnboardingTaskDefinitions as appMainCurrentCompatSlotLowerR } from "../../onboarding/conversational-onboarding-task-definitions";
 export { initStartComposerTurnChunk as appMainCurrentCompatSlotLowerRLowerN } from "../../composer/start-composer-turn";
 
-export {
-  rb as appMainCurrentCompatSlotLowerRLowerB,
-  rf as appMainCurrentCompatSlotLowerRLowerF,
-  ry as appMainCurrentCompatSlotLowerRLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { permissionProfileIdToAgentMode as appMainCurrentCompatSlotLowerRLowerB } from "../../utils/use-permissions-mode/mode-availability";
+export { initMcpAppFrameStateChunk as appMainCurrentCompatSlotLowerRLowerF } from "../../plugins/mcp-app-frame-state";
+export { getBrowserSidebarTabRegistryGeneration as appMainCurrentCompatSlotLowerRLowerY } from "../../browser/browser-sidebar-open-source/tab-registry-mutations";

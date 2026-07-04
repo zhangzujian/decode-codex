@@ -15,19 +15,19 @@ export { applyPendingWorktreePanelState as appMainCurrentCompatSlotUpperCLowerO 
 export { useAddBrowserUseOriginMutation as appMainCurrentCompatSlotUpperCLowerP } from "../../browser/browser-use-origin-state-queries";
 export { closeThreadFind as appMainCurrentCompatSlotUpperCLowerG } from "../../find/thread-find-store";
 
+export { YEAR_MINUTES as appMainCurrentCompatSlotUpperCLowerC } from "../../utils/rate-limit-status/windows";
+export { initUseServiceTierSettingsChunk as appMainCurrentCompatSlotUpperCLowerY } from "../../composer/use-service-tier-settings";
+export { SidebarPanelClosedIcon as appMainCurrentCompatSlotUpperCLowerD } from "../../icons/sidebar-panel-icons";
+export { AppshotAttachment as appMainCurrentCompatSlotUpperCLowerT } from "../../conversations/appshot-attachment";
+export { FORK_THREAD_TOOL_NAME as appMainCurrentCompatSlotUpperCLowerA } from "../../conversations/codex-app-tool-names";
+export { parseWorkspaceFileTab as appMainCurrentCompatSlotUpperCLowerF } from "../../workspace/workspace-file-source-tabs";
 export {
-  C as appMainCurrentCompatSlotUpperC,
-  Ca as appMainCurrentCompatSlotUpperCLowerA,
-  Cb as appMainCurrentCompatSlotUpperCLowerB,
-  Cc as appMainCurrentCompatSlotUpperCLowerC,
-  Cd as appMainCurrentCompatSlotUpperCLowerD,
-  Cf as appMainCurrentCompatSlotUpperCLowerF,
-  Ch as appMainCurrentCompatSlotUpperCLowerH,
-  Ci as appMainCurrentCompatSlotUpperCLowerI,
-  Cn as appMainCurrentCompatSlotUpperCLowerN,
-  CS as appMainCurrentCompatSlotUpperCUpperS,
-  Ct as appMainCurrentCompatSlotUpperCLowerT,
-  Cu as appMainCurrentCompatSlotUpperCLowerU,
-  Cv as appMainCurrentCompatSlotUpperCLowerV,
-  Cy as appMainCurrentCompatSlotUpperCLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperCExport as appMainCurrentCompatSlotUpperC,
+  legacyAppMainBuwUpperCLowerBExport as appMainCurrentCompatSlotUpperCLowerB,
+  legacyAppMainBuwUpperCLowerHExport as appMainCurrentCompatSlotUpperCLowerH,
+  legacyAppMainBuwUpperCLowerIExport as appMainCurrentCompatSlotUpperCLowerI,
+  legacyAppMainBuwUpperCLowerNExport as appMainCurrentCompatSlotUpperCLowerN,
+  legacyAppMainBuwUpperCUpperSExport as appMainCurrentCompatSlotUpperCUpperS,
+  legacyAppMainBuwUpperCLowerUExport as appMainCurrentCompatSlotUpperCLowerU,
+  legacyAppMainBuwUpperCLowerVExport as appMainCurrentCompatSlotUpperCLowerV,
+} from "./stable-exports";

@@ -56,6 +56,11 @@ export type McpAppModelContextAttachment = {
   text?: string | null;
   [key: string]: unknown;
 };
+export type ImageCommentDraft = {
+  attachmentId: string;
+  attachmentSrc: string;
+  comments: unknown[];
+};
 export type ComposerMode = "cloud" | "local" | "remote" | "worktree" | string;
 export type ComposerViewState = {
   addedFiles: unknown[];
@@ -70,6 +75,7 @@ export type ComposerViewState = {
   defaultBranchSnapshot: string | null;
   fileAttachments: unknown[];
   followUpCloudStartingState: string;
+  imageCommentDraft: ImageCommentDraft | null;
   imageAttachments: unknown[];
   isAutoContextOn: boolean;
   mcpAppModelContextAttachments: McpAppModelContextAttachment[];

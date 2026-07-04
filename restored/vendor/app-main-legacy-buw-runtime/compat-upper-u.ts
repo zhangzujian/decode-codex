@@ -11,21 +11,21 @@ export { CODEX_CONFIG_DOCS_URL as appMainCurrentCompatSlotUpperULowerC } from ".
 export { trackConversationalOnboardingTaskSelected as appMainCurrentCompatSlotUpperULowerS } from "../../onboarding/conversational-onboarding-analytics";
 export { FaviconImage as appMainCurrentCompatSlotUpperULowerO } from "../../conversations/favicon-image";
 
+export { initAppShellStateRuntimeChunk as appMainCurrentCompatSlotUpperULowerY } from "../../app-shell/app-shell-state";
+export { initTurnItemPartitioningChunk as appMainCurrentCompatSlotUpperU } from "../../conversations/partition-turn-items/turn-agent-item-groups";
+export { importBrowserProfile as appMainCurrentCompatSlotUpperULowerM } from "../../browser/browser-profile-import-query";
+export { HIGHLIGHT_TRANSITION as appMainCurrentCompatSlotUpperULowerT } from "../../image-side-panel/paged-annotation-overlay-constants";
 export {
-  U as appMainCurrentCompatSlotUpperU,
-  U_ as appMainCurrentCompatSlotUpperUUnderscore,
-  Ua as appMainCurrentCompatSlotUpperULowerA,
-  Ub as appMainCurrentCompatSlotUpperULowerB,
-  Uf as appMainCurrentCompatSlotUpperULowerF,
-  Ug as appMainCurrentCompatSlotUpperULowerG,
-  Uh as appMainCurrentCompatSlotUpperULowerH,
-  Ui as appMainCurrentCompatSlotUpperULowerI,
-  Ul as appMainCurrentCompatSlotUpperULowerL,
-  Um as appMainCurrentCompatSlotUpperULowerM,
-  Up as appMainCurrentCompatSlotUpperULowerP,
-  US as appMainCurrentCompatSlotUpperUUpperS,
-  Ut as appMainCurrentCompatSlotUpperULowerT,
-  Uu as appMainCurrentCompatSlotUpperULowerU,
-  Ux as appMainCurrentCompatSlotUpperULowerX,
-  Uy as appMainCurrentCompatSlotUpperULowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperUUnderscoreExport as appMainCurrentCompatSlotUpperUUnderscore,
+  legacyAppMainBuwUpperULowerAExport as appMainCurrentCompatSlotUpperULowerA,
+  legacyAppMainBuwUpperULowerBExport as appMainCurrentCompatSlotUpperULowerB,
+  legacyAppMainBuwUpperULowerFExport as appMainCurrentCompatSlotUpperULowerF,
+  legacyAppMainBuwUpperULowerGExport as appMainCurrentCompatSlotUpperULowerG,
+  legacyAppMainBuwUpperULowerHExport as appMainCurrentCompatSlotUpperULowerH,
+  legacyAppMainBuwUpperULowerIExport as appMainCurrentCompatSlotUpperULowerI,
+  legacyAppMainBuwUpperULowerLExport as appMainCurrentCompatSlotUpperULowerL,
+  legacyAppMainBuwUpperULowerPExport as appMainCurrentCompatSlotUpperULowerP,
+  legacyAppMainBuwUpperUUpperSExport as appMainCurrentCompatSlotUpperUUpperS,
+  legacyAppMainBuwUpperULowerUExport as appMainCurrentCompatSlotUpperULowerU,
+  legacyAppMainBuwUpperULowerXExport as appMainCurrentCompatSlotUpperULowerX,
+} from "./stable-exports";

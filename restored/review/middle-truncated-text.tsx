@@ -12,6 +12,8 @@ import {
 const ELLIPSIS = "…";
 const SINGLE_LINE = 1;
 
+export function initMiddleTruncatedTextChunk(): void {}
+
 export function fitsInSingleLine(
   text: string,
   font: string,

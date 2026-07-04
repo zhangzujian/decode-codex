@@ -24,6 +24,8 @@ const COMMENT_BADGE_ICON_BODY = COMMENT_BADGE_ICON_SVG.replace(
   "",
 ).replace("</svg>", "");
 
+export function initReviewFileTreeChunk(): void {}
+
 export interface ReviewFileTreeEntry {
   path: string;
   displayPath: string;

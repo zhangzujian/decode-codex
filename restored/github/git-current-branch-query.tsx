@@ -33,6 +33,13 @@ const gitCurrentBranchQuery = gitQuerySignal({
         }),
   }),
 });
+
+export function initGitCurrentBranchQueryRuntimeChunk(): void {}
+
+export function initGitCurrentBranchQueryChunk(): void {
+  initGitCurrentBranchQueryRuntimeChunk();
+}
+
 export const gitCurrentBranchQuerySignal = gitCurrentBranchQuery.fromCwd$;
 export const gitCurrentBranchSignal = createComputedSignalFamily(
   appScopeRoot,

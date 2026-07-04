@@ -56,6 +56,8 @@ const rightPanelStoredWidthSignal =
   appShellStateImpl.rightPanelStoredWidthSignal;
 const rightPanelAnimationSignal = appShellStateImpl.rightPanelAnimationSignal;
 const rightPanelMaximizedSignal = appShellStateImpl.rightPanelMaximizedSignal;
+const getRightPanelWidthStorageKey =
+  appShellStateImpl.getRightPanelWidthStorageKey;
 const mainContentLayoutSignal = appShellStateImpl.mainContentLayoutSignal;
 const appShellHeaderContextMenuSurfaceSignal =
   appShellStateImpl.appShellHeaderContextMenuSurfaceSignal;
@@ -187,6 +189,7 @@ export {
   rightPanelStoredWidthSignal,
   rightPanelAnimationSignal,
   mainContentLayoutSignal,
+  getRightPanelWidthStorageKey,
   appShellHeaderContextMenuSurfaceSignal,
   appShellStateDSignal,
   appShellStateISignal,

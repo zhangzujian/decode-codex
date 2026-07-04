@@ -6,6 +6,7 @@ import {
 } from "../boundaries/rpc.facade";
 import { vscodeApiF as vscodeMessageBus } from "../boundaries/vscode-api";
 import { openImagePreviewTab } from "../image-side-panel/open-image-preview-tab";
+import { sendHostRequest } from "./host-request-runtime";
 import { handleExternalLinkClick } from "../utils/external-link/browser-actions";
 import { normalizeExternalHref } from "../utils/external-link/normalize";
 import type { ExternalLinkClickEvent } from "../utils/external-link/types";
@@ -26,6 +27,24 @@ export type GeneratedImagePreviewTabRequest = {
   referrerPolicy?: string;
   src: string;
   title: string;
+};
+
+export type OpenFileResourceFromTurnOptions = {
+  browserSidebarEnabled?: boolean;
+  cwd?: string | null;
+  hostConfig?: unknown;
+  hostId?: string | null;
+  openFile?: (params: Record<string, unknown>) => Promise<unknown> | void;
+  openInSidePanel?: boolean;
+  path: string;
+  scope?: unknown;
+};
+
+export type TrackOpenInCodexBrowserOptions = {
+  conversationId?: string | null;
+  initiator?: string;
+  source?: string;
+  url: string;
 };
 
 type ImagePreviewDisplayMode = "always" | "toggle" | "none";
@@ -150,4 +169,40 @@ export function openGeneratedImagePreviewTab(
   request: GeneratedImagePreviewTabRequest,
 ): boolean {
   return openImagePreviewTab(scope, request);
+}
+
+export function openFileResourceFromTurn({
+  browserSidebarEnabled,
+  cwd,
+  hostConfig,
+  hostId,
+  openFile,
+  openInSidePanel,
+  path,
+}: OpenFileResourceFromTurnOptions): Promise<unknown> | void {
+  const params = {
+    browserSidebarEnabled,
+    cwd,
+    hostConfig,
+    hostId,
+    openInSidePanel,
+    path,
+  };
+  if (openFile != null) return openFile(params);
+  return sendHostRequest("open-file", { params });
+}
+
+export function trackOpenInCodexBrowser({
+  conversationId,
+  initiator,
+  source = "manual",
+  url,
+}: TrackOpenInCodexBrowserOptions): void {
+  vscodeMessageBus.dispatchMessage("open-in-browser", {
+    conversationId,
+    initiator,
+    openTarget: "in-app-browser",
+    source,
+    url: normalizeExternalHref(url),
+  });
 }

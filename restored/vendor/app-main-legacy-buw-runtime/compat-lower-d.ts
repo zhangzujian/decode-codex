@@ -16,16 +16,14 @@ export { getAutomationDraftDestination as appMainCurrentCompatSlotLowerDLowerI }
 export { useHeartbeatThreadOptions as appMainCurrentCompatSlotLowerDLowerR } from "../../automations/use-heartbeat-thread-options";
 export { ReactReduxProvider as appMainCurrentCompatSlotLowerD } from "../react-redux-provider-runtime";
 
-export {
-  d_ as appMainCurrentCompatSlotLowerDUnderscore,
-  da as appMainCurrentCompatSlotLowerDLowerA,
-  db as appMainCurrentCompatSlotLowerDLowerB,
-  dd as appMainCurrentCompatSlotLowerDLowerD,
-  dm as appMainCurrentCompatSlotLowerDLowerM,
-  dn as appMainCurrentCompatSlotLowerDLowerN,
-  dp as appMainCurrentCompatSlotLowerDLowerP,
-  dS as appMainCurrentCompatSlotLowerDUpperS,
-  dt as appMainCurrentCompatSlotLowerDLowerT,
-  dv as appMainCurrentCompatSlotLowerDLowerV,
-  dy as appMainCurrentCompatSlotLowerDLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { openTerminalPanelAtBottom as appMainCurrentCompatSlotLowerDUnderscore } from "../../terminal/terminal-panel-tabs";
+export { collapseToolActivityUnits as appMainCurrentCompatSlotLowerDLowerA } from "../../conversations/conversation-activity-grouping/collapsed-tool-activity";
+export { shouldWaitForPermissionModeSelection as appMainCurrentCompatSlotLowerDLowerB } from "../../utils/use-permissions-mode/mode-selection";
+export { AppShell as appMainCurrentCompatSlotLowerDLowerD } from "../../app-shell/app-shell";
+export { clearBrowserSidebarComments as appMainCurrentCompatSlotLowerDLowerM } from "../../browser/browser-sidebar-state";
+export { readReferencedPriorConversations as appMainCurrentCompatSlotLowerDLowerN } from "../../composer/referenced-prior-conversations";
+export { filterProjectsForSettingsHost as appMainCurrentCompatSlotLowerDLowerP } from "../../settings/settings-host-context";
+export { timeMonday as appMainCurrentCompatSlotLowerDUpperS } from "../../utils/d3-chart-scales";
+export { initConversationItemScrollTargetRuntime as appMainCurrentCompatSlotLowerDLowerT } from "../../conversations/scroll-conversation-item-into-view";
+export { formatBranchRef as appMainCurrentCompatSlotLowerDLowerV } from "../../review/review-diff-model";
+export { registerAndNotifyBrowserSidebarTab as appMainCurrentCompatSlotLowerDLowerY } from "../../browser/browser-sidebar-open-source/tab-registry-mutations";

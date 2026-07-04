@@ -4,13 +4,15 @@
 // that reserves space for the banner and section action buttons.
 import { FormattedMessage } from "../vendor/react-intl";
 import { InfoIcon } from "../icons/info-icon";
-import { reviewExpandedBottomInset } from "../boundaries/onboarding-commons-externals.facade";
+import { reviewExpandedBottomInset } from "./review-ui-state-runtime";
 
 export const LARGE_DIFF_BANNER_BOTTOM_INSET = "0.5rem";
 export const LARGE_DIFF_BANNER_HEIGHT = "2.75rem";
 
 const SECTION_ACTIONS_HIDDEN_INSET = "0.75rem";
 const SECTION_ACTIONS_VISIBLE_INSET = "2rem";
+
+export function initLargeDiffBannerChunk(): void {}
 
 export interface LargeDiffBannerProps {
   bottomInset?: string;

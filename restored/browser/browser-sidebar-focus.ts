@@ -43,3 +43,8 @@ export function isElementFocusWithin(element: HTMLElement | null): boolean {
       ?.getAttribute(APP_SHELL_FOCUS_AREA_ATTR) === focusArea
   );
 }
+
+export function initBrowserSidebarFocusChunk(): void {
+  void APP_SHELL_FOCUS_AREA_SELECTOR;
+  void INTERACTIVE_ELEMENT_SELECTOR;
+}

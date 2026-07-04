@@ -47,9 +47,11 @@ export async function fetchMcpServerStatus({
   const fromHost =
     (
       await sendHostRequest("list-mcp-server-status", {
-        hostId,
-        cursor: null,
-        limit: 100,
+        params: {
+          hostId,
+          cursor: null,
+          limit: 100,
+        },
       })
     ).data.find(({ name }: McpServerStatus) => name === server) ?? null;
   if (fromHost == null)
@@ -125,12 +127,14 @@ export async function callMcpAppTool({
   const meta = stripCodexConnectorMeta(server, toolCallParams._meta);
   try {
     return await sendHostRequest("call-mcp-tool", {
-      hostId,
-      threadId: conversationId,
-      server,
-      tool: tool.name,
-      arguments: toolCallParams.arguments ?? {},
-      _meta: meta,
+      params: {
+        hostId,
+        threadId: conversationId,
+        server,
+        tool: tool.name,
+        arguments: toolCallParams.arguments ?? {},
+        _meta: meta,
+      },
     });
   } catch (error) {
     throw normalizeMcpAppError(error, "MCP tool call failed");
@@ -143,11 +147,13 @@ async function isThreadLoaded(
 ): Promise<boolean> {
   try {
     const { thread } = await sendHostRequest("send-cli-request-for-host", {
-      hostId,
-      method: "thread/read",
       params: {
-        includeTurns: false,
-        threadId,
+        hostId,
+        method: "thread/read",
+        params: {
+          includeTurns: false,
+          threadId,
+        },
       },
     });
     return thread.status.type !== "notLoaded";
@@ -169,13 +175,17 @@ export async function readMcpAppResource({
 }) {
   try {
     return await sendHostRequest("read-mcp-resource", {
-      hostId,
-      threadId,
-      server,
-      uri,
+      params: {
+        hostId,
+        threadId,
+        server,
+        uri,
+      },
     });
   } catch (error) {
     if (await isThreadLoaded(hostId, threadId)) throw error;
-    return sendHostRequest("read-mcp-resource", { hostId, server, uri });
+    return sendHostRequest("read-mcp-resource", {
+      params: { hostId, server, uri },
+    });
   }
 }

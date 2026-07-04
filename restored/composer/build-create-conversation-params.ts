@@ -4,7 +4,11 @@ import {
   MULTI_AGENT_MODE,
   buildAttachmentsPayload,
   buildThreadPermissions,
+  mergeFileAttachments,
 } from "../boundaries/onboarding-commons-externals.facade";
+import { sendAppServerRequest } from "../runtime/app-server-request";
+import { sanitizeThreadConfig } from "../runtime/thread-start-runtime";
+import { buildImageInputItems } from "./build-image-input-items";
 
 export interface BuildCreateConversationParamsInput {
   agentMode: string;
@@ -31,6 +35,97 @@ export interface BuildCreateConversationParamsInput {
 }
 
 export function initBuildCreateConversationParamsChunk(): void {}
+
+export interface BuildCreateConversationParamsFromContextInput {
+  context: {
+    addedFiles: unknown[];
+    appshotContexts?: unknown[];
+    commentAttachments: unknown;
+    fileAttachments: unknown[];
+    imageAttachments: Array<{ src: string; localPath?: string }>;
+    mcpAppModelContextAttachments?: Array<{
+      imageAttachments: Array<{ src: string; localPath?: string }>;
+    }>;
+    pastedTextAttachments: unknown[];
+    [key: string]: unknown;
+  };
+  prompt: string;
+  workspaceRoots: string[];
+  cwd: string;
+  hostId: string;
+  agentMode: string;
+  permissionProfileId: string | null;
+  serviceTier: string | null;
+  collaborationMode: { settings?: { reasoning_effort?: unknown } } | null;
+  memoryPreferences: unknown;
+  workspaceKind?: "project" | "projectless";
+  projectlessOutputDirectory?: string | null;
+  projectAssignment?: unknown;
+}
+
+function getDefaultReasoningEffort(config: unknown): unknown {
+  return config != null && typeof config === "object"
+    ? (config as { model_reasoning_effort?: unknown }).model_reasoning_effort
+    : undefined;
+}
+
+export async function buildCreateConversationParamsFromContext({
+  context,
+  prompt,
+  workspaceRoots,
+  cwd,
+  hostId,
+  agentMode,
+  permissionProfileId,
+  serviceTier,
+  collaborationMode,
+  memoryPreferences,
+  workspaceKind = "project",
+  projectlessOutputDirectory,
+  projectAssignment,
+}: BuildCreateConversationParamsFromContextInput) {
+  const { config } = await sendAppServerRequest<{ config: unknown }>(
+    "read-config-for-host",
+    {
+      hostId,
+      includeLayers: false,
+      cwd,
+    },
+  );
+  const sanitizedConfig = sanitizeThreadConfig(config);
+
+  return {
+    input: [
+      { type: "text", text: prompt, text_elements: [] },
+      ...buildImageInputItems(context, hostId !== "local", {
+        shouldRestrictRemoteHostImageSize: false,
+      }),
+    ],
+    commentAttachments: context.commentAttachments,
+    workspaceRoots,
+    cwd,
+    fileAttachments: mergeFileAttachments(
+      context.fileAttachments,
+      context.pastedTextAttachments,
+    ),
+    addedFiles: context.addedFiles,
+    agentMode,
+    permissionProfileId,
+    shouldSendPermissionOverrides: true,
+    model: null,
+    serviceTier,
+    reasoningEffort:
+      collaborationMode?.settings?.reasoning_effort ??
+      getDefaultReasoningEffort(sanitizedConfig),
+    collaborationMode,
+    config: sanitizedConfig,
+    configOverrides: undefined,
+    memoryPreferences,
+    workspaceKind,
+    projectAssignment,
+    ...(workspaceKind === "projectless" ? { projectlessOutputDirectory } : {}),
+  };
+}
 
 export function buildCreateConversationParams({
   agentMode,

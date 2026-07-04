@@ -15,19 +15,19 @@ export { NAVIGATE_TO_CODEX_PAGE_TOOL_NAME as appMainCurrentCompatSlotUpperRLower
 export { trackConversationalOnboardingExecutionCancelled as appMainCurrentCompatSlotUpperRLowerS } from "../../onboarding/conversational-onboarding-analytics";
 export { groupConversationSearchMatchesByContentUnitKey as appMainCurrentCompatSlotUpperRLowerF } from "../../runtime/conversation-search-runtime";
 
+export { setRightPanelOpen as appMainCurrentCompatSlotUpperRLowerY } from "../../app-shell/app-shell-state";
+export { useModelSettingsController as appMainCurrentCompatSlotUpperRLowerB } from "../../composer/use-model-settings-controller";
 export {
-  R as appMainCurrentCompatSlotUpperR,
-  Ra as appMainCurrentCompatSlotUpperRLowerA,
-  Rb as appMainCurrentCompatSlotUpperRLowerB,
-  RC as appMainCurrentCompatSlotUpperRUpperC,
-  Ri as appMainCurrentCompatSlotUpperRLowerI,
-  Rl as appMainCurrentCompatSlotUpperRLowerL,
-  Rm as appMainCurrentCompatSlotUpperRLowerM,
-  Rn as appMainCurrentCompatSlotUpperRLowerN,
-  Rp as appMainCurrentCompatSlotUpperRLowerP,
-  RS as appMainCurrentCompatSlotUpperRUpperS,
-  Rt as appMainCurrentCompatSlotUpperRLowerT,
-  Ru as appMainCurrentCompatSlotUpperRLowerU,
-  Rx as appMainCurrentCompatSlotUpperRLowerX,
-  Ry as appMainCurrentCompatSlotUpperRLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperRExport as appMainCurrentCompatSlotUpperR,
+  legacyAppMainBuwUpperRLowerAExport as appMainCurrentCompatSlotUpperRLowerA,
+  legacyAppMainBuwUpperRUpperCExport as appMainCurrentCompatSlotUpperRUpperC,
+  legacyAppMainBuwUpperRLowerIExport as appMainCurrentCompatSlotUpperRLowerI,
+  legacyAppMainBuwUpperRLowerLExport as appMainCurrentCompatSlotUpperRLowerL,
+  legacyAppMainBuwUpperRLowerMExport as appMainCurrentCompatSlotUpperRLowerM,
+  legacyAppMainBuwUpperRLowerNExport as appMainCurrentCompatSlotUpperRLowerN,
+  legacyAppMainBuwUpperRLowerPExport as appMainCurrentCompatSlotUpperRLowerP,
+  legacyAppMainBuwUpperRUpperSExport as appMainCurrentCompatSlotUpperRUpperS,
+  legacyAppMainBuwUpperRLowerTExport as appMainCurrentCompatSlotUpperRLowerT,
+  legacyAppMainBuwUpperRLowerUExport as appMainCurrentCompatSlotUpperRLowerU,
+  legacyAppMainBuwUpperRLowerXExport as appMainCurrentCompatSlotUpperRLowerX,
+} from "./stable-exports";

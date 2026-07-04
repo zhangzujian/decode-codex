@@ -25,13 +25,91 @@ export function getCommentText(comment: CommentWithContent): string {
 }
 
 interface CommentWithPosition {
-  position: { path: string };
+  position: {
+    line?: number;
+    path: string;
+    side?: string;
+    start_line?: number | null;
+    start_side?: string | null;
+  };
 }
+
+export interface InlineCommentPosition {
+  line?: number;
+  path?: string;
+  side?: string;
+  startLine?: number;
+  startSide?: string;
+}
+
+interface PullRequestReviewComment
+  extends CommentWithContent,
+    CommentWithPosition {
+  body?: string;
+  inlineComment?: InlineCommentPosition | null;
+  number?: number | string;
+  replyToReviewThreadId?: string | null;
+}
+
+export function initReviewCommentUtilsChunk(): void {}
 
 export interface CountCommentsByFilePathParams {
   comments: CommentWithPosition[];
   filePaths: string[];
   workspaceRoot?: string | null;
+}
+
+export function getInlineCommentPosition(
+  comment: PullRequestReviewComment,
+): InlineCommentPosition {
+  return {
+    line: comment.position.line,
+    path: comment.position.path,
+    side: comment.position.side,
+    startLine: comment.position.start_line ?? undefined,
+    startSide: comment.position.start_side ?? undefined,
+  };
+}
+
+export function getPullRequestReviewCommentKey(
+  comment: PullRequestReviewComment,
+): string {
+  const inlineComment = comment.inlineComment;
+  return [
+    comment.number ?? "",
+    comment.body ?? "",
+    comment.replyToReviewThreadId ?? "",
+    inlineComment?.path ?? "",
+    inlineComment?.side ?? "",
+    inlineComment?.startSide ?? "",
+    inlineComment?.startLine ?? "",
+    inlineComment?.line ?? "",
+  ].join("|");
+}
+
+export function mergeUpdatedReviewComments({
+  currentComments,
+  nextComments,
+}: {
+  currentComments: PullRequestReviewComment[];
+  nextComments: PullRequestReviewComment[];
+}): PullRequestReviewComment[] {
+  const currentKeys = new Set(currentComments.map(getReviewCommentStableKey));
+  const placeholderReplacements = nextComments.filter((nextComment) =>
+    currentComments.some((currentComment) =>
+      matchesPlaceholderReviewReply(currentComment, nextComment),
+    ),
+  );
+  const newPopulatedComments = nextComments.filter(
+    (comment) =>
+      getCommentText(comment).length > 0 &&
+      !currentKeys.has(getReviewCommentStableKey(comment)),
+  );
+
+  return uniqueByReviewCommentKey([
+    ...placeholderReplacements,
+    ...newPopulatedComments,
+  ]);
 }
 
 export function countCommentsByFilePath({
@@ -87,6 +165,47 @@ function pathsMatch(
     (normalizedFilePath.endsWith(`/${normalizedCommentPath}`) ||
       normalizedCommentPath.endsWith(`/${normalizedFilePath}`))
   );
+}
+
+function getReviewCommentStableKey(comment: PullRequestReviewComment): string {
+  return [
+    comment.position.path,
+    comment.position.line ?? "",
+    comment.position.start_line ?? "",
+    comment.position.side ?? "",
+    comment.position.start_side ?? "",
+    getCommentText(comment),
+  ].join("|");
+}
+
+function matchesPlaceholderReviewReply(
+  currentComment: PullRequestReviewComment,
+  nextComment: PullRequestReviewComment,
+): boolean {
+  return (
+    currentComment.replyToReviewThreadId != null &&
+    currentComment.replyToReviewThreadId ===
+      nextComment.replyToReviewThreadId &&
+    getCommentText(currentComment).length === 0 &&
+    getCommentText(nextComment).length > 0 &&
+    currentComment.position.path === nextComment.position.path &&
+    currentComment.position.side === nextComment.position.side &&
+    currentComment.position.line === nextComment.position.line
+  );
+}
+
+function uniqueByReviewCommentKey(
+  comments: PullRequestReviewComment[],
+): PullRequestReviewComment[] {
+  const seen = new Set<string>();
+  const uniqueComments: PullRequestReviewComment[] = [];
+  for (const comment of comments) {
+    const key = getReviewCommentStableKey(comment);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    uniqueComments.push(comment);
+  }
+  return uniqueComments;
 }
 
 function normalizeRelativePath(

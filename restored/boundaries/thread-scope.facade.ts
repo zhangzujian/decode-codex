@@ -1,14 +1,18 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
-// Boundary facade (thread-scope) — typed `any` placeholders for non-exported cross-slice symbols.
+// Boundary facade (thread-scope) - typed `any` placeholders for non-exported cross-slice symbols.
 // Open boundary; replace as owning modules are restored. Auto-generated from imports.
 
-export const ScopeProvider = undefined as never;
-export const clientThreadByIdSignal = undefined as never;
-export const clientThreadIdByRouteSignal = undefined as never;
-export const clientThreadScope = undefined as never;
-export const createComputedSignal = undefined as never;
-export const getClientThreadScopeKey = undefined as never;
-export const isNonEmptyClientThreadId = undefined as never;
-export const routeScope = undefined as never;
-export const useAppScopeValue = undefined as never;
-export const useScopedSignalValue = undefined as never;
+export { ScopeProvider } from "../runtime/scope-signal-runtime";
+export { va as clientThreadByIdSignal } from "../runtime/current-app-initial/remote-projects-app-shared-backing";
+export {
+  getRouteThreadLocationId as getClientThreadScopeKey,
+  resolvedThreadLocationIdAtom as clientThreadIdByRouteSignal,
+  routeScope,
+  threadScope as clientThreadScope,
+} from "../runtime/persisted-signal";
+export { isClientThreadId as isNonEmptyClientThreadId } from "../runtime/persisted-signal/route-ids";
+export {
+  createDerived as createComputedSignal,
+  useSignalValue as useAppScopeValue,
+  useSignalValue as useScopedSignalValue,
+} from "../runtime/scope-signal-runtime";

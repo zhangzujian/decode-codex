@@ -3,6 +3,11 @@
 // mode/query atoms, per-file diff queries, and imperative actions.
 
 import { refreshReviewDiff, reviewDiffFilterAtom } from "./review-diff-model";
+import { createComputedAtom } from "../runtime/onboarding-scope-runtime";
+import {
+  threadAtomScope,
+  workspaceRootAtom,
+} from "../runtime/onboarding-common-runtime";
 import {
   isReviewRefreshingAtom,
   reviewBaseBranchOverrideAtom,
@@ -22,6 +27,7 @@ import {
   reviewLocationKindAtom,
   reviewRootAtom,
 } from "./review-diff-mode-atoms";
+import { reviewCwdAtom } from "./thread-review-context";
 import {
   reviewBaseBranchAtom,
   reviewBaseBranchQueryAtom,
@@ -47,6 +53,7 @@ import {
   reviewFileDiffModelAtom,
   reviewFileEntriesAtom,
 } from "./review-file-entries";
+import { workspaceReviewContextAtom } from "./review-git-metadata";
 import {
   refetchReviewFileDiff,
   refreshReviewFilesForPaths,
@@ -55,6 +62,94 @@ import {
   setReviewDiffTarget,
   watchReviewDiffEffect,
 } from "./review-diff-actions";
+import type { ComputedAtomContext } from "./review-diff-store-types";
+
+export const reviewDiffQueryAtom = reviewSummaryAtom;
+export const reviewFileDiffQueryAtom = reviewFileDiffQueryFamily;
+export const reviewLastTurnDiffAtom = reviewDiffTargetParsedAtom;
+export const reviewSummarySourceAtom = reviewDiffSourceAtom;
+export const reviewRepositorySourceAtom = reviewDiffSourceAtom;
+
+export const reviewDiffStateAtom = createComputedAtom(
+  threadAtomScope,
+  ({ get }: ComputedAtomContext) => {
+    const parsedDiff = get(reviewDiffTargetParsedAtom) as {
+      diff?: unknown;
+      diffBytes?: number | null;
+      diffError?: unknown;
+      diffText?: string | null;
+    };
+    const summaryQuery = get(reviewSummaryAtom) as { data?: unknown };
+    return {
+      diff: parsedDiff.diff ?? null,
+      diffBytes: parsedDiff.diffBytes ?? null,
+      diffError: parsedDiff.diffError ?? null,
+      diffText: parsedDiff.diffText ?? "",
+      reviewSummary: summaryQuery.data ?? null,
+    };
+  },
+);
+
+export const reviewDiffActionsAvailableAtom = createComputedAtom(
+  threadAtomScope,
+  ({ get }: ComputedAtomContext): boolean =>
+    (get(reviewFileEntriesAtom) as Array<{ canApplyPatchActions?: boolean }>)
+      .some((entry) => entry.canApplyPatchActions !== false),
+);
+
+export const reviewFilePathsAtom = createComputedAtom(
+  threadAtomScope,
+  ({ get }: ComputedAtomContext): Array<{ path: string }> =>
+    (get(reviewFileEntriesAtom) as Array<{ path: string }>).map((entry) => ({
+      path: entry.path,
+    })),
+);
+
+export const reviewWorkspaceRootAtom = createComputedAtom(
+  threadAtomScope,
+  ({ get }: ComputedAtomContext): string | null => {
+    const context = get(workspaceReviewContextAtom) as {
+      cwd: string | null;
+      git: { root?: string | null } | null;
+    };
+    return (
+      context.git?.root ??
+      context.cwd ??
+      get<string | null>(reviewCwdAtom) ??
+      get<string | null>(workspaceRootAtom)
+    );
+  },
+);
+
+export const reviewShowGitRepoEmptyStateAtom = createComputedAtom(
+  threadAtomScope,
+  ({ get }: ComputedAtomContext): boolean =>
+    (get(workspaceReviewContextAtom) as { kind?: string }).kind === "plain",
+);
+
+export const reviewWorktreeInfoAtom = createComputedAtom(
+  threadAtomScope,
+  ({ get }: ComputedAtomContext) => {
+    const context = get(workspaceReviewContextAtom) as {
+      codexHome: string | null;
+      cwd: string | null;
+      git: { root?: string | null } | null;
+      hostId: string | null;
+      isCodexWorktree: boolean;
+    };
+    if (!context.isCodexWorktree || context.git?.root == null) return null;
+    return {
+      codexHome: context.codexHome,
+      cwd: context.cwd,
+      hostId: context.hostId,
+      root: context.git.root,
+    };
+  },
+);
+
+export function isUncommittedReviewSource(source: unknown): boolean {
+  return source === "staged" || source === "unstaged" || source === "last-turn";
+}
 
 export function initReviewSourceRuntime(): void {
   // Legacy chunks exposed Rollup initializers; ESM imports initialize the split
@@ -177,12 +272,15 @@ export {
 } from "./review-file-entries";
 export {
   refetchReviewFileDiff,
+  refetchReviewFileDiff as retryReviewFileDiff,
   refreshReviewFilesForPaths,
+  refreshReviewFilesForPaths as refreshReviewPathsFast,
   refreshReviewIndexInfo,
   selectReviewCommit,
   setReviewDiffTarget,
   watchReviewDiffEffect,
 } from "./review-diff-actions";
+export { toGitRelativePathKey } from "../utils/git-relative-display-path";
 export type {
   ComputedAtomContext,
   GitMetadata,

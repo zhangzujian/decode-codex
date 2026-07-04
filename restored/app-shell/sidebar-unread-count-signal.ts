@@ -25,3 +25,7 @@ export const sidebarUnreadActivityCountSignal = createScopedSelector(
     );
   },
 );
+
+export function initSidebarUnreadActivityCountSignalChunk(): void {
+  void sidebarUnreadActivityCountSignal;
+}

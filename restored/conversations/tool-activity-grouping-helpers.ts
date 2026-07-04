@@ -6,7 +6,7 @@ import {
   resolveAppForToolCall,
   shouldHideMcpToolCall,
   shouldAutoExpandMcpToolCall,
-} from "../boundaries/onboarding-commons-externals.facade";
+} from "./tool-activity-runtime";
 import {
   continuesLiveActivityBetweenCalls,
   type DynamicToolCallItem,

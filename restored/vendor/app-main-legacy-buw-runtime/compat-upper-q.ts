@@ -17,17 +17,17 @@ export { CODEX_SKILLS_DOCS_URL as appMainCurrentCompatSlotUpperQLowerC } from ".
 export { initMoveThreadToHostWorktreeChunk as appMainCurrentCompatSlotUpperQLowerA } from "../../conversations/move-thread-to-host-worktree";
 export { findLocalConversationTextMatches as appMainCurrentCompatSlotUpperQLowerG } from "../../runtime/conversation-search-runtime";
 
+export { consumeAdoptedBrowserTabIds as appMainCurrentCompatSlotUpperQLowerV } from "../../browser/browser-sidebar-open-source";
 export {
-  Q_ as appMainCurrentCompatSlotUpperQUnderscore,
-  Qb as appMainCurrentCompatSlotUpperQLowerB,
-  Qd as appMainCurrentCompatSlotUpperQLowerD,
-  Qh as appMainCurrentCompatSlotUpperQLowerH,
-  Qi as appMainCurrentCompatSlotUpperQLowerI,
-  Qm as appMainCurrentCompatSlotUpperQLowerM,
-  Qn as appMainCurrentCompatSlotUpperQLowerN,
-  QS as appMainCurrentCompatSlotUpperQUpperS,
-  Qt as appMainCurrentCompatSlotUpperQLowerT,
-  Qu as appMainCurrentCompatSlotUpperQLowerU,
-  Qv as appMainCurrentCompatSlotUpperQLowerV,
-  Qx as appMainCurrentCompatSlotUpperQLowerX,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperQUnderscoreExport as appMainCurrentCompatSlotUpperQUnderscore,
+  legacyAppMainBuwUpperQLowerBExport as appMainCurrentCompatSlotUpperQLowerB,
+  legacyAppMainBuwUpperQLowerDExport as appMainCurrentCompatSlotUpperQLowerD,
+  legacyAppMainBuwUpperQLowerHExport as appMainCurrentCompatSlotUpperQLowerH,
+  legacyAppMainBuwUpperQLowerIExport as appMainCurrentCompatSlotUpperQLowerI,
+  legacyAppMainBuwUpperQLowerMExport as appMainCurrentCompatSlotUpperQLowerM,
+  legacyAppMainBuwUpperQLowerNExport as appMainCurrentCompatSlotUpperQLowerN,
+  legacyAppMainBuwUpperQUpperSExport as appMainCurrentCompatSlotUpperQUpperS,
+  legacyAppMainBuwUpperQLowerTExport as appMainCurrentCompatSlotUpperQLowerT,
+  legacyAppMainBuwUpperQLowerUExport as appMainCurrentCompatSlotUpperQLowerU,
+  legacyAppMainBuwUpperQLowerXExport as appMainCurrentCompatSlotUpperQLowerX,
+} from "./stable-exports";

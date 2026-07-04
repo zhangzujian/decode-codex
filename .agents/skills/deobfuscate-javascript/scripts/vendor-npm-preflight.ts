@@ -24,7 +24,7 @@ export type VendorNpmPreflightResult = {
 
 export type VendorNpmDecision = {
   file: string;
-  decision: "npm-shim" | "needs-proof";
+  decision: "npm-shim" | "local-body" | "needs-proof";
   specifiers: string[];
   sourceExists: boolean;
   reason: string;
@@ -164,6 +164,43 @@ function shouldSkipFullQualityAnalysisForVendorPreflight(
   // the filename/provenance/API checks, but avoid parsing 10k-100k+ line files
   // through the full quality gate on every preflight.
   return expectedPublicNpmVendorSpecifiers(file, source) == null;
+}
+
+function appRuntimeWrapperProofReason(
+  file: string,
+  source: string | undefined,
+): string | null {
+  if (source == null) return null;
+  if (!/Restored from ref\/webview\/assets\//.test(source)) return null;
+  if (!/\b(?:Flat boundary|compatibility shim|compatibility bundle)\b/i.test(source)) {
+    return null;
+  }
+
+  const basename = path.basename(file);
+  const extension = path.extname(basename);
+  const stem = basename.slice(0, basename.length - extension.length);
+  const compatSuffix = "-compat-bundle";
+  if (!stem.endsWith(compatSuffix)) return null;
+
+  const runtimeStem = `${stem.slice(0, -compatSuffix.length)}-runtime`;
+  const runtimeDir = path.join(path.dirname(file), runtimeStem);
+  const runtimeIndexCandidates = [
+    "index.ts",
+    "index.tsx",
+    "index.mts",
+    "index.js",
+    "index.jsx",
+    "index.mjs",
+  ];
+  if (
+    !runtimeIndexCandidates.some((candidate) =>
+      fs.existsSync(path.join(runtimeDir, candidate)),
+    )
+  ) {
+    return null;
+  }
+
+  return `public vendor app/runtime wrapper proof found in sibling ${runtimeStem}/index`;
 }
 
 function isBarePackageSpecifier(specifier: string): boolean {
@@ -554,6 +591,17 @@ export function vendorNpmDecision(input: string): VendorNpmDecision[] {
         };
       }
 
+      const appRuntimeReason = appRuntimeWrapperProofReason(file, source);
+      if (appRuntimeReason != null) {
+        return {
+          file,
+          decision: "local-body",
+          specifiers,
+          sourceExists,
+          reason: appRuntimeReason,
+        };
+      }
+
       return {
         file,
         decision: "needs-proof",
@@ -580,17 +628,22 @@ function decisionIntentFailures(
 ): string[] {
   if (intent == null) return [];
   if (intent === "local-body") {
-    return decisions.map((decision) => {
+    return decisions.flatMap((decision) => {
+      if (decision.decision === "local-body") return [];
       if (decision.decision === "npm-shim") {
-        return `${decision.file}: local vendor body blocked; use npm shim for ${decision.specifiers.join(", ")}`;
+        return [
+          `${decision.file}: local vendor body blocked; use npm shim for ${decision.specifiers.join(", ")}`,
+        ];
       }
 
-      return `${decision.file}: local vendor body blocked until Codex fork or app/runtime wrapper proof is registered`;
+      return [
+        `${decision.file}: local vendor body blocked until Codex fork or app/runtime wrapper proof is registered`,
+      ];
     });
   }
 
   return decisions
-    .filter((decision) => decision.decision === "needs-proof")
+    .filter((decision) => decision.decision !== "npm-shim")
     .map(
       (decision) =>
         `${decision.file}: npm shim intent needs a registered package identity first`,

@@ -57,7 +57,7 @@ export function isFileReferencePathValue(path: string): boolean {
   return true;
 }
 
-function parseFileReference(path: string): ParsedFileReference {
+export function parseFileReference(path: string): ParsedFileReference {
   const trimmedPath = path.replace(/`/g, "").trim();
   const lineColumnMatch = trimmedPath.match(
     /^(.*?):(\d+)(?::(\d+))?(?:[-–](\d+)(?::(\d+))?)?$/,

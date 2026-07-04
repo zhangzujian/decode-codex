@@ -30,6 +30,4 @@ export { useDefaultBranchQuery as appMainCurrentCompatSlotLowerPLowerU } from ".
 export { initOpenArtifactTabChunk as appMainCurrentCompatSlotLowerPLowerF } from "../../workspace/open-artifact-tab";
 export { bottomTerminalPanelOpenSignal as appMainCurrentCompatSlotLowerPUnderscore } from "../../terminal/terminal-panel-signals";
 
-export {
-  py as appMainCurrentCompatSlotLowerPLowerY,
-} from "../app-main-legacy-buw-compat-bundle";
+export { DEVICE_TOOLBAR_PRESETS as appMainCurrentCompatSlotLowerPLowerY } from "../../browser/sidebar-manager/device-toolbar";

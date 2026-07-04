@@ -88,6 +88,7 @@ export const defaultComposerViewState = createScopedComputedAtom(
       composerMode,
       aeonStartTarget: null,
       isAutoContextOn: get(composerAutoContextEnabledSignal) ?? true,
+      imageCommentDraft: null,
       imageAttachments: [],
       appshotContexts: [],
       fileAttachments: [],

@@ -17,17 +17,17 @@ export { ClientThreadScopeProvider as appMainCurrentCompatSlotUpperWLowerS } fro
 export { setThreadFindBrowserTarget as appMainCurrentCompatSlotUpperWLowerG } from "../../find/thread-find-store";
 
 export {
-  W as appMainCurrentCompatSlotUpperW,
-  W_ as appMainCurrentCompatSlotUpperWUnderscore,
-  Wb as appMainCurrentCompatSlotUpperWLowerB,
-  Wf as appMainCurrentCompatSlotUpperWLowerF,
-  Wh as appMainCurrentCompatSlotUpperWLowerH,
-  Wi as appMainCurrentCompatSlotUpperWLowerI,
-  Wm as appMainCurrentCompatSlotUpperWLowerM,
-  Wo as appMainCurrentCompatSlotUpperWLowerO,
-  Wp as appMainCurrentCompatSlotUpperWLowerP,
-  WS as appMainCurrentCompatSlotUpperWUpperS,
-  Wt as appMainCurrentCompatSlotUpperWLowerT,
-  Wu as appMainCurrentCompatSlotUpperWLowerU,
-  Wx as appMainCurrentCompatSlotUpperWLowerX,
-} from "../app-main-legacy-buw-compat-bundle";
+  legacyAppMainBuwUpperWExport as appMainCurrentCompatSlotUpperW,
+  legacyAppMainBuwUpperWUnderscoreExport as appMainCurrentCompatSlotUpperWUnderscore,
+  legacyAppMainBuwUpperWLowerBExport as appMainCurrentCompatSlotUpperWLowerB,
+  legacyAppMainBuwUpperWLowerFExport as appMainCurrentCompatSlotUpperWLowerF,
+  legacyAppMainBuwUpperWLowerHExport as appMainCurrentCompatSlotUpperWLowerH,
+  legacyAppMainBuwUpperWLowerIExport as appMainCurrentCompatSlotUpperWLowerI,
+  legacyAppMainBuwUpperWLowerMExport as appMainCurrentCompatSlotUpperWLowerM,
+  legacyAppMainBuwUpperWLowerOExport as appMainCurrentCompatSlotUpperWLowerO,
+  legacyAppMainBuwUpperWLowerPExport as appMainCurrentCompatSlotUpperWLowerP,
+  legacyAppMainBuwUpperWUpperSExport as appMainCurrentCompatSlotUpperWUpperS,
+  legacyAppMainBuwUpperWLowerTExport as appMainCurrentCompatSlotUpperWLowerT,
+  legacyAppMainBuwUpperWLowerUExport as appMainCurrentCompatSlotUpperWLowerU,
+  legacyAppMainBuwUpperWLowerXExport as appMainCurrentCompatSlotUpperWLowerX,
+} from "./stable-exports";
