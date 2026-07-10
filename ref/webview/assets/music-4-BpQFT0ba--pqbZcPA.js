@@ -1,0 +1,3 @@
+import { n as e, t } from "./music-4-BpQFT0ba-UXo5wNP1.js";
+t();
+export { e as default };

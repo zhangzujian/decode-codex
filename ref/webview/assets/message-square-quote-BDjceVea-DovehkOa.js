@@ -1,0 +1,3 @@
+import { n as e, t } from "./message-square-quote-BDjceVea-CI_MPikR.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./highlighter-BnjYEinx-DZ266SK0.js";
+t();
+export { e as default };

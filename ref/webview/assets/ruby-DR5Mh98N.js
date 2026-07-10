@@ -1,0 +1,3 @@
+import { n as e, t } from "./ruby-BSElP4u3.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./party-popper-B9JVZpEH-BbA-w5wc.js";
+e();
+export { t as default };

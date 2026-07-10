@@ -1,0 +1,3 @@
+import { n as e, t } from "./folder-symlink-CmDkx6BR-BU4vMvbt.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./thread-app-shell-chrome-BkBjtcRa.js";
+e();
+export { t as ThreadAppShellChrome };

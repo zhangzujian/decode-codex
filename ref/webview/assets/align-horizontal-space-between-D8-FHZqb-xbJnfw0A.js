@@ -1,0 +1,6 @@
+import {
+  n as e,
+  t,
+} from "./align-horizontal-space-between-D8-FHZqb-t25dj0rv.js";
+e();
+export { t as default };

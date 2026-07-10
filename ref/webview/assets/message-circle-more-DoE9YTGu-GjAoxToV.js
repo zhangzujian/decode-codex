@@ -1,0 +1,3 @@
+import { n as e, t } from "./message-circle-more-DoE9YTGu-ugfY3rHh.js";
+e();
+export { t as default };

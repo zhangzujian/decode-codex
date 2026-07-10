@@ -1,0 +1,3 @@
+import { n as e, t } from "./calendar-1-CoNXiFzI-CBPSN_Lg.js";
+e();
+export { t as default };

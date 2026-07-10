@@ -1,0 +1,3 @@
+import { n as e, t } from "./smile-plus-CLTNXSRC-Cir0nFmP.js";
+e();
+export { t as default };

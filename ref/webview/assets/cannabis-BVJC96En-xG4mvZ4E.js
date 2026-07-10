@@ -1,0 +1,3 @@
+import { n as e, t } from "./cannabis-BVJC96En-BBQR7SRB.js";
+t();
+export { e as default };

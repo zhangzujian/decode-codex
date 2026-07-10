@@ -1,0 +1,3 @@
+import { n as e, t } from "./graphql-DcfoP0nF.js";
+e();
+export { t as default };

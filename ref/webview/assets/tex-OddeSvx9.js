@@ -1,0 +1,3 @@
+import { n as e, t } from "./tex-DGB4-Xzd.js";
+t();
+export { e as default };

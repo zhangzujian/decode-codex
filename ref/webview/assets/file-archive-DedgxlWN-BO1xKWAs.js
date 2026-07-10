@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-archive-DedgxlWN-CpRHKgEm.js";
+e();
+export { t as default };

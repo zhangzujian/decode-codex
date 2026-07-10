@@ -1,0 +1,3 @@
+import { n as e, t } from "./sandwich-CNmx2bxa-a9-MBf3m.js";
+t();
+export { e as default };

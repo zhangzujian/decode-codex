@@ -1,0 +1,3 @@
+import { n as e, t } from "./book-minus-CLJH1XlR-BJ-0HHmW.js";
+e();
+export { t as default };

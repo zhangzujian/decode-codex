@@ -1,0 +1,3 @@
+import { n as e, t } from "./squirrel-CvJF8xeV-ClrmyLQD.js";
+t();
+export { e as default };

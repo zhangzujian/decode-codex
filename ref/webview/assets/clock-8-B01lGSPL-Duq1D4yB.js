@@ -1,0 +1,3 @@
+import { n as e, t } from "./clock-8-B01lGSPL-e3ZG_UxG.js";
+t();
+export { e as default };

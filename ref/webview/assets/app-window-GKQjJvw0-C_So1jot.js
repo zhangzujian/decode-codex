@@ -1,0 +1,3 @@
+import { n as e, t } from "./app-window-GKQjJvw0-oskOjNC5.js";
+t();
+export { e as default };

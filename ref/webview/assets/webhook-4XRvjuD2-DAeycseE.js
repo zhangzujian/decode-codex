@@ -1,0 +1,3 @@
+import { n as e, t } from "./webhook-4XRvjuD2-T70VTe95.js";
+t();
+export { e as default };

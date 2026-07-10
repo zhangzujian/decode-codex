@@ -4,36 +4,38 @@ var t = `initId`,
   r = `.${n}`;
 `${n}`;
 var i = [
-  `navigate`,
-  `notifyMcpAppsHostContext`,
-  `notifyMcpAppsToolCancelled`,
-  `notifyMcpAppsToolInput`,
-  `notifyMcpAppsToolResult`,
-  `requestMcpAppsResourceTeardown`,
-  `runWidgetCode`,
-  `setAdditionalGlobals`,
-  `setSafeArea`,
-  `setTheme`,
-  `setWidgetData`,
-  `setWidgetView`,
-];
-function a(e) {
+    `navigate`,
+    `notifyMcpAppsHostContext`,
+    `notifyMcpAppsToolCancelled`,
+    `notifyMcpAppsToolInput`,
+    `notifyMcpAppsToolResult`,
+    `requestMcpAppsResourceTeardown`,
+    `runWidgetCode`,
+    `setAdditionalGlobals`,
+    `setSafeArea`,
+    `setTheme`,
+    `setWidgetData`,
+    `setWidgetView`,
+  ],
+  a = [`notifyMcpAppsMcpNotification`],
+  o = [...i, ...a];
+function s(e) {
   return e === n || e.endsWith(r);
 }
-function o(e) {
+function c(e) {
   return /^[A-Za-z0-9_-]{1,128}$/.test(e);
 }
-function s(e, { requireSkybridge: t = !1 } = {}) {
-  let n = u(e);
-  return n == null || (t && !d(n)) ? null : n.origin;
+function l(e, { requireSkybridge: t = !1 } = {}) {
+  let n = f(e);
+  return n == null || (t && !p(n)) ? null : n.origin;
 }
-function c(e) {
-  let n = l(e);
+function u(e) {
+  let n = d(e);
   if (n == null || n.hash.length === 0) return null;
   let r = new URLSearchParams(n.hash.slice(1)).get(t);
-  return r != null && o(r) ? r : null;
+  return r != null && c(r) ? r : null;
 }
-function l(e) {
+function d(e) {
   if (e == null) return null;
   try {
     return new URL(e);
@@ -41,18 +43,18 @@ function l(e) {
     return null;
   }
 }
-function u(e) {
-  let t = l(e);
+function f(e) {
+  let t = d(e);
   return t == null ||
     t.protocol !== `https:` ||
     t.port !== `` ||
     t.username !== `` ||
     t.password !== `` ||
-    !a(t.hostname)
+    !s(t.hostname)
     ? null
     : t;
 }
-function d(e) {
+function p(e) {
   let t = [`app`, `locale`, `deviceType`, `unsafeSkipTargetOriginCheck`],
     n = Array.from(e.searchParams.keys());
   return (
@@ -65,38 +67,45 @@ function d(e) {
     e.searchParams.get(`unsafeSkipTargetOriginCheck`) === `true`
   );
 }
-var f = `codex_desktop:mcp-app-sandbox-guest-message`,
-  p = !1;
-function m() {
+var m = `codex_desktop:mcp-app-sandbox-guest-message`,
+  h = !1;
+function g() {
   return (
-    s(window.location.href, { requireSkybridge: !0 }) === window.location.origin
+    l(window.location.href, { requireSkybridge: !0 }) === window.location.origin
   );
 }
 window.addEventListener(`message`, (t) => {
+  let n = t.data != null && typeof t.data == `object` ? t.data.type : void 0;
   if (
     t.source !== window ||
-    !m() ||
+    !g() ||
     t.data == null ||
     typeof t.data != `object` ||
-    t.data.type !== `init`
+    n !== `init`
   )
     return;
-  let n = t.data.ports,
-    r = t.data.replyPort;
-  if (typeof n != `object` || !n || !h(r) || p) return;
-  let a = c(window.location.href);
-  if (a == null) return;
-  let o = [...i],
-    s = o.map((e) => n[e]);
-  s.some((e) => !h(e)) ||
-    ((p = !0),
+  let r = t.data.ports,
+    a = t.data.replyPort;
+  if (typeof r != `object` || !r || !v(a) || h) return;
+  let s = u(window.location.href);
+  if (s == null) return;
+  let c = o.filter((e) => v(Reflect.get(r, e)));
+  if (i.filter((e) => !v(Reflect.get(r, e))).length > 0) return;
+  let l = [...c],
+    d = l.map((e) => _(r, e));
+  ((h = !0),
     e.ipcRenderer.postMessage(
-      f,
-      { origin: window.location.origin, initId: a, portNames: o, type: `init` },
-      [...s, r],
+      m,
+      { origin: window.location.origin, initId: s, portNames: l, type: `init` },
+      [...d, a],
     ));
 });
-function h(e) {
+function _(e, t) {
+  let n = Reflect.get(e, t);
+  if (!v(n)) throw Error(`Missing required MCP sandbox frame port: ${t}`);
+  return n;
+}
+function v(e) {
   return (
     typeof e == `object` &&
     !!e &&

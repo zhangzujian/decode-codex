@@ -1,0 +1,3 @@
+import { n as e, t } from "./image-down-j1VoYbhe-ByX_oyJf.js";
+e();
+export { t as default };

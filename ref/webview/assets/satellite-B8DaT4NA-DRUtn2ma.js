@@ -1,0 +1,3 @@
+import { n as e, t } from "./satellite-B8DaT4NA-C3Jqje_4.js";
+e();
+export { t as default };

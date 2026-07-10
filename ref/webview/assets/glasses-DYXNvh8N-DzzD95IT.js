@@ -1,0 +1,3 @@
+import { n as e, t } from "./glasses-DYXNvh8N-DT3uQXFw.js";
+e();
+export { t as default };

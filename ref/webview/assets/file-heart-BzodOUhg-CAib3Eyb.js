@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-heart-BzodOUhg-CP1F4vy4.js";
+t();
+export { e as default };

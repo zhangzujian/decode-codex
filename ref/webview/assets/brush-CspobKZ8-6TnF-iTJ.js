@@ -1,0 +1,3 @@
+import { n as e, t } from "./brush-CspobKZ8-Ds2Dwryl.js";
+e();
+export { t as default };

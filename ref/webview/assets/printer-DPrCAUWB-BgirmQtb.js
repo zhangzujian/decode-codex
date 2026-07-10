@@ -1,0 +1,3 @@
+import { n as e, t } from "./printer-DPrCAUWB-ChU4x7wz.js";
+e();
+export { t as default };

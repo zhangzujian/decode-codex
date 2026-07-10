@@ -1,0 +1,3 @@
+import { n as e, t } from "./chrome-CkkewYrQ-BOqOqFCS.js";
+e();
+export { t as default };

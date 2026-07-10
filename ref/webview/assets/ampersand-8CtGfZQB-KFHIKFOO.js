@@ -1,0 +1,3 @@
+import { n as e, t } from "./ampersand-8CtGfZQB-B0hEBB_Z.js";
+e();
+export { t as default };

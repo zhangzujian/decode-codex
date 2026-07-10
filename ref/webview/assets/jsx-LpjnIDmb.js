@@ -1,0 +1,3 @@
+import { n as e, t } from "./jsx-Cc_92fj-.js";
+t();
+export { e as default };

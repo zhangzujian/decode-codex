@@ -1,0 +1,3 @@
+import { n as e, t } from "./check-check-CBmD_Cz--CXdhnDxU.js";
+t();
+export { e as default };

@@ -5,16 +5,17 @@ import { existsSync, mkdirSync, readdirSync, rmSync, statSync } from "node:fs";
 import { homedir } from "node:os";
 import path from "node:path";
 
-const DEFAULT_ASAR_PATH = "/Applications/Codex.app/Contents/Resources/app.asar";
+const DEFAULT_ASAR_PATH = "/Applications/ChatGPT.app/Contents/Resources/app.asar";
 const PRETTIER_IGNORE_PATH = "/dev/null";
 
 function usage() {
   console.log(`Usage: node refresh-codex-ref.mjs [--dry-run] [--skip-format]
 
-Refresh ./ref from the installed Codex.app asar.
+Refresh ./ref from the installed ChatGPT.app asar.
 
 Environment:
-  CODEX_APP_ASAR  Override the source asar path.
+  CHATGPT_APP_ASAR  Override the source asar path.
+  CODEX_APP_ASAR    Legacy alias for CHATGPT_APP_ASAR.
 `);
 }
 
@@ -205,7 +206,11 @@ if (unknownArgs.length > 0) {
 
 const cwd = path.resolve(process.cwd());
 const refDir = path.join(cwd, "ref");
-const asarPath = path.resolve(process.env.CODEX_APP_ASAR || DEFAULT_ASAR_PATH);
+const asarPath = path.resolve(
+  process.env.CHATGPT_APP_ASAR ||
+    process.env.CODEX_APP_ASAR ||
+    DEFAULT_ASAR_PATH,
+);
 
 assertSafeRefDir(refDir, cwd);
 
@@ -226,7 +231,7 @@ console.log("Removing existing ./ref...");
 rmSync(refDir, { recursive: true, force: true });
 mkdirSync(refDir, { recursive: true });
 
-console.log("Extracting Codex app asar...");
+console.log("Extracting ChatGPT app asar...");
 run("npx", ["-y", "@electron/asar", "extract", asarPath, refDir]);
 
 if (skipFormat) {
@@ -245,4 +250,4 @@ if (files.length > 0) {
   verifyWithPrettier(jsFiles);
 }
 
-console.log("Codex app ref refresh complete.");
+console.log("ChatGPT app ref refresh complete.");

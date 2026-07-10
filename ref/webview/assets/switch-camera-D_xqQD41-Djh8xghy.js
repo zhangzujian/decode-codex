@@ -1,0 +1,3 @@
+import { n as e, t } from "./switch-camera-D_xqQD41-C_GxPl-Z.js";
+t();
+export { e as default };

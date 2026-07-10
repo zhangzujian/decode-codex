@@ -1,0 +1,3 @@
+import { n as e, t } from "./tsx-cNNdeZHN.js";
+t();
+export { e as default };

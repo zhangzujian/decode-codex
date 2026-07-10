@@ -1,0 +1,3 @@
+import { n as e, t } from "./shellscript-CXi3rQA7.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./mail-check-DnSuq87E-BrDp-xaC.js";
+e();
+export { t as default };

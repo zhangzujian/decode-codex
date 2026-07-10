@@ -1,0 +1,3 @@
+import { n as e, t } from "./chart-column-increasing-DzMCZszc-g_7wKJwE.js";
+t();
+export { e as default };

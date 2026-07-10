@@ -1,0 +1,3 @@
+import { n as e, t } from "./ticket-plus-DDekpXqS-Bu4_AKOI.js";
+t();
+export { e as default };

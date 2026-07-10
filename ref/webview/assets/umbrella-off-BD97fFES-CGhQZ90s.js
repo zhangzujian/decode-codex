@@ -1,0 +1,3 @@
+import { n as e, t } from "./umbrella-off-BD97fFES-CHE-Q3SN.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./html-DkRimI0O.js";
+e();
+export { t as default };

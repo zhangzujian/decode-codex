@@ -8,7 +8,7 @@
 
 | Skill | 作用 | 产物 |
 | ----- | ---- | ---- |
-| [`codex-app-ref-refresh`](.agents/skills/codex-app-ref-refresh/) | 解包已安装的 `Codex.app`（`app.asar`）到 `./ref` 并格式化 | `./ref/` |
+| [`codex-app-ref-refresh`](.agents/skills/codex-app-ref-refresh/) | 解包已安装的 `ChatGPT.app`（`app.asar`）到 `./ref` 并格式化 | `./ref/` |
 | [`deobfuscate-javascript`](.agents/skills/deobfuscate-javascript/) | 把 `ref/webview/assets` 里打包的 JS 反混淆成命名有意义的可读代码 | `./restored/` |
 
 典型流程：**先从 App 同步到 `./ref`，再把 `./ref` 反混淆到 `./restored`。**
@@ -17,7 +17,7 @@
 
 ## 前置条件
 
-- **macOS**，并已安装 **[Codex 桌面应用](https://chatgpt.com/codex)** 于 `/Applications/Codex.app`（同步 Skill 需要读取它的 `app.asar`）。
+- **macOS**，并已安装 **[ChatGPT 桌面应用](https://openai.com/chatgpt/desktop/)** 于 `/Applications/ChatGPT.app`（同步 Skill 需要读取它的 `app.asar`）。
 - **Node.js**（同步 Skill 会调用 `node` 和 `npx @electron/asar` / `prettier`）。
 - **[Bun](https://bun.sh)**（反混淆 Skill 的脚本是用 `bun` 运行的 TypeScript）。
 - 一个能运行 Skill 的 Agent（Claude Code，或任何读取 `.agents/skills` 的 Codex/Agent 环境）。也可以手动运行内置脚本，见下文。
@@ -26,15 +26,15 @@
 
 ---
 
-## Skill 1 — 同步最新 Codex 代码（`codex-app-ref-refresh`）
+## Skill 1 — 同步最新 ChatGPT App 代码（`codex-app-ref-refresh`）
 
-从已安装的 Codex App 重新生成 `./ref`，让你分析的源码始终对应当前安装的版本。它会**删除并替换 `./ref`**，把 `/Applications/Codex.app/Contents/Resources/app.asar` 解包进去，再用 Prettier 格式化所有解出来的 `.js`/`.css`（跳过 `ref/node_modules`）。
+从已安装的 ChatGPT App 重新生成 `./ref`，让你分析的源码始终对应当前安装的版本。它会**删除并替换 `./ref`**，把 `/Applications/ChatGPT.app/Contents/Resources/app.asar` 解包进去，再用 Prettier 格式化所有解出来的 `.js`/`.css`（跳过 `ref/node_modules`）。
 
 ### 通过 Agent 使用
 
 在仓库根目录让 Agent 执行：
 
-> 用 **codex-app-ref-refresh** 从已安装的 Codex App 刷新 `./ref`。
+> 用 **codex-app-ref-refresh** 从已安装的 ChatGPT App 刷新 `./ref`。
 
 ### 或直接运行脚本
 
@@ -49,7 +49,7 @@ node .agents/skills/codex-app-ref-refresh/scripts/refresh-codex-ref.mjs
 | --------------- | ---- |
 | `--dry-run` | 只打印解析出的路径，不删除、不解包 |
 | `--skip-format` | 只解包，不跑 Prettier |
-| `CODEX_APP_ASAR=/path/to/app.asar` | Codex 安装在非默认位置时指定 asar 路径 |
+| `CHATGPT_APP_ASAR=/path/to/app.asar` | ChatGPT 安装在非默认位置时指定 asar 路径（仍兼容旧变量 `CODEX_APP_ASAR`） |
 
 > ⚠️ 一定要在“要承载 `./ref` 的目录”里运行——脚本会先清空 `./ref`。它有保护：只有目标解析为当前目录下的 `./ref` 才会执行。
 
@@ -94,9 +94,9 @@ bun install
 ```
 decode-codex/
 ├─ .agents/skills/
-│  ├─ codex-app-ref-refresh/      # Skill 1：同步 Codex.app → ./ref
+│  ├─ codex-app-ref-refresh/      # Skill 1：同步 ChatGPT.app → ./ref
 │  └─ deobfuscate-javascript/     # Skill 2：./ref → ./restored
-├─ ref/                           # 解包出的 Codex App 源码（由 Skill 1 生成）
+├─ ref/                           # 解包出的 ChatGPT App 源码（由 Skill 1 生成）
 └─ restored/                      # 可读的反混淆产物（由 Skill 2 生成）
 ```
 

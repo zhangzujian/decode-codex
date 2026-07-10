@@ -1,0 +1,3 @@
+import { n as e, t } from "./battery-warning-BXgJg528-CSJmjfsS.js";
+e();
+export { t as default };

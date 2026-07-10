@@ -1,0 +1,3 @@
+import { n as e, t } from "./gdshader-UNt6469a.js";
+e();
+export { t as default };

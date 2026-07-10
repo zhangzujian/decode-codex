@@ -1,0 +1,6 @@
+import {
+  n as e,
+  t,
+} from "./align-vertical-distribute-end-C3I5upPo-CQ2n9c88.js";
+e();
+export { t as default };

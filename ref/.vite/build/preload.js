@@ -9,70 +9,84 @@ var t = `codex_desktop:mcp-app-sandbox-host-message`,
   c = `codex_desktop:get-fast-mode-rollout-metrics`,
   l = `codex_desktop:system-theme-variant-updated`,
   u = `codex_desktop:trigger-sentry-test`,
-  d = `codex_desktop:connect-app-host`;
-function f(e) {
+  d = `codex_desktop:connect-app-host`,
+  f = `codex_desktop:start-file-drag`;
+function p(e) {
   return `codex_desktop:worker:${e}:from-view`;
 }
-function p(e) {
+function m(e) {
   return `codex_desktop:worker:${e}:for-view`;
 }
-var m = `electron`,
-  h = `codex_desktop:message-from-view`,
-  g = `codex_desktop:message-for-view`,
-  _ = e.ipcRenderer.sendSync(i),
-  v = e.ipcRenderer.sendSync(a),
-  y = e.ipcRenderer.sendSync(o) === !0,
-  b = e.ipcRenderer.sendSync(`codex_desktop:get-shared-object-snapshot`) ?? {},
-  x = e.ipcRenderer.sendSync(s),
-  S = () => x,
-  C = new Set();
+var h = performance.timeOrigin,
+  g = `electron`,
+  _ = `codex_desktop:message-from-view`,
+  v = `codex_desktop:message-for-view`,
+  y = e.ipcRenderer.sendSync(i),
+  b = e.ipcRenderer.sendSync(a),
+  x = e.ipcRenderer.sendSync(o) === !0,
+  S = e.ipcRenderer.sendSync(`codex_desktop:get-shared-object-snapshot`) ?? {},
+  C = e.ipcRenderer.sendSync(s),
+  w = C === `dark` ? `electron-dark` : `electron-light`,
+  T = document.documentElement;
+if (T != null) T.classList.add(w);
+else {
+  let e = new MutationObserver(() => {
+    let t = document.documentElement;
+    t != null && (t.classList.add(w), e.disconnect());
+  });
+  e.observe(document, { childList: !0 });
+}
+var E = () => C,
+  D = new Set();
 e.ipcRenderer.on(l, (e, t) => {
-  ((x = t),
-    C.forEach((e) => {
+  ((C = t),
+    D.forEach((e) => {
       e();
     }));
 });
-function w(e, t) {
+function O(e, t) {
   if (t === void 0) {
-    delete b[e];
+    delete S[e];
     return;
   }
-  b[e] = t;
+  S[e] = t;
 }
-var T = new Map(),
-  E = new Map(),
-  D = {
-    windowType: m,
+var k = new Map(),
+  A = new Map(),
+  j = {
+    windowType: g,
+    getPreloadStartedAtMs: () => h,
     sendMessageFromView: async (t) => {
-      (t.type === `shared-object-set` && w(t.key, t.value),
-        await e.ipcRenderer.invoke(h, t));
+      (t.type === `shared-object-set` && O(t.key, t.value),
+        await e.ipcRenderer.invoke(_, t));
     },
     getPathForFile: (t) => e.webUtils.getPathForFile(t) || null,
+    startFileDrag: (t) => e.ipcRenderer.sendSync(f, t) === !0,
     sendWorkerMessageFromView: async (t, n) => {
-      await e.ipcRenderer.invoke(f(t), n);
+      await e.ipcRenderer.invoke(p(t), n);
     },
     subscribeToWorkerMessages: (t, n) => {
-      let r = T.get(t);
-      r || ((r = new Set()), T.set(t, r));
-      let i = E.get(t);
+      let r = k.get(t);
+      r || ((r = new Set()), k.set(t, r));
+      let i = A.get(t);
       return (
         i ||
           ((i = (e, n) => {
-            let r = T.get(t);
+            let r = k.get(t);
             r &&
               r.forEach((e) => {
                 e(n);
               });
           }),
-          E.set(t, i),
-          e.ipcRenderer.on(p(t), i)),
+          A.set(t, i),
+          e.ipcRenderer.on(m(t), i)),
         r.add(n),
         () => {
-          let r = T.get(t);
+          let r = k.get(t);
           if (!r || (r.delete(n), r.size > 0)) return;
-          T.delete(t);
-          let i = E.get(t);
-          (i && e.ipcRenderer.removeListener(p(t), i), E.delete(t));
+          k.delete(t);
+          let i = A.get(t);
+          (i && e.ipcRenderer.removeListener(m(t), i), A.delete(t));
         }
       );
     },
@@ -81,37 +95,37 @@ var T = new Map(),
       await e.ipcRenderer.invoke(r, { menuId: t, x: n, y: i });
     },
     getFastModeRolloutMetrics: async (t) => e.ipcRenderer.invoke(c, t),
-    getSharedObjectSnapshotValue: (e) => b[e],
-    getSystemThemeVariant: S,
+    getSharedObjectSnapshotValue: (e) => S[e],
+    getSystemThemeVariant: E,
     subscribeToSystemThemeVariant: (e) => (
-      C.add(e),
+      D.add(e),
       () => {
-        C.delete(e);
+        D.delete(e);
       }
     ),
     triggerSentryTestError: async () => {
       await e.ipcRenderer.invoke(u);
     },
-    getSentryInitOptions: () => _,
-    getAppSessionId: () => _.codexAppSessionId,
-    getBuildFlavor: () => v,
+    getSentryInitOptions: () => y,
+    getAppSessionId: () => y.codexAppSessionId,
+    getBuildFlavor: () => b,
     isDeviceCheckSupported: () =>
       process.platform === `darwin` && process.arch === `arm64`,
     isIntelMacBuild: () =>
       process.platform === `darwin` && process.arch === `x64`,
-    usesOwlAppShell: () => y,
+    usesOwlAppShell: () => x,
   };
-(e.ipcRenderer.on(g, (e, t) => {
+(e.ipcRenderer.on(v, (e, t) => {
   let n = t;
-  (n.type === `shared-object-updated` && w(n.key, n.value),
+  (n.type === `shared-object-updated` && O(n.key, n.value),
     window.dispatchEvent(new MessageEvent(`message`, { data: t })));
 }),
   e.ipcRenderer.on(t, (e, t) => {
     let n = window.location.origin;
     n !== `null` && window.postMessage(t, n, e.ports);
   }),
-  e.contextBridge.exposeInMainWorld(`codexWindowType`, m),
-  e.contextBridge.exposeInMainWorld(`electronBridge`, D),
+  e.contextBridge.exposeInMainWorld(`codexWindowType`, g),
+  e.contextBridge.exposeInMainWorld(`electronBridge`, j),
   typeof window < `u` &&
     window.addEventListener(`message`, (t) => {
       if (t.source !== window || t.data?.type !== `connect-app-host`) return;

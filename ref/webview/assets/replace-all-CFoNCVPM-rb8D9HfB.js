@@ -1,0 +1,3 @@
+import { n as e, t } from "./replace-all-CFoNCVPM-CffKObDk.js";
+t();
+export { e as default };

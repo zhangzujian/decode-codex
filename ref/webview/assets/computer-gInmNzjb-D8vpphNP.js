@@ -1,0 +1,3 @@
+import { n as e, t } from "./computer-gInmNzjb-NgiQ62bb.js";
+t();
+export { e as default };

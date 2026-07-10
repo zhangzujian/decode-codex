@@ -1,0 +1,3 @@
+import { n as e, t } from "./arrow-left-right-ioUl-VIB-CzsZRDG4.js";
+t();
+export { e as default };

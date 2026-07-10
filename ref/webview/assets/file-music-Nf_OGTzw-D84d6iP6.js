@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-music-Nf_OGTzw-DNyYBV_T.js";
+e();
+export { t as default };

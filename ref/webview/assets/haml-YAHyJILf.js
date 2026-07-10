@@ -1,0 +1,3 @@
+import { n as e, t } from "./haml-Cci5bvu5.js";
+e();
+export { t as default };

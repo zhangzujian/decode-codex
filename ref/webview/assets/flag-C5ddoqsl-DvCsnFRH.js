@@ -1,0 +1,3 @@
+import { n as e, t } from "./flag-C5ddoqsl-0-IMWcfV.js";
+e();
+export { t as default };

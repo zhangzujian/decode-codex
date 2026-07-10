@@ -1,0 +1,3 @@
+import { n as e, t } from "./italic-BnrI20Ek-B-cp7Eyo.js";
+e();
+export { t as default };

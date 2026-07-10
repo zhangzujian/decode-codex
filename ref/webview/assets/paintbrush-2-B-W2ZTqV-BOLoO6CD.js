@@ -1,0 +1,7 @@
+import { n as e } from "./rolldown-runtime-Czos8NxU.js";
+import { n as t, t as n } from "./paintbrush-vertical-Ew0WkYGr-iBeKNMY6.js";
+e(() => {
+  t();
+})();
+export { n as default };
+//# sourceMappingURL=paintbrush-2-B-W2ZTqV-BOLoO6CD.js.map

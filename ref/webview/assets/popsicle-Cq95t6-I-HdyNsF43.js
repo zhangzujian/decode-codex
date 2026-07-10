@@ -1,0 +1,3 @@
+import { n as e, t } from "./popsicle-Cq95t6-I-wZMLM8PB.js";
+t();
+export { e as default };
