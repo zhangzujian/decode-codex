@@ -1,3 +1,0 @@
-import { n as e, t } from "./list-video-wYJi2t4a-MKafjpTZ.js";
-e();
-export { t as default };

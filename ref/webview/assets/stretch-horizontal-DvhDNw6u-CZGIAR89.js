@@ -1,3 +1,0 @@
-import { n as e, t } from "./stretch-horizontal-DvhDNw6u-DO5XFTRW.js";
-t();
-export { e as default };

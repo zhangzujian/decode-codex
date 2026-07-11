@@ -1,3 +1,0 @@
-import { n as e, t } from "./chart-bar-increasing-DSJiTZ-k-BeNtDnUK.js";
-t();
-export { e as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./yaml-CdqWmVjy.js";
-t();
-export { e as default };

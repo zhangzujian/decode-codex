@@ -1,3 +1,0 @@
-import { n as e, t } from "./package-minus-CSim0lhi-VHZYYRmq.js";
-t();
-export { e as default };

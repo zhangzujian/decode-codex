@@ -1,3 +1,0 @@
-import { n as e, t } from "./chart-no-axes-combined-DRMGtJxd-CRzgb1Dt.js";
-t();
-export { e as default };

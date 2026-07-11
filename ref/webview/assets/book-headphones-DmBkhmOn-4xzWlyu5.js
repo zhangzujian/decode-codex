@@ -1,3 +1,0 @@
-import { n as e, t } from "./book-headphones-DmBkhmOn-sxPF4thz.js";
-e();
-export { t as default };

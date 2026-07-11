@@ -1,3 +1,0 @@
-import { n as e, t } from "./life-buoy-DPYxjY7E-vznI7kzG.js";
-t();
-export { e as default };

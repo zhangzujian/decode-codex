@@ -1,3 +1,0 @@
-import { n as e, t } from "./chef-hat-BdOW8uN--_GUdgyS2.js";
-t();
-export { e as default };

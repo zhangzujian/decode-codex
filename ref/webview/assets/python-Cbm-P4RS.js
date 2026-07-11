@@ -1,3 +1,0 @@
-import { n as e, t } from "./python-1PrsHz_D.js";
-t();
-export { e as default };

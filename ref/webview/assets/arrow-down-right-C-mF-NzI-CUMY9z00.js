@@ -1,3 +1,0 @@
-import { n as e, t } from "./arrow-down-right-C-mF-NzI-IZFvWQEe.js";
-t();
-export { e as default };

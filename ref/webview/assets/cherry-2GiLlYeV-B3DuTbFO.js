@@ -1,3 +1,0 @@
-import { n as e, t } from "./cherry-2GiLlYeV-Nyyfa5SW.js";
-e();
-export { t as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./folder-input-CTGJ4O2--CMvkte0q.js";
-e();
-export { t as default };

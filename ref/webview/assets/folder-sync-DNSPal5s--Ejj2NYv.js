@@ -1,3 +1,0 @@
-import { n as e, t } from "./folder-sync-DNSPal5s-DmlJQ31R.js";
-t();
-export { e as default };

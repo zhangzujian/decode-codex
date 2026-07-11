@@ -1,3 +1,0 @@
-import { n as e, t } from "./regex-DSagOFJP-CYNE0EgG.js";
-t();
-export { e as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./beaker-DULEDpDx-DczUdOV4.js";
-t();
-export { e as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./stylus-CbyHuSGf.js";
-t();
-export { e as default };

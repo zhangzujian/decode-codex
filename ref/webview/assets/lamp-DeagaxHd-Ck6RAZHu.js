@@ -1,3 +1,0 @@
-import { n as e, t } from "./lamp-DeagaxHd-BhcRhhFP.js";
-t();
-export { e as default };

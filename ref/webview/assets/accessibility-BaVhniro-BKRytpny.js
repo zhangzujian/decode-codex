@@ -1,3 +1,0 @@
-import { n as e, t } from "./accessibility-BaVhniro-l_WFfHgD.js";
-t();
-export { e as default };

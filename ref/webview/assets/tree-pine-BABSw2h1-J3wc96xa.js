@@ -1,3 +1,0 @@
-import { n as e, t } from "./tree-pine-BABSw2h1-D2pglD15.js";
-t();
-export { e as default };

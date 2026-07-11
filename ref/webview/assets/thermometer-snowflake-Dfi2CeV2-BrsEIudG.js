@@ -1,3 +1,0 @@
-import { n as e, t } from "./thermometer-snowflake-Dfi2CeV2-BIyG7zxM.js";
-t();
-export { e as default };

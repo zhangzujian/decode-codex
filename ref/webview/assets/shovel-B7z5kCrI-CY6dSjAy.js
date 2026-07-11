@@ -1,3 +1,0 @@
-import { n as e, t } from "./shovel-B7z5kCrI-C6hbcYhp.js";
-t();
-export { e as default };

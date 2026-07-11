@@ -1,3 +1,0 @@
-import { n as e, t } from "./folder-minus-DedyQl-Z-BmwWprED.js";
-t();
-export { e as default };

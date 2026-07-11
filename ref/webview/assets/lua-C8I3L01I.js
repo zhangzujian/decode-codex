@@ -1,3 +1,0 @@
-import { n as e, t } from "./lua-B6ydEAhB.js";
-t();
-export { e as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./dice-5-Dif4Jm6e-CRsiEYjq.js";
-t();
-export { e as default };

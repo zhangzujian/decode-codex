@@ -1,3 +1,0 @@
-import { n as e, t } from "./hlsl-CXxnMRoo.js";
-e();
-export { t as default };

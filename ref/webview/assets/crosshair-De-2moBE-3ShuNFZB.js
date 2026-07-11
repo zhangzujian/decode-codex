@@ -1,3 +1,0 @@
-import { n as e, t } from "./crosshair-De-2moBE-AOabSI1j.js";
-t();
-export { e as default };

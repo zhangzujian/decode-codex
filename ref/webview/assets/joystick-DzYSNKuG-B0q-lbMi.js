@@ -1,3 +1,0 @@
-import { n as e, t } from "./joystick-DzYSNKuG-E-oSYuJi.js";
-t();
-export { e as default };

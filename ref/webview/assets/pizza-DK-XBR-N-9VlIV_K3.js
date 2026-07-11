@@ -1,3 +1,0 @@
-import { n as e, t } from "./pizza-DK-XBR-N-Blf7gtNT.js";
-e();
-export { t as default };

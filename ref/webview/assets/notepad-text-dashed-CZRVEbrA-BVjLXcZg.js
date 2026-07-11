@@ -1,3 +1,0 @@
-import { n as e, t } from "./notepad-text-dashed-CZRVEbrA-CPP2rNAs.js";
-t();
-export { e as default };

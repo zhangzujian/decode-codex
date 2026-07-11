@@ -1,3 +1,0 @@
-import { n as e, t } from "./folder-GVKnjzxA-ChLyX8ii.js";
-t();
-export { e as default };

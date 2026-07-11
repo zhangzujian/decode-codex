@@ -1,3 +1,0 @@
-import { n as e, t } from "./message-square-diff-BFJWlXfk-CXP_SS4_.js";
-t();
-export { e as default };

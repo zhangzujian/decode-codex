@@ -1,3 +1,0 @@
-import { n as e, t } from "./c-DNgfn6SQ.js";
-e();
-export { t as default };

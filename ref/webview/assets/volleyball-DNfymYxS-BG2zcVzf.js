@@ -1,3 +1,0 @@
-import { n as e, t } from "./volleyball-DNfymYxS-BH8MwrvR.js";
-t();
-export { e as default };

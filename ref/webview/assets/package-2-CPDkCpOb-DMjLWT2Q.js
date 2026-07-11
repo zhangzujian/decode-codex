@@ -1,3 +1,0 @@
-import { n as e, t } from "./package-2-CPDkCpOb-B1BP603o.js";
-t();
-export { e as default };
