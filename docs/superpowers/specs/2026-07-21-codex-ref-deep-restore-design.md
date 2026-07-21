@@ -142,7 +142,10 @@ Completion requires all of the following:
   checkpoint, or re-export-only aggregator barrel.
 - Public files are semantic, typed where useful, kebab-cased, hash-free,
   provenance-marked, and Prettier-formatted.
-- TypeScript checks for the restored project pass.
+- TypeScript checks pass when the restored target provides a `tsconfig.json`;
+  otherwise AST parsing and the full quality gate provide the executable source
+  check, and the missing project-level typecheck is reported without inventing
+  new build scaffolding.
 - The host performs Stage 3 acceptance review on every delivered file and fixes
   every `NEEDS_FIX` result.
 - `quality-gate.ts restored --check-format` exits successfully after acceptance.
