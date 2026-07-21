@@ -3252,6 +3252,38 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written Mermaid js-yaml wrapper bodies", () => {
+    const source = `
+      // Restored from ref/webview/assets/chunk-XPW4576I-D2l7hhLl.js
+      export function initChunkXPW4576I() {}
+      export function chunkXPW4576IN(source: string) { return source; }
+      export const chunkXPW4576IT = {};
+    `;
+    const report = analyzeSource(source, "restored/vendor/chunk-xpw4576i.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+  });
+
+  test("passes Mermaid js-yaml wrappers backed by the npm package", () => {
+    const source = `
+      // Restored from ref/webview/assets/chunk-XPW4576I-D2l7hhLl.js
+      import { DEFAULT_SCHEMA, load } from "js-yaml";
+      export { DEFAULT_SCHEMA, load } from "js-yaml";
+      export function initChunkXPW4576I(): void {}
+      export const chunkXPW4576IN = load;
+      export const chunkXPW4576IT = DEFAULT_SCHEMA;
+    `;
+    const report = analyzeSource(source, "restored/vendor/chunk-xpw4576i.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written KaTeX vendor bodies", () => {
     const source = `
       // Restored from ref/webview/assets/katex-BvHNzFYT.js

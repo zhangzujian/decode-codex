@@ -207,6 +207,47 @@ describe("vendor-npm-preflight CLI", () => {
     });
   });
 
+  test("classifies Mermaid js-yaml wrapper chunks as npm shims", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({ dependencies: { "js-yaml": "^4.1.1" } }),
+    );
+
+    for (const fixture of [
+      {
+        filename: "chunk-xpw4576i.ts",
+        sourceChunk: "chunk-XPW4576I-D2l7hhLl",
+      },
+      {
+        filename: "mermaid-utils.ts",
+        sourceChunk: "chunk-MI3HLSF2-BVJpT9C8",
+      },
+    ]) {
+      const target = path.join(vendorDir, fixture.filename);
+      fs.writeFileSync(
+        target,
+        `
+          // Restored from ref/webview/assets/${fixture.sourceChunk}.js
+          export function loadYaml(source) { return source; }
+          export const schema = {};
+        `,
+      );
+      const result = runDecisionCLI(target, { intent: "local-body" });
+      expect(result.code).toBe(1);
+      const decisions = JSON.parse(result.stdout) as Array<{
+        decision: string;
+        specifiers: string[];
+      }>;
+      expect(decisions[0]).toMatchObject({
+        decision: "npm-shim",
+        specifiers: ["js-yaml"],
+      });
+    }
+  });
+
   test("requires fork or runtime proof for unknown public vendor targets", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");

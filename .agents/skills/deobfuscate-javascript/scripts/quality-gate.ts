@@ -527,6 +527,7 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   "graphlib-alt": "graphlib",
   "entities-escape": "@braintree/sanitize-url",
   "highlight-js-core": "highlight.js/lib/core",
+  "chunk-xpw4576i": "js-yaml",
   jotai: "jotai",
   "jotai-runtime": "jotai",
   katex: "katex",
@@ -546,6 +547,7 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
     "lodash/orderBy",
   ],
   motion: "framer-motion",
+  "mermaid-utils": "js-yaml",
   pdfjs: "pdfjs-dist",
   "pdfjs-entry": "pdfjs-dist",
   "react-colorful": "react-colorful",
@@ -619,6 +621,10 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   "core-CCcWj3EO": "highlight.js/lib/core",
   "core-CpC1jq0N": "highlight.js/lib/core",
   "core-DMiaGTKr": "highlight.js/lib/core",
+  "chunk-MI3HLSF2-BVJpT9C8": "js-yaml",
+  "chunk-MI3HLSF2-lTgkCAOX": "js-yaml",
+  "chunk-XPW4576I-C68fwtjN": "js-yaml",
+  "chunk-XPW4576I-D2l7hhLl": "js-yaml",
   "katex--WVKgE7E": "katex",
   "katex-BvHNzFYT": "katex",
   "katex-CjHJ1D7d": "katex",
@@ -1062,12 +1068,10 @@ function isHomeUseCasesDataModule(file: string, source: string): boolean {
 
 function isBundlerInteropRuntimeModule(file: string, source: string): boolean {
   const normalized = file.replace(/\\/g, "/");
-  if (
-    !(
-      /(?:^|\/)utils\/cjsInterop\.ts$/i.test(normalized) ||
-      /(?:^|\/)boundaries\/chunk-Cq_f4orQ\.ts$/i.test(normalized)
-    )
-  ) {
+  if (!(
+    /(?:^|\/)utils\/cjsInterop\.ts$/i.test(normalized) ||
+    /(?:^|\/)boundaries\/chunk-Cq_f4orQ\.ts$/i.test(normalized)
+  )) {
     return false;
   }
 
@@ -1324,8 +1328,7 @@ function findNearestPackageJson(startPath: string): string | null {
 }
 
 type PackageDependencyReadResult =
-  | { ok: true; dependencies: Set<string> }
-  | { ok: false; error: string };
+  { ok: true; dependencies: Set<string> } | { ok: false; error: string };
 
 function readPackageDependencyNames(
   packageJsonPath: string,
@@ -1508,9 +1511,7 @@ function countShortIdentifiers(
 
 function importedName(
   spec:
-    | t.ImportSpecifier
-    | t.ImportDefaultSpecifier
-    | t.ImportNamespaceSpecifier,
+    t.ImportSpecifier | t.ImportDefaultSpecifier | t.ImportNamespaceSpecifier,
 ): string | null {
   if (t.isImportDefaultSpecifier(spec) || t.isImportNamespaceSpecifier(spec)) {
     return null;
@@ -3130,11 +3131,11 @@ function publicEntryForBasename(
 function isBoundaryLikeEntry(entry: FullRestorationImportMapEntry): boolean {
   return Boolean(
     entry.boundary ||
-      entry.openBoundary ||
-      entry.status?.toLowerCase() === "faced" ||
-      entry.dependencyBoundary ||
-      Object.keys(entry.dependencyBoundaryFacades ?? {}).length > 0 ||
-      Object.keys(entry.publicFacades ?? {}).length > 0,
+    entry.openBoundary ||
+    entry.status?.toLowerCase() === "faced" ||
+    entry.dependencyBoundary ||
+    Object.keys(entry.dependencyBoundaryFacades ?? {}).length > 0 ||
+    Object.keys(entry.publicFacades ?? {}).length > 0,
   );
 }
 
