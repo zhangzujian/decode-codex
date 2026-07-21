@@ -219,6 +219,33 @@ describe("strip-react-compiler (library)", () => {
     expect(n).not.toContain("cache[");
     expect(n).not.toContain("react.c(");
   });
+
+  test("strips hundreds of cache variables without traversing once per cache", () => {
+    const src = Array.from(
+      { length: 200 },
+      (_, index) => `
+        function component${index}(props) {
+          let cache${index} = (0, react.c)(2);
+          let value${index};
+          cache${index}[0] === props
+            ? (value${index} = cache${index}[1])
+            : ((value${index} = props.value + ${index}),
+              (cache${index}[0] = props),
+              (cache${index}[1] = value${index}));
+          return value${index};
+        }
+      `,
+    ).join("\n");
+
+    const start = performance.now();
+    const out = stripReactCompiler(src);
+    const elapsed = performance.now() - start;
+
+    expect(out.stats.conditionalsStripped).toBe(200);
+    expect(out.stats.cacheVarsRemoved).toBe(200);
+    expect(out.code).not.toContain("react.c");
+    expect(elapsed).toBeLessThan(1_500);
+  });
 });
 
 describe("strip-react-compiler (CLI)", () => {

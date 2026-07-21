@@ -1,7 +1,7 @@
 import * as fs from "node:fs";
 import { parseArgs } from "node:util";
 import * as parser from "@babel/parser";
-import babelTraverse, { type NodePath } from "@babel/traverse";
+import babelTraverse, { type Binding, type NodePath } from "@babel/traverse";
 import babelGenerator from "@babel/generator";
 import * as t from "@babel/types";
 
@@ -129,12 +129,21 @@ function combineToExpression(exprs: t.Expression[]): t.Expression | null {
   return t.sequenceExpression(exprs);
 }
 
-function testReferencesCache(test: t.Expression, cacheName: string): boolean {
-  let found = false;
+function findReferencedCacheName(
+  test: t.Expression,
+  cacheNames: ReadonlySet<string>,
+): string | null {
+  let found: string | null = null;
   function walk(node: t.Node): void {
     if (found) return;
-    if (isCacheMember(node, cacheName)) {
-      found = true;
+    if (
+      t.isMemberExpression(node) &&
+      node.computed &&
+      t.isIdentifier(node.object) &&
+      cacheNames.has(node.object.name) &&
+      (t.isNumericLiteral(node.property) || t.isUnaryExpression(node.property))
+    ) {
+      found = node.object.name;
       return;
     }
     if (t.isBinaryExpression(node)) {
@@ -203,7 +212,6 @@ function stripConditional(
   stats: StripStats,
 ): boolean {
   const node = path.node;
-  if (!testReferencesCache(node.test, cacheName)) return false;
 
   const consequentList = asExprList(node.consequent);
   const alternateList = asExprList(node.alternate);
@@ -401,7 +409,6 @@ function stripIfStatement(
   stats: StripStats,
 ): boolean {
   const node = path.node;
-  if (!testReferencesCache(node.test, cacheName)) return false;
 
   const consequent = branchStatements(node.consequent);
   const alternate = branchStatements(node.alternate);
@@ -631,47 +638,46 @@ function bindingIsCacheVar(binding: BindingLike): boolean {
 }
 
 function removeUnusedCacheVars(ast: t.File, cacheNames: Set<string>, stats: StripStats): void {
+  const removeIfUnusedCacheBinding = (
+    binding: Binding | undefined,
+  ): void => {
+    if (!binding || !bindingIsCacheVar(binding) || binding.references !== 0) {
+      return;
+    }
+    try {
+      const parent = binding.path.parentPath;
+      if (
+        parent &&
+        parent.isVariableDeclaration() &&
+        parent.node.declarations.length === 1
+      ) {
+        parent.remove();
+      } else {
+        binding.path.remove();
+      }
+      stats.cacheVarsRemoved++;
+    } catch {
+      // ignore
+    }
+  };
+
   traverse(ast, {
     Program(programPath) {
       programPath.scope.crawl();
-      for (const name of cacheNames) {
-        const binding = programPath.scope.getBinding(name);
-        if (binding && bindingIsCacheVar(binding)) {
-          if (binding.references === 0) {
-            try {
-              const parent = binding.path.parentPath;
-              if (parent && parent.isVariableDeclaration() && parent.node.declarations.length === 1) {
-                parent.remove();
-              } else {
-                binding.path.remove();
-              }
-              stats.cacheVarsRemoved++;
-            } catch {
-              // ignore
+      for (const [name, binding] of Object.entries(programPath.scope.bindings)) {
+        if (cacheNames.has(name)) {
+          removeIfUnusedCacheBinding(binding);
+        }
+      }
+      programPath.traverse({
+        Function(fnPath) {
+          for (const [name, binding] of Object.entries(fnPath.scope.bindings)) {
+            if (cacheNames.has(name)) {
+              removeIfUnusedCacheBinding(binding);
             }
           }
-        }
-        programPath.traverse({
-          Function(fnPath) {
-            const inner = fnPath.scope.getOwnBinding(name);
-            if (!inner) return;
-            if (!bindingIsCacheVar(inner)) return;
-            if (inner.references === 0) {
-              try {
-                const parent = inner.path.parentPath;
-                if (parent && parent.isVariableDeclaration() && parent.node.declarations.length === 1) {
-                  parent.remove();
-                } else {
-                  inner.path.remove();
-                }
-                stats.cacheVarsRemoved++;
-              } catch {
-                // ignore
-              }
-            }
-          },
-        });
-      }
+        },
+      });
     },
   });
 }
@@ -702,21 +708,21 @@ export function stripReactCompiler(source: string): StripResult {
   let changed = true;
   while (changed && guard++ < 5) {
     changed = false;
-    for (const cacheName of cacheNames) {
-      traverse(ast, {
-        IfStatement(path) {
-          if (stripIfStatement(path, cacheName, stats)) {
-            changed = true;
-            path.skip();
-          }
-        },
-        ConditionalExpression(path) {
-          if (stripConditional(path, cacheName, stats)) {
-            changed = true;
-          }
-        },
-      });
-    }
+    traverse(ast, {
+      IfStatement(path) {
+        const cacheName = findReferencedCacheName(path.node.test, cacheNames);
+        if (cacheName && stripIfStatement(path, cacheName, stats)) {
+          changed = true;
+          path.skip();
+        }
+      },
+      ConditionalExpression(path) {
+        const cacheName = findReferencedCacheName(path.node.test, cacheNames);
+        if (cacheName && stripConditional(path, cacheName, stats)) {
+          changed = true;
+        }
+      },
+    });
   }
 
   dropTrailingIdentifierInSequence(ast);
