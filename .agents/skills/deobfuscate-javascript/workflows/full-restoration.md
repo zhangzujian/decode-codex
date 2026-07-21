@@ -69,6 +69,8 @@ bun <skill-dir>/scripts/auto-restore-full.ts --target "$TARGET" --format
 
 This writes a flat `.tsx` checkpoint for every `kind: local` file under `_full/checkpoints/` by default, plus per-file `auto-renames.json` / `auto-renamed.js` / `auto-polished.tsx` under `_full/files/<basename>/`. It is intentionally a checkpoint accelerator, not a substitute for Stage 3: the host agent must rewrite/split into semantic public files, pre-filter with `quality-gate.ts`, and pass Stage 3 acceptance before declaring completion. Use `--write-target-checkpoints` only for explicit legacy/debug output; those files are still not deliverables.
 
+The executor applies each chunk's complete rename map in one scope-aware AST traversal. Do not replace this with one `scope.rename` traversal per binding: aggregator chunks routinely carry 10,000+ renames, and repeated whole-tree traversals make the final checkpoints effectively quadratic.
+
 ## Step 0 — always: check the entry for a sourcemap
 
 ```bash

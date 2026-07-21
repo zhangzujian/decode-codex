@@ -82,6 +82,70 @@ describe("applyRenames", () => {
     expect(result.code).toContain("const _value = 2");
   });
 
+  test("preserves exported names when renaming exported declarations", () => {
+    const source = "export const a = 1;";
+    const result = applyRenames(source, renameByOriginal(source, { a: "value" }));
+    expect(result.code).toContain("const value = 1");
+    expect(result.code).toContain("export { value as a }");
+  });
+
+  test("preserves imported and exported specifier names", () => {
+    const source =
+      'import { a } from "package"; const b = a; export { b };';
+    const result = applyRenames(
+      source,
+      renameByOriginal(source, { a: "input", b: "output" }),
+    );
+    expect(result.code).toContain('import { a as input } from "package"');
+    expect(result.code).toContain("export { output as b }");
+  });
+
+  test("preserves shorthand property keys", () => {
+    const source =
+      "const a = 1; const object = { a }; function read({ a }) { return a + object.a; }";
+    const symbols = extractSymbols(source);
+    const outer = symbols.find((symbol) => symbol.name === "a" && symbol.scopeKind === "Program")!;
+    const inner = symbols.find((symbol) => symbol.name === "a" && symbol.scopeKind !== "Program")!;
+    const result = applyRenames(source, {
+      [outer.id]: "value",
+      [inner.id]: "input",
+    });
+    expect(result.code).toMatch(/\{\s*a: value\s*\}/);
+    expect(result.code).toMatch(/function read\(\{\s*a: input\s*\}\)/);
+    expect(result.code).toContain("return input + object.a");
+  });
+
+  test("renames assignment and update targets", () => {
+    const source = "let a = 0; a += 1; a++;";
+    const result = applyRenames(source, renameByOriginal(source, { a: "count" }));
+    expect(result.code).toContain("let count = 0");
+    expect(result.code).toContain("count += 1");
+    expect(result.code).toContain("count++");
+  });
+
+  test(
+    "renames a large program without repeatedly traversing the whole AST",
+    () => {
+      const source = Array.from(
+        { length: 800 },
+        (_, index) => `let value${index} = ${index}; value${index}++;`,
+      ).join("\n");
+      const renames = Object.fromEntries(
+        extractSymbols(source)
+          .filter((symbol) => symbol.name.startsWith("value"))
+          .map((symbol) => [symbol.id, `renamed${symbol.name.slice(5)}`]),
+      );
+      const startedAt = performance.now();
+      const result = applyRenames(source, renames);
+      const elapsedMs = performance.now() - startedAt;
+
+      expect(result.stats.renamed).toBe(800);
+      expect(result.code).toContain("renamed799++");
+      expect(elapsedMs).toBeLessThan(2_000);
+    },
+    10_000,
+  );
+
   test("renames unicode identifiers and emits them as-is (jsesc minimal)", () => {
     const source = "const café = 1; café;";
     const result = applyRenames(source, renameByOriginal(source, { café: "drink" }));
