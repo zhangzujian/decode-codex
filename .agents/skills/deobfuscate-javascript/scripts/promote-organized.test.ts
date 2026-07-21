@@ -419,6 +419,45 @@ describe("relativeImport / buildImportMappings", () => {
       ),
     ).toEqual({ a: "isString", b: "isNumber" });
   });
+
+  test("inferManualExportMap preserves exact names before positional fallback", () => {
+    const chunk = {
+      basename: "absolutely-dark-B54BBN-X",
+      kind: "local",
+      exports: [
+        { exported: "bg", local: "e", kind: "named" },
+        { exported: "colors", local: "t", kind: "named" },
+        { exported: "default", local: "s", kind: "named" },
+        { exported: "fg", local: "r", kind: "named" },
+        { exported: "name", local: "i", kind: "named" },
+        { exported: "settings", local: "a", kind: "named" },
+        { exported: "type", local: "o", kind: "named" },
+      ],
+    } as ManifestFile;
+    expect(
+      inferManualExportMap(
+        [
+          'export const bg = "#000";',
+          "export const colors = {};",
+          'export const absolutelyDarkFg = "#fff";',
+          'export const name = "absolutely-dark";',
+          "export const settings = [];",
+          'export const type = "dark";',
+          "const theme = { bg, colors, fg: absolutelyDarkFg, name, settings, type };",
+          "export default theme;",
+        ].join("\n"),
+        chunk,
+      ),
+    ).toEqual({
+      bg: "bg",
+      colors: "colors",
+      default: "default",
+      fg: "absolutelyDarkFg",
+      name: "name",
+      settings: "settings",
+      type: "type",
+    });
+  });
 });
 
 describe("promoteOrganized", () => {

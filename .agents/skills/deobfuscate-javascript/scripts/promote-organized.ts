@@ -318,13 +318,45 @@ export function inferManualExportMap(
     out[sourceExports[0]!.exported] = uniqueExports[0]!;
     return out;
   }
-  if (sourceExports.length === uniqueExports.length) {
-    for (let index = 0; index < sourceExports.length; index += 1) {
-      out[sourceExports[index]!.exported] = uniqueExports[index]!;
+
+  const available = new Set(uniqueExports);
+  for (const sourceExport of sourceExports) {
+    const exact = [sourceExport.exported, sourceExport.local].find((name) =>
+      available.has(name),
+    );
+    if (!exact) continue;
+    out[sourceExport.exported] = exact;
+    available.delete(exact);
+  }
+
+  // Semantic candidates often keep a descriptive prefix while preserving the
+  // source export noun (`absolutelyDarkFg` for source export `fg`). Match that
+  // unique suffix before falling back to positional pairing. Do not suffix-match
+  // one-letter bundle aliases: `a` must not accidentally bind to `data`.
+  for (const sourceExport of sourceExports) {
+    if (out[sourceExport.exported] || sourceExport.exported.length < 2) continue;
+    const suffix = sourceExport.exported.toLowerCase();
+    const matches = [...available].filter((name) =>
+      name.toLowerCase().endsWith(suffix),
+    );
+    if (matches.length !== 1) continue;
+    out[sourceExport.exported] = matches[0]!;
+    available.delete(matches[0]!);
+  }
+
+  const remainingSources = sourceExports.filter(
+    (sourceExport) => !out[sourceExport.exported],
+  );
+  const remainingExports = uniqueExports.filter((name) => available.has(name));
+  if (remainingSources.length === remainingExports.length) {
+    for (let index = 0; index < remainingSources.length; index += 1) {
+      out[remainingSources[index]!.exported] = remainingExports[index]!;
     }
     return out;
   }
+
   for (const sourceExport of sourceExports) {
+    if (out[sourceExport.exported]) continue;
     if (uniqueExports.includes(sourceExport.exported)) {
       out[sourceExport.exported] = sourceExport.exported;
     } else if (uniqueExports.includes(sourceExport.local)) {
