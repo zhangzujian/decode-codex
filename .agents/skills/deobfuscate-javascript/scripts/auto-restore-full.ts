@@ -860,6 +860,14 @@ async function main(): Promise<void> {
     exportNames[basename] = inferExportNames(basename, file, source);
   }
 
+  const reportPath = path.join(fullDir, "auto-restore-report.json");
+  const previousReport =
+    parsed.values.resume && fs.existsSync(reportPath)
+      ? readJson<RestoreReport>(reportPath)
+      : null;
+  const previousReportByBasename = new Map(
+    (previousReport?.files ?? []).map((file) => [file.basename, file]),
+  );
   const report: RestoreReport = { target: targetDir, files: [] };
   const prog = new Progress({
     label: "checkpoint",
@@ -870,6 +878,7 @@ async function main(): Promise<void> {
     if (!ledgerFile) continue;
     const workspace = path.join(fullDir, "files", basename);
     const polishedPath = path.join(workspace, "auto-polished.tsx");
+    const renamesPath = path.join(workspace, "auto-renames.json");
     const checkpointPath = path.join(checkpointDir, `${basename}.tsx`);
     const targetCheckpointPath = path.join(targetDir, `${basename}.tsx`);
     if (
@@ -879,6 +888,39 @@ async function main(): Promise<void> {
       (!parsed.values["write-target-checkpoints"] ||
         fs.existsSync(targetCheckpointPath))
     ) {
+      const previous = previousReportByBasename.get(basename);
+      if (previous) {
+        report.files.push(previous);
+      } else {
+        const originalPath = path.join(workspace, "original.js");
+        const original = fs.readFileSync(originalPath, "utf-8");
+        const built = buildRenames(
+          basename,
+          file,
+          original,
+          ledgerFile,
+          exportNames,
+        );
+        const persistedRenames = fs.existsSync(renamesPath)
+          ? readJson<Record<string, string>>(renamesPath)
+          : built.renames;
+        report.files.push({
+          basename,
+          source: file.path,
+          checkpointOutput: checkpointPath,
+          targetCheckpointOutput: parsed.values["write-target-checkpoints"]
+            ? targetCheckpointPath
+            : undefined,
+          symbols: ledgerFile.symbols.length,
+          renames: Object.keys(persistedRenames).length,
+          smartRenames: built.smartRenames,
+          fallbackRenames: built.fallbackRenames,
+          importRenames: built.importRenames,
+          exportRenames: built.exportRenames,
+          ignoredRenames: 0,
+          needsAgentRewrite: true,
+        });
+      }
       prog.tick(1, `${basename} (cached)`);
       continue;
     }
@@ -891,7 +933,6 @@ async function main(): Promise<void> {
       ledgerFile,
       exportNames,
     );
-    const renamesPath = path.join(workspace, "auto-renames.json");
     fs.writeFileSync(
       renamesPath,
       `${JSON.stringify(built.renames, null, 2)}\n`,
@@ -935,7 +976,6 @@ async function main(): Promise<void> {
   }
   prog.done("checkpoints built");
 
-  const reportPath = path.join(fullDir, "auto-restore-report.json");
   fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
 
   if (parsed.values.format) {

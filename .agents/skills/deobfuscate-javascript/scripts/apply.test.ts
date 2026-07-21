@@ -123,6 +123,20 @@ describe("applyRenames", () => {
     expect(result.code).toContain("count++");
   });
 
+  test("does not rename labels that share a name with a binding", () => {
+    const source =
+      "function trim(e) { e: for (;;) { if (!e.length) break e; break; } return e; }";
+    const result = applyRenames(
+      source,
+      renameByOriginal(source, { e: "props" }),
+    );
+
+    expect(result.code).toContain("e: for (;;)");
+    expect(result.code).toContain("break e");
+    expect(result.code).toContain("return props");
+    expect(result.code).not.toContain("props: for (;;)");
+  });
+
   test(
     "renames a large program without repeatedly traversing the whole AST",
     () => {

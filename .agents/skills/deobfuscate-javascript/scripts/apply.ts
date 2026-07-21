@@ -246,7 +246,10 @@ export function applyRenames(
     ReferencedIdentifier(path) {
       if (
         (path.parentPath.isExportSpecifier() && path.key === "exported") ||
-        (path.parentPath.isImportSpecifier() && path.key === "imported")
+        (path.parentPath.isImportSpecifier() && path.key === "imported") ||
+        ((path.parentPath.isBreakStatement() ||
+          path.parentPath.isContinueStatement()) &&
+          path.key === "label")
       ) {
         return;
       }
@@ -256,7 +259,8 @@ export function applyRenames(
     BindingIdentifier(path) {
       if (
         (path.parentPath.isExportSpecifier() && path.key === "exported") ||
-        (path.parentPath.isImportSpecifier() && path.key === "imported")
+        (path.parentPath.isImportSpecifier() && path.key === "imported") ||
+        (path.parentPath.isLabeledStatement() && path.key === "label")
       ) {
         return;
       }

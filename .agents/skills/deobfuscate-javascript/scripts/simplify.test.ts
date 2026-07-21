@@ -127,6 +127,14 @@ describe("simplify (library)", () => {
     expect(result.code).not.toMatch(/\bvar k\b/);
   });
 
+  test("parenthesizes concise arrow comparisons for TSX-safe output", () => {
+    const result = simplify(
+      "const limit = 8192; const checks = [(point) => point.x > limit];\n",
+    );
+
+    expect(result.code).toContain("point => (point.x > 8192)");
+  });
+
   test("--no-inline keeps the variable", () => {
     const result = simplify("var k = 5; console.log(k);\n", { noInline: true });
     expect(result.code).toContain("var k = 5");

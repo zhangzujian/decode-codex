@@ -582,6 +582,18 @@ export function simplify(
     if (!changed) break;
   }
 
+  traverse(ast, {
+    ArrowFunctionExpression(path) {
+      const body = path.node.body;
+      if (
+        t.isBinaryExpression(body) &&
+        ["<", "<=", ">", ">="].includes(body.operator)
+      ) {
+        path.node.body = t.parenthesizedExpression(body);
+      }
+    },
+  });
+
   const { code } = generate(ast, {
     retainLines: false,
     compact: false,
