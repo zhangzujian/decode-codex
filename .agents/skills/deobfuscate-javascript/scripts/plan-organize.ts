@@ -362,7 +362,7 @@ function classify(
 
   // 5) Single-export utility → utils/<kebab>.ts (kebab file; the export keeps its
   //    own camelCase/PascalCase identifier — the gate requires kebab filenames).
-  if (exportCount === 1) {
+  if (exportCount === 1 && !big) {
     const name = kebabCase(stem) || "restored";
     return mk({
       domain: "utils",

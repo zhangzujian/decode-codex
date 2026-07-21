@@ -157,6 +157,23 @@ describe("planOrganize (shape heuristics)", () => {
     expect(e.status).toBe("approved");
   });
 
+  test("a large single-export chunk stays an app feature that needs splitting", () => {
+    const m = makeManifest([
+      file({
+        basename: "large-runtime-AbCdEf12",
+        lineCount: 10_000,
+        exports: [{ exported: "t", local: "runtime", kind: "named" }],
+      }),
+    ]);
+    const p = planOrganize({ manifest: m, target: "restored" });
+    const e = p.entries["large-runtime-AbCdEf12"]!;
+
+    expect(e.classification).toBe("app-feature");
+    expect(e.recipe).toBe("split");
+    expect(e.status).toBe("needs-review");
+    expect(e.domain).toBe("");
+  });
+
   test("a Lottie animation data chunk → animations/<kebab>.ts", () => {
     const m = makeManifest([
       file({
