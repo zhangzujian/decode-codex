@@ -183,7 +183,15 @@ node - <<'NODE'
 const fs = require("fs");
 const manifest = JSON.parse(fs.readFileSync("restored/.deobfuscate-javascript/_full/manifest.json", "utf8"));
 const chunks = JSON.parse(fs.readFileSync("restored/IMPORT_MAP.json", "utf8")).chunks || {};
-const stripHash = (name) => name.replace(/-[A-Za-z0-9_-]{8,}$/, "");
+const stripHash = (name) => {
+  for (let index = name.lastIndexOf("-"); index > 0; index = name.lastIndexOf("-", index - 1)) {
+    const suffix = name.slice(index + 1);
+    if (/^[A-Za-z0-9_-]{6,12}$/.test(suffix) && /[0-9_]/.test(suffix)) {
+      return name.slice(0, index).replace(/-+$/, "");
+    }
+  }
+  return name;
+};
 const byStem = new Map();
 for (const [name, value] of Object.entries(chunks)) {
   const stem = stripHash(name);
