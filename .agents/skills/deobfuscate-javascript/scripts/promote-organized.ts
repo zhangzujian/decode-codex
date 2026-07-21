@@ -613,6 +613,9 @@ export function promoteOrganized(
 
   const snapshotBeforeWrite = (promotionRoot: string): RollbackSnapshot => {
     const targetPath = path.join(opts.target, promotionRoot);
+    if (path.resolve(targetPath) === path.resolve(opts.target)) {
+      throw new Error("refusing to snapshot the restore root");
+    }
     if (!fs.existsSync(targetPath)) {
       return { promotionRoot, targetPath, backupPath: null };
     }

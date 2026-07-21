@@ -461,6 +461,59 @@ describe("relativeImport / buildImportMappings", () => {
 });
 
 describe("promoteOrganized", () => {
+  test("rejects split promotion rooted at the restore target", () => {
+    const target = makeTmpRoot();
+    const externalSnapshots = makeTmpRoot();
+    const fullDir = path.join(target, ".deobfuscate-javascript", "_full");
+    const basename = "root-split-AbCdEf12";
+    const candidateDir = path.join(fullDir, "files", basename, "candidate");
+    fs.mkdirSync(candidateDir, { recursive: true });
+    fs.mkdirSync(path.join(fullDir, "locks"), { recursive: true });
+    fs.symlinkSync(
+      externalSnapshots,
+      path.join(fullDir, "rollback-snapshots"),
+      "dir",
+    );
+    fs.writeFileSync(
+      path.join(candidateDir, "index.ts"),
+      "// Restored from ref/webview/assets/root-split-AbCdEf12.js\n" +
+        "export function rootValue(value: string): string { return value; }\n",
+    );
+    fs.writeFileSync(
+      path.join(fullDir, "manifest.json"),
+      JSON.stringify({
+        version: 1,
+        entry: basename,
+        rootDir: "ref/webview/assets",
+        targetDir: target,
+        createdAt: "2026-07-21T00:00:00.000Z",
+        updatedAt: "2026-07-21T00:00:00.000Z",
+        files: {
+          [basename]: {
+            path: `ref/webview/assets/${basename}.js`,
+            basename,
+            kind: "local",
+            depth: 0,
+            stages: { organized: true },
+            organization: org("", "index.ts", "split", "app-feature"),
+            exports: [{ exported: "t", local: "rootValue", kind: "named" }],
+            owner: null,
+            claimedAt: null,
+            lastUpdated: null,
+          },
+        },
+        edges: [],
+        unresolved: [],
+      }),
+    );
+
+    const [result] = promoteOrganized({ target });
+
+    expect(result?.promoted).toBe(false);
+    expect(result?.reason).toContain("restore root");
+    expect(fs.existsSync(path.join(target, "index.ts"))).toBe(false);
+  });
+
   test("dry-run writes nothing", () => {
     const target = setupTarget();
     const before = fs.readdirSync(target).sort();
