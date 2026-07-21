@@ -1,7 +1,4 @@
-// Restored from ref/webview/assets/glsl-DWqQpJ3q.js
+// Restored from ref/webview/assets/glsl-C2DGYntX.js
 // Shiki GLSL grammar wrapper; the grammar payload stays in @shikijs/langs/glsl.
-import { n as glslGrammar, t as initGlslGrammar } from "@shikijs/langs/glsl";
-
-initGlslGrammar();
-
-export { glslGrammar as default };
+import glslGrammar from "@shikijs/langs/glsl";
+export default glslGrammar;

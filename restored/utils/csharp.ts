@@ -1,10 +1,4 @@
-// Restored from ref/webview/assets/csharp-DcUaRtiR.js
+// Restored from ref/webview/assets/csharp-dWOu_Z9v.js
 // Shiki C# grammar wrapper; the grammar payload stays in @shikijs/langs/csharp.
-import {
-  n as csharpGrammar,
-  t as initCsharpGrammar,
-} from "@shikijs/langs/csharp";
-
-initCsharpGrammar();
-
-export { csharpGrammar as default };
+import csharpGrammar from "@shikijs/langs/csharp";
+export default csharpGrammar;

@@ -43317,6 +43317,153 @@
       "stage3AcceptedAt": "2026-07-01T00:00:00.000Z",
       "lastUpdated": "2026-07-01T00:00:00.000Z",
       "stage3Review": "Host self-review: exact current ref asset workbook-from-csv-DpUw-8ko.js exists, export aliases were re-derived from the current tail export table, utils/workbook-from-csv.ts preserves the semantic surface, and the changed import-map entry is covered by quality-gate."
+    },
+    "c-BmyAN9uB": {
+      "restored": "utils/c.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "cmake-KgGHQiyL": {
+      "restored": "utils/cmake.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "csharp-dWOu_Z9v": {
+      "restored": "utils/csharp.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "diff-BzFlkiCH": {
+      "restored": "utils/diff.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "glsl-C2DGYntX": {
+      "restored": "utils/glsl.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "go-Cq6UZW8L": {
+      "restored": "utils/go.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "haml-4JVWm-3n": {
+      "restored": "utils/haml.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "java-D9QdBNwZ": {
+      "restored": "utils/java.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "javascript-DvJiI4BN": {
+      "restored": "utils/javascript.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "jsx-CsrZUv5w": {
+      "restored": "utils/jsx.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "markdown-D8taA4DT": {
+      "restored": "utils/markdown.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "postcss-CuYKKrDz": {
+      "restored": "utils/postcss.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "python-CMSGC7OP": {
+      "restored": "utils/python.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "r-DD3XXSfB": {
+      "restored": "utils/r.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "scss-DFvoAVuL": {
+      "restored": "utils/scss.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "sdbl-CsXK_PRI": {
+      "restored": "utils/sdbl.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "sql-DD1EB_Zf": {
+      "restored": "utils/sql.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "turtle-nsQACJ8b": {
+      "restored": "utils/turtle.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "typescript-Buwqmzid": {
+      "restored": "utils/typescript.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "xml-BpVTI6cz": {
+      "restored": "utils/xml.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
+    },
+    "yaml-T0Eno5aE": {
+      "restored": "utils/yaml.ts",
+      "exports": {
+        "default": "default"
+      },
+      "status": "done"
     }
   }
 }

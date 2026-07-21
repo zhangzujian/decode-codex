@@ -1,10 +1,4 @@
-// Restored from ref/webview/assets/turtle-BkBNzqPX.js
+// Restored from ref/webview/assets/turtle-nsQACJ8b.js
 // Shiki Turtle grammar wrapper; the grammar payload stays in @shikijs/langs/turtle.
-import {
-  n as turtleGrammar,
-  t as initTurtleGrammar,
-} from "@shikijs/langs/turtle";
-
-initTurtleGrammar();
-
-export { turtleGrammar as default };
+import turtleGrammar from "@shikijs/langs/turtle";
+export default turtleGrammar;

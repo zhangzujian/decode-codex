@@ -1,7 +1,4 @@
-// Restored from ref/webview/assets/sql-BMJUGw5T.js
+// Restored from ref/webview/assets/sql-DD1EB_Zf.js
 // Shiki SQL grammar wrapper; the grammar payload stays in @shikijs/langs/sql.
-import { n as sqlGrammar, t as initSqlGrammar } from "@shikijs/langs/sql";
-
-initSqlGrammar();
-
-export { sqlGrammar as default };
+import sqlGrammar from "@shikijs/langs/sql";
+export default sqlGrammar;

@@ -1,10 +1,4 @@
-// Restored from ref/webview/assets/typescript-Dntn5ztg.js
+// Restored from ref/webview/assets/typescript-Buwqmzid.js
 // Shiki TypeScript grammar wrapper; the grammar payload stays in @shikijs/langs/typescript.
-import {
-  n as typescriptGrammar,
-  t as initTypescriptGrammar,
-} from "@shikijs/langs/typescript";
-
-initTypescriptGrammar();
-
-export { typescriptGrammar as default };
+import typescriptGrammar from "@shikijs/langs/typescript";
+export default typescriptGrammar;

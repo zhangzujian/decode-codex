@@ -13,6 +13,8 @@
     "@segment/analytics-generic-utils": "^1.2.0",
     "@segment/analytics-next": "^1.84.0",
     "@segment/facade": "^3.4.9",
+    "@shikijs/langs": "3.23.0",
+    "@shikijs/themes": "3.23.0",
     "@tanstack/react-form": "^1.33.0",
     "cmdk": "^1.1.1",
     "cytoscape": "3.33.1",

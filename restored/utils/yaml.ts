@@ -1,12 +1,4 @@
-// Restored from ref/webview/assets/yaml-COuIrSCu.js
+// Restored from ref/webview/assets/yaml-T0Eno5aE.js
 // Shiki YAML grammar wrapper; the grammar payload stays in @shikijs/langs/yaml.
-import { n as yamlGrammar, t as initYamlGrammar } from "@shikijs/langs/yaml";
-
-export const yamlLanguageGrammars = yamlGrammar;
-
-export function initYamlGrammarChunk(): void {
-  initYamlGrammar();
-}
-
-initYamlGrammarChunk();
-export { yamlLanguageGrammars as default };
+import yamlGrammar from "@shikijs/langs/yaml";
+export default yamlGrammar;
