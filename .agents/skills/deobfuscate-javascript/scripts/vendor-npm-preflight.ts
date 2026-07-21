@@ -33,6 +33,24 @@ const PUBLIC_LOCAL_VENDOR_BODY_PROOFS: Record<
     sourcePattern: /\bwasmBinary\b[\s\S]*\bWebAssembly\.instantiate\b/,
     reason: "bundled Oniguruma WASM binary data wrapper",
   },
+  "chunk-bsjp7cbp": {
+    sourcePattern:
+      /\bcomputeLabelTransform\b[\s\S]*\bgetLineFunctionsWithOffset\b/,
+    reason: "Mermaid marker geometry wrapper",
+  },
+  "mermaid-subgraph-title-margins": {
+    sourcePattern: /\bgetSubGraphTitleMargins\b/,
+    reason: "Mermaid subgraph-title layout wrapper",
+  },
+  "mermaid-relation-markers": {
+    sourcePattern:
+      /\brelationMarkerOffsets\b[\s\S]*\bgetLineFunctionsWithOffset\b/,
+    reason: "Mermaid relation-marker geometry wrapper",
+  },
+  "xlsx-address-utils": {
+    sourcePattern: /\bencodeCellAddress\b[\s\S]*\bparseCellRangeReference\b/,
+    reason: "XLSX address, range, color, and sizing wrapper",
+  },
 };
 
 export type VendorNpmPreflightResult = {

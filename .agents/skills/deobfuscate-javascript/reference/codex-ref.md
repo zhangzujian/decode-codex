@@ -278,6 +278,11 @@ helpers that have no single public package surface; and `oniguruma-wasm.ts` is
 the exact bundled Oniguruma WASM binary data wrapper. Their target intent must
 still pass `vendor-npm-preflight.ts --decision --intent local-body`, and the
 current bundle export/value fingerprints must be reverified before reuse.
+The same explicit proof registry covers the small Mermaid geometry/layout
+wrappers (`chunk-bsjp7cbp.ts`, `mermaid-subgraph-title-margins.ts`, and
+`mermaid-relation-markers.ts`) plus `xlsx-address-utils.ts`; these are semantic
+package-entangled helpers, not relocated package bodies. Reuse still requires a
+current export-tail or behavior match.
 The same rule applies to Segment: a `vendor/*` file exporting
 `AnalyticsBrowser`, `ContextCancelation`, or `segmentio` should be resolved to
 `@segment/analytics-next` / `@segment/analytics-core`, not a local SDK body.

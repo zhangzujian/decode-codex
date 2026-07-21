@@ -352,6 +352,37 @@ describe("vendor-npm-preflight CLI", () => {
           export const getWasmInstance = (imports) => WebAssembly.instantiate(wasmBinary, imports);
         `,
       },
+      {
+        filename: "chunk-bsjp7cbp.ts",
+        source: `
+          // Restored from ref/webview/assets/chunk-BSJP7CBP-current.js
+          export const computeLabelTransform = () => "translate(0, 0)";
+          export const getLineFunctionsWithOffset = () => ({});
+        `,
+      },
+      {
+        filename: "mermaid-subgraph-title-margins.ts",
+        source: `
+          // Restored from ref/webview/assets/chunk-CVBHYZKI-current.js
+          export const getSubGraphTitleMargins = () => ({ subGraphTitleTotalMargin: 0 });
+        `,
+      },
+      {
+        filename: "mermaid-relation-markers.ts",
+        source: `
+          // Restored from ref/webview/assets/chunk-HN2XXSSU-current.js
+          export const relationMarkerOffsets = {};
+          export const getLineFunctionsWithOffset = () => ({});
+        `,
+      },
+      {
+        filename: "xlsx-address-utils.ts",
+        source: `
+          // Restored from ref/webview/assets/address-utils-current.js
+          export const encodeCellAddress = () => "A1";
+          export const parseCellRangeReference = () => null;
+        `,
+      },
     ];
 
     for (const fixture of fixtures) {
