@@ -178,6 +178,35 @@ describe("vendor-npm-preflight CLI", () => {
     });
   });
 
+  test("blocks local Segment analytics video plugin bodies even when the dependency is missing", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+    const target = path.join(vendorDir, "analytics-video-plugins.ts");
+    fs.writeFileSync(
+      target,
+      `
+        // Restored from ref/webview/assets/index.umd-w8j7umFa.js
+        export class VimeoAnalytics {}
+        export class YouTubeAnalytics {}
+        export default { VimeoAnalytics, YouTubeAnalytics };
+      `,
+    );
+
+    const result = runDecisionCLI(target, { intent: "local-body" });
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("INTENT FAIL");
+    const decisions = JSON.parse(result.stdout) as Array<{
+      decision: string;
+      specifiers: string[];
+    }>;
+    expect(decisions[0]).toMatchObject({
+      decision: "npm-shim",
+      specifiers: ["@segment/analytics.js-video-plugins/plugins"],
+    });
+  });
+
   test("requires fork or runtime proof for unknown public vendor targets", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");

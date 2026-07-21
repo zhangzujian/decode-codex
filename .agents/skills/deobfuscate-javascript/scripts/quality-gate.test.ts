@@ -106,6 +106,52 @@ describe("quality-gate", () => {
     expect(report.issues).toEqual([]);
   });
 
+  test("fails hand-written Segment analytics video plugin bodies", () => {
+    const source = `
+      // Restored from ref/webview/assets/index.umd-w8j7umFa.js
+      export class VimeoAnalytics {}
+      export class YouTubeAnalytics {}
+      export default { VimeoAnalytics, YouTubeAnalytics };
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/analytics-video-plugins.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+        allowUntyped: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-not-reexport",
+    );
+    expect(
+      report.issues.find(
+        (issue) => issue.code === "third-party-npm-shim-not-reexport",
+      )?.detail,
+    ).toMatchObject({
+      expectedSpecifiers: ["@segment/analytics.js-video-plugins/plugins"],
+    });
+  });
+
+  test("passes Segment analytics video plugin npm shims", () => {
+    const source = `
+      // Restored from ref/webview/assets/index.umd-w8j7umFa.js
+      import { VimeoAnalytics, YouTubeAnalytics } from "@segment/analytics.js-video-plugins/plugins";
+      export { VimeoAnalytics, YouTubeAnalytics } from "@segment/analytics.js-video-plugins/plugins";
+      export default { VimeoAnalytics, YouTubeAnalytics };
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/analytics-video-plugins.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues).toEqual([]);
+  });
+
   test("fails hand-written Highlight.js core vendor shims", () => {
     const source = `
       // Restored from ref/webview/assets/core-DMiaGTKr.js

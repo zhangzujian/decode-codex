@@ -238,6 +238,7 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `segment-analytics.ts` (`pkg-*`, `esm-Bs7-NtHW`)                          | `@segment/analytics-next`                                                 | Segment browser SDK + analytics-core compatibility aliases         |
 | `segment-middleware.ts` (`middleware-BDgBoOJW` / `middleware-CcPovR3s`)   | `@segment/analytics-next` + `@segment/analytics-core` + `@segment/facade` | Segment context, middleware, and facade compatibility aliases      |
 | `segment-analytics-integration.ts` (`ajs-destination-*`)                  | `@segment/analytics-next/dist/cjs/plugins/ajs-destination`                | AJS legacy destination loader; internal package subpath            |
+| `analytics-video-plugins.ts` (`index.umd-*`)                              | `@segment/analytics.js-video-plugins/plugins`                             | Vimeo/YouTube analytics plugin constructors; package root has no main entry |
 | `radix-*.ts` (`dist-*`, `Combination-*`)                                  | `@radix-ui/react-*`                                                       | per-primitive; **may be forked**                                   |
 
 **Fork caveat:** `@pierre/*`, `@radix-ui/*`, and `zod`(`src`) may be Codex forks, not
@@ -270,6 +271,12 @@ IntlErrorCodeValue`, and `IntlConfig as ReactIntlConfig`.
 The same rule applies to Segment: a `vendor/*` file exporting
 `AnalyticsBrowser`, `ContextCancelation`, or `segmentio` should be resolved to
 `@segment/analytics-next` / `@segment/analytics-core`, not a local SDK body.
+The historical `index.umd-*` bundle whose UMD global is
+`analyticsVideoPlugins` is the published
+`@segment/analytics.js-video-plugins@0.2.1` package. Its package root has no
+`main` entry, so re-export `VimeoAnalytics` and `YouTubeAnalytics` from the
+`/plugins` subpath and preserve the bundle's default object with a tiny alias
+shim; do not keep the bundled Vimeo/YouTube class bodies locally.
 The middleware chunks `middleware-BDgBoOJW` and `middleware-CcPovR3s` are the same
 rule with the Segment facade layer included: use `@segment/analytics-next`,
 `@segment/analytics-core`, and `@segment/facade` as the backing packages, keeping

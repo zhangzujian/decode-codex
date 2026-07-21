@@ -478,6 +478,8 @@ const LEGACY_D3_AXIS_TIME_SPECIFIERS = [
 ] as const;
 const SEGMENT_AJS_DESTINATION_SPECIFIER =
   "@segment/analytics-next/dist/cjs/plugins/ajs-destination";
+const SEGMENT_ANALYTICS_VIDEO_PLUGINS_SPECIFIER =
+  "@segment/analytics.js-video-plugins/plugins";
 
 const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   cmdk: "cmdk",
@@ -557,6 +559,7 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   roughjs: "roughjs",
   stylis: "stylis",
   analytics: "@segment/analytics-next",
+  "analytics-video-plugins": SEGMENT_ANALYTICS_VIDEO_PLUGINS_SPECIFIER,
   "segment-analytics": ["@segment/analytics-next", "@segment/analytics-core"],
   "segment-analytics-integration": SEGMENT_AJS_DESTINATION_SPECIFIER,
   "segment-middleware": [
@@ -603,6 +606,10 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   "docx-preview-G1XqxLZP": "docx-preview",
   "docx-preview-Mi4H0G1I": "docx-preview",
   "esm-Bs7-NtHW": "@segment/analytics-core",
+  "index.umd-0glM-ceB": SEGMENT_ANALYTICS_VIDEO_PLUGINS_SPECIFIER,
+  "index.umd-BU1Bn__H": SEGMENT_ANALYTICS_VIDEO_PLUGINS_SPECIFIER,
+  "index.umd-CqGTwgME": SEGMENT_ANALYTICS_VIDEO_PLUGINS_SPECIFIER,
+  "index.umd-w8j7umFa": SEGMENT_ANALYTICS_VIDEO_PLUGINS_SPECIFIER,
   "graphlib-BnZ9Pn5Q": "graphlib",
   "graphlib-C7jSnfgR": "graphlib",
   "graphlib-CqExjonE": "graphlib",
@@ -700,6 +707,11 @@ const PUBLIC_NPM_VENDOR_API_FINGERPRINTS: Array<{
       "UniversalStorage",
       "segmentio",
     ],
+    minimumUniqueApiNames: 2,
+  },
+  {
+    specifiers: SEGMENT_ANALYTICS_VIDEO_PLUGINS_SPECIFIER,
+    apiNames: ["VimeoAnalytics", "YouTubeAnalytics"],
     minimumUniqueApiNames: 2,
   },
   {
