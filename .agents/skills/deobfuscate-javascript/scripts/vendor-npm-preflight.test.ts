@@ -281,6 +281,53 @@ describe("vendor-npm-preflight CLI", () => {
     expect(result.stderr).toBe("");
   });
 
+  test("allows registered package-entangled and binary vendor wrappers", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+
+    const fixtures = [
+      {
+        filename: "dayjs-core-alt.ts",
+        source: `
+          // Restored from ref/webview/assets/chunk-AGHRB4JF-current.js
+          export { loadDayjsCommonJsModule } from "./dayjs-logger-runtime";
+        `,
+      },
+      {
+        filename: "segment-load-script.ts",
+        source: `
+          // Restored from ref/webview/assets/load-script-current.js
+          export function loadScriptT() {}
+          export function loadScriptN() {}
+        `,
+      },
+      {
+        filename: "oniguruma-wasm.ts",
+        source: `
+          // Restored from ref/webview/assets/wasm-current.js
+          export const wasmBinary = new Uint8Array();
+          export const getWasmInstance = (imports) => WebAssembly.instantiate(wasmBinary, imports);
+        `,
+      },
+    ];
+
+    for (const fixture of fixtures) {
+      const target = path.join(vendorDir, fixture.filename);
+      fs.writeFileSync(target, fixture.source);
+      const result = runDecisionCLI(target, { intent: "local-body" });
+      expect(result.code).toBe(0);
+      const decisions = JSON.parse(result.stdout) as Array<{
+        decision: string;
+        reason: string;
+      }>;
+      expect(decisions[0]?.decision).toBe("local-body");
+      expect(decisions[0]?.reason).toContain("registered vendor wrapper proof");
+      expect(result.stderr).toBe("");
+    }
+  });
+
   test("blocks npm-shim intent for unknown public vendor targets until registered", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");

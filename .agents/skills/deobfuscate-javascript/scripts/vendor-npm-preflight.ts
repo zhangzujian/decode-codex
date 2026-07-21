@@ -17,6 +17,24 @@ const NPM_SHIM_ISSUE_PREFIX = "third-party-npm-shim-";
 const OVERSIZED_AGGREGATOR_BUNDLE_LINE_THRESHOLD = 4000;
 const DEFAULT_RUNTIME_EXPORT_READ_TIMEOUT_MS = 2_000;
 
+const PUBLIC_LOCAL_VENDOR_BODY_PROOFS: Record<
+  string,
+  { sourcePattern: RegExp; reason: string }
+> = {
+  "dayjs-core-alt": {
+    sourcePattern: /dayjs-logger-runtime/,
+    reason: "Day.js-backed Mermaid logger wrapper",
+  },
+  "segment-load-script": {
+    sourcePattern: /\bloadScript[NT]\b/,
+    reason: "Segment package-entangled CDN and script-loader wrapper",
+  },
+  "oniguruma-wasm": {
+    sourcePattern: /\bwasmBinary\b[\s\S]*\bWebAssembly\.instantiate\b/,
+    reason: "bundled Oniguruma WASM binary data wrapper",
+  },
+};
+
 export type VendorNpmPreflightResult = {
   files: string[];
   reports: FileQualityReport[];
@@ -172,7 +190,11 @@ function appRuntimeWrapperProofReason(
 ): string | null {
   if (source == null) return null;
   if (!/Restored from ref\/webview\/assets\//.test(source)) return null;
-  if (!/\b(?:Flat boundary|compatibility shim|compatibility bundle)\b/i.test(source)) {
+  if (
+    !/\b(?:Flat boundary|compatibility shim|compatibility bundle)\b/i.test(
+      source,
+    )
+  ) {
     return null;
   }
 
@@ -201,6 +223,17 @@ function appRuntimeWrapperProofReason(
   }
 
   return `public vendor app/runtime wrapper proof found in sibling ${runtimeStem}/index`;
+}
+
+function registeredLocalVendorBodyProofReason(
+  file: string,
+  source: string | undefined,
+): string | null {
+  if (source == null) return null;
+  const basename = path.basename(file, path.extname(file));
+  const proof = PUBLIC_LOCAL_VENDOR_BODY_PROOFS[basename];
+  if (proof == null || !proof.sourcePattern.test(source)) return null;
+  return `registered vendor wrapper proof: ${proof.reason}`;
 }
 
 function isBarePackageSpecifier(specifier: string): boolean {
@@ -599,6 +632,20 @@ export function vendorNpmDecision(input: string): VendorNpmDecision[] {
           specifiers,
           sourceExists,
           reason: appRuntimeReason,
+        };
+      }
+
+      const registeredProofReason = registeredLocalVendorBodyProofReason(
+        file,
+        source,
+      );
+      if (registeredProofReason != null) {
+        return {
+          file,
+          decision: "local-body",
+          specifiers,
+          sourceExists,
+          reason: registeredProofReason,
         };
       }
 

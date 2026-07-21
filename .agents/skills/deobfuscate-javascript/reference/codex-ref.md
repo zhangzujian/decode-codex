@@ -268,6 +268,15 @@ When preserving legacy React Intl compatibility names against `react-intl@10`,
 alias the real package names instead of exporting missing members:
 `ReactIntlErrorCode as IntlErrorCode` / `ReactIntlErrorCode as
 IntlErrorCodeValue`, and `IntlConfig as ReactIntlConfig`.
+
+Three public vendor surfaces are registered `local-body` exceptions rather
+than stock-package bodies: `dayjs-core-alt.ts` is the thin Day.js-backed
+Mermaid logger wrapper over `dayjs-logger-runtime`; `segment-load-script.ts`
+combines `@segment/analytics-next` script loading with Segment CDN/global-state
+helpers that have no single public package surface; and `oniguruma-wasm.ts` is
+the exact bundled Oniguruma WASM binary data wrapper. Their target intent must
+still pass `vendor-npm-preflight.ts --decision --intent local-body`, and the
+current bundle export/value fingerprints must be reverified before reuse.
 The same rule applies to Segment: a `vendor/*` file exporting
 `AnalyticsBrowser`, `ContextCancelation`, or `segmentio` should be resolved to
 `@segment/analytics-next` / `@segment/analytics-core`, not a local SDK body.
