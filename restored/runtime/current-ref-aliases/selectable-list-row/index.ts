@@ -1,9 +1,9 @@
-// Restored from ref/webview/assets/selectable-list-row-1V0oMRFG.js
-// Current-build entry for the restored selectable list row.
+// Restored from ref/webview/assets/selectable-list-row-CWrT6S5I.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   getSelectableListRowButtonProps,
-  initSelectableListRowButtonPropsChunk,
   initSelectableListRowChunk,
+  initSelectableListRowButtonPropsChunk,
   SelectableListRow,
 } from "../../../ui/selectable-list-row";
 export {

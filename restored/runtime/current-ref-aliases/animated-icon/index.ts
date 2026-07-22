@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/animated-icon-lgQBewUL.js
+// Restored from ref/webview/assets/animated-icon-zHDuUivP.js
 // Current-build entry using the compatible prior stable-stem export map.
 import {
   initAnimatedIconModule,

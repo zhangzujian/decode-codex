@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/home-announcements-CKPMSIXM.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/home-announcements-BPtAjM8D.js
+// Current-build entry reusing the fingerprint-verified semantic module.
 import {
   initHomeAnnouncementsChunk,
   HomeAnnouncements,

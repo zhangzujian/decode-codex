@@ -1,6 +1,5 @@
-// Restored from ref/webview/assets/page-BcUcNIc-.js
-// Semantic positional adapter for the current-build runtime.
+// Restored from ref/webview/assets/page-csxnVgAq.js
+// Current-build entry reusing the fingerprint-verified semantic module.
 
 import * as currentBacking from "../../current-app-initial/page-current-backing";
-
 export const AppgenAnalyticsPage = currentBacking["Page"];

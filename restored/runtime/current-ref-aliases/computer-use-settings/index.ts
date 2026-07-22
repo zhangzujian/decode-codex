@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/computer-use-settings-Jx4Aq79R.js
-// Exact semantic-stem entry for the already restored public module.
+// Restored from ref/webview/assets/computer-use-settings-bq1WA53u.js
+// Current-build entry using the compatible prior stable-stem export map.
 import { ComputerUseSettings } from "../../current-app-initial/computer-use-settings-current-runtime";
 export { ComputerUseSettings };

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/home-artifact-templates-ee9sv6RZ.js
-// Current-build entry for the restored home artifact templates.
+// Restored from ref/webview/assets/home-artifact-templates-CI2qottG.js
+// Current-build entry using the compatible prior stable-stem export map.
 import { HomeArtifactTemplates } from "../../../home/artifact-templates";
 export { HomeArtifactTemplates };

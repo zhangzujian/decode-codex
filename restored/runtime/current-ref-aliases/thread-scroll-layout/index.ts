@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/thread-scroll-layout-CWwL-MtR.js
-// Current-build entry for the restored thread scroll layout.
+// Restored from ref/webview/assets/thread-scroll-layout-5KAbyTVi.js
+// Current-build entry reusing the fingerprint-verified semantic module.
 import {
   initThreadScrollLayoutChunk,
   initThreadScrollLayoutStyleChunk,

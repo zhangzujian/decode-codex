@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/use-home-directory-jqVyD2FJ.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/use-home-directory-BCmhEc_0.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   useHomeDirectory,
   useHomeDirectoryQuery,

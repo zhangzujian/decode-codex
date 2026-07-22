@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/data-controls-BmGFvRU8.js
-// Exact semantic-stem entry for the already restored public module.
+// Restored from ref/webview/assets/data-controls-eH5dBHDX.js
+// Current-build entry using the compatible prior stable-stem export map.
 import { DataControlsSettings } from "../../current-app-initial/data-controls-current-runtime";
 export { DataControlsSettings };

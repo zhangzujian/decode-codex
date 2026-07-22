@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/docx-preview-panel-Dx2YyGxn.js
-// Exact semantic-stem entry for the already restored public module.
+// Restored from ref/webview/assets/docx-preview-panel-BRzAQ0cI.js
+// Current-build entry using the compatible prior stable-stem export map.
 import { DocxPreviewPanel } from "../../../vendor/docx-preview-panel-runtime";
 export { DocxPreviewPanel };

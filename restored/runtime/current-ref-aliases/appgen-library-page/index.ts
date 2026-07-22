@@ -1,6 +1,4 @@
-// Restored from ref/webview/assets/appgen-library-page-xL7j_SqF.js
-// Semantic positional adapter for the current-build runtime.
-
-import * as currentBacking from "../../current-app-initial/appgen-library-page-current-backing";
-
-export const AppgenLibraryPage = currentBacking["AppgenLibraryPageIcon"];
+// Restored from ref/webview/assets/appgen-library-page-DC_zuoBF.js
+// Current-build entry using the compatible prior stable-stem export map.
+import { AppgenLibraryPage } from "../../current-app-initial/appgen-library-page-current-runtime";
+export { AppgenLibraryPage };

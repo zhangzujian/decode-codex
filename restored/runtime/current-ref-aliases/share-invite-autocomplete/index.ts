@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/share-invite-autocomplete-BOnYvQ2I.js
-// Current-build entry for the restored share-invite autocomplete.
+// Restored from ref/webview/assets/share-invite-autocomplete-CEYxgA41.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   initShareInviteAutocompleteChunk,
   ShareInviteAutocomplete,

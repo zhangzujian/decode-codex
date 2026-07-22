@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/feature-catalog-DrpAJRYy.js
-// Current-build entry for the restored feature catalog.
+// Restored from ref/webview/assets/feature-catalog-C0xe-2p-.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   initFeatureCatalogFindBarChunk,
   FeatureCatalogFindBar,

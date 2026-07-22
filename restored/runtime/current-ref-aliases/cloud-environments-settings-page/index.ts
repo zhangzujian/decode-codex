@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/cloud-environments-settings-page-BJkcI-3n.js
-// Current-build entry for the stable restored semantic module.
+// Restored from ref/webview/assets/cloud-environments-settings-page-BGQLSyWU.js
+// Current-build entry using the compatible prior stable-stem export map.
 import { CloudEnvironmentsSettingsPage } from "../../../settings/cloud-environments-settings-page";
 export { CloudEnvironmentsSettingsPage };

@@ -1,12 +1,12 @@
-// Restored from ref/webview/assets/artifact-annotation-comment-0Y3IgrMo.js
-// Current-build entry for the restored artifact annotation helpers.
+// Restored from ref/webview/assets/artifact-annotation-comment-Cy9I3exl.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
-  createArtifactAnnotationComment,
-  getArtifactAnnotationCommentsForPath,
-  getNextArtifactAnnotationLine,
-  getRemovedArtifactAnnotationIds,
   initArtifactAnnotationCommentChunk,
+  getRemovedArtifactAnnotationIds,
+  getArtifactAnnotationCommentsForPath,
   removeArtifactAnnotationCommentsForPath,
+  getNextArtifactAnnotationLine,
+  createArtifactAnnotationComment,
 } from "../../../ui/artifact-annotation-comment";
 export {
   initArtifactAnnotationCommentChunk,

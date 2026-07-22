@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/use-workspace-users-BVvr9v3v.js
+// Restored from ref/webview/assets/use-workspace-users-C1fzB4Ry.js
 // Current-build entry using the compatible prior stable-stem export map.
 import {
   initShareTargetRowChunk,

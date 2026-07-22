@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/connector-logo-stack-i0Zwh6QS.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/connector-logo-stack-OG4VPj_G.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   initConnectorLogoStackChunk,
   ConnectorLogoStack,

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/use-ascii-engine-DZKEQDFp.js
+// Restored from ref/webview/assets/use-ascii-engine-B0JCZPvL.js
 // Current-build entry using the compatible prior stable-stem export map.
 import {
   initAsciiCanvasRuntime,

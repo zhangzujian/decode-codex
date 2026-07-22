@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/local-conversation-page-7XvjDH0q.js
-// Exact semantic-stem entry for the already restored public module.
+// Restored from ref/webview/assets/local-conversation-page-BuhSNKrc.js
+// Current-build entry reusing the fingerprint-verified semantic module.
 import { LocalConversationPage } from "../../../conversations/local-conversation-page";
 export { LocalConversationPage };

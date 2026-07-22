@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/notebook-preview-panel-BRMGAAU2.js
-// Current-build entry for the stable restored semantic module.
+// Restored from ref/webview/assets/notebook-preview-panel-CFZa2MG9.js
+// Current-build entry using the compatible prior stable-stem export map.
 import { NotebookPreviewPanel } from "../../../artifacts/notebook-preview-panel";
 export { NotebookPreviewPanel };

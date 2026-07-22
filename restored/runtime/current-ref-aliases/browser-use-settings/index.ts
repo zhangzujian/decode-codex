@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/browser-use-settings-DwAI2xXc.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/browser-use-settings-C9cJpxyT.js
+// Current-build entry reusing the fingerprint-verified semantic module.
 import {
   initializePluginControlList,
   PasswordManagerSettingsRow,

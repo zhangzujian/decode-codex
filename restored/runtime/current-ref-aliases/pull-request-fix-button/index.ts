@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/pull-request-fix-button-BqU8cDpb.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/pull-request-fix-button-Bbj4uvkk.js
+// Current-build entry reusing the fingerprint-verified semantic module.
 import {
   trackPullRequestActionClicked,
   PullRequestFixButton,

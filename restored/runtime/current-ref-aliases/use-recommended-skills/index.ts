@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/use-recommended-skills-BhQUxTs7.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/use-recommended-skills-Dsz9cmkA.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   useRecommendedSkills,
   initUseRecommendedSkillsChunk,

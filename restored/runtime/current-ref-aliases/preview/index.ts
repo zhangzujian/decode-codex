@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/preview-BovZZXeV.js
-// Current-build entry for the stable restored semantic module.
+// Restored from ref/webview/assets/preview-B-ZZdU9v.js
+// Current-build entry using the compatible prior stable-stem export map.
 import { PdbPreviewFromFile } from "../../../ui/pdb-preview";
 export { PdbPreviewFromFile };

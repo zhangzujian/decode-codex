@@ -18,8 +18,13 @@ export function RelativeTime(props: { dateString: string }) {
   return formatRelativeDateTime(props);
 }
 
+export function FutureRelativeTime(props: { dateString: string }) {
+  const now = useCurrentMinute();
+  return formatFutureRelativeDateTime(props.dateString, now);
+}
+
 export function initRelativeTimeRuntimeChunk(): void {}
-function useCurrentMinute() {
+export function useCurrentMinute() {
   return React.useSyncExternalStore(
     subscribeToCurrentMinute,
     getCurrentNow,
@@ -129,6 +134,37 @@ function formatCompactRelativeDateTime(dateString: string, now: Date) {
       value: Math.floor(positiveDays / YEAR_DAYS),
     },
   );
+}
+function formatFutureRelativeDateTime(dateString: string, now: Date) {
+  const intl = useIntl();
+  const date = new Date(dateString);
+  const remainingMinutes = Math.ceil(
+    (date.getTime() - now.getTime()) / MINUTE_MS,
+  );
+  if (remainingMinutes <= 0) {
+    return intl.formatRelativeTime(0, "second", {
+      numeric: "auto",
+    });
+  }
+  if (remainingMinutes < 60) {
+    return intl.formatRelativeTime(remainingMinutes, "minute", {
+      numeric: "always",
+    });
+  }
+  const remainingHours = Math.ceil(remainingMinutes / 60);
+  if (remainingHours < 24) {
+    return intl.formatRelativeTime(remainingHours, "hour", {
+      numeric: "always",
+    });
+  }
+  const remainingDays = Math.ceil(remainingHours / 24);
+  return remainingDays < WEEK_DAYS
+    ? intl.formatRelativeTime(remainingDays, "day", {
+        numeric: "always",
+      })
+    : intl.formatRelativeTime(Math.ceil(remainingDays / WEEK_DAYS), "week", {
+        numeric: "always",
+      });
 }
 function minutesBetween(later: Date, earlier: Date) {
   return Math.floor((later.getTime() - earlier.getTime()) / MINUTE_MS);

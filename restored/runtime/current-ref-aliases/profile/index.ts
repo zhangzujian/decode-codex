@@ -1,6 +1,4 @@
-// Restored from ref/webview/assets/profile-JJqY3n3G.js
-// Semantic positional adapter for the current-build runtime.
-
-import * as currentBacking from "../../current-app-initial/profile-current-backing";
-
-export const Profile = currentBacking["ProfileIcon"];
+// Restored from ref/webview/assets/profile-uES9ukHb.js
+// Current-build entry using the compatible prior stable-stem export map.
+import { Profile } from "../../current-app-initial/profile-current-runtime";
+export { Profile };

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/thread-app-shell-chrome-CSg7_z-E.js
+// Restored from ref/webview/assets/thread-app-shell-chrome-C57XrWTY.js
 // Current-build entry using the compatible prior stable-stem export map.
 import {
   initThreadAppShellChromeChunk,

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/use-media-query-DvLFnBbU.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/use-media-query-B_niEXHj.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   useMediaQuery,
   initUseMediaQueryChunk,

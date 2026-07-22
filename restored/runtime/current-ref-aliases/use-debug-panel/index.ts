@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/use-debug-panel-ib-bCja1.js
+// Restored from ref/webview/assets/use-debug-panel-B3vV0G93.js
 // Current-build entry using the compatible prior stable-stem export map.
 import {
   useIsDebugPanelEnabled,

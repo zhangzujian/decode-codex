@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/use-codex-worktrees-B0jtZKoF.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/use-codex-worktrees-DM-6tJGQ.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   useCodexWorktrees,
   initUseCodexWorktreesChunk,

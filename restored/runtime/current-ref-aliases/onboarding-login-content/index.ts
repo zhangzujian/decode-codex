@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/onboarding-login-content-BvOLaxqz.js
-// Current-build entry for the restored onboarding login content.
+// Restored from ref/webview/assets/onboarding-login-content-BXSrxWhr.js
+// Current-build entry reusing the fingerprint-verified semantic module.
 import {
   initOnboardingLoginContentChunk,
   OnboardingLoginContent,

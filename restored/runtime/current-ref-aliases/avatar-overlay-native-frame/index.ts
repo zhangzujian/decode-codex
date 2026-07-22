@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/avatar-overlay-native-frame-mro3oNKv.js
+// Restored from ref/webview/assets/avatar-overlay-native-frame-7XolNlVJ.js
 // Current-build entry using the compatible prior stable-stem export map.
 import {
   initAvatarOverlayNativeFrameCopyChunk,

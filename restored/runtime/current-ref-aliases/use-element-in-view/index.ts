@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/use-element-in-view-DsZc1WuZ.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/use-element-in-view-CYE3zmJA.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
   useElementInView,
   initUseElementInViewChunk,

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/global-dictation-orb-1aF0Cjgq.js
+// Restored from ref/webview/assets/global-dictation-orb-DDnTtWi5.js
 // Current-build entry using the compatible prior stable-stem export map.
 import {
   startGlobalDictation,

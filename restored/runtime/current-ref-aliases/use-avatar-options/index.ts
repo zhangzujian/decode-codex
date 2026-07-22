@@ -1,7 +1,7 @@
-// Restored from ref/webview/assets/use-avatar-options-BMz5jNTJ.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/use-avatar-options-SOWAvwFL.js
+// Current-build entry using the compatible prior stable-stem export map.
 import {
-  useAvatarOptions,
   initUseAvatarOptionsChunk,
+  useAvatarOptions,
 } from "../../../utils/use-avatar-options";
-export { useAvatarOptions, initUseAvatarOptionsChunk };
+export { initUseAvatarOptionsChunk, useAvatarOptions };

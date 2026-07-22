@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/use-searchable-page-title-visibility-6TGUg9Ku.js
-// Current-build alias for the typed scroll-aware page title hook.
+// Restored from ref/webview/assets/use-searchable-page-title-visibility-CMbzIe9C.js
+// Current-build entry reusing the fingerprint-verified semantic module.
 export {
   useAppgenScrollablePageTitle,
   initAppgenScrollablePageTitleChunk,
