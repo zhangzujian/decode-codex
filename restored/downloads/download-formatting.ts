@@ -3,12 +3,7 @@
 import type { IntlShape } from "../vendor/react-intl";
 
 export type DownloadStatus =
-  | "started"
-  | "in_progress"
-  | "paused"
-  | "canceled"
-  | "complete"
-  | "failed";
+  "started" | "in_progress" | "paused" | "canceled" | "complete" | "failed";
 
 export type DownloadItem = {
   status: DownloadStatus;

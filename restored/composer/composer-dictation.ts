@@ -31,10 +31,7 @@ import {
 
 /** Realtime restricted-session lifecycle phase; `inactive` means no live session. */
 export type RestrictedSessionPhase =
-  | "inactive"
-  | "starting"
-  | "active"
-  | "stopping";
+  "inactive" | "starting" | "active" | "stopping";
 
 /** Live realtime-voice thread nested inside a composer restricted session. */
 export type ComposerRestrictedSessionThread = {

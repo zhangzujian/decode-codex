@@ -25,14 +25,14 @@ function findToolByNameOrTitle(
 ): McpToolLike | null {
   const toolList = tools ?? [];
   const byName =
-    (toolList.find((tool) => (tool as McpToolLike | null)?.name === toolName) as
-      | McpToolLike
-      | undefined) ?? null;
+    (toolList.find(
+      (tool) => (tool as McpToolLike | null)?.name === toolName,
+    ) as McpToolLike | undefined) ?? null;
   if (byName != null || !isCodexAppsServer(server)) return byName;
   return (
-    (toolList.find((tool) => (tool as McpToolLike | null)?.title === toolName) as
-      | McpToolLike
-      | undefined) ?? null
+    (toolList.find(
+      (tool) => (tool as McpToolLike | null)?.title === toolName,
+    ) as McpToolLike | undefined) ?? null
   );
 }
 
@@ -49,8 +49,14 @@ function assertToolWithinConnectorScope({
 }): void {
   if (!isCodexAppsServer(server)) return;
   const toolConnectorId = getToolConnectorId(tool);
-  if (connectorId == null || toolConnectorId == null || toolConnectorId !== connectorId) {
-    throw Error(`MCP app cannot call tool outside its connector scope: ${toolName}`);
+  if (
+    connectorId == null ||
+    toolConnectorId == null ||
+    toolConnectorId !== connectorId
+  ) {
+    throw Error(
+      `MCP app cannot call tool outside its connector scope: ${toolName}`,
+    );
   }
 }
 
@@ -80,8 +86,9 @@ export function resolveMcpConnectorId({
   const originTool = mcpAppScope?.originTool;
   if (originTool == null) return null;
   return getToolConnectorId(
-    (tools ?? []).find((candidate) => (candidate as McpToolLike | null)?.name === originTool) ??
-      null,
+    (tools ?? []).find(
+      (candidate) => (candidate as McpToolLike | null)?.name === originTool,
+    ) ?? null,
   );
 }
 
@@ -115,7 +122,8 @@ export function buildMcpToolList({
   server: string;
   tools?: unknown[];
 }): unknown[] {
-  if (!isCodexAppsServer(server)) return (tools ?? []).filter((tool) => !hasFileParams(tool));
+  if (!isCodexAppsServer(server))
+    return (tools ?? []).filter((tool) => !hasFileParams(tool));
   if (connectorId == null) {
     throw Error("MCP app requests require a trusted connector scope");
   }
@@ -133,7 +141,11 @@ export function resolveMcpSandboxOriginScope({
   instanceFallbackId: string;
   server: string;
 }):
-  | { connectorId?: string | null; instanceFallbackId: string; kind: "codex_app" }
+  | {
+      connectorId?: string | null;
+      instanceFallbackId: string;
+      kind: "codex_app";
+    }
   | { kind: "mcp_server"; server: string } {
   return isCodexAppsServer(server)
     ? { connectorId, instanceFallbackId, kind: "codex_app" }

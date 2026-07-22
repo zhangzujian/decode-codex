@@ -1572,7 +1572,6 @@ var ganttDiagramLVOFAZNHValue1 = createCommonJsModule(
               ganttDiagramLVOFAZNHValue159,
               ganttDiagramLVOFAZNHValue160;
             ;
-
           ) {
             if (
               ((ganttDiagramLVOFAZNHValue153 =
@@ -2482,7 +2481,6 @@ var ganttDiagramLVOFAZNHValue11 = {
     for (
       ;
       !ganttDiagramLVOFAZNHValue389 && ganttDiagramLVOFAZNHValue390 < 10;
-
     ) {
       ganttDiagramLVOFAZNHValue389 = ganttDiagramLVOFAZNHValue70();
       ganttDiagramLVOFAZNHValue390++;
@@ -2587,7 +2585,7 @@ var ganttDiagramLVOFAZNHValue11 = {
   ) {
     let ganttDiagramLVOFAZNHValue352 = false,
       ganttDiagramLVOFAZNHValue353 = null;
-    for (; ganttDiagramLVOFAZNHParam138 <= ganttDiagramLVOFAZNHParam139; ) {
+    for (; ganttDiagramLVOFAZNHParam138 <= ganttDiagramLVOFAZNHParam139;) {
       ganttDiagramLVOFAZNHValue352 ||
         (ganttDiagramLVOFAZNHValue353 = ganttDiagramLVOFAZNHParam139.toDate());
       ganttDiagramLVOFAZNHValue352 = ganttDiagramLVOFAZNHValue51(
@@ -3202,7 +3200,7 @@ function ganttDiagramLVOFAZNHHelper1(
   ganttDiagramLVOFAZNHParam128,
 ) {
   let ganttDiagramLVOFAZNHValue342 = true;
-  for (; ganttDiagramLVOFAZNHValue342; ) {
+  for (; ganttDiagramLVOFAZNHValue342;) {
     ganttDiagramLVOFAZNHValue342 = false;
     ganttDiagramLVOFAZNHParam128.forEach(function (item) {
       let ganttDiagramLVOFAZNHValue372 = "^\\s*" + item + "\\s*$",
@@ -3933,7 +3931,6 @@ export const GanttDiagramLVOFAZNH = {
           ;
           ganttDiagramLVOFAZNHValue179.valueOf() <=
           ganttDiagramLVOFAZNHValue175;
-
         ) {
           ganttDiagramLVOFAZNHParam4.db.isInvalidDate(
             ganttDiagramLVOFAZNHValue179,

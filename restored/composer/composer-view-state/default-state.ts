@@ -71,8 +71,7 @@ export const defaultComposerViewState = createScopedComputedAtom(
         } | null
       )?.default_branch ?? "main";
     const threadContext = get(composerThreadContextState) as
-      | ComposerThreadContext
-      | undefined;
+      ComposerThreadContext | undefined;
     if (threadContext != null && composerMode === "worktree") {
       composerMode = "local";
     } else if (

@@ -47,9 +47,7 @@ type WebsiteOutputResource = {
 };
 
 export type ThreadSummaryOutputResource =
-  | BrowserOutputResource
-  | FileOutputResource
-  | WebsiteOutputResource;
+  BrowserOutputResource | FileOutputResource | WebsiteOutputResource;
 
 export type ThreadSummaryOutputOpenHandlersOptions = {
   browserSidebarEnabled: boolean;

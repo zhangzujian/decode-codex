@@ -4,10 +4,7 @@ import { vscodeApiH as vscodeLogger } from "../boundaries/vscode-api";
 import { requestPrimaryRuntimeInstall } from "./primary-runtime-install-state";
 type PrimaryRuntimeRelease = "latest" | "latest-alpha" | string;
 type PrimaryRuntimeInstallResultStatus =
-  | "already-current"
-  | "canceled"
-  | "failed"
-  | "installed";
+  "already-current" | "canceled" | "failed" | "installed";
 type EventPayload = Record<string, unknown>;
 type ProductLogger = {
   logProductEvent(eventName: unknown, payload: EventPayload): void;

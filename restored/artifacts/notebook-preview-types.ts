@@ -6,9 +6,7 @@ export type ParsedNotebookDocument = {
 };
 
 export type NotebookCell =
-  | NotebookCodeCell
-  | NotebookMarkdownCell
-  | NotebookRawCell;
+  NotebookCodeCell | NotebookMarkdownCell | NotebookRawCell;
 
 export type NotebookBaseCell = {
   id: string | null;

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/local_context_animation-YdvLIXMe.js
+// Restored from ref/webview/assets/local_context_animation-D6e3IRQy.js
 // Lottie animation data restored from the Codex webview bundle.
 export const localContextAnimation = {
   v: "5.7.0",

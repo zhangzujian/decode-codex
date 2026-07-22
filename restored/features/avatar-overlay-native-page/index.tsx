@@ -132,9 +132,7 @@ function buildNativeSurfacePresentations({
   policies,
 }) {
   return measuredSurfaces.flatMap((item) => {
-    let surfacePolicy = policies.find(
-      (policy) => policy.id === item.id,
-    );
+    let surfacePolicy = policies.find((policy) => policy.id === item.id);
     if (surfacePolicy == null) return [];
     let activityStackSlot = activityStackPresentation.slots.find(
       (slot) => slot.slotId === item.id,
@@ -186,14 +184,8 @@ function translateNativeSurfaceRect(
 ) {
   return {
     height: contentRect.height,
-    left:
-      surfaceRect.left +
-      contentRect.left -
-      presentationRect.left,
-    top:
-      surfaceRect.top +
-      contentRect.top -
-      presentationRect.top,
+    left: surfaceRect.left + contentRect.left - presentationRect.left,
+    top: surfaceRect.top + contentRect.top - presentationRect.top,
     width: contentRect.width,
   };
 }
@@ -204,14 +196,10 @@ function measureNativeOverlayContent(
 ) {
   if (overlayRoot == null) return null;
   let mascotSize = measureVisibleElementSize(
-      overlayRoot.querySelector(
-        AVATAR_ROOT_SELECTOR,
-      ),
+      overlayRoot.querySelector(AVATAR_ROOT_SELECTOR),
     ),
     traySize = measureNotificationTraySize(
-      overlayRoot.querySelector(
-        NOTIFICATION_TRAY_SELECTOR,
-      ),
+      overlayRoot.querySelector(NOTIFICATION_TRAY_SELECTOR),
       includeInertSurfaces,
     );
   return mascotSize == null
@@ -228,23 +216,17 @@ function collectNativeSurfaceMeasurements(
 ) {
   return overlayRoot == null
     ? []
-    : Array.from(
-        overlayRoot.querySelectorAll(
-          NATIVE_SURFACE_SELECTOR,
-        ),
-      )
+    : Array.from(overlayRoot.querySelectorAll(NATIVE_SURFACE_SELECTOR))
         .flatMap((item) => {
           if (
             (!includeInert && item.closest("[inert]") != null) ||
             isElementDisplayNone(item)
           )
             return [];
-          let surfaceId =
-              item.dataset.avatarOverlayNativeSurfaceId,
-            orderedSurfaceId =
-              orderedSurfaceIds.find(
-                (orderedId) => orderedId === surfaceId,
-              ),
+          let surfaceId = item.dataset.avatarOverlayNativeSurfaceId,
+            orderedSurfaceId = orderedSurfaceIds.find(
+              (orderedId) => orderedId === surfaceId,
+            ),
             surfaceRect = item.getBoundingClientRect();
           if (
             orderedSurfaceId == null ||
@@ -258,11 +240,8 @@ function collectNativeSurfaceMeasurements(
               top: surfaceRect.top,
               width: surfaceRect.width,
             },
-            cornerRadius = Number(
-              item.dataset.avatarOverlayNativeCornerRadius,
-            ),
-            cumulativeOpacity =
-              calculateCumulativeElementOpacity(item);
+            cornerRadius = Number(item.dataset.avatarOverlayNativeCornerRadius),
+            cumulativeOpacity = calculateCumulativeElementOpacity(item);
           if (
             !Number.isFinite(cornerRadius) ||
             !Number.isFinite(cumulativeOpacity)
@@ -277,9 +256,7 @@ function collectNativeSurfaceMeasurements(
             {
               ...(chromiumOverflowElement != null &&
               chromiumOverflowRect != null &&
-              !isElementDisplayNone(
-                chromiumOverflowElement,
-              ) &&
+              !isElementDisplayNone(chromiumOverflowElement) &&
               chromiumOverflowRect.width > 0 &&
               chromiumOverflowRect.height > 0
                 ? {
@@ -305,31 +282,19 @@ function collectNativeSurfaceMeasurements(
         })
         .sort(
           (leftSurfaceMeasurement, rightSurfaceMeasurement) =>
-            orderedSurfaceIds.indexOf(
-              leftSurfaceMeasurement.id,
-            ) -
-            orderedSurfaceIds.indexOf(
-              rightSurfaceMeasurement.id,
-            ),
+            orderedSurfaceIds.indexOf(leftSurfaceMeasurement.id) -
+            orderedSurfaceIds.indexOf(rightSurfaceMeasurement.id),
         );
 }
 function queryNativeOverlayMeasurementTargets(overlayRoot) {
   return Array.from(
-    overlayRoot.querySelectorAll(
-      NATIVE_MEASUREMENT_SELECTORS.join(", "),
-    ),
+    overlayRoot.querySelectorAll(NATIVE_MEASUREMENT_SELECTORS.join(", ")),
   );
 }
 function measureVisibleElementSize(element) {
-  if (
-    element == null ||
-    isElementDisplayNone(element)
-  )
-    return null;
-  let elementRect =
-    element.getBoundingClientRect();
-  return elementRect.width <= 0 ||
-    elementRect.height <= 0
+  if (element == null || isElementDisplayNone(element)) return null;
+  let elementRect = element.getBoundingClientRect();
+  return elementRect.width <= 0 || elementRect.height <= 0
     ? null
     : {
         width: Math.ceil(elementRect.width),
@@ -352,26 +317,12 @@ function measureActivityStackLayoutHeights(overlayRoot) {
       )?.height ?? 0,
   };
 }
-function measureNotificationTraySize(
-  trayElement,
-  includeInertSurfaces,
-) {
-  if (
-    trayElement == null ||
-    isElementDisplayNone(trayElement)
-  )
-    return null;
-  let trayRect =
-    trayElement.getBoundingClientRect();
-  if (
-    trayRect.width <= 0 ||
-    trayRect.height <= 0
-  )
-    return null;
+function measureNotificationTraySize(trayElement, includeInertSurfaces) {
+  if (trayElement == null || isElementDisplayNone(trayElement)) return null;
+  let trayRect = trayElement.getBoundingClientRect();
+  if (trayRect.width <= 0 || trayRect.height <= 0) return null;
   let childSurfaceRects = Array.from(
-      trayElement.querySelectorAll(
-        NATIVE_SURFACE_SELECTOR,
-      ),
+      trayElement.querySelectorAll(NATIVE_SURFACE_SELECTOR),
     )
       .filter(
         (item) =>
@@ -381,9 +332,7 @@ function measureNotificationTraySize(
       .map((item) => item.getBoundingClientRect()),
     trayWidth = Math.ceil(
       Math.max(
-        trayElement.offsetWidth > 0
-          ? trayElement.offsetWidth
-          : trayRect.width,
+        trayElement.offsetWidth > 0 ? trayElement.offsetWidth : trayRect.width,
         Math.max(
           trayRect.right,
           ...childSurfaceRects.map((item) => item.right),
@@ -394,34 +343,24 @@ function measureNotificationTraySize(
           ),
       ),
     ),
-    trayHeaderElement =
-      trayElement.querySelector(
-        NOTIFICATION_TRAY_HEADER_SELECTOR,
-      ),
-    trayListElement =
-      trayElement.querySelector(
-        NOTIFICATION_TRAY_LIST_SELECTOR,
-      );
-  if (
-    trayHeaderElement == null ||
-    trayListElement == null
-  )
+    trayHeaderElement = trayElement.querySelector(
+      NOTIFICATION_TRAY_HEADER_SELECTOR,
+    ),
+    trayListElement = trayElement.querySelector(
+      NOTIFICATION_TRAY_LIST_SELECTOR,
+    );
+  if (trayHeaderElement == null || trayListElement == null)
     return {
       height: Math.ceil(trayRect.height),
       width: trayWidth,
     };
-  let trayListRect =
-      trayListElement.getBoundingClientRect(),
+  let trayListRect = trayListElement.getBoundingClientRect(),
     backingCanvasOverflow = Math.max(
       0,
       ...Array.from(
-        trayListElement.querySelectorAll(
-          BACKING_CANVAS_SELECTOR,
-        ),
+        trayListElement.querySelectorAll(BACKING_CANVAS_SELECTOR),
       ).map(
-        (item) =>
-          item.getBoundingClientRect().bottom -
-          trayListRect.bottom,
+        (item) => item.getBoundingClientRect().bottom - trayListRect.bottom,
       ),
     );
   return {
@@ -434,17 +373,14 @@ function measureNotificationTraySize(
   };
 }
 function isElementDisplayNone(element) {
-  return (
-    window.getComputedStyle(element).display === "none"
-  );
+  return window.getComputedStyle(element).display === "none";
 }
 function calculateCumulativeElementOpacity(element) {
   let opacityProduct = 1;
   for (
     let opacityElement = element;
     opacityElement != null;
-    opacityElement =
-      opacityElement.parentElement
+    opacityElement = opacityElement.parentElement
   )
     opacityProduct *= Number(
       window.getComputedStyle(opacityElement).opacity || "1",
@@ -479,8 +415,7 @@ var AVATAR_ROOT_SELECTOR,
     NATIVE_SURFACE_SELECTOR = "[data-avatar-overlay-native-surface-id]";
     CHROMIUM_OVERFLOW_SELECTOR =
       "[data-avatar-overlay-chromium-overflow='true']";
-    BACKING_CANVAS_SELECTOR =
-      "[data-avatar-overlay-backing-canvas='true']";
+    BACKING_CANVAS_SELECTOR = "[data-avatar-overlay-backing-canvas='true']";
     NATIVE_MEASUREMENT_SELECTORS = [
       AVATAR_ROOT_SELECTOR,
       NOTIFICATION_TRAY_SELECTOR,
@@ -508,10 +443,7 @@ export function AvatarOverlayNativePage() {
       );
   };
   pointerResetEffectDeps = [hasNoSelectedAvatar];
-  useEffect(
-    notifyPointerNonInteractive,
-    pointerResetEffectDeps,
-  );
+  useEffect(notifyPointerNonInteractive, pointerResetEffectDeps);
   let notifyEmptyComposition, compositionResetEffectDeps;
   if (
     ((notifyEmptyComposition = () => {
@@ -524,10 +456,7 @@ export function AvatarOverlayNativePage() {
         );
     }),
     (compositionResetEffectDeps = [hasNoSelectedAvatar]),
-    useLayoutEffect(
-      notifyEmptyComposition,
-      compositionResetEffectDeps,
-    ),
+    useLayoutEffect(notifyEmptyComposition, compositionResetEffectDeps),
     selectedAvatar == null)
   )
     return null;
@@ -541,18 +470,18 @@ export function AvatarOverlayNativePage() {
     selectedAvatarId,
   });
 }
-function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId }) {
-  let appScope =
-      currentAppInitialSharedCompatSlotUpperKLowerO(
-        currentAppInitialSharedCompatSlotUpperE,
-      ),
+function AvatarOverlayNativePageController({
+  selectedAvatar,
+  selectedAvatarId,
+}) {
+  let appScope = currentAppInitialSharedCompatSlotUpperKLowerO(
+      currentAppInitialSharedCompatSlotUpperE,
+    ),
     intl = currentAppInitialSharedFunction0375(),
-    isDarkAppearance =
-      worktreeNewThreadQueryCompatSlotUpperELowerS() === true,
+    isDarkAppearance = worktreeNewThreadQueryCompatSlotUpperELowerS() === true,
     compactWaitingRequestsEnabled =
       currentAppInitialSharedMember0781("451951815"),
-    isQuickChatEnabled =
-      currentAppInitialSharedMember0781("665486075"),
+    isQuickChatEnabled = currentAppInitialSharedMember0781("665486075"),
     isGlobalDictationOrbEnabled =
       currentAppInitialSharedMember0781("1380537759"),
     isDictationStreamingEnabled = currentAppInitialSharedMember0781(
@@ -571,8 +500,7 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
         taskFilter: "current",
         limit: 20,
       }),
-    stopCloudTaskMutation =
-      worktreeNewThreadQueryCompatSlotUpperXLowerD(),
+    stopCloudTaskMutation = worktreeNewThreadQueryCompatSlotUpperXLowerD(),
     submitCloudFollowUpMutation =
       worktreeNewThreadQueryCompatSlotLowerRLowerF(),
     activitySessions = buildAvatarOverlayPillActivityItems({
@@ -591,10 +519,8 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
     latestTurnItems: (conversationId) =>
       conversationId == null
         ? undefined
-        : appScope.get(
-            currentAppInitialSharedMember0547,
-            conversationId,
-          )?.items,
+        : appScope.get(currentAppInitialSharedMember0547, conversationId)
+            ?.items,
     mascotWidthPx,
     productLogger: productLoggerValue,
     globalDictationOrbEnabled: isGlobalDictationOrbEnabled,
@@ -621,8 +547,7 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
       notificationForOuterControl,
       outerControlAction,
     ) => {
-      let outerControlTarget =
-        notificationForOuterControl.controlTarget;
+      let outerControlTarget = notificationForOuterControl.controlTarget;
       switch (outerControlAction.type) {
         case "close-follow-up":
         case "open-follow-up":
@@ -634,8 +559,7 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
               await currentAppInitialSharedFunction0895(
                 "interrupt-conversation",
                 {
-                  conversationId:
-                    outerControlTarget.conversationId,
+                  conversationId: outerControlTarget.conversationId,
                   initiatedBy: "user",
                 },
               );
@@ -649,20 +573,14 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
               return;
           }
         case "submit-follow-up": {
-          let followUpPrompt =
-            outerControlAction.prompt.trim();
-          if (
-            outerControlTarget == null ||
-            followUpPrompt.length === 0
-          )
-            return;
+          let followUpPrompt = outerControlAction.prompt.trim();
+          if (outerControlTarget == null || followUpPrompt.length === 0) return;
           switch (outerControlTarget.type) {
             case "app-server-conversation":
               await currentAppInitialSharedFunction0895(
                 "send-follow-up-message",
                 {
-                  conversationId:
-                    outerControlTarget.conversationId,
+                  conversationId: outerControlTarget.conversationId,
                   prompt: followUpPrompt,
                   serviceTier:
                     await worktreeNewThreadOrchestratorCompatSlotUpperRLowerC(
@@ -693,18 +611,13 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
         }
       }
     },
-    onRunNotificationAction: (
-      notificationForAction,
-      notificationAction,
-    ) => {
-      let waitingRequest =
-        notificationForAction.waitingRequest;
+    onRunNotificationAction: (notificationForAction, notificationAction) => {
+      let waitingRequest = notificationForAction.waitingRequest;
       if (
         notificationForAction.localConversationId != null &&
         notificationAction != null
       ) {
-        let localConversationId =
-          notificationForAction.localConversationId;
+        let localConversationId = notificationForAction.localConversationId;
         switch (notificationAction.intent) {
           case "command-approval":
             if (
@@ -818,8 +731,8 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
                             currentAppInitialSharedMember0210,
                             localConversationId,
                           ) ?? "local",
-                          notificationAction
-                            .planStartCollaborationMode?.settings.model ?? null,
+                          notificationAction.planStartCollaborationMode
+                            ?.settings.model ?? null,
                         ),
                     },
                   ),
@@ -834,8 +747,7 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
             break;
         }
       }
-      (notificationAction != null &&
-        notificationAction.intent !== "open") ||
+      (notificationAction != null && notificationAction.intent !== "open") ||
         (notificationForAction.action != null &&
           currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
             "open-in-main-window",
@@ -844,12 +756,8 @@ function AvatarOverlayNativePageController({ selectedAvatar, selectedAvatarId })
             },
           ));
     },
-    onSubmitQuestionOption: (
-      questionNotification,
-      selectedQuestionOption,
-    ) => {
-      let questionWaitingRequest =
-        questionNotification.waitingRequest;
+    onSubmitQuestionOption: (questionNotification, selectedQuestionOption) => {
+      let questionWaitingRequest = questionNotification.waitingRequest;
       questionNotification.localConversationId == null ||
         questionWaitingRequest?.kind !== "question" ||
         currentAppInitialSharedFunction0895("reply-with-user-input-response", {
@@ -904,15 +812,13 @@ function AvatarOverlayNativePageContent({
   onSubmitQuestionOption,
   onSubmitQuickChat,
 }) {
-  let contentAppScope =
-      currentAppInitialSharedCompatSlotUpperKLowerO(
-        currentAppInitialSharedCompatSlotUpperE,
-      ),
+  let contentAppScope = currentAppInitialSharedCompatSlotUpperKLowerO(
+      currentAppInitialSharedCompatSlotUpperE,
+    ),
     hideResizeHandle = currentAppInitialSharedCompatSlotLowerQLowerO(
       avatarOverlayResizeButtonHiddenSignal,
     ),
-    realtimeVoiceActive =
-      INACTIVE_DICTATION_STATE.phase !== "inactive" && true;
+    realtimeVoiceActive = INACTIVE_DICTATION_STATE.phase !== "inactive" && true;
   currentAppInitialSharedCompatSlotUpperGLowerO(
     currentAppInitialSharedMember0547,
     undefined,
@@ -922,51 +828,31 @@ function AvatarOverlayNativePageContent({
       hostId: undefined,
     }),
     contentIntl = currentAppInitialSharedFunction0375(),
-    [nativeLayout, setNativeLayout] =
-      useState(DEFAULT_NATIVE_LAYOUT),
-    [nativeMaterialAttached, setNativeMaterialAttached] =
-      useState(false),
-    [activityPillsVisible, setActivityPillsVisible] =
-      useState(true),
-    [notificationTrayOpen, setNotificationTrayOpen] =
-      useState(false),
-    [quickChatEditorActive, setQuickChatEditorActive] =
-      useState(false),
-    [quickChatSurfaceVisible, setQuickChatSurfaceVisible] =
-      useState(false),
-    [quickChatSurfaceHovered, setQuickChatSurfaceHovered] =
-      useState(false),
-    [pointerSurfaceId, setPointerSurfaceId] =
-      useState(null),
-    [quickChatDraft, setQuickChatDraft] =
-      useState(""),
-    [quickChatResetRevision, setQuickChatResetRevision] =
-      useState(0),
-    [notificationFollowUp, setNotificationFollowUp] =
-      useState(null),
-    [expandedNotificationIds, setExpandedNotificationIds] =
-      useState([]),
-    [notificationRowHeights, setNotificationRowHeights] =
-      useState({}),
-    [activityStackScrollOffset, setActivityStackScrollOffset] =
-      useState(0),
-    [mascotResizeActive, setMascotResizeActive] =
-      useState(false),
-    [mascotDragState, setMascotDragState] =
-      useState(null),
-    [mascotResizeHovered, setMascotResizeHovered] =
-      useState(false),
-    [pendingMascotWidthPx, setPendingMascotWidthPx] =
-      useState(null),
+    [nativeLayout, setNativeLayout] = useState(DEFAULT_NATIVE_LAYOUT),
+    [nativeMaterialAttached, setNativeMaterialAttached] = useState(false),
+    [activityPillsVisible, setActivityPillsVisible] = useState(true),
+    [notificationTrayOpen, setNotificationTrayOpen] = useState(false),
+    [quickChatEditorActive, setQuickChatEditorActive] = useState(false),
+    [quickChatSurfaceVisible, setQuickChatSurfaceVisible] = useState(false),
+    [quickChatSurfaceHovered, setQuickChatSurfaceHovered] = useState(false),
+    [pointerSurfaceId, setPointerSurfaceId] = useState(null),
+    [quickChatDraft, setQuickChatDraft] = useState(""),
+    [quickChatResetRevision, setQuickChatResetRevision] = useState(0),
+    [notificationFollowUp, setNotificationFollowUp] = useState(null),
+    [expandedNotificationIds, setExpandedNotificationIds] = useState([]),
+    [notificationRowHeights, setNotificationRowHeights] = useState({}),
+    [activityStackScrollOffset, setActivityStackScrollOffset] = useState(0),
+    [mascotResizeActive, setMascotResizeActive] = useState(false),
+    [mascotDragState, setMascotDragState] = useState(null),
+    [mascotResizeHovered, setMascotResizeHovered] = useState(false),
+    [pendingMascotWidthPx, setPendingMascotWidthPx] = useState(null),
     [dismissedNotificationTurnKeys, setDismissedNotificationTurnKeys] =
       useState(() => new Map()),
-    [nowMs, setNowMs] =
-      useState(() => Date.now()),
-    [firstAwakeNotificationSeed] = useState(
-      () =>
-        firstAwakeNotificationEnabled
-          ? buildFirstAwakeNotificationSeed(selectedAvatar, selectedAvatarId)
-          : null,
+    [nowMs, setNowMs] = useState(() => Date.now()),
+    [firstAwakeNotificationSeed] = useState(() =>
+      firstAwakeNotificationEnabled
+        ? buildFirstAwakeNotificationSeed(selectedAvatar, selectedAvatarId)
+        : null,
     ),
     firstAwakeNotification =
       firstAwakeNotificationSeed == null
@@ -1011,19 +897,17 @@ function AvatarOverlayNativePageContent({
           id,
         }))
       : EMPTY_ACTIVITY_STACK_ITEMS,
-    activityStackPresentation =
-      currentAppInitialSharedCompatSlotUpperULowerI({
-        expanded:
-          nativeMaterialAttached || notificationTrayOpen,
-        items: activityStackItems,
-        scrollOffset: activityStackScrollOffset,
-        viewportRect: {
-          height: ACTIVITY_STACK_VIEWPORT_HEIGHT,
-          left: 0,
-          top: 0,
-          width: 345,
-        },
-      }),
+    activityStackPresentation = currentAppInitialSharedCompatSlotUpperULowerI({
+      expanded: nativeMaterialAttached || notificationTrayOpen,
+      items: activityStackItems,
+      scrollOffset: activityStackScrollOffset,
+      viewportRect: {
+        height: ACTIVITY_STACK_VIEWPORT_HEIGHT,
+        left: 0,
+        top: 0,
+        width: 345,
+      },
+    }),
     hasRunningLocalSession = sessions.some(
       (item) => item.source !== "cloud" && item.status === "running",
     ),
@@ -1036,27 +920,17 @@ function AvatarOverlayNativePageContent({
         quickChatSurfaceVisible ||
         quickChatSurfaceHovered),
     mascotDragRef = useRef(null),
-    mascotResizeRef =
-      useRef(null),
-    mascotResizeMoveFrameRef =
-      useRef(null),
-    mascotResizePendingWidthRef =
-      useRef(null),
-    pendingLayoutMascotWidthRef =
-      useRef(null),
-    layoutSettleTimeoutRef =
-      useRef(null),
-    interactiveRegionRef =
-      useRef(null),
-    lastMeasuredContentSizeRef =
-      useRef(null),
+    mascotResizeRef = useRef(null),
+    mascotResizeMoveFrameRef = useRef(null),
+    mascotResizePendingWidthRef = useRef(null),
+    pendingLayoutMascotWidthRef = useRef(null),
+    layoutSettleTimeoutRef = useRef(null),
+    interactiveRegionRef = useRef(null),
+    lastMeasuredContentSizeRef = useRef(null),
     elementSizeRevisionRef = useRef(0),
-    pendingElementSizeRevisionRef =
-      useRef(null),
-    lastCompositionStateRef =
-      useRef(null),
-    loggedOpenEventRef =
-      useRef(false),
+    pendingElementSizeRevisionRef = useRef(null),
+    lastCompositionStateRef = useRef(null),
+    loggedOpenEventRef = useRef(false),
     logOverlayAction = useCallback(
       (
         analyticsAction,
@@ -1093,13 +967,11 @@ function AvatarOverlayNativePageContent({
       FIRST_AWAKE_NOTIFICATION_STORAGE_KEY,
       [],
     );
-    seenAvatarIds.includes(
-      firstAwakeNotificationSeed.avatarId,
-    ) ||
-      currentAppInitialSharedFunction0034(FIRST_AWAKE_NOTIFICATION_STORAGE_KEY, [
-        ...seenAvatarIds,
-        firstAwakeNotificationSeed.avatarId,
-      ]);
+    seenAvatarIds.includes(firstAwakeNotificationSeed.avatarId) ||
+      currentAppInitialSharedFunction0034(
+        FIRST_AWAKE_NOTIFICATION_STORAGE_KEY,
+        [...seenAvatarIds, firstAwakeNotificationSeed.avatarId],
+      );
   }, [firstAwakeNotificationSeed]);
   useEffect(() => {
     loggedOpenEventRef.current ||
@@ -1113,8 +985,7 @@ function AvatarOverlayNativePageContent({
   useFloatingWindowPointerInteractivity({
     interactiveRegionRef: interactiveRegionRef,
     isPaused: () =>
-      mascotDragRef.current != null ||
-      mascotResizeRef.current != null,
+      mascotDragRef.current != null || mascotResizeRef.current != null,
     onInteractiveChange: (isInteractive) => {
       currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
         "avatar-overlay-pointer-interaction-changed",
@@ -1125,237 +996,196 @@ function AvatarOverlayNativePageContent({
     },
     regionElementSelectors: FLOATING_WINDOW_INTERACTIVE_SELECTORS,
   });
-  let dispatchCompositionState =
-      useCallback(() => {
-        let contentMeasurements = measureNativeOverlayContent(
+  let dispatchCompositionState = useCallback(() => {
+      let contentMeasurements = measureNativeOverlayContent(
+        interactiveRegionRef.current,
+        {
+          includeInertSurfaces: true,
+        },
+      );
+      if (contentMeasurements == null) return;
+      let stackLayoutHeights = measureActivityStackLayoutHeights(
           interactiveRegionRef.current,
-          {
-            includeInertSurfaces: true,
-          },
-        );
-        if (contentMeasurements == null) return;
-        let stackLayoutHeights = measureActivityStackLayoutHeights(
+        ),
+        surfacePresentations = buildNativeSurfacePresentations({
+          activityStackPresentation: activityStackPresentation,
+          isNotificationStackExpanded:
+            nativeMaterialAttached || notificationTrayOpen,
+          measuredSurfaces: collectNativeSurfaceMeasurements(
             interactiveRegionRef.current,
+            currentAppInitialSharedCompatSlotLowerZLowerI,
+            {
+              includeInert: true,
+            },
           ),
-          surfacePresentations = buildNativeSurfacePresentations({
+          policies: currentAppInitialSharedCompatSlotUpperVLowerI({
             activityStackPresentation: activityStackPresentation,
             isNotificationStackExpanded:
               nativeMaterialAttached || notificationTrayOpen,
-            measuredSurfaces: collectNativeSurfaceMeasurements(
-              interactiveRegionRef.current,
-              currentAppInitialSharedCompatSlotLowerZLowerI,
-              {
-                includeInert: true,
-              },
-            ),
-            policies: currentAppInitialSharedCompatSlotUpperVLowerI({
-              activityStackPresentation: activityStackPresentation,
-              isNotificationStackExpanded:
-                nativeMaterialAttached ||
-                notificationTrayOpen,
-              isQuickChatVisible: quickChatVisible,
-              showsNotificationBadge: activityCopies.length > 0,
-            }),
+            isQuickChatVisible: quickChatVisible,
+            showsNotificationBadge: activityCopies.length > 0,
           }),
-          nextRowHeights = {
-            ...notificationRowHeights,
-            ...Object.fromEntries(
-              activityStackPresentation.slots.flatMap(
-                ({ itemId, slotId }) => {
-                  let matchingSlotSurface =
-                    surfacePresentations.find(
-                      (item) => item.id === slotId,
-                    );
-                  return matchingSlotSurface == null
-                    ? []
-                    : [
-                        [
-                          itemId,
-                          Math.ceil(
-                            matchingSlotSurface.rect.height,
-                          ),
-                        ],
-                      ];
-                },
-              ),
-            ),
-          };
-        if (
-          !isEqual(
-            notificationRowHeights,
-            nextRowHeights,
-          ) &&
-          (setNotificationRowHeights(nextRowHeights),
-          nativeMaterialAttached)
-        )
-          return;
-        let measurements = {
-            activityStackBackingLayoutHeight:
-              stackLayoutHeights.backing,
-            activityStackItems: activityStackItems,
-            activityStackPresentation: activityStackPresentation,
-            activityStackScrollOffset: activityStackScrollOffset,
-            activityStackVisibleLayoutHeight:
-              stackLayoutHeights.visible,
-            mascot: contentMeasurements.mascot,
-            surfaces: surfacePresentations,
-            tray: contentMeasurements.tray,
-          },
-          nextCompositionState = {
-            contentState: {
-              activities: activityCopies,
-              activityStackBackingLayoutHeight:
-                measurements.activityStackBackingLayoutHeight,
-              activityStackItems:
-                measurements.activityStackItems,
-              activityStackPresentation:
-                measurements.activityStackPresentation,
-              activityStackScrollOffset:
-                measurements.activityStackScrollOffset,
-              activityStackVisibleLayoutHeight:
-                measurements.activityStackVisibleLayoutHeight,
-              expandedNotificationIds: expandedNotificationIds,
-              isDarkAppearance,
-              isNotificationStackExpanded: notificationTrayOpen,
-              isQuickChatVisible: quickChatVisible,
-              layout: nativeLayout,
-              locale: contentIntl.locale,
-              notificationFollowUp: notificationFollowUp,
-              pointerSurfaceId: pointerSurfaceId,
-              quickChatDictation: {
-                cleanupEnabled: dictationCleanupEnabled,
-                streamingEnabled: dictationStreamingEnabled,
-                supportState: dictationSupportState,
-              },
-              quickChatDraft: quickChatDraft,
-              quickChatResetRevision: quickChatResetRevision,
-            },
-            measurements: measurements,
-          };
-        isEqual(
-          nextCompositionState,
-          lastCompositionStateRef.current,
-        ) ||
-          ((lastCompositionStateRef.current =
-            nextCompositionState),
-          currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
-            "avatar-overlay-composition-changed",
-            {
-              state: nextCompositionState,
-            },
-          ));
-      }, [
-        activityCopies,
-        notificationRowHeights,
-        activityStackItems,
-        activityStackPresentation,
-        activityStackScrollOffset,
-        expandedNotificationIds,
-        contentIntl.locale,
-        isDarkAppearance,
-        notificationTrayOpen,
-        quickChatVisible,
-        nativeLayout,
-        nativeMaterialAttached,
-        notificationFollowUp,
-        pointerSurfaceId,
-        dictationCleanupEnabled,
-        dictationStreamingEnabled,
-        dictationSupportState,
-        quickChatDraft,
-        quickChatResetRevision,
-      ]),
-    measureAndDispatchElementSize =
-      useCallback(() => {
-        if (
-          mascotResizeRef.current != null ||
-          pendingLayoutMascotWidthRef.current != null
-        )
-          return;
-        let currentContentSize = measureNativeOverlayContent(
-          interactiveRegionRef.current,
-        );
-        if (currentContentSize == null) return;
-        if (
-          hasSameNativeOverlayElementSize(
-            lastMeasuredContentSizeRef.current,
-            currentContentSize,
-          )
-        ) {
-          if (
-            nativeMaterialAttached &&
-            pendingElementSizeRevisionRef.current != null
-          )
-            return;
-          nativeMaterialAttached ||
-            (pendingElementSizeRevisionRef.current = null);
-          dispatchCompositionState();
-          return;
-        }
-        let isFirstMeasurement =
-          lastMeasuredContentSizeRef.current == null;
-        lastMeasuredContentSizeRef.current =
-          currentContentSize;
-        let nextElementSizeRevision =
-          nativeMaterialAttached && !isFirstMeasurement
-            ? elementSizeRevisionRef.current + 1
-            : null;
-        nextElementSizeRevision != null &&
-          (elementSizeRevisionRef.current =
-            nextElementSizeRevision);
-        pendingElementSizeRevisionRef.current =
-          nextElementSizeRevision;
-        currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
-          "avatar-overlay-element-size-changed",
-          {
-            ...(nextElementSizeRevision == null
-              ? {}
-              : {
-                  elementSizeRevision: nextElementSizeRevision,
-                }),
-            mascot: currentContentSize.mascot,
-            tray: currentContentSize.tray,
-          },
-        );
-        isFirstMeasurement && dispatchCompositionState();
-      }, [nativeMaterialAttached, dispatchCompositionState]),
-    clearLayoutSettleTimeout =
-      useCallback(() => {
-        layoutSettleTimeoutRef.current != null &&
-          (window.clearTimeout(layoutSettleTimeoutRef.current),
-          (layoutSettleTimeoutRef.current = null));
-      }, []),
-    cancelMascotResizeMoveFrame =
-      useCallback(() => {
-        mascotResizeMoveFrameRef.current != null &&
-          (window.cancelAnimationFrame(mascotResizeMoveFrameRef.current),
-          (mascotResizeMoveFrameRef.current = null));
-        mascotResizePendingWidthRef.current = null;
-      }, []),
-    scheduleMascotResizeMove = useCallback(
-      (resizeWidthPx) => {
-        mascotResizePendingWidthRef.current = resizeWidthPx;
-        mascotResizeMoveFrameRef.current ??= window.requestAnimationFrame(
-          () => {
-            mascotResizeMoveFrameRef.current = null;
-            let widthForResizeMove =
-              mascotResizePendingWidthRef.current;
-            mascotResizePendingWidthRef.current = null;
-            !(
-              widthForResizeMove == null ||
-              mascotResizeRef.current == null
-            ) &&
-              currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
-                "avatar-overlay-mascot-resize-move",
-                {
-                  width: widthForResizeMove,
-                },
+        }),
+        nextRowHeights = {
+          ...notificationRowHeights,
+          ...Object.fromEntries(
+            activityStackPresentation.slots.flatMap(({ itemId, slotId }) => {
+              let matchingSlotSurface = surfacePresentations.find(
+                (item) => item.id === slotId,
               );
+              return matchingSlotSurface == null
+                ? []
+                : [[itemId, Math.ceil(matchingSlotSurface.rect.height)]];
+            }),
+          ),
+        };
+      if (
+        !isEqual(notificationRowHeights, nextRowHeights) &&
+        (setNotificationRowHeights(nextRowHeights), nativeMaterialAttached)
+      )
+        return;
+      let measurements = {
+          activityStackBackingLayoutHeight: stackLayoutHeights.backing,
+          activityStackItems: activityStackItems,
+          activityStackPresentation: activityStackPresentation,
+          activityStackScrollOffset: activityStackScrollOffset,
+          activityStackVisibleLayoutHeight: stackLayoutHeights.visible,
+          mascot: contentMeasurements.mascot,
+          surfaces: surfacePresentations,
+          tray: contentMeasurements.tray,
+        },
+        nextCompositionState = {
+          contentState: {
+            activities: activityCopies,
+            activityStackBackingLayoutHeight:
+              measurements.activityStackBackingLayoutHeight,
+            activityStackItems: measurements.activityStackItems,
+            activityStackPresentation: measurements.activityStackPresentation,
+            activityStackScrollOffset: measurements.activityStackScrollOffset,
+            activityStackVisibleLayoutHeight:
+              measurements.activityStackVisibleLayoutHeight,
+            expandedNotificationIds: expandedNotificationIds,
+            isDarkAppearance,
+            isNotificationStackExpanded: notificationTrayOpen,
+            isQuickChatVisible: quickChatVisible,
+            layout: nativeLayout,
+            locale: contentIntl.locale,
+            notificationFollowUp: notificationFollowUp,
+            pointerSurfaceId: pointerSurfaceId,
+            quickChatDictation: {
+              cleanupEnabled: dictationCleanupEnabled,
+              streamingEnabled: dictationStreamingEnabled,
+              supportState: dictationSupportState,
+            },
+            quickChatDraft: quickChatDraft,
+            quickChatResetRevision: quickChatResetRevision,
           },
-        );
-      },
-      [],
-    ),
+          measurements: measurements,
+        };
+      isEqual(nextCompositionState, lastCompositionStateRef.current) ||
+        ((lastCompositionStateRef.current = nextCompositionState),
+        currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
+          "avatar-overlay-composition-changed",
+          {
+            state: nextCompositionState,
+          },
+        ));
+    }, [
+      activityCopies,
+      notificationRowHeights,
+      activityStackItems,
+      activityStackPresentation,
+      activityStackScrollOffset,
+      expandedNotificationIds,
+      contentIntl.locale,
+      isDarkAppearance,
+      notificationTrayOpen,
+      quickChatVisible,
+      nativeLayout,
+      nativeMaterialAttached,
+      notificationFollowUp,
+      pointerSurfaceId,
+      dictationCleanupEnabled,
+      dictationStreamingEnabled,
+      dictationSupportState,
+      quickChatDraft,
+      quickChatResetRevision,
+    ]),
+    measureAndDispatchElementSize = useCallback(() => {
+      if (
+        mascotResizeRef.current != null ||
+        pendingLayoutMascotWidthRef.current != null
+      )
+        return;
+      let currentContentSize = measureNativeOverlayContent(
+        interactiveRegionRef.current,
+      );
+      if (currentContentSize == null) return;
+      if (
+        hasSameNativeOverlayElementSize(
+          lastMeasuredContentSizeRef.current,
+          currentContentSize,
+        )
+      ) {
+        if (
+          nativeMaterialAttached &&
+          pendingElementSizeRevisionRef.current != null
+        )
+          return;
+        nativeMaterialAttached ||
+          (pendingElementSizeRevisionRef.current = null);
+        dispatchCompositionState();
+        return;
+      }
+      let isFirstMeasurement = lastMeasuredContentSizeRef.current == null;
+      lastMeasuredContentSizeRef.current = currentContentSize;
+      let nextElementSizeRevision =
+        nativeMaterialAttached && !isFirstMeasurement
+          ? elementSizeRevisionRef.current + 1
+          : null;
+      nextElementSizeRevision != null &&
+        (elementSizeRevisionRef.current = nextElementSizeRevision);
+      pendingElementSizeRevisionRef.current = nextElementSizeRevision;
+      currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
+        "avatar-overlay-element-size-changed",
+        {
+          ...(nextElementSizeRevision == null
+            ? {}
+            : {
+                elementSizeRevision: nextElementSizeRevision,
+              }),
+          mascot: currentContentSize.mascot,
+          tray: currentContentSize.tray,
+        },
+      );
+      isFirstMeasurement && dispatchCompositionState();
+    }, [nativeMaterialAttached, dispatchCompositionState]),
+    clearLayoutSettleTimeout = useCallback(() => {
+      layoutSettleTimeoutRef.current != null &&
+        (window.clearTimeout(layoutSettleTimeoutRef.current),
+        (layoutSettleTimeoutRef.current = null));
+    }, []),
+    cancelMascotResizeMoveFrame = useCallback(() => {
+      mascotResizeMoveFrameRef.current != null &&
+        (window.cancelAnimationFrame(mascotResizeMoveFrameRef.current),
+        (mascotResizeMoveFrameRef.current = null));
+      mascotResizePendingWidthRef.current = null;
+    }, []),
+    scheduleMascotResizeMove = useCallback((resizeWidthPx) => {
+      mascotResizePendingWidthRef.current = resizeWidthPx;
+      mascotResizeMoveFrameRef.current ??= window.requestAnimationFrame(() => {
+        mascotResizeMoveFrameRef.current = null;
+        let widthForResizeMove = mascotResizePendingWidthRef.current;
+        mascotResizePendingWidthRef.current = null;
+        !(widthForResizeMove == null || mascotResizeRef.current == null) &&
+          currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
+            "avatar-overlay-mascot-resize-move",
+            {
+              width: widthForResizeMove,
+            },
+          );
+      });
+    }, []),
     settleMascotResizeWidth = useCallback(
       (settledWidthPx) => {
         pendingLayoutMascotWidthRef.current = settledWidthPx;
@@ -1372,51 +1202,31 @@ function AvatarOverlayNativePageContent({
     readCurrentMascotWidth = useCallback(
       () =>
         measureVisibleElementSize(
-          interactiveRegionRef.current?.querySelector(
-            ".codex-avatar-root",
-          ) ?? null,
+          interactiveRegionRef.current?.querySelector(".codex-avatar-root") ??
+            null,
         )?.width ??
         mascotWidthPx ??
         112,
       [mascotWidthPx],
     ),
-    releaseMascotResizePointer = useCallback(
-      (pointerId, captureElement) => {
-        let resizePointerState =
-          mascotResizeRef.current;
-        resizePointerState == null ||
-          resizePointerState.pointerId !==
-            pointerId ||
-          ((mascotResizeRef.current = null),
-          setMascotResizeActive(false),
-          captureElement?.hasPointerCapture?.(
-            pointerId,
-          ) &&
-            captureElement.releasePointerCapture?.(
-              pointerId,
-            ));
-      },
-      [],
-    ),
+    releaseMascotResizePointer = useCallback((pointerId, captureElement) => {
+      let resizePointerState = mascotResizeRef.current;
+      resizePointerState == null ||
+        resizePointerState.pointerId !== pointerId ||
+        ((mascotResizeRef.current = null),
+        setMascotResizeActive(false),
+        captureElement?.hasPointerCapture?.(pointerId) &&
+          captureElement.releasePointerCapture?.(pointerId));
+    }, []),
     finishMascotResize = useCallback(
       (pointerId, screenX) => {
-        let resizeState =
-          mascotResizeRef.current;
-        if (
-          resizeState == null ||
-          resizeState.pointerId !==
-            pointerId
-        )
-          return;
+        let resizeState = mascotResizeRef.current;
+        if (resizeState == null || resizeState.pointerId !== pointerId) return;
         let finalMascotWidth =
           screenX == null
             ? resizeState.currentWidthPx
-            : getClampedMascotResizeWidth(
-                resizeState,
-                screenX,
-              );
-        resizeState.currentWidthPx =
-          finalMascotWidth;
+            : getClampedMascotResizeWidth(resizeState, screenX);
+        resizeState.currentWidthPx = finalMascotWidth;
         cancelMascotResizeMoveFrame();
         setPendingMascotWidthPx(finalMascotWidth);
         onMascotWidthChange(finalMascotWidth);
@@ -1434,83 +1244,66 @@ function AvatarOverlayNativePageContent({
         settleMascotResizeWidth,
       ],
     ),
-    finishMascotDrag =
-      useCallback(
-        (event, shouldTreatAsClick) => {
-          let dragState =
-            mascotDragRef.current;
-          if (
-            dragState == null ||
-            dragState.pointerId !== event.pointerId
-          )
-            return;
-          mascotDragRef.current = null;
-          setMascotDragState(null);
-          let pointerCaptureElement = null;
-          event.currentTarget instanceof HTMLElement
-            ? (pointerCaptureElement = event.currentTarget)
-            : event.target instanceof HTMLElement &&
-              (pointerCaptureElement = event.target);
-          pointerCaptureElement?.hasPointerCapture?.(
-            event.pointerId,
-          ) &&
-            pointerCaptureElement.releasePointerCapture?.(
-              event.pointerId,
-            );
-          let { hasMoved, releaseSample, velocity } =
-            resolveAvatarOverlayPointerDragRelease(
-              dragState,
-              shouldTreatAsClick
-                ? createAvatarOverlayPointerSample(event)
-                : undefined,
-              !shouldTreatAsClick &&
-                dragState.usesOrbPhysics,
-            );
-          shouldTreatAsClick &&
-            !hasMoved &&
-            (logOverlayAction(
-              currentAppInitialSharedMember0342.CODEX_AVATAR_OVERLAY_ACTION_MASCOT_CLICKED,
-              currentAppInitialSharedMember0654.CODEX_AVATAR_OVERLAY_SOURCE_MASCOT,
-            ),
-            onMascotClick());
-          hasMoved &&
-            !dragState.hasMoved &&
-            releaseSample != null &&
-            currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
-              "avatar-overlay-drag-move",
-              {
-                pointerScreenX: releaseSample.screenX,
-                pointerScreenY: releaseSample.screenY,
-              },
-            );
-          let dragEndSample =
-            releaseSample ?? dragState;
+    finishMascotDrag = useCallback(
+      (event, shouldTreatAsClick) => {
+        let dragState = mascotDragRef.current;
+        if (dragState == null || dragState.pointerId !== event.pointerId)
+          return;
+        mascotDragRef.current = null;
+        setMascotDragState(null);
+        let pointerCaptureElement = null;
+        event.currentTarget instanceof HTMLElement
+          ? (pointerCaptureElement = event.currentTarget)
+          : event.target instanceof HTMLElement &&
+            (pointerCaptureElement = event.target);
+        pointerCaptureElement?.hasPointerCapture?.(event.pointerId) &&
+          pointerCaptureElement.releasePointerCapture?.(event.pointerId);
+        let { hasMoved, releaseSample, velocity } =
+          resolveAvatarOverlayPointerDragRelease(
+            dragState,
+            shouldTreatAsClick
+              ? createAvatarOverlayPointerSample(event)
+              : undefined,
+            !shouldTreatAsClick && dragState.usesOrbPhysics,
+          );
+        shouldTreatAsClick &&
+          !hasMoved &&
+          (logOverlayAction(
+            currentAppInitialSharedMember0342.CODEX_AVATAR_OVERLAY_ACTION_MASCOT_CLICKED,
+            currentAppInitialSharedMember0654.CODEX_AVATAR_OVERLAY_SOURCE_MASCOT,
+          ),
+          onMascotClick());
+        hasMoved &&
+          !dragState.hasMoved &&
+          releaseSample != null &&
           currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
-            "avatar-overlay-drag-end",
+            "avatar-overlay-drag-move",
             {
-              pointerScreenX: dragEndSample.screenX,
-              pointerScreenY: dragEndSample.screenY,
+              pointerScreenX: releaseSample.screenX,
+              pointerScreenY: releaseSample.screenY,
             },
           );
-          dragState.usesOrbPhysics &&
-            velocity != null &&
-            currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
-              "avatar-overlay-drag-release",
-              {
-                shouldBounce: true,
-                velocityX: velocity.x * 3,
-                velocityY: velocity.y * 3,
-              },
-            );
-        },
-        [
-          realtimeVoiceActive,
-          onMascotClick,
-          undefined,
-          null,
-          logOverlayAction,
-        ],
-      ),
+        let dragEndSample = releaseSample ?? dragState;
+        currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
+          "avatar-overlay-drag-end",
+          {
+            pointerScreenX: dragEndSample.screenX,
+            pointerScreenY: dragEndSample.screenY,
+          },
+        );
+        dragState.usesOrbPhysics &&
+          velocity != null &&
+          currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
+            "avatar-overlay-drag-release",
+            {
+              shouldBounce: true,
+              velocityX: velocity.x * 3,
+              velocityY: velocity.y * 3,
+            },
+          );
+      },
+      [realtimeVoiceActive, onMascotClick, undefined, null, logOverlayAction],
+    ),
     handleMascotPointerDown = (event) => {
       if (
         event.button !== 0 ||
@@ -1549,31 +1342,21 @@ function AvatarOverlayNativePageContent({
         activeDragState.pointerId !== event.pointerId
       )
         return;
-      let pointerSample =
-        createAvatarOverlayPointerSample(event);
-      activeDragState.samples =
-        trimRecentAvatarOverlayPointerSamples([
-          ...activeDragState.samples,
-          pointerSample,
-        ]);
-      let deltaX =
-          pointerSample.screenX -
-          activeDragState.screenX,
-        deltaY =
-          pointerSample.screenY -
-          activeDragState.screenY;
-      (Math.abs(deltaX) < 4 &&
-        Math.abs(deltaY) < 4) ||
+      let pointerSample = createAvatarOverlayPointerSample(event);
+      activeDragState.samples = trimRecentAvatarOverlayPointerSamples([
+        ...activeDragState.samples,
+        pointerSample,
+      ]);
+      let deltaX = pointerSample.screenX - activeDragState.screenX,
+        deltaY = pointerSample.screenY - activeDragState.screenY;
+      (Math.abs(deltaX) < 4 && Math.abs(deltaY) < 4) ||
         ((activeDragState.hasMoved = true),
-        (activeDragState.screenX =
-          pointerSample.screenX),
-        (activeDragState.screenY =
-          pointerSample.screenY),
+        (activeDragState.screenX = pointerSample.screenX),
+        (activeDragState.screenY = pointerSample.screenY),
         activeDragState.usesOrbPhysics ||
           (deltaX >= 4
             ? setMascotDragState("running-right")
-            : deltaX <= -4 &&
-              setMascotDragState("running-left")),
+            : deltaX <= -4 && setMascotDragState("running-left")),
         currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
           "avatar-overlay-drag-move",
           {
@@ -1607,8 +1390,7 @@ function AvatarOverlayNativePageContent({
       );
     },
     handleMascotResizePointerMove = (event) => {
-      let activeResizeState =
-        mascotResizeRef.current;
+      let activeResizeState = mascotResizeRef.current;
       if (
         activeResizeState == null ||
         activeResizeState.pointerId !== event.pointerId
@@ -1620,8 +1402,7 @@ function AvatarOverlayNativePageContent({
         activeResizeState,
         event.screenX,
       );
-      activeResizeState.currentWidthPx =
-        nextMascotWidth;
+      activeResizeState.currentWidthPx = nextMascotWidth;
       setPendingMascotWidthPx(nextMascotWidth);
       scheduleMascotResizeMove(nextMascotWidth);
     },
@@ -1638,31 +1419,18 @@ function AvatarOverlayNativePageContent({
       finishMascotResize(event.pointerId);
       releaseMascotResizePointer(event.pointerId);
     },
-    runNotificationAction = (
-      notificationForRun,
-      actionForRun,
-    ) => {
+    runNotificationAction = (notificationForRun, actionForRun) => {
       notificationForRun.action != null &&
-        (actionForRun == null ||
-          actionForRun.intent === "open") &&
+        (actionForRun == null || actionForRun.intent === "open") &&
         logOverlayAction(
           currentAppInitialSharedMember0342.CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_OPENED,
           currentAppInitialSharedMember0654.CODEX_AVATAR_OVERLAY_SOURCE_NOTIFICATION_ROW,
           notificationForRun,
         );
-      onRunNotificationAction(
-        notificationForRun,
-        actionForRun,
-      );
+      onRunNotificationAction(notificationForRun, actionForRun);
     },
-    submitQuestionOption = (
-      notificationForQuestion,
-      questionOption,
-    ) => {
-      onSubmitQuestionOption(
-        notificationForQuestion,
-        questionOption,
-      );
+    submitQuestionOption = (notificationForQuestion, questionOption) => {
+      onSubmitQuestionOption(notificationForQuestion, questionOption);
     },
     dismissNotification = (notificationToDismiss) => {
       logOverlayAction(
@@ -1672,14 +1440,11 @@ function AvatarOverlayNativePageContent({
       );
       setDismissedNotificationTurnKeys((previousDismissedTurnKeys) => {
         if (
-          previousDismissedTurnKeys.get(
-            notificationToDismiss.id,
-          ) === notificationToDismiss.turnKey
+          previousDismissedTurnKeys.get(notificationToDismiss.id) ===
+          notificationToDismiss.turnKey
         )
           return previousDismissedTurnKeys;
-        let nextDismissedTurnKeys = new Map(
-          previousDismissedTurnKeys,
-        );
+        let nextDismissedTurnKeys = new Map(previousDismissedTurnKeys);
         return (
           nextDismissedTurnKeys.set(
             notificationToDismiss.id,
@@ -1706,23 +1471,13 @@ function AvatarOverlayNativePageContent({
       );
       setNotificationTrayOpen(true);
     },
-    setNotificationExpanded = (
-      notificationId,
-      isExpanded,
-    ) => {
+    setNotificationExpanded = (notificationId, isExpanded) => {
       setExpandedNotificationIds((previousExpandedIds) =>
         isExpanded
-          ? previousExpandedIds.includes(
-              notificationId,
-            )
+          ? previousExpandedIds.includes(notificationId)
             ? previousExpandedIds
-            : [
-                ...previousExpandedIds,
-                notificationId,
-              ]
-          : previousExpandedIds.filter(
-              (item) => item !== notificationId,
-            ),
+            : [...previousExpandedIds, notificationId]
+          : previousExpandedIds.filter((item) => item !== notificationId),
       );
     },
     activateNotification = (notificationId) => {
@@ -1737,48 +1492,35 @@ function AvatarOverlayNativePageContent({
         runNotificationAction(activatedNotification);
       }
     },
-    submitQuickChat = async (
-      prompt,
-    ) => {
+    submitQuickChat = async (prompt) => {
       if (!quickChatEnabled) return;
-      let trimmedQuickChatPrompt =
-        prompt.trim();
+      let trimmedQuickChatPrompt = prompt.trim();
       trimmedQuickChatPrompt.length !== 0 &&
         (await onSubmitQuickChat(trimmedQuickChatPrompt),
         setQuickChatDraft(""),
-        setQuickChatResetRevision(
-          (revision) =>
-            revision + 1,
-        ));
+        setQuickChatResetRevision((revision) => revision + 1));
     },
-    setKeyboardInteractive = useCallback(
-      (isInteractive) => {
-        currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
-          "avatar-overlay-keyboard-interaction-changed",
-          {
-            isInteractive: isInteractive,
-          },
-        );
-      },
-      [],
-    ),
+    setKeyboardInteractive = useCallback((isInteractive) => {
+      currentAppInitialSharedCompatSlotLowerV.dispatchMessage(
+        "avatar-overlay-keyboard-interaction-changed",
+        {
+          isInteractive: isInteractive,
+        },
+      );
+    }, []),
     runNotificationControl = (
       notificationForControl,
       controlAction,
       updateKeyboardState = true,
     ) => {
-      let controlTarget =
-        notificationForControl.controlTarget;
+      let controlTarget = notificationForControl.controlTarget;
       switch (controlAction.type) {
         case "close-follow-up":
           setNotificationFollowUp(null);
           updateKeyboardState && setKeyboardInteractive(false);
           return;
         case "open-follow-up":
-          if (
-            !notificationForControl.isLoading ||
-            controlTarget == null
-          )
+          if (!notificationForControl.isLoading || controlTarget == null)
             return;
           setNotificationFollowUp({
             notificationId: notificationForControl.id,
@@ -1791,10 +1533,7 @@ function AvatarOverlayNativePageContent({
           if (controlTarget == null) return;
           setNotificationFollowUp(null);
           Promise.resolve(
-            onRunNotificationControl(
-              notificationForControl,
-              controlAction,
-            ),
+            onRunNotificationControl(notificationForControl, controlAction),
           ).catch(() => {
             contentAppScope
               .get(worktreeNewThreadQueryCompatSlotLowerGLowerP)
@@ -1809,18 +1548,12 @@ function AvatarOverlayNativePageContent({
           });
           return;
         case "submit-follow-up": {
-          let trimmedFollowUpPrompt =
-            controlAction.prompt.trim();
-          if (
-            controlTarget == null ||
-            trimmedFollowUpPrompt.length === 0
-          )
+          let trimmedFollowUpPrompt = controlAction.prompt.trim();
+          if (controlTarget == null || trimmedFollowUpPrompt.length === 0)
             return;
           setNotificationFollowUp((followUpState) =>
-            followUpState?.notificationId ===
-              notificationForControl.id &&
-            followUpState.turnKey ===
-              notificationForControl.turnKey
+            followUpState?.notificationId === notificationForControl.id &&
+            followUpState.turnKey === notificationForControl.turnKey
               ? {
                   ...followUpState,
                   submissionStatus: "submitting",
@@ -1834,29 +1567,23 @@ function AvatarOverlayNativePageContent({
             }),
           )
             .then(() => {
-              setNotificationFollowUp(
-                (followUpState) =>
-                  followUpState?.notificationId ===
-                    notificationForControl.id &&
-                  followUpState.turnKey ===
-                    notificationForControl.turnKey
-                    ? null
-                    : followUpState,
+              setNotificationFollowUp((followUpState) =>
+                followUpState?.notificationId === notificationForControl.id &&
+                followUpState.turnKey === notificationForControl.turnKey
+                  ? null
+                  : followUpState,
               );
               updateKeyboardState && setKeyboardInteractive(false);
             })
             .catch(() => {
-              setNotificationFollowUp(
-                (followUpState) =>
-                  followUpState?.notificationId ===
-                    notificationForControl.id &&
-                  followUpState.turnKey ===
-                    notificationForControl.turnKey
-                    ? {
-                        ...followUpState,
-                        submissionStatus: "error",
-                      }
-                    : followUpState,
+              setNotificationFollowUp((followUpState) =>
+                followUpState?.notificationId === notificationForControl.id &&
+                followUpState.turnKey === notificationForControl.turnKey
+                  ? {
+                      ...followUpState,
+                      submissionStatus: "error",
+                    }
+                  : followUpState,
               );
             });
           return;
@@ -1884,10 +1611,7 @@ function AvatarOverlayNativePageContent({
             setNotificationTrayOpen(true);
             return;
           case "notification-expansion-changed":
-            setNotificationExpanded(
-              action.notificationId,
-              action.isExpanded,
-            );
+            setNotificationExpanded(action.notificationId, action.isExpanded);
             return;
           case "quick-chat-active-changed":
             return;
@@ -1909,8 +1633,7 @@ function AvatarOverlayNativePageContent({
                 contentHeight: activityStackPresentation.contentHeight,
                 deltaY: action.deltaY,
                 scrollOffset: previousScrollOffset,
-                viewportHeight:
-                  activityStackPresentation.viewportRect.height,
+                viewportHeight: activityStackPresentation.viewportRect.height,
               }),
             );
             return;
@@ -1944,10 +1667,7 @@ function AvatarOverlayNativePageContent({
               ({ id }) => id === action.notificationId,
             );
             notificationForActionRun != null &&
-              runNotificationAction(
-                notificationForActionRun,
-                action.action,
-              );
+              runNotificationAction(notificationForActionRun, action.action);
             return;
           }
           case "submit-question-option": {
@@ -1980,8 +1700,7 @@ function AvatarOverlayNativePageContent({
     ),
     useLayoutEffect(() => {
       let shouldForceResizeCursor =
-        (!hideResizeHandle && mascotResizeHovered) ||
-        mascotResizeActive;
+        (!hideResizeHandle && mascotResizeHovered) || mascotResizeActive;
       return (
         document.documentElement.classList.toggle(
           FORCE_RESIZE_CURSOR_CLASS_NAME,
@@ -2019,51 +1738,32 @@ function AvatarOverlayNativePageContent({
         };
       return (
         window.addEventListener("pointerup", handleWindowPointerUp),
-        window.addEventListener(
-          "pointercancel",
-          handleWindowPointerCancel,
-        ),
+        window.addEventListener("pointercancel", handleWindowPointerCancel),
         () => {
-          window.removeEventListener(
-            "pointerup",
-            handleWindowPointerUp,
-          );
+          window.removeEventListener("pointerup", handleWindowPointerUp);
           window.removeEventListener(
             "pointercancel",
             handleWindowPointerCancel,
           );
         }
       );
-    }, [
-      finishMascotResize,
-      finishMascotDrag,
-      releaseMascotResizePointer,
-    ]),
+    }, [finishMascotResize, finishMascotDrag, releaseMascotResizePointer]),
     useLayoutEffect(() => {
       let resizeAnimationFrame = null,
         scheduleResizeMeasurement = () => {
-          resizeAnimationFrame ??= window.requestAnimationFrame(
-            () => {
-              resizeAnimationFrame = null;
-              measureAndDispatchElementSize();
-            },
-          );
+          resizeAnimationFrame ??= window.requestAnimationFrame(() => {
+            resizeAnimationFrame = null;
+            measureAndDispatchElementSize();
+          });
         },
-        resizeObserver = new ResizeObserver(
-          scheduleResizeMeasurement,
-        ),
-        overlayRootElement =
-          interactiveRegionRef.current;
+        resizeObserver = new ResizeObserver(scheduleResizeMeasurement),
+        overlayRootElement = interactiveRegionRef.current;
       if (overlayRootElement != null) {
-        resizeObserver.observe(
-          overlayRootElement,
-        );
+        resizeObserver.observe(overlayRootElement);
         for (let observedElement of queryNativeOverlayMeasurementTargets(
           overlayRootElement,
         ))
-          resizeObserver.observe(
-            observedElement,
-          );
+          resizeObserver.observe(observedElement);
       }
       return (
         window.addEventListener("resize", scheduleResizeMeasurement),
@@ -2097,21 +1797,16 @@ function AvatarOverlayNativePageContent({
           nextNotificationExpiresAtMs - Date.now(),
         ),
         notificationExpiryTimeout = window.setTimeout(() => {
-          setNowMs((previousNowMs) =>
-            Math.max(Date.now(), previousNowMs + 1),
-          );
+          setNowMs((previousNowMs) => Math.max(Date.now(), previousNowMs + 1));
         }, notificationExpiryDelayMs);
       return () => {
         window.clearTimeout(notificationExpiryTimeout);
       };
     }, [nextNotificationExpiresAtMs]),
     useEffect(() => {
-      if (!hasRunningLocalSession && !hasRunningCloudSession)
-        return;
+      if (!hasRunningLocalSession && !hasRunningCloudSession) return;
       let sessionRefreshTimeout = window.setTimeout(() => {
-        setNowMs((previousNowMs) =>
-          Math.max(Date.now(), previousNowMs + 1),
-        );
+        setNowMs((previousNowMs) => Math.max(Date.now(), previousNowMs + 1));
         hasRunningLocalSession && onRefreshLocalSessions();
         hasRunningCloudSession && onRefreshRemoteSessions();
       }, ACTIVITY_REFRESH_INTERVAL_MS);
@@ -2161,8 +1856,7 @@ function AvatarOverlayNativePageContent({
           ? {
               ...nativeLayout.mascot,
               height: Math.ceil(
-                pendingMascotWidthPx /
-                  AVATAR_OVERLAY_MASCOT_ASPECT_RATIO,
+                pendingMascotWidthPx / AVATAR_OVERLAY_MASCOT_ASPECT_RATIO,
               ),
               width: pendingMascotWidthPx,
             }
@@ -2205,7 +1899,8 @@ function AvatarOverlayNativePageContent({
       onActivateNotification: activateNotification,
       onHideActivityPills: () => {
         if (
-          (setKeyboardInteractive(false), notificationTrayOpen && notifications.length > 1)
+          (setKeyboardInteractive(false),
+          notificationTrayOpen && notifications.length > 1)
         ) {
           logOverlayAction(
             currentAppInitialSharedMember0342.CODEX_AVATAR_OVERLAY_ACTION_NOTIFICATION_TRAY_CLOSED,
@@ -2242,9 +1937,7 @@ function AvatarOverlayNativePageContent({
       onDismissNotification: dismissNotification,
       notificationFollowUp: notificationFollowUp,
       onQuickChatEditorActiveChange: setKeyboardInteractive,
-      onQuickChatDraftChange: quickChatEnabled
-        ? setQuickChatDraft
-        : undefined,
+      onQuickChatDraftChange: quickChatEnabled ? setQuickChatDraft : undefined,
       onQuickChatVisibilityChange: quickChatEnabled
         ? setQuickChatEditorActive
         : undefined,
@@ -2264,24 +1957,13 @@ function AvatarOverlayNativePageContent({
     })
   );
 }
-function getClampedMascotResizeWidth(
-  resizeState,
-  screenX,
-) {
+function getClampedMascotResizeWidth(resizeState, screenX) {
   return clampAvatarOverlayMascotWidth(
-    resizeState.startWidthPx +
-      screenX -
-      resizeState.startScreenX,
+    resizeState.startWidthPx + screenX - resizeState.startScreenX,
   );
 }
-function buildFirstAwakeNotificationSeed(
-  selectedAvatar,
-  selectedAvatarId,
-) {
-  return isSelectedCustomAvatarMissing(
-    selectedAvatar,
-    selectedAvatarId,
-  ) ||
+function buildFirstAwakeNotificationSeed(selectedAvatar, selectedAvatarId) {
+  return isSelectedCustomAvatarMissing(selectedAvatar, selectedAvatarId) ||
     createSignalGetterAtom(FIRST_AWAKE_NOTIFICATION_STORAGE_KEY, []).includes(
       selectedAvatar.id,
     )
@@ -2292,45 +1974,26 @@ function buildFirstAwakeNotificationSeed(
         startedAtMs: Date.now(),
       };
 }
-function getAvatarOverlayNativePageKey(
-  selectedAvatar,
-  selectedAvatarId,
-) {
-  return isSelectedCustomAvatarMissing(
-    selectedAvatar,
-    selectedAvatarId,
-  )
+function getAvatarOverlayNativePageKey(selectedAvatar, selectedAvatarId) {
+  return isSelectedCustomAvatarMissing(selectedAvatar, selectedAvatarId)
     ? "pending-custom-avatar"
     : "ready";
 }
-function hasSameNativeOverlayElementSize(
-  previousSize,
-  nextSize,
-) {
+function hasSameNativeOverlayElementSize(previousSize, nextSize) {
   return (
     previousSize != null &&
-    previousSize.mascot.width ===
-      nextSize.mascot.width &&
-    previousSize.mascot.height ===
-      nextSize.mascot.height &&
-    hasSameMeasuredSize(
-      previousSize.tray,
-      nextSize.tray,
-    )
+    previousSize.mascot.width === nextSize.mascot.width &&
+    previousSize.mascot.height === nextSize.mascot.height &&
+    hasSameMeasuredSize(previousSize.tray, nextSize.tray)
   );
 }
-function hasSameMeasuredSize(
-  previousTraySize,
-  nextTraySize,
-) {
+function hasSameMeasuredSize(previousTraySize, nextTraySize) {
   return (
     previousTraySize === nextTraySize ||
     (previousTraySize != null &&
       nextTraySize != null &&
-      previousTraySize.width ===
-        nextTraySize.width &&
-      previousTraySize.height ===
-        nextTraySize.height)
+      previousTraySize.width === nextTraySize.width &&
+      previousTraySize.height === nextTraySize.height)
   );
 }
 var queryClientRuntimeInit,
@@ -2344,8 +2007,7 @@ var queryClientRuntimeInit,
   FORCE_RESIZE_CURSOR_CLASS_NAME,
   DEFAULT_NATIVE_LAYOUT;
 (() => {
-  queryClientRuntimeInit =
-    currentAppInitialSharedCompatSlotLowerGLowerC();
+  queryClientRuntimeInit = currentAppInitialSharedCompatSlotLowerGLowerC();
   remoteControlRefreshSourceEnum();
   let isEqualRuntime = currentAppInitialSharedCompatSlotUpperJLowerO();
   isEqual =
@@ -2390,7 +2052,8 @@ var queryClientRuntimeInit,
   ACTIVITY_REFRESH_INTERVAL_MS = 15e3;
   ACTIVITY_STACK_VIEWPORT_HEIGHT = 208;
   EMPTY_ACTIVITY_STACK_ITEMS = [];
-  FIRST_AWAKE_NOTIFICATION_STORAGE_KEY = "first-awake-pet-notification-avatar-ids";
+  FIRST_AWAKE_NOTIFICATION_STORAGE_KEY =
+    "first-awake-pet-notification-avatar-ids";
   INACTIVE_DICTATION_STATE = {
     audioStream: null,
     canStart: false,

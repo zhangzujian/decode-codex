@@ -1,0 +1,3 @@
+import { n as e, t } from "./home-announcements-CKPMSIXM.js";
+e();
+export { t as HomeAnnouncements };

@@ -15,10 +15,7 @@ import {
 
 export type WorktreeActivityKind = "worktree" | "setup" | "conversation";
 export type WorktreeActivityStatus =
-  | "running"
-  | "completed"
-  | "skipped"
-  | "failed";
+  "running" | "completed" | "skipped" | "failed";
 
 export interface WorktreeActivity {
   id: string;

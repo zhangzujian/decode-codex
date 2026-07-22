@@ -1,10 +1,7 @@
 // Restored from ref/webview/assets/local-conversation-thread-BwqAGxoz.js
 // Latest-turn follow state reducer and identity helpers.
 export type LatestTurnFollowMode =
-  | "prework_follow"
-  | "prework_watch"
-  | "static"
-  | "user_follow";
+  "prework_follow" | "prework_watch" | "static" | "user_follow";
 
 export type LatestTurnPhase = "final_answer" | "idle" | "prework";
 

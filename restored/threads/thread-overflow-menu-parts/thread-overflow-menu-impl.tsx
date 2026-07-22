@@ -211,8 +211,7 @@ export function ThreadOverflowMenu({
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   const hostId = useScopedValue(conversationHostIdSignal, conversationId) as
-    | string
-    | null;
+    string | null;
   useScopedValue(threadSourceSignal, conversationId);
 
   const { isPinned, togglePin } = useThreadPinControls(conversationId, {

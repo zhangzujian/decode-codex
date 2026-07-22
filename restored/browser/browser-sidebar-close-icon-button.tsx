@@ -6,11 +6,10 @@ import { Button } from "../ui/button";
 
 type ButtonProps = ComponentProps<typeof Button>;
 
-export interface BrowserSidebarCloseIconButtonProps
-  extends Omit<
-    ButtonProps,
-    "aria-label" | "children" | "color" | "size" | "uniform"
-  > {
+export interface BrowserSidebarCloseIconButtonProps extends Omit<
+  ButtonProps,
+  "aria-label" | "children" | "color" | "size" | "uniform"
+> {
   iconClassName?: string;
   label: string;
   size?: ButtonProps["size"];

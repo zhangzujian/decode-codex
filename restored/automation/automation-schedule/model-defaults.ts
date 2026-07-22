@@ -16,8 +16,7 @@ export const AUTOMATION_REASONING_EFFORT_OPTIONS = [
 ] as const;
 
 export type AutomationReasoningEffort =
-  | "none"
-  | (typeof AUTOMATION_REASONING_EFFORT_OPTIONS)[number];
+  "none" | (typeof AUTOMATION_REASONING_EFFORT_OPTIONS)[number];
 
 export function isAutomationReasoningEffort(
   value: unknown,

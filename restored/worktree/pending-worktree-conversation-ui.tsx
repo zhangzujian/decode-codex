@@ -91,10 +91,7 @@ type PendingWorktreeConversationProps = {
 };
 
 type PendingWorktreeActivityStatus =
-  | "completed"
-  | "failed"
-  | "running"
-  | "skipped";
+  "completed" | "failed" | "running" | "skipped";
 
 type PendingWorktreeActivity = {
   id: string;

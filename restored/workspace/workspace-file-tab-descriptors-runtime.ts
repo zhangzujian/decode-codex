@@ -16,7 +16,9 @@ interface CollectOptions {
   excludeTab?: { panelId: unknown; tabId: string };
 }
 
-function tabControllerForPanel(panelId: AppShellPanelId): AppShellTabController {
+function tabControllerForPanel(
+  panelId: AppShellPanelId,
+): AppShellTabController {
   return panelId === "bottom"
     ? bottomAppShellTabController
     : rightAppShellTabController;

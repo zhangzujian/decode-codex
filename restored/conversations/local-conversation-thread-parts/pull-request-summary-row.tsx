@@ -74,12 +74,7 @@ export type PullRequestSummaryRowProps = {
   onOpenSidePanel: (params: OpenPullRequestSidePanelParams) => void;
   pullRequestStatus: PullRequestStatusForSummary;
   visualState:
-    | "draft"
-    | "failing"
-    | "in_progress"
-    | "merged"
-    | "ready"
-    | "successful";
+    "draft" | "failing" | "in_progress" | "merged" | "ready" | "successful";
 };
 
 export function PullRequestSummaryRow({

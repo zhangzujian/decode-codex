@@ -175,132 +175,223 @@ function AvatarOverlaySurface({
   onNotificationReplyEditorActiveChange,
   onOpenNotificationReply,
   onSubmitNotificationReply,
-  onOpenNotificationTray
+  onOpenNotificationTray,
 }) {
   let avatarOverlayBinding188 = currentAppInitialSharedFunction0375(),
     avatarOverlayBinding189 = worktreeNewThreadQueryCompatSlotUpperQLowerM(),
-    avatarOverlayBinding190 = getAvatarOverlayActivityStatusConfig(notifications[0]),
+    avatarOverlayBinding190 = getAvatarOverlayActivityStatusConfig(
+      notifications[0],
+    ),
     avatarOverlayBinding191 = notifications.length > 0,
     avatarOverlayBinding192 = restrictedSurface?.phase ?? "inactive",
-    avatarOverlayBinding193 = getAvatarOverlayPillVisibilityMode(restrictedSurface?.isSessionActive ?? false, avatarOverlayBinding192 !== "inactive"),
+    avatarOverlayBinding193 = getAvatarOverlayPillVisibilityMode(
+      restrictedSurface?.isSessionActive ?? false,
+      avatarOverlayBinding192 !== "inactive",
+    ),
     avatarOverlayBinding194 = avatarOverlayBinding193 === "voice-orb",
     avatarOverlayBinding195 = avatarOverlayBinding193 === "hidden",
-    avatarOverlayBinding196 = avatarOverlayBinding193 === "pet" ? mascotLayout : {
-      ...mascotLayout,
-      height: 121,
-      width: 112
-    },
+    avatarOverlayBinding196 =
+      avatarOverlayBinding193 === "pet"
+        ? mascotLayout
+        : {
+            ...mascotLayout,
+            height: 121,
+            width: 112,
+          },
     avatarOverlayBinding197 = avatarOverlayBinding191 && isNotificationTrayOpen;
   restrictedSurface?.controlsHovered;
   let avatarOverlayBinding198 = restrictedSurface?.caption ?? null,
-    avatarOverlayBinding199 = avatarOverlayBinding197 || avatarOverlayBinding198 != null,
-    avatarOverlayBinding200 = avatarOverlayBinding191 || avatarOverlayBinding199,
+    avatarOverlayBinding199 =
+      avatarOverlayBinding197 || avatarOverlayBinding198 != null,
+    avatarOverlayBinding200 =
+      avatarOverlayBinding191 || avatarOverlayBinding199,
     avatarOverlayBinding201 = layout.placement.startsWith("top"),
     avatarOverlayBinding202 = layout.placement.endsWith("end"),
-    avatarOverlayBinding203 = notifications.length > AvatarOverlaySharedModule.avatarOverlayBinding5,
-    avatarOverlayBinding204 = layout.tray == null ? undefined : Math.max(0, layout.tray.height),
+    avatarOverlayBinding203 =
+      notifications.length > AvatarOverlaySharedModule.avatarOverlayBinding5,
+    avatarOverlayBinding204 =
+      layout.tray == null ? undefined : Math.max(0, layout.tray.height),
     avatarOverlayBinding205 = `${avatarOverlayBinding201 ? "bottom" : "top"} ${avatarOverlayBinding202 ? "right" : "left"}`,
     avatarOverlayBinding206;
-  avatarOverlayBinding197 ? avatarOverlayBinding206 = {
-    ariaLabel: avatarOverlayBinding188.formatMessage(AvatarOverlaySharedModule.avatarOverlayBinding4.collapseNotificationTray),
-    backgroundColor: "var(--color-token-bg-primary)",
-    content: React.createElement(worktreeNewThreadQueryCompatSlotLowerFLowerH, {
-      className: "icon-xs opacity-80"
-    }),
-    foregroundColor: "var(--color-token-text-secondary)",
-    isIconOnly: true,
-    onClick: onCloseNotificationTray
-  } : avatarOverlayBinding191 && (avatarOverlayBinding206 = {
-    ariaLabel: avatarOverlayBinding188.formatMessage({
-      id: "avatarOverlay.toggleNotificationTray",
-      defaultMessage: "Open activity tray, {count, plural, one {# item} other {# items}}",
-      description: "Accessible label for the floating avatar activity count button"
-    }, {
-      count: notifications.length
-    }),
-    backgroundColor: avatarOverlayBinding190.badgeBackgroundColor,
-    content: notifications.length,
-    foregroundColor: avatarOverlayBinding190.badgeForegroundColor,
-    onClick: onOpenNotificationTray
-  });
+  avatarOverlayBinding197
+    ? (avatarOverlayBinding206 = {
+        ariaLabel: avatarOverlayBinding188.formatMessage(
+          AvatarOverlaySharedModule.avatarOverlayBinding4
+            .collapseNotificationTray,
+        ),
+        backgroundColor: "var(--color-token-bg-primary)",
+        content: React.createElement(
+          worktreeNewThreadQueryCompatSlotLowerFLowerH,
+          {
+            className: "icon-xs opacity-80",
+          },
+        ),
+        foregroundColor: "var(--color-token-text-secondary)",
+        isIconOnly: true,
+        onClick: onCloseNotificationTray,
+      })
+    : avatarOverlayBinding191 &&
+      (avatarOverlayBinding206 = {
+        ariaLabel: avatarOverlayBinding188.formatMessage(
+          {
+            id: "avatarOverlay.toggleNotificationTray",
+            defaultMessage:
+              "Open activity tray, {count, plural, one {# item} other {# items}}",
+            description:
+              "Accessible label for the floating avatar activity count button",
+          },
+          {
+            count: notifications.length,
+          },
+        ),
+        backgroundColor: avatarOverlayBinding190.badgeBackgroundColor,
+        content: notifications.length,
+        foregroundColor: avatarOverlayBinding190.badgeForegroundColor,
+        onClick: onOpenNotificationTray,
+      });
   let avatarOverlayBinding207 = React.createElement(AvatarMascotButton, {
-    ariaLabel: avatarOverlayBinding188.formatMessage(AvatarOverlaySharedModule.avatarOverlayBinding4.mascotLabel, {
-      petName: avatar.displayName
-    }),
+    ariaLabel: avatarOverlayBinding188.formatMessage(
+      AvatarOverlaySharedModule.avatarOverlayBinding4.mascotLabel,
+      {
+        petName: avatar.displayName,
+      },
+    ),
     assetRef: avatar.assetRef,
     spritesheetUrl: avatar.spritesheetUrl,
     notificationBadge: avatarOverlayBinding206,
-    resizeHandle: mascotResizeHandle == null ? undefined : {
-      ariaLabel: avatarOverlayBinding188.formatMessage(AvatarOverlaySharedModule.avatarOverlayBinding4.resizeMascot),
-      ...mascotResizeHandle
-    },
+    resizeHandle:
+      mascotResizeHandle == null
+        ? undefined
+        : {
+            ariaLabel: avatarOverlayBinding188.formatMessage(
+              AvatarOverlaySharedModule.avatarOverlayBinding4.resizeMascot,
+            ),
+            ...mascotResizeHandle,
+          },
     state: avatarOverlayBinding190.mascotState,
     style: mascotStyle,
-    transientState: mascotDragState
+    transientState: mascotDragState,
   });
-  return <main className="relative h-screen w-screen overflow-hidden bg-transparent">
-      <section ref={interactiveRegionRef} data-avatar-overlay-content-frame="true" className="relative h-full w-full cursor-grab active:cursor-grabbing" onLostPointerCapture={onLostPointerCapture} onPointerCancel={onPointerCancel} onPointerDown={onPointerDown} onPointerMove={avatarOverlayOperand3} onPointerUp={onPointerUp}>
-        {avatarOverlayBinding200 ? <div aria-hidden={avatarOverlayBinding199 ? undefined : true} data-avatar-overlay-hit-region="notification-tray" inert={!avatarOverlayBinding199} className={worktreeNewThreadQueryCompatSlotLowerMLowerH("absolute flex cursor-interaction text-sm text-token-foreground", avatarOverlayBinding201 ? "items-end" : "items-start")} style={{
-        height: layout.tray?.height,
-        left: layout.tray?.left,
-        pointerEvents: avatarOverlayBinding199 ? undefined : "none",
-        top: layout.tray?.top,
-        visibility: layout.tray == null ? "hidden" : undefined,
-        width: layout.tray?.width
-      }}>
-            {React.createElement(worktreeNewThreadQueryCompatSlotLowerILowerH.div, {
-          animate: {
-            opacity: avatarOverlayBinding199 ? 1 : 0,
-            scale: avatarOverlayBinding199 || avatarOverlayBinding189 ? 1 : 0.97,
-            y: avatarOverlayBinding199 || avatarOverlayBinding189 ? 0 : 8
+  return (
+    <main className="relative h-screen w-screen overflow-hidden bg-transparent">
+      <section
+        ref={interactiveRegionRef}
+        data-avatar-overlay-content-frame="true"
+        className="relative h-full w-full cursor-grab active:cursor-grabbing"
+        onLostPointerCapture={onLostPointerCapture}
+        onPointerCancel={onPointerCancel}
+        onPointerDown={onPointerDown}
+        onPointerMove={avatarOverlayOperand3}
+        onPointerUp={onPointerUp}
+      >
+        {avatarOverlayBinding200 ? (
+          <div
+            aria-hidden={avatarOverlayBinding199 ? undefined : true}
+            data-avatar-overlay-hit-region="notification-tray"
+            inert={!avatarOverlayBinding199}
+            className={worktreeNewThreadQueryCompatSlotLowerMLowerH(
+              "absolute flex cursor-interaction text-sm text-token-foreground",
+              avatarOverlayBinding201 ? "items-end" : "items-start",
+            )}
+            style={{
+              height: layout.tray?.height,
+              left: layout.tray?.left,
+              pointerEvents: avatarOverlayBinding199 ? undefined : "none",
+              top: layout.tray?.top,
+              visibility: layout.tray == null ? "hidden" : undefined,
+              width: layout.tray?.width,
+            }}
+          >
+            {React.createElement(
+              worktreeNewThreadQueryCompatSlotLowerILowerH.div,
+              {
+                animate: {
+                  opacity: avatarOverlayBinding199 ? 1 : 0,
+                  scale:
+                    avatarOverlayBinding199 || avatarOverlayBinding189
+                      ? 1
+                      : 0.97,
+                  y: avatarOverlayBinding199 || avatarOverlayBinding189 ? 0 : 8,
+                },
+                className:
+                  "relative w-full overflow-hidden [corner-shape:var(--codex-corner-shape)]",
+                "data-avatar-overlay-size": "notification-tray",
+                initial: false,
+                style: avatarOverlayBinding203
+                  ? {
+                      maxHeight: avatarOverlayBinding204,
+                      transformOrigin: avatarOverlayBinding205,
+                    }
+                  : {
+                      transformOrigin: avatarOverlayBinding205,
+                    },
+                transition: avatarOverlayBinding189
+                  ? {
+                      duration: 0,
+                    }
+                  : {
+                      damping: 26,
+                      mass: 0.8,
+                      stiffness: 360,
+                      type: "spring",
+                    },
+              },
+              <div
+                className="h-0 overflow-hidden"
+                data-avatar-overlay-size="notification-tray-header"
+              />,
+              <div>
+                {React.createElement(
+                  AvatarOverlayTrayModule.AvatarOverlayNotificationTray,
+                  {
+                    areNotificationsVisible: avatarOverlayBinding197,
+                    isTrayAboveMascot: avatarOverlayBinding201,
+                    isNotificationTrayVisible: avatarOverlayBinding199,
+                    notifications,
+                    prefersReducedMotion: !!avatarOverlayBinding189,
+                    restrictedCaption: avatarOverlayBinding198,
+                    trayMaxHeight: avatarOverlayBinding204,
+                    onDismissNotification,
+                    onRunNotificationAction,
+                    onSubmitQuestionOption,
+                    onNotificationReplyEditorActiveChange,
+                    onOpenNotificationReply,
+                    onSubmitNotificationReply,
+                  },
+                )}
+              </div>,
+            )}
+          </div>
+        ) : null}
+        {React.createElement(
+          worktreeNewThreadOrchestratorCompatSlotUpperULowerG,
+          {
+            items: avatarMenuItems,
           },
-          className: "relative w-full overflow-hidden [corner-shape:var(--codex-corner-shape)]",
-          "data-avatar-overlay-size": "notification-tray",
-          initial: false,
-          style: avatarOverlayBinding203 ? {
-            maxHeight: avatarOverlayBinding204,
-            transformOrigin: avatarOverlayBinding205
-          } : {
-            transformOrigin: avatarOverlayBinding205
-          },
-          transition: avatarOverlayBinding189 ? {
-            duration: 0
-          } : {
-            damping: 26,
-            mass: 0.8,
-            stiffness: 360,
-            type: "spring"
-          }
-        }, <div className="h-0 overflow-hidden" data-avatar-overlay-size="notification-tray-header" />, <div>
-                    {React.createElement(AvatarOverlayTrayModule.AvatarOverlayNotificationTray, {
-            areNotificationsVisible: avatarOverlayBinding197,
-            isTrayAboveMascot: avatarOverlayBinding201,
-            isNotificationTrayVisible: avatarOverlayBinding199,
-            notifications,
-            prefersReducedMotion: !!avatarOverlayBinding189,
-            restrictedCaption: avatarOverlayBinding198,
-            trayMaxHeight: avatarOverlayBinding204,
-            onDismissNotification,
-            onRunNotificationAction,
-            onSubmitQuestionOption,
-            onNotificationReplyEditorActiveChange,
-            onOpenNotificationReply,
-            onSubmitNotificationReply
-          })}
-                  </div>)}
-          </div> : null}
-        {React.createElement(worktreeNewThreadOrchestratorCompatSlotUpperULowerG, {
-        items: avatarMenuItems
-      }, <div data-avatar-overlay-hit-region={avatarOverlayBinding195 ? undefined : "mascot"} className={worktreeNewThreadQueryCompatSlotLowerMLowerH("group absolute duration-[160ms] ease-out [@media(prefers-reduced-motion:reduce)]:transition-none", avatarOverlayBinding195 && "pointer-events-none", isDragging && !avatarOverlayBinding194 ? "scale-95 transition-transform" : "transition-none")} style={{
-        height: avatarOverlayBinding196.height,
-        left: avatarOverlayBinding196.left,
-        top: avatarOverlayBinding196.top,
-        width: avatarOverlayBinding196.width
-      }}>
-                {avatarOverlayBinding207}
-              </div>)}
+          <div
+            data-avatar-overlay-hit-region={
+              avatarOverlayBinding195 ? undefined : "mascot"
+            }
+            className={worktreeNewThreadQueryCompatSlotLowerMLowerH(
+              "group absolute duration-[160ms] ease-out [@media(prefers-reduced-motion:reduce)]:transition-none",
+              avatarOverlayBinding195 && "pointer-events-none",
+              isDragging && !avatarOverlayBinding194
+                ? "scale-95 transition-transform"
+                : "transition-none",
+            )}
+            style={{
+              height: avatarOverlayBinding196.height,
+              left: avatarOverlayBinding196.left,
+              top: avatarOverlayBinding196.top,
+              width: avatarOverlayBinding196.width,
+            }}
+          >
+            {avatarOverlayBinding207}
+          </div>,
+        )}
       </section>
-    </main>;
+    </main>
+  );
 }
 
 export class AvatarOverlaySurfaceModule {

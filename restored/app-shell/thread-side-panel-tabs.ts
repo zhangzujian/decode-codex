@@ -20,8 +20,17 @@ import {
   openReviewTab as openThreadReviewSidePanelTab,
   openReviewTabForConversation as openThreadLastTurnReviewSidePanelTab,
 } from "../review/review-side-panel-tab-commands";
+import { rightPanelExpandedSignal } from "./app-shell-state";
+import { rightAppShellTabController } from "./app-shell-tab-controller";
+import type {
+  AppShellStore,
+  AppShellTabRecord,
+} from "./app-shell-tab-controller/types";
+import { SidePanelTabKind } from "./side-panel-runtime";
 import { transferForkedConversationBrowserTabs as primeBrowserTabTransfers } from "./thread-browser-panel-tabs";
-import { setThreadSidePanelExpanded as toggleThreadSidePanel } from "./thread-side-panel-visibility";
+import { setThreadSidePanelExpanded } from "./thread-side-panel-visibility";
+
+const toggleThreadSidePanel = setThreadSidePanelExpanded;
 
 const THREAD_SIDE_PANEL_TAB = {
   BROWSER: "browser",
@@ -31,6 +40,20 @@ const THREAD_SIDE_PANEL_TAB = {
   SANDBOX: "sandbox",
   TIMELINE: "timeline",
 } as const;
+
+function toggleThreadReviewSidePanelTab(store: AppShellStore): boolean {
+  const activeTab = store.get<AppShellTabRecord | null>(
+    rightAppShellTabController.activeTab$,
+  );
+  if (
+    store.get<boolean>(rightPanelExpandedSignal) &&
+    activeTab?.tabId === SidePanelTabKind.DIFF
+  ) {
+    setThreadSidePanelExpanded(store, false);
+    return true;
+  }
+  return openThreadReviewSidePanelTab(store);
+}
 
 export {
   THREAD_SIDE_PANEL_TAB,
@@ -47,5 +70,6 @@ export {
   openThreadReviewSidePanelTab,
   openThreadTimelineSidePanel,
   primeBrowserTabTransfers,
+  toggleThreadReviewSidePanelTab,
   toggleThreadSidePanel,
 };

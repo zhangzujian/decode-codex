@@ -1,0 +1,3 @@
+import { n as e, t } from "./square-arrow-down-right-hr2kpknY-Bchjy7gt.js";
+t();
+export { e as default };

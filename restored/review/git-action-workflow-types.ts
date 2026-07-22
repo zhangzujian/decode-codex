@@ -5,14 +5,10 @@ export const LOCAL_GIT_ACTION_OPERATION_SOURCE =
   "local_conversation_git_actions";
 
 export type CommitBlockedReason =
-  | "changes-loading"
-  | "changes-unavailable"
-  | "no-changes";
+  "changes-loading" | "changes-unavailable" | "no-changes";
 
 export type PushBlockedReason =
-  | "branch-missing"
-  | "nothing-to-push"
-  | "push-status-loading";
+  "branch-missing" | "nothing-to-push" | "push-status-loading";
 
 export type CreatePullRequestBlockedReason =
   | "branch-missing"
@@ -28,11 +24,7 @@ export type CreatePullRequestBlockedReason =
   | "upstream-missing";
 
 export type GhCliAvailability =
-  | "available"
-  | "loading"
-  | "error"
-  | "missing"
-  | "unauthenticated";
+  "available" | "loading" | "error" | "missing" | "unauthenticated";
 
 export interface PushStatus {
   branch?: string | null;
@@ -43,9 +35,7 @@ export interface PushStatus {
 }
 
 export type GitActionNextStep =
-  | "commit-push-and-create-pr"
-  | "push-and-create-pr"
-  | "create-pr";
+  "commit-push-and-create-pr" | "push-and-create-pr" | "create-pr";
 
 export type GitActionBlockedStep =
   | { kind: "commit"; reason: CommitBlockedReason }

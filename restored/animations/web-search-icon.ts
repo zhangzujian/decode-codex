@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/web-search-icon-DoVLu9dI.js
+// Restored from ref/webview/assets/web-search-icon-DJ-s2C8n.js
 // Lottie animation data restored from the Codex webview bundle.
 export const webSearchIcon = {
   nm: "250410_Search 2",

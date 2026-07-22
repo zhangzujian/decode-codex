@@ -16,11 +16,7 @@ export type SentryUserIdentity = {
   userId?: string | null;
 };
 export type AppUpdateLifecycleState =
-  | "checking"
-  | "downloading"
-  | "idle"
-  | "installing"
-  | "ready";
+  "checking" | "downloading" | "idle" | "installing" | "ready";
 export type AppUpdateRecoveryState = {
   downloadProgressPercent: number | null;
   installProgressPercent: number | null;
@@ -35,8 +31,7 @@ export type ErrorBoundaryFallbackArgs = {
   resetError: () => void;
 };
 export type ErrorBoundaryFallback =
-  | React.ReactNode
-  | ((args: ErrorBoundaryFallbackArgs) => React.ReactNode);
+  React.ReactNode | ((args: ErrorBoundaryFallbackArgs) => React.ReactNode);
 export type ErrorBoundaryProps = React.PropsWithChildren<{
   fallback?: ErrorBoundaryFallback;
   name?: string;

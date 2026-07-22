@@ -6,21 +6,10 @@ export { Fr as ArtifactTabContent } from "../vendor/artifact-tab-content-electro
 export const ARTIFACT_PREVIEW_MAX_BYTES = 40 * 1024 * 1024;
 
 export type ArtifactPreviewKind =
-  | "document"
-  | "notebook"
-  | "pdf"
-  | "slides"
-  | "spreadsheet";
+  "document" | "notebook" | "pdf" | "slides" | "spreadsheet";
 
 export type ArtifactPreviewImportKind =
-  | "csv"
-  | "docx"
-  | "ipynb"
-  | "pdf"
-  | "pptx"
-  | "tex"
-  | "tsv"
-  | "xlsx";
+  "csv" | "docx" | "ipynb" | "pdf" | "pptx" | "tex" | "tsv" | "xlsx";
 
 export type ArtifactTabContentProps = {
   artifactType: ArtifactPreviewKind;

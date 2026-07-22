@@ -6,9 +6,7 @@ import { useAuth } from "../auth/use-auth";
 import { useGlobalState } from "../utils/use-global-state";
 
 export type NuxState =
-  | "2025-09-15-apikey-auth"
-  | "2025-09-15-full-chatgpt-auth"
-  | "none";
+  "2025-09-15-apikey-auth" | "2025-09-15-full-chatgpt-auth" | "none";
 
 export function useNux(): NuxState {
   const { data: viewedNux, isLoading } = useGlobalState(

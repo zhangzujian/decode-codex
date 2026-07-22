@@ -20,10 +20,7 @@ import {
 } from "./automation-destination-icons";
 
 export type AutomationExecutionEnvironmentId =
-  | "local"
-  | "worktree"
-  | "thread"
-  | string;
+  "local" | "worktree" | "thread" | string;
 
 interface ExecutionEnvironmentOption {
   id: AutomationExecutionEnvironmentId;

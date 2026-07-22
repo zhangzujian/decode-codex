@@ -60,11 +60,7 @@ export type SettingsStoreBoundary = {
 };
 
 export type UpdateLifecycleState =
-  | "idle"
-  | "checking"
-  | "downloading"
-  | "ready"
-  | "installing";
+  "idle" | "checking" | "downloading" | "ready" | "installing";
 
 export type RelaunchNotice = {
   deadlineAtMs: number;

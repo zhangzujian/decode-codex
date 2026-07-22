@@ -174,7 +174,9 @@ export function serializeSandboxPartition(sandboxId: unknown): string {
   return `${MCP_SANDBOX_PARTITION_PREFIX}:${String(sandboxId)}`;
 }
 
-export function parseUrlOrigin(value: string | null | undefined): string | null {
+export function parseUrlOrigin(
+  value: string | null | undefined,
+): string | null {
   if (value == null) return null;
   try {
     return new URL(value).origin;

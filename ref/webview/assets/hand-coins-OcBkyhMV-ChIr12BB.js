@@ -1,0 +1,3 @@
+import { n as e, t } from "./hand-coins-OcBkyhMV-oFmEhOU8.js";
+e();
+export { t as default };

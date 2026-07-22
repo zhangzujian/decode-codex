@@ -52,8 +52,7 @@ export type ScopedSignalInitializer<TKey = unknown, TValue = TKey> = (
 ) => TValue;
 
 export type ScopedSignalInitialValue<TKey, TValue> =
-  | TValue
-  | ScopedSignalInitializer<TKey, TValue>;
+  TValue | ScopedSignalInitializer<TKey, TValue>;
 
 export type ScopedSignalFamilyInitializer<TKey, TValue> = (
   key: TKey,

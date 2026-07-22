@@ -83,11 +83,7 @@ export type ComputerUseNativePipeAnalyticsEvent =
   | ({
       approvalPersistence?: "always" | "session";
       approvalResult:
-        | "accepted"
-        | "canceled"
-        | "declined"
-        | "timeout"
-        | "unknown";
+        "accepted" | "canceled" | "declined" | "timeout" | "unknown";
       type: "app-approval-resolved";
     } & ComputerUseToolAnalyticsFields)
   | ({ type: "app-approval-requested" } & ComputerUseToolAnalyticsFields)

@@ -276,15 +276,11 @@ import {
 import { RemoteConversationSummaryModule } from "./summary";
 
 function remoteConversationPageUnit8(remoteConversationPageOperand3) {
-  let {
-      turnId,
-      diff,
-      taskEnvironment
-    } = remoteConversationPageOperand3,
+  let { turnId, diff, taskEnvironment } = remoteConversationPageOperand3,
     remoteConversationPageBinding118 = {
       turnId,
       diff,
-      taskEnvironment
+      taskEnvironment,
     };
   let {
       hasAppliedCodeLocally,
@@ -295,134 +291,211 @@ function remoteConversationPageUnit8(remoteConversationPageOperand3) {
       results,
       setResultsOpen,
       isNonWorkspaceEnvironment,
-      taskEnvironmentLabel
-    } = RemoteConversationSummaryModule.remoteConversationPageUnit6(remoteConversationPageBinding118),
-    remoteConversationPageBinding119 = function (remoteConversationPageOperand29) {
-      let {
-        className
-      } = remoteConversationPageOperand29;
-      return taskEnvironmentLabel ? React.createElement(worktreeNewThreadQueryCompatSlotLowerYLowerP, {
-        tooltipContent: <div className="max-w-[200px]">
+      taskEnvironmentLabel,
+    } = RemoteConversationSummaryModule.remoteConversationPageUnit6(
+      remoteConversationPageBinding118,
+    ),
+    remoteConversationPageBinding119 = function (
+      remoteConversationPageOperand29,
+    ) {
+      let { className } = remoteConversationPageOperand29;
+      return taskEnvironmentLabel
+        ? React.createElement(
+            worktreeNewThreadQueryCompatSlotLowerYLowerP,
+            {
+              tooltipContent: (
+                <div className="max-w-[200px]">
                   {React.createElement(currentAppInitialSharedMember0924, {
-            id: "codex.applyOrRevertBanner.applyMessageDifferentEnvironment.tooltip",
-            defaultMessage: "Changes made in {environment} so may not apply cleanly.",
-            description: "Banner warning the user that the Codex code changes they are viewing were made in a different environment and may not apply cleanly.",
-            values: {
-              environment: <code className="whitespace-nowrap">
-                            {taskEnvironmentLabel}
-                          </code>
-            }
-          })}
+                    id: "codex.applyOrRevertBanner.applyMessageDifferentEnvironment.tooltip",
+                    defaultMessage:
+                      "Changes made in {environment} so may not apply cleanly.",
+                    description:
+                      "Banner warning the user that the Codex code changes they are viewing were made in a different environment and may not apply cleanly.",
+                    values: {
+                      environment: (
+                        <code className="whitespace-nowrap">
+                          {taskEnvironmentLabel}
+                        </code>
+                      ),
+                    },
+                  })}
                 </div>
-      }, React.createElement(RemoteConversationSummaryModule.remoteConversationPageBinding10, {
-        className
-      })) : React.createElement(RemoteConversationSummaryModule.remoteConversationPageBinding10, {
-        className
-      });
+              ),
+            },
+            React.createElement(
+              RemoteConversationSummaryModule.remoteConversationPageBinding10,
+              {
+                className,
+              },
+            ),
+          )
+        : React.createElement(
+            RemoteConversationSummaryModule.remoteConversationPageBinding10,
+            {
+              className,
+            },
+          );
     };
   let remoteConversationPageBinding120 = remoteConversationPageBinding119;
   if (hasAppliedCodeLocally) {
-    let remoteConversationPageBinding314 = isNonWorkspaceEnvironment ? remoteConversationPageBinding120 : CloudTerminalIcon,
-      remoteConversationPageBinding315 = <div className="truncate text-base">
+    let remoteConversationPageBinding314 = isNonWorkspaceEnvironment
+        ? remoteConversationPageBinding120
+        : CloudTerminalIcon,
+      remoteConversationPageBinding315 = (
+        <div className="truncate text-base">
           {React.createElement(currentAppInitialSharedMember0924, {
-          id: "codex.applyOrRevertBanner.revertMessage",
-          defaultMessage: "Revert applied changes?",
-          description: "Banner message for reverting applied changes from Codex Cloud"
-        })}
-        </div>;
-    let remoteConversationPageBinding316 = isNonWorkspaceEnvironment && taskEnvironmentLabel && React.createElement(remoteConversationPageUnit9, {
-      taskEnvironmentName: taskEnvironmentLabel
-    });
-    let remoteConversationPageBinding317 = <div className="flex flex-col gap-0.5">
+            id: "codex.applyOrRevertBanner.revertMessage",
+            defaultMessage: "Revert applied changes?",
+            description:
+              "Banner message for reverting applied changes from Codex Cloud",
+          })}
+        </div>
+      );
+    let remoteConversationPageBinding316 =
+      isNonWorkspaceEnvironment &&
+      taskEnvironmentLabel &&
+      React.createElement(remoteConversationPageUnit9, {
+        taskEnvironmentName: taskEnvironmentLabel,
+      });
+    let remoteConversationPageBinding317 = (
+      <div className="flex flex-col gap-0.5">
         {remoteConversationPageBinding315}
         {remoteConversationPageBinding316}
-      </div>;
-    let remoteConversationPageBinding318 = React.createElement(currentAppInitialSharedMember0924, {
-      id: "codex.applyOrRevertBanner.revert",
-      defaultMessage: "Revert",
-      description: "Label to revert applied code changes from Codex"
-    });
+      </div>
+    );
+    let remoteConversationPageBinding318 = React.createElement(
+      currentAppInitialSharedMember0924,
+      {
+        id: "codex.applyOrRevertBanner.revert",
+        defaultMessage: "Revert",
+        description: "Label to revert applied code changes from Codex",
+      },
+    );
     let remoteConversationPageBinding319 = () => {
       revert();
     };
     let remoteConversationPageBinding320 = isApplying || !canApply,
-      remoteConversationPageBinding321 = React.createElement(currentAppInitialSharedMember0924, {
-        id: "codex.applyOrRevertBanner.reapply",
-        defaultMessage: "Reapply",
-        description: "Label to reapply code changes to Codex"
-      });
+      remoteConversationPageBinding321 = React.createElement(
+        currentAppInitialSharedMember0924,
+        {
+          id: "codex.applyOrRevertBanner.reapply",
+          defaultMessage: "Reapply",
+          description: "Label to reapply code changes to Codex",
+        },
+      );
     let remoteConversationPageBinding322 = () => {
       apply();
     };
     let remoteConversationPageBinding323 = isApplying || !canApply,
-      remoteConversationPageBinding324 = <RemoteConversationShell Icon={remoteConversationPageBinding314} content={remoteConversationPageBinding317} primaryCtaText={remoteConversationPageBinding318} onPrimaryCtaClick={remoteConversationPageBinding319} isPrimaryCtaDisabled={remoteConversationPageBinding320} secondaryCtaText={remoteConversationPageBinding321} onSecondaryCtaClick={remoteConversationPageBinding322} isSecondaryCtaDisabled={remoteConversationPageBinding323} />;
-    let remoteConversationPageBinding325 = React.createElement(remoteConversationPageUnit10, {
-      open: results.open,
-      result: results.result,
-      onOpenChange: setResultsOpen
-    });
+      remoteConversationPageBinding324 = (
+        <RemoteConversationShell
+          Icon={remoteConversationPageBinding314}
+          content={remoteConversationPageBinding317}
+          primaryCtaText={remoteConversationPageBinding318}
+          onPrimaryCtaClick={remoteConversationPageBinding319}
+          isPrimaryCtaDisabled={remoteConversationPageBinding320}
+          secondaryCtaText={remoteConversationPageBinding321}
+          onSecondaryCtaClick={remoteConversationPageBinding322}
+          isSecondaryCtaDisabled={remoteConversationPageBinding323}
+        />
+      );
+    let remoteConversationPageBinding325 = React.createElement(
+      remoteConversationPageUnit10,
+      {
+        open: results.open,
+        result: results.result,
+        onOpenChange: setResultsOpen,
+      },
+    );
     let remoteConversationPageBinding326;
-    return <>
+    return (
+      <>
         {remoteConversationPageBinding324}
         {remoteConversationPageBinding325}
-      </>;
+      </>
+    );
   }
-  let remoteConversationPageBinding121 = isNonWorkspaceEnvironment ? remoteConversationPageBinding120 : CloudTerminalIcon,
-    remoteConversationPageBinding122 = <div className="text-base">
+  let remoteConversationPageBinding121 = isNonWorkspaceEnvironment
+      ? remoteConversationPageBinding120
+      : CloudTerminalIcon,
+    remoteConversationPageBinding122 = (
+      <div className="text-base">
         {React.createElement(currentAppInitialSharedMember0924, {
-        id: "codex.applyOrRevertBanner.applyMessage",
-        defaultMessage: "Apply changes and continue locally?",
-        description: "Banner message for applying changes to Codex locally"
-      })}
-      </div>;
-  let remoteConversationPageBinding123 = isNonWorkspaceEnvironment && taskEnvironmentLabel && React.createElement(remoteConversationPageUnit9, {
-    taskEnvironmentName: taskEnvironmentLabel
-  });
-  let remoteConversationPageBinding124 = <div className="flex flex-col gap-0.5">
+          id: "codex.applyOrRevertBanner.applyMessage",
+          defaultMessage: "Apply changes and continue locally?",
+          description: "Banner message for applying changes to Codex locally",
+        })}
+      </div>
+    );
+  let remoteConversationPageBinding123 =
+    isNonWorkspaceEnvironment &&
+    taskEnvironmentLabel &&
+    React.createElement(remoteConversationPageUnit9, {
+      taskEnvironmentName: taskEnvironmentLabel,
+    });
+  let remoteConversationPageBinding124 = (
+    <div className="flex flex-col gap-0.5">
       {remoteConversationPageBinding122}
       {remoteConversationPageBinding123}
-    </div>;
-  let remoteConversationPageBinding125 = React.createElement(currentAppInitialSharedMember0924, {
-    id: "codex.applyOrRevertBanner.apply",
-    defaultMessage: "Apply",
-    description: "Label to apply code changes from Codex"
-  });
+    </div>
+  );
+  let remoteConversationPageBinding125 = React.createElement(
+    currentAppInitialSharedMember0924,
+    {
+      id: "codex.applyOrRevertBanner.apply",
+      defaultMessage: "Apply",
+      description: "Label to apply code changes from Codex",
+    },
+  );
   let remoteConversationPageBinding126 = () => {
     apply();
   };
   let remoteConversationPageBinding127 = isApplying || !canApply,
-    remoteConversationPageBinding128 = <RemoteConversationShell Icon={remoteConversationPageBinding121} content={remoteConversationPageBinding124} primaryCtaText={remoteConversationPageBinding125} onPrimaryCtaClick={remoteConversationPageBinding126} isPrimaryCtaDisabled={remoteConversationPageBinding127} />;
-  let remoteConversationPageBinding129 = React.createElement(remoteConversationPageUnit10, {
-    open: results.open,
-    result: results.result,
-    onOpenChange: setResultsOpen
-  });
-  return <>
+    remoteConversationPageBinding128 = (
+      <RemoteConversationShell
+        Icon={remoteConversationPageBinding121}
+        content={remoteConversationPageBinding124}
+        primaryCtaText={remoteConversationPageBinding125}
+        onPrimaryCtaClick={remoteConversationPageBinding126}
+        isPrimaryCtaDisabled={remoteConversationPageBinding127}
+      />
+    );
+  let remoteConversationPageBinding129 = React.createElement(
+    remoteConversationPageUnit10,
+    {
+      open: results.open,
+      result: results.result,
+      onOpenChange: setResultsOpen,
+    },
+  );
+  return (
+    <>
       {remoteConversationPageBinding128}
       {remoteConversationPageBinding129}
-    </>;
+    </>
+  );
 }
 function remoteConversationPageUnit9(remoteConversationPageOperand30) {
-  let {
-    taskEnvironmentName
-  } = remoteConversationPageOperand30;
-  return <div className="truncate text-base text-token-editor-warning-foreground">
+  let { taskEnvironmentName } = remoteConversationPageOperand30;
+  return (
+    <div className="truncate text-base text-token-editor-warning-foreground">
       {React.createElement(currentAppInitialSharedMember0924, {
-      id: "codex.applyOrRevertBanner.applyMessageDifferentEnvironment",
-      defaultMessage: "This task was made in {environment} so may not apply cleanly.",
-      description: "Banner warning the user that the Codex code changes they are viewing were made in a different environment and may not apply cleanly.",
-      values: {
-        environment: <code className="whitespace-nowrap">{taskEnvironmentName}</code>
-      }
-    })}
-    </div>;
+        id: "codex.applyOrRevertBanner.applyMessageDifferentEnvironment",
+        defaultMessage:
+          "This task was made in {environment} so may not apply cleanly.",
+        description:
+          "Banner warning the user that the Codex code changes they are viewing were made in a different environment and may not apply cleanly.",
+        values: {
+          environment: (
+            <code className="whitespace-nowrap">{taskEnvironmentName}</code>
+          ),
+        },
+      })}
+    </div>
+  );
 }
 function remoteConversationPageUnit10(remoteConversationPageOperand4) {
-  let {
-      open,
-      onOpenChange,
-      result
-    } = remoteConversationPageOperand4,
+  let { open, onOpenChange, result } = remoteConversationPageOperand4,
     remoteConversationPageBinding132 = currentAppInitialSharedFunction0375(),
     remoteConversationPageBinding133 = result?.appliedPaths ?? [];
   let remoteConversationPageBinding134 = remoteConversationPageBinding133,
@@ -437,111 +510,199 @@ function remoteConversationPageUnit10(remoteConversationPageOperand4) {
     let remoteConversationPageBinding228 = result?.conflictedPaths ?? [],
       remoteConversationPageBinding229 = result?.skippedPaths ?? [],
       remoteConversationPageBinding230 = result?.errorCode === "not-git-repo",
-      remoteConversationPageBinding231 = remoteConversationPageBinding134.length > 0 || remoteConversationPageBinding228.length > 0 || remoteConversationPageBinding229.length > 0;
-    remoteConversationPageBinding136 = worktreeNewThreadQueryCompatSlotLowerWLowerO;
+      remoteConversationPageBinding231 =
+        remoteConversationPageBinding134.length > 0 ||
+        remoteConversationPageBinding228.length > 0 ||
+        remoteConversationPageBinding229.length > 0;
+    remoteConversationPageBinding136 =
+      worktreeNewThreadQueryCompatSlotLowerWLowerO;
     remoteConversationPageBinding139 = open;
     remoteConversationPageBinding140 = onOpenChange;
     remoteConversationPageBinding141 = false;
-    remoteConversationPageBinding135 = worktreeNewThreadQueryCompatSlotUnderscoreLowerA;
-    remoteConversationPageBinding137 = React.createElement(worktreeNewThreadQueryCompatSlotLowerBLowerA, null, React.createElement(worktreeNewThreadQueryCompatSlotLowerYLowerA, {
-      title: React.createElement(currentAppInitialSharedMember0924, {
-        id: "codex.applyResultsDialog.title",
-        defaultMessage: "Apply results",
-        description: "Title for dialog showing apply patch results"
-      })
-    }));
-    remoteConversationPageBinding138 = remoteConversationPageBinding231 ? React.createElement(worktreeNewThreadQueryCompatSlotLowerBLowerA, {
-      className: "flex max-h-64 flex-col gap-3 overflow-y-auto pr-1"
-    }, remoteConversationPageBinding134.length > 0 && <div className="flex flex-col gap-1">
-                  <div className="font-medium">
-                    {React.createElement(currentAppInitialSharedMember0924, {
-          id: "codex.applyResultsDialog.applied",
-          defaultMessage: "Applied cleanly ({count})",
-          description: "Heading for applied paths",
-          values: {
-            count: remoteConversationPageBinding134.length
-          }
-        })}
-                  </div>
-                  <ul>
-                    {remoteConversationPageBinding134.map(remoteConversationPageUnit13)}
-                  </ul>
-                </div>, remoteConversationPageBinding228.length > 0 && <div className="flex flex-col gap-1">
-                  <div className="font-medium text-token-charts-red">
-                    {remoteConversationPageBinding132.formatMessage({
-          id: "codex.applyResultsDialog.conflicted",
-          defaultMessage: "Conflicted ({count})",
-          description: "Heading for conflicted paths"
-        }, {
-          count: remoteConversationPageBinding228.length
-        })}
-                  </div>
-                  <ul>
-                    {remoteConversationPageBinding228.map(remoteConversationPageUnit12)}
-                  </ul>
-                </div>, remoteConversationPageBinding229.length > 0 && <div className="flex flex-col gap-1">
-                  <div className="font-medium text-token-description-foreground">
-                    {remoteConversationPageBinding132.formatMessage({
-          id: "codex.applyResultsDialog.skipped",
-          defaultMessage: "Skipped ({count})",
-          description: "Heading for skipped paths"
-        }, {
-          count: remoteConversationPageBinding229.length
-        })}
-                  </div>
-                  <ul>
-                    {remoteConversationPageBinding229.map(remoteConversationPageUnit11)}
-                  </ul>
-                </div>) : React.createElement(worktreeNewThreadQueryCompatSlotLowerBLowerA, {
-      className: "text-token-description-foreground"
-    }, <p>
-                {remoteConversationPageBinding230 ? React.createElement(currentAppInitialSharedMember0924, {
-        id: "codex.applyResultsDialog.notGitRepo",
-        defaultMessage: "This action only works when running in a Git repository.",
-        description: "Shown when apply/revert fails because the workspace is not in a Git repository"
-      }) : React.createElement(currentAppInitialSharedMember0924, {
-        id: "codex.applyResultsDialog.noDetails",
-        defaultMessage: "No file details available.",
-        description: "Shown when there are no file-level results to display"
-      })}
-              </p>);
+    remoteConversationPageBinding135 =
+      worktreeNewThreadQueryCompatSlotUnderscoreLowerA;
+    remoteConversationPageBinding137 = React.createElement(
+      worktreeNewThreadQueryCompatSlotLowerBLowerA,
+      null,
+      React.createElement(worktreeNewThreadQueryCompatSlotLowerYLowerA, {
+        title: React.createElement(currentAppInitialSharedMember0924, {
+          id: "codex.applyResultsDialog.title",
+          defaultMessage: "Apply results",
+          description: "Title for dialog showing apply patch results",
+        }),
+      }),
+    );
+    remoteConversationPageBinding138 = remoteConversationPageBinding231
+      ? React.createElement(
+          worktreeNewThreadQueryCompatSlotLowerBLowerA,
+          {
+            className: "flex max-h-64 flex-col gap-3 overflow-y-auto pr-1",
+          },
+          remoteConversationPageBinding134.length > 0 && (
+            <div className="flex flex-col gap-1">
+              <div className="font-medium">
+                {React.createElement(currentAppInitialSharedMember0924, {
+                  id: "codex.applyResultsDialog.applied",
+                  defaultMessage: "Applied cleanly ({count})",
+                  description: "Heading for applied paths",
+                  values: {
+                    count: remoteConversationPageBinding134.length,
+                  },
+                })}
+              </div>
+              <ul>
+                {remoteConversationPageBinding134.map(
+                  remoteConversationPageUnit13,
+                )}
+              </ul>
+            </div>
+          ),
+          remoteConversationPageBinding228.length > 0 && (
+            <div className="flex flex-col gap-1">
+              <div className="font-medium text-token-charts-red">
+                {remoteConversationPageBinding132.formatMessage(
+                  {
+                    id: "codex.applyResultsDialog.conflicted",
+                    defaultMessage: "Conflicted ({count})",
+                    description: "Heading for conflicted paths",
+                  },
+                  {
+                    count: remoteConversationPageBinding228.length,
+                  },
+                )}
+              </div>
+              <ul>
+                {remoteConversationPageBinding228.map(
+                  remoteConversationPageUnit12,
+                )}
+              </ul>
+            </div>
+          ),
+          remoteConversationPageBinding229.length > 0 && (
+            <div className="flex flex-col gap-1">
+              <div className="font-medium text-token-description-foreground">
+                {remoteConversationPageBinding132.formatMessage(
+                  {
+                    id: "codex.applyResultsDialog.skipped",
+                    defaultMessage: "Skipped ({count})",
+                    description: "Heading for skipped paths",
+                  },
+                  {
+                    count: remoteConversationPageBinding229.length,
+                  },
+                )}
+              </div>
+              <ul>
+                {remoteConversationPageBinding229.map(
+                  remoteConversationPageUnit11,
+                )}
+              </ul>
+            </div>
+          ),
+        )
+      : React.createElement(
+          worktreeNewThreadQueryCompatSlotLowerBLowerA,
+          {
+            className: "text-token-description-foreground",
+          },
+          <p>
+            {remoteConversationPageBinding230
+              ? React.createElement(currentAppInitialSharedMember0924, {
+                  id: "codex.applyResultsDialog.notGitRepo",
+                  defaultMessage:
+                    "This action only works when running in a Git repository.",
+                  description:
+                    "Shown when apply/revert fails because the workspace is not in a Git repository",
+                })
+              : React.createElement(currentAppInitialSharedMember0924, {
+                  id: "codex.applyResultsDialog.noDetails",
+                  defaultMessage: "No file details available.",
+                  description:
+                    "Shown when there are no file-level results to display",
+                })}
+          </p>,
+        );
   }
   let remoteConversationPageBinding142 = () => onOpenChange(false);
-  let remoteConversationPageBinding143 = React.createElement(currentAppInitialSharedMember0924, {
-    id: "codex.applyResultsDialog.close",
-    defaultMessage: "Close",
-    description: "Close button for apply results dialog"
-  });
-  let remoteConversationPageBinding144 = React.createElement(worktreeNewThreadQueryCompatSlotLowerBLowerA, null, React.createElement(worktreeNewThreadQueryCompatSlotLowerVLowerA, null, React.createElement(worktreeNewThreadQueryCompatSlotUpperTLowerM, {
-    color: "outline",
-    onClick: remoteConversationPageBinding142
-  }, remoteConversationPageBinding143)));
-  let remoteConversationPageBinding145 = React.createElement(remoteConversationPageBinding135, null, remoteConversationPageBinding137, remoteConversationPageBinding138, remoteConversationPageBinding144);
-  return React.createElement(remoteConversationPageBinding136, {
-    open: remoteConversationPageBinding139,
-    onOpenChange: remoteConversationPageBinding140,
-    triggerAsChild: remoteConversationPageBinding141
-  }, remoteConversationPageBinding145);
+  let remoteConversationPageBinding143 = React.createElement(
+    currentAppInitialSharedMember0924,
+    {
+      id: "codex.applyResultsDialog.close",
+      defaultMessage: "Close",
+      description: "Close button for apply results dialog",
+    },
+  );
+  let remoteConversationPageBinding144 = React.createElement(
+    worktreeNewThreadQueryCompatSlotLowerBLowerA,
+    null,
+    React.createElement(
+      worktreeNewThreadQueryCompatSlotLowerVLowerA,
+      null,
+      React.createElement(
+        worktreeNewThreadQueryCompatSlotUpperTLowerM,
+        {
+          color: "outline",
+          onClick: remoteConversationPageBinding142,
+        },
+        remoteConversationPageBinding143,
+      ),
+    ),
+  );
+  let remoteConversationPageBinding145 = React.createElement(
+    remoteConversationPageBinding135,
+    null,
+    remoteConversationPageBinding137,
+    remoteConversationPageBinding138,
+    remoteConversationPageBinding144,
+  );
+  return React.createElement(
+    remoteConversationPageBinding136,
+    {
+      open: remoteConversationPageBinding139,
+      onOpenChange: remoteConversationPageBinding140,
+      triggerAsChild: remoteConversationPageBinding141,
+    },
+    remoteConversationPageBinding145,
+  );
 }
 function remoteConversationPageUnit11(remoteConversationPageOperand84) {
-  return <li key={remoteConversationPageOperand84} className="truncate" title={remoteConversationPageOperand84}>
+  return (
+    <li
+      key={remoteConversationPageOperand84}
+      className="truncate"
+      title={remoteConversationPageOperand84}
+    >
       {remoteConversationPageOperand84}
-    </li>;
+    </li>
+  );
 }
 function remoteConversationPageUnit12(remoteConversationPageOperand85) {
-  return <li key={remoteConversationPageOperand85} className="truncate" title={remoteConversationPageOperand85}>
+  return (
+    <li
+      key={remoteConversationPageOperand85}
+      className="truncate"
+      title={remoteConversationPageOperand85}
+    >
       {remoteConversationPageOperand85}
-    </li>;
+    </li>
+  );
 }
 function remoteConversationPageUnit13(remoteConversationPageOperand86) {
-  return <li key={remoteConversationPageOperand86} className="truncate" title={remoteConversationPageOperand86}>
+  return (
+    <li
+      key={remoteConversationPageOperand86}
+      className="truncate"
+      title={remoteConversationPageOperand86}
+    >
       {remoteConversationPageOperand86}
-    </li>;
+    </li>
+  );
 }
 var remoteConversationPageBinding14,
   remoteConversationPageBinding15,
   remoteConversationPageBinding16 = once(() => {
-    remoteConversationPageBinding14 = currentAppInitialSharedCompatSlotLowerGLowerC();
+    remoteConversationPageBinding14 =
+      currentAppInitialSharedCompatSlotLowerGLowerC();
     intlFormatDateTimeRuntime();
     appMainCurrentCompatSlotLowerQLowerT();
     worktreeNewThreadQueryCompatSlotUpperELowerM();
@@ -551,7 +712,8 @@ var remoteConversationPageBinding14,
     initCloudTerminalIconChunk();
     RemoteConversationSummaryModule.remoteConversationPageBinding11();
     RemoteConversationSummaryModule.remoteConversationPageBinding13();
-    remoteConversationPageBinding15 = currentAppInitialSharedCompatSlotLowerLLowerC();
+    remoteConversationPageBinding15 =
+      currentAppInitialSharedCompatSlotLowerLLowerC();
   });
 
 export class RemoteConversationTurnContentModule {

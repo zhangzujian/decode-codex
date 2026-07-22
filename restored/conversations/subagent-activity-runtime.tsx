@@ -26,7 +26,8 @@ const subagentActivityMessages = defineMessages({
   groupFinished: {
     id: "localConversation.subagentActivity.group.finished",
     defaultMessage: "finished",
-    description: "Shared status shown after subagent chips when all subagents finish",
+    description:
+      "Shared status shown after subagent chips when all subagents finish",
   },
 });
 

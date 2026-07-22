@@ -63,9 +63,4 @@ export type HeartbeatThreadBlockReason =
   | "waiting_on_user_input";
 
 export type RolloutTerminalEvent =
-  | "event_msg"
-  | "item"
-  | "response_item"
-  | "task_complete"
-  | "unknown"
-  | string;
+  "event_msg" | "item" | "response_item" | "task_complete" | "unknown" | string;

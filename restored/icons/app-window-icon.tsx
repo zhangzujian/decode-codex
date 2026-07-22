@@ -1,8 +1,9 @@
-// Restored from ref/webview/assets/app-window-BkmniFLd.js
-// Semantic icon module: named React component with JSX return value.
+// Restored from ref/webview/assets/app-window-0yOkLML_.js
+// Semantic app-window icon with the current bundle initializer surface.
 
 import type { SVGProps } from "react";
 export type IconProps = SVGProps<SVGSVGElement>;
+export function initAppWindowIconChunk(): void {}
 export function AppWindowIcon(props: IconProps) {
   return (
     <svg

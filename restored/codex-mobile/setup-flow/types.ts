@@ -1,9 +1,6 @@
 // Shared types for the restored Codex Mobile setup flow.
 export type RemoteControlStatus =
-  | "disabled"
-  | "errored"
-  | "connecting"
-  | "connected";
+  "disabled" | "errored" | "connecting" | "connected";
 export type CodexMobileSetupStep =
   | "initial"
   | "mfa-required"

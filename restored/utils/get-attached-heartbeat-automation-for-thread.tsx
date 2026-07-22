@@ -4,11 +4,7 @@ import clsx from "clsx";
 import type { SVGProps } from "react";
 import { UnselectedCircleIcon } from "../icons/unselected-circle-icon";
 type AutomationCheckStatus =
-  | "failing"
-  | "passing"
-  | "pending"
-  | "skipped"
-  | "unknown";
+  "failing" | "passing" | "pending" | "skipped" | "unknown";
 type AutomationCheck = {
   status: AutomationCheckStatus | string;
 };

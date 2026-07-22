@@ -268,7 +268,6 @@ function useComposerControllerHelper3(
     let useComposerControllerValue135 = useComposerControllerParam56.childCount,
       _useComposerControllerV = useComposerControllerParam57.childCount;
     ;
-
   ) {
     if (useComposerControllerValue135 == 0 || _useComposerControllerV == 0)
       return useComposerControllerValue135 == _useComposerControllerV
@@ -318,7 +317,6 @@ function useComposerControllerHelper3(
               useComposerControllerValue522 -
               1
           ];
-
       )
         (useComposerControllerValue522++,
           useComposerControllerParam58--,
@@ -1865,13 +1863,11 @@ var useComposerControllerValue2 = class UseComposerControllerClass3 {
       useComposerControllerParam192,
       useComposerControllerParam193,
     ) {
-      if (
-        !(
-          useComposerControllerParam193 >= 0 &&
-          useComposerControllerParam193 <=
-            useComposerControllerParam192.content.size
-        )
-      )
+      if (!(
+        useComposerControllerParam193 >= 0 &&
+        useComposerControllerParam193 <=
+          useComposerControllerParam192.content.size
+      ))
         throw RangeError(
           `Position ` + useComposerControllerParam193 + ` out of range`,
         );
@@ -1881,7 +1877,6 @@ var useComposerControllerValue2 = class UseComposerControllerClass3 {
       for (
         let useComposerControllerValue543 = useComposerControllerParam192;
         ;
-
       ) {
         let { index: index, offset: offset } =
             useComposerControllerValue543.content.findIndex(
@@ -2165,7 +2160,7 @@ var useComposerControllerValue2 = class UseComposerControllerClass3 {
       );
     }
     nodeAt(useComposerControllerParam419) {
-      for (let useComposerControllerValue541 = this; ; ) {
+      for (let useComposerControllerValue541 = this; ;) {
         let { index: index, offset: offset } =
           useComposerControllerValue541.content.findIndex(
             useComposerControllerParam419,
@@ -2725,7 +2720,7 @@ var useComposerControllerValue10 = class UseComposerControllerClass6 {
           via: null,
         },
       ];
-    for (; useComposerControllerValue150.length; ) {
+    for (; useComposerControllerValue150.length;) {
       let useComposerControllerValue235 = useComposerControllerValue150.shift(),
         useComposerControllerValue236 = useComposerControllerValue235.match;
       if (
@@ -4110,25 +4105,22 @@ export const useComposerControllerG = class UseComposerControllerClass8 {
       let useComposerControllerValue304 =
           this.styles[useComposerControllerValue229],
         useComposerControllerValue305 = useComposerControllerValue304.style;
-      if (
-        !(
-          useComposerControllerValue305.indexOf(
-            useComposerControllerParam129,
-          ) != 0 ||
-          (useComposerControllerValue304.context &&
-            !useComposerControllerParam131.matchesContext(
-              useComposerControllerValue304.context,
-            )) ||
-          (useComposerControllerValue305.length >
-            useComposerControllerParam129.length &&
-            (useComposerControllerValue305.charCodeAt(
-              useComposerControllerParam129.length,
-            ) != 61 ||
-              useComposerControllerValue305.slice(
-                useComposerControllerParam129.length + 1,
-              ) != useComposerControllerParam130))
-        )
-      ) {
+      if (!(
+        useComposerControllerValue305.indexOf(useComposerControllerParam129) !=
+          0 ||
+        (useComposerControllerValue304.context &&
+          !useComposerControllerParam131.matchesContext(
+            useComposerControllerValue304.context,
+          )) ||
+        (useComposerControllerValue305.length >
+          useComposerControllerParam129.length &&
+          (useComposerControllerValue305.charCodeAt(
+            useComposerControllerParam129.length,
+          ) != 61 ||
+            useComposerControllerValue305.slice(
+              useComposerControllerParam129.length + 1,
+            ) != useComposerControllerParam130))
+      )) {
         if (useComposerControllerValue304.getAttrs) {
           let useComposerControllerValue763 =
             useComposerControllerValue304.getAttrs(
@@ -4627,7 +4619,7 @@ var useComposerControllerValue21 = class {
                 useComposerControllerValue245,
               );
           if (useComposerControllerValue246)
-            for (let useComposerControllerValue338; ; ) {
+            for (let useComposerControllerValue338; ;) {
               let useComposerControllerValue367 = this.parser.matchStyle(
                 useComposerControllerValue245,
                 useComposerControllerValue246,
@@ -5313,7 +5305,6 @@ export const useComposerControllerUnderscore = class UseComposerControllerClass1
             useComposerControllerValue209 <
               useComposerControllerValue116.length &&
             useComposerControllerValue210 < item.marks.length;
-
           ) {
             let useComposerControllerValue569 =
               item.marks[useComposerControllerValue210];
@@ -5334,11 +5325,10 @@ export const useComposerControllerUnderscore = class UseComposerControllerClass1
             ;
             useComposerControllerValue209 <
             useComposerControllerValue116.length;
-
           )
             useComposerControllerValue115 =
               useComposerControllerValue116.pop()[1];
-          for (; useComposerControllerValue210 < item.marks.length; ) {
+          for (; useComposerControllerValue210 < item.marks.length;) {
             let useComposerControllerValue570 =
                 item.marks[useComposerControllerValue210++],
               _useComposerControllerV = this.serializeMark(
@@ -6948,7 +6938,6 @@ function useComposerControllerHelper51(
     useComposerControllerValue325.indexAfter(useComposerControllerValue327) ==
       useComposerControllerValue325.node(useComposerControllerValue327)
         .childCount;
-
   )
     (useComposerControllerValue327--, useComposerControllerValue326--);
   if (useComposerControllerValue326 > 0) {
@@ -6957,7 +6946,7 @@ function useComposerControllerHelper51(
       .maybeChild(
         useComposerControllerValue325.indexAfter(useComposerControllerValue327),
       );
-    for (; useComposerControllerValue326 > 0; ) {
+    for (; useComposerControllerValue326 > 0;) {
       if (
         !useComposerControllerValue624 ||
         useComposerControllerValue624.isLeaf
@@ -7074,7 +7063,6 @@ function useComposerControllerHelper53(
           (useComposerControllerValue720 = useComposerControllerParam46.isInSet(
             useComposerControllerValue719,
           ));
-
         )
           ((useComposerControllerValue148 ||= []).push(
             useComposerControllerValue720,
@@ -7214,7 +7202,6 @@ function useComposerControllerHelper54(
           (useComposerControllerValue470 = useComposerControllerValue471.exec(
             useComposerControllerValue162.text,
           ));
-
         )
           ((useComposerControllerValue472 ||= new useComposerControllerS(
             useComposerControllerV.from(
@@ -7495,7 +7482,6 @@ function useComposerControllerHelper58(
         (_useComposerControllerV = useComposerControllerValue483.exec(
           item.text,
         ));
-
       ) {
         let useComposerControllerValue596 =
           useComposerControllerParam281.mapping
@@ -7981,7 +7967,7 @@ var useComposerControllerValue39 = class {
     return this.frontier.length - 1;
   }
   fit() {
-    for (; this.unplaced.size; ) {
+    for (; this.unplaced.size;) {
       let useComposerControllerValue700 = this.findFittable();
       useComposerControllerValue700
         ? this.placeNodes(useComposerControllerValue700)
@@ -8007,7 +7993,6 @@ var useComposerControllerValue39 = class {
       useComposerControllerValue130 &&
       _useComposerControllerV &&
       useComposerControllerValue129.childCount == 1;
-
     )
       ((useComposerControllerValue129 =
         useComposerControllerValue129.firstChild.content),
@@ -8189,7 +8174,7 @@ var useComposerControllerValue39 = class {
     inject: inject,
     wrap: wrap,
   }) {
-    for (; this.depth > frontierDepth; ) this.closeFrontierNode();
+    for (; this.depth > frontierDepth;) this.closeFrontierNode();
     if (wrap)
       for (
         let useComposerControllerValue772 = 0;
@@ -8226,7 +8211,6 @@ var useComposerControllerValue39 = class {
     for (
       ;
       useComposerControllerValue75 < useComposerControllerValue73.childCount;
-
     ) {
       let useComposerControllerValue458 = useComposerControllerValue73.child(
           useComposerControllerValue75,
@@ -8331,11 +8315,7 @@ var useComposerControllerValue39 = class {
       return -1;
     let { depth: depth } = this.$to,
       useComposerControllerValue202 = this.$to.after(depth);
-    for (
-      ;
-      depth > 1 && useComposerControllerValue202 == this.$to.end(--depth);
-
-    )
+    for (; depth > 1 && useComposerControllerValue202 == this.$to.end(--depth);)
       ++useComposerControllerValue202;
     return useComposerControllerValue202;
   }
@@ -8405,7 +8385,7 @@ var useComposerControllerValue39 = class {
       useComposerControllerParam133,
     );
     if (!useComposerControllerValue211) return null;
-    for (; this.depth > useComposerControllerValue211.depth; )
+    for (; this.depth > useComposerControllerValue211.depth;)
       this.closeFrontierNode();
     (useComposerControllerValue211.fit.childCount &&
       (this.placed = useComposerControllerHelper67(
@@ -9524,7 +9504,6 @@ var useComposerControllerValue43 = class {
             useComposerControllerParam159.isInSet(
               useComposerControllerValue554,
             ));
-
         )
           (useComposerControllerValue556.push(
             new useComposerControllerValue36(
@@ -10294,12 +10273,10 @@ function useComposerControllerHelper80(
   if (useComposerControllerValue362 < useComposerControllerParam273) return;
   let useComposerControllerValue363 =
     useComposerControllerParam272.steps[useComposerControllerValue362];
-  if (
-    !(
-      useComposerControllerValue363 instanceof useComposerControllerValue37 ||
-      useComposerControllerValue363 instanceof useComposerControllerValue38
-    )
-  )
+  if (!(
+    useComposerControllerValue363 instanceof useComposerControllerValue37 ||
+    useComposerControllerValue363 instanceof useComposerControllerValue38
+  ))
     return;
   let useComposerControllerValue364 =
       useComposerControllerParam272.mapping.maps[useComposerControllerValue362],

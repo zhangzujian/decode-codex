@@ -3,7 +3,7 @@
 // when it fails to load.
 import { useState } from "react";
 import clsx from "clsx";
-import { GlobeFallbackIcon } from "../boundaries/onboarding-commons-externals.facade";
+import { GlobeIcon as GlobeFallbackIcon } from "../icons/globe-icon";
 
 export interface FaviconImageProps {
   src: string;

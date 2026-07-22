@@ -1,7 +1,4 @@
-// Restored from ref/webview/assets/csv-CKEKFO6S.js
+// Restored from ref/webview/assets/csv-C2W0euoY.js
 // Shiki CSV grammar wrapper; the grammar payload stays in @shikijs/langs/csv.
-import { n as csvGrammar, t as initCsvGrammar } from "@shikijs/langs/csv";
-
-initCsvGrammar();
-
-export { csvGrammar as default };
+import csvGrammar from "@shikijs/langs/csv";
+export default csvGrammar;

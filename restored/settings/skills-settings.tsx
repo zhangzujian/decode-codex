@@ -6,10 +6,7 @@ import {
   initSettingsContentLayoutChunk,
   SettingsContentLayout,
 } from "../runtime/current-app-initial/settings-section-layout-runtime";
-import {
-  initSkillsPageChunk,
-  SkillsPage,
-} from "./skills-page";
+import { initSkillsPageChunk, SkillsPage } from "./skills-page";
 function SkillsSettings() {
   return (
     <SettingsContentLayout>

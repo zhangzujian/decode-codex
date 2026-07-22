@@ -44,9 +44,7 @@ import type { ConversationalOnboardingTaskBase } from "./conversational-onboardi
 import { renderConversationalOnboardingSampleChartToPng } from "./conversational-onboarding-sample-chart";
 
 type CsvExecutionPhase =
-  | "reading"
-  | "generating"
-  | "minimum-generation-elapsed";
+  "reading" | "generating" | "minimum-generation-elapsed";
 
 export interface ConversationalOnboardingTaskViewContext {
   hostId: string;

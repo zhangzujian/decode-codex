@@ -1,0 +1,3 @@
+import { n as e, t } from "./arrow-left-right-ioUl-VIB-BEmtaUBD.js";
+t();
+export { e as default };

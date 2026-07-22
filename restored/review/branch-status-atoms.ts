@@ -93,14 +93,16 @@ export function refetchBranchReviewInfo(
   const enabledParams = { ...params, enabled: true };
   return Promise.all([
     scope
-      .get<
-        QueryState<unknown>
-      >(upstreamBranchQueryFamily.fromCwd$, enabledParams)
+      .get<QueryState<unknown>>(
+        upstreamBranchQueryFamily.fromCwd$,
+        enabledParams,
+      )
       .refetch(),
     scope
-      .get<
-        QueryState<unknown>
-      >(branchAheadCountQueryFamily.fromCwd$, enabledParams)
+      .get<QueryState<unknown>>(
+        branchAheadCountQueryFamily.fromCwd$,
+        enabledParams,
+      )
       .refetch(),
   ]);
 }

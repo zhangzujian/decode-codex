@@ -1,0 +1,3 @@
+import { n as e, t } from "./construction-CnUYfFZd-Dmyi5YZZ.js";
+e();
+export { t as default };

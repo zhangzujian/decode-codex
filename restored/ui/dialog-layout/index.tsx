@@ -1,11 +1,7 @@
 // Restored from ref/webview/assets/dialog-layout-BUsOXjxz.js
 // Public dialog layout exports.
 
-import type {
-  FormHTMLAttributes,
-  HTMLAttributes,
-  ReactNode,
-} from "react";
+import type { FormHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import clsx from "clsx";
 import { DialogLayout } from "./dialog-layout-content";
 import {
@@ -47,10 +43,7 @@ function DialogForm({
   ...props
 }: FormHTMLAttributes<HTMLFormElement>) {
   return (
-    <form
-      className={clsx("flex min-w-0 flex-col", className)}
-      {...props}
-    />
+    <form className={clsx("flex min-w-0 flex-col", className)} {...props} />
   );
 }
 

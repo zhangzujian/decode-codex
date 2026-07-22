@@ -59,9 +59,7 @@ export const conversationalOnboardingTaskCompletionSignal = appScopeL(
       ? null
       : findConversationalOnboardingTaskCompletion(
           get(conversationTurnsSignal, conversationId) as
-            | ConversationTurn[]
-            | null
-            | undefined,
+            ConversationTurn[] | null | undefined,
         ),
 );
 
@@ -70,9 +68,7 @@ export const conversationalOnboardingTaskCompletionMissingSignal = appScopeL(
   (conversationId: unknown, { get }) => {
     if (conversationId == null) return false;
     const turns = get(conversationTurnsSignal, conversationId) as
-      | ConversationTurn[]
-      | null
-      | undefined;
+      ConversationTurn[] | null | undefined;
     const lastTurn = turns?.at(-1);
     return (
       lastTurn != null &&

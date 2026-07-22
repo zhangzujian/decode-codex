@@ -115,14 +115,12 @@ export async function refreshReviewFilesForPaths(
     gitRoot: metadata?.root ?? null,
     paths,
   });
-  if (
-    !(
-      !store.get(isReviewDiffEnabledAtom) ||
-      metadata == null ||
-      cwd == null ||
-      relativePaths.length === 0
-    )
-  ) {
+  if (!(
+    !store.get(isReviewDiffEnabledAtom) ||
+    metadata == null ||
+    cwd == null ||
+    relativePaths.length === 0
+  )) {
     try {
       await clearGitStatusCache({
         clearUntrackedPathsCache: false,
@@ -169,12 +167,10 @@ export function watchReviewDiffEffect(store: ReviewStore): () => void {
         return;
       }
       const commits = current.get(reviewBranchCommitsQueryAtom).data?.commits;
-      if (
-        !(
-          commits == null ||
-          commits.some((commit: { sha: string }) => commit.sha === commitSha)
-        )
-      ) {
+      if (!(
+        commits == null ||
+        commits.some((commit: { sha: string }) => commit.sha === commitSha)
+      )) {
         current.set(reviewCommitShaAtom, null);
         setReviewDiffFilter(current, "branch");
         return;

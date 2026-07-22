@@ -22,11 +22,7 @@ export interface PanelBounds {
 }
 
 export type BrowserDeviceResizeEdge =
-  | "left"
-  | "right"
-  | "bottom"
-  | "bottom-left"
-  | "bottom-right";
+  "left" | "right" | "bottom" | "bottom-left" | "bottom-right";
 
 export interface BrowserDeviceResizeDragState {
   edge: BrowserDeviceResizeEdge;

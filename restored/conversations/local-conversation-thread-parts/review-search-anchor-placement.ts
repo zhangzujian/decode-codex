@@ -2,10 +2,7 @@
 // Picture-in-picture anchor placement helpers for review search highlights.
 
 type AnchorAlignment =
-  | "top-left"
-  | "top-right"
-  | "bottom-left"
-  | "bottom-right";
+  "top-left" | "top-right" | "bottom-left" | "bottom-right";
 
 export interface ViewportRectLike {
   height: number;

@@ -1,0 +1,5 @@
+// Restored from ref/webview/assets/currency-CH_64zD9-CFmjDovw.js
+// Exact npm-backed Lucide icon with current-build initializer compatibility.
+import { Currency } from "lucide-react";
+function initCurrencyIconChunk(): void {}
+export { Currency, initCurrencyIconChunk };

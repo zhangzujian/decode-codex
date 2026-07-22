@@ -166,7 +166,7 @@ function serializerHelper19(serializerParam48) {
   );
 }
 function serializerHelper20(serializerParam42) {
-  for (; (serializerValue14 = serializerHelper13()) && serializerValue14 < 33; )
+  for (; (serializerValue14 = serializerHelper13()) && serializerValue14 < 33;)
     serializerHelper12();
   return serializerHelper16(serializerParam42) > 2 ||
     serializerHelper16(serializerValue14) > 3
@@ -184,7 +184,6 @@ function serializerHelper21(serializerParam36, serializerParam37) {
       (serializerValue14 > 57 && serializerValue14 < 65) ||
       (serializerValue14 > 70 && serializerValue14 < 97)
     );
-
   );
   return serializerHelper15(
     serializerParam36,
@@ -195,7 +194,7 @@ function serializerHelper21(serializerParam36, serializerParam37) {
   );
 }
 function serializerHelper22(serializerParam27) {
-  for (; serializerHelper12(); )
+  for (; serializerHelper12();)
     switch (serializerValue14) {
       case serializerParam27:
         return serializerValue13;
@@ -223,7 +222,6 @@ function serializerHelper23(serializerParam38, serializerParam39) {
       serializerParam38 + serializerValue14 === 84 &&
       serializerHelper13() === 47
     );
-
   );
   return (
     "/*" +
@@ -235,7 +233,7 @@ function serializerHelper23(serializerParam38, serializerParam39) {
   );
 }
 function serializerHelper24(serializerParam55) {
-  for (; !serializerHelper16(serializerHelper13()); ) serializerHelper12();
+  for (; !serializerHelper16(serializerHelper13());) serializerHelper12();
   return serializerHelper15(serializerParam55, serializerValue13);
 }
 export function serializerR(serializerParam49) {
@@ -281,7 +279,6 @@ function serializerHelper25(
       _serializerT = serializerParam4,
       _serializerN = serializerValue26;
     serializerValue23;
-
   )
     switch (
       ((serializerValue21 = serializerValue25),

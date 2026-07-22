@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/lobster-dark-DIstc6DY.js
+// Restored from ref/webview/assets/lobster-dark-C4twhOT5.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#111827";
 export const colors = {

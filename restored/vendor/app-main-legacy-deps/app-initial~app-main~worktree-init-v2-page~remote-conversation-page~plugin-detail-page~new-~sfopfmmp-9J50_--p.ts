@@ -180,7 +180,7 @@ var r = n((e) => {
         for (var u = 0; u < e.length; u++)
           ((a = e[u]), (s = l + j(a, u)), (c += N(a, r, i, s, o)));
       else if (((u = m(e)), typeof u == `function`))
-        for (e = u.call(e), u = 0; !(a = e.next()).done; )
+        for (e = u.call(e), u = 0; !(a = e.next()).done;)
           ((a = a.value), (s = l + j(a, u++)), (c += N(a, r, i, s, o)));
       else if (s === `object`) {
         if (typeof e.then == `function`) return N(M(e), r, i, a, o);

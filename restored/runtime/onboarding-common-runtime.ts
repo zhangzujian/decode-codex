@@ -223,7 +223,9 @@ export function pathIsCaseInsensitive(path: string): boolean {
 
 export function canonicalizeRootPath(path: string): string {
   const normalized = normalizePath(path).replace(/\/+$/u, "");
-  return pathIsCaseInsensitive(normalized) ? normalized.toLowerCase() : normalized;
+  return pathIsCaseInsensitive(normalized)
+    ? normalized.toLowerCase()
+    : normalized;
 }
 
 export function isPathWithin(path: string, root: string): boolean {
@@ -240,7 +242,9 @@ export const isPathWithinRoot = isPathWithin;
 export function normalizeRequestCwd(
   cwd: string | null | undefined,
 ): string | undefined {
-  return cwd == null || cwd.trim().length === 0 ? undefined : normalizePath(cwd);
+  return cwd == null || cwd.trim().length === 0
+    ? undefined
+    : normalizePath(cwd);
 }
 
 export function workspaceRootToCwd(root: unknown): string {

@@ -31,8 +31,7 @@ export function isQueryEnabled<TData, TResult>(
 
 export function getCachedData<TResult>(queryKey: QueryKey | undefined) {
   return queryCache.get(queryKeyToString(queryKey))?.data as
-    | TResult
-    | undefined;
+    TResult | undefined;
 }
 
 export function setCachedData(

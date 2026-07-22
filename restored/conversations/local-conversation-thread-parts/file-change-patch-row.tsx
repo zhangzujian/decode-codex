@@ -28,11 +28,7 @@ import {
 } from "../../boundaries/onboarding-commons-externals.facade";
 
 export type PatchChangeStatus =
-  | "applied"
-  | "rejected"
-  | "pending"
-  | "streaming"
-  | "stopped";
+  "applied" | "rejected" | "pending" | "streaming" | "stopped";
 
 export type FileChange =
   | { type: "add"; content: string }

@@ -121,8 +121,7 @@ export function createFamily<TValue, TArg>(
 export function createSignalFamily<TValue, TArg>(
   scope: ScopeToken,
   defaultValue:
-    | TValue
-    | ((arg: TArg, helpers: { scope: ScopeContext }) => TValue),
+    TValue | ((arg: TArg, helpers: { scope: ScopeContext }) => TValue),
 ): SignalFamily<TValue, TArg> {
   return createFamily(scope, (arg, helpers) =>
     createSignal(

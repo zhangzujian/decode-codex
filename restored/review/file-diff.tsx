@@ -140,9 +140,9 @@ export function FileDiff({
   const diffStyle = viewType === "split" ? "split" : "unified";
   const overflow = diffViewWrap ? "wrap" : "scroll";
   const roundedClassName = roundedCorners ? "rounded-lg" : "";
-  const WrapIcon = (diffViewWrap
-    ? WordWrapEnabledIcon
-    : WordWrapDisabledIcon) as ComponentType<{ className?: string }>;
+  const WrapIcon = (
+    diffViewWrap ? WordWrapEnabledIcon : WordWrapDisabledIcon
+  ) as ComponentType<{ className?: string }>;
 
   const handleCopyPath = () => {
     if (displayPath.length === 0) return;
@@ -177,7 +177,10 @@ export function FileDiff({
           onClick={() => setOpen((current) => !current)}
         >
           <ChevronIcon
-            className={clsx("icon-2xs shrink-0 transition-transform", open && "rotate-180")}
+            className={clsx(
+              "icon-2xs shrink-0 transition-transform",
+              open && "rotate-180",
+            )}
           />
           <span className="truncate font-medium text-token-text-primary">
             {displayFileName}
@@ -287,10 +290,7 @@ class FileDiffErrorBoundary extends Component<
   componentDidCatch(_error: Error, _info: ErrorInfo): void {}
 
   componentDidUpdate(previousProps: FileDiffErrorBoundaryProps): void {
-    if (
-      this.state.hasError &&
-      previousProps.resetKey !== this.props.resetKey
-    ) {
+    if (this.state.hasError && previousProps.resetKey !== this.props.resetKey) {
       this.setState({ hasError: false });
     }
   }
@@ -337,18 +337,48 @@ function getFileDiffMessage(
 ) {
   switch (kind) {
     case "binary":
-      return <FormattedMessage id="wham.diff.binaryFile" defaultMessage="Binary file not shown" />;
+      return (
+        <FormattedMessage
+          id="wham.diff.binaryFile"
+          defaultMessage="Binary file not shown"
+        />
+      );
     case "error":
-      return <FormattedMessage id="codex.diff.loadFailed" defaultMessage="Diff failed to load" />;
+      return (
+        <FormattedMessage
+          id="codex.diff.loadFailed"
+          defaultMessage="Diff failed to load"
+        />
+      );
     case "loading":
-      return <FormattedMessage id="codex.diff.loading" defaultMessage="Loading diff..." />;
+      return (
+        <FormattedMessage
+          id="codex.diff.loading"
+          defaultMessage="Loading diff..."
+        />
+      );
     case "rename":
-      return <FormattedMessage id="codex.diff.fileRenamedWithoutChanges" defaultMessage="File renamed without changes" />;
+      return (
+        <FormattedMessage
+          id="codex.diff.fileRenamedWithoutChanges"
+          defaultMessage="File renamed without changes"
+        />
+      );
     case "render-error":
-      return <FormattedMessage id="codex.diff.renderFailed" defaultMessage="Diff failed to render" />;
+      return (
+        <FormattedMessage
+          id="codex.diff.renderFailed"
+          defaultMessage="Diff failed to render"
+        />
+      );
     case "empty":
     default:
-      return <FormattedMessage id="wham.diff.noContent" defaultMessage="No content" />;
+      return (
+        <FormattedMessage
+          id="wham.diff.noContent"
+          defaultMessage="No content"
+        />
+      );
   }
 }
 

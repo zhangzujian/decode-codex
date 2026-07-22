@@ -30,4 +30,3 @@ export function agentModeFromPermissions(
       ? permissions.agent_mode
       : null;
 }
-

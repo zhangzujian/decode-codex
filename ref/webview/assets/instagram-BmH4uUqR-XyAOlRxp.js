@@ -1,0 +1,3 @@
+import { n as e, t } from "./instagram-BmH4uUqR-qqs7CpNk.js";
+t();
+export { e as default };

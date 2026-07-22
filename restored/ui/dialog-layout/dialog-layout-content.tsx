@@ -35,9 +35,11 @@ type DialogRootProps = ComponentPropsWithoutRef<typeof DialogRoot>;
 type DialogLayoutProps = DialogRootProps & {
   children?: ReactNode;
   contentClassName?: string;
+  contentOverflow?: "hidden" | "visible";
   contentProps?: DialogContentProps;
   dialogCloseClassName?: string;
   dialogCloseLabel?: string;
+  headerActions?: ReactNode;
   overlayClassName?: string;
   portalContainer?: HTMLElement | null;
   shouldIgnoreClickOutside?: boolean;
@@ -55,9 +57,11 @@ function DialogLayout({
   triggerAsChild = true,
   triggerRef,
   contentClassName,
+  contentOverflow = "hidden",
   contentProps,
   dialogCloseClassName,
   dialogCloseLabel,
+  headerActions,
   overlayClassName,
   portalContainer,
   showDialogClose = true,
@@ -81,8 +85,10 @@ function DialogLayout({
       ) : null}
       <DialogLayoutContent
         contentClassName={contentClassName}
+        contentOverflow={contentOverflow}
         dialogCloseClassName={dialogCloseClassName}
         dialogCloseLabel={dialogCloseLabel}
+        headerActions={headerActions}
         overlayClassName={overlayClassName}
         portalContainer={portalContainer}
         showDialogClose={showDialogClose}
@@ -100,8 +106,10 @@ function DialogLayout({
 function DialogLayoutContent({
   children,
   contentClassName,
+  contentOverflow = "hidden",
   dialogCloseClassName,
   dialogCloseLabel,
+  headerActions,
   overlayClassName,
   portalContainer,
   showDialogClose = true,
@@ -206,7 +214,12 @@ function DialogLayoutContent({
           DIALOG_CONTENT_CLASS,
           portalContainer == null ? "fixed" : "absolute",
           !unstyledContent &&
-            "bg-token-dropdown-background/90 text-token-foreground ring-token-border max-w-[92vw] overflow-hidden rounded-3xl ring-[0.5px] ring-token-border shadow-lg backdrop-blur-xl",
+            clsx(
+              "bg-token-dropdown-background/90 text-token-foreground ring-token-border max-w-[92vw] rounded-3xl ring-[0.5px] ring-token-border shadow-lg backdrop-blur-xl",
+              contentOverflow === "visible"
+                ? "overflow-visible"
+                : "overflow-hidden",
+            ),
           !unstyledContent && getDialogSizeClass(size),
           shouldMeasureHeight &&
             "data-[dialog-height-ready=true]:transition-[height] data-[dialog-height-ready=true]:duration-200 data-[dialog-height-ready=true]:ease-out",
@@ -225,10 +238,29 @@ function DialogLayoutContent({
         {...contentProps}
       >
         {content}
-        {showDialogClose ? (
+        {headerActions == null ? null : (
+          <div className="no-drag absolute top-5 right-5 flex items-center gap-1">
+            {headerActions}
+            {showDialogClose ? (
+              <DialogClose
+                className={clsx(
+                  "no-drag cursor-interaction rounded p-1 leading-none text-token-foreground/80 hover:bg-token-toolbar-hover-background focus:outline-none focus-visible:ring-1 focus-visible:ring-token-focus-border",
+                  dialogCloseClassName,
+                )}
+                onClick={(event) => event.stopPropagation()}
+              >
+                <XIcon aria-hidden className="icon-xs" />
+                {dialogCloseLabel ? (
+                  <span className="sr-only">{dialogCloseLabel}</span>
+                ) : null}
+              </DialogClose>
+            ) : null}
+          </div>
+        )}
+        {headerActions == null && showDialogClose ? (
           <DialogClose
             className={clsx(
-              "no-drag absolute top-4 right-4 cursor-interaction rounded p-1 leading-none text-token-foreground/80 hover:bg-token-toolbar-hover-background focus:ring-1 focus:ring-token-focus-border focus:outline-none",
+              "no-drag absolute top-4 right-4 cursor-interaction rounded p-1 leading-none text-token-foreground/80 hover:bg-token-toolbar-hover-background focus:outline-none focus-visible:ring-1 focus-visible:ring-token-focus-border",
               dialogCloseClassName,
             )}
             onClick={(event) => event.stopPropagation()}

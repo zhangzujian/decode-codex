@@ -1,0 +1,3 @@
+import { n as e, t } from "./coins-nfqruMIf-CWiZ7vVx.js";
+t();
+export { e as default };

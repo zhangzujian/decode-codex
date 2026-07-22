@@ -9,8 +9,7 @@ type ReactSharedInternals = {
 };
 const reactInternals =
   React.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE as
-    | ReactSharedInternals
-    | undefined;
+    ReactSharedInternals | undefined;
 if (!reactInternals) {
   throw new Error("Missing react shared internals. Check version.");
 }

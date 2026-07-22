@@ -134,8 +134,8 @@ function roundTo3(value: number): number {
 
 function shortestAngleDelta(from: number, to: number): number {
   let delta = to - from;
-  for (; delta > 180; ) delta -= 360;
-  for (; delta < -180; ) delta += 360;
+  for (; delta > 180;) delta -= 360;
+  for (; delta < -180;) delta += 360;
   return delta;
 }
 
@@ -235,7 +235,7 @@ function stepSpring(spring: Spring, deltaSeconds: number): void {
   if (spring.scriptTime - spring.simulationTime > MAX_SPRING_CATCHUP_SECONDS) {
     spring.simulationTime = spring.scriptTime - FRAME_TIME_SECONDS;
   }
-  for (; spring.simulationTime < spring.scriptTime; ) {
+  for (; spring.simulationTime < spring.scriptTime;) {
     integrateSpring(spring, stiffness, damping);
     spring.simulationTime += SPRING_TIMESTEP_SECONDS;
   }

@@ -32,8 +32,7 @@ export function RateLimitResetModal(
 ): JSX.Element {
   const selectedAccountQuery = useSelectedAccountQuery();
   const selectedAccount = selectedAccountQuery.data as
-    | SelectedAccount
-    | undefined;
+    SelectedAccount | undefined;
   const accountStructure = selectedAccount?.structure?.toLowerCase();
   const layerName =
     accountStructure === "workspace"

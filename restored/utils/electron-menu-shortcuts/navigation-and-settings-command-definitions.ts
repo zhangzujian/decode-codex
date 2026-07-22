@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/electron-menu-shortcuts-j6UKqTX5.js
+// Restored from ref/webview/assets/app-initial~artifact-tab-content.electron~app-main~appgen-settings-page~page~pull-request-r~ll1u4x0e-Bl9B7AEa.js
 const navigationAndSettingsCommandDefinitions = [
   {
     id: `previousTab`,
@@ -257,6 +257,15 @@ const navigationAndSettingsCommandDefinitions = [
     commandMenu: true,
   },
   {
+    id: `importExternalAgent`,
+    titleIntlId: `codex.command.importExternalAgent`,
+    descriptionIntlId: `codex.commandDescription.importExternalAgent`,
+    availableIn: [`electron`],
+    commandMenuGroupKey: `configure`,
+    commandMenu: true,
+    commandMenuFeature: `codex`,
+  },
+  {
     id: `keyboardShortcuts`,
     titleIntlId: `codex.command.keyboardShortcuts`,
     descriptionIntlId: `codex.commandDescription.keyboardShortcuts`,
@@ -274,7 +283,7 @@ const navigationAndSettingsCommandDefinitions = [
       menuTitleIntlId: `codex.commandMenuTitle.showKeyboardShortcuts`,
       defaultKeybindings: [
         {
-          key: `CmdOrCtrl+Shift+/`,
+          key: `CmdOrCtrl+/`,
         },
       ],
     },
@@ -285,6 +294,7 @@ const navigationAndSettingsCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.manageTasks`,
     commandMenuGroupKey: `app`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
   },
   {
     id: `openProcessManager`,
@@ -294,6 +304,7 @@ const navigationAndSettingsCommandDefinitions = [
     shortcutScope: `app`,
     commandMenuGroupKey: `app`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       menuTitle: `Process Manager`,
       menuTitleIntlId: `codex.commandMenuTitle.openProcessManager`,
@@ -310,6 +321,7 @@ const navigationAndSettingsCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.forceReloadSkills`,
     commandMenuGroupKey: `skills`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
   },
   {
     id: `installPrimaryRuntime`,
@@ -317,6 +329,7 @@ const navigationAndSettingsCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.installPrimaryRuntime`,
     commandMenuGroupKey: `configure`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
   },
   {
     id: `openSkills`,
@@ -324,6 +337,7 @@ const navigationAndSettingsCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.openSkills`,
     commandMenuGroupKey: `skills`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
   },
 ];
 

@@ -30,12 +30,7 @@ export type HookSource =
   | "user";
 
 export type NormalizedHookSource =
-  | "admin"
-  | "plugin"
-  | "project"
-  | "sessionFlags"
-  | "unknown"
-  | "user";
+  "admin" | "plugin" | "project" | "sessionFlags" | "unknown" | "user";
 
 export type HookIssue = {
   message: string;

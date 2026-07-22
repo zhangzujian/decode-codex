@@ -62,10 +62,7 @@ export type BrowserUsePermissionKind = "allowed" | "denied";
 export type BrowserUseDomainListResource = "origins" | "downloads" | "uploads";
 
 export type BrowserUsePermissionResource =
-  | "origin"
-  | "download"
-  | "upload"
-  | "fullCdp";
+  "origin" | "download" | "upload" | "fullCdp";
 
 export type BrowserUsePermissionValue = "default" | "allowed" | "denied";
 
@@ -137,8 +134,7 @@ export type BrowserUseUnavailablePluginItem = {
 };
 
 export type BrowserUsePluginControlItem =
-  | BrowserUsePluginAppItem
-  | BrowserUsePluginMarketplaceItem;
+  BrowserUsePluginAppItem | BrowserUsePluginMarketplaceItem;
 
 export type BrowserUsePluginsQueryState = {
   errorMessage?: ReactNode | null;

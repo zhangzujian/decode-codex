@@ -8,9 +8,7 @@ export type BundledPluginReconcileErrorCategory =
   | "plugins_disabled";
 
 export type PluginMarketplaceManifestReadErrorCategory =
-  | "corrupt_json"
-  | "invalid_schema"
-  | "read_failed";
+  "corrupt_json" | "invalid_schema" | "read_failed";
 
 const PLUGIN_CACHE_OVERWRITE_FAILURE_MESSAGES = [
   "failed to back up plugin cache entry",

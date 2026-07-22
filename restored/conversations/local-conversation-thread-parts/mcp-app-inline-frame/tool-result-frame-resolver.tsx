@@ -76,13 +76,11 @@ export function McpAppToolResultFrameResolver({
       : null) ??
     null;
 
-  if (
-    !(
-      isPlatform("electron") &&
-      mcpAppResourceUri != null &&
-      (!item.completed || lastRawResult != null)
-    )
-  )
+  if (!(
+    isPlatform("electron") &&
+    mcpAppResourceUri != null &&
+    (!item.completed || lastRawResult != null)
+  ))
     return null;
 
   return (

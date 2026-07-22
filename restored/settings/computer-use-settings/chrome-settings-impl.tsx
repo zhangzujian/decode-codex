@@ -456,9 +456,9 @@ function BrowserUseTransferApprovalModeRow(computerUseOperand1) {
   let computerUseBinding37 = computerUseBinding36,
     computerUseBinding38 = computerUseBinding28.isPending,
     computerUseBinding39 = async (computerUseOperand12) => {
-      if (
-        !(computerUseOperand12 === computerUseBinding29 || computerUseBinding38)
-      )
+      if (!(
+        computerUseOperand12 === computerUseBinding29 || computerUseBinding38
+      ))
         try {
           await computerUseBinding28.mutateAsync({
             approvalMode: computerUseOperand12,

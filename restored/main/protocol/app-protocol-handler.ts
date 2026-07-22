@@ -147,22 +147,19 @@ function hasPathTraversal(value: string): boolean {
 
 function normalizeBundlePath(value: string): string {
   const normalize = sharedRuntime.normalizePathSeparators as
-    | ((pathValue: string) => string)
-    | undefined;
+    ((pathValue: string) => string) | undefined;
   return typeof normalize === "function" ? normalize(value) : value;
 }
 
 function toNativeFilePath(value: string): string {
   const convert = sharedRuntime.stripLeadingSlashFromWindowsDrivePath as
-    | ((pathValue: string) => string)
-    | undefined;
+    ((pathValue: string) => string) | undefined;
   return typeof convert === "function" ? convert(value) : value;
 }
 
 function isSafeAbsoluteFilePath(value: string): boolean {
   const isSafe = sharedRuntime.isAbsoluteFilePath as
-    | ((pathValue: string) => boolean)
-    | undefined;
+    ((pathValue: string) => boolean) | undefined;
   if (typeof isSafe === "function") return isSafe(value);
   return path.posix.isAbsolute(value) || path.win32.isAbsolute(value);
 }

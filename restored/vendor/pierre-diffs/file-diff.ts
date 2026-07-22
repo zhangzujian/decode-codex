@@ -426,8 +426,7 @@ function buildPatchHunks(
     if (component.added || component.removed) {
       if (hunkOldStart === 0) {
         const previousComponent = componentsWithSentinel[index - 1] as
-          | DiffComponent
-          | undefined;
+          DiffComponent | undefined;
         hunkOldStart = oldLineNumber;
         hunkNewStart = newLineNumber;
 

@@ -174,9 +174,11 @@ function cloneBuffer(buffer: BufferLike, isDeep?: boolean): BufferLike {
   if (isDeep) return buffer.slice();
   const result =
     getBufferConstructor()?.allocUnsafe?.(buffer.length) ??
-    new (buffer.constructor as {
-      new (length: number): Uint8Array;
-    })(buffer.length);
+    new (
+      buffer.constructor as {
+        new (length: number): Uint8Array;
+      }
+    )(buffer.length);
   if (typeof buffer.copy === "function") buffer.copy(result);
   else result.set(buffer);
   return result as BufferLike;
@@ -213,9 +215,11 @@ function baseCreate(prototype: object | null): object {
   if (nativeObjectCreate != null) return nativeObjectCreate(prototype);
   function TemporaryConstructor() {}
   TemporaryConstructor.prototype = prototype;
-  const result = new (TemporaryConstructor as {
-    new (): object;
-  })();
+  const result = new (
+    TemporaryConstructor as {
+      new (): object;
+    }
+  )();
   TemporaryConstructor.prototype = undefined;
   return result;
 }

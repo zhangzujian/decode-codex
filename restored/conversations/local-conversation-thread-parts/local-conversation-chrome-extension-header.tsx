@@ -113,9 +113,7 @@ export function ChromeExtensionConversationHeader({
       conversationId,
     ) as ReactNode,
     cwd = useScopedValue(conversationCwdSignal, conversationId) as
-      | string
-      | null
-      | undefined,
+      string | null | undefined,
     projectlessOutputDirectory = useScopedValue(
       projectlessOutputDirectorySignal,
       conversationId,

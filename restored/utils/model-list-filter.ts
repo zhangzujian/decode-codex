@@ -39,10 +39,7 @@ const COPILOT_DEFAULT_REASONING_EFFORT: ReasoningEffort = {
 
 function normalizeEnabledReasoningEfforts(
   enabledReasoningEfforts:
-    | ReadonlySet<string>
-    | readonly string[]
-    | null
-    | undefined,
+    ReadonlySet<string> | readonly string[] | null | undefined,
 ): ReadonlySet<string> | null {
   if (enabledReasoningEfforts == null) return null;
   return enabledReasoningEfforts instanceof Set

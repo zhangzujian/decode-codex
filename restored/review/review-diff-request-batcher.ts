@@ -17,8 +17,7 @@ interface ReviewDiffSuccessResult {
 }
 
 type ReviewDiffResult =
-  | ReviewDiffSuccessResult
-  | { type: "error"; [key: string]: unknown };
+  ReviewDiffSuccessResult | { type: "error"; [key: string]: unknown };
 
 interface ReviewFilePathRequest {
   changeKind: string;

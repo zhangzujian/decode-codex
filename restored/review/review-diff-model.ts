@@ -28,11 +28,7 @@ import {
 export { createGitMetadataQueryFamily } from "./review-git-metadata-query-family";
 
 export type ReviewDiffFilter =
-  | "staged"
-  | "unstaged"
-  | "branch"
-  | "commit"
-  | "last-turn";
+  "staged" | "unstaged" | "branch" | "commit" | "last-turn";
 
 interface BranchRef {
   local: string | null;

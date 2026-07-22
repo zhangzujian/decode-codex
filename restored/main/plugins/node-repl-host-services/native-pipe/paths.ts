@@ -30,9 +30,11 @@ export async function ensureNativePipeDirectory(
     await mkdir(directoryPath, { recursive: true });
     return;
   } catch (error) {
-    if (
-      !(error instanceof Error && "code" in error && error.code === "EEXIST")
-    ) {
+    if (!(
+      error instanceof Error &&
+      "code" in error &&
+      error.code === "EEXIST"
+    )) {
       throw error;
     }
   }

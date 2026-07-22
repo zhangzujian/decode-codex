@@ -1,7 +1,7 @@
-// Restored from ref/webview/assets/electron-menu-shortcuts-j6UKqTX5.js
+// Restored from ref/webview/assets/app-initial~artifact-tab-content.electron~app-main~appgen-settings-page~page~pull-request-r~ll1u4x0e-Bl9B7AEa.js
 const threadAndComposerCommandDefinitions = [
   {
-    id: `newThread`,
+    id: `newTask`,
     titleIntlId: `codex.command.newThread`,
     descriptionIntlId: `codex.commandDescription.newThread`,
     commandMenuGroupKey: `thread`,
@@ -20,7 +20,7 @@ const threadAndComposerCommandDefinitions = [
     },
     vscodeCommand: {
       commandId: `chatgpt.newChat`,
-      title: `New Thread in Codex Sidebar`,
+      title: `New Chat in ChatGPT Sidebar`,
       keybinding: {
         key: `ctrl+n`,
         mac: `cmd+n`,
@@ -29,14 +29,28 @@ const threadAndComposerCommandDefinitions = [
     },
   },
   {
+    id: `newProjectlessTask`,
+    titleIntlId: `codex.command.newProjectlessTask`,
+    descriptionIntlId: `codex.commandDescription.newProjectlessTask`,
+    availableIn: [`electron`],
+    commandMenuGroupKey: `thread`,
+    commandMenu: true,
+    commandMenuFeature: `codex`,
+    electron: {
+      menuTitle: `New standalone chat`,
+      menuTitleIntlId: `codex.commandMenuTitle.newProjectlessTask`,
+      defaultKeybindings: [{ key: `CmdOrCtrl+Alt+O` }],
+    },
+  },
+  {
     id: `quickChat`,
     titleIntlId: `codex.command.quickChat`,
     descriptionIntlId: `codex.commandDescription.quickChat`,
+    shortcutScope: `app`,
     commandMenuGroupKey: `thread`,
     commandMenu: true,
+    commandMenuFeature: `chatgpt`,
     electron: {
-      menuTitle: `Quick Chat`,
-      menuTitleIntlId: `codex.commandMenuTitle.quickChat`,
       defaultKeybindings: [
         {
           key: `CmdOrCtrl+Alt+N`,
@@ -50,6 +64,7 @@ const threadAndComposerCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.openThreadInNewWindow`,
     commandMenuGroupKey: `thread`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       menuTitle: `Open in New Window`,
       menuTitleIntlId: `codex.commandMenuTitle.openThreadInNewWindow`,
@@ -100,6 +115,7 @@ const threadAndComposerCommandDefinitions = [
     shortcutScope: `app`,
     commandMenuGroupKey: `thread`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       defaultKeybindings: [
         {
@@ -116,6 +132,31 @@ const threadAndComposerCommandDefinitions = [
     commandMenu: true,
   },
   {
+    id: `undoAppAction`,
+    titleIntlId: `codex.command.undoAppAction`,
+    descriptionIntlId: `codex.commandDescription.undoAppAction`,
+    availableIn: [`electron`],
+    shortcutScope: `app`,
+    commandMenuGroupKey: `app`,
+    commandMenu: true,
+    electron: { defaultKeybindings: [{ key: `CmdOrCtrl+Z` }] },
+  },
+  {
+    id: `redoAppAction`,
+    titleIntlId: `codex.command.redoAppAction`,
+    descriptionIntlId: `codex.commandDescription.redoAppAction`,
+    availableIn: [`electron`],
+    shortcutScope: `app`,
+    commandMenuGroupKey: `app`,
+    commandMenu: true,
+    electron: {
+      platformDefaultKeybindings: {
+        macOS: [{ key: `Command+Shift+Z` }],
+        default: [{ key: `Ctrl+Y` }, { key: `Ctrl+Shift+Z` }],
+      },
+    },
+  },
+  {
     id: `composer.openModelPicker`,
     titleIntlId: `codex.command.composer.openModelPicker`,
     descriptionIntlId: `codex.commandDescription.composer.openModelPicker`,
@@ -127,6 +168,14 @@ const threadAndComposerCommandDefinitions = [
         },
       ],
     },
+  },
+  {
+    id: `composer.openProjectPicker`,
+    titleIntlId: `codex.command.composer.openProjectPicker`,
+    descriptionIntlId: `codex.commandDescription.composer.openProjectPicker`,
+    availableIn: [`browser`, `electron`],
+    shortcutScope: `app`,
+    electron: { defaultKeybindings: [{ key: `CmdOrCtrl+Alt+Shift+O` }] },
   },
   {
     id: `composer.startVoiceMode`,
@@ -160,6 +209,27 @@ const threadAndComposerCommandDefinitions = [
     id: `composer.submit`,
     titleIntlId: `codex.command.composer.submit`,
     descriptionIntlId: `codex.commandDescription.composer.submit`,
+    shortcutScope: `app`,
+  },
+  {
+    id: `composer.addPhotos`,
+    titleIntlId: `codex.command.composer.addPhotos`,
+    descriptionIntlId: `codex.commandDescription.composer.addPhotos`,
+    availableIn: [`electron`],
+    shortcutScope: `app`,
+  },
+  {
+    id: `composer.captureAppshot`,
+    titleIntlId: `codex.command.composer.captureAppshot`,
+    descriptionIntlId: `codex.commandDescription.composer.captureAppshot`,
+    availableIn: [`electron`],
+    shortcutConfigurable: false,
+  },
+  {
+    id: `composer.addFiles`,
+    titleIntlId: `codex.command.composer.addFiles`,
+    descriptionIntlId: `codex.commandDescription.composer.addFiles`,
+    availableIn: [`electron`],
     shortcutScope: `app`,
   },
   {
@@ -225,6 +295,7 @@ const threadAndComposerCommandDefinitions = [
     shortcutScope: `app`,
     commandMenuGroupKey: `workspace`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
   },
   {
     id: `git.createPullRequest`,
@@ -233,6 +304,7 @@ const threadAndComposerCommandDefinitions = [
     shortcutScope: `app`,
     commandMenuGroupKey: `workspace`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
   },
   {
     id: `forkThread`,
@@ -246,9 +318,22 @@ const threadAndComposerCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.openPetOverlay`,
     commandMenuGroupKey: `app`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
-      menuTitle: `Wake Pet`,
+      menuTitle: `Show pet`,
       menuTitleIntlId: `codex.commandMenuTitle.openAvatarOverlay`,
+    },
+  },
+  {
+    id: `searchChats`,
+    titleIntlId: `codex.command.searchChats`,
+    descriptionIntlId: `codex.commandDescription.searchChats`,
+    availableIn: [`electron`],
+    commandMenuGroupKey: `navigation`,
+    commandMenu: true,
+    electron: {
+      menuTitle: `Search Chats…`,
+      menuTitleIntlId: `codex.commandMenuTitle.searchChats`,
     },
   },
 ];

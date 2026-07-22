@@ -149,60 +149,152 @@ import {
 } from "../../features/avatar-overlay-selection";
 import { AvatarOverlaySharedModule } from "./shared";
 
-function getNotificationTrayScrollableHeight(avatarOverlayOperand48, avatarOverlayOperand49) {
-  if (avatarOverlayOperand49 <= AvatarOverlaySharedModule.avatarOverlayBinding5) return avatarOverlayOperand48.scrollHeight;
-  let avatarOverlayBinding371 = getNotificationRowElements(avatarOverlayOperand48);
-  return avatarOverlayBinding371[findNotificationRowIndexAtOffset(avatarOverlayBinding371, getNotificationScrollThreshold(avatarOverlayOperand48, avatarOverlayBinding371)) + AvatarOverlaySharedModule.avatarOverlayBinding5]?.offsetTop ?? avatarOverlayOperand48.scrollHeight;
+function getNotificationTrayScrollableHeight(
+  avatarOverlayOperand48,
+  avatarOverlayOperand49,
+) {
+  if (avatarOverlayOperand49 <= AvatarOverlaySharedModule.avatarOverlayBinding5)
+    return avatarOverlayOperand48.scrollHeight;
+  let avatarOverlayBinding371 = getNotificationRowElements(
+    avatarOverlayOperand48,
+  );
+  return (
+    avatarOverlayBinding371[
+      findNotificationRowIndexAtOffset(
+        avatarOverlayBinding371,
+        getNotificationScrollThreshold(
+          avatarOverlayOperand48,
+          avatarOverlayBinding371,
+        ),
+      ) + AvatarOverlaySharedModule.avatarOverlayBinding5
+    ]?.offsetTop ?? avatarOverlayOperand48.scrollHeight
+  );
 }
 
-function getNotificationTrayScrollState(avatarOverlayOperand18, avatarOverlayOperand19 = avatarOverlayOperand18.scrollTop) {
-  if (!hasScrollableNotificationTray(avatarOverlayOperand18)) return {
-    hasScrollableContent: false,
-    hasLatestNotificationsAbove: false,
-    hiddenOlderNotificationCount: 0
-  };
-  if (isNotificationTrayScrolledToEnd(avatarOverlayOperand18, avatarOverlayOperand19)) return {
-    hasScrollableContent: true,
-    hasLatestNotificationsAbove: true,
-    hiddenOlderNotificationCount: 0
-  };
-  let avatarOverlayBinding341 = getNotificationRowElements(avatarOverlayOperand18),
-    avatarOverlayBinding342 = getNotificationScrollThreshold(avatarOverlayOperand18, avatarOverlayBinding341, avatarOverlayOperand19);
+function getNotificationTrayScrollState(
+  avatarOverlayOperand18,
+  avatarOverlayOperand19 = avatarOverlayOperand18.scrollTop,
+) {
+  if (!hasScrollableNotificationTray(avatarOverlayOperand18))
+    return {
+      hasScrollableContent: false,
+      hasLatestNotificationsAbove: false,
+      hiddenOlderNotificationCount: 0,
+    };
+  if (
+    isNotificationTrayScrolledToEnd(
+      avatarOverlayOperand18,
+      avatarOverlayOperand19,
+    )
+  )
+    return {
+      hasScrollableContent: true,
+      hasLatestNotificationsAbove: true,
+      hiddenOlderNotificationCount: 0,
+    };
+  let avatarOverlayBinding341 = getNotificationRowElements(
+      avatarOverlayOperand18,
+    ),
+    avatarOverlayBinding342 = getNotificationScrollThreshold(
+      avatarOverlayOperand18,
+      avatarOverlayBinding341,
+      avatarOverlayOperand19,
+    );
   return {
     hasScrollableContent: true,
-    hasLatestNotificationsAbove: avatarOverlayOperand19 > AvatarOverlaySharedModule.avatarOverlayBinding6,
-    hiddenOlderNotificationCount: countHiddenOlderNotifications(avatarOverlayOperand18, avatarOverlayBinding341, avatarOverlayBinding342)
+    hasLatestNotificationsAbove:
+      avatarOverlayOperand19 > AvatarOverlaySharedModule.avatarOverlayBinding6,
+    hiddenOlderNotificationCount: countHiddenOlderNotifications(
+      avatarOverlayOperand18,
+      avatarOverlayBinding341,
+      avatarOverlayBinding342,
+    ),
   };
 }
-function areNotificationTrayScrollStatesEqual(avatarOverlayOperand32, avatarOverlayOperand33) {
-  return avatarOverlayOperand32.hasScrollableContent === avatarOverlayOperand33.hasScrollableContent && avatarOverlayOperand32.hasLatestNotificationsAbove === avatarOverlayOperand33.hasLatestNotificationsAbove && avatarOverlayOperand32.hiddenOlderNotificationCount === avatarOverlayOperand33.hiddenOlderNotificationCount;
+function areNotificationTrayScrollStatesEqual(
+  avatarOverlayOperand32,
+  avatarOverlayOperand33,
+) {
+  return (
+    avatarOverlayOperand32.hasScrollableContent ===
+      avatarOverlayOperand33.hasScrollableContent &&
+    avatarOverlayOperand32.hasLatestNotificationsAbove ===
+      avatarOverlayOperand33.hasLatestNotificationsAbove &&
+    avatarOverlayOperand32.hiddenOlderNotificationCount ===
+      avatarOverlayOperand33.hiddenOlderNotificationCount
+  );
 }
-function isNotificationTrayScrolledToEnd(avatarOverlayOperand59, avatarOverlayOperand60 = avatarOverlayOperand59.scrollTop) {
-  let avatarOverlayBinding373 = Math.max(0, avatarOverlayOperand59.scrollHeight - avatarOverlayOperand59.clientHeight);
-  return hasScrollableNotificationTray(avatarOverlayOperand59) && avatarOverlayOperand60 >= avatarOverlayBinding373 - AvatarOverlaySharedModule.avatarOverlayBinding6;
+function isNotificationTrayScrolledToEnd(
+  avatarOverlayOperand59,
+  avatarOverlayOperand60 = avatarOverlayOperand59.scrollTop,
+) {
+  let avatarOverlayBinding373 = Math.max(
+    0,
+    avatarOverlayOperand59.scrollHeight - avatarOverlayOperand59.clientHeight,
+  );
+  return (
+    hasScrollableNotificationTray(avatarOverlayOperand59) &&
+    avatarOverlayOperand60 >=
+      avatarOverlayBinding373 - AvatarOverlaySharedModule.avatarOverlayBinding6
+  );
 }
 function hasScrollableNotificationTray(avatarOverlayOperand80) {
-  return avatarOverlayOperand80.scrollHeight > avatarOverlayOperand80.clientHeight + AvatarOverlaySharedModule.avatarOverlayBinding6;
+  return (
+    avatarOverlayOperand80.scrollHeight >
+    avatarOverlayOperand80.clientHeight +
+      AvatarOverlaySharedModule.avatarOverlayBinding6
+  );
 }
 
-function countHiddenOlderNotifications(avatarOverlayOperand53, avatarOverlayOperand54, avatarOverlayOperand55) {
-  let avatarOverlayBinding372 = avatarOverlayOperand55 + avatarOverlayOperand53.clientHeight - AvatarOverlaySharedModule.avatarOverlayBinding6;
-  return avatarOverlayOperand54.filter(item => item.offsetTop + item.offsetHeight > avatarOverlayBinding372).length;
+function countHiddenOlderNotifications(
+  avatarOverlayOperand53,
+  avatarOverlayOperand54,
+  avatarOverlayOperand55,
+) {
+  let avatarOverlayBinding372 =
+    avatarOverlayOperand55 +
+    avatarOverlayOperand53.clientHeight -
+    AvatarOverlaySharedModule.avatarOverlayBinding6;
+  return avatarOverlayOperand54.filter(
+    (item) => item.offsetTop + item.offsetHeight > avatarOverlayBinding372,
+  ).length;
 }
 function getNotificationRowElements(avatarOverlayOperand67) {
-  return Array.from(avatarOverlayOperand67.children).filter(item => item instanceof HTMLElement);
+  return Array.from(avatarOverlayOperand67.children).filter(
+    (item) => item instanceof HTMLElement,
+  );
 }
-function getNotificationScrollThreshold(avatarOverlayOperand68, avatarOverlayOperand69, avatarOverlayOperand70 = avatarOverlayOperand68.scrollTop) {
-  return avatarOverlayOperand70 + (avatarOverlayOperand69[0]?.offsetTop ?? 0) + AvatarOverlaySharedModule.avatarOverlayBinding6;
+function getNotificationScrollThreshold(
+  avatarOverlayOperand68,
+  avatarOverlayOperand69,
+  avatarOverlayOperand70 = avatarOverlayOperand68.scrollTop,
+) {
+  return (
+    avatarOverlayOperand70 +
+    (avatarOverlayOperand69[0]?.offsetTop ?? 0) +
+    AvatarOverlaySharedModule.avatarOverlayBinding6
+  );
 }
-function findNotificationRowIndexAtOffset(avatarOverlayOperand63, avatarOverlayOperand64) {
+function findNotificationRowIndexAtOffset(
+  avatarOverlayOperand63,
+  avatarOverlayOperand64,
+) {
   let avatarOverlayBinding377 = 0;
-  for (let avatarOverlayBinding382 = 0; avatarOverlayBinding382 < avatarOverlayOperand63.length; avatarOverlayBinding382 += 1) avatarOverlayOperand63[avatarOverlayBinding382].offsetTop <= avatarOverlayOperand64 && (avatarOverlayBinding377 = avatarOverlayBinding382);
+  for (
+    let avatarOverlayBinding382 = 0;
+    avatarOverlayBinding382 < avatarOverlayOperand63.length;
+    avatarOverlayBinding382 += 1
+  )
+    avatarOverlayOperand63[avatarOverlayBinding382].offsetTop <=
+      avatarOverlayOperand64 &&
+      (avatarOverlayBinding377 = avatarOverlayBinding382);
   return avatarOverlayBinding377;
 }
 
 export class AvatarOverlayTrayHelpers {
-  static getNotificationTrayScrollableHeight = getNotificationTrayScrollableHeight;
+  static getNotificationTrayScrollableHeight =
+    getNotificationTrayScrollableHeight;
   static getNotificationTrayScrollState = getNotificationTrayScrollState;
-  static areNotificationTrayScrollStatesEqual = areNotificationTrayScrollStatesEqual;
+  static areNotificationTrayScrollStatesEqual =
+    areNotificationTrayScrollStatesEqual;
 }

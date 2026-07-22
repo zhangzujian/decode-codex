@@ -17,7 +17,7 @@ export function hasMarkdownPromptLink(
   predicate: (link: ParsedMarkdownPromptLink) => boolean,
 ): boolean {
   let searchIndex = 0;
-  for (; searchIndex < text.length; ) {
+  for (; searchIndex < text.length;) {
     const link = scanMarkdownPromptLink(
       text,
       searchIndex,

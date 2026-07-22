@@ -35,9 +35,7 @@ export type ApplyChromeExtensionSyncInput = ChromeExtensionSyncInput & {
 
 export function requireChromeExtensionSyncManagedPluginStore(
   chromeExtensionSyncManagedPluginStore:
-    | ChromeExtensionManagedPluginStore
-    | null
-    | undefined,
+    ChromeExtensionManagedPluginStore | null | undefined,
 ): ChromeExtensionManagedPluginStore {
   if (chromeExtensionSyncManagedPluginStore == null) {
     throw Error("Missing Chrome extension sync managed plugin store.");

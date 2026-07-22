@@ -1,0 +1,3 @@
+import { n as e, t } from "./stethoscope-Dq93sWBP-CoxkVU7y.js";
+e();
+export { t as default };

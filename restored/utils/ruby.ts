@@ -1,7 +1,4 @@
-// Restored from ref/webview/assets/ruby-_cJoqc5C.js
+// Restored from ref/webview/assets/ruby-Bgo5X_b6.js
 // Shiki Ruby grammar wrapper; the grammar payload stays in @shikijs/langs/ruby.
-import { n as rubyGrammar, t as initRubyGrammar } from "@shikijs/langs/ruby";
-
-initRubyGrammar();
-
-export { rubyGrammar as default };
+import rubyGrammar from "@shikijs/langs/ruby";
+export default rubyGrammar;

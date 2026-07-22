@@ -1,0 +1,98 @@
+// Restored from ref/webview/assets/app-initial~app-main~first-run~new-thread-panel-page~onboarding-page-Bz87OpSW.js
+// Semantic positional adapter for the current-build runtime.
+
+import * as currentBacking from "../../current-app-initial/new-thread-onboarding-shared-runtime-variant-20-current-backing";
+export const newThreadOnboardingSharedRuntimeVariant20Member0001 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageA"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0002 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageB"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0003 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageC"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0004 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageD"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0005 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageE"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0006 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageF"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0007 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageG"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0008 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageH"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0009 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageI"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0010 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageK"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0011 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageL"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0012 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageM"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0013 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageN"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0014 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageO"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0015 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageP"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0016 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageR"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0017 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageS"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0018 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageT"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0019 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageU"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0020 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageV"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0021 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageW"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0022 =
+  currentBacking[
+    "appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageUnderscore"
+  ];
+export const newThreadOnboardingSharedRuntimeVariant20Member0023 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageA"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0024 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageB"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0025 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageC"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0026 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageD"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0027 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageF"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0028 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageG"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0029 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageH"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0030 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageI"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0031 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageJ"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0032 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageK"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0033 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageL"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0034 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageM"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0035 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageN"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0036 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageO"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0037 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageP"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0038 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageR"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0039 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageS"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0040 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageT"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0041 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageU"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0042 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageV"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0043 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageW"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0044 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageX"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0045 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageY"];
+export const newThreadOnboardingSharedRuntimeVariant20Member0046 =
+  currentBacking["appInitialAppMainFirstRunNewThreadPanelPageOnboardingPageZ"];

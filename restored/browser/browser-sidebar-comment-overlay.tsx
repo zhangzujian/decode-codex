@@ -609,13 +609,11 @@ function BrowserCommentEditor({
     const dom = composer.view.dom;
     const activeElement = dom.ownerDocument.activeElement;
     const form = dom.closest("form");
-    if (
-      !(
-        activeElement != null &&
-        form?.contains(activeElement) &&
-        !dom.contains(activeElement)
-      )
-    ) {
+    if (!(
+      activeElement != null &&
+      form?.contains(activeElement) &&
+      !dom.contains(activeElement)
+    )) {
       composer.focus();
     }
   });

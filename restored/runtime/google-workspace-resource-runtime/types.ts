@@ -2,9 +2,7 @@
 // Shared Google Workspace resource types.
 
 export type GoogleWorkspaceResourceKind =
-  | "document"
-  | "spreadsheet"
-  | "presentation";
+  "document" | "spreadsheet" | "presentation";
 
 export type GoogleWorkspaceAnalyticsContext = {
   threadId?: string | null;

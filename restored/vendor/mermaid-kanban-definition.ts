@@ -711,7 +711,6 @@ var kanbanDefinition6JOO6SKYValue1 = (function () {
             kanbanDefinition6JOO6SKYValue63,
             _kanbanDefinition6JOO6SKY;
           ;
-
         ) {
           if (
             ((kanbanDefinition6JOO6SKYValue57 =

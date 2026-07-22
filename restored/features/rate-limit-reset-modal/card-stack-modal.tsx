@@ -42,8 +42,7 @@ export function RateLimitResetCardStackModal({
   );
   const creditsQuery = useRateLimitResetCreditsQuery();
   const creditsData = creditsQuery.data as
-    | RateLimitResetCreditsResponse
-    | undefined;
+    RateLimitResetCreditsResponse | undefined;
   const availableCount =
     creditsData?.available_count ?? initialAvailableCount ?? 0;
   const availableCredits = (creditsData?.credits ?? []).filter(

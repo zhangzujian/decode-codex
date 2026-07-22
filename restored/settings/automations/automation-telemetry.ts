@@ -15,14 +15,7 @@ import {
 export type AutomationKind = "cron" | "heartbeat";
 export type AutomationStatus = "ACTIVE" | "PAUSED" | "DELETED";
 export type ReasoningEffort =
-  | "none"
-  | "minimal"
-  | "low"
-  | "medium"
-  | "high"
-  | "xhigh"
-  | "max"
-  | "ultra";
+  "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max" | "ultra";
 export type ExecutionEnvironment = "worktree" | "local";
 
 export interface AutomationTelemetryInput {

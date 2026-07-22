@@ -40,9 +40,8 @@ type BrowserCapabilityQueryResult = {
   isLoading: boolean;
 };
 const BrowserProfileImportDialogModal = React.lazy(async () => {
-  const { BrowserProfileImportDialogModal } = await import(
-    "../ui/browser-profile-import-dialog"
-  );
+  const { BrowserProfileImportDialogModal } =
+    await import("../ui/browser-profile-import-dialog");
   return {
     default:
       BrowserProfileImportDialogModal as ComponentType<BrowserProfileImportDialogProps>,

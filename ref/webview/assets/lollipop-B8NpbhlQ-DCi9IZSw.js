@@ -1,0 +1,3 @@
+import { n as e, t } from "./lollipop-B8NpbhlQ-Cnhl44Wy.js";
+t();
+export { e as default };

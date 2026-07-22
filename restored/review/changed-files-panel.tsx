@@ -63,9 +63,7 @@ export function ChangedFilesPanel({
   let commentCountByPath: Map<string, number> | undefined;
   {
     const readonlyComments = commentProps.readonlyComments as
-      | unknown[]
-      | undefined
-      | null;
+      unknown[] | undefined | null;
     const modelComments = commentProps.modelComments as unknown[];
     if (
       (readonlyComments == null || readonlyComments.length === 0) &&

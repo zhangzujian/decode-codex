@@ -111,8 +111,7 @@ export function useToggleMcpServerEnabledMutation(options?: {
       context?: unknown,
     ) => {
       const rollbackContext = context as
-        | ToggleMcpServerEnabledContext
-        | undefined;
+        ToggleMcpServerEnabledContext | undefined;
       vscodeLogger.error("Failed to update MCP server enabled state", {
         safe: {},
         sensitive: {

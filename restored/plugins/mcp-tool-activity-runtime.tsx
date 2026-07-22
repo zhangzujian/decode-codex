@@ -29,7 +29,11 @@ export function resolvePluginToolDisplay({
   pluginId?: string | null;
   plugins?: unknown[] | null;
   serverName?: string | null;
-}): { alt: string; logoDarkUrl?: string | null; logoUrl?: string | null } | null {
+}): {
+  alt: string;
+  logoDarkUrl?: string | null;
+  logoUrl?: string | null;
+} | null {
   if (pluginId == null) return null;
   const plugin = (plugins ?? []).find((item) => {
     const record = item as Record<string, unknown> | null;
@@ -163,7 +167,11 @@ export function Callout({
         : "border-token-border-light bg-token-surface-secondary text-token-text-primary";
   return (
     <div
-      className={classNames("rounded-lg border px-3 py-2", levelClass, className)}
+      className={classNames(
+        "rounded-lg border px-3 py-2",
+        levelClass,
+        className,
+      )}
     >
       {children}
     </div>
@@ -190,7 +198,10 @@ export function AutomaticApprovalReviews({
   if (reviews == null || reviews.length === 0) return null;
   return (
     <div
-      className={classNames("flex flex-col gap-1 py-2 text-size-chat-sm", className)}
+      className={classNames(
+        "flex flex-col gap-1 py-2 text-size-chat-sm",
+        className,
+      )}
     >
       {reviews.map((review, index) => {
         const record = isPlainRecord(review) ? review : {};

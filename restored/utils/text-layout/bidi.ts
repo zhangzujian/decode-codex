@@ -107,7 +107,7 @@ function computeBidiLevels(text: string): Int8Array | null {
   for (let index = 0; index < length; index++) {
     if (charTypes[index] !== "ON") continue;
     let runEnd = index + 1;
-    for (; runEnd < length && charTypes[runEnd] === "ON"; ) runEnd++;
+    for (; runEnd < length && charTypes[runEnd] === "ON";) runEnd++;
     const before = index > 0 ? charTypes[index - 1] : sentinel;
     const after = runEnd < length ? charTypes[runEnd] : sentinel;
     const resolved = before === "L" ? "L" : "R";

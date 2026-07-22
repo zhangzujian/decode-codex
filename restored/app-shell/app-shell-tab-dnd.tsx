@@ -182,8 +182,7 @@ function getCollisionInsertionPlacement(
       ? null
       : (event.collisions?.find((collision) => collision.id === overId)?.data
           ?.appShellTabInsertionPlacement as
-          | AppShellTabInsertionPlacement
-          | undefined);
+          AppShellTabInsertionPlacement | undefined);
   return placement === "after" ? "after" : "before";
 }
 

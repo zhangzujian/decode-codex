@@ -117,17 +117,23 @@ export function openCreatePullRequestDialog(store: StoreLike): void {
 }
 
 export function triggerPushFlow(store: StoreLike): void {
-  store.set?.(activeGitWorkflowAtom, { cwd: null, hostId: "local" }, {
-    workflow: "push",
-    phase: "queued",
-  });
+  store.set?.(
+    activeGitWorkflowAtom,
+    { cwd: null, hostId: "local" },
+    {
+      workflow: "push",
+      phase: "queued",
+    },
+  );
 }
 
-export function cancelActiveGitWorkflow(params: {
-  cwd?: string | null;
-  hostId?: string | null;
-  store?: StoreLike;
-} = {}): void {
+export function cancelActiveGitWorkflow(
+  params: {
+    cwd?: string | null;
+    hostId?: string | null;
+    store?: StoreLike;
+  } = {},
+): void {
   params.store?.set?.(
     activeGitWorkflowAtom,
     { cwd: params.cwd ?? null, hostId: params.hostId ?? "local" },
@@ -149,9 +155,11 @@ export function refetchReviewGitChanges(store?: StoreLike): void {
 }
 
 export async function invalidateReviewDiffQueries(
-  queryClientOrOptions?: {
-    invalidateQueries?(filters?: unknown): Promise<unknown> | unknown;
-  } | Record<string, unknown>,
+  queryClientOrOptions?:
+    | {
+        invalidateQueries?(filters?: unknown): Promise<unknown> | unknown;
+      }
+    | Record<string, unknown>,
 ): Promise<void> {
   await queryClientOrOptions?.invalidateQueries?.({ queryKey: ["review"] });
 }

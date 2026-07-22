@@ -16,9 +16,7 @@ export type WindowsUpdaterNativeAddon = {
   killProcessDescendants(pid: number): void;
 };
 export type WindowsUpdaterNativeAddonLoader = () =>
-  | WindowsUpdaterNativeAddon
-  | null
-  | undefined;
+  WindowsUpdaterNativeAddon | null | undefined;
 export type QuitStateBoundary = {
   allowQuitTemporarilyForUpdateInstall(): void;
 };

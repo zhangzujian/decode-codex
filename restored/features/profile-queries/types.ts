@@ -42,10 +42,7 @@ export type ProfileUpdateInput = {
   photo?: File | null;
 };
 export type ProfileUsernameValidationReason =
-  | "empty"
-  | "invalidCharacters"
-  | "tooLong"
-  | "tooShort";
+  "empty" | "invalidCharacters" | "tooLong" | "tooShort";
 export type ProfileUsernameValidationResult =
   | {
       ok: true;

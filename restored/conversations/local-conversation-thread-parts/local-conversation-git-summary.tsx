@@ -77,12 +77,7 @@ type HeadBranchQuery = {
 };
 
 type CreatePullRequestActionState =
-  | "disabled"
-  | "enabled"
-  | "hidden"
-  | string
-  | null
-  | undefined;
+  "disabled" | "enabled" | "hidden" | string | null | undefined;
 
 type GithubCliAvailability =
   | "available"
@@ -213,9 +208,7 @@ export function LocalConversationGitSummary({
       hostId: hostConfig.id,
     };
   let activeWorkflow = useScopedValue(activeWorkflowSignal, workflowParams) as
-      | ActiveWorkflow
-      | null
-      | undefined,
+      ActiveWorkflow | null | undefined,
     workflowPhase = activeWorkflow?.phase ?? null,
     isCreatePrWorkflow = activeWorkflow?.workflow === "create-pr",
     ghCliAvailability = useScopedValue(

@@ -196,9 +196,7 @@ function getToolSourceDisplayName(source: ThreadSummaryToolSource) {
 function getToolSourceIcon(source: ThreadSummaryToolSource) {
   for (let iconId of [source.id, source.name, ...source.pluginDisplayNames]) {
     let Icon = getKnownAppIconById(iconId) as
-      | ComponentType<SVGProps<SVGSVGElement>>
-      | null
-      | undefined;
+      ComponentType<SVGProps<SVGSVGElement>> | null | undefined;
     if (Icon != null) return Icon;
   }
   return null;

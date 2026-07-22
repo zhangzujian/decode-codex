@@ -35,8 +35,7 @@ import {
 } from "./registry-subscriptions";
 type RecentConversationSortKey = "created_at" | "updated_at" | "recency_at";
 type RecentConversationQueryKind =
-  | "recent-conversations"
-  | "recent-conversations-meta";
+  "recent-conversations" | "recent-conversations-meta";
 async function refreshRecentConversationsForHost(
   hostId: HostId,
   sortKey: RecentConversationSortKey,

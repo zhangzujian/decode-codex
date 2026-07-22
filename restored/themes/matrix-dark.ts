@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/matrix-dark-Dj9y-KJg.js
+// Restored from ref/webview/assets/matrix-dark-Duu_8jmb.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#040805";
 export const colors = {

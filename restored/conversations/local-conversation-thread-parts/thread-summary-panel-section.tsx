@@ -36,8 +36,7 @@ const expandedSectionMotionState = {
 type ThreadSummaryPanelSectionMode = "accordion" | "dropdown" | "headerless";
 type ThreadSummaryPanelSectionOption = string;
 type ThreadSummaryPanelSectionAfter =
-  | ReactNode
-  | ((state: { isExpanded: boolean }) => ReactNode);
+  ReactNode | ((state: { isExpanded: boolean }) => ReactNode);
 
 export type ThreadSummaryPanelSectionHandle = {
   collapse: () => void;

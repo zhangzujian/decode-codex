@@ -26,12 +26,7 @@ type ComposerFooterVariant = "default" | "home";
 type CloudFollowUpStartingState = "working-tree" | "direct-follow-up";
 type FooterBranchVisibility = "always" | "local" | "never";
 type IconKind =
-  | "cloud"
-  | "local"
-  | "project"
-  | "remote"
-  | "warning"
-  | "worktree";
+  "cloud" | "local" | "project" | "remote" | "warning" | "worktree";
 type WorktreeEnvironment =
   WorktreeEnvironmentDropdownProps["environments"][number];
 

@@ -1,0 +1,3 @@
+import { n as e, t } from "./copy-slash-B2DaTAOC-iiFuWp3R.js";
+e();
+export { t as default };

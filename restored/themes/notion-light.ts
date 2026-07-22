@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/notion-light-Bp4sCMqR.js
+// Restored from ref/webview/assets/notion-light-Dyidta1Z.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#ffffff";
 export const colors = {

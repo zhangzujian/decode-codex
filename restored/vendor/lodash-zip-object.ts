@@ -48,7 +48,6 @@ function zipObjectHelper1(zipObjectParam49) {
     var zipObjectValue94 = zipObjectParam49.length;
     zipObjectValue94-- &&
     zipObjectValue1.test(zipObjectParam49.charAt(zipObjectValue94));
-
   );
   return zipObjectValue94;
 }
@@ -138,7 +137,6 @@ export const zipObjectH = mergeU(function (zipObjectParam11, zipObjectParam12) {
     mergeL(zipObjectParam12[0], zipObjectParam12[1], zipObjectValue59) &&
     (zipObjectValue58 = 1);
     ++zipObjectValue57 < zipObjectValue58;
-
   )
     for (
       var zipObjectValue60 = zipObjectParam12[zipObjectValue57],
@@ -146,7 +144,6 @@ export const zipObjectH = mergeU(function (zipObjectParam11, zipObjectParam12) {
         zipObjectValue62 = -1,
         zipObjectValue63 = zipObjectValue61.length;
       ++zipObjectValue62 < zipObjectValue63;
-
     ) {
       var zipObjectValue64 = zipObjectValue61[zipObjectValue62],
         zipObjectValue65 = zipObjectParam11[zipObjectValue64];
@@ -292,7 +289,6 @@ function zipObjectHelper13(
       zipObjectValue41 = zipObjectValue40 - 1,
       zipObjectValue42 = zipObjectParam1;
     zipObjectValue42 != null && ++zipObjectValue39 < zipObjectValue40;
-
   ) {
     var zipObjectValue43 = reduceG(zipObjectParam2[zipObjectValue39]),
       zipObjectValue44 = zipObjectParam3;
@@ -329,7 +325,6 @@ function zipObjectHelper14(
       zipObjectValue85 = zipObjectParam34.length,
       zipObjectValue86 = {};
     ++zipObjectValue84 < zipObjectValue85;
-
   ) {
     var zipObjectValue87 = zipObjectParam34[zipObjectValue84],
       zipObjectValue88 = reduceF(zipObjectParam33, zipObjectValue87);
@@ -344,7 +339,7 @@ function zipObjectHelper14(
 }
 function zipObjectHelper15(zipObjectParam46, zipObjectParam47) {
   var zipObjectValue93 = zipObjectParam46.length;
-  for (zipObjectParam46.sort(zipObjectParam47); zipObjectValue93--; )
+  for (zipObjectParam46.sort(zipObjectParam47); zipObjectValue93--;)
     zipObjectParam46[zipObjectValue93] =
       zipObjectParam46[zipObjectValue93].value;
   return zipObjectParam46;
@@ -404,7 +399,6 @@ function zipObjectHelper17(
       zipObjectValue69 = zipObjectValue67.length,
       zipObjectValue70 = zipObjectParam15.length;
     ++zipObjectValue66 < zipObjectValue69;
-
   ) {
     var zipObjectValue71 = zipObjectHelper16(
       zipObjectValue67[zipObjectValue66],
@@ -494,7 +488,6 @@ function zipObjectHelper19(zipObjectParam52) {
   for (
     var zipObjectValue96 = (zipObjectValue35.lastIndex = 0);
     zipObjectValue35.test(zipObjectParam52);
-
   )
     ++zipObjectValue96;
   return zipObjectValue96;
@@ -538,7 +531,6 @@ function zipObjectHelper21(
       ),
       zipObjectValue91 = Array(zipObjectValue90);
     zipObjectValue90--;
-
   ) {
     zipObjectValue91[zipObjectParam39 ? zipObjectValue90 : ++zipObjectValue89] =
       zipObjectParam36;
@@ -614,7 +606,6 @@ function zipObjectHelper23(
       zipObjectValue81 = zipObjectParam31.length,
       zipObjectValue82 = {};
     ++zipObjectValue79 < zipObjectValue80;
-
   ) {
     var zipObjectValue83 =
       zipObjectValue79 < zipObjectValue81

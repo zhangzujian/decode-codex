@@ -13,8 +13,10 @@ export interface FileReference {
   path: string;
 }
 
-export interface FileReferenceLinkProps
-  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
+export interface FileReferenceLinkProps extends Omit<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  "href"
+> {
   cwd?: string | null;
   hostId?: string | null;
   label?: React.ReactNode;

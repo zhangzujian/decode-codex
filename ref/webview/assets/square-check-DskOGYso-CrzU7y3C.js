@@ -1,0 +1,3 @@
+import { n as e, t } from "./square-check-DskOGYso-DLkohdqJ.js";
+e();
+export { t as default };

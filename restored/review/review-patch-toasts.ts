@@ -30,10 +30,7 @@ interface ToastController {
 }
 
 export type PatchActionStatus =
-  | "success"
-  | "error"
-  | "partial-success"
-  | string;
+  "success" | "error" | "partial-success" | string;
 
 type StageUnstageAction = "stage" | "unstage" | string;
 

@@ -6,10 +6,7 @@ import type { ReactNode } from "react";
 export type ComposerFooterControlCollapse = "none" | "secondary" | "sm" | "xs";
 
 export type ComposerFooterControlIndicator =
-  | "chevron"
-  | "collapsible-chevron"
-  | "none"
-  | "pending";
+  "chevron" | "collapsible-chevron" | "none" | "pending";
 
 export type ComposerProjectSelectorVariant = "default" | "hero" | "home";
 

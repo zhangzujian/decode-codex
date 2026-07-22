@@ -201,8 +201,7 @@ function omitUndefined<T extends Record<string, unknown>>(
 async function submitCodexAnalyticsEventFromRuntime(
   event: unknown,
 ): Promise<void> {
-  const { submitCodexAnalyticsEvent } = await import(
-    "../analytics/codex-analytics-event"
-  );
+  const { submitCodexAnalyticsEvent } =
+    await import("../analytics/codex-analytics-event");
   await submitCodexAnalyticsEvent(event as never);
 }

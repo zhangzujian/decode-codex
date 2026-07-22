@@ -24,10 +24,7 @@ type RemoteProjectSelection = {
   projectKind: "remote";
 };
 type ProjectSelection =
-  | LocalProjectSelection
-  | RemoteProjectSelection
-  | null
-  | undefined;
+  LocalProjectSelection | RemoteProjectSelection | null | undefined;
 const { globalSettingKeys } = sourceRuntime as {
   globalSettingKeys: Record<string, string>;
 };

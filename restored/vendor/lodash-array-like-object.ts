@@ -206,7 +206,6 @@ export function isArrayLikeObjectF(
   for (
     isArrayLikeObjectParam54 ||= Array(__isArrayLikeObjectW);
     ++__isArrayLikeObjectG < __isArrayLikeObjectW;
-
   )
     isArrayLikeObjectParam54[__isArrayLikeObjectG] =
       isArrayLikeObjectParam53[__isArrayLikeObjectG];
@@ -338,7 +337,6 @@ export function isArrayLikeObjectO(
     var isArrayLikeObjectValue94 = -1,
       isArrayLikeObjectValue95 = isArrayLikeObjectParam14.length;
     ++isArrayLikeObjectValue94 < isArrayLikeObjectValue95;
-
   ) {
     var isArrayLikeObjectValue96 =
         isArrayLikeObjectParam14[isArrayLikeObjectValue94],
@@ -391,7 +389,6 @@ function isArrayLikeObjectD(
           ),
           isArrayLikeObjectValue100 = Array(isArrayLikeObjectValue99);
         ++isArrayLikeObjectValue98 < isArrayLikeObjectValue99;
-
       )
         isArrayLikeObjectValue100[isArrayLikeObjectValue98] =
           __isArrayLikeObjectW[
@@ -401,7 +398,6 @@ function isArrayLikeObjectD(
       for (
         var isArrayLikeObjectValue101 = Array(isArrayLikeObjectParam8 + 1);
         ++isArrayLikeObjectValue98 < isArrayLikeObjectParam8;
-
       )
         isArrayLikeObjectValue101[isArrayLikeObjectValue98] =
           __isArrayLikeObjectW[isArrayLikeObjectValue98];
@@ -498,7 +494,6 @@ export function isArrayLikeObjectS(isArrayLikeObjectParam5) {
             (isArrayLikeObjectValue89 = 1)),
           isArrayLikeObjectParam6 = Object(isArrayLikeObjectParam6);
         ++__isArrayLikeObjectW < isArrayLikeObjectValue89;
-
       ) {
         var isArrayLikeObjectValue92 =
           __isArrayLikeObjectG[__isArrayLikeObjectW];
@@ -533,7 +528,6 @@ function isArrayLikeObjectHelper7(
     var __isArrayLikeObjectG = -1,
       __isArrayLikeObjectW = Array(isArrayLikeObjectParam65);
     ++__isArrayLikeObjectG < isArrayLikeObjectParam65;
-
   )
     __isArrayLikeObjectW[__isArrayLikeObjectG] =
       isArrayLikeObjectParam66(__isArrayLikeObjectG);
@@ -795,7 +789,7 @@ function isArrayLikeObjectHelper18(isArrayLikeObjectParam32) {
   var isArrayLikeObjectValue118 = -1,
     __isArrayLikeObjectG =
       isArrayLikeObjectParam32 == null ? 0 : isArrayLikeObjectParam32.length;
-  for (this.clear(); ++isArrayLikeObjectValue118 < __isArrayLikeObjectG; ) {
+  for (this.clear(); ++isArrayLikeObjectValue118 < __isArrayLikeObjectG;) {
     var __isArrayLikeObjectW =
       isArrayLikeObjectParam32[isArrayLikeObjectValue118];
     this.set(__isArrayLikeObjectW[0], __isArrayLikeObjectW[1]);
@@ -817,7 +811,6 @@ function isArrayLikeObjectHelper20(
   for (
     var __isArrayLikeObjectG = isArrayLikeObjectParam61.length;
     __isArrayLikeObjectG--;
-
   )
     if (
       isArrayLikeObjectA(
@@ -887,7 +880,7 @@ function isArrayLikeObjectHelper25(isArrayLikeObjectParam33) {
   var isArrayLikeObjectValue119 = -1,
     __isArrayLikeObjectG =
       isArrayLikeObjectParam33 == null ? 0 : isArrayLikeObjectParam33.length;
-  for (this.clear(); ++isArrayLikeObjectValue119 < __isArrayLikeObjectG; ) {
+  for (this.clear(); ++isArrayLikeObjectValue119 < __isArrayLikeObjectG;) {
     var __isArrayLikeObjectW =
       isArrayLikeObjectParam33[isArrayLikeObjectValue119];
     this.set(__isArrayLikeObjectW[0], __isArrayLikeObjectW[1]);
@@ -969,7 +962,7 @@ function _isArrayLikeObjectD(isArrayLikeObjectParam34) {
   var isArrayLikeObjectValue120 = -1,
     __isArrayLikeObjectG =
       isArrayLikeObjectParam34 == null ? 0 : isArrayLikeObjectParam34.length;
-  for (this.clear(); ++isArrayLikeObjectValue120 < __isArrayLikeObjectG; ) {
+  for (this.clear(); ++isArrayLikeObjectValue120 < __isArrayLikeObjectG;) {
     var __isArrayLikeObjectW =
       isArrayLikeObjectParam34[isArrayLikeObjectValue120];
     this.set(__isArrayLikeObjectW[0], __isArrayLikeObjectW[1]);
@@ -1009,8 +1002,9 @@ function _isArrayLikeObjectU(isArrayLikeObjectParam3, isArrayLikeObjectParam4) {
     );
   };
   return (
-    (__isArrayLikeObjectG.cache = new (_isArrayLikeObjectU.Cache ||
-      _isArrayLikeObjectD)()),
+    (__isArrayLikeObjectG.cache = new (
+      _isArrayLikeObjectU.Cache || _isArrayLikeObjectD
+    )()),
     __isArrayLikeObjectG
   );
 }
@@ -1143,7 +1137,6 @@ function on(isArrayLikeObjectParam16) {
         ),
         isArrayLikeObjectValue113 = isArrayLikeObjectValue112.length;
       isArrayLikeObjectValue113--;
-
     ) {
       var isArrayLikeObjectValue114 =
         isArrayLikeObjectValue112[

@@ -92,9 +92,14 @@ export function useCodeThemes(variant: ThemeVariant) {
       try {
         await writeSettingValue(store, settings.codeThemeId, nextCodeTheme.id);
       } catch (error) {
-        await writeSettingValue(store, settings.chromeTheme, storedChromeTheme, {
-          optimistic: false,
-        }).catch(() => undefined);
+        await writeSettingValue(
+          store,
+          settings.chromeTheme,
+          storedChromeTheme,
+          {
+            optimistic: false,
+          },
+        ).catch(() => undefined);
         throw error;
       }
     },
@@ -119,7 +124,11 @@ function toCodeThemeOption(theme: CodeThemeFamily) {
   };
 }
 
-export function ThemeColorSwatch({ theme }: { theme: Pick<CodexChromeTheme, "accent" | "ink" | "surface"> }) {
+export function ThemeColorSwatch({
+  theme,
+}: {
+  theme: Pick<CodexChromeTheme, "accent" | "ink" | "surface">;
+}) {
   const style = useMemo<CSSProperties>(
     () => ({
       backgroundColor: theme.surface,

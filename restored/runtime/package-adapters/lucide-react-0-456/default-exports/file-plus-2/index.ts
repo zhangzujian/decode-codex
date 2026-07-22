@@ -1,0 +1,4 @@
+// Restored from ref/webview/assets/file-plus-2-BrkZf7qG-OywIubvW.js
+// Exact npm-backed Lucide default-export compatibility entry.
+import { FilePlus2 } from "lucide-react";
+export default FilePlus2;

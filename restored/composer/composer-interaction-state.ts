@@ -4,8 +4,7 @@ import { appScopeX as createAtom } from "../boundaries/app-scope";
 import { createPersistedSignal } from "../runtime/persisted-signal";
 
 export type ComposerPromptHistoryState =
-  | string[]
-  | Record<string, readonly unknown[]>;
+  string[] | Record<string, readonly unknown[]>;
 
 export const skipFullAccessConfirmSignal = createPersistedSignal(
   "skip-full-access-confirm",

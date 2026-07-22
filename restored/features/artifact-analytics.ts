@@ -27,9 +27,7 @@ type ArtifactAnalyticsContext = {
   threadId?: string | null;
 };
 type AnnotationStartSource =
-  | "annotation_mode_pointer"
-  | "ask_codex_button"
-  | "ask_codex_shortcut";
+  "annotation_mode_pointer" | "ask_codex_button" | "ask_codex_shortcut";
 type AnnotationSubmitMode = "direct" | "saved";
 type AnnotationSubmitSource = "button" | "dictation" | "keyboard";
 type AnnotationStartOptions = {

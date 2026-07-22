@@ -13,7 +13,7 @@ function isStrictComparable(value: unknown) {
 }
 function getMatchData(source: Record<string, unknown>): MatchData[] {
   const keys = Object.keys(source);
-  for (let index = keys.length; index--; ) {
+  for (let index = keys.length; index--;) {
     const key = keys[index];
     const value = source[key];
     keys[index] = [key, value, isStrictComparable(value)] as unknown as string;

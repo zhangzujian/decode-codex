@@ -89,7 +89,9 @@ function notifyBrowserUseTabsListeners(): void {
   for (const listener of browserUseTabListeners) listener();
 }
 
-function normalizeBrowserUseTabs(tabs: readonly BrowserUseTab[]): BrowserUseTab[] {
+function normalizeBrowserUseTabs(
+  tabs: readonly BrowserUseTab[],
+): BrowserUseTab[] {
   const seen = new Set<string>();
   const next: BrowserUseTab[] = [];
   for (const tab of tabs) {

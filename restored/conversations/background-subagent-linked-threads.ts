@@ -64,8 +64,7 @@ function mountSourceLinkedSubagentThreadsSignal(
   let activeRequestVersion = 0;
   let isLoading = false;
   let pendingLoad:
-    | (() => Promise<readonly SourceLinkedThread[] | null>)
-    | null = null;
+    (() => Promise<readonly SourceLinkedThread[] | null>) | null = null;
   let previousAppServerManager: ConversationAppServerManager | null = null;
   let previousParentCreatedAtMs: number | null = null;
 

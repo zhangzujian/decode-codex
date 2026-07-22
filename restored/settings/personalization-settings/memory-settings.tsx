@@ -8,7 +8,10 @@ import {
   appScopeRoot,
   useAppScopeValue,
 } from "../../boundaries/app-scope";
-import { LOCAL_HOST_ID, sendAppServerRequest } from "../../boundaries/use-host-config.facade";
+import {
+  LOCAL_HOST_ID,
+  sendAppServerRequest,
+} from "../../boundaries/use-host-config.facade";
 import { userConfigQueryOptions } from "../../config/config-queries";
 import {
   MEMORY_EXPERIMENTAL_FEATURE_NAME,
@@ -56,10 +59,7 @@ import {
   useWritePersonalizationConfigMutation,
   type UserConfigResponse,
 } from "./queries";
-import {
-  CODEX_MEMORIES_DOCS_URL,
-  personalizationMessages,
-} from "./messages";
+import { CODEX_MEMORIES_DOCS_URL, personalizationMessages } from "./messages";
 
 type QueryResult<TData> = {
   data?: TData;
@@ -128,8 +128,9 @@ export function MemorySettingsSection({
       feature.name === MEMORY_EXPERIMENTAL_FEATURE_NAME && feature.enabled,
   );
   const memoryConfig = readMemoryConfig(userConfigQuery.data?.config);
-  const chronicleResearchPreviewEnabled =
-    readChronicleResearchPreviewEnabled(userConfigQuery.data?.config);
+  const chronicleResearchPreviewEnabled = readChronicleResearchPreviewEnabled(
+    userConfigQuery.data?.config,
+  );
   const chronicleResearchPreviewVisible =
     hostId === LOCAL_HOST_ID &&
     chronicleResearchPreviewGateEnabled &&
@@ -440,9 +441,7 @@ function ResetMemoriesDialog({
         <DialogSection>
           <DialogHeader
             title={
-              <FormattedMessage
-                {...personalizationMessages.resetDialogTitle}
-              />
+              <FormattedMessage {...personalizationMessages.resetDialogTitle} />
             }
             subtitle={
               <FormattedMessage

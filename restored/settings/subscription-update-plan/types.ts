@@ -2,9 +2,7 @@
 // subscription-update-plan-D2uMfgET chunk restored from the Codex webview bundle.
 import type { ReactNode } from "react";
 export type SubscriptionPlanId =
-  | "chatgptplusplan"
-  | "chatgptprolite"
-  | "chatgptpro";
+  "chatgptplusplan" | "chatgptprolite" | "chatgptpro";
 export type BillingPeriodOption = {
   id: string;
   label: ReactNode;
@@ -42,8 +40,7 @@ export type ScheduledDowngradeSubscriptionUpdate = {
   };
 };
 export type SubscriptionUpdate =
-  | SavedCardSubscriptionUpdate
-  | ScheduledDowngradeSubscriptionUpdate;
+  SavedCardSubscriptionUpdate | ScheduledDowngradeSubscriptionUpdate;
 export type PricingInfo = {
   currencyCode: string;
   minorUnitExponent?: number | null;

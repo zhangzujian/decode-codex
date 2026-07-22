@@ -10,9 +10,7 @@ import {
 import { pendingWorktreeByClientThreadIdAtom } from "./pending-worktree-atoms";
 
 export type ClientLocalThreadProvisioningStatus =
-  | "ready"
-  | "provisioning"
-  | "failed";
+  "ready" | "provisioning" | "failed";
 
 export const clientLocalThreadProvisioningStatusAtom =
   createRouteScopedComputedAtom(

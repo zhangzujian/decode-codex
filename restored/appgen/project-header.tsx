@@ -9,11 +9,7 @@ import {
 } from "../threads/thread-env-icon";
 
 export type AppgenProjectHeaderEnvironment =
-  | "cloud"
-  | "local"
-  | "remote"
-  | "worktree"
-  | string;
+  "cloud" | "local" | "remote" | "worktree" | string;
 
 export type AppgenProjectHeaderHostConfig = {
   id: string;

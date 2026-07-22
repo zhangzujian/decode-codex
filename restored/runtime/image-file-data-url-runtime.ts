@@ -22,4 +22,3 @@ export async function loadImageFileDataUrl(
     ? queryFn()
     : queryClient.fetchQuery({ queryKey, queryFn });
 }
-

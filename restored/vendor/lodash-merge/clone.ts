@@ -45,13 +45,15 @@ export function cloneTypedArray<TTypedArray extends ArrayBufferView>(
   const buffer = isDeep
     ? cloneArrayBuffer(typedArray.buffer)
     : typedArray.buffer;
-  return new (typedArray.constructor as {
-    new (
-      buffer: ArrayBufferLike,
-      byteOffset: number,
-      length?: number,
-    ): TTypedArray;
-  })(
+  return new (
+    typedArray.constructor as {
+      new (
+        buffer: ArrayBufferLike,
+        byteOffset: number,
+        length?: number,
+      ): TTypedArray;
+    }
+  )(
     buffer,
     typedArray.byteOffset,
     (typedArray as unknown as { length?: number }).length,

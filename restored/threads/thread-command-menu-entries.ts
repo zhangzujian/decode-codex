@@ -23,8 +23,7 @@ type ThreadCommandMenuEntryStore = {
     signal: unknown,
     updater: (
       currentDefinitions:
-        | readonly ThreadCommandMenuEntryDefinition[]
-        | undefined,
+        readonly ThreadCommandMenuEntryDefinition[] | undefined,
     ) => readonly ThreadCommandMenuEntryDefinition[],
   ): void;
 };

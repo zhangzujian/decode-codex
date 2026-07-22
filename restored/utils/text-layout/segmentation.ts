@@ -299,7 +299,7 @@ function mergeUrlSegments(segmented: SegmentedText): SegmentedText {
       continue;
     const parts = [texts[index]];
     let scan = index + 1;
-    for (; scan < segmented.len && !isBreakKind(kinds[scan]); ) {
+    for (; scan < segmented.len && !isBreakKind(kinds[scan]);) {
       parts.push(texts[scan]);
       isWordLike[index] = true;
       const hasQuery = texts[scan].includes("?");
@@ -349,7 +349,7 @@ function mergeQueryTailSegments(segmented: SegmentedText): SegmentedText {
     const tailParts: string[] = [];
     const tailStartOffset = segmented.starts[tailStart];
     let scan = tailStart;
-    for (; scan < segmented.len && !isBreakKind(segmented.kinds[scan]); ) {
+    for (; scan < segmented.len && !isBreakKind(segmented.kinds[scan]);) {
       tailParts.push(segmented.texts[scan]);
       scan++;
     }
@@ -395,7 +395,6 @@ function mergeNumericRuns(segmented: SegmentedText): SegmentedText {
         scan < segmented.len &&
         segmented.kinds[scan] === "text" &&
         isNumericLike(segmented.texts[scan]);
-
       ) {
         parts.push(segmented.texts[scan]);
         scan++;
@@ -443,7 +442,6 @@ function mergeWordsWithTrailingPunctuation(
         segmented.kinds[scan] === "text" &&
         segmented.isWordLike[scan] &&
         WORD_WITH_TRAILING_PUNCTUATION.test(segmented.texts[scan]);
-
       ) {
         const nextText = segmented.texts[scan];
         parts.push(nextText);
@@ -528,7 +526,6 @@ function mergeGlueSegments(segmented: SegmentedText): SegmentedText {
       for (
         index++;
         index < segmented.len && segmented.kinds[index] === "glue";
-
       ) {
         glueParts.push(segmented.texts[index]);
         index++;
@@ -550,9 +547,9 @@ function mergeGlueSegments(segmented: SegmentedText): SegmentedText {
       }
     } else index++;
     if (kind === "text")
-      for (; index < segmented.len && segmented.kinds[index] === "glue"; ) {
+      for (; index < segmented.len && segmented.kinds[index] === "glue";) {
         const trailingGlue: string[] = [];
-        for (; index < segmented.len && segmented.kinds[index] === "glue"; ) {
+        for (; index < segmented.len && segmented.kinds[index] === "glue";) {
           trailingGlue.push(segmented.texts[index]);
           index++;
         }
@@ -692,7 +689,7 @@ function segmentText(
       isLeadingPunctuationRun(texts[index])
     ) {
       let next = index + 1;
-      for (; next < count && texts[next] === ""; ) next++;
+      for (; next < count && texts[next] === "";) next++;
       next < count &&
         kinds[next] === "text" &&
         ((texts[next] = texts[index] + texts[next]),

@@ -3,9 +3,7 @@
 import type { ReactNode } from "react";
 
 export type PullRequestSurface =
-  | "pull_request_page"
-  | "thread_side_panel"
-  | string;
+  "pull_request_page" | "thread_side_panel" | string;
 
 export type PullRequestBoardItem = {
   baseBranch?: string | null;
@@ -32,11 +30,7 @@ export type PullRequestBody = {
 };
 
 export type PullRequestCheckStatus =
-  | "failing"
-  | "passing"
-  | "pending"
-  | "skipped"
-  | "unknown";
+  "failing" | "passing" | "pending" | "skipped" | "unknown";
 
 export type PullRequestCheck = {
   link?: string | null;

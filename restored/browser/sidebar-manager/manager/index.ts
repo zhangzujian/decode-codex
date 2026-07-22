@@ -45,9 +45,7 @@ type BrowserSidebarDeviceToolbarUpdater = (
   currentState: BrowserSidebarDeviceToolbarTabState,
 ) => BrowserSidebarDeviceToolbarTabState;
 type BrowserTabPersistenceMode =
-  | "ephemeral"
-  | "persistent"
-  | "restore-expected";
+  "ephemeral" | "persistent" | "restore-expected";
 type BrowserTabPersistenceState = {
   browserStorageId: string;
   mode: BrowserTabPersistenceMode;

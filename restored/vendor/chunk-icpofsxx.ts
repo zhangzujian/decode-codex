@@ -103,7 +103,7 @@ function chunkICPOFSXXHelper3(chunkICPOFSXXParam37, chunkICPOFSXXParam38) {
       : chunkICPOFSXXValue6;
   setPrototypeOf && setPrototypeOf(chunkICPOFSXXParam37, null);
   let chunkICPOFSXXValue229 = chunkICPOFSXXParam38.length;
-  for (; chunkICPOFSXXValue229--; ) {
+  for (; chunkICPOFSXXValue229--;) {
     let chunkICPOFSXXValue284 = chunkICPOFSXXParam38[chunkICPOFSXXValue229];
     if (typeof chunkICPOFSXXValue284 == "string") {
       let chunkICPOFSXXValue334 = chunkICPOFSXXValue228(chunkICPOFSXXValue284);
@@ -146,7 +146,7 @@ function chunkICPOFSXXHelper5(chunkICPOFSXXParam57) {
   return chunkICPOFSXXValue262;
 }
 function chunkICPOFSXXHelper6(chunkICPOFSXXParam58, chunkICPOFSXXParam59) {
-  for (; chunkICPOFSXXParam58 !== null; ) {
+  for (; chunkICPOFSXXParam58 !== null;) {
     let chunkICPOFSXXValue281 = getOwnPropertyDescriptor(
       chunkICPOFSXXParam58,
       chunkICPOFSXXParam59,
@@ -1264,38 +1264,35 @@ function chunkICPOFSXXHelper7() {
           !chunkICPOFSXXValue121[chunkICPOFSXXParam9] ||
           chunkICPOFSXXValue124[chunkICPOFSXXParam9]
         ) {
-          if (
-            !(
-              (chunkICPOFSXXValue158(chunkICPOFSXXParam8) &&
-                ((chunkICPOFSXXValue122.tagNameCheck instanceof RegExp &&
-                  chunkICPOFSXXValue13(
-                    chunkICPOFSXXValue122.tagNameCheck,
-                    chunkICPOFSXXParam8,
-                  )) ||
-                  (chunkICPOFSXXValue122.tagNameCheck instanceof Function &&
-                    chunkICPOFSXXValue122.tagNameCheck(chunkICPOFSXXParam8))) &&
-                ((chunkICPOFSXXValue122.attributeNameCheck instanceof RegExp &&
-                  chunkICPOFSXXValue13(
-                    chunkICPOFSXXValue122.attributeNameCheck,
+          if (!(
+            (chunkICPOFSXXValue158(chunkICPOFSXXParam8) &&
+              ((chunkICPOFSXXValue122.tagNameCheck instanceof RegExp &&
+                chunkICPOFSXXValue13(
+                  chunkICPOFSXXValue122.tagNameCheck,
+                  chunkICPOFSXXParam8,
+                )) ||
+                (chunkICPOFSXXValue122.tagNameCheck instanceof Function &&
+                  chunkICPOFSXXValue122.tagNameCheck(chunkICPOFSXXParam8))) &&
+              ((chunkICPOFSXXValue122.attributeNameCheck instanceof RegExp &&
+                chunkICPOFSXXValue13(
+                  chunkICPOFSXXValue122.attributeNameCheck,
+                  chunkICPOFSXXParam9,
+                )) ||
+                (chunkICPOFSXXValue122.attributeNameCheck instanceof Function &&
+                  chunkICPOFSXXValue122.attributeNameCheck(
                     chunkICPOFSXXParam9,
-                  )) ||
-                  (chunkICPOFSXXValue122.attributeNameCheck instanceof
-                    Function &&
-                    chunkICPOFSXXValue122.attributeNameCheck(
-                      chunkICPOFSXXParam9,
-                      chunkICPOFSXXParam8,
-                    )))) ||
-              (chunkICPOFSXXParam9 === "is" &&
-                chunkICPOFSXXValue122.allowCustomizedBuiltInElements &&
-                ((chunkICPOFSXXValue122.tagNameCheck instanceof RegExp &&
-                  chunkICPOFSXXValue13(
-                    chunkICPOFSXXValue122.tagNameCheck,
-                    chunkICPOFSXXParam10,
-                  )) ||
-                  (chunkICPOFSXXValue122.tagNameCheck instanceof Function &&
-                    chunkICPOFSXXValue122.tagNameCheck(chunkICPOFSXXParam10))))
-            )
-          )
+                    chunkICPOFSXXParam8,
+                  )))) ||
+            (chunkICPOFSXXParam9 === "is" &&
+              chunkICPOFSXXValue122.allowCustomizedBuiltInElements &&
+              ((chunkICPOFSXXValue122.tagNameCheck instanceof RegExp &&
+                chunkICPOFSXXValue13(
+                  chunkICPOFSXXValue122.tagNameCheck,
+                  chunkICPOFSXXParam10,
+                )) ||
+                (chunkICPOFSXXValue122.tagNameCheck instanceof Function &&
+                  chunkICPOFSXXValue122.tagNameCheck(chunkICPOFSXXParam10))))
+          ))
             return false;
         } else if (
           !__chunkICPOFSXXY[chunkICPOFSXXParam9] &&
@@ -1346,7 +1343,7 @@ function chunkICPOFSXXHelper7() {
           forceKeepAttr: undefined,
         },
         chunkICPOFSXXValue187 = attributes.length;
-      for (; chunkICPOFSXXValue187--; ) {
+      for (; chunkICPOFSXXValue187--;) {
         let { name, namespaceURI, value } = attributes[chunkICPOFSXXValue187],
           chunkICPOFSXXValue190 = chunkICPOFSXXValue152(name),
           chunkICPOFSXXValue191 = value,
@@ -1479,7 +1476,6 @@ function chunkICPOFSXXHelper7() {
           null,
         );
         (chunkICPOFSXXValue230 = chunkICPOFSXXValue231.nextNode());
-
       ) {
         __chunkICPOFSXXO(
           chunkICPOFSXXValue119.uponSanitizeShadowNode,
@@ -1575,7 +1571,7 @@ function chunkICPOFSXXHelper7() {
       let chunkICPOFSXXValue184 = chunkICPOFSXXValue155(
         chunkICPOFSXXValue138 ? chunkICPOFSXXParam5 : chunkICPOFSXXValue180,
       );
-      for (; (chunkICPOFSXXValue182 = chunkICPOFSXXValue184.nextNode()); ) {
+      for (; (chunkICPOFSXXValue182 = chunkICPOFSXXValue184.nextNode());) {
         __chunkICPOFSXXW(chunkICPOFSXXValue182);
         chunkICPOFSXXValue159(chunkICPOFSXXValue182);
         chunkICPOFSXXValue182.content instanceof DocumentFragment &&
@@ -1589,7 +1585,6 @@ function chunkICPOFSXXHelper7() {
               chunkICPOFSXXValue180.ownerDocument,
             );
             chunkICPOFSXXValue180.firstChild;
-
           )
             chunkICPOFSXXValue183.appendChild(chunkICPOFSXXValue180.firstChild);
         else chunkICPOFSXXValue183 = chunkICPOFSXXValue180;
@@ -9151,7 +9146,6 @@ var chunkICPOFSXXValue80 = chunkAGHRB4JFN(
       chunkICPOFSXXValue217 !== -1 &&
       chunkICPOFSXXValue218 !== -1 &&
       chunkICPOFSXXValue217 !== chunkICPOFSXXValue218;
-
     ) {
       chunkICPOFSXXValue216[chunkICPOFSXXValue217] = "<";
       chunkICPOFSXXValue216[chunkICPOFSXXValue218] = ">";
@@ -9176,13 +9170,11 @@ var chunkICPOFSXXValue80 = chunkAGHRB4JFN(
   chunkICPOFSXXValue94 = chunkAGHRB4JFN(
     async (chunkICPOFSXXParam11, chunkICPOFSXXParam12) => {
       if (!chunkICPOFSXXK(chunkICPOFSXXParam11)) return chunkICPOFSXXParam11;
-      if (
-        !(
-          chunkICPOFSXXValue92() ||
-          chunkICPOFSXXParam12.legacyMathML ||
-          chunkICPOFSXXParam12.forceLegacyMathML
-        )
-      )
+      if (!(
+        chunkICPOFSXXValue92() ||
+        chunkICPOFSXXParam12.legacyMathML ||
+        chunkICPOFSXXParam12.forceLegacyMathML
+      ))
         return chunkICPOFSXXParam11.replace(
           chunkICPOFSXXValue93,
           "MathML is unsupported in this environment.",

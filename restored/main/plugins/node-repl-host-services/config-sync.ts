@@ -52,9 +52,7 @@ export async function syncNodeReplGeneratedAppServerConfig({
 }: {
   appServerConnection: NodeReplGeneratedConfigAppServerConnection;
   createThreadConfig():
-    | Promise<NodeReplThreadConfig | null>
-    | NodeReplThreadConfig
-    | null;
+    Promise<NodeReplThreadConfig | null> | NodeReplThreadConfig | null;
   resetComputerUsePathCache?(): void;
 }): Promise<void> {
   resetComputerUsePathCache?.();

@@ -147,210 +147,345 @@ import {
   formatPlanPrice as planPricingT,
 } from "../../utils/plan-pricing";
 function usageSettingsUnit42(usageSettingsOperand9) {
-  let {
-      plan: plan
-    } = usageSettingsOperand9,
-    usageSettingsBinding214 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wKo(appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wE),
-    usageSettingsBinding215 = appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dVy(),
+  let { plan: plan } = usageSettingsOperand9,
+    usageSettingsBinding214 =
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wKo(
+        appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wE,
+      ),
+    usageSettingsBinding215 =
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dVy(),
     usageSettingsBinding216 = {
-      logExposure: !0
+      logExposure: !0,
     };
-  let usageSettingsBinding217 = appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5L(usageSettingsBinding216),
-    usageSettingsBinding218 = appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5X(),
-    usageSettingsBinding219 = appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5M(plan),
+  let usageSettingsBinding217 =
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5L(
+        usageSettingsBinding216,
+      ),
+    usageSettingsBinding218 =
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5X(),
+    usageSettingsBinding219 =
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5M(
+        plan,
+      ),
     usageSettingsBinding220 = usageSettingsBinding219 != null,
     usageSettingsBinding221 = {
-      enabled: usageSettingsBinding220
+      enabled: usageSettingsBinding220,
     };
-  let {
-      data: data
-    } = appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5Tt(usageSettingsBinding221),
+  let { data: data } =
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5Tt(
+        usageSettingsBinding221,
+      ),
     usageSettingsBinding222 = usageSettingsBinding219 != null,
     usageSettingsBinding223 = {
       billingCurrency: data,
-      enabled: usageSettingsBinding222
+      enabled: usageSettingsBinding222,
     };
-  let {
-    data: _data
-  } = appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5At(usageSettingsBinding223);
+  let { data: _data } =
+    appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5At(
+      usageSettingsBinding223,
+    );
   if (usageSettingsBinding219 == null) return null;
-  let usageSettingsBinding224 = _data == null ? null : planPricingT({
-      intl: usageSettingsBinding215,
-      amount: _data.monthlyAmounts[usageSettingsBinding219.pricePlan],
-      currencyCode: _data.currencyCode,
-      minorUnitExponent: _data.minorUnitExponent
-    }),
-    usageSettingsBinding225 = appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD,
-    usageSettingsBinding226 = React.createElement(appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD.Header, {
-      title: React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-        id: `settings.usage.plan.title`,
-        defaultMessage: `Your plan`,
-        description: `Title for the current plan section in usage settings`
-      })
-    });
-  let usageSettingsBinding227 = appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD,
-    usageSettingsBinding228 = appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsQ,
+  let usageSettingsBinding224 =
+      _data == null
+        ? null
+        : planPricingT({
+            intl: usageSettingsBinding215,
+            amount: _data.monthlyAmounts[usageSettingsBinding219.pricePlan],
+            currencyCode: _data.currencyCode,
+            minorUnitExponent: _data.minorUnitExponent,
+          }),
+    usageSettingsBinding225 =
+      appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD,
+    usageSettingsBinding226 = React.createElement(
+      appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD.Header,
+      {
+        title: React.createElement(
+          appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+          {
+            id: `settings.usage.plan.title`,
+            defaultMessage: `Your plan`,
+            description: `Title for the current plan section in usage settings`,
+          },
+        ),
+      },
+    );
+  let usageSettingsBinding227 =
+      appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD,
+    usageSettingsBinding228 =
+      appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsQ,
     usageSettingsBinding229 = appInitialAppMainOnboardingPageFn,
-    usageSettingsBinding230 = usageSettingsUnit44(usageSettingsBinding219.displayPlan),
-    usageSettingsBinding231 = usageSettingsBinding224 == null ? null : React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-      id: `settings.usage.plan.monthlyPrice`,
-      defaultMessage: `{price}/mo`,
-      description: `Localized monthly price below the current plan name`,
-      values: {
-        price: usageSettingsBinding224
-      }
-    });
-  let usageSettingsBinding232 = usageSettingsBinding219.cta === `upgrade` ? `primary` : `outline`,
-    usageSettingsBinding233 = usageSettingsOperand58 => {
+    usageSettingsBinding230 = usageSettingsUnit44(
+      usageSettingsBinding219.displayPlan,
+    ),
+    usageSettingsBinding231 =
+      usageSettingsBinding224 == null
+        ? null
+        : React.createElement(
+            appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+            {
+              id: `settings.usage.plan.monthlyPrice`,
+              defaultMessage: `{price}/mo`,
+              description: `Localized monthly price below the current plan name`,
+              values: {
+                price: usageSettingsBinding224,
+              },
+            },
+          );
+  let usageSettingsBinding232 =
+      usageSettingsBinding219.cta === `upgrade` ? `primary` : `outline`,
+    usageSettingsBinding233 = (usageSettingsOperand58) => {
       usageSettingsBinding218({
         scope: usageSettingsBinding214,
         currentPlan: usageSettingsBinding219.pricePlan,
         event: usageSettingsOperand58,
         getPricingUrl: usageSettingsBinding217,
-        source: `usage_settings_plan_row`
+        source: `usage_settings_plan_row`,
       });
     };
-  let usageSettingsBinding234 = usageSettingsBinding219.cta === `upgrade` ? React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-    id: `settings.usage.plan.upgrade`,
-    defaultMessage: `Upgrade plan`,
-    description: `CTA to open the upgrade plan dialog`
-  }) : React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-    id: `settings.usage.plan.view`,
-    defaultMessage: `View plans`,
-    description: `CTA to open the plan selection dialog`
-  });
-  let usageSettingsBinding235 = React.createElement(appInitialAppMainWorktreeInitV2PageRemoteConversationPageNewThreadPanelPageOKo8xg8gwTm, {
-    color: usageSettingsBinding232,
-    size: `toolbar`,
-    onClick: usageSettingsBinding233
-  }, usageSettingsBinding234);
+  let usageSettingsBinding234 =
+    usageSettingsBinding219.cta === `upgrade`
+      ? React.createElement(
+          appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+          {
+            id: `settings.usage.plan.upgrade`,
+            defaultMessage: `Upgrade plan`,
+            description: `CTA to open the upgrade plan dialog`,
+          },
+        )
+      : React.createElement(
+          appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+          {
+            id: `settings.usage.plan.view`,
+            defaultMessage: `View plans`,
+            description: `CTA to open the plan selection dialog`,
+          },
+        );
+  let usageSettingsBinding235 = React.createElement(
+    appInitialAppMainWorktreeInitV2PageRemoteConversationPageNewThreadPanelPageOKo8xg8gwTm,
+    {
+      color: usageSettingsBinding232,
+      size: `toolbar`,
+      onClick: usageSettingsBinding233,
+    },
+    usageSettingsBinding234,
+  );
   let usageSettingsBinding236 = React.createElement(usageSettingsBinding229, {
     className: `gap-6`,
     label: usageSettingsBinding230,
     description: usageSettingsBinding231,
-    control: usageSettingsBinding235
+    control: usageSettingsBinding235,
   });
-  let usageSettingsBinding237 = React.createElement(usageSettingsBinding228, null, usageSettingsBinding236);
-  let usageSettingsBinding238 = React.createElement(usageSettingsBinding227.Content, null, usageSettingsBinding237);
-  return React.createElement(usageSettingsBinding225, null, usageSettingsBinding226, usageSettingsBinding238);
+  let usageSettingsBinding237 = React.createElement(
+    usageSettingsBinding228,
+    null,
+    usageSettingsBinding236,
+  );
+  let usageSettingsBinding238 = React.createElement(
+    usageSettingsBinding227.Content,
+    null,
+    usageSettingsBinding237,
+  );
+  return React.createElement(
+    usageSettingsBinding225,
+    null,
+    usageSettingsBinding226,
+    usageSettingsBinding238,
+  );
 }
 function _n(usageSettingsOperand21) {
-  let {
-      plan: plan
-    } = usageSettingsOperand21,
-    usageSettingsBinding306 = appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5F(plan);
+  let { plan: plan } = usageSettingsOperand21,
+    usageSettingsBinding306 =
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5F(
+        plan,
+      );
   let usageSettingsBinding307 = {
-    enabled: usageSettingsBinding306
+    enabled: usageSettingsBinding306,
   };
-  let {
-    data: data
-  } = appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5Ot(usageSettingsBinding307);
-  if (!appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5F(plan)) return null;
-  let usageSettingsBinding308 = React.createElement(appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD.Header, {
-    title: React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-      id: `settings.usage.cancelPlan.title`,
-      defaultMessage: `Cancel plan`,
-      description: `Title for the cancel plan section in usage settings`
-    })
-  });
-  let usageSettingsBinding309 = appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5A(data);
-  return React.createElement(appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD, null, usageSettingsBinding308, React.createElement(appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD.Content, {
-    className: `text-sm text-token-text-secondary`
-  }, React.createElement(`p`, null, React.createElement(usageSettingsUnit43, {
-    platform: usageSettingsBinding309
-  }))));
+  let { data: data } =
+    appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5Ot(
+      usageSettingsBinding307,
+    );
+  if (
+    !appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5F(
+      plan,
+    )
+  )
+    return null;
+  let usageSettingsBinding308 = React.createElement(
+    appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD.Header,
+    {
+      title: React.createElement(
+        appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+        {
+          id: `settings.usage.cancelPlan.title`,
+          defaultMessage: `Cancel plan`,
+          description: `Title for the cancel plan section in usage settings`,
+        },
+      ),
+    },
+  );
+  let usageSettingsBinding309 =
+    appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5A(
+      data,
+    );
+  return React.createElement(
+    appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD,
+    null,
+    usageSettingsBinding308,
+    React.createElement(
+      appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsD.Content,
+      {
+        className: `text-sm text-token-text-secondary`,
+      },
+      React.createElement(
+        `p`,
+        null,
+        React.createElement(usageSettingsUnit43, {
+          platform: usageSettingsBinding309,
+        }),
+      ),
+    ),
+  );
 }
 function usageSettingsUnit43(usageSettingsOperand12) {
-  let {
-      platform: platform
-    } = usageSettingsOperand12,
-    usageSettingsBinding253 = platform === `ios` ? appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5O : platform === `android` ? appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5W : appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5T,
-    usageSettingsBinding254 = usageSettingsOperand51 => React.createElement(`a`, {
-      className: `cursor-interaction text-token-text-link-foreground`,
-      href: usageSettingsBinding253,
-      target: `_blank`,
-      rel: `noreferrer`,
-      onClick: usageSettingsOperand96 => usageSettingsUnit45(usageSettingsOperand96, usageSettingsBinding253)
-    }, usageSettingsOperand51);
+  let { platform: platform } = usageSettingsOperand12,
+    usageSettingsBinding253 =
+      platform === `ios`
+        ? appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5O
+        : platform === `android`
+          ? appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5W
+          : appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5T,
+    usageSettingsBinding254 = (usageSettingsOperand51) =>
+      React.createElement(
+        `a`,
+        {
+          className: `cursor-interaction text-token-text-link-foreground`,
+          href: usageSettingsBinding253,
+          target: `_blank`,
+          rel: `noreferrer`,
+          onClick: (usageSettingsOperand96) =>
+            usageSettingsUnit45(
+              usageSettingsOperand96,
+              usageSettingsBinding253,
+            ),
+        },
+        usageSettingsOperand51,
+      );
   let usageSettingsBinding255 = usageSettingsBinding254;
   switch (platform) {
-    case null:
-      {
-        let usageSettingsBinding335;
-        return React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
+    case null: {
+      let usageSettingsBinding335;
+      return React.createElement(
+        appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+        {
           id: `settings.usage.cancelPlan.webDescription`,
           defaultMessage: `Your subscription is managed through ChatGPT. Go to <cancel>billing</cancel> to cancel your plan`,
           description: `Description shown when a ChatGPT-managed subscription can be canceled through web billing settings`,
           values: {
-            cancel: usageSettingsBinding255
-          }
-        });
-      }
-    case `ios`:
-      {
-        let usageSettingsBinding336;
-        return React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
+            cancel: usageSettingsBinding255,
+          },
+        },
+      );
+    }
+    case `ios`: {
+      let usageSettingsBinding336;
+      return React.createElement(
+        appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+        {
           id: `settings.usage.cancelPlan.appleDescription`,
           defaultMessage: `Your subscription is managed through your Apple account. You'll need to <cancel>cancel via iOS</cancel>`,
           description: `Description shown when an Apple-managed subscription must be canceled through iOS`,
           values: {
-            cancel: usageSettingsBinding255
-          }
-        });
-      }
-    case `android`:
-      {
-        let usageSettingsBinding334;
-        return React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
+            cancel: usageSettingsBinding255,
+          },
+        },
+      );
+    }
+    case `android`: {
+      let usageSettingsBinding334;
+      return React.createElement(
+        appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+        {
           id: `settings.usage.cancelPlan.googlePlayDescription`,
           defaultMessage: `Your subscription is managed through your Google Play account. You'll need to <cancel>cancel via Android</cancel>`,
           description: `Description shown when a Google Play-managed subscription must be canceled through Android`,
           values: {
-            cancel: usageSettingsBinding255
-          }
-        });
-      }
+            cancel: usageSettingsBinding255,
+          },
+        },
+      );
+    }
   }
 }
 function usageSettingsUnit44(usageSettingsOperand30) {
   switch (usageSettingsOperand30) {
     case `free`:
-      return React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-        id: `settings.usage.plan.free`,
-        defaultMessage: `Free plan`,
-        description: `Name of the Free plan in usage settings`
-      });
+      return React.createElement(
+        appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+        {
+          id: `settings.usage.plan.free`,
+          defaultMessage: `Free plan`,
+          description: `Name of the Free plan in usage settings`,
+        },
+      );
     case `go`:
-      return React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-        id: `settings.usage.plan.go`,
-        defaultMessage: `Go plan`,
-        description: `Name of the Go plan in usage settings`
-      });
+      return React.createElement(
+        appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+        {
+          id: `settings.usage.plan.go`,
+          defaultMessage: `Go plan`,
+          description: `Name of the Go plan in usage settings`,
+        },
+      );
     case `plus`:
-      return React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-        id: `settings.usage.plan.plus`,
-        defaultMessage: `Plus plan`,
-        description: `Name of the Plus plan in usage settings`
-      });
+      return React.createElement(
+        appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+        {
+          id: `settings.usage.plan.plus`,
+          defaultMessage: `Plus plan`,
+          description: `Name of the Plus plan in usage settings`,
+        },
+      );
     case `pro`:
-      return React.createElement(appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy, {
-        id: `settings.usage.plan.pro`,
-        defaultMessage: `Pro plan`,
-        description: `Name of the Pro plan in usage settings`
-      });
+      return React.createElement(
+        appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dZy,
+        {
+          id: `settings.usage.plan.pro`,
+          defaultMessage: `Pro plan`,
+          description: `Name of the Pro plan in usage settings`,
+        },
+      );
   }
 }
 function usageSettingsUnit45(usageSettingsOperand75, usageSettingsOperand76) {
-  appInitialAppMainWorktreeInitV2PageRemoteConversationPageNewThreadPanelPageOKo8xg8gwIs({
-    event: usageSettingsOperand75,
-    href: usageSettingsOperand76,
-    initiator: `open_in_browser_bridge`
-  });
+  appInitialAppMainWorktreeInitV2PageRemoteConversationPageNewThreadPanelPageOKo8xg8gwIs(
+    {
+      event: usageSettingsOperand75,
+      href: usageSettingsOperand76,
+      initiator: `open_in_browser_bridge`,
+    },
+  );
 }
 var usageSettingsBinding12,
   usageSettingsBinding13,
   usageSettingsBinding14 = rolldownRuntimeN(() => {
-    usageSettingsBinding12 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wGc(), appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wVo(), appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dIy(), appInitialAppMainWorktreeInitV2PageRemoteConversationPageNewThreadPanelPageOKo8xg8gwEm(), appInitialAppMainWorktreeInitV2PageRemoteConversationPageNewThreadPanelPageOKo8xg8gwNs(), appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5I(), appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5Z(), appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wD(), appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsF(), AppInitialAppMainOnboardingPageIn(), appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsJ(), appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5P(), planPricingR(), _appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5B(), usageSettingsBinding13 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wLc();
+    ((usageSettingsBinding12 =
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wGc()),
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wVo(),
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageProjectsIndexPageAppIy8s9c2dIy(),
+      appInitialAppMainWorktreeInitV2PageRemoteConversationPageNewThreadPanelPageOKo8xg8gwEm(),
+      appInitialAppMainWorktreeInitV2PageRemoteConversationPageNewThreadPanelPageOKo8xg8gwNs(),
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5I(),
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5Z(),
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wD(),
+      appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsF(),
+      AppInitialAppMainOnboardingPageIn(),
+      appInitialAppMainPetsSettingsAppearanceSettingsGeneralSettingsJ(),
+      appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5P(),
+      planPricingR(),
+      _appInitialAppMainRemoteConversationPageNewThreadPanelPageAppgenLibraryPageHotFjhbmao5B(),
+      (usageSettingsBinding13 =
+        appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wLc()));
   });
 
 export class UsageSettingsPlanModule {

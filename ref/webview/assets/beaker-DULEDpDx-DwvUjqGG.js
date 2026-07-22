@@ -1,0 +1,3 @@
+import { n as e, t } from "./beaker-DULEDpDx-E6YsqjwM.js";
+t();
+export { e as default };

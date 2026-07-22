@@ -1,0 +1,3 @@
+import { n as e, t } from "./panel-bottom-dashed-BLrQ8rNx-DX6AFDh-.js";
+e();
+export { t as default };

@@ -99,8 +99,7 @@ export type ContextMenuProps = {
   }>;
   disableNative?: boolean;
   getItems?: () =>
-    | ContextMenuItemDefinition[]
-    | Promise<ContextMenuItemDefinition[]>;
+    ContextMenuItemDefinition[] | Promise<ContextMenuItemDefinition[]>;
   items?: ContextMenuItemDefinition[];
   onBeforeOpen?: () => void | Promise<void>;
 };

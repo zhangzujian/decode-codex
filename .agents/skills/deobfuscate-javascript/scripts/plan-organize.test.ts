@@ -1,6 +1,10 @@
 import { describe, expect, test } from "bun:test";
 import type { Manifest, ManifestFile } from "./build-import-graph.ts";
-import { applyPlan, planOrganize } from "./plan-organize.ts";
+import {
+  applyPlan,
+  planOrganize,
+  resolvePlanForRun,
+} from "./plan-organize.ts";
 
 function file(partial: Partial<ManifestFile> & { basename: string }): ManifestFile {
   return {
@@ -430,6 +434,52 @@ describe("planOrganize (shape heuristics)", () => {
 });
 
 describe("applyPlan", () => {
+  test("--apply reuses the edited plan instead of regenerating it", () => {
+    const manifest = makeManifest([
+      file({
+        basename: "mystery-panel-Rs9tUv01",
+        exports: [{ exported: "a", local: "x", kind: "named" }],
+      }),
+    ]);
+    const generated = planOrganize({ manifest, target: "restored" });
+    const edited = structuredClone(generated);
+    edited.entries["mystery-panel-Rs9tUv01"] = {
+      ...edited.entries["mystery-panel-Rs9tUv01"]!,
+      domain: "ui",
+      semanticPath: "ui/mystery-panel.tsx",
+      recipe: "manual",
+      classification: "app-feature",
+      status: "approved",
+    };
+    let regenerated = false;
+
+    const selected = resolvePlanForRun({
+      apply: true,
+      rebuild: false,
+      existing: edited,
+      generate: () => {
+        regenerated = true;
+        return generated;
+      },
+    });
+
+    expect(regenerated).toBe(false);
+    expect(selected.entries["mystery-panel-Rs9tUv01"]?.status).toBe("approved");
+
+    regenerated = false;
+    const rebuilt = resolvePlanForRun({
+      apply: true,
+      rebuild: true,
+      existing: edited,
+      generate: () => {
+        regenerated = true;
+        return generated;
+      },
+    });
+    expect(regenerated).toBe(false);
+    expect(rebuilt.entries["mystery-panel-Rs9tUv01"]?.status).toBe("approved");
+  });
+
   test("writes only approved entries into manifest.organization", () => {
     const manifest = makeManifest([
       file({ basename: "download-AbCdEf12", exports: [{ exported: "t", local: "DownloadIcon", kind: "named" }] }),

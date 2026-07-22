@@ -2961,7 +2961,6 @@ function _n(
     (popcornElectronWorkbookPanelParam277[
       popcornElectronWorkbookPanelValue1266 + 1
     ] ?? 0) <= popcornElectronWorkbookPanelParam276;
-
   )
     popcornElectronWorkbookPanelValue1266 += 1;
   return popcornElectronWorkbookPanelHelper57(
@@ -7161,15 +7160,13 @@ function popcornElectronWorkbookPanelHelper114({
             event.stopPropagation();
             return;
           }
-          if (
-            !(
-              !isEditing &&
-              selectedFloatingElement &&
-              (event.key === "Backspace" ||
-                event.key === "Delete" ||
-                event.key.startsWith("Arrow"))
-            )
-          ) {
+          if (!(
+            !isEditing &&
+            selectedFloatingElement &&
+            (event.key === "Backspace" ||
+              event.key === "Delete" ||
+              event.key.startsWith("Arrow"))
+          )) {
             if (
               snapshot.editorMode === "grid" &&
               !event.metaKey &&
@@ -10141,7 +10138,6 @@ function popcornElectronWorkbookPanelHelper136(
     (popcornElectronWorkbookPanelParam258[
       popcornElectronWorkbookPanelValue1251 + 1
     ] ?? 0) <= popcornElectronWorkbookPanelParam257;
-
   )
     popcornElectronWorkbookPanelValue1251 += 1;
   return Math.max(
@@ -10175,14 +10171,12 @@ function popcornElectronWorkbookPanelHelper137() {
       return popcornElectronWorkbookPanelValue1070;
     },
     setSnapshot(popcornElectronWorkbookPanelParam333) {
-      if (
-        !(
-          popcornElectronWorkbookPanelValue1070.width ===
-            popcornElectronWorkbookPanelParam333.width &&
-          popcornElectronWorkbookPanelValue1070.height ===
-            popcornElectronWorkbookPanelParam333.height
-        )
-      ) {
+      if (!(
+        popcornElectronWorkbookPanelValue1070.width ===
+          popcornElectronWorkbookPanelParam333.width &&
+        popcornElectronWorkbookPanelValue1070.height ===
+          popcornElectronWorkbookPanelParam333.height
+      )) {
         popcornElectronWorkbookPanelValue1070 =
           popcornElectronWorkbookPanelParam333;
         for (let popcornElectronWorkbookPanelValue1397 of popcornElectronWorkbookPanelValue1071)
@@ -13164,12 +13158,10 @@ function popcornElectronWorkbookPanelHelper155(
       popcornElectronWorkbookPanelParam314[
         popcornElectronWorkbookPanelValue1338
       ];
-    if (
-      !(
-        !popcornElectronWorkbookPanelValue1374 ||
-        popcornElectronWorkbookPanelValue1374.type === "Whitespace"
-      )
-    )
+    if (!(
+      !popcornElectronWorkbookPanelValue1374 ||
+      popcornElectronWorkbookPanelValue1374.type === "Whitespace"
+    ))
       return popcornElectronWorkbookPanelValue1374;
   }
   return null;
@@ -13196,7 +13188,6 @@ function popcornElectronWorkbookPanelHelper156(
     ;
     popcornElectronWorkbookPanelValue689 <
     popcornElectronWorkbookPanelParam63.length;
-
   ) {
     let popcornElectronWorkbookPanelValue1208 =
       popcornElectronWorkbookPanelParam63[popcornElectronWorkbookPanelValue689];
@@ -13629,7 +13620,7 @@ function popcornElectronWorkbookPanelHelper168(
 ) {
   let popcornElectronWorkbookPanelValue1310 =
     popcornElectronWorkbookPanelParam336;
-  for (; popcornElectronWorkbookPanelValue1310 > 0; ) {
+  for (; popcornElectronWorkbookPanelValue1310 > 0;) {
     let popcornElectronWorkbookPanelValue1377 =
       popcornElectronWorkbookPanelParam335[
         popcornElectronWorkbookPanelValue1310 - 1
@@ -13714,12 +13705,10 @@ function popcornElectronWorkbookPanelHelper170(
               popcornElectronWorkbookPanelValue681[
                 popcornElectronWorkbookPanelValue1244
               ];
-            if (
-              !(
-                !popcornElectronWorkbookPanelValue1285 ||
-                popcornElectronWorkbookPanelValue1285.kind !== "function"
-              )
-            ) {
+            if (!(
+              !popcornElectronWorkbookPanelValue1285 ||
+              popcornElectronWorkbookPanelValue1285.kind !== "function"
+            )) {
               popcornElectronWorkbookPanelValue1285.frame.argumentIndex += 1;
               break;
             }
@@ -13742,12 +13731,10 @@ function popcornElectronWorkbookPanelHelper170(
       popcornElectronWorkbookPanelValue681[
         popcornElectronWorkbookPanelValue1333
       ];
-    if (
-      !(
-        !popcornElectronWorkbookPanelValue1368 ||
-        popcornElectronWorkbookPanelValue1368.kind !== "function"
-      )
-    )
+    if (!(
+      !popcornElectronWorkbookPanelValue1368 ||
+      popcornElectronWorkbookPanelValue1368.kind !== "function"
+    ))
       return popcornElectronWorkbookPanelValue1368.frame;
   }
 }
@@ -13834,7 +13821,7 @@ function popcornElectronWorkbookPanelHelper175(
   let popcornElectronWorkbookPanelValue1288 = /^[A-Za-z0-9_.]+$/,
     popcornElectronWorkbookPanelValue1289 =
       popcornElectronWorkbookPanelParam303;
-  for (; popcornElectronWorkbookPanelValue1289 > 0; ) {
+  for (; popcornElectronWorkbookPanelValue1289 > 0;) {
     let popcornElectronWorkbookPanelValue1378 =
       popcornElectronWorkbookPanelParam302[
         popcornElectronWorkbookPanelValue1289 - 1
@@ -16210,14 +16197,12 @@ function popcornElectronWorkbookPanelHelper195(
   return new _remoteTextEditSessionN(popcornElectronWorkbookPanelParam575);
 }
 function popcornElectronWorkbookPanelHelper196() {
-  if (
-    !(
-      typeof window < "u" &&
-      typeof Worker < "u" &&
-      typeof HTMLCanvasElement < "u" &&
-      typeof OffscreenCanvas < "u"
-    )
-  )
+  if (!(
+    typeof window < "u" &&
+    typeof Worker < "u" &&
+    typeof HTMLCanvasElement < "u" &&
+    typeof OffscreenCanvas < "u"
+  ))
     throw Error(
       "Popcorn workbook viewport requires Worker and OffscreenCanvas support.",
     );

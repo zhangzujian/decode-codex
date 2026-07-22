@@ -2,10 +2,7 @@
 // Shared contracts for the Setup Codex ambient suggestion card.
 
 export type AmbientSuggestionStatus =
-  | "accepted"
-  | "dismissed"
-  | "pending"
-  | string;
+  "accepted" | "dismissed" | "pending" | string;
 
 export interface AmbientSuggestionQueryParams {
   domain?: string | null;

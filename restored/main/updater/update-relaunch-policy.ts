@@ -93,8 +93,7 @@ function relaunchNotificationPeriodMs(policy: RelaunchPolicy): number {
 function isCurrentBuildOlderThanDays(days: number | null): boolean {
   if (days == null || days < 7) return false;
   const parseBuildDate = sharedRuntime.dateFromDateEncodedBuildVersion as
-    | ((version: string) => Date | null)
-    | undefined;
+    ((version: string) => Date | null) | undefined;
   const buildDate = parseBuildDate?.(app.getVersion()) ?? null;
   return buildDate
     ? Date.now() - buildDate.getTime() > days * 24 * 60 * 60 * 1000

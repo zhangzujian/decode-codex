@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/codex-happy-small-C_jKXq_Q.js
+// Restored from ref/webview/assets/codex-happy-small-DkqhMVvZ.js
 // Lottie animation data restored from the Codex webview bundle.
 export const codexHappySmall = {
   v: "5.12.2",

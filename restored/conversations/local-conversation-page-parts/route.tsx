@@ -255,8 +255,7 @@ function LocalConversationWorkspaceRootEffects(): null {
   const scope = useScope(localConversationRouteScope) as Scope;
   const conversationId = scope.value?.conversationId as string | undefined;
   const sourceRoot = useSignalValue(sourceWorkspaceRootAfterRestoreSignal) as
-    | string
-    | null;
+    string | null;
   const targetRoot = useSignalValue(targetWorkspaceRootSignal) as string | null;
   const selectedSummary = useScopedValue(
     selectedSummaryPanelSignal,
@@ -351,13 +350,11 @@ function LocalConversationHeader({
   projectId,
 }: LocalConversationHeaderProps): React.ReactElement {
   const title = useScopedValue(localConversationTitleSignal, conversationId) as
-    | string
-    | null;
+    string | null;
   const intl = useIntl() as IntlShape;
   const projectAppearance = projectId ? getProjectAppearance(projectId) : null;
   const model = useScopedValue(conversationModelSignal, conversationId) as
-    | string
-    | null;
+    string | null;
   const reasoningEffort = useScopedValue(
     conversationReasoningEffortSignal,
     conversationId,
@@ -482,8 +479,7 @@ function LatestTurnComposerPreviewContainer({
     conversationId,
   ) as Array<{ turnId?: string; items?: unknown[]; status?: string }> | null;
   const hostId = useScopedValue(conversationHostIdSignal, conversationId) as
-    | string
-    | null;
+    string | null;
   const appsQuery = useAppsQuery({ hostId, enabled: Boolean(hostId) }) as {
     data?: unknown;
   };
@@ -600,8 +596,7 @@ function LocalConversationDiffSummary({
   conversationId,
 }: LocalConversationDiffSummaryProps): React.ReactElement | null {
   const cwd = useScopedValue(lastTurnCwdSignal, conversationId) as
-    | string
-    | null;
+    string | null;
   const diff = useScopedValue(lastTurnDiffSignal, conversationId) as unknown;
 
   if (!cwd || !diff) {
@@ -727,11 +722,9 @@ function LocalConversationComposer({
   const scope = useScope(localConversationRouteScope) as Scope;
   const browserConversationId = getRouteConversationId(scope) ?? undefined;
   const cwd = useScopedValue(conversationCwdSignal, conversationId) as
-    | string
-    | null;
+    string | null;
   const mode = useScopedValue(conversationModeSignal, conversationId) as
-    | string
-    | null;
+    string | null;
   const resumeState = useScopedValue(
     conversationResumeStateSignal,
     conversationId,
@@ -782,8 +775,7 @@ function LocalThreadRoute({
     conversationId,
   ) as boolean;
   const rolloutPath = useScopedValue(rolloutPathSignal, conversationId) as
-    | string
-    | null;
+    string | null;
   const shouldResumeLocalConversation = useStatsigGate("567837310");
   useResumeLocalConversation(
     shouldResumeLocalConversation ? conversationId : null,

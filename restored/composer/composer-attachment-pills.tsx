@@ -5,25 +5,27 @@
 
 import type { ReactNode, SVGProps } from "react";
 
-import { AppshotAttachment } from "../conversations/appshot-attachment";
-import { ImageAttachment } from "../image-side-panel/image-attachment";
+import { BrowserPageSelectionAttachmentPill } from "./browser-page-selection-attachment-pill";
+import { isHotkeyWindowPath as isPreviewDisabledPath } from "./composer-suggestion-list";
 import {
-  BrowserPageSelectionAttachmentPill,
-  CommentAttachmentsTooltip,
-  ContextAttachmentIcon,
-  PullRequestAttachmentIcon,
-  ShowInTextFieldIcon,
-  canInlinePastedText,
-  formatFileAttachmentLabel,
+  AppshotAttachment,
+  computeComposerSnapshotHeight as resolveSnapshotHeight,
+  stripTrailingPageRangeFromTitle as formatFileAttachmentLabel,
+} from "../conversations/appshot-attachment";
+import {
+  commentAttachmentToComment as getCommentAttachmentKind,
   getCommentAttachmentIcon,
-  getCommentAttachmentKind,
+} from "../conversations/sent-comment-attachment-helpers";
+import { ImageAttachment } from "../image-side-panel/image-attachment";
+import { ChevronRightIcon as ShowInTextFieldIcon } from "../icons/chevron-right-icon";
+import { DocumentTextIcon as ContextAttachmentIcon } from "../utils/get-file-icon/file-type-icons";
+import {
+  PullRequestAttachmentIcon,
   getFileAttachmentKey,
-  isPreviewDisabledPath,
   motion,
-  resolvePastedTextHostId,
-  resolveSnapshotHeight,
-  splitCommentAttachmentsByKind,
+  splitCommentAttachmentsBySurface as splitCommentAttachmentsByKind,
 } from "../boundaries/onboarding-commons-externals.facade";
+import { SentCommentAttachmentList as CommentAttachmentsTooltip } from "../conversations/sent-comment-attachments";
 import { FormattedMessage, useIntl } from "../vendor/react-intl";
 import { AttachmentPill } from "./attachment-pill";
 import { CommentAttachmentPill } from "./comment-attachment-pill";
@@ -271,14 +273,12 @@ export function ComposerAttachmentPills({
     pendingPastedTextAttachments.length > 0 ||
     addedFiles.length > 0;
 
-  if (
-    !(
-      imageAttachments.length > 0 ||
-      appshotContexts.length > 0 ||
-      pendingAppshotCaptures.length > 0 ||
-      hasCompactAttachments
-    )
-  ) {
+  if (!(
+    imageAttachments.length > 0 ||
+    appshotContexts.length > 0 ||
+    pendingAppshotCaptures.length > 0 ||
+    hasCompactAttachments
+  )) {
     return null;
   }
 
@@ -547,10 +547,7 @@ export function ComposerAttachmentPills({
       key={pastedText.file.path}
       preview={pastedText.preview}
       onClick={() =>
-        onOpenFile(
-          pastedText.file,
-          resolvePastedTextHostId(pastedText, folderHostId),
-        )
+        onOpenFile(pastedText.file, pastedText.hostId ?? folderHostId)
       }
       onRemove={
         onRemovePastedTextAttachment == null
@@ -559,7 +556,8 @@ export function ComposerAttachmentPills({
       }
       onShowInTextField={
         onShowPastedTextInTextField != null &&
-        canInlinePastedText(pastedText.characterCount)
+        pastedText.characterCount >= 5_000 &&
+        pastedText.characterCount <= 25_000
           ? () => onShowPastedTextInTextField(index)
           : undefined
       }

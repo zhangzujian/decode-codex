@@ -2,10 +2,7 @@
 // Composer keymap helpers used by the new-thread ProseMirror controller.
 
 type KeyboardTarget =
-  | EventTarget
-  | { dom?: EventTarget | null }
-  | null
-  | undefined;
+  EventTarget | { dom?: EventTarget | null } | null | undefined;
 type KeyboardHandler = (event: KeyboardEvent) => boolean | void;
 
 function resolveKeyboardTarget(target: KeyboardTarget): EventTarget | null {

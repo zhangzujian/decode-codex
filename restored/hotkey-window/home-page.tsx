@@ -1,5 +1,5 @@
 // Restored from ref/webview/assets/hotkey-window-home-page-HuAbYFeH.js
-// Semantic implementation for the current hotkey window home page with restored dependency imports.
+// Hotkey window home surface and lifecycle orchestration.
 
 import React from "react";
 import { once as runOnce } from "../runtime/commonjs-interop";

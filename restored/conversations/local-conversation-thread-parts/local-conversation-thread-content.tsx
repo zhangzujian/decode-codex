@@ -134,8 +134,7 @@ type PendingLatestTurnSubmitPlacement = {
 
 type AutoFollowVirtualizedTurnListProps = {
   consumePendingLatestTurnSubmitPlacement?:
-    | (() => PendingLatestTurnSubmitPlacement | null)
-    | null;
+    (() => PendingLatestTurnSubmitPlacement | null) | null;
   conversationId: string;
   entries: readonly LocalConversationTurnListEntry[];
   initialScrollOffset?: number | null;
@@ -213,12 +212,10 @@ function findCompletedTurnSearchKeyAtOrBefore(
 ) {
   for (let index = visibleTurnEntries.length - 1; index >= 0; index -= 1) {
     let visibleTurnEntry = visibleTurnEntries[index];
-    if (
-      !(
-        visibleTurnEntry.turn?.turnStartedAtMs != null &&
-        visibleTurnEntry.turn.turnStartedAtMs > timestampMs
-      )
-    )
+    if (!(
+      visibleTurnEntry.turn?.turnStartedAtMs != null &&
+      visibleTurnEntry.turn.turnStartedAtMs > timestampMs
+    ))
       return visibleTurnEntry.turn?.status === "completed"
         ? visibleTurnEntry.turnSearchKey
         : null;

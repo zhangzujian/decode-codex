@@ -12,10 +12,7 @@ type ThreadReviewPanelScope = {
 };
 
 export type ThreadReviewPanelView =
-  | "last-turn"
-  | "branch"
-  | "unstaged"
-  | "staged";
+  "last-turn" | "branch" | "unstaged" | "staged";
 
 export const THREAD_REVIEW_PANEL_TAB_ID = "diff";
 

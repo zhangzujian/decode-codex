@@ -11,7 +11,7 @@ import {
 var i = t((e, t) => {
     function n(e) {
       return function (t, n, r) {
-        for (var i = -1, a = Object(t), o = r(t), s = o.length; s--; ) {
+        for (var i = -1, a = Object(t), o = r(t), s = o.length; s--;) {
           var c = o[e ? s : ++i];
           if (n(a[c], c, a) === !1) break;
         }
@@ -40,7 +40,6 @@ var i = t((e, t) => {
         for (
           var a = r.length, o = t ? a : -1, s = Object(r);
           (t ? o-- : ++o < a) && i(s[o], o, s) !== !1;
-
         );
         return r;
       };

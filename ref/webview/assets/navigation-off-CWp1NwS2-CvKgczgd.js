@@ -1,3 +1,0 @@
-import { n as e, t } from "./navigation-off-CWp1NwS2-BvThD0ef.js";
-e();
-export { t as default };

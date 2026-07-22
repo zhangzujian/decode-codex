@@ -1,18 +1,9 @@
 // Restored from ref/webview/assets/chronicle-setup-state-BH1UQGSM.js
 // chronicle-setup-state-BH1UQGSM chunk restored from the Codex webview bundle.
 export type ChroniclePermissionStatus =
-  | "granted"
-  | "denied"
-  | "restricted"
-  | "not-determined"
-  | "unknown";
+  "granted" | "denied" | "restricted" | "not-determined" | "unknown";
 export type ChronicleSidecarProcessState =
-  | "disabled"
-  | "stopped"
-  | "restarting"
-  | "starting"
-  | "stopping"
-  | "running";
+  "disabled" | "stopped" | "restarting" | "starting" | "stopping" | "running";
 export type ChronicleSetupState =
   | {
       kind: "preparing";

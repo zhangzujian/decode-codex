@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/temple-dark-CoqeJMR0.js
+// Restored from ref/webview/assets/temple-dark-CPV4J_lA.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#02120c";
 export const colors = {

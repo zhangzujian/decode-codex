@@ -24,13 +24,20 @@ type OpenInTargetOptions = {
   persistPreferred?: boolean;
 };
 
-function readList(value: unknown, key: "availableTargets" | "targets"): unknown[] {
+function readList(
+  value: unknown,
+  key: "availableTargets" | "targets",
+): unknown[] {
   if (typeof value !== "object" || value == null) return [];
   const list = (value as Record<string, unknown>)[key];
   return Array.isArray(list) ? list : [];
 }
 
-export function useOpenTargets({ cwd, hostId, openPath }: UseOpenTargetsParams) {
+export function useOpenTargets({
+  cwd,
+  hostId,
+  openPath,
+}: UseOpenTargetsParams) {
   const canLoadTargets = Boolean(cwd ?? openPath);
   const query = useHostQuery<OpenTargetQueryResult>("open-in-targets", {
     params: {

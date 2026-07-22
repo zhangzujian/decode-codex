@@ -1,0 +1,3 @@
+import { n as e, t } from "./trophy-Bv3dUGNF-CKbLowPw.js";
+t();
+export { e as default };

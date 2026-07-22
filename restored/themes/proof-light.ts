@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/proof-light-BjtqAd4d.js
+// Restored from ref/webview/assets/proof-light-C-6lYh5j.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#f5f3ed";
 export const colors = {

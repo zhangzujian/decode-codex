@@ -1,0 +1,3 @@
+import { n as e, t } from "./list-music-D6WLVMwk-BX9u3Cf4.js";
+e();
+export { t as default };

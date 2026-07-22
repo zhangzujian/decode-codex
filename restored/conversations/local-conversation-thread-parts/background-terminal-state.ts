@@ -18,14 +18,9 @@ interface BackgroundTerminalProcessSnapshot {
 }
 
 export type BackgroundTerminalStatus =
-  | "running"
-  | "not-found"
-  | "starting"
-  | "stopped"
-  | "stopping";
+  "running" | "not-found" | "starting" | "stopped" | "stopping";
 
-export interface BackgroundTerminalSnapshot
-  extends ComparableBackgroundTerminal {
+export interface BackgroundTerminalSnapshot extends ComparableBackgroundTerminal {
   processId: string;
   startedAtMs: number;
 }

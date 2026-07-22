@@ -1,7 +1,0 @@
-import { n as e } from "./rolldown-runtime-Czos8NxU.js";
-import { n as t, t as n } from "./test-tube-diagonal-XXKCOyTT-DXn54h1n.js";
-e(() => {
-  n();
-})();
-export { t as default };
-//# sourceMappingURL=test-tube-2-Df2m8HIu-DM6d0IBG.js.map

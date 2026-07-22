@@ -42,9 +42,7 @@ type EditSiteAction = {
   type: "edit";
 };
 export type StartSitesConversationAction =
-  | CreateSiteAction
-  | CreateSiteAssetAction
-  | EditSiteAction;
+  CreateSiteAction | CreateSiteAssetAction | EditSiteAction;
 export function continueEditingLibraryFile(
   appScope: AppScopeReader,
   navigateToConversation: NavigateToConversation,

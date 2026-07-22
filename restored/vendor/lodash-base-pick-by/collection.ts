@@ -4,10 +4,7 @@ import { toInteger } from "./path";
 
 type AnyRecord = Record<PropertyKey, unknown>;
 type Collection<TValue = unknown> =
-  | ArrayLike<TValue>
-  | Record<PropertyKey, TValue>
-  | null
-  | undefined;
+  ArrayLike<TValue> | Record<PropertyKey, TValue> | null | undefined;
 type Iteratee<TValue = unknown, TResult = unknown> = (
   value: TValue,
   key: PropertyKey,
@@ -59,9 +56,9 @@ function isFlattenable(value: unknown): value is ArrayLike<unknown> {
     getTag(value) === "[object Arguments]" ||
     Boolean(
       isObjectLike(value) &&
-        (value as { [Symbol.isConcatSpreadable]?: unknown })[
-          Symbol.isConcatSpreadable
-        ],
+      (value as { [Symbol.isConcatSpreadable]?: unknown })[
+        Symbol.isConcatSpreadable
+      ],
     )
   );
 }
@@ -82,11 +79,7 @@ function propertyAccessor(path: PropertyKey): Iteratee {
 
 function baseIteratee<TValue, TResult>(
   iteratee:
-    | Iteratee<TValue, TResult>
-    | PropertyKey
-    | AnyRecord
-    | null
-    | undefined,
+    Iteratee<TValue, TResult> | PropertyKey | AnyRecord | null | undefined,
 ): Iteratee<TValue, TResult | unknown> {
   if (typeof iteratee === "function") return iteratee;
   if (iteratee == null) return (value) => value;
@@ -191,11 +184,7 @@ export function baseMapCollection<TValue, TResult>(
 export function mapCollection<TValue, TResult>(
   collection: Collection<TValue>,
   iteratee:
-    | Iteratee<TValue, TResult>
-    | PropertyKey
-    | AnyRecord
-    | null
-    | undefined,
+    Iteratee<TValue, TResult> | PropertyKey | AnyRecord | null | undefined,
 ): Array<TResult | unknown> {
   return baseMapCollection(collection, baseIteratee(iteratee));
 }

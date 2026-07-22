@@ -1,0 +1,15 @@
+diff --git a/package.json b/package.json
+index 08eaf7c61e377e3a26156a7aef57cd69eeaa0b1e..d4c865fbde1586cbaf31bf5868bd99f6e3db9edf 100644
+--- a/package.json
++++ b/package.json
+@@ -27,6 +27,10 @@
+ 		"./browser": {
+ 			"types": "./lib/browser/main.d.ts",
+ 			"browser": "./lib/browser/main.js"
++		},
++		"./lib/common/*": {
++			"types": "./lib/common/*",
++			"default": "./lib/common/*"
+ 		}
+ 	},
+ 	"devDependencies": {

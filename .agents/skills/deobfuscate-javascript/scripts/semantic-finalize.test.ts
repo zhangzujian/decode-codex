@@ -263,6 +263,26 @@ describe("semantic-finalize", () => {
     parseModule(out);
   });
 
+  test("keeps a safe local alias when the producer export is a keyword", () => {
+    const source = [
+      `import { a as ImportedBinding1, b as ImportedBinding2 } from "./producer-AbCdEf12.js";`,
+      `export const values = [ImportedBinding1, ImportedBinding2];`,
+    ].join("\n");
+    const out = rewriteSemanticImports(source, [
+      {
+        source: "./producer-AbCdEf12.js",
+        to: "./producer",
+        exports: { a: "in", b: "do" },
+      },
+    ]);
+
+    expect(out).toContain(
+      'import { in as ImportedBinding1, do as ImportedBinding2 } from "./producer"',
+    );
+    expect(out).toContain("[ImportedBinding1, ImportedBinding2]");
+    parseModule(out);
+  });
+
   test("deduplicates identical import specifiers after rewrite", () => {
     const source = [
       `import { a as ImportedBinding1, b as ImportedBinding2 } from "./producer-AbCdEf12";`,

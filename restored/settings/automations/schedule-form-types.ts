@@ -3,11 +3,7 @@
 import type { WeekdayToken } from "./schedule-weekdays";
 
 export type ScheduleFormMode =
-  | "hourly"
-  | "daily"
-  | "weekdays"
-  | "weekly"
-  | "custom";
+  "hourly" | "daily" | "weekdays" | "weekly" | "custom";
 
 export interface ScheduleForm {
   mode: ScheduleFormMode;

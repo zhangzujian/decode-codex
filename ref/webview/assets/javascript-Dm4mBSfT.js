@@ -1,3 +1,0 @@
-import { n as e, t } from "./javascript-wgfIuOxB.js";
-t();
-export { e as default };

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/electron-menu-shortcuts-j6UKqTX5.js
+// Restored from ref/webview/assets/app-initial~artifact-tab-content.electron~app-main~appgen-settings-page~page~pull-request-r~ll1u4x0e-Bl9B7AEa.js
 const electronOnlyCommandDefinitions = [
   {
     id: `hotkeyWindow`,
@@ -17,13 +17,6 @@ const electronOnlyCommandDefinitions = [
     id: `globalDictationToggle`,
     titleIntlId: `codex.command.globalDictationToggle`,
     descriptionIntlId: `codex.commandDescription.globalDictationToggle`,
-    shortcutScope: `os-global`,
-    allowsBareModifiers: true,
-  },
-  {
-    id: `realtimeVoice`,
-    titleIntlId: `codex.command.realtimeVoice`,
-    descriptionIntlId: `codex.commandDescription.realtimeVoice`,
     shortcutScope: `os-global`,
     allowsBareModifiers: true,
   },
@@ -136,6 +129,7 @@ const electronOnlyCommandDefinitions = [
           key: `CmdOrCtrl+R`,
         },
       ],
+      isOverridableByBrowserWebpage: true,
     },
   },
   {
@@ -149,6 +143,7 @@ const electronOnlyCommandDefinitions = [
           key: `CmdOrCtrl+Shift+R`,
         },
       ],
+      isOverridableByBrowserWebpage: true,
     },
   },
   {
@@ -176,19 +171,6 @@ const electronOnlyCommandDefinitions = [
         },
         {
           key: `CmdOrCtrl+Shift+P`,
-        },
-      ],
-    },
-  },
-  {
-    id: `searchChats`,
-    descriptionIntlId: `codex.commandDescription.searchChats`,
-    electron: {
-      menuTitle: `Search Chats…`,
-      menuTitleIntlId: `codex.commandMenuTitle.searchChats`,
-      defaultKeybindings: [
-        {
-          key: `CmdOrCtrl+G`,
         },
       ],
     },

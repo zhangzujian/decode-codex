@@ -2,10 +2,7 @@
 // Shared types for the Codex referral invite modal.
 
 export type ReferralGrantType =
-  | "rate_limit_reset_credit"
-  | "workspace_credits"
-  | null
-  | undefined;
+  "rate_limit_reset_credit" | "workspace_credits" | null | undefined;
 export type ReferralRewardType = "credits" | "rateLimitReset";
 export type ReferralInviteModalProps = {
   grantAmount?: number;
@@ -20,10 +17,7 @@ export type ReferralInviteModalProps = {
   remainingReferrals?: number | null;
 };
 export type SubmissionState =
-  | "idle"
-  | "submitting"
-  | "sendAnimation"
-  | "success";
+  "idle" | "submitting" | "sendAnimation" | "success";
 export type FeedbackState =
   | {
       message: string;

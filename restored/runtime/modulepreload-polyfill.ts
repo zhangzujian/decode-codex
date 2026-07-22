@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/modulepreload-polyfill-D8LKdSkT.js
+// Restored from ref/webview/assets/modulepreload-polyfill-DbHmo-SP.js
 // Modulepreload polyfill initializer used by the Codex webview entry chunk.
 let modulepreloadPolyfillInstalled = false;
 export function installModulepreloadPolyfill(): void {

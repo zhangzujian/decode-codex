@@ -1,0 +1,3 @@
+import { n as e, t } from "./separator-horizontal-IdXLidfX-DG02OZxz.js";
+t();
+export { e as default };

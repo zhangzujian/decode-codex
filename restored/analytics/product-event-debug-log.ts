@@ -7,10 +7,7 @@
 import { useSyncExternalStore } from "react";
 
 export type ProductEventDebugLogStatus =
-  | "enqueued"
-  | "sent"
-  | "dropped"
-  | "failed";
+  "enqueued" | "sent" | "dropped" | "failed";
 
 export type ProductEventInfo = {
   eventType: string;

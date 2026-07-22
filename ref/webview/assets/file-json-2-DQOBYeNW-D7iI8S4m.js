@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-json-2-DQOBYeNW-qttx-osu.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./chart-no-axes-combined-DRMGtJxd-DGxCfKhZ.js";
+t();
+export { e as default };

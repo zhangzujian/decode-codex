@@ -34,10 +34,7 @@ const DIFF_ROOT_SELECTOR = ":is([data-diff], [data-file])";
 
 export type FileDiffOverflowMode = "scroll" | "wrap";
 export type FileDiffHunkSeparatorMode =
-  | "line-info"
-  | "line-info-basic"
-  | "metadata"
-  | "simple";
+  "line-info" | "line-info-basic" | "metadata" | "simple";
 export type FileDiffStyle = "unified" | "split";
 export type FileDiffLineDiffType = "none" | "word" | "word-alt" | string;
 export type FileDiffGutterUtilityClickHandler = (...args: unknown[]) => void;
@@ -90,8 +87,10 @@ export interface FileDiffRendererOptions {
   [key: string]: unknown;
 }
 
-export interface FileDiffRendererProps
-  extends Omit<FileDiffRendererOptions, "onPostRender"> {
+export interface FileDiffRendererProps extends Omit<
+  FileDiffRendererOptions,
+  "onPostRender"
+> {
   className?: string;
   fileDiff: RenderableFileDiff;
   hunkSeparators?: FileDiffHunkSeparatorMode;
@@ -219,9 +218,7 @@ function FileDiffLineDiffEffect({
   lineDiffType,
 }: FileDiffLineDiffEffectProps): null {
   const highlighterPool = useDiffHighlighterPool() as
-    | DiffHighlighterPool
-    | null
-    | undefined;
+    DiffHighlighterPool | null | undefined;
 
   useEffect(() => {
     if (highlighterPool == null) return;

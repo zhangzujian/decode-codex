@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/highlight-code-Bv8OoAm9.js
+// Restored from ref/webview/assets/highlight-code-IUEcEehV.js
 // Highlight.js language registration and code highlighting helper.
 import highlightJs from "highlight.js/lib/core";
 import arduino from "highlight.js/lib/languages/arduino";

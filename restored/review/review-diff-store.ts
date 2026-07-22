@@ -93,8 +93,9 @@ export const reviewDiffStateAtom = createComputedAtom(
 export const reviewDiffActionsAvailableAtom = createComputedAtom(
   threadAtomScope,
   ({ get }: ComputedAtomContext): boolean =>
-    (get(reviewFileEntriesAtom) as Array<{ canApplyPatchActions?: boolean }>)
-      .some((entry) => entry.canApplyPatchActions !== false),
+    (
+      get(reviewFileEntriesAtom) as Array<{ canApplyPatchActions?: boolean }>
+    ).some((entry) => entry.canApplyPatchActions !== false),
 );
 
 export const reviewFilePathsAtom = createComputedAtom(

@@ -15,10 +15,7 @@ import {
 import { isAutomationHostSupported } from "../../utils/automation-host-support";
 import type { AppScopeGetter, HeartbeatAutomationEligibility } from "./types";
 type PendingRequestType =
-  | "approval"
-  | "mcpServerElicitation"
-  | "userInput"
-  | string;
+  "approval" | "mcpServerElicitation" | "userInput" | string;
 type EligibilityInput = {
   hasConversation: boolean;
   hostId: string | null | undefined;

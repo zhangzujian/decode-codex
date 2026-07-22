@@ -1739,9 +1739,9 @@ function vennDiagramDHZGUBPPHelper29(
         vennDiagramDHZGUBPPParam53[2].x,
         vennDiagramDHZGUBPPParam53[2].y,
       ) - vennDiagramDHZGUBPPParam54;
-    for (; vennDiagramDHZGUBPPValue388 < 0; )
+    for (; vennDiagramDHZGUBPPValue388 < 0;)
       vennDiagramDHZGUBPPValue388 += 2 * Math.PI;
-    for (; vennDiagramDHZGUBPPValue388 > 2 * Math.PI; )
+    for (; vennDiagramDHZGUBPPValue388 > 2 * Math.PI;)
       vennDiagramDHZGUBPPValue388 -= 2 * Math.PI;
     if (vennDiagramDHZGUBPPValue388 > Math.PI) {
       let vennDiagramDHZGUBPPValue459 =
@@ -1947,7 +1947,7 @@ function vennDiagramDHZGUBPPHelper32(
     }
   }
   let vennDiagramDHZGUBPPValue220 = 1;
-  for (; vennDiagramDHZGUBPPValue220 < vennDiagramDHZGUBPPValue217.length; ) {
+  for (; vennDiagramDHZGUBPPValue220 < vennDiagramDHZGUBPPValue217.length;) {
     vennDiagramDHZGUBPPHelper62(
       vennDiagramDHZGUBPPValue217[vennDiagramDHZGUBPPValue220],
       true,
@@ -2551,7 +2551,6 @@ function vennDiagramDHZGUBPPHelper37(
       ;
       (vennDiagramDHZGUBPPValue254 = vennDiagramDHZGUBPPValue252.pop()),
         vennDiagramDHZGUBPPValue254;
-
     ) {
       vennDiagramDHZGUBPPValue255.push(vennDiagramDHZGUBPPValue254);
       let vennDiagramDHZGUBPPValue416 = vennDiagramDHZGUBPPValue255.join(" ");
@@ -3703,7 +3702,6 @@ var vennDiagramDHZGUBPPValue4 = (function () {
             vennDiagramDHZGUBPPValue132,
             vennDiagramDHZGUBPPValue133;
           ;
-
         ) {
           if (
             ((vennDiagramDHZGUBPPValue126 =

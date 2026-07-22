@@ -5,11 +5,7 @@ export type IntlShapeLike = {
   formatMessage(message: unknown, values?: Record<string, unknown>): string;
 };
 export type AvatarOverlayActivityStatus =
-  | "idle"
-  | "running"
-  | "waiting"
-  | "failed"
-  | "review";
+  "idle" | "running" | "waiting" | "failed" | "review";
 export type CompactWaitingRequestAction = {
   ariaLabel?: string;
   commandDecision?: "accept" | "decline";

@@ -699,10 +699,7 @@ function createOrderByModule() {
 }
 function orderByCollection<TValue>(
   collection:
-    | ArrayLike<TValue>
-    | Record<PropertyKey, TValue>
-    | null
-    | undefined,
+    ArrayLike<TValue> | Record<PropertyKey, TValue> | null | undefined,
   iteratees: Array<string | number | symbol | ((value: TValue) => unknown)>,
   orders?: string[] | string | null,
   guard?: unknown,

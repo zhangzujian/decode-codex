@@ -1,0 +1,3 @@
+import { n as e, t } from "./book-open-B2mC4ZiC-B6h7uPUi.js";
+t();
+export { e as default };

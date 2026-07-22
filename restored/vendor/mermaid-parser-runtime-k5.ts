@@ -190,7 +190,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
     let chunkK5T4RW27Value2164 = this.iterator(),
       chunkK5T4RW27Value2165 = 0,
       chunkK5T4RW27Value2166 = chunkK5T4RW27Value2164.next();
-    for (; !chunkK5T4RW27Value2166.done; ) {
+    for (; !chunkK5T4RW27Value2166.done;) {
       chunkK5T4RW27Value2165++;
       chunkK5T4RW27Value2166 = chunkK5T4RW27Value2164.next();
     }
@@ -273,7 +273,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
     let chunkK5T4RW27Value1879 = this.iterator(),
       chunkK5T4RW27Value1880 = 0,
       chunkK5T4RW27Value1881 = chunkK5T4RW27Value1879.next();
-    for (; !chunkK5T4RW27Value1881.done; ) {
+    for (; !chunkK5T4RW27Value1881.done;) {
       if (
         chunkK5T4RW27Value1880 >= chunkK5T4RW27Param1096 &&
         chunkK5T4RW27Value1881.value === chunkK5T4RW27Param1095
@@ -287,7 +287,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
   every(chunkK5T4RW27Param1411) {
     let chunkK5T4RW27Value2049 = this.iterator(),
       chunkK5T4RW27Value2050 = chunkK5T4RW27Value2049.next();
-    for (; !chunkK5T4RW27Value2050.done; ) {
+    for (; !chunkK5T4RW27Value2050.done;) {
       if (!chunkK5T4RW27Param1411(chunkK5T4RW27Value2050.value)) return false;
       chunkK5T4RW27Value2050 = chunkK5T4RW27Value2049.next();
     }
@@ -296,7 +296,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
   some(chunkK5T4RW27Param1424) {
     let chunkK5T4RW27Value2068 = this.iterator(),
       chunkK5T4RW27Value2069 = chunkK5T4RW27Value2068.next();
-    for (; !chunkK5T4RW27Value2069.done; ) {
+    for (; !chunkK5T4RW27Value2069.done;) {
       if (chunkK5T4RW27Param1424(chunkK5T4RW27Value2069.value)) return true;
       chunkK5T4RW27Value2069 = chunkK5T4RW27Value2068.next();
     }
@@ -306,7 +306,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
     let chunkK5T4RW27Value2143 = this.iterator(),
       chunkK5T4RW27Value2144 = 0,
       chunkK5T4RW27Value2145 = chunkK5T4RW27Value2143.next();
-    for (; !chunkK5T4RW27Value2145.done; ) {
+    for (; !chunkK5T4RW27Value2145.done;) {
       chunkK5T4RW27Param1519(
         chunkK5T4RW27Value2145.value,
         chunkK5T4RW27Value2144,
@@ -347,7 +347,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
     let chunkK5T4RW27Value1954 = this.iterator(),
       chunkK5T4RW27Value1955 = chunkK5T4RW27Param1279,
       chunkK5T4RW27Value1956 = chunkK5T4RW27Value1954.next();
-    for (; !chunkK5T4RW27Value1956.done; ) {
+    for (; !chunkK5T4RW27Value1956.done;) {
       chunkK5T4RW27Value1955 =
         chunkK5T4RW27Value1955 === undefined
           ? chunkK5T4RW27Value1956.value
@@ -388,7 +388,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
   find(chunkK5T4RW27Param1464) {
     let chunkK5T4RW27Value2097 = this.iterator(),
       chunkK5T4RW27Value2098 = chunkK5T4RW27Value2097.next();
-    for (; !chunkK5T4RW27Value2098.done; ) {
+    for (; !chunkK5T4RW27Value2098.done;) {
       if (chunkK5T4RW27Param1464(chunkK5T4RW27Value2098.value))
         return chunkK5T4RW27Value2098.value;
       chunkK5T4RW27Value2098 = chunkK5T4RW27Value2097.next();
@@ -398,7 +398,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
     let chunkK5T4RW27Value1957 = this.iterator(),
       chunkK5T4RW27Value1958 = 0,
       chunkK5T4RW27Value1959 = chunkK5T4RW27Value1957.next();
-    for (; !chunkK5T4RW27Value1959.done; ) {
+    for (; !chunkK5T4RW27Value1959.done;) {
       if (chunkK5T4RW27Param1280(chunkK5T4RW27Value1959.value))
         return chunkK5T4RW27Value1958;
       chunkK5T4RW27Value1959 = chunkK5T4RW27Value1957.next();
@@ -409,7 +409,7 @@ var chunkK5T4RW27Value2 = class ChunkK5T4RW27Class3 {
   includes(chunkK5T4RW27Param1387) {
     let chunkK5T4RW27Value2022 = this.iterator(),
       chunkK5T4RW27Value2023 = chunkK5T4RW27Value2022.next();
-    for (; !chunkK5T4RW27Value2023.done; ) {
+    for (; !chunkK5T4RW27Value2023.done;) {
       if (chunkK5T4RW27Value2023.value === chunkK5T4RW27Param1387) return true;
       chunkK5T4RW27Value2023 = chunkK5T4RW27Value2022.next();
     }
@@ -671,7 +671,6 @@ var chunkK5T4RW27Value5 = class extends chunkK5T4RW27Value2 {
             chunkK5T4RW27Param705.pruned &&=
               (chunkK5T4RW27Param705.iterators.pop(), false);
             chunkK5T4RW27Param705.iterators.length > 0;
-
           ) {
             let chunkK5T4RW27Value1914 =
               chunkK5T4RW27Param705.iterators[
@@ -762,7 +761,7 @@ function chunkK5T4RW27Helper12(
 }
 function chunkK5T4RW27Helper13(chunkK5T4RW27Param1735, chunkK5T4RW27Param1736) {
   let chunkK5T4RW27Value2318 = chunkK5T4RW27Param1735;
-  for (; chunkK5T4RW27Value2318; ) {
+  for (; chunkK5T4RW27Value2318;) {
     if (chunkK5T4RW27Param1736(chunkK5T4RW27Value2318))
       return chunkK5T4RW27Value2318;
     chunkK5T4RW27Value2318 = chunkK5T4RW27Value2318.$container;
@@ -776,7 +775,7 @@ function chunkK5T4RW27Helper14(chunkK5T4RW27Param1663) {
   return chunkK5T4RW27Value2280;
 }
 function chunkK5T4RW27Helper15(chunkK5T4RW27Param2048) {
-  for (; chunkK5T4RW27Param2048.$container; )
+  for (; chunkK5T4RW27Param2048.$container;)
     chunkK5T4RW27Param2048 = chunkK5T4RW27Param2048.$container;
   return chunkK5T4RW27Param2048;
 }
@@ -802,7 +801,6 @@ function chunkK5T4RW27Helper17(chunkK5T4RW27Param236, chunkK5T4RW27Param237) {
       for (
         ;
         chunkK5T4RW27Param360.keyIndex < chunkK5T4RW27Param360.keys.length;
-
       ) {
         let chunkK5T4RW27Value1224 =
           chunkK5T4RW27Param360.keys[chunkK5T4RW27Param360.keyIndex];
@@ -825,7 +823,6 @@ function chunkK5T4RW27Helper17(chunkK5T4RW27Param236, chunkK5T4RW27Param237) {
             for (
               ;
               chunkK5T4RW27Param360.arrayIndex < chunkK5T4RW27Value1383.length;
-
             ) {
               let chunkK5T4RW27Value2218 =
                 chunkK5T4RW27Value1383[chunkK5T4RW27Param360.arrayIndex++];
@@ -890,7 +887,6 @@ function chunkK5T4RW27Helper21(chunkK5T4RW27Param188) {
       for (
         ;
         chunkK5T4RW27Param223.keyIndex < chunkK5T4RW27Param223.keys.length;
-
       ) {
         let chunkK5T4RW27Value1032 =
           chunkK5T4RW27Param223.keys[chunkK5T4RW27Param223.keyIndex];
@@ -916,7 +912,6 @@ function chunkK5T4RW27Helper21(chunkK5T4RW27Param188) {
             for (
               ;
               chunkK5T4RW27Param223.arrayIndex < chunkK5T4RW27Value1118.length;
-
             ) {
               let chunkK5T4RW27Value1660 = chunkK5T4RW27Param223.arrayIndex++,
                 chunkK5T4RW27Value1661 =
@@ -2189,7 +2184,7 @@ function chunkK5T4RW27Helper54(chunkK5T4RW27Param1867) {
   );
 }
 function chunkK5T4RW27Helper55(chunkK5T4RW27Param1706, chunkK5T4RW27Param1707) {
-  for (; chunkK5T4RW27Param1706.container; )
+  for (; chunkK5T4RW27Param1706.container;)
     if (
       ((chunkK5T4RW27Param1706 = chunkK5T4RW27Param1706.container),
       chunkK5T4RW27Param1706 === chunkK5T4RW27Param1707)
@@ -2310,12 +2305,12 @@ function chunkK5T4RW27Helper62(
   chunkK5T4RW27Param984,
   chunkK5T4RW27Param985 = true,
 ) {
-  for (; chunkK5T4RW27Param984.container; ) {
+  for (; chunkK5T4RW27Param984.container;) {
     let chunkK5T4RW27Value1991 = chunkK5T4RW27Param984.container,
       chunkK5T4RW27Value1992 = chunkK5T4RW27Value1991.content.indexOf(
         chunkK5T4RW27Param984,
       );
-    for (; chunkK5T4RW27Value1992 > 0; ) {
+    for (; chunkK5T4RW27Value1992 > 0;) {
       chunkK5T4RW27Value1992--;
       let chunkK5T4RW27Value2403 =
         chunkK5T4RW27Value1991.content[chunkK5T4RW27Value1992];
@@ -2457,7 +2452,7 @@ var chunkK5T4RW27Value61 = [
         unicode: false,
         sticky: false,
       };
-      for (; this.isRegExpFlag(); )
+      for (; this.isRegExpFlag();)
         switch (this.popChar()) {
           case "g":
             chunkK5T4RW27Helper66(chunkK5T4RW27Value873, "global");
@@ -2490,7 +2485,6 @@ var chunkK5T4RW27Value61 = [
       for (
         chunkK5T4RW27Value1696.push(this.alternative());
         this.peekChar() === "|";
-
       ) {
         this.consumeChar("|");
         chunkK5T4RW27Value1696.push(this.alternative());
@@ -2504,7 +2498,7 @@ var chunkK5T4RW27Value61 = [
     alternative() {
       let chunkK5T4RW27Value1983 = [],
         chunkK5T4RW27Value1984 = this.idx;
-      for (; this.isTerm(); ) chunkK5T4RW27Value1983.push(this.term());
+      for (; this.isTerm();) chunkK5T4RW27Value1983.push(this.term());
       return {
         type: "Alternative",
         value: chunkK5T4RW27Value1983,
@@ -2845,7 +2839,6 @@ var chunkK5T4RW27Value61 = [
           this.peekChar(0) === "^" &&
             (this.consumeChar("^"), (chunkK5T4RW27Value997 = true));
         this.isClassAtom();
-
       ) {
         let chunkK5T4RW27Value1277 = this.classAtom();
         if (
@@ -2964,7 +2957,7 @@ var chunkK5T4RW27Value61 = [
       let chunkK5T4RW27Value1812 = this.popChar();
       if (chunkK5T4RW27Value64.test(chunkK5T4RW27Value1812) === false)
         throw Error("Expecting a positive integer");
-      for (; chunkK5T4RW27Value63.test(this.peekChar(0)); )
+      for (; chunkK5T4RW27Value63.test(this.peekChar(0));)
         chunkK5T4RW27Value1812 += this.popChar();
       return parseInt(chunkK5T4RW27Value1812, 10);
     }
@@ -2972,7 +2965,7 @@ var chunkK5T4RW27Value61 = [
       let chunkK5T4RW27Value1823 = this.popChar();
       if (chunkK5T4RW27Value63.test(chunkK5T4RW27Value1823) === false)
         throw Error("Expecting an integer");
-      for (; chunkK5T4RW27Value63.test(this.peekChar(0)); )
+      for (; chunkK5T4RW27Value63.test(this.peekChar(0));)
         chunkK5T4RW27Value1823 += this.popChar();
       return parseInt(chunkK5T4RW27Value1823, 10);
     }
@@ -3371,7 +3364,7 @@ function chunkK5T4RW27Helper73(chunkK5T4RW27Param29) {
         "|$)";
       chunkK5T4RW27Value680 += chunkK5T4RW27Param1991;
     }
-    for (; chunkK5T4RW27Value680 < chunkK5T4RW27Value679.length; )
+    for (; chunkK5T4RW27Value680 < chunkK5T4RW27Value679.length;)
       switch (chunkK5T4RW27Value679[chunkK5T4RW27Value680]) {
         case "\\":
           switch (chunkK5T4RW27Value679[chunkK5T4RW27Value680 + 1]) {
@@ -3698,7 +3691,6 @@ function chunkK5T4RW27Helper85(chunkK5T4RW27Param1412) {
   for (
     ;
     chunkK5T4RW27Value2052 === chunkK5T4RW27Param1412.container?.astNode;
-
   ) {
     let chunkK5T4RW27Value2398 = chunkK5T4RW27Helper13(
       chunkK5T4RW27Param1412.grammarSource,
@@ -4507,7 +4499,7 @@ function chunkK5T4RW27Helper116(chunkK5T4RW27Param861) {
       chunkK5T4RW27Value1679.length > chunkK5T4RW27Value1680,
     chunkK5T4RW27Value1682,
     chunkK5T4RW27Value1683 = true;
-  for (; chunkK5T4RW27Value1681 && chunkK5T4RW27Value1683; ) {
+  for (; chunkK5T4RW27Value1681 && chunkK5T4RW27Value1683;) {
     chunkK5T4RW27Value1682 = chunkK5T4RW27Value1679[chunkK5T4RW27Value1680];
     chunkK5T4RW27Value1683 = chunkK5T4RW27Helper111(chunkK5T4RW27Value1682);
     chunkK5T4RW27Value1678 = chunkK5T4RW27Value1678.concat(
@@ -5682,7 +5674,7 @@ function chunkK5T4RW27Helper158(chunkK5T4RW27Param811) {
   let chunkK5T4RW27Value1618 = [...chunkK5T4RW27Param811],
     chunkK5T4RW27Value1619 = chunkK5T4RW27Param811,
     chunkK5T4RW27Value1620 = true;
-  for (; chunkK5T4RW27Value1620; ) {
+  for (; chunkK5T4RW27Value1620;) {
     chunkK5T4RW27Value1619 = chunkK5T4RW27Value1619
       .map((item) => item.CATEGORIES)
       .flat()
@@ -6166,7 +6158,7 @@ var chunkK5T4RW27Value103 = class {
     chunkK5T4RW27Helper388.call(this, chunkK5T4RW27Param17);
     let chunkK5T4RW27Value612,
       chunkK5T4RW27Value613 = this.config.recoveryEnabled;
-    for (; chunkK5T4RW27Value595 < chunkK5T4RW27Value594; ) {
+    for (; chunkK5T4RW27Value595 < chunkK5T4RW27Value594;) {
       chunkK5T4RW27Value583 = null;
       chunkK5T4RW27Value586 = -1;
       let chunkK5T4RW27Value655 = chunkK5T4RW27Value593.charCodeAt(
@@ -6365,7 +6357,6 @@ var chunkK5T4RW27Value103 = class {
           ;
           chunkK5T4RW27Value893 === false &&
           chunkK5T4RW27Value595 < chunkK5T4RW27Value594;
-
         )
           for (
             chunkK5T4RW27Value595++, chunkK5T4RW27Value579 = 0;
@@ -7052,7 +7043,6 @@ function chunkK5T4RW27Helper175(
     ;
     chunkK5T4RW27Param72.length < chunkK5T4RW27Param71 &&
     chunkK5T4RW27Value763 < chunkK5T4RW27Param70.length;
-
   ) {
     let chunkK5T4RW27Value855 = chunkK5T4RW27Param70[chunkK5T4RW27Value763];
     if (
@@ -7146,7 +7136,6 @@ function chunkK5T4RW27Helper176(
       occurrenceStack: [],
     });
     chunkK5T4RW27Value645.length !== 0;
-
   ) {
     let chunkK5T4RW27Value658 = chunkK5T4RW27Value645.pop();
     if (chunkK5T4RW27Value658 === "EXIT_ALTERNATIVE") {
@@ -7501,12 +7490,10 @@ function chunkK5T4RW27Helper182(
           chunkK5T4RW27Value1386 = chunkK5T4RW27Value1385.length,
           chunkK5T4RW27Value1387 =
             chunkK5T4RW27Value1250[chunkK5T4RW27Value1326];
-        if (
-          !(
-            chunkK5T4RW27Value1387 !== undefined &&
-            chunkK5T4RW27Value1387.call(this) === false
-          )
-        )
+        if (!(
+          chunkK5T4RW27Value1387 !== undefined &&
+          chunkK5T4RW27Value1387.call(this) === false
+        ))
           nextPath: for (
             let chunkK5T4RW27Value1782 = 0;
             chunkK5T4RW27Value1782 < chunkK5T4RW27Value1386;
@@ -8046,14 +8033,12 @@ function chunkK5T4RW27Helper190(chunkK5T4RW27Param602, chunkK5T4RW27Param603) {
             chunkK5T4RW27Param603[chunkK5T4RW27Value1919],
           chunkK5T4RW27Value2041 =
             chunkK5T4RW27Value1593[chunkK5T4RW27Value1919];
-        if (
-          !(
-            chunkK5T4RW27Value2040 === chunkK5T4RW27Value2041 ||
-            chunkK5T4RW27Value2041.categoryMatchesMap[
-              chunkK5T4RW27Value2040.tokenTypeIdx
-            ] !== undefined
-          )
-        )
+        if (!(
+          chunkK5T4RW27Value2040 === chunkK5T4RW27Value2041 ||
+          chunkK5T4RW27Value2041.categoryMatchesMap[
+            chunkK5T4RW27Value2040.tokenTypeIdx
+          ] !== undefined
+        ))
           continue compareOtherPath;
       }
       return true;
@@ -8756,7 +8741,7 @@ var chunkK5T4RW27Value133 = class extends Error {
           );
           this.SAVE_ERROR(chunkK5T4RW27Value1318);
         };
-      for (; !chunkK5T4RW27Value881; )
+      for (; !chunkK5T4RW27Value881;)
         if (this.tokenMatcher(chunkK5T4RW27Value883, chunkK5T4RW27Param141)) {
           chunkK5T4RW27Value884();
           return;
@@ -8937,7 +8922,6 @@ var chunkK5T4RW27Value133 = class extends Error {
         ;
         this.tokenMatcher(chunkK5T4RW27Value1871, chunkK5T4RW27Param1084) ===
         false;
-
       ) {
         chunkK5T4RW27Value1871 = this.SKIP_TOKEN();
         this.addToResyncTokens(chunkK5T4RW27Value1871, chunkK5T4RW27Value1870);
@@ -10442,7 +10426,6 @@ var chunkK5T4RW27Value149 = class {
           ;
           chunkK5T4RW27Value989.call(this) === true &&
           chunkK5T4RW27Value2125 === true;
-
         )
           chunkK5T4RW27Value2125 = this.doSingleRepetition(
             chunkK5T4RW27Value990,
@@ -10487,7 +10470,6 @@ var chunkK5T4RW27Value149 = class {
         for (
           ;
           this.tokenMatcher(this.LA_FAST(1), chunkK5T4RW27Value1051) === true;
-
         ) {
           this.CONSUME(chunkK5T4RW27Value1051);
           chunkK5T4RW27Value1050.call(this);
@@ -10548,7 +10530,6 @@ var chunkK5T4RW27Value149 = class {
         ;
         chunkK5T4RW27Value1166.call(this) === true &&
         chunkK5T4RW27Value1168 === true;
-
       )
         chunkK5T4RW27Value1168 = this.doSingleRepetition(
           chunkK5T4RW27Value1167,
@@ -10588,7 +10569,6 @@ var chunkK5T4RW27Value149 = class {
         for (
           ;
           this.tokenMatcher(this.LA_FAST(1), chunkK5T4RW27Value1199) === true;
-
         ) {
           this.CONSUME(chunkK5T4RW27Value1199);
           chunkK5T4RW27Value1198.call(this);
@@ -10616,7 +10596,7 @@ var chunkK5T4RW27Value149 = class {
       chunkK5T4RW27Param850,
       chunkK5T4RW27Param851,
     ) {
-      for (; chunkK5T4RW27Param849(); ) {
+      for (; chunkK5T4RW27Param849();) {
         this.CONSUME(chunkK5T4RW27Param848);
         chunkK5T4RW27Param850.call(this);
       }
@@ -10887,7 +10867,7 @@ var chunkK5T4RW27Value149 = class {
             });
         this.SAVE_ERROR(new _o(chunkK5T4RW27Value1733, chunkK5T4RW27Value1732));
       }
-      for (; this.tokVector.at(-1) === chunkK5T4RW27Value160; )
+      for (; this.tokVector.at(-1) === chunkK5T4RW27Value160;)
         this.tokVector.pop();
     }
   },
@@ -13327,7 +13307,7 @@ var chunkK5T4RW27Value174 = class {
         chunkK5T4RW27Value1105.content.push(...chunkK5T4RW27Value1104);
         return;
       }
-      for (; chunkK5T4RW27Value1105.container; ) {
+      for (; chunkK5T4RW27Value1105.container;) {
         let chunkK5T4RW27Value1941 =
           chunkK5T4RW27Value1105.container.content.indexOf(
             chunkK5T4RW27Value1105,
@@ -14984,7 +14964,7 @@ function el(chunkK5T4RW27Param565, chunkK5T4RW27Param566) {
     let chunkK5T4RW27Value1587 = chunkK5T4RW27Param566,
       chunkK5T4RW27Value1588 = chunkK5T4RW27Value1587.$container,
       chunkK5T4RW27Value1589 = chunkK5T4RW27Param566.$type;
-    for (; !chunkK5T4RW27Helper41(chunkK5T4RW27Value1588); ) {
+    for (; !chunkK5T4RW27Helper41(chunkK5T4RW27Value1588);) {
       (chunkK5T4RW27Helper33(chunkK5T4RW27Value1588) ||
         chunkK5T4RW27Helper25(chunkK5T4RW27Value1588) ||
         chunkK5T4RW27Helper51(chunkK5T4RW27Value1588)) &&
@@ -15391,12 +15371,10 @@ var chunkK5T4RW27Value198 = class {
               chunkK5T4RW27Value718 = 47;
             }
             if (chunkK5T4RW27Value718 === 47) {
-              if (
-                !(
-                  chunkK5T4RW27Value721 === chunkK5T4RW27Value723 - 1 ||
-                  chunkK5T4RW27Value722 === 1
-                )
-              )
+              if (!(
+                chunkK5T4RW27Value721 === chunkK5T4RW27Value723 - 1 ||
+                chunkK5T4RW27Value722 === 1
+              ))
                 if (
                   chunkK5T4RW27Value721 !== chunkK5T4RW27Value723 - 1 &&
                   chunkK5T4RW27Value722 === 2
@@ -19921,7 +19899,7 @@ var chunkK5T4RW27Value229 = class {
       forEach(chunkK5T4RW27Param671, chunkK5T4RW27Param672) {
         let chunkK5T4RW27Value1475 = this._state,
           chunkK5T4RW27Value1476 = this._head;
-        for (; chunkK5T4RW27Value1476; ) {
+        for (; chunkK5T4RW27Value1476;) {
           if (
             (chunkK5T4RW27Param672
               ? chunkK5T4RW27Param671.bind(chunkK5T4RW27Param672)(
@@ -20036,7 +20014,6 @@ var chunkK5T4RW27Value229 = class {
           ;
           chunkK5T4RW27Value1393 &&
           chunkK5T4RW27Value1394 > chunkK5T4RW27Param595;
-
         ) {
           this._map.delete(chunkK5T4RW27Value1393.key);
           chunkK5T4RW27Value1393 = chunkK5T4RW27Value1393.next;
@@ -20094,12 +20071,10 @@ var chunkK5T4RW27Value229 = class {
       }
       touch(chunkK5T4RW27Param131, chunkK5T4RW27Param132) {
         if (!this._head || !this._tail) throw Error("Invalid list");
-        if (
-          !(
-            chunkK5T4RW27Param132 !== chunkK5T4RW27Value543.First &&
-            chunkK5T4RW27Param132 !== chunkK5T4RW27Value543.Last
-          )
-        ) {
+        if (!(
+          chunkK5T4RW27Param132 !== chunkK5T4RW27Value543.First &&
+          chunkK5T4RW27Param132 !== chunkK5T4RW27Value543.Last
+        )) {
           if (chunkK5T4RW27Param132 === chunkK5T4RW27Value543.First) {
             if (chunkK5T4RW27Param131 === this._head) return;
             let chunkK5T4RW27Value1313 = chunkK5T4RW27Param131.next,
@@ -20529,7 +20504,7 @@ var chunkK5T4RW27Value229 = class {
       }
       onData(chunkK5T4RW27Param49) {
         try {
-          for (this.buffer.append(chunkK5T4RW27Param49); ; ) {
+          for (this.buffer.append(chunkK5T4RW27Param49); ;) {
             if (this.nextMessageLength === -1) {
               let chunkK5T4RW27Value1007 = this.buffer.tryReadHeaders(true);
               if (!chunkK5T4RW27Value1007) return;
@@ -20806,13 +20781,12 @@ var chunkK5T4RW27Value229 = class {
           chunkK5T4RW27Value727 = 0,
           chunkK5T4RW27Value728 = 0,
           chunkK5T4RW27Value729 = 0;
-        row: for (; chunkK5T4RW27Value727 < this._chunks.length; ) {
+        row: for (; chunkK5T4RW27Value727 < this._chunks.length;) {
           let chunkK5T4RW27Value927 = this._chunks[chunkK5T4RW27Value727];
           chunkK5T4RW27Value728 = 0;
           column: for (
             ;
             chunkK5T4RW27Value728 < chunkK5T4RW27Value927.length;
-
           ) {
             switch (chunkK5T4RW27Value927[chunkK5T4RW27Value728]) {
               case 13:
@@ -20921,7 +20895,7 @@ var chunkK5T4RW27Value229 = class {
         }
         let chunkK5T4RW27Value831 = this.allocNative(chunkK5T4RW27Param115),
           chunkK5T4RW27Value832 = 0;
-        for (; chunkK5T4RW27Param115 > 0; ) {
+        for (; chunkK5T4RW27Param115 > 0;) {
           let chunkK5T4RW27Value1236 = this._chunks[0];
           if (chunkK5T4RW27Value1236.byteLength > chunkK5T4RW27Param115) {
             let chunkK5T4RW27Value1859 = chunkK5T4RW27Value1236.slice(
@@ -21936,12 +21910,10 @@ var chunkK5T4RW27Value229 = class {
           }
       }
       function chunkK5T4RW27Helper360(chunkK5T4RW27Param645) {
-        if (
-          !(
-            chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
-            !chunkK5T4RW27Value507
-          )
-        )
+        if (!(
+          chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
+          !chunkK5T4RW27Value507
+        ))
           if (chunkK5T4RW27Value506 === chunkK5T4RW27Value390.Text) {
             let chunkK5T4RW27Value1778;
             (chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Verbose ||
@@ -21955,12 +21927,10 @@ var chunkK5T4RW27Value229 = class {
           } else chunkK5T4RW27Helper366("send-request", chunkK5T4RW27Param645);
       }
       function chunkK5T4RW27Helper361(chunkK5T4RW27Param562) {
-        if (
-          !(
-            chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
-            !chunkK5T4RW27Value507
-          )
-        )
+        if (!(
+          chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
+          !chunkK5T4RW27Value507
+        ))
           if (chunkK5T4RW27Value506 === chunkK5T4RW27Value390.Text) {
             let chunkK5T4RW27Value1639;
             (chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Verbose ||
@@ -21980,12 +21950,10 @@ var chunkK5T4RW27Value229 = class {
         chunkK5T4RW27Param292,
         chunkK5T4RW27Param293,
       ) {
-        if (
-          !(
-            chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
-            !chunkK5T4RW27Value507
-          )
-        )
+        if (!(
+          chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
+          !chunkK5T4RW27Value507
+        ))
           if (chunkK5T4RW27Value506 === chunkK5T4RW27Value390.Text) {
             let chunkK5T4RW27Value1196;
             (chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Verbose ||
@@ -22003,12 +21971,10 @@ var chunkK5T4RW27Value229 = class {
           } else chunkK5T4RW27Helper366("send-response", chunkK5T4RW27Param291);
       }
       function chunkK5T4RW27Helper363(chunkK5T4RW27Param634) {
-        if (
-          !(
-            chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
-            !chunkK5T4RW27Value507
-          )
-        )
+        if (!(
+          chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
+          !chunkK5T4RW27Value507
+        ))
           if (chunkK5T4RW27Value506 === chunkK5T4RW27Value390.Text) {
             let chunkK5T4RW27Value1774;
             (chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Verbose ||
@@ -22023,13 +21989,11 @@ var chunkK5T4RW27Value229 = class {
             chunkK5T4RW27Helper366("receive-request", chunkK5T4RW27Param634);
       }
       function chunkK5T4RW27Helper364(chunkK5T4RW27Param525) {
-        if (
-          !(
-            chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
-            !chunkK5T4RW27Value507 ||
-            chunkK5T4RW27Param525.method === chunkK5T4RW27Value392.type.method
-          )
-        )
+        if (!(
+          chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
+          !chunkK5T4RW27Value507 ||
+          chunkK5T4RW27Param525.method === chunkK5T4RW27Value392.type.method
+        ))
           if (chunkK5T4RW27Value506 === chunkK5T4RW27Value390.Text) {
             let chunkK5T4RW27Value1635;
             (chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Verbose ||
@@ -22051,12 +22015,10 @@ var chunkK5T4RW27Value229 = class {
         chunkK5T4RW27Param143,
         chunkK5T4RW27Param144,
       ) {
-        if (
-          !(
-            chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
-            !chunkK5T4RW27Value507
-          )
-        )
+        if (!(
+          chunkK5T4RW27Value505 === chunkK5T4RW27Value388.Off ||
+          !chunkK5T4RW27Value507
+        ))
           if (chunkK5T4RW27Value506 === chunkK5T4RW27Value390.Text) {
             let chunkK5T4RW27Value931;
             if (
@@ -23039,7 +23001,9 @@ var chunkK5T4RW27Value229 = class {
       value: true,
     });
     var chunkK5T4RW27Value614 = chunkK5T4RW27Value239(),
-      chunkK5T4RW27Value615 = class ChunkK5T4RW27Class7 extends chunkK5T4RW27Value614.AbstractMessageBuffer {
+      chunkK5T4RW27Value615 = class ChunkK5T4RW27Class7
+        extends chunkK5T4RW27Value614.AbstractMessageBuffer
+      {
         constructor(chunkK5T4RW27Param1691 = "utf-8") {
           super(chunkK5T4RW27Param1691);
           this.asciiDecoder = new TextDecoder("ascii");
@@ -26630,19 +26594,17 @@ var chunkK5T4RW27Value270 = chunkK5T4RW27Value268(),
     sortDocuments(chunkK5T4RW27Param768) {
       let chunkK5T4RW27Value1581 = 0,
         chunkK5T4RW27Value1582 = chunkK5T4RW27Param768.length - 1;
-      for (; chunkK5T4RW27Value1581 < chunkK5T4RW27Value1582; ) {
+      for (; chunkK5T4RW27Value1581 < chunkK5T4RW27Value1582;) {
         for (
           ;
           chunkK5T4RW27Value1581 < chunkK5T4RW27Param768.length &&
           this.hasTextDocument(chunkK5T4RW27Param768[chunkK5T4RW27Value1581]);
-
         )
           chunkK5T4RW27Value1581++;
         for (
           ;
           chunkK5T4RW27Value1582 >= 0 &&
           !this.hasTextDocument(chunkK5T4RW27Param768[chunkK5T4RW27Value1582]);
-
         )
           chunkK5T4RW27Value1582--;
         chunkK5T4RW27Value1581 < chunkK5T4RW27Value1582 &&
@@ -27718,7 +27680,7 @@ function chunkK5T4RW27Helper314(chunkK5T4RW27Param617) {
       mainS.create(chunkK5T4RW27Value1427, chunkK5T4RW27Value1427),
     );
   let chunkK5T4RW27Value1428 = [];
-  for (; chunkK5T4RW27Param617.index < chunkK5T4RW27Param617.tokens.length; ) {
+  for (; chunkK5T4RW27Param617.index < chunkK5T4RW27Param617.tokens.length;) {
     let chunkK5T4RW27Value2475 = chunkK5T4RW27Helper315(
       chunkK5T4RW27Param617,
       chunkK5T4RW27Value1428[chunkK5T4RW27Value1428.length - 1],
@@ -27777,7 +27739,6 @@ function chunkK5T4RW27Helper317(chunkK5T4RW27Param901) {
     chunkK5T4RW27Value1713 &&
     chunkK5T4RW27Value1713.type !== "break" &&
     chunkK5T4RW27Value1713.type !== "tag";
-
   ) {
     chunkK5T4RW27Value1716.push(chunkK5T4RW27Helper318(chunkK5T4RW27Param901));
     chunkK5T4RW27Value1715 = chunkK5T4RW27Value1713;

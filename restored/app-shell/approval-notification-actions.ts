@@ -3,9 +3,7 @@
 // for session / decline). The desktop-notifications listener maps the chosen
 // action id to an approval decision it replies to the host with.
 export type ApprovalNotificationActionType =
-  | "approve"
-  | "approve-for-session"
-  | "decline";
+  "approve" | "approve-for-session" | "decline";
 
 export interface ApprovalNotificationAction {
   id: string;

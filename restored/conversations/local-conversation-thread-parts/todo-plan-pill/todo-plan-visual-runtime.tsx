@@ -36,10 +36,6 @@ export function PlanStepPendingIcon(props: SVGProps<SVGSVGElement>) {
   return <UnselectedCircleIcon {...props} />;
 }
 
-export function PlanStepSpinnerIcon({
-  className,
-}: {
-  className?: string;
-}) {
+export function PlanStepSpinnerIcon({ className }: { className?: string }) {
   return <Spinner className={className} />;
 }

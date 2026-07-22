@@ -120,6 +120,12 @@ describe("classifyTarget", () => {
     expect(c.npmPackage).toBe("@dnd-kit/core");
   });
 
+  test("./modifiers.esm-XXXX.js maps to @dnd-kit/modifiers", () => {
+    const c = classifyTarget("./modifiers.esm-gnD0E5XJ.js", new Set());
+    expect(c.kind).toBe("npm-leaf");
+    expect(c.npmPackage).toBe("@dnd-kit/modifiers");
+  });
+
   test("./tslib.es6-XXXX.js maps to tslib", () => {
     const c = classifyTarget("./tslib.es6-PiNIxp0T.js", new Set());
     expect(c.kind).toBe("npm-leaf");

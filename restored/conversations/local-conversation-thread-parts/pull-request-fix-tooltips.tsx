@@ -12,8 +12,7 @@ export type PullRequestFixDisabledReason =
   | "missing-pr-info";
 
 export type PullRequestCommentsFixDisabledReason =
-  | "missing-conversation"
-  | "missing-pr-info";
+  "missing-conversation" | "missing-pr-info";
 
 export function getPullRequestCommentsFixDisabledReason({
   baseBranch,

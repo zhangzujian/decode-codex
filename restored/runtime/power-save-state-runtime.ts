@@ -6,9 +6,9 @@ import {
   createScopedAtom,
 } from "./onboarding-scope-runtime";
 
-type RemoteControlConnectionState =
-  | { status: "connected" | "connecting" | "disabled" | "errored" }
-  | null;
+type RemoteControlConnectionState = {
+  status: "connected" | "connecting" | "disabled" | "errored";
+} | null;
 
 export const hasRunningTurnAtom = createScopedAtom<boolean>(
   appStoreScope,

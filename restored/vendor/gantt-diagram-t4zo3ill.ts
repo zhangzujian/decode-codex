@@ -2139,7 +2139,6 @@ var ganttDiagramT4ZO3ILLValue1 = createCommonJsModule(
               ganttDiagramT4ZO3ILLValue184,
               ganttDiagramT4ZO3ILLValue185;
             ;
-
           ) {
             if (
               ((ganttDiagramT4ZO3ILLValue178 =
@@ -3058,7 +3057,6 @@ var ganttDiagramT4ZO3ILLValue13 = {
     for (
       ;
       !ganttDiagramT4ZO3ILLValue448 && ganttDiagramT4ZO3ILLValue449 < 10;
-
     ) {
       ganttDiagramT4ZO3ILLValue448 = ganttDiagramT4ZO3ILLValue73();
       ganttDiagramT4ZO3ILLValue449++;
@@ -3163,7 +3161,7 @@ var ganttDiagramT4ZO3ILLValue13 = {
   ) {
     let ganttDiagramT4ZO3ILLValue409 = false,
       ganttDiagramT4ZO3ILLValue410 = null;
-    for (; ganttDiagramT4ZO3ILLParam156 <= ganttDiagramT4ZO3ILLParam157; ) {
+    for (; ganttDiagramT4ZO3ILLParam156 <= ganttDiagramT4ZO3ILLParam157;) {
       ganttDiagramT4ZO3ILLValue409 ||
         (ganttDiagramT4ZO3ILLValue410 = ganttDiagramT4ZO3ILLParam157.toDate());
       ganttDiagramT4ZO3ILLValue409 = ganttDiagramT4ZO3ILLValue55(
@@ -3787,7 +3785,7 @@ function ganttDiagramT4ZO3ILLHelper1(
   ganttDiagramT4ZO3ILLParam142,
 ) {
   let ganttDiagramT4ZO3ILLValue393 = true;
-  for (; ganttDiagramT4ZO3ILLValue393; ) {
+  for (; ganttDiagramT4ZO3ILLValue393;) {
     ganttDiagramT4ZO3ILLValue393 = false;
     ganttDiagramT4ZO3ILLParam142.forEach(function (item) {
       let ganttDiagramT4ZO3ILLValue431 = "^\\s*" + item + "\\s*$",
@@ -4540,7 +4538,6 @@ export const GanttDiagramT4ZO3ILL = {
           ;
           ganttDiagramT4ZO3ILLValue204.valueOf() <=
           ganttDiagramT4ZO3ILLValue200;
-
         ) {
           ganttDiagramT4ZO3ILLParam4.db.isInvalidDate(
             ganttDiagramT4ZO3ILLValue204,

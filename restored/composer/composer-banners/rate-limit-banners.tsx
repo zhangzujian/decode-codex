@@ -125,10 +125,7 @@ export function FirstBlockRateLimitBanner({
 }
 
 type MessageLimitVariant =
-  | "first_block"
-  | "repeated_blocks"
-  | "soft_limit"
-  | "hard_limit";
+  "first_block" | "repeated_blocks" | "soft_limit" | "hard_limit";
 
 export interface AnnouncementBannerProps {
   conversationId: string;

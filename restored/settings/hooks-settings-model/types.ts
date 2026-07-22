@@ -1,12 +1,7 @@
 // Restored from ref/webview/assets/hooks-settings-model-CesfUzEC.js
 // hooks-settings-model-CesfUzEC chunk restored from the Codex webview bundle.
 export type HookSourceGroupId =
-  | "plugin"
-  | "user"
-  | "admin"
-  | "project"
-  | "sessionFlags"
-  | "unknown";
+  "plugin" | "user" | "admin" | "project" | "sessionFlags" | "unknown";
 
 export type HookEventName =
   | "preToolUse"

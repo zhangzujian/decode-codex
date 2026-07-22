@@ -46,9 +46,7 @@ export type PendingWorktreeTask = {
 };
 
 export type OnboardingTask =
-  | LocalOnboardingTask
-  | PendingWorktreeTask
-  | { kind: "remote" };
+  LocalOnboardingTask | PendingWorktreeTask | { kind: "remote" };
 
 export type GitOrigin = {
   originUrl?: string;
@@ -105,9 +103,7 @@ export function getSuggestedWorkspaceRoots({
     taskRoots
       .map((root) => {
         const originMatch = findGitOriginForRoot(root, origins) as
-          | GitOrigin
-          | null
-          | undefined;
+          GitOrigin | null | undefined;
         if (
           !originMatch?.root ||
           !isPathInsideCodexHome(originMatch.root, codexHome)

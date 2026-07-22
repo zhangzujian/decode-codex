@@ -148,11 +148,7 @@ const DISABLED_CHRONICLE_SIDECAR_CONTROL_STATE = {
 } as const;
 
 type UpdateLifecycleState =
-  | "idle"
-  | "checking"
-  | "downloading"
-  | "ready"
-  | "installing";
+  "idle" | "checking" | "downloading" | "ready" | "installing";
 type RelaunchNotice = {
   deadlineAtMs: number;
   dismissable: boolean;

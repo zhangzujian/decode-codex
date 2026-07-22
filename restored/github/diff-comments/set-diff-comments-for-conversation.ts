@@ -9,8 +9,7 @@ import {
 } from "./use-diff-comment-sources/types";
 
 type DiffCommentUpdate =
-  | DiffComment[]
-  | ((currentComments: DiffComment[]) => DiffComment[]);
+  DiffComment[] | ((currentComments: DiffComment[]) => DiffComment[]);
 
 export function setDiffCommentsForConversation(
   store: unknown,

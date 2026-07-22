@@ -20,7 +20,9 @@ export function encodeConversationId(conversationId: unknown): string {
   return `conversation:${stringId(conversationId)}`;
 }
 
-export function encodeLocalConversationId(localConversationId: unknown): string {
+export function encodeLocalConversationId(
+  localConversationId: unknown,
+): string {
   return `local:${stringId(localConversationId)}`;
 }
 

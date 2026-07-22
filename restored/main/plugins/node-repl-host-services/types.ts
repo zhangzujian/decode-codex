@@ -83,7 +83,6 @@ export type NativePipeAcceptedSocket = {
 };
 
 export type SocketPeerAuthorization =
-  | NativePipeAcceptedSocket
-  | NativePipeRejectedSocket;
+  NativePipeAcceptedSocket | NativePipeRejectedSocket;
 
 export type HostServiceHandler = () => Promise<Record<string, unknown> | void>;

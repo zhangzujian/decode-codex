@@ -42,9 +42,7 @@ export type LocalComposerContext = {
   localConversationId: string;
 };
 export type ComposerThreadContext =
-  | CloudComposerContext
-  | LocalComposerContext
-  | undefined;
+  CloudComposerContext | LocalComposerContext | undefined;
 export type SelectedTextAttachment = {
   id: string;
   source?: unknown;

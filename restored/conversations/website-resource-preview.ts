@@ -13,8 +13,7 @@ import {
 } from "../boundaries/onboarding-commons-externals.facade";
 
 export type WebsiteFavicon =
-  | { type: "url"; src: string }
-  | { type: "file"; path: string };
+  { type: "url"; src: string } | { type: "file"; path: string };
 
 export interface WebsitePreviewMetadata {
   title: string | null;

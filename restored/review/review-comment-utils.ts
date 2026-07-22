@@ -43,8 +43,7 @@ export interface InlineCommentPosition {
 }
 
 interface PullRequestReviewComment
-  extends CommentWithContent,
-    CommentWithPosition {
+  extends CommentWithContent, CommentWithPosition {
   body?: string;
   inlineComment?: InlineCommentPosition | null;
   number?: number | string;

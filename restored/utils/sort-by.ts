@@ -3,11 +3,7 @@
 import { baseOrderBy } from "./base-order-by";
 type Collection<T> = ArrayLike<T> | Record<PropertyKey, T> | null | undefined;
 type SortIteratee<T> =
-  | ((value: T) => unknown)
-  | string
-  | number
-  | symbol
-  | unknown[];
+  ((value: T) => unknown) | string | number | symbol | unknown[];
 const MAX_SAFE_INTEGER = 9007199254740991;
 const objectToString = Object.prototype.toString;
 const spreadableSymbol = Symbol.isConcatSpreadable;

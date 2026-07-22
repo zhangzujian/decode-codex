@@ -122,8 +122,7 @@ export const chronicleMessages = defineMessages({
   runningStatus: {
     id: "settings.general.experimentalFeatures.chronicle.permission.runningStatus",
     defaultMessage: "Status: {status}",
-    description:
-      "Status shown when Chronicle has Screen Recording permission",
+    description: "Status shown when Chronicle has Screen Recording permission",
   },
   runningStatusAccessibility: {
     id: "settings.general.experimentalFeatures.chronicle.permission.runningStatusAccessibility",
@@ -149,8 +148,7 @@ export const chronicleMessages = defineMessages({
   statusUnknown: {
     id: "settings.general.experimentalFeatures.chronicle.permissionStatus.unknown",
     defaultMessage: "Unknown",
-    description:
-      "Chronicle permission status when native state cannot be read",
+    description: "Chronicle permission status when native state cannot be read",
   },
   statusGranted: {
     id: "settings.general.experimentalFeatures.chronicle.permissionStatus.granted",

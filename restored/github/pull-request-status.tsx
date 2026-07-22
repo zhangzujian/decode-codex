@@ -6,12 +6,7 @@ import { PullRequestButtonLabel } from "./pull-request-button-label";
 import { PullRequestOpenIcon } from "../icons/pull-request-open-icon";
 type PullRequestStatus = "draft" | "open" | "merged" | "closed";
 type PullRequestCheckState =
-  | "draft"
-  | "failing"
-  | "in_progress"
-  | "merged"
-  | "ready"
-  | "successful";
+  "draft" | "failing" | "in_progress" | "merged" | "ready" | "successful";
 type PullRequestStatusTone = "status" | "currentColor" | "neutral";
 type PullRequestIconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 const PullRequestClosedIcon = (props: SVGProps<SVGSVGElement>) => (
@@ -283,6 +278,7 @@ export {
   initPullRequestStatusRuntimeChunk,
   PullRequestDraftIcon,
   PullRequestMergedIcon,
+  PullRequestReadyIcon,
   PullRequestStatusIcon,
   PullRequestCheckStatusIcon,
   PullRequestButtonLabel,

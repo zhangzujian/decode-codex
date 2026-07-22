@@ -151,9 +151,11 @@ export function ReviewSectionActionPill({
     reviewGitActionsSupportedAtom,
   );
 
-  if (
-    !(isSectionActionsGateEnabled && isGitActionsSupported && hasActionableDiff)
-  ) {
+  if (!(
+    isSectionActionsGateEnabled &&
+    isGitActionsSupported &&
+    hasActionableDiff
+  )) {
     return null;
   }
 

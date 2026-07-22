@@ -8,8 +8,7 @@ import { runReviewDiffCommand } from "./diff-command";
 
 type ReviewSource = "branch" | "commit" | "staged" | "unstaged";
 type ReviewDiffError =
-  | { type: "diff-too-large"; limitBytes: number }
-  | { type: "unknown" };
+  { type: "diff-too-large"; limitBytes: number } | { type: "unknown" };
 
 const maxDiffBytes = 32 * 1024 * 1024;
 

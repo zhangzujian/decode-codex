@@ -122,7 +122,6 @@ function diagramG4DWMVQ6Helper1(diagramG4DWMVQ6Param10) {
         diagramG4DWMVQ6Value65.length > 0 &&
         diagramG4DWMVQ6Value65[diagramG4DWMVQ6Value65.length - 1].level >=
           item.level;
-
       )
         diagramG4DWMVQ6Value65.pop();
       if (diagramG4DWMVQ6Value65.length === 0)
@@ -538,7 +537,7 @@ var diagramG4DWMVQ6Value2 = chunkAGHRB4JFN(
               diagramG4DWMVQ6Value57
             ) {
               let diagramG4DWMVQ6Value77 = diagramG4DWMVQ6Value54;
-              for (; diagramG4DWMVQ6Value77.length > 0; ) {
+              for (; diagramG4DWMVQ6Value77.length > 0;) {
                 if (
                   ((diagramG4DWMVQ6Value77 = diagramG4DWMVQ6Value54.substring(
                     0,
@@ -709,7 +708,6 @@ var diagramG4DWMVQ6Value2 = chunkAGHRB4JFN(
               ;
               diagramG4DWMVQ6Value34.getComputedTextLength() >
                 diagramG4DWMVQ6Value35 && diagramG4DWMVQ6Value37 > 8;
-
             ) {
               diagramG4DWMVQ6Value37--;
               diagramG4DWMVQ6Value31.style(
@@ -733,7 +731,6 @@ var diagramG4DWMVQ6Value2 = chunkAGHRB4JFN(
                 Math.min(28, Math.round(diagramG4DWMVQ6Value37 * 0.6)),
               )),
               !(diagramG4DWMVQ6Value39 < 6 && diagramG4DWMVQ6Value37 === 8));
-
             ) {
               diagramG4DWMVQ6Value31.style(
                 "font-size",

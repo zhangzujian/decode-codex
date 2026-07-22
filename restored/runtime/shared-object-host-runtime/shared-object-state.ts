@@ -14,8 +14,7 @@ export type SharedObjectScope = {
 };
 
 export type SharedObjectUpdate<TValue> =
-  | TValue
-  | ((currentValue: TValue | undefined) => TValue);
+  TValue | ((currentValue: TValue | undefined) => TValue);
 
 export type SharedObjectState<TValue> = readonly [
   TValue | undefined,

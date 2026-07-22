@@ -1,3 +1,0 @@
-import { n as e, t } from "./asterisk-Dy26r3QG-DyjRabH-.js";
-e();
-export { t as default };

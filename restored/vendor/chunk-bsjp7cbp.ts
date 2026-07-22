@@ -1,14 +1,12 @@
-// Restored from ref/webview/assets/chunk-BSJP7CBP-CrJpo2xF.js
+// Restored from ref/webview/assets/chunk-BSJP7CBP-DFvoyeko.js
 // Vendored Mermaid marker geometry helpers restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dayjs-core-alt";
-
 type PointTuple = [number, number];
 type PointObject = {
   x: number;
   y: number;
 };
 type PointLike = PointTuple | PointObject;
-
 type MarkerArrowType =
   | "aggregation"
   | "extension"
@@ -18,32 +16,26 @@ type MarkerArrowType =
   | "arrow_point"
   | "arrow_barb"
   | "arrow_barb_neo";
-
 type NeoMarkerArrowType = "arrow_point" | "arrow_cross" | "arrow_circle";
-
 type MarkerConfig = {
   arrowTypeStart?: string;
   arrowTypeEnd?: string;
 };
-
 type DeltaAndAngle = {
   angle: number;
   deltaX: number;
   deltaY: number;
 };
-
 type LabelBounds = {
   x?: number | null;
   y?: number | null;
   width: number;
   height: number;
 };
-
 type OffsetLineAccessors = {
   x(point: PointLike, index: number, points: PointLike[]): number;
   y(point: PointLike, index: number, points: PointLike[]): number;
 };
-
 export const relationMarkerOffsets: Record<MarkerArrowType, number> = {
   aggregation: 17.25,
   extension: 17.25,
@@ -54,13 +46,11 @@ export const relationMarkerOffsets: Record<MarkerArrowType, number> = {
   arrow_barb: 0,
   arrow_barb_neo: 5.5,
 };
-
 export const neoMarkerOffsets: Record<NeoMarkerArrowType, number> = {
   arrow_point: 4,
   arrow_cross: 12.5,
   arrow_circle: 12.5,
 };
-
 export const computeLabelTransform = chunkAGHRB4JFN(
   (bounds: LabelBounds, centerOnly?: boolean): string => {
     if (centerOnly) {
@@ -72,7 +62,6 @@ export const computeLabelTransform = chunkAGHRB4JFN(
   },
   "computeLabelTransform",
 );
-
 function hasMarkerOffset(
   arrowType: string | undefined,
 ): arrowType is MarkerArrowType {
@@ -80,7 +69,6 @@ function hasMarkerOffset(
     arrowType !== undefined && Object.hasOwn(relationMarkerOffsets, arrowType)
   );
 }
-
 const toPoint = chunkAGHRB4JFN((point: PointLike): PointObject => {
   return Array.isArray(point)
     ? {
@@ -89,7 +77,6 @@ const toPoint = chunkAGHRB4JFN((point: PointLike): PointObject => {
       }
     : point;
 }, "pointTransformer");
-
 const calculateDeltaAndAngle = chunkAGHRB4JFN(
   (fromPoint?: PointLike, toPointInput?: PointLike): DeltaAndAngle => {
     if (fromPoint === undefined || toPointInput === undefined) {
@@ -99,12 +86,10 @@ const calculateDeltaAndAngle = chunkAGHRB4JFN(
         deltaY: 0,
       };
     }
-
     const from = toPoint(fromPoint);
     const to = toPoint(toPointInput);
     const deltaX = to.x - from.x;
     const deltaY = to.y - from.y;
-
     return {
       angle: Math.atan(deltaY / deltaX),
       deltaX,
@@ -113,7 +98,6 @@ const calculateDeltaAndAngle = chunkAGHRB4JFN(
   },
   "calculateDeltaAndAngle",
 );
-
 export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
   (markerConfig: MarkerConfig): OffsetLineAccessors => ({
     x(point: PointLike, index: number, points: PointLike[]): number {
@@ -121,7 +105,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
       const firstPoint = toPoint(points[0]);
       const lastPoint = toPoint(points[points.length - 1]);
       const horizontalDirection = firstPoint.x < lastPoint.x ? "left" : "right";
-
       if (index === 0 && hasMarkerOffset(markerConfig.arrowTypeStart)) {
         const { angle, deltaX } = calculateDeltaAndAngle(points[0], points[1]);
         offset =
@@ -141,7 +124,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
           Math.cos(angle) *
           (deltaX >= 0 ? 1 : -1);
       }
-
       const currentPoint = toPoint(point);
       const distanceToEndX = Math.abs(currentPoint.x - lastPoint.x);
       const distanceToEndY = Math.abs(currentPoint.y - lastPoint.y);
@@ -151,7 +133,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         relationMarkerOffsets[markerConfig.arrowTypeStart as MarkerArrowType];
       const endMarkerOffset =
         relationMarkerOffsets[markerConfig.arrowTypeEnd as MarkerArrowType];
-
       if (
         distanceToEndX < endMarkerOffset &&
         distanceToEndX > 0 &&
@@ -161,7 +142,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         overlapOffset *= horizontalDirection === "right" ? -1 : 1;
         offset -= overlapOffset;
       }
-
       if (
         distanceToStartX < startMarkerOffset &&
         distanceToStartX > 0 &&
@@ -171,7 +151,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         overlapOffset *= horizontalDirection === "right" ? -1 : 1;
         offset += overlapOffset;
       }
-
       return currentPoint.x + offset;
     },
     y(point: PointLike, index: number, points: PointLike[]): number {
@@ -179,7 +158,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
       const firstPoint = toPoint(points[0]);
       const lastPoint = toPoint(points[points.length - 1]);
       const verticalDirection = firstPoint.y < lastPoint.y ? "down" : "up";
-
       if (index === 0 && hasMarkerOffset(markerConfig.arrowTypeStart)) {
         const { angle, deltaY } = calculateDeltaAndAngle(points[0], points[1]);
         offset =
@@ -199,7 +177,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
           Math.abs(Math.sin(angle)) *
           (deltaY >= 0 ? 1 : -1);
       }
-
       const currentPoint = toPoint(point);
       const distanceToEndY = Math.abs(currentPoint.y - lastPoint.y);
       const distanceToEndX = Math.abs(currentPoint.x - lastPoint.x);
@@ -209,7 +186,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         relationMarkerOffsets[markerConfig.arrowTypeStart as MarkerArrowType];
       const endMarkerOffset =
         relationMarkerOffsets[markerConfig.arrowTypeEnd as MarkerArrowType];
-
       if (
         distanceToEndY < endMarkerOffset &&
         distanceToEndY > 0 &&
@@ -219,7 +195,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         overlapOffset *= verticalDirection === "up" ? -1 : 1;
         offset -= overlapOffset;
       }
-
       if (
         distanceToStartY < startMarkerOffset &&
         distanceToStartY > 0 &&
@@ -229,15 +204,12 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         overlapOffset *= verticalDirection === "up" ? -1 : 1;
         offset += overlapOffset;
       }
-
       return currentPoint.y + offset;
     },
   }),
   "getLineFunctionsWithOffset",
 );
-
 export function initChunkBSJP7CBP(): void {}
-
 export const chunkBSJP7CBPR = relationMarkerOffsets;
 export const chunkBSJP7CBPI = neoMarkerOffsets;
 export const chunkBSJP7CBPN = getLineFunctionsWithOffset;

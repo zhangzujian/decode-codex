@@ -44,7 +44,13 @@ function isCommandAvailableInHost(command, host) {
 }
 
 function isElectronRuntimeCommand(command) {
-  return !isVscodeOnlyCommand(command);
+  return (
+    !isVscodeOnlyCommand(command) &&
+    !(
+      "shortcutConfigurable" in command &&
+      command.shortcutConfigurable === false
+    )
+  );
 }
 
 function commandHasDescription(command) {

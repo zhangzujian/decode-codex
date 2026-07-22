@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-badge-CTzntcyt-CRs-RXB9.js";
+t();
+export { e as default };

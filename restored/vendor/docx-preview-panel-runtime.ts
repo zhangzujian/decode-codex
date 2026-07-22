@@ -1,6 +1,8 @@
 // Restored from ref/webview/assets/docx-preview-panel-BsZXEpj7.js
 // App-runtime compatibility shim for the Codex DOCX preview panel.
 // Semantic panel modules live in ../features/documents/docx-preview-panel.
+import React from "react";
+
 const __vite__mapDeps = (
   i,
   m = __vite__mapDeps,
@@ -19,7 +21,6 @@ import {
   ar as d,
   gc as f,
   ir as p,
-  lc as m,
   v as eeHostMessageBridge,
 } from "./current-app-initial-bnlvjk3w-shared-bundle";
 import {
@@ -97,7 +98,7 @@ function jt(e) {
     se = (e) => {
       b(g, T, e);
     };
-  return (0, Q.jsx)(DocxPreviewPanelSurface, {
+  return React.createElement(DocxPreviewPanelSurface, {
     bytes: n,
     chromeMode: m,
     commentSource: ke,
@@ -133,7 +134,7 @@ function jt(e) {
     },
   });
 }
-var Z, Q, qt, Zt;
+var Z, qt, Zt;
 e(() => {
   (c(),
     s(),
@@ -150,7 +151,6 @@ e(() => {
     Ne(),
     de(),
     At(),
-    (Q = m()),
     d(),
     (qt = createDocxPreviewStyleText(v)),
     (Zt = p(

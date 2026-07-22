@@ -1,10 +1,4 @@
-// Restored from ref/webview/assets/stylus-B_xD-zez.js
+// Restored from ref/webview/assets/stylus-B_7mYYre.js
 // Shiki Stylus grammar wrapper; the grammar payload stays in @shikijs/langs/stylus.
-import {
-  n as stylusGrammar,
-  t as initStylusGrammar,
-} from "@shikijs/langs/stylus";
-
-initStylusGrammar();
-
-export { stylusGrammar as default };
+import stylusGrammar from "@shikijs/langs/stylus";
+export default stylusGrammar;

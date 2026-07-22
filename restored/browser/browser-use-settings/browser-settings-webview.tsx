@@ -413,9 +413,9 @@ export function BrowserSettingsWebview({
   ]);
   const handleBack = React.useCallback(() => {
     const webview = webviewRef.current;
-    if (
-      !(historyRef.current?.preferHistoryControls === true && stepHistory(-1))
-    ) {
+    if (!(
+      historyRef.current?.preferHistoryControls === true && stepHistory(-1)
+    )) {
       if (webview != null && canWebviewGoBack(webview)) {
         webview.goBack?.();
         return;

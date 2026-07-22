@@ -723,6 +723,7 @@ export function rewriteSemanticImports(
         if (!replacement) continue;
         const oldLocalName = spec.local.name;
         spec.imported = t.identifier(replacement);
+        if (!t.isValidIdentifier(replacement)) continue;
         if (
           oldLocalName === importedName ||
           oldLocalName === replacement ||

@@ -42,11 +42,7 @@ type RemoteConnection = {
   [key: string]: unknown;
 };
 type ConnectionState =
-  | "connected"
-  | "restarting"
-  | "error"
-  | "connecting"
-  | "disconnected";
+  "connected" | "restarting" | "error" | "connecting" | "disconnected";
 type RemoteConnectionSelectionState = {
   isRemoteConnectionsLoading: boolean;
   persistedSelectedRemoteHostId: string | null;
@@ -128,9 +124,7 @@ const remoteConnectionSelectionSignal = createComputedSignal(
     );
     const persistedSelectedRemoteHostId =
       (getGlobalStateValue(get, globalSettingKeys.SELECTED_REMOTE_HOST_ID) as
-        | string
-        | null
-        | undefined) ?? null;
+        string | null | undefined) ?? null;
     const selectedRemoteHostId = isRemoteConnectionsLoading
       ? persistedSelectedRemoteHostId
       : (sortedRemoteConnections.find(

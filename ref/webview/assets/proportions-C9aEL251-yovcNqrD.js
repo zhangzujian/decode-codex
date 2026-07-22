@@ -1,3 +1,0 @@
-import { n as e, t } from "./proportions-C9aEL251-D5bcZBNo.js";
-t();
-export { e as default };

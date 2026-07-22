@@ -158,8 +158,7 @@ function EditorDiffContent({
   ) as boolean;
   const intl = useIntl();
   const workspaceRootsResult = useRouteScopedValue(workspaceRootsQuery) as
-    | WorkspaceRootsQueryResult
-    | undefined;
+    WorkspaceRootsQueryResult | undefined;
   const cwd =
     (useReactRouterLocation().state as EditorDiffRouteState | undefined)?.cwd ||
     workspaceRootsResult?.data?.roots?.[0];

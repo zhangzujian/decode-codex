@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/app-prefetch-impl-DeWg99La.js
-// App prefetch implementation with restored dependency imports.
+// Startup prefetch orchestration for conversation routes, workspace state,
+// repository metadata, pull requests, marketplaces, and Appgen access.
 import { useEffect } from "react";
 
 type PrefetchDependencyMapper = {

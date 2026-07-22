@@ -67,16 +67,10 @@ export type ChromeExtensionSyncDecision =
   | "keep_missing";
 
 export type InstalledBundledPluginStatus =
-  | "current"
-  | "missing"
-  | "outdated"
-  | "unknown";
+  "current" | "missing" | "outdated" | "unknown";
 
 export type BundledPluginInstallReason =
-  | "forced"
-  | "missing"
-  | "outdated"
-  | "unknown";
+  "forced" | "missing" | "outdated" | "unknown";
 
 export type ChromeExtensionManagedPluginStore = {
   getManagedPluginIds(): Set<string>;

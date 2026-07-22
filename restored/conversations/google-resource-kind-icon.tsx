@@ -10,10 +10,7 @@ import {
 } from "../boundaries/onboarding-commons-externals.facade";
 
 export type GoogleResourceKind =
-  | "document"
-  | "spreadsheet"
-  | "presentation"
-  | "drive";
+  "document" | "spreadsheet" | "presentation" | "drive";
 
 export interface GoogleResourceKindIconProps {
   className?: string;

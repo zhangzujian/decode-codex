@@ -105,7 +105,6 @@ import {
   CloudModeIndicator,
   ComposerAttachmentPills,
   ComposerDropOverlay,
-  ComposerFooterControls,
   ComposerInputField,
   ComposerStatusMenuRow,
   FirstBlockRateLimitBanner,
@@ -121,6 +120,7 @@ import {
   WindowsSandboxError,
   WindowsSandboxSetupBanner,
 } from "../boundaries/onboarding-commons-externals.facade";
+import { ComposerFooterControls } from "./composer-footer-controls";
 
 const EMPTY_ARRAY: never[] = [];
 

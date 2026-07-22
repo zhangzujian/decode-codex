@@ -41,8 +41,7 @@ export function installDesktopLogBridge(
   const enabledLevelSet = new Set(enabledLevels);
   const shouldLog = (level: string) => {
     const runtimeShouldLog = sharedRuntime.isLogLevelEnabled as
-      | ((level: string, enabled: Iterable<string>) => boolean)
-      | undefined;
+      ((level: string, enabled: Iterable<string>) => boolean) | undefined;
     return typeof runtimeShouldLog === "function"
       ? runtimeShouldLog(level, enabledLevels)
       : enabledLevelSet.has(level);
@@ -82,8 +81,7 @@ export function installDesktopLogBridge(
     dispose() {},
   };
   const registerLogger = sharedRuntime.registerRootStructuredLogger as
-    | ((logger: typeof registeredLogger) => void)
-    | undefined;
+    ((logger: typeof registeredLogger) => void) | undefined;
   registerLogger?.(registeredLogger);
 }
 
@@ -137,8 +135,7 @@ function normalizeStructuredLogDetails(
 
 function formatStructuredLogDetails(details: Record<string, unknown>): string {
   const runtimeFormatter = sharedRuntime.formatStructuredLogDetails as
-    | ((details: Record<string, unknown>) => string)
-    | undefined;
+    ((details: Record<string, unknown>) => string) | undefined;
   if (typeof runtimeFormatter === "function") return runtimeFormatter(details);
   return JSON.stringify(details);
 }

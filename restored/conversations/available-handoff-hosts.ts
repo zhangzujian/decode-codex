@@ -33,9 +33,7 @@ export function getAvailableHandoffHosts(
   return uniqBy(
     [
       (readSharedObjectValue(scope.get, "host_config") as
-        | HandoffHostConfig
-        | null
-        | undefined) ?? LOCAL_HOST_CONFIG,
+        HandoffHostConfig | null | undefined) ?? LOCAL_HOST_CONFIG,
       ...(scope.get(remoteHostsAtom) as unknown[]).map(
         (host) => toHostConfig(host) as HandoffHostConfig,
       ),

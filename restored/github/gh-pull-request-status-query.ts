@@ -13,15 +13,9 @@ import {
 } from "../boundaries/vscode-api";
 import * as sourceRuntime from "../boundaries/src-l0hb-mz-p";
 type GhCliAvailability =
-  | "available"
-  | "error"
-  | "loading"
-  | "missing"
-  | "unauthenticated";
+  "available" | "error" | "loading" | "missing" | "unauthenticated";
 type GhPullRequestOperationSource =
-  | "local_conversation_git_summary"
-  | "sidebar_task_pr_chip"
-  | string;
+  "local_conversation_git_summary" | "sidebar_task_pr_chip" | string;
 type GhPullRequestStatusParams = {
   cwd: string | null | undefined;
   headBranch: string;

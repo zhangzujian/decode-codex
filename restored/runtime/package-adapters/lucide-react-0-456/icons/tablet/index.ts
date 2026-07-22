@@ -1,0 +1,5 @@
+// Restored from ref/webview/assets/tablet-q4GHDmbV-Cb9pGdmv.js
+// Exact npm-backed Lucide icon with current-build initializer compatibility.
+import { Tablet } from "lucide-react";
+function initTabletIconChunk(): void {}
+export { Tablet, initTabletIconChunk };

@@ -79,8 +79,7 @@ export function PullRequestSidePanelChecksSection({
   let intl = useIntl(),
     scope = useScope(composerScope),
     attachedChecks = useSignalValue(attachedPullRequestChecksSignal) as
-      | PullRequestCheck[]
-      | undefined,
+      PullRequestCheck[] | undefined,
     failingChecks = data?.checks.filter(isFailingPullRequestCheck),
     attachedCheckKeys = new Set(
       (attachedChecks ?? []).map(getPullRequestCheckAttachmentKey),

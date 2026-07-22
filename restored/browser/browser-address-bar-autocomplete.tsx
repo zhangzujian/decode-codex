@@ -706,11 +706,9 @@ export function BrowserAddressBarAutocomplete({
       }
     });
     const dismissOnScroll = (event: Event) => {
-      if (
-        !(
-          event.target instanceof Node && listboxElement?.contains(event.target)
-        )
-      ) {
+      if (!(
+        event.target instanceof Node && listboxElement?.contains(event.target)
+      )) {
         dismiss();
       }
     };

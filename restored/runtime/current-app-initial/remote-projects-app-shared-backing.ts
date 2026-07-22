@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~projects-index-page~app~iy8s9c2d-BUvvfhQQ.js
+// Flat boundary vendored current-build implementation used by semantic compatibility adapters.
 // Current remote/projects app shared backing implementation with restored dependency imports.
 declare const TransformStream: unknown;
 declare const WritableStream: unknown;
@@ -302,7 +303,7 @@ function ln(e, t) {
   }
   function c(s) {
     if (r) throw TypeError(`Generator is already executing.`);
-    for (; o && ((o = 0), s[0] && (n = 0)), n; )
+    for (; o && ((o = 0), s[0] && (n = 0)), n;)
       try {
         if (
           ((r = 1),
@@ -1212,13 +1213,13 @@ function gee(e, t) {
   for (var n = ``, r = 0; r < e.length; r++) {
     var i = e.charAt(r);
     if (i === `j`) {
-      for (var a = 0; r + 1 < e.length && e.charAt(r + 1) === i; ) (a++, r++);
+      for (var a = 0; r + 1 < e.length && e.charAt(r + 1) === i;) (a++, r++);
       var o = 1 + (a & 1),
         s = a < 2 ? 1 : 3 + (a >> 1),
         c = `a`,
         l = ir(t);
-      for ((l == `H` || l == `k`) && (s = 0); s-- > 0; ) n += c;
-      for (; o-- > 0; ) n = l + n;
+      for ((l == `H` || l == `k`) && (s = 0); s-- > 0;) n += c;
+      for (; o-- > 0;) n = l + n;
     } else i === `J` ? (n += `H`) : (n += i);
   }
   return n;
@@ -1616,7 +1617,6 @@ var fr,
             for (
               var e = [...arguments], t = ``, n = e.length, r = 0, i;
               n > r;
-
             ) {
               if (((i = e[r++]), i > 1114111))
                 throw RangeError(i + ` is not a valid code point`);
@@ -1678,7 +1678,7 @@ var fr,
             return ((kr.lastIndex = t), kr.exec(e)[1] ?? ``);
           }))
         : (Or = function (e, t) {
-            for (var n = []; ; ) {
+            for (var n = []; ;) {
               var r = Tr(e, t);
               if (r === void 0 || ur(r) || dr(r)) break;
               (n.push(r), (t += r >= 65536 ? 2 : 1));
@@ -1702,7 +1702,7 @@ var fr,
             return this.parseMessage(0, ``, !1);
           }),
           (e.prototype.parseMessage = function (e, t, n) {
-            for (var r = []; !this.isEOF(); ) {
+            for (var r = []; !this.isEOF();) {
               var i = this.char();
               if (i === 123) {
                 var a = this.parseArgument(e, n);
@@ -1779,11 +1779,11 @@ var fr,
           }),
           (e.prototype.parseTagName = function () {
             var e = this.offset();
-            for (this.bump(); !this.isEOF() && lr(this.char()); ) this.bump();
+            for (this.bump(); !this.isEOF() && lr(this.char());) this.bump();
             return this.message.slice(e, this.offset());
           }),
           (e.prototype.parseLiteral = function (e, t) {
-            for (var n = this.clonePosition(), r = ``; ; ) {
+            for (var n = this.clonePosition(), r = ``; ;) {
               var i = this.tryParseQuote(t);
               if (i) {
                 r += i;
@@ -1832,7 +1832,7 @@ var fr,
             }
             this.bump();
             var t = [this.char()];
-            for (this.bump(); !this.isEOF(); ) {
+            for (this.bump(); !this.isEOF();) {
               var n = this.char();
               if (n === 39)
                 if (this.peek() === 39) (t.push(39), this.bump());
@@ -2068,7 +2068,7 @@ var fr,
               : (this.bump(), { val: !0, err: null });
           }),
           (e.prototype.parseSimpleArgStyleIfPossible = function () {
-            for (var e = 0, t = this.clonePosition(); !this.isEOF(); )
+            for (var e = 0, t = this.clonePosition(); !this.isEOF();)
               switch (this.char()) {
                 case 39:
                   this.bump();
@@ -2121,7 +2121,6 @@ var fr,
             for (
               var i, a = !1, o = [], s = new Set(), c = r.value, l = r.location;
               ;
-
             ) {
               if (c.length === 0) {
                 var u = this.clonePosition();
@@ -2183,7 +2182,7 @@ var fr,
             var n = 1,
               r = this.clonePosition();
             this.bumpIf(`+`) || (this.bumpIf(`-`) && (n = -1));
-            for (var i = !1, a = 0; !this.isEOF(); ) {
+            for (var i = !1, a = 0; !this.isEOF();) {
               var o = this.char();
               if (o >= 48 && o <= 57)
                 ((i = !0), (a = a * 10 + (o - 48)), this.bump());
@@ -2253,7 +2252,7 @@ var fr,
               throw Error(
                 `targetOffset ${e} must be greater than or equal to the current offset ${this.offset()}`,
               );
-            for (e = Math.min(e, this.message.length); ; ) {
+            for (e = Math.min(e, this.message.length); ;) {
               var t = this.offset();
               if (t === e) break;
               if (t > e)
@@ -2264,7 +2263,7 @@ var fr,
             }
           }),
           (e.prototype.bumpSpace = function () {
-            for (; !this.isEOF() && ur(this.char()); ) this.bump();
+            for (; !this.isEOF() && ur(this.char());) this.bump();
           }),
           (e.prototype.peek = function () {
             if (this.isEOF()) return null;
@@ -4492,7 +4491,7 @@ var vo,
       createBatches(e) {
         let n = 0,
           r = 0;
-        for (; n < e.length; ) {
+        for (; n < e.length;) {
           let i = e.slice(n, n + this._batchSize);
           ((r += this._enqueueBatch(new t.EventBatch(i))),
             (n += this._batchSize));
@@ -4505,7 +4504,6 @@ var vo,
         for (
           ;
           this._batches.length > n.EventRetryConstants.MAX_PENDING_BATCHES;
-
         ) {
           let e = this._batches.shift();
           e && (t += e.events.length);
@@ -5334,8 +5332,8 @@ var vo,
           let r = Math.random() * 16;
           return (
             e > 0
-              ? ((r = (e + r) % 16 | 0), (e = Math.floor(e / 16)))
-              : ((r = (t + r) % 16 | 0), (t = Math.floor(t / 16))),
+              ? ((r = ((e + r) % 16) | 0), (e = Math.floor(e / 16)))
+              : ((r = ((t + r) % 16) | 0), (t = Math.floor(t / 16))),
             (n === `x` ? r : (r & 7) | 8).toString(16)
           );
         },
@@ -5818,15 +5816,13 @@ var vo,
         _tryEncodeBody(e) {
           let t = (0, l._getWindowSafe)(),
             r = e.body;
-          if (
-            !(
-              !e.isStatsigEncodable ||
-              this._options.disableStatsigEncoding ||
-              typeof r != `string` ||
-              (0, n._getStatsigGlobalFlag)(`no-encode`) != null ||
-              !t?.btoa
-            )
-          )
+          if (!(
+            !e.isStatsigEncodable ||
+            this._options.disableStatsigEncoding ||
+            typeof r != `string` ||
+            (0, n._getStatsigGlobalFlag)(`no-encode`) != null ||
+            !t?.btoa
+          ))
             try {
               ((e.body = t.btoa(r).split(``).reverse().join(``)),
                 (e.params = Object.assign(Object.assign({}, e.params ?? {}), {
@@ -5851,7 +5847,7 @@ var vo,
                 let s = r.readable.getReader(),
                   c = [],
                   l;
-                for (; !(l = yield s.read()).done; ) c.push(l.value);
+                for (; !(l = yield s.read()).done;) c.push(l.value);
                 let u = c.reduce((e, t) => e + t.length, 0),
                   d = new Uint8Array(u),
                   f = 0;
@@ -6196,7 +6192,6 @@ var vo,
               this._flushInterval.hasCompletelyRecoveredFromBackoff() &&
               this.containsAtLeastOneFullBatch() &&
               (yield this._processNextBatch(a.FlushType.Limit));
-
             );
         });
       }
@@ -7322,7 +7317,7 @@ var vo,
     function c(e) {
       let t = new Set(),
         n = Object.getPrototypeOf(e);
-      for (; n && n !== Object.prototype; )
+      for (; n && n !== Object.prototype;)
         (Object.getOwnPropertyNames(n)
           .filter((e) => typeof n?.[e] == `function`)
           .forEach((e) => t.add(e)),
@@ -11077,14 +11072,12 @@ var vc,
                 case `response`: {
                   if (t.length !== 3) break;
                   let e = this.evaluateImpl(t[1], n, r);
-                  if (
-                    !(
-                      e === null ||
-                      typeof e == `string` ||
-                      e instanceof Uint8Array ||
-                      e instanceof ReadableStream
-                    )
-                  )
+                  if (!(
+                    e === null ||
+                    typeof e == `string` ||
+                    e instanceof Uint8Array ||
+                    e instanceof ReadableStream
+                  ))
                     throw TypeError(
                       `Response body must be of type ReadableStream.`,
                     );
@@ -11655,7 +11648,7 @@ var vc,
           }
         }
         async readLoop(e) {
-          for (; !this.abortReason; ) {
+          for (; !this.abortReason;) {
             let t = JSON.parse(
               await Promise.race([this.transport.receive(), e]),
             );
@@ -12942,11 +12935,11 @@ var ku,
         l = c,
         u = !s;
       if (e == null) return !l;
-      for (e = Object(e); c--; ) {
+      for (e = Object(e); c--;) {
         var d = o[c];
         if (u && d[2] ? d[1] !== e[d[0]] : !(d[0] in e)) return !1;
       }
-      for (; ++c < l; ) {
+      for (; ++c < l;) {
         d = o[c];
         var f = d[0],
           p = e[f],
@@ -12974,7 +12967,7 @@ var ku,
     var n = Mu(),
       r = a();
     function i(e) {
-      for (var t = r(e), i = t.length; i--; ) {
+      for (var t = r(e), i = t.length; i--;) {
         var a = t[i],
           o = e[a];
         t[i] = [a, o, n(o)];
@@ -13080,7 +13073,7 @@ var ku,
   }),
   Vu = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = e == null ? 0 : e.length, i = Array(r); ++n < r; )
+      for (var n = -1, r = e == null ? 0 : e.length, i = Array(r); ++n < r;)
         i[n] = t(e[n], n, e);
       return i;
     }
@@ -13135,7 +13128,7 @@ var ku,
       r = Gu();
     function i(e, t) {
       t = n(t, e);
-      for (var i = 0, a = t.length; e != null && i < a; ) e = e[r(t[i++])];
+      for (var i = 0, a = t.length; e != null && i < a;) e = e[r(t[i++])];
       return i && i == a ? e : void 0;
     }
     t.exports = i;
@@ -13163,7 +13156,7 @@ var ku,
       s = Gu();
     function c(e, t, c) {
       t = n(t, e);
-      for (var l = -1, u = t.length, d = !1; ++l < u; ) {
+      for (var l = -1, u = t.length, d = !1; ++l < u;) {
         var f = s(t[l]);
         if (!(d = e != null && c(e, f))) break;
         e = e[f];
@@ -13277,7 +13270,7 @@ var ku,
   }),
   Xu = r((e, t) => {
     function n(e, t, n, r) {
-      for (var i = e.length, a = n + (r ? 1 : -1); r ? a-- : ++a < i; )
+      for (var i = e.length, a = n + (r ? 1 : -1); r ? a-- : ++a < i;)
         if (t(e[a], a, e)) return a;
       return -1;
     }
@@ -13286,7 +13279,7 @@ var ku,
   bte = r((e, t) => {
     var n = /\s/;
     function r(e) {
-      for (var t = e.length; t-- && n.test(e.charAt(t)); );
+      for (var t = e.length; t-- && n.test(e.charAt(t)););
       return t;
     }
     t.exports = r;
@@ -13722,7 +13715,7 @@ function tf(e, t, n) {
 function nf(e, t, n) {
   let r = [],
     i = -1;
-  for (; ++i < e.length; ) r[i] = tf(e[i], t, n);
+  for (; ++i < e.length;) r[i] = tf(e[i], t, n);
   return r.join(``);
 }
 function rf(e) {
@@ -13758,7 +13751,7 @@ function df(e, t, n, r) {
   )
     ((o = Array.from(r)), o.unshift(t, n), e.splice(...o));
   else
-    for (n && e.splice(t, n); a < r.length; )
+    for (n && e.splice(t, n); a < r.length;)
       ((o = r.slice(a, a + 1e4)),
         o.unshift(t, 0),
         e.splice(...o),
@@ -13772,7 +13765,7 @@ var pf = e(() => {});
 function mf(e) {
   let t = {},
     n = -1;
-  for (; ++n < e.length; ) hf(t, e[n]);
+  for (; ++n < e.length;) hf(t, e[n]);
   return t;
 }
 function hf(e, t) {
@@ -13792,7 +13785,7 @@ function hf(e, t) {
 function gf(e, t) {
   let n = -1,
     r = [];
-  for (; ++n < t.length; ) (t[n].add === `after` ? e : r).push(t[n]);
+  for (; ++n < t.length;) (t[n].add === `after` ? e : r).push(t[n]);
   df(e, 0, 0, r);
 }
 var _f,
@@ -13928,14 +13921,14 @@ function Dte(e) {
       let n = t.events.length,
         a = n,
         o;
-      for (; a--; )
+      for (; a--;)
         if (t.events[a][0] === `exit` && t.events[a][1].type === `chunkFlow`) {
           o = t.events[a][1].end;
           break;
         }
       _(r);
       let s = n;
-      for (; s < t.events.length; ) ((t.events[s][1].end = { ...o }), s++);
+      for (; s < t.events.length;) ((t.events[s][1].end = { ...o }), s++);
       return (
         df(t.events, a + 1, 0, t.events.slice(n)),
         (t.events.length = s),
@@ -14004,7 +13997,7 @@ function Dte(e) {
       t.parser.lazy[e.start.line])
     ) {
       let e = i.events.length;
-      for (; e--; )
+      for (; e--;)
         if (
           i.events[e][1].start.offset < o &&
           (!i.events[e][1].end || i.events[e][1].end.offset > o)
@@ -14014,7 +14007,7 @@ function Dte(e) {
         a = n,
         s,
         c;
-      for (; a--; )
+      for (; a--;)
         if (t.events[a][0] === `exit` && t.events[a][1].type === `chunkFlow`) {
           if (s) {
             c = t.events[a][1].end;
@@ -14022,14 +14015,14 @@ function Dte(e) {
           }
           s = !0;
         }
-      for (_(r), e = n; e < t.events.length; )
+      for (_(r), e = n; e < t.events.length;)
         ((t.events[e][1].end = { ...c }), e++);
       (df(t.events, a + 1, 0, t.events.slice(n)), (t.events.length = e));
     }
   }
   function _(r) {
     let i = n.length;
-    for (; i-- > r; ) {
+    for (; i-- > r;) {
       let r = n[i];
       ((t.containerState = r[1]), r[0].exit.call(t, e));
     }
@@ -14065,7 +14058,7 @@ var Vf = e(() => {
 function Hf(e, t, n) {
   let r = [],
     i = -1;
-  for (; ++i < e.length; ) {
+  for (; ++i < e.length;) {
     let a = e[i].resolveAll;
     a && !r.includes(a) && ((t = a(t, n)), r.push(a));
   }
@@ -14082,13 +14075,13 @@ function Wf(e, t) {
     c,
     l,
     u;
-  for (; ++n < e.length; )
+  for (; ++n < e.length;)
     if (
       e[n][0] === `enter` &&
       e[n][1].type === `attentionSequence` &&
       e[n][1]._close
     ) {
-      for (r = n; r--; )
+      for (r = n; r--;)
         if (
           e[r][0] === `exit` &&
           e[r][1].type === `attentionSequence` &&
@@ -14173,7 +14166,7 @@ function Wf(e, t) {
           break;
         }
     }
-  for (n = -1; ++n < e.length; )
+  for (n = -1; ++n < e.length;)
     e[n][1].type === `attentionSequence` && (e[n][1].type = `data`);
   return e;
 }
@@ -14638,7 +14631,7 @@ function Sp(e) {
     (e[n][1].type === `lineEnding` || e[n][1].type === `space`) &&
     (e[t][1].type === `lineEnding` || e[t][1].type === `space`)
   ) {
-    for (r = n; ++r < t; )
+    for (r = n; ++r < t;)
       if (e[r][1].type === `codeTextData`) {
         ((e[n][1].type = `codeTextPadding`),
           (e[t][1].type = `codeTextPadding`),
@@ -14647,7 +14640,7 @@ function Sp(e) {
         break;
       }
   }
-  for (r = n - 1, t++; ++r <= t; )
+  for (r = n - 1, t++; ++r <= t;)
     i === void 0
       ? r !== t && e[r][1].type !== `lineEnding` && (i = r)
       : (r === t || e[r][1].type === `lineEnding`) &&
@@ -14711,7 +14704,7 @@ var Tp,
 function Dp(e, t) {
   let n = 0;
   if (t.length < 1e4) e.push(...t);
-  else for (; n < t.length; ) (e.push(...t.slice(n, n + 1e4)), (n += 1e4));
+  else for (; n < t.length;) (e.push(...t.slice(n, n + 1e4)), (n += 1e4));
 }
 var Op,
   kp = e(() => {
@@ -14779,13 +14772,11 @@ var Op,
         (this.setCursor(0), Dp(this.right, e.reverse()));
       }
       setCursor(e) {
-        if (
-          !(
-            e === this.left.length ||
-            (e > this.left.length && this.right.length === 0) ||
-            (e < 0 && this.left.length === 0)
-          )
-        )
+        if (!(
+          e === this.left.length ||
+          (e > this.left.length && this.right.length === 0) ||
+          (e < 0 && this.left.length === 0)
+        ))
           if (e < this.left.length) {
             let t = this.left.splice(e, 1 / 0);
             Dp(this.right, t.reverse());
@@ -14810,8 +14801,8 @@ function Ap(e) {
     c,
     l,
     u = new Op(e);
-  for (; ++n < u.length; ) {
-    for (; n in t; ) n = t[n];
+  for (; ++n < u.length;) {
+    for (; n in t;) n = t[n];
     if (
       ((r = u.get(n)),
       n &&
@@ -14822,13 +14813,13 @@ function Ap(e) {
         a < c.length && c[a][1].type === `lineEndingBlank` && (a += 2),
         a < c.length && c[a][1].type === `content`))
     )
-      for (; ++a < c.length && c[a][1].type !== `content`; )
+      for (; ++a < c.length && c[a][1].type !== `content`;)
         c[a][1].type === `chunkText` &&
           ((c[a][1]._isInFirstContentOfListItem = !0), a++);
     if (r[0] === `enter`)
       r[1].contentType && (Object.assign(t, jp(u, n)), (n = t[n]), (l = !0));
     else if (r[1]._container) {
-      for (a = n, i = void 0; a--; )
+      for (a = n, i = void 0; a--;)
         if (
           ((o = u.get(a)),
           o[1].type === `lineEnding` || o[1].type === `lineEndingBlank`)
@@ -14837,9 +14828,9 @@ function Ap(e) {
             (i && (u.get(i)[1].type = `lineEndingBlank`),
             (o[1].type = `lineEnding`),
             (i = a));
-        else if (
-          !(o[1].type === `linePrefix` || o[1].type === `listItemIndent`)
-        )
+        else if (!(
+          o[1].type === `linePrefix` || o[1].type === `listItemIndent`
+        ))
           break;
       i &&
         ((r[1].end = { ...u.get(i)[1].start }),
@@ -14869,8 +14860,8 @@ function jp(e, t) {
     m = 0,
     h = 0,
     g = [h];
-  for (; p; ) {
-    for (; e.get(++i)[1] !== p; );
+  for (; p;) {
+    for (; e.get(++i)[1] !== p;);
     (a.push(i),
       p._tokenizer ||
         ((u = r.sliceStream(p)),
@@ -14884,7 +14875,7 @@ function jp(e, t) {
       (d = p),
       (p = p.next));
   }
-  for (p = n; ++f < s.length; )
+  for (p = n; ++f < s.length;)
     s[f][0] === `exit` &&
       s[f - 1][0] === `enter` &&
       s[f][1].type === s[f - 1][1].type &&
@@ -14899,13 +14890,12 @@ function jp(e, t) {
       p ? ((p._tokenizer = void 0), (p.previous = void 0)) : g.pop(),
       f = g.length;
     f--;
-
   ) {
     let t = s.slice(g[f], g[f + 1]),
       n = a.pop();
     (c.push([n, n + t.length - 1]), e.splice(n, 2, t));
   }
-  for (c.reverse(), f = -1; ++f < c.length; )
+  for (c.reverse(), f = -1; ++f < c.length;)
     ((l[m + c[f][0]] = m + c[f][1]), (m += c[f][1] - c[f][0] - 1));
   return l;
 }
@@ -15297,7 +15287,7 @@ var rm,
   });
 function cm(e) {
   let t = e.length;
-  for (; t-- && !(e[t][0] === `enter` && e[t][1].type === `htmlFlow`); );
+  for (; t-- && !(e[t][0] === `enter` && e[t][1].type === `htmlFlow`););
   return (
     t > 1 &&
       e[t - 2][1].type === `linePrefix` &&
@@ -15725,7 +15715,7 @@ var _m,
 function ym(e) {
   let t = -1,
     n = [];
-  for (; ++t < e.length; ) {
+  for (; ++t < e.length;) {
     let r = e[t][1];
     if (
       (n.push(e[t]),
@@ -15746,7 +15736,7 @@ function bm(e, t) {
     a,
     o,
     s;
-  for (; n--; )
+  for (; n--;)
     if (((i = e[n][1]), a)) {
       if (i.type === `link` || (i.type === `labelLink` && i._inactive)) break;
       e[n][0] === `enter` && i.type === `labelLink` && (i._inactive = !0);
@@ -15795,7 +15785,7 @@ function xm(e, t, n) {
     i = r.events.length,
     a,
     o;
-  for (; i--; )
+  for (; i--;)
     if (
       (r.events[i][1].type === `labelImage` ||
         r.events[i][1].type === `labelLink`) &&
@@ -16223,7 +16213,7 @@ function Ute(e, t) {
     r,
     i,
     a;
-  for (; n--; )
+  for (; n--;)
     if (e[n][0] === `enter`) {
       if (e[n][1].type === `content`) {
         r = n;
@@ -16256,7 +16246,7 @@ function Wte(e, t, n) {
   function a(t) {
     let a = r.events.length,
       s;
-    for (; a--; )
+    for (; a--;)
       if (
         r.events[a][1].type !== `lineEnding` &&
         r.events[a][1].type !== `linePrefix` &&
@@ -16384,7 +16374,7 @@ function Vm(e) {
       let t = r[e],
         i = -1;
       if (t)
-        for (; ++i < t.length; ) {
+        for (; ++i < t.length;) {
           let e = t[i];
           if (!e.previous || e.previous.call(n, n.previous)) return !0;
         }
@@ -16397,7 +16387,7 @@ function Hm(e) {
   function t(t, n) {
     let r = -1,
       i;
-    for (; ++r <= t.length; )
+    for (; ++r <= t.length;)
       i === void 0
         ? t[r] && t[r][1].type === `data` && ((i = r), r++)
         : (!t[r] || t[r][1].type !== `data`) &&
@@ -16411,7 +16401,7 @@ function Hm(e) {
 }
 function Jte(e, t) {
   let n = 0;
-  for (; ++n <= e.length; )
+  for (; ++n <= e.length;)
     if (
       (n === e.length || e[n][1].type === `lineEnding`) &&
       e[n - 1][1].type === `data`
@@ -16422,10 +16412,10 @@ function Jte(e, t) {
         o = -1,
         s = 0,
         c;
-      for (; a--; ) {
+      for (; a--;) {
         let e = i[a];
         if (typeof e == `string`) {
-          for (o = e.length; e.charCodeAt(o - 1) === 32; ) (s++, o--);
+          for (o = e.length; e.charCodeAt(o - 1) === 32;) (s++, o--);
           if (o) break;
           o = -1;
         } else if (e === -2) ((c = !0), s++);
@@ -16590,13 +16580,12 @@ function Zte(e, t, n) {
   }
   function g() {
     let e;
-    for (; r._index < o.length; ) {
+    for (; r._index < o.length;) {
       let t = o[r._index];
       if (typeof t == `string`)
         for (
           e = r._index, r._bufferIndex < 0 && (r._bufferIndex = 0);
           r._index === e && r._bufferIndex < t.length;
-
         )
           _(t.charCodeAt(r._bufferIndex));
       else _(t);
@@ -16729,7 +16718,7 @@ function rh(e, t) {
   let n = -1,
     r = [],
     i;
-  for (; ++n < e.length; ) {
+  for (; ++n < e.length;) {
     let a = e[n],
       o;
     if (typeof a == `string`) o = a;
@@ -16786,7 +16775,7 @@ var oh = e(() => {
   (vf(), Ete(), kte(), qte(), Km(), Xte(), ih());
 });
 function sh(e) {
-  for (; !Ap(e); );
+  for (; !Ap(e););
   return e;
 }
 var ch = e(() => {
@@ -16815,7 +16804,6 @@ function lh() {
         t = ``,
         n &&= (i.charCodeAt(0) === 65279 && u++, void 0);
       u < i.length;
-
     ) {
       if (
         ((uh.lastIndex = u),
@@ -16838,7 +16826,7 @@ function lh() {
             (s.push(65533), e++);
             break;
           case 9:
-            for (l = Math.ceil(e / 4) * 4, s.push(-2); e++ < l; ) s.push(-1);
+            for (l = Math.ceil(e / 4) * 4, s.push(-2); e++ < l;) s.push(-1);
             break;
           case 10:
             (s.push(-4), (e = 1));
@@ -17029,10 +17017,10 @@ function wh(e) {
       },
       c = [],
       d = -1;
-    for (; ++d < e.length; )
+    for (; ++d < e.length;)
       (e[d][1].type === `listOrdered` || e[d][1].type === `listUnordered`) &&
         (e[d][0] === `enter` ? c.push(d) : (d = i(e, c.pop(), d)));
-    for (d = -1; ++d < e.length; ) {
+    for (d = -1; ++d < e.length;) {
       let n = t[e[d][0]];
       kh.call(n, e[d][1].type) &&
         n[e[d][1].type].call(
@@ -17057,7 +17045,6 @@ function wh(e) {
       },
         d = -1;
       ++d < t.transforms.length;
-
     )
       r = t.transforms[d](r) || r;
     return r;
@@ -17070,7 +17057,7 @@ function wh(e) {
       s,
       c,
       l;
-    for (; ++r <= n; ) {
+    for (; ++r <= n;) {
       let t = e[r];
       switch (t[1].type) {
         case `listUnordered`:
@@ -17098,22 +17085,20 @@ function wh(e) {
       ) {
         if (o) {
           let i = r;
-          for (s = void 0; i--; ) {
+          for (s = void 0; i--;) {
             let t = e[i];
             if (t[1].type === `lineEnding` || t[1].type === `lineEndingBlank`) {
               if (t[0] === `exit`) continue;
               (s && ((e[s][1].type = `lineEndingBlank`), (a = !0)),
                 (t[1].type = `lineEnding`),
                 (s = i));
-            } else if (
-              !(
-                t[1].type === `linePrefix` ||
-                t[1].type === `blockQuotePrefix` ||
-                t[1].type === `blockQuotePrefixWhitespace` ||
-                t[1].type === `blockQuoteMarker` ||
-                t[1].type === `listItemIndent`
-              )
-            )
+            } else if (!(
+              t[1].type === `linePrefix` ||
+              t[1].type === `blockQuotePrefix` ||
+              t[1].type === `blockQuotePrefixWhitespace` ||
+              t[1].type === `blockQuoteMarker` ||
+              t[1].type === `listItemIndent`
+            ))
               break;
           }
           (c && (!s || c < s) && (o._spread = !0),
@@ -17437,7 +17422,7 @@ function Th(e) {
 }
 function Eh(e, t) {
   let n = -1;
-  for (; ++n < t.length; ) {
+  for (; ++n < t.length;) {
     let r = t[n];
     Array.isArray(r) ? Eh(e, r) : Dh(e, r);
   }
@@ -17615,7 +17600,7 @@ var Qh = e(() => {}),
   }),
   eg = r((e, t) => {
     function n(e, t, n) {
-      for (var r = n - 1, i = e.length; ++r < i; ) if (e[r] === t) return r;
+      for (var r = n - 1, i = e.length; ++r < i;) if (e[r] === t) return r;
       return -1;
     }
     t.exports = n;
@@ -17638,7 +17623,7 @@ var Qh = e(() => {}),
   }),
   rg = r((e, t) => {
     function n(e, t, n) {
-      for (var r = -1, i = e == null ? 0 : e.length; ++r < i; )
+      for (var r = -1, i = e == null ? 0 : e.length; ++r < i;)
         if (n(t, e[r])) return !0;
       return !1;
     }
@@ -17680,11 +17665,11 @@ var Qh = e(() => {}),
         if (g) return s(g);
         ((p = !1), (d = a), (h = new n()));
       } else h = t ? [] : m;
-      outer: for (; ++u < f; ) {
+      outer: for (; ++u < f;) {
         var _ = e[u],
           v = t ? t(_) : _;
         if (((_ = l || _ !== 0 ? _ : 0), p && v === v)) {
-          for (var y = h.length; y--; ) if (h[y] === v) continue outer;
+          for (var y = h.length; y--;) if (h[y] === v) continue outer;
           (t && h.push(v), m.push(_));
         } else d(h, v, l) || (h !== m && h.push(v), m.push(_));
       }
@@ -19343,7 +19328,7 @@ function py(e, t) {
   if (n === `# In app browser:`)
     if (e[i] === `- Current URLs:`) {
       let t = i + 1;
-      for (i = t; e[i]?.startsWith(`  - `) === !0; ) i += 1;
+      for (i = t; e[i]?.startsWith(`  - `) === !0;) i += 1;
       if (i === t) return !1;
     } else e[i]?.startsWith(`- Current URL: `) === !0 && (i += 1);
   let a = e.slice(i),
@@ -20989,13 +20974,11 @@ var TC,
       })
         .strip()
         .transform((e) => {
-          if (
-            !(
-              e.audience == null &&
-              e.priority == null &&
-              e.lastModified == null
-            )
-          )
+          if (!(
+            e.audience == null &&
+            e.priority == null &&
+            e.lastModified == null
+          ))
             return e;
         })
         .optional()
@@ -21124,7 +21107,6 @@ var NC,
         for (
           this.debug && console.log(`full input:`, `>` + this.string + `<`);
           ;
-
         ) {
           let a = this.i,
             o = this.readChar();
@@ -21775,7 +21757,7 @@ function pw(e, t) {
       .replace(yw.findPipe, (e, t, n) => {
         let r = !1,
           i = t;
-        for (; --i >= 0 && n[i] === `\\`; ) r = !r;
+        for (; --i >= 0 && n[i] === `\\`;) r = !r;
         return r ? `|` : ` |`;
       })
       .split(yw.splitPipe),
@@ -21784,7 +21766,7 @@ function pw(e, t) {
     (n[0].trim() || n.shift(), n.length > 0 && !n.at(-1)?.trim() && n.pop(), t)
   )
     if (n.length > t) n.splice(t);
-    else for (; n.length < t; ) n.push(``);
+    else for (; n.length < t;) n.push(``);
   for (; r < n.length; r++) n[r] = n[r].trim().replace(yw.slashPipe, `|`);
   return n;
 }
@@ -21792,7 +21774,7 @@ function mw(e, t, n) {
   let r = e.length;
   if (r === 0) return ``;
   let i = 0;
-  for (; i < r; ) {
+  for (; i < r;) {
     let a = e.charAt(r - i - 1);
     if (a === t && !n) i++;
     else if (a !== t && n) i++;
@@ -22381,7 +22363,7 @@ var _w,
               n = ``,
               r = ``,
               i = [];
-            for (; e.length > 0; ) {
+            for (; e.length > 0;) {
               let t = !1,
                 a = [],
                 o;
@@ -22468,7 +22450,7 @@ ${c}`
               this.options.pedantic && (n = r ? n : `[*+-]`));
             let a = this.rules.other.listItemRegex(n),
               o = !1;
-            for (; e; ) {
+            for (; e;) {
               let n = !1,
                 r = ``,
                 s = ``;
@@ -22514,7 +22496,7 @@ ${c}`
                   i = this.rules.other.fencesBeginRegex(d),
                   a = this.rules.other.headingBeginRegex(d),
                   o = this.rules.other.htmlBeginRegex(d);
-                for (; e; ) {
+                for (; e;) {
                   let f = e.split(
                       `
 `,
@@ -22830,7 +22812,6 @@ ${c}`
             for (
               c.lastIndex = 0, t = t.slice(-1 * e.length + n);
               (r = c.exec(t)) != null;
-
             ) {
               if (((i = r[1] || r[2] || r[3] || r[4] || r[5] || r[6]), !i))
                 continue;
@@ -22993,7 +22974,6 @@ ${c}`
             this.options.pedantic &&
             (e = e.replace(yw.tabCharGlobal, `    `).replace(yw.spaceLine, ``));
             e;
-
           ) {
             let r;
             if (
@@ -23154,7 +23134,6 @@ ${c}`
               for (
                 ;
                 (r = this.tokenizer.rules.inline.reflinkSearch.exec(n)) != null;
-
               )
                 e.includes(r[0].slice(r[0].lastIndexOf(`[`) + 1, -1)) &&
                   (n =
@@ -23169,13 +23148,12 @@ ${c}`
           for (
             ;
             (r = this.tokenizer.rules.inline.anyPunctuation.exec(n)) != null;
-
           )
             n =
               n.slice(0, r.index) +
               `++` +
               n.slice(this.tokenizer.rules.inline.anyPunctuation.lastIndex);
-          for (; (r = this.tokenizer.rules.inline.blockSkip.exec(n)) != null; )
+          for (; (r = this.tokenizer.rules.inline.blockSkip.exec(n)) != null;)
             n =
               n.slice(0, r.index) +
               `[` +
@@ -23185,7 +23163,7 @@ ${c}`
           n = this.options.hooks?.emStrongMask?.call({ lexer: this }, n) ?? n;
           let i = !1,
             a = ``;
-          for (; e; ) {
+          for (; e;) {
             (i || (a = ``), (i = !1));
             let r;
             if (
@@ -23575,7 +23553,7 @@ ${e}</tr>
               case `text`: {
                 let i = a,
                   o = this.renderer.text(i);
-                for (; r + 1 < e.length && e[r + 1].type === `text`; )
+                for (; r + 1 < e.length && e[r + 1].type === `text`;)
                   ((i = e[++r]),
                     (o +=
                       `
@@ -26252,7 +26230,7 @@ var VA,
             var n,
               r = 0;
             if (e[t]) return e[t];
-            for (n = []; t--; ) n.push(`a` + (++r).toString(36));
+            for (n = []; t--;) n.push(`a` + (++r).toString(36));
             return Function(
               `fn`,
               `return function (` +
@@ -26553,7 +26531,7 @@ var VA,
       a = Object.prototype,
       o = r(null);
     t.exports = function (e) {
-      for (var t = 0, r, s; o[e + (t || ``)]; ) ++t;
+      for (var t = 0, r, s; o[e + (t || ``)];) ++t;
       return (
         (e += t || ``),
         (o[e] = !0),
@@ -26747,7 +26725,6 @@ var VA,
           for (
             x = o(C).call(e), h && (v = new h()), S = x.next(), g = 0;
             !S.done;
-
           )
             ((w = t ? d.call(t, m, S.value, g) : S.value),
               h ? ((f.value = w), p(v, g, f)) : (v[g] = w),
@@ -27015,7 +26992,7 @@ var VA,
         n,
         r = e.length;
       if (!r) return ``;
-      for (t = String(e[(n = 0)]); --r; ) t += `` + e[++n];
+      for (t = String(e[(n = 0)]); --r;) t += `` + e[++n];
       return t;
     };
   }),
@@ -27023,7 +27000,7 @@ var VA,
     t.exports = function (e) {
       return e
         ? function (t) {
-            for (var n = String(t[0]), r = 0, i = e; --i; ) n += `` + t[++r];
+            for (var n = String(t[0]), r = 0, i = e; --i;) n += `` + t[++r];
             return n;
           }
         : function () {
@@ -27083,7 +27060,7 @@ var VA,
             o = e.length;
           if (o === 0) return i[o] || null;
           if ((i = i[o])) {
-            for (; r < o - 1; ) {
+            for (; r < o - 1;) {
               if (((a = n.call(i[0], e[r])), a === -1)) return null;
               ((i = i[1][a]), ++r);
             }
@@ -27101,7 +27078,7 @@ var VA,
             c = r.length;
           if (c === 0) o[c] = ++e;
           else {
-            for (o[c] || (o[c] = [[], []]), o = o[c]; a < c - 1; )
+            for (o[c] || (o[c] = [[], []]), o = o[c]; a < c - 1;)
               ((s = n.call(o[0], r[a])),
                 s === -1 && ((s = o[0].push(r[a]) - 1), o[1].push([[], []])),
                 (o = o[1][s]),
@@ -27121,7 +27098,7 @@ var VA,
             l = [];
           if (c === 0) delete a[c];
           else if ((a = a[c])) {
-            for (; r < c - 1; ) {
+            for (; r < c - 1;) {
               if (((o = n.call(a[0], s[r])), o === -1)) return;
               (l.push(a, o), (a = a[1][o]), ++r);
             }
@@ -27129,7 +27106,6 @@ var VA,
             for (
               e = a[1][o], a[0].splice(o, 1), a[1].splice(o, 1);
               !a[0].length && l.length;
-
             )
               ((o = l.pop()),
                 (a = l.pop()),
@@ -27177,14 +27153,14 @@ var VA,
         a = r(null);
       return {
         get: function (t) {
-          for (var r = 0, a = i, o; r < e - 1; ) {
+          for (var r = 0, a = i, o; r < e - 1;) {
             if (((o = n.call(a[0], t[r])), o === -1)) return null;
             ((a = a[1][o]), ++r);
           }
           return ((o = n.call(a[0], t[r])), o === -1 ? null : a[1][o] || null);
         },
         set: function (r) {
-          for (var o = 0, s = i, c; o < e - 1; )
+          for (var o = 0, s = i, c; o < e - 1;)
             ((c = n.call(s[0], r[o])),
               c === -1 && ((c = s[0].push(r[o]) - 1), s[1].push([[], []])),
               (s = s[1][c]),
@@ -27198,7 +27174,7 @@ var VA,
           );
         },
         delete: function (t) {
-          for (var r = 0, o = i, s, c = [], l = a[t]; r < e - 1; ) {
+          for (var r = 0, o = i, s, c = [], l = a[t]; r < e - 1;) {
             if (((s = n.call(o[0], l[r])), s === -1)) return;
             (c.push(o, s), (o = o[1][s]), ++r);
           }
@@ -27206,7 +27182,6 @@ var VA,
             for (
               t = o[1][s], o[0].splice(s, 1), o[1].splice(s, 1);
               !o[0].length && c.length;
-
             )
               ((s = c.pop()),
                 (o = c.pop()),
@@ -27259,7 +27234,7 @@ var VA,
               ((e = i), (i = null), e());
               return;
             }
-            for (t.data = a = ++a % 2; i; )
+            for (t.data = a = ++a % 2; i;)
               ((e = i.shift()), i.length || (i = null), e());
           }).observe(t, { characterData: !0 }),
           function (e) {
@@ -27731,7 +27706,7 @@ Consider to rely on 'then' or 'done' mode instead.`);
               u = ++c;
             if (((o[u] = n), (s[n] = u), !r))
               return (++t, t <= e ? void 0 : ((n = o[a]), l(n), n));
-            if ((delete o[r], a === r)) for (; !i.call(o, ++a); ) continue;
+            if ((delete o[r], a === r)) for (; !i.call(o, ++a);) continue;
           },
           delete: (l = function (e) {
             var n = s[e];
@@ -27740,7 +27715,7 @@ Consider to rely on 'then' or 'done' mode instead.`);
                 ((c = 0), (a = 1));
                 return;
               }
-              for (; !i.call(o, ++a); ) continue;
+              for (; !i.call(o, ++a);) continue;
             }
           }),
           clear: function () {
@@ -28423,7 +28398,7 @@ function bN(e, t, n) {
 function xN(e, t) {
   if (!(t in e)) return;
   let n = MN(e);
-  for (; n; ) {
+  for (; n;) {
     let e = Object.getOwnPropertyDescriptor(n, t);
     if (e) return e;
     n = MN(n);
@@ -29528,7 +29503,7 @@ function lP(e) {
   let r = t.indexOf(`{`);
   if (r === -1) return null;
   let i = t.lastIndexOf(`}`);
-  for (; i > r; ) {
+  for (; i > r;) {
     let e = t.slice(r, i + 1).trim();
     if (e.startsWith(`{`) && e.endsWith(`}`))
       try {
@@ -30729,7 +30704,7 @@ async function WF(e) {
         getCompleteConversationTurns: e.getCompleteConversationTurns,
       })),
     ];
-  for (; r.length > 0; ) {
+  for (; r.length > 0;) {
     let i = r.shift();
     if (!(i == null || n.has(i))) {
       (n.add(i), t.push(i));
@@ -31297,7 +31272,7 @@ function KI() {
         i = this.e,
         a = 0;
       function o() {
-        for (; (r = n.pop()); )
+        for (; (r = n.pop());)
           try {
             if (!r.a && a === 1)
               return ((a = 0), n.push(r), Promise.resolve().then(o));
@@ -32332,7 +32307,7 @@ function CL(e) {
   let t = e.match(/^##\s+(.+)$/)?.[1];
   if (t == null) return null;
   let n = t.lastIndexOf(`: `);
-  for (; n > 0; ) {
+  for (; n > 0;) {
     let e = t.slice(0, n).trim(),
       r = t
         .slice(n + 2)
@@ -32549,7 +32524,7 @@ async function RL({
   let a = zL(e),
     o = [],
     s = t;
-  for (; s != null; ) {
+  for (; s != null;) {
     let c = await n(s, 5);
     if (r()?.turnsPagination?.olderCursor !== t) return { status: `stale` };
     if (
@@ -32866,16 +32841,14 @@ var nR = e(() => {}),
           return this.streamRevisionByConversationId.get(e) ?? null;
         }
         shouldIgnoreThreadMutationAsFollower(e, t) {
-          if (
-            !(
-              e.startsWith(`turn/`) ||
-              e.startsWith(`item/`) ||
-              e === `thread/started` ||
-              e === `thread/status/changed` ||
-              e === `thread/tokenUsage/updated` ||
-              e === `error`
-            )
-          )
+          if (!(
+            e.startsWith(`turn/`) ||
+            e.startsWith(`item/`) ||
+            e === `thread/started` ||
+            e === `thread/status/changed` ||
+            e === `thread/tokenUsage/updated` ||
+            e === `error`
+          ))
             return !1;
           let n = tR(t);
           return n ? this.getStreamRole(V(n))?.role === `follower` : !1;
@@ -33471,8 +33444,8 @@ function LR(e, t, n) {
 }
 function RR(e, t) {
   let n = t - e;
-  for (; n > Math.PI; ) n -= Math.PI * 2;
-  for (; n < -Math.PI; ) n += Math.PI * 2;
+  for (; n > Math.PI;) n -= Math.PI * 2;
+  for (; n < -Math.PI;) n += Math.PI * 2;
   return n;
 }
 function zR(e) {
@@ -33941,7 +33914,7 @@ async function Ere({ exportUrl: e, format: t, scripting: n, tabId: r }) {
           let t = e.length;
           if (t === 0) return 0;
           let n = 0;
-          for (; n < t && e[t - n - 1] >= 128 && e[t - n - 1] <= 191; ) n += 1;
+          for (; n < t && e[t - n - 1] >= 128 && e[t - n - 1] <= 191;) n += 1;
           let r = t - n - 1;
           if (r < 0) return 0;
           let i = e[r],
@@ -35048,7 +35021,7 @@ function cie(e, t) {
 }
 function JB(e) {
   let t = e.replaceAll(`\\`, `/`);
-  for (; t.length > 1 && t.endsWith(`/`) && !uie(t); ) t = t.slice(0, -1);
+  for (; t.length > 1 && t.endsWith(`/`) && !uie(t);) t = t.slice(0, -1);
   return lie(t) ? t.toLowerCase() : t;
 }
 function lie(e) {
@@ -36447,7 +36420,7 @@ var oV,
             let e = [...s.data],
               t = new Set(),
               n = s.nextCursor;
-            for (; e.length < a && n != null && !t.has(n); ) {
+            for (; e.length < a && n != null && !t.has(n);) {
               t.add(n);
               let r = await this.listRecentThreads({
                 limit: a - e.length,
@@ -37598,7 +37571,7 @@ function Gie(e, t) {
     a = i ? n.slice(0, r) : n,
     o = i ? n.slice(r) : ``,
     s = 2;
-  for (; t.has(`${a}-${s}${o}`); ) s += 1;
+  for (; t.has(`${a}-${s}${o}`);) s += 1;
   let c = `${a}-${s}${o}`;
   return (t.add(c), c);
 }
@@ -43707,15 +43680,13 @@ var AW,
     (N(), `${aee}${it}`, (AW = `${Dt}@${it}`));
   });
 function MW(e, t, n) {
-  if (
-    !(
-      n.pluginId !== AW &&
-      (n.server !== `codex_apps` ||
-        (!n.tool.startsWith(`sites_`) &&
-          !n.tool.startsWith(`sites.`) &&
-          !n.tool.startsWith(`codex_apps__sites_`)))
-    )
-  ) {
+  if (!(
+    n.pluginId !== AW &&
+    (n.server !== `codex_apps` ||
+      (!n.tool.startsWith(`sites_`) &&
+        !n.tool.startsWith(`sites.`) &&
+        !n.tool.startsWith(`codex_apps__sites_`)))
+  )) {
     if (e === `item/started`) {
       NW(t, n.id, n.arguments);
       return;
@@ -47030,7 +47001,7 @@ function kY(e, t, n, r = !1) {
     let e = t.length - 1;
     if (!r && o.startsWith(`..`)) {
       let t = o.split(`/`);
-      for (; t[0] === `..`; ) (t.shift(), --e);
+      for (; t[0] === `..`;) (t.shift(), --e);
       i.pathname = t.join(`/`);
     }
     s = e >= 0 ? t[e] : `/`;
@@ -50578,7 +50549,7 @@ function X2(e) {
 }
 function Z2(e, t) {
   let n = 0;
-  for (; n < t.length; ) {
+  for (; n < t.length;) {
     if (t[n] === "`") {
       let r = $2(t, n);
       if (r != null) {
@@ -50624,7 +50595,7 @@ function t4(e, t) {
   let n = [],
     r = 0,
     i = t;
-  for (; i < e.length; ) {
+  for (; i < e.length;) {
     let t = e[i];
     if (
       t ===
@@ -50655,7 +50626,7 @@ function n4(e, t) {
   if (e[n] === `<`) return r4(e, n + 1);
   let r = [],
     i = 0;
-  for (; n < e.length; ) {
+  for (; n < e.length;) {
     let t = e[n];
     if (
       t ===
@@ -50689,7 +50660,7 @@ function n4(e, t) {
 function r4(e, t) {
   let n = [],
     r = t;
-  for (; r < e.length; ) {
+  for (; r < e.length;) {
     let t = e[r];
     if (
       t ===
@@ -50709,7 +50680,7 @@ function r4(e, t) {
 }
 function i4(e, t, n) {
   let r = a4(e, t);
-  for (; r < e.length; ) {
+  for (; r < e.length;) {
     let t = e[r];
     if (
       t ===
@@ -50729,12 +50700,12 @@ function i4(e, t, n) {
 }
 function a4(e, t) {
   let n = t;
-  for (; e[n] === ` ` || e[n] === `	`; ) n += 1;
+  for (; e[n] === ` ` || e[n] === `	`;) n += 1;
   return n;
 }
 function o4(e, t, n) {
   let r = 0;
-  for (; e[t + r] === n; ) r += 1;
+  for (; e[t + r] === n;) r += 1;
   return r;
 }
 function s4(e) {
@@ -50902,11 +50873,11 @@ function j4(e) {
 }
 function M4(e, t) {
   let n = t;
-  scanLinks: for (; n < e.length; ) {
+  scanLinks: for (; n < e.length;) {
     let t = e.indexOf(`[`, n);
     if (t === -1) return null;
     let r = t + 1;
-    for (; r < e.length; ) {
+    for (; r < e.length;) {
       let t = e[r],
         i = e[r + 1];
       if (
@@ -50931,7 +50902,7 @@ function M4(e, t) {
       continue;
     }
     let i = r + 2;
-    for (; i < e.length; ) {
+    for (; i < e.length;) {
       let a = e[i];
       if (
         a ===
@@ -51151,7 +51122,7 @@ function c3(e) {
 function l3(e) {
   let t = [],
     n = 0;
-  for (; n < e.length; ) {
+  for (; n < e.length;) {
     let r = e.indexOf(`[`, n);
     if (r === -1) break;
     let i = e.indexOf(`]`, r + 1);
@@ -51163,7 +51134,7 @@ function l3(e) {
     let a = i + 2,
       o = ``,
       s = !1;
-    for (; a < e.length; ) {
+    for (; a < e.length;) {
       let t = e[a];
       if (t === `\\`) {
         let t = e[a + 1];
@@ -51597,15 +51568,13 @@ function L3({ lastAgentMessage: e, turn: t }) {
     r = z3(t),
     i = B3(t.params.input),
     a = V3({ lastAgentMessage: e, turn: n });
-  if (
-    !(
-      i.length > 0 ||
-      a.length > 0 ||
-      r.readToolCallCount > 0 ||
-      r.writeToolCallCount > 0 ||
-      r.unknownToolCallCount > 0
-    )
-  )
+  if (!(
+    i.length > 0 ||
+    a.length > 0 ||
+    r.readToolCallCount > 0 ||
+    r.writeToolCallCount > 0 ||
+    r.unknownToolCallCount > 0
+  ))
     return null;
   let o = R2({ assistantContent: e, turn: n }).length > 0;
   return {
@@ -52020,7 +51989,7 @@ var i6 = e(() => {
         return e.length > t ? e : Array(t - e.length + 1).join(` `) + e;
       }
       function d(e, t) {
-        for (var n = e.length, r = 0; ; ) {
+        for (var n = e.length, r = 0; ;) {
           var i = e.lastIndexOf(
             `
 `,
@@ -52147,7 +52116,7 @@ var i6 = e(() => {
           }
           var _ = h.match.slice();
           if (u)
-            for (; _.length && typeof _[0] == `string` && _[0].length === 1; ) {
+            for (; _.length && typeof _[0] == `string` && _[0].length === 1;) {
               var v = _.shift();
               a[v.charCodeAt(0)] = h;
             }
@@ -52400,7 +52369,7 @@ Use (?: … ) instead`,
 `
             )
               r = 1;
-            else for (; i.exec(t); ) (r++, (a = i.lastIndex));
+            else for (; i.exec(t);) (r++, (a = i.lastIndex));
           }
           var o = {
               type: (typeof e.type == `function` && e.type(t)) || e.defaultType,
@@ -52905,9 +52874,9 @@ function Aae(e, t = w6(e)) {
 }
 function w6(e) {
   let t = e.indexOf(`:`);
-  for (; t !== -1; ) {
+  for (; t !== -1;) {
     let n = t + 1;
-    for (; e[n] === `:` && n - t < 3; ) n += 1;
+    for (; e[n] === `:` && n - t < 3;) n += 1;
     if (E6(e.charCodeAt(n))) return !0;
     t = e.indexOf(`:`, t + 1);
   }
@@ -52917,7 +52886,7 @@ function jae(e) {
   let t = null,
     n = 0,
     r = e.indexOf(`:`);
-  for (; r !== -1; ) {
+  for (; r !== -1;) {
     let i = Fae(e, r);
     if (i == null) {
       r = e.indexOf(`:`, r + 1);
@@ -52943,7 +52912,7 @@ function Mae(e) {
     i = null,
     a = 0,
     o = 0;
-  for (; o <= e.length; ) {
+  for (; o <= e.length;) {
     let s = e.indexOf(
         `
 `,
@@ -53012,9 +52981,9 @@ function Pae(e) {
 function Fae(e, t) {
   if (e[t] !== `:`) return null;
   let n = t;
-  for (; e[n] === `:` && n - t < 3; ) n += 1;
+  for (; e[n] === `:` && n - t < 3;) n += 1;
   if (!E6(e.charCodeAt(n))) return null;
-  for (n += 1; Jae(e.charCodeAt(n)); ) n += 1;
+  for (n += 1; Jae(e.charCodeAt(n));) n += 1;
   return e[n] === `[` && ((n = Iae(e, n + 1)), n === -1)
     ? null
     : e[n] === `{`
@@ -53023,7 +52992,7 @@ function Fae(e, t) {
 }
 function Iae(e, t) {
   let n = t;
-  for (; n < e.length; ) {
+  for (; n < e.length;) {
     if (
       e[n] ===
       `
@@ -53040,7 +53009,7 @@ function Lae(e, t) {
     r = t + 1,
     i = t,
     a = ``;
-  for (; r < e.length; ) {
+  for (; r < e.length;) {
     let o = e[r];
     if (
       o ===
@@ -53138,14 +53107,14 @@ function Bae() {
 }
 function Vae(e, t) {
   let n = e.indexOf(t);
-  for (; n !== -1; ) {
+  for (; n !== -1;) {
     if (E6(e.charCodeAt(n + t.length)) && Gae(e, n)) return n;
     n = e.indexOf(t, n + 1);
   }
 }
 function Hae(e, t, n) {
   let r = t;
-  for (; r < n; ) {
+  for (; r < n;) {
     let t = e[r];
     if (t !== ` ` && t !== `	`) return r;
     r += 1;
@@ -53158,7 +53127,7 @@ function Uae(e, t) {
 function Wae(e, t, n) {
   if (!e.startsWith(`:::`, t)) return !1;
   let r = t + 3;
-  for (; r < n; ) {
+  for (; r < n;) {
     let t = e[r];
     if (t !== ` ` && t !== `	`) return !1;
     r += 1;
@@ -53253,7 +53222,7 @@ function Zae(e, t) {
   let n;
   for (let r of t) {
     let t = 0;
-    for (; t < e.length; ) {
+    for (; t < e.length;) {
       let i = e.indexOf(r, t);
       if (i === -1) break;
       if (i === 0) {
@@ -53282,7 +53251,7 @@ function Zae(e, t) {
 }
 function Qae(e) {
   let t = e.indexOf(`【`);
-  for (; t !== -1; ) {
+  for (; t !== -1;) {
     if (I6(e.slice(t)) != null) return t;
     t = e.indexOf(`【`, t + 1);
   }
@@ -53312,14 +53281,14 @@ function I6(e) {
 }
 function $ae(e) {
   let t = 0;
-  for (; L6(e.charCodeAt(t)); ) t += 1;
+  for (; L6(e.charCodeAt(t));) t += 1;
   if (t === 0) return;
   let n = Number.parseInt(e.slice(0, t), 10);
   if (t === e.length) return { start: n };
   if (!e.startsWith(`-L`, t)) return;
   let r = t + 2,
     i = r;
-  for (; L6(e.charCodeAt(i)); ) i += 1;
+  for (; L6(e.charCodeAt(i));) i += 1;
   if (!(i !== e.length || i === r))
     return { start: n, end: Number.parseInt(e.slice(r, i), 10) };
 }
@@ -53406,7 +53375,7 @@ function z6(e) {
   if (!G6(e.slice(t, n))) return null;
   let r = q6(e, n),
     i = r;
-  for (; i < e.length; ) {
+  for (; i < e.length;) {
     let t = K6(e, i);
     if (G6(e.slice(i, t))) {
       let n = roe(e.slice(r, i));
@@ -53423,7 +53392,7 @@ function roe(e) {
     n = [],
     r = !1,
     i = 0;
-  for (; i < t.length; ) {
+  for (; i < t.length;) {
     let e = t[i],
       a = e.trim();
     if (a.length === 0 || a.startsWith(`#`) || W6(e)) {
@@ -53467,7 +53436,7 @@ function aoe(e, t) {
   let n = [],
     r = t,
     i = !1;
-  for (; r < e.length; ) {
+  for (; r < e.length;) {
     let t = /^[ \t]*-[ \t]*(.*)$/.exec(e[r]);
     if (t == null) break;
     i = !0;
@@ -53491,7 +53460,7 @@ function B6(e) {
 function soe(e) {
   let t = [],
     n = 1;
-  for (; n < e.length; ) {
+  for (; n < e.length;) {
     if (((n = J6(e, n)), e[n] === `]`))
       return e.slice(n + 1).trim().length === 0 ? t : null;
     let r = coe(e, n);
@@ -53509,7 +53478,7 @@ function coe(e, t) {
   if (n === `"` || n === `'`) return V6(e, t, !1);
   if (n === `[` || n === `{`) return null;
   let r = t;
-  for (; r < e.length && e[r] !== `,` && e[r] !== `]`; ) r += 1;
+  for (; r < e.length && e[r] !== `,` && e[r] !== `]`;) r += 1;
   let i = e.slice(t, r).trim();
   return i.length === 0 || U6(i) ? null : { value: i, nextIndex: r };
 }
@@ -53517,7 +53486,7 @@ function V6(e, t, n) {
   let r = e[t],
     i = ``,
     a = t + 1;
-  for (; a < e.length; ) {
+  for (; a < e.length;) {
     let t = e[a];
     if (r === `"` && t === `\\`) {
       if (a + 1 >= e.length) return null;
@@ -53602,7 +53571,7 @@ function q6(e, t) {
 }
 function J6(e, t) {
   let n = t;
-  for (; n < e.length && /\s/.test(e[n]); ) n += 1;
+  for (; n < e.length && /\s/.test(e[n]);) n += 1;
   return n;
 }
 var Y6 = e(() => {});
@@ -53637,7 +53606,7 @@ function X6(e) {
 }
 function moe(e) {
   let t = 0;
-  for (; t + 1 < e.length; ) {
+  for (; t + 1 < e.length;) {
     let n = $6(e[t]),
       r = Z6(e, t + 1),
       i = r == null ? null : Z6(e, r + 1),
@@ -53664,7 +53633,7 @@ function moe(e) {
 }
 function Z6(e, t) {
   let n = t;
-  for (; n < e.length; ) {
+  for (; n < e.length;) {
     if (e[n]?.type !== `space`) return n;
     n += 1;
   }
@@ -53762,7 +53731,7 @@ function r8(e) {
       i = t + 1,
       a = i;
     for (;;) {
-      for (; Eoe(e[i]); ) i += 1;
+      for (; Eoe(e[i]);) i += 1;
       let t = e[i];
       if (!s8(t)) break;
       (r.push(...t.tokens), (i += 1), (a = i));
@@ -53923,7 +53892,7 @@ function Doe(e, t) {
   let n = new Set(t),
     r = [],
     i = 0;
-  for (; i <= e.length; ) {
+  for (; i <= e.length;) {
     let t = e.indexOf(
         `
 `,
@@ -53952,7 +53921,7 @@ function Ooe(e, t) {
 }
 function koe(e, t, n) {
   let r = t;
-  for (; r < n; ) {
+  for (; r < n;) {
     let t = e[r];
     if (t !== ` ` && t !== `	`) return r;
     r += 1;
@@ -53962,10 +53931,10 @@ function koe(e, t, n) {
 function Aoe(e, t, n) {
   if (e[t] !== `:`) return null;
   let r = t;
-  for (; e[r] === `:` && r - t < 3; ) r += 1;
+  for (; e[r] === `:` && r - t < 3;) r += 1;
   if (!v8(e.charCodeAt(r))) return null;
   let i = r + 1;
-  for (; i < n && Noe(e.charCodeAt(i)); ) i += 1;
+  for (; i < n && Noe(e.charCodeAt(i));) i += 1;
   return { markerLength: r - t, name: e.slice(r, i) };
 }
 function joe(e) {

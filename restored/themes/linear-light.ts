@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/linear-light-Bv1AakzR.js
+// Restored from ref/webview/assets/linear-light-B89a5hM8.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#f7f8fa";
 export const colors = {

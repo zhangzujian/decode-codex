@@ -1,3 +1,0 @@
-import { n as e, t } from "./less-B5XDCiKM.js";
-t();
-export { e as default };

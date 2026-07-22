@@ -3,11 +3,13 @@
 import { useContext, useState, type ReactNode, type RefObject } from "react";
 
 import {
-  Composer,
   ComposerFooterModeControls,
   ComposerFooterRuntimeControls,
   ComposerPermissionsMenu,
   ComposerSubmitButton,
+} from "../appgen/library-hot-current-runtime-backing";
+import {
+  Composer,
   CloudSubmitIcon,
   DictationButton,
   DictationRecordingIndicator,
@@ -27,10 +29,10 @@ import {
   useComposerEditorSelector,
   useConversationId,
   useIntl,
-  usePublishSignalValue,
   useResizeObserverRef,
   useSettingValue,
 } from "../boundaries/onboarding-commons-externals.facade";
+import { useScopedValue } from "../runtime/app-scope-hooks";
 
 type ComposerMode = "cloud" | (string & {});
 type SubmitButtonMode = "submit" | "stop";
@@ -255,7 +257,7 @@ export function ComposerFooterControls({
   const primaryQueueLabel = isQueueingEnabled ? queueLabel : steerLabel;
   const secondaryQueueLabel = isQueueingEnabled ? steerLabel : queueLabel;
 
-  usePublishSignalValue(activeConversationIdSignal, conversationId ?? null);
+  useScopedValue(activeConversationIdSignal, conversationId ?? null);
 
   const isEasterEggActive =
     Boolean(isEasterEggEnabled) &&

@@ -77,7 +77,9 @@ function normalizeComparableResourceUrl(
   if (trimmedUrl.length === 0) return null;
   try {
     const base =
-      typeof window === "undefined" ? "https://codex.local/" : window.location.href;
+      typeof window === "undefined"
+        ? "https://codex.local/"
+        : window.location.href;
     const parsedUrl = new URL(trimmedUrl, base);
     parsedUrl.hash = "";
     if (

@@ -6,6 +6,26 @@ import { queryDurations } from "./host-query-runtime";
 import { normalizeRequestCwd } from "./onboarding-common-runtime";
 import { createScopedQueryAtom } from "./onboarding-scope-runtime";
 import { appScopeRoot } from "../boundaries/app-scope";
+import { useScopedValue } from "./app-scope-hooks";
+import { gitAvailabilityQuery } from "../utils/git-availability-query";
+
+export { initHostWorkspaceQueries } from "./shared-utility-runtime";
+
+export function initGitBranchQueryRuntime(): void {}
+
+export function initGitQueryKeyHelpers(): void {}
+
+export function initOsInfoQueryRuntime(): void {}
+
+export function useGitAvailabilityQuery(
+  hostConfig: unknown,
+  operationSource: string,
+): { data?: unknown; [key: string]: unknown } {
+  return useScopedValue(gitAvailabilityQuery, {
+    hostConfig,
+    operationSource,
+  });
+}
 
 export const timeConstants = queryDurations;
 

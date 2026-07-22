@@ -3,13 +3,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 type ReasoningEffort =
-  | "none"
-  | "minimal"
-  | "low"
-  | "medium"
-  | "high"
-  | "xhigh"
-  | "max";
+  "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
 const REASONING_EFFORT_MESSAGES: Record<
   ReasoningEffort,
   {

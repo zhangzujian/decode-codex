@@ -371,7 +371,7 @@ var mainValue1,
           line: 0,
           character: mainParam59,
         };
-      for (; mainValue134 < mainValue135; ) {
+      for (; mainValue134 < mainValue135;) {
         let mainValue260 = Math.floor((mainValue134 + mainValue135) / 2);
         mainValue133[mainValue260] > mainParam59
           ? (mainValue135 = mainValue260)
@@ -410,7 +410,6 @@ var mainValue1,
         ;
         mainParam246 > mainParam247 &&
         mainHelper2(this._content.charCodeAt(mainParam246 - 1));
-
       )
         mainParam246--;
       return mainParam246;
@@ -2392,14 +2391,13 @@ export const mainC = once(() => {
       for (
         ;
         mainValue142 < mainValue140.length && _mainD < mainValue141.length;
-
       )
         mainParam63(mainValue140[mainValue142], mainValue141[_mainD]) <= 0
           ? (mainParam62[_mainU++] = mainValue140[mainValue142++])
           : (mainParam62[_mainU++] = mainValue141[_mainD++]);
-      for (; mainValue142 < mainValue140.length; )
+      for (; mainValue142 < mainValue140.length;)
         mainParam62[_mainU++] = mainValue140[mainValue142++];
-      for (; _mainD < mainValue141.length; )
+      for (; _mainD < mainValue141.length;)
         mainParam62[_mainU++] = mainValue141[_mainD++];
       return mainParam62;
     }
@@ -2465,7 +2463,7 @@ export const mainC = once(() => {
         mainValue154 = 0,
         mainValue155 = mainValue153.length;
       if (mainValue155 === 0) return mainO.create(0, mainParam82);
-      for (; mainValue154 < mainValue155; ) {
+      for (; mainValue154 < mainValue155;) {
         let mainValue259 = Math.floor((mainValue154 + mainValue155) / 2);
         mainValue153[mainValue259] > mainParam82
           ? (mainValue155 = mainValue259)
@@ -2621,14 +2619,13 @@ function $(mainParam64, mainParam65) {
   for (
     ;
     mainValue146 < mainValue144.length && mainValue147 < mainValue145.length;
-
   )
     mainParam65(mainValue144[mainValue146], mainValue145[mainValue147]) <= 0
       ? (mainParam64[_mainD++] = mainValue144[mainValue146++])
       : (mainParam64[_mainD++] = mainValue145[mainValue147++]);
-  for (; mainValue146 < mainValue144.length; )
+  for (; mainValue146 < mainValue144.length;)
     mainParam64[_mainD++] = mainValue144[mainValue146++];
-  for (; mainValue147 < mainValue145.length; )
+  for (; mainValue147 < mainValue145.length;)
     mainParam64[_mainD++] = mainValue145[mainValue147++];
   return mainParam64;
 }

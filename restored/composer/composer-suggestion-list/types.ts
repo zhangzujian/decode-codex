@@ -1,9 +1,7 @@
 // Restored from ref/webview/assets/composer-suggestion-list-BQ2rPanH.js
 import type { ReactNode } from "react";
 export type ComposerSuggestionChromeVariant =
-  | "default"
-  | "expandedTopTray"
-  | "embeddedExpandedTopTray";
+  "default" | "expandedTopTray" | "embeddedExpandedTopTray";
 export type ComposerSuggestionItem = {
   key: string;
   content: ReactNode;

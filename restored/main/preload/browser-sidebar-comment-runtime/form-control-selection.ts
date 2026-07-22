@@ -28,8 +28,7 @@ const BROWSER_SIDEBAR_SELECTABLE_INPUT_TYPES = new Set([
 ]);
 
 export type BrowserSidebarSelectableFormControl =
-  | HTMLInputElement
-  | HTMLTextAreaElement;
+  HTMLInputElement | HTMLTextAreaElement;
 
 export function getBrowserSidebarDeepActiveElement(
   rootDocument: Document,

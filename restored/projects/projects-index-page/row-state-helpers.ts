@@ -1,49 +1,93 @@
-// Restored from ref/webview/assets/projects-index-page-CJjk7dRY.js
-// Projects index row state helpers split from the current projects page chunk.
-class ProjectIndexRowStateHelpers {
-  static getThreadStatusState({
-  entry: entry,
-  localHasUnreadTurn: localHasUnreadTurn,
-  localStatusType: localStatusType,
-  localUnreadMessageCount: localUnreadMessageCount
-}) {
-  switch (entry?.kind) {
-    case `local`:
-      return {
-        type: localStatusType ?? `idle`,
-        unread: localHasUnreadTurn === !0,
-        unreadCount: localUnreadMessageCount ?? 0
-      };
-    case `remote`:
-      {
-        let projectIndexBinding236 = entry.task.task_status_display?.latest_turn_status_display?.turn_status;
-        return {
-          type: projectIndexBinding236 === `in_progress` || projectIndexBinding236 === `pending` ? `loading` : projectIndexBinding236 === `failed` ? `error` : `idle`,
-          unread: entry.task.has_unread_turn
+// Restored from ref/webview/assets/projects-index-page-DUsbWnIu.js
+// Project row state helpers recovered from the current Codex webview chunk.
+
+import { parseWorkspaceRootPathList } from "../../runtime/current-app-initial/remote-projects-app-shared-runtime";
+
+type ProjectGroup = Parameters<typeof parseWorkspaceRootPathList>[0] & {
+  projectId: string;
+  projectKind: "local" | "remote";
+};
+
+interface PendingWorktreeState {
+  needsAttention: boolean;
+  phase: string;
+}
+
+type ThreadEntry =
+  | { kind: "local"; pendingWorktree?: PendingWorktreeState | null }
+  | {
+      kind: "remote";
+      task: {
+        has_unread_turn: boolean;
+        task_status_display?: {
+          latest_turn_status_display?: { turn_status?: string };
         };
-      }
-    case `pending-worktree`:
-      return {
-        type: entry.pendingWorktree.phase === `queued` || entry.pendingWorktree.phase === `creating` ? `loading` : entry.pendingWorktree.phase === `failed` ? `error` : `idle`,
-        unread: entry.pendingWorktree.needsAttention
       };
-    case void 0:
-      return null;
+    };
+
+interface ThreadStatusInput {
+  entry?: ThreadEntry;
+  localHasUnreadTurn?: boolean;
+  localStatusType?: string | null;
+  localUnreadMessageCount?: number | null;
+}
+
+export class ProjectIndexRowStateHelpers {
+  static getThreadStatusState({
+    entry,
+    localHasUnreadTurn,
+    localStatusType,
+    localUnreadMessageCount,
+  }: ThreadStatusInput) {
+    if (entry?.kind === "local") {
+      return entry.pendingWorktree == null
+        ? {
+            type: localStatusType ?? "idle",
+            unread: localHasUnreadTurn === true,
+            unreadCount: localUnreadMessageCount ?? 0,
+          }
+        : {
+            type:
+              entry.pendingWorktree.phase === "queued" ||
+              entry.pendingWorktree.phase === "creating"
+                ? "loading"
+                : entry.pendingWorktree.phase === "failed"
+                  ? "error"
+                  : "idle",
+            unread: entry.pendingWorktree.needsAttention,
+          };
+    }
+    if (entry?.kind === "remote") {
+      const status =
+        entry.task.task_status_display?.latest_turn_status_display?.turn_status;
+      return {
+        type:
+          status === "in_progress" || status === "pending"
+            ? "loading"
+            : status === "failed"
+              ? "error"
+              : "idle",
+        unread: entry.task.has_unread_turn,
+      };
+    }
+    return null;
+  }
+
+  static togglePinnedProjectId(
+    projectIds: readonly string[] | null | undefined,
+    projectId: string,
+  ): string[] {
+    return projectIds?.includes(projectId)
+      ? projectIds.filter((candidate) => candidate !== projectId)
+      : [...(projectIds ?? []), projectId];
+  }
+
+  static getEditableProjectDescriptor(project: ProjectGroup) {
+    return {
+      projectId: project.projectId,
+      ...(project.projectKind === "local"
+        ? { rootPaths: parseWorkspaceRootPathList(project) }
+        : {}),
+    };
   }
 }
-  static togglePinnedProjectId(projectIndexOperand30, projectIndexOperand31) {
-  return projectIndexOperand30?.includes(projectIndexOperand31) === !0 ? projectIndexOperand30.filter(item => item !== projectIndexOperand31) : [...(projectIndexOperand30 ?? []), projectIndexOperand31];
-}
-  static getEditableProjectDescriptor(projectIndexOperand20) {
-  return projectIndexOperand20.isLocalProject === !0 ? {
-    isLocalProject: !0,
-    projectId: projectIndexOperand20.projectId
-  } : projectIndexOperand20.path == null ? {
-    projectId: projectIndexOperand20.projectId
-  } : {
-    path: projectIndexOperand20.path,
-    projectId: projectIndexOperand20.projectId
-  };
-}
-}
-export { ProjectIndexRowStateHelpers };

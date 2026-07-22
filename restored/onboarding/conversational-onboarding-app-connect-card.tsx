@@ -16,9 +16,7 @@ import {
 } from "../boundaries/onboarding-commons-externals.facade";
 
 type ConversationalOnboardingPermissionStatus =
-  | "pending"
-  | "denied"
-  | "granted";
+  "pending" | "denied" | "granted";
 
 type ConversationalOnboardingAppInfo = unknown;
 

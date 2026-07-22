@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/absolutely-dark-Cq3gv8mI.js
+// Restored from ref/webview/assets/absolutely-dark-B54BBN-X.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#2d2d2b";
 export const colors = {

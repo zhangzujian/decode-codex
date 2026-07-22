@@ -23,7 +23,4 @@ export type GitQueryOptions<TData = unknown, TResult = TData> = QueryOptions<
 };
 
 export type GitChangeType =
-  | "config"
-  | "head"
-  | "synced-branch"
-  | "working-tree";
+  "config" | "head" | "synced-branch" | "working-tree";

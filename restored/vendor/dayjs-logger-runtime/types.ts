@@ -6,12 +6,7 @@ export type DayjsCommonJsModule = typeof dayjs;
 export type NamedTarget = object;
 export type GetterMap = Record<string, () => unknown>;
 export type MermaidLogLevelName =
-  | "trace"
-  | "debug"
-  | "info"
-  | "warn"
-  | "error"
-  | "fatal";
+  "trace" | "debug" | "info" | "warn" | "error" | "fatal";
 export type MermaidLogLevel = MermaidLogLevelName | number;
 export type MermaidLogger = Record<
   MermaidLogLevelName,

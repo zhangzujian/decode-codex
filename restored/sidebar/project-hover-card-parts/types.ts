@@ -70,11 +70,7 @@ export type RemoteHostConfig = {
 };
 
 export type RemoteConnectionState =
-  | "connected"
-  | "connecting"
-  | "disconnected"
-  | "error"
-  | "restarting";
+  "connected" | "connecting" | "disconnected" | "error" | "restarting";
 
 export type RemoteConnectionError =
   | {
@@ -99,8 +95,7 @@ export type RemoteConnectionError =
     };
 
 export type RemoteConnectionStatusSurface =
-  | "connection-status-badge"
-  | "connections-row";
+  "connection-status-badge" | "connections-row";
 
 export type RemoteConnectionAction =
   | {

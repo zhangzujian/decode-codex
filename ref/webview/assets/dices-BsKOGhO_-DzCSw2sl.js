@@ -1,0 +1,3 @@
+import { n as e, t } from "./dices-BsKOGhO_-Clk_y4mf.js";
+e();
+export { t as default };

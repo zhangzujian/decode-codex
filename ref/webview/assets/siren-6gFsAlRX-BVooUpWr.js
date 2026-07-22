@@ -1,0 +1,3 @@
+import { n as e, t } from "./siren-6gFsAlRX-Bl6LOCPM.js";
+t();
+export { e as default };

@@ -50,9 +50,7 @@ const usesOwlAppShell =
   ipcRenderer.sendSync(GET_USES_OWL_APP_SHELL_CHANNEL) === true;
 const sharedObjectSnapshot =
   (ipcRenderer.sendSync(SHARED_OBJECT_SNAPSHOT_CHANNEL) as
-    | SharedObjectSnapshot
-    | null
-    | undefined) ?? {};
+    SharedObjectSnapshot | null | undefined) ?? {};
 
 let systemThemeVariant = ipcRenderer.sendSync(GET_SYSTEM_THEME_VARIANT_CHANNEL);
 const systemThemeVariantListeners = new Set<ThemeVariantListener>();

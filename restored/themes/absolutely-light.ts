@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/absolutely-light-CdDzhyHi.js
+// Restored from ref/webview/assets/absolutely-light-CP_4VWV1.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#f9f9f7";
 export const colors = {

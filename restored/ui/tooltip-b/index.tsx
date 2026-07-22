@@ -177,12 +177,10 @@ function TooltipInner({
     }
     openTimeoutRef.current = window.setTimeout(() => {
       openTimeoutRef.current = null;
-      if (
-        !(
-          openWhen === "trigger-overflows" &&
-          !triggerHasOverflow(triggerElementRef.current)
-        )
-      ) {
+      if (!(
+        openWhen === "trigger-overflows" &&
+        !triggerHasOverflow(triggerElementRef.current)
+      )) {
         setTooltipOpen(true);
       }
     }, delayMs);

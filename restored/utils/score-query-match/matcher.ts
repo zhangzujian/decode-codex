@@ -155,7 +155,7 @@ export class WildcardPatternMatcher {
       ) {
         let afterGap = offset === range.startOffset && range !== firstRange,
           isWordStart = false;
-        for (; wordBoundary <= offset; ) {
+        for (; wordBoundary <= offset;) {
           wordBoundary === offset
             ? (isWordStart = true)
             : afterGap && (skippedWordCount += 1);
@@ -350,7 +350,7 @@ export class WildcardPatternMatcher {
   ): ScoreQueryMatchRanges | null {
     let start = nameIndex,
       maxFoundLength = 0;
-    for (; start >= 0; ) {
+    for (; start >= 0;) {
       let fragmentLength = this.seemsLikeFragmentStart(
         name,
         patternIndex,
@@ -480,7 +480,6 @@ export class WildcardPatternMatcher {
     for (
       ;
       nameIndex + i < name.length && patternIndex + i < this.myPattern.length;
-
     ) {
       let nameChar = name[nameIndex + i];
       if (
@@ -565,7 +564,7 @@ export class WildcardPatternMatcher {
         },
       ];
     let i = fragmentLength;
-    for (; i >= minFragment || (i > 0 && this.isWildcard(patternIndex + i)); ) {
+    for (; i >= minFragment || (i > 0 && this.isWildcard(patternIndex + i));) {
       let matchedRanges: ScoreQueryMatchRanges | null = null;
       if (this.isWildcard(patternIndex + i))
         matchedRanges = this.matchWildcards(

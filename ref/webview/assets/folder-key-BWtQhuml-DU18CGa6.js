@@ -1,0 +1,3 @@
+import { n as e, t } from "./folder-key-BWtQhuml-Cu0etAxz.js";
+e();
+export { t as default };

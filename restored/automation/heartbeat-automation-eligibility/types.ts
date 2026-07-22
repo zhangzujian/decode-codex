@@ -60,12 +60,9 @@ export type ThreadCommandSummary = {
   turns: readonly ThreadTurn[];
 };
 export type TerminalProcessSource =
-  | "active-turn"
-  | "background-terminal"
-  | "restored-process";
+  "active-turn" | "background-terminal" | "restored-process";
 export type TerminalProcessStopAction =
-  | "interrupt-conversation"
-  | "kill-child-process";
+  "interrupt-conversation" | "kill-child-process";
 export type TerminalProcessCandidate = {
   chatTitle?: string | null;
   command: string;

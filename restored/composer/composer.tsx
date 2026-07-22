@@ -9,11 +9,8 @@ import {
   type ReactNode,
   type Ref,
 } from "react";
-import {
-  AnimatePresence,
-  clsx,
-  motion,
-} from "../boundaries/onboarding-commons-externals.facade";
+import { AnimatePresence, motion } from "framer-motion";
+import { clsx } from "../utils/class-names";
 import { ComposerDropOverlay } from "./composer-drop-overlay";
 
 type ComposerLayout = "multiline" | "single-line";

@@ -21,10 +21,7 @@ export type UnistTest =
   | undefined;
 
 export type UnistVisitorResult =
-  | void
-  | boolean
-  | number
-  | [boolean | "skip" | undefined, number?];
+  void | boolean | number | [boolean | "skip" | undefined, number?];
 
 export type UnistVisitor = (
   node: UnistNode,

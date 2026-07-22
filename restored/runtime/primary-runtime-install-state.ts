@@ -56,8 +56,7 @@ const activeInstallRequests = new Map<
 let installRequestQueue: Promise<void> = Promise.resolve();
 function getPrimaryRuntimeService(): PrimaryRuntimeService {
   const primaryRuntime = appServices.primaryRuntime as
-    | PrimaryRuntimeService
-    | undefined;
+    PrimaryRuntimeService | undefined;
   if (primaryRuntime == null) {
     throw Error("Primary runtime is unavailable");
   }

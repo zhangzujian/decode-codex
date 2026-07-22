@@ -3,9 +3,7 @@
 export type HostId = string;
 export type ConversationId = string;
 export type ThreadDetailLevel =
-  | "STEPS_PROSE"
-  | "STEPS_COMMANDS"
-  | "STEPS_EXECUTION";
+  "STEPS_PROSE" | "STEPS_COMMANDS" | "STEPS_EXECUTION";
 export type AgentMode =
   | "read-only"
   | "auto"

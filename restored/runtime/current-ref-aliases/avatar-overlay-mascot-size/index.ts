@@ -1,0 +1,10 @@
+// Restored from ref/webview/assets/avatar-overlay-mascot-size-CKGhZi9K.js
+// Current-build alias for the typed avatar overlay mascot width helpers.
+export {
+  initAvatarOverlayMascotWidthChunk,
+  createAvatarOverlayMascotWidthStyle,
+  AVATAR_OVERLAY_MASCOT_ASPECT_RATIO,
+  useAvatarOverlayMascotWidth,
+  clampAvatarOverlayMascotWidth,
+  AVATAR_OVERLAY_DEFAULT_MASCOT_WIDTH_PX,
+} from "../../../features/avatar-overlay-pill/mascot-width";

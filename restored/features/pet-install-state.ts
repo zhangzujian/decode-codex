@@ -17,10 +17,14 @@ export interface PetInstallParams {
   imageUrl: string;
 }
 
+export interface PetInstallPreview {
+  spriteVersionNumber: number;
+}
+
 export type PetInstallSession =
   | null
   | (PetInstallParams & { status: "loading" })
-  | (PetInstallParams & { status: "ready"; preview: unknown })
+  | (PetInstallParams & { status: "ready"; preview: PetInstallPreview })
   | (PetInstallParams & { status: "previewError" })
   | (PetInstallParams & { status: "installing" })
   | (PetInstallParams & { status: "installError" })
@@ -34,9 +38,13 @@ type PetInstallScope = {
   set: <TValue>(signal: unknown, value: TValue) => void;
 };
 
-type LoadPetInstallPreview = (params: PetInstallParams) => Promise<unknown>;
+type LoadPetInstallPreview = (
+  params: PetInstallParams,
+) => Promise<PetInstallPreview>;
 
-type InstallPetRequest = (params: PetInstallParams) => Promise<{ id: string }>;
+type InstallPetRequest = (
+  params: PetInstallParams & { spriteVersionNumber: number },
+) => Promise<{ id: string }>;
 
 export let petInstallSession$: ReturnType<typeof createSignal>;
 
@@ -53,7 +61,7 @@ export async function startPetInstallSession(
   loadPreview: LoadPetInstallPreview = (nextParams) =>
     sendHostRequest("pet-install-preview", {
       params: nextParams,
-    }) as Promise<unknown>,
+    }) as Promise<PetInstallPreview>,
 ): Promise<void> {
   if (scope.get<PetInstallSession>(petInstallSession$)?.status === "installing")
     return;
@@ -108,6 +116,7 @@ export async function installPet(
       name: currentSession.name,
       description: currentSession.description,
       imageUrl: currentSession.imageUrl,
+      spriteVersionNumber: currentSession.preview.spriteVersionNumber,
     });
   } catch {
     if (scope.get<PetInstallSession>(petInstallSession$) !== installingSession)

@@ -213,9 +213,7 @@ export function isCurrentHostLocal(hostId: string): boolean {
 
   const currentHostConfig =
     (readSharedObjectSnapshotValue("host_config") as
-      | RemoteHostConfig
-      | null
-      | undefined) ?? null;
+      RemoteHostConfig | null | undefined) ?? null;
 
   return currentHostConfig == null
     ? hostId === localHostKind

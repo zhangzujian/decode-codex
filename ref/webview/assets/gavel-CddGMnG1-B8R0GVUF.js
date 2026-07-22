@@ -1,0 +1,3 @@
+import { n as e, t } from "./gavel-CddGMnG1-DMZl6Z_X.js";
+t();
+export { e as default };

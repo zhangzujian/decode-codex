@@ -85,7 +85,9 @@ export function ComposerEditor({
         onCompositionStateChange?.(false);
       }
       dom
-        .querySelector('[rich-link-display-text][rich-link-href][aria-expanded="true"]')
+        .querySelector(
+          '[rich-link-display-text][rich-link-href][aria-expanded="true"]',
+        )
         ?.setAttribute("aria-expanded", "false");
       dom.blur();
       if (dom.parentElement === root) root.removeChild(dom);
@@ -193,7 +195,10 @@ export interface AddContextButtonProps {
   onOpen: () => void;
 }
 
-export function AddContextButton({ active = false, onOpen }: AddContextButtonProps) {
+export function AddContextButton({
+  active = false,
+  onOpen,
+}: AddContextButtonProps) {
   return (
     <Button
       aria-label="Add context"
@@ -217,7 +222,11 @@ export function SelectedTextPortal({ children }: SelectedTextPortalProps) {
   useEffect(() => {
     setPortalRoot(document.body);
   }, []);
-  return portalRoot == null ? <>{children}</> : createPortal(children, portalRoot);
+  return portalRoot == null ? (
+    <>{children}</>
+  ) : (
+    createPortal(children, portalRoot)
+  );
 }
 
 function readMentionDescriptor(target: Element): MentionDescriptor | null {

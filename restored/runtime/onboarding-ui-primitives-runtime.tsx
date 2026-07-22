@@ -46,10 +46,7 @@ export function ActivityResultCardRow({
 }: ActivityResultCardRowProps) {
   return (
     <div
-      className={clsx(
-        "flex min-w-0 items-center gap-3 px-3 py-2.5",
-        className,
-      )}
+      className={clsx("flex min-w-0 items-center gap-3 px-3 py-2.5", className)}
     >
       {icon}
       <div className="min-w-0 flex-1">
@@ -244,9 +241,10 @@ const relativeTimeMessages = defineMessages({
 });
 
 export function RelativeTimeLabel({ dateString }: RelativeTimeLabelProps) {
-  const label = React.useMemo(() => formatRelativeDuration(dateString), [
-    dateString,
-  ]);
+  const label = React.useMemo(
+    () => formatRelativeDuration(dateString),
+    [dateString],
+  );
   if (label == null) return null;
   return (
     <FormattedMessage
@@ -257,20 +255,17 @@ export function RelativeTimeLabel({ dateString }: RelativeTimeLabelProps) {
 }
 
 type RelativeUnit =
-  | "year"
-  | "month"
-  | "week"
-  | "day"
-  | "hour"
-  | "minute"
-  | "second";
+  "year" | "month" | "week" | "day" | "hour" | "minute" | "second";
 
 function formatRelativeDuration(
   dateString: string,
 ): { value: number; unit: RelativeUnit } | null {
   const timestamp = new Date(dateString).getTime();
   if (!Number.isFinite(timestamp)) return null;
-  const elapsedSeconds = Math.max(0, Math.floor((Date.now() - timestamp) / 1000));
+  const elapsedSeconds = Math.max(
+    0,
+    Math.floor((Date.now() - timestamp) / 1000),
+  );
   const units: Array<[RelativeUnit, number]> = [
     ["year", 31_536_000],
     ["month", 2_592_000],

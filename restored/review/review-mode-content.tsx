@@ -702,9 +702,7 @@ function ReviewModeContent({
     baseBranchOverview ?? null,
   ) as string | null;
   const reviewDelivery = useSetting(settingsKeys.reviewDelivery) as
-    | ReviewDelivery
-    | null
-    | undefined;
+    ReviewDelivery | null | undefined;
   const targetBranches = getReviewTargetBranches({
     currentBranch,
     defaultTargetBranch,

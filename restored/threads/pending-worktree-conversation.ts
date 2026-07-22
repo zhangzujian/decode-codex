@@ -110,9 +110,7 @@ export async function startPendingWorktreeConversation({
           ),
         };
   const projectAssignment = startConversationInput.projectAssignment as
-    | (Record<string, unknown> & { cwd?: string })
-    | null
-    | undefined;
+    (Record<string, unknown> & { cwd?: string }) | null | undefined;
   return sendAppServerRequest("start-conversation", {
     hostId: entry.threadStartHostId ?? entry.hostId,
     ...buildStartConversationParams({

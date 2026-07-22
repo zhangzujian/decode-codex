@@ -1,0 +1,3 @@
+import { n as e, t } from "./book-user-BoBVDpYH-D6J8ssMO.js";
+e();
+export { t as default };

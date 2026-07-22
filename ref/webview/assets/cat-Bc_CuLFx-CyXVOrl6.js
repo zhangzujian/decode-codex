@@ -1,0 +1,3 @@
+import { n as e, t } from "./cat-Bc_CuLFx-DXEhx7aR.js";
+e();
+export { t as default };

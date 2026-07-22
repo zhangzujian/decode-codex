@@ -60,8 +60,7 @@ export class BrowserSidebarDocumentContextResolver {
     elementWindow,
     fallbackWindow,
   }: BrowserSidebarElementContextOptions):
-    | BrowserSidebarGoogleDocsDocumentContext
-    | undefined {
+    BrowserSidebarGoogleDocsDocumentContext | undefined {
     return this.getDocumentContext({
       documentTitle,
       selectedText:
@@ -76,8 +75,7 @@ export class BrowserSidebarDocumentContextResolver {
     frameWindow,
     viewportRect,
   }: BrowserSidebarRegionContextOptions):
-    | BrowserSidebarGoogleDocsDocumentContext
-    | undefined {
+    BrowserSidebarGoogleDocsDocumentContext | undefined {
     if (!this.isGoogleDocsPage()) return undefined;
     return this.getDocumentContext({
       documentTitle,

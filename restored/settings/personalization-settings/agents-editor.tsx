@@ -67,8 +67,7 @@ export function AgentsEditorSection({
   const currentContents = agentsQuery.data?.contents ?? "";
   const editorContents = draftContents ?? currentContents;
   const hasDocument = agentsQuery.data != null;
-  const hasDraft =
-    draftContents != null && draftContents !== currentContents;
+  const hasDraft = draftContents != null && draftContents !== currentContents;
   const isInitialLoading = !hasDocument && agentsQuery.isFetching === true;
   const isSaving = saveAgentsDocument.isPending;
   const hasLoadError = agentsQuery.error != null && !hasDocument;
@@ -96,7 +95,9 @@ export function AgentsEditorSection({
   return (
     <SettingsGroup className="gap-2">
       <SettingsGroup.Header
-        title={<FormattedMessage {...personalizationMessages.customInstructions} />}
+        title={
+          <FormattedMessage {...personalizationMessages.customInstructions} />
+        }
         subtitle={
           <FormattedMessage
             {...personalizationMessages.customInstructionsDescription}

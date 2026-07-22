@@ -1,0 +1,3 @@
+import { n as e, t } from "./link-2-ejtmgo_V-DX6uMR6E.js";
+e();
+export { t as default };

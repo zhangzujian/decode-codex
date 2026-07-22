@@ -131,8 +131,7 @@ export function useWindowsSandboxModeMutation(hostId?: HostId) {
       }),
     onMutate: (mode: WindowsSandboxMode): WindowsSandboxMutationContext => {
       const previousMode = queryClient.getQueryData(modeQueryKey) as
-        | WindowsSandboxMode
-        | undefined;
+        WindowsSandboxMode | undefined;
       queryClient.setQueryData(modeQueryKey, mode);
       return {
         previousMode,

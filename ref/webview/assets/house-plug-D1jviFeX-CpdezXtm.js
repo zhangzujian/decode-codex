@@ -1,3 +1,0 @@
-import { n as e, t } from "./house-plug-D1jviFeX-BSsTy5xp.js";
-t();
-export { e as default };

@@ -1,5 +1,4 @@
-// Restored from ref/webview/assets/chunk-4BX2VUAB-NwVKKZxX.js
-// Also covers current ref asset ref/webview/assets/chunk-4BX2VUAB-fqlOQUw2.js.
+// Restored from ref/webview/assets/chunk-4BX2VUAB-Dauv5mOB.js
 // Common Mermaid diagram metadata helper restored from the Codex webview bundle.
 export type CommonDiagramMetadata = {
   accDescr?: string;
@@ -19,5 +18,4 @@ export function populateCommonDb(
   if (metadata.accTitle) database.setAccTitle?.(metadata.accTitle);
   if (metadata.title) database.setDiagramTitle?.(metadata.title);
 }
-
-export function initChunk4BX2VUAB(): void {}
+export function initMermaidCommonDbChunk(): void {}

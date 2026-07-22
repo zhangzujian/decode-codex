@@ -1,0 +1,3 @@
+import { n as e, t } from "./earth-CY2dI2ZW-l23rI6rb.js";
+t();
+export { e as default };

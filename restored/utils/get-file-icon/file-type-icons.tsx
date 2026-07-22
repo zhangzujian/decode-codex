@@ -596,4 +596,5 @@ const FILE_TYPE_ICON_COMPONENTS: Record<string, FileIconComponent> = {
   typescript: TypeScriptFileIcon,
   toml: SettingsCogIcon,
 };
+export { DocumentTextIcon };
 export default FILE_TYPE_ICON_COMPONENTS;

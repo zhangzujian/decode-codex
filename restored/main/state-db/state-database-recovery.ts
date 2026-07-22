@@ -24,8 +24,7 @@ export const STATE_DATABASE_DIALOG_LABELS = {
 
 export async function verifyStateDatabaseAvailable(): Promise<boolean> {
   const openSqliteDatabase = sharedRuntime.openDesktopStateDatabase as
-    | (() => unknown)
-    | undefined;
+    (() => unknown) | undefined;
   const database = openSqliteDatabase?.();
   if (database == null) {
     throw Error("SQLite is only available in the Electron app.");

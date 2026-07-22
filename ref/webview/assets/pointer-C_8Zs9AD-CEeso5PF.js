@@ -1,0 +1,3 @@
+import { n as e, t } from "./pointer-C_8Zs9AD-CLSrOaBj.js";
+t();
+export { e as default };

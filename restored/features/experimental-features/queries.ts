@@ -114,8 +114,7 @@ function useExperimentalFeatureMutation({ hostId }: { hostId: string }) {
       enabled,
     }: ToggleExperimentalFeatureVariables): ToggleExperimentalFeatureContext => {
       const previousFeatures = queryClient.getQueryData(queryKey) as
-        | ExperimentalFeature[]
-        | undefined;
+        ExperimentalFeature[] | undefined;
       if (previousFeatures != null) {
         queryClient.setQueryData(
           queryKey,

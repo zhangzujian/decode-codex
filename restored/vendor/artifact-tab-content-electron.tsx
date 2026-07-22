@@ -1111,7 +1111,7 @@ async function Kt(e) {
   }
 }
 async function qt(e) {
-  for (; Hn; ) await Hn.promise;
+  for (; Hn;) await Hn.promise;
   try {
     ++Un;
     Un == J.maxParallelDownloads &&
@@ -3915,7 +3915,6 @@ function Kr(e, t, n) {
         parsedArtifact: n,
       });
     ti.size > Qr;
-
   ) {
     let e = ti.keys().next().value;
     if (e == null) return;
@@ -4053,9 +4052,8 @@ e(() => {
   ai = Q.lazy(async () => {
     let { DocxPreviewPanel } = await i(
       async () => {
-        let { DocxPreviewPanel: _DocxPreviewPanel } = await import(
-          "../runtime/artifact-preview-panel-runtime"
-        );
+        let { DocxPreviewPanel: _DocxPreviewPanel } =
+          await import("../runtime/artifact-preview-panel-runtime");
         return {
           DocxPreviewPanel: _DocxPreviewPanel,
         };
@@ -4073,9 +4071,8 @@ e(() => {
   oi = Q.lazy(async () => {
     let { NotebookPreviewPanel } = await i(
       async () => {
-        let { NotebookPreviewPanel: _NotebookPreviewPanel } = await import(
-          "../runtime/artifact-preview-panel-runtime"
-        );
+        let { NotebookPreviewPanel: _NotebookPreviewPanel } =
+          await import("../runtime/artifact-preview-panel-runtime");
         return {
           NotebookPreviewPanel: _NotebookPreviewPanel,
         };
@@ -4093,9 +4090,8 @@ e(() => {
   si = Q.lazy(async () => {
     let { PdfPreviewPanel } = await i(
       async () => {
-        let { PdfPreviewPanel: _PdfPreviewPanel } = await import(
-          "../runtime/artifact-preview-panel-runtime"
-        );
+        let { PdfPreviewPanel: _PdfPreviewPanel } =
+          await import("../runtime/artifact-preview-panel-runtime");
         return {
           PdfPreviewPanel: _PdfPreviewPanel,
         };

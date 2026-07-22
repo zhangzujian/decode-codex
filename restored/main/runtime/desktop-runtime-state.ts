@@ -75,13 +75,11 @@ export function createDesktopRuntimePaths({
     settingsStore.getEffective(getRunCodexInWslSettingKey()) === true &&
     (
       sharedRuntime.resolveDefaultWslDistro as
-        | (() => unknown | null)
-        | undefined
+        (() => unknown | null) | undefined
     )?.() != null;
   (
     sharedRuntime.registerShouldSpawnInsideWsl as
-      | ((callback: () => boolean) => void)
-      | undefined
+      ((callback: () => boolean) => void) | undefined
   )?.(() => shouldSpawnInsideWsl);
   applyNativeThemeSource(
     String(

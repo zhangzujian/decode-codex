@@ -1,0 +1,3 @@
+import { n as e, t } from "./mountain-snow-IvMhk_6h-CVrPDiWi.js";
+e();
+export { t as default };

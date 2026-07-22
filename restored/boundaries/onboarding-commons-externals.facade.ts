@@ -14,9 +14,7 @@ import {
   isKeyboardEvent as isDndKeyboardEvent,
   subtract as subtractCoordinates,
 } from "@dnd-kit/utilities";
-import {
-  buildLocalFileSrc as buildLocalFileSrcRuntime,
-} from "../runtime/commons-utility-runtime";
+import { buildLocalFileSrc as buildLocalFileSrcRuntime } from "../runtime/commons-utility-runtime";
 import {
   joinPath as joinPathRuntime,
   normalizePath as normalizePathRuntime,
@@ -47,15 +45,9 @@ import {
   configRequirementsByHostAuthSignal as serverConfigRequirementsQueryRuntime,
   currentRouteHostIdSignal as defaultHostIdSignalRuntime,
 } from "../runtime/app-main-new-thread-runtime";
-import {
-  primaryRuntimeDiagnosticsQueryKey as buildPrimaryRuntimeStatusQueryKeyRuntime,
-} from "../runtime/primary-runtime-query-keys";
-import {
-  primaryRuntimeInstallStatusSignal as primaryRuntimeInstallProgressStorageKeyRuntime,
-} from "../runtime/primary-runtime-install-state";
-import {
-  primaryRuntimeInstallReadyAtom as primaryRuntimeInstalledAtomRuntime,
-} from "../onboarding/onboarding-state";
+import { primaryRuntimeDiagnosticsQueryKey as buildPrimaryRuntimeStatusQueryKeyRuntime } from "../runtime/primary-runtime-query-keys";
+import { primaryRuntimeInstallStatusSignal as primaryRuntimeInstallProgressStorageKeyRuntime } from "../runtime/primary-runtime-install-state";
+import { primaryRuntimeInstallReadyAtom as primaryRuntimeInstalledAtomRuntime } from "../onboarding/onboarding-state";
 import {
   activeWorkspaceRootsQuery as activeWorkspaceRootsQueryRuntime,
   effectiveConfigQueryKeyPrefix,
@@ -72,9 +64,7 @@ import {
   shouldResumeConversationSignal as shouldResumeConversationSignalRuntime,
 } from "../runtime/conversation-state-runtime";
 import { avatarOverlayOpenStateSignal as avatarOverlayOpenStateSignalRuntime } from "../utils/avatar-overlay-open-state-signal";
-import {
-  dismissBrowserSidebarCommentModeCoachmark as dismissBrowserSidebarCommentModeCoachmarkRuntime,
-} from "../browser/browser-sidebar-comment-mode-coachmark-state";
+import { dismissBrowserSidebarCommentModeCoachmark as dismissBrowserSidebarCommentModeCoachmarkRuntime } from "../browser/browser-sidebar-comment-mode-coachmark-state";
 import { DiscardBrowserAnnotationsDialog } from "../browser/browser-discard-annotations-dialog";
 import { browserSidebarManager } from "../browser/sidebar-manager";
 import {
@@ -82,9 +72,7 @@ import {
   isModalControllerModalOpen as isModalControllerModalOpenRuntime,
   openModalControllerModal as openModalControllerModalRuntime,
 } from "../ui/modal-controller-state";
-import {
-  evaluateFeatureGate as evaluateFeatureGateRuntime,
-} from "../runtime/feature-gate-runtime";
+import { evaluateFeatureGate as evaluateFeatureGateRuntime } from "../runtime/feature-gate-runtime";
 import { ElectronHostMessageBridge } from "../runtime/app-main-host-runtime";
 import {
   focusPreviewTabComposer as focusPreviewTabComposerRuntime,
@@ -153,7 +141,7 @@ import {
 } from "../runtime/current-app-initial/remote-projects-app-shared-runtime";
 import { conversationHeadBranchAtom as localConversationHeadBranchAtom } from "../review/local-git-action-branch-atoms";
 import { uniq as uniqRuntime } from "../utils/uniq";
-import { motion, motionTemplate } from "framer-motion";
+import { motion, useMotionTemplate as motionTemplate } from "framer-motion";
 import { sendAppServerRequest as sendAppServerRequestRuntime } from "./use-host-config.facade";
 import { useCancelTaskMutation as useCancelTaskMutationRuntime } from "../runtime/codex-api";
 import { useAppServerManager as useAppServerManagerRuntime } from "../app-server/app-server-manager-hooks/registry";
@@ -219,7 +207,10 @@ export {
   WordWrapEnabledIcon,
 } from "../icons/facade-icon-aliases";
 export { ChevronRightIcon as DisclosureChevronIcon } from "../icons/chevron-right-icon";
-export { WarningIcon as WarningCircleIcon } from "../icons/warning-icon";
+export {
+  WarningIcon as PullRequestAttachmentIcon,
+  WarningIcon as WarningCircleIcon,
+} from "../icons/warning-icon";
 export {
   InlineStatusDivider,
   ModelChangedIcon,
@@ -317,6 +308,10 @@ export {
   derivedAtomFamily,
   defineScope,
   queryAtomFamily,
+  appAtomScope,
+  appRootScope,
+  routeAtom,
+  appStoreScope,
   appStoreScope as appStore,
   useAppScopeValue,
   useAppScopeValue as useAppScopeFamilyValue,
@@ -523,6 +518,21 @@ export const useScopedAtomValue = useAppScopeValue;
 export const useConversationAtomValue = useAppScopeValue;
 export const useKeyedAtomValue = useAppScopeValue;
 export const createParametricQueryAtom = createScopedQueryAtom;
+export function getFileAttachmentKey({
+  label,
+  path,
+  fsPath,
+  startLine,
+  endLine,
+}: {
+  label?: string;
+  path?: string;
+  fsPath?: string | null;
+  startLine?: number | null;
+  endLine?: number | null;
+}): string {
+  return JSON.stringify([label, path, fsPath, startLine, endLine]);
+}
 export { motion };
 export const MotionButton = motion.button;
 export { motionTemplate };
@@ -1124,9 +1134,9 @@ export const defaultActiveDraggableContext = Object.freeze({
   scaleY: 1,
 });
 
-export function getClientRect(
-  element: { getBoundingClientRect: () => DOMRect | ClientRect },
-): {
+export function getClientRect(element: {
+  getBoundingClientRect: () => DOMRect | ClientRect;
+}): {
   top: number;
   left: number;
   right: number;
@@ -1226,10 +1236,7 @@ export function derivedTransformTransition(event: unknown): string | undefined {
 
 export function normalizeSortableDisabled(
   disabled:
-    | boolean
-    | { draggable?: boolean; droppable?: boolean }
-    | null
-    | undefined,
+    boolean | { draggable?: boolean; droppable?: boolean } | null | undefined,
 ): { draggable: boolean; droppable: boolean } {
   return typeof disabled === "boolean"
     ? { draggable: disabled, droppable: disabled }
@@ -1493,7 +1500,6 @@ export {
 } from "../composer/composer-banners/windows-sandbox-banners";
 export { ComposerAttachmentPills } from "../composer/composer-attachment-pills";
 export { ComposerDropOverlay } from "../composer/composer-drop-overlay";
-export { ComposerFooterControls } from "../composer/composer-footer-controls";
 export { ComposerStatusMenuRow } from "../composer/composer-status-menu-row";
 export { SelectedTextAction } from "../composer/selected-text-action";
 export {
@@ -2878,8 +2884,9 @@ function buildSearchActionDetail(
   if (trimmedQuery.length > 0) return formatSearchQuerySites(trimmedQuery);
 
   const fallbackQuery =
-    queries?.map((item) => item?.trim() ?? "").find((item) => item.length > 0) ??
-    "";
+    queries
+      ?.map((item) => item?.trim() ?? "")
+      .find((item) => item.length > 0) ?? "";
   return queries != null && queries.length > 1 && fallbackQuery.length > 0
     ? `${formatSearchQuerySites(fallbackQuery)} ...`
     : formatSearchQuerySites(fallbackQuery);
@@ -3025,16 +3032,19 @@ export function getConversationManager(
 }
 export { getDefaultRightPanelStorageKey } from "../app-shell/side-panel-runtime";
 export async function getPermissionOverrides(
-  requestClient: {
-    sendRequest?: (
-      method: string,
-      params?: Record<string, unknown>,
-    ) => Promise<unknown>;
-    request?: (
-      method: string,
-      params?: Record<string, unknown>,
-    ) => Promise<unknown>;
-  } | null | undefined,
+  requestClient:
+    | {
+        sendRequest?: (
+          method: string,
+          params?: Record<string, unknown>,
+        ) => Promise<unknown>;
+        request?: (
+          method: string,
+          params?: Record<string, unknown>,
+        ) => Promise<unknown>;
+      }
+    | null
+    | undefined,
   cwd: string,
 ): Promise<Record<string, unknown> | null> {
   const params = { cwd, includeLayers: false };
@@ -3133,7 +3143,8 @@ export function getUsageLimitResetWindow(
 ): number | null {
   const rateLimit =
     rateLimitInfo != null && typeof rateLimitInfo === "object"
-      ? ((rateLimitInfo as { rate_limit?: unknown }).rate_limit ?? rateLimitInfo)
+      ? ((rateLimitInfo as { rate_limit?: unknown }).rate_limit ??
+        rateLimitInfo)
       : null;
   if (rateLimit == null || typeof rateLimit !== "object") return null;
 
@@ -3210,9 +3221,7 @@ function turnIsInProgress(turn: unknown): boolean {
   if (turn == null || typeof turn !== "object") return false;
   const status = readStatusType((turn as Record<string, unknown>).status);
   return (
-    status === "inProgress" ||
-    status === "in_progress" ||
-    status === "running"
+    status === "inProgress" || status === "in_progress" || status === "running"
   );
 }
 
@@ -3249,8 +3258,7 @@ export function isConversationRunning(conversation: unknown): boolean {
   }
   if (
     (status === "idle" || status === "completed") &&
-    (record.threadGoal as { status?: unknown } | undefined)?.status ===
-      "active"
+    (record.threadGoal as { status?: unknown } | undefined)?.status === "active"
   ) {
     return true;
   }
@@ -3277,10 +3285,8 @@ export function isMcpAppDevtoolsEnabled(): boolean {
   if (typeof window === "undefined") return false;
   try {
     return (
-      new URLSearchParams(window.location.search).get(
-        "mcpAppDevtools",
-      ) === "1" ||
-      window.localStorage.getItem("codex:mcp-app-devtools") === "1"
+      new URLSearchParams(window.location.search).get("mcpAppDevtools") ===
+        "1" || window.localStorage.getItem("codex:mcp-app-devtools") === "1"
     );
   } catch {
     return false;
@@ -3296,9 +3302,7 @@ export function isOpenInNewTabEvent(event: {
 }): boolean {
   return event.button === 1 || event.metaKey === true || event.ctrlKey === true;
 }
-export {
-  isResourcePathInsideProjectlessOutput as isResourceInProjectlessOutput,
-} from "../conversations/output-artifact-runtime";
+export { isResourcePathInsideProjectlessOutput as isResourceInProjectlessOutput } from "../conversations/output-artifact-runtime";
 export { isReviewDiffOpenAtom } from "../review/review-view-state-runtime";
 export { isUncommittedReviewSource } from "../review/review-diff-store";
 export const isWorkspaceContextLoadingSignal = createScopedAtom(
@@ -3436,10 +3440,7 @@ export function matchesCodexPagePath(path: string | null | undefined): boolean {
 }
 export { mcpRelatedTaskMetaSchema as mcpProgressSchema } from "../plugins/mcp-capability-signals/schemas";
 export { mcpServerStatusesQueryAtom } from "../runtime/mcp-server-status-runtime";
-export {
-  measureTextLayout,
-  measureTextLineCount,
-} from "../utils/text-layout";
+export { measureTextLayout, measureTextLineCount } from "../utils/text-layout";
 type ModelSelectionWriteEvent = {
   resolve?: () => void;
   selection?: unknown;
@@ -3495,18 +3496,10 @@ export {
   subagentParentThreadIdSignal as parentConversationAtom,
   subagentParentThreadIdSignal as parentConversationIdAtom,
 } from "../runtime/conversation-state-runtime";
-export {
-  parseCommentPreviewSegments as parseCommentBody,
-} from "../runtime/current-app-initial/conversation-title-platform-icon-runtime";
+export { parseCommentPreviewSegments as parseCommentBody } from "../runtime/current-app-initial/conversation-title-platform-icon-runtime";
 export function parseHookSourceKind(
   sources: readonly (string | null | undefined)[],
-):
-  | "admin"
-  | "user"
-  | "project"
-  | "plugin"
-  | "sessionFlags"
-  | null {
+): "admin" | "user" | "project" | "plugin" | "sessionFlags" | null {
   for (const source of sources) {
     if (source == null) continue;
     const normalized = source.trim();
@@ -3629,10 +3622,7 @@ export function parseTurnItems(
 }
 export { pathsEqualWithinRoot } from "../utils/git-relative-display-path";
 export { pendingActivityThreadsSignal } from "../app-shell/sidebar-activity-boundary-runtime";
-export const pendingModelSelectionSignal = createScopedAtom(
-  appRootScope,
-  null,
-);
+export const pendingModelSelectionSignal = createScopedAtom(appRootScope, null);
 export { pendingReviewCommentAtom } from "../review/review-view-state-runtime";
 export async function persistScopedSignalValue(
   store: { set?(signal: unknown, keyOrValue: unknown, value?: unknown): void },
@@ -4043,17 +4033,21 @@ function serializeSandboxPolicy(policy: PermissionPolicyLike): string | null {
 }
 
 export function serializePermissionPolicy(
-  permissions: {
-    activePermissionProfile?: { id?: string | null } | null;
-    sandboxPolicy?: PermissionPolicyLike;
-  } | null | undefined,
+  permissions:
+    | {
+        activePermissionProfile?: { id?: string | null } | null;
+        sandboxPolicy?: PermissionPolicyLike;
+      }
+    | null
+    | undefined,
 ): { permissions: string } | { sandbox: string | null } {
   const activePermissionProfile = permissions?.activePermissionProfile;
   return activePermissionProfile?.id == null
     ? { sandbox: serializeSandboxPolicy(permissions?.sandboxPolicy) }
     : { permissions: activePermissionProfile.id };
 }
-export const serverConfigRequirementsQuery = serverConfigRequirementsQueryRuntime;
+export const serverConfigRequirementsQuery =
+  serverConfigRequirementsQueryRuntime;
 export { setRevertConfirmDialogSkipChecked } from "../review/review-patch-action-boundary-runtime";
 export { setSidebarPanelForSide } from "../app-shell/side-panel-runtime";
 export const sharedStateKeys = sharedStateKeysRuntime;
@@ -4099,11 +4093,15 @@ export const useAppScopeAtomValue = useAppScopeValue;
 export function useAutomationModelsQuery() {
   return useModelListQueryRuntime({ includeUltraReasoningEffort: false });
 }
-export function useBackgroundSubagents(conversationId?: string | null): unknown[] {
+export function useBackgroundSubagents(
+  conversationId?: string | null,
+): unknown[] {
   initBackgroundSubagentsRuntimeChunk();
   return (
-    useAppScopeValue<unknown[]>(backgroundAgentsSignalRuntime, conversationId ?? null) ??
-    []
+    useAppScopeValue<unknown[]>(
+      backgroundAgentsSignalRuntime,
+      conversationId ?? null,
+    ) ?? []
   );
 }
 export function useBrowserSidebarEnabled(): boolean {
@@ -4177,9 +4175,7 @@ export function usePersistedToggleSetter(
   return (value) => {
     const current = readPersistedSignalSnapshot(undefined, key);
     const next =
-      typeof value === "function"
-        ? value(Boolean(current))
-        : Boolean(value);
+      typeof value === "function" ? value(Boolean(current)) : Boolean(value);
     persistScopedSignalValue(readAppScopeStore(), key, next);
   };
 }
@@ -4374,9 +4370,7 @@ export function useWorktreeTargetRoots({
 function parseWebSearchUrl(value: string | null | undefined): URL | null {
   if (value == null) return null;
   try {
-    const trimmed = value
-      .trim()
-      .replace(/^[("'`]+|[)"'`,.;!?]+$/gu, "");
+    const trimmed = value.trim().replace(/^[("'`]+|[)"'`,.;!?]+$/gu, "");
     const url = new URL(
       /^[a-z][a-z\d+\-.]*:\/\//iu.test(trimmed)
         ? trimmed
@@ -4400,9 +4394,7 @@ function webSearchUrlFromAction(action: WebSearchAction): URL | null {
   }
 }
 
-function webSearchQueryCandidates(
-  activity: WebSearchActivityLike,
-): string[] {
+function webSearchQueryCandidates(activity: WebSearchActivityLike): string[] {
   return activity.action?.type === "search"
     ? [
         activity.action.query,
@@ -4555,7 +4547,8 @@ function hostIdFromConfig(hostConfig: unknown): string | undefined {
 }
 
 export const workspaceFoldersQuerySignal = activeWorkspaceRootsQueryRuntime;
-export const worktreeBaseBranchQueryAtom = worktreeBaseBranchQueryFamily.fromCwd$;
+export const worktreeBaseBranchQueryAtom =
+  worktreeBaseBranchQueryFamily.fromCwd$;
 export const worktreeBranchMutationAtom = createScopedMutationAtom(
   appStoreScope,
   (
@@ -4812,16 +4805,16 @@ export function invokeMainProcessCommand<T = unknown>(
 export function loadPetInstallModalHost(): Promise<
   typeof import("../runtime/current-app-initial/pet-install-modal-host-current-runtime")
 > {
-  return import(
-    "../runtime/current-app-initial/pet-install-modal-host-current-runtime"
-  );
+  return import("../runtime/current-app-initial/pet-install-modal-host-current-runtime");
 }
 export function loadPetInstallState(): Promise<
   typeof import("../features/pet-install-state-entry")
 > {
   return import("../features/pet-install-state-entry");
 }
-export function parseHostConfigDocument(config: unknown): Record<string, unknown> {
+export function parseHostConfigDocument(
+  config: unknown,
+): Record<string, unknown> {
   return config != null && typeof config === "object" && !Array.isArray(config)
     ? (config as Record<string, unknown>)
     : {};
@@ -4894,8 +4887,7 @@ export async function waitForPluginInstalled({
         (marketplace) =>
           (marketplacePath == null || marketplace.path === marketplacePath) &&
           marketplace.plugins?.some(
-            (plugin) =>
-              plugin.name === pluginName && plugin.installed === true,
+            (plugin) => plugin.name === pluginName && plugin.installed === true,
           ),
       ) ?? false;
     if (isInstalled) return;
@@ -5064,8 +5056,7 @@ export const AvatarOverlayPetKindProto = {
     "CODEX_AVATAR_OVERLAY_PET_KIND_UNSPECIFIED",
   CODEX_AVATAR_OVERLAY_PET_KIND_BUILT_IN:
     "CODEX_AVATAR_OVERLAY_PET_KIND_BUILT_IN",
-  CODEX_AVATAR_OVERLAY_PET_KIND_CUSTOM:
-    "CODEX_AVATAR_OVERLAY_PET_KIND_CUSTOM",
+  CODEX_AVATAR_OVERLAY_PET_KIND_CUSTOM: "CODEX_AVATAR_OVERLAY_PET_KIND_CUSTOM",
   UNRECOGNIZED: "UNRECOGNIZED",
 } as const;
 export const AvatarOverlaySourceProto = {
@@ -5101,7 +5092,9 @@ export const currentHostIdAtom = currentHostIdSignalRuntime;
 export const experimentalFeatureEnablementQueryKey = [
   "experimental-feature-enablement",
 ] as const;
-export function formatRemoteTaskTitle(title: string | null | undefined): string {
+export function formatRemoteTaskTitle(
+  title: string | null | undefined,
+): string {
   return title?.trim() ?? "";
 }
 export function getConnectedHost(
@@ -5218,7 +5211,7 @@ export function ToastNotification({ toastId }: { toastId: string }) {
   return React.createElement(Toast, {
     ...toast,
     onRemove: () => {
-        removeToastRuntime(readAppScopeStore(), toastId);
+      removeToastRuntime(readAppScopeStore(), toastId);
     },
   });
 }
@@ -5268,7 +5261,11 @@ export function openAppModal<TProps extends object>(
   ModalComponent: AppModalComponent<TProps>,
   props?: Omit<TProps, "onClose">,
 ): void {
-  openModalControllerModalRuntime(scope, ModalComponent, (props ?? {}) as TProps);
+  openModalControllerModalRuntime(
+    scope,
+    ModalComponent,
+    (props ?? {}) as TProps,
+  );
 }
 export const primaryRuntimeInstallProgressStorageKey =
   primaryRuntimeInstallProgressStorageKeyRuntime;
@@ -5446,9 +5443,8 @@ type SharedComposerPrefill = {
   text?: unknown;
 };
 
-const sharedComposerPrefillSignal = createScopedAtom<
-  SharedComposerPrefill | null
->(appRootScope, null);
+const sharedComposerPrefillSignal =
+  createScopedAtom<SharedComposerPrefill | null>(appRootScope, null);
 
 function readSharedComposerPrefillStorage(
   key: string,

@@ -161,6 +161,7 @@ export const appScopeM = _appScopeM;
 export const appScopeP = _appScopeM;
 export const _appScopeP = _appScopeM;
 export const _appScopeD = _appScopeM;
+export const createAppScopeFamilySignal = _appScopeM;
 
 export function useAppScopeValue<T>(signal: unknown, key?: unknown): T {
   return rootStore.get<T>(signal, key);

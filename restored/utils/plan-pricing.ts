@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/plan-pricing-DANGBAbm.js
+// Restored from ref/webview/assets/plan-pricing-CDdVyvV-.js
 // Format plan prices and currency parts for billing UI surfaces.
 type IntlNumberFormatter = {
   formatNumber(value: number, options: Intl.NumberFormatOptions): string;

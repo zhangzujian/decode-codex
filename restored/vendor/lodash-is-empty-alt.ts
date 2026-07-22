@@ -33,8 +33,7 @@ const weakMapTag = "[object WeakMap]";
 const dataViewTag = "[object DataView]";
 
 const nativeWeakMap = getNative(rootObject, "WeakMap") as
-  | WeakMapConstructorLike
-  | undefined;
+  WeakMapConstructorLike | undefined;
 const nativeKeys = overArg(Object.keys, Object) as (value: unknown) => string[];
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -54,14 +53,11 @@ export function isEmptyI(value: unknown): string[] {
 }
 
 const nativeDataView = getNative(rootObject, "DataView") as
-  | DataViewConstructorLike
-  | undefined;
+  DataViewConstructorLike | undefined;
 const nativePromise = getNative(rootObject, "Promise") as
-  | PromiseConstructorLike
-  | undefined;
+  PromiseConstructorLike | undefined;
 export const isEmptyR = getNative(rootObject, "Set") as
-  | SetConstructorLike
-  | undefined;
+  SetConstructorLike | undefined;
 
 const dataViewCtorSource = toSource(nativeDataView);
 const mapCtorSource = toSource(nativeMap as MapConstructorLike | undefined);

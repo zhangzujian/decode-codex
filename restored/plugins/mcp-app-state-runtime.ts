@@ -137,7 +137,10 @@ export function attachMcpAppPanelElement(
   updateMcpAppEntry(store, mcpAppId, (entry) => ({
     ...entry,
     inlineFrameContainer: element,
-    inlineFrameContent: { ...entry.inlineFrameContent, inlineFrameContainer: element },
+    inlineFrameContent: {
+      ...entry.inlineFrameContent,
+      inlineFrameContainer: element,
+    },
   }));
 }
 
@@ -165,7 +168,8 @@ export function openMcpAppExpandedSurface(
   options: Record<string, unknown> & { html?: string | null; mcpAppId: string },
 ): void {
   if (options.html == null) return;
-  const previousEntries = store.get<Map<string, McpAppEntry>>(mcpAppEntriesSignal);
+  const previousEntries =
+    store.get<Map<string, McpAppEntry>>(mcpAppEntriesSignal);
   const previous = previousEntries.get(options.mcpAppId);
   const inlineFrameContainer = previous?.inlineFrameContainer ?? null;
   const frameContent = {

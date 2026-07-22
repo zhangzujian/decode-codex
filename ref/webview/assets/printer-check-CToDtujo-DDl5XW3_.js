@@ -1,0 +1,3 @@
+import { n as e, t } from "./printer-check-CToDtujo-B_qLkVhw.js";
+t();
+export { e as default };

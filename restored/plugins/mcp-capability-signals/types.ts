@@ -55,8 +55,7 @@ export interface McpFileEntrypoint {
   extensions: string[];
 }
 export type McpToolUiEntrypoint =
-  | McpGlobalOrThreadEntrypoint
-  | McpFileEntrypoint;
+  McpGlobalOrThreadEntrypoint | McpFileEntrypoint;
 export interface McpServerStatus {
   name: string;
   serverInfo?: McpServerInfo | null;

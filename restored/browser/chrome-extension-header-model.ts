@@ -95,22 +95,18 @@ export function mergeRecentTasks({
           isBackgroundSubagentsEnabled,
         ),
     )
-    .map(
-      (conversation): RecentTask => ({
-        kind: "local",
-        key: `local:${conversation.id}`,
-        at: getLocalConversationSortTimeMs(conversation),
-        conversation,
-      }),
-    );
-  const pendingTasks = pendingWorktrees.map(
-    (pendingWorktree): RecentTask => ({
-      kind: "pending-worktree",
-      key: `pending-worktree:${pendingWorktree.id}`,
-      at: pendingWorktree.createdAt,
-      pendingWorktree,
-    }),
-  );
+    .map((conversation): RecentTask => ({
+      kind: "local",
+      key: `local:${conversation.id}`,
+      at: getLocalConversationSortTimeMs(conversation),
+      conversation,
+    }));
+  const pendingTasks = pendingWorktrees.map((pendingWorktree): RecentTask => ({
+    kind: "pending-worktree",
+    key: `pending-worktree:${pendingWorktree.id}`,
+    at: pendingWorktree.createdAt,
+    pendingWorktree,
+  }));
 
   return [...remoteTasks, ...localTasks, ...pendingTasks].sort(
     (left, right) => right.at - left.at,

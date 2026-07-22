@@ -2,11 +2,7 @@
 // Shared types for review diff store atoms, queries, and actions.
 
 export type ReviewDiffFilter =
-  | "staged"
-  | "unstaged"
-  | "branch"
-  | "commit"
-  | "last-turn";
+  "staged" | "unstaged" | "branch" | "commit" | "last-turn";
 
 export interface ReviewStore {
   get(atom: unknown, ...args: unknown[]): any;

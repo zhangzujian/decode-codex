@@ -58,9 +58,7 @@ export function getAbsoluteImageFilePath(
   return null;
 }
 
-export function isDisplayableImageSrc(
-  src: string | null | undefined,
-): boolean {
+export function isDisplayableImageSrc(src: string | null | undefined): boolean {
   const value = src?.trim() ?? "";
   return /^(data|https?|blob):/iu.test(value);
 }

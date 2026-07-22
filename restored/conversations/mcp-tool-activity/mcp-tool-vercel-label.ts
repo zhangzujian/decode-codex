@@ -297,13 +297,11 @@ function normalizeVercelDomain(
 ): string | undefined {
   if (value == null) return;
   const candidate = extractHostname(value) ?? value.trim();
-  if (
-    !(
-      candidate.length === 0 ||
-      candidate.includes("/") ||
-      !/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(candidate)
-    )
-  )
+  if (!(
+    candidate.length === 0 ||
+    candidate.includes("/") ||
+    !/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(candidate)
+  ))
     return candidate.toLowerCase();
 }
 

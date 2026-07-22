@@ -1,0 +1,3 @@
+import { n as e, t } from "./test-tubes-CAi2dvL3-BEZJMqW_.js";
+e();
+export { t as default };

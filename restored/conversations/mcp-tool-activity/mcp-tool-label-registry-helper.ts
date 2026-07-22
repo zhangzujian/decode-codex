@@ -69,7 +69,9 @@ function buildToolLabelPair({
 
 function defaultToolLabelOverride(toolKey: string): ToolLabelOverride {
   const [verb, ...restParts] = toolKey.split("_");
-  const target = humanizeToolTarget(restParts.length === 0 ? [verb] : restParts);
+  const target = humanizeToolTarget(
+    restParts.length === 0 ? [verb] : restParts,
+  );
   switch (verb) {
     case "add":
       return { active: `Adding ${target}`, completed: `Added ${target}` };
@@ -93,21 +95,33 @@ function defaultToolLabelOverride(toolKey: string): ToolLabelOverride {
     case "delete":
       return { active: `Deleting ${target}`, completed: `Deleted ${target}` };
     case "download":
-      return { active: `Downloading ${target}`, completed: `Downloaded ${target}` };
+      return {
+        active: `Downloading ${target}`,
+        completed: `Downloaded ${target}`,
+      };
     case "duplicate":
-      return { active: `Duplicating ${target}`, completed: `Duplicated ${target}` };
+      return {
+        active: `Duplicating ${target}`,
+        completed: `Duplicated ${target}`,
+      };
     case "enable":
       return { active: `Enabling ${target}`, completed: `Enabled ${target}` };
     case "export":
       return { active: `Exporting ${target}`, completed: `Exported ${target}` };
     case "extract":
-      return { active: `Extracting ${target}`, completed: `Extracted ${target}` };
+      return {
+        active: `Extracting ${target}`,
+        completed: `Extracted ${target}`,
+      };
     case "fetch":
       return { active: `Fetching ${target}`, completed: `Fetched ${target}` };
     case "find":
       return { active: `Finding ${target}`, completed: `Found ${target}` };
     case "forward":
-      return { active: `Forwarding ${target}`, completed: `Forwarded ${target}` };
+      return {
+        active: `Forwarding ${target}`,
+        completed: `Forwarded ${target}`,
+      };
     case "get":
       return { active: `Getting ${target}`, completed: `Got ${target}` };
     case "import":

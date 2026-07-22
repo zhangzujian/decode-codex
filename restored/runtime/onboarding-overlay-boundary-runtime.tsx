@@ -123,8 +123,10 @@ type TerminalExecOutput = {
   output?: string | null;
 };
 
-export interface TerminalCommandToastProps
-  extends Omit<TerminalErrorToastProps, "execOutput"> {
+export interface TerminalCommandToastProps extends Omit<
+  TerminalErrorToastProps,
+  "execOutput"
+> {
   execOutput?: unknown;
 }
 

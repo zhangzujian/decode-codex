@@ -75,15 +75,13 @@ type VirtualizedTurnListProps = {
   gapPx?: number;
   getBottomScrollPaddingPx?: (() => number | null | undefined) | null;
   getPendingRestoreScrollDistanceFromBottomPx?:
-    | (() => number | null | undefined)
-    | null;
+    (() => number | null | undefined) | null;
   initialRestoreState?: VirtualizedTurnListRestoreState;
   latestTurnSynchronousMeasurementKey?: unknown;
   onApiChange?: ((api: VirtualizedTurnListApi | null) => void) | null;
   onLatestTurnHeightChange?: ((change: LatestTurnHeightChange) => void) | null;
   onRestoreStateChange?:
-    | ((state: VirtualizedTurnListRestoreState) => void)
-    | null;
+    ((state: VirtualizedTurnListRestoreState) => void) | null;
   onViewportChange?:
     | ((change: {
         target: { originPx: number; targetPx: number } | null;

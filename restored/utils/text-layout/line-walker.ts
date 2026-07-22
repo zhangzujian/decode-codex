@@ -236,7 +236,6 @@ function walkSimpleLines(
       !hasLine &&
       ((index = skipLeadingBreaks(layout, index)), index >= widths.length)
     );
-
   ) {
     const width = widths[index];
     const kind = kinds[index];
@@ -477,7 +476,7 @@ function walkComplexLines(
     lineEndGrapheme = 0;
     resetBreak();
     let segmentIndex = chunk.startSegmentIndex;
-    for (; segmentIndex < chunk.endSegmentIndex; ) {
+    for (; segmentIndex < chunk.endSegmentIndex;) {
       const kind = kinds[segmentIndex];
       const advance =
         kind === "tab"

@@ -1,0 +1,3 @@
+import { n as e, t } from "./variable-DeWmrYS2-DNfqY2r7.js";
+t();
+export { e as default };

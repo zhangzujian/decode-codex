@@ -38,7 +38,6 @@ export type TurnCommentsCache = WeakMap<
 >;
 export type DiffCommentSetter = (
   nextComments:
-    | DiffComment[]
-    | ((currentComments: DiffComment[]) => DiffComment[]),
+    DiffComment[] | ((currentComments: DiffComment[]) => DiffComment[]),
 ) => void;
 export const emptyDiffComments: DiffComment[] = [];

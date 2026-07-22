@@ -43,9 +43,7 @@ export async function runExternalAgentImportWithStatus(
 
 export function getSidebarOnboardingChecklistState(
   stateByAccountId:
-    | SidebarOnboardingChecklistStateByAccountId
-    | null
-    | undefined,
+    SidebarOnboardingChecklistStateByAccountId | null | undefined,
   accountId: string,
 ): SidebarOnboardingChecklistState {
   return (

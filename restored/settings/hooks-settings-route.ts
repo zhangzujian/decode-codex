@@ -2,12 +2,7 @@
 
 import { getCommonHookSourceGroup } from "./hooks-settings-model";
 type HookSettingsRouteSource =
-  | "plugin"
-  | "user"
-  | "admin"
-  | "project"
-  | "sessionFlags"
-  | "unknown";
+  "plugin" | "user" | "admin" | "project" | "sessionFlags" | "unknown";
 type HookSettingsRouteOptions = {
   hostId?: string | null;
   pluginId?: string | null;

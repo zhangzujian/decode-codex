@@ -10,9 +10,8 @@ export type ThemePreference = ThemeVariant | "system" | string;
 
 export const themeConfigSignal = appScopeUnderscore(appScopeRoot, () => null);
 
-const resolvedColorSchemeSignal = appScopeUnderscore(
-  appScopeRoot,
-  () => readSystemThemeVariant(),
+const resolvedColorSchemeSignal = appScopeUnderscore(appScopeRoot, () =>
+  readSystemThemeVariant(),
 );
 
 export function useThemePreference(): ThemePreference {
@@ -25,9 +24,7 @@ export function toThemeVariant(preference: ThemePreference): ThemeVariant {
     : readSystemThemeVariant();
 }
 
-export function resolveColorScheme(
-  preference: ThemePreference,
-): ThemeVariant {
+export function resolveColorScheme(preference: ThemePreference): ThemeVariant {
   return toThemeVariant(preference);
 }
 

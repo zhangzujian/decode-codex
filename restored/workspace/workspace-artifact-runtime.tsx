@@ -18,11 +18,7 @@ import {
 } from "../app-shell/app-shell-state";
 
 export type ArtifactType =
-  | "document"
-  | "notebook"
-  | "pdf"
-  | "slides"
-  | "spreadsheet";
+  "document" | "notebook" | "pdf" | "slides" | "spreadsheet";
 
 export interface ArtifactDescriptor {
   artifactType: ArtifactType;

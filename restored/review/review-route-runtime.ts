@@ -1,6 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Route/workspace context defaults for review-related modules.
-import { appScopeL, appScopeRoot, appScopeUnderscore } from "../boundaries/app-scope";
+import {
+  appScopeL,
+  appScopeRoot,
+  appScopeUnderscore,
+} from "../boundaries/app-scope";
 import { LOCAL_HOST_ID } from "../boundaries/use-host-config.facade";
 import { normalizePath } from "../runtime/path-helpers-runtime";
 
@@ -45,18 +49,12 @@ export const conversationAssignmentsAtom = appScopeUnderscore(
   appScopeRoot,
   () => ({}),
 );
-export const conversationCwdAtom = appScopeUnderscore(
-  appScopeRoot,
-  () => null,
-);
+export const conversationCwdAtom = appScopeUnderscore(appScopeRoot, () => null);
 export const conversationWorkspaceStateAtom = appScopeUnderscore(
   appScopeRoot,
   () => null,
 );
-export const localProjectRootsAtom = appScopeUnderscore(
-  appScopeRoot,
-  () => [],
-);
+export const localProjectRootsAtom = appScopeUnderscore(appScopeRoot, () => []);
 export const serverConfigQueryAtom = appScopeUnderscore(appScopeRoot, () => ({
   data: null,
   isError: false,
@@ -83,7 +81,8 @@ export const hostConfigByIdAtom = appScopeL(appScopeRoot, (hostId) => ({
 export const hostConfigAtom = hostConfigByIdAtom;
 
 export function resolveHostConfig(
-  hostIdOrConfig?: string | { id?: string; hostId?: string; kind?: string } | null,
+  hostIdOrConfig?:
+    string | { id?: string; hostId?: string; kind?: string } | null,
   hostConfigs?: Array<{ id?: string; hostId?: string; kind?: string }> | null,
 ): { id: string; kind: string } & Record<string, unknown> {
   if (hostIdOrConfig && typeof hostIdOrConfig === "object") {
@@ -121,16 +120,15 @@ export function resolveHostConfigId(hostConfig: unknown): string {
 }
 
 export function useHostConfig(
-  hostIdOrConfig?: string | { id?: string; hostId?: string; kind?: string } | null,
+  hostIdOrConfig?:
+    string | { id?: string; hostId?: string; kind?: string } | null,
 ) {
   return resolveHostConfig(hostIdOrConfig);
 }
 
 export function readHostConfigValue(
   getOrKey:
-    | ((signal: unknown, key?: string) => unknown)
-    | string
-    | { key?: string },
+    ((signal: unknown, key?: string) => unknown) | string | { key?: string },
   keyOrFallback?: string | { key?: string } | unknown,
   fallback?: unknown,
 ): unknown {

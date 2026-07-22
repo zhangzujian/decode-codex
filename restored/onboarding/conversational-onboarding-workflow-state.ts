@@ -7,16 +7,10 @@ import { getPersistedAtomValue } from "../utils/persisted-atom-store";
 import type { ConversationalOnboardingTaskId } from "./conversational-onboarding-task-registry";
 
 export type ConversationalOnboardingWorkflowPhase =
-  | "role"
-  | "task"
-  | "permission"
-  | "execution";
+  "role" | "task" | "permission" | "execution";
 
 export type ConversationalOnboardingPermissionStatus =
-  | "not-requested"
-  | "pending"
-  | "allowed"
-  | "denied";
+  "not-requested" | "pending" | "allowed" | "denied";
 
 export interface ConversationalOnboardingWorkflowState {
   declinedTasks: ConversationalOnboardingTaskId[];

@@ -105,8 +105,7 @@ const appshotHotkeyStateQuery = createAppScopeQuery(appScopeRoot, () => ({
   queryKey: APP_SHOT_HOTKEY_STATE_QUERY_KEY,
   queryFn: async (): Promise<AppshotHotkeyState> => {
     const hotkeys = appServices.appshotHotkeys as
-      | AppshotHotkeysService
-      | undefined;
+      AppshotHotkeysService | undefined;
     return hotkeys == null
       ? {
           supported: false,
@@ -121,8 +120,7 @@ async function setAppshotHotkey({
   hotkey,
 }: SetAppshotHotkeyVariables): Promise<SetAppshotHotkeyResult> {
   const hotkeys = appServices.appshotHotkeys as
-    | AppshotHotkeysService
-    | undefined;
+    AppshotHotkeysService | undefined;
   if (hotkeys == null) {
     throw new Error("Appshot hotkeys are unavailable");
   }

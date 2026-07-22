@@ -77,6 +77,10 @@ export function pathsEqualWithinRoot(
   root?: string | null,
 ): boolean {
   const normalizeComparablePath = (path: string) =>
-    normalizePath(root != null && !isAbsolutePath(path) ? joinPath(root, path) : path);
-  return normalizeComparablePath(leftPath) === normalizeComparablePath(rightPath);
+    normalizePath(
+      root != null && !isAbsolutePath(path) ? joinPath(root, path) : path,
+    );
+  return (
+    normalizeComparablePath(leftPath) === normalizeComparablePath(rightPath)
+  );
 }

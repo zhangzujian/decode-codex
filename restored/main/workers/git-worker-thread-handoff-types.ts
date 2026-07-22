@@ -15,14 +15,9 @@ export type GitCommandExecOutput = {
 };
 
 export type ThreadHandoffDirection =
-  | "to-host-worktree"
-  | "to-local"
-  | "to-worktree";
+  "to-host-worktree" | "to-local" | "to-worktree";
 export type ThreadHandoffProgressStatus =
-  | "started"
-  | "completed"
-  | "failed"
-  | "skipped";
+  "started" | "completed" | "failed" | "skipped";
 export type ThreadHandoffProgressStep =
   | "stash-source-changes"
   | "detach-worktree-branch"

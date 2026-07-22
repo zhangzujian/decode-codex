@@ -1,6 +1,9 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~kg2pu5rs-N3llppXI.js
 // Browser address-bar URL normalization and compact display formatting.
-import { formatExternalHrefForDisplay, normalizeExternalHref } from "../utils/external-link/normalize";
+import {
+  formatExternalHrefForDisplay,
+  normalizeExternalHref,
+} from "../utils/external-link/normalize";
 import { isLocalHostname } from "../utils/external-link/domain";
 
 type GoLinksConfig = {

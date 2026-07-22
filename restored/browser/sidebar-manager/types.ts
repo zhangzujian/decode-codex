@@ -1,9 +1,7 @@
 // Restored from ref/webview/assets/browser-sidebar-manager-DZM0wpKX.js
 // browser-sidebar-manager-DZM0wpKX chunk restored from the Codex webview bundle.
 export type BrowserSidebarHostKind =
-  | "bottom-panel"
-  | "hidden-browser-use"
-  | "right-panel";
+  "bottom-panel" | "hidden-browser-use" | "right-panel";
 export type BrowserSidebarBounds = {
   height: number;
   width: number;
@@ -76,11 +74,7 @@ export type BrowserSidebarDeviceToolbarLayout = {
   webviewBounds: BrowserSidebarBounds;
 };
 export type BrowserSidebarResizeEdge =
-  | "bottom"
-  | "bottom-left"
-  | "bottom-right"
-  | "left"
-  | "right";
+  "bottom" | "bottom-left" | "bottom-right" | "left" | "right";
 export type BrowserSidebarResizeDrag = {
   edge: BrowserSidebarResizeEdge;
   startHeight: number;

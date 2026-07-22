@@ -255,8 +255,7 @@ function parsePluginDetailDeepLink(url: URL): DeepLinkRoute | null {
   const pluginName = decodeDeepLinkSegment(encodedPluginName);
   if (pluginName == null) return null;
   const toPluginId = sharedRuntime.parsePluginIdentifier as
-    | ((name: string) => unknown)
-    | undefined;
+    ((name: string) => unknown) | undefined;
   const pluginId = toPluginId?.(pluginName);
   if (pluginId == null) return null;
   return {
@@ -331,18 +330,15 @@ function decodeDeepLinkSegment(value: string | undefined): string | null {
 
 function isValidMarketplaceName(value: string | undefined): boolean {
   const validate = sharedRuntime.isSafePathSegment as
-    | ((name: string | undefined) => boolean)
-    | undefined;
+    ((name: string | undefined) => boolean) | undefined;
   return typeof validate === "function" ? validate(value) : Boolean(value);
 }
 
 function isSafeMarketplacePath(value: string): boolean {
   const isSafePath = sharedRuntime.isAbsoluteFilePath as
-    | ((pathValue: string) => boolean)
-    | undefined;
+    ((pathValue: string) => boolean) | undefined;
   const isPluginPathBlocked = sharedRuntime.isUncPath as
-    | ((pathValue: string) => boolean)
-    | undefined;
+    ((pathValue: string) => boolean) | undefined;
   const safe =
     typeof isSafePath === "function" ? isSafePath(value) : value.length > 0;
   const blocked =
@@ -363,8 +359,7 @@ function isWindowsProjectPath(value: string): boolean {
 function normalizeError(error: unknown): Error {
   if (error instanceof Error) return error;
   const convert = sharedRuntime.toError as
-    | ((error: unknown) => Error)
-    | undefined;
+    ((error: unknown) => Error) | undefined;
   return typeof convert === "function" ? convert(error) : Error(String(error));
 }
 

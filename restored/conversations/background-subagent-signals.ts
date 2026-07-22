@@ -84,9 +84,7 @@ function buildBackgroundAgentsForParent(
 
   const conversationTurns =
     (get(conversationTurnsSignal, parentConversationId) as
-      | readonly ConversationTurn[]
-      | null
-      | undefined) ?? emptyConversationTurns;
+      readonly ConversationTurn[] | null | undefined) ?? emptyConversationTurns;
   if (conversationTurns.length === 0) return [];
 
   get(conversationMetaEventSignal);
@@ -103,9 +101,7 @@ function buildBackgroundAgentsForParent(
     getChildSource: (conversationId) => get(threadSourceSignal, conversationId),
     getChildTurns: (conversationId) =>
       get(conversationTurnsSignal, conversationId) as
-        | readonly ConversationTurn[]
-        | null
-        | undefined,
+        readonly ConversationTurn[] | null | undefined,
     parentConversationId,
     sourceLinkedThreads: get(
       sourceLinkedSubagentThreadsSignal,

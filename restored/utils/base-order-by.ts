@@ -9,11 +9,7 @@ import {
   isSymbol,
 } from "./markdown-to-search-text";
 type Iteratee<T> =
-  | ((value: T) => unknown)
-  | string
-  | number
-  | symbol
-  | unknown[];
+  ((value: T) => unknown) | string | number | symbol | unknown[];
 type SortOrder = "asc" | "desc" | string;
 type OrderedEntry<T> = {
   criteria: unknown[];

@@ -172,7 +172,10 @@ export class TerminalSessionManager implements TerminalHostEventTarget {
   setTitle(sessionId: string, title: string): void {
     this.updateSnapshotMetadata(sessionId, {
       rawShellTitle: title,
-      title: normalizeShellTitle(title, this.getOrCreateSnapshot(sessionId).cwd),
+      title: normalizeShellTitle(
+        title,
+        this.getOrCreateSnapshot(sessionId).cwd,
+      ),
     });
   }
 
@@ -347,10 +350,7 @@ export class TerminalSessionManager implements TerminalHostEventTarget {
     return this.startedSessionIds.has(sessionId);
   }
 
-  register(
-    sessionId: string,
-    listener: TerminalSessionListener,
-  ): Unsubscribe {
+  register(sessionId: string, listener: TerminalSessionListener): Unsubscribe {
     this.listeners.set(sessionId, listener);
     const buffer = this.sessionSnapshots.get(sessionId)?.buffer;
     if (buffer) listener.onInitLog?.(buffer);
@@ -416,7 +416,10 @@ export class TerminalSessionManager implements TerminalHostEventTarget {
       );
       const nextActiveSessionId =
         conversationSnapshot.activeSessionId === sessionId
-          ? this.getNeighborSessionId(conversationSnapshot.sessionIds, sessionId)
+          ? this.getNeighborSessionId(
+              conversationSnapshot.sessionIds,
+              sessionId,
+            )
           : conversationSnapshot.activeSessionId;
       if (nextSessionIds.length > 0 && nextActiveSessionId != null) {
         this.setConversationSessions(
@@ -462,7 +465,9 @@ export class TerminalSessionManager implements TerminalHostEventTarget {
     }
   }
 
-  private getConversationSessionMetadata(sessionIds: string[]): Pick<
+  private getConversationSessionMetadata(
+    sessionIds: string[],
+  ): Pick<
     TerminalConversationSnapshot,
     "cwdBySessionId" | "tabTitlesBySessionId"
   > {

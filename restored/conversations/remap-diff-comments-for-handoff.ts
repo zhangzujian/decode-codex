@@ -19,9 +19,7 @@ export function remapDiffCommentsForHandoff<TComment>({
   targetConversationId,
   diffComments,
 }: RemapDiffCommentsOptions<TComment>):
-  | DiffCommentsByConversationId<TComment>
-  | null
-  | undefined {
+  DiffCommentsByConversationId<TComment> | null | undefined {
   if (sourceConversationId === targetConversationId || diffComments == null) {
     return diffComments;
   }

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/electron-menu-shortcuts-j6UKqTX5.js
+// Restored from ref/webview/assets/app-initial~artifact-tab-content.electron~app-main~appgen-settings-page~page~pull-request-r~ll1u4x0e-Bl9B7AEa.js
 const workspaceAndPanelCommandDefinitions = [
   {
     id: `openFolder`,
@@ -6,6 +6,7 @@ const workspaceAndPanelCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.openFolder`,
     commandMenuGroupKey: `workspace`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       menuTitle: `Open Folder…`,
       menuTitleIntlId: `codex.commandMenuTitle.openFolder`,
@@ -38,6 +39,7 @@ const workspaceAndPanelCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.toggleBottomPanel`,
     commandMenuGroupKey: `panels`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       menuTitle: `Toggle Bottom Panel`,
       menuTitleIntlId: `codex.commandMenuTitle.toggleBottomPanel`,
@@ -49,11 +51,23 @@ const workspaceAndPanelCommandDefinitions = [
     },
   },
   {
+    id: `togglePinnedSummary`,
+    titleIntlId: `codex.command.togglePinnedSummary`,
+    descriptionIntlId: `codex.commandDescription.togglePinnedSummary`,
+    commandMenuGroupKey: `panels`,
+    commandMenu: true,
+    electron: {
+      menuTitle: `Toggle Pinned Summary`,
+      menuTitleIntlId: `codex.commandMenuTitle.togglePinnedSummary`,
+    },
+  },
+  {
     id: `toggleTerminal`,
     titleIntlId: `codex.command.toggleTerminal`,
     descriptionIntlId: `codex.commandDescription.toggleTerminal`,
     commandMenuGroupKey: `panels`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       menuTitle: `Open Terminal`,
       menuTitleIntlId: `codex.commandMenuTitle.toggleTerminal`,
@@ -70,6 +84,7 @@ const workspaceAndPanelCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.openBrowserTab`,
     commandMenuGroupKey: `panels`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       menuTitle: `Open Browser Tab`,
       menuTitleIntlId: `codex.commandMenuTitle.openBrowserTab`,
@@ -86,6 +101,7 @@ const workspaceAndPanelCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.toggleBrowserPanel`,
     commandMenuGroupKey: `panels`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       menuTitle: `Toggle Browser Panel`,
       menuTitleIntlId: `codex.commandMenuTitle.toggleBrowserPanel`,
@@ -104,6 +120,7 @@ const workspaceAndPanelCommandDefinitions = [
     shortcutScope: `app`,
     commandMenuGroupKey: `panels`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       defaultKeybindings: [
         {
@@ -113,14 +130,23 @@ const workspaceAndPanelCommandDefinitions = [
     },
   },
   {
+    id: `toggleReviewTab`,
+    titleIntlId: `codex.command.toggleReviewTab`,
+    descriptionIntlId: `codex.commandDescription.toggleReviewTab`,
+    availableIn: [`electron`, `browser`],
+    shortcutScope: `app`,
+    commandMenuGroupKey: `panels`,
+  },
+  {
     id: `toggleSidePanel`,
-    titleIntlId: `codex.command.toggleSidePanel`,
-    descriptionIntlId: `codex.commandDescription.toggleSidePanel`,
+    titleIntlId: `codex.command.toggleReviewPanel`,
+    descriptionIntlId: `codex.commandDescription.toggleReviewPanel`,
     commandMenuGroupKey: `panels`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
-      menuTitle: `Toggle Side Panel`,
-      menuTitleIntlId: `codex.commandMenuTitle.toggleSidePanel`,
+      menuTitle: `Toggle Review Panel`,
+      menuTitleIntlId: `codex.commandMenuTitle.toggleReviewPanel`,
       defaultKeybindings: [
         {
           key: `CmdOrCtrl+Alt+B`,
@@ -160,6 +186,7 @@ const workspaceAndPanelCommandDefinitions = [
           },
         ],
       },
+      isOverridableByBrowserWebpage: true,
     },
   },
   {
@@ -168,6 +195,7 @@ const workspaceAndPanelCommandDefinitions = [
     descriptionIntlId: `codex.commandDescription.focusBrowserAddressBar`,
     commandMenuGroupKey: `navigation`,
     commandMenu: true,
+    commandMenuFeature: `codex`,
     electron: {
       menuTitle: `Focus Browser Address Bar`,
       menuTitleIntlId: `codex.commandMenuTitle.focusBrowserAddressBar`,
@@ -176,6 +204,7 @@ const workspaceAndPanelCommandDefinitions = [
           key: `CmdOrCtrl+L`,
         },
       ],
+      isOverridableByBrowserWebpage: true,
     },
   },
   {
@@ -197,6 +226,7 @@ const workspaceAndPanelCommandDefinitions = [
           },
         ],
       },
+      isOverridableByBrowserWebpage: true,
     },
   },
   {
@@ -218,6 +248,7 @@ const workspaceAndPanelCommandDefinitions = [
           },
         ],
       },
+      isOverridableByBrowserWebpage: true,
     },
   },
   {

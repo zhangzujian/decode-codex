@@ -25,7 +25,9 @@ export interface StartComposerTurnArgs {
   restoreMessage?: any;
 }
 
-export interface SendRestoreMessageArgs
-  extends Omit<StartComposerTurnArgs, "context" | "cwd" | "restoreMessage"> {
+export interface SendRestoreMessageArgs extends Omit<
+  StartComposerTurnArgs,
+  "context" | "cwd" | "restoreMessage"
+> {
   restoreMessage: { cwd: string; context: any };
 }

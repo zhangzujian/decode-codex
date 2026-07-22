@@ -1,0 +1,3 @@
+import { n as e, t } from "./thumbs-up-ClvSbpC4-6sjsiq4W.js";
+e();
+export { t as default };

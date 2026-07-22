@@ -1304,7 +1304,7 @@ var _l = e(() => {
 function Sl(e) {
   let t = 0,
     n = e.next(t);
-  for (; !n.done && t < 2e4; ) ((t += 50), (n = e.next(t)));
+  for (; !n.done && t < 2e4;) ((t += 50), (n = e.next(t)));
   return t >= 2e4 ? 1 / 0 : t;
 }
 var Cl,
@@ -2992,7 +2992,7 @@ var Ef = e(() => {
 function Df(e, t, n) {
   let r = 0,
     i;
-  for (; r < e.length && !i; ) {
+  for (; r < e.length && !i;) {
     let t = e[r];
     (typeof t == `string` && !Of.has(t) && Pc(t).values.length && (i = e[r]),
       r++);
@@ -5851,7 +5851,7 @@ function vy(e, t) {
   let n = e.length - 1,
     r = null,
     i = _y(e);
-  for (; n >= 0 && ((r = e[n]), !(i.timestamp - r.timestamp > zo(t))); ) n--;
+  for (; n >= 0 && ((r = e[n]), !(i.timestamp - r.timestamp > zo(t)));) n--;
   if (!r) return { x: 0, y: 0 };
   let a = Bo(i.timestamp - r.timestamp);
   if (a === 0) return { x: 0, y: 0 };
@@ -7337,16 +7337,14 @@ function qb({
         (this.isTransformDirty ||= t.isTransformDirty),
         (this.isSharedProjectionDirty ||= t.isSharedProjectionDirty));
       let n = !!this.resumingFrom || this !== t;
-      if (
-        !(
-          e ||
-          (n && this.isSharedProjectionDirty) ||
-          this.isProjectionDirty ||
-          this.parent?.isProjectionDirty ||
-          this.attemptToResolveRelativeTarget ||
-          this.root.updateBlockedByResize
-        )
-      )
+      if (!(
+        e ||
+        (n && this.isSharedProjectionDirty) ||
+        this.isProjectionDirty ||
+        this.parent?.isProjectionDirty ||
+        this.attemptToResolveRelativeTarget ||
+        this.root.updateBlockedByResize
+      ))
         return;
       let { layout: r, layoutId: i } = this.options;
       if (!(!this.layout || !(r || i))) {
@@ -7410,13 +7408,11 @@ function qb({
       }
     }
     getClosestProjectingParent() {
-      if (
-        !(
-          !this.parent ||
-          Fg(this.parent.latestValues) ||
-          Lg(this.parent.latestValues)
-        )
-      )
+      if (!(
+        !this.parent ||
+        Fg(this.parent.latestValues) ||
+        Lg(this.parent.latestValues)
+      ))
         return this.parent.isProjecting()
           ? this.parent
           : this.parent.getClosestProjectingParent();
@@ -9709,7 +9705,7 @@ function ET(
     h = s > 1 || c,
     g = h ? Array(d) : [],
     _;
-  for (; (_ = e.indexOf(t, m)) > -1; ) {
+  for (; (_ = e.indexOf(t, m)) > -1;) {
     let e = wT(t, {
       currentLocation: _,
       expectedLocation: f,
@@ -9718,7 +9714,7 @@ function ET(
     });
     if (((p = Math.min(e, p)), (m = _ + u), h)) {
       let e = 0;
-      for (; e < u; ) ((g[_ + e] = 1), (e += 1));
+      for (; e < u;) ((g[_ + e] = 1), (e += 1));
     }
   }
   m = -1;
@@ -9729,7 +9725,7 @@ function ET(
   for (let r = 0; r < u; r += 1) {
     let a = 0,
       s = b;
-    for (; a < s; )
+    for (; a < s;)
       (wT(t, {
         errors: r,
         currentLocation: f + s,
@@ -9808,13 +9804,13 @@ function kT(e, t = {}) {
       let i = n[e],
         a = !1,
         o = -1;
-      for (; !a && ++o < uE; ) {
+      for (; !a && ++o < uE;) {
         let e = lE[o],
           n = e.isMultiMatch(i);
         n && (r.push(new e(n, t)), (a = !0));
       }
       if (!a)
-        for (o = -1; ++o < uE; ) {
+        for (o = -1; ++o < uE;) {
           let e = lE[o],
             n = e.isSingleMatch(i);
           if (n) {
@@ -10074,7 +10070,7 @@ var LT,
               if (oT(i)) {
                 let e = [],
                   t = [{ nestedArrIndex: -1, value: i }];
-                for (; t.length; ) {
+                for (; t.length;) {
                   let { nestedArrIndex: n, value: r } = t.pop();
                   if (mT(r))
                     if (lT(r) && !hT(r)) {
@@ -10151,7 +10147,7 @@ var LT,
             let e = 0,
               t = d % ZT,
               n = d - t;
-            for (; e < n; ) (u(this.pattern.substr(e, ZT), e), (e += ZT));
+            for (; e < n;) (u(this.pattern.substr(e, ZT), e), (e += ZT));
             if (t) {
               let e = d - ZT;
               u(this.pattern.substr(e), e);
@@ -10394,7 +10390,7 @@ var LT,
             n,
             r = [],
             i = this.pattern.length;
-          for (; (n = e.indexOf(this.pattern, t)) > -1; )
+          for (; (n = e.indexOf(this.pattern, t)) > -1;)
             ((t = n + i), r.push([n, t - 1]));
           let a = !!r.length;
           return { isMatch: a, score: a ? 0 : 1, indices: r };
@@ -11883,7 +11879,7 @@ function SO(e, t, n) {
   if (t === n) return !0;
   let r = e.get(n),
     i = new Set();
-  for (; r?.previous_turn_id && !i.has(r.id); ) {
+  for (; r?.previous_turn_id && !i.has(r.id);) {
     if ((i.add(r.id), r.previous_turn_id === t)) return !0;
     r = e.get(r.previous_turn_id);
   }
@@ -11894,7 +11890,7 @@ function CO(e, t) {
   let n = [],
     r = t ? wO(e, t) : null,
     i = e;
-  for (; i; ) {
+  for (; i;) {
     let e = r?.[0] ?? i.assistantTurns[0]?.id ?? null,
       t = bO(i.assistantTurns, e)?.id ?? null;
     if ((n.push({ node: i, activeId: t }), !t)) break;
@@ -12491,11 +12487,11 @@ function lA(
     g = (n) => {
       n <= h || p.push(e.text(t.slice(h, n)));
     };
-  for (; m < t.length; ) {
+  for (; m < t.length;) {
     let _ = t.indexOf(`[`, m);
     if (_ === -1) break;
     let v = _ + 1;
-    for (; v < t.length; ) {
+    for (; v < t.length;) {
       let e = t[v],
         n = t[v + 1];
       if (e === `\\` && (n === `\\` || (n === `]` && t[v + 2] !== `(`))) {
@@ -12513,7 +12509,7 @@ function lA(
     let y = v + 2,
       b = ``,
       x = !1;
-    for (; y < t.length; ) {
+    for (; y < t.length;) {
       let e = t[y];
       if (e === `\\`) {
         let e = t[y + 1];
@@ -12611,7 +12607,7 @@ function lA(
 }
 function uA(e, t) {
   let n = 0;
-  for (; n < e.length; ) {
+  for (; n < e.length;) {
     let r = dn(e, n);
     if (r == null) break;
     if (t(r)) return !0;
@@ -15654,7 +15650,7 @@ var iF,
     function n(e, t, n, r) {
       var i = -1,
         a = e == null ? 0 : e.length;
-      for (r && a && (n = e[++i]); ++i < a; ) n = t(n, e[i], i, e);
+      for (r && a && (n = e[++i]); ++i < a;) n = t(n, e[i], i, e);
       return n;
     }
     t.exports = n;
@@ -15975,7 +15971,7 @@ var iF,
         n < 0 && (n += i),
         (i = t > n ? 0 : (n - t) >>> 0),
         (t >>>= 0));
-      for (var a = Array(i); ++r < i; ) a[r] = e[r + t];
+      for (var a = Array(i); ++r < i;) a[r] = e[r + t];
       return a;
     }
     t.exports = n;
@@ -24198,7 +24194,7 @@ var oK = e(() => {
   }),
   sK = i((e, t) => {
     function n(e) {
-      for (var t = -1, n = e == null ? 0 : e.length, r = {}; ++t < n; ) {
+      for (var t = -1, n = e == null ? 0 : e.length, r = {}; ++t < n;) {
         var i = e[t];
         r[i[0]] = i[1];
       }
@@ -24217,7 +24213,7 @@ var oK = e(() => {
   }),
   lK = i((e, t) => {
     function n(e, t, n, r) {
-      for (var i = -1, a = e == null ? 0 : e.length; ++i < a; ) {
+      for (var i = -1, a = e == null ? 0 : e.length; ++i < a;) {
         var o = e[i];
         t(r, o, n(o), e);
       }
@@ -28947,7 +28943,7 @@ function ZX(e) {
   let t = [],
     n = 0,
     r;
-  for (; (r = lZ.exec(e)) != null; ) {
+  for (; (r = lZ.exec(e)) != null;) {
     r.index > n && t.push(e.slice(n, r.index));
     let [i, a, o] = r,
       s = o.trim();

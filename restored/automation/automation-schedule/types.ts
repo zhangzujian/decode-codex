@@ -18,11 +18,7 @@ export const AUTOMATION_WEEKEND_DAYS = ["SA", "SU"] as const;
 export type AutomationWeekday = (typeof AUTOMATION_WEEKDAYS)[number];
 
 export type AutomationScheduleMode =
-  | "hourly"
-  | "daily"
-  | "weekdays"
-  | "weekly"
-  | "custom";
+  "hourly" | "daily" | "weekdays" | "weekly" | "custom";
 
 export type AutomationScheduleConfig = {
   mode: AutomationScheduleMode;

@@ -5,8 +5,7 @@ import { rm } from "node:fs/promises";
 import type { MarketplaceWriteCounts, StructuredLogger } from "./types";
 
 export type PluginMarketplaceDirectoryKind =
-  | "runtime_marketplace"
-  | "staging_marketplace";
+  "runtime_marketplace" | "staging_marketplace";
 
 export type PluginMarketplaceRemovePhase =
   | "cleanup_staging_after_write"

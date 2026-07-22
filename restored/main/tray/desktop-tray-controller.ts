@@ -31,11 +31,9 @@ export class DesktopTrayController {
     private readonly onTrayMenuOpenNewThread: () => void,
     private readonly onTrayMenuOpenRecentThread: (path: string) => void,
     private readonly getChronicleSidecarControlState:
-      | (() => ChronicleSidecarControlState)
-      | null,
+      (() => ChronicleSidecarControlState) | null,
     private readonly toggleChronicleSidecar:
-      | (() => Promise<ChronicleSidecarControlState>)
-      | null,
+      (() => Promise<ChronicleSidecarControlState>) | null,
     private readonly trayIcons: DesktopTrayIcons,
     private readonly nativeIntl: NativeIntlBoundary,
     private readonly appName: string,

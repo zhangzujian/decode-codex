@@ -1,0 +1,3 @@
+import { n as e, t } from "./qr-code-BuBaannF-Dq3scEgV.js";
+e();
+export { t as default };

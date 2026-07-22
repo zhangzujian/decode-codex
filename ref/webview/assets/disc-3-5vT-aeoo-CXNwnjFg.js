@@ -1,0 +1,3 @@
+import { n as e, t } from "./disc-3-5vT-aeoo-jpt8-Buj.js";
+e();
+export { t as default };

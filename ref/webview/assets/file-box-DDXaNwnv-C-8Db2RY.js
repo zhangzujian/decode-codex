@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-box-DDXaNwnv-C-CcdoGM.js";
+t();
+export { e as default };

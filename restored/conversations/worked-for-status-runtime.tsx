@@ -71,8 +71,6 @@ export function WorkedForStatusLabel({
     );
 
   return (
-    <span className={clsx("text-token-foreground/60", className)}>
-      {label}
-    </span>
+    <span className={clsx("text-token-foreground/60", className)}>{label}</span>
   );
 }

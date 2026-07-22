@@ -96,9 +96,7 @@ type PendingWorktreeSidebarTask = {
   };
 };
 type SidebarTask =
-  | LocalSidebarTask
-  | RemoteSidebarTask
-  | PendingWorktreeSidebarTask;
+  LocalSidebarTask | RemoteSidebarTask | PendingWorktreeSidebarTask;
 type CloudEnvironment = {
   label?: string | null;
   repo_map?: Record<
@@ -564,9 +562,7 @@ function attachLocalThreadToProjectGroup(
   gitOrigins: GitOrigin[] | null | undefined,
   codexHome: string | null | undefined,
   gitOriginsByHostId:
-    | Record<string, GitOrigin[] | undefined>
-    | null
-    | undefined,
+    Record<string, GitOrigin[] | undefined> | null | undefined,
   primaryHostId = LOCAL_HOST_ID,
   options?: AttachThreadOptions,
 ) {
@@ -889,9 +885,9 @@ function isSameOwnerRepo(
 ) {
   return Boolean(
     left &&
-      right &&
-      left.owner === right.owner &&
-      left.repoName === right.repoName,
+    right &&
+    left.owner === right.owner &&
+    left.repoName === right.repoName,
   );
 }
 function groupBy<TValue, TKey>(

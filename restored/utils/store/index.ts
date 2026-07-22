@@ -233,13 +233,13 @@ function tokenizeNatural(value) {
   let tokens = [],
     segmentStart = 0,
     index = 0;
-  for (; index < value.length; ) {
-    for (; index < value.length && !isDigitCharCode(value.charCodeAt(index)); )
+  for (; index < value.length;) {
+    for (; index < value.length && !isDigitCharCode(value.charCodeAt(index));)
       index += 1;
     if (index >= value.length) break;
     index > segmentStart && tokens.push(value.slice(segmentStart, index));
     let numericValue = 0;
-    for (; index < value.length && isDigitCharCode(value.charCodeAt(index)); ) {
+    for (; index < value.length && isDigitCharCode(value.charCodeAt(index));) {
       numericValue = numericValue * 10 + (value.charCodeAt(index) - 48);
       index += 1;
     }
@@ -695,7 +695,7 @@ var PathTreeBuilder = class {
             depth = matchedDepth;
             let segmentStart = matchedOffset,
               slashIndex = path.indexOf("/", segmentStart);
-            for (; slashIndex >= 0 && slashIndex < pathLength; ) {
+            for (; slashIndex >= 0 && slashIndex < pathLength;) {
               let parentId = directoryStack[stackDepth];
               if (parentId === undefined)
                 throw Error(
@@ -819,7 +819,7 @@ var PathTreeBuilder = class {
       depth = matchedDepth;
       let segmentStart = matchedOffset,
         slashIndex = path.indexOf("/", segmentStart);
-      for (; slashIndex >= 0; ) {
+      for (; slashIndex >= 0;) {
         let _parentId = directoryStack[stackDepth];
         if (_parentId === undefined)
           throw Error(
@@ -1802,7 +1802,7 @@ function recomputeCountsUpwardFrom(state, nodeId) {
 function recomputeSubtreeCounts(state, nodeId) {
   let stack = [[nodeId, 0]],
     { nodes, directories } = state.snapshot;
-  for (; stack.length > 0; ) {
+  for (; stack.length > 0;) {
     let frame = stack[stack.length - 1],
       currentId = frame[0],
       node = nodes[currentId];
@@ -1824,7 +1824,7 @@ function recomputeSubtreeCounts(state, nodeId) {
 function collectAncestorIds(state, nodeId) {
   let ancestorIds = [],
     currentId = nodeId;
-  for (; currentId != null; ) {
+  for (; currentId != null;) {
     let node = getNode(state, currentId);
     if ((ancestorIds.push(currentId), currentId === state.snapshot.rootId))
       break;
@@ -1883,7 +1883,7 @@ function collectDescendantPaths(state, nodeId) {
         nodeId: nodeId,
       },
     ];
-  for (; stack.length > 0; ) {
+  for (; stack.length > 0;) {
     let frame = stack[stack.length - 1];
     if (frame == null) break;
     let frameNode = state.snapshot.nodes[frame.nodeId];
@@ -1991,7 +1991,7 @@ function createFileNode(state, parentId, name) {
 function findChildInsertionIndex(state, parentDirectory, childId) {
   let low = 0,
     high = parentDirectory.childIds.length;
-  for (; low < high; ) {
+  for (; low < high;) {
     let mid = (low + high) >>> 1,
       midChildId = parentDirectory.childIds[mid];
     if (midChildId == null) {
@@ -2152,7 +2152,7 @@ function removeSubtree(state, rootNodeId) {
         visitedChildren: false,
       },
     ];
-  for (; stack.length > 0; ) {
+  for (; stack.length > 0;) {
     let frame = stack.pop();
     if (frame == null) break;
     let node = getNode(state, frame.nodeId);
@@ -2191,7 +2191,7 @@ function removeSubtree(state, rootNodeId) {
 }
 function collapseEmptyAncestors(state, startNodeId) {
   let currentNodeId = startNodeId;
-  for (; currentNodeId != null; ) {
+  for (; currentNodeId != null;) {
     let node = getNode(state, currentNodeId);
     if (
       !isDirectory(node) ||
@@ -2248,7 +2248,7 @@ function idArraysDiffer(leftIds, rightIds) {
 }
 function findFlattenAnchorNodeId(state, nodeId) {
   let currentNodeId = nodeId;
-  for (; currentNodeId != null; ) {
+  for (; currentNodeId != null;) {
     let node = getNode(state, currentNodeId);
     if (!isDirectory(node) || hasFlag(node, 2)) return null;
     if (!isDirectoryExpanded(state, currentNodeId, node)) return currentNodeId;
@@ -2274,7 +2274,7 @@ function recomputeSubtreeDepths(state, nodeId) {
 }
 function isAncestorOf(state, ancestorId, nodeId) {
   let currentNodeId = nodeId;
-  for (; currentNodeId != null; ) {
+  for (; currentNodeId != null;) {
     if (currentNodeId === ancestorId) return true;
     let node = getNode(state, currentNodeId);
     if (currentNodeId === state.snapshot.rootId) return false;
@@ -2299,7 +2299,7 @@ function recomputeNodeCounts(
 }
 function recomputeAncestorCounts(state, startNodeId) {
   let currentNodeId = startNodeId;
-  for (; currentNodeId != null; ) {
+  for (; currentNodeId != null;) {
     let node = getNode(state, currentNodeId),
       prevSubtreeNodeCount = node.subtreeNodeCount,
       prevVisibleSubtreeCount = node.visibleSubtreeCount;
@@ -2516,7 +2516,7 @@ function rebuildDirectoryIndexes(state) {
 }
 function trimTrailingRemovedNodeSlots(state) {
   let index = state.snapshot.nodes.length - 1;
-  for (; index > state.snapshot.rootId; ) {
+  for (; index > state.snapshot.rootId;) {
     let node = state.snapshot.nodes[index];
     if (isLiveNode(node)) break;
     --index;
@@ -2634,7 +2634,7 @@ function ensureInt32ArrayCapacity(array, count) {
   let requiredLength = count + 2;
   if (requiredLength <= array.length) return array;
   let newLength = array.length;
-  for (; newLength < requiredLength; ) newLength *= 2;
+  for (; newLength < requiredLength;) newLength *= 2;
   let grownArray = new Int32Array(newLength);
   return (grownArray.fill(-1), grownArray.set(array), grownArray);
 }
@@ -2879,7 +2879,7 @@ function computeVisibleIndex(state, path) {
   let visibleIndex = 0,
     currentNodeId = nodeId,
     { nodes, rootId } = state.snapshot;
-  for (; currentNodeId !== rootId; ) {
+  for (; currentNodeId !== rootId;) {
     let parentId = getNode(state, currentNodeId).parentId,
       parentDirectory = getDirectory(state, parentId),
       childIndex = ensureChildPositionById(parentDirectory).get(currentNodeId);
@@ -3100,7 +3100,7 @@ function collectVisiblePaths(state, count) {
     pathCache = state.pathCacheByNodeId,
     pathCacheVersion = state.pathCacheVersion,
     nameValues = segmentTable.valueById;
-  for (; stack.length > 0 && rowCount < count; ) {
+  for (; stack.length > 0 && rowCount < count;) {
     let frame = stack[stack.length - 1],
       frameNode = frame[0];
     if (frame[1] >= frameNode.childIds.length) {
@@ -3175,7 +3175,7 @@ function collectVisibleRows(state, count) {
     flattenEmptyDirectories = state.snapshot.options.flattenEmptyDirectories,
     pathCache = state.pathCacheByNodeId,
     pathCacheVersion = state.pathCacheVersion;
-  for (; stack.length > 0 && rowCount < count; ) {
+  for (; stack.length > 0 && rowCount < count;) {
     let frame = stack[stack.length - 1],
       frameNode = frame[0];
     if (frame[1] >= frameNode.childIds.length) {
@@ -3913,7 +3913,7 @@ export const Store = class PathTreeStore {
         segmentIndex = sharedSegmentCount,
         allSegmentsMatched = true,
         cursor = sharedPrefixEnd;
-      for (; cursor <= pathLength; ) {
+      for (; cursor <= pathLength;) {
         let slashIndex = path.indexOf("/", cursor),
           segmentEnd =
             slashIndex === -1 || slashIndex > pathLength
@@ -4018,7 +4018,7 @@ export const Store = class PathTreeStore {
   }
   isDirectoryProjectionVisible(nodeId) {
     let currentId = nodeId;
-    for (; currentId !== this.#state.snapshot.rootId; ) {
+    for (; currentId !== this.#state.snapshot.rootId;) {
       let parentId = getNode(this.#state, currentId).parentId;
       if (parentId !== this.#state.snapshot.rootId) {
         let parentNode = getNode(this.#state, parentId),

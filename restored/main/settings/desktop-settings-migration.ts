@@ -54,8 +54,7 @@ export function readLegacySettingValue(
       if (definition.key === getDefaultServiceTierSettingKey()) {
         const readDefaultServiceTier =
           sharedRuntime.readDefaultServiceTierAtom as
-            | ((atoms: Record<string, unknown>) => unknown)
-            | undefined;
+            ((atoms: Record<string, unknown>) => unknown) | undefined;
         return readDefaultServiceTier?.(persistedAtoms) ?? undefined;
       }
       return persistedAtoms[definition.hostStorage.key];
@@ -186,8 +185,7 @@ export function serializeDesktopSettingValue(
 ): unknown {
   const schema = getDesktopSettingSchema(key);
   const serialize = sharedRuntime.serializeSettingForToml as
-    | ((schema: unknown, value: unknown) => unknown)
-    | undefined;
+    ((schema: unknown, value: unknown) => unknown) | undefined;
   return typeof serialize === "function" && schema != null
     ? serialize(schema, value)
     : value;
@@ -196,8 +194,7 @@ export function serializeDesktopSettingValue(
 function deserializeDesktopSettingValue(key: string, value: unknown): unknown {
   const schema = getDesktopSettingSchema(key);
   const deserialize = sharedRuntime.deserializeSettingFromToml as
-    | ((schema: unknown, value: unknown) => unknown)
-    | undefined;
+    ((schema: unknown, value: unknown) => unknown) | undefined;
   return typeof deserialize === "function" && schema != null
     ? deserialize(schema, value)
     : value;

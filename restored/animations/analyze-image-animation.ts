@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/analyze_image_animation-BnQbILX5.js
+// Restored from ref/webview/assets/analyze_image_animation-DpjYJ3Nr.js
 // Lottie animation data restored from the Codex webview bundle.
 export const analyzeImageAnimation = {
   v: "5.7.0",

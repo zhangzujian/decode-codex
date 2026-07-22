@@ -1,9 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-CgNc-Bk2.js
 // Thin RPC query helpers backed by the restored host-query runtime.
-import {
-  QUERY_DURATIONS,
-  useHostQuery,
-} from "./host-query-runtime";
+import { QUERY_DURATIONS, useHostQuery } from "./host-query-runtime";
 
 export const rpcClient = {};
 export const rpcTimeConstants = QUERY_DURATIONS;
@@ -33,9 +30,7 @@ export interface RpcQueryDefinition<TInput, TParams, TData, TResult> {
 export function defineRpcQuery<TInput, TParams, TData, TResult = TData>(
   _client: unknown,
   queryName: string,
-  getOptions: (
-    input: TInput,
-  ) => RpcQueryOptions<TParams, TData, TResult>,
+  getOptions: (input: TInput) => RpcQueryOptions<TParams, TData, TResult>,
 ): RpcQueryDefinition<TInput, TParams, TData, TResult> {
   return { getOptions, queryName };
 }

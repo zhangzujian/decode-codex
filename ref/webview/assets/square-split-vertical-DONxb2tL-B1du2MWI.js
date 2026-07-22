@@ -1,0 +1,3 @@
+import { n as e, t } from "./square-split-vertical-DONxb2tL-Cp5DhOi7.js";
+e();
+export { t as default };

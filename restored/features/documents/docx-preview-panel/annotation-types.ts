@@ -7,11 +7,7 @@ import type {
 } from "../../../image-side-panel/paged-annotation-overlays";
 
 export type DocxAnnotationSelectionKind =
-  | "text"
-  | "image"
-  | "drawing"
-  | "table"
-  | "paragraph";
+  "text" | "image" | "drawing" | "table" | "paragraph";
 
 export type DocxAnnotationContentPreview =
   | {

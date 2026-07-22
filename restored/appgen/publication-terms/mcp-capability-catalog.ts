@@ -48,8 +48,7 @@ type McpServerStatus = {
 };
 
 type McpUiEntrypoint =
-  | { type: "global" | "thread" }
-  | { type: "file"; extensions: string[] };
+  { type: "global" | "thread" } | { type: "file"; extensions: string[] };
 
 export type McpCapabilityMentionServer = {
   mentionSearchTool: string;

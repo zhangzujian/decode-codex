@@ -6,4 +6,3 @@ import { __productLoggerR, type ProductLogger } from "./product-logger";
 export function useProductLogger(): ProductLogger {
   return useAppScopeValue<ProductLogger>(__productLoggerR);
 }
-

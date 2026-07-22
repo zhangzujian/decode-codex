@@ -60,10 +60,7 @@ export type AvatarOverlayPointerReleaseState = {
 };
 
 export type AvatarOverlayNotificationLevel =
-  | "danger"
-  | "info"
-  | "success"
-  | "warning";
+  "danger" | "info" | "success" | "warning";
 
 export type AvatarOverlayNotification = {
   action: { path: string } | null;

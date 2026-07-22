@@ -621,7 +621,7 @@ function xe(e) {
   return (function (e, t, n) {
     const r = t + n;
     let o = t;
-    for (; e[o] && !(o >= r); ) ++o;
+    for (; e[o] && !(o >= r);) ++o;
     if (o - t <= 16) return Xe.UTF8ArrayToString(e, t, n);
     if (void 0 === we) return Xe.UTF8ArrayToString(e, t, n);
     const s = Ne(e, t, o);
@@ -915,7 +915,7 @@ function dt(e, t, n) {
     c = 0,
     l = 0,
     p = 0;
-  for (; (s = r.read()), (a = r.read()), (i = r.read()), null !== s; )
+  for (; (s = r.read()), (a = r.read()), (i = r.read()), null !== s;)
     (null === a && ((a = 0), (l += 1)),
       null === i && ((i = 0), (l += 1)),
       (p = (s << 16) | (a << 8) | i),
@@ -3076,7 +3076,7 @@ function Qo() {
 function Yo() {
   Xe.maybeExit();
   try {
-    for (; Jo > 0; ) {
+    for (; Jo > 0;) {
       if ((--Jo, !st.is_runtime_running())) return;
       o.mono_background_exec();
     }
@@ -3121,7 +3121,7 @@ class Zo {
     return this.queue.length > 0 ? this.queue[this.offset] : void 0;
   }
   drain(e) {
-    for (; this.getLength(); ) e(this.dequeue());
+    for (; this.getLength();) e(this.dequeue());
   }
 }
 const Ko = Symbol.for("wasm ws_pending_send_buffer"),
@@ -3203,7 +3203,7 @@ function hs(e, t, n) {
           }
           if (r.getLength() && n.getLength() > 1)
             throw new Error("ERR21: Invalid WS state");
-          for (; r.getLength() && n.getLength(); ) {
+          for (; r.getLength() && n.getLength();) {
             const t = r.dequeue();
             (vs(e, n, t.buffer_ptr, t.buffer_length), t.resolve());
           }
@@ -4540,7 +4540,7 @@ function Ws(e, t, n, r, o) {
   let a = o ? 0 : t;
   if (e.options.enableSimd) {
     const t = 16;
-    for (; r >= t; )
+    for (; r >= t;)
       (e.local(s),
         e.v128_const(0),
         e.appendSimd(11),
@@ -4548,14 +4548,14 @@ function Ws(e, t, n, r, o) {
         (a += t),
         (r -= t));
   }
-  for (; r >= 8; )
+  for (; r >= 8;)
     (e.local(s),
       e.i52_const(0),
       e.appendU8(55),
       e.appendMemarg(a, 0),
       (a += 8),
       (r -= 8));
-  for (; r >= 1; ) {
+  for (; r >= 1;) {
     (e.local(s), e.i32_const(0));
     let t = r % 4;
     switch (t) {
@@ -4594,7 +4594,7 @@ function Gs(e, t, n, r, o, s, a) {
     c = o ? 0 : n;
   if (e.options.enableSimd) {
     const t = 16;
-    for (; r >= t; )
+    for (; r >= t;)
       (e.local(s),
         e.local(a),
         e.appendSimd(0, !0),
@@ -4605,7 +4605,7 @@ function Gs(e, t, n, r, o, s, a) {
         (c += t),
         (r -= t));
   }
-  for (; r >= 8; )
+  for (; r >= 8;)
     (e.local(s),
       e.local(a),
       e.appendU8(41),
@@ -4615,7 +4615,7 @@ function Gs(e, t, n, r, o, s, a) {
       (i += 8),
       (c += 8),
       (r -= 8));
-  for (; r >= 1; ) {
+  for (; r >= 1;) {
     let t,
       n,
       o = r % 4;
@@ -6991,7 +6991,7 @@ let Bi,
 function Ci() {
   const e = [];
   let t = 0;
-  for (; 0 != (t = o.mono_jiterp_tlqueue_next(1)); ) {
+  for (; 0 != (t = o.mono_jiterp_tlqueue_next(1));) {
     const n = Li[t];
     n
       ? e.push(n)
@@ -7255,7 +7255,7 @@ function Xi(e) {
 function Qi() {
   const e = [];
   let t = 0;
-  for (; 0 != (t = o.mono_jiterp_tlqueue_next(0)); ) {
+  for (; 0 != (t = o.mono_jiterp_tlqueue_next(0));) {
     const n = Gi[t];
     if (n) for (let t = 0; t < n.length; t++) 0 === n[t].result && e.push(n[t]);
     else
@@ -8101,7 +8101,7 @@ const Fc = [
           const r = t + n,
             s = [],
             a = (e - t) / 2;
-          for (; e < r; ) {
+          for (; e < r;) {
             const n = (e - t) / 2,
               r = B(e);
             if (271 === r) break;
@@ -8384,7 +8384,7 @@ const Fc = [
                     m = 0;
                   (Ga(), (a.backBranchTraceLevel = i ? 2 : 0));
                   let h = a.cfg.entry(n);
-                  for (; n && n; ) {
+                  for (; n && n;) {
                     if (((a.cfg.ip = n), n >= s)) {
                       (Tc(a.traceIndex, 0, 0, "end-of-body"),
                         i &&
@@ -9189,7 +9189,7 @@ const Fc = [
                         ),
                         Tc(a.traceIndex, 0, 0, b));
                   }
-                  for (; a.activeBlocks > 0; ) a.endBlock();
+                  for (; a.activeBlocks > 0;) a.endBlock();
                   return (
                     (a.cfg.exitIp = h),
                     a.containsSimd && (f += 10240),
@@ -9247,7 +9247,7 @@ const Fc = [
           let e = "",
             t = 0;
           try {
-            for (; p.activeBlocks > 0; ) p.endBlock();
+            for (; p.activeBlocks > 0;) p.endBlock();
             p.inSection && p.endSection();
           } catch (e) {}
           const n = p.getArrayView();

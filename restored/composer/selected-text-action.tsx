@@ -17,10 +17,7 @@ import {
 } from "../boundaries/onboarding-commons-externals.facade";
 
 type SelectedTextActionMode =
-  | "actions"
-  | "actions-focused"
-  | "edit"
-  | "pending";
+  "actions" | "actions-focused" | "edit" | "pending";
 
 interface SelectedTextActionResume {
   mode?: SelectedTextActionMode;

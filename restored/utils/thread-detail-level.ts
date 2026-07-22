@@ -2,9 +2,7 @@
 // Normalizes the thread detail setting used by conversation step rendering.
 import { useSettingValue } from "../settings/setting-storage";
 export type ThreadDetailLevel =
-  | "STEPS_PROSE"
-  | "STEPS_COMMANDS"
-  | "STEPS_EXECUTION";
+  "STEPS_PROSE" | "STEPS_COMMANDS" | "STEPS_EXECUTION";
 const THREAD_DETAIL_LEVEL_PROSE = "STEPS_PROSE";
 const THREAD_DETAIL_LEVEL_COMMANDS = "STEPS_COMMANDS";
 const conversationDetailModeSetting = {
@@ -24,9 +22,7 @@ function isThreadDetailLevelProseFromSetting(
   return (
     normalizeThreadDetailLevel(
       getSetting(conversationDetailModeSetting) as
-        | ThreadDetailLevel
-        | null
-        | undefined,
+        ThreadDetailLevel | null | undefined,
     ) === THREAD_DETAIL_LEVEL_PROSE
   );
 }

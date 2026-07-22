@@ -420,7 +420,6 @@ function E(e, t = {}) {
       i++ < 5 &&
       ((o = jt(n, s)),
       !(o === `html` || (i > 1 && a + r.length * 3 + o.length >= c)));
-
     )
       (r.push(o), (a += o.length), (n = n.parentNode));
     return r.reverse().join(` > `);
@@ -4088,7 +4087,7 @@ var Ps,
         }
         async _isClientDoneProcessing(e) {
           let t = 0;
-          for (; !e || t < e; ) {
+          for (; !e || t < e;) {
             if (
               (await new Promise((e) => setTimeout(e, 1)), !this._numProcessing)
             )
@@ -4979,7 +4978,7 @@ async function ml(e, t) {
         n.cancel().then(null, () => {});
       }, 90 * 1e3),
       a = !0;
-    for (; a; ) {
+    for (; a;) {
       let e;
       try {
         e = setTimeout(() => {
@@ -6005,12 +6004,10 @@ var Bu,
       (yd = [200, 500]),
       (bd = 40),
       (xd = (e, t = {}) => {
-        if (
-          !(
-            globalThis.PerformanceEventTiming &&
-            `interactionId` in PerformanceEventTiming.prototype
-          )
-        )
+        if (!(
+          globalThis.PerformanceEventTiming &&
+          `interactionId` in PerformanceEventTiming.prototype
+        ))
           return;
         let n = Nu();
         Ju(() => {

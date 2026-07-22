@@ -15,8 +15,7 @@ import clsx from "clsx";
 type ArtifactPluginSuggestionKind = "document" | "presentation" | "spreadsheet";
 type CollaborationMode = "plan" | (string & {});
 type CollaborationModeDescriptor =
-  | CollaborationMode
-  | { mode: CollaborationMode };
+  CollaborationMode | { mode: CollaborationMode };
 type MessageDescriptor = {
   id: string;
   defaultMessage: string;

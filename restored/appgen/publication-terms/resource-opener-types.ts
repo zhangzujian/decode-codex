@@ -37,14 +37,7 @@ export type WorkspaceResourceOpenRequest = OpenFileRequest & {
 };
 
 export type FileContentKind =
-  | "archive"
-  | "audio"
-  | "binary"
-  | "image"
-  | "pdf"
-  | "text"
-  | "video"
-  | string;
+  "archive" | "audio" | "binary" | "image" | "pdf" | "text" | "video" | string;
 
 export type ReadFileMetadata = {
   contentKind?: FileContentKind;

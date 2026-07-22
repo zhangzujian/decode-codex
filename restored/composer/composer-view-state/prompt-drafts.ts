@@ -90,8 +90,7 @@ export const baseComposerViewState = createScopedComputedAtom(
   ({ get, scope }: { get: (...args: unknown[]) => any; scope: ScopeStore }) => {
     const defaultState = get(defaultComposerViewState) as ComposerViewState;
     const restoredState = get(restoredLocalComposerStateState) as
-      | Partial<ComposerViewState>
-      | undefined;
+      Partial<ComposerViewState> | undefined;
     const implicitAttachment =
       scope.value.kind === "new" && scope.value.entrypoint === "library-preview"
         ? scope.value.implicitAttachment

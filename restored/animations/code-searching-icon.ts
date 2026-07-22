@@ -1,24 +1,24 @@
-// Restored from ref/webview/assets/code-searching-icon-DQV9NFby.js
+// Restored from ref/webview/assets/code-searching-icon-ButSltrc.js
 // Lottie animation data restored from the Codex webview bundle.
 export const codeSearchingIcon = {
-  v: "5.7.5",
+  v: `5.7.5`,
   fr: 100,
   ip: 0,
   op: 120,
   w: 24,
   h: 24,
-  nm: "Comp 1",
+  nm: `Comp 1`,
   ddd: 0,
   metadata: {},
   assets: [
     {
-      id: "0",
+      id: `0`,
       layers: [
         {
           ddd: 0,
           ind: 1,
           ty: 4,
-          nm: "list",
+          nm: `list`,
           sr: 1,
           ks: {
             p: {
@@ -60,26 +60,26 @@ export const codeSearchingIcon = {
           ao: 0,
           shapes: [
             {
-              ty: "gr",
+              ty: `gr`,
               it: [
                 {
-                  ty: "gr",
-                  nm: "7",
+                  ty: `gr`,
+                  nm: `7`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [0, 0],
                             [5, 0],
                           ],
                           i: [
                             [0, 0],
-                            [-1.666666666666668, 0],
+                            [-1.6666666666666679, 0],
                           ],
                           o: [
                             [1.666666666666666, 0],
@@ -89,7 +89,7 @@ export const codeSearchingIcon = {
                       },
                     },
                     {
-                      ty: "tm",
+                      ty: `tm`,
                       s: {
                         a: 0,
                         k: 0,
@@ -145,7 +145,7 @@ export const codeSearchingIcon = {
                       m: 1,
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -166,8 +166,8 @@ export const codeSearchingIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -177,7 +177,7 @@ export const codeSearchingIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [-1.5, 6],
@@ -217,16 +217,16 @@ export const codeSearchingIcon = {
                   ],
                 },
                 {
-                  ty: "gr",
-                  nm: "6",
+                  ty: `gr`,
+                  nm: `6`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [0, 0],
                             [2, 0],
@@ -243,7 +243,7 @@ export const codeSearchingIcon = {
                       },
                     },
                     {
-                      ty: "tm",
+                      ty: `tm`,
                       s: {
                         a: 0,
                         k: 0,
@@ -299,7 +299,7 @@ export const codeSearchingIcon = {
                       m: 1,
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -320,8 +320,8 @@ export const codeSearchingIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -331,7 +331,7 @@ export const codeSearchingIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [3, 2],
@@ -371,16 +371,16 @@ export const codeSearchingIcon = {
                   ],
                 },
                 {
-                  ty: "gr",
-                  nm: "5",
+                  ty: `gr`,
+                  nm: `5`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [0, 0],
                             [3, 0],
@@ -397,7 +397,7 @@ export const codeSearchingIcon = {
                       },
                     },
                     {
-                      ty: "tm",
+                      ty: `tm`,
                       s: {
                         a: 0,
                         k: 0,
@@ -453,7 +453,7 @@ export const codeSearchingIcon = {
                       m: 1,
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -474,8 +474,8 @@ export const codeSearchingIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -485,7 +485,7 @@ export const codeSearchingIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [-2.5, 2],
@@ -525,16 +525,16 @@ export const codeSearchingIcon = {
                   ],
                 },
                 {
-                  ty: "gr",
-                  nm: "4",
+                  ty: `gr`,
+                  nm: `4`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [0, 0],
                             [7, 0],
@@ -551,7 +551,7 @@ export const codeSearchingIcon = {
                       },
                     },
                     {
-                      ty: "tm",
+                      ty: `tm`,
                       s: {
                         a: 0,
                         k: 0,
@@ -595,7 +595,7 @@ export const codeSearchingIcon = {
                       m: 1,
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -616,8 +616,8 @@ export const codeSearchingIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -627,7 +627,7 @@ export const codeSearchingIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [-0.5, -2],
@@ -704,23 +704,23 @@ export const codeSearchingIcon = {
                   ],
                 },
                 {
-                  ty: "gr",
-                  nm: "3",
+                  ty: `gr`,
+                  nm: `3`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [0, 0],
                             [5, 0],
                           ],
                           i: [
                             [0, 0],
-                            [-1.666666666666668, 0],
+                            [-1.6666666666666679, 0],
                           ],
                           o: [
                             [1.666666666666666, 0],
@@ -730,7 +730,7 @@ export const codeSearchingIcon = {
                       },
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -751,8 +751,8 @@ export const codeSearchingIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -762,7 +762,7 @@ export const codeSearchingIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [-1.5, -6],
@@ -839,16 +839,16 @@ export const codeSearchingIcon = {
                   ],
                 },
                 {
-                  ty: "gr",
-                  nm: "2",
+                  ty: `gr`,
+                  nm: `2`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [0, 0],
                             [2, 0],
@@ -865,7 +865,7 @@ export const codeSearchingIcon = {
                       },
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -886,8 +886,8 @@ export const codeSearchingIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -897,7 +897,7 @@ export const codeSearchingIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [3, -10],
@@ -962,16 +962,16 @@ export const codeSearchingIcon = {
                   ],
                 },
                 {
-                  ty: "gr",
-                  nm: "1",
+                  ty: `gr`,
+                  nm: `1`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [0, 0],
                             [3, 0],
@@ -988,7 +988,7 @@ export const codeSearchingIcon = {
                       },
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -1009,8 +1009,8 @@ export const codeSearchingIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -1020,7 +1020,7 @@ export const codeSearchingIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [-2.5, -10],
@@ -1085,7 +1085,7 @@ export const codeSearchingIcon = {
                   ],
                 },
                 {
-                  ty: "tr",
+                  ty: `tr`,
                   p: {
                     a: 1,
                     k: [
@@ -1183,7 +1183,7 @@ export const codeSearchingIcon = {
           ddd: 0,
           ind: 2,
           ty: 4,
-          nm: "mask - box",
+          nm: `mask - box`,
           sr: 1,
           ks: {
             p: {
@@ -1225,7 +1225,7 @@ export const codeSearchingIcon = {
           ao: 0,
           shapes: [
             {
-              ty: "rc",
+              ty: `rc`,
               d: 1,
               s: {
                 a: 0,
@@ -1244,7 +1244,7 @@ export const codeSearchingIcon = {
               },
             },
             {
-              ty: "fl",
+              ty: `fl`,
               c: {
                 a: 0,
                 k: [0, 0, 0],
@@ -1267,13 +1267,13 @@ export const codeSearchingIcon = {
       ],
     },
     {
-      id: "1",
+      id: `1`,
       layers: [
         {
           ddd: 0,
           ind: 3,
           ty: 4,
-          nm: "mask",
+          nm: `mask`,
           sr: 1,
           ks: {
             p: {
@@ -1316,11 +1316,11 @@ export const codeSearchingIcon = {
           ao: 0,
           shapes: [
             {
-              ty: "gr",
-              nm: "mask",
+              ty: `gr`,
+              nm: `mask`,
               it: [
                 {
-                  ty: "rc",
+                  ty: `rc`,
                   d: 1,
                   s: {
                     a: 0,
@@ -1339,7 +1339,7 @@ export const codeSearchingIcon = {
                   },
                 },
                 {
-                  ty: "fl",
+                  ty: `fl`,
                   c: {
                     a: 0,
                     k: [0, 0, 0],
@@ -1354,7 +1354,7 @@ export const codeSearchingIcon = {
                   bm: 0,
                 },
                 {
-                  ty: "tr",
+                  ty: `tr`,
                   p: {
                     a: 0,
                     k: [0, -4.5],
@@ -1401,12 +1401,12 @@ export const codeSearchingIcon = {
         },
         {
           ddd: 0,
-          refId: "0",
+          refId: `0`,
           w: 16,
           h: 15,
           ind: 4,
           ty: 0,
-          nm: "mask",
+          nm: `mask`,
           sr: 1,
           ks: {
             p: {
@@ -1460,7 +1460,7 @@ export const codeSearchingIcon = {
       ddd: 0,
       ind: 5,
       ty: 3,
-      nm: "",
+      nm: ``,
       sr: 1,
       ks: {
         p: {
@@ -1507,12 +1507,12 @@ export const codeSearchingIcon = {
     },
     {
       ddd: 0,
-      refId: "1",
+      refId: `1`,
       w: 16,
       h: 15,
       ind: 4,
       ty: 0,
-      nm: "mask",
+      nm: `mask`,
       sr: 1,
       ks: {
         p: {
@@ -1562,7 +1562,7 @@ export const codeSearchingIcon = {
       ddd: 0,
       ind: 6,
       ty: 4,
-      nm: "Rectangle's solid stroke",
+      nm: `Rectangle's solid stroke`,
       sr: 1,
       ks: {
         p: {
@@ -1604,11 +1604,11 @@ export const codeSearchingIcon = {
       ao: 0,
       shapes: [
         {
-          ty: "gr",
-          nm: "Rectangle's solid stroke",
+          ty: `gr`,
+          nm: `Rectangle's solid stroke`,
           it: [
             {
-              ty: "rc",
+              ty: `rc`,
               d: 1,
               s: {
                 a: 0,
@@ -1627,7 +1627,7 @@ export const codeSearchingIcon = {
               },
             },
             {
-              ty: "st",
+              ty: `st`,
               c: {
                 a: 0,
                 k: [0, 0, 0],
@@ -1648,8 +1648,8 @@ export const codeSearchingIcon = {
               ml: 4,
               d: [
                 {
-                  n: "o",
-                  nm: "offset",
+                  n: `o`,
+                  nm: `offset`,
                   v: {
                     a: 0,
                     k: 0,
@@ -1659,7 +1659,7 @@ export const codeSearchingIcon = {
               ],
             },
             {
-              ty: "tr",
+              ty: `tr`,
               p: {
                 a: 0,
                 k: [16, 16],
@@ -1707,3 +1707,4 @@ export const codeSearchingIcon = {
   ],
   markers: [],
 };
+export default codeSearchingIcon;

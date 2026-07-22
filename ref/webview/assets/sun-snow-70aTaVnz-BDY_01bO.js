@@ -1,0 +1,3 @@
+import { n as e, t } from "./sun-snow-70aTaVnz-BQVms1DY.js";
+e();
+export { t as default };

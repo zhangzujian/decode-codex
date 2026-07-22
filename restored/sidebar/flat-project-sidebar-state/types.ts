@@ -51,9 +51,7 @@ export type SidebarPendingWorktreeTask = {
 };
 
 export type SidebarTask =
-  | SidebarLocalTask
-  | SidebarRemoteTask
-  | SidebarPendingWorktreeTask;
+  SidebarLocalTask | SidebarRemoteTask | SidebarPendingWorktreeTask;
 
 export type SidebarTaskItem = {
   isPinned?: boolean;

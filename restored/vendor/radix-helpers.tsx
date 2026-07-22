@@ -100,12 +100,10 @@ export function createContextScope(
       scope?: Record<string, unknown>,
     ): TContext {
       const scopedContexts = scope as
-        | Record<string, React.Context<TContext | undefined>[]>
-        | undefined;
+        Record<string, React.Context<TContext | undefined>[]> | undefined;
       const ScopedContext =
         (scopedContexts?.[scopeName]?.[index] as
-          | React.Context<TContext | undefined>
-          | undefined) ?? BaseContext;
+          React.Context<TContext | undefined> | undefined) ?? BaseContext;
       const context = useContext(ScopedContext);
       if (context != null) return context;
       if (defaultContext !== undefined) return defaultContext;

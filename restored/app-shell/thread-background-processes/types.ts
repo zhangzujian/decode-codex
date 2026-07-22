@@ -103,13 +103,10 @@ export type ConversationTurnSnapshot = {
 };
 
 export type ConversationProcessSource =
-  | "active-turn"
-  | "background-terminal"
-  | "restored-process";
+  "active-turn" | "background-terminal" | "restored-process";
 
 export type ConversationProcessStopAction =
-  | "interrupt-conversation"
-  | "kill-child-process";
+  "interrupt-conversation" | "kill-child-process";
 
 export type ConversationProcessRow = {
   chatTitle: string | null;
@@ -166,10 +163,7 @@ export type ProcessRowWithMetrics = {
 };
 
 export type PendingProcessRowStatus =
-  | "starting"
-  | "stopping"
-  | "stopped"
-  | string;
+  "starting" | "stopping" | "stopped" | string;
 
 export type PendingProcessRowState<Row = ProcessRowWithMetrics> = {
   expiresAtMs?: number | null;

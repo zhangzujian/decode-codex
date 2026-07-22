@@ -5,10 +5,7 @@ import type { MessageDescriptor } from "../../../vendor/react-intl";
 import type * as React from "react";
 
 export type MultiAgentActionType =
-  | "spawnAgent"
-  | "sendInput"
-  | "resumeAgent"
-  | "closeAgent";
+  "spawnAgent" | "sendInput" | "resumeAgent" | "closeAgent";
 
 export type MultiAgentActionStatus = "inProgress" | "completed" | "failed";
 

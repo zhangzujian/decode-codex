@@ -1,0 +1,3 @@
+import { n as e, t } from "./lightbulb-CUutLHwU-_EY7c7Qn.js";
+e();
+export { t as default };

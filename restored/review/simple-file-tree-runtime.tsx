@@ -65,7 +65,10 @@ export function FileTree({
 }: FileTreeProps): React.ReactElement {
   const entries = flattenReviewFileEntries(paths);
   return (
-    <div className="flex h-full min-h-0 flex-col overflow-auto py-1" role="tree">
+    <div
+      className="flex h-full min-h-0 flex-col overflow-auto py-1"
+      role="tree"
+    >
       {entries.map((entry) => {
         const displayPath = entry.displayPath ?? entry.path;
         const isSelected = displayPath === selectedPath;

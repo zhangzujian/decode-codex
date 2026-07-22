@@ -9,8 +9,7 @@ import {
 } from "../vendor/jotai-runtime";
 
 export type SignalStateUpdater<TValue> =
-  | TValue
-  | ((currentValue: unknown) => unknown);
+  TValue | ((currentValue: unknown) => unknown);
 export type SignalStateSetter<TValue> = (
   nextValue: SignalStateUpdater<TValue>,
 ) => void;

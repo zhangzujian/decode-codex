@@ -15,8 +15,7 @@ type CommitMessageDiff =
   | {
       type: "error";
       error:
-        | { type: "diff-too-large"; limitBytes: number }
-        | { type: "unknown" };
+        { type: "diff-too-large"; limitBytes: number } | { type: "unknown" };
     };
 
 const maxDiffBytes = 32 * 1024 * 1024;

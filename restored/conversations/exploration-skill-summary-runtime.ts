@@ -140,8 +140,7 @@ function summarizeSkillSearch(
     {
       id: "localConversationTurn.exploration.skill.search",
       defaultMessage: "Searched in {skillName} skill",
-      description:
-        "Exploration row for searching in a Codex skill directory",
+      description: "Exploration row for searching in a Codex skill directory",
     },
     { skillName: skillInfo.skillName },
   );

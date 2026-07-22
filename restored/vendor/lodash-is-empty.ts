@@ -56,17 +56,13 @@ export function isEmptyI(value: unknown): string[] {
 }
 
 const nativeDataView = baseForX(baseForD, "DataView") as
-  | DataViewConstructorLike
-  | undefined;
+  DataViewConstructorLike | undefined;
 const nativePromise = baseForX(baseForD, "Promise") as
-  | PromiseConstructorLike
-  | undefined;
+  PromiseConstructorLike | undefined;
 export const isEmptyR = baseForX(baseForD, "Set") as
-  | SetConstructorLike
-  | undefined;
+  SetConstructorLike | undefined;
 const nativeWeakMap = baseForX(baseForD, "WeakMap") as
-  | WeakMapConstructorLike
-  | undefined;
+  WeakMapConstructorLike | undefined;
 
 const dataViewCtorSource = baseForS(nativeDataView);
 const mapCtorSource = baseForS(baseForB as MapConstructorLike | undefined);

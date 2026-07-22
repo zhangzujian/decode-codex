@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/load-script-BifiZc4M.js
+// Restored from ref/webview/assets/load-script-Cltl04TI.js
 // Segment analytics script-loader helpers used by the bundled analytics runtime.
 type SegmentAnalyticsGlobal = {
   _cdn?: string;

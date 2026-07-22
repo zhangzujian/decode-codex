@@ -1,0 +1,3 @@
+import { n as e, t } from "./regex-DSagOFJP-Bfgt9sTj.js";
+t();
+export { e as default };

@@ -7,18 +7,10 @@ import {
 } from "../runtime/global-state-runtime";
 
 export type ProjectAppearanceColor =
-  | "black"
-  | "blue"
-  | "green"
-  | "orange"
-  | "pink"
-  | "purple"
-  | "red"
-  | "yellow";
+  "black" | "blue" | "green" | "orange" | "pink" | "purple" | "red" | "yellow";
 
 export type ProjectAppearanceMarker =
-  | { emoji: string; kind: "emoji" }
-  | { icon: string; kind: "icon" };
+  { emoji: string; kind: "emoji" } | { icon: string; kind: "icon" };
 
 export type ProjectAppearance = {
   color: ProjectAppearanceColor;

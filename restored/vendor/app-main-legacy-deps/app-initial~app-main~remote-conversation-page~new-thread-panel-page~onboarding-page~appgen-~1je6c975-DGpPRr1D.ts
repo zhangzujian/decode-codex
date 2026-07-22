@@ -96,7 +96,7 @@ function c(e, t) {
   }
   function c(s) {
     if (r) throw TypeError(`Generator is already executing.`);
-    for (; o && ((o = 0), s[0] && (n = 0)), n; )
+    for (; o && ((o = 0), s[0] && (n = 0)), n;)
       try {
         if (
           ((r = 1),
@@ -1006,13 +1006,13 @@ function Le(e, t) {
   for (var n = ``, r = 0; r < e.length; r++) {
     var i = e.charAt(r);
     if (i === `j`) {
-      for (var a = 0; r + 1 < e.length && e.charAt(r + 1) === i; ) (a++, r++);
+      for (var a = 0; r + 1 < e.length && e.charAt(r + 1) === i;) (a++, r++);
       var o = 1 + (a & 1),
         s = a < 2 ? 1 : 3 + (a >> 1),
         c = `a`,
         l = Re(t);
-      for ((l == `H` || l == `k`) && (s = 0); s-- > 0; ) n += c;
-      for (; o-- > 0; ) n = l + n;
+      for ((l == `H` || l == `k`) && (s = 0); s-- > 0;) n += c;
+      for (; o-- > 0;) n = l + n;
     } else i === `J` ? (n += `H`) : (n += i);
   }
   return n;
@@ -1410,7 +1410,6 @@ var Ke,
             for (
               var e = [...arguments], t = ``, n = e.length, r = 0, i;
               n > r;
-
             ) {
               if (((i = e[r++]), i > 1114111))
                 throw RangeError(i + ` is not a valid code point`);
@@ -1472,7 +1471,7 @@ var Ke,
             return ((st.lastIndex = t), st.exec(e)[1] ?? ``);
           }))
         : (ot = function (e, t) {
-            for (var n = []; ; ) {
+            for (var n = []; ;) {
               var r = rt(e, t);
               if (r === void 0 || We(r) || Ge(r)) break;
               (n.push(r), (t += r >= 65536 ? 2 : 1));
@@ -1496,7 +1495,7 @@ var Ke,
             return this.parseMessage(0, ``, !1);
           }),
           (e.prototype.parseMessage = function (e, t, n) {
-            for (var r = []; !this.isEOF(); ) {
+            for (var r = []; !this.isEOF();) {
               var i = this.char();
               if (i === 123) {
                 var a = this.parseArgument(e, n);
@@ -1573,11 +1572,11 @@ var Ke,
           }),
           (e.prototype.parseTagName = function () {
             var e = this.offset();
-            for (this.bump(); !this.isEOF() && Ue(this.char()); ) this.bump();
+            for (this.bump(); !this.isEOF() && Ue(this.char());) this.bump();
             return this.message.slice(e, this.offset());
           }),
           (e.prototype.parseLiteral = function (e, t) {
-            for (var n = this.clonePosition(), r = ``; ; ) {
+            for (var n = this.clonePosition(), r = ``; ;) {
               var i = this.tryParseQuote(t);
               if (i) {
                 r += i;
@@ -1626,7 +1625,7 @@ var Ke,
             }
             this.bump();
             var t = [this.char()];
-            for (this.bump(); !this.isEOF(); ) {
+            for (this.bump(); !this.isEOF();) {
               var n = this.char();
               if (n === 39)
                 if (this.peek() === 39) (t.push(39), this.bump());
@@ -1862,7 +1861,7 @@ var Ke,
               : (this.bump(), { val: !0, err: null });
           }),
           (e.prototype.parseSimpleArgStyleIfPossible = function () {
-            for (var e = 0, t = this.clonePosition(); !this.isEOF(); )
+            for (var e = 0, t = this.clonePosition(); !this.isEOF();)
               switch (this.char()) {
                 case 39:
                   this.bump();
@@ -1915,7 +1914,6 @@ var Ke,
             for (
               var i, a = !1, o = [], s = new Set(), c = r.value, l = r.location;
               ;
-
             ) {
               if (c.length === 0) {
                 var u = this.clonePosition();
@@ -1977,7 +1975,7 @@ var Ke,
             var n = 1,
               r = this.clonePosition();
             this.bumpIf(`+`) || (this.bumpIf(`-`) && (n = -1));
-            for (var i = !1, a = 0; !this.isEOF(); ) {
+            for (var i = !1, a = 0; !this.isEOF();) {
               var o = this.char();
               if (o >= 48 && o <= 57)
                 ((i = !0), (a = a * 10 + (o - 48)), this.bump());
@@ -2047,7 +2045,7 @@ var Ke,
               throw Error(
                 `targetOffset ${e} must be greater than or equal to the current offset ${this.offset()}`,
               );
-            for (e = Math.min(e, this.message.length); ; ) {
+            for (e = Math.min(e, this.message.length); ;) {
               var t = this.offset();
               if (t === e) break;
               if (t > e)
@@ -2058,7 +2056,7 @@ var Ke,
             }
           }),
           (e.prototype.bumpSpace = function () {
-            for (; !this.isEOF() && We(this.char()); ) this.bump();
+            for (; !this.isEOF() && We(this.char());) this.bump();
           }),
           (e.prototype.peek = function () {
             if (this.isEOF()) return null;

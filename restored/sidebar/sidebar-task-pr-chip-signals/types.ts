@@ -22,12 +22,7 @@ export type IntlFormatter = {
 export type PullRequestStatus = "draft" | "open" | "merged" | "closed";
 export type PullRequestCiStatus = "failing" | "none" | "passing" | "pending";
 export type PullRequestVisualState =
-  | "draft"
-  | "failing"
-  | "in_progress"
-  | "merged"
-  | "ready"
-  | "successful";
+  "draft" | "failing" | "in_progress" | "merged" | "ready" | "successful";
 export type PullRequestCheck = {
   status: string;
 };

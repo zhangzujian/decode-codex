@@ -56,7 +56,7 @@ var w = e(() => {
   }),
   E = n((e, t) => {
     function n(e, t) {
-      for (var n, r = -1, i = e.length; ++r < i; ) {
+      for (var n, r = -1, i = e.length; ++r < i;) {
         var a = t(e[r]);
         a !== void 0 && (n = n === void 0 ? a : n + a);
       }

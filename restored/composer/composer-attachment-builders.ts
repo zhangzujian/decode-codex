@@ -137,9 +137,13 @@ export function buildAttachmentsPayload(
 }
 
 export function mergeFileAttachments(
-  ...attachmentGroups: readonly (readonly ConversationInputAttachment[] | null | undefined)[]
+  ...attachmentGroups: readonly (
+    readonly ConversationInputAttachment[] | null | undefined
+  )[]
 ): ConversationInputAttachment[] {
-  return buildAttachmentsPayload(attachmentGroups.flatMap((group) => group ?? []));
+  return buildAttachmentsPayload(
+    attachmentGroups.flatMap((group) => group ?? []),
+  );
 }
 
 export function toImageAttachmentInputs(
@@ -148,9 +152,7 @@ export function toImageAttachmentInputs(
   return buildComposerImageInputItems(imageAttachments ?? []);
 }
 
-export function getComposerPromptText(context: {
-  prompt?: unknown;
-}): string {
+export function getComposerPromptText(context: { prompt?: unknown }): string {
   const prompt = context.prompt;
   if (typeof prompt === "string") return prompt;
   if (prompt == null) return "";

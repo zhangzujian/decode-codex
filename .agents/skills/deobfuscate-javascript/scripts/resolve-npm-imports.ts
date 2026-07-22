@@ -77,6 +77,7 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
   },
   // @dnd-kit/* chunks usually ship as `core.esm`, `sortable.esm`, `utilities.esm`.
   "core.esm": { package: "@dnd-kit/core", namedOnly: true },
+  "modifiers.esm": { package: "@dnd-kit/modifiers", namedOnly: true },
   "sortable.esm": { package: "@dnd-kit/sortable", namedOnly: true },
   "utilities.esm": { package: "@dnd-kit/utilities", namedOnly: true },
   // framer-motion chunks

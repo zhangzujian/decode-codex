@@ -5,9 +5,7 @@ import { createAppScopedSignal } from "../../runtime/app-scope-runtime";
 export type WindowsSandboxMode = "elevated" | "unelevated";
 
 export type WindowsSandboxReadinessStatus =
-  | "notConfigured"
-  | "ready"
-  | "updateRequired";
+  "notConfigured" | "ready" | "updateRequired";
 
 export type WindowsSandboxSetupPhase =
   | "idle"
@@ -21,10 +19,7 @@ export type WindowsSandboxSetupPhase =
 export type WindowsSandboxRequirement = "setup" | "update";
 
 export type WindowsSandboxSetupVisibility =
-  | "none"
-  | "show"
-  | "startUnelevated"
-  | "waitForPolicy";
+  "none" | "show" | "startUnelevated" | "waitForPolicy";
 
 export type WindowsSandboxAccountType = "administrator" | "unknown" | string;
 

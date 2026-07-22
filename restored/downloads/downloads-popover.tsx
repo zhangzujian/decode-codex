@@ -43,12 +43,7 @@ import {
 } from "../boundaries/onboarding-commons-externals.facade";
 
 type DownloadStatus =
-  | "started"
-  | "in_progress"
-  | "paused"
-  | "complete"
-  | "canceled"
-  | "failed";
+  "started" | "in_progress" | "paused" | "complete" | "canceled" | "failed";
 
 type DownloadPlatform = "macOS" | "windows" | "linux";
 

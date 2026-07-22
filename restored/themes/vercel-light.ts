@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/vercel-light-0e9RLoNq.js
+// Restored from ref/webview/assets/vercel-light-BkOrl59b.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#ffffff";
 export const chromeTheme = {

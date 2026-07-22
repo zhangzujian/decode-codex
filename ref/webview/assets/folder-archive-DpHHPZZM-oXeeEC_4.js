@@ -1,0 +1,3 @@
+import { n as e, t } from "./folder-archive-DpHHPZZM-DSysWinY.js";
+e();
+export { t as default };

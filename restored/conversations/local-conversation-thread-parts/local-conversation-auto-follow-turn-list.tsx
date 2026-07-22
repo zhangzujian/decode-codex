@@ -105,8 +105,7 @@ type PendingLatestTurnSubmitPlacement = {
 
 type LocalConversationAutoFollowVirtualizedTurnListProps = {
   consumePendingLatestTurnSubmitPlacement?:
-    | (() => PendingLatestTurnSubmitPlacement | null)
-    | null;
+    (() => PendingLatestTurnSubmitPlacement | null) | null;
   conversationId: string;
   entries: readonly VirtualizedTurnEntry[];
   initialScrollOffset?: number | null;

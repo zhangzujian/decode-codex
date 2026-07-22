@@ -1,0 +1,3 @@
+import { n as e, t } from "./fast-forward-brmVfhdN-Cj2vEnTG.js";
+e();
+export { t as default };

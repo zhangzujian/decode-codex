@@ -14,8 +14,7 @@ type ReviewDiffResult =
   | { type: "success"; diff: string; diffBytes: number }
   | { type: "error"; error: ReviewDiffError };
 type ReviewDiffError =
-  | { type: "diff-too-large"; limitBytes: number }
-  | { type: "unknown" };
+  { type: "diff-too-large"; limitBytes: number } | { type: "unknown" };
 
 const maxDiffBytes = 32 * 1024 * 1024;
 

@@ -1,7 +1,4 @@
-// Restored from ref/webview/assets/tsx-BOUdnHOj.js
+// Restored from ref/webview/assets/tsx-CXV4yfgF.js
 // Shiki TSX grammar wrapper; the grammar payload stays in @shikijs/langs/tsx.
-import { n as tsxGrammar, t as initTsxGrammar } from "@shikijs/langs/tsx";
-
-initTsxGrammar();
-
-export { tsxGrammar as default };
+import tsxGrammar from "@shikijs/langs/tsx";
+export default tsxGrammar;

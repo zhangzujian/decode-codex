@@ -20,10 +20,7 @@ type SettingsToolCallItem = {
 };
 
 type SettingsToolCallLabelKey =
-  | "readActive"
-  | "readCompleted"
-  | "writeActive"
-  | "writeCompleted";
+  "readActive" | "readCompleted" | "writeActive" | "writeCompleted";
 
 const settingsToolCallMessages = defineMessages({
   readActive: {

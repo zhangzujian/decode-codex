@@ -12,9 +12,7 @@ import type { ReactNode } from "react";
  * - `single-line`: always rendered as a single compact line.
  */
 export type ComposerLayoutMode =
-  | "multiline"
-  | "auto-single-line"
-  | "single-line";
+  "multiline" | "auto-single-line" | "single-line";
 
 /** Where above-composer header content is placed relative to the input. */
 export type AboveComposerContentLayout = "floating" | "header";
@@ -27,11 +25,7 @@ export type ComposerFooterBranchVisibility = "local" | "always";
 
 /** Availability state of the local workspace backing a draft thread. */
 export type LocalWorkspaceMaterialization =
-  | "available"
-  | "loading"
-  | "restorable"
-  | "unavailable"
-  | "gone";
+  "available" | "loading" | "restorable" | "unavailable" | "gone";
 
 /**
  * Remote project descriptor used when the home surface pins the composer to a

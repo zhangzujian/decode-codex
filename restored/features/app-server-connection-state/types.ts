@@ -4,11 +4,7 @@ export type IntlLike = {
   formatMessage: (message: unknown, values?: Record<string, unknown>) => string;
 };
 export type AppServerConnectionStateName =
-  | "connected"
-  | "connecting"
-  | "disconnected"
-  | "error"
-  | "restarting";
+  "connected" | "connecting" | "disconnected" | "error" | "restarting";
 export type AppServerConnectionError =
   | {
       code: "connection-failed";
@@ -31,8 +27,7 @@ export type AppServerConnectionError =
       minRequiredVersion: string;
     };
 export type AppServerConnectionSurface =
-  | "connection-status-badge"
-  | "connections-row";
+  "connection-status-badge" | "connections-row";
 export type AppServerConnectionAction =
   | {
       kind: "install-codex";

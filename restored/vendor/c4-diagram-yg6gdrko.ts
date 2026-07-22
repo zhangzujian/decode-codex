@@ -1719,7 +1719,6 @@ var c4DiagramYG6GDRKOValue1 = dist(),
               c4DiagramYG6GDRKOValue165,
               c4DiagramYG6GDRKOValue166;
             ;
-
           ) {
             if (
               ((c4DiagramYG6GDRKOValue159 =
@@ -3312,15 +3311,13 @@ var c4DiagramYG6GDRKOValue3 = c4DiagramYG6GDRKOValue2,
     let c4DiagramYG6GDRKOValue209 = c4DiagramYG6GDRKOValue4.find(
       (item) => item.alias === c4DiagramYG6GDRKOParam36,
     );
-    if (
-      !(
-        c4DiagramYG6GDRKOValue209 === undefined &&
-        ((c4DiagramYG6GDRKOValue209 = c4DiagramYG6GDRKOValue8.find(
-          (item) => item.alias === c4DiagramYG6GDRKOParam36,
-        )),
-        c4DiagramYG6GDRKOValue209 === undefined)
-      )
-    ) {
+    if (!(
+      c4DiagramYG6GDRKOValue209 === undefined &&
+      ((c4DiagramYG6GDRKOValue209 = c4DiagramYG6GDRKOValue8.find(
+        (item) => item.alias === c4DiagramYG6GDRKOParam36,
+      )),
+      c4DiagramYG6GDRKOValue209 === undefined)
+    )) {
       if (c4DiagramYG6GDRKOParam37 != null)
         if (typeof c4DiagramYG6GDRKOParam37 == "object") {
           let [c4DiagramYG6GDRKOValue298, c4DiagramYG6GDRKOValue299] =

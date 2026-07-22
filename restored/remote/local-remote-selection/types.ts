@@ -2,11 +2,7 @@
 // local-remote-selection-DRnEOc8g chunk restored from the Codex webview bundle.
 import type { ComponentType, DependencyList, ReactNode } from "react";
 export type CodexCloudAccess =
-  | "disabled"
-  | "loading"
-  | "error"
-  | "enabled_needs_setup"
-  | "enabled";
+  "disabled" | "loading" | "error" | "enabled_needs_setup" | "enabled";
 export type LocalRemoteCommand = {
   Content?: ComponentType<LocalRemoteCommandContentProps>;
   Icon?: ComponentType<{ className?: string }>;

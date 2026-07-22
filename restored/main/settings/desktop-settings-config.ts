@@ -22,8 +22,7 @@ export function loadDesktopConfigFromToml(
   if (!existsSync(filePath)) return {};
   try {
     const parseToml = sharedRuntime.parseTomlConfig as
-      | ((text: string) => unknown)
-      | undefined;
+      ((text: string) => unknown) | undefined;
     if (typeof parseToml !== "function") return {};
     return sanitizeDesktopConfig(
       extractDesktopConfig(parseToml(readFileSync(filePath, "utf8"))),

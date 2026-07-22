@@ -10,6 +10,7 @@ export function useOpenTarget({
   openTargetIntent?: "alternate" | "default" | string;
 }): string {
   if (!EXPLICIT_BROWSER_URL_PATTERN.test(href)) return "external-browser";
-  return openTargetIntent === "alternate" ? "external-browser" : "in-app-browser";
+  return openTargetIntent === "alternate"
+    ? "external-browser"
+    : "in-app-browser";
 }
-

@@ -41,9 +41,7 @@ export interface DocumentRange {
   to: number;
 }
 export type SuggestionMenuKind =
-  | "at-mention"
-  | "skill-mention"
-  | "slash-command";
+  "at-mention" | "skill-mention" | "slash-command";
 /** `typed` = user typed the trigger char (so it sits before the query). */
 export type SuggestionMenuActivation = "typed" | "synthetic";
 

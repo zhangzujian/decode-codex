@@ -265,7 +265,7 @@ function FormattedNavigationLabel(props: { label: string }): React.ReactNode {
     let labelParts = [],
       scanOffset = 0,
       lastSliceEnd = 0;
-    for (; scanOffset < label.length; ) {
+    for (; scanOffset < label.length;) {
       let mentionMatch = parseDirectivesU(label, scanOffset);
       if (mentionMatch == null) break;
       scanOffset = mentionMatch.end;

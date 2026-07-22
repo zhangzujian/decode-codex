@@ -1,0 +1,3 @@
+import { n as e, t } from "./shell-BXmUyAZ0-Cx0HvHSd.js";
+e();
+export { t as default };

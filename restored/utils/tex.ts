@@ -1,7 +1,4 @@
-// Restored from ref/webview/assets/tex-JWWrb0aY.js
+// Restored from ref/webview/assets/tex-1KfC2u42.js
 // Shiki TeX grammar wrapper; the grammar payload stays in @shikijs/langs/tex.
-import { n as texGrammar, t as initTexGrammar } from "@shikijs/langs/tex";
-
-initTexGrammar();
-
-export { texGrammar as default };
+import texGrammar from "@shikijs/langs/tex";
+export default texGrammar;

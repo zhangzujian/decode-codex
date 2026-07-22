@@ -6,8 +6,10 @@ import React, {
   type ReactElement,
 } from "react";
 
-export interface RemoteDirectoryPathInputProps
-  extends Omit<ComponentPropsWithoutRef<"input">, "onChange" | "value"> {
+export interface RemoteDirectoryPathInputProps extends Omit<
+  ComponentPropsWithoutRef<"input">,
+  "onChange" | "value"
+> {
   hostId: string;
   initialDirectoryPath?: string | null;
   selectedPath?: string;

@@ -62,9 +62,7 @@ export function isRemoteControlSlingshotEnabled(): boolean {
 export function useSelectableRemoteConnectionsState(): RemoteConnectionsState {
   const remoteConnections =
     (useAppScopeValue(selectableRemoteConnectionsSignal) as
-      | RemoteConnection[]
-      | null
-      | undefined) ?? [];
+      RemoteConnection[] | null | undefined) ?? [];
   return {
     remoteConnections,
     enabledRemoteHostIdSet: new Set(remoteConnections.flatMap(getAutoHostId)),

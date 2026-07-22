@@ -9,10 +9,7 @@ import { holdNextFreeHourTask } from "./conversational-onboarding-hold-next-free
 import { messagingTask } from "./conversational-onboarding-messaging-task";
 
 export type ConversationalOnboardingTaskId =
-  | "desktop_note"
-  | "csv_chart"
-  | "hold_next_free_hour"
-  | "send_message_to_self";
+  "desktop_note" | "csv_chart" | "hold_next_free_hour" | "send_message_to_self";
 
 export type ConversationalOnboardingPluginName = "slack" | "teams";
 
@@ -37,16 +34,14 @@ export interface ConversationalOnboardingTaskBase {
   getDeclinedRetryPrompt?: (...args: unknown[]) => ReactNode | string;
 }
 
-export interface ConversationalOnboardingMessagingTask
-  extends ConversationalOnboardingTaskBase {
+export interface ConversationalOnboardingMessagingTask extends ConversationalOnboardingTaskBase {
   getPluginName: (
     accountType: string,
   ) => ConversationalOnboardingPluginName | null;
 }
 
 export type ConversationalOnboardingTaskDefinition =
-  | ConversationalOnboardingTaskBase
-  | ConversationalOnboardingMessagingTask;
+  ConversationalOnboardingTaskBase | ConversationalOnboardingMessagingTask;
 
 const conversationalOnboardingTaskDefinitionTable: Record<
   ConversationalOnboardingTaskId,

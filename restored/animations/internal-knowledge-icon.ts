@@ -1,13 +1,13 @@
-// Restored from ref/webview/assets/internal-knowledge-icon-BqsH99c0.js
+// Restored from ref/webview/assets/internal-knowledge-icon-DyoguDsX.js
 // Lottie animation data restored from the Codex webview bundle.
 export const internalKnowledgeIcon = {
-  v: "5.7.5",
+  v: `5.7.5`,
   fr: 100,
   ip: 0,
   op: 120,
   w: 24,
   h: 24,
-  nm: "Comp 1",
+  nm: `Comp 1`,
   ddd: 0,
   metadata: {},
   assets: [],
@@ -16,7 +16,7 @@ export const internalKnowledgeIcon = {
       ddd: 0,
       ind: 1,
       ty: 4,
-      nm: "Group Layer 1",
+      nm: `Group Layer 1`,
       sr: 1,
       ks: {
         p: {
@@ -58,14 +58,14 @@ export const internalKnowledgeIcon = {
       ao: 0,
       shapes: [
         {
-          ty: "gr",
+          ty: `gr`,
           it: [
             {
-              ty: "gr",
-              nm: "Circle's solid stroke",
+              ty: `gr`,
+              nm: `Circle's solid stroke`,
               it: [
                 {
-                  ty: "el",
+                  ty: `el`,
                   d: 1,
                   s: {
                     a: 0,
@@ -79,7 +79,7 @@ export const internalKnowledgeIcon = {
                   },
                 },
                 {
-                  ty: "st",
+                  ty: `st`,
                   c: {
                     a: 0,
                     k: [
@@ -103,8 +103,8 @@ export const internalKnowledgeIcon = {
                   ml: 4,
                   d: [
                     {
-                      n: "o",
-                      nm: "offset",
+                      n: `o`,
+                      nm: `offset`,
                       v: {
                         a: 0,
                         k: 0,
@@ -114,7 +114,7 @@ export const internalKnowledgeIcon = {
                   ],
                 },
                 {
-                  ty: "tr",
+                  ty: `tr`,
                   p: {
                     a: 0,
                     k: [-7.74635124206543, 9.090900421142578],
@@ -154,11 +154,11 @@ export const internalKnowledgeIcon = {
               ],
             },
             {
-              ty: "gr",
-              nm: "Circle's solid stroke",
+              ty: `gr`,
+              nm: `Circle's solid stroke`,
               it: [
                 {
-                  ty: "el",
+                  ty: `el`,
                   d: 1,
                   s: {
                     a: 0,
@@ -172,7 +172,7 @@ export const internalKnowledgeIcon = {
                   },
                 },
                 {
-                  ty: "st",
+                  ty: `st`,
                   c: {
                     a: 0,
                     k: [0, 0, 0],
@@ -193,8 +193,8 @@ export const internalKnowledgeIcon = {
                   ml: 4,
                   d: [
                     {
-                      n: "o",
-                      nm: "offset",
+                      n: `o`,
+                      nm: `offset`,
                       v: {
                         a: 0,
                         k: 0,
@@ -204,7 +204,7 @@ export const internalKnowledgeIcon = {
                   ],
                 },
                 {
-                  ty: "tr",
+                  ty: `tr`,
                   p: {
                     a: 0,
                     k: [11.738502502441406, 2.1608974933624268],
@@ -244,11 +244,11 @@ export const internalKnowledgeIcon = {
               ],
             },
             {
-              ty: "gr",
-              nm: "Circle's solid stroke",
+              ty: `gr`,
+              nm: `Circle's solid stroke`,
               it: [
                 {
-                  ty: "el",
+                  ty: `el`,
                   d: 1,
                   s: {
                     a: 0,
@@ -262,7 +262,7 @@ export const internalKnowledgeIcon = {
                   },
                 },
                 {
-                  ty: "st",
+                  ty: `st`,
                   c: {
                     a: 0,
                     k: [0, 0, 0],
@@ -283,8 +283,8 @@ export const internalKnowledgeIcon = {
                   ml: 4,
                   d: [
                     {
-                      n: "o",
-                      nm: "offset",
+                      n: `o`,
+                      nm: `offset`,
                       v: {
                         a: 0,
                         k: 0,
@@ -294,7 +294,7 @@ export const internalKnowledgeIcon = {
                   ],
                 },
                 {
-                  ty: "tr",
+                  ty: `tr`,
                   p: {
                     a: 0,
                     k: [4, -3.25],
@@ -334,19 +334,19 @@ export const internalKnowledgeIcon = {
               ],
             },
             {
-              ty: "gr",
+              ty: `gr`,
               it: [
                 {
-                  ty: "gr",
-                  nm: "Path's solid stroke",
+                  ty: `gr`,
+                  nm: `Path's solid stroke`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [1.7535999999999987, 5.71135],
                             [0, 0],
@@ -363,7 +363,7 @@ export const internalKnowledgeIcon = {
                       },
                     },
                     {
-                      ty: "tm",
+                      ty: `tm`,
                       s: {
                         a: 1,
                         k: [
@@ -443,7 +443,7 @@ export const internalKnowledgeIcon = {
                       m: 1,
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -464,8 +464,8 @@ export const internalKnowledgeIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -475,10 +475,10 @@ export const internalKnowledgeIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
-                        k: [18.595924377441406, 9.982625007629396],
+                        k: [18.595924377441406, 9.982625007629395],
                         ix: 2,
                       },
                       a: {
@@ -515,23 +515,23 @@ export const internalKnowledgeIcon = {
                   ],
                 },
                 {
-                  ty: "gr",
-                  nm: "Path's solid stroke",
+                  ty: `gr`,
+                  nm: `Path's solid stroke`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [0, 0],
                             [5.82298, 1.3370999999999995],
                           ],
                           i: [
                             [0, 0],
-                            [-2.0440000000000005, 0.3800999999999988],
+                            [-2.0440000000000005, 0.38009999999999877],
                           ],
                           o: [
                             [1.66303, 1.2245999999999988],
@@ -541,7 +541,7 @@ export const internalKnowledgeIcon = {
                       },
                     },
                     {
-                      ty: "tm",
+                      ty: `tm`,
                       s: {
                         a: 1,
                         k: [
@@ -621,7 +621,7 @@ export const internalKnowledgeIcon = {
                       m: 1,
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [
@@ -645,8 +645,8 @@ export const internalKnowledgeIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -656,7 +656,7 @@ export const internalKnowledgeIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [10.454910278320312, 18.767377853393555],
@@ -696,33 +696,33 @@ export const internalKnowledgeIcon = {
                   ],
                 },
                 {
-                  ty: "gr",
-                  nm: "Path's solid stroke",
+                  ty: `gr`,
+                  nm: `Path's solid stroke`,
                   it: [
                     {
-                      ty: "sh",
+                      ty: `sh`,
                       d: 1,
                       ks: {
                         a: 0,
                         k: {
-                          c: false,
+                          c: !1,
                           v: [
                             [4.06941, 0],
                             [0, 4.37427],
                           ],
                           i: [
                             [0, 0],
-                            [0.6928200000000002, -1.9601699999999995],
+                            [0.6928200000000002, -1.9601699999999997],
                           ],
                           o: [
-                            [-1.89205, 0.8279300000000003],
+                            [-1.8920500000000002, 0.8279300000000003],
                             [0, 0],
                           ],
                         },
                       },
                     },
                     {
-                      ty: "tm",
+                      ty: `tm`,
                       s: {
                         a: 1,
                         k: [
@@ -802,7 +802,7 @@ export const internalKnowledgeIcon = {
                       m: 1,
                     },
                     {
-                      ty: "st",
+                      ty: `st`,
                       c: {
                         a: 0,
                         k: [0, 0, 0],
@@ -823,8 +823,8 @@ export const internalKnowledgeIcon = {
                       ml: 4,
                       d: [
                         {
-                          n: "o",
-                          nm: "offset",
+                          n: `o`,
+                          nm: `offset`,
                           v: {
                             a: 0,
                             k: 0,
@@ -834,7 +834,7 @@ export const internalKnowledgeIcon = {
                       ],
                     },
                     {
-                      ty: "tr",
+                      ty: `tr`,
                       p: {
                         a: 0,
                         k: [6.964394569396973, 7.312865257263184],
@@ -874,7 +874,7 @@ export const internalKnowledgeIcon = {
                   ],
                 },
                 {
-                  ty: "tr",
+                  ty: `tr`,
                   p: {
                     a: 0,
                     k: [0, 0],
@@ -963,7 +963,7 @@ export const internalKnowledgeIcon = {
               ],
             },
             {
-              ty: "tr",
+              ty: `tr`,
               p: {
                 a: 0,
                 k: [12, 12],
@@ -1036,3 +1036,4 @@ export const internalKnowledgeIcon = {
   ],
   markers: [],
 };
+export default internalKnowledgeIcon;

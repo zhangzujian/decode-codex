@@ -1,0 +1,38 @@
+// Restored from ref/webview/assets/pkg-D8eNViOR.js
+// Exact npm-backed Segment Analytics Next 1.82.0 root runtime.
+import {
+  Analytics,
+  AnalyticsBrowser,
+  AnalyticsNode,
+  Context,
+  ContextCancelation,
+  EventFactory,
+  Group,
+  UniversalStorage,
+  User,
+  getGlobalAnalytics,
+  isDestinationPluginWithAddMiddleware,
+  resolveAliasArguments,
+  resolveArguments,
+  resolvePageArguments,
+  resolveUserArguments,
+  segmentio,
+} from "segment-analytics-next-1-82";
+export {
+  Analytics,
+  AnalyticsBrowser,
+  AnalyticsNode,
+  Context,
+  ContextCancelation,
+  EventFactory,
+  Group,
+  UniversalStorage,
+  User,
+  getGlobalAnalytics,
+  isDestinationPluginWithAddMiddleware,
+  resolveAliasArguments,
+  resolveArguments,
+  resolvePageArguments,
+  resolveUserArguments,
+  segmentio,
+};

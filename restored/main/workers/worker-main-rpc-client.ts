@@ -31,9 +31,7 @@ export type WorkerMainRpcMethod =
   | "worker-exit";
 
 export type WorkerMainRpcEventMethod =
-  | "process-output-delta"
-  | "fs-watch-changed"
-  | "fs-watch-closed";
+  "process-output-delta" | "fs-watch-changed" | "fs-watch-closed";
 
 export type WorkerMainRpcRequester = {
   request(method: WorkerMainRpcMethod, params: unknown): Promise<unknown>;

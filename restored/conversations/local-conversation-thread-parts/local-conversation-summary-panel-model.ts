@@ -260,17 +260,12 @@ export function useLocalConversationSummaryPanelModel(
   let host = useSignalValue(hostConfigSignal) as HostConfig,
     turns =
       (useScopedValue(conversationTurnsSignal, conversationId) as
-        | readonly ConversationTurn[]
-        | null
-        | undefined) ?? EMPTY_SUMMARY_PANEL_TURNS,
+        readonly ConversationTurn[] | null | undefined) ??
+      EMPTY_SUMMARY_PANEL_TURNS,
     cwd = useScopedValue(conversationCwdSignal, conversationId) as
-      | string
-      | null
-      | undefined,
+      string | null | undefined,
     title = useScopedValue(conversationTitleSignal, conversationId) as
-      | string
-      | null
-      | undefined,
+      string | null | undefined,
     backgroundTerminals = includeBackgroundActivity
       ? collectBackgroundTerminalRowsFromTurns(turns)
       : [],
@@ -296,9 +291,7 @@ export function useLocalConversationSummaryPanelModel(
       localConversationSideChatSummariesSignal,
     ) as readonly SideChatSummary[],
     installedMcpAppIds = useSignalValue(installedMcpAppIdsSignal) as
-      | Set<string>
-      | null
-      | undefined,
+      Set<string> | null | undefined,
     browserUseSummaries = useThreadSummaryBrowserUseSummaries(routeSnapshot);
 
   let hasExternalMcpToolCalls = turns.some(turnHasExternalMcpToolCall),
@@ -367,8 +360,7 @@ export const initLocalConversationSummaryPanelSignals = once(() => {
         }>,
         (conversationId) =>
           (get(localResponseInProgressSignal, conversationId) as
-            | boolean
-            | null) ?? false,
+            boolean | null) ?? false,
       ),
   );
 });

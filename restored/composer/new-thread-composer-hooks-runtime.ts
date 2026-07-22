@@ -80,7 +80,9 @@ export function useConversationPending(_hostId: string | null) {
   return { isPending: false };
 }
 
-export function useComposerRateLimitBanner(_options: { selectedModel?: unknown }) {
+export function useComposerRateLimitBanner(_options: {
+  selectedModel?: unknown;
+}) {
   return {
     isUsageBannerEnabled: false,
     modelLimitName: null,

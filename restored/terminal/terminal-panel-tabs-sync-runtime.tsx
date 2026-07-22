@@ -163,7 +163,9 @@ function buildTerminalTabProps(
   return {
     ...target,
     onNewTerminalTab:
-      placement === "bottom" ? openNewBottomTerminalTab : openNewRightTerminalTab,
+      placement === "bottom"
+        ? openNewBottomTerminalTab
+        : openNewRightTerminalTab,
     sessionId,
   };
 }

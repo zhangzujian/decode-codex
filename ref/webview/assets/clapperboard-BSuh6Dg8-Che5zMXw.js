@@ -1,0 +1,3 @@
+import { n as e, t } from "./clapperboard-BSuh6Dg8-CryewKoX.js";
+t();
+export { e as default };

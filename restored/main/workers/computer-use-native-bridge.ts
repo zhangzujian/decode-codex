@@ -500,9 +500,8 @@ function getAppleEventRuntime(): Promise<AppleEventRuntime> {
 }
 
 async function loadAppleEventRuntime(): Promise<AppleEventRuntime> {
-  const { callFunction, fromPointer, NobjcLibrary } = (await import(
-    "objc-js"
-  )) as unknown as ObjcJsModule;
+  const { callFunction, fromPointer, NobjcLibrary } =
+    (await import("objc-js")) as unknown as ObjcJsModule;
   const foundation = new NobjcLibrary(
     "/System/Library/Frameworks/Foundation.framework/Foundation",
   );

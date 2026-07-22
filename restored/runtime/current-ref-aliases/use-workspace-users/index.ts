@@ -1,0 +1,36 @@
+// Restored from ref/webview/assets/use-workspace-users-BVvr9v3v.js
+// Current-build entry using the compatible prior stable-stem export map.
+import {
+  initShareTargetRowChunk,
+  filterAvailableWorkspaceUsers,
+  initWorkspaceUserQueryHelpersChunk,
+  ShareDialogPrimaryActions,
+  initWorkspaceAccessSelectChunk,
+  ShareTargetRow,
+  workspaceUserToShareTargetOption,
+  WorkspaceAccessSelect,
+  useWorkspaceGroupsQuery,
+  WorkspaceAccessDropdown,
+  initShareDialogPrimaryActionsChunk,
+  useWorkspaceUsersQuery,
+  initWorkspaceAccessDropdownChunk,
+  initWorkspaceUserQueriesChunk,
+  getWorkspaceUserDisplayName,
+} from "../../../collaboration/use-workspace-users";
+export {
+  initShareTargetRowChunk,
+  filterAvailableWorkspaceUsers,
+  initWorkspaceUserQueryHelpersChunk,
+  ShareDialogPrimaryActions,
+  initWorkspaceAccessSelectChunk,
+  ShareTargetRow,
+  workspaceUserToShareTargetOption,
+  WorkspaceAccessSelect,
+  useWorkspaceGroupsQuery,
+  WorkspaceAccessDropdown,
+  initShareDialogPrimaryActionsChunk,
+  useWorkspaceUsersQuery,
+  initWorkspaceAccessDropdownChunk,
+  initWorkspaceUserQueriesChunk,
+  getWorkspaceUserDisplayName,
+};

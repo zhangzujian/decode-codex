@@ -96,4 +96,3 @@ export function DialogHost(): React.ReactElement | null {
   if (activeDialog == null) return null;
   return React.createElement(activeDialog.component, activeDialog.props);
 }
-

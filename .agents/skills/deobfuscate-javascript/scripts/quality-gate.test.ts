@@ -2011,6 +2011,41 @@ describe("quality-gate", () => {
     );
   });
 
+  test("requires exact Mermaid diagram chunks to re-export npm modules", () => {
+    const fixtures = [
+      {
+        file: "restored/vendor/quadrant-diagram-34-t5-l4-wz.ts",
+        sourceChunk: "quadrantDiagram-34T5L4WZ-B_DchiL3",
+        specifier:
+          "mermaid-k5/dist/chunks/mermaid.core/quadrantDiagram-34T5L4WZ.mjs",
+      },
+      {
+        file: "restored/vendor/sankey-diagram-tzehdzun-bpe-qb-biy.ts",
+        sourceChunk: "sankeyDiagram-TZEHDZUN-BPEQbBiy",
+        specifier:
+          "mermaid/dist/chunks/mermaid.core/sankeyDiagram-TZEHDZUN.mjs",
+      },
+    ];
+
+    for (const fixture of fixtures) {
+      const localBody = analyzeSource(
+        `// Restored from ref/webview/assets/${fixture.sourceChunk}.js\nexport const diagram = {};\n`,
+        fixture.file,
+        { ...DEFAULT_OPTIONS, allowFlat: true, allowUntyped: true },
+      );
+      expect(localBody.issues.map((issue) => issue.code)).toContain(
+        "third-party-npm-shim-not-reexport",
+      );
+
+      const npmShim = analyzeSource(
+        `// Restored from ref/webview/assets/${fixture.sourceChunk}.js\nexport { diagram } from "${fixture.specifier}";\n`,
+        fixture.file,
+        { ...DEFAULT_OPTIONS, allowFlat: true },
+      );
+      expect(npmShim.issues).toEqual([]);
+    }
+  });
+
   test("fails hand-written react-intl shims even when the file is renamed", () => {
     const source = `
       // Restored from ref/webview/assets/lib-BWT6A3Q0.js
@@ -3676,6 +3711,25 @@ export function __rest(value) {
     );
   });
 
+  test("accepts the Electron webview JSX intrinsic", () => {
+    const source = `
+      export interface CheckoutWebviewProps {
+        src: string;
+      }
+      export function CheckoutWebview({ src }: CheckoutWebviewProps) {
+        return <webview src={src} />;
+      }
+    `;
+    const report = analyzeSource(source, "checkout-webview.tsx", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(report.invalidJsxTags).toEqual([]);
+    expect(report.issues.map((issue) => issue.code)).not.toContain(
+      "invalid-jsx-tags",
+    );
+  });
+
   test("fails unbound JSX component identifiers", () => {
     const source = `
       export function Broken() {
@@ -3770,6 +3824,69 @@ export function __rest(value) {
       }
     `;
     const report = analyzeSource(source, "read.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+    });
+    expect(report.unboundIdentifiers).toEqual([]);
+    expect(report.issues).toEqual([]);
+  });
+
+  test("ordinary identifier binding check accepts workbook vendor runtime globals", () => {
+    const source = `
+      export function inspectMedia(value) {
+        const media = value instanceof HTMLVideoElement;
+        const bitmap = value instanceof ImageBitmap;
+        const frame = value instanceof VideoFrame;
+        const readable = new TransformStream();
+        const writable = new WritableStream();
+        if (typeof __THREE_DEVTOOLS__ !== "undefined") {
+          __THREE_DEVTOOLS__.dispatchEvent(new Event("register"));
+        }
+        if (typeof reportError === "function") reportError(value);
+        return typeof DO_NOT_EXPORT_SSF === "undefined" &&
+          typeof DO_NOT_EXPORT_BESSEL === "undefined" &&
+          (media || bitmap || frame || readable || writable);
+      }
+    `;
+    const report = analyzeSource(source, "workbook-runtime.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      vendored: true,
+    });
+    expect(report.unboundIdentifiers).toEqual([]);
+    expect(report.issues).toEqual([]);
+  });
+
+  test("ordinary identifier binding check accepts standard browser runtime globals", () => {
+    const source = `
+      export function inspectBrowserRuntime() {
+        const constructors = [
+          DOMPoint,
+          DeviceOrientationEvent,
+          WebGLRenderingContext,
+          WebGL2RenderingContext,
+          WebGLTexture,
+          WorkerGlobalScope,
+          Window,
+          HTMLParagraphElement,
+          ErrorEvent,
+          RadioNodeList,
+          ActiveXObject,
+        ];
+        requestIdleCallback(() => cancelIdleCallback(0));
+        return [
+          constructors,
+          devicePixelRatio,
+          history,
+          parent,
+          confirm("continue?"),
+          getSelection(),
+          innerHeight,
+          typeof __POPCORN_DEV__,
+        ];
+      }
+    `;
+    const report = analyzeSource(source, "browser-runtime.ts", {
       ...DEFAULT_OPTIONS,
       allowFlat: true,
     });
@@ -4284,6 +4401,24 @@ export function __rest(value) {
       };
     `;
     const report = analyzeSource(source, "registry.ts", {
+      ...DEFAULT_OPTIONS,
+      allowFlat: true,
+      maxShortRefCount: 10,
+    });
+    expect(report.shortIdentifierOffenders).toEqual([]);
+  });
+
+  test("short identifier density ignores intrinsic JSX tags and attributes", () => {
+    const paths = Array.from(
+      { length: 80 },
+      (_, index) => `<path d="M${index} 0" x={${index}} />`,
+    ).join("\n");
+    const source = `
+      export function DetailedIcon() {
+        return <svg viewBox="0 0 80 1">${paths}</svg>;
+      }
+    `;
+    const report = analyzeSource(source, "detailed-icon.tsx", {
       ...DEFAULT_OPTIONS,
       allowFlat: true,
       maxShortRefCount: 10,
@@ -5992,6 +6127,29 @@ describe("vendored / facade relaxation", () => {
       maxFlatLines: 5,
     });
     expect(codes(ordinary)).toContain("split-required");
+
+    const locale = analyzeSource(localeData, "restored/locales/am.ts", {
+      ...DEFAULT_OPTIONS,
+      maxFlatLines: 5,
+    });
+    expect(codes(locale)).not.toContain("split-required");
+  });
+
+  test("current lazy locale message data modules are auto-relaxed", () => {
+    const entries = Array.from(
+      { length: 12 },
+      (_, i) => `    "message.${i}": "Message ${i}",`,
+    ).join("\n");
+    const localeData =
+      `// Restored from ref/webview/assets/am-DT7WupEv.js\n` +
+      `// Am chunk restored from the Codex webview bundle.\n` +
+      `import { createLazyEsmInitializer } from "../runtime/rolldown";\n` +
+      `var amGreeting, amDefault;\n` +
+      `createLazyEsmInitializer(() => {\n` +
+      `  amGreeting = "Fallback";\n` +
+      `  amDefault = {\n${entries}\n  };\n` +
+      `})();\n` +
+      `export { amDefault as default, amGreeting as greeting };\n`;
 
     const locale = analyzeSource(localeData, "restored/locales/am.ts", {
       ...DEFAULT_OPTIONS,

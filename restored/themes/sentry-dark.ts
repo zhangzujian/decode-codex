@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/sentry-dark-C3keuH57.js
+// Restored from ref/webview/assets/sentry-dark-D9jNDc5T.js
 // Editor theme data restored from the Codex webview bundle.
 export const bg = "#2d2935";
 export const colors = {

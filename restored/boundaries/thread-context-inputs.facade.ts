@@ -14,6 +14,8 @@ import {
 
 const LOCAL_APP_SERVER_HOST_ID = "local";
 
+export const activeConversationScopeKey = appScopeRoot;
+
 export const $ = undefined as never;
 export const $n = undefined as never;
 export const $r = undefined as never;

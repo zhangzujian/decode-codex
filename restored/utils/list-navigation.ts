@@ -2,6 +2,7 @@
 // list-navigation-BZovQ6sO chunk restored from the Codex webview bundle.
 import React from "react";
 import { useStableCallback } from "./use-stable-callback";
+import { isMacOSPlatform } from "./electron-menu-shortcuts/formatting";
 type UseEffectEvent = <Args extends unknown[], Return>(
   callback: (...args: Args) => Return,
 ) => (...args: Args) => Return;
@@ -32,13 +33,16 @@ type ItemProps<ClickEvent, MouseMoveEvent> = {
 type ListNavigationOptions<Item> = {
   autoHighlightFirst?: boolean;
   captureWindowKeydown?: boolean;
+  getItemKey?: (item: Item) => unknown;
   isActive: boolean;
   items?: readonly Item[] | null;
+  keyboardEventScope?: Node | null;
   keyboardEventTarget?: KeyboardEventTarget | null;
   onEscape?: () => void;
   onHighlight?: (item: Item | null, index: number) => void;
   onSelect: (item: Item, index: number) => void;
   preserveHighlightOnItemsChange?: boolean;
+  shouldHandleKeyDown?: (event: NavigationKeyboardEvent) => boolean;
 };
 const useEffectEvent = (
   React as typeof React & {
@@ -48,13 +52,16 @@ const useEffectEvent = (
 export function ListNavigation<Item>({
   autoHighlightFirst = true,
   captureWindowKeydown = false,
+  getItemKey,
   isActive,
   items,
+  keyboardEventScope,
   keyboardEventTarget,
   onEscape,
   onHighlight,
   onSelect,
   preserveHighlightOnItemsChange = false,
+  shouldHandleKeyDown,
 }: ListNavigationOptions<Item>) {
   const notifyHighlight = useEffectEvent((item: Item | null, index: number) => {
     onHighlight?.(item, index);
@@ -67,6 +74,14 @@ export function ListNavigation<Item>({
   const [highlightedIndex, setHighlightedIndex] = React.useState(
     autoHighlightFirst && itemCount > 0 ? 0 : -1,
   );
+  const highlightedItem =
+    isActive && highlightedIndex >= 0 && highlightedIndex < itemCount
+      ? (items?.[highlightedIndex] ?? null)
+      : null;
+  const highlightedItemKey =
+    highlightedItem == null
+      ? null
+      : (getItemKey?.(highlightedItem) ?? highlightedItem);
   React.useEffect(() => {
     const previousItems = previousItemsRef.current;
     const didItemsChange =
@@ -96,12 +111,12 @@ export function ListNavigation<Item>({
     preserveHighlightOnItemsChange,
   ]);
   React.useEffect(() => {
-    if (!isActive || highlightedIndex < 0 || highlightedIndex >= itemCount) {
+    if (highlightedItemKey == null) {
       notifyHighlight(null, -1);
       return;
     }
     notifyHighlight(items?.[highlightedIndex] ?? null, highlightedIndex);
-  }, [highlightedIndex, isActive, itemCount, items, notifyHighlight]);
+  }, [highlightedIndex, highlightedItemKey, items, notifyHighlight]);
   React.useEffect(() => {
     if (!isActive || highlightedIndex < 0 || highlightedIndex >= itemCount) {
       return;
@@ -134,7 +149,7 @@ export function ListNavigation<Item>({
     );
   };
   const handleKeyDown = (event: NavigationKeyboardEvent) => {
-    if (!isActive) return false;
+    if (!isActive || shouldHandleKeyDown?.(event) === false) return false;
     const { key } = event;
     if (itemCount === 0) {
       if (key === "Escape" && onEscape) {
@@ -144,12 +159,18 @@ export function ListNavigation<Item>({
       }
       return false;
     }
-    if (key === "ArrowDown") {
+    if (
+      key === "ArrowDown" ||
+      (isMacOSPlatform() && "ctrlKey" in event && event.ctrlKey && key === "n")
+    ) {
       moveHighlight(1);
       consumeKeyboardEvent(event);
       return true;
     }
-    if (key === "ArrowUp") {
+    if (
+      key === "ArrowUp" ||
+      (isMacOSPlatform() && "ctrlKey" in event && event.ctrlKey && key === "p")
+    ) {
       moveHighlight(-1);
       consumeKeyboardEvent(event);
       return true;
@@ -175,13 +196,26 @@ export function ListNavigation<Item>({
     if (!captureWindowKeydown || !isActive) return undefined;
     const target = keyboardEventTarget ?? window;
     const onWindowKeyDown = (event: KeyboardEvent) => {
+      if (
+        keyboardEventScope != null &&
+        (!(event.target instanceof Node) ||
+          !keyboardEventScope.contains(event.target))
+      ) {
+        return;
+      }
       handleKeyDown(event);
     };
     target.addEventListener("keydown", onWindowKeyDown, true);
     return () => {
       target.removeEventListener("keydown", onWindowKeyDown, true);
     };
-  }, [captureWindowKeydown, handleKeyDown, isActive, keyboardEventTarget]);
+  }, [
+    captureWindowKeydown,
+    handleKeyDown,
+    isActive,
+    keyboardEventScope,
+    keyboardEventTarget,
+  ]);
   return {
     highlightedIndex,
     setHighlightedIndex,

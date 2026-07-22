@@ -341,7 +341,6 @@ var journeyDiagramVCZTEJTYValue1 = (function () {
             journeyDiagramVCZTEJTYValue73,
             journeyDiagramVCZTEJTYValue74;
           ;
-
         ) {
           if (
             ((journeyDiagramVCZTEJTYValue67 =
@@ -1016,7 +1015,6 @@ var journeyDiagramVCZTEJTYValue2 = journeyDiagramVCZTEJTYValue1,
     for (
       ;
       !journeyDiagramVCZTEJTYValue178 && journeyDiagramVCZTEJTYValue179 < 100;
-
     ) {
       journeyDiagramVCZTEJTYValue178 = journeyDiagramVCZTEJTYValue14();
       journeyDiagramVCZTEJTYValue179++;

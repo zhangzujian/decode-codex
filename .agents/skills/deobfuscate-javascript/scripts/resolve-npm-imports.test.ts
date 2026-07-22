@@ -79,6 +79,20 @@ describe("resolveNpmImports (chunk-name based)", () => {
     expect(out.stats.specifiersResolved).toBe(3);
   });
 
+  test("rewrites @dnd-kit/modifiers chunk with named exports", () => {
+    const src = `
+      import { restrictToHorizontalAxis, restrictToFirstScrollableAncestor } from "../modifiers.esm-gnD0E5XJ.js";
+      restrictToHorizontalAxis;
+      restrictToFirstScrollableAncestor;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('from "@dnd-kit/modifiers"');
+    expect(n).toContain("restrictToHorizontalAxis");
+    expect(n).toContain("restrictToFirstScrollableAncestor");
+    expect(out.stats.specifiersResolved).toBe(2);
+  });
+
   test("rewrites React companion runtime chunks to npm packages", () => {
     const src = `
       import { isFragment } from "../react-is-AbCdEf12.js";

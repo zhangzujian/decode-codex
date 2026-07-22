@@ -1,4 +1,5 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~automations-page~th~bnlvjk3w-ClqKjb2h.js
+// Flat boundary vendored current-build implementation used by semantic compatibility adapters.
 // Current app-initial shared backing implementation with restored dependency imports.
 import {
   createCommonJsModule as r,
@@ -184,7 +185,7 @@ var i = r((e) => {
         for (var u = 0; u < e.length; u++)
           ((a = e[u]), (s = l + ie(a, u)), (c += oe(a, r, i, s, o)));
       else if (((u = m(e)), typeof u == `function`))
-        for (e = u.call(e), u = 0; !(a = e.next()).done; )
+        for (e = u.call(e), u = 0; !(a = e.next()).done;)
           ((a = a.value), (s = l + ie(a, u++)), (c += oe(a, r, i, s, o)));
       else if (s === `object`) {
         if (typeof e.then == `function`) return oe(ae(e), r, i, a, o);
@@ -3333,7 +3334,7 @@ var Cn,
           l = new WeakSet(),
           u = new WeakSet(),
           d = Array.from(i);
-        for (; d.length; ) {
+        for (; d.length;) {
           let t = d[d.length - 1],
             i = a(e, t);
           if (u.has(t)) {
@@ -3469,7 +3470,7 @@ var Cn,
           i = n[2],
           a = n[11],
           o = [t];
-        for (; o.length; ) {
+        for (; o.length;) {
           let t = o.pop(),
             n = a(e, t);
           for (let s of yn(t, n, r)) {
@@ -4711,7 +4712,7 @@ function Ti(e, t, n) {
   if (!e.imperativeReadAtoms.has(t)) return e.store.get(t);
   let r = [],
     i = e;
-  for (; i != null; ) ((i.imperativeReadDepth += 1), r.push(i), (i = i.parent));
+  for (; i != null;) ((i.imperativeReadDepth += 1), r.push(i), (i = i.parent));
   try {
     let n = e.store.sub(t, () => {});
     try {
@@ -5008,7 +5009,7 @@ function Xi(e, t) {
 function Zi(e, t) {
   let n = new Map(),
     r = t.parent;
-  for (; r != null; ) {
+  for (; r != null;) {
     let t = e.get(r.id);
     if (t == null) break;
     (n.set(r.id, t), (r = r.parent));
@@ -5017,7 +5018,7 @@ function Zi(e, t) {
 }
 function Qi(e, t) {
   let n = e;
-  for (; n != null; ) {
+  for (; n != null;) {
     if (n.token === t) return n;
     n = n.parent;
   }
@@ -5551,7 +5552,7 @@ var Ea = e(() => {
   ka = r((e, t) => {
     var n = Oa();
     function r(e, t) {
-      for (var r = e.length; r--; ) if (n(e[r][0], t)) return r;
+      for (var r = e.length; r--;) if (n(e[r][0], t)) return r;
       return -1;
     }
     t.exports = r;
@@ -5602,7 +5603,7 @@ var Ea = e(() => {
     function s(e) {
       var t = -1,
         n = e == null ? 0 : e.length;
-      for (this.clear(); ++t < n; ) {
+      for (this.clear(); ++t < n;) {
         var r = e[t];
         this.set(r[0], r[1]);
       }
@@ -5853,7 +5854,7 @@ var Ea = e(() => {
     function s(e) {
       var t = -1,
         n = e == null ? 0 : e.length;
-      for (this.clear(); ++t < n; ) {
+      for (this.clear(); ++t < n;) {
         var r = e[t];
         this.set(r[0], r[1]);
       }
@@ -5936,7 +5937,7 @@ var Ea = e(() => {
     function s(e) {
       var t = -1,
         n = e == null ? 0 : e.length;
-      for (this.clear(); ++t < n; ) {
+      for (this.clear(); ++t < n;) {
         var r = e[t];
         this.set(r[0], r[1]);
       }
@@ -6002,7 +6003,7 @@ var Ea = e(() => {
     function a(e) {
       var t = -1,
         r = e == null ? 0 : e.length;
-      for (this.__data__ = new n(); ++t < r; ) this.add(e[t]);
+      for (this.__data__ = new n(); ++t < r;) this.add(e[t]);
     }
     ((a.prototype.add = a.prototype.push = r),
       (a.prototype.has = i),
@@ -6010,7 +6011,7 @@ var Ea = e(() => {
   }),
   xo = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = e == null ? 0 : e.length; ++n < r; )
+      for (var n = -1, r = e == null ? 0 : e.length; ++n < r;)
         if (t(e[n], n, e)) return !0;
       return !1;
     }
@@ -6039,7 +6040,7 @@ var Ea = e(() => {
       var g = -1,
         _ = !0,
         v = s & o ? new n() : void 0;
-      for (u.set(e, t), u.set(t, e); ++g < f; ) {
+      for (u.set(e, t), u.set(t, e); ++g < f;) {
         var y = e[g],
           b = t[g];
         if (c) var x = d ? c(b, y, g, t, e, u) : c(y, b, g, e, t, u);
@@ -6153,7 +6154,7 @@ var Ea = e(() => {
   }),
   Oo = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = t.length, i = e.length; ++n < r; ) e[i + n] = t[n];
+      for (var n = -1, r = t.length, i = e.length; ++n < r;) e[i + n] = t[n];
       return e;
     }
     t.exports = n;
@@ -6172,7 +6173,7 @@ var Ea = e(() => {
   }),
   jo = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = e == null ? 0 : e.length, i = 0, a = []; ++n < r; ) {
+      for (var n = -1, r = e == null ? 0 : e.length, i = 0, a = []; ++n < r;) {
         var o = e[n];
         t(o, n, e) && (a[i++] = o);
       }
@@ -6204,7 +6205,7 @@ var Ea = e(() => {
   }),
   Po = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = Array(e); ++n < e; ) r[n] = t(n);
+      for (var n = -1, r = Array(e); ++n < e;) r[n] = t(n);
       return r;
     }
     t.exports = n;
@@ -6454,7 +6455,7 @@ var Ea = e(() => {
         u = n(e),
         d = u.length;
       if (d != n(t).length && !l) return !1;
-      for (var f = d; f--; ) {
+      for (var f = d; f--;) {
         var p = u[f];
         if (!(l ? p in t : i.call(t, p))) return !1;
       }
@@ -6463,7 +6464,7 @@ var Ea = e(() => {
       if (m && h) return m == t && h == e;
       var g = !0;
       (c.set(e, t), c.set(t, e));
-      for (var _ = l; ++f < d; ) {
+      for (var _ = l; ++f < d;) {
         p = u[f];
         var v = e[p],
           y = t[p];
@@ -6785,7 +6786,7 @@ function ms(e, t) {
   if (n == null) return;
   let r = e.retainedScopeEntries.get(t);
   if (r != null)
-    for (; r.size > n; ) {
+    for (; r.size > n;) {
       let e = hs(r);
       if (e == null) return;
       (r.delete(e.key), Ci(e.entry.node));
@@ -7579,7 +7580,7 @@ function qc(e, t = (e) => e.message) {
         else {
           let e = n,
             r = 0;
-          for (; r < i.path.length; ) {
+          for (; r < i.path.length;) {
             let n = i.path[r];
             (r === i.path.length - 1
               ? ((e[n] = e[n] || { _errors: [] }), e[n]._errors.push(t(i)))
@@ -7608,7 +7609,7 @@ function Jc(e, t = (e) => e.message) {
           }
           let r = n,
             c = 0;
-          for (; c < e.length; ) {
+          for (; c < e.length;) {
             let n = e[c],
               i = c === e.length - 1;
             (typeof n == `string`
@@ -21144,7 +21145,7 @@ function TO(e, t) {
   let n = t + 1,
     r = ``,
     i = ``;
-  for (; n < e.length; ) {
+  for (; n < e.length;) {
     let t = e[n];
     if (t == null) return null;
     if (t === `"`)
@@ -22218,7 +22219,6 @@ var Zj,
           ;
           this.headIndex < this.entries.length &&
           this.entries[this.headIndex].atMs < t;
-
         )
           ((this.rollingSum -= this.entries[this.headIndex].value),
             (this.headIndex += 1));

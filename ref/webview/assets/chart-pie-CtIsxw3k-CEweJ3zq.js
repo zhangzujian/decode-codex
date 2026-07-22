@@ -1,0 +1,3 @@
+import { n as e, t } from "./chart-pie-CtIsxw3k-Dkv_IlMx.js";
+t();
+export { e as default };

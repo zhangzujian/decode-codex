@@ -13,7 +13,10 @@ type OpenTargetMenuItem = {
   target: unknown;
 };
 
-function readString(record: Record<string, unknown>, keys: string[]): string | null {
+function readString(
+  record: Record<string, unknown>,
+  keys: string[],
+): string | null {
   for (const key of keys) {
     const value = record[key];
     if (typeof value === "string" && value.length > 0) return value;
@@ -21,7 +24,10 @@ function readString(record: Record<string, unknown>, keys: string[]): string | n
   return null;
 }
 
-function toOpenTargetMenuItem(target: unknown, index: number): OpenTargetMenuItem {
+function toOpenTargetMenuItem(
+  target: unknown,
+  index: number,
+): OpenTargetMenuItem {
   const record =
     typeof target === "object" && target != null
       ? (target as Record<string, unknown>)

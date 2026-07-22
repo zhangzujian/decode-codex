@@ -278,73 +278,152 @@ import { RemoteConversationProjectHeaderModule } from "./project-header";
 import { RemoteConversationThreadViewModule } from "./thread-view";
 
 function remoteConversationPageUnit68() {
-  let remoteConversationPageBinding364 = currentAppInitialSharedCompatSlotUpperKLowerO(reactRouterMember0297),
-    remoteConversationPageBinding365 = currentAppInitialSharedCompatSlotLowerQLowerO(currentAppInitialSharedMember0051),
-    remoteConversationPageBinding366 = currentAppInitialSharedCompatSlotLowerQLowerO(worktreeNewThreadQueryCompatSlotLowerLLowerD),
-    remoteConversationPageBinding367 = currentAppInitialSharedCompatSlotLowerQLowerO(worktreeNewThreadQueryCompatSlotLowerSLowerD),
-    remoteConversationPageBinding368 = currentAppInitialSharedCompatSlotLowerQLowerO(worktreeNewThreadQueryCompatSlotLowerCLowerD),
+  let remoteConversationPageBinding364 =
+      currentAppInitialSharedCompatSlotUpperKLowerO(reactRouterMember0297),
+    remoteConversationPageBinding365 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        currentAppInitialSharedMember0051,
+      ),
+    remoteConversationPageBinding366 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        worktreeNewThreadQueryCompatSlotLowerLLowerD,
+      ),
+    remoteConversationPageBinding367 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        worktreeNewThreadQueryCompatSlotLowerSLowerD,
+      ),
+    remoteConversationPageBinding368 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        worktreeNewThreadQueryCompatSlotLowerCLowerD,
+      ),
     remoteConversationPageBinding369 = appMainCurrentCompatSlotLowerDLowerP(),
-    remoteConversationPageBinding370 = RemoteConversationProjectHeaderModule.remoteConversationPageUnit22(remoteConversationPageBinding366.data, remoteConversationPageBinding368, remoteConversationPageBinding367);
+    remoteConversationPageBinding370 =
+      RemoteConversationProjectHeaderModule.remoteConversationPageUnit22(
+        remoteConversationPageBinding366.data,
+        remoteConversationPageBinding368,
+        remoteConversationPageBinding367,
+      );
   let remoteConversationPageBinding371 = remoteConversationPageBinding370,
-    remoteConversationPageBinding372 = remoteConversationPageBinding368?.turn_status,
-    remoteConversationPageBinding373 = remoteConversationPageBinding369 !== appMainCurrentCompatSlotLowerOLowerP,
-    remoteConversationPageBinding374 = currentAppInitialSharedCompatSlotLowerQLowerO(worktreeNewThreadOrchestratorCompatSlotUpperQLowerP),
-    remoteConversationPageBinding375 = currentAppInitialSharedCompatSlotLowerQLowerO(worktreeNewThreadOrchestratorCompatSlotLowerHLowerM),
-    remoteConversationPageBinding376 = remoteConversationPageBinding373 && remoteConversationPageBinding371 != null,
-    [remoteConversationPageBinding377, remoteConversationPageBinding378] = remoteConversationPageBinding47.useState(null),
-    remoteConversationPageBinding379 = remoteConversationPageBinding374 && remoteConversationPageBinding375,
+    remoteConversationPageBinding372 =
+      remoteConversationPageBinding368?.turn_status,
+    remoteConversationPageBinding373 =
+      remoteConversationPageBinding369 !== appMainCurrentCompatSlotLowerOLowerP,
+    remoteConversationPageBinding374 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        worktreeNewThreadOrchestratorCompatSlotUpperQLowerP,
+      ),
+    remoteConversationPageBinding375 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        worktreeNewThreadOrchestratorCompatSlotLowerHLowerM,
+      ),
+    remoteConversationPageBinding376 =
+      remoteConversationPageBinding373 &&
+      remoteConversationPageBinding371 != null,
+    [remoteConversationPageBinding377, remoteConversationPageBinding378] =
+      remoteConversationPageBinding47.useState(null),
+    remoteConversationPageBinding379 =
+      remoteConversationPageBinding374 && remoteConversationPageBinding375,
     remoteConversationPageBinding380 = !remoteConversationPageBinding379,
-    remoteConversationPageBinding381 = remoteConversationPageBinding379 && remoteConversationPageBinding366.data != null && remoteConversationPageBinding372 != null,
+    remoteConversationPageBinding381 =
+      remoteConversationPageBinding379 &&
+      remoteConversationPageBinding366.data != null &&
+      remoteConversationPageBinding372 != null,
     remoteConversationPageBinding382;
-  remoteConversationPageBinding382 = () => appMainCurrentCompatSlotUpperGLowerC(remoteConversationPageBinding364);
+  remoteConversationPageBinding382 = () =>
+    appMainCurrentCompatSlotUpperGLowerC(remoteConversationPageBinding364);
   useRegisterToggleDiffPanelCommand(remoteConversationPageBinding382);
-  let remoteConversationPageBinding383 = React.createElement(LocalConversationDiffSummaryView, {
-    lastTurnCwd: null,
-    lastTurnDiff: remoteConversationPageBinding371
-  });
-  let remoteConversationPageBinding384 = React.createElement(worktreeNewThreadOrchestratorCompatSlotLowerOLowerT.MainContentLayout, {
-    layout: "thread-edge-scroll"
-  });
-  let remoteConversationPageBinding385 = React.createElement(worktreeNewThreadOrchestratorCompatSlotLowerOLowerT.Header, null, React.createElement(RemoteConversationDataModule.remoteConversationPageUnit24, null));
-  let remoteConversationPageBinding386 = <div className="h-full min-h-0">
-      {React.createElement(RemoteConversationThreadViewModule.remoteConversationPageUnit47, {
-      hostId: remoteConversationPageBinding365,
-      showComposer: remoteConversationPageBinding380
-    })}
-    </div>;
-  let remoteConversationPageBinding387 = React.createElement(ThreadAppShellChrome, {
-    showReviewTab: remoteConversationPageBinding376,
-    threadType: "remote"
-  });
-  let remoteConversationPageBinding388 = remoteConversationPageBinding381 ? React.createElement(remoteConversationPageUnit69, null) : null;
-  let remoteConversationPageBinding389 = <div ref={remoteConversationPageBinding378} className="relative h-full min-h-0">
+  let remoteConversationPageBinding383 = React.createElement(
+    LocalConversationDiffSummaryView,
+    {
+      lastTurnCwd: null,
+      lastTurnDiff: remoteConversationPageBinding371,
+    },
+  );
+  let remoteConversationPageBinding384 = React.createElement(
+    worktreeNewThreadOrchestratorCompatSlotLowerOLowerT.MainContentLayout,
+    {
+      layout: "thread-edge-scroll",
+    },
+  );
+  let remoteConversationPageBinding385 = React.createElement(
+    worktreeNewThreadOrchestratorCompatSlotLowerOLowerT.Header,
+    null,
+    React.createElement(
+      RemoteConversationDataModule.remoteConversationPageUnit24,
+      null,
+    ),
+  );
+  let remoteConversationPageBinding386 = (
+    <div className="h-full min-h-0">
+      {React.createElement(
+        RemoteConversationThreadViewModule.remoteConversationPageUnit47,
+        {
+          hostId: remoteConversationPageBinding365,
+          showComposer: remoteConversationPageBinding380,
+        },
+      )}
+    </div>
+  );
+  let remoteConversationPageBinding387 = React.createElement(
+    ThreadAppShellChrome,
+    {
+      showReviewTab: remoteConversationPageBinding376,
+      threadType: "remote",
+    },
+  );
+  let remoteConversationPageBinding388 = remoteConversationPageBinding381
+    ? React.createElement(remoteConversationPageUnit69, null)
+    : null;
+  let remoteConversationPageBinding389 = (
+    <div
+      ref={remoteConversationPageBinding378}
+      className="relative h-full min-h-0"
+    >
       {remoteConversationPageBinding383}
       {remoteConversationPageBinding384}
       {remoteConversationPageBinding385}
       {remoteConversationPageBinding386}
       {remoteConversationPageBinding387}
       {remoteConversationPageBinding388}
-    </div>;
-  return React.createElement(appgenLibraryHotDjo67r4nCompatSlotUpperZ, {
-    value: remoteConversationPageBinding377
-  }, remoteConversationPageBinding389);
+    </div>
+  );
+  return React.createElement(
+    appgenLibraryHotDjo67r4nCompatSlotUpperZ,
+    {
+      value: remoteConversationPageBinding377,
+    },
+    remoteConversationPageBinding389,
+  );
 }
 function remoteConversationPageUnit69() {
-  let remoteConversationPageBinding475 = currentAppInitialSharedCompatSlotLowerQLowerO(worktreeNewThreadQueryCompatSlotLowerCLowerD),
-    remoteConversationPageBinding476 = remoteConversationPageBinding475?.turn_status === "pending" || remoteConversationPageBinding475?.turn_status === "in_progress";
-  return React.createElement(RightPanelComposerOverlay, null, React.createElement(appgenLibraryHotDjo67r4nCompatSlotLowerT, {
-    composerLayoutMode: "auto-single-line",
-    isResponseInProgress: remoteConversationPageBinding476,
-    showFooterBranchWhen: "always"
-  }));
+  let remoteConversationPageBinding475 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        worktreeNewThreadQueryCompatSlotLowerCLowerD,
+      ),
+    remoteConversationPageBinding476 =
+      remoteConversationPageBinding475?.turn_status === "pending" ||
+      remoteConversationPageBinding475?.turn_status === "in_progress";
+  return React.createElement(
+    RightPanelComposerOverlay,
+    null,
+    React.createElement(appgenLibraryHotDjo67r4nCompatSlotLowerT, {
+      composerLayoutMode: "auto-single-line",
+      isResponseInProgress: remoteConversationPageBinding476,
+      showFooterBranchWhen: "always",
+    }),
+  );
 }
 var remoteConversationPageBinding46,
   remoteConversationPageBinding47,
   remoteConversationPageBinding48,
   remoteConversationPageBinding49 = once(() => {
-    remoteConversationPageBinding46 = currentAppInitialSharedCompatSlotLowerGLowerC();
+    remoteConversationPageBinding46 =
+      currentAppInitialSharedCompatSlotLowerGLowerC();
     currentAppInitialSharedCompatSlotUpperVLowerO();
-    remoteConversationPageBinding47 = toEsModule(currentAppInitialSharedCompatSlotUnderscoreLowerC(), 1);
+    remoteConversationPageBinding47 = toEsModule(
+      currentAppInitialSharedCompatSlotUnderscoreLowerC(),
+      1,
+    );
     appServerDisconnectedAppServerSignal();
     worktreeNewThreadOrchestratorCompatSlotLowerSLowerT();
     worktreeNewThreadOrchestratorCompatSlotLowerMLowerM();
@@ -362,60 +441,93 @@ var remoteConversationPageBinding46,
     worktreeNewThreadQueryCompatSlotLowerALowerD();
     RemoteConversationThreadViewModule.remoteConversationPageBinding45();
     RemoteConversationProjectHeaderModule.remoteConversationPageBinding29();
-    remoteConversationPageBinding48 = currentAppInitialSharedCompatSlotLowerLLowerC();
+    remoteConversationPageBinding48 =
+      currentAppInitialSharedCompatSlotLowerLLowerC();
   });
 type RemoteConversationPageProps = {
   variant?: "main" | "hotkey";
 };
-export function RemoteConversationPageIcon(remoteConversationPageOperand17: RemoteConversationPageProps) {
-  let {
-      variant = "main"
-    } = remoteConversationPageOperand17,
-    {
-      taskId
-    } = currentAppInitialSharedMember0194(),
-    remoteConversationPageBinding348 = currentAppInitialSharedCompatSlotLowerQLowerO(currentAppInitialSharedMember0051),
-    remoteConversationPageBinding349 = currentAppInitialSharedCompatSlotLowerQLowerO(worktreeNewThreadQueryCompatSlotLowerLLowerD).data,
-    remoteConversationPageBinding350 = remoteConversationPageBinding349?.task.task_status_display?.environment_label,
+export function RemoteConversationPageIcon(
+  remoteConversationPageOperand17: RemoteConversationPageProps,
+) {
+  let { variant = "main" } = remoteConversationPageOperand17,
+    { taskId } = currentAppInitialSharedMember0194(),
+    remoteConversationPageBinding348 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        currentAppInitialSharedMember0051,
+      ),
+    remoteConversationPageBinding349 =
+      currentAppInitialSharedCompatSlotLowerQLowerO(
+        worktreeNewThreadQueryCompatSlotLowerLLowerD,
+      ).data,
+    remoteConversationPageBinding350 =
+      remoteConversationPageBinding349?.task.task_status_display
+        ?.environment_label,
     remoteConversationPageBinding351;
-  if (remoteConversationPageBinding351 = variant !== "hotkey" || taskId == null ? null : {
-    title: <div className="flex max-w-full min-w-0 items-baseline gap-2">
+  if (
+    ((remoteConversationPageBinding351 =
+      variant !== "hotkey" || taskId == null
+        ? null
+        : {
+            title: (
+              <div className="flex max-w-full min-w-0 items-baseline gap-2">
                 <div className="min-w-0 shrink-[999] truncate text-token-foreground">
-                  {remoteConversationPageBinding349?.task.title ?? React.createElement(currentAppInitialSharedMember0924, {
-          id: "hotkeyWindow.defaultTitle",
-          defaultMessage: "Codex",
-          description: "Fallback title for hotkey window thread header"
-        })}
+                  {remoteConversationPageBinding349?.task.title ??
+                    React.createElement(currentAppInitialSharedMember0924, {
+                      id: "hotkeyWindow.defaultTitle",
+                      defaultMessage: "Codex",
+                      description:
+                        "Fallback title for hotkey window thread header",
+                    })}
                 </div>
-                {remoteConversationPageBinding350 == null ? null : <div className="flex shrink-0 items-center gap-1 whitespace-nowrap text-token-description-foreground">
+                {remoteConversationPageBinding350 == null ? null : (
+                  <div className="flex shrink-0 items-center gap-1 whitespace-nowrap text-token-description-foreground">
                     <span className="truncate">
                       {remoteConversationPageBinding350}
                     </span>
-                  </div>}
-              </div>,
-    mainWindowPath: currentAppInitialSharedCompatSlotUpperXLowerT(taskId)
-  }, useHotkeyWindowDetailLayout(remoteConversationPageBinding351), !taskId) {
+                  </div>
+                )}
+              </div>
+            ),
+            mainWindowPath:
+              currentAppInitialSharedCompatSlotUpperXLowerT(taskId),
+          }),
+    useHotkeyWindowDetailLayout(remoteConversationPageBinding351),
+    !taskId)
+  ) {
     let remoteConversationPageBinding506;
     return React.createElement(currentAppInitialSharedMember0084, {
-      to: "/"
+      to: "/",
     });
   }
-  let remoteConversationPageBinding352 = variant === "hotkey" ? React.createElement(RemoteConversationThreadViewModule.remoteConversationPageUnit47, {
-    key: taskId,
-    hostId: remoteConversationPageBinding348
-  }) : React.createElement(remoteConversationPageUnit68, {
-    key: taskId
-  });
+  let remoteConversationPageBinding352 =
+    variant === "hotkey"
+      ? React.createElement(
+          RemoteConversationThreadViewModule.remoteConversationPageUnit47,
+          {
+            key: taskId,
+            hostId: remoteConversationPageBinding348,
+          },
+        )
+      : React.createElement(remoteConversationPageUnit68, {
+          key: taskId,
+        });
   let remoteConversationPageBinding353 = remoteConversationPageBinding352,
-    remoteConversationPageBinding354 = React.createElement(ThreadFindBar.Surface, null);
-  return <>
+    remoteConversationPageBinding354 = React.createElement(
+      ThreadFindBar.Surface,
+      null,
+    );
+  return (
+    <>
       {remoteConversationPageBinding354}
       {remoteConversationPageBinding353}
-    </>;
+    </>
+  );
 }
 var remoteConversationPageBinding50, remoteConversationPageJsxRuntime;
 once(() => {
-  remoteConversationPageBinding50 = currentAppInitialSharedCompatSlotLowerGLowerC();
+  remoteConversationPageBinding50 =
+    currentAppInitialSharedCompatSlotLowerGLowerC();
   currentAppInitialSharedCompatSlotUpperVLowerO();
   currentAppInitialSharedCompatSlotUpperO();
   intlFormatDateTimeRuntime();
@@ -426,6 +538,7 @@ once(() => {
   remoteConversationPageBinding49();
   worktreeNewThreadQueryCompatSlotLowerALowerD();
   RemoteConversationThreadViewModule.remoteConversationPageBinding45();
-  remoteConversationPageJsxRuntime = currentAppInitialSharedCompatSlotLowerLLowerC();
+  remoteConversationPageJsxRuntime =
+    currentAppInitialSharedCompatSlotLowerLLowerC();
 })();
 export { RemoteConversationPageIcon as RemoteConversationPage };

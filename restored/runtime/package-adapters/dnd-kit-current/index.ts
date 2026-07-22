@@ -1,0 +1,56 @@
+// Restored from ref/webview/assets/app-initial~artifact-tab-content.electron~app-main~appgen-settings-page~page~pull-request-r~i9veoilb-D02S5oqQ.js
+// Current DnD Kit runtime backed by the published core and utilities packages.
+import {
+  closestCenter,
+  closestCorners,
+  DndContext,
+  DragOverlay,
+  getClientRect,
+  getFirstCollision,
+  getScrollableAncestors,
+  KeyboardCode,
+  KeyboardSensor,
+  pointerWithin,
+  PointerSensor,
+  useDndContext,
+  useDraggable,
+  useDroppable,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  CSS,
+  isKeyboardEvent,
+  subtract,
+  useCombinedRefs,
+  useIsomorphicLayoutEffect,
+  useUniqueId,
+} from "@dnd-kit/utilities";
+function initDndKitCoreRuntime(): void {}
+function initDndKitUtilitiesRuntime(): void {}
+export {
+  useIsomorphicLayoutEffect,
+  useCombinedRefs,
+  useSensors,
+  PointerSensor,
+  isKeyboardEvent,
+  getClientRect,
+  initDndKitCoreRuntime,
+  pointerWithin,
+  useSensor,
+  useDroppable,
+  KeyboardSensor,
+  getFirstCollision,
+  useDraggable,
+  DragOverlay,
+  closestCenter,
+  useDndContext,
+  KeyboardCode,
+  closestCorners,
+  DndContext,
+  getScrollableAncestors,
+  CSS,
+  useUniqueId,
+  subtract,
+  initDndKitUtilitiesRuntime,
+};

@@ -36,7 +36,9 @@ export function buildWorkspaceFolderOptions({
             value: group.path ?? "",
             label,
             description:
-              rootFolder != null && rootFolder !== label ? rootFolder : undefined,
+              rootFolder != null && rootFolder !== label
+                ? rootFolder
+                : undefined,
             isCodexWorktree: group.isCodexWorktree,
           };
         })

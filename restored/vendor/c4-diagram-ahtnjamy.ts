@@ -1719,7 +1719,6 @@ var c4DiagramAHTNJAMYValue1 = dist(),
               c4DiagramAHTNJAMYValue164,
               c4DiagramAHTNJAMYValue165;
             ;
-
           ) {
             if (
               ((c4DiagramAHTNJAMYValue158 =
@@ -3312,15 +3311,13 @@ var c4DiagramAHTNJAMYValue3 = c4DiagramAHTNJAMYValue2,
     let c4DiagramAHTNJAMYValue208 = c4DiagramAHTNJAMYValue4.find(
       (item) => item.alias === c4DiagramAHTNJAMYParam38,
     );
-    if (
-      !(
-        c4DiagramAHTNJAMYValue208 === undefined &&
-        ((c4DiagramAHTNJAMYValue208 = c4DiagramAHTNJAMYValue8.find(
-          (item) => item.alias === c4DiagramAHTNJAMYParam38,
-        )),
-        c4DiagramAHTNJAMYValue208 === undefined)
-      )
-    ) {
+    if (!(
+      c4DiagramAHTNJAMYValue208 === undefined &&
+      ((c4DiagramAHTNJAMYValue208 = c4DiagramAHTNJAMYValue8.find(
+        (item) => item.alias === c4DiagramAHTNJAMYParam38,
+      )),
+      c4DiagramAHTNJAMYValue208 === undefined)
+    )) {
       if (c4DiagramAHTNJAMYParam39 != null)
         if (typeof c4DiagramAHTNJAMYParam39 == "object") {
           let [c4DiagramAHTNJAMYValue297, c4DiagramAHTNJAMYValue298] =

@@ -49,9 +49,7 @@ interface GitWorkflowContext {
 }
 
 type CreatePullRequestNextStep =
-  | "create-pr"
-  | "commit-and-create-pr"
-  | "commit-push-and-create-pr";
+  "create-pr" | "commit-and-create-pr" | "commit-push-and-create-pr";
 
 interface CreatePullRequestWorkflowRequest {
   kind: "create-pr";

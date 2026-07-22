@@ -61,14 +61,12 @@ export function ReferralInviteModalIcon(
   const productLogger = useAppScopeValue(productLoggerSignal) as ProductLogger;
   const selectedAccountQuery = useSelectedAccountQuery();
   const selectedAccount = selectedAccountQuery.data as
-    | SelectedAccount
-    | undefined;
+    SelectedAccount | undefined;
   const eligibilityRulesQuery = useReferralEligibilityRulesQuery({
     referralKey,
   });
   const eligibilityRulesData = eligibilityRulesQuery.data as
-    | ReferralEligibilityRulesResponse
-    | undefined;
+    ReferralEligibilityRulesResponse | undefined;
   const inviteMutation = useReferralInviteMutation();
   const emailInputId = React.useId();
   const consentCheckboxId = React.useId();

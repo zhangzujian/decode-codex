@@ -1,0 +1,3 @@
+import { n as e, t } from "./list-video-wYJi2t4a-Cj8BUShL.js";
+e();
+export { t as default };

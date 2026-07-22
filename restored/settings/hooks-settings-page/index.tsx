@@ -32,11 +32,7 @@ import { toastControllerSignal } from "../../runtime/current-app-initial/worktre
 import { useScopedValue as useRuntimeScopedValue } from "../../runtime/app-scope-hooks";
 import { Button } from "../../ui/button";
 import { Banner } from "../../ui/banner";
-import {
-  DialogBody,
-  DialogHeader,
-  DialogLayout,
-} from "../../ui/dialog-layout";
+import { DialogBody, DialogHeader, DialogLayout } from "../../ui/dialog-layout";
 import { SettingsContentLayout } from "../../ui/settings-content-layout";
 import { SettingsControlRow } from "../../ui/settings-row";
 import { Tooltip } from "../../ui/tooltip-b";
@@ -291,7 +287,9 @@ function HookEventSection({
                     <Tooltip
                       triggerAsChild
                       tooltipContent={
-                        <FormattedMessage {...hooksPageMessages.openConfigFile} />
+                        <FormattedMessage
+                          {...hooksPageMessages.openConfigFile}
+                        />
                       }
                     >
                       <button
@@ -366,7 +364,10 @@ function HookEventSection({
                         />
                       }
                     >
-                      <span className="inline-flex cursor-not-allowed" tabIndex={0}>
+                      <span
+                        className="inline-flex cursor-not-allowed"
+                        tabIndex={0}
+                      >
                         <Toggle
                           ariaLabel={rowLabel}
                           checked
@@ -390,7 +391,9 @@ function HookEventSection({
                       }
                     >
                       <span
-                        className={needsReview ? "inline-flex cursor-not-allowed" : ""}
+                        className={
+                          needsReview ? "inline-flex cursor-not-allowed" : ""
+                        }
                         tabIndex={needsReview ? 0 : undefined}
                       >
                         <Toggle
@@ -689,7 +692,10 @@ function SourceHooksPanel({
                     {formatHookEventName(summary.eventName, intl)}
                   </span>
                 }
-                description={formatHookEventDescription(summary.eventName, intl)}
+                description={formatHookEventDescription(
+                  summary.eventName,
+                  intl,
+                )}
                 control={
                   summary.needsReview > 0 ? (
                     <WarningIcon className="icon-2xs shrink-0 text-token-editor-warning-foreground" />
@@ -761,7 +767,10 @@ function HookIssuesDisclosure({
           </span>
         </span>
         <ChevronIcon
-          className={clsx("icon-2xs shrink-0 transition-transform", expanded && "rotate-180")}
+          className={clsx(
+            "icon-2xs shrink-0 transition-transform",
+            expanded && "rotate-180",
+          )}
         />
       </button>
       {expanded ? (
@@ -813,7 +822,8 @@ function HooksSettingsContent({
 }: HooksSettingsContentProps) {
   const intl = useIntl();
   const reloadLabel = intl.formatMessage(hooksPageMessages.reloadHooks);
-  const groups = entries == null || isLoading ? [] : buildHookSourceGroups(entries);
+  const groups =
+    entries == null || isLoading ? [] : buildHookSourceGroups(entries);
   const globalSections: HookSourceGroup[] = [];
   const otherSections: HookSourceGroup[] = [];
   let pluginSection: Extract<HookSourceGroup, { id: "plugin" }> | null = null;
@@ -1117,7 +1127,10 @@ function PluginSourceRow({
   pluginEntry,
 }: {
   onSelectSourceSection: (selection: HookSourceSelection) => void;
-  pluginEntry: Extract<HookSourceGroup, { id: "plugin" }>["pluginEntries"][number];
+  pluginEntry: Extract<
+    HookSourceGroup,
+    { id: "plugin" }
+  >["pluginEntries"][number];
 }) {
   const intl = useIntl();
   const label =

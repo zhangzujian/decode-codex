@@ -1999,16 +1999,14 @@ function popcornElectronPresentationPanelHelper24(
 function popcornElectronPresentationPanelHelper25(
   popcornElectronPresentationPanelParam56,
 ) {
-  if (
-    !(
-      typeof window < "u" &&
-      typeof Worker < "u" &&
-      typeof HTMLCanvasElement < "u" &&
-      typeof OffscreenCanvas < "u" &&
-      (!popcornElectronPresentationPanelParam56?.requiresCanvasTransfer ||
-        "transferControlToOffscreen" in HTMLCanvasElement.prototype)
-    )
-  )
+  if (!(
+    typeof window < "u" &&
+    typeof Worker < "u" &&
+    typeof HTMLCanvasElement < "u" &&
+    typeof OffscreenCanvas < "u" &&
+    (!popcornElectronPresentationPanelParam56?.requiresCanvasTransfer ||
+      "transferControlToOffscreen" in HTMLCanvasElement.prototype)
+  ))
     throw Error(
       "Popcorn presentation viewport requires Worker and transferControlToOffscreen support.",
     );
@@ -4365,12 +4363,10 @@ function popcornElectronPresentationPanelHelper66(
         ],
       popcornElectronPresentationPanelValue489 =
         popcornElectronPresentationPanelValue488?.connector;
-    if (
-      !(
-        !popcornElectronPresentationPanelValue488 ||
-        !popcornElectronPresentationPanelValue489
-      )
-    )
+    if (!(
+      !popcornElectronPresentationPanelValue488 ||
+      !popcornElectronPresentationPanelValue489
+    ))
       for (let popcornElectronPresentationPanelValue528 of ["from", "to"]) {
         let popcornElectronPresentationPanelValue543 =
           popcornElectronPresentationPanelValue489[
@@ -6746,12 +6742,10 @@ function _n({
                 true)
               : false,
     popcornElectronPresentationPanelValue125 = (event) => {
-      if (
-        !(
-          event.target instanceof HTMLElement &&
-          event.target.closest("[data-testid='popcorn-annotation-editor']")
-        )
-      ) {
+      if (!(
+        event.target instanceof HTMLElement &&
+        event.target.closest("[data-testid='popcorn-annotation-editor']")
+      )) {
         if (
           popcornElectronPresentationPanelValue60 &&
           reviewTools?.annotation?.onRequestLink &&
@@ -7731,22 +7725,20 @@ var popcornElectronPresentationPanelValue22 = class {
             ...this.#l,
           },
         };
-      if (
-        !(
-          popcornElectronPresentationPanelValue431.width ===
-            popcornElectronPresentationPanelValue432.width &&
-          popcornElectronPresentationPanelValue431.height ===
-            popcornElectronPresentationPanelValue432.height &&
-          popcornElectronPresentationPanelValue431.viewportInsets.left ===
-            popcornElectronPresentationPanelValue432.viewportInsets.left &&
-          popcornElectronPresentationPanelValue431.viewportInsets.top ===
-            popcornElectronPresentationPanelValue432.viewportInsets.top &&
-          popcornElectronPresentationPanelValue431.viewportInsets.right ===
-            popcornElectronPresentationPanelValue432.viewportInsets.right &&
-          popcornElectronPresentationPanelValue431.viewportInsets.bottom ===
-            popcornElectronPresentationPanelValue432.viewportInsets.bottom
-        )
-      ) {
+      if (!(
+        popcornElectronPresentationPanelValue431.width ===
+          popcornElectronPresentationPanelValue432.width &&
+        popcornElectronPresentationPanelValue431.height ===
+          popcornElectronPresentationPanelValue432.height &&
+        popcornElectronPresentationPanelValue431.viewportInsets.left ===
+          popcornElectronPresentationPanelValue432.viewportInsets.left &&
+        popcornElectronPresentationPanelValue431.viewportInsets.top ===
+          popcornElectronPresentationPanelValue432.viewportInsets.top &&
+        popcornElectronPresentationPanelValue431.viewportInsets.right ===
+          popcornElectronPresentationPanelValue432.viewportInsets.right &&
+        popcornElectronPresentationPanelValue431.viewportInsets.bottom ===
+          popcornElectronPresentationPanelValue432.viewportInsets.bottom
+      )) {
         this.#p = popcornElectronPresentationPanelValue432;
         for (let popcornElectronPresentationPanelValue618 of this.#f)
           popcornElectronPresentationPanelValue618();
@@ -8640,18 +8632,16 @@ function popcornElectronPresentationPanelHelper90({
                   popcornElectronPresentationPanelValue386
                 ],
           popcornElectronPresentationPanelValue389 = `${popcornElectronPresentationPanelValue387 ? "stacked-page" : "rail"}:${popcornElectronPresentationPanelValue386}`;
-        if (
-          !(
-            (!popcornElectronPresentationPanelParam35?.force &&
-              popcornElectronPresentationPanelValue388 != null) ||
-            popcornElectronPresentationPanelValue164.current.has(
-              popcornElectronPresentationPanelValue389,
-            ) ||
-            popcornElectronPresentationPanelParam34 < 0 ||
-            popcornElectronPresentationPanelParam34 >=
-              popcornElectronPresentationPanelValue127.getSnapshot().slideCount
-          )
-        ) {
+        if (!(
+          (!popcornElectronPresentationPanelParam35?.force &&
+            popcornElectronPresentationPanelValue388 != null) ||
+          popcornElectronPresentationPanelValue164.current.has(
+            popcornElectronPresentationPanelValue389,
+          ) ||
+          popcornElectronPresentationPanelParam34 < 0 ||
+          popcornElectronPresentationPanelParam34 >=
+            popcornElectronPresentationPanelValue127.getSnapshot().slideCount
+        )) {
           popcornElectronPresentationPanelValue164.current.add(
             popcornElectronPresentationPanelValue389,
           );
@@ -10058,13 +10048,11 @@ export function PopcornElectronPresentationPanel({
               popcornElectronPresentationPanelParam103,
             )
               .then((value) => {
-                if (
-                  !(
-                    popcornElectronPresentationPanelValue217.current !==
-                      popcornElectronPresentationPanelValue524 ||
-                    value.length === 0
-                  )
-                )
+                if (!(
+                  popcornElectronPresentationPanelValue217.current !==
+                    popcornElectronPresentationPanelValue524 ||
+                  value.length === 0
+                ))
                   return popcornElectronPresentationPanelValue216.hydrateImageAssets(
                     value,
                   );

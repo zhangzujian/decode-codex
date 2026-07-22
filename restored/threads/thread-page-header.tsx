@@ -8,13 +8,7 @@ import {
   WorktreeThreadEnvIcon,
 } from "./thread-env-icon";
 export type ThreadPageHeaderEnv =
-  | "cloud"
-  | "local"
-  | "remote"
-  | "worktree"
-  | (string & {})
-  | null
-  | undefined;
+  "cloud" | "local" | "remote" | "worktree" | (string & {}) | null | undefined;
 export type ThreadPageHeaderProps = {
   env?: ThreadPageHeaderEnv;
   hostConfig?: {

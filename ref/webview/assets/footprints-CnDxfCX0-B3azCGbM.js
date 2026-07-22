@@ -1,0 +1,3 @@
+import { n as e, t } from "./footprints-CnDxfCX0-BEU9gmyn.js";
+e();
+export { t as default };

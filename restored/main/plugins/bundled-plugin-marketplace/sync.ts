@@ -218,9 +218,7 @@ function getDisabledInstalledBundledPlugins({
   marketplacePluginNames,
 }: {
   installedBundledMarketplace:
-    | { plugins: InstalledMarketplacePlugin[] }
-    | null
-    | undefined;
+    { plugins: InstalledMarketplacePlugin[] } | null | undefined;
   marketplacePluginNames: readonly string[];
 }): InstalledMarketplacePlugin[] {
   const bundledPluginNames = new Set(marketplacePluginNames);

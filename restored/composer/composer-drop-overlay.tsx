@@ -1,9 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~new-thread-panel-page~appgen-library-page~hot~djo67r4n-CrVrqCBe.js
 // Overlay shown over the composer surface while dragging files/images onto it.
-import {
-  clsx,
-  PlatformGate,
-} from "../boundaries/onboarding-commons-externals.facade";
+import { PlatformGate } from "../app-shell/platform-gate";
+import { clsx } from "../utils/class-names";
 import { FormattedMessage } from "../vendor/react-intl";
 
 export interface ComposerDropOverlayProps {

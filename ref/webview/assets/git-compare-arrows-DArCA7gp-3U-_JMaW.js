@@ -1,0 +1,3 @@
+import { n as e, t } from "./git-compare-arrows-DArCA7gp-DbLTH_f2.js";
+e();
+export { t as default };

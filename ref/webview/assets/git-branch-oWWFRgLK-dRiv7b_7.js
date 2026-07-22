@@ -1,0 +1,3 @@
+import { n as e, t } from "./git-branch-oWWFRgLK-DMhPEh3O.js";
+t();
+export { e as default };

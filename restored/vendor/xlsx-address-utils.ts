@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/address-utils-CrPpzw-e.js
+// Restored from ref/webview/assets/address-utils-xK0e4BjB.js
 // XLSX address, range, color, and worksheet sizing helpers.
 const DEFAULT_MAX_DIGIT_WIDTH = 7;
 const HORIZONTAL_PADDING_RATIO = 0.1;
@@ -6,42 +6,33 @@ const VERTICAL_PADDING_RATIO = 0;
 const MIN_HORIZONTAL_PADDING = 2;
 const MIN_VERTICAL_PADDING = 4 / 3;
 const DEFAULT_ROW_HEIGHT_POINTS = 15;
-
 export const DEFAULT_XLSX_COLUMN_WIDTH = 8.43;
-
 export type CellRangeBounds = {
   startRow: number;
   startCol: number;
   endRow: number;
   endCol: number;
 };
-
 export type ParsedCellRange = {
   ref: string;
   bounds: CellRangeBounds;
 };
-
 export type ParsedFormulaReference = {
   sheetName?: string;
   ref: string;
 };
-
 export function initXlsxAddressUtilsConstantsChunk(): void {}
-
 export function initXlsxAddressUtilsChunk(): void {
   initXlsxAddressUtilsConstantsChunk();
 }
-
 function normalizeMaxDigitWidth(maxDigitWidth?: number | null): number {
   return maxDigitWidth && maxDigitWidth > 0
     ? maxDigitWidth
     : DEFAULT_MAX_DIGIT_WIDTH;
 }
-
 function ceilMaxDigitWidth(maxDigitWidth?: number | null): number {
   return Math.ceil(normalizeMaxDigitWidth(maxDigitWidth));
 }
-
 export function columnWidthToPixels(
   columnWidth: number | null | undefined,
   maxDigitWidth?: number | null,
@@ -50,7 +41,6 @@ export function columnWidthToPixels(
     ? 64
     : columnWidth * ceilMaxDigitWidth(maxDigitWidth);
 }
-
 export function pixelsToColumnWidth(
   pixelWidth: number,
   maxDigitWidth?: number | null,
@@ -59,7 +49,6 @@ export function pixelsToColumnWidth(
   const columnWidth = pixelWidth / ceilMaxDigitWidth(maxDigitWidth);
   return Math.round(columnWidth * 100) / 100;
 }
-
 export function rowHeightPointsToPixels(
   rowHeightPoints?: number | null,
 ): number {
@@ -71,13 +60,11 @@ export function rowHeightPointsToPixels(
     72
   );
 }
-
 export function pixelsToRowHeightPoints(pixelHeight?: number | null): number {
   return Number.isFinite(pixelHeight ?? 0)
     ? ((pixelHeight ?? 0) * 72) / 96
     : DEFAULT_ROW_HEIGHT_POINTS;
 }
-
 export function getCellPadding(fontSize?: number): {
   padLr: number;
   padTb: number;
@@ -94,17 +81,15 @@ export function getCellPadding(fontSize?: number): {
     ),
   };
 }
-
 export function encodeColumn(columnIndex: number): string {
   let columnName = "";
-  for (columnIndex += 1; columnIndex; ) {
+  for (columnIndex += 1; columnIndex;) {
     const remainder = (columnIndex - 1) % 26;
     columnName = String.fromCharCode(65 + remainder) + columnName;
     columnIndex = Math.floor((columnIndex - remainder) / 26);
   }
   return columnName;
 }
-
 export function decodeColumn(cellAddress: string): number {
   const columnMatch = cellAddress.match(/[A-Z]+/);
   if (!columnMatch) return 0;
@@ -114,12 +99,10 @@ export function decodeColumn(cellAddress: string): number {
   }
   return columnNumber - 1;
 }
-
 export function decodeRow(cellAddress: string): number {
   const rowMatch = cellAddress.match(/\d+/);
   return rowMatch ? Number.parseInt(rowMatch[0], 10) - 1 : 0;
 }
-
 export function normalizeXlsxColor(rawColor: string): string {
   const hex = rawColor.replace(/^0x/i, "");
   return hex.length === 8
@@ -128,7 +111,6 @@ export function normalizeXlsxColor(rawColor: string): string {
       ? `#${hex}`
       : "#ffffff";
 }
-
 export function getIndexedColor(colorIndex?: number | null): string | void {
   if (colorIndex == null) return;
   if (colorIndex === 64) return "#000000";
@@ -136,7 +118,6 @@ export function getIndexedColor(colorIndex?: number | null): string | void {
     ".",
   )[colorIndex];
 }
-
 export function parseCellRangeReference(
   rawReference: string,
 ): ParsedCellRange | null {
@@ -160,7 +141,6 @@ export function parseCellRangeReference(
     bounds,
   };
 }
-
 export function encodeCellRange(bounds: CellRangeBounds): string {
   const startAddress = encodeCellAddress(bounds.startRow, bounds.startCol);
   const endAddress = encodeCellAddress(bounds.endRow, bounds.endCol);
@@ -168,14 +148,12 @@ export function encodeCellRange(bounds: CellRangeBounds): string {
     ? startAddress
     : `${startAddress}:${endAddress}`;
 }
-
 export function encodeCellAddress(
   rowIndex: number,
   columnIndex: number,
 ): string {
   return `${encodeColumn(columnIndex)}${rowIndex + 1}`;
 }
-
 export function normalizeCellReference(rawReference: string): string | null {
   const trimmed = rawReference.trim();
   return trimmed
@@ -187,7 +165,6 @@ export function normalizeCellReference(rawReference: string): string | null {
         .toUpperCase()
     : null;
 }
-
 export function getRangeSize(bounds: CellRangeBounds): {
   rows: number;
   cols: number;
@@ -197,7 +174,6 @@ export function getRangeSize(bounds: CellRangeBounds): {
     cols: bounds.endCol - bounds.startCol + 1,
   };
 }
-
 export function rangesOverlap(
   firstRange: CellRangeBounds,
   secondRange: CellRangeBounds,
@@ -209,7 +185,6 @@ export function rangesOverlap(
     firstRange.endCol >= secondRange.startCol
   );
 }
-
 export function parseFormulaReference(
   rawFormula: string,
 ): ParsedFormulaReference {
@@ -230,7 +205,6 @@ export function parseFormulaReference(
     ref: parsedReference?.ref ?? rawReference,
   };
 }
-
 function unquoteSheetName(sheetName: string): string {
   return sheetName.startsWith("'") &&
     sheetName.endsWith("'") &&

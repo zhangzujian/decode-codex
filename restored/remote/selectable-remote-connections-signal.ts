@@ -68,9 +68,7 @@ export const selectableRemoteConnectionsSignal = createComputedSignal(
       remoteWslConnections: remoteWslConnections ?? [],
       remoteControlConnections:
         (readHostConfigValue(get, "remote_control_connections") as
-          | readonly RemoteControlConnection[]
-          | null
-          | undefined) ?? [],
+          readonly RemoteControlConnection[] | null | undefined) ?? [],
     });
   },
 );

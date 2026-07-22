@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-code-K2bqsZvW-CyQQP7CA.js";
+t();
+export { e as default };

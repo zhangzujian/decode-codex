@@ -8,10 +8,8 @@ import clsx from "clsx";
 import { FormattedMessage } from "../vendor/react-intl";
 import { Button } from "../ui/button";
 import { CancelGitActionButton } from "./cancel-git-action-button";
-import {
-  GitWorkflowPhaseLabel,
-  type GitWorkflowPhase,
-} from "./git-workflow-phase-label";
+import { type GitWorkflowPhase } from "../review/git-action-messages";
+import { GitWorkflowPhaseLabel } from "./git-workflow-phase-label";
 import { Tooltip } from "../boundaries/onboarding-commons-externals.facade";
 
 const COMPACT_ICON_ONLY_CLASS_NAME =

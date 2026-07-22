@@ -61,8 +61,7 @@ const NULL_ORIGIN = "null";
 let hostMessageApi: HostMessageApi | null;
 let hostMessageApiState: unknown;
 let dispatchLogToHost:
-  | ((type: string, payload?: Record<string, unknown>) => void)
-  | null;
+  ((type: string, payload?: Record<string, unknown>) => void) | null;
 
 export let appMainLogger: Record<
   AppMainLogLevel,
@@ -121,8 +120,7 @@ function sendLogMessage(
 
 function setHostLogDispatcher(
   dispatcher:
-    | ((type: string, payload?: Record<string, unknown>) => void)
-    | null,
+    ((type: string, payload?: Record<string, unknown>) => void) | null,
 ): void {
   dispatchLogToHost = dispatcher;
 }

@@ -2692,9 +2692,10 @@ var createDotnetRuntime = (() => {
             var xhr = new XMLHttpRequest();
             xhr.open("HEAD", url, false);
             xhr.send(null);
-            if (
-              !((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304)
-            )
+            if (!(
+              (xhr.status >= 200 && xhr.status < 300) ||
+              xhr.status === 304
+            ))
               throw new Error(
                 "Couldn't load " + url + ". Status: " + xhr.status,
               );
@@ -2730,9 +2731,10 @@ var createDotnetRuntime = (() => {
                 xhr.overrideMimeType("text/plain; charset=x-user-defined");
               }
               xhr.send(null);
-              if (
-                !((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304)
-              )
+              if (!(
+                (xhr.status >= 200 && xhr.status < 300) ||
+                xhr.status === 304
+              ))
                 throw new Error(
                   "Couldn't load " + url + ". Status: " + xhr.status,
                 );
@@ -4060,7 +4062,7 @@ var createDotnetRuntime = (() => {
       if (n < 128) {
         target.push(n);
       } else {
-        target.push(n % 128 | 128, n >> 7);
+        target.push((n % 128) | 128, n >> 7);
       }
     };
     var sigToWasmTypes = (sig) => {

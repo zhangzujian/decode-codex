@@ -32,8 +32,7 @@ export function useTeenOnboardingEligibility({
     enabled: shouldCheckAge,
   });
   const onboardingContext = onboardingContextQuery.data as
-    | OnboardingContext
-    | undefined;
+    OnboardingContext | undefined;
   const isUnder18 = onboardingContext?.age_status === "under_18";
   if (!enabled) {
     return {

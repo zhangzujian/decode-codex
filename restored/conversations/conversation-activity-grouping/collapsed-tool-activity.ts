@@ -122,7 +122,7 @@ export function collapseToolActivityUnits({
 
   const result: ActivityUnit[] = [];
   let rangeIndex = 0;
-  for (let index = 0; index < units.length; ) {
+  for (let index = 0; index < units.length;) {
     const range = collapsibleRanges[rangeIndex];
     if (range && index === range.startIndex) {
       const groupedUnits = units.slice(range.startIndex, range.endIndex);

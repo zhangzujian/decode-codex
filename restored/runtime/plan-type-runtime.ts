@@ -21,4 +21,3 @@ export const PlanType = {
   SELF_SERVE_BUSINESS: "self_serve_business",
   SELF_SERVE_BUSINESS_USAGE_BASED: "self_serve_business_usage_based",
 } as const;
-

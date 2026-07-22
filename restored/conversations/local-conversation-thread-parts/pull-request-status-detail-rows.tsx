@@ -65,11 +65,7 @@ type Scope = {
 };
 
 type PullRequestCheckStatus =
-  | "failing"
-  | "passing"
-  | "pending"
-  | "skipped"
-  | "unknown";
+  "failing" | "passing" | "pending" | "skipped" | "unknown";
 
 export type PullRequestCheck = {
   link?: string | null;

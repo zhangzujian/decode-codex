@@ -190,7 +190,9 @@ export function buildMemoryConfigEdits(enabled: boolean): ConfigEdit[] {
   ];
 }
 
-export function buildSkipToolAssistedChatsEdits(enabled: boolean): ConfigEdit[] {
+export function buildSkipToolAssistedChatsEdits(
+  enabled: boolean,
+): ConfigEdit[] {
   return [
     {
       keyPath: "memories.disable_on_external_context",

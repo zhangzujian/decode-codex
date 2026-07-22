@@ -292,7 +292,14 @@ export function computeFrontier(
   manifest: Manifest,
   ledger: Ledger,
   fullDir: string,
-  opts: { stage?: StageName; skip?: Set<string> } = {},
+  opts: {
+    stage?: StageName;
+    skip?: Set<string>;
+    dependencyReady?: (
+      file: ManifestFile,
+      dependency: ManifestFile,
+    ) => boolean;
+  } = {},
 ): FrontierItem[] {
   const skip = opts.skip ?? new Set();
   const stages = opts.stage ? [opts.stage] : STAGES;
@@ -313,7 +320,11 @@ export function computeFrontier(
         if (imp.kind !== "local") continue;
         const dep = manifest.files[imp.target];
         if (!dep || dep.kind !== "local") continue;
-        if (!dep.stages[field] && !dep.stages.faced) {
+        if (
+          !dep.stages[field] &&
+          !dep.stages.faced &&
+          !opts.dependencyReady?.(file, dep)
+        ) {
           ready = false;
           break;
         }

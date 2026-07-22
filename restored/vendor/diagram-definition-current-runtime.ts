@@ -31,7 +31,6 @@ function o(e, t) {
       (c + s + 1 > r && (s = Math.max(1, r - c)),
       a.push(n.substring((i -= s), i + s)),
       !((c += s + 1) > r));
-
     )
       s = e[(o = (o + 1) % e.length)];
     return a.reverse().join(t);
@@ -233,7 +232,7 @@ function T(e) {
             (S === `s` ? D[8 + _ / 3] : ``) + r + (x && c === `(` ? `)` : ``)),
           E)
         ) {
-          for (l = -1, u = e.length; ++l < u; )
+          for (l = -1, u = e.length; ++l < u;)
             if (((p = e.charCodeAt(l)), 48 > p || p > 57)) {
               ((r = (p === 46 ? a + e.slice(l + 1) : e.slice(l)) + r),
                 (e = e.slice(0, l)));
@@ -1089,7 +1088,7 @@ function Rt(e, t) {
     o = -1,
     s = [],
     c = [];
-  for (e += ``, t += ``; (r = zt.exec(e)) && (i = Bt.exec(t)); )
+  for (e += ``, t += ``; (r = zt.exec(e)) && (i = Bt.exec(t));)
     ((a = i.index) > n &&
       ((a = t.slice(n, a)), s[o] ? (s[o] += a) : (s[++o] = a)),
       (r = r[0]) === (i = i[0])
@@ -1243,7 +1242,7 @@ function en(e, t, n, r) {
       c(t.scaleX, t.scaleY, n.scaleX, n.scaleY, r, i),
       (t = n = null),
       function (e) {
-        for (var t = -1, n = i.length, a; ++t < n; ) r[(a = i[t]).i] = a.x(e);
+        for (var t = -1, n = i.length, a; ++t < n;) r[(a = i[t]).i] = a.x(e);
         return r.join(``);
       }
     );
@@ -1280,7 +1279,7 @@ var on,
   });
 function cn(e, t) {
   t === void 0 && ((t = e), (e = Ht));
-  for (var n = 0, r = t.length - 1, i = t[0], a = Array(r < 0 ? 0 : r); n < r; )
+  for (var n = 0, r = t.length - 1, i = t[0], a = Array(r < 0 ? 0 : r); n < r;)
     a[n] = e(i, (i = t[++n]));
   return function (e) {
     var t = Math.max(0, Math.min(r - 1, Math.floor((e *= r))));
@@ -1568,7 +1567,7 @@ function Zn(e, t, n = 0, r = 1 / 0, i) {
     !(n <= t && t <= r))
   )
     return e;
-  for (i = i === void 0 ? Ln : In(i); r > n; ) {
+  for (i = i === void 0 ? Ln : In(i); r > n;) {
     if (r - n > 600) {
       let a = r - n + 1,
         o = t - n + 1,
@@ -1582,9 +1581,9 @@ function Zn(e, t, n = 0, r = 1 / 0, i) {
     let a = e[t],
       o = n,
       s = r;
-    for (Qn(e, n, t), i(e[r], a) > 0 && Qn(e, n, r); o < s; ) {
-      for (Qn(e, o, s), ++o, --s; i(e[o], a) < 0; ) ++o;
-      for (; i(e[s], a) > 0; ) --s;
+    for (Qn(e, n, t), i(e[r], a) > 0 && Qn(e, n, r); o < s;) {
+      for (Qn(e, o, s), ++o, --s; i(e[o], a) < 0;) ++o;
+      for (; i(e[s], a) > 0;) --s;
     }
     (i(e[n], a) === 0 ? Qn(e, n, s) : (++s, Qn(e, s, r)),
       s <= t && (n = s + 1),
@@ -1646,7 +1645,6 @@ function ar(e, t, n) {
   for (
     var r = -1, i = Math.max(0, Math.ceil((t - e) / n)) | 0, a = Array(i);
     ++r < i;
-
   )
     a[r] = e + r * n;
   return a;
@@ -1876,7 +1874,6 @@ function wr(e, t, n) {
   for (
     e[r] < e[0] && ((e = e.slice().reverse()), (t = t.slice().reverse()));
     ++o < r;
-
   )
     ((i[o] = xr(e[o], e[o + 1])), (a[o] = n(t[o], t[o + 1])));
   return function (t) {
@@ -2006,7 +2003,6 @@ function Mr(e) {
       for (
         s < o && ((l = o), (o = s), (s = l), (l = i), (i = a), (a = l));
         u-- > 0;
-
       ) {
         if (((l = Vn(o, s, n)), l === c)) return ((r[i] = o), (r[a] = s), t(r));
         if (l > 0) ((o = Math.floor(o / l) * l), (s = Math.ceil(s / l) * l));
@@ -2318,7 +2314,7 @@ function fi() {
   function i() {
     var r = 0,
       i = Math.max(1, t.length);
-    for (n = Array(i - 1); ++r < i; ) n[r - 1] = tr(e, r / i);
+    for (n = Array(i - 1); ++r < i;) n[r - 1] = tr(e, r / i);
     return a;
   }
   function a(e) {
@@ -2367,7 +2363,7 @@ function mi() {
   }
   function s() {
     var i = -1;
-    for (r = Array(n); ++i < n; ) r[i] = ((i + 1) * t - (i - n) * e) / (n + 1);
+    for (r = Array(n); ++i < n;) r[i] = ((i + 1) * t - (i - n) * e) / (n + 1);
     return o;
   }
   return (
@@ -2473,12 +2469,12 @@ function U(e, t, n, r) {
     (i.filter = (n) =>
       U(
         (t) => {
-          if (t >= t) for (; e(t), !n(t); ) t.setTime(t - 1);
+          if (t >= t) for (; e(t), !n(t);) t.setTime(t - 1);
         },
         (e, r) => {
           if (e >= e)
-            if (r < 0) for (; ++r <= 0; ) for (; t(e, -1), !n(e); );
-            else for (; --r >= 0; ) for (; t(e, 1), !n(e); );
+            if (r < 0) for (; ++r <= 0;) for (; t(e, -1), !n(e););
+            else for (; --r >= 0;) for (; t(e, 1), !n(e););
         },
       )),
     n &&
@@ -3031,7 +3027,7 @@ function ba(e) {
         s,
         c,
         l;
-      for (n instanceof Date || (n = new Date(+n)); ++i < o; )
+      for (n instanceof Date || (n = new Date(+n)); ++i < o;)
         e.charCodeAt(i) === 37 &&
           (r.push(e.slice(a, i)),
           (c = Po[(s = e.charAt(++i))]) == null
@@ -3093,7 +3089,7 @@ function ba(e) {
     };
   }
   function w(e, t, n, r) {
-    for (var i = 0, a = t.length, o = n.length, s, c; i < a; ) {
+    for (var i = 0, a = t.length, o = n.length, s, c; i < a;) {
       if (r >= o) return -1;
       if (((s = t.charCodeAt(i++)), s === 37)) {
         if (
@@ -4927,7 +4923,6 @@ var $c,
             for (
               var r = e[0], i = t[0], a = e[n] - r, o = t[n] - i, s = -1, c;
               ++s <= n;
-
             )
               ((c = s / n),
                 this._basis.point(
@@ -5748,7 +5743,7 @@ function Ul(e, t) {
 }
 var Wl = e(() => {});
 function Gl(e) {
-  for (var t = e.length, n = Array(t); --t >= 0; ) n[t] = t;
+  for (var t = e.length, n = Array(t); --t >= 0;) n[t] = t;
   return n;
 }
 var Kl = e(() => {});

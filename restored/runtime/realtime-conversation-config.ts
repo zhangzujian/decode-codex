@@ -34,9 +34,7 @@ function useRealtimeConversationConfig(): RealtimeConversationConfig {
   };
   const override =
     (useAppScopeValue(realtimeVoiceConfigOverrideSignal) as
-      | RealtimeVoiceConfigOverride
-      | null
-      | undefined) ??
+      RealtimeVoiceConfigOverride | null | undefined) ??
     ((getPersistedAtomValue(
       "realtime-voice-config-override",
       DEFAULT_REALTIME_VOICE_CONFIG_OVERRIDE,

@@ -159,6 +159,7 @@ const INTRINSIC_JSX_TAGS = new Set([
   "ul",
   "var",
   "video",
+  "webview",
   "wbr",
   // SVG
   "animate",
@@ -251,6 +252,7 @@ const JSX_FACTORY_NAMES = new Set(["jsx", "jsxs", "jsxDEV"]);
 const KNOWN_GLOBAL_IDENTIFIERS = new Set([
   "AbortController",
   "AbortSignal",
+  "ActiveXObject",
   "AggregateError",
   "AnimationEvent",
   "Audio",
@@ -275,17 +277,22 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
   "CustomEvent",
   "DOMException",
   "DOMMatrix",
+  "DOMPoint",
   "DOMParser",
   "DOMRect",
   "DOMRectReadOnly",
+  "DO_NOT_EXPORT_BESSEL",
+  "DO_NOT_EXPORT_SSF",
   "DataView",
   "Date",
   "DecompressionStream",
+  "DeviceOrientationEvent",
   "Document",
   "DragEvent",
   "EdgeRuntime",
   "Element",
   "Error",
+  "ErrorEvent",
   "EvalError",
   "Event",
   "EventTarget",
@@ -307,17 +314,20 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
   "HTMLImageElement",
   "HTMLInputElement",
   "HTMLLinkElement",
+  "HTMLParagraphElement",
   "HTMLPreElement",
   "HTMLSelectElement",
   "HTMLSpanElement",
   "HTMLStyleElement",
   "HTMLTemplateElement",
   "HTMLTextAreaElement",
+  "HTMLVideoElement",
   "Headers",
   "Infinity",
   "Image",
   "ImageData",
   "ImageDecoder",
+  "ImageBitmap",
   "InputEvent",
   "Int16Array",
   "Int32Array",
@@ -352,6 +362,7 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
   "RTCPeerConnection",
   "Range",
   "RangeError",
+  "RadioNodeList",
   "Reflect",
   "RegExp",
   "Request",
@@ -373,6 +384,7 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
   "TextDecoder",
   "TextEncoder",
   "TouchEvent",
+  "TransformStream",
   "TransitionEvent",
   "TypeError",
   "URIError",
@@ -382,21 +394,30 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
   "Uint32Array",
   "Uint8Array",
   "Uint8ClampedArray",
+  "VideoFrame",
   "WeakMap",
   "WeakRef",
   "WeakSet",
   "WebAssembly",
+  "WebGL2RenderingContext",
+  "WebGLRenderingContext",
+  "WebGLTexture",
   "WebKitCSSMatrix",
   "WebKitMutationObserver",
   "WebSocket",
   "WheelEvent",
+  "Window",
   "Worker",
+  "WorkerGlobalScope",
+  "WritableStream",
   "XMLSerializer",
   "XMLHttpRequest",
   "__SENTRY_BROWSER_BUNDLE__",
   "__SENTRY_DEBUG__",
   "__SENTRY_RELEASE__",
   "__SENTRY_TRACING__",
+  "__THREE_DEVTOOLS__",
+  "__POPCORN_DEV__",
   "__dirname",
   "__filename",
   "__webpack_nonce__",
@@ -406,26 +427,32 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
   "atob",
   "btoa",
   "cancelAnimationFrame",
+  "cancelIdleCallback",
   "caches",
   "clearInterval",
   "clearImmediate",
   "clearTimeout",
   "console",
+  "confirm",
   "crypto",
   "customElements",
   "createImageBitmap",
   "decodeURI",
   "decodeURIComponent",
   "define",
+  "devicePixelRatio",
   "document",
   "encodeURI",
   "encodeURIComponent",
   "exports",
   "fetch",
   "getComputedStyle",
+  "getSelection",
   "global",
   "globalThis",
+  "history",
   "indexedDB",
+  "innerHeight",
   "isFinite",
   "isNaN",
   "localStorage",
@@ -435,11 +462,14 @@ const KNOWN_GLOBAL_IDENTIFIERS = new Set([
   "navigator",
   "parseFloat",
   "parseInt",
+  "parent",
   "performance",
   "process",
   "prompt",
   "queueMicrotask",
   "requestAnimationFrame",
+  "requestIdleCallback",
+  "reportError",
   "screen",
   "require",
   "self",
@@ -480,6 +510,16 @@ const SEGMENT_AJS_DESTINATION_SPECIFIER =
   "@segment/analytics-next/dist/cjs/plugins/ajs-destination";
 const SEGMENT_ANALYTICS_VIDEO_PLUGINS_SPECIFIER =
   "@segment/analytics.js-video-plugins/plugins";
+const MERMAID_11_12_QUADRANT_SPECIFIER =
+  "mermaid/dist/chunks/mermaid.core/quadrantDiagram-AYHSOK5B.mjs";
+const MERMAID_11_12_SANKEY_SPECIFIER =
+  "mermaid/dist/chunks/mermaid.core/sankeyDiagram-TZEHDZUN.mjs";
+const MERMAID_11_12_TIMELINE_SPECIFIER =
+  "mermaid/dist/chunks/mermaid.core/timeline-definition-IT6M3QCI.mjs";
+const MERMAID_11_14_QUADRANT_SPECIFIER =
+  "mermaid-k5/dist/chunks/mermaid.core/quadrantDiagram-34T5L4WZ.mjs";
+const MERMAID_11_14_SANKEY_SPECIFIER =
+  "mermaid-k5/dist/chunks/mermaid.core/sankeyDiagram-XADWPNL6.mjs";
 
 const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   cmdk: "cmdk",
@@ -548,6 +588,12 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   ],
   motion: "framer-motion",
   "mermaid-utils": "js-yaml",
+  "quadrant-diagram-34-t5-l4-wz": MERMAID_11_14_QUADRANT_SPECIFIER,
+  "quadrant-diagram-ayhsok5-b-c-pq-sal-kc": MERMAID_11_12_QUADRANT_SPECIFIER,
+  "sankey-diagram-tzehdzun-bpe-qb-biy": MERMAID_11_12_SANKEY_SPECIFIER,
+  "sankey-diagram-xadwpnl6": MERMAID_11_14_SANKEY_SPECIFIER,
+  "timeline-definition-it6-m3-qci-bo-pf-rmg-y":
+    MERMAID_11_12_TIMELINE_SPECIFIER,
   pdfjs: "pdfjs-dist",
   "pdfjs-entry": "pdfjs-dist",
   "react-colorful": "react-colorful",
@@ -630,6 +676,12 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   "katex-CjHJ1D7d": "katex",
   "lib-BWT6A3Q0": "react-intl",
   "merge-jSBXKSH5": "lodash/merge",
+  "quadrantDiagram-34T5L4WZ-B_DchiL3": MERMAID_11_14_QUADRANT_SPECIFIER,
+  "quadrantDiagram-AYHSOK5B-CPqSalKC": MERMAID_11_12_QUADRANT_SPECIFIER,
+  "sankeyDiagram-TZEHDZUN-BPEQbBiy": MERMAID_11_12_SANKEY_SPECIFIER,
+  "sankeyDiagram-XADWPNL6-D7dnxPZY": MERMAID_11_14_SANKEY_SPECIFIER,
+  "timeline-definition-IT6M3QCI-BOPfRmgY":
+    MERMAID_11_12_TIMELINE_SPECIFIER,
   "metric-helpers-7nP-wnaS": [
     "@segment/analytics-core",
     "@segment/analytics-generic-utils",
@@ -1040,10 +1092,21 @@ function isLocaleMessageDataModule(file: string, source: string): boolean {
     return false;
   }
 
+  const hasDirectDefault =
+    /\bexport\s+const\s+[A-Za-z0-9]+Default\s*=\s*\{/.test(source);
+  const hasLazyDefault =
+    /\b[A-Za-z0-9]+Default\s*=\s*\{/.test(source) &&
+    /\bexport\s*\{[^}]*\b[A-Za-z0-9]+Default\s+as\s+default\b[^}]*\}/s.test(
+      source,
+    );
+  const hasGreetingExport =
+    /\bexport\s*\{[^}]*\b[A-Za-z0-9]+Greeting\s+as\s+greeting\b[^}]*\}/s.test(
+      source,
+    );
   return (
     hasRestorationProvenanceHeader(source) &&
-    /\bexport\s+const\s+[A-Za-z0-9]+Default\s*=\s*\{/.test(source) &&
-    /\bexport\s*\{\s*[A-Za-z0-9]+Greeting\s+as\s+greeting\s*\}\s*;/.test(source)
+    (hasDirectDefault || hasLazyDefault) &&
+    hasGreetingExport
   );
 }
 
@@ -1493,6 +1556,12 @@ function countShortIdentifiers(
       },
       JSXIdentifier(identifierPath) {
         const name = identifierPath.node.name;
+        const parent = identifierPath.parentPath;
+        const isComponentTag =
+          ((parent.isJSXOpeningElement() || parent.isJSXClosingElement()) &&
+            parent.node.name === identifierPath.node) ||
+          parent.isJSXMemberExpression();
+        if (!isComponentTag || /^[a-z]/.test(name)) return;
         if (name.length > 2 || SHORT_ALLOWLIST.has(name)) return;
         counts.set(name, (counts.get(name) ?? 0) + 1);
       },

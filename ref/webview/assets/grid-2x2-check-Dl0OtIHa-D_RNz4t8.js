@@ -1,3 +1,0 @@
-import { n as e, t } from "./grid-2x2-check-Dl0OtIHa-Bw6hx6Qv.js";
-e();
-export { t as default };

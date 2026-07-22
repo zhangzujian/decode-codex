@@ -1,3 +1,0 @@
-import { n as e, t } from "./hand-heart-DTdrtlC_-SkdOhSlC.js";
-t();
-export { e as default };

@@ -1,0 +1,5 @@
+// Restored from ref/webview/assets/salad-D1Wh1Zyf-Cnsp2t6r.js
+// Exact npm-backed Lucide icon with current-build initializer compatibility.
+import { Salad } from "lucide-react";
+function initSaladIconChunk(): void {}
+export { Salad, initSaladIconChunk };

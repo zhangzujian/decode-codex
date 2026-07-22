@@ -1,4 +1,4 @@
-let e = require(`electron`);
+let e = require("electron");
 var t = `initId`,
   n = `web-sandbox.oaiusercontent.com`,
   r = `.${n}`;

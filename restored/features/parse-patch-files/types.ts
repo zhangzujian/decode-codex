@@ -1,11 +1,7 @@
 // Restored from ref/webview/assets/parsePatchFiles-Dm7PKlLE.js
 // parsePatchFiles-Dm7PKlLE chunk restored from the Codex webview bundle.
 export type PatchFileType =
-  | "change"
-  | "deleted"
-  | "new"
-  | "rename-changed"
-  | "rename-pure";
+  "change" | "deleted" | "new" | "rename-changed" | "rename-pure";
 
 export type ParsedHunkSpec = {
   additionCount: number;

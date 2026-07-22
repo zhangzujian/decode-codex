@@ -59,3 +59,5 @@ export function PaperPlaneSendIcon({ className }: PaperPlaneSendIconProps) {
     </span>
   );
 }
+
+export { PaperPlaneOutline as PaperPlaneOutlineIcon };

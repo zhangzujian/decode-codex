@@ -1,0 +1,3 @@
+import { n as e, t } from "./notebook-tabs-7Rju2Dit-DPZ34Y4k.js";
+e();
+export { t as default };

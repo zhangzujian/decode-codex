@@ -277,7 +277,7 @@ function findStringOffsets(text: string, query: string, capacity: number) {
   const offsets: Array<{ start: number; end: number }> = [];
   let totalMatches = 0;
   let isCapped = false;
-  for (let offset = 0; offset < normalizedText.length; ) {
+  for (let offset = 0; offset < normalizedText.length;) {
     const start = normalizedText.indexOf(normalizedQuery, offset);
     if (start === -1) break;
     const end = start + normalizedQuery.length;

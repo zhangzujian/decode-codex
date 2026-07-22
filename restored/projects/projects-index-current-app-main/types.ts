@@ -12,22 +12,11 @@ export type StoreLike = {
 
 export type SidebarGroupCollapseAction = "collapse-all" | "reopen-previous";
 export type ProjectCreationFlow =
-  | "direct-chatgpt"
-  | "direct-local"
-  | "project-type-dialog"
-  | null;
+  "direct-chatgpt" | "direct-local" | "project-type-dialog" | null;
 export type SidebarEnvironmentType =
-  | "cloud"
-  | "local"
-  | "remote"
-  | "remote-worktree"
-  | "worktree";
+  "cloud" | "local" | "remote" | "remote-worktree" | "worktree";
 export type PullRequestStatus =
-  | "closed"
-  | "draft"
-  | "merged"
-  | "open"
-  | "unknown";
+  "closed" | "draft" | "merged" | "open" | "unknown";
 export type ComponentProps = {
   children?: ReactNode;
   [key: string]: unknown;

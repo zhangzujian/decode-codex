@@ -16,10 +16,7 @@ import {
 
 type WorktreeInitActivityKind = "worktree" | "setup" | "conversation";
 type WorktreeInitActivityStatus =
-  | "running"
-  | "completed"
-  | "skipped"
-  | "failed";
+  "running" | "completed" | "skipped" | "failed";
 
 interface WorktreeInitActivity {
   id: string;

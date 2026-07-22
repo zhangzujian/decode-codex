@@ -9,12 +9,7 @@ export type NativeIntlBoundary = {
   }): string;
 };
 export type ChronicleSidecarState =
-  | "disabled"
-  | "stopped"
-  | "running"
-  | "restarting"
-  | "starting"
-  | "stopping";
+  "disabled" | "stopped" | "running" | "restarting" | "starting" | "stopping";
 export type ChronicleSidecarControlState = {
   enabled: boolean;
   running: boolean;

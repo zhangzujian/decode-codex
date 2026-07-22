@@ -11,7 +11,11 @@ export type ModelOption = {
   description: string;
   displayName?: string | null;
   model: string;
-  serviceTiers?: readonly { id: string; name: string; [key: string]: unknown }[];
+  serviceTiers?: readonly {
+    id: string;
+    name: string;
+    [key: string]: unknown;
+  }[];
   supportedReasoningEfforts: ReasoningEffortOption[];
   [key: string]: unknown;
 };

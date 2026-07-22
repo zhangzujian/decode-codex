@@ -211,18 +211,36 @@ function usePrefetchAmbientSuggestions(homeAmbientOperand15) {
       enabled: enabled,
       hostId: hostId,
       projectRoot: projectRoot,
-      routeEntryKey: routeEntryKey
+      routeEntryKey: routeEntryKey,
     } = homeAmbientOperand15,
-    homeAmbientBinding229 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wKo(appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wE),
+    homeAmbientBinding229 =
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wKo(
+        appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wE,
+      ),
     homeAmbientBinding230 = () => {
-      enabled && projectRoot != null && homeAmbientBinding229.query.fetch(homeOnboardingAssistantTutorialCardA, {
-        domain: domain,
-        hostId: hostId,
-        projectRoot: projectRoot
-      }).catch(ignoreAmbientSuggestionPrefetchError);
+      enabled &&
+        projectRoot != null &&
+        homeAmbientBinding229.query
+          .fetch(homeOnboardingAssistantTutorialCardA, {
+            domain: domain,
+            hostId: hostId,
+            projectRoot: projectRoot,
+          })
+          .catch(ignoreAmbientSuggestionPrefetchError);
     };
   let homeAmbientBinding231;
-  homeAmbientBinding231 = [domain, enabled, hostId, projectRoot, routeEntryKey, homeAmbientBinding229], (0, homeAmbientBinding38.useEffect)(homeAmbientBinding230, homeAmbientBinding231);
+  ((homeAmbientBinding231 = [
+    domain,
+    enabled,
+    hostId,
+    projectRoot,
+    routeEntryKey,
+    homeAmbientBinding229,
+  ]),
+    (0, homeAmbientBinding38.useEffect)(
+      homeAmbientBinding230,
+      homeAmbientBinding231,
+    ));
 }
 function ignoreAmbientSuggestionPrefetchError() {}
 function usePrefetchAmbientSuggestionRefresh(homeAmbientOperand14) {
@@ -231,31 +249,53 @@ function usePrefetchAmbientSuggestionRefresh(homeAmbientOperand14) {
       enabled: enabled,
       hostId: hostId,
       plan: plan,
-      projectRoot: projectRoot
+      projectRoot: projectRoot,
     } = homeAmbientOperand14,
-    homeAmbientBinding223 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wKo(appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wE),
+    homeAmbientBinding223 =
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wKo(
+        appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wE,
+      ),
     homeAmbientBinding224 = () => {
-      enabled && projectRoot != null && homeAmbientBinding223.query.fetch(homeOnboardingAssistantTutorialCardS, {
-        domain: domain,
-        hostId: hostId,
-        plan: plan,
-        projectRoot: projectRoot
-      }).catch(ignoreAmbientSuggestionRefreshError);
+      enabled &&
+        projectRoot != null &&
+        homeAmbientBinding223.query
+          .fetch(homeOnboardingAssistantTutorialCardS, {
+            domain: domain,
+            hostId: hostId,
+            plan: plan,
+            projectRoot: projectRoot,
+          })
+          .catch(ignoreAmbientSuggestionRefreshError);
     };
-  let homeAmbientBinding225 = (0, homeAmbientBinding38.useEffectEvent)(homeAmbientBinding224),
+  let homeAmbientBinding225 = (0, homeAmbientBinding38.useEffectEvent)(
+      homeAmbientBinding224,
+    ),
     homeAmbientBinding226 = () => {
-      if (window.electronBridge?.sendMessageFromView != null) return () => {
-        globalThis.setTimeout(homeAmbientBinding225, 0);
-      };
+      if (window.electronBridge?.sendMessageFromView != null)
+        return () => {
+          globalThis.setTimeout(homeAmbientBinding225, 0);
+        };
     };
   let homeAmbientBinding227;
-  homeAmbientBinding227 = [], (0, homeAmbientBinding38.useEffect)(homeAmbientBinding226, homeAmbientBinding227);
+  ((homeAmbientBinding227 = []),
+    (0, homeAmbientBinding38.useEffect)(
+      homeAmbientBinding226,
+      homeAmbientBinding227,
+    ));
 }
 function ignoreAmbientSuggestionRefreshError() {}
 var homeAmbientBinding37,
   homeAmbientBinding38,
   homeAmbientBinding39 = rolldownRuntimeN(() => {
-    homeAmbientBinding37 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wGc(), appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wVo(), homeAmbientBinding38 = rolldownRuntimeS(appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wC(), 1), appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wD(), homeOnboardingAssistantTutorialCardL();
+    ((homeAmbientBinding37 =
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wGc()),
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wVo(),
+      (homeAmbientBinding38 = rolldownRuntimeS(
+        appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wC(),
+        1,
+      )),
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wD(),
+      homeOnboardingAssistantTutorialCardL());
   });
 function HomeAmbientSuggestionsContent(homeAmbientOperand10) {
   let {
@@ -264,40 +304,46 @@ function HomeAmbientSuggestionsContent(homeAmbientOperand10) {
       onLocalConversationCreated: onLocalConversationCreated,
       plan: plan,
       projectRoot: projectRoot,
-      routeEntryKey: routeEntryKey
+      routeEntryKey: routeEntryKey,
     } = homeAmbientOperand10,
-    {
-      modelSettings: modelSettings
-    } = appInitialAppMainOnboardingPageKp(null),
+    { modelSettings: modelSettings } = appInitialAppMainOnboardingPageKp(null),
     homeAmbientBinding186 = {
-      hostId: hostId
+      hostId: hostId,
     };
-  let {
-      data: data
-    } = appInitialAppMainOnboardingPagePp(homeAmbientBinding186),
+  let { data: data } = appInitialAppMainOnboardingPagePp(homeAmbientBinding186),
     homeAmbientBinding187,
     homeAmbientBinding188;
-  homeAmbientBinding187 = data?.models.find(homeAmbientOperand49 => homeAmbientOperand49.model === modelSettings.model)?.displayName ?? null, homeAmbientBinding188 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wVa({
-    selectedModel: modelSettings.model,
-    selectedModelDisplayName: homeAmbientBinding187
-  });
+  ((homeAmbientBinding187 =
+    data?.models.find(
+      (homeAmbientOperand49) =>
+        homeAmbientOperand49.model === modelSettings.model,
+    )?.displayName ?? null),
+    (homeAmbientBinding188 =
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wVa(
+        {
+          selectedModel: modelSettings.model,
+          selectedModelDisplayName: homeAmbientBinding187,
+        },
+      )));
   let homeAmbientBinding189 = homeAmbientBinding188,
     homeAmbientBinding190;
-  homeAmbientBinding190 = {
+  ((homeAmbientBinding190 = {
     domain: homeAmbientBinding189,
     enabled: generatedSuggestionsEnabled,
     hostId: hostId,
     projectRoot: projectRoot,
-    routeEntryKey: routeEntryKey
-  }, usePrefetchAmbientSuggestions(homeAmbientBinding190);
+    routeEntryKey: routeEntryKey,
+  }),
+    usePrefetchAmbientSuggestions(homeAmbientBinding190));
   let homeAmbientBinding191;
-  homeAmbientBinding191 = {
+  ((homeAmbientBinding191 = {
     domain: homeAmbientBinding189,
     enabled: generatedSuggestionsEnabled,
     hostId: hostId,
     plan: plan,
-    projectRoot: projectRoot
-  }, usePrefetchAmbientSuggestionRefresh(homeAmbientBinding191);
+    projectRoot: projectRoot,
+  }),
+    usePrefetchAmbientSuggestionRefresh(homeAmbientBinding191));
   return React.createElement(HomeAmbientBodyModule.HomeAmbientSuggestionsBody, {
     domain: homeAmbientBinding189,
     generatedSuggestionsEnabled: generatedSuggestionsEnabled,
@@ -305,11 +351,19 @@ function HomeAmbientSuggestionsContent(homeAmbientOperand10) {
     onLocalConversationCreated: onLocalConversationCreated,
     projectRoot: projectRoot,
     selectedModel: modelSettings.model,
-    selectedModelDisplayName: homeAmbientBinding187
+    selectedModelDisplayName: homeAmbientBinding187,
   });
 }
 var homeAmbientBinding40, homeAmbientBinding41;
 rolldownRuntimeN(() => {
-  homeAmbientBinding40 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wGc(), appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wO(), appInitialAppMainOnboardingPageDp(), appInitialAppMainOnboardingPageNp(), HomeAmbientBodyModule.homeAmbientBinding36(), homeAmbientBinding39(), homeAmbientBinding41 = appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wLc();
+  ((homeAmbientBinding40 =
+    appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wGc()),
+    appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wO(),
+    appInitialAppMainOnboardingPageDp(),
+    appInitialAppMainOnboardingPageNp(),
+    HomeAmbientBodyModule.homeAmbientBinding36(),
+    homeAmbientBinding39(),
+    (homeAmbientBinding41 =
+      appInitialAppMainRemoteConversationPageHotkeyWindowThreadPageAutomationsPageThBnlvjk3wLc()));
 })();
 export { HomeAmbientSuggestionsContent };

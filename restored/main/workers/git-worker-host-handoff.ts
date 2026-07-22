@@ -49,8 +49,7 @@ type BranchCommitState =
     };
 
 type DestinationCheckoutSwitch =
-  | { previousBranch: string | null }
-  | { error: ThreadHandoffError };
+  { previousBranch: string | null } | { error: ThreadHandoffError };
 
 export async function moveThreadToHostWorktree({
   callbacks,

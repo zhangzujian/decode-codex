@@ -2,7 +2,10 @@
 // Menu primitives shared by open-target dropdowns and context menus.
 import type * as React from "react";
 
-import { ContextMenu, type ContextMenuItemDefinition } from "../ui/context-menu";
+import {
+  ContextMenu,
+  type ContextMenuItemDefinition,
+} from "../ui/context-menu";
 import { Dropdown, DropdownMenu } from "../ui/dropdown";
 
 type OpenTargetMenuProps = {
@@ -22,4 +25,3 @@ export const OpenTargetMenu = Object.assign(OpenTargetMenuRoot, {
   Message: Dropdown.Message,
   Separator: Dropdown.Separator,
 });
-

@@ -24,10 +24,7 @@ export type OpenInHostConfig = Record<string, unknown> & {
 };
 export type OpenInPlatformName = "darwin" | "linux" | "win32";
 export type OpenInTargetKind =
-  | "editor"
-  | "fileManager"
-  | "systemDefault"
-  | "terminal";
+  "editor" | "fileManager" | "systemDefault" | "terminal";
 export type OpenInShortcutResolver = (path: string) => Promise<ShortcutLink>;
 export type OpenInTargetArgsBuilder = (
   path: string,

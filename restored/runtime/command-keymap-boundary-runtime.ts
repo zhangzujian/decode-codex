@@ -1,9 +1,6 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-BUwCKIcU.js
 // Command-keymap boundary helpers for platform and keyboard modifier state.
-import {
-  appStoreScope,
-  createScopedAtom,
-} from "./onboarding-scope-runtime";
+import { appStoreScope, createScopedAtom } from "./onboarding-scope-runtime";
 
 export type CommandPlatform = "linux" | "macOS" | "windows";
 
@@ -60,6 +57,7 @@ function detectCommandPlatform(): CommandPlatform {
   const platform = navigator.platform.toLowerCase();
   const userAgent = navigator.userAgent.toLowerCase();
   if (platform.includes("mac") || userAgent.includes("mac os")) return "macOS";
-  if (platform.includes("win") || userAgent.includes("windows")) return "windows";
+  if (platform.includes("win") || userAgent.includes("windows"))
+    return "windows";
   return "linux";
 }

@@ -5,12 +5,7 @@
 export type PullRequestStatus = "draft" | "open" | "merged" | "closed";
 
 export type PullRequestCheckState =
-  | "draft"
-  | "failing"
-  | "in_progress"
-  | "merged"
-  | "ready"
-  | "successful";
+  "draft" | "failing" | "in_progress" | "merged" | "ready" | "successful";
 
 export interface DeriveOpenPullRequestStatusInput {
   hasOpenPr: boolean;

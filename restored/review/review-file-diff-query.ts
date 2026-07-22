@@ -109,12 +109,10 @@ export const reviewFileDiffQueryFamily = createScopedQueryAtom(
         previous: unknown,
         previousQuery: { queryKey: unknown[] } | null,
       ) => {
-        if (
-          !(
-            previousQuery == null ||
-            !queryKeysShareBaseExceptLast(queryKey, previousQuery.queryKey)
-          )
-        )
+        if (!(
+          previousQuery == null ||
+          !queryKeysShareBaseExceptLast(queryKey, previousQuery.queryKey)
+        ))
           return previous;
       },
     };

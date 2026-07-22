@@ -6,11 +6,7 @@ type UseEffectEvent = <Args extends unknown[], Return>(
   callback: (...args: Args) => Return,
 ) => (...args: Args) => Return;
 type AutomaticApprovalReviewStatus =
-  | "inProgress"
-  | "approved"
-  | "denied"
-  | "timedOut"
-  | "aborted";
+  "inProgress" | "approved" | "denied" | "timedOut" | "aborted";
 type AutomaticApprovalReview = {
   rationale?: string | null;
   riskLevel?: string | null;

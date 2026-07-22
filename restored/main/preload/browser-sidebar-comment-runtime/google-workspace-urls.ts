@@ -67,8 +67,7 @@ export function createGoogleDocsDocumentContext({
   selectedText,
   visibleText,
 }: BrowserSidebarDocumentContextInput):
-  | BrowserSidebarGoogleDocsDocumentContext
-  | undefined {
+  BrowserSidebarGoogleDocsDocumentContext | undefined {
   const documentLocation = parseGoogleDocsDocumentUrl(pageUrl);
   if (documentLocation == null) return undefined;
 

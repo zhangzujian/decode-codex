@@ -111,8 +111,7 @@ interface BlockerNotice {
 }
 
 type SubmitState =
-  | { kind: "ready" }
-  | { kind: "blocked"; notice: BlockerNotice };
+  { kind: "ready" } | { kind: "blocked"; notice: BlockerNotice };
 
 // Availability check shared by both dialog modes: is a connected remote selected and
 // does it point at a valid, fully validated folder?

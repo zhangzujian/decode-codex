@@ -12,10 +12,7 @@ import {
 type FollowUpConfirmation = {
   onCancel: () => void;
   onConfirmCurrentThread: (prompt: string) => void;
-  onConfirmNewThread: (result: {
-    prompt: string;
-    type: "new-thread";
-  }) => void;
+  onConfirmNewThread: (result: { prompt: string; type: "new-thread" }) => void;
   prompt: string;
   title?: string;
 };
@@ -29,17 +26,19 @@ export function FollowUpConfirmationDialog({
 }: FollowUpConfirmationDialogProps) {
   if (confirmation == null) return null;
 
-  const title =
-    confirmation.title ?? (
-      <FormattedMessage
-        id="mcpApp.followUpConfirmation.title"
-        defaultMessage="Send follow-up?"
-        description="Title for confirming an MCP app follow-up prompt"
-      />
-    );
+  const title = confirmation.title ?? (
+    <FormattedMessage
+      id="mcpApp.followUpConfirmation.title"
+      defaultMessage="Send follow-up?"
+      description="Title for confirming an MCP app follow-up prompt"
+    />
+  );
 
   return (
-    <Dialog open={true} onOpenChange={(open) => !open && confirmation.onCancel()}>
+    <Dialog
+      open={true}
+      onOpenChange={(open) => !open && confirmation.onCancel()}
+    >
       <DialogHeader title={title} />
       <DialogBody className="gap-3">
         <p className="text-size-chat text-token-text-secondary">

@@ -8,8 +8,7 @@ const LOCAL_THREAD_LOCATION_PREFIX = "local:";
 const REMOTE_THREAD_LOCATION_PREFIX = "remote:";
 const ROUTE_THREAD_LOCATION_PREFIX = "route:";
 export type DraftThreadLocationId =
-  | typeof HOME_DRAFT_THREAD_LOCATION_ID
-  | typeof PANEL_DRAFT_THREAD_LOCATION_ID;
+  typeof HOME_DRAFT_THREAD_LOCATION_ID | typeof PANEL_DRAFT_THREAD_LOCATION_ID;
 export function getDraftThreadLocationIdForEntrypoint({
   entrypoint,
 }: {

@@ -1,9 +1,7 @@
 // Restored from ref/webview/assets/app-initial~app-main~remote-conversation-page~hotkey-window-thread-page~thread-app-shell-ch~oc6ebzsr-DX7Jokr-.js
 // Types for the thread handoff operation queue used by the app shell.
 export type ThreadHandoffDirection =
-  | "to-worktree"
-  | "to-local"
-  | "to-host-worktree";
+  "to-worktree" | "to-local" | "to-host-worktree";
 
 export type ThreadHandoffStepStatus = "pending" | string;
 export type ThreadHandoffOperationStatus = "queued" | string;

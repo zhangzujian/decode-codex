@@ -48,8 +48,7 @@ export class DesktopUpdateManagerImpl implements DesktopUpdateManager {
   private owlUpdatePolicies: OwlUpdatePolicies | null = null;
   private relaunchNotice: RelaunchNotice | null = null;
   private setAutomaticBackgroundDownloadsEnabledForMac:
-    | ((enabled: boolean) => void)
-    | null = null;
+    ((enabled: boolean) => void) | null = null;
   private updateDownloadedAtMs: number | null = null;
   private updateLifecycleState: UpdateLifecycleState = "idle";
   private updater: DesktopUpdater | null = null;
@@ -457,8 +456,7 @@ export class DesktopUpdateManagerImpl implements DesktopUpdateManager {
   private resolveWindowsStoreBuildVersion(): string {
     const appVersion = app.getVersion().trim();
     const normalizeVersion = sharedRuntime.windowsVersionFromBuildVersion as
-      | ((value: string) => string)
-      | undefined;
+      ((value: string) => string) | undefined;
     try {
       return normalizeVersion ? normalizeVersion(appVersion) : appVersion;
     } catch (error) {

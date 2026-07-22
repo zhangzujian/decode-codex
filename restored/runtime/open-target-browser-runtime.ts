@@ -19,4 +19,3 @@ export function shouldOfferOpenTargets({
 }): boolean {
   return isBrowserSidebarEnabled && EXPLICIT_BROWSER_URL_PATTERN.test(href);
 }
-

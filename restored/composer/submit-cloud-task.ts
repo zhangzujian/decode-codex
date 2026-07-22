@@ -78,8 +78,7 @@ interface CloudSubmitContext {
 }
 
 type BuildCloudSubmitResult =
-  | { type: "created-task"; taskId: string }
-  | { type: "none" };
+  { type: "created-task"; taskId: string } | { type: "none" };
 
 export interface BuildCloudSubmitTaskArgs {
   scope: unknown;

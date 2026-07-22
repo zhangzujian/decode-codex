@@ -275,83 +275,154 @@ import {
 } from "../../app-shell/thread-app-shell-chrome";
 
 function remoteConversationPageUnit21(remoteConversationPageOperand11) {
-  let {
-      conversationId
-    } = remoteConversationPageOperand11,
+  let { conversationId } = remoteConversationPageOperand11,
     remoteConversationPageBinding268 = currentAppInitialSharedFunction0375(),
-    {
-      isPinned,
-      togglePin
-    } = appMainCurrentCompatSlotLowerZLowerA(conversationId),
-    remoteConversationPageBinding269 = currentAppInitialSharedCompatSlotUpperGLowerO(worktreeNewThreadOrchestratorCompatSlotDollarLowerA, "toggleThreadPin"),
-    remoteConversationPageBinding270 = currentAppInitialSharedCompatSlotUpperGLowerO(worktreeNewThreadOrchestratorCompatSlotDollarLowerA, "copySessionId"),
-    remoteConversationPageBinding271 = isPinned ? projectsIndexCurrentCompatSlotUpperK : projectsIndexCurrentCompatSlotUpperG,
-    remoteConversationPageBinding272 = isPinned ? projectsIndexCurrentCompatSlotUpperK : appMainCurrentCompatSlotUpperGLowerN,
-    remoteConversationPageBinding273 = remoteConversationPageBinding268.formatMessage(appMainCurrentCompatSlotUpperRLowerA.moreActions);
+    { isPinned, togglePin } =
+      appMainCurrentCompatSlotLowerZLowerA(conversationId),
+    remoteConversationPageBinding269 =
+      currentAppInitialSharedCompatSlotUpperGLowerO(
+        worktreeNewThreadOrchestratorCompatSlotDollarLowerA,
+        "toggleThreadPin",
+      ),
+    remoteConversationPageBinding270 =
+      currentAppInitialSharedCompatSlotUpperGLowerO(
+        worktreeNewThreadOrchestratorCompatSlotDollarLowerA,
+        "copySessionId",
+      ),
+    remoteConversationPageBinding271 = isPinned
+      ? projectsIndexCurrentCompatSlotUpperK
+      : projectsIndexCurrentCompatSlotUpperG,
+    remoteConversationPageBinding272 = isPinned
+      ? projectsIndexCurrentCompatSlotUpperK
+      : appMainCurrentCompatSlotUpperGLowerN,
+    remoteConversationPageBinding273 =
+      remoteConversationPageBinding268.formatMessage(
+        appMainCurrentCompatSlotUpperRLowerA.moreActions,
+      );
   let remoteConversationPageBinding274 = remoteConversationPageBinding273,
     remoteConversationPageBinding275;
   remoteConversationPageBinding275 = [togglePin];
-  currentAppInitialSharedCompatSlotLowerY("toggle-thread-pin", togglePin, remoteConversationPageBinding275);
+  currentAppInitialSharedCompatSlotLowerY(
+    "toggle-thread-pin",
+    togglePin,
+    remoteConversationPageBinding275,
+  );
   let remoteConversationPageBinding276, remoteConversationPageBinding277;
   remoteConversationPageBinding276 = () => {
     conversationId && appMainCurrentCompatSlotUpperILowerA(conversationId);
   };
   remoteConversationPageBinding277 = [conversationId];
-  currentAppInitialSharedCompatSlotLowerY("copy-session-id", remoteConversationPageBinding276, remoteConversationPageBinding277);
+  currentAppInitialSharedCompatSlotLowerY(
+    "copy-session-id",
+    remoteConversationPageBinding276,
+    remoteConversationPageBinding277,
+  );
   let remoteConversationPageBinding278, remoteConversationPageBinding279;
-  if (remoteConversationPageBinding278 = () => {
-    conversationId && appMainCurrentCompatSlotUpperFLowerA(conversationId);
-  }, remoteConversationPageBinding279 = [conversationId], currentAppInitialSharedCompatSlotLowerY("copy-deeplink", remoteConversationPageBinding278, remoteConversationPageBinding279), !conversationId) return null;
-  let remoteConversationPageBinding280 = React.createElement(worktreeNewThreadOrchestratorCompatSlotLowerDLowerC, {
-    className: "icon-sm"
-  });
-  let remoteConversationPageBinding281 = React.createElement(worktreeNewThreadQueryCompatSlotUpperTLowerM, {
-    size: "icon",
-    color: "ghost",
-    className: "no-drag",
-    "aria-label": remoteConversationPageBinding274
-  }, remoteConversationPageBinding280);
-  let remoteConversationPageBinding282 = React.createElement(currentAppInitialSharedMember0924, {
-    ...remoteConversationPageBinding271
-  });
-  let remoteConversationPageBinding283 = React.createElement(worktreeNewThreadQueryCompatSlotLowerNLowerO.Item, {
-    onSelect: togglePin,
-    LeftIcon: remoteConversationPageBinding272,
-    keyboardShortcut: remoteConversationPageBinding269
-  }, remoteConversationPageBinding282);
-  let remoteConversationPageBinding284 = React.createElement(worktreeNewThreadQueryCompatSlotLowerNLowerO.Item, {
-    disabled: true,
-    LeftIcon: EditPencilIcon
-  }, React.createElement(currentAppInitialSharedMember0924, {
-    ...appMainCurrentCompatSlotUpperRLowerA.renameThread
-  }));
+  if (
+    ((remoteConversationPageBinding278 = () => {
+      conversationId && appMainCurrentCompatSlotUpperFLowerA(conversationId);
+    }),
+    (remoteConversationPageBinding279 = [conversationId]),
+    currentAppInitialSharedCompatSlotLowerY(
+      "copy-deeplink",
+      remoteConversationPageBinding278,
+      remoteConversationPageBinding279,
+    ),
+    !conversationId)
+  )
+    return null;
+  let remoteConversationPageBinding280 = React.createElement(
+    worktreeNewThreadOrchestratorCompatSlotLowerDLowerC,
+    {
+      className: "icon-sm",
+    },
+  );
+  let remoteConversationPageBinding281 = React.createElement(
+    worktreeNewThreadQueryCompatSlotUpperTLowerM,
+    {
+      size: "icon",
+      color: "ghost",
+      className: "no-drag",
+      "aria-label": remoteConversationPageBinding274,
+    },
+    remoteConversationPageBinding280,
+  );
+  let remoteConversationPageBinding282 = React.createElement(
+    currentAppInitialSharedMember0924,
+    {
+      ...remoteConversationPageBinding271,
+    },
+  );
+  let remoteConversationPageBinding283 = React.createElement(
+    worktreeNewThreadQueryCompatSlotLowerNLowerO.Item,
+    {
+      onSelect: togglePin,
+      LeftIcon: remoteConversationPageBinding272,
+      keyboardShortcut: remoteConversationPageBinding269,
+    },
+    remoteConversationPageBinding282,
+  );
+  let remoteConversationPageBinding284 = React.createElement(
+    worktreeNewThreadQueryCompatSlotLowerNLowerO.Item,
+    {
+      disabled: true,
+      LeftIcon: EditPencilIcon,
+    },
+    React.createElement(currentAppInitialSharedMember0924, {
+      ...appMainCurrentCompatSlotUpperRLowerA.renameThread,
+    }),
+  );
   let remoteConversationPageBinding285, remoteConversationPageBinding286;
-  remoteConversationPageBinding285 = React.createElement(worktreeNewThreadQueryCompatSlotLowerNLowerO.Item, {
-    disabled: true,
-    LeftIcon: projectsIndexCurrentCompatSlotDollar
-  }, React.createElement(currentAppInitialSharedMember0924, {
-    ...appMainCurrentCompatSlotUpperRLowerA.archiveThread
-  }));
-  remoteConversationPageBinding286 = React.createElement(worktreeNewThreadQueryCompatSlotLowerNLowerO.Separator, null);
-  let remoteConversationPageBinding287 = () => appMainCurrentCompatSlotUpperILowerA(conversationId);
-  let remoteConversationPageBinding288 = React.createElement(currentAppInitialSharedMember0924, {
-    ...appMainCurrentCompatSlotUpperRLowerA.copySessionId
-  });
-  let remoteConversationPageBinding289 = React.createElement(worktreeNewThreadQueryCompatSlotLowerNLowerO.Item, {
-    onSelect: remoteConversationPageBinding287,
-    LeftIcon: worktreeNewThreadOrchestratorCompatSlotUpperGLowerR,
-    keyboardShortcut: remoteConversationPageBinding270
-  }, remoteConversationPageBinding288);
-  return React.createElement(worktreeNewThreadQueryCompatSlotLowerELowerO, {
-    triggerButton: remoteConversationPageBinding281,
-    align: "start",
-    contentWidth: "menu"
-  }, remoteConversationPageBinding283, remoteConversationPageBinding284, remoteConversationPageBinding285, remoteConversationPageBinding286, remoteConversationPageBinding289);
+  remoteConversationPageBinding285 = React.createElement(
+    worktreeNewThreadQueryCompatSlotLowerNLowerO.Item,
+    {
+      disabled: true,
+      LeftIcon: projectsIndexCurrentCompatSlotDollar,
+    },
+    React.createElement(currentAppInitialSharedMember0924, {
+      ...appMainCurrentCompatSlotUpperRLowerA.archiveThread,
+    }),
+  );
+  remoteConversationPageBinding286 = React.createElement(
+    worktreeNewThreadQueryCompatSlotLowerNLowerO.Separator,
+    null,
+  );
+  let remoteConversationPageBinding287 = () =>
+    appMainCurrentCompatSlotUpperILowerA(conversationId);
+  let remoteConversationPageBinding288 = React.createElement(
+    currentAppInitialSharedMember0924,
+    {
+      ...appMainCurrentCompatSlotUpperRLowerA.copySessionId,
+    },
+  );
+  let remoteConversationPageBinding289 = React.createElement(
+    worktreeNewThreadQueryCompatSlotLowerNLowerO.Item,
+    {
+      onSelect: remoteConversationPageBinding287,
+      LeftIcon: worktreeNewThreadOrchestratorCompatSlotUpperGLowerR,
+      keyboardShortcut: remoteConversationPageBinding270,
+    },
+    remoteConversationPageBinding288,
+  );
+  return React.createElement(
+    worktreeNewThreadQueryCompatSlotLowerELowerO,
+    {
+      triggerButton: remoteConversationPageBinding281,
+      align: "start",
+      contentWidth: "menu",
+    },
+    remoteConversationPageBinding283,
+    remoteConversationPageBinding284,
+    remoteConversationPageBinding285,
+    remoteConversationPageBinding286,
+    remoteConversationPageBinding289,
+  );
 }
 var remoteConversationPageBinding26,
   remoteConversationPageBinding27,
   remoteConversationPageBinding28 = once(() => {
-    remoteConversationPageBinding26 = currentAppInitialSharedCompatSlotLowerGLowerC();
+    remoteConversationPageBinding26 =
+      currentAppInitialSharedCompatSlotLowerGLowerC();
     currentAppInitialSharedCompatSlotUpperVLowerO();
     intlFormatDateTimeRuntime();
     worktreeNewThreadOrchestratorCompatSlotLowerRLowerO();
@@ -366,20 +437,77 @@ var remoteConversationPageBinding26,
     appMainCurrentCompatSlotUpperLLowerA();
     currentAppInitialSharedCompatSlotUnderscore();
     projectsIndexCurrentCompatSlotUpperW();
-    remoteConversationPageBinding27 = currentAppInitialSharedCompatSlotLowerLLowerC();
+    remoteConversationPageBinding27 =
+      currentAppInitialSharedCompatSlotLowerLLowerC();
   });
-function remoteConversationPageUnit22(remoteConversationPageOperand38, remoteConversationPageOperand39, remoteConversationPageOperand40) {
-  let remoteConversationPageBinding478 = remoteConversationPageOperand38?.current_diff_task_turn,
-    remoteConversationPageBinding479 = remoteConversationPageOperand38?.current_assistant_turn,
-    remoteConversationPageBinding480 = remoteConversationPageOperand39?.output_items?.find(remoteConversationPageOperand116 => remoteConversationPageOperand116.type === "pr"),
-    remoteConversationPageBinding481 = remoteConversationPageBinding478?.output_items?.find(remoteConversationPageOperand117 => remoteConversationPageOperand117.type === "pr"),
-    remoteConversationPageBinding482 = remoteConversationPageOperand39 == null || remoteConversationPageBinding478 != null && remoteConversationPageUnit23(remoteConversationPageOperand40, remoteConversationPageOperand39, remoteConversationPageBinding478) ? remoteConversationPageBinding481 : undefined;
-  return remoteConversationPageOperand39 && remoteConversationPageOperand39.id !== remoteConversationPageBinding479?.id ? (remoteConversationPageBinding480 ?? remoteConversationPageBinding482)?.output_diff?.diff ?? null : (remoteConversationPageBinding480 ?? remoteConversationPageBinding482 ?? remoteConversationPageBinding479?.output_items?.find(remoteConversationPageOperand118 => remoteConversationPageOperand118.type === "pr"))?.output_diff?.diff ?? null;
+function remoteConversationPageUnit22(
+  remoteConversationPageOperand38,
+  remoteConversationPageOperand39,
+  remoteConversationPageOperand40,
+) {
+  let remoteConversationPageBinding478 =
+      remoteConversationPageOperand38?.current_diff_task_turn,
+    remoteConversationPageBinding479 =
+      remoteConversationPageOperand38?.current_assistant_turn,
+    remoteConversationPageBinding480 =
+      remoteConversationPageOperand39?.output_items?.find(
+        (remoteConversationPageOperand116) =>
+          remoteConversationPageOperand116.type === "pr",
+      ),
+    remoteConversationPageBinding481 =
+      remoteConversationPageBinding478?.output_items?.find(
+        (remoteConversationPageOperand117) =>
+          remoteConversationPageOperand117.type === "pr",
+      ),
+    remoteConversationPageBinding482 =
+      remoteConversationPageOperand39 == null ||
+      (remoteConversationPageBinding478 != null &&
+        remoteConversationPageUnit23(
+          remoteConversationPageOperand40,
+          remoteConversationPageOperand39,
+          remoteConversationPageBinding478,
+        ))
+        ? remoteConversationPageBinding481
+        : undefined;
+  return remoteConversationPageOperand39 &&
+    remoteConversationPageOperand39.id !== remoteConversationPageBinding479?.id
+    ? ((remoteConversationPageBinding480 ?? remoteConversationPageBinding482)
+        ?.output_diff?.diff ?? null)
+    : ((
+        remoteConversationPageBinding480 ??
+        remoteConversationPageBinding482 ??
+        remoteConversationPageBinding479?.output_items?.find(
+          (remoteConversationPageOperand118) =>
+            remoteConversationPageOperand118.type === "pr",
+        )
+      )?.output_diff?.diff ?? null);
 }
-function remoteConversationPageUnit23(remoteConversationPageOperand71, remoteConversationPageOperand72, remoteConversationPageOperand73) {
+function remoteConversationPageUnit23(
+  remoteConversationPageOperand71,
+  remoteConversationPageOperand72,
+  remoteConversationPageOperand73,
+) {
   let remoteConversationPageBinding511 = new Map();
-  for (let remoteConversationPageBinding522 of remoteConversationPageOperand71) remoteConversationPageBinding511.set(remoteConversationPageBinding522.id, remoteConversationPageBinding522);
-  return remoteConversationPageBinding511.set(remoteConversationPageOperand72.id, remoteConversationPageOperand72), remoteConversationPageBinding511.set(remoteConversationPageOperand73.id, remoteConversationPageOperand73), worktreeNewThreadQueryCompatSlotLowerDLowerD(remoteConversationPageBinding511, remoteConversationPageOperand72.id, remoteConversationPageOperand73.id);
+  for (let remoteConversationPageBinding522 of remoteConversationPageOperand71)
+    remoteConversationPageBinding511.set(
+      remoteConversationPageBinding522.id,
+      remoteConversationPageBinding522,
+    );
+  return (
+    remoteConversationPageBinding511.set(
+      remoteConversationPageOperand72.id,
+      remoteConversationPageOperand72,
+    ),
+    remoteConversationPageBinding511.set(
+      remoteConversationPageOperand73.id,
+      remoteConversationPageOperand73,
+    ),
+    worktreeNewThreadQueryCompatSlotLowerDLowerD(
+      remoteConversationPageBinding511,
+      remoteConversationPageOperand72.id,
+      remoteConversationPageOperand73.id,
+    )
+  );
 }
 var remoteConversationPageBinding29 = once(() => {
   worktreeNewThreadQueryCompatSlotLowerHLowerD();

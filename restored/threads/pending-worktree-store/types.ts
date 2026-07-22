@@ -55,15 +55,9 @@ export type MaterializedThreadGoal = {
   objective: string;
 };
 export type PendingWorktreePhase =
-  | "queued"
-  | "creating"
-  | "setting-up"
-  | "worktree-ready"
-  | "failed";
+  "queued" | "creating" | "setting-up" | "worktree-ready" | "failed";
 export type PendingWorktreeLaunchMode =
-  | "create-stable-worktree"
-  | "fork-conversation"
-  | "start-conversation";
+  "create-stable-worktree" | "fork-conversation" | "start-conversation";
 export type CreatePendingWorktreeInput = {
   browserTransferSourceBrowserTabId?: string | null;
   browserTransferSourceBrowserTabIds?: string[] | null;

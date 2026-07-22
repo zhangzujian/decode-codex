@@ -75,11 +75,11 @@ function parsePromptTextLine(
       nodes.push(schema.text(line.slice(textStartIndex, endIndex)));
     }
   };
-  for (; searchIndex < line.length; ) {
+  for (; searchIndex < line.length;) {
     const labelStart = line.indexOf("[", searchIndex);
     if (labelStart === -1) break;
     let labelEnd = labelStart + 1;
-    for (; labelEnd < line.length; ) {
+    for (; labelEnd < line.length;) {
       const char = line[labelEnd];
       const nextChar = line[labelEnd + 1];
       if (
@@ -100,7 +100,7 @@ function parsePromptTextLine(
     let hrefEnd = labelEnd + 2;
     let rawHref = "";
     let foundHrefEnd = false;
-    for (; hrefEnd < line.length; ) {
+    for (; hrefEnd < line.length;) {
       const char = line[hrefEnd];
       if (char === "\\") {
         const nextChar = line[hrefEnd + 1];

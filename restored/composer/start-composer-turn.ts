@@ -112,10 +112,13 @@ async function startTurn(
         targetConversationId,
       });
 
-  const latestTurn = scope.get(conversationTurnsAtom, targetConversationId)?.at(
-    -1,
-  );
-  if (!forceStart && (activeTurnId != null || latestTurn?.status === "inProgress")) {
+  const latestTurn = scope
+    .get(conversationTurnsAtom, targetConversationId)
+    ?.at(-1);
+  if (
+    !forceStart &&
+    (activeTurnId != null || latestTurn?.status === "inProgress")
+  ) {
     return steerTurn({
       scope,
       manager,

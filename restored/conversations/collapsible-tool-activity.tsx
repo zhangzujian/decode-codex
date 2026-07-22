@@ -5,13 +5,7 @@ import clsx from "clsx";
 import { ChevronRightIcon } from "../icons/chevron-right-icon";
 
 export type CollapsibleToolActivityStatus =
-  | "running"
-  | "completed"
-  | "failed"
-  | "error"
-  | "warning"
-  | "queued"
-  | string;
+  "running" | "completed" | "failed" | "error" | "warning" | "queued" | string;
 
 export interface CollapsibleToolActivityProps {
   children?: ReactNode;

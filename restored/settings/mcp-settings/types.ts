@@ -77,8 +77,7 @@ export type HttpMcpServerConfig = SharedMcpServerFields & {
 };
 
 export type EditableMcpServerConfig =
-  | HttpMcpServerConfig
-  | StdioMcpServerConfig;
+  HttpMcpServerConfig | StdioMcpServerConfig;
 
 export type EditableMcpServerDraft = {
   base: SharedMcpServerFields;
@@ -128,9 +127,7 @@ type EditableRecordValueProps = EditableValueBaseProps & {
 };
 
 export type EditableConfigValueProps =
-  | EditableArrayValueProps
-  | EditableRecordValueProps
-  | EditableStringValueProps;
+  EditableArrayValueProps | EditableRecordValueProps | EditableStringValueProps;
 
 export type McpServerDetailProps = {
   config: EditableMcpServerConfig;

@@ -172,8 +172,7 @@ export function useUpdateWindowsSandboxModeMutation(
         sensitive: {},
       });
       const mutationContext = context as
-        | WindowsSandboxModeMutationContext
-        | undefined;
+        WindowsSandboxModeMutationContext | undefined;
       if (mutationContext?.previousMode !== undefined) {
         queryClient.setQueryData?.(modeQueryKey, mutationContext.previousMode);
       }

@@ -248,6 +248,72 @@ describe("vendor-npm-preflight CLI", () => {
     }
   });
 
+  test("classifies exact Mermaid diagram chunks as npm shims", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          mermaid: "11.12.0",
+          "mermaid-k5": "npm:mermaid@11.14.0",
+        },
+      }),
+    );
+
+    const fixtures = [
+      {
+        filename: "quadrant-diagram-34-t5-l4-wz.ts",
+        sourceChunk: "quadrantDiagram-34T5L4WZ-B_DchiL3",
+        specifier:
+          "mermaid-k5/dist/chunks/mermaid.core/quadrantDiagram-34T5L4WZ.mjs",
+      },
+      {
+        filename: "quadrant-diagram-ayhsok5-b-c-pq-sal-kc.ts",
+        sourceChunk: "quadrantDiagram-AYHSOK5B-CPqSalKC",
+        specifier:
+          "mermaid/dist/chunks/mermaid.core/quadrantDiagram-AYHSOK5B.mjs",
+      },
+      {
+        filename: "sankey-diagram-tzehdzun-bpe-qb-biy.ts",
+        sourceChunk: "sankeyDiagram-TZEHDZUN-BPEQbBiy",
+        specifier:
+          "mermaid/dist/chunks/mermaid.core/sankeyDiagram-TZEHDZUN.mjs",
+      },
+      {
+        filename: "sankey-diagram-xadwpnl6.ts",
+        sourceChunk: "sankeyDiagram-XADWPNL6-D7dnxPZY",
+        specifier:
+          "mermaid-k5/dist/chunks/mermaid.core/sankeyDiagram-XADWPNL6.mjs",
+      },
+      {
+        filename: "timeline-definition-it6-m3-qci-bo-pf-rmg-y.ts",
+        sourceChunk: "timeline-definition-IT6M3QCI-BOPfRmgY",
+        specifier:
+          "mermaid/dist/chunks/mermaid.core/timeline-definition-IT6M3QCI.mjs",
+      },
+    ];
+
+    for (const fixture of fixtures) {
+      const target = path.join(vendorDir, fixture.filename);
+      fs.writeFileSync(
+        target,
+        `// Restored from ref/webview/assets/${fixture.sourceChunk}.js\nexport const diagram = {};\n`,
+      );
+      const result = runDecisionCLI(target, { intent: "local-body" });
+      expect(result.code).toBe(1);
+      const decisions = JSON.parse(result.stdout) as Array<{
+        decision: string;
+        specifiers: string[];
+      }>;
+      expect(decisions[0]).toMatchObject({
+        decision: "npm-shim",
+        specifiers: [fixture.specifier],
+      });
+    }
+  });
+
   test("requires fork or runtime proof for unknown public vendor targets", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");
@@ -376,11 +442,63 @@ describe("vendor-npm-preflight CLI", () => {
         `,
       },
       {
+        filename: "chunk-extu4-wie.ts",
+        source: `
+          // Restored from ref/webview/assets/chunk-EXTU4WIE-current.js
+          import { getConfig, initLegacyMermaidCommonRuntime } from "../runtime/mermaid-common";
+          export const selectSvgElement = () => getConfig();
+          export const initChunk = initLegacyMermaidCommonRuntime;
+        `,
+      },
+      {
         filename: "xlsx-address-utils.ts",
         source: `
           // Restored from ref/webview/assets/address-utils-current.js
           export const encodeCellAddress = () => "A1";
           export const parseCellRangeReference = () => null;
+        `,
+      },
+      {
+        filename: "pdf-preview-panel-runtime.ts",
+        source: `
+          // Restored from ref/webview/assets/pdf-preview-panel-KZgIg0w6.js
+          export function PdfPreviewPanel() {}
+        `,
+      },
+      {
+        filename: "popcorn-electron-surface-style-runtime.ts",
+        source: `
+          // Restored from ref/webview/assets/popcorn-electron-surface-style-mUJ9CmvY.js
+          export function initPopcornElectronSurfaceStyleRuntime() {}
+        `,
+      },
+      {
+        filename: "pull-request-new-thread-current-runtime.ts",
+        source: `
+          // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~new-~ozr5a6hk-DZC70s11.js
+          export function initPullRequestNewThreadRuntime() {}
+        `,
+      },
+      {
+        filename: "remote-text-edit-session-runtime.ts",
+        source: `
+          // Restored from ref/webview/assets/remote-text-edit-session-0olsg5KH.js
+          export function initRemoteTextEditSessionRuntime() {}
+        `,
+      },
+      {
+        filename: "chunk-qn33-pnhl.ts",
+        source: `
+          // Restored from ref/webview/assets/chunk-QN33PNHL-D1DqJ858.js
+          export function setupViewPortForSVG() {}
+          export function calculateDimensionsWithPadding() {}
+        `,
+      },
+      {
+        filename: "docx-preview-panel-runtime.ts",
+        source: `
+          // Restored from ref/webview/assets/docx-preview-panel-BsZXEpj7.js
+          export function DocxPreviewPanel() {}
         `,
       },
     ];
@@ -398,7 +516,7 @@ describe("vendor-npm-preflight CLI", () => {
       expect(decisions[0]?.reason).toContain("registered vendor wrapper proof");
       expect(result.stderr).toBe("");
     }
-  });
+  }, 15_000);
 
   test("blocks npm-shim intent for unknown public vendor targets until registered", () => {
     const root = makeTmpRoot();

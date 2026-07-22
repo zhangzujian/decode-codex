@@ -23,11 +23,7 @@ type AccountRecord = {
   type?: string;
 };
 type ServiceTierAuthMethod =
-  | "apikey"
-  | "amazonBedrock"
-  | "chatgpt"
-  | "copilot"
-  | null;
+  "apikey" | "amazonBedrock" | "chatgpt" | "copilot" | null;
 type ServiceTierPreference =
   | {
       type: "fromConfig";

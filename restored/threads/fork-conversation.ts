@@ -26,8 +26,7 @@ export const FORK_INTO_WORKTREE_CONTINUATION =
   "The worktree is being created asynchronously, so no child thread id exists yet. Wait for pendingWorktreeId to finish, then send a follow-up message to the child only if the task requires work to continue there.";
 
 type ForkConversationEnvironment =
-  | { type: "same-directory" }
-  | { type: "worktree" };
+  { type: "same-directory" } | { type: "worktree" };
 
 type IntlShapeLike = {
   formatMessage(descriptor: {

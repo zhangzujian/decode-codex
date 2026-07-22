@@ -111,9 +111,7 @@ export function ProjectHoverCard({
     .filter(isNonEmptyString);
   const attentionCounts =
     (useScopedValue(threadAttentionCountsSignal, group.threadKeys) as
-      | ProjectAttentionCounts
-      | null
-      | undefined) ?? EMPTY_ATTENTION_COUNTS;
+      ProjectAttentionCounts | null | undefined) ?? EMPTY_ATTENTION_COUNTS;
   const writableRoots = getProjectWritableRootsForDisplay({
     projectId: group.projectId,
     projectWritableRoots: parseProjectWritableRoots(

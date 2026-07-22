@@ -1,10 +1,4 @@
-// Restored from ref/webview/assets/html-derivative-YqcYPLj-.js
-// Shiki HTML Derivative grammar wrapper; the grammar payload stays in @shikijs/langs/html-derivative.
-import {
-  n as htmlDerivativeGrammar,
-  t as initHtmlDerivativeGrammar,
-} from "@shikijs/langs/html-derivative";
-
-initHtmlDerivativeGrammar();
-
-export { htmlDerivativeGrammar as default };
+// Restored from ref/webview/assets/html-derivative-DIA0fB0y.js
+// Shiki HTML derivative wrapper; the grammar payload stays in @shikijs/langs/html-derivative.
+import htmlDerivativeGrammar from "@shikijs/langs/html-derivative";
+export default htmlDerivativeGrammar;

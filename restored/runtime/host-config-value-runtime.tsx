@@ -3,8 +3,7 @@
 import * as React from "react";
 
 type HostConfigUpdater<TValue> =
-  | TValue
-  | ((current: TValue | undefined) => TValue);
+  TValue | ((current: TValue | undefined) => TValue);
 
 type HostConfigSetter<TValue> = (value: HostConfigUpdater<TValue>) => void;
 

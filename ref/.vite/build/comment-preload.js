@@ -4,8 +4,18 @@ var e = Object.create,
   r = Object.getOwnPropertyNames,
   i = Object.getPrototypeOf,
   a = Object.prototype.hasOwnProperty,
-  o = (e, t) => () => (e && (t = e((e = 0))), t),
-  s = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports),
+  o = (e, t, n) => () => {
+    if (n) throw n[0];
+    try {
+      return (e && (t = e((e = 0))), t);
+    } catch (e) {
+      throw ((n = [e]), e);
+    }
+  },
+  s = (e, t) => () => (
+    t || (e((t = { exports: {} }).exports, t), (e = null)),
+    t.exports
+  ),
   c = (e, n) => {
     let r = {};
     for (var i in e) t(r, i, { get: e[i], enumerable: !0 });
@@ -32,7 +42,7 @@ var e = Object.create,
       n,
     )
   );
-let d = require(`electron`);
+let d = require("electron");
 function f(e) {
   return e.length > 0;
 }
@@ -176,7 +186,7 @@ function ae(e) {
 }
 function oe(e, t) {
   if (e.length < 2) return e;
-  let n = 16 + ve / 2,
+  let n = 28.5,
     r = t - 16 - ve / 2,
     i = new Map();
   e.forEach((e, t) => {
@@ -616,7 +626,7 @@ function We() {
     d.contextBridge.executeInMainWorld({
       args: [Ue],
       func: (e) => {
-        Object.defineProperty(navigator, `modelContext`, {
+        Object.defineProperty(navigator, "modelContext", {
           configurable: !0,
           enumerable: !1,
           get: () => Reflect.get(window, e),
@@ -810,7 +820,7 @@ var Ge = function (e, t, n) {
         for (var u = 0; u < e.length; u++)
           ((a = e[u]), (s = l + se(a, u)), (c += w(a, r, i, s, o)));
       else if (((u = m(e)), typeof u == `function`))
-        for (e = u.call(e), u = 0; !(a = e.next()).done; )
+        for (e = u.call(e), u = 0; !(a = e.next()).done;)
           ((a = a.value), (s = l + se(a, u++)), (c += w(a, r, i, s, o)));
       else if (s === `object`) {
         if (typeof e.then == `function`) return w(ce(e), r, i, a, o);
@@ -1271,12 +1281,10 @@ var Ge = function (e, t, n) {
   }),
   Ye = s((e, t) => {
     function n() {
-      if (
-        !(
-          typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ > `u` ||
-          typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE != `function`
-        )
-      )
+      if (!(
+        typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ > `u` ||
+        typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE != `function`
+      ))
         try {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(n);
         } catch (e) {
@@ -1289,7 +1297,7 @@ var Ge = function (e, t, n) {
     function t(e, t) {
       var n = e.length;
       e.push(t);
-      a: for (; 0 < n; ) {
+      a: for (; 0 < n;) {
         var r = (n - 1) >>> 1,
           a = e[r];
         if (0 < i(a, t)) ((e[r] = t), (e[n] = a), (n = r));
@@ -1305,7 +1313,7 @@ var Ge = function (e, t, n) {
         n = e.pop();
       if (n !== t) {
         e[0] = n;
-        a: for (var r = 0, a = e.length, o = a >>> 1; r < o; ) {
+        a: for (var r = 0, a = e.length, o = a >>> 1; r < o;) {
           var s = 2 * (r + 1) - 1,
             c = e[s],
             l = s + 1,
@@ -1352,7 +1360,7 @@ var Ge = function (e, t, n) {
       v = typeof clearTimeout == `function` ? clearTimeout : null,
       y = typeof setImmediate < `u` ? setImmediate : null;
     function b(e) {
-      for (var i = n(l); i !== null; ) {
+      for (var i = n(l); i !== null;) {
         if (i.callback === null) r(l);
         else if (i.startTime <= e)
           (r(l), (i.sortIndex = i.expirationTime), t(c, i));
@@ -1389,7 +1397,6 @@ var Ge = function (e, t, n) {
                 for (
                   b(t), d = n(c);
                   d !== null && !(d.expirationTime > t && ne());
-
                 ) {
                   var o = d.callback;
                   if (typeof o == `function`) {
@@ -1590,7 +1597,7 @@ var Ge = function (e, t, n) {
     function o(e) {
       var t = e,
         n = e;
-      if (e.alternate) for (; t.return; ) t = t.return;
+      if (e.alternate) for (; t.return;) t = t.return;
       else {
         e = t;
         do ((t = e), t.flags & 4098 && (n = t.return), (e = t.return));
@@ -1631,7 +1638,7 @@ var Ge = function (e, t, n) {
         if (((t = o(e)), t === null)) throw Error(i(188));
         return t === e ? e : null;
       }
-      for (var n = e, r = t; ; ) {
+      for (var n = e, r = t; ;) {
         var a = n.return;
         if (a === null) break;
         var s = a.alternate;
@@ -1643,7 +1650,7 @@ var Ge = function (e, t, n) {
           break;
         }
         if (a.child === s.child) {
-          for (s = a.child; s; ) {
+          for (s = a.child; s;) {
             if (s === n) return (l(a), e);
             if (s === r) return (l(a), t);
             s = s.sibling;
@@ -1652,7 +1659,7 @@ var Ge = function (e, t, n) {
         }
         if (n.return !== r.return) ((n = a), (r = s));
         else {
-          for (var c = !1, u = a.child; u; ) {
+          for (var c = !1, u = a.child; u;) {
             if (u === n) {
               ((c = !0), (n = a), (r = s));
               break;
@@ -1664,7 +1671,7 @@ var Ge = function (e, t, n) {
             u = u.sibling;
           }
           if (!c) {
-            for (u = s.child; u; ) {
+            for (u = s.child; u;) {
               if (u === n) {
                 ((c = !0), (n = s), (r = a));
                 break;
@@ -1686,7 +1693,7 @@ var Ge = function (e, t, n) {
     function d(e) {
       var t = e.tag;
       if (t === 5 || t === 26 || t === 27 || t === 6) return e;
-      for (e = e.child; e !== null; ) {
+      for (e = e.child; e !== null;) {
         if (((t = d(e)), t !== null)) return t;
         e = e.sibling;
       }
@@ -1860,7 +1867,7 @@ var Ge = function (e, t, n) {
                   throw Error();
                 };
                 if (
-                  (Object.defineProperty(n.prototype, `props`, {
+                  (Object.defineProperty(n.prototype, "props", {
                     set: function () {
                       throw Error();
                     },
@@ -1905,7 +1912,7 @@ var Ge = function (e, t, n) {
         );
         i &&
           i.configurable &&
-          Object.defineProperty(r.DetermineComponentFrameRoot, `name`, {
+          Object.defineProperty(r.DetermineComponentFrameRoot, "name", {
             value: `DetermineComponentFrameRoot`,
           });
         var a = r.DetermineComponentFrameRoot(),
@@ -1919,20 +1926,14 @@ var Ge = function (e, t, n) {
           for (
             i = r = 0;
             r < c.length && !c[r].includes(`DetermineComponentFrameRoot`);
-
           )
             r++;
-          for (
-            ;
-            i < l.length && !l[i].includes(`DetermineComponentFrameRoot`);
-
-          )
+          for (; i < l.length && !l[i].includes(`DetermineComponentFrameRoot`);)
             i++;
           if (r === c.length || i === l.length)
             for (
               r = c.length - 1, i = l.length - 1;
               1 <= r && 0 <= i && c[r] !== l[i];
-
             )
               i--;
           for (; 1 <= r && 0 <= i; r--, i--)
@@ -2196,7 +2197,7 @@ Error generating stack: ` +
       var s = e.entanglements,
         c = e.expirationTimes,
         l = e.hiddenUpdates;
-      for (n = o & ~n; 0 < n; ) {
+      for (n = o & ~n; 0 < n;) {
         var u = 31 - He(n),
           d = 1 << u;
         ((s[u] = 0), (c[u] = -1));
@@ -2222,7 +2223,7 @@ Error generating stack: ` +
     }
     function it(e, t) {
       var n = (e.entangledLanes |= t);
-      for (e = e.entanglements; n; ) {
+      for (e = e.entanglements; n;) {
         var r = 31 - He(n),
           i = 1 << r;
         ((i & t) | (e[r] & t) && (e[r] |= t), (n &= ~i));
@@ -2307,13 +2308,13 @@ Error generating stack: ` +
     function yt(e) {
       var t = e[dt];
       if (t) return t;
-      for (var n = e.parentNode; n; ) {
+      for (var n = e.parentNode; n;) {
         if ((t = n[pt] || n[dt])) {
           if (
             ((n = t.alternate),
             t.child !== null || (n !== null && n.child !== null))
           )
-            for (e = df(e); e !== null; ) {
+            for (e = df(e); e !== null;) {
               if ((n = e[dt])) return n;
               e = df(e);
             }
@@ -2805,7 +2806,7 @@ Error generating stack: ` +
               (t = n.name),
               n.type === `radio` && t != null)
             ) {
-              for (n = e; n.parentNode; ) n = n.parentNode;
+              for (n = e; n.parentNode;) n = n.parentNode;
               for (
                 n = n.querySelectorAll(
                   `input[name="` + Vt(`` + t) + `"][type="radio"]`,
@@ -2901,7 +2902,7 @@ Error generating stack: ` +
     if (dn)
       try {
         var pn = {};
-        (Object.defineProperty(pn, `passive`, {
+        (Object.defineProperty(pn, "passive", {
           get: function () {
             fn = !0;
           },
@@ -3372,20 +3373,20 @@ Error generating stack: ` +
       return !0;
     }
     function Er(e) {
-      for (; e && e.firstChild; ) e = e.firstChild;
+      for (; e && e.firstChild;) e = e.firstChild;
       return e;
     }
     function Dr(e, t) {
       var n = Er(e);
       e = 0;
-      for (var r; n; ) {
+      for (var r; n;) {
         if (n.nodeType === 3) {
           if (((r = e + n.textContent.length), e <= t && r >= t))
             return { node: n, offset: t - e };
           e = r;
         }
         a: {
-          for (; n; ) {
+          for (; n;) {
             if (n.nextSibling) {
               n = n.nextSibling;
               break a;
@@ -3419,7 +3420,7 @@ Error generating stack: ` +
         e.ownerDocument.defaultView != null
           ? e.ownerDocument.defaultView
           : window;
-      for (var t = zt(e.document); t instanceof e.HTMLIFrameElement; ) {
+      for (var t = zt(e.document); t instanceof e.HTMLIFrameElement;) {
         try {
           var n = typeof t.contentWindow.location.href == `string`;
         } catch {
@@ -3559,7 +3560,7 @@ Error generating stack: ` +
       ei = 0,
       ti = 0;
     function ni() {
-      for (var e = ei, t = (ti = ei = 0); t < e; ) {
+      for (var e = ei, t = (ti = ei = 0); t < e;) {
         var n = $r[t];
         $r[t++] = null;
         var r = $r[t];
@@ -3595,7 +3596,7 @@ Error generating stack: ` +
       e.lanes |= n;
       var r = e.alternate;
       r !== null && (r.lanes |= n);
-      for (var i = !1, a = e.return; a !== null; )
+      for (var i = !1, a = e.return; a !== null;)
         ((a.childLanes |= n),
           (r = a.alternate),
           r !== null && (r.childLanes |= n),
@@ -3617,7 +3618,7 @@ Error generating stack: ` +
     }
     function si(e) {
       if (50 < du) throw ((du = 0), (fu = null), Error(i(185)));
-      for (var t = e.return; t !== null; ) ((e = t), (t = e.return));
+      for (var t = e.return; t !== null;) ((e = t), (t = e.return));
       return e.tag === 3 ? e.stateNode : null;
     }
     var ci = {};
@@ -3853,9 +3854,9 @@ Error generating stack: ` +
       e.return !== null && (Ai(e, 1), ji(e, 1, 0));
     }
     function Ni(e) {
-      for (; e === Ci; )
+      for (; e === Ci;)
         ((Ci = xi[--Si]), (xi[Si] = null), (wi = xi[--Si]), (xi[Si] = null));
-      for (; e === Di; )
+      for (; e === Di;)
         ((Di = Ti[--Ei]),
           (Ti[Ei] = null),
           (ki = Ti[--Ei]),
@@ -3959,7 +3960,7 @@ Error generating stack: ` +
         t || zi(e, !0));
     }
     function Vi(e) {
-      for (Fi = e.return; Fi; )
+      for (Fi = e.return; Fi;)
         switch (Fi.tag) {
           case 5:
           case 31:
@@ -4028,7 +4029,7 @@ Error generating stack: ` +
       ((e._currentValue = Ki.current), E(Ki));
     }
     function Zi(e, t, n) {
-      for (; e !== null; ) {
+      for (; e !== null;) {
         var r = e.alternate;
         if (
           ((e.childLanes & t) === t
@@ -4042,12 +4043,12 @@ Error generating stack: ` +
     }
     function Qi(e, t, n, r) {
       var a = e.child;
-      for (a !== null && (a.return = e); a !== null; ) {
+      for (a !== null && (a.return = e); a !== null;) {
         var o = a.dependencies;
         if (o !== null) {
           var s = a.child;
           o = o.firstContext;
-          a: for (; o !== null; ) {
+          a: for (; o !== null;) {
             var c = o;
             o = a;
             for (var l = 0; l < t.length; l++)
@@ -4071,7 +4072,7 @@ Error generating stack: ` +
         } else s = a.child;
         if (s !== null) s.return = a;
         else
-          for (s = a; s !== null; ) {
+          for (s = a; s !== null;) {
             if (s === e) {
               s = null;
               break;
@@ -4087,7 +4088,7 @@ Error generating stack: ` +
     }
     function $i(e, t, n, r) {
       e = null;
-      for (var a = t, o = !1; a !== null; ) {
+      for (var a = t, o = !1; a !== null;) {
         if (!o) {
           if (a.flags & 524288) o = !0;
           else if (a.flags & 262144) break;
@@ -4110,7 +4111,7 @@ Error generating stack: ` +
       (e !== null && Qi(t, e, n, r), (t.flags |= 262144));
     }
     function ea(e) {
-      for (e = e.firstContext; e !== null; ) {
+      for (e = e.firstContext; e !== null;) {
         if (!wr(e.context._currentValue, e.memoizedValue)) return !0;
         e = e.next;
       }
@@ -4343,11 +4344,11 @@ Error generating stack: ` +
       }
       function n(n, r) {
         if (!e) return null;
-        for (; r !== null; ) (t(n, r), (r = r.sibling));
+        for (; r !== null;) (t(n, r), (r = r.sibling));
         return null;
       }
       function r(e) {
-        for (var t = new Map(); e !== null; )
+        for (var t = new Map(); e !== null;)
           (e.key === null ? t.set(e.index, e) : t.set(e.key, e),
             (e = e.sibling));
         return t;
@@ -4591,7 +4592,7 @@ Error generating stack: ` +
           switch (o.$$typeof) {
             case m:
               a: {
-                for (var l = o.key; r !== null; ) {
+                for (var l = o.key; r !== null;) {
                   if (r.key === l) {
                     if (((l = o.type), l === g)) {
                       if (r.tag === 7) {
@@ -4632,7 +4633,7 @@ Error generating stack: ` +
               return s(e);
             case h:
               a: {
-                for (l = o.key; r !== null; ) {
+                for (l = o.key; r !== null;) {
                   if (r.key === l)
                     if (
                       r.tag === 4 &&
@@ -4921,7 +4922,7 @@ Error generating stack: ` +
     }
     var uo = fe(0);
     function fo(e) {
-      for (var t = e; t !== null; ) {
+      for (var t = e; t !== null;) {
         if (t.tag === 13) {
           var n = t.memoizedState;
           if (n !== null && ((n = n.dehydrated), n === null || af(n) || of(n)))
@@ -4939,7 +4940,7 @@ Error generating stack: ` +
           continue;
         }
         if (t === e) break;
-        for (; t.sibling === null; ) {
+        for (; t.sibling === null;) {
           if (t.return === null || t.return === e) return null;
           t = t.return;
         }
@@ -5028,7 +5029,7 @@ Error generating stack: ` +
     }
     function Ao(e) {
       if (ho) {
-        for (e = e.memoizedState; e !== null; ) {
+        for (e = e.memoizedState; e !== null;) {
           var t = e.queue;
           (t !== null && (t.pending = null), (e = e.next));
         }
@@ -5410,7 +5411,7 @@ Error generating stack: ` +
             if (R) {
               if (L) {
                 b: {
-                  for (var i = L, a = Li; i.nodeType !== 8; ) {
+                  for (var i = L, a = Li; i.nodeType !== 8;) {
                     if (!a) {
                       i = null;
                       break b;
@@ -5704,7 +5705,7 @@ Error generating stack: ` +
       return Mo().memoizedState;
     }
     function Ms(e) {
-      for (var t = e.return; t !== null; ) {
+      for (var t = e.return; t !== null;) {
         switch (t.tag) {
           case 24:
           case 3:
@@ -6375,7 +6376,7 @@ Error generating stack: ` +
       ) {
         if (t.flags & 128) {
           if (((a = a === null ? n : a.baseLanes | n), e !== null)) {
-            for (r = t.child = e.child, i = 0; r !== null; )
+            for (r = t.child = e.child, i = 0; r !== null;)
               ((i = i | r.lanes | r.childLanes), (r = r.sibling));
             r = i & ~a;
           } else ((r = 0), (t.child = null));
@@ -6937,7 +6938,7 @@ Error generating stack: ` +
         (r = R ? wi : 0),
         !s && e !== null && e.flags & 128)
       )
-        a: for (e = t.child; e !== null; ) {
+        a: for (e = t.child; e !== null;) {
           if (e.tag === 13) e.memoizedState !== null && Oc(e, n, t);
           else if (e.tag === 19) Oc(e, n, t);
           else if (e.child !== null) {
@@ -6945,7 +6946,7 @@ Error generating stack: ` +
             continue;
           }
           if (e === t) break a;
-          for (; e.sibling === null; ) {
+          for (; e.sibling === null;) {
             if (e.return === null || e.return === t) break a;
             e = e.return;
           }
@@ -6953,7 +6954,7 @@ Error generating stack: ` +
         }
       switch (i) {
         case `forwards`:
-          for (n = t.child, i = null; n !== null; )
+          for (n = t.child, i = null; n !== null;)
             ((e = n.alternate),
               e !== null && fo(e) === null && (i = n),
               (n = n.sibling));
@@ -6965,7 +6966,7 @@ Error generating stack: ` +
           break;
         case `backwards`:
         case `unstable_legacy-backwards`:
-          for (n = null, i = t.child, t.child = null; i !== null; ) {
+          for (n = null, i = t.child, t.child = null; i !== null;) {
             if (((e = i.alternate), e !== null && fo(e) === null)) {
               t.child = i;
               break;
@@ -6996,7 +6997,6 @@ Error generating stack: ` +
         for (
           e = t.child, n = fi(e, e.pendingProps), t.child = n, n.return = t;
           e.sibling !== null;
-
         )
           ((e = e.sibling),
             (n = n.sibling = fi(e, e.pendingProps)),
@@ -7145,7 +7145,6 @@ Error generating stack: ` +
                     n = za(t, null, r, n),
                     t.child = n;
                   n;
-
                 )
                   ((n.flags = (n.flags & -3) | 4096), (n = n.sibling));
               }
@@ -7343,13 +7342,13 @@ Error generating stack: ` +
         switch (e.tailMode) {
           case `hidden`:
             t = e.tail;
-            for (var n = null; t !== null; )
+            for (var n = null; t !== null;)
               (t.alternate !== null && (n = t), (t = t.sibling));
             n === null ? (e.tail = null) : (n.sibling = null);
             break;
           case `collapsed`:
             n = e.tail;
-            for (var r = null; n !== null; )
+            for (var r = null; n !== null;)
               (n.alternate !== null && (r = n), (n = n.sibling));
             r === null
               ? t || e.tail === null
@@ -7363,14 +7362,14 @@ Error generating stack: ` +
         n = 0,
         r = 0;
       if (t)
-        for (var i = e.child; i !== null; )
+        for (var i = e.child; i !== null;)
           ((n |= i.lanes | i.childLanes),
             (r |= i.subtreeFlags & 65011712),
             (r |= i.flags & 65011712),
             (i.return = e),
             (i = i.sibling));
       else
-        for (i = e.child; i !== null; )
+        for (i = e.child; i !== null;)
           ((n |= i.lanes | i.childLanes),
             (r |= i.subtreeFlags),
             (r |= i.flags),
@@ -7500,14 +7499,14 @@ Error generating stack: ` +
                   }
               }
               ((o[dt] = t), (o[ft] = r));
-              a: for (s = t.child; s !== null; ) {
+              a: for (s = t.child; s !== null;) {
                 if (s.tag === 5 || s.tag === 6) o.appendChild(s.stateNode);
                 else if (s.tag !== 4 && s.tag !== 27 && s.child !== null) {
                   ((s.child.return = s), (s = s.child));
                   continue;
                 }
                 if (s === t) break a;
-                for (; s.sibling === null; ) {
+                for (; s.sibling === null;) {
                   if (s.return === null || s.return === t) break a;
                   s = s.return;
                 }
@@ -7664,7 +7663,7 @@ Error generating stack: ` +
             if (a) Rc(r, !1);
             else {
               if (Wl !== 0 || (e !== null && e.flags & 128))
-                for (e = t.child; e !== null; ) {
+                for (e = t.child; e !== null;) {
                   if (((o = fo(e)), o !== null)) {
                     for (
                       t.flags |= 128,
@@ -7676,7 +7675,6 @@ Error generating stack: ` +
                         e = n,
                         n = t.child;
                       n !== null;
-
                     )
                       (pi(n, e), (n = n.sibling));
                     return (
@@ -8018,14 +8016,13 @@ Error generating stack: ` +
     }
     function Zc(e) {
       a: for (;;) {
-        for (; e.sibling === null; ) {
+        for (; e.sibling === null;) {
           if (e.return === null || Xc(e.return)) return null;
           e = e.return;
         }
         for (
           e.sibling.return = e.return, e = e.sibling;
           e.tag !== 5 && e.tag !== 6 && e.tag !== 18;
-
         ) {
           if (
             (e.tag === 27 && Zd(e.type)) ||
@@ -8065,7 +8062,7 @@ Error generating stack: ` +
         (e = e.child),
         e !== null)
       )
-        for (Qc(e, t, n), e = e.sibling; e !== null; )
+        for (Qc(e, t, n), e = e.sibling; e !== null;)
           (Qc(e, t, n), (e = e.sibling));
     }
     function $c(e, t, n) {
@@ -8076,14 +8073,14 @@ Error generating stack: ` +
         r !== 4 &&
         (r === 27 && Zd(e.type) && (n = e.stateNode), (e = e.child), e !== null)
       )
-        for ($c(e, t, n), e = e.sibling; e !== null; )
+        for ($c(e, t, n), e = e.sibling; e !== null;)
           ($c(e, t, n), (e = e.sibling));
     }
     function el(e) {
       var t = e.stateNode,
         n = e.memoizedProps;
       try {
-        for (var r = e.type, i = t.attributes; i.length; )
+        for (var r = e.type, i = t.attributes; i.length;)
           t.removeAttributeNode(i[0]);
         (Pd(t, r, n), (t[dt] = e), (t[ft] = n));
       } catch (t) {
@@ -8128,7 +8125,6 @@ Error generating stack: ` +
                     f !== o || (r !== 0 && f.nodeType !== 3) || (l = s + r),
                     f.nodeType === 3 && (s += f.nodeValue.length),
                     (m = f.firstChild) !== null;
-
                 )
                   ((p = f), (f = m));
                 for (;;) {
@@ -8151,12 +8147,11 @@ Error generating stack: ` +
       for (
         zd = { focusedElem: e, selectionRange: n }, sp = !1, il = t;
         il !== null;
-
       )
         if (((t = il), (e = t.child), t.subtreeFlags & 1028 && e !== null))
           ((e.return = t), (il = e));
         else
-          for (; il !== null; ) {
+          for (; il !== null;) {
             switch (((t = il), (o = t.alternate), (e = t.flags), t.tag)) {
               case 0:
                 if (
@@ -8329,7 +8324,7 @@ Error generating stack: ` +
     var G = null,
       cl = !1;
     function ll(e, t, n) {
-      for (n = n.child; n !== null; ) (ul(e, t, n), (n = n.sibling));
+      for (n = n.child; n !== null;) (ul(e, t, n), (n = n.sibling));
     }
     function ul(e, t, n) {
       if (Be && typeof Be.onCommitFiberUnmount == `function`)
@@ -8495,7 +8490,7 @@ Error generating stack: ` +
             o = e,
             s = t,
             c = s;
-          a: for (; c !== null; ) {
+          a: for (; c !== null;) {
             switch (c.tag) {
               case 27:
                 if (Zd(c.type)) {
@@ -8522,7 +8517,7 @@ Error generating stack: ` +
             (a.return = null));
         }
       if (t.subtreeFlags & 13886)
-        for (t = t.child; t !== null; ) (_l(t, e), (t = t.sibling));
+        for (t = t.child; t !== null;) (_l(t, e), (t = t.sibling));
     }
     var gl = null;
     function _l(e, t) {
@@ -8763,7 +8758,6 @@ Error generating stack: ` +
                 n = null,
                 t = e;
               ;
-
             ) {
               if (t.tag === 5 || t.tag === 26) {
                 if (n === null) {
@@ -8819,7 +8813,7 @@ Error generating stack: ` +
                 continue;
               }
               if (t === e) break a;
-              for (; t.sibling === null; ) {
+              for (; t.sibling === null;) {
                 if (t.return === null || t.return === e) break a;
                 (n === t && (n = null), (t = t.return));
               }
@@ -8852,7 +8846,7 @@ Error generating stack: ` +
       var t = e.flags;
       if (t & 2) {
         try {
-          for (var n, r = e.return; r !== null; ) {
+          for (var n, r = e.return; r !== null;) {
             if (Xc(r)) {
               n = r;
               break;
@@ -8886,7 +8880,7 @@ Error generating stack: ` +
     }
     function yl(e) {
       if (e.subtreeFlags & 1024)
-        for (e = e.child; e !== null; ) {
+        for (e = e.child; e !== null;) {
           var t = e;
           (yl(t),
             t.tag === 5 && t.flags & 1024 && t.stateNode.reset(),
@@ -8895,11 +8889,10 @@ Error generating stack: ` +
     }
     function bl(e, t) {
       if (t.subtreeFlags & 8772)
-        for (t = t.child; t !== null; )
-          (ol(e, t.alternate, t), (t = t.sibling));
+        for (t = t.child; t !== null;) (ol(e, t.alternate, t), (t = t.sibling));
     }
     function xl(e) {
-      for (e = e.child; e !== null; ) {
+      for (e = e.child; e !== null;) {
         var t = e;
         switch (t.tag) {
           case 0:
@@ -8933,7 +8926,7 @@ Error generating stack: ` +
       }
     }
     function Sl(e, t, n) {
-      for (n &&= (t.subtreeFlags & 8772) != 0, t = t.child; t !== null; ) {
+      for (n &&= (t.subtreeFlags & 8772) != 0, t = t.child; t !== null;) {
         var r = t.alternate,
           i = e,
           a = t,
@@ -9019,7 +9012,7 @@ Error generating stack: ` +
     }
     function Tl(e, t, n, r) {
       if (t.subtreeFlags & 10256)
-        for (t = t.child; t !== null; ) (El(e, t, n, r), (t = t.sibling));
+        for (t = t.child; t !== null;) (El(e, t, n, r), (t = t.sibling));
     }
     function El(e, t, n, r) {
       var i = t.flags;
@@ -9091,7 +9084,6 @@ Error generating stack: ` +
       for (
         i &&= (t.subtreeFlags & 10256) != 0 || !1, t = t.child;
         t !== null;
-
       ) {
         var a = e,
           o = t,
@@ -9126,7 +9118,7 @@ Error generating stack: ` +
     }
     function Ol(e, t) {
       if (t.subtreeFlags & 10256)
-        for (t = t.child; t !== null; ) {
+        for (t = t.child; t !== null;) {
           var n = e,
             r = t,
             i = r.flags;
@@ -9146,7 +9138,7 @@ Error generating stack: ` +
     var kl = 8192;
     function Al(e, t, n) {
       if (e.subtreeFlags & kl)
-        for (e = e.child; e !== null; ) (jl(e, t, n), (e = e.sibling));
+        for (e = e.child; e !== null;) (jl(e, t, n), (e = e.sibling));
     }
     function jl(e, t, n) {
       switch (e.tag) {
@@ -9194,7 +9186,7 @@ Error generating stack: ` +
         Ml(e);
       }
       if (e.subtreeFlags & 10256)
-        for (e = e.child; e !== null; ) (Pl(e), (e = e.sibling));
+        for (e = e.child; e !== null;) (Pl(e), (e = e.sibling));
     }
     function Pl(e) {
       switch (e.tag) {
@@ -9231,7 +9223,7 @@ Error generating stack: ` +
           }
         Ml(e);
       }
-      for (e = e.child; e !== null; ) {
+      for (e = e.child; e !== null;) {
         switch (((t = e), t.tag)) {
           case 0:
           case 11:
@@ -9249,7 +9241,7 @@ Error generating stack: ` +
       }
     }
     function Il(e, t) {
-      for (; il !== null; ) {
+      for (; il !== null;) {
         var n = il;
         switch (n.tag) {
           case 0:
@@ -9272,7 +9264,7 @@ Error generating stack: ` +
         }
         if (((r = n.child), r !== null)) ((r.return = n), (il = r));
         else
-          a: for (n = e; il !== null; ) {
+          a: for (n = e; il !== null;) {
             r = il;
             var i = r.sibling,
               a = r.return;
@@ -9483,7 +9475,7 @@ Error generating stack: ` +
       Lu(e, t, a, n, r, i, o, s, c);
     }
     function vu(e) {
-      for (var t = e; ; ) {
+      for (var t = e; ;) {
         var n = t.tag;
         if (
           (n === 0 || n === 11 || n === 15) &&
@@ -9504,7 +9496,7 @@ Error generating stack: ` +
           ((n.return = t), (t = n));
         else {
           if (t === e) break;
-          for (; t.sibling === null; ) {
+          for (; t.sibling === null;) {
             if (t.return === null || t.return === e) return !0;
             t = t.return;
           }
@@ -9520,7 +9512,7 @@ Error generating stack: ` +
         (e.pingedLanes &= ~t),
         r && (e.warmLanes |= t),
         (r = e.expirationTimes));
-      for (var i = t; 0 < i; ) {
+      for (var i = t; 0 < i;) {
         var a = 31 - He(i),
           o = 1 << a;
         ((r[a] = -1), (i &= ~o));
@@ -9534,7 +9526,7 @@ Error generating stack: ` +
       if (J !== null) {
         if (X === 0) var e = J.return;
         else ((e = J), (Ji = qi = null), Ao(e), (Ma = null), (Na = 0), (e = J));
-        for (; e !== null; ) (Vc(e.alternate, e), (e = e.return));
+        for (; e !== null;) (Vc(e.alternate, e), (e = e.return));
         J = null;
       }
     }
@@ -9559,7 +9551,7 @@ Error generating stack: ` +
         t & 8 && (t |= t & 32));
       var r = e.entangledLanes;
       if (r !== 0)
-        for (e = e.entanglements, r &= t; 0 < r; ) {
+        for (e = e.entanglements, r &= t; 0 < r;) {
           var i = 31 - He(r),
             a = 1 << i;
           ((t |= e[i]), (r &= ~a));
@@ -9655,7 +9647,7 @@ Error generating stack: ` +
       );
     }
     function ku() {
-      for (; J !== null; ) Mu(J);
+      for (; J !== null;) Mu(J);
     }
     function Au(e, t) {
       var n = K;
@@ -9742,7 +9734,7 @@ Error generating stack: ` +
       );
     }
     function ju() {
-      for (; J !== null && !Oe(); ) Mu(J);
+      for (; J !== null && !Oe();) Mu(J);
     }
     function Mu(e) {
       var t = Nc(e.alternate, e, Ul);
@@ -9930,7 +9922,7 @@ Error generating stack: ` +
                   }
                 }
               }
-              for (d = [], p = s; (p = p.parentNode); )
+              for (d = [], p = s; (p = p.parentNode);)
                 p.nodeType === 1 &&
                   d.push({ element: p, left: p.scrollLeft, top: p.scrollTop });
               for (
@@ -10060,7 +10052,7 @@ Error generating stack: ` +
     function Z(e, t, n) {
       if (e.tag === 3) Wu(e, e, n);
       else
-        for (; t !== null; ) {
+        for (; t !== null;) {
           if (t.tag === 3) {
             Wu(t, e, n);
             break;
@@ -10152,7 +10144,7 @@ Error generating stack: ` +
       if (!td && ed) {
         td = !0;
         do
-          for (var n = !1, r = Zu; r !== null; ) {
+          for (var n = !1, r = Zu; r !== null;) {
             if (!t)
               if (e !== 0) {
                 var i = r.pendingLanes;
@@ -10186,7 +10178,7 @@ Error generating stack: ` +
       ed = $u = !1;
       var e = 0;
       nd !== 0 && Gd() && (e = nd);
-      for (var t = Ae(), n = null, r = Zu; r !== null; ) {
+      for (var t = Ae(), n = null, r = Zu; r !== null;) {
         var i = r.next,
           a = sd(r, t);
         (a === 0
@@ -10205,7 +10197,6 @@ Error generating stack: ` +
           i = e.expirationTimes,
           a = e.pendingLanes & -62914561;
         0 < a;
-
       ) {
         var o = 31 - He(a),
           s = 1 << o,
@@ -10518,13 +10509,13 @@ Error generating stack: ` +
             var c = r.stateNode.containerInfo;
             if (c === i) break;
             if (s === 4)
-              for (s = r.return; s !== null; ) {
+              for (s = r.return; s !== null;) {
                 var l = s.tag;
                 if ((l === 3 || l === 4) && s.stateNode.containerInfo === i)
                   return;
                 s = s.return;
               }
-            for (; c !== null; ) {
+            for (; c !== null;) {
               if (((s = yt(c)), s === null)) return;
               if (((l = s.tag), l === 5 || l === 6 || l === 26 || l === 27)) {
                 r = a = s;
@@ -10627,7 +10618,7 @@ Error generating stack: ` +
               f = !d && (e === `scroll` || e === `scrollend`),
               p = d ? (c === null ? null : c + `Capture`) : c;
             d = [];
-            for (var m = r, h; m !== null; ) {
+            for (var m = r, h; m !== null;) {
               var g = m;
               if (
                 ((h = g.stateNode),
@@ -10705,9 +10696,9 @@ Error generating stack: ` +
                   for (d = Dd, p = l, m = u, h = 0, g = p; g; g = d(g)) h++;
                   g = 0;
                   for (var _ = m; _; _ = d(_)) g++;
-                  for (; 0 < h - g; ) ((p = d(p)), h--);
-                  for (; 0 < g - h; ) ((m = d(m)), g--);
-                  for (; h--; ) {
+                  for (; 0 < h - g;) ((p = d(p)), h--);
+                  for (; 0 < g - h;) ((m = d(m)), g--);
+                  for (; h--;) {
                     if (p === m || (m !== null && p === m.alternate)) {
                       d = p;
                       break b;
@@ -10824,7 +10815,7 @@ Error generating stack: ` +
       return { instance: e, listener: t, currentTarget: n };
     }
     function Ed(e, t) {
-      for (var n = t + `Capture`, r = []; e !== null; ) {
+      for (var n = t + `Capture`, r = []; e !== null;) {
         var i = e,
           a = i.stateNode;
         if (
@@ -10849,7 +10840,7 @@ Error generating stack: ` +
       return e || null;
     }
     function Od(e, t, n, r, i) {
-      for (var a = t._reactName, o = []; n !== null && n !== r; ) {
+      for (var a = t._reactName, o = []; n !== null && n !== r;) {
         var s = n,
           c = s.alternate,
           l = s.stateNode;
@@ -11729,7 +11720,7 @@ Error generating stack: ` +
           else if (n === `html`) pf(e.ownerDocument.documentElement);
           else if (n === `head`) {
             ((n = e.ownerDocument.head), pf(n));
-            for (var a = n.firstChild; a; ) {
+            for (var a = n.firstChild; a;) {
               var o = a.nextSibling,
                 s = a.nodeName;
               (a[_t] ||
@@ -11771,7 +11762,7 @@ Error generating stack: ` +
     }
     function ef(e) {
       var t = e.firstChild;
-      for (t && t.nodeType === 10 && (t = t.nextSibling); t; ) {
+      for (t && t.nodeType === 10 && (t = t.nextSibling); t;) {
         var n = t;
         switch (((t = t.nextSibling), n.nodeName)) {
           case `HTML`:
@@ -11789,7 +11780,7 @@ Error generating stack: ` +
       }
     }
     function tf(e, t, n, r) {
-      for (; e.nodeType === 1; ) {
+      for (; e.nodeType === 1;) {
         var i = n;
         if (e.nodeName.toLowerCase() !== t.toLowerCase()) {
           if (!r && (e.nodeName !== `INPUT` || e.type !== `hidden`)) break;
@@ -11842,7 +11833,7 @@ Error generating stack: ` +
     }
     function nf(e, t, n) {
       if (t === ``) return null;
-      for (; e.nodeType !== 3; )
+      for (; e.nodeType !== 3;)
         if (
           ((e.nodeType !== 1 ||
             e.nodeName !== `INPUT` ||
@@ -11854,7 +11845,7 @@ Error generating stack: ` +
       return e;
     }
     function rf(e, t) {
-      for (; e.nodeType !== 8; )
+      for (; e.nodeType !== 8;)
         if (
           ((e.nodeType !== 1 ||
             e.nodeName !== `INPUT` ||
@@ -11909,7 +11900,7 @@ Error generating stack: ` +
     var lf = null;
     function uf(e) {
       e = e.nextSibling;
-      for (var t = 0; e; ) {
+      for (var t = 0; e;) {
         if (e.nodeType === 8) {
           var n = e.data;
           if (n === `/$` || n === `/&`) {
@@ -11929,7 +11920,7 @@ Error generating stack: ` +
     }
     function df(e) {
       e = e.previousSibling;
-      for (var t = 0; e; ) {
+      for (var t = 0; e;) {
         if (e.nodeType === 8) {
           var n = e.data;
           if (
@@ -11963,7 +11954,7 @@ Error generating stack: ` +
       }
     }
     function pf(e) {
-      for (var t = e.attributes; t.length; ) e.removeAttributeNode(t[0]);
+      for (var t = e.attributes; t.length;) e.removeAttributeNode(t[0]);
       vt(e);
     }
     var mf = new Map(),
@@ -12713,7 +12704,7 @@ Error generating stack: ` +
         if (i === null) (wd(e, t, r, fp, n), Cp(e, r));
         else if (Tp(i, e, t, n, r)) r.stopPropagation();
         else if ((Cp(e, r), t & 4 && -1 < Sp.indexOf(e))) {
-          for (; i !== null; ) {
+          for (; i !== null;) {
             var a = bt(i);
             if (a !== null)
               switch (a.tag) {
@@ -12724,7 +12715,7 @@ Error generating stack: ` +
                     var o = Ze(a.pendingLanes);
                     if (o !== 0) {
                       var s = a;
-                      for (s.pendingLanes |= 2, s.entangledLanes |= 2; o; ) {
+                      for (s.pendingLanes |= 2, s.entangledLanes |= 2; o;) {
                         var c = 1 << (31 - He(o));
                         ((s.entanglements[1] |= c), (o &= ~c));
                       }
@@ -12965,7 +12956,7 @@ Error generating stack: ` +
     }
     function Dp(e) {
       if (e.blockedOn !== null) return !1;
-      for (var t = e.targetContainers; 0 < t.length; ) {
+      for (var t = e.targetContainers; 0 < t.length;) {
         var n = dp(e.nativeEvent);
         if (n === null) {
           n = e.nativeEvent;
@@ -13034,7 +13025,7 @@ Error generating stack: ` +
         var r = xp[n];
         r.blockedOn === e && (r.blockedOn = null);
       }
-      for (; 0 < xp.length && ((n = xp[0]), n.blockedOn === null); )
+      for (; 0 < xp.length && ((n = xp[0]), n.blockedOn === null);)
         (Ep(n), n.blockedOn === null && xp.shift());
       if (((n = (e.ownerDocument || e).$$reactFormReplay), n != null))
         for (r = 0; r < n.length; r += 3) {
@@ -13184,12 +13175,10 @@ Error generating stack: ` +
   }),
   Qe = s((e, t) => {
     function n() {
-      if (
-        !(
-          typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ > `u` ||
-          typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE != `function`
-        )
-      )
+      if (!(
+        typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ > `u` ||
+        typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE != `function`
+      ))
         try {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(n);
         } catch (e) {
@@ -14073,13 +14062,13 @@ function $t(e, t) {
   for (var n = ``, r = 0; r < e.length; r++) {
     var i = e.charAt(r);
     if (i === `j`) {
-      for (var a = 0; r + 1 < e.length && e.charAt(r + 1) === i; ) (a++, r++);
+      for (var a = 0; r + 1 < e.length && e.charAt(r + 1) === i;) (a++, r++);
       var o = 1 + (a & 1),
         s = a < 2 ? 1 : 3 + (a >> 1),
         c = `a`,
         l = en(t);
-      for ((l == `H` || l == `k`) && (s = 0); s-- > 0; ) n += c;
-      for (; o-- > 0; ) n = l + n;
+      for ((l == `H` || l == `k`) && (s = 0); s-- > 0;) n += c;
+      for (; o-- > 0;) n = l + n;
     } else i === `J` ? (n += `H`) : (n += i);
   }
   return n;
@@ -14476,7 +14465,7 @@ var ln,
         : function () {
             for (var e = [], t = 0; t < arguments.length; t++)
               e[t] = arguments[t];
-            for (var n = ``, r = e.length, i = 0, a; r > i; ) {
+            for (var n = ``, r = e.length, i = 0, a; r > i;) {
               if (((a = e[i++]), a > 1114111))
                 throw RangeError(a + ` is not a valid code point`);
               n +=
@@ -14537,7 +14526,7 @@ var ln,
             return ((En.lastIndex = t), En.exec(e)[1] ?? ``);
           }))
         : (Tn = function (e, t) {
-            for (var n = []; ; ) {
+            for (var n = []; ;) {
               var r = Sn(e, t);
               if (r === void 0 || sn(r) || cn(r)) break;
               (n.push(r), (t += r >= 65536 ? 2 : 1));
@@ -14561,7 +14550,7 @@ var ln,
             return this.parseMessage(0, ``, !1);
           }),
           (e.prototype.parseMessage = function (e, t, n) {
-            for (var r = []; !this.isEOF(); ) {
+            for (var r = []; !this.isEOF();) {
               var i = this.char();
               if (i === 123) {
                 var a = this.parseArgument(e, n);
@@ -14638,11 +14627,11 @@ var ln,
           }),
           (e.prototype.parseTagName = function () {
             var e = this.offset();
-            for (this.bump(); !this.isEOF() && on(this.char()); ) this.bump();
+            for (this.bump(); !this.isEOF() && on(this.char());) this.bump();
             return this.message.slice(e, this.offset());
           }),
           (e.prototype.parseLiteral = function (e, t) {
-            for (var n = this.clonePosition(), r = ``; ; ) {
+            for (var n = this.clonePosition(), r = ``; ;) {
               var i = this.tryParseQuote(t);
               if (i) {
                 r += i;
@@ -14691,7 +14680,7 @@ var ln,
             }
             this.bump();
             var t = [this.char()];
-            for (this.bump(); !this.isEOF(); ) {
+            for (this.bump(); !this.isEOF();) {
               var n = this.char();
               if (n === 39)
                 if (this.peek() === 39) (t.push(39), this.bump());
@@ -14927,7 +14916,7 @@ var ln,
               : (this.bump(), { val: !0, err: null });
           }),
           (e.prototype.parseSimpleArgStyleIfPossible = function () {
-            for (var e = 0, t = this.clonePosition(); !this.isEOF(); )
+            for (var e = 0, t = this.clonePosition(); !this.isEOF();)
               switch (this.char()) {
                 case 39:
                   this.bump();
@@ -14980,7 +14969,6 @@ var ln,
             for (
               var i, a = !1, o = [], s = new Set(), c = r.value, l = r.location;
               ;
-
             ) {
               if (c.length === 0) {
                 var u = this.clonePosition();
@@ -15042,7 +15030,7 @@ var ln,
             var n = 1,
               r = this.clonePosition();
             this.bumpIf(`+`) || (this.bumpIf(`-`) && (n = -1));
-            for (var i = !1, a = 0; !this.isEOF(); ) {
+            for (var i = !1, a = 0; !this.isEOF();) {
               var o = this.char();
               if (o >= 48 && o <= 57)
                 ((i = !0), (a = a * 10 + (o - 48)), this.bump());
@@ -15112,7 +15100,7 @@ var ln,
               throw Error(
                 `targetOffset ${e} must be greater than or equal to the current offset ${this.offset()}`,
               );
-            for (e = Math.min(e, this.message.length); ; ) {
+            for (e = Math.min(e, this.message.length); ;) {
               var t = this.offset();
               if (t === e) break;
               if (t > e)
@@ -15123,7 +15111,7 @@ var ln,
             }
           }),
           (e.prototype.bumpSpace = function () {
-            for (; !this.isEOF() && sn(this.char()); ) this.bump();
+            for (; !this.isEOF() && sn(this.char());) this.bump();
           }),
           (e.prototype.peek = function () {
             if (this.isEOF()) return null;
@@ -15513,7 +15501,7 @@ var Jn,
             (this.formatters = (i && i.formatters) || qn(this.formatterCache)));
         }
         return (
-          Object.defineProperty(e, `defaultLocale`, {
+          Object.defineProperty(e, "defaultLocale", {
             get: function () {
               return (
                 (e.memoizedDefaultLocale ||=
@@ -16322,7 +16310,7 @@ var $r = o(() => {
     (nt(), Or(), jr(), ar(), Lr(), br(), Yr(), Br(), Wr(), hr());
   }),
   ei = o(() => {
-    (rt(), hr(), ar(), br(), $r());
+    (rt(), hr(), ar(), br(), Or(), jr(), Lr(), Br(), Wr(), Yr(), $r());
   });
 function ti(e, t, n) {
   if ((n === void 0 && (n = Error), !e)) throw new n(t);
@@ -16805,6 +16793,7 @@ var Li,
       R(),
       zi(),
       xi(),
+      ei(),
       Ci(`formatDate`),
       Ci(`formatTime`),
       Ci(`formatNumber`),
@@ -16921,17 +16910,16 @@ function ia({
   onMouseEnter: i,
   onMouseLeave: a,
 }) {
-  let o = yi().formatMessage(
-    {
-      id: `browserSidebarCommentRuntime.commentMarkerLabel`,
-      defaultMessage: `Browser comment {commentNumber}`,
-      description: `Accessible label for a placed browser comment marker`,
-    },
-    { commentNumber: e },
-  );
   return (0, sa.jsx)(`button`, {
     type: `button`,
-    "aria-label": o,
+    "aria-label": yi().formatMessage(
+      {
+        id: `browserSidebarCommentRuntime.commentMarkerLabel`,
+        defaultMessage: `Browser comment {commentNumber}`,
+        description: `Accessible label for a placed browser comment marker`,
+      },
+      { commentNumber: e },
+    ),
     "data-browser-comment-marker": !0,
     className: `marker saved-marker`,
     "data-selected": String(t),
@@ -16943,14 +16931,13 @@ function ia({
   });
 }
 function aa({ commentNumber: e, markerPoint: t, onFocusEditor: n }) {
-  let r = yi().formatMessage({
-    id: `browserSidebarCommentRuntime.draftCommentMarkerLabel`,
-    defaultMessage: `Focus unsaved browser comment`,
-    description: `Accessible label for the temporary marker shown while creating a browser comment`,
-  });
   return (0, sa.jsx)(`button`, {
     type: `button`,
-    "aria-label": r,
+    "aria-label": yi().formatMessage({
+      id: `browserSidebarCommentRuntime.draftCommentMarkerLabel`,
+      defaultMessage: `Focus unsaved browser comment`,
+      description: `Accessible label for the temporary marker shown while creating a browser comment`,
+    }),
     "data-browser-comment-draft-marker": !0,
     "data-browser-comment-marker": !0,
     className: `marker draft-marker`,
@@ -17013,7 +17000,7 @@ function la(e) {
   if (e == null) return null;
   let t = [],
     n = e;
-  for (; n !== window; ) {
+  for (; n !== window;) {
     let e = n.frameElement;
     if (!fa(e)) return null;
     let r = ja(e);
@@ -17076,7 +17063,7 @@ function ha(e = window) {
   let t = [],
     n = [e],
     r = new Set();
-  for (; n.length > 0; ) {
+  for (; n.length > 0;) {
     let e = n.pop();
     if (e == null || r.has(e)) continue;
     (r.add(e), t.push(e));
@@ -17107,7 +17094,7 @@ function ya(e) {
   let t = [],
     n = e,
     r = 0;
-  for (; n && r < 4; ) {
+  for (; n && r < 4;) {
     let e = n.tagName.toLowerCase();
     if (e === `html` || e === `body`) {
       t.length === 0 && t.unshift(e);
@@ -17151,7 +17138,7 @@ function wa(e, { requireUnique: t = !1 } = {}) {
   let n = [],
     r = e,
     i = 0;
-  for (; r != null && (t || i < 4); ) {
+  for (; r != null && (t || i < 4);) {
     let a = r.tagName.toLowerCase(),
       o = r.tagName;
     if (r.id) {
@@ -17179,7 +17166,7 @@ function Ta(e) {
   let t = e.ownerDocument.defaultView ?? window;
   if (t !== window) return !1;
   let n = e;
-  for (; n && n !== t.document.body; ) {
+  for (; n && n !== t.document.body;) {
     let e = t.getComputedStyle(n).position;
     if (e === `fixed` || e === `sticky`) return !0;
     n = n.parentElement;
@@ -17194,7 +17181,6 @@ function Ea(e, t) {
   for (
     ;
     i != null && i !== e.document.body && i !== e.document.documentElement;
-
   ) {
     if (Ia(i, e)) {
       let e = wa(i);
@@ -17359,6 +17345,7 @@ var Ya,
       (Za = 1),
       (Qa = 2),
       ($a = class {
+        pageUrl;
         constructor(e) {
           this.pageUrl = e;
         }
@@ -17440,7 +17427,7 @@ var Ya,
               },
             }),
             o = a.nextNode();
-          for (; o != null; ) {
+          for (; o != null;) {
             let e = Va(o.textContent);
             if (
               e != null &&
@@ -17509,7 +17496,7 @@ function so(e, t) {
   let n = e.ownerDocument.createTreeWalker(e, 4),
     r = 0,
     i = n.nextNode();
-  for (; i != null; ) {
+  for (; i != null;) {
     let e = i.textContent ?? ``;
     if (r + e.length >= t) return { node: i, offset: t - r };
     ((r += e.length), (i = n.nextNode()));
@@ -17638,11 +17625,11 @@ function B(e, t) {
         }
         (n.add(c), t.add(c), Io(c) && i.add(c));
         let l = c.parentNode ?? Fo(c);
-        for (; l != null; )
+        for (; l != null;)
           (Io(l) ? (t.add(l), i.add(l)) : o.add(l),
             (l = l.parentNode ?? Fo(l)));
         let u = z(c) ? c : Fo(c);
-        for (; u != null; )
+        for (; u != null;)
           (r.add(u), (u = u.parentElement ?? Fo(u.getRootNode())));
       }
       for (let e of t) d.observe(e, Zo);
@@ -17814,7 +17801,7 @@ function Eo(e) {
 }
 function Do(e) {
   let t = e.activeElement;
-  for (; t?.shadowRoot?.activeElement != null; ) t = t.shadowRoot.activeElement;
+  for (; t?.shadowRoot?.activeElement != null;) t = t.shadowRoot.activeElement;
   return t;
 }
 function Oo(e, t, n, r, i) {
@@ -17897,7 +17884,7 @@ function ko(e) {
 function Ao(e) {
   if (Io(e)) return e;
   let t = e.nodeType === 1 ? e : e.parentElement;
-  for (; z(t); ) {
+  for (; z(t);) {
     if (wa(t) != null) return t;
     t = t.parentElement;
   }
@@ -17908,7 +17895,7 @@ function jo(e) {
   if (z(e) && t == null) return null;
   let n = [],
     r = e.getRootNode();
-  for (; r !== e.ownerDocument; ) {
+  for (; r !== e.ownerDocument;) {
     let e = Fo(r);
     if (e == null || e.shadowRoot !== r) return null;
     let t = wa(e, { requireUnique: !0 });
@@ -17959,7 +17946,7 @@ function Io(e) {
 }
 function Lo(e, t) {
   let n = z(e) ? e : Fo(e);
-  for (; n != null && n !== t.document.body; ) {
+  for (; n != null && n !== t.document.body;) {
     let e = t.getComputedStyle(n).position;
     if (e === `fixed` || e === `sticky`) return !0;
     n = n.parentElement ?? Fo(n.getRootNode());
@@ -17972,7 +17959,7 @@ function Ro(e, t) {
     return n.parentElement != null && zo(n.parentElement, t);
   let r = t.document.createTreeWalker(n, NodeFilter.SHOW_TEXT),
     i = r.nextNode();
-  for (; i != null; ) {
+  for (; i != null;) {
     if (
       e.intersectsNode(i) &&
       i.parentElement != null &&
@@ -18045,7 +18032,7 @@ function Ho(e) {
 }
 function Uo(e, t) {
   let n = e;
-  for (; n != null; ) {
+  for (; n != null;) {
     let e = t.getComputedStyle(n),
       r = e.transform;
     if (r !== `` && r !== `none`) {
@@ -18376,7 +18363,9 @@ function rs({ rootHost: e, bridge: t }) {
         if (((re.current = null), r != null && Date.now() - r.capturedAt <= Tl))
           return Ae(r.element, r.anchorState);
         let i = bs(n.x, n.y, e);
-        return i == null ? !1 : Ae(i, cs(i, n.x, n.y));
+        if (i == null) return !1;
+        let a = cs(i, n.x, n.y);
+        return Ae(i, a);
       },
       [m, t, Ae, e],
     ),
@@ -18426,7 +18415,9 @@ function rs({ rootHost: e, bridge: t }) {
         if (((re.current = null), r != null && Date.now() - r.capturedAt <= Tl))
           return Pe(r.element, r.anchorState);
         let i = bs(n.x, n.y, e);
-        return i == null ? !1 : Pe(i, cs(i, n.x, n.y));
+        if (i == null) return !1;
+        let a = cs(i, n.x, n.y);
+        return Pe(i, a);
       },
       [m, t, Pe, e],
     ),
@@ -18613,21 +18604,18 @@ function rs({ rootHost: e, bridge: t }) {
             n();
             return;
           }
-          if (
-            (Zc(r, { preventDefault: !1 }),
-            ne.current ?? _s(t.document, Qi),
-            (ne.current = Aa(t, { x: r.clientX, y: r.clientY })),
-            fe.current)
-          ) {
+          (Zc(r, { preventDefault: !1 }), ne.current ?? _s(t.document, Qi));
+          let i = Aa(t, { x: r.clientX, y: r.clientY });
+          if (((ne.current = i), fe.current)) {
             a(null);
             return;
           }
-          let i = Cs(ne.current, e);
-          if (!i) {
+          let o = Cs(ne.current, e);
+          if (!o) {
             n();
             return;
           }
-          a($s(i));
+          a($s(o));
         },
         i = (t, r, i) => {
           i.isTrusted &&
@@ -19716,7 +19704,6 @@ function Os(e, t, n) {
   for (
     ;
     r != null && r !== n.document.body && r !== n.document.documentElement;
-
   ) {
     if (ks(r, t, n)) return r;
     r = r.parentElement;
@@ -19739,7 +19726,7 @@ function js(e, t) {
 function Ms(e, t, n) {
   let r = e.document.elementFromPoint(t, n);
   if (!r) return null;
-  for (; r.shadowRoot; ) {
+  for (; r.shadowRoot;) {
     let e = r.shadowRoot.elementFromPoint(t, n);
     if (!z(e) || e === r) break;
     r = e;
@@ -19757,7 +19744,7 @@ function Ms(e, t, n) {
 function Ns(e) {
   let t = e,
     n = null;
-  for (; t && t !== document.body; ) {
+  for (; t && t !== document.body;) {
     let e = t.getBoundingClientRect();
     if (e.width > 0 && e.height > 0) {
       if (((n ??= t), Ps(t, e))) return t;
@@ -20544,7 +20531,7 @@ var W,
   Ml,
   Nl = o(() => {
     (Ce(),
-      (W = u(qe())),
+      (W = u(qe(), 1)),
       (il = Ye()),
       (al = Qe()),
       Bi(),

@@ -56,8 +56,7 @@ export function renderPreviewSegments(text: string): React.ReactNode {
   return parseCommentPreviewSegments(text).map(
     (
       segment:
-        | { type: "text"; text: string }
-        | { type: "mention"; label: string },
+        { type: "text"; text: string } | { type: "mention"; label: string },
       index: number,
     ) => {
       switch (segment.type) {

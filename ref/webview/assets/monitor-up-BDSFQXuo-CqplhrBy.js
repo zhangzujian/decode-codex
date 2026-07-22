@@ -1,0 +1,3 @@
+import { n as e, t } from "./monitor-up-BDSFQXuo-HKwj2SQn.js";
+e();
+export { t as default };

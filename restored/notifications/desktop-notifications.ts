@@ -133,9 +133,7 @@ interface RemoteTask {
 }
 
 type DisposableNotificationHandle =
-  | { [Symbol.dispose]?: () => void; dispose?: () => void }
-  | null
-  | undefined;
+  { [Symbol.dispose]?: () => void; dispose?: () => void } | null | undefined;
 
 const APPROVAL_NOTIFICATION_ACTIONS: readonly NotificationAction[] = [
   { id: "approve", title: "Approve", actionType: "approve" },
@@ -373,9 +371,10 @@ function startDesktopNotificationService(
                     : null;
             if (decision) {
               const request = scope
-                .get<
-                  ApprovalRequestRecord[] | undefined
-                >(pendingApprovalsAtom, event.conversationId)
+                .get<ApprovalRequestRecord[] | undefined>(
+                  pendingApprovalsAtom,
+                  event.conversationId,
+                )
                 ?.find((item) => item.id === event.requestId);
               if (!request) {
                 logger.error("Request not found", {

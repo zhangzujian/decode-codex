@@ -35,7 +35,8 @@ export function buildImageInputItem(
   }: { isRemoteHost?: boolean; localPath?: string } = {},
 ): ImageInputItem {
   const isDataImage = /^data:image\//i.test(source);
-  if (!isRemoteHost && localPath) return { type: "localImage", path: localPath };
+  if (!isRemoteHost && localPath)
+    return { type: "localImage", path: localPath };
   if (isDataImage) return { type: "image", url: source };
 
   let imagePath = source;

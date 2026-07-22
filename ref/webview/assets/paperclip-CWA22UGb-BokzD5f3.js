@@ -1,0 +1,3 @@
+import { n as e, t } from "./paperclip-CWA22UGb-BkICHSD-.js";
+t();
+export { e as default };

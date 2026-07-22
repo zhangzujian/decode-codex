@@ -59,12 +59,12 @@ export function groupDynamicToolCalls({
   keepLatestLiveActivityInGroup = false,
 }: GroupDynamicToolCallsOptions): ActivityUnit[] {
   const result: ActivityUnit[] = [];
-  for (let index = 0; index < units.length; ) {
+  for (let index = 0; index < units.length;) {
     const grouped: ToolActivityItem[] = [];
     let firstUnit: ActivityUnit | null = null;
     let cursor = index;
 
-    for (; cursor < units.length; ) {
+    for (; cursor < units.length;) {
       const item = getDynamicToolCallItem(units[cursor]);
       if (item == null) break;
       if (findToolActivityDescriptor(item)?.standaloneInConversation === true) {

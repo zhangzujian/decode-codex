@@ -24,11 +24,7 @@ export type AppgenLibraryFileType =
   | "video";
 export type AppgenLibraryFileFilter = "all" | AppgenLibraryFileType;
 export type AppgenLibraryAssetType =
-  | "document"
-  | "image"
-  | "pdf"
-  | "presentation"
-  | "spreadsheet";
+  "document" | "image" | "pdf" | "presentation" | "spreadsheet";
 
 export type AppgenProject = {
   access_policy?: AppgenAccessPolicy | null;
@@ -51,12 +47,7 @@ export type AppgenLibraryFile = {
 };
 
 export type AppgenLibraryCloudFileCategory =
-  | "audio"
-  | "image"
-  | "other"
-  | "pdf"
-  | "text"
-  | "video";
+  "audio" | "image" | "other" | "pdf" | "text" | "video";
 
 export type AppgenLibraryCloudFile = {
   category: AppgenLibraryCloudFileCategory;

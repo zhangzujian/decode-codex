@@ -59,9 +59,7 @@ import {
 } from "./dom-selection";
 
 export type DocxAnnotationStartSource =
-  | "annotation_mode_pointer"
-  | "ask_codex_button"
-  | "ask_codex_shortcut";
+  "annotation_mode_pointer" | "ask_codex_button" | "ask_codex_shortcut";
 
 export interface DocxPageAnnotationLayerProps {
   comments: readonly DocxAnnotationComment[];

@@ -1,0 +1,3 @@
+import { n as e, t } from "./package-check-C7vGLR6G-CKH4ZZXu.js";
+e();
+export { t as default };

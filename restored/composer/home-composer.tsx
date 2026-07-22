@@ -56,18 +56,12 @@ import { useServiceTierSettings } from "./use-service-tier-settings";
 import { resolvedHostIdQuery } from "../boundaries/onboarding-commons-externals.facade";
 
 export type ComposerLayoutMode =
-  | "multiline"
-  | "auto-single-line"
-  | "single-line";
+  "multiline" | "auto-single-line" | "single-line";
 export type AboveComposerContentLayout = "floating" | "header";
 export type ComposerExternalFooterVariant = "default" | "home";
 export type ComposerFooterBranchVisibility = "local" | "always";
 export type LocalWorkspaceMaterialization =
-  | "available"
-  | "loading"
-  | "restorable"
-  | "unavailable"
-  | "gone";
+  "available" | "loading" | "restorable" | "unavailable" | "gone";
 
 export interface HomeRunLocationRemoteProject {
   id?: string | null;

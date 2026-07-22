@@ -23,11 +23,7 @@ export type SelectedAccount = {
   structure?: string;
 };
 export type AppgenAccessMode =
-  | "admins_only"
-  | "custom"
-  | "public"
-  | "workspace_all"
-  | string;
+  "admins_only" | "custom" | "public" | "workspace_all" | string;
 export type AppgenAccessGroupSource = "tenant" | "workspace";
 export type AppgenRawAccessGroup = {
   id: string;

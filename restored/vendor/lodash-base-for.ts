@@ -11,7 +11,7 @@ function baseForO(baseForParam39, __baseForO) {
   );
 }
 function baseForHelper2(baseForParam26, baseForParam27) {
-  for (var baseForValue109 = baseForParam26.length; baseForValue109--; )
+  for (var baseForValue109 = baseForParam26.length; baseForValue109--;)
     if (baseForO(baseForParam26[baseForValue109][0], baseForParam27))
       return baseForValue109;
   return -1;
@@ -49,7 +49,7 @@ function baseForHelper6(baseForParam17, __baseForO) {
 function baseForHelper7(baseForParam14) {
   var __baseForO = -1,
     baseForValue96 = baseForParam14 == null ? 0 : baseForParam14.length;
-  for (this.clear(); ++__baseForO < baseForValue96; ) {
+  for (this.clear(); ++__baseForO < baseForValue96;) {
     var baseForValue97 = baseForParam14[__baseForO];
     this.set(baseForValue97[0], baseForValue97[1]);
   }
@@ -228,7 +228,7 @@ function baseForHelper21(baseForParam11, __baseForO) {
 function baseForHelper22(baseForParam15) {
   var __baseForO = -1,
     baseForValue98 = baseForParam15 == null ? 0 : baseForParam15.length;
-  for (this.clear(); ++__baseForO < baseForValue98; ) {
+  for (this.clear(); ++__baseForO < baseForValue98;) {
     var baseForValue99 = baseForParam15[__baseForO];
     this.set(baseForValue99[0], baseForValue99[1]);
   }
@@ -283,7 +283,7 @@ function baseForHelper29(baseForParam19, __baseForO) {
 function baseForY(baseForParam16) {
   var __baseForO = -1,
     baseForValue100 = baseForParam16 == null ? 0 : baseForParam16.length;
-  for (this.clear(); ++__baseForO < baseForValue100; ) {
+  for (this.clear(); ++__baseForO < baseForValue100;) {
     var baseForValue101 = baseForParam16[__baseForO];
     this.set(baseForValue101[0], baseForValue101[1]);
   }
@@ -325,7 +325,6 @@ function baseForHelper31(baseForParam31, __baseForO) {
   for (
     var baseForValue111 = -1, baseForValue112 = Array(baseForParam31);
     ++baseForValue111 < baseForParam31;
-
   )
     baseForValue112[baseForValue111] = __baseForO(baseForValue111);
   return baseForValue112;
@@ -549,7 +548,6 @@ function baseForHelper35(baseForParam4) {
         baseForValue90 = baseForParam8(__baseForO),
         baseForValue91 = baseForValue90.length;
       baseForValue91--;
-
     ) {
       var baseForValue92 =
         baseForValue90[baseForParam4 ? baseForValue91 : ++baseForValue88];

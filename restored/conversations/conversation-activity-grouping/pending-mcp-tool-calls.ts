@@ -65,12 +65,12 @@ export function groupPendingMcpToolCalls({
   if (isActivitySliceClosed) return units;
 
   const result: ActivityUnit[] = [];
-  for (let index = 0; index < units.length; ) {
+  for (let index = 0; index < units.length;) {
     const grouped: ToolActivityItem[] = [];
     let groupKey: string | null = null;
     let cursor = index;
 
-    for (; cursor < units.length; ) {
+    for (; cursor < units.length;) {
       const item = getMcpToolCallItem(units[cursor]);
       if (
         item == null ||

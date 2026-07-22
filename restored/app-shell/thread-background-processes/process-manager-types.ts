@@ -8,13 +8,7 @@ import type {
 } from "./types";
 
 export type ProcessManagerColumnId =
-  | "command"
-  | "chat"
-  | "pid"
-  | "cpu"
-  | "memory"
-  | "runtime"
-  | "actions";
+  "command" | "chat" | "pid" | "cpu" | "memory" | "runtime" | "actions";
 
 export type ColumnWidths = Record<ProcessManagerColumnId, number>;
 

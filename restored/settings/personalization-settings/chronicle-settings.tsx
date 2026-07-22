@@ -98,10 +98,7 @@ export function ChronicleSettingsRow({
   });
 
   React.useEffect(() => {
-    if (
-      setupDialogOpen &&
-      isChronicleSetupCompletionState(setupState.kind)
-    ) {
+    if (setupDialogOpen && isChronicleSetupCompletionState(setupState.kind)) {
       void setGlobalStateValue(
         appScopeStore,
         CHRONICLE_SETUP_COMPLETION_PENDING_KEY,
@@ -223,10 +220,7 @@ export function ChronicleSettingsRow({
             }
           >
             <span
-              className={clsx(
-                "inline-flex",
-                disabled && "cursor-not-allowed",
-              )}
+              className={clsx("inline-flex", disabled && "cursor-not-allowed")}
               tabIndex={disabled ? 0 : undefined}
             >
               <Toggle
@@ -451,7 +445,9 @@ function MissingPermissionLink({
             permission: <PermissionName permission={permission} />,
             statusLabel: (
               <span className="font-medium">
-                <FormattedMessage {...chronicleMessages.permissionStatusLabel} />
+                <FormattedMessage
+                  {...chronicleMessages.permissionStatusLabel}
+                />
               </span>
             ),
           }}
@@ -665,10 +661,7 @@ function getDeniedRequiredPermission({
   screenRecordingStatus?: ChroniclePermissionStatus | null;
 }): "accessibility" | "screen-recording" | null {
   if (screenRecordingStatus === "denied") return "screen-recording";
-  if (
-    screenRecordingStatus === "granted" &&
-    accessibilityStatus === "denied"
-  ) {
+  if (screenRecordingStatus === "granted" && accessibilityStatus === "denied") {
     return "accessibility";
   }
   return null;
@@ -723,7 +716,5 @@ function chronicleDocsLink(chunks: ReactNode): JSX.Element {
 }
 
 function boldConsentText(chunks: ReactNode): JSX.Element {
-  return (
-    <span className="font-bold text-token-foreground/90">{chunks}</span>
-  );
+  return <span className="font-bold text-token-foreground/90">{chunks}</span>;
 }

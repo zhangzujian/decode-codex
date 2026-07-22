@@ -10,8 +10,7 @@ import {
 } from "../boundaries/onboarding-commons-externals.facade";
 
 export type CommentPreviewSegment =
-  | { type: "text"; text: string }
-  | { type: "mention"; label: string };
+  { type: "text"; text: string } | { type: "mention"; label: string };
 
 const MARKDOWN_LINK_PATTERN = /\[((?:\\.|[^\]\n])+)\]\(((?:\\.|[^)\n])+)\)/g;
 

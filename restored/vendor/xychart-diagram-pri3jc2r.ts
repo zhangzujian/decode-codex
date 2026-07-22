@@ -864,7 +864,6 @@ var xychartDiagramPRI3JC2RValue1 = (function () {
             xychartDiagramPRI3JC2RValue87,
             xychartDiagramPRI3JC2RValue88;
           ;
-
         ) {
           if (
             ((xychartDiagramPRI3JC2RValue81 =
@@ -3287,7 +3286,6 @@ export const XychartDiagramPRI3JC2R = {
                             item,
                             xychartDiagramPRI3JC2RValue210,
                           ) && xychartDiagramPRI3JC2RValue210 > 0;
-
                         )
                           --xychartDiagramPRI3JC2RValue210;
                         return xychartDiagramPRI3JC2RValue210;
@@ -3373,7 +3371,6 @@ export const XychartDiagramPRI3JC2R = {
                             xychartDiagramPRI3JC2RValue204,
                             10,
                           ) && xychartDiagramPRI3JC2RValue204 > 0;
-
                         )
                           --xychartDiagramPRI3JC2RValue204;
                         return xychartDiagramPRI3JC2RValue204;

@@ -7,8 +7,7 @@ import type {
 } from "../../local-to-bundled-migration";
 
 export type EnvironmentLike =
-  | NodeJS.ProcessEnv
-  | Record<string, string | undefined>;
+  NodeJS.ProcessEnv | Record<string, string | undefined>;
 
 export type BuildFlavorValue =
   | "agent"

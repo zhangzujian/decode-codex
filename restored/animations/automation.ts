@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/automation-DuPITMQE.js
+// Restored from ref/webview/assets/automation-Cw8V_VYx.js
 // Lottie animation data restored from the Codex webview bundle.
 export const automation = {
   v: "5.7.0",

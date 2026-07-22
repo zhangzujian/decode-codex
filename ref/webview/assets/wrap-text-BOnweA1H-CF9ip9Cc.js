@@ -1,0 +1,3 @@
+import { n as e, t } from "./wrap-text-BOnweA1H-C8k4Q3b8.js";
+t();
+export { e as default };

@@ -17,12 +17,12 @@ var handleS = function (handleParam46) {
 function handleHelper1(handleParam65) {
   let handleValue123 = [],
     handleValue124 = -1;
-  for (; ++handleValue124 < handleParam65.length; )
+  for (; ++handleValue124 < handleParam65.length;)
     handleValue123[handleValue124] = handleS(handleParam65[handleValue124]);
   return handleHelper4(handleHelper56);
   function handleHelper56(...handleParam86) {
     let _handleS = -1;
-    for (; ++_handleS < handleValue123.length; )
+    for (; ++_handleS < handleValue123.length;)
       if (handleValue123[_handleS].apply(this, handleParam86)) return true;
     return false;
   }
@@ -129,7 +129,6 @@ function handleO(handleParam7, handleParam8, handleParam9, handleParam10) {
               handleValue17,
               handleValue89 = handleParam18.concat(handleValue99);
             handleValue88 > -1 && handleValue88 < handleValue99.children.length;
-
           ) {
             let handleValue135 = handleValue99.children[handleValue88];
             if (
@@ -187,13 +186,13 @@ function handleHelper11(handleParam71, handleParam72, _handleS) {
   )
     return _handleS;
   let handleValue126 = -1;
-  for (; ++handleValue126 < handleParam72.length; )
+  for (; ++handleValue126 < handleParam72.length;)
     if (handleParam71.includes(handleParam72[handleValue126])) return true;
   return false;
 }
 function handleHelper12(handleParam66, handleParam67, _handleS, handleParam68) {
   let handleValue125 = -1;
-  for (; ++handleValue125 < _handleS.unsafe.length; )
+  for (; ++handleValue125 < _handleS.unsafe.length;)
     if (
       _handleS.unsafe[handleValue125].character === "\n" &&
       handleA(_handleS.stack, _handleS.unsafe[handleValue125])
@@ -208,7 +207,7 @@ function handleHelper13(handleParam51, handleParam52) {
     handleValue102 = 0,
     handleValue103 = 0;
   if (typeof handleParam52 != "string") throw TypeError("Expected substring");
-  for (; handleValue100 !== -1; ) {
+  for (; handleValue100 !== -1;) {
     handleValue100 === handleValue101
       ? ++handleValue102 > handleValue103 && (handleValue103 = handleValue102)
       : (handleValue102 = 1);
@@ -650,7 +649,7 @@ function handleHelper31(handleParam40, handleParam41, _handleS) {
   let handleValue82 = handleParam40.value || "",
     handleValue83 = "`",
     handleValue84 = -1;
-  for (; RegExp("(^|[^`])" + handleValue83 + "([^`]|$)").test(handleValue82); )
+  for (; RegExp("(^|[^`])" + handleValue83 + "([^`]|$)").test(handleValue82);)
     handleValue83 += "`";
   for (
     /[^ \r\n]/.test(handleValue82) &&
@@ -658,13 +657,12 @@ function handleHelper31(handleParam40, handleParam41, _handleS) {
       /^`|`$/.test(handleValue82)) &&
     (handleValue82 = " " + handleValue82 + " ");
     ++handleValue84 < _handleS.unsafe.length;
-
   ) {
     let handleValue106 = _handleS.unsafe[handleValue84],
       handleValue107 = _handleS.compilePattern(handleValue106),
       handleValue108;
     if (handleValue106.atBreak)
-      for (; (handleValue108 = handleValue107.exec(handleValue82)); ) {
+      for (; (handleValue108 = handleValue107.exec(handleValue82));) {
         let handleValue134 = handleValue108.index;
         handleValue82.charCodeAt(handleValue134) === 10 &&
           handleValue82.charCodeAt(handleValue134 - 1) === 13 &&
@@ -904,7 +902,7 @@ function handleHelper42(handleParam4, handleParam5, _handleS, handleParam6) {
       handleHelper41(_handleS) === handleValue11 && handleValue43)
     ) {
       let handleValue118 = -1;
-      for (; ++handleValue118 < handleParam4.children.length; ) {
+      for (; ++handleValue118 < handleParam4.children.length;) {
         let __handleS = handleParam4.children[handleValue118];
         if (
           __handleS &&

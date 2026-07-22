@@ -88,6 +88,16 @@ export type PlanOrganizeInputs = {
   only?: Set<string> | null;
 };
 
+export function resolvePlanForRun(args: {
+  apply: boolean;
+  rebuild: boolean;
+  existing: OrganizePlan | null;
+  generate: () => OrganizePlan;
+}): OrganizePlan {
+  if (args.apply && args.existing) return args.existing;
+  return args.generate();
+}
+
 // Matches semantic-finalize.ts's stripHashSuffix so plan + promote agree on stems.
 const HASH_SUFFIX_RE = /^[A-Za-z0-9_-]{6,12}$/;
 const ICON_SIGNAL =
@@ -607,18 +617,25 @@ async function main(): Promise<void> {
     return null;
   };
 
-  const plan = planOrganize({
-    manifest,
-    target,
-    report,
-    importMap,
-    readCheckpoint,
-    domainMap,
-    only,
-  });
-  plan.generatedAt = new Date().toISOString();
-
   const outPath = values.out ?? path.join(paths.fullDir, "organize-plan.json");
+  const existingPlan = values.apply ? readJson<OrganizePlan>(outPath) : null;
+  const plan = resolvePlanForRun({
+    apply: values.apply,
+    rebuild: values.rebuild,
+    existing: existingPlan,
+    generate: () =>
+      planOrganize({
+        manifest,
+        target,
+        report,
+        importMap,
+        readCheckpoint,
+        domainMap,
+        only,
+      }),
+  });
+  plan.generatedAt ??= new Date().toISOString();
+
   writeJsonAtomic(outPath, plan);
   console.error(`plan-organize: wrote ${outPath}`);
   console.error(

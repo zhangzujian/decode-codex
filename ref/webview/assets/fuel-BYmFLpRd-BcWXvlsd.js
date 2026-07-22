@@ -1,0 +1,3 @@
+import { n as e, t } from "./fuel-BYmFLpRd-DhdV-uhb.js";
+t();
+export { e as default };

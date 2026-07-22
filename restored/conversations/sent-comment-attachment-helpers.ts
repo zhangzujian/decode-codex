@@ -12,6 +12,7 @@ export interface NormalizedCommentAttachment {
   body: string;
   designTweak?: boolean;
   designTweakChanges?: unknown[] | null;
+  icon?: string | null;
   lineRange?: string | null;
   origin: string;
   path: string;
@@ -53,8 +54,16 @@ export function commentAttachmentToComment(
       attachment.comment ??
       attachment.message ??
       "",
-    designTweak: Boolean(attachment.designTweak),
+    designTweak:
+      attachment.localBrowserDesignChange == null
+        ? Boolean(attachment.designTweak)
+        : true,
     designTweakChanges: attachment.designTweakChanges ?? null,
+    icon:
+      attachment.icon ??
+      (attachment.localBrowserDesignChange == null
+        ? undefined
+        : "design-tweak"),
     lineRange: attachment.lineRange ?? attachment.rangeLabel ?? null,
     origin:
       attachment.origin ??
@@ -69,6 +78,17 @@ export function commentAttachmentToComment(
         ? attachment.side
         : null,
   };
+}
+
+export function getCommentAttachmentIcon(
+  comments: readonly NormalizedCommentAttachment[],
+): string | undefined {
+  return (
+    comments.find((comment) => comment.icon != null)?.icon ??
+    (comments.some((comment) => comment.designTweak === true)
+      ? "design-tweak"
+      : undefined)
+  );
 }
 
 export function parseCommentDisplay(

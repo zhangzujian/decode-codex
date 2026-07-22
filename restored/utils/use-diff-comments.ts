@@ -17,8 +17,7 @@ export type DiffComment = {
 };
 type DiffCommentStore = Record<string, DiffComment[]>;
 type DiffCommentUpdate =
-  | DiffComment[]
-  | ((currentComments: DiffComment[]) => DiffComment[]);
+  DiffComment[] | ((currentComments: DiffComment[]) => DiffComment[]);
 type UseSharedDiffCommentStore = (
   key: "diff_comments",
 ) => [

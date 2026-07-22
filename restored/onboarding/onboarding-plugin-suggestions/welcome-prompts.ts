@@ -588,7 +588,7 @@ function selectRoleSuggestionPrompts({
     )
       return selectedPrompts;
   }
-  for (; selectedPrompts.length < maxSuggestions; ) {
+  for (; selectedPrompts.length < maxSuggestions;) {
     let didAddPrompt = false;
     for (
       let roleIndex = 0;

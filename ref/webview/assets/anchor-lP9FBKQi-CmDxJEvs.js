@@ -1,0 +1,3 @@
+import { n as e, t } from "./anchor-lP9FBKQi-BQLV3Djc.js";
+e();
+export { t as default };

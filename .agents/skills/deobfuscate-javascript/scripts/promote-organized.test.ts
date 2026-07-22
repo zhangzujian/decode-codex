@@ -6,6 +6,7 @@ import { spawnSync } from "node:child_process";
 import {
   buildImportMappings,
   ensureProvenanceHeader,
+  inferCheckpointExportMap,
   inferManualExportMap,
   promoteOrganized,
   relativeImport,
@@ -72,6 +73,38 @@ function org(
   };
 }
 
+function writeCheckpointExportMetadata(
+  fullDir: string,
+  entries: Record<
+    string,
+    Array<{ id: string; local: string; exported: string; renamed: string }>
+  >,
+): void {
+  const files: Record<string, unknown> = {};
+  for (const [basename, exports] of Object.entries(entries)) {
+    fs.mkdirSync(path.join(fullDir, "files", basename), { recursive: true });
+    fs.writeFileSync(
+      path.join(fullDir, "files", basename, "auto-renames.json"),
+      JSON.stringify(
+        Object.fromEntries(exports.map(({ id, renamed }) => [id, renamed])),
+      ),
+    );
+    files[basename] = {
+      totals: { pending: 0, claimed: 0, done: exports.length },
+      symbols: exports.map(({ id, local, exported }) => ({
+        id,
+        originalName: local,
+        isExport: true,
+        exportedAs: exported,
+      })),
+    };
+  }
+  fs.writeFileSync(
+    path.join(fullDir, "ledger.json"),
+    JSON.stringify({ version: 1, files, crossFileBindings: [] }),
+  );
+}
+
 function setupTarget(): string {
   const target = makeTmpRoot();
   const fullDir = path.join(target, ".deobfuscate-javascript", "_full");
@@ -97,6 +130,14 @@ function setupTarget(): string {
     path.join(fullDir, "files", "panel-Mn5oPq78", "candidate.tsx"),
     PANEL_CANDIDATE,
   );
+  writeCheckpointExportMetadata(fullDir, {
+    "format-thing-AbCdEf12": [
+      { id: "e@1", local: "e", exported: "t", renamed: "formatThing" },
+    ],
+    "junk-Rs9tUv01": [
+      { id: "e@1", local: "e", exported: "t", renamed: "Junk" },
+    ],
+  });
 
   const file = (
     basename: string,
@@ -165,6 +206,77 @@ function setupTarget(): string {
   fs.writeFileSync(
     path.join(fullDir, "manifest.json"),
     JSON.stringify(manifest, null, 2),
+  );
+  return target;
+}
+
+function setupBrokenCycleTarget(): string {
+  const target = makeTmpRoot();
+  const fullDir = path.join(target, ".deobfuscate-javascript", "_full");
+  const cycleA = "cycle-a-Aa11Bb22";
+  const cycleB = "cycle-b-Bb22Cc33";
+  fs.mkdirSync(path.join(fullDir, "locks"), { recursive: true });
+  for (const basename of [cycleA, cycleB]) {
+    fs.mkdirSync(path.join(fullDir, "files", basename), { recursive: true });
+  }
+  fs.writeFileSync(
+    path.join(fullDir, "files", cycleA, "candidate.ts"),
+    `import { b as cycleBValue } from "./${cycleB}.js";
+export function cycleAValue(): string { return cycleBValue(); }
+`,
+  );
+  fs.writeFileSync(
+    path.join(fullDir, "files", cycleB, "candidate.ts"),
+    `import { a as cycleAValue } from "./${cycleA}.js";
+export function cycleBValue(): string { return missingCycleHelper(cycleAValue()); }
+`,
+  );
+  const file = (
+    basename: string,
+    semanticPath: string,
+    imported: string,
+    targetBasename: string,
+    exported: string,
+  ): ManifestFile => ({
+    path: `ref/webview/assets/${basename}.js`,
+    basename,
+    kind: "local",
+    depth: 1,
+    stages: { organized: true },
+    organization: org("cycles", semanticPath, "manual", "app-feature"),
+    imports: [
+      {
+        source: `./${targetBasename}.js`,
+        target: targetBasename,
+        kind: "local",
+        specifiers: [{ imported, local: "e", kind: "named" }],
+        reExport: false,
+      },
+    ],
+    exports: [{ exported, local: "value", kind: "named" }],
+    owner: null,
+    claimedAt: null,
+    lastUpdated: null,
+  });
+  fs.writeFileSync(
+    path.join(fullDir, "manifest.json"),
+    JSON.stringify({
+      version: 1,
+      entry: cycleA,
+      rootDir: "ref/webview/assets",
+      targetDir: target,
+      createdAt: "2026-07-21T00:00:00.000Z",
+      updatedAt: "2026-07-21T00:00:00.000Z",
+      files: {
+        [cycleA]: file(cycleA, "cycles/a.ts", "b", cycleB, "a"),
+        [cycleB]: file(cycleB, "cycles/b.ts", "a", cycleA, "b"),
+      },
+      edges: [
+        { from: cycleA, to: cycleB },
+        { from: cycleB, to: cycleA },
+      ],
+      unresolved: [],
+    }),
   );
   return target;
 }
@@ -287,6 +399,52 @@ describe("relativeImport / buildImportMappings", () => {
       n: "withTimeout",
       e: "withTimeout",
       callbackN: "withTimeout",
+    });
+  });
+
+  test("buildImportMappings keeps every scoped rename for a shadowed import alias", () => {
+    const chunk: ManifestFile = {
+      basename: "consumer-Aa11Bb22",
+      kind: "local",
+      depth: 0,
+      stages: {},
+      owner: null,
+      claimedAt: null,
+      lastUpdated: null,
+      imports: [
+        {
+          source: "./runtime-BhdA_NIt.js",
+          target: "runtime-BhdA_NIt",
+          kind: "local",
+          specifiers: [{ imported: "s", local: "i", kind: "named" }],
+          reExport: false,
+        },
+      ],
+    };
+    const mappings = buildImportMappings(
+      chunk,
+      "runtime/consumer.ts",
+      {
+        chunks: {
+          "runtime-BhdA_NIt": {
+            restored: "runtime/producer.ts",
+            status: "done",
+            exports: { s: "initRuntime" },
+          },
+        },
+      },
+      undefined,
+      {
+        "i@1": "mapDependencyIndex",
+        "i@120": "renamedImportedInitializer",
+      },
+    );
+
+    expect(mappings[0]!.exports).toEqual({
+      s: "initRuntime",
+      i: "initRuntime",
+      mapDependencyIndex: "initRuntime",
+      renamedImportedInitializer: "initRuntime",
     });
   });
 
@@ -420,6 +578,23 @@ describe("relativeImport / buildImportMappings", () => {
     ).toEqual({ a: "isString", b: "isNumber" });
   });
 
+  test("inferManualExportMap maps direct named re-exports by export order", () => {
+    const chunk = {
+      basename: "current-alias-AbCdEf12",
+      kind: "local",
+      exports: [
+        { exported: "n", local: "e", kind: "named" },
+        { exported: "t", local: "r", kind: "named" },
+      ],
+    } as ManifestFile;
+    expect(
+      inferManualExportMap(
+        'export { useCurrentHook, initCurrentHookChunk } from "../shared";',
+        chunk,
+      ),
+    ).toEqual({ n: "useCurrentHook", t: "initCurrentHookChunk" });
+  });
+
   test("inferManualExportMap preserves exact names before positional fallback", () => {
     const chunk = {
       basename: "absolutely-dark-B54BBN-X",
@@ -458,9 +633,290 @@ describe("relativeImport / buildImportMappings", () => {
       type: "type",
     });
   });
+
+  test("inferCheckpointExportMap rejects distinct exports collapsed onto one binding", () => {
+    const chunk = {
+      basename: "collapsed-exports-AbCdEf12",
+      kind: "local",
+      exports: [
+        { exported: "a", local: "first", kind: "named" },
+        { exported: "b", local: "second", kind: "named" },
+      ],
+    } as ManifestFile;
+    expect(() =>
+      inferCheckpointExportMap(
+        "export const collapsedBinding = 1;",
+        chunk,
+        {
+          symbols: [
+            {
+              id: "first@1",
+              originalName: "first",
+              isExport: true,
+              exportedAs: "a",
+            },
+            {
+              id: "second@2",
+              originalName: "second",
+              isExport: true,
+              exportedAs: "b",
+            },
+          ],
+        },
+        {
+          "first@1": "collapsedBinding",
+          "second@2": "collapsedBinding",
+        },
+      ),
+    ).toThrow("maps more than one export");
+  });
 });
 
 describe("promoteOrganized", () => {
+  test("maps mechanical checkpoint exports by ledger symbol id, not declaration order", () => {
+    const target = makeTmpRoot();
+    const fullDir = path.join(target, ".deobfuscate-javascript", "_full");
+    const basename = "reordered-exports-Aa11Bb22";
+    fs.mkdirSync(path.join(fullDir, "checkpoints"), { recursive: true });
+    fs.mkdirSync(path.join(fullDir, "files", basename), { recursive: true });
+    fs.mkdirSync(path.join(fullDir, "locks"), { recursive: true });
+    fs.writeFileSync(
+      path.join(fullDir, "checkpoints", `${basename}.ts`),
+      `export function renamedSecond(): string { return "second"; }
+export function renamedFirst(): string { return "first"; }
+const renamedKeyword = "keyword";
+export { renamedKeyword as in };
+`,
+    );
+    fs.writeFileSync(
+      path.join(fullDir, "files", basename, "auto-renames.json"),
+      JSON.stringify({
+        "first@10": "renamedFirst",
+        "second@20": "renamedSecond",
+        "keywordLocal@30": "renamedKeyword",
+      }),
+    );
+    fs.writeFileSync(
+      path.join(fullDir, "ledger.json"),
+      JSON.stringify({
+        version: 1,
+        files: {
+          [basename]: {
+            totals: { pending: 0, claimed: 0, done: 2 },
+            symbols: [
+              {
+                id: "first@10",
+                originalName: "first",
+                isExport: true,
+                exportedAs: "a",
+              },
+              {
+                id: "second@20",
+                originalName: "second",
+                isExport: true,
+                exportedAs: "b",
+              },
+              {
+                id: "keywordLocal@30",
+                originalName: "keywordLocal",
+                isExport: true,
+                exportedAs: "in",
+              },
+            ],
+          },
+        },
+        crossFileBindings: [],
+      }),
+    );
+    fs.writeFileSync(
+      path.join(fullDir, "manifest.json"),
+      JSON.stringify({
+        version: 1,
+        entry: basename,
+        rootDir: "ref/webview/assets",
+        targetDir: target,
+        createdAt: "2026-07-21T00:00:00.000Z",
+        updatedAt: "2026-07-21T00:00:00.000Z",
+        files: {
+          [basename]: {
+            path: `ref/webview/assets/${basename}.js`,
+            basename,
+            kind: "local",
+            depth: 0,
+            stages: { organized: true },
+            organization: org(
+              "utils",
+              "utils/reordered-exports.ts",
+              "manual",
+              "single-util",
+            ),
+            exports: [
+              { exported: "a", local: "first", kind: "named" },
+              { exported: "b", local: "second", kind: "named" },
+              { exported: "in", local: "keywordLocal", kind: "named" },
+            ],
+            owner: null,
+            claimedAt: null,
+            lastUpdated: null,
+          },
+        },
+        edges: [],
+        unresolved: [],
+      }),
+    );
+
+    expect(promoteOrganized({ target })).toEqual([
+      expect.objectContaining({ basename, promoted: true }),
+    ]);
+    const importMap = JSON.parse(
+      fs.readFileSync(path.join(target, "IMPORT_MAP.json"), "utf-8"),
+    );
+    expect(importMap.chunks[basename].exports).toEqual({
+      a: "renamedFirst",
+      b: "renamedSecond",
+      in: "in",
+    });
+  });
+
+  test("promotes an organized cyclic dependency group in one wave", () => {
+    const target = makeTmpRoot();
+    const fullDir = path.join(target, ".deobfuscate-javascript", "_full");
+    fs.mkdirSync(path.join(fullDir, "locks"), { recursive: true });
+
+    const cycleA = "cycle-a-Aa11Bb22";
+    const cycleB = "cycle-b-Bb22Cc33";
+    for (const basename of [cycleA, cycleB]) {
+      fs.mkdirSync(path.join(fullDir, "files", basename), { recursive: true });
+    }
+    fs.writeFileSync(
+      path.join(fullDir, "files", cycleA, "candidate.ts"),
+      `import { b as cycleBValue } from "./${cycleB}.js";
+export function cycleAValue(): string { return cycleBValue(); }
+`,
+    );
+    fs.writeFileSync(
+      path.join(fullDir, "files", cycleB, "candidate.ts"),
+      `import { a as cycleAValue } from "./${cycleA}.js";
+export function cycleBValue(): string { return cycleAValue(); }
+`,
+    );
+
+    const file = (
+      basename: string,
+      semanticPath: string,
+      imported: string,
+      local: string,
+      targetBasename: string,
+      exported: string,
+    ): ManifestFile => ({
+      path: `ref/webview/assets/${basename}.js`,
+      basename,
+      kind: "local",
+      depth: 1,
+      stages: { organized: true },
+      organization: org("cycles", semanticPath, "manual", "app-feature"),
+      imports: [
+        {
+          source: `./${targetBasename}.js`,
+          target: targetBasename,
+          kind: "local",
+          specifiers: [{ imported, local, kind: "named" }],
+          reExport: false,
+        },
+      ],
+      exports: [{ exported, local: "value", kind: "named" }],
+      owner: null,
+      claimedAt: null,
+      lastUpdated: null,
+    });
+    fs.writeFileSync(
+      path.join(fullDir, "manifest.json"),
+      JSON.stringify({
+        version: 1,
+        entry: cycleA,
+        rootDir: "ref/webview/assets",
+        targetDir: target,
+        createdAt: "2026-07-21T00:00:00.000Z",
+        updatedAt: "2026-07-21T00:00:00.000Z",
+        files: {
+          [cycleA]: file(cycleA, "cycles/a.ts", "b", "e", cycleB, "a"),
+          [cycleB]: file(cycleB, "cycles/b.ts", "a", "e", cycleA, "b"),
+        },
+        edges: [
+          { from: cycleA, to: cycleB },
+          { from: cycleB, to: cycleA },
+        ],
+        unresolved: [],
+      }),
+    );
+
+    const results = promoteOrganized({ target });
+
+    expect(results.filter((result) => result.promoted)).toHaveLength(2);
+    expect(fs.readFileSync(path.join(target, "cycles", "a.ts"), "utf8"))
+      .toContain('from "./b"');
+    expect(fs.readFileSync(path.join(target, "cycles", "b.ts"), "utf8"))
+      .toContain('from "./a"');
+  });
+
+  test("rolls back the whole cyclic wave when one member fails the gate", () => {
+    const target = setupBrokenCycleTarget();
+
+    const results = promoteOrganized({ target });
+
+    expect(results.some((result) => result.promoted)).toBe(false);
+    expect(fs.existsSync(path.join(target, "cycles", "a.ts"))).toBe(false);
+    expect(fs.existsSync(path.join(target, "cycles", "b.ts"))).toBe(false);
+    expect(fs.existsSync(path.join(target, "IMPORT_MAP.json"))).toBe(false);
+  });
+
+  test("promotes a candidate that eliminated an unpromoted original dependency", () => {
+    const target = setupTarget();
+    const fullDir = path.join(target, ".deobfuscate-javascript", "_full");
+    fs.writeFileSync(
+      path.join(fullDir, "files", "panel-Mn5oPq78", "candidate.tsx"),
+      `// Restored from ref/webview/assets/panel-Mn5oPq78.js
+interface PanelProps { title: string }
+export function Panel({ title }: PanelProps): string { return title; }
+`,
+    );
+
+    const results = promoteOrganized({
+      target,
+      only: new Set(["panel-Mn5oPq78"]),
+    });
+
+    expect(results).toHaveLength(1);
+    expect(results[0]?.promoted).toBe(true);
+  });
+
+  test("promotes a candidate whose replacement dependency already exists publicly", () => {
+    const target = setupTarget();
+    const fullDir = path.join(target, ".deobfuscate-javascript", "_full");
+    fs.mkdirSync(path.join(target, "utils"), { recursive: true });
+    fs.writeFileSync(
+      path.join(target, "utils", "existing-format.ts"),
+      `// Restored from ref/webview/assets/existing-format-AbCdEf12.js
+export function existingFormat(value: string): string { return value.trim(); }
+`,
+    );
+    fs.writeFileSync(
+      path.join(fullDir, "files", "panel-Mn5oPq78", "candidate.tsx"),
+      `// Restored from ref/webview/assets/panel-Mn5oPq78.js
+import { existingFormat } from "../utils/existing-format";
+export function Panel(title: string): string { return existingFormat(title); }
+`,
+    );
+
+    const results = promoteOrganized({
+      target,
+      only: new Set(["panel-Mn5oPq78"]),
+    });
+
+    expect(results).toHaveLength(1);
+    expect(results[0]?.promoted).toBe(true);
+  });
+
   test("rejects split promotion rooted at the restore target", () => {
     const target = makeTmpRoot();
     const externalSnapshots = makeTmpRoot();
@@ -682,7 +1138,6 @@ describe("promoteOrganized", () => {
       path.join(fullDir, "manifest.json"),
       JSON.stringify(manifest, null, 2),
     );
-
     const results = promoteOrganized({ target });
 
     expect(results[0]!.promoted).toBe(true);
@@ -751,6 +1206,16 @@ describe("promoteOrganized", () => {
       path.join(fullDir, "manifest.json"),
       JSON.stringify(manifest, null, 2),
     );
+    writeCheckpointExportMetadata(fullDir, {
+      "locale-FrFrAa11": [
+        {
+          id: "localeMessages@1",
+          local: "localeMessages",
+          exported: "t",
+          renamed: "localeMessages",
+        },
+      ],
+    });
 
     const results = promoteOrganized({ target });
 
@@ -816,6 +1281,10 @@ describe("promoteOrganized", () => {
     fs.mkdirSync(path.join(fullDir, "checkpoints"), { recursive: true });
     fs.mkdirSync(path.join(fullDir, "locks"), { recursive: true });
     const files: Record<string, ManifestFile> = {};
+    const checkpointExports: Record<
+      string,
+      Array<{ id: string; local: string; exported: string; renamed: string }>
+    > = {};
     for (let i = 0; i < count; i += 1) {
       const basename = `util-${i}-AbCdEf${i}`;
       fs.writeFileSync(
@@ -834,6 +1303,14 @@ describe("promoteOrganized", () => {
         claimedAt: null,
         lastUpdated: null,
       };
+      checkpointExports[basename] = [
+        {
+          id: `util${i}@1`,
+          local: `util${i}`,
+          exported: "t",
+          renamed: `util${i}`,
+        },
+      ];
     }
     const manifest = {
       version: 1 as const,
@@ -850,6 +1327,7 @@ describe("promoteOrganized", () => {
       path.join(fullDir, "manifest.json"),
       JSON.stringify(manifest, null, 2),
     );
+    writeCheckpointExportMetadata(fullDir, checkpointExports);
     return target;
   }
 

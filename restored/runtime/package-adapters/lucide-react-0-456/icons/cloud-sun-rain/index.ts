@@ -1,0 +1,5 @@
+// Restored from ref/webview/assets/cloud-sun-rain-CCQ4Iq6z-pJPYMCGA.js
+// Exact npm-backed Lucide icon with current-build initializer compatibility.
+import { CloudSunRain } from "lucide-react";
+function initCloudSunRainIconChunk(): void {}
+export { CloudSunRain, initCloudSunRainIconChunk };

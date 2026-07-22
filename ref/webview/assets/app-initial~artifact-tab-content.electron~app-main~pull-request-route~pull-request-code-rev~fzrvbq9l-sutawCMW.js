@@ -1,0 +1,10451 @@
+import { n as e, o as t, r as n, t as r } from "./rolldown-runtime-BG2f4sTM.js";
+var i = r((e, t) => {
+    (function (n) {
+      var r = typeof e == `object` && e,
+        i = typeof t == `object` && t && t.exports == r && t,
+        a = typeof global == `object` && global;
+      (a.global === a || a.window === a) && (n = a);
+      var o = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
+        s = /[\x01-\x7F]/g,
+        c = /[\x01-\t\x0B\f\x0E-\x1F\x7F\x81\x8D\x8F\x90\x9D\xA0-\uFFFF]/g,
+        l =
+          /<\u20D2|=\u20E5|>\u20D2|\u205F\u200A|\u219D\u0338|\u2202\u0338|\u2220\u20D2|\u2229\uFE00|\u222A\uFE00|\u223C\u20D2|\u223D\u0331|\u223E\u0333|\u2242\u0338|\u224B\u0338|\u224D\u20D2|\u224E\u0338|\u224F\u0338|\u2250\u0338|\u2261\u20E5|\u2264\u20D2|\u2265\u20D2|\u2266\u0338|\u2267\u0338|\u2268\uFE00|\u2269\uFE00|\u226A\u0338|\u226A\u20D2|\u226B\u0338|\u226B\u20D2|\u227F\u0338|\u2282\u20D2|\u2283\u20D2|\u228A\uFE00|\u228B\uFE00|\u228F\u0338|\u2290\u0338|\u2293\uFE00|\u2294\uFE00|\u22B4\u20D2|\u22B5\u20D2|\u22D8\u0338|\u22D9\u0338|\u22DA\uFE00|\u22DB\uFE00|\u22F5\u0338|\u22F9\u0338|\u2933\u0338|\u29CF\u0338|\u29D0\u0338|\u2A6D\u0338|\u2A70\u0338|\u2A7D\u0338|\u2A7E\u0338|\u2AA1\u0338|\u2AA2\u0338|\u2AAC\uFE00|\u2AAD\uFE00|\u2AAF\u0338|\u2AB0\u0338|\u2AC5\u0338|\u2AC6\u0338|\u2ACB\uFE00|\u2ACC\uFE00|\u2AFD\u20E5|[\xA0-\u0113\u0116-\u0122\u0124-\u012B\u012E-\u014D\u0150-\u017E\u0192\u01B5\u01F5\u0237\u02C6\u02C7\u02D8-\u02DD\u0311\u0391-\u03A1\u03A3-\u03A9\u03B1-\u03C9\u03D1\u03D2\u03D5\u03D6\u03DC\u03DD\u03F0\u03F1\u03F5\u03F6\u0401-\u040C\u040E-\u044F\u0451-\u045C\u045E\u045F\u2002-\u2005\u2007-\u2010\u2013-\u2016\u2018-\u201A\u201C-\u201E\u2020-\u2022\u2025\u2026\u2030-\u2035\u2039\u203A\u203E\u2041\u2043\u2044\u204F\u2057\u205F-\u2063\u20AC\u20DB\u20DC\u2102\u2105\u210A-\u2113\u2115-\u211E\u2122\u2124\u2127-\u2129\u212C\u212D\u212F-\u2131\u2133-\u2138\u2145-\u2148\u2153-\u215E\u2190-\u219B\u219D-\u21A7\u21A9-\u21AE\u21B0-\u21B3\u21B5-\u21B7\u21BA-\u21DB\u21DD\u21E4\u21E5\u21F5\u21FD-\u2205\u2207-\u2209\u220B\u220C\u220F-\u2214\u2216-\u2218\u221A\u221D-\u2238\u223A-\u2257\u2259\u225A\u225C\u225F-\u2262\u2264-\u228B\u228D-\u229B\u229D-\u22A5\u22A7-\u22B0\u22B2-\u22BB\u22BD-\u22DB\u22DE-\u22E3\u22E6-\u22F7\u22F9-\u22FE\u2305\u2306\u2308-\u2310\u2312\u2313\u2315\u2316\u231C-\u231F\u2322\u2323\u232D\u232E\u2336\u233D\u233F\u237C\u23B0\u23B1\u23B4-\u23B6\u23DC-\u23DF\u23E2\u23E7\u2423\u24C8\u2500\u2502\u250C\u2510\u2514\u2518\u251C\u2524\u252C\u2534\u253C\u2550-\u256C\u2580\u2584\u2588\u2591-\u2593\u25A1\u25AA\u25AB\u25AD\u25AE\u25B1\u25B3-\u25B5\u25B8\u25B9\u25BD-\u25BF\u25C2\u25C3\u25CA\u25CB\u25EC\u25EF\u25F8-\u25FC\u2605\u2606\u260E\u2640\u2642\u2660\u2663\u2665\u2666\u266A\u266D-\u266F\u2713\u2717\u2720\u2736\u2758\u2772\u2773\u27C8\u27C9\u27E6-\u27ED\u27F5-\u27FA\u27FC\u27FF\u2902-\u2905\u290C-\u2913\u2916\u2919-\u2920\u2923-\u292A\u2933\u2935-\u2939\u293C\u293D\u2945\u2948-\u294B\u294E-\u2976\u2978\u2979\u297B-\u297F\u2985\u2986\u298B-\u2996\u299A\u299C\u299D\u29A4-\u29B7\u29B9\u29BB\u29BC\u29BE-\u29C5\u29C9\u29CD-\u29D0\u29DC-\u29DE\u29E3-\u29E5\u29EB\u29F4\u29F6\u2A00-\u2A02\u2A04\u2A06\u2A0C\u2A0D\u2A10-\u2A17\u2A22-\u2A27\u2A29\u2A2A\u2A2D-\u2A31\u2A33-\u2A3C\u2A3F\u2A40\u2A42-\u2A4D\u2A50\u2A53-\u2A58\u2A5A-\u2A5D\u2A5F\u2A66\u2A6A\u2A6D-\u2A75\u2A77-\u2A9A\u2A9D-\u2AA2\u2AA4-\u2AB0\u2AB3-\u2AC8\u2ACB\u2ACC\u2ACF-\u2ADB\u2AE4\u2AE6-\u2AE9\u2AEB-\u2AF3\u2AFD\uFB00-\uFB04]|\uD835[\uDC9C\uDC9E\uDC9F\uDCA2\uDCA5\uDCA6\uDCA9-\uDCAC\uDCAE-\uDCB9\uDCBB\uDCBD-\uDCC3\uDCC5-\uDCCF\uDD04\uDD05\uDD07-\uDD0A\uDD0D-\uDD14\uDD16-\uDD1C\uDD1E-\uDD39\uDD3B-\uDD3E\uDD40-\uDD44\uDD46\uDD4A-\uDD50\uDD52-\uDD6B]/g,
+        u = {
+          "­": `shy`,
+          "‌": `zwnj`,
+          "‍": `zwj`,
+          "‎": `lrm`,
+          "⁣": `ic`,
+          "⁢": `it`,
+          "⁡": `af`,
+          "‏": `rlm`,
+          "​": `ZeroWidthSpace`,
+          "⁠": `NoBreak`,
+          "̑": `DownBreve`,
+          "⃛": `tdot`,
+          "⃜": `DotDot`,
+          "	": `Tab`,
+          "\n": `NewLine`,
+          " ": `puncsp`,
+          " ": `MediumSpace`,
+          " ": `thinsp`,
+          " ": `hairsp`,
+          " ": `emsp13`,
+          " ": `ensp`,
+          " ": `emsp14`,
+          " ": `emsp`,
+          " ": `numsp`,
+          "\xA0": `nbsp`,
+          "  ": `ThickSpace`,
+          "‾": `oline`,
+          _: `lowbar`,
+          "‐": `dash`,
+          "–": `ndash`,
+          "—": `mdash`,
+          "―": `horbar`,
+          ",": `comma`,
+          ";": `semi`,
+          "⁏": `bsemi`,
+          ":": `colon`,
+          "⩴": `Colone`,
+          "!": `excl`,
+          "¡": `iexcl`,
+          "?": `quest`,
+          "¿": `iquest`,
+          ".": `period`,
+          "‥": `nldr`,
+          "…": `mldr`,
+          "·": `middot`,
+          "'": `apos`,
+          "‘": `lsquo`,
+          "’": `rsquo`,
+          "‚": `sbquo`,
+          "‹": `lsaquo`,
+          "›": `rsaquo`,
+          '"': `quot`,
+          "“": `ldquo`,
+          "”": `rdquo`,
+          "„": `bdquo`,
+          "«": `laquo`,
+          "»": `raquo`,
+          "(": `lpar`,
+          ")": `rpar`,
+          "[": `lsqb`,
+          "]": `rsqb`,
+          "{": `lcub`,
+          "}": `rcub`,
+          "⌈": `lceil`,
+          "⌉": `rceil`,
+          "⌊": `lfloor`,
+          "⌋": `rfloor`,
+          "⦅": `lopar`,
+          "⦆": `ropar`,
+          "⦋": `lbrke`,
+          "⦌": `rbrke`,
+          "⦍": `lbrkslu`,
+          "⦎": `rbrksld`,
+          "⦏": `lbrksld`,
+          "⦐": `rbrkslu`,
+          "⦑": `langd`,
+          "⦒": `rangd`,
+          "⦓": `lparlt`,
+          "⦔": `rpargt`,
+          "⦕": `gtlPar`,
+          "⦖": `ltrPar`,
+          "⟦": `lobrk`,
+          "⟧": `robrk`,
+          "⟨": `lang`,
+          "⟩": `rang`,
+          "⟪": `Lang`,
+          "⟫": `Rang`,
+          "⟬": `loang`,
+          "⟭": `roang`,
+          "❲": `lbbrk`,
+          "❳": `rbbrk`,
+          "‖": `Vert`,
+          "§": `sect`,
+          "¶": `para`,
+          "@": `commat`,
+          "*": `ast`,
+          "/": `sol`,
+          undefined: null,
+          "&": `amp`,
+          "#": `num`,
+          "%": `percnt`,
+          "‰": `permil`,
+          "‱": `pertenk`,
+          "†": `dagger`,
+          "‡": `Dagger`,
+          "•": `bull`,
+          "⁃": `hybull`,
+          "′": `prime`,
+          "″": `Prime`,
+          "‴": `tprime`,
+          "⁗": `qprime`,
+          "‵": `bprime`,
+          "⁁": `caret`,
+          "`": `grave`,
+          "´": `acute`,
+          "˜": `tilde`,
+          "^": `Hat`,
+          "¯": `macr`,
+          "˘": `breve`,
+          "˙": `dot`,
+          "¨": `die`,
+          "˚": `ring`,
+          "˝": `dblac`,
+          "¸": `cedil`,
+          "˛": `ogon`,
+          ˆ: `circ`,
+          ˇ: `caron`,
+          "°": `deg`,
+          "©": `copy`,
+          "®": `reg`,
+          "℗": `copysr`,
+          ℘: `wp`,
+          "℞": `rx`,
+          "℧": `mho`,
+          "℩": `iiota`,
+          "←": `larr`,
+          "↚": `nlarr`,
+          "→": `rarr`,
+          "↛": `nrarr`,
+          "↑": `uarr`,
+          "↓": `darr`,
+          "↔": `harr`,
+          "↮": `nharr`,
+          "↕": `varr`,
+          "↖": `nwarr`,
+          "↗": `nearr`,
+          "↘": `searr`,
+          "↙": `swarr`,
+          "↝": `rarrw`,
+          "↝̸": `nrarrw`,
+          "↞": `Larr`,
+          "↟": `Uarr`,
+          "↠": `Rarr`,
+          "↡": `Darr`,
+          "↢": `larrtl`,
+          "↣": `rarrtl`,
+          "↤": `mapstoleft`,
+          "↥": `mapstoup`,
+          "↦": `map`,
+          "↧": `mapstodown`,
+          "↩": `larrhk`,
+          "↪": `rarrhk`,
+          "↫": `larrlp`,
+          "↬": `rarrlp`,
+          "↭": `harrw`,
+          "↰": `lsh`,
+          "↱": `rsh`,
+          "↲": `ldsh`,
+          "↳": `rdsh`,
+          "↵": `crarr`,
+          "↶": `cularr`,
+          "↷": `curarr`,
+          "↺": `olarr`,
+          "↻": `orarr`,
+          "↼": `lharu`,
+          "↽": `lhard`,
+          "↾": `uharr`,
+          "↿": `uharl`,
+          "⇀": `rharu`,
+          "⇁": `rhard`,
+          "⇂": `dharr`,
+          "⇃": `dharl`,
+          "⇄": `rlarr`,
+          "⇅": `udarr`,
+          "⇆": `lrarr`,
+          "⇇": `llarr`,
+          "⇈": `uuarr`,
+          "⇉": `rrarr`,
+          "⇊": `ddarr`,
+          "⇋": `lrhar`,
+          "⇌": `rlhar`,
+          "⇐": `lArr`,
+          "⇍": `nlArr`,
+          "⇑": `uArr`,
+          "⇒": `rArr`,
+          "⇏": `nrArr`,
+          "⇓": `dArr`,
+          "⇔": `iff`,
+          "⇎": `nhArr`,
+          "⇕": `vArr`,
+          "⇖": `nwArr`,
+          "⇗": `neArr`,
+          "⇘": `seArr`,
+          "⇙": `swArr`,
+          "⇚": `lAarr`,
+          "⇛": `rAarr`,
+          "⇝": `zigrarr`,
+          "⇤": `larrb`,
+          "⇥": `rarrb`,
+          "⇵": `duarr`,
+          "⇽": `loarr`,
+          "⇾": `roarr`,
+          "⇿": `hoarr`,
+          "∀": `forall`,
+          "∁": `comp`,
+          "∂": `part`,
+          "∂̸": `npart`,
+          "∃": `exist`,
+          "∄": `nexist`,
+          "∅": `empty`,
+          "∇": `Del`,
+          "∈": `in`,
+          "∉": `notin`,
+          "∋": `ni`,
+          "∌": `notni`,
+          "϶": `bepsi`,
+          "∏": `prod`,
+          "∐": `coprod`,
+          "∑": `sum`,
+          "+": `plus`,
+          "±": `pm`,
+          "÷": `div`,
+          "×": `times`,
+          "<": `lt`,
+          "≮": `nlt`,
+          "<⃒": `nvlt`,
+          "=": `equals`,
+          "≠": `ne`,
+          "=⃥": `bne`,
+          "⩵": `Equal`,
+          ">": `gt`,
+          "≯": `ngt`,
+          ">⃒": `nvgt`,
+          "¬": `not`,
+          "|": `vert`,
+          "¦": `brvbar`,
+          "−": `minus`,
+          "∓": `mp`,
+          "∔": `plusdo`,
+          "⁄": `frasl`,
+          "∖": `setmn`,
+          "∗": `lowast`,
+          "∘": `compfn`,
+          "√": `Sqrt`,
+          "∝": `prop`,
+          "∞": `infin`,
+          "∟": `angrt`,
+          "∠": `ang`,
+          "∠⃒": `nang`,
+          "∡": `angmsd`,
+          "∢": `angsph`,
+          "∣": `mid`,
+          "∤": `nmid`,
+          "∥": `par`,
+          "∦": `npar`,
+          "∧": `and`,
+          "∨": `or`,
+          "∩": `cap`,
+          "∩︀": `caps`,
+          "∪": `cup`,
+          "∪︀": `cups`,
+          "∫": `int`,
+          "∬": `Int`,
+          "∭": `tint`,
+          "⨌": `qint`,
+          "∮": `oint`,
+          "∯": `Conint`,
+          "∰": `Cconint`,
+          "∱": `cwint`,
+          "∲": `cwconint`,
+          "∳": `awconint`,
+          "∴": `there4`,
+          "∵": `becaus`,
+          "∶": `ratio`,
+          "∷": `Colon`,
+          "∸": `minusd`,
+          "∺": `mDDot`,
+          "∻": `homtht`,
+          "∼": `sim`,
+          "≁": `nsim`,
+          "∼⃒": `nvsim`,
+          "∽": `bsim`,
+          "∽̱": `race`,
+          "∾": `ac`,
+          "∾̳": `acE`,
+          "∿": `acd`,
+          "≀": `wr`,
+          "≂": `esim`,
+          "≂̸": `nesim`,
+          "≃": `sime`,
+          "≄": `nsime`,
+          "≅": `cong`,
+          "≇": `ncong`,
+          "≆": `simne`,
+          "≈": `ap`,
+          "≉": `nap`,
+          "≊": `ape`,
+          "≋": `apid`,
+          "≋̸": `napid`,
+          "≌": `bcong`,
+          "≍": `CupCap`,
+          "≭": `NotCupCap`,
+          "≍⃒": `nvap`,
+          "≎": `bump`,
+          "≎̸": `nbump`,
+          "≏": `bumpe`,
+          "≏̸": `nbumpe`,
+          "≐": `doteq`,
+          "≐̸": `nedot`,
+          "≑": `eDot`,
+          "≒": `efDot`,
+          "≓": `erDot`,
+          "≔": `colone`,
+          "≕": `ecolon`,
+          "≖": `ecir`,
+          "≗": `cire`,
+          "≙": `wedgeq`,
+          "≚": `veeeq`,
+          "≜": `trie`,
+          "≟": `equest`,
+          "≡": `equiv`,
+          "≢": `nequiv`,
+          "≡⃥": `bnequiv`,
+          "≤": `le`,
+          "≰": `nle`,
+          "≤⃒": `nvle`,
+          "≥": `ge`,
+          "≱": `nge`,
+          "≥⃒": `nvge`,
+          "≦": `lE`,
+          "≦̸": `nlE`,
+          "≧": `gE`,
+          "≧̸": `ngE`,
+          "≨︀": `lvnE`,
+          "≨": `lnE`,
+          "≩": `gnE`,
+          "≩︀": `gvnE`,
+          "≪": `ll`,
+          "≪̸": `nLtv`,
+          "≪⃒": `nLt`,
+          "≫": `gg`,
+          "≫̸": `nGtv`,
+          "≫⃒": `nGt`,
+          "≬": `twixt`,
+          "≲": `lsim`,
+          "≴": `nlsim`,
+          "≳": `gsim`,
+          "≵": `ngsim`,
+          "≶": `lg`,
+          "≸": `ntlg`,
+          "≷": `gl`,
+          "≹": `ntgl`,
+          "≺": `pr`,
+          "⊀": `npr`,
+          "≻": `sc`,
+          "⊁": `nsc`,
+          "≼": `prcue`,
+          "⋠": `nprcue`,
+          "≽": `sccue`,
+          "⋡": `nsccue`,
+          "≾": `prsim`,
+          "≿": `scsim`,
+          "≿̸": `NotSucceedsTilde`,
+          "⊂": `sub`,
+          "⊄": `nsub`,
+          "⊂⃒": `vnsub`,
+          "⊃": `sup`,
+          "⊅": `nsup`,
+          "⊃⃒": `vnsup`,
+          "⊆": `sube`,
+          "⊈": `nsube`,
+          "⊇": `supe`,
+          "⊉": `nsupe`,
+          "⊊︀": `vsubne`,
+          "⊊": `subne`,
+          "⊋︀": `vsupne`,
+          "⊋": `supne`,
+          "⊍": `cupdot`,
+          "⊎": `uplus`,
+          "⊏": `sqsub`,
+          "⊏̸": `NotSquareSubset`,
+          "⊐": `sqsup`,
+          "⊐̸": `NotSquareSuperset`,
+          "⊑": `sqsube`,
+          "⋢": `nsqsube`,
+          "⊒": `sqsupe`,
+          "⋣": `nsqsupe`,
+          "⊓": `sqcap`,
+          "⊓︀": `sqcaps`,
+          "⊔": `sqcup`,
+          "⊔︀": `sqcups`,
+          "⊕": `oplus`,
+          "⊖": `ominus`,
+          "⊗": `otimes`,
+          "⊘": `osol`,
+          "⊙": `odot`,
+          "⊚": `ocir`,
+          "⊛": `oast`,
+          "⊝": `odash`,
+          "⊞": `plusb`,
+          "⊟": `minusb`,
+          "⊠": `timesb`,
+          "⊡": `sdotb`,
+          "⊢": `vdash`,
+          "⊬": `nvdash`,
+          "⊣": `dashv`,
+          "⊤": `top`,
+          "⊥": `bot`,
+          "⊧": `models`,
+          "⊨": `vDash`,
+          "⊭": `nvDash`,
+          "⊩": `Vdash`,
+          "⊮": `nVdash`,
+          "⊪": `Vvdash`,
+          "⊫": `VDash`,
+          "⊯": `nVDash`,
+          "⊰": `prurel`,
+          "⊲": `vltri`,
+          "⋪": `nltri`,
+          "⊳": `vrtri`,
+          "⋫": `nrtri`,
+          "⊴": `ltrie`,
+          "⋬": `nltrie`,
+          "⊴⃒": `nvltrie`,
+          "⊵": `rtrie`,
+          "⋭": `nrtrie`,
+          "⊵⃒": `nvrtrie`,
+          "⊶": `origof`,
+          "⊷": `imof`,
+          "⊸": `mumap`,
+          "⊹": `hercon`,
+          "⊺": `intcal`,
+          "⊻": `veebar`,
+          "⊽": `barvee`,
+          "⊾": `angrtvb`,
+          "⊿": `lrtri`,
+          "⋀": `Wedge`,
+          "⋁": `Vee`,
+          "⋂": `xcap`,
+          "⋃": `xcup`,
+          "⋄": `diam`,
+          "⋅": `sdot`,
+          "⋆": `Star`,
+          "⋇": `divonx`,
+          "⋈": `bowtie`,
+          "⋉": `ltimes`,
+          "⋊": `rtimes`,
+          "⋋": `lthree`,
+          "⋌": `rthree`,
+          "⋍": `bsime`,
+          "⋎": `cuvee`,
+          "⋏": `cuwed`,
+          "⋐": `Sub`,
+          "⋑": `Sup`,
+          "⋒": `Cap`,
+          "⋓": `Cup`,
+          "⋔": `fork`,
+          "⋕": `epar`,
+          "⋖": `ltdot`,
+          "⋗": `gtdot`,
+          "⋘": `Ll`,
+          "⋘̸": `nLl`,
+          "⋙": `Gg`,
+          "⋙̸": `nGg`,
+          "⋚︀": `lesg`,
+          "⋚": `leg`,
+          "⋛": `gel`,
+          "⋛︀": `gesl`,
+          "⋞": `cuepr`,
+          "⋟": `cuesc`,
+          "⋦": `lnsim`,
+          "⋧": `gnsim`,
+          "⋨": `prnsim`,
+          "⋩": `scnsim`,
+          "⋮": `vellip`,
+          "⋯": `ctdot`,
+          "⋰": `utdot`,
+          "⋱": `dtdot`,
+          "⋲": `disin`,
+          "⋳": `isinsv`,
+          "⋴": `isins`,
+          "⋵": `isindot`,
+          "⋵̸": `notindot`,
+          "⋶": `notinvc`,
+          "⋷": `notinvb`,
+          "⋹": `isinE`,
+          "⋹̸": `notinE`,
+          "⋺": `nisd`,
+          "⋻": `xnis`,
+          "⋼": `nis`,
+          "⋽": `notnivc`,
+          "⋾": `notnivb`,
+          "⌅": `barwed`,
+          "⌆": `Barwed`,
+          "⌌": `drcrop`,
+          "⌍": `dlcrop`,
+          "⌎": `urcrop`,
+          "⌏": `ulcrop`,
+          "⌐": `bnot`,
+          "⌒": `profline`,
+          "⌓": `profsurf`,
+          "⌕": `telrec`,
+          "⌖": `target`,
+          "⌜": `ulcorn`,
+          "⌝": `urcorn`,
+          "⌞": `dlcorn`,
+          "⌟": `drcorn`,
+          "⌢": `frown`,
+          "⌣": `smile`,
+          "⌭": `cylcty`,
+          "⌮": `profalar`,
+          "⌶": `topbot`,
+          "⌽": `ovbar`,
+          "⌿": `solbar`,
+          "⍼": `angzarr`,
+          "⎰": `lmoust`,
+          "⎱": `rmoust`,
+          "⎴": `tbrk`,
+          "⎵": `bbrk`,
+          "⎶": `bbrktbrk`,
+          "⏜": `OverParenthesis`,
+          "⏝": `UnderParenthesis`,
+          "⏞": `OverBrace`,
+          "⏟": `UnderBrace`,
+          "⏢": `trpezium`,
+          "⏧": `elinters`,
+          "␣": `blank`,
+          "─": `boxh`,
+          "│": `boxv`,
+          "┌": `boxdr`,
+          "┐": `boxdl`,
+          "└": `boxur`,
+          "┘": `boxul`,
+          "├": `boxvr`,
+          "┤": `boxvl`,
+          "┬": `boxhd`,
+          "┴": `boxhu`,
+          "┼": `boxvh`,
+          "═": `boxH`,
+          "║": `boxV`,
+          "╒": `boxdR`,
+          "╓": `boxDr`,
+          "╔": `boxDR`,
+          "╕": `boxdL`,
+          "╖": `boxDl`,
+          "╗": `boxDL`,
+          "╘": `boxuR`,
+          "╙": `boxUr`,
+          "╚": `boxUR`,
+          "╛": `boxuL`,
+          "╜": `boxUl`,
+          "╝": `boxUL`,
+          "╞": `boxvR`,
+          "╟": `boxVr`,
+          "╠": `boxVR`,
+          "╡": `boxvL`,
+          "╢": `boxVl`,
+          "╣": `boxVL`,
+          "╤": `boxHd`,
+          "╥": `boxhD`,
+          "╦": `boxHD`,
+          "╧": `boxHu`,
+          "╨": `boxhU`,
+          "╩": `boxHU`,
+          "╪": `boxvH`,
+          "╫": `boxVh`,
+          "╬": `boxVH`,
+          "▀": `uhblk`,
+          "▄": `lhblk`,
+          "█": `block`,
+          "░": `blk14`,
+          "▒": `blk12`,
+          "▓": `blk34`,
+          "□": `squ`,
+          "▪": `squf`,
+          "▫": `EmptyVerySmallSquare`,
+          "▭": `rect`,
+          "▮": `marker`,
+          "▱": `fltns`,
+          "△": `xutri`,
+          "▴": `utrif`,
+          "▵": `utri`,
+          "▸": `rtrif`,
+          "▹": `rtri`,
+          "▽": `xdtri`,
+          "▾": `dtrif`,
+          "▿": `dtri`,
+          "◂": `ltrif`,
+          "◃": `ltri`,
+          "◊": `loz`,
+          "○": `cir`,
+          "◬": `tridot`,
+          "◯": `xcirc`,
+          "◸": `ultri`,
+          "◹": `urtri`,
+          "◺": `lltri`,
+          "◻": `EmptySmallSquare`,
+          "◼": `FilledSmallSquare`,
+          "★": `starf`,
+          "☆": `star`,
+          "☎": `phone`,
+          "♀": `female`,
+          "♂": `male`,
+          "♠": `spades`,
+          "♣": `clubs`,
+          "♥": `hearts`,
+          "♦": `diams`,
+          "♪": `sung`,
+          "✓": `check`,
+          "✗": `cross`,
+          "✠": `malt`,
+          "✶": `sext`,
+          "❘": `VerticalSeparator`,
+          "⟈": `bsolhsub`,
+          "⟉": `suphsol`,
+          "⟵": `xlarr`,
+          "⟶": `xrarr`,
+          "⟷": `xharr`,
+          "⟸": `xlArr`,
+          "⟹": `xrArr`,
+          "⟺": `xhArr`,
+          "⟼": `xmap`,
+          "⟿": `dzigrarr`,
+          "⤂": `nvlArr`,
+          "⤃": `nvrArr`,
+          "⤄": `nvHarr`,
+          "⤅": `Map`,
+          "⤌": `lbarr`,
+          "⤍": `rbarr`,
+          "⤎": `lBarr`,
+          "⤏": `rBarr`,
+          "⤐": `RBarr`,
+          "⤑": `DDotrahd`,
+          "⤒": `UpArrowBar`,
+          "⤓": `DownArrowBar`,
+          "⤖": `Rarrtl`,
+          "⤙": `latail`,
+          "⤚": `ratail`,
+          "⤛": `lAtail`,
+          "⤜": `rAtail`,
+          "⤝": `larrfs`,
+          "⤞": `rarrfs`,
+          "⤟": `larrbfs`,
+          "⤠": `rarrbfs`,
+          "⤣": `nwarhk`,
+          "⤤": `nearhk`,
+          "⤥": `searhk`,
+          "⤦": `swarhk`,
+          "⤧": `nwnear`,
+          "⤨": `toea`,
+          "⤩": `tosa`,
+          "⤪": `swnwar`,
+          "⤳": `rarrc`,
+          "⤳̸": `nrarrc`,
+          "⤵": `cudarrr`,
+          "⤶": `ldca`,
+          "⤷": `rdca`,
+          "⤸": `cudarrl`,
+          "⤹": `larrpl`,
+          "⤼": `curarrm`,
+          "⤽": `cularrp`,
+          "⥅": `rarrpl`,
+          "⥈": `harrcir`,
+          "⥉": `Uarrocir`,
+          "⥊": `lurdshar`,
+          "⥋": `ldrushar`,
+          "⥎": `LeftRightVector`,
+          "⥏": `RightUpDownVector`,
+          "⥐": `DownLeftRightVector`,
+          "⥑": `LeftUpDownVector`,
+          "⥒": `LeftVectorBar`,
+          "⥓": `RightVectorBar`,
+          "⥔": `RightUpVectorBar`,
+          "⥕": `RightDownVectorBar`,
+          "⥖": `DownLeftVectorBar`,
+          "⥗": `DownRightVectorBar`,
+          "⥘": `LeftUpVectorBar`,
+          "⥙": `LeftDownVectorBar`,
+          "⥚": `LeftTeeVector`,
+          "⥛": `RightTeeVector`,
+          "⥜": `RightUpTeeVector`,
+          "⥝": `RightDownTeeVector`,
+          "⥞": `DownLeftTeeVector`,
+          "⥟": `DownRightTeeVector`,
+          "⥠": `LeftUpTeeVector`,
+          "⥡": `LeftDownTeeVector`,
+          "⥢": `lHar`,
+          "⥣": `uHar`,
+          "⥤": `rHar`,
+          "⥥": `dHar`,
+          "⥦": `luruhar`,
+          "⥧": `ldrdhar`,
+          "⥨": `ruluhar`,
+          "⥩": `rdldhar`,
+          "⥪": `lharul`,
+          "⥫": `llhard`,
+          "⥬": `rharul`,
+          "⥭": `lrhard`,
+          "⥮": `udhar`,
+          "⥯": `duhar`,
+          "⥰": `RoundImplies`,
+          "⥱": `erarr`,
+          "⥲": `simrarr`,
+          "⥳": `larrsim`,
+          "⥴": `rarrsim`,
+          "⥵": `rarrap`,
+          "⥶": `ltlarr`,
+          "⥸": `gtrarr`,
+          "⥹": `subrarr`,
+          "⥻": `suplarr`,
+          "⥼": `lfisht`,
+          "⥽": `rfisht`,
+          "⥾": `ufisht`,
+          "⥿": `dfisht`,
+          "⦚": `vzigzag`,
+          "⦜": `vangrt`,
+          "⦝": `angrtvbd`,
+          "⦤": `ange`,
+          "⦥": `range`,
+          "⦦": `dwangle`,
+          "⦧": `uwangle`,
+          "⦨": `angmsdaa`,
+          "⦩": `angmsdab`,
+          "⦪": `angmsdac`,
+          "⦫": `angmsdad`,
+          "⦬": `angmsdae`,
+          "⦭": `angmsdaf`,
+          "⦮": `angmsdag`,
+          "⦯": `angmsdah`,
+          "⦰": `bemptyv`,
+          "⦱": `demptyv`,
+          "⦲": `cemptyv`,
+          "⦳": `raemptyv`,
+          "⦴": `laemptyv`,
+          "⦵": `ohbar`,
+          "⦶": `omid`,
+          "⦷": `opar`,
+          "⦹": `operp`,
+          "⦻": `olcross`,
+          "⦼": `odsold`,
+          "⦾": `olcir`,
+          "⦿": `ofcir`,
+          "⧀": `olt`,
+          "⧁": `ogt`,
+          "⧂": `cirscir`,
+          "⧃": `cirE`,
+          "⧄": `solb`,
+          "⧅": `bsolb`,
+          "⧉": `boxbox`,
+          "⧍": `trisb`,
+          "⧎": `rtriltri`,
+          "⧏": `LeftTriangleBar`,
+          "⧏̸": `NotLeftTriangleBar`,
+          "⧐": `RightTriangleBar`,
+          "⧐̸": `NotRightTriangleBar`,
+          "⧜": `iinfin`,
+          "⧝": `infintie`,
+          "⧞": `nvinfin`,
+          "⧣": `eparsl`,
+          "⧤": `smeparsl`,
+          "⧥": `eqvparsl`,
+          "⧫": `lozf`,
+          "⧴": `RuleDelayed`,
+          "⧶": `dsol`,
+          "⨀": `xodot`,
+          "⨁": `xoplus`,
+          "⨂": `xotime`,
+          "⨄": `xuplus`,
+          "⨆": `xsqcup`,
+          "⨍": `fpartint`,
+          "⨐": `cirfnint`,
+          "⨑": `awint`,
+          "⨒": `rppolint`,
+          "⨓": `scpolint`,
+          "⨔": `npolint`,
+          "⨕": `pointint`,
+          "⨖": `quatint`,
+          "⨗": `intlarhk`,
+          "⨢": `pluscir`,
+          "⨣": `plusacir`,
+          "⨤": `simplus`,
+          "⨥": `plusdu`,
+          "⨦": `plussim`,
+          "⨧": `plustwo`,
+          "⨩": `mcomma`,
+          "⨪": `minusdu`,
+          "⨭": `loplus`,
+          "⨮": `roplus`,
+          "⨯": `Cross`,
+          "⨰": `timesd`,
+          "⨱": `timesbar`,
+          "⨳": `smashp`,
+          "⨴": `lotimes`,
+          "⨵": `rotimes`,
+          "⨶": `otimesas`,
+          "⨷": `Otimes`,
+          "⨸": `odiv`,
+          "⨹": `triplus`,
+          "⨺": `triminus`,
+          "⨻": `tritime`,
+          "⨼": `iprod`,
+          "⨿": `amalg`,
+          "⩀": `capdot`,
+          "⩂": `ncup`,
+          "⩃": `ncap`,
+          "⩄": `capand`,
+          "⩅": `cupor`,
+          "⩆": `cupcap`,
+          "⩇": `capcup`,
+          "⩈": `cupbrcap`,
+          "⩉": `capbrcup`,
+          "⩊": `cupcup`,
+          "⩋": `capcap`,
+          "⩌": `ccups`,
+          "⩍": `ccaps`,
+          "⩐": `ccupssm`,
+          "⩓": `And`,
+          "⩔": `Or`,
+          "⩕": `andand`,
+          "⩖": `oror`,
+          "⩗": `orslope`,
+          "⩘": `andslope`,
+          "⩚": `andv`,
+          "⩛": `orv`,
+          "⩜": `andd`,
+          "⩝": `ord`,
+          "⩟": `wedbar`,
+          "⩦": `sdote`,
+          "⩪": `simdot`,
+          "⩭": `congdot`,
+          "⩭̸": `ncongdot`,
+          "⩮": `easter`,
+          "⩯": `apacir`,
+          "⩰": `apE`,
+          "⩰̸": `napE`,
+          "⩱": `eplus`,
+          "⩲": `pluse`,
+          "⩳": `Esim`,
+          "⩷": `eDDot`,
+          "⩸": `equivDD`,
+          "⩹": `ltcir`,
+          "⩺": `gtcir`,
+          "⩻": `ltquest`,
+          "⩼": `gtquest`,
+          "⩽": `les`,
+          "⩽̸": `nles`,
+          "⩾": `ges`,
+          "⩾̸": `nges`,
+          "⩿": `lesdot`,
+          "⪀": `gesdot`,
+          "⪁": `lesdoto`,
+          "⪂": `gesdoto`,
+          "⪃": `lesdotor`,
+          "⪄": `gesdotol`,
+          "⪅": `lap`,
+          "⪆": `gap`,
+          "⪇": `lne`,
+          "⪈": `gne`,
+          "⪉": `lnap`,
+          "⪊": `gnap`,
+          "⪋": `lEg`,
+          "⪌": `gEl`,
+          "⪍": `lsime`,
+          "⪎": `gsime`,
+          "⪏": `lsimg`,
+          "⪐": `gsiml`,
+          "⪑": `lgE`,
+          "⪒": `glE`,
+          "⪓": `lesges`,
+          "⪔": `gesles`,
+          "⪕": `els`,
+          "⪖": `egs`,
+          "⪗": `elsdot`,
+          "⪘": `egsdot`,
+          "⪙": `el`,
+          "⪚": `eg`,
+          "⪝": `siml`,
+          "⪞": `simg`,
+          "⪟": `simlE`,
+          "⪠": `simgE`,
+          "⪡": `LessLess`,
+          "⪡̸": `NotNestedLessLess`,
+          "⪢": `GreaterGreater`,
+          "⪢̸": `NotNestedGreaterGreater`,
+          "⪤": `glj`,
+          "⪥": `gla`,
+          "⪦": `ltcc`,
+          "⪧": `gtcc`,
+          "⪨": `lescc`,
+          "⪩": `gescc`,
+          "⪪": `smt`,
+          "⪫": `lat`,
+          "⪬": `smte`,
+          "⪬︀": `smtes`,
+          "⪭": `late`,
+          "⪭︀": `lates`,
+          "⪮": `bumpE`,
+          "⪯": `pre`,
+          "⪯̸": `npre`,
+          "⪰": `sce`,
+          "⪰̸": `nsce`,
+          "⪳": `prE`,
+          "⪴": `scE`,
+          "⪵": `prnE`,
+          "⪶": `scnE`,
+          "⪷": `prap`,
+          "⪸": `scap`,
+          "⪹": `prnap`,
+          "⪺": `scnap`,
+          "⪻": `Pr`,
+          "⪼": `Sc`,
+          "⪽": `subdot`,
+          "⪾": `supdot`,
+          "⪿": `subplus`,
+          "⫀": `supplus`,
+          "⫁": `submult`,
+          "⫂": `supmult`,
+          "⫃": `subedot`,
+          "⫄": `supedot`,
+          "⫅": `subE`,
+          "⫅̸": `nsubE`,
+          "⫆": `supE`,
+          "⫆̸": `nsupE`,
+          "⫇": `subsim`,
+          "⫈": `supsim`,
+          "⫋︀": `vsubnE`,
+          "⫋": `subnE`,
+          "⫌︀": `vsupnE`,
+          "⫌": `supnE`,
+          "⫏": `csub`,
+          "⫐": `csup`,
+          "⫑": `csube`,
+          "⫒": `csupe`,
+          "⫓": `subsup`,
+          "⫔": `supsub`,
+          "⫕": `subsub`,
+          "⫖": `supsup`,
+          "⫗": `suphsub`,
+          "⫘": `supdsub`,
+          "⫙": `forkv`,
+          "⫚": `topfork`,
+          "⫛": `mlcp`,
+          "⫤": `Dashv`,
+          "⫦": `Vdashl`,
+          "⫧": `Barv`,
+          "⫨": `vBar`,
+          "⫩": `vBarv`,
+          "⫫": `Vbar`,
+          "⫬": `Not`,
+          "⫭": `bNot`,
+          "⫮": `rnmid`,
+          "⫯": `cirmid`,
+          "⫰": `midcir`,
+          "⫱": `topcir`,
+          "⫲": `nhpar`,
+          "⫳": `parsim`,
+          "⫽": `parsl`,
+          "⫽⃥": `nparsl`,
+          "♭": `flat`,
+          "♮": `natur`,
+          "♯": `sharp`,
+          "¤": `curren`,
+          "¢": `cent`,
+          $: `dollar`,
+          "£": `pound`,
+          "¥": `yen`,
+          "€": `euro`,
+          "¹": `sup1`,
+          "½": `half`,
+          "⅓": `frac13`,
+          "¼": `frac14`,
+          "⅕": `frac15`,
+          "⅙": `frac16`,
+          "⅛": `frac18`,
+          "²": `sup2`,
+          "⅔": `frac23`,
+          "⅖": `frac25`,
+          "³": `sup3`,
+          "¾": `frac34`,
+          "⅗": `frac35`,
+          "⅜": `frac38`,
+          "⅘": `frac45`,
+          "⅚": `frac56`,
+          "⅝": `frac58`,
+          "⅞": `frac78`,
+          𝒶: `ascr`,
+          𝕒: `aopf`,
+          𝔞: `afr`,
+          𝔸: `Aopf`,
+          𝔄: `Afr`,
+          𝒜: `Ascr`,
+          ª: `ordf`,
+          á: `aacute`,
+          Á: `Aacute`,
+          à: `agrave`,
+          À: `Agrave`,
+          ă: `abreve`,
+          Ă: `Abreve`,
+          â: `acirc`,
+          Â: `Acirc`,
+          å: `aring`,
+          Å: `angst`,
+          ä: `auml`,
+          Ä: `Auml`,
+          ã: `atilde`,
+          Ã: `Atilde`,
+          ą: `aogon`,
+          Ą: `Aogon`,
+          ā: `amacr`,
+          Ā: `Amacr`,
+          æ: `aelig`,
+          Æ: `AElig`,
+          𝒷: `bscr`,
+          𝕓: `bopf`,
+          𝔟: `bfr`,
+          𝔹: `Bopf`,
+          ℬ: `Bscr`,
+          𝔅: `Bfr`,
+          𝔠: `cfr`,
+          𝒸: `cscr`,
+          𝕔: `copf`,
+          ℭ: `Cfr`,
+          𝒞: `Cscr`,
+          ℂ: `Copf`,
+          ć: `cacute`,
+          Ć: `Cacute`,
+          ĉ: `ccirc`,
+          Ĉ: `Ccirc`,
+          č: `ccaron`,
+          Č: `Ccaron`,
+          ċ: `cdot`,
+          Ċ: `Cdot`,
+          ç: `ccedil`,
+          Ç: `Ccedil`,
+          "℅": `incare`,
+          𝔡: `dfr`,
+          ⅆ: `dd`,
+          𝕕: `dopf`,
+          𝒹: `dscr`,
+          𝒟: `Dscr`,
+          𝔇: `Dfr`,
+          ⅅ: `DD`,
+          𝔻: `Dopf`,
+          ď: `dcaron`,
+          Ď: `Dcaron`,
+          đ: `dstrok`,
+          Đ: `Dstrok`,
+          ð: `eth`,
+          Ð: `ETH`,
+          ⅇ: `ee`,
+          ℯ: `escr`,
+          𝔢: `efr`,
+          𝕖: `eopf`,
+          ℰ: `Escr`,
+          𝔈: `Efr`,
+          𝔼: `Eopf`,
+          é: `eacute`,
+          É: `Eacute`,
+          è: `egrave`,
+          È: `Egrave`,
+          ê: `ecirc`,
+          Ê: `Ecirc`,
+          ě: `ecaron`,
+          Ě: `Ecaron`,
+          ë: `euml`,
+          Ë: `Euml`,
+          ė: `edot`,
+          Ė: `Edot`,
+          ę: `eogon`,
+          Ę: `Eogon`,
+          ē: `emacr`,
+          Ē: `Emacr`,
+          𝔣: `ffr`,
+          𝕗: `fopf`,
+          𝒻: `fscr`,
+          𝔉: `Ffr`,
+          𝔽: `Fopf`,
+          ℱ: `Fscr`,
+          ﬀ: `fflig`,
+          ﬃ: `ffilig`,
+          ﬄ: `ffllig`,
+          ﬁ: `filig`,
+          fj: `fjlig`,
+          ﬂ: `fllig`,
+          ƒ: `fnof`,
+          ℊ: `gscr`,
+          𝕘: `gopf`,
+          𝔤: `gfr`,
+          𝒢: `Gscr`,
+          𝔾: `Gopf`,
+          𝔊: `Gfr`,
+          ǵ: `gacute`,
+          ğ: `gbreve`,
+          Ğ: `Gbreve`,
+          ĝ: `gcirc`,
+          Ĝ: `Gcirc`,
+          ġ: `gdot`,
+          Ġ: `Gdot`,
+          Ģ: `Gcedil`,
+          𝔥: `hfr`,
+          ℎ: `planckh`,
+          𝒽: `hscr`,
+          𝕙: `hopf`,
+          ℋ: `Hscr`,
+          ℌ: `Hfr`,
+          ℍ: `Hopf`,
+          ĥ: `hcirc`,
+          Ĥ: `Hcirc`,
+          ℏ: `hbar`,
+          ħ: `hstrok`,
+          Ħ: `Hstrok`,
+          𝕚: `iopf`,
+          𝔦: `ifr`,
+          𝒾: `iscr`,
+          ⅈ: `ii`,
+          𝕀: `Iopf`,
+          ℐ: `Iscr`,
+          ℑ: `Im`,
+          í: `iacute`,
+          Í: `Iacute`,
+          ì: `igrave`,
+          Ì: `Igrave`,
+          î: `icirc`,
+          Î: `Icirc`,
+          ï: `iuml`,
+          Ï: `Iuml`,
+          ĩ: `itilde`,
+          Ĩ: `Itilde`,
+          İ: `Idot`,
+          į: `iogon`,
+          Į: `Iogon`,
+          ī: `imacr`,
+          Ī: `Imacr`,
+          ĳ: `ijlig`,
+          Ĳ: `IJlig`,
+          ı: `imath`,
+          𝒿: `jscr`,
+          𝕛: `jopf`,
+          𝔧: `jfr`,
+          𝒥: `Jscr`,
+          𝔍: `Jfr`,
+          𝕁: `Jopf`,
+          ĵ: `jcirc`,
+          Ĵ: `Jcirc`,
+          ȷ: `jmath`,
+          𝕜: `kopf`,
+          𝓀: `kscr`,
+          𝔨: `kfr`,
+          𝒦: `Kscr`,
+          𝕂: `Kopf`,
+          𝔎: `Kfr`,
+          ķ: `kcedil`,
+          Ķ: `Kcedil`,
+          𝔩: `lfr`,
+          𝓁: `lscr`,
+          ℓ: `ell`,
+          𝕝: `lopf`,
+          ℒ: `Lscr`,
+          𝔏: `Lfr`,
+          𝕃: `Lopf`,
+          ĺ: `lacute`,
+          Ĺ: `Lacute`,
+          ľ: `lcaron`,
+          Ľ: `Lcaron`,
+          ļ: `lcedil`,
+          Ļ: `Lcedil`,
+          ł: `lstrok`,
+          Ł: `Lstrok`,
+          ŀ: `lmidot`,
+          Ŀ: `Lmidot`,
+          𝔪: `mfr`,
+          𝕞: `mopf`,
+          𝓂: `mscr`,
+          𝔐: `Mfr`,
+          𝕄: `Mopf`,
+          ℳ: `Mscr`,
+          𝔫: `nfr`,
+          𝕟: `nopf`,
+          𝓃: `nscr`,
+          ℕ: `Nopf`,
+          𝒩: `Nscr`,
+          𝔑: `Nfr`,
+          ń: `nacute`,
+          Ń: `Nacute`,
+          ň: `ncaron`,
+          Ň: `Ncaron`,
+          ñ: `ntilde`,
+          Ñ: `Ntilde`,
+          ņ: `ncedil`,
+          Ņ: `Ncedil`,
+          "№": `numero`,
+          ŋ: `eng`,
+          Ŋ: `ENG`,
+          𝕠: `oopf`,
+          𝔬: `ofr`,
+          ℴ: `oscr`,
+          𝒪: `Oscr`,
+          𝔒: `Ofr`,
+          𝕆: `Oopf`,
+          º: `ordm`,
+          ó: `oacute`,
+          Ó: `Oacute`,
+          ò: `ograve`,
+          Ò: `Ograve`,
+          ô: `ocirc`,
+          Ô: `Ocirc`,
+          ö: `ouml`,
+          Ö: `Ouml`,
+          ő: `odblac`,
+          Ő: `Odblac`,
+          õ: `otilde`,
+          Õ: `Otilde`,
+          ø: `oslash`,
+          Ø: `Oslash`,
+          ō: `omacr`,
+          Ō: `Omacr`,
+          œ: `oelig`,
+          Œ: `OElig`,
+          𝔭: `pfr`,
+          𝓅: `pscr`,
+          𝕡: `popf`,
+          ℙ: `Popf`,
+          𝔓: `Pfr`,
+          𝒫: `Pscr`,
+          𝕢: `qopf`,
+          𝔮: `qfr`,
+          𝓆: `qscr`,
+          𝒬: `Qscr`,
+          𝔔: `Qfr`,
+          ℚ: `Qopf`,
+          ĸ: `kgreen`,
+          𝔯: `rfr`,
+          𝕣: `ropf`,
+          𝓇: `rscr`,
+          ℛ: `Rscr`,
+          ℜ: `Re`,
+          ℝ: `Ropf`,
+          ŕ: `racute`,
+          Ŕ: `Racute`,
+          ř: `rcaron`,
+          Ř: `Rcaron`,
+          ŗ: `rcedil`,
+          Ŗ: `Rcedil`,
+          𝕤: `sopf`,
+          𝓈: `sscr`,
+          𝔰: `sfr`,
+          𝕊: `Sopf`,
+          𝔖: `Sfr`,
+          𝒮: `Sscr`,
+          "Ⓢ": `oS`,
+          ś: `sacute`,
+          Ś: `Sacute`,
+          ŝ: `scirc`,
+          Ŝ: `Scirc`,
+          š: `scaron`,
+          Š: `Scaron`,
+          ş: `scedil`,
+          Ş: `Scedil`,
+          ß: `szlig`,
+          𝔱: `tfr`,
+          𝓉: `tscr`,
+          𝕥: `topf`,
+          𝒯: `Tscr`,
+          𝔗: `Tfr`,
+          𝕋: `Topf`,
+          ť: `tcaron`,
+          Ť: `Tcaron`,
+          ţ: `tcedil`,
+          Ţ: `Tcedil`,
+          "™": `trade`,
+          ŧ: `tstrok`,
+          Ŧ: `Tstrok`,
+          𝓊: `uscr`,
+          𝕦: `uopf`,
+          𝔲: `ufr`,
+          𝕌: `Uopf`,
+          𝔘: `Ufr`,
+          𝒰: `Uscr`,
+          ú: `uacute`,
+          Ú: `Uacute`,
+          ù: `ugrave`,
+          Ù: `Ugrave`,
+          ŭ: `ubreve`,
+          Ŭ: `Ubreve`,
+          û: `ucirc`,
+          Û: `Ucirc`,
+          ů: `uring`,
+          Ů: `Uring`,
+          ü: `uuml`,
+          Ü: `Uuml`,
+          ű: `udblac`,
+          Ű: `Udblac`,
+          ũ: `utilde`,
+          Ũ: `Utilde`,
+          ų: `uogon`,
+          Ų: `Uogon`,
+          ū: `umacr`,
+          Ū: `Umacr`,
+          𝔳: `vfr`,
+          𝕧: `vopf`,
+          𝓋: `vscr`,
+          𝔙: `Vfr`,
+          𝕍: `Vopf`,
+          𝒱: `Vscr`,
+          𝕨: `wopf`,
+          𝓌: `wscr`,
+          𝔴: `wfr`,
+          𝒲: `Wscr`,
+          𝕎: `Wopf`,
+          𝔚: `Wfr`,
+          ŵ: `wcirc`,
+          Ŵ: `Wcirc`,
+          𝔵: `xfr`,
+          𝓍: `xscr`,
+          𝕩: `xopf`,
+          𝕏: `Xopf`,
+          𝔛: `Xfr`,
+          𝒳: `Xscr`,
+          𝔶: `yfr`,
+          𝓎: `yscr`,
+          𝕪: `yopf`,
+          𝒴: `Yscr`,
+          𝔜: `Yfr`,
+          𝕐: `Yopf`,
+          ý: `yacute`,
+          Ý: `Yacute`,
+          ŷ: `ycirc`,
+          Ŷ: `Ycirc`,
+          ÿ: `yuml`,
+          Ÿ: `Yuml`,
+          𝓏: `zscr`,
+          𝔷: `zfr`,
+          𝕫: `zopf`,
+          ℨ: `Zfr`,
+          ℤ: `Zopf`,
+          𝒵: `Zscr`,
+          ź: `zacute`,
+          Ź: `Zacute`,
+          ž: `zcaron`,
+          Ž: `Zcaron`,
+          ż: `zdot`,
+          Ż: `Zdot`,
+          Ƶ: `imped`,
+          þ: `thorn`,
+          Þ: `THORN`,
+          ŉ: `napos`,
+          α: `alpha`,
+          Α: `Alpha`,
+          β: `beta`,
+          Β: `Beta`,
+          γ: `gamma`,
+          Γ: `Gamma`,
+          δ: `delta`,
+          Δ: `Delta`,
+          ε: `epsi`,
+          ϵ: `epsiv`,
+          Ε: `Epsilon`,
+          ϝ: `gammad`,
+          Ϝ: `Gammad`,
+          ζ: `zeta`,
+          Ζ: `Zeta`,
+          η: `eta`,
+          Η: `Eta`,
+          θ: `theta`,
+          ϑ: `thetav`,
+          Θ: `Theta`,
+          ι: `iota`,
+          Ι: `Iota`,
+          κ: `kappa`,
+          ϰ: `kappav`,
+          Κ: `Kappa`,
+          λ: `lambda`,
+          Λ: `Lambda`,
+          μ: `mu`,
+          µ: `micro`,
+          Μ: `Mu`,
+          ν: `nu`,
+          Ν: `Nu`,
+          ξ: `xi`,
+          Ξ: `Xi`,
+          ο: `omicron`,
+          Ο: `Omicron`,
+          π: `pi`,
+          ϖ: `piv`,
+          Π: `Pi`,
+          ρ: `rho`,
+          ϱ: `rhov`,
+          Ρ: `Rho`,
+          σ: `sigma`,
+          Σ: `Sigma`,
+          ς: `sigmaf`,
+          τ: `tau`,
+          Τ: `Tau`,
+          υ: `upsi`,
+          Υ: `Upsilon`,
+          ϒ: `Upsi`,
+          φ: `phi`,
+          ϕ: `phiv`,
+          Φ: `Phi`,
+          χ: `chi`,
+          Χ: `Chi`,
+          ψ: `psi`,
+          Ψ: `Psi`,
+          ω: `omega`,
+          Ω: `ohm`,
+          а: `acy`,
+          А: `Acy`,
+          б: `bcy`,
+          Б: `Bcy`,
+          в: `vcy`,
+          В: `Vcy`,
+          г: `gcy`,
+          Г: `Gcy`,
+          ѓ: `gjcy`,
+          Ѓ: `GJcy`,
+          д: `dcy`,
+          Д: `Dcy`,
+          ђ: `djcy`,
+          Ђ: `DJcy`,
+          е: `iecy`,
+          Е: `IEcy`,
+          ё: `iocy`,
+          Ё: `IOcy`,
+          є: `jukcy`,
+          Є: `Jukcy`,
+          ж: `zhcy`,
+          Ж: `ZHcy`,
+          з: `zcy`,
+          З: `Zcy`,
+          ѕ: `dscy`,
+          Ѕ: `DScy`,
+          и: `icy`,
+          И: `Icy`,
+          і: `iukcy`,
+          І: `Iukcy`,
+          ї: `yicy`,
+          Ї: `YIcy`,
+          й: `jcy`,
+          Й: `Jcy`,
+          ј: `jsercy`,
+          Ј: `Jsercy`,
+          к: `kcy`,
+          К: `Kcy`,
+          ќ: `kjcy`,
+          Ќ: `KJcy`,
+          л: `lcy`,
+          Л: `Lcy`,
+          љ: `ljcy`,
+          Љ: `LJcy`,
+          м: `mcy`,
+          М: `Mcy`,
+          н: `ncy`,
+          Н: `Ncy`,
+          њ: `njcy`,
+          Њ: `NJcy`,
+          о: `ocy`,
+          О: `Ocy`,
+          п: `pcy`,
+          П: `Pcy`,
+          р: `rcy`,
+          Р: `Rcy`,
+          с: `scy`,
+          С: `Scy`,
+          т: `tcy`,
+          Т: `Tcy`,
+          ћ: `tshcy`,
+          Ћ: `TSHcy`,
+          у: `ucy`,
+          У: `Ucy`,
+          ў: `ubrcy`,
+          Ў: `Ubrcy`,
+          ф: `fcy`,
+          Ф: `Fcy`,
+          х: `khcy`,
+          Х: `KHcy`,
+          ц: `tscy`,
+          Ц: `TScy`,
+          ч: `chcy`,
+          Ч: `CHcy`,
+          џ: `dzcy`,
+          Џ: `DZcy`,
+          ш: `shcy`,
+          Ш: `SHcy`,
+          щ: `shchcy`,
+          Щ: `SHCHcy`,
+          ъ: `hardcy`,
+          Ъ: `HARDcy`,
+          ы: `ycy`,
+          Ы: `Ycy`,
+          ь: `softcy`,
+          Ь: `SOFTcy`,
+          э: `ecy`,
+          Э: `Ecy`,
+          ю: `yucy`,
+          Ю: `YUcy`,
+          я: `yacy`,
+          Я: `YAcy`,
+          ℵ: `aleph`,
+          ℶ: `beth`,
+          ℷ: `gimel`,
+          ℸ: `daleth`,
+        },
+        d = /["&'<>`]/g,
+        f = {
+          '"': `&quot;`,
+          "&": `&amp;`,
+          "'": `&#x27;`,
+          "<": `&lt;`,
+          ">": `&gt;`,
+          "`": `&#x60;`,
+        },
+        p = /&#(?:[xX][^a-fA-F0-9]|[^0-9xX])/,
+        m =
+          /[\0-\x08\x0B\x0E-\x1F\x7F-\x9F\uFDD0-\uFDEF\uFFFE\uFFFF]|[\uD83F\uD87F\uD8BF\uD8FF\uD93F\uD97F\uD9BF\uD9FF\uDA3F\uDA7F\uDABF\uDAFF\uDB3F\uDB7F\uDBBF\uDBFF][\uDFFE\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/,
+        h =
+          /&(CounterClockwiseContourIntegral|DoubleLongLeftRightArrow|ClockwiseContourIntegral|NotNestedGreaterGreater|NotSquareSupersetEqual|DiacriticalDoubleAcute|NotRightTriangleEqual|NotSucceedsSlantEqual|NotPrecedesSlantEqual|CloseCurlyDoubleQuote|NegativeVeryThinSpace|DoubleContourIntegral|FilledVerySmallSquare|CapitalDifferentialD|OpenCurlyDoubleQuote|EmptyVerySmallSquare|NestedGreaterGreater|DoubleLongRightArrow|NotLeftTriangleEqual|NotGreaterSlantEqual|ReverseUpEquilibrium|DoubleLeftRightArrow|NotSquareSubsetEqual|NotDoubleVerticalBar|RightArrowLeftArrow|NotGreaterFullEqual|NotRightTriangleBar|SquareSupersetEqual|DownLeftRightVector|DoubleLongLeftArrow|leftrightsquigarrow|LeftArrowRightArrow|NegativeMediumSpace|blacktriangleright|RightDownVectorBar|PrecedesSlantEqual|RightDoubleBracket|SucceedsSlantEqual|NotLeftTriangleBar|RightTriangleEqual|SquareIntersection|RightDownTeeVector|ReverseEquilibrium|NegativeThickSpace|longleftrightarrow|Longleftrightarrow|LongLeftRightArrow|DownRightTeeVector|DownRightVectorBar|GreaterSlantEqual|SquareSubsetEqual|LeftDownVectorBar|LeftDoubleBracket|VerticalSeparator|rightleftharpoons|NotGreaterGreater|NotSquareSuperset|blacktriangleleft|blacktriangledown|NegativeThinSpace|LeftDownTeeVector|NotLessSlantEqual|leftrightharpoons|DoubleUpDownArrow|DoubleVerticalBar|LeftTriangleEqual|FilledSmallSquare|twoheadrightarrow|NotNestedLessLess|DownLeftTeeVector|DownLeftVectorBar|RightAngleBracket|NotTildeFullEqual|NotReverseElement|RightUpDownVector|DiacriticalTilde|NotSucceedsTilde|circlearrowright|NotPrecedesEqual|rightharpoondown|DoubleRightArrow|NotSucceedsEqual|NonBreakingSpace|NotRightTriangle|LessEqualGreater|RightUpTeeVector|LeftAngleBracket|GreaterFullEqual|DownArrowUpArrow|RightUpVectorBar|twoheadleftarrow|GreaterEqualLess|downharpoonright|RightTriangleBar|ntrianglerighteq|NotSupersetEqual|LeftUpDownVector|DiacriticalAcute|rightrightarrows|vartriangleright|UpArrowDownArrow|DiacriticalGrave|UnderParenthesis|EmptySmallSquare|LeftUpVectorBar|leftrightarrows|DownRightVector|downharpoonleft|trianglerighteq|ShortRightArrow|OverParenthesis|DoubleLeftArrow|DoubleDownArrow|NotSquareSubset|bigtriangledown|ntrianglelefteq|UpperRightArrow|curvearrowright|vartriangleleft|NotLeftTriangle|nleftrightarrow|LowerRightArrow|NotHumpDownHump|NotGreaterTilde|rightthreetimes|LeftUpTeeVector|NotGreaterEqual|straightepsilon|LeftTriangleBar|rightsquigarrow|ContourIntegral|rightleftarrows|CloseCurlyQuote|RightDownVector|LeftRightVector|nLeftrightarrow|leftharpoondown|circlearrowleft|SquareSuperset|OpenCurlyQuote|hookrightarrow|HorizontalLine|DiacriticalDot|NotLessGreater|ntriangleright|DoubleRightTee|InvisibleComma|InvisibleTimes|LowerLeftArrow|DownLeftVector|NotSubsetEqual|curvearrowleft|trianglelefteq|NotVerticalBar|TildeFullEqual|downdownarrows|NotGreaterLess|RightTeeVector|ZeroWidthSpace|looparrowright|LongRightArrow|doublebarwedge|ShortLeftArrow|ShortDownArrow|RightVectorBar|GreaterGreater|ReverseElement|rightharpoonup|LessSlantEqual|leftthreetimes|upharpoonright|rightarrowtail|LeftDownVector|Longrightarrow|NestedLessLess|UpperLeftArrow|nshortparallel|leftleftarrows|leftrightarrow|Leftrightarrow|LeftRightArrow|longrightarrow|upharpoonleft|RightArrowBar|ApplyFunction|LeftTeeVector|leftarrowtail|NotEqualTilde|varsubsetneqq|varsupsetneqq|RightTeeArrow|SucceedsEqual|SucceedsTilde|LeftVectorBar|SupersetEqual|hookleftarrow|DifferentialD|VerticalTilde|VeryThinSpace|blacktriangle|bigtriangleup|LessFullEqual|divideontimes|leftharpoonup|UpEquilibrium|ntriangleleft|RightTriangle|measuredangle|shortparallel|longleftarrow|Longleftarrow|LongLeftArrow|DoubleLeftTee|Poincareplane|PrecedesEqual|triangleright|DoubleUpArrow|RightUpVector|fallingdotseq|looparrowleft|PrecedesTilde|NotTildeEqual|NotTildeTilde|smallsetminus|Proportional|triangleleft|triangledown|UnderBracket|NotHumpEqual|exponentiale|ExponentialE|NotLessTilde|HilbertSpace|RightCeiling|blacklozenge|varsupsetneq|HumpDownHump|GreaterEqual|VerticalLine|LeftTeeArrow|NotLessEqual|DownTeeArrow|LeftTriangle|varsubsetneq|Intersection|NotCongruent|DownArrowBar|LeftUpVector|LeftArrowBar|risingdotseq|GreaterTilde|RoundImplies|SquareSubset|ShortUpArrow|NotSuperset|quaternions|precnapprox|backepsilon|preccurlyeq|OverBracket|blacksquare|MediumSpace|VerticalBar|circledcirc|circleddash|CircleMinus|CircleTimes|LessGreater|curlyeqprec|curlyeqsucc|diamondsuit|UpDownArrow|Updownarrow|RuleDelayed|Rrightarrow|updownarrow|RightVector|nRightarrow|nrightarrow|eqslantless|LeftCeiling|Equilibrium|SmallCircle|expectation|NotSucceeds|thickapprox|GreaterLess|SquareUnion|NotPrecedes|NotLessLess|straightphi|succnapprox|succcurlyeq|SubsetEqual|sqsupseteq|Proportion|Laplacetrf|ImaginaryI|supsetneqq|NotGreater|gtreqqless|NotElement|ThickSpace|TildeEqual|TildeTilde|Fouriertrf|rmoustache|EqualTilde|eqslantgtr|UnderBrace|LeftVector|UpArrowBar|nLeftarrow|nsubseteqq|subsetneqq|nsupseteqq|nleftarrow|succapprox|lessapprox|UpTeeArrow|upuparrows|curlywedge|lesseqqgtr|varepsilon|varnothing|RightFloor|complement|CirclePlus|sqsubseteq|Lleftarrow|circledast|RightArrow|Rightarrow|rightarrow|lmoustache|Bernoullis|precapprox|mapstoleft|mapstodown|longmapsto|dotsquare|downarrow|DoubleDot|nsubseteq|supsetneq|leftarrow|nsupseteq|subsetneq|ThinSpace|ngeqslant|subseteqq|HumpEqual|NotSubset|triangleq|NotCupCap|lesseqgtr|heartsuit|TripleDot|Leftarrow|Coproduct|Congruent|varpropto|complexes|gvertneqq|LeftArrow|LessTilde|supseteqq|MinusPlus|CircleDot|nleqslant|NotExists|gtreqless|nparallel|UnionPlus|LeftFloor|checkmark|CenterDot|centerdot|Mellintrf|gtrapprox|bigotimes|OverBrace|spadesuit|therefore|pitchfork|rationals|PlusMinus|Backslash|Therefore|DownBreve|backsimeq|backprime|DownArrow|nshortmid|Downarrow|lvertneqq|eqvparsl|imagline|imagpart|infintie|integers|Integral|intercal|LessLess|Uarrocir|intlarhk|sqsupset|angmsdaf|sqsubset|llcorner|vartheta|cupbrcap|lnapprox|Superset|SuchThat|succnsim|succneqq|angmsdag|biguplus|curlyvee|trpezium|Succeeds|NotTilde|bigwedge|angmsdah|angrtvbd|triminus|cwconint|fpartint|lrcorner|smeparsl|subseteq|urcorner|lurdshar|laemptyv|DDotrahd|approxeq|ldrushar|awconint|mapstoup|backcong|shortmid|triangle|geqslant|gesdotol|timesbar|circledR|circledS|setminus|multimap|naturals|scpolint|ncongdot|RightTee|boxminus|gnapprox|boxtimes|andslope|thicksim|angmsdaa|varsigma|cirfnint|rtriltri|angmsdab|rppolint|angmsdac|barwedge|drbkarow|clubsuit|thetasym|bsolhsub|capbrcup|dzigrarr|doteqdot|DotEqual|dotminus|UnderBar|NotEqual|realpart|otimesas|ulcorner|hksearow|hkswarow|parallel|PartialD|elinters|emptyset|plusacir|bbrktbrk|angmsdad|pointint|bigoplus|angmsdae|Precedes|bigsqcup|varkappa|notindot|supseteq|precneqq|precnsim|profalar|profline|profsurf|leqslant|lesdotor|raemptyv|subplus|notnivb|notnivc|subrarr|zigrarr|vzigzag|submult|subedot|Element|between|cirscir|larrbfs|larrsim|lotimes|lbrksld|lbrkslu|lozenge|ldrdhar|dbkarow|bigcirc|epsilon|simrarr|simplus|ltquest|Epsilon|luruhar|gtquest|maltese|npolint|eqcolon|npreceq|bigodot|ddagger|gtrless|bnequiv|harrcir|ddotseq|equivDD|backsim|demptyv|nsqsube|nsqsupe|Upsilon|nsubset|upsilon|minusdu|nsucceq|swarrow|nsupset|coloneq|searrow|boxplus|napprox|natural|asympeq|alefsym|congdot|nearrow|bigstar|diamond|supplus|tritime|LeftTee|nvinfin|triplus|NewLine|nvltrie|nvrtrie|nwarrow|nexists|Diamond|ruluhar|Implies|supmult|angzarr|suplarr|suphsub|questeq|because|digamma|Because|olcross|bemptyv|omicron|Omicron|rotimes|NoBreak|intprod|angrtvb|orderof|uwangle|suphsol|lesdoto|orslope|DownTee|realine|cudarrl|rdldhar|OverBar|supedot|lessdot|supdsub|topfork|succsim|rbrkslu|rbrksld|pertenk|cudarrr|isindot|planckh|lessgtr|pluscir|gesdoto|plussim|plustwo|lesssim|cularrp|rarrsim|Cayleys|notinva|notinvb|notinvc|UpArrow|Uparrow|uparrow|NotLess|dwangle|precsim|Product|curarrm|Cconint|dotplus|rarrbfs|ccupssm|Cedilla|cemptyv|notniva|quatint|frac35|frac38|frac45|frac56|frac58|frac78|tridot|xoplus|gacute|gammad|Gammad|lfisht|lfloor|bigcup|sqsupe|gbreve|Gbreve|lharul|sqsube|sqcups|Gcedil|apacir|llhard|lmidot|Lmidot|lmoust|andand|sqcaps|approx|Abreve|spades|circeq|tprime|divide|topcir|Assign|topbot|gesdot|divonx|xuplus|timesd|gesles|atilde|solbar|SOFTcy|loplus|timesb|lowast|lowbar|dlcorn|dlcrop|softcy|dollar|lparlt|thksim|lrhard|Atilde|lsaquo|smashp|bigvee|thinsp|wreath|bkarow|lsquor|lstrok|Lstrok|lthree|ltimes|ltlarr|DotDot|simdot|ltrPar|weierp|xsqcup|angmsd|sigmav|sigmaf|zeetrf|Zcaron|zcaron|mapsto|vsupne|thetav|cirmid|marker|mcomma|Zacute|vsubnE|there4|gtlPar|vsubne|bottom|gtrarr|SHCHcy|shchcy|midast|midcir|middot|minusb|minusd|gtrdot|bowtie|sfrown|mnplus|models|colone|seswar|Colone|mstpos|searhk|gtrsim|nacute|Nacute|boxbox|telrec|hairsp|Tcedil|nbumpe|scnsim|ncaron|Ncaron|ncedil|Ncedil|hamilt|Scedil|nearhk|hardcy|HARDcy|tcedil|Tcaron|commat|nequiv|nesear|tcaron|target|hearts|nexist|varrho|scedil|Scaron|scaron|hellip|Sacute|sacute|hercon|swnwar|compfn|rtimes|rthree|rsquor|rsaquo|zacute|wedgeq|homtht|barvee|barwed|Barwed|rpargt|horbar|conint|swarhk|roplus|nltrie|hslash|hstrok|Hstrok|rmoust|Conint|bprime|hybull|hyphen|iacute|Iacute|supsup|supsub|supsim|varphi|coprod|brvbar|agrave|Supset|supset|igrave|Igrave|notinE|Agrave|iiiint|iinfin|copysr|wedbar|Verbar|vangrt|becaus|incare|verbar|inodot|bullet|drcorn|intcal|drcrop|cularr|vellip|Utilde|bumpeq|cupcap|dstrok|Dstrok|CupCap|cupcup|cupdot|eacute|Eacute|supdot|iquest|easter|ecaron|Ecaron|ecolon|isinsv|utilde|itilde|Itilde|curarr|succeq|Bumpeq|cacute|ulcrop|nparsl|Cacute|nprcue|egrave|Egrave|nrarrc|nrarrw|subsup|subsub|nrtrie|jsercy|nsccue|Jsercy|kappav|kcedil|Kcedil|subsim|ulcorn|nsimeq|egsdot|veebar|kgreen|capand|elsdot|Subset|subset|curren|aacute|lacute|Lacute|emptyv|ntilde|Ntilde|lagran|lambda|Lambda|capcap|Ugrave|langle|subdot|emsp13|numero|emsp14|nvdash|nvDash|nVdash|nVDash|ugrave|ufisht|nvHarr|larrfs|nvlArr|larrhk|larrlp|larrpl|nvrArr|Udblac|nwarhk|larrtl|nwnear|oacute|Oacute|latail|lAtail|sstarf|lbrace|odblac|Odblac|lbrack|udblac|odsold|eparsl|lcaron|Lcaron|ograve|Ograve|lcedil|Lcedil|Aacute|ssmile|ssetmn|squarf|ldquor|capcup|ominus|cylcty|rharul|eqcirc|dagger|rfloor|rfisht|Dagger|daleth|equals|origof|capdot|equest|dcaron|Dcaron|rdquor|oslash|Oslash|otilde|Otilde|otimes|Otimes|urcrop|Ubreve|ubreve|Yacute|Uacute|uacute|Rcedil|rcedil|urcorn|parsim|Rcaron|Vdashl|rcaron|Tstrok|percnt|period|permil|Exists|yacute|rbrack|rbrace|phmmat|ccaron|Ccaron|planck|ccedil|plankv|tstrok|female|plusdo|plusdu|ffilig|plusmn|ffllig|Ccedil|rAtail|dfisht|bernou|ratail|Rarrtl|rarrtl|angsph|rarrpl|rarrlp|rarrhk|xwedge|xotime|forall|ForAll|Vvdash|vsupnE|preceq|bigcap|frac12|frac13|frac14|primes|rarrfs|prnsim|frac15|Square|frac16|square|lesdot|frac18|frac23|propto|prurel|rarrap|rangle|puncsp|frac25|Racute|qprime|racute|lesges|frac34|abreve|AElig|eqsim|utdot|setmn|urtri|Equal|Uring|seArr|uring|searr|dashv|Dashv|mumap|nabla|iogon|Iogon|sdote|sdotb|scsim|napid|napos|equiv|natur|Acirc|dblac|erarr|nbump|iprod|erDot|ucirc|awint|esdot|angrt|ncong|isinE|scnap|Scirc|scirc|ndash|isins|Ubrcy|nearr|neArr|isinv|nedot|ubrcy|acute|Ycirc|iukcy|Iukcy|xutri|nesim|caret|jcirc|Jcirc|caron|twixt|ddarr|sccue|exist|jmath|sbquo|ngeqq|angst|ccaps|lceil|ngsim|UpTee|delta|Delta|rtrif|nharr|nhArr|nhpar|rtrie|jukcy|Jukcy|kappa|rsquo|Kappa|nlarr|nlArr|TSHcy|rrarr|aogon|Aogon|fflig|xrarr|tshcy|ccirc|nleqq|filig|upsih|nless|dharl|nlsim|fjlig|ropar|nltri|dharr|robrk|roarr|fllig|fltns|roang|rnmid|subnE|subne|lAarr|trisb|Ccirc|acirc|ccups|blank|VDash|forkv|Vdash|langd|cedil|blk12|blk14|laquo|strns|diams|notin|vDash|larrb|blk34|block|disin|uplus|vdash|vBarv|aelig|starf|Wedge|check|xrArr|lates|lbarr|lBarr|notni|lbbrk|bcong|frasl|lbrke|frown|vrtri|vprop|vnsup|gamma|Gamma|wedge|xodot|bdquo|srarr|doteq|ldquo|boxdl|boxdL|gcirc|Gcirc|boxDl|boxDL|boxdr|boxdR|boxDr|TRADE|trade|rlhar|boxDR|vnsub|npart|vltri|rlarr|boxhd|boxhD|nprec|gescc|nrarr|nrArr|boxHd|boxHD|boxhu|boxhU|nrtri|boxHu|clubs|boxHU|times|colon|Colon|gimel|xlArr|Tilde|nsime|tilde|nsmid|nspar|THORN|thorn|xlarr|nsube|nsubE|thkap|xhArr|comma|nsucc|boxul|boxuL|nsupe|nsupE|gneqq|gnsim|boxUl|boxUL|grave|boxur|boxuR|boxUr|boxUR|lescc|angle|bepsi|boxvh|varpi|boxvH|numsp|Theta|gsime|gsiml|theta|boxVh|boxVH|boxvl|gtcir|gtdot|boxvL|boxVl|boxVL|crarr|cross|Cross|nvsim|boxvr|nwarr|nwArr|sqsup|dtdot|Uogon|lhard|lharu|dtrif|ocirc|Ocirc|lhblk|duarr|odash|sqsub|Hacek|sqcup|llarr|duhar|oelig|OElig|ofcir|boxvR|uogon|lltri|boxVr|csube|uuarr|ohbar|csupe|ctdot|olarr|olcir|harrw|oline|sqcap|omacr|Omacr|omega|Omega|boxVR|aleph|lneqq|lnsim|loang|loarr|rharu|lobrk|hcirc|operp|oplus|rhard|Hcirc|orarr|Union|order|ecirc|Ecirc|cuepr|szlig|cuesc|breve|reals|eDDot|Breve|hoarr|lopar|utrif|rdquo|Umacr|umacr|efDot|swArr|ultri|alpha|rceil|ovbar|swarr|Wcirc|wcirc|smtes|smile|bsemi|lrarr|aring|parsl|lrhar|bsime|uhblk|lrtri|cupor|Aring|uharr|uharl|slarr|rbrke|bsolb|lsime|rbbrk|RBarr|lsimg|phone|rBarr|rbarr|icirc|lsquo|Icirc|emacr|Emacr|ratio|simne|plusb|simlE|simgE|simeq|pluse|ltcir|ltdot|empty|xharr|xdtri|iexcl|Alpha|ltrie|rarrw|pound|ltrif|xcirc|bumpe|prcue|bumpE|asymp|amacr|cuvee|Sigma|sigma|iiint|udhar|iiota|ijlig|IJlig|supnE|imacr|Imacr|prime|Prime|image|prnap|eogon|Eogon|rarrc|mdash|mDDot|cuwed|imath|supne|imped|Amacr|udarr|prsim|micro|rarrb|cwint|raquo|infin|eplus|range|rangd|Ucirc|radic|minus|amalg|veeeq|rAarr|epsiv|ycirc|quest|sharp|quot|zwnj|Qscr|race|qscr|Qopf|qopf|qint|rang|Rang|Zscr|zscr|Zopf|zopf|rarr|rArr|Rarr|Pscr|pscr|prop|prod|prnE|prec|ZHcy|zhcy|prap|Zeta|zeta|Popf|popf|Zdot|plus|zdot|Yuml|yuml|phiv|YUcy|yucy|Yscr|yscr|perp|Yopf|yopf|part|para|YIcy|Ouml|rcub|yicy|YAcy|rdca|ouml|osol|Oscr|rdsh|yacy|real|oscr|xvee|andd|rect|andv|Xscr|oror|ordm|ordf|xscr|ange|aopf|Aopf|rHar|Xopf|opar|Oopf|xopf|xnis|rhov|oopf|omid|xmap|oint|apid|apos|ogon|ascr|Ascr|odot|odiv|xcup|xcap|ocir|oast|nvlt|nvle|nvgt|nvge|nvap|Wscr|wscr|auml|ntlg|ntgl|nsup|nsub|nsim|Nscr|nscr|nsce|Wopf|ring|npre|wopf|npar|Auml|Barv|bbrk|Nopf|nopf|nmid|nLtv|beta|ropf|Ropf|Beta|beth|nles|rpar|nleq|bnot|bNot|nldr|NJcy|rscr|Rscr|Vscr|vscr|rsqb|njcy|bopf|nisd|Bopf|rtri|Vopf|nGtv|ngtr|vopf|boxh|boxH|boxv|nges|ngeq|boxV|bscr|scap|Bscr|bsim|Vert|vert|bsol|bull|bump|caps|cdot|ncup|scnE|ncap|nbsp|napE|Cdot|cent|sdot|Vbar|nang|vBar|chcy|Mscr|mscr|sect|semi|CHcy|Mopf|mopf|sext|circ|cire|mldr|mlcp|cirE|comp|shcy|SHcy|vArr|varr|cong|copf|Copf|copy|COPY|malt|male|macr|lvnE|cscr|ltri|sime|ltcc|simg|Cscr|siml|csub|Uuml|lsqb|lsim|uuml|csup|Lscr|lscr|utri|smid|lpar|cups|smte|lozf|darr|Lopf|Uscr|solb|lopf|sopf|Sopf|lneq|uscr|spar|dArr|lnap|Darr|dash|Sqrt|LJcy|ljcy|lHar|dHar|Upsi|upsi|diam|lesg|djcy|DJcy|leqq|dopf|Dopf|dscr|Dscr|dscy|ldsh|ldca|squf|DScy|sscr|Sscr|dsol|lcub|late|star|Star|Uopf|Larr|lArr|larr|uopf|dtri|dzcy|sube|subE|Lang|lang|Kscr|kscr|Kopf|kopf|KJcy|kjcy|KHcy|khcy|DZcy|ecir|edot|eDot|Jscr|jscr|succ|Jopf|jopf|Edot|uHar|emsp|ensp|Iuml|iuml|eopf|isin|Iscr|iscr|Eopf|epar|sung|epsi|escr|sup1|sup2|sup3|Iota|iota|supe|supE|Iopf|iopf|IOcy|iocy|Escr|esim|Esim|imof|Uarr|QUOT|uArr|uarr|euml|IEcy|iecy|Idot|Euml|euro|excl|Hscr|hscr|Hopf|hopf|TScy|tscy|Tscr|hbar|tscr|flat|tbrk|fnof|hArr|harr|half|fopf|Fopf|tdot|gvnE|fork|trie|gtcc|fscr|Fscr|gdot|gsim|Gscr|gscr|Gopf|gopf|gneq|Gdot|tosa|gnap|Topf|topf|geqq|toea|GJcy|gjcy|tint|gesl|mid|Sfr|ggg|top|ges|gla|glE|glj|geq|gne|gEl|gel|gnE|Gcy|gcy|gap|Tfr|tfr|Tcy|tcy|Hat|Tau|Ffr|tau|Tab|hfr|Hfr|ffr|Fcy|fcy|icy|Icy|iff|ETH|eth|ifr|Ifr|Eta|eta|int|Int|Sup|sup|ucy|Ucy|Sum|sum|jcy|ENG|ufr|Ufr|eng|Jcy|jfr|els|ell|egs|Efr|efr|Jfr|uml|kcy|Kcy|Ecy|ecy|kfr|Kfr|lap|Sub|sub|lat|lcy|Lcy|leg|Dot|dot|lEg|leq|les|squ|div|die|lfr|Lfr|lgE|Dfr|dfr|Del|deg|Dcy|dcy|lne|lnE|sol|loz|smt|Cup|lrm|cup|lsh|Lsh|sim|shy|map|Map|mcy|Mcy|mfr|Mfr|mho|gfr|Gfr|sfr|cir|Chi|chi|nap|Cfr|vcy|Vcy|cfr|Scy|scy|ncy|Ncy|vee|Vee|Cap|cap|nfr|scE|sce|Nfr|nge|ngE|nGg|vfr|Vfr|ngt|bot|nGt|nis|niv|Rsh|rsh|nle|nlE|bne|Bfr|bfr|nLl|nlt|nLt|Bcy|bcy|not|Not|rlm|wfr|Wfr|npr|nsc|num|ocy|ast|Ocy|ofr|xfr|Xfr|Ofr|ogt|ohm|apE|olt|Rho|ape|rho|Rfr|rfr|ord|REG|ang|reg|orv|And|and|AMP|Rcy|amp|Afr|ycy|Ycy|yen|yfr|Yfr|rcy|par|pcy|Pcy|pfr|Pfr|phi|Phi|afr|Acy|acy|zcy|Zcy|piv|acE|acd|zfr|Zfr|pre|prE|psi|Psi|qfr|Qfr|zwj|Or|ge|Gg|gt|gg|el|oS|lt|Lt|LT|Re|lg|gl|eg|ne|Im|it|le|DD|wp|wr|nu|Nu|dd|lE|Sc|sc|pi|Pi|ee|af|ll|Ll|rx|gE|xi|pm|Xi|ic|pr|Pr|in|ni|mp|mu|ac|Mu|or|ap|Gt|GT|ii);|&(Aacute|Agrave|Atilde|Ccedil|Eacute|Egrave|Iacute|Igrave|Ntilde|Oacute|Ograve|Oslash|Otilde|Uacute|Ugrave|Yacute|aacute|agrave|atilde|brvbar|ccedil|curren|divide|eacute|egrave|frac12|frac14|frac34|iacute|igrave|iquest|middot|ntilde|oacute|ograve|oslash|otilde|plusmn|uacute|ugrave|yacute|AElig|Acirc|Aring|Ecirc|Icirc|Ocirc|THORN|Ucirc|acirc|acute|aelig|aring|cedil|ecirc|icirc|iexcl|laquo|micro|ocirc|pound|raquo|szlig|thorn|times|ucirc|Auml|COPY|Euml|Iuml|Ouml|QUOT|Uuml|auml|cent|copy|euml|iuml|macr|nbsp|ordf|ordm|ouml|para|quot|sect|sup1|sup2|sup3|uuml|yuml|AMP|ETH|REG|amp|deg|eth|not|reg|shy|uml|yen|GT|LT|gt|lt)(?!;)([=a-zA-Z0-9]?)|&#([0-9]+)(;?)|&#[xX]([a-fA-F0-9]+)(;?)|&([0-9a-zA-Z]+)/g,
+        g = {
+          aacute: `á`,
+          Aacute: `Á`,
+          abreve: `ă`,
+          Abreve: `Ă`,
+          ac: `∾`,
+          acd: `∿`,
+          acE: `∾̳`,
+          acirc: `â`,
+          Acirc: `Â`,
+          acute: `´`,
+          acy: `а`,
+          Acy: `А`,
+          aelig: `æ`,
+          AElig: `Æ`,
+          af: `⁡`,
+          afr: `𝔞`,
+          Afr: `𝔄`,
+          agrave: `à`,
+          Agrave: `À`,
+          alefsym: `ℵ`,
+          aleph: `ℵ`,
+          alpha: `α`,
+          Alpha: `Α`,
+          amacr: `ā`,
+          Amacr: `Ā`,
+          amalg: `⨿`,
+          amp: `&`,
+          AMP: `&`,
+          and: `∧`,
+          And: `⩓`,
+          andand: `⩕`,
+          andd: `⩜`,
+          andslope: `⩘`,
+          andv: `⩚`,
+          ang: `∠`,
+          ange: `⦤`,
+          angle: `∠`,
+          angmsd: `∡`,
+          angmsdaa: `⦨`,
+          angmsdab: `⦩`,
+          angmsdac: `⦪`,
+          angmsdad: `⦫`,
+          angmsdae: `⦬`,
+          angmsdaf: `⦭`,
+          angmsdag: `⦮`,
+          angmsdah: `⦯`,
+          angrt: `∟`,
+          angrtvb: `⊾`,
+          angrtvbd: `⦝`,
+          angsph: `∢`,
+          angst: `Å`,
+          angzarr: `⍼`,
+          aogon: `ą`,
+          Aogon: `Ą`,
+          aopf: `𝕒`,
+          Aopf: `𝔸`,
+          ap: `≈`,
+          apacir: `⩯`,
+          ape: `≊`,
+          apE: `⩰`,
+          apid: `≋`,
+          apos: `'`,
+          ApplyFunction: `⁡`,
+          approx: `≈`,
+          approxeq: `≊`,
+          aring: `å`,
+          Aring: `Å`,
+          ascr: `𝒶`,
+          Ascr: `𝒜`,
+          Assign: `≔`,
+          ast: `*`,
+          asymp: `≈`,
+          asympeq: `≍`,
+          atilde: `ã`,
+          Atilde: `Ã`,
+          auml: `ä`,
+          Auml: `Ä`,
+          awconint: `∳`,
+          awint: `⨑`,
+          backcong: `≌`,
+          backepsilon: `϶`,
+          backprime: `‵`,
+          backsim: `∽`,
+          backsimeq: `⋍`,
+          Backslash: `∖`,
+          Barv: `⫧`,
+          barvee: `⊽`,
+          barwed: `⌅`,
+          Barwed: `⌆`,
+          barwedge: `⌅`,
+          bbrk: `⎵`,
+          bbrktbrk: `⎶`,
+          bcong: `≌`,
+          bcy: `б`,
+          Bcy: `Б`,
+          bdquo: `„`,
+          becaus: `∵`,
+          because: `∵`,
+          Because: `∵`,
+          bemptyv: `⦰`,
+          bepsi: `϶`,
+          bernou: `ℬ`,
+          Bernoullis: `ℬ`,
+          beta: `β`,
+          Beta: `Β`,
+          beth: `ℶ`,
+          between: `≬`,
+          bfr: `𝔟`,
+          Bfr: `𝔅`,
+          bigcap: `⋂`,
+          bigcirc: `◯`,
+          bigcup: `⋃`,
+          bigodot: `⨀`,
+          bigoplus: `⨁`,
+          bigotimes: `⨂`,
+          bigsqcup: `⨆`,
+          bigstar: `★`,
+          bigtriangledown: `▽`,
+          bigtriangleup: `△`,
+          biguplus: `⨄`,
+          bigvee: `⋁`,
+          bigwedge: `⋀`,
+          bkarow: `⤍`,
+          blacklozenge: `⧫`,
+          blacksquare: `▪`,
+          blacktriangle: `▴`,
+          blacktriangledown: `▾`,
+          blacktriangleleft: `◂`,
+          blacktriangleright: `▸`,
+          blank: `␣`,
+          blk12: `▒`,
+          blk14: `░`,
+          blk34: `▓`,
+          block: `█`,
+          bne: `=⃥`,
+          bnequiv: `≡⃥`,
+          bnot: `⌐`,
+          bNot: `⫭`,
+          bopf: `𝕓`,
+          Bopf: `𝔹`,
+          bot: `⊥`,
+          bottom: `⊥`,
+          bowtie: `⋈`,
+          boxbox: `⧉`,
+          boxdl: `┐`,
+          boxdL: `╕`,
+          boxDl: `╖`,
+          boxDL: `╗`,
+          boxdr: `┌`,
+          boxdR: `╒`,
+          boxDr: `╓`,
+          boxDR: `╔`,
+          boxh: `─`,
+          boxH: `═`,
+          boxhd: `┬`,
+          boxhD: `╥`,
+          boxHd: `╤`,
+          boxHD: `╦`,
+          boxhu: `┴`,
+          boxhU: `╨`,
+          boxHu: `╧`,
+          boxHU: `╩`,
+          boxminus: `⊟`,
+          boxplus: `⊞`,
+          boxtimes: `⊠`,
+          boxul: `┘`,
+          boxuL: `╛`,
+          boxUl: `╜`,
+          boxUL: `╝`,
+          boxur: `└`,
+          boxuR: `╘`,
+          boxUr: `╙`,
+          boxUR: `╚`,
+          boxv: `│`,
+          boxV: `║`,
+          boxvh: `┼`,
+          boxvH: `╪`,
+          boxVh: `╫`,
+          boxVH: `╬`,
+          boxvl: `┤`,
+          boxvL: `╡`,
+          boxVl: `╢`,
+          boxVL: `╣`,
+          boxvr: `├`,
+          boxvR: `╞`,
+          boxVr: `╟`,
+          boxVR: `╠`,
+          bprime: `‵`,
+          breve: `˘`,
+          Breve: `˘`,
+          brvbar: `¦`,
+          bscr: `𝒷`,
+          Bscr: `ℬ`,
+          bsemi: `⁏`,
+          bsim: `∽`,
+          bsime: `⋍`,
+          bsol: `\\`,
+          bsolb: `⧅`,
+          bsolhsub: `⟈`,
+          bull: `•`,
+          bullet: `•`,
+          bump: `≎`,
+          bumpe: `≏`,
+          bumpE: `⪮`,
+          bumpeq: `≏`,
+          Bumpeq: `≎`,
+          cacute: `ć`,
+          Cacute: `Ć`,
+          cap: `∩`,
+          Cap: `⋒`,
+          capand: `⩄`,
+          capbrcup: `⩉`,
+          capcap: `⩋`,
+          capcup: `⩇`,
+          capdot: `⩀`,
+          CapitalDifferentialD: `ⅅ`,
+          caps: `∩︀`,
+          caret: `⁁`,
+          caron: `ˇ`,
+          Cayleys: `ℭ`,
+          ccaps: `⩍`,
+          ccaron: `č`,
+          Ccaron: `Č`,
+          ccedil: `ç`,
+          Ccedil: `Ç`,
+          ccirc: `ĉ`,
+          Ccirc: `Ĉ`,
+          Cconint: `∰`,
+          ccups: `⩌`,
+          ccupssm: `⩐`,
+          cdot: `ċ`,
+          Cdot: `Ċ`,
+          cedil: `¸`,
+          Cedilla: `¸`,
+          cemptyv: `⦲`,
+          cent: `¢`,
+          centerdot: `·`,
+          CenterDot: `·`,
+          cfr: `𝔠`,
+          Cfr: `ℭ`,
+          chcy: `ч`,
+          CHcy: `Ч`,
+          check: `✓`,
+          checkmark: `✓`,
+          chi: `χ`,
+          Chi: `Χ`,
+          cir: `○`,
+          circ: `ˆ`,
+          circeq: `≗`,
+          circlearrowleft: `↺`,
+          circlearrowright: `↻`,
+          circledast: `⊛`,
+          circledcirc: `⊚`,
+          circleddash: `⊝`,
+          CircleDot: `⊙`,
+          circledR: `®`,
+          circledS: `Ⓢ`,
+          CircleMinus: `⊖`,
+          CirclePlus: `⊕`,
+          CircleTimes: `⊗`,
+          cire: `≗`,
+          cirE: `⧃`,
+          cirfnint: `⨐`,
+          cirmid: `⫯`,
+          cirscir: `⧂`,
+          ClockwiseContourIntegral: `∲`,
+          CloseCurlyDoubleQuote: `”`,
+          CloseCurlyQuote: `’`,
+          clubs: `♣`,
+          clubsuit: `♣`,
+          colon: `:`,
+          Colon: `∷`,
+          colone: `≔`,
+          Colone: `⩴`,
+          coloneq: `≔`,
+          comma: `,`,
+          commat: `@`,
+          comp: `∁`,
+          compfn: `∘`,
+          complement: `∁`,
+          complexes: `ℂ`,
+          cong: `≅`,
+          congdot: `⩭`,
+          Congruent: `≡`,
+          conint: `∮`,
+          Conint: `∯`,
+          ContourIntegral: `∮`,
+          copf: `𝕔`,
+          Copf: `ℂ`,
+          coprod: `∐`,
+          Coproduct: `∐`,
+          copy: `©`,
+          COPY: `©`,
+          copysr: `℗`,
+          CounterClockwiseContourIntegral: `∳`,
+          crarr: `↵`,
+          cross: `✗`,
+          Cross: `⨯`,
+          cscr: `𝒸`,
+          Cscr: `𝒞`,
+          csub: `⫏`,
+          csube: `⫑`,
+          csup: `⫐`,
+          csupe: `⫒`,
+          ctdot: `⋯`,
+          cudarrl: `⤸`,
+          cudarrr: `⤵`,
+          cuepr: `⋞`,
+          cuesc: `⋟`,
+          cularr: `↶`,
+          cularrp: `⤽`,
+          cup: `∪`,
+          Cup: `⋓`,
+          cupbrcap: `⩈`,
+          cupcap: `⩆`,
+          CupCap: `≍`,
+          cupcup: `⩊`,
+          cupdot: `⊍`,
+          cupor: `⩅`,
+          cups: `∪︀`,
+          curarr: `↷`,
+          curarrm: `⤼`,
+          curlyeqprec: `⋞`,
+          curlyeqsucc: `⋟`,
+          curlyvee: `⋎`,
+          curlywedge: `⋏`,
+          curren: `¤`,
+          curvearrowleft: `↶`,
+          curvearrowright: `↷`,
+          cuvee: `⋎`,
+          cuwed: `⋏`,
+          cwconint: `∲`,
+          cwint: `∱`,
+          cylcty: `⌭`,
+          dagger: `†`,
+          Dagger: `‡`,
+          daleth: `ℸ`,
+          darr: `↓`,
+          dArr: `⇓`,
+          Darr: `↡`,
+          dash: `‐`,
+          dashv: `⊣`,
+          Dashv: `⫤`,
+          dbkarow: `⤏`,
+          dblac: `˝`,
+          dcaron: `ď`,
+          Dcaron: `Ď`,
+          dcy: `д`,
+          Dcy: `Д`,
+          dd: `ⅆ`,
+          DD: `ⅅ`,
+          ddagger: `‡`,
+          ddarr: `⇊`,
+          DDotrahd: `⤑`,
+          ddotseq: `⩷`,
+          deg: `°`,
+          Del: `∇`,
+          delta: `δ`,
+          Delta: `Δ`,
+          demptyv: `⦱`,
+          dfisht: `⥿`,
+          dfr: `𝔡`,
+          Dfr: `𝔇`,
+          dHar: `⥥`,
+          dharl: `⇃`,
+          dharr: `⇂`,
+          DiacriticalAcute: `´`,
+          DiacriticalDot: `˙`,
+          DiacriticalDoubleAcute: `˝`,
+          DiacriticalGrave: "`",
+          DiacriticalTilde: `˜`,
+          diam: `⋄`,
+          diamond: `⋄`,
+          Diamond: `⋄`,
+          diamondsuit: `♦`,
+          diams: `♦`,
+          die: `¨`,
+          DifferentialD: `ⅆ`,
+          digamma: `ϝ`,
+          disin: `⋲`,
+          div: `÷`,
+          divide: `÷`,
+          divideontimes: `⋇`,
+          divonx: `⋇`,
+          djcy: `ђ`,
+          DJcy: `Ђ`,
+          dlcorn: `⌞`,
+          dlcrop: `⌍`,
+          dollar: `$`,
+          dopf: `𝕕`,
+          Dopf: `𝔻`,
+          dot: `˙`,
+          Dot: `¨`,
+          DotDot: `⃜`,
+          doteq: `≐`,
+          doteqdot: `≑`,
+          DotEqual: `≐`,
+          dotminus: `∸`,
+          dotplus: `∔`,
+          dotsquare: `⊡`,
+          doublebarwedge: `⌆`,
+          DoubleContourIntegral: `∯`,
+          DoubleDot: `¨`,
+          DoubleDownArrow: `⇓`,
+          DoubleLeftArrow: `⇐`,
+          DoubleLeftRightArrow: `⇔`,
+          DoubleLeftTee: `⫤`,
+          DoubleLongLeftArrow: `⟸`,
+          DoubleLongLeftRightArrow: `⟺`,
+          DoubleLongRightArrow: `⟹`,
+          DoubleRightArrow: `⇒`,
+          DoubleRightTee: `⊨`,
+          DoubleUpArrow: `⇑`,
+          DoubleUpDownArrow: `⇕`,
+          DoubleVerticalBar: `∥`,
+          downarrow: `↓`,
+          Downarrow: `⇓`,
+          DownArrow: `↓`,
+          DownArrowBar: `⤓`,
+          DownArrowUpArrow: `⇵`,
+          DownBreve: `̑`,
+          downdownarrows: `⇊`,
+          downharpoonleft: `⇃`,
+          downharpoonright: `⇂`,
+          DownLeftRightVector: `⥐`,
+          DownLeftTeeVector: `⥞`,
+          DownLeftVector: `↽`,
+          DownLeftVectorBar: `⥖`,
+          DownRightTeeVector: `⥟`,
+          DownRightVector: `⇁`,
+          DownRightVectorBar: `⥗`,
+          DownTee: `⊤`,
+          DownTeeArrow: `↧`,
+          drbkarow: `⤐`,
+          drcorn: `⌟`,
+          drcrop: `⌌`,
+          dscr: `𝒹`,
+          Dscr: `𝒟`,
+          dscy: `ѕ`,
+          DScy: `Ѕ`,
+          dsol: `⧶`,
+          dstrok: `đ`,
+          Dstrok: `Đ`,
+          dtdot: `⋱`,
+          dtri: `▿`,
+          dtrif: `▾`,
+          duarr: `⇵`,
+          duhar: `⥯`,
+          dwangle: `⦦`,
+          dzcy: `џ`,
+          DZcy: `Џ`,
+          dzigrarr: `⟿`,
+          eacute: `é`,
+          Eacute: `É`,
+          easter: `⩮`,
+          ecaron: `ě`,
+          Ecaron: `Ě`,
+          ecir: `≖`,
+          ecirc: `ê`,
+          Ecirc: `Ê`,
+          ecolon: `≕`,
+          ecy: `э`,
+          Ecy: `Э`,
+          eDDot: `⩷`,
+          edot: `ė`,
+          eDot: `≑`,
+          Edot: `Ė`,
+          ee: `ⅇ`,
+          efDot: `≒`,
+          efr: `𝔢`,
+          Efr: `𝔈`,
+          eg: `⪚`,
+          egrave: `è`,
+          Egrave: `È`,
+          egs: `⪖`,
+          egsdot: `⪘`,
+          el: `⪙`,
+          Element: `∈`,
+          elinters: `⏧`,
+          ell: `ℓ`,
+          els: `⪕`,
+          elsdot: `⪗`,
+          emacr: `ē`,
+          Emacr: `Ē`,
+          empty: `∅`,
+          emptyset: `∅`,
+          EmptySmallSquare: `◻`,
+          emptyv: `∅`,
+          EmptyVerySmallSquare: `▫`,
+          emsp: ` `,
+          emsp13: ` `,
+          emsp14: ` `,
+          eng: `ŋ`,
+          ENG: `Ŋ`,
+          ensp: ` `,
+          eogon: `ę`,
+          Eogon: `Ę`,
+          eopf: `𝕖`,
+          Eopf: `𝔼`,
+          epar: `⋕`,
+          eparsl: `⧣`,
+          eplus: `⩱`,
+          epsi: `ε`,
+          epsilon: `ε`,
+          Epsilon: `Ε`,
+          epsiv: `ϵ`,
+          eqcirc: `≖`,
+          eqcolon: `≕`,
+          eqsim: `≂`,
+          eqslantgtr: `⪖`,
+          eqslantless: `⪕`,
+          Equal: `⩵`,
+          equals: `=`,
+          EqualTilde: `≂`,
+          equest: `≟`,
+          Equilibrium: `⇌`,
+          equiv: `≡`,
+          equivDD: `⩸`,
+          eqvparsl: `⧥`,
+          erarr: `⥱`,
+          erDot: `≓`,
+          escr: `ℯ`,
+          Escr: `ℰ`,
+          esdot: `≐`,
+          esim: `≂`,
+          Esim: `⩳`,
+          eta: `η`,
+          Eta: `Η`,
+          eth: `ð`,
+          ETH: `Ð`,
+          euml: `ë`,
+          Euml: `Ë`,
+          euro: `€`,
+          excl: `!`,
+          exist: `∃`,
+          Exists: `∃`,
+          expectation: `ℰ`,
+          exponentiale: `ⅇ`,
+          ExponentialE: `ⅇ`,
+          fallingdotseq: `≒`,
+          fcy: `ф`,
+          Fcy: `Ф`,
+          female: `♀`,
+          ffilig: `ﬃ`,
+          fflig: `ﬀ`,
+          ffllig: `ﬄ`,
+          ffr: `𝔣`,
+          Ffr: `𝔉`,
+          filig: `ﬁ`,
+          FilledSmallSquare: `◼`,
+          FilledVerySmallSquare: `▪`,
+          fjlig: `fj`,
+          flat: `♭`,
+          fllig: `ﬂ`,
+          fltns: `▱`,
+          fnof: `ƒ`,
+          fopf: `𝕗`,
+          Fopf: `𝔽`,
+          forall: `∀`,
+          ForAll: `∀`,
+          fork: `⋔`,
+          forkv: `⫙`,
+          Fouriertrf: `ℱ`,
+          fpartint: `⨍`,
+          frac12: `½`,
+          frac13: `⅓`,
+          frac14: `¼`,
+          frac15: `⅕`,
+          frac16: `⅙`,
+          frac18: `⅛`,
+          frac23: `⅔`,
+          frac25: `⅖`,
+          frac34: `¾`,
+          frac35: `⅗`,
+          frac38: `⅜`,
+          frac45: `⅘`,
+          frac56: `⅚`,
+          frac58: `⅝`,
+          frac78: `⅞`,
+          frasl: `⁄`,
+          frown: `⌢`,
+          fscr: `𝒻`,
+          Fscr: `ℱ`,
+          gacute: `ǵ`,
+          gamma: `γ`,
+          Gamma: `Γ`,
+          gammad: `ϝ`,
+          Gammad: `Ϝ`,
+          gap: `⪆`,
+          gbreve: `ğ`,
+          Gbreve: `Ğ`,
+          Gcedil: `Ģ`,
+          gcirc: `ĝ`,
+          Gcirc: `Ĝ`,
+          gcy: `г`,
+          Gcy: `Г`,
+          gdot: `ġ`,
+          Gdot: `Ġ`,
+          ge: `≥`,
+          gE: `≧`,
+          gel: `⋛`,
+          gEl: `⪌`,
+          geq: `≥`,
+          geqq: `≧`,
+          geqslant: `⩾`,
+          ges: `⩾`,
+          gescc: `⪩`,
+          gesdot: `⪀`,
+          gesdoto: `⪂`,
+          gesdotol: `⪄`,
+          gesl: `⋛︀`,
+          gesles: `⪔`,
+          gfr: `𝔤`,
+          Gfr: `𝔊`,
+          gg: `≫`,
+          Gg: `⋙`,
+          ggg: `⋙`,
+          gimel: `ℷ`,
+          gjcy: `ѓ`,
+          GJcy: `Ѓ`,
+          gl: `≷`,
+          gla: `⪥`,
+          glE: `⪒`,
+          glj: `⪤`,
+          gnap: `⪊`,
+          gnapprox: `⪊`,
+          gne: `⪈`,
+          gnE: `≩`,
+          gneq: `⪈`,
+          gneqq: `≩`,
+          gnsim: `⋧`,
+          gopf: `𝕘`,
+          Gopf: `𝔾`,
+          grave: "`",
+          GreaterEqual: `≥`,
+          GreaterEqualLess: `⋛`,
+          GreaterFullEqual: `≧`,
+          GreaterGreater: `⪢`,
+          GreaterLess: `≷`,
+          GreaterSlantEqual: `⩾`,
+          GreaterTilde: `≳`,
+          gscr: `ℊ`,
+          Gscr: `𝒢`,
+          gsim: `≳`,
+          gsime: `⪎`,
+          gsiml: `⪐`,
+          gt: `>`,
+          Gt: `≫`,
+          GT: `>`,
+          gtcc: `⪧`,
+          gtcir: `⩺`,
+          gtdot: `⋗`,
+          gtlPar: `⦕`,
+          gtquest: `⩼`,
+          gtrapprox: `⪆`,
+          gtrarr: `⥸`,
+          gtrdot: `⋗`,
+          gtreqless: `⋛`,
+          gtreqqless: `⪌`,
+          gtrless: `≷`,
+          gtrsim: `≳`,
+          gvertneqq: `≩︀`,
+          gvnE: `≩︀`,
+          Hacek: `ˇ`,
+          hairsp: ` `,
+          half: `½`,
+          hamilt: `ℋ`,
+          hardcy: `ъ`,
+          HARDcy: `Ъ`,
+          harr: `↔`,
+          hArr: `⇔`,
+          harrcir: `⥈`,
+          harrw: `↭`,
+          Hat: `^`,
+          hbar: `ℏ`,
+          hcirc: `ĥ`,
+          Hcirc: `Ĥ`,
+          hearts: `♥`,
+          heartsuit: `♥`,
+          hellip: `…`,
+          hercon: `⊹`,
+          hfr: `𝔥`,
+          Hfr: `ℌ`,
+          HilbertSpace: `ℋ`,
+          hksearow: `⤥`,
+          hkswarow: `⤦`,
+          hoarr: `⇿`,
+          homtht: `∻`,
+          hookleftarrow: `↩`,
+          hookrightarrow: `↪`,
+          hopf: `𝕙`,
+          Hopf: `ℍ`,
+          horbar: `―`,
+          HorizontalLine: `─`,
+          hscr: `𝒽`,
+          Hscr: `ℋ`,
+          hslash: `ℏ`,
+          hstrok: `ħ`,
+          Hstrok: `Ħ`,
+          HumpDownHump: `≎`,
+          HumpEqual: `≏`,
+          hybull: `⁃`,
+          hyphen: `‐`,
+          iacute: `í`,
+          Iacute: `Í`,
+          ic: `⁣`,
+          icirc: `î`,
+          Icirc: `Î`,
+          icy: `и`,
+          Icy: `И`,
+          Idot: `İ`,
+          iecy: `е`,
+          IEcy: `Е`,
+          iexcl: `¡`,
+          iff: `⇔`,
+          ifr: `𝔦`,
+          Ifr: `ℑ`,
+          igrave: `ì`,
+          Igrave: `Ì`,
+          ii: `ⅈ`,
+          iiiint: `⨌`,
+          iiint: `∭`,
+          iinfin: `⧜`,
+          iiota: `℩`,
+          ijlig: `ĳ`,
+          IJlig: `Ĳ`,
+          Im: `ℑ`,
+          imacr: `ī`,
+          Imacr: `Ī`,
+          image: `ℑ`,
+          ImaginaryI: `ⅈ`,
+          imagline: `ℐ`,
+          imagpart: `ℑ`,
+          imath: `ı`,
+          imof: `⊷`,
+          imped: `Ƶ`,
+          Implies: `⇒`,
+          in: `∈`,
+          incare: `℅`,
+          infin: `∞`,
+          infintie: `⧝`,
+          inodot: `ı`,
+          int: `∫`,
+          Int: `∬`,
+          intcal: `⊺`,
+          integers: `ℤ`,
+          Integral: `∫`,
+          intercal: `⊺`,
+          Intersection: `⋂`,
+          intlarhk: `⨗`,
+          intprod: `⨼`,
+          InvisibleComma: `⁣`,
+          InvisibleTimes: `⁢`,
+          iocy: `ё`,
+          IOcy: `Ё`,
+          iogon: `į`,
+          Iogon: `Į`,
+          iopf: `𝕚`,
+          Iopf: `𝕀`,
+          iota: `ι`,
+          Iota: `Ι`,
+          iprod: `⨼`,
+          iquest: `¿`,
+          iscr: `𝒾`,
+          Iscr: `ℐ`,
+          isin: `∈`,
+          isindot: `⋵`,
+          isinE: `⋹`,
+          isins: `⋴`,
+          isinsv: `⋳`,
+          isinv: `∈`,
+          it: `⁢`,
+          itilde: `ĩ`,
+          Itilde: `Ĩ`,
+          iukcy: `і`,
+          Iukcy: `І`,
+          iuml: `ï`,
+          Iuml: `Ï`,
+          jcirc: `ĵ`,
+          Jcirc: `Ĵ`,
+          jcy: `й`,
+          Jcy: `Й`,
+          jfr: `𝔧`,
+          Jfr: `𝔍`,
+          jmath: `ȷ`,
+          jopf: `𝕛`,
+          Jopf: `𝕁`,
+          jscr: `𝒿`,
+          Jscr: `𝒥`,
+          jsercy: `ј`,
+          Jsercy: `Ј`,
+          jukcy: `є`,
+          Jukcy: `Є`,
+          kappa: `κ`,
+          Kappa: `Κ`,
+          kappav: `ϰ`,
+          kcedil: `ķ`,
+          Kcedil: `Ķ`,
+          kcy: `к`,
+          Kcy: `К`,
+          kfr: `𝔨`,
+          Kfr: `𝔎`,
+          kgreen: `ĸ`,
+          khcy: `х`,
+          KHcy: `Х`,
+          kjcy: `ќ`,
+          KJcy: `Ќ`,
+          kopf: `𝕜`,
+          Kopf: `𝕂`,
+          kscr: `𝓀`,
+          Kscr: `𝒦`,
+          lAarr: `⇚`,
+          lacute: `ĺ`,
+          Lacute: `Ĺ`,
+          laemptyv: `⦴`,
+          lagran: `ℒ`,
+          lambda: `λ`,
+          Lambda: `Λ`,
+          lang: `⟨`,
+          Lang: `⟪`,
+          langd: `⦑`,
+          langle: `⟨`,
+          lap: `⪅`,
+          Laplacetrf: `ℒ`,
+          laquo: `«`,
+          larr: `←`,
+          lArr: `⇐`,
+          Larr: `↞`,
+          larrb: `⇤`,
+          larrbfs: `⤟`,
+          larrfs: `⤝`,
+          larrhk: `↩`,
+          larrlp: `↫`,
+          larrpl: `⤹`,
+          larrsim: `⥳`,
+          larrtl: `↢`,
+          lat: `⪫`,
+          latail: `⤙`,
+          lAtail: `⤛`,
+          late: `⪭`,
+          lates: `⪭︀`,
+          lbarr: `⤌`,
+          lBarr: `⤎`,
+          lbbrk: `❲`,
+          lbrace: `{`,
+          lbrack: `[`,
+          lbrke: `⦋`,
+          lbrksld: `⦏`,
+          lbrkslu: `⦍`,
+          lcaron: `ľ`,
+          Lcaron: `Ľ`,
+          lcedil: `ļ`,
+          Lcedil: `Ļ`,
+          lceil: `⌈`,
+          lcub: `{`,
+          lcy: `л`,
+          Lcy: `Л`,
+          ldca: `⤶`,
+          ldquo: `“`,
+          ldquor: `„`,
+          ldrdhar: `⥧`,
+          ldrushar: `⥋`,
+          ldsh: `↲`,
+          le: `≤`,
+          lE: `≦`,
+          LeftAngleBracket: `⟨`,
+          leftarrow: `←`,
+          Leftarrow: `⇐`,
+          LeftArrow: `←`,
+          LeftArrowBar: `⇤`,
+          LeftArrowRightArrow: `⇆`,
+          leftarrowtail: `↢`,
+          LeftCeiling: `⌈`,
+          LeftDoubleBracket: `⟦`,
+          LeftDownTeeVector: `⥡`,
+          LeftDownVector: `⇃`,
+          LeftDownVectorBar: `⥙`,
+          LeftFloor: `⌊`,
+          leftharpoondown: `↽`,
+          leftharpoonup: `↼`,
+          leftleftarrows: `⇇`,
+          leftrightarrow: `↔`,
+          Leftrightarrow: `⇔`,
+          LeftRightArrow: `↔`,
+          leftrightarrows: `⇆`,
+          leftrightharpoons: `⇋`,
+          leftrightsquigarrow: `↭`,
+          LeftRightVector: `⥎`,
+          LeftTee: `⊣`,
+          LeftTeeArrow: `↤`,
+          LeftTeeVector: `⥚`,
+          leftthreetimes: `⋋`,
+          LeftTriangle: `⊲`,
+          LeftTriangleBar: `⧏`,
+          LeftTriangleEqual: `⊴`,
+          LeftUpDownVector: `⥑`,
+          LeftUpTeeVector: `⥠`,
+          LeftUpVector: `↿`,
+          LeftUpVectorBar: `⥘`,
+          LeftVector: `↼`,
+          LeftVectorBar: `⥒`,
+          leg: `⋚`,
+          lEg: `⪋`,
+          leq: `≤`,
+          leqq: `≦`,
+          leqslant: `⩽`,
+          les: `⩽`,
+          lescc: `⪨`,
+          lesdot: `⩿`,
+          lesdoto: `⪁`,
+          lesdotor: `⪃`,
+          lesg: `⋚︀`,
+          lesges: `⪓`,
+          lessapprox: `⪅`,
+          lessdot: `⋖`,
+          lesseqgtr: `⋚`,
+          lesseqqgtr: `⪋`,
+          LessEqualGreater: `⋚`,
+          LessFullEqual: `≦`,
+          LessGreater: `≶`,
+          lessgtr: `≶`,
+          LessLess: `⪡`,
+          lesssim: `≲`,
+          LessSlantEqual: `⩽`,
+          LessTilde: `≲`,
+          lfisht: `⥼`,
+          lfloor: `⌊`,
+          lfr: `𝔩`,
+          Lfr: `𝔏`,
+          lg: `≶`,
+          lgE: `⪑`,
+          lHar: `⥢`,
+          lhard: `↽`,
+          lharu: `↼`,
+          lharul: `⥪`,
+          lhblk: `▄`,
+          ljcy: `љ`,
+          LJcy: `Љ`,
+          ll: `≪`,
+          Ll: `⋘`,
+          llarr: `⇇`,
+          llcorner: `⌞`,
+          Lleftarrow: `⇚`,
+          llhard: `⥫`,
+          lltri: `◺`,
+          lmidot: `ŀ`,
+          Lmidot: `Ŀ`,
+          lmoust: `⎰`,
+          lmoustache: `⎰`,
+          lnap: `⪉`,
+          lnapprox: `⪉`,
+          lne: `⪇`,
+          lnE: `≨`,
+          lneq: `⪇`,
+          lneqq: `≨`,
+          lnsim: `⋦`,
+          loang: `⟬`,
+          loarr: `⇽`,
+          lobrk: `⟦`,
+          longleftarrow: `⟵`,
+          Longleftarrow: `⟸`,
+          LongLeftArrow: `⟵`,
+          longleftrightarrow: `⟷`,
+          Longleftrightarrow: `⟺`,
+          LongLeftRightArrow: `⟷`,
+          longmapsto: `⟼`,
+          longrightarrow: `⟶`,
+          Longrightarrow: `⟹`,
+          LongRightArrow: `⟶`,
+          looparrowleft: `↫`,
+          looparrowright: `↬`,
+          lopar: `⦅`,
+          lopf: `𝕝`,
+          Lopf: `𝕃`,
+          loplus: `⨭`,
+          lotimes: `⨴`,
+          lowast: `∗`,
+          lowbar: `_`,
+          LowerLeftArrow: `↙`,
+          LowerRightArrow: `↘`,
+          loz: `◊`,
+          lozenge: `◊`,
+          lozf: `⧫`,
+          lpar: `(`,
+          lparlt: `⦓`,
+          lrarr: `⇆`,
+          lrcorner: `⌟`,
+          lrhar: `⇋`,
+          lrhard: `⥭`,
+          lrm: `‎`,
+          lrtri: `⊿`,
+          lsaquo: `‹`,
+          lscr: `𝓁`,
+          Lscr: `ℒ`,
+          lsh: `↰`,
+          Lsh: `↰`,
+          lsim: `≲`,
+          lsime: `⪍`,
+          lsimg: `⪏`,
+          lsqb: `[`,
+          lsquo: `‘`,
+          lsquor: `‚`,
+          lstrok: `ł`,
+          Lstrok: `Ł`,
+          lt: `<`,
+          Lt: `≪`,
+          LT: `<`,
+          ltcc: `⪦`,
+          ltcir: `⩹`,
+          ltdot: `⋖`,
+          lthree: `⋋`,
+          ltimes: `⋉`,
+          ltlarr: `⥶`,
+          ltquest: `⩻`,
+          ltri: `◃`,
+          ltrie: `⊴`,
+          ltrif: `◂`,
+          ltrPar: `⦖`,
+          lurdshar: `⥊`,
+          luruhar: `⥦`,
+          lvertneqq: `≨︀`,
+          lvnE: `≨︀`,
+          macr: `¯`,
+          male: `♂`,
+          malt: `✠`,
+          maltese: `✠`,
+          map: `↦`,
+          Map: `⤅`,
+          mapsto: `↦`,
+          mapstodown: `↧`,
+          mapstoleft: `↤`,
+          mapstoup: `↥`,
+          marker: `▮`,
+          mcomma: `⨩`,
+          mcy: `м`,
+          Mcy: `М`,
+          mdash: `—`,
+          mDDot: `∺`,
+          measuredangle: `∡`,
+          MediumSpace: ` `,
+          Mellintrf: `ℳ`,
+          mfr: `𝔪`,
+          Mfr: `𝔐`,
+          mho: `℧`,
+          micro: `µ`,
+          mid: `∣`,
+          midast: `*`,
+          midcir: `⫰`,
+          middot: `·`,
+          minus: `−`,
+          minusb: `⊟`,
+          minusd: `∸`,
+          minusdu: `⨪`,
+          MinusPlus: `∓`,
+          mlcp: `⫛`,
+          mldr: `…`,
+          mnplus: `∓`,
+          models: `⊧`,
+          mopf: `𝕞`,
+          Mopf: `𝕄`,
+          mp: `∓`,
+          mscr: `𝓂`,
+          Mscr: `ℳ`,
+          mstpos: `∾`,
+          mu: `μ`,
+          Mu: `Μ`,
+          multimap: `⊸`,
+          mumap: `⊸`,
+          nabla: `∇`,
+          nacute: `ń`,
+          Nacute: `Ń`,
+          nang: `∠⃒`,
+          nap: `≉`,
+          napE: `⩰̸`,
+          napid: `≋̸`,
+          napos: `ŉ`,
+          napprox: `≉`,
+          natur: `♮`,
+          natural: `♮`,
+          naturals: `ℕ`,
+          nbsp: `\xA0`,
+          nbump: `≎̸`,
+          nbumpe: `≏̸`,
+          ncap: `⩃`,
+          ncaron: `ň`,
+          Ncaron: `Ň`,
+          ncedil: `ņ`,
+          Ncedil: `Ņ`,
+          ncong: `≇`,
+          ncongdot: `⩭̸`,
+          ncup: `⩂`,
+          ncy: `н`,
+          Ncy: `Н`,
+          ndash: `–`,
+          ne: `≠`,
+          nearhk: `⤤`,
+          nearr: `↗`,
+          neArr: `⇗`,
+          nearrow: `↗`,
+          nedot: `≐̸`,
+          NegativeMediumSpace: `​`,
+          NegativeThickSpace: `​`,
+          NegativeThinSpace: `​`,
+          NegativeVeryThinSpace: `​`,
+          nequiv: `≢`,
+          nesear: `⤨`,
+          nesim: `≂̸`,
+          NestedGreaterGreater: `≫`,
+          NestedLessLess: `≪`,
+          NewLine: `
+`,
+          nexist: `∄`,
+          nexists: `∄`,
+          nfr: `𝔫`,
+          Nfr: `𝔑`,
+          nge: `≱`,
+          ngE: `≧̸`,
+          ngeq: `≱`,
+          ngeqq: `≧̸`,
+          ngeqslant: `⩾̸`,
+          nges: `⩾̸`,
+          nGg: `⋙̸`,
+          ngsim: `≵`,
+          ngt: `≯`,
+          nGt: `≫⃒`,
+          ngtr: `≯`,
+          nGtv: `≫̸`,
+          nharr: `↮`,
+          nhArr: `⇎`,
+          nhpar: `⫲`,
+          ni: `∋`,
+          nis: `⋼`,
+          nisd: `⋺`,
+          niv: `∋`,
+          njcy: `њ`,
+          NJcy: `Њ`,
+          nlarr: `↚`,
+          nlArr: `⇍`,
+          nldr: `‥`,
+          nle: `≰`,
+          nlE: `≦̸`,
+          nleftarrow: `↚`,
+          nLeftarrow: `⇍`,
+          nleftrightarrow: `↮`,
+          nLeftrightarrow: `⇎`,
+          nleq: `≰`,
+          nleqq: `≦̸`,
+          nleqslant: `⩽̸`,
+          nles: `⩽̸`,
+          nless: `≮`,
+          nLl: `⋘̸`,
+          nlsim: `≴`,
+          nlt: `≮`,
+          nLt: `≪⃒`,
+          nltri: `⋪`,
+          nltrie: `⋬`,
+          nLtv: `≪̸`,
+          nmid: `∤`,
+          NoBreak: `⁠`,
+          NonBreakingSpace: `\xA0`,
+          nopf: `𝕟`,
+          Nopf: `ℕ`,
+          not: `¬`,
+          Not: `⫬`,
+          NotCongruent: `≢`,
+          NotCupCap: `≭`,
+          NotDoubleVerticalBar: `∦`,
+          NotElement: `∉`,
+          NotEqual: `≠`,
+          NotEqualTilde: `≂̸`,
+          NotExists: `∄`,
+          NotGreater: `≯`,
+          NotGreaterEqual: `≱`,
+          NotGreaterFullEqual: `≧̸`,
+          NotGreaterGreater: `≫̸`,
+          NotGreaterLess: `≹`,
+          NotGreaterSlantEqual: `⩾̸`,
+          NotGreaterTilde: `≵`,
+          NotHumpDownHump: `≎̸`,
+          NotHumpEqual: `≏̸`,
+          notin: `∉`,
+          notindot: `⋵̸`,
+          notinE: `⋹̸`,
+          notinva: `∉`,
+          notinvb: `⋷`,
+          notinvc: `⋶`,
+          NotLeftTriangle: `⋪`,
+          NotLeftTriangleBar: `⧏̸`,
+          NotLeftTriangleEqual: `⋬`,
+          NotLess: `≮`,
+          NotLessEqual: `≰`,
+          NotLessGreater: `≸`,
+          NotLessLess: `≪̸`,
+          NotLessSlantEqual: `⩽̸`,
+          NotLessTilde: `≴`,
+          NotNestedGreaterGreater: `⪢̸`,
+          NotNestedLessLess: `⪡̸`,
+          notni: `∌`,
+          notniva: `∌`,
+          notnivb: `⋾`,
+          notnivc: `⋽`,
+          NotPrecedes: `⊀`,
+          NotPrecedesEqual: `⪯̸`,
+          NotPrecedesSlantEqual: `⋠`,
+          NotReverseElement: `∌`,
+          NotRightTriangle: `⋫`,
+          NotRightTriangleBar: `⧐̸`,
+          NotRightTriangleEqual: `⋭`,
+          NotSquareSubset: `⊏̸`,
+          NotSquareSubsetEqual: `⋢`,
+          NotSquareSuperset: `⊐̸`,
+          NotSquareSupersetEqual: `⋣`,
+          NotSubset: `⊂⃒`,
+          NotSubsetEqual: `⊈`,
+          NotSucceeds: `⊁`,
+          NotSucceedsEqual: `⪰̸`,
+          NotSucceedsSlantEqual: `⋡`,
+          NotSucceedsTilde: `≿̸`,
+          NotSuperset: `⊃⃒`,
+          NotSupersetEqual: `⊉`,
+          NotTilde: `≁`,
+          NotTildeEqual: `≄`,
+          NotTildeFullEqual: `≇`,
+          NotTildeTilde: `≉`,
+          NotVerticalBar: `∤`,
+          npar: `∦`,
+          nparallel: `∦`,
+          nparsl: `⫽⃥`,
+          npart: `∂̸`,
+          npolint: `⨔`,
+          npr: `⊀`,
+          nprcue: `⋠`,
+          npre: `⪯̸`,
+          nprec: `⊀`,
+          npreceq: `⪯̸`,
+          nrarr: `↛`,
+          nrArr: `⇏`,
+          nrarrc: `⤳̸`,
+          nrarrw: `↝̸`,
+          nrightarrow: `↛`,
+          nRightarrow: `⇏`,
+          nrtri: `⋫`,
+          nrtrie: `⋭`,
+          nsc: `⊁`,
+          nsccue: `⋡`,
+          nsce: `⪰̸`,
+          nscr: `𝓃`,
+          Nscr: `𝒩`,
+          nshortmid: `∤`,
+          nshortparallel: `∦`,
+          nsim: `≁`,
+          nsime: `≄`,
+          nsimeq: `≄`,
+          nsmid: `∤`,
+          nspar: `∦`,
+          nsqsube: `⋢`,
+          nsqsupe: `⋣`,
+          nsub: `⊄`,
+          nsube: `⊈`,
+          nsubE: `⫅̸`,
+          nsubset: `⊂⃒`,
+          nsubseteq: `⊈`,
+          nsubseteqq: `⫅̸`,
+          nsucc: `⊁`,
+          nsucceq: `⪰̸`,
+          nsup: `⊅`,
+          nsupe: `⊉`,
+          nsupE: `⫆̸`,
+          nsupset: `⊃⃒`,
+          nsupseteq: `⊉`,
+          nsupseteqq: `⫆̸`,
+          ntgl: `≹`,
+          ntilde: `ñ`,
+          Ntilde: `Ñ`,
+          ntlg: `≸`,
+          ntriangleleft: `⋪`,
+          ntrianglelefteq: `⋬`,
+          ntriangleright: `⋫`,
+          ntrianglerighteq: `⋭`,
+          nu: `ν`,
+          Nu: `Ν`,
+          num: `#`,
+          numero: `№`,
+          numsp: ` `,
+          nvap: `≍⃒`,
+          nvdash: `⊬`,
+          nvDash: `⊭`,
+          nVdash: `⊮`,
+          nVDash: `⊯`,
+          nvge: `≥⃒`,
+          nvgt: `>⃒`,
+          nvHarr: `⤄`,
+          nvinfin: `⧞`,
+          nvlArr: `⤂`,
+          nvle: `≤⃒`,
+          nvlt: `<⃒`,
+          nvltrie: `⊴⃒`,
+          nvrArr: `⤃`,
+          nvrtrie: `⊵⃒`,
+          nvsim: `∼⃒`,
+          nwarhk: `⤣`,
+          nwarr: `↖`,
+          nwArr: `⇖`,
+          nwarrow: `↖`,
+          nwnear: `⤧`,
+          oacute: `ó`,
+          Oacute: `Ó`,
+          oast: `⊛`,
+          ocir: `⊚`,
+          ocirc: `ô`,
+          Ocirc: `Ô`,
+          ocy: `о`,
+          Ocy: `О`,
+          odash: `⊝`,
+          odblac: `ő`,
+          Odblac: `Ő`,
+          odiv: `⨸`,
+          odot: `⊙`,
+          odsold: `⦼`,
+          oelig: `œ`,
+          OElig: `Œ`,
+          ofcir: `⦿`,
+          ofr: `𝔬`,
+          Ofr: `𝔒`,
+          ogon: `˛`,
+          ograve: `ò`,
+          Ograve: `Ò`,
+          ogt: `⧁`,
+          ohbar: `⦵`,
+          ohm: `Ω`,
+          oint: `∮`,
+          olarr: `↺`,
+          olcir: `⦾`,
+          olcross: `⦻`,
+          oline: `‾`,
+          olt: `⧀`,
+          omacr: `ō`,
+          Omacr: `Ō`,
+          omega: `ω`,
+          Omega: `Ω`,
+          omicron: `ο`,
+          Omicron: `Ο`,
+          omid: `⦶`,
+          ominus: `⊖`,
+          oopf: `𝕠`,
+          Oopf: `𝕆`,
+          opar: `⦷`,
+          OpenCurlyDoubleQuote: `“`,
+          OpenCurlyQuote: `‘`,
+          operp: `⦹`,
+          oplus: `⊕`,
+          or: `∨`,
+          Or: `⩔`,
+          orarr: `↻`,
+          ord: `⩝`,
+          order: `ℴ`,
+          orderof: `ℴ`,
+          ordf: `ª`,
+          ordm: `º`,
+          origof: `⊶`,
+          oror: `⩖`,
+          orslope: `⩗`,
+          orv: `⩛`,
+          oS: `Ⓢ`,
+          oscr: `ℴ`,
+          Oscr: `𝒪`,
+          oslash: `ø`,
+          Oslash: `Ø`,
+          osol: `⊘`,
+          otilde: `õ`,
+          Otilde: `Õ`,
+          otimes: `⊗`,
+          Otimes: `⨷`,
+          otimesas: `⨶`,
+          ouml: `ö`,
+          Ouml: `Ö`,
+          ovbar: `⌽`,
+          OverBar: `‾`,
+          OverBrace: `⏞`,
+          OverBracket: `⎴`,
+          OverParenthesis: `⏜`,
+          par: `∥`,
+          para: `¶`,
+          parallel: `∥`,
+          parsim: `⫳`,
+          parsl: `⫽`,
+          part: `∂`,
+          PartialD: `∂`,
+          pcy: `п`,
+          Pcy: `П`,
+          percnt: `%`,
+          period: `.`,
+          permil: `‰`,
+          perp: `⊥`,
+          pertenk: `‱`,
+          pfr: `𝔭`,
+          Pfr: `𝔓`,
+          phi: `φ`,
+          Phi: `Φ`,
+          phiv: `ϕ`,
+          phmmat: `ℳ`,
+          phone: `☎`,
+          pi: `π`,
+          Pi: `Π`,
+          pitchfork: `⋔`,
+          piv: `ϖ`,
+          planck: `ℏ`,
+          planckh: `ℎ`,
+          plankv: `ℏ`,
+          plus: `+`,
+          plusacir: `⨣`,
+          plusb: `⊞`,
+          pluscir: `⨢`,
+          plusdo: `∔`,
+          plusdu: `⨥`,
+          pluse: `⩲`,
+          PlusMinus: `±`,
+          plusmn: `±`,
+          plussim: `⨦`,
+          plustwo: `⨧`,
+          pm: `±`,
+          Poincareplane: `ℌ`,
+          pointint: `⨕`,
+          popf: `𝕡`,
+          Popf: `ℙ`,
+          pound: `£`,
+          pr: `≺`,
+          Pr: `⪻`,
+          prap: `⪷`,
+          prcue: `≼`,
+          pre: `⪯`,
+          prE: `⪳`,
+          prec: `≺`,
+          precapprox: `⪷`,
+          preccurlyeq: `≼`,
+          Precedes: `≺`,
+          PrecedesEqual: `⪯`,
+          PrecedesSlantEqual: `≼`,
+          PrecedesTilde: `≾`,
+          preceq: `⪯`,
+          precnapprox: `⪹`,
+          precneqq: `⪵`,
+          precnsim: `⋨`,
+          precsim: `≾`,
+          prime: `′`,
+          Prime: `″`,
+          primes: `ℙ`,
+          prnap: `⪹`,
+          prnE: `⪵`,
+          prnsim: `⋨`,
+          prod: `∏`,
+          Product: `∏`,
+          profalar: `⌮`,
+          profline: `⌒`,
+          profsurf: `⌓`,
+          prop: `∝`,
+          Proportion: `∷`,
+          Proportional: `∝`,
+          propto: `∝`,
+          prsim: `≾`,
+          prurel: `⊰`,
+          pscr: `𝓅`,
+          Pscr: `𝒫`,
+          psi: `ψ`,
+          Psi: `Ψ`,
+          puncsp: ` `,
+          qfr: `𝔮`,
+          Qfr: `𝔔`,
+          qint: `⨌`,
+          qopf: `𝕢`,
+          Qopf: `ℚ`,
+          qprime: `⁗`,
+          qscr: `𝓆`,
+          Qscr: `𝒬`,
+          quaternions: `ℍ`,
+          quatint: `⨖`,
+          quest: `?`,
+          questeq: `≟`,
+          quot: `"`,
+          QUOT: `"`,
+          rAarr: `⇛`,
+          race: `∽̱`,
+          racute: `ŕ`,
+          Racute: `Ŕ`,
+          radic: `√`,
+          raemptyv: `⦳`,
+          rang: `⟩`,
+          Rang: `⟫`,
+          rangd: `⦒`,
+          range: `⦥`,
+          rangle: `⟩`,
+          raquo: `»`,
+          rarr: `→`,
+          rArr: `⇒`,
+          Rarr: `↠`,
+          rarrap: `⥵`,
+          rarrb: `⇥`,
+          rarrbfs: `⤠`,
+          rarrc: `⤳`,
+          rarrfs: `⤞`,
+          rarrhk: `↪`,
+          rarrlp: `↬`,
+          rarrpl: `⥅`,
+          rarrsim: `⥴`,
+          rarrtl: `↣`,
+          Rarrtl: `⤖`,
+          rarrw: `↝`,
+          ratail: `⤚`,
+          rAtail: `⤜`,
+          ratio: `∶`,
+          rationals: `ℚ`,
+          rbarr: `⤍`,
+          rBarr: `⤏`,
+          RBarr: `⤐`,
+          rbbrk: `❳`,
+          rbrace: `}`,
+          rbrack: `]`,
+          rbrke: `⦌`,
+          rbrksld: `⦎`,
+          rbrkslu: `⦐`,
+          rcaron: `ř`,
+          Rcaron: `Ř`,
+          rcedil: `ŗ`,
+          Rcedil: `Ŗ`,
+          rceil: `⌉`,
+          rcub: `}`,
+          rcy: `р`,
+          Rcy: `Р`,
+          rdca: `⤷`,
+          rdldhar: `⥩`,
+          rdquo: `”`,
+          rdquor: `”`,
+          rdsh: `↳`,
+          Re: `ℜ`,
+          real: `ℜ`,
+          realine: `ℛ`,
+          realpart: `ℜ`,
+          reals: `ℝ`,
+          rect: `▭`,
+          reg: `®`,
+          REG: `®`,
+          ReverseElement: `∋`,
+          ReverseEquilibrium: `⇋`,
+          ReverseUpEquilibrium: `⥯`,
+          rfisht: `⥽`,
+          rfloor: `⌋`,
+          rfr: `𝔯`,
+          Rfr: `ℜ`,
+          rHar: `⥤`,
+          rhard: `⇁`,
+          rharu: `⇀`,
+          rharul: `⥬`,
+          rho: `ρ`,
+          Rho: `Ρ`,
+          rhov: `ϱ`,
+          RightAngleBracket: `⟩`,
+          rightarrow: `→`,
+          Rightarrow: `⇒`,
+          RightArrow: `→`,
+          RightArrowBar: `⇥`,
+          RightArrowLeftArrow: `⇄`,
+          rightarrowtail: `↣`,
+          RightCeiling: `⌉`,
+          RightDoubleBracket: `⟧`,
+          RightDownTeeVector: `⥝`,
+          RightDownVector: `⇂`,
+          RightDownVectorBar: `⥕`,
+          RightFloor: `⌋`,
+          rightharpoondown: `⇁`,
+          rightharpoonup: `⇀`,
+          rightleftarrows: `⇄`,
+          rightleftharpoons: `⇌`,
+          rightrightarrows: `⇉`,
+          rightsquigarrow: `↝`,
+          RightTee: `⊢`,
+          RightTeeArrow: `↦`,
+          RightTeeVector: `⥛`,
+          rightthreetimes: `⋌`,
+          RightTriangle: `⊳`,
+          RightTriangleBar: `⧐`,
+          RightTriangleEqual: `⊵`,
+          RightUpDownVector: `⥏`,
+          RightUpTeeVector: `⥜`,
+          RightUpVector: `↾`,
+          RightUpVectorBar: `⥔`,
+          RightVector: `⇀`,
+          RightVectorBar: `⥓`,
+          ring: `˚`,
+          risingdotseq: `≓`,
+          rlarr: `⇄`,
+          rlhar: `⇌`,
+          rlm: `‏`,
+          rmoust: `⎱`,
+          rmoustache: `⎱`,
+          rnmid: `⫮`,
+          roang: `⟭`,
+          roarr: `⇾`,
+          robrk: `⟧`,
+          ropar: `⦆`,
+          ropf: `𝕣`,
+          Ropf: `ℝ`,
+          roplus: `⨮`,
+          rotimes: `⨵`,
+          RoundImplies: `⥰`,
+          rpar: `)`,
+          rpargt: `⦔`,
+          rppolint: `⨒`,
+          rrarr: `⇉`,
+          Rrightarrow: `⇛`,
+          rsaquo: `›`,
+          rscr: `𝓇`,
+          Rscr: `ℛ`,
+          rsh: `↱`,
+          Rsh: `↱`,
+          rsqb: `]`,
+          rsquo: `’`,
+          rsquor: `’`,
+          rthree: `⋌`,
+          rtimes: `⋊`,
+          rtri: `▹`,
+          rtrie: `⊵`,
+          rtrif: `▸`,
+          rtriltri: `⧎`,
+          RuleDelayed: `⧴`,
+          ruluhar: `⥨`,
+          rx: `℞`,
+          sacute: `ś`,
+          Sacute: `Ś`,
+          sbquo: `‚`,
+          sc: `≻`,
+          Sc: `⪼`,
+          scap: `⪸`,
+          scaron: `š`,
+          Scaron: `Š`,
+          sccue: `≽`,
+          sce: `⪰`,
+          scE: `⪴`,
+          scedil: `ş`,
+          Scedil: `Ş`,
+          scirc: `ŝ`,
+          Scirc: `Ŝ`,
+          scnap: `⪺`,
+          scnE: `⪶`,
+          scnsim: `⋩`,
+          scpolint: `⨓`,
+          scsim: `≿`,
+          scy: `с`,
+          Scy: `С`,
+          sdot: `⋅`,
+          sdotb: `⊡`,
+          sdote: `⩦`,
+          searhk: `⤥`,
+          searr: `↘`,
+          seArr: `⇘`,
+          searrow: `↘`,
+          sect: `§`,
+          semi: `;`,
+          seswar: `⤩`,
+          setminus: `∖`,
+          setmn: `∖`,
+          sext: `✶`,
+          sfr: `𝔰`,
+          Sfr: `𝔖`,
+          sfrown: `⌢`,
+          sharp: `♯`,
+          shchcy: `щ`,
+          SHCHcy: `Щ`,
+          shcy: `ш`,
+          SHcy: `Ш`,
+          ShortDownArrow: `↓`,
+          ShortLeftArrow: `←`,
+          shortmid: `∣`,
+          shortparallel: `∥`,
+          ShortRightArrow: `→`,
+          ShortUpArrow: `↑`,
+          shy: `­`,
+          sigma: `σ`,
+          Sigma: `Σ`,
+          sigmaf: `ς`,
+          sigmav: `ς`,
+          sim: `∼`,
+          simdot: `⩪`,
+          sime: `≃`,
+          simeq: `≃`,
+          simg: `⪞`,
+          simgE: `⪠`,
+          siml: `⪝`,
+          simlE: `⪟`,
+          simne: `≆`,
+          simplus: `⨤`,
+          simrarr: `⥲`,
+          slarr: `←`,
+          SmallCircle: `∘`,
+          smallsetminus: `∖`,
+          smashp: `⨳`,
+          smeparsl: `⧤`,
+          smid: `∣`,
+          smile: `⌣`,
+          smt: `⪪`,
+          smte: `⪬`,
+          smtes: `⪬︀`,
+          softcy: `ь`,
+          SOFTcy: `Ь`,
+          sol: `/`,
+          solb: `⧄`,
+          solbar: `⌿`,
+          sopf: `𝕤`,
+          Sopf: `𝕊`,
+          spades: `♠`,
+          spadesuit: `♠`,
+          spar: `∥`,
+          sqcap: `⊓`,
+          sqcaps: `⊓︀`,
+          sqcup: `⊔`,
+          sqcups: `⊔︀`,
+          Sqrt: `√`,
+          sqsub: `⊏`,
+          sqsube: `⊑`,
+          sqsubset: `⊏`,
+          sqsubseteq: `⊑`,
+          sqsup: `⊐`,
+          sqsupe: `⊒`,
+          sqsupset: `⊐`,
+          sqsupseteq: `⊒`,
+          squ: `□`,
+          square: `□`,
+          Square: `□`,
+          SquareIntersection: `⊓`,
+          SquareSubset: `⊏`,
+          SquareSubsetEqual: `⊑`,
+          SquareSuperset: `⊐`,
+          SquareSupersetEqual: `⊒`,
+          SquareUnion: `⊔`,
+          squarf: `▪`,
+          squf: `▪`,
+          srarr: `→`,
+          sscr: `𝓈`,
+          Sscr: `𝒮`,
+          ssetmn: `∖`,
+          ssmile: `⌣`,
+          sstarf: `⋆`,
+          star: `☆`,
+          Star: `⋆`,
+          starf: `★`,
+          straightepsilon: `ϵ`,
+          straightphi: `ϕ`,
+          strns: `¯`,
+          sub: `⊂`,
+          Sub: `⋐`,
+          subdot: `⪽`,
+          sube: `⊆`,
+          subE: `⫅`,
+          subedot: `⫃`,
+          submult: `⫁`,
+          subne: `⊊`,
+          subnE: `⫋`,
+          subplus: `⪿`,
+          subrarr: `⥹`,
+          subset: `⊂`,
+          Subset: `⋐`,
+          subseteq: `⊆`,
+          subseteqq: `⫅`,
+          SubsetEqual: `⊆`,
+          subsetneq: `⊊`,
+          subsetneqq: `⫋`,
+          subsim: `⫇`,
+          subsub: `⫕`,
+          subsup: `⫓`,
+          succ: `≻`,
+          succapprox: `⪸`,
+          succcurlyeq: `≽`,
+          Succeeds: `≻`,
+          SucceedsEqual: `⪰`,
+          SucceedsSlantEqual: `≽`,
+          SucceedsTilde: `≿`,
+          succeq: `⪰`,
+          succnapprox: `⪺`,
+          succneqq: `⪶`,
+          succnsim: `⋩`,
+          succsim: `≿`,
+          SuchThat: `∋`,
+          sum: `∑`,
+          Sum: `∑`,
+          sung: `♪`,
+          sup: `⊃`,
+          Sup: `⋑`,
+          sup1: `¹`,
+          sup2: `²`,
+          sup3: `³`,
+          supdot: `⪾`,
+          supdsub: `⫘`,
+          supe: `⊇`,
+          supE: `⫆`,
+          supedot: `⫄`,
+          Superset: `⊃`,
+          SupersetEqual: `⊇`,
+          suphsol: `⟉`,
+          suphsub: `⫗`,
+          suplarr: `⥻`,
+          supmult: `⫂`,
+          supne: `⊋`,
+          supnE: `⫌`,
+          supplus: `⫀`,
+          supset: `⊃`,
+          Supset: `⋑`,
+          supseteq: `⊇`,
+          supseteqq: `⫆`,
+          supsetneq: `⊋`,
+          supsetneqq: `⫌`,
+          supsim: `⫈`,
+          supsub: `⫔`,
+          supsup: `⫖`,
+          swarhk: `⤦`,
+          swarr: `↙`,
+          swArr: `⇙`,
+          swarrow: `↙`,
+          swnwar: `⤪`,
+          szlig: `ß`,
+          Tab: `	`,
+          target: `⌖`,
+          tau: `τ`,
+          Tau: `Τ`,
+          tbrk: `⎴`,
+          tcaron: `ť`,
+          Tcaron: `Ť`,
+          tcedil: `ţ`,
+          Tcedil: `Ţ`,
+          tcy: `т`,
+          Tcy: `Т`,
+          tdot: `⃛`,
+          telrec: `⌕`,
+          tfr: `𝔱`,
+          Tfr: `𝔗`,
+          there4: `∴`,
+          therefore: `∴`,
+          Therefore: `∴`,
+          theta: `θ`,
+          Theta: `Θ`,
+          thetasym: `ϑ`,
+          thetav: `ϑ`,
+          thickapprox: `≈`,
+          thicksim: `∼`,
+          ThickSpace: `  `,
+          thinsp: ` `,
+          ThinSpace: ` `,
+          thkap: `≈`,
+          thksim: `∼`,
+          thorn: `þ`,
+          THORN: `Þ`,
+          tilde: `˜`,
+          Tilde: `∼`,
+          TildeEqual: `≃`,
+          TildeFullEqual: `≅`,
+          TildeTilde: `≈`,
+          times: `×`,
+          timesb: `⊠`,
+          timesbar: `⨱`,
+          timesd: `⨰`,
+          tint: `∭`,
+          toea: `⤨`,
+          top: `⊤`,
+          topbot: `⌶`,
+          topcir: `⫱`,
+          topf: `𝕥`,
+          Topf: `𝕋`,
+          topfork: `⫚`,
+          tosa: `⤩`,
+          tprime: `‴`,
+          trade: `™`,
+          TRADE: `™`,
+          triangle: `▵`,
+          triangledown: `▿`,
+          triangleleft: `◃`,
+          trianglelefteq: `⊴`,
+          triangleq: `≜`,
+          triangleright: `▹`,
+          trianglerighteq: `⊵`,
+          tridot: `◬`,
+          trie: `≜`,
+          triminus: `⨺`,
+          TripleDot: `⃛`,
+          triplus: `⨹`,
+          trisb: `⧍`,
+          tritime: `⨻`,
+          trpezium: `⏢`,
+          tscr: `𝓉`,
+          Tscr: `𝒯`,
+          tscy: `ц`,
+          TScy: `Ц`,
+          tshcy: `ћ`,
+          TSHcy: `Ћ`,
+          tstrok: `ŧ`,
+          Tstrok: `Ŧ`,
+          twixt: `≬`,
+          twoheadleftarrow: `↞`,
+          twoheadrightarrow: `↠`,
+          uacute: `ú`,
+          Uacute: `Ú`,
+          uarr: `↑`,
+          uArr: `⇑`,
+          Uarr: `↟`,
+          Uarrocir: `⥉`,
+          ubrcy: `ў`,
+          Ubrcy: `Ў`,
+          ubreve: `ŭ`,
+          Ubreve: `Ŭ`,
+          ucirc: `û`,
+          Ucirc: `Û`,
+          ucy: `у`,
+          Ucy: `У`,
+          udarr: `⇅`,
+          udblac: `ű`,
+          Udblac: `Ű`,
+          udhar: `⥮`,
+          ufisht: `⥾`,
+          ufr: `𝔲`,
+          Ufr: `𝔘`,
+          ugrave: `ù`,
+          Ugrave: `Ù`,
+          uHar: `⥣`,
+          uharl: `↿`,
+          uharr: `↾`,
+          uhblk: `▀`,
+          ulcorn: `⌜`,
+          ulcorner: `⌜`,
+          ulcrop: `⌏`,
+          ultri: `◸`,
+          umacr: `ū`,
+          Umacr: `Ū`,
+          uml: `¨`,
+          UnderBar: `_`,
+          UnderBrace: `⏟`,
+          UnderBracket: `⎵`,
+          UnderParenthesis: `⏝`,
+          Union: `⋃`,
+          UnionPlus: `⊎`,
+          uogon: `ų`,
+          Uogon: `Ų`,
+          uopf: `𝕦`,
+          Uopf: `𝕌`,
+          uparrow: `↑`,
+          Uparrow: `⇑`,
+          UpArrow: `↑`,
+          UpArrowBar: `⤒`,
+          UpArrowDownArrow: `⇅`,
+          updownarrow: `↕`,
+          Updownarrow: `⇕`,
+          UpDownArrow: `↕`,
+          UpEquilibrium: `⥮`,
+          upharpoonleft: `↿`,
+          upharpoonright: `↾`,
+          uplus: `⊎`,
+          UpperLeftArrow: `↖`,
+          UpperRightArrow: `↗`,
+          upsi: `υ`,
+          Upsi: `ϒ`,
+          upsih: `ϒ`,
+          upsilon: `υ`,
+          Upsilon: `Υ`,
+          UpTee: `⊥`,
+          UpTeeArrow: `↥`,
+          upuparrows: `⇈`,
+          urcorn: `⌝`,
+          urcorner: `⌝`,
+          urcrop: `⌎`,
+          uring: `ů`,
+          Uring: `Ů`,
+          urtri: `◹`,
+          uscr: `𝓊`,
+          Uscr: `𝒰`,
+          utdot: `⋰`,
+          utilde: `ũ`,
+          Utilde: `Ũ`,
+          utri: `▵`,
+          utrif: `▴`,
+          uuarr: `⇈`,
+          uuml: `ü`,
+          Uuml: `Ü`,
+          uwangle: `⦧`,
+          vangrt: `⦜`,
+          varepsilon: `ϵ`,
+          varkappa: `ϰ`,
+          varnothing: `∅`,
+          varphi: `ϕ`,
+          varpi: `ϖ`,
+          varpropto: `∝`,
+          varr: `↕`,
+          vArr: `⇕`,
+          varrho: `ϱ`,
+          varsigma: `ς`,
+          varsubsetneq: `⊊︀`,
+          varsubsetneqq: `⫋︀`,
+          varsupsetneq: `⊋︀`,
+          varsupsetneqq: `⫌︀`,
+          vartheta: `ϑ`,
+          vartriangleleft: `⊲`,
+          vartriangleright: `⊳`,
+          vBar: `⫨`,
+          Vbar: `⫫`,
+          vBarv: `⫩`,
+          vcy: `в`,
+          Vcy: `В`,
+          vdash: `⊢`,
+          vDash: `⊨`,
+          Vdash: `⊩`,
+          VDash: `⊫`,
+          Vdashl: `⫦`,
+          vee: `∨`,
+          Vee: `⋁`,
+          veebar: `⊻`,
+          veeeq: `≚`,
+          vellip: `⋮`,
+          verbar: `|`,
+          Verbar: `‖`,
+          vert: `|`,
+          Vert: `‖`,
+          VerticalBar: `∣`,
+          VerticalLine: `|`,
+          VerticalSeparator: `❘`,
+          VerticalTilde: `≀`,
+          VeryThinSpace: ` `,
+          vfr: `𝔳`,
+          Vfr: `𝔙`,
+          vltri: `⊲`,
+          vnsub: `⊂⃒`,
+          vnsup: `⊃⃒`,
+          vopf: `𝕧`,
+          Vopf: `𝕍`,
+          vprop: `∝`,
+          vrtri: `⊳`,
+          vscr: `𝓋`,
+          Vscr: `𝒱`,
+          vsubne: `⊊︀`,
+          vsubnE: `⫋︀`,
+          vsupne: `⊋︀`,
+          vsupnE: `⫌︀`,
+          Vvdash: `⊪`,
+          vzigzag: `⦚`,
+          wcirc: `ŵ`,
+          Wcirc: `Ŵ`,
+          wedbar: `⩟`,
+          wedge: `∧`,
+          Wedge: `⋀`,
+          wedgeq: `≙`,
+          weierp: `℘`,
+          wfr: `𝔴`,
+          Wfr: `𝔚`,
+          wopf: `𝕨`,
+          Wopf: `𝕎`,
+          wp: `℘`,
+          wr: `≀`,
+          wreath: `≀`,
+          wscr: `𝓌`,
+          Wscr: `𝒲`,
+          xcap: `⋂`,
+          xcirc: `◯`,
+          xcup: `⋃`,
+          xdtri: `▽`,
+          xfr: `𝔵`,
+          Xfr: `𝔛`,
+          xharr: `⟷`,
+          xhArr: `⟺`,
+          xi: `ξ`,
+          Xi: `Ξ`,
+          xlarr: `⟵`,
+          xlArr: `⟸`,
+          xmap: `⟼`,
+          xnis: `⋻`,
+          xodot: `⨀`,
+          xopf: `𝕩`,
+          Xopf: `𝕏`,
+          xoplus: `⨁`,
+          xotime: `⨂`,
+          xrarr: `⟶`,
+          xrArr: `⟹`,
+          xscr: `𝓍`,
+          Xscr: `𝒳`,
+          xsqcup: `⨆`,
+          xuplus: `⨄`,
+          xutri: `△`,
+          xvee: `⋁`,
+          xwedge: `⋀`,
+          yacute: `ý`,
+          Yacute: `Ý`,
+          yacy: `я`,
+          YAcy: `Я`,
+          ycirc: `ŷ`,
+          Ycirc: `Ŷ`,
+          ycy: `ы`,
+          Ycy: `Ы`,
+          yen: `¥`,
+          yfr: `𝔶`,
+          Yfr: `𝔜`,
+          yicy: `ї`,
+          YIcy: `Ї`,
+          yopf: `𝕪`,
+          Yopf: `𝕐`,
+          yscr: `𝓎`,
+          Yscr: `𝒴`,
+          yucy: `ю`,
+          YUcy: `Ю`,
+          yuml: `ÿ`,
+          Yuml: `Ÿ`,
+          zacute: `ź`,
+          Zacute: `Ź`,
+          zcaron: `ž`,
+          Zcaron: `Ž`,
+          zcy: `з`,
+          Zcy: `З`,
+          zdot: `ż`,
+          Zdot: `Ż`,
+          zeetrf: `ℨ`,
+          ZeroWidthSpace: `​`,
+          zeta: `ζ`,
+          Zeta: `Ζ`,
+          zfr: `𝔷`,
+          Zfr: `ℨ`,
+          zhcy: `ж`,
+          ZHcy: `Ж`,
+          zigrarr: `⇝`,
+          zopf: `𝕫`,
+          Zopf: `ℤ`,
+          zscr: `𝓏`,
+          Zscr: `𝒵`,
+          zwj: `‍`,
+          zwnj: `‌`,
+        },
+        _ = {
+          aacute: `á`,
+          Aacute: `Á`,
+          acirc: `â`,
+          Acirc: `Â`,
+          acute: `´`,
+          aelig: `æ`,
+          AElig: `Æ`,
+          agrave: `à`,
+          Agrave: `À`,
+          amp: `&`,
+          AMP: `&`,
+          aring: `å`,
+          Aring: `Å`,
+          atilde: `ã`,
+          Atilde: `Ã`,
+          auml: `ä`,
+          Auml: `Ä`,
+          brvbar: `¦`,
+          ccedil: `ç`,
+          Ccedil: `Ç`,
+          cedil: `¸`,
+          cent: `¢`,
+          copy: `©`,
+          COPY: `©`,
+          curren: `¤`,
+          deg: `°`,
+          divide: `÷`,
+          eacute: `é`,
+          Eacute: `É`,
+          ecirc: `ê`,
+          Ecirc: `Ê`,
+          egrave: `è`,
+          Egrave: `È`,
+          eth: `ð`,
+          ETH: `Ð`,
+          euml: `ë`,
+          Euml: `Ë`,
+          frac12: `½`,
+          frac14: `¼`,
+          frac34: `¾`,
+          gt: `>`,
+          GT: `>`,
+          iacute: `í`,
+          Iacute: `Í`,
+          icirc: `î`,
+          Icirc: `Î`,
+          iexcl: `¡`,
+          igrave: `ì`,
+          Igrave: `Ì`,
+          iquest: `¿`,
+          iuml: `ï`,
+          Iuml: `Ï`,
+          laquo: `«`,
+          lt: `<`,
+          LT: `<`,
+          macr: `¯`,
+          micro: `µ`,
+          middot: `·`,
+          nbsp: `\xA0`,
+          not: `¬`,
+          ntilde: `ñ`,
+          Ntilde: `Ñ`,
+          oacute: `ó`,
+          Oacute: `Ó`,
+          ocirc: `ô`,
+          Ocirc: `Ô`,
+          ograve: `ò`,
+          Ograve: `Ò`,
+          ordf: `ª`,
+          ordm: `º`,
+          oslash: `ø`,
+          Oslash: `Ø`,
+          otilde: `õ`,
+          Otilde: `Õ`,
+          ouml: `ö`,
+          Ouml: `Ö`,
+          para: `¶`,
+          plusmn: `±`,
+          pound: `£`,
+          quot: `"`,
+          QUOT: `"`,
+          raquo: `»`,
+          reg: `®`,
+          REG: `®`,
+          sect: `§`,
+          shy: `­`,
+          sup1: `¹`,
+          sup2: `²`,
+          sup3: `³`,
+          szlig: `ß`,
+          thorn: `þ`,
+          THORN: `Þ`,
+          times: `×`,
+          uacute: `ú`,
+          Uacute: `Ú`,
+          ucirc: `û`,
+          Ucirc: `Û`,
+          ugrave: `ù`,
+          Ugrave: `Ù`,
+          uml: `¨`,
+          uuml: `ü`,
+          Uuml: `Ü`,
+          yacute: `ý`,
+          Yacute: `Ý`,
+          yen: `¥`,
+          yuml: `ÿ`,
+        },
+        v = {
+          0: `�`,
+          128: `€`,
+          130: `‚`,
+          131: `ƒ`,
+          132: `„`,
+          133: `…`,
+          134: `†`,
+          135: `‡`,
+          136: `ˆ`,
+          137: `‰`,
+          138: `Š`,
+          139: `‹`,
+          140: `Œ`,
+          142: `Ž`,
+          145: `‘`,
+          146: `’`,
+          147: `“`,
+          148: `”`,
+          149: `•`,
+          150: `–`,
+          151: `—`,
+          152: `˜`,
+          153: `™`,
+          154: `š`,
+          155: `›`,
+          156: `œ`,
+          158: `ž`,
+          159: `Ÿ`,
+        },
+        y = [
+          1, 2, 3, 4, 5, 6, 7, 8, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+          23, 24, 25, 26, 27, 28, 29, 30, 31, 127, 128, 129, 130, 131, 132, 133,
+          134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147,
+          148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 64976,
+          64977, 64978, 64979, 64980, 64981, 64982, 64983, 64984, 64985, 64986,
+          64987, 64988, 64989, 64990, 64991, 64992, 64993, 64994, 64995, 64996,
+          64997, 64998, 64999, 65e3, 65001, 65002, 65003, 65004, 65005, 65006,
+          65007, 65534, 65535, 131070, 131071, 196606, 196607, 262142, 262143,
+          327678, 327679, 393214, 393215, 458750, 458751, 524286, 524287,
+          589822, 589823, 655358, 655359, 720894, 720895, 786430, 786431,
+          851966, 851967, 917502, 917503, 983038, 983039, 1048574, 1048575,
+          1114110, 1114111,
+        ],
+        b = String.fromCharCode,
+        x = {}.hasOwnProperty,
+        S = function (e, t) {
+          return x.call(e, t);
+        },
+        C = function (e, t) {
+          for (var n = -1, r = e.length; ++n < r;) if (e[n] == t) return !0;
+          return !1;
+        },
+        w = function (e, t) {
+          if (!e) return t;
+          var n = {},
+            r;
+          for (r in t) n[r] = S(e, r) ? e[r] : t[r];
+          return n;
+        },
+        T = function (e, t) {
+          var n = ``;
+          return (e >= 55296 && e <= 57343) || e > 1114111
+            ? (t &&
+                O(`character reference outside the permissible Unicode range`),
+              `�`)
+            : S(v, e)
+              ? (t && O(`disallowed character reference`), v[e])
+              : (t && C(y, e) && O(`disallowed character reference`),
+                e > 65535 &&
+                  ((e -= 65536),
+                  (n += b(((e >>> 10) & 1023) | 55296)),
+                  (e = 56320 | (e & 1023))),
+                (n += b(e)),
+                n);
+        },
+        E = function (e) {
+          return `&#x` + e.toString(16).toUpperCase() + `;`;
+        },
+        D = function (e) {
+          return `&#` + e + `;`;
+        },
+        O = function (e) {
+          throw Error(`Parse error: ` + e);
+        },
+        k = function (e, t) {
+          ((t = w(t, k.options)),
+            t.strict && m.test(e) && O(`forbidden code point`));
+          var n = t.encodeEverything,
+            r = t.useNamedReferences,
+            i = t.allowUnsafeSymbols,
+            a = t.decimal ? D : E,
+            f = function (e) {
+              return a(e.charCodeAt(0));
+            };
+          return (
+            n
+              ? ((e = e.replace(s, function (e) {
+                  return r && S(u, e) ? `&` + u[e] + `;` : f(e);
+                })),
+                r &&
+                  (e = e
+                    .replace(/&gt;\u20D2/g, `&nvgt;`)
+                    .replace(/&lt;\u20D2/g, `&nvlt;`)
+                    .replace(/&#x66;&#x6A;/g, `&fjlig;`)),
+                r &&
+                  (e = e.replace(l, function (e) {
+                    return `&` + u[e] + `;`;
+                  })))
+              : r
+                ? (i ||
+                    (e = e.replace(d, function (e) {
+                      return `&` + u[e] + `;`;
+                    })),
+                  (e = e
+                    .replace(/&gt;\u20D2/g, `&nvgt;`)
+                    .replace(/&lt;\u20D2/g, `&nvlt;`)),
+                  (e = e.replace(l, function (e) {
+                    return `&` + u[e] + `;`;
+                  })))
+                : i || (e = e.replace(d, f)),
+            e
+              .replace(o, function (e) {
+                var t = e.charCodeAt(0),
+                  n = e.charCodeAt(1);
+                return a((t - 55296) * 1024 + n - 56320 + 65536);
+              })
+              .replace(c, f)
+          );
+        };
+      k.options = {
+        allowUnsafeSymbols: !1,
+        encodeEverything: !1,
+        strict: !1,
+        useNamedReferences: !1,
+        decimal: !1,
+      };
+      var A = function (e, t) {
+        t = w(t, A.options);
+        var n = t.strict;
+        return (
+          n && p.test(e) && O(`malformed character reference`),
+          e.replace(h, function (e, r, i, a, o, s, c, l, u) {
+            var d, f, p, m, h, v;
+            return r
+              ? ((h = r), g[h])
+              : i
+                ? ((h = i),
+                  (v = a),
+                  v && t.isAttributeValue
+                    ? (n &&
+                        v == `=` &&
+                        O("`&` did not start a character reference"),
+                      e)
+                    : (n &&
+                        O(
+                          `named character reference was not terminated by a semicolon`,
+                        ),
+                      _[h] + (v || ``)))
+                : o
+                  ? ((p = o),
+                    (f = s),
+                    n &&
+                      !f &&
+                      O(
+                        `character reference was not terminated by a semicolon`,
+                      ),
+                    (d = parseInt(p, 10)),
+                    T(d, n))
+                  : c
+                    ? ((m = c),
+                      (f = l),
+                      n &&
+                        !f &&
+                        O(
+                          `character reference was not terminated by a semicolon`,
+                        ),
+                      (d = parseInt(m, 16)),
+                      T(d, n))
+                    : (n &&
+                        O(
+                          `named character reference was not terminated by a semicolon`,
+                        ),
+                      e);
+          })
+        );
+      };
+      A.options = { isAttributeValue: !1, strict: !1 };
+      var j = {
+        version: `1.2.0`,
+        encode: k,
+        decode: A,
+        escape: function (e) {
+          return e.replace(d, function (e) {
+            return f[e];
+          });
+        },
+        unescape: A,
+      };
+      if (
+        typeof define == `function` &&
+        typeof define.amd == `object` &&
+        define.amd
+      )
+        define(function () {
+          return j;
+        });
+      else if (r && !r.nodeType)
+        if (i) i.exports = j;
+        else for (var M in j) S(j, M) && (r[M] = j[M]);
+      else n.he = j;
+    })(e);
+  }),
+  a = r((e) => {
+    Object.defineProperty(e, "__esModule", { value: !0 });
+    var t = i();
+    e.default = class {
+      constructor(e = null, t) {
+        ((this.parentNode = e),
+          (this.childNodes = []),
+          Object.defineProperty(this, "range", {
+            enumerable: !1,
+            writable: !0,
+            configurable: !0,
+            value: t ?? [-1, -1],
+          }));
+      }
+      remove() {
+        if (this.parentNode) {
+          let e = this.parentNode.childNodes;
+          ((this.parentNode.childNodes = e.filter((e) => this !== e)),
+            (this.parentNode = null));
+        }
+        return this;
+      }
+      get innerText() {
+        return this.rawText;
+      }
+      get textContent() {
+        return (0, t.decode)(this.rawText);
+      }
+      set textContent(e) {
+        this.rawText = (0, t.encode)(e);
+      }
+    };
+  }),
+  o = r((e) => {
+    Object.defineProperty(e, "__esModule", { value: !0 });
+    var t;
+    ((function (e) {
+      ((e[(e.ELEMENT_NODE = 1)] = `ELEMENT_NODE`),
+        (e[(e.TEXT_NODE = 3)] = `TEXT_NODE`),
+        (e[(e.COMMENT_NODE = 8)] = `COMMENT_NODE`));
+    })((t ||= {})),
+      (e.default = t));
+  }),
+  s = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    Object.defineProperty(e, "__esModule", { value: !0 });
+    var n = t(a()),
+      r = t(o());
+    e.default = class e extends n.default {
+      clone() {
+        return new e(this.rawText, null, void 0, this.rawTagName);
+      }
+      constructor(e, t = null, n, i = `!--`) {
+        (super(t, n),
+          (this.rawText = e),
+          (this.rawTagName = i),
+          (this.nodeType = r.default.COMMENT_NODE));
+      }
+      get text() {
+        return this.rawText;
+      }
+      toString() {
+        return `<!--${this.rawText}-->`;
+      }
+    };
+  }),
+  c = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.Doctype =
+        e.CDATA =
+        e.Tag =
+        e.Style =
+        e.Script =
+        e.Comment =
+        e.Directive =
+        e.Text =
+        e.Root =
+        e.isTag =
+        e.ElementType =
+          void 0));
+    var t;
+    (function (e) {
+      ((e.Root = `root`),
+        (e.Text = `text`),
+        (e.Directive = `directive`),
+        (e.Comment = `comment`),
+        (e.Script = `script`),
+        (e.Style = `style`),
+        (e.Tag = `tag`),
+        (e.CDATA = `cdata`),
+        (e.Doctype = `doctype`));
+    })((t = e.ElementType ||= {}));
+    function n(e) {
+      return e.type === t.Tag || e.type === t.Script || e.type === t.Style;
+    }
+    ((e.isTag = n),
+      (e.Root = t.Root),
+      (e.Text = t.Text),
+      (e.Directive = t.Directive),
+      (e.Comment = t.Comment),
+      (e.Script = t.Script),
+      (e.Style = t.Style),
+      (e.Tag = t.Tag),
+      (e.CDATA = t.CDATA),
+      (e.Doctype = t.Doctype));
+  }),
+  l = r((e) => {
+    var t =
+        (e && e.__extends) ||
+        (function () {
+          var e = function (t, n) {
+            return (
+              (e =
+                Object.setPrototypeOf ||
+                ({ __proto__: [] } instanceof Array &&
+                  function (e, t) {
+                    e.__proto__ = t;
+                  }) ||
+                function (e, t) {
+                  for (var n in t)
+                    Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]);
+                }),
+              e(t, n)
+            );
+          };
+          return function (t, n) {
+            if (typeof n != `function` && n !== null)
+              throw TypeError(
+                `Class extends value ` +
+                  String(n) +
+                  ` is not a constructor or null`,
+              );
+            e(t, n);
+            function r() {
+              this.constructor = t;
+            }
+            t.prototype =
+              n === null
+                ? Object.create(n)
+                : ((r.prototype = n.prototype), new r());
+          };
+        })(),
+      n =
+        (e && e.__assign) ||
+        function () {
+          return (
+            (n =
+              Object.assign ||
+              function (e) {
+                for (var t, n = 1, r = arguments.length; n < r; n++)
+                  for (var i in ((t = arguments[n]), t))
+                    Object.prototype.hasOwnProperty.call(t, i) && (e[i] = t[i]);
+                return e;
+              }),
+            n.apply(this, arguments)
+          );
+        };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.cloneNode =
+        e.hasChildren =
+        e.isDocument =
+        e.isDirective =
+        e.isComment =
+        e.isText =
+        e.isCDATA =
+        e.isTag =
+        e.Element =
+        e.Document =
+        e.CDATA =
+        e.NodeWithChildren =
+        e.ProcessingInstruction =
+        e.Comment =
+        e.Text =
+        e.DataNode =
+        e.Node =
+          void 0));
+    var r = c(),
+      i = (function () {
+        function e() {
+          ((this.parent = null),
+            (this.prev = null),
+            (this.next = null),
+            (this.startIndex = null),
+            (this.endIndex = null));
+        }
+        return (
+          Object.defineProperty(e.prototype, "parentNode", {
+            get: function () {
+              return this.parent;
+            },
+            set: function (e) {
+              this.parent = e;
+            },
+            enumerable: !1,
+            configurable: !0,
+          }),
+          Object.defineProperty(e.prototype, "previousSibling", {
+            get: function () {
+              return this.prev;
+            },
+            set: function (e) {
+              this.prev = e;
+            },
+            enumerable: !1,
+            configurable: !0,
+          }),
+          Object.defineProperty(e.prototype, "nextSibling", {
+            get: function () {
+              return this.next;
+            },
+            set: function (e) {
+              this.next = e;
+            },
+            enumerable: !1,
+            configurable: !0,
+          }),
+          (e.prototype.cloneNode = function (e) {
+            return (e === void 0 && (e = !1), x(this, e));
+          }),
+          e
+        );
+      })();
+    e.Node = i;
+    var a = (function (e) {
+      t(n, e);
+      function n(t) {
+        var n = e.call(this) || this;
+        return ((n.data = t), n);
+      }
+      return (
+        Object.defineProperty(n.prototype, "nodeValue", {
+          get: function () {
+            return this.data;
+          },
+          set: function (e) {
+            this.data = e;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        n
+      );
+    })(i);
+    e.DataNode = a;
+    var o = (function (e) {
+      t(n, e);
+      function n() {
+        var t = (e !== null && e.apply(this, arguments)) || this;
+        return ((t.type = r.ElementType.Text), t);
+      }
+      return (
+        Object.defineProperty(n.prototype, "nodeType", {
+          get: function () {
+            return 3;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        n
+      );
+    })(a);
+    e.Text = o;
+    var s = (function (e) {
+      t(n, e);
+      function n() {
+        var t = (e !== null && e.apply(this, arguments)) || this;
+        return ((t.type = r.ElementType.Comment), t);
+      }
+      return (
+        Object.defineProperty(n.prototype, "nodeType", {
+          get: function () {
+            return 8;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        n
+      );
+    })(a);
+    e.Comment = s;
+    var l = (function (e) {
+      t(n, e);
+      function n(t, n) {
+        var i = e.call(this, n) || this;
+        return ((i.name = t), (i.type = r.ElementType.Directive), i);
+      }
+      return (
+        Object.defineProperty(n.prototype, "nodeType", {
+          get: function () {
+            return 1;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        n
+      );
+    })(a);
+    e.ProcessingInstruction = l;
+    var u = (function (e) {
+      t(n, e);
+      function n(t) {
+        var n = e.call(this) || this;
+        return ((n.children = t), n);
+      }
+      return (
+        Object.defineProperty(n.prototype, "firstChild", {
+          get: function () {
+            return this.children[0] ?? null;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        Object.defineProperty(n.prototype, "lastChild", {
+          get: function () {
+            return this.children.length > 0
+              ? this.children[this.children.length - 1]
+              : null;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        Object.defineProperty(n.prototype, "childNodes", {
+          get: function () {
+            return this.children;
+          },
+          set: function (e) {
+            this.children = e;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        n
+      );
+    })(i);
+    e.NodeWithChildren = u;
+    var d = (function (e) {
+      t(n, e);
+      function n() {
+        var t = (e !== null && e.apply(this, arguments)) || this;
+        return ((t.type = r.ElementType.CDATA), t);
+      }
+      return (
+        Object.defineProperty(n.prototype, "nodeType", {
+          get: function () {
+            return 4;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        n
+      );
+    })(u);
+    e.CDATA = d;
+    var f = (function (e) {
+      t(n, e);
+      function n() {
+        var t = (e !== null && e.apply(this, arguments)) || this;
+        return ((t.type = r.ElementType.Root), t);
+      }
+      return (
+        Object.defineProperty(n.prototype, "nodeType", {
+          get: function () {
+            return 9;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        n
+      );
+    })(u);
+    e.Document = f;
+    var p = (function (e) {
+      t(n, e);
+      function n(t, n, i, a) {
+        (i === void 0 && (i = []),
+          a === void 0 &&
+            (a =
+              t === `script`
+                ? r.ElementType.Script
+                : t === `style`
+                  ? r.ElementType.Style
+                  : r.ElementType.Tag));
+        var o = e.call(this, i) || this;
+        return ((o.name = t), (o.attribs = n), (o.type = a), o);
+      }
+      return (
+        Object.defineProperty(n.prototype, "nodeType", {
+          get: function () {
+            return 1;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        Object.defineProperty(n.prototype, "tagName", {
+          get: function () {
+            return this.name;
+          },
+          set: function (e) {
+            this.name = e;
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        Object.defineProperty(n.prototype, "attributes", {
+          get: function () {
+            var e = this;
+            return Object.keys(this.attribs).map(function (t) {
+              return {
+                name: t,
+                value: e.attribs[t],
+                namespace: e[`x-attribsNamespace`]?.[t],
+                prefix: e[`x-attribsPrefix`]?.[t],
+              };
+            });
+          },
+          enumerable: !1,
+          configurable: !0,
+        }),
+        n
+      );
+    })(u);
+    e.Element = p;
+    function m(e) {
+      return (0, r.isTag)(e);
+    }
+    e.isTag = m;
+    function h(e) {
+      return e.type === r.ElementType.CDATA;
+    }
+    e.isCDATA = h;
+    function g(e) {
+      return e.type === r.ElementType.Text;
+    }
+    e.isText = g;
+    function _(e) {
+      return e.type === r.ElementType.Comment;
+    }
+    e.isComment = _;
+    function v(e) {
+      return e.type === r.ElementType.Directive;
+    }
+    e.isDirective = v;
+    function y(e) {
+      return e.type === r.ElementType.Root;
+    }
+    e.isDocument = y;
+    function b(e) {
+      return Object.prototype.hasOwnProperty.call(e, `children`);
+    }
+    e.hasChildren = b;
+    function x(e, t) {
+      t === void 0 && (t = !1);
+      var r;
+      if (g(e)) r = new o(e.data);
+      else if (_(e)) r = new s(e.data);
+      else if (m(e)) {
+        var i = t ? S(e.children) : [],
+          a = new p(e.name, n({}, e.attribs), i);
+        (i.forEach(function (e) {
+          return (e.parent = a);
+        }),
+          e.namespace != null && (a.namespace = e.namespace),
+          e[`x-attribsNamespace`] &&
+            (a[`x-attribsNamespace`] = n({}, e[`x-attribsNamespace`])),
+          e[`x-attribsPrefix`] &&
+            (a[`x-attribsPrefix`] = n({}, e[`x-attribsPrefix`])),
+          (r = a));
+      } else if (h(e)) {
+        var i = t ? S(e.children) : [],
+          c = new d(i);
+        (i.forEach(function (e) {
+          return (e.parent = c);
+        }),
+          (r = c));
+      } else if (y(e)) {
+        var i = t ? S(e.children) : [],
+          u = new f(i);
+        (i.forEach(function (e) {
+          return (e.parent = u);
+        }),
+          e[`x-mode`] && (u[`x-mode`] = e[`x-mode`]),
+          (r = u));
+      } else if (v(e)) {
+        var b = new l(e.name, e.data);
+        (e[`x-name`] != null &&
+          ((b[`x-name`] = e[`x-name`]),
+          (b[`x-publicId`] = e[`x-publicId`]),
+          (b[`x-systemId`] = e[`x-systemId`])),
+          (r = b));
+      } else throw Error(`Not implemented yet: ${e.type}`);
+      return (
+        (r.startIndex = e.startIndex),
+        (r.endIndex = e.endIndex),
+        e.sourceCodeLocation != null &&
+          (r.sourceCodeLocation = e.sourceCodeLocation),
+        r
+      );
+    }
+    e.cloneNode = x;
+    function S(e) {
+      for (
+        var t = e.map(function (e) {
+            return x(e, !0);
+          }),
+          n = 1;
+        n < t.length;
+        n++
+      )
+        ((t[n].prev = t[n - 1]), (t[n - 1].next = t[n]));
+      return t;
+    }
+  }),
+  u = r((e) => {
+    var t =
+        (e && e.__createBinding) ||
+        (Object.create
+          ? function (e, t, n, r) {
+              r === void 0 && (r = n);
+              var i = Object.getOwnPropertyDescriptor(t, n);
+              ((!i ||
+                (`get` in i ? !t.__esModule : i.writable || i.configurable)) &&
+                (i = {
+                  enumerable: !0,
+                  get: function () {
+                    return t[n];
+                  },
+                }),
+                Object.defineProperty(e, r, i));
+            }
+          : function (e, t, n, r) {
+              (r === void 0 && (r = n), (e[r] = t[n]));
+            }),
+      n =
+        (e && e.__exportStar) ||
+        function (e, n) {
+          for (var r in e)
+            r !== "default" &&
+              !Object.prototype.hasOwnProperty.call(n, r) &&
+              t(n, e, r);
+        };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.DomHandler = void 0));
+    var r = c(),
+      i = l();
+    n(l(), e);
+    var a = { withStartIndices: !1, withEndIndices: !1, xmlMode: !1 },
+      o = (function () {
+        function e(e, t, n) {
+          ((this.dom = []),
+            (this.root = new i.Document(this.dom)),
+            (this.done = !1),
+            (this.tagStack = [this.root]),
+            (this.lastNode = null),
+            (this.parser = null),
+            typeof t == `function` && ((n = t), (t = a)),
+            typeof e == `object` && ((t = e), (e = void 0)),
+            (this.callback = e ?? null),
+            (this.options = t ?? a),
+            (this.elementCB = n ?? null));
+        }
+        return (
+          (e.prototype.onparserinit = function (e) {
+            this.parser = e;
+          }),
+          (e.prototype.onreset = function () {
+            ((this.dom = []),
+              (this.root = new i.Document(this.dom)),
+              (this.done = !1),
+              (this.tagStack = [this.root]),
+              (this.lastNode = null),
+              (this.parser = null));
+          }),
+          (e.prototype.onend = function () {
+            this.done ||
+              ((this.done = !0),
+              (this.parser = null),
+              this.handleCallback(null));
+          }),
+          (e.prototype.onerror = function (e) {
+            this.handleCallback(e);
+          }),
+          (e.prototype.onclosetag = function () {
+            this.lastNode = null;
+            var e = this.tagStack.pop();
+            (this.options.withEndIndices && (e.endIndex = this.parser.endIndex),
+              this.elementCB && this.elementCB(e));
+          }),
+          (e.prototype.onopentag = function (e, t) {
+            var n = this.options.xmlMode ? r.ElementType.Tag : void 0,
+              a = new i.Element(e, t, void 0, n);
+            (this.addNode(a), this.tagStack.push(a));
+          }),
+          (e.prototype.ontext = function (e) {
+            var t = this.lastNode;
+            if (t && t.type === r.ElementType.Text)
+              ((t.data += e),
+                this.options.withEndIndices &&
+                  (t.endIndex = this.parser.endIndex));
+            else {
+              var n = new i.Text(e);
+              (this.addNode(n), (this.lastNode = n));
+            }
+          }),
+          (e.prototype.oncomment = function (e) {
+            if (this.lastNode && this.lastNode.type === r.ElementType.Comment) {
+              this.lastNode.data += e;
+              return;
+            }
+            var t = new i.Comment(e);
+            (this.addNode(t), (this.lastNode = t));
+          }),
+          (e.prototype.oncommentend = function () {
+            this.lastNode = null;
+          }),
+          (e.prototype.oncdatastart = function () {
+            var e = new i.Text(``),
+              t = new i.CDATA([e]);
+            (this.addNode(t), (e.parent = t), (this.lastNode = e));
+          }),
+          (e.prototype.oncdataend = function () {
+            this.lastNode = null;
+          }),
+          (e.prototype.onprocessinginstruction = function (e, t) {
+            var n = new i.ProcessingInstruction(e, t);
+            this.addNode(n);
+          }),
+          (e.prototype.handleCallback = function (e) {
+            if (typeof this.callback == `function`) this.callback(e, this.dom);
+            else if (e) throw e;
+          }),
+          (e.prototype.addNode = function (e) {
+            var t = this.tagStack[this.tagStack.length - 1],
+              n = t.children[t.children.length - 1];
+            (this.options.withStartIndices &&
+              (e.startIndex = this.parser.startIndex),
+              this.options.withEndIndices &&
+                (e.endIndex = this.parser.endIndex),
+              t.children.push(e),
+              n && ((e.prev = n), (n.next = e)),
+              (e.parent = t),
+              (this.lastNode = null));
+          }),
+          e
+        );
+      })();
+    ((e.DomHandler = o), (e.default = o));
+  }),
+  d = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.default = new Uint16Array(
+        `ᵁ<Õıʊҝջאٵ۞ޢߖࠏ੊ઑඡ๭༉༦჊ረዡᐕᒝᓃᓟᔥ\0\0\0\0\0\0ᕫᛍᦍᰒᷝ὾⁠↰⊍⏀⏻⑂⠤⤒ⴈ⹈⿎〖㊺㘹㞬㣾㨨㩱㫠㬮ࠀEMabcfglmnoprstu\\bfms¦³¹ÈÏlig耻Æ䃆P耻&䀦cute耻Á䃁reve;䄂Āiyx}rc耻Â䃂;䐐r;쀀𝔄rave耻À䃀pha;䎑acr;䄀d;橓Āgp¡on;䄄f;쀀𝔸plyFunction;恡ing耻Å䃅Ācs¾Ãr;쀀𝒜ign;扔ilde耻Ã䃃ml耻Ä䃄ЀaceforsuåûþėĜĢħĪĀcrêòkslash;或Ŷöø;櫧ed;挆y;䐑ƀcrtąċĔause;戵noullis;愬a;䎒r;쀀𝔅pf;쀀𝔹eve;䋘còēmpeq;扎܀HOacdefhilorsuōőŖƀƞƢƵƷƺǜȕɳɸɾcy;䐧PY耻©䂩ƀcpyŝŢźute;䄆Ā;iŧŨ拒talDifferentialD;慅leys;愭ȀaeioƉƎƔƘron;䄌dil耻Ç䃇rc;䄈nint;戰ot;䄊ĀdnƧƭilla;䂸terDot;䂷òſi;䎧rcleȀDMPTǇǋǑǖot;抙inus;抖lus;投imes;抗oĀcsǢǸkwiseContourIntegral;戲eCurlyĀDQȃȏoubleQuote;思uote;怙ȀlnpuȞȨɇɕonĀ;eȥȦ户;橴ƀgitȯȶȺruent;扡nt;戯ourIntegral;戮ĀfrɌɎ;愂oduct;成nterClockwiseContourIntegral;戳oss;樯cr;쀀𝒞pĀ;Cʄʅ拓ap;才րDJSZacefiosʠʬʰʴʸˋ˗ˡ˦̳ҍĀ;oŹʥtrahd;椑cy;䐂cy;䐅cy;䐏ƀgrsʿ˄ˇger;怡r;憡hv;櫤Āayː˕ron;䄎;䐔lĀ;t˝˞戇a;䎔r;쀀𝔇Āaf˫̧Ācm˰̢riticalȀADGT̖̜̀̆cute;䂴oŴ̋̍;䋙bleAcute;䋝rave;䁠ilde;䋜ond;拄ferentialD;慆Ѱ̽\0\0\0͔͂\0Ѕf;쀀𝔻ƀ;DE͈͉͍䂨ot;惜qual;扐blèCDLRUVͣͲ΂ϏϢϸontourIntegraìȹoɴ͹\0\0ͻ»͉nArrow;懓Āeo·ΤftƀARTΐΖΡrrow;懐ightArrow;懔eåˊngĀLRΫτeftĀARγιrrow;柸ightArrow;柺ightArrow;柹ightĀATϘϞrrow;懒ee;抨pɁϩ\0\0ϯrrow;懑ownArrow;懕erticalBar;戥ǹABLRTaВЪаўѿͼrrowƀ;BUНОТ憓ar;椓pArrow;懵reve;䌑eft˒к\0ц\0ѐightVector;楐eeVector;楞ectorĀ;Bљњ憽ar;楖ightǔѧ\0ѱeeVector;楟ectorĀ;BѺѻ懁ar;楗eeĀ;A҆҇护rrow;憧ĀctҒҗr;쀀𝒟rok;䄐ࠀNTacdfglmopqstuxҽӀӄӋӞӢӧӮӵԡԯԶՒ՝ՠեG;䅊H耻Ð䃐cute耻É䃉ƀaiyӒӗӜron;䄚rc耻Ê䃊;䐭ot;䄖r;쀀𝔈rave耻È䃈ement;戈ĀapӺӾcr;䄒tyɓԆ\0\0ԒmallSquare;旻erySmallSquare;斫ĀgpԦԪon;䄘f;쀀𝔼silon;䎕uĀaiԼՉlĀ;TՂՃ橵ilde;扂librium;懌Āci՗՚r;愰m;橳a;䎗ml耻Ë䃋Āipժկsts;戃onentialE;慇ʀcfiosօֈ֍ֲ׌y;䐤r;쀀𝔉lledɓ֗\0\0֣mallSquare;旼erySmallSquare;斪Ͱֺ\0ֿ\0\0ׄf;쀀𝔽All;戀riertrf;愱cò׋؀JTabcdfgorstר׬ׯ׺؀ؒؖ؛؝أ٬ٲcy;䐃耻>䀾mmaĀ;d׷׸䎓;䏜reve;䄞ƀeiy؇،ؐdil;䄢rc;䄜;䐓ot;䄠r;쀀𝔊;拙pf;쀀𝔾eater̀EFGLSTصلَٖٛ٦qualĀ;Lؾؿ扥ess;招ullEqual;执reater;檢ess;扷lantEqual;橾ilde;扳cr;쀀𝒢;扫ЀAacfiosuڅڋږڛڞڪھۊRDcy;䐪Āctڐڔek;䋇;䁞irc;䄤r;愌lbertSpace;愋ǰگ\0ڲf;愍izontalLine;攀Āctۃۅòکrok;䄦mpńېۘownHumðįqual;扏܀EJOacdfgmnostuۺ۾܃܇܎ܚܞܡܨ݄ݸދޏޕcy;䐕lig;䄲cy;䐁cute耻Í䃍Āiyܓܘrc耻Î䃎;䐘ot;䄰r;愑rave耻Ì䃌ƀ;apܠܯܿĀcgܴܷr;䄪inaryI;慈lieóϝǴ݉\0ݢĀ;eݍݎ戬Āgrݓݘral;戫section;拂isibleĀCTݬݲomma;恣imes;恢ƀgptݿރވon;䄮f;쀀𝕀a;䎙cr;愐ilde;䄨ǫޚ\0ޞcy;䐆l耻Ï䃏ʀcfosuެ޷޼߂ߐĀiyޱ޵rc;䄴;䐙r;쀀𝔍pf;쀀𝕁ǣ߇\0ߌr;쀀𝒥rcy;䐈kcy;䐄΀HJacfosߤߨ߽߬߱ࠂࠈcy;䐥cy;䐌ppa;䎚Āey߶߻dil;䄶;䐚r;쀀𝔎pf;쀀𝕂cr;쀀𝒦րJTaceflmostࠥࠩࠬࡐࡣ঳সে্਷ੇcy;䐉耻<䀼ʀcmnpr࠷࠼ࡁࡄࡍute;䄹bda;䎛g;柪lacetrf;愒r;憞ƀaeyࡗ࡜ࡡron;䄽dil;䄻;䐛Āfsࡨ॰tԀACDFRTUVarࡾࢩࢱࣦ࣠ࣼयज़ΐ४Ānrࢃ࢏gleBracket;柨rowƀ;BR࢙࢚࢞憐ar;懤ightArrow;懆eiling;挈oǵࢷ\0ࣃbleBracket;柦nǔࣈ\0࣒eeVector;楡ectorĀ;Bࣛࣜ懃ar;楙loor;挊ightĀAV࣯ࣵrrow;憔ector;楎Āerँगeƀ;AVउऊऐ抣rrow;憤ector;楚iangleƀ;BEतथऩ抲ar;槏qual;抴pƀDTVषूौownVector;楑eeVector;楠ectorĀ;Bॖॗ憿ar;楘ectorĀ;B॥०憼ar;楒ightáΜs̀EFGLSTॾঋকঝঢভqualGreater;拚ullEqual;扦reater;扶ess;檡lantEqual;橽ilde;扲r;쀀𝔏Ā;eঽা拘ftarrow;懚idot;䄿ƀnpw৔ਖਛgȀLRlr৞৷ਂਐeftĀAR০৬rrow;柵ightArrow;柷ightArrow;柶eftĀarγਊightáοightáϊf;쀀𝕃erĀLRਢਬeftArrow;憙ightArrow;憘ƀchtਾੀੂòࡌ;憰rok;䅁;扪Ѐacefiosuਗ਼੝੠੷੼અઋ઎p;椅y;䐜Ādl੥੯iumSpace;恟lintrf;愳r;쀀𝔐nusPlus;戓pf;쀀𝕄cò੶;䎜ҀJacefostuણધભીଔଙඑ඗ඞcy;䐊cute;䅃ƀaey઴હાron;䅇dil;䅅;䐝ƀgswે૰଎ativeƀMTV૓૟૨ediumSpace;怋hiĀcn૦૘ë૙eryThiî૙tedĀGL૸ଆreaterGreateòٳessLesóੈLine;䀊r;쀀𝔑ȀBnptଢନଷ଺reak;恠BreakingSpace;䂠f;愕ڀ;CDEGHLNPRSTV୕ୖ୪୼஡௫ఄ౞಄ದ೘ൡඅ櫬Āou୛୤ngruent;扢pCap;扭oubleVerticalBar;戦ƀlqxஃஊ஛ement;戉ualĀ;Tஒஓ扠ilde;쀀≂̸ists;戄reater΀;EFGLSTஶஷ஽௉௓௘௥扯qual;扱ullEqual;쀀≧̸reater;쀀≫̸ess;批lantEqual;쀀⩾̸ilde;扵umpń௲௽ownHump;쀀≎̸qual;쀀≏̸eĀfsఊధtTriangleƀ;BEచఛడ拪ar;쀀⧏̸qual;括s̀;EGLSTవశ఼ౄోౘ扮qual;扰reater;扸ess;쀀≪̸lantEqual;쀀⩽̸ilde;扴estedĀGL౨౹reaterGreater;쀀⪢̸essLess;쀀⪡̸recedesƀ;ESಒಓಛ技qual;쀀⪯̸lantEqual;拠ĀeiಫಹverseElement;戌ghtTriangleƀ;BEೋೌ೒拫ar;쀀⧐̸qual;拭ĀquೝഌuareSuĀbp೨೹setĀ;E೰ೳ쀀⊏̸qual;拢ersetĀ;Eഃആ쀀⊐̸qual;拣ƀbcpഓതൎsetĀ;Eഛഞ쀀⊂⃒qual;抈ceedsȀ;ESTലള഻െ抁qual;쀀⪰̸lantEqual;拡ilde;쀀≿̸ersetĀ;E൘൛쀀⊃⃒qual;抉ildeȀ;EFT൮൯൵ൿ扁qual;扄ullEqual;扇ilde;扉erticalBar;戤cr;쀀𝒩ilde耻Ñ䃑;䎝܀Eacdfgmoprstuvලෂ෉෕ෛ෠෧෼ขภยา฿ไlig;䅒cute耻Ó䃓Āiy෎ීrc耻Ô䃔;䐞blac;䅐r;쀀𝔒rave耻Ò䃒ƀaei෮ෲ෶cr;䅌ga;䎩cron;䎟pf;쀀𝕆enCurlyĀDQฎบoubleQuote;怜uote;怘;橔Āclวฬr;쀀𝒪ash耻Ø䃘iŬื฼de耻Õ䃕es;樷ml耻Ö䃖erĀBP๋๠Āar๐๓r;怾acĀek๚๜;揞et;掴arenthesis;揜Ҁacfhilors๿ງຊຏຒດຝະ໼rtialD;戂y;䐟r;쀀𝔓i;䎦;䎠usMinus;䂱Āipຢອncareplanåڝf;愙Ȁ;eio຺ູ໠໤檻cedesȀ;EST່້໏໚扺qual;檯lantEqual;扼ilde;找me;怳Ādp໩໮uct;戏ortionĀ;aȥ໹l;戝Āci༁༆r;쀀𝒫;䎨ȀUfos༑༖༛༟OT耻"䀢r;쀀𝔔pf;愚cr;쀀𝒬؀BEacefhiorsu༾གྷཇའཱིྦྷྪྭ႖ႩႴႾarr;椐G耻®䂮ƀcnrཎནབute;䅔g;柫rĀ;tཛྷཝ憠l;椖ƀaeyཧཬཱron;䅘dil;䅖;䐠Ā;vླྀཹ愜erseĀEUྂྙĀlq྇ྎement;戋uilibrium;懋pEquilibrium;楯r»ཹo;䎡ghtЀACDFTUVa࿁࿫࿳ဢဨၛႇϘĀnr࿆࿒gleBracket;柩rowƀ;BL࿜࿝࿡憒ar;懥eftArrow;懄eiling;按oǵ࿹\0စbleBracket;柧nǔည\0နeeVector;楝ectorĀ;Bဝသ懂ar;楕loor;挋Āerိ၃eƀ;AVဵံြ抢rrow;憦ector;楛iangleƀ;BEၐၑၕ抳ar;槐qual;抵pƀDTVၣၮၸownVector;楏eeVector;楜ectorĀ;Bႂႃ憾ar;楔ectorĀ;B႑႒懀ar;楓Āpuႛ႞f;愝ndImplies;楰ightarrow;懛ĀchႹႼr;愛;憱leDelayed;槴ڀHOacfhimoqstuფჱჷჽᄙᄞᅑᅖᅡᅧᆵᆻᆿĀCcჩხHcy;䐩y;䐨FTcy;䐬cute;䅚ʀ;aeiyᄈᄉᄎᄓᄗ檼ron;䅠dil;䅞rc;䅜;䐡r;쀀𝔖ortȀDLRUᄪᄴᄾᅉownArrow»ОeftArrow»࢚ightArrow»࿝pArrow;憑gma;䎣allCircle;战pf;쀀𝕊ɲᅭ\0\0ᅰt;戚areȀ;ISUᅻᅼᆉᆯ斡ntersection;抓uĀbpᆏᆞsetĀ;Eᆗᆘ抏qual;抑ersetĀ;Eᆨᆩ抐qual;抒nion;抔cr;쀀𝒮ar;拆ȀbcmpᇈᇛሉላĀ;sᇍᇎ拐etĀ;Eᇍᇕqual;抆ĀchᇠህeedsȀ;ESTᇭᇮᇴᇿ扻qual;檰lantEqual;扽ilde;承Tháྌ;我ƀ;esሒሓሣ拑rsetĀ;Eሜም抃qual;抇et»ሓրHRSacfhiorsሾቄ቉ቕ቞ቱቶኟዂወዑORN耻Þ䃞ADE;愢ĀHc቎ቒcy;䐋y;䐦Ābuቚቜ;䀉;䎤ƀaeyብቪቯron;䅤dil;䅢;䐢r;쀀𝔗Āeiቻ኉ǲኀ\0ኇefore;戴a;䎘Ācn኎ኘkSpace;쀀  Space;怉ldeȀ;EFTካኬኲኼ戼qual;扃ullEqual;扅ilde;扈pf;쀀𝕋ipleDot;惛Āctዖዛr;쀀𝒯rok;䅦ૡዷጎጚጦ\0ጬጱ\0\0\0\0\0ጸጽ፷ᎅ\0᏿ᐄᐊᐐĀcrዻጁute耻Ú䃚rĀ;oጇገ憟cir;楉rǣጓ\0጖y;䐎ve;䅬Āiyጞጣrc耻Û䃛;䐣blac;䅰r;쀀𝔘rave耻Ù䃙acr;䅪Ādiፁ፩erĀBPፈ፝Āarፍፐr;䁟acĀekፗፙ;揟et;掵arenthesis;揝onĀ;P፰፱拃lus;抎Āgp፻፿on;䅲f;쀀𝕌ЀADETadps᎕ᎮᎸᏄϨᏒᏗᏳrrowƀ;BDᅐᎠᎤar;椒ownArrow;懅ownArrow;憕quilibrium;楮eeĀ;AᏋᏌ报rrow;憥ownáϳerĀLRᏞᏨeftArrow;憖ightArrow;憗iĀ;lᏹᏺ䏒on;䎥ing;䅮cr;쀀𝒰ilde;䅨ml耻Ü䃜ҀDbcdefosvᐧᐬᐰᐳᐾᒅᒊᒐᒖash;披ar;櫫y;䐒ashĀ;lᐻᐼ抩;櫦Āerᑃᑅ;拁ƀbtyᑌᑐᑺar;怖Ā;iᑏᑕcalȀBLSTᑡᑥᑪᑴar;戣ine;䁼eparator;杘ilde;所ThinSpace;怊r;쀀𝔙pf;쀀𝕍cr;쀀𝒱dash;抪ʀcefosᒧᒬᒱᒶᒼirc;䅴dge;拀r;쀀𝔚pf;쀀𝕎cr;쀀𝒲Ȁfiosᓋᓐᓒᓘr;쀀𝔛;䎞pf;쀀𝕏cr;쀀𝒳ҀAIUacfosuᓱᓵᓹᓽᔄᔏᔔᔚᔠcy;䐯cy;䐇cy;䐮cute耻Ý䃝Āiyᔉᔍrc;䅶;䐫r;쀀𝔜pf;쀀𝕐cr;쀀𝒴ml;䅸ЀHacdefosᔵᔹᔿᕋᕏᕝᕠᕤcy;䐖cute;䅹Āayᕄᕉron;䅽;䐗ot;䅻ǲᕔ\0ᕛoWidtè૙a;䎖r;愨pf;愤cr;쀀𝒵௡ᖃᖊᖐ\0ᖰᖶᖿ\0\0\0\0ᗆᗛᗫᙟ᙭\0ᚕ᚛ᚲᚹ\0ᚾcute耻á䃡reve;䄃̀;Ediuyᖜᖝᖡᖣᖨᖭ戾;쀀∾̳;房rc耻â䃢te肻´̆;䐰lig耻æ䃦Ā;r²ᖺ;쀀𝔞rave耻à䃠ĀepᗊᗖĀfpᗏᗔsym;愵èᗓha;䎱ĀapᗟcĀclᗤᗧr;䄁g;樿ɤᗰ\0\0ᘊʀ;adsvᗺᗻᗿᘁᘇ戧nd;橕;橜lope;橘;橚΀;elmrszᘘᘙᘛᘞᘿᙏᙙ戠;榤e»ᘙsdĀ;aᘥᘦ戡ѡᘰᘲᘴᘶᘸᘺᘼᘾ;榨;榩;榪;榫;榬;榭;榮;榯tĀ;vᙅᙆ戟bĀ;dᙌᙍ抾;榝Āptᙔᙗh;戢»¹arr;捼Āgpᙣᙧon;䄅f;쀀𝕒΀;Eaeiop዁ᙻᙽᚂᚄᚇᚊ;橰cir;橯;扊d;手s;䀧roxĀ;e዁ᚒñᚃing耻å䃥ƀctyᚡᚦᚨr;쀀𝒶;䀪mpĀ;e዁ᚯñʈilde耻ã䃣ml耻ä䃤Āciᛂᛈoninôɲnt;樑ࠀNabcdefiklnoprsu᛭ᛱᜰ᜼ᝃᝈ᝸᝽០៦ᠹᡐᜍ᤽᥈ᥰot;櫭Ācrᛶ᜞kȀcepsᜀᜅᜍᜓong;扌psilon;䏶rime;怵imĀ;e᜚᜛戽q;拍Ŷᜢᜦee;抽edĀ;gᜬᜭ挅e»ᜭrkĀ;t፜᜷brk;掶Āoyᜁᝁ;䐱quo;怞ʀcmprtᝓ᝛ᝡᝤᝨausĀ;eĊĉptyv;榰séᜌnoõēƀahwᝯ᝱ᝳ;䎲;愶een;扬r;쀀𝔟g΀costuvwឍឝឳេ៕៛៞ƀaiuបពរðݠrc;旯p»፱ƀdptឤឨឭot;樀lus;樁imes;樂ɱឹ\0\0ើcup;樆ar;昅riangleĀdu៍្own;施p;斳plus;樄eåᑄåᒭarow;植ƀako៭ᠦᠵĀcn៲ᠣkƀlst៺֫᠂ozenge;槫riangleȀ;dlr᠒᠓᠘᠝斴own;斾eft;旂ight;斸k;搣Ʊᠫ\0ᠳƲᠯ\0ᠱ;斒;斑4;斓ck;斈ĀeoᠾᡍĀ;qᡃᡆ쀀=⃥uiv;쀀≡⃥t;挐Ȁptwxᡙᡞᡧᡬf;쀀𝕓Ā;tᏋᡣom»Ꮜtie;拈؀DHUVbdhmptuvᢅᢖᢪᢻᣗᣛᣬ᣿ᤅᤊᤐᤡȀLRlrᢎᢐᢒᢔ;敗;敔;敖;敓ʀ;DUduᢡᢢᢤᢦᢨ敐;敦;敩;敤;敧ȀLRlrᢳᢵᢷᢹ;敝;敚;敜;教΀;HLRhlrᣊᣋᣍᣏᣑᣓᣕ救;敬;散;敠;敫;敢;敟ox;槉ȀLRlrᣤᣦᣨᣪ;敕;敒;攐;攌ʀ;DUduڽ᣷᣹᣻᣽;敥;敨;攬;攴inus;抟lus;択imes;抠ȀLRlrᤙᤛᤝ᤟;敛;敘;攘;攔΀;HLRhlrᤰᤱᤳᤵᤷ᤻᤹攂;敪;敡;敞;攼;攤;攜Āevģ᥂bar耻¦䂦Ȁceioᥑᥖᥚᥠr;쀀𝒷mi;恏mĀ;e᜚᜜lƀ;bhᥨᥩᥫ䁜;槅sub;柈Ŭᥴ᥾lĀ;e᥹᥺怢t»᥺pƀ;Eeįᦅᦇ;檮Ā;qۜۛೡᦧ\0᧨ᨑᨕᨲ\0ᨷᩐ\0\0᪴\0\0᫁\0\0ᬡᬮ᭍᭒\0᯽\0ᰌƀcpr᦭ᦲ᧝ute;䄇̀;abcdsᦿᧀᧄ᧊᧕᧙戩nd;橄rcup;橉Āau᧏᧒p;橋p;橇ot;橀;쀀∩︀Āeo᧢᧥t;恁îړȀaeiu᧰᧻ᨁᨅǰ᧵\0᧸s;橍on;䄍dil耻ç䃧rc;䄉psĀ;sᨌᨍ橌m;橐ot;䄋ƀdmnᨛᨠᨦil肻¸ƭptyv;榲t脀¢;eᨭᨮ䂢räƲr;쀀𝔠ƀceiᨽᩀᩍy;䑇ckĀ;mᩇᩈ朓ark»ᩈ;䏇r΀;Ecefms᩟᩠ᩢᩫ᪤᪪᪮旋;槃ƀ;elᩩᩪᩭ䋆q;扗eɡᩴ\0\0᪈rrowĀlr᩼᪁eft;憺ight;憻ʀRSacd᪒᪔᪖᪚᪟»ཇ;擈st;抛irc;抚ash;抝nint;樐id;櫯cir;槂ubsĀ;u᪻᪼晣it»᪼ˬ᫇᫔᫺\0ᬊonĀ;eᫍᫎ䀺Ā;qÇÆɭ᫙\0\0᫢aĀ;t᫞᫟䀬;䁀ƀ;fl᫨᫩᫫戁îᅠeĀmx᫱᫶ent»᫩eóɍǧ᫾\0ᬇĀ;dኻᬂot;橭nôɆƀfryᬐᬔᬗ;쀀𝕔oäɔ脀©;sŕᬝr;愗Āaoᬥᬩrr;憵ss;朗Ācuᬲᬷr;쀀𝒸Ābpᬼ᭄Ā;eᭁᭂ櫏;櫑Ā;eᭉᭊ櫐;櫒dot;拯΀delprvw᭠᭬᭷ᮂᮬᯔ᯹arrĀlr᭨᭪;椸;椵ɰ᭲\0\0᭵r;拞c;拟arrĀ;p᭿ᮀ憶;椽̀;bcdosᮏᮐᮖᮡᮥᮨ截rcap;橈Āauᮛᮞp;橆p;橊ot;抍r;橅;쀀∪︀Ȁalrv᮵ᮿᯞᯣrrĀ;mᮼᮽ憷;椼yƀevwᯇᯔᯘqɰᯎ\0\0ᯒreã᭳uã᭵ee;拎edge;拏en耻¤䂤earrowĀlrᯮ᯳eft»ᮀight»ᮽeäᯝĀciᰁᰇoninôǷnt;戱lcty;挭ঀAHabcdefhijlorstuwz᰸᰻᰿ᱝᱩᱵᲊᲞᲬᲷ᳻᳿ᴍᵻᶑᶫᶻ᷆᷍rò΁ar;楥Ȁglrs᱈ᱍ᱒᱔ger;怠eth;愸òᄳhĀ;vᱚᱛ怐»ऊūᱡᱧarow;椏aã̕Āayᱮᱳron;䄏;䐴ƀ;ao̲ᱼᲄĀgrʿᲁr;懊tseq;橷ƀglmᲑᲔᲘ耻°䂰ta;䎴ptyv;榱ĀirᲣᲨsht;楿;쀀𝔡arĀlrᲳᲵ»ࣜ»သʀaegsv᳂͸᳖᳜᳠mƀ;oș᳊᳔ndĀ;ș᳑uit;晦amma;䏝in;拲ƀ;io᳧᳨᳸䃷de脀÷;o᳧ᳰntimes;拇nø᳷cy;䑒cɯᴆ\0\0ᴊrn;挞op;挍ʀlptuwᴘᴝᴢᵉᵕlar;䀤f;쀀𝕕ʀ;emps̋ᴭᴷᴽᵂqĀ;d͒ᴳot;扑inus;戸lus;戔quare;抡blebarwedgåúnƀadhᄮᵝᵧownarrowóᲃarpoonĀlrᵲᵶefôᲴighôᲶŢᵿᶅkaro÷གɯᶊ\0\0ᶎrn;挟op;挌ƀcotᶘᶣᶦĀryᶝᶡ;쀀𝒹;䑕l;槶rok;䄑Ādrᶰᶴot;拱iĀ;fᶺ᠖斿Āah᷀᷃ròЩaòྦangle;榦Āci᷒ᷕy;䑟grarr;柿ऀDacdefglmnopqrstuxḁḉḙḸոḼṉṡṾấắẽỡἪἷὄ὎὚ĀDoḆᴴoôᲉĀcsḎḔute耻é䃩ter;橮ȀaioyḢḧḱḶron;䄛rĀ;cḭḮ扖耻ê䃪lon;払;䑍ot;䄗ĀDrṁṅot;扒;쀀𝔢ƀ;rsṐṑṗ檚ave耻è䃨Ā;dṜṝ檖ot;檘Ȁ;ilsṪṫṲṴ檙nters;揧;愓Ā;dṹṺ檕ot;檗ƀapsẅẉẗcr;䄓tyƀ;svẒẓẕ戅et»ẓpĀ1;ẝẤĳạả;怄;怅怃ĀgsẪẬ;䅋p;怂ĀgpẴẸon;䄙f;쀀𝕖ƀalsỄỎỒrĀ;sỊị拕l;槣us;橱iƀ;lvỚớở䎵on»ớ;䏵ȀcsuvỪỳἋἣĀioữḱrc»Ḯɩỹ\0\0ỻíՈantĀglἂἆtr»ṝess»Ṻƀaeiἒ἖Ἒls;䀽st;扟vĀ;DȵἠD;橸parsl;槥ĀDaἯἳot;打rr;楱ƀcdiἾὁỸr;愯oô͒ĀahὉὋ;䎷耻ð䃰Āmrὓὗl耻ë䃫o;悬ƀcipὡὤὧl;䀡sôծĀeoὬὴctatioîՙnentialåչৡᾒ\0ᾞ\0ᾡᾧ\0\0ῆῌ\0ΐ\0ῦῪ \0 ⁚llingdotseñṄy;䑄male;晀ƀilrᾭᾳ῁lig;耀ﬃɩᾹ\0\0᾽g;耀ﬀig;耀ﬄ;쀀𝔣lig;耀ﬁlig;쀀fjƀaltῙ῜ῡt;晭ig;耀ﬂns;斱of;䆒ǰ΅\0ῳf;쀀𝕗ĀakֿῷĀ;vῼ´拔;櫙artint;樍Āao‌⁕Ācs‑⁒α‚‰‸⁅⁈\0⁐β•‥‧‪‬\0‮耻½䂽;慓耻¼䂼;慕;慙;慛Ƴ‴\0‶;慔;慖ʴ‾⁁\0\0⁃耻¾䂾;慗;慜5;慘ƶ⁌\0⁎;慚;慝8;慞l;恄wn;挢cr;쀀𝒻ࢀEabcdefgijlnorstv₂₉₟₥₰₴⃰⃵⃺⃿℃ℒℸ̗ℾ⅒↞Ā;lٍ₇;檌ƀcmpₐₕ₝ute;䇵maĀ;dₜ᳚䎳;檆reve;䄟Āiy₪₮rc;䄝;䐳ot;䄡Ȁ;lqsؾق₽⃉ƀ;qsؾٌ⃄lanô٥Ȁ;cdl٥⃒⃥⃕c;檩otĀ;o⃜⃝檀Ā;l⃢⃣檂;檄Ā;e⃪⃭쀀⋛︀s;檔r;쀀𝔤Ā;gٳ؛mel;愷cy;䑓Ȁ;Eajٚℌℎℐ;檒;檥;檤ȀEaesℛℝ℩ℴ;扩pĀ;p℣ℤ檊rox»ℤĀ;q℮ℯ檈Ā;q℮ℛim;拧pf;쀀𝕘Āci⅃ⅆr;愊mƀ;el٫ⅎ⅐;檎;檐茀>;cdlqr׮ⅠⅪⅮⅳⅹĀciⅥⅧ;檧r;橺ot;拗Par;榕uest;橼ʀadelsↄⅪ←ٖ↛ǰ↉\0↎proø₞r;楸qĀlqؿ↖lesó₈ií٫Āen↣↭rtneqq;쀀≩︀Å↪ԀAabcefkosy⇄⇇⇱⇵⇺∘∝∯≨≽ròΠȀilmr⇐⇔⇗⇛rsðᒄf»․ilôکĀdr⇠⇤cy;䑊ƀ;cwࣴ⇫⇯ir;楈;憭ar;意irc;䄥ƀalr∁∎∓rtsĀ;u∉∊晥it»∊lip;怦con;抹r;쀀𝔥sĀew∣∩arow;椥arow;椦ʀamopr∺∾≃≞≣rr;懿tht;戻kĀlr≉≓eftarrow;憩ightarrow;憪f;쀀𝕙bar;怕ƀclt≯≴≸r;쀀𝒽asè⇴rok;䄧Ābp⊂⊇ull;恃hen»ᱛૡ⊣\0⊪\0⊸⋅⋎\0⋕⋳\0\0⋸⌢⍧⍢⍿\0⎆⎪⎴cute耻í䃭ƀ;iyݱ⊰⊵rc耻î䃮;䐸Ācx⊼⊿y;䐵cl耻¡䂡ĀfrΟ⋉;쀀𝔦rave耻ì䃬Ȁ;inoܾ⋝⋩⋮Āin⋢⋦nt;樌t;戭fin;槜ta;愩lig;䄳ƀaop⋾⌚⌝ƀcgt⌅⌈⌗r;䄫ƀelpܟ⌏⌓inåގarôܠh;䄱f;抷ed;䆵ʀ;cfotӴ⌬⌱⌽⍁are;愅inĀ;t⌸⌹戞ie;槝doô⌙ʀ;celpݗ⍌⍐⍛⍡al;抺Āgr⍕⍙eróᕣã⍍arhk;樗rod;樼Ȁcgpt⍯⍲⍶⍻y;䑑on;䄯f;쀀𝕚a;䎹uest耻¿䂿Āci⎊⎏r;쀀𝒾nʀ;EdsvӴ⎛⎝⎡ӳ;拹ot;拵Ā;v⎦⎧拴;拳Ā;iݷ⎮lde;䄩ǫ⎸\0⎼cy;䑖l耻ï䃯̀cfmosu⏌⏗⏜⏡⏧⏵Āiy⏑⏕rc;䄵;䐹r;쀀𝔧ath;䈷pf;쀀𝕛ǣ⏬\0⏱r;쀀𝒿rcy;䑘kcy;䑔Ѐacfghjos␋␖␢␧␭␱␵␻ppaĀ;v␓␔䎺;䏰Āey␛␠dil;䄷;䐺r;쀀𝔨reen;䄸cy;䑅cy;䑜pf;쀀𝕜cr;쀀𝓀஀ABEHabcdefghjlmnoprstuv⑰⒁⒆⒍⒑┎┽╚▀♎♞♥♹♽⚚⚲⛘❝❨➋⟀⠁⠒ƀart⑷⑺⑼rò৆òΕail;椛arr;椎Ā;gঔ⒋;檋ar;楢ॣ⒥\0⒪\0⒱\0\0\0\0\0⒵Ⓔ\0ⓆⓈⓍ\0⓹ute;䄺mptyv;榴raîࡌbda;䎻gƀ;dlࢎⓁⓃ;榑åࢎ;檅uo耻«䂫rЀ;bfhlpst࢙ⓞⓦⓩ⓫⓮⓱⓵Ā;f࢝ⓣs;椟s;椝ë≒p;憫l;椹im;楳l;憢ƀ;ae⓿─┄檫il;椙Ā;s┉┊檭;쀀⪭︀ƀabr┕┙┝rr;椌rk;杲Āak┢┬cĀek┨┪;䁻;䁛Āes┱┳;榋lĀdu┹┻;榏;榍Ȁaeuy╆╋╖╘ron;䄾Ādi═╔il;䄼ìࢰâ┩;䐻Ȁcqrs╣╦╭╽a;椶uoĀ;rนᝆĀdu╲╷har;楧shar;楋h;憲ʀ;fgqs▋▌উ◳◿扤tʀahlrt▘▤▷◂◨rrowĀ;t࢙□aé⓶arpoonĀdu▯▴own»њp»०eftarrows;懇ightƀahs◍◖◞rrowĀ;sࣴࢧarpoonó྘quigarro÷⇰hreetimes;拋ƀ;qs▋ও◺lanôবʀ;cdgsব☊☍☝☨c;檨otĀ;o☔☕橿Ā;r☚☛檁;檃Ā;e☢☥쀀⋚︀s;檓ʀadegs☳☹☽♉♋pproøⓆot;拖qĀgq♃♅ôউgtò⒌ôছiíলƀilr♕࣡♚sht;楼;쀀𝔩Ā;Eজ♣;檑š♩♶rĀdu▲♮Ā;l॥♳;楪lk;斄cy;䑙ʀ;achtੈ⚈⚋⚑⚖rò◁orneòᴈard;楫ri;旺Āio⚟⚤dot;䅀ustĀ;a⚬⚭掰che»⚭ȀEaes⚻⚽⛉⛔;扨pĀ;p⛃⛄檉rox»⛄Ā;q⛎⛏檇Ā;q⛎⚻im;拦Ѐabnoptwz⛩⛴⛷✚✯❁❇❐Ānr⛮⛱g;柬r;懽rëࣁgƀlmr⛿✍✔eftĀar০✇ightá৲apsto;柼ightá৽parrowĀlr✥✩efô⓭ight;憬ƀafl✶✹✽r;榅;쀀𝕝us;樭imes;樴š❋❏st;戗áፎƀ;ef❗❘᠀旊nge»❘arĀ;l❤❥䀨t;榓ʀachmt❳❶❼➅➇ròࢨorneòᶌarĀ;d྘➃;業;怎ri;抿̀achiqt➘➝ੀ➢➮➻quo;怹r;쀀𝓁mƀ;egল➪➬;檍;檏Ābu┪➳oĀ;rฟ➹;怚rok;䅂萀<;cdhilqrࠫ⟒☹⟜⟠⟥⟪⟰Āci⟗⟙;檦r;橹reå◲mes;拉arr;楶uest;橻ĀPi⟵⟹ar;榖ƀ;ef⠀भ᠛旃rĀdu⠇⠍shar;楊har;楦Āen⠗⠡rtneqq;쀀≨︀Å⠞܀Dacdefhilnopsu⡀⡅⢂⢎⢓⢠⢥⢨⣚⣢⣤ઃ⣳⤂Dot;戺Ȁclpr⡎⡒⡣⡽r耻¯䂯Āet⡗⡙;時Ā;e⡞⡟朠se»⡟Ā;sျ⡨toȀ;dluျ⡳⡷⡻owîҌefôएðᏑker;斮Āoy⢇⢌mma;権;䐼ash;怔asuredangle»ᘦr;쀀𝔪o;愧ƀcdn⢯⢴⣉ro耻µ䂵Ȁ;acdᑤ⢽⣀⣄sôᚧir;櫰ot肻·Ƶusƀ;bd⣒ᤃ⣓戒Ā;uᴼ⣘;横ţ⣞⣡p;櫛ò−ðઁĀdp⣩⣮els;抧f;쀀𝕞Āct⣸⣽r;쀀𝓂pos»ᖝƀ;lm⤉⤊⤍䎼timap;抸ఀGLRVabcdefghijlmoprstuvw⥂⥓⥾⦉⦘⧚⧩⨕⨚⩘⩝⪃⪕⪤⪨⬄⬇⭄⭿⮮ⰴⱧⱼ⳩Āgt⥇⥋;쀀⋙̸Ā;v⥐௏쀀≫⃒ƀelt⥚⥲⥶ftĀar⥡⥧rrow;懍ightarrow;懎;쀀⋘̸Ā;v⥻ే쀀≪⃒ightarrow;懏ĀDd⦎⦓ash;抯ash;抮ʀbcnpt⦣⦧⦬⦱⧌la»˞ute;䅄g;쀀∠⃒ʀ;Eiop඄⦼⧀⧅⧈;쀀⩰̸d;쀀≋̸s;䅉roø඄urĀ;a⧓⧔普lĀ;s⧓ସǳ⧟\0⧣p肻\xA0ଷmpĀ;e௹ఀʀaeouy⧴⧾⨃⨐⨓ǰ⧹\0⧻;橃on;䅈dil;䅆ngĀ;dൾ⨊ot;쀀⩭̸p;橂;䐽ash;怓΀;Aadqsxஒ⨩⨭⨻⩁⩅⩐rr;懗rĀhr⨳⨶k;椤Ā;oᏲᏰot;쀀≐̸uiöୣĀei⩊⩎ar;椨í஘istĀ;s஠டr;쀀𝔫ȀEest௅⩦⩹⩼ƀ;qs஼⩭௡ƀ;qs஼௅⩴lanô௢ií௪Ā;rஶ⪁»ஷƀAap⪊⪍⪑rò⥱rr;憮ar;櫲ƀ;svྍ⪜ྌĀ;d⪡⪢拼;拺cy;䑚΀AEadest⪷⪺⪾⫂⫅⫶⫹rò⥦;쀀≦̸rr;憚r;急Ȁ;fqs఻⫎⫣⫯tĀar⫔⫙rro÷⫁ightarro÷⪐ƀ;qs఻⪺⫪lanôౕĀ;sౕ⫴»శiíౝĀ;rవ⫾iĀ;eచథiäඐĀpt⬌⬑f;쀀𝕟膀¬;in⬙⬚⬶䂬nȀ;Edvஉ⬤⬨⬮;쀀⋹̸ot;쀀⋵̸ǡஉ⬳⬵;拷;拶iĀ;vಸ⬼ǡಸ⭁⭃;拾;拽ƀaor⭋⭣⭩rȀ;ast୻⭕⭚⭟lleì୻l;쀀⫽⃥;쀀∂̸lint;樔ƀ;ceಒ⭰⭳uåಥĀ;cಘ⭸Ā;eಒ⭽ñಘȀAait⮈⮋⮝⮧rò⦈rrƀ;cw⮔⮕⮙憛;쀀⤳̸;쀀↝̸ghtarrow»⮕riĀ;eೋೖ΀chimpqu⮽⯍⯙⬄୸⯤⯯Ȁ;cerല⯆ഷ⯉uå൅;쀀𝓃ortɭ⬅\0\0⯖ará⭖mĀ;e൮⯟Ā;q൴൳suĀbp⯫⯭å೸åഋƀbcp⯶ⰑⰙȀ;Ees⯿ⰀഢⰄ抄;쀀⫅̸etĀ;eഛⰋqĀ;qണⰀcĀ;eലⰗñസȀ;EesⰢⰣൟⰧ抅;쀀⫆̸etĀ;e൘ⰮqĀ;qൠⰣȀgilrⰽⰿⱅⱇìௗlde耻ñ䃱çృiangleĀlrⱒⱜeftĀ;eచⱚñదightĀ;eೋⱥñ೗Ā;mⱬⱭ䎽ƀ;esⱴⱵⱹ䀣ro;愖p;怇ҀDHadgilrsⲏⲔⲙⲞⲣⲰⲶⳓⳣash;抭arr;椄p;쀀≍⃒ash;抬ĀetⲨⲬ;쀀≥⃒;쀀>⃒nfin;槞ƀAetⲽⳁⳅrr;椂;쀀≤⃒Ā;rⳊⳍ쀀<⃒ie;쀀⊴⃒ĀAtⳘⳜrr;椃rie;쀀⊵⃒im;쀀∼⃒ƀAan⳰⳴ⴂrr;懖rĀhr⳺⳽k;椣Ā;oᏧᏥear;椧ቓ᪕\0\0\0\0\0\0\0\0\0\0\0\0\0ⴭ\0ⴸⵈⵠⵥ⵲ⶄᬇ\0\0ⶍⶫ\0ⷈⷎ\0ⷜ⸙⸫⸾⹃Ācsⴱ᪗ute耻ó䃳ĀiyⴼⵅrĀ;c᪞ⵂ耻ô䃴;䐾ʀabios᪠ⵒⵗǈⵚlac;䅑v;樸old;榼lig;䅓Ācr⵩⵭ir;榿;쀀𝔬ͯ⵹\0\0⵼\0ⶂn;䋛ave耻ò䃲;槁Ābmⶈ෴ar;榵Ȁacitⶕ⶘ⶥⶨrò᪀Āir⶝ⶠr;榾oss;榻nå๒;槀ƀaeiⶱⶵⶹcr;䅍ga;䏉ƀcdnⷀⷅǍron;䎿;榶pf;쀀𝕠ƀaelⷔ⷗ǒr;榷rp;榹΀;adiosvⷪⷫⷮ⸈⸍⸐⸖戨rò᪆Ȁ;efmⷷⷸ⸂⸅橝rĀ;oⷾⷿ愴f»ⷿ耻ª䂪耻º䂺gof;抶r;橖lope;橗;橛ƀclo⸟⸡⸧ò⸁ash耻ø䃸l;折iŬⸯ⸴de耻õ䃵esĀ;aǛ⸺s;樶ml耻ö䃶bar;挽ૡ⹞\0⹽\0⺀⺝\0⺢⺹\0\0⻋ຜ\0⼓\0\0⼫⾼\0⿈rȀ;astЃ⹧⹲຅脀¶;l⹭⹮䂶leìЃɩ⹸\0\0⹻m;櫳;櫽y;䐿rʀcimpt⺋⺏⺓ᡥ⺗nt;䀥od;䀮il;怰enk;怱r;쀀𝔭ƀimo⺨⺰⺴Ā;v⺭⺮䏆;䏕maô੶ne;明ƀ;tv⺿⻀⻈䏀chfork»´;䏖Āau⻏⻟nĀck⻕⻝kĀ;h⇴⻛;愎ö⇴sҀ;abcdemst⻳⻴ᤈ⻹⻽⼄⼆⼊⼎䀫cir;樣ir;樢Āouᵀ⼂;樥;橲n肻±ຝim;樦wo;樧ƀipu⼙⼠⼥ntint;樕f;쀀𝕡nd耻£䂣Ԁ;Eaceinosu່⼿⽁⽄⽇⾁⾉⾒⽾⾶;檳p;檷uå໙Ā;c໎⽌̀;acens່⽙⽟⽦⽨⽾pproø⽃urlyeñ໙ñ໎ƀaes⽯⽶⽺pprox;檹qq;檵im;拨iíໟmeĀ;s⾈ຮ怲ƀEas⽸⾐⽺ð⽵ƀdfp໬⾙⾯ƀals⾠⾥⾪lar;挮ine;挒urf;挓Ā;t໻⾴ï໻rel;抰Āci⿀⿅r;쀀𝓅;䏈ncsp;怈̀fiopsu⿚⋢⿟⿥⿫⿱r;쀀𝔮pf;쀀𝕢rime;恗cr;쀀𝓆ƀaeo⿸〉〓tĀei⿾々rnionóڰnt;樖stĀ;e【】䀿ñἙô༔઀ABHabcdefhilmnoprstux぀けさすムㄎㄫㅇㅢㅲㆎ㈆㈕㈤㈩㉘㉮㉲㊐㊰㊷ƀartぇおがròႳòϝail;検aròᱥar;楤΀cdenqrtとふへみわゔヌĀeuねぱ;쀀∽̱te;䅕iãᅮmptyv;榳gȀ;del࿑らるろ;榒;榥å࿑uo耻»䂻rր;abcfhlpstw࿜ガクシスゼゾダッデナp;極Ā;f࿠ゴs;椠;椳s;椞ë≝ð✮l;楅im;楴l;憣;憝Āaiパフil;椚oĀ;nホボ戶aló༞ƀabrョリヮrò៥rk;杳ĀakンヽcĀekヹ・;䁽;䁝Āes㄂㄄;榌lĀduㄊㄌ;榎;榐Ȁaeuyㄗㄜㄧㄩron;䅙Ādiㄡㄥil;䅗ì࿲âヺ;䑀Ȁclqsㄴㄷㄽㅄa;椷dhar;楩uoĀ;rȎȍh;憳ƀacgㅎㅟངlȀ;ipsླྀㅘㅛႜnåႻarôྩt;断ƀilrㅩဣㅮsht;楽;쀀𝔯ĀaoㅷㆆrĀduㅽㅿ»ѻĀ;l႑ㆄ;楬Ā;vㆋㆌ䏁;䏱ƀgns㆕ㇹㇼht̀ahlrstㆤㆰ㇂㇘㇤㇮rrowĀ;t࿜ㆭaéトarpoonĀduㆻㆿowîㅾp»႒eftĀah㇊㇐rrowó࿪arpoonóՑightarrows;應quigarro÷ニhreetimes;拌g;䋚ingdotseñἲƀahm㈍㈐㈓rò࿪aòՑ;怏oustĀ;a㈞㈟掱che»㈟mid;櫮Ȁabpt㈲㈽㉀㉒Ānr㈷㈺g;柭r;懾rëဃƀafl㉇㉊㉎r;榆;쀀𝕣us;樮imes;樵Āap㉝㉧rĀ;g㉣㉤䀩t;榔olint;樒arò㇣Ȁachq㉻㊀Ⴜ㊅quo;怺r;쀀𝓇Ābu・㊊oĀ;rȔȓƀhir㊗㊛㊠reåㇸmes;拊iȀ;efl㊪ၙᠡ㊫方tri;槎luhar;楨;愞ൡ㋕㋛㋟㌬㌸㍱\0㍺㎤\0\0㏬㏰\0㐨㑈㑚㒭㒱㓊㓱\0㘖\0\0㘳cute;䅛quï➺Ԁ;Eaceinpsyᇭ㋳㋵㋿㌂㌋㌏㌟㌦㌩;檴ǰ㋺\0㋼;檸on;䅡uåᇾĀ;dᇳ㌇il;䅟rc;䅝ƀEas㌖㌘㌛;檶p;檺im;择olint;樓iíሄ;䑁otƀ;be㌴ᵇ㌵担;橦΀Aacmstx㍆㍊㍗㍛㍞㍣㍭rr;懘rĀhr㍐㍒ë∨Ā;oਸ਼਴t耻§䂧i;䀻war;椩mĀin㍩ðnuóñt;朶rĀ;o㍶⁕쀀𝔰Ȁacoy㎂㎆㎑㎠rp;景Āhy㎋㎏cy;䑉;䑈rtɭ㎙\0\0㎜iäᑤaraì⹯耻­䂭Āgm㎨㎴maƀ;fv㎱㎲㎲䏃;䏂Ѐ;deglnprካ㏅㏉㏎㏖㏞㏡㏦ot;橪Ā;q኱ኰĀ;E㏓㏔檞;檠Ā;E㏛㏜檝;檟e;扆lus;樤arr;楲aròᄽȀaeit㏸㐈㐏㐗Āls㏽㐄lsetmé㍪hp;樳parsl;槤Ādlᑣ㐔e;挣Ā;e㐜㐝檪Ā;s㐢㐣檬;쀀⪬︀ƀflp㐮㐳㑂tcy;䑌Ā;b㐸㐹䀯Ā;a㐾㐿槄r;挿f;쀀𝕤aĀdr㑍ЂesĀ;u㑔㑕晠it»㑕ƀcsu㑠㑹㒟Āau㑥㑯pĀ;sᆈ㑫;쀀⊓︀pĀ;sᆴ㑵;쀀⊔︀uĀbp㑿㒏ƀ;esᆗᆜ㒆etĀ;eᆗ㒍ñᆝƀ;esᆨᆭ㒖etĀ;eᆨ㒝ñᆮƀ;afᅻ㒦ְrť㒫ֱ»ᅼaròᅈȀcemt㒹㒾㓂㓅r;쀀𝓈tmîñiì㐕aræᆾĀar㓎㓕rĀ;f㓔ឿ昆Āan㓚㓭ightĀep㓣㓪psiloîỠhé⺯s»⡒ʀbcmnp㓻㕞ሉ㖋㖎Ҁ;Edemnprs㔎㔏㔑㔕㔞㔣㔬㔱㔶抂;櫅ot;檽Ā;dᇚ㔚ot;櫃ult;櫁ĀEe㔨㔪;櫋;把lus;檿arr;楹ƀeiu㔽㕒㕕tƀ;en㔎㕅㕋qĀ;qᇚ㔏eqĀ;q㔫㔨m;櫇Ābp㕚㕜;櫕;櫓c̀;acensᇭ㕬㕲㕹㕻㌦pproø㋺urlyeñᇾñᇳƀaes㖂㖈㌛pproø㌚qñ㌗g;晪ڀ123;Edehlmnps㖩㖬㖯ሜ㖲㖴㗀㗉㗕㗚㗟㗨㗭耻¹䂹耻²䂲耻³䂳;櫆Āos㖹㖼t;檾ub;櫘Ā;dሢ㗅ot;櫄sĀou㗏㗒l;柉b;櫗arr;楻ult;櫂ĀEe㗤㗦;櫌;抋lus;櫀ƀeiu㗴㘉㘌tƀ;enሜ㗼㘂qĀ;qሢ㖲eqĀ;q㗧㗤m;櫈Ābp㘑㘓;櫔;櫖ƀAan㘜㘠㘭rr;懙rĀhr㘦㘨ë∮Ā;oਫ਩war;椪lig耻ß䃟௡㙑㙝㙠ዎ㙳㙹\0㙾㛂\0\0\0\0\0㛛㜃\0㜉㝬\0\0\0㞇ɲ㙖\0\0㙛get;挖;䏄rë๟ƀaey㙦㙫㙰ron;䅥dil;䅣;䑂lrec;挕r;쀀𝔱Ȁeiko㚆㚝㚵㚼ǲ㚋\0㚑eĀ4fኄኁaƀ;sv㚘㚙㚛䎸ym;䏑Ācn㚢㚲kĀas㚨㚮pproø዁im»ኬsðኞĀas㚺㚮ð዁rn耻þ䃾Ǭ̟㛆⋧es膀×;bd㛏㛐㛘䃗Ā;aᤏ㛕r;樱;樰ƀeps㛡㛣㜀á⩍Ȁ;bcf҆㛬㛰㛴ot;挶ir;櫱Ā;o㛹㛼쀀𝕥rk;櫚á㍢rime;怴ƀaip㜏㜒㝤dåቈ΀adempst㜡㝍㝀㝑㝗㝜㝟ngleʀ;dlqr㜰㜱㜶㝀㝂斵own»ᶻeftĀ;e⠀㜾ñम;扜ightĀ;e㊪㝋ñၚot;旬inus;樺lus;樹b;槍ime;樻ezium;揢ƀcht㝲㝽㞁Āry㝷㝻;쀀𝓉;䑆cy;䑛rok;䅧Āio㞋㞎xô᝷headĀlr㞗㞠eftarro÷ࡏightarrow»ཝऀAHabcdfghlmoprstuw㟐㟓㟗㟤㟰㟼㠎㠜㠣㠴㡑㡝㡫㢩㣌㣒㣪㣶ròϭar;楣Ācr㟜㟢ute耻ú䃺òᅐrǣ㟪\0㟭y;䑞ve;䅭Āiy㟵㟺rc耻û䃻;䑃ƀabh㠃㠆㠋ròᎭlac;䅱aòᏃĀir㠓㠘sht;楾;쀀𝔲rave耻ù䃹š㠧㠱rĀlr㠬㠮»ॗ»ႃlk;斀Āct㠹㡍ɯ㠿\0\0㡊rnĀ;e㡅㡆挜r»㡆op;挏ri;旸Āal㡖㡚cr;䅫肻¨͉Āgp㡢㡦on;䅳f;쀀𝕦̀adhlsuᅋ㡸㡽፲㢑㢠ownáᎳarpoonĀlr㢈㢌efô㠭ighô㠯iƀ;hl㢙㢚㢜䏅»ᏺon»㢚parrows;懈ƀcit㢰㣄㣈ɯ㢶\0\0㣁rnĀ;e㢼㢽挝r»㢽op;挎ng;䅯ri;旹cr;쀀𝓊ƀdir㣙㣝㣢ot;拰lde;䅩iĀ;f㜰㣨»᠓Āam㣯㣲rò㢨l耻ü䃼angle;榧ހABDacdeflnoprsz㤜㤟㤩㤭㦵㦸㦽㧟㧤㧨㧳㧹㧽㨁㨠ròϷarĀ;v㤦㤧櫨;櫩asèϡĀnr㤲㤷grt;榜΀eknprst㓣㥆㥋㥒㥝㥤㦖appá␕othinçẖƀhir㓫⻈㥙opô⾵Ā;hᎷ㥢ïㆍĀiu㥩㥭gmá㎳Ābp㥲㦄setneqĀ;q㥽㦀쀀⊊︀;쀀⫋︀setneqĀ;q㦏㦒쀀⊋︀;쀀⫌︀Āhr㦛㦟etá㚜iangleĀlr㦪㦯eft»थight»ၑy;䐲ash»ံƀelr㧄㧒㧗ƀ;beⷪ㧋㧏ar;抻q;扚lip;拮Ābt㧜ᑨaòᑩr;쀀𝔳tré㦮suĀbp㧯㧱»ജ»൙pf;쀀𝕧roð໻tré㦴Ācu㨆㨋r;쀀𝓋Ābp㨐㨘nĀEe㦀㨖»㥾nĀEe㦒㨞»㦐igzag;榚΀cefoprs㨶㨻㩖㩛㩔㩡㩪irc;䅵Ādi㩀㩑Ābg㩅㩉ar;機eĀ;qᗺ㩏;扙erp;愘r;쀀𝔴pf;쀀𝕨Ā;eᑹ㩦atèᑹcr;쀀𝓌ૣណ㪇\0㪋\0㪐㪛\0\0㪝㪨㪫㪯\0\0㫃㫎\0㫘ៜ៟tré៑r;쀀𝔵ĀAa㪔㪗ròσrò৶;䎾ĀAa㪡㪤ròθrò৫að✓is;拻ƀdptឤ㪵㪾Āfl㪺ឩ;쀀𝕩imåឲĀAa㫇㫊ròώròਁĀcq㫒ីr;쀀𝓍Āpt៖㫜ré។Ѐacefiosu㫰㫽㬈㬌㬑㬕㬛㬡cĀuy㫶㫻te耻ý䃽;䑏Āiy㬂㬆rc;䅷;䑋n耻¥䂥r;쀀𝔶cy;䑗pf;쀀𝕪cr;쀀𝓎Ācm㬦㬩y;䑎l耻ÿ䃿Ԁacdefhiosw㭂㭈㭔㭘㭤㭩㭭㭴㭺㮀cute;䅺Āay㭍㭒ron;䅾;䐷ot;䅼Āet㭝㭡træᕟa;䎶r;쀀𝔷cy;䐶grarr;懝pf;쀀𝕫cr;쀀𝓏Ājn㮅㮇;怍j;怌`
+          .split(``)
+          .map(function (e) {
+            return e.charCodeAt(0);
+          }),
+      )));
+  }),
+  f = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.default = new Uint16Array(
+        `Ȁaglq	\x1Bɭ\0\0p;䀦os;䀧t;䀾t;䀼uot;䀢`.split(``).map(function (e) {
+          return e.charCodeAt(0);
+        }),
+      )));
+  }),
+  p = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.replaceCodePoint = e.fromCodePoint = void 0));
+    var t = new Map([
+      [0, 65533],
+      [128, 8364],
+      [130, 8218],
+      [131, 402],
+      [132, 8222],
+      [133, 8230],
+      [134, 8224],
+      [135, 8225],
+      [136, 710],
+      [137, 8240],
+      [138, 352],
+      [139, 8249],
+      [140, 338],
+      [142, 381],
+      [145, 8216],
+      [146, 8217],
+      [147, 8220],
+      [148, 8221],
+      [149, 8226],
+      [150, 8211],
+      [151, 8212],
+      [152, 732],
+      [153, 8482],
+      [154, 353],
+      [155, 8250],
+      [156, 339],
+      [158, 382],
+      [159, 376],
+    ]);
+    e.fromCodePoint =
+      String.fromCodePoint ??
+      function (e) {
+        var t = ``;
+        return (
+          e > 65535 &&
+            ((e -= 65536),
+            (t += String.fromCharCode(((e >>> 10) & 1023) | 55296)),
+            (e = 56320 | (e & 1023))),
+          (t += String.fromCharCode(e)),
+          t
+        );
+      };
+    function n(e) {
+      return (e >= 55296 && e <= 57343) || e > 1114111
+        ? 65533
+        : (t.get(e) ?? e);
+    }
+    e.replaceCodePoint = n;
+    function r(t) {
+      return (0, e.fromCodePoint)(n(t));
+    }
+    e.default = r;
+  }),
+  m = r((e) => {
+    var t =
+        (e && e.__createBinding) ||
+        (Object.create
+          ? function (e, t, n, r) {
+              r === void 0 && (r = n);
+              var i = Object.getOwnPropertyDescriptor(t, n);
+              ((!i ||
+                (`get` in i ? !t.__esModule : i.writable || i.configurable)) &&
+                (i = {
+                  enumerable: !0,
+                  get: function () {
+                    return t[n];
+                  },
+                }),
+                Object.defineProperty(e, r, i));
+            }
+          : function (e, t, n, r) {
+              (r === void 0 && (r = n), (e[r] = t[n]));
+            }),
+      n =
+        (e && e.__setModuleDefault) ||
+        (Object.create
+          ? function (e, t) {
+              Object.defineProperty(e, "default", { enumerable: !0, value: t });
+            }
+          : function (e, t) {
+              e.default = t;
+            }),
+      r =
+        (e && e.__importStar) ||
+        function (e) {
+          if (e && e.__esModule) return e;
+          var r = {};
+          if (e != null)
+            for (var i in e)
+              i !== "default" &&
+                Object.prototype.hasOwnProperty.call(e, i) &&
+                t(r, e, i);
+          return (n(r, e), r);
+        },
+      i =
+        (e && e.__importDefault) ||
+        function (e) {
+          return e && e.__esModule ? e : { default: e };
+        };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.decodeXML =
+        e.decodeHTMLStrict =
+        e.decodeHTMLAttribute =
+        e.decodeHTML =
+        e.determineBranch =
+        e.EntityDecoder =
+        e.DecodingMode =
+        e.BinTrieFlags =
+        e.fromCodePoint =
+        e.replaceCodePoint =
+        e.decodeCodePoint =
+        e.xmlDecodeTree =
+        e.htmlDecodeTree =
+          void 0));
+    var a = i(d());
+    e.htmlDecodeTree = a.default;
+    var o = i(f());
+    e.xmlDecodeTree = o.default;
+    var s = r(p());
+    e.decodeCodePoint = s.default;
+    var c = p();
+    (Object.defineProperty(e, "replaceCodePoint", {
+      enumerable: !0,
+      get: function () {
+        return c.replaceCodePoint;
+      },
+    }),
+      Object.defineProperty(e, "fromCodePoint", {
+        enumerable: !0,
+        get: function () {
+          return c.fromCodePoint;
+        },
+      }));
+    var l;
+    (function (e) {
+      ((e[(e.NUM = 35)] = `NUM`),
+        (e[(e.SEMI = 59)] = `SEMI`),
+        (e[(e.EQUALS = 61)] = `EQUALS`),
+        (e[(e.ZERO = 48)] = `ZERO`),
+        (e[(e.NINE = 57)] = `NINE`),
+        (e[(e.LOWER_A = 97)] = `LOWER_A`),
+        (e[(e.LOWER_F = 102)] = `LOWER_F`),
+        (e[(e.LOWER_X = 120)] = `LOWER_X`),
+        (e[(e.LOWER_Z = 122)] = `LOWER_Z`),
+        (e[(e.UPPER_A = 65)] = `UPPER_A`),
+        (e[(e.UPPER_F = 70)] = `UPPER_F`),
+        (e[(e.UPPER_Z = 90)] = `UPPER_Z`));
+    })((l ||= {}));
+    var u = 32,
+      m;
+    (function (e) {
+      ((e[(e.VALUE_LENGTH = 49152)] = `VALUE_LENGTH`),
+        (e[(e.BRANCH_LENGTH = 16256)] = `BRANCH_LENGTH`),
+        (e[(e.JUMP_TABLE = 127)] = `JUMP_TABLE`));
+    })((m = e.BinTrieFlags ||= {}));
+    function h(e) {
+      return e >= l.ZERO && e <= l.NINE;
+    }
+    function g(e) {
+      return (
+        (e >= l.UPPER_A && e <= l.UPPER_F) || (e >= l.LOWER_A && e <= l.LOWER_F)
+      );
+    }
+    function _(e) {
+      return (
+        (e >= l.UPPER_A && e <= l.UPPER_Z) ||
+        (e >= l.LOWER_A && e <= l.LOWER_Z) ||
+        h(e)
+      );
+    }
+    function v(e) {
+      return e === l.EQUALS || _(e);
+    }
+    var y;
+    (function (e) {
+      ((e[(e.EntityStart = 0)] = `EntityStart`),
+        (e[(e.NumericStart = 1)] = `NumericStart`),
+        (e[(e.NumericDecimal = 2)] = `NumericDecimal`),
+        (e[(e.NumericHex = 3)] = `NumericHex`),
+        (e[(e.NamedEntity = 4)] = `NamedEntity`));
+    })((y ||= {}));
+    var b;
+    (function (e) {
+      ((e[(e.Legacy = 0)] = `Legacy`),
+        (e[(e.Strict = 1)] = `Strict`),
+        (e[(e.Attribute = 2)] = `Attribute`));
+    })((b = e.DecodingMode ||= {}));
+    var x = (function () {
+      function e(e, t, n) {
+        ((this.decodeTree = e),
+          (this.emitCodePoint = t),
+          (this.errors = n),
+          (this.state = y.EntityStart),
+          (this.consumed = 1),
+          (this.result = 0),
+          (this.treeIndex = 0),
+          (this.excess = 1),
+          (this.decodeMode = b.Strict));
+      }
+      return (
+        (e.prototype.startEntity = function (e) {
+          ((this.decodeMode = e),
+            (this.state = y.EntityStart),
+            (this.result = 0),
+            (this.treeIndex = 0),
+            (this.excess = 1),
+            (this.consumed = 1));
+        }),
+        (e.prototype.write = function (e, t) {
+          switch (this.state) {
+            case y.EntityStart:
+              return e.charCodeAt(t) === l.NUM
+                ? ((this.state = y.NumericStart),
+                  (this.consumed += 1),
+                  this.stateNumericStart(e, t + 1))
+                : ((this.state = y.NamedEntity), this.stateNamedEntity(e, t));
+            case y.NumericStart:
+              return this.stateNumericStart(e, t);
+            case y.NumericDecimal:
+              return this.stateNumericDecimal(e, t);
+            case y.NumericHex:
+              return this.stateNumericHex(e, t);
+            case y.NamedEntity:
+              return this.stateNamedEntity(e, t);
+          }
+        }),
+        (e.prototype.stateNumericStart = function (e, t) {
+          return t >= e.length
+            ? -1
+            : (e.charCodeAt(t) | u) === l.LOWER_X
+              ? ((this.state = y.NumericHex),
+                (this.consumed += 1),
+                this.stateNumericHex(e, t + 1))
+              : ((this.state = y.NumericDecimal),
+                this.stateNumericDecimal(e, t));
+        }),
+        (e.prototype.addToNumericResult = function (e, t, n, r) {
+          if (t !== n) {
+            var i = n - t;
+            ((this.result =
+              this.result * r ** +i + parseInt(e.substr(t, i), r)),
+              (this.consumed += i));
+          }
+        }),
+        (e.prototype.stateNumericHex = function (e, t) {
+          for (var n = t; t < e.length;) {
+            var r = e.charCodeAt(t);
+            if (h(r) || g(r)) t += 1;
+            else
+              return (
+                this.addToNumericResult(e, n, t, 16),
+                this.emitNumericEntity(r, 3)
+              );
+          }
+          return (this.addToNumericResult(e, n, t, 16), -1);
+        }),
+        (e.prototype.stateNumericDecimal = function (e, t) {
+          for (var n = t; t < e.length;) {
+            var r = e.charCodeAt(t);
+            if (h(r)) t += 1;
+            else
+              return (
+                this.addToNumericResult(e, n, t, 10),
+                this.emitNumericEntity(r, 2)
+              );
+          }
+          return (this.addToNumericResult(e, n, t, 10), -1);
+        }),
+        (e.prototype.emitNumericEntity = function (e, t) {
+          var n;
+          if (this.consumed <= t)
+            return (
+              (n = this.errors) == null ||
+                n.absenceOfDigitsInNumericCharacterReference(this.consumed),
+              0
+            );
+          if (e === l.SEMI) this.consumed += 1;
+          else if (this.decodeMode === b.Strict) return 0;
+          return (
+            this.emitCodePoint(
+              (0, s.replaceCodePoint)(this.result),
+              this.consumed,
+            ),
+            this.errors &&
+              (e !== l.SEMI &&
+                this.errors.missingSemicolonAfterCharacterReference(),
+              this.errors.validateNumericCharacterReference(this.result)),
+            this.consumed
+          );
+        }),
+        (e.prototype.stateNamedEntity = function (e, t) {
+          for (
+            var n = this.decodeTree,
+              r = n[this.treeIndex],
+              i = (r & m.VALUE_LENGTH) >> 14;
+            t < e.length;
+            t++, this.excess++
+          ) {
+            var a = e.charCodeAt(t);
+            if (
+              ((this.treeIndex = C(n, r, this.treeIndex + Math.max(1, i), a)),
+              this.treeIndex < 0)
+            )
+              return this.result === 0 ||
+                (this.decodeMode === b.Attribute && (i === 0 || v(a)))
+                ? 0
+                : this.emitNotTerminatedNamedEntity();
+            if (
+              ((r = n[this.treeIndex]),
+              (i = (r & m.VALUE_LENGTH) >> 14),
+              i !== 0)
+            ) {
+              if (a === l.SEMI)
+                return this.emitNamedEntityData(
+                  this.treeIndex,
+                  i,
+                  this.consumed + this.excess,
+                );
+              this.decodeMode !== b.Strict &&
+                ((this.result = this.treeIndex),
+                (this.consumed += this.excess),
+                (this.excess = 0));
+            }
+          }
+          return -1;
+        }),
+        (e.prototype.emitNotTerminatedNamedEntity = function () {
+          var e,
+            t = this,
+            n = t.result,
+            r = (t.decodeTree[n] & m.VALUE_LENGTH) >> 14;
+          return (
+            this.emitNamedEntityData(n, r, this.consumed),
+            (e = this.errors) == null ||
+              e.missingSemicolonAfterCharacterReference(),
+            this.consumed
+          );
+        }),
+        (e.prototype.emitNamedEntityData = function (e, t, n) {
+          var r = this.decodeTree;
+          return (
+            this.emitCodePoint(t === 1 ? r[e] & ~m.VALUE_LENGTH : r[e + 1], n),
+            t === 3 && this.emitCodePoint(r[e + 2], n),
+            n
+          );
+        }),
+        (e.prototype.end = function () {
+          var e;
+          switch (this.state) {
+            case y.NamedEntity:
+              return this.result !== 0 &&
+                (this.decodeMode !== b.Attribute ||
+                  this.result === this.treeIndex)
+                ? this.emitNotTerminatedNamedEntity()
+                : 0;
+            case y.NumericDecimal:
+              return this.emitNumericEntity(0, 2);
+            case y.NumericHex:
+              return this.emitNumericEntity(0, 3);
+            case y.NumericStart:
+              return (
+                (e = this.errors) == null ||
+                  e.absenceOfDigitsInNumericCharacterReference(this.consumed),
+                0
+              );
+            case y.EntityStart:
+              return 0;
+          }
+        }),
+        e
+      );
+    })();
+    e.EntityDecoder = x;
+    function S(e) {
+      var t = ``,
+        n = new x(e, function (e) {
+          return (t += (0, s.fromCodePoint)(e));
+        });
+      return function (e, r) {
+        for (var i = 0, a = 0; (a = e.indexOf(`&`, a)) >= 0;) {
+          ((t += e.slice(i, a)), n.startEntity(r));
+          var o = n.write(e, a + 1);
+          if (o < 0) {
+            i = a + n.end();
+            break;
+          }
+          ((i = a + o), (a = o === 0 ? i + 1 : i));
+        }
+        var s = t + e.slice(i);
+        return ((t = ``), s);
+      };
+    }
+    function C(e, t, n, r) {
+      var i = (t & m.BRANCH_LENGTH) >> 7,
+        a = t & m.JUMP_TABLE;
+      if (i === 0) return a !== 0 && r === a ? n : -1;
+      if (a) {
+        var o = r - a;
+        return o < 0 || o >= i ? -1 : e[n + o] - 1;
+      }
+      for (var s = n, c = s + i - 1; s <= c;) {
+        var l = (s + c) >>> 1,
+          u = e[l];
+        if (u < r) s = l + 1;
+        else if (u > r) c = l - 1;
+        else return e[l + i];
+      }
+      return -1;
+    }
+    e.determineBranch = C;
+    var w = S(a.default),
+      T = S(o.default);
+    function E(e, t) {
+      return (t === void 0 && (t = b.Legacy), w(e, t));
+    }
+    e.decodeHTML = E;
+    function D(e) {
+      return w(e, b.Attribute);
+    }
+    e.decodeHTMLAttribute = D;
+    function O(e) {
+      return w(e, b.Strict);
+    }
+    e.decodeHTMLStrict = O;
+    function k(e) {
+      return T(e, b.Strict);
+    }
+    e.decodeXML = k;
+  }),
+  h = r((e) => {
+    Object.defineProperty(e, "__esModule", { value: !0 });
+    function t(e) {
+      for (var t = 1; t < e.length; t++) e[t][0] += e[t - 1][0] + 1;
+      return e;
+    }
+    e.default = new Map(
+      t([
+        [9, `&Tab;`],
+        [0, `&NewLine;`],
+        [22, `&excl;`],
+        [0, `&quot;`],
+        [0, `&num;`],
+        [0, `&dollar;`],
+        [0, `&percnt;`],
+        [0, `&amp;`],
+        [0, `&apos;`],
+        [0, `&lpar;`],
+        [0, `&rpar;`],
+        [0, `&ast;`],
+        [0, `&plus;`],
+        [0, `&comma;`],
+        [1, `&period;`],
+        [0, `&sol;`],
+        [10, `&colon;`],
+        [0, `&semi;`],
+        [0, { v: `&lt;`, n: 8402, o: `&nvlt;` }],
+        [0, { v: `&equals;`, n: 8421, o: `&bne;` }],
+        [0, { v: `&gt;`, n: 8402, o: `&nvgt;` }],
+        [0, `&quest;`],
+        [0, `&commat;`],
+        [26, `&lbrack;`],
+        [0, `&bsol;`],
+        [0, `&rbrack;`],
+        [0, `&Hat;`],
+        [0, `&lowbar;`],
+        [0, `&DiacriticalGrave;`],
+        [5, { n: 106, o: `&fjlig;` }],
+        [20, `&lbrace;`],
+        [0, `&verbar;`],
+        [0, `&rbrace;`],
+        [34, `&nbsp;`],
+        [0, `&iexcl;`],
+        [0, `&cent;`],
+        [0, `&pound;`],
+        [0, `&curren;`],
+        [0, `&yen;`],
+        [0, `&brvbar;`],
+        [0, `&sect;`],
+        [0, `&die;`],
+        [0, `&copy;`],
+        [0, `&ordf;`],
+        [0, `&laquo;`],
+        [0, `&not;`],
+        [0, `&shy;`],
+        [0, `&circledR;`],
+        [0, `&macr;`],
+        [0, `&deg;`],
+        [0, `&PlusMinus;`],
+        [0, `&sup2;`],
+        [0, `&sup3;`],
+        [0, `&acute;`],
+        [0, `&micro;`],
+        [0, `&para;`],
+        [0, `&centerdot;`],
+        [0, `&cedil;`],
+        [0, `&sup1;`],
+        [0, `&ordm;`],
+        [0, `&raquo;`],
+        [0, `&frac14;`],
+        [0, `&frac12;`],
+        [0, `&frac34;`],
+        [0, `&iquest;`],
+        [0, `&Agrave;`],
+        [0, `&Aacute;`],
+        [0, `&Acirc;`],
+        [0, `&Atilde;`],
+        [0, `&Auml;`],
+        [0, `&angst;`],
+        [0, `&AElig;`],
+        [0, `&Ccedil;`],
+        [0, `&Egrave;`],
+        [0, `&Eacute;`],
+        [0, `&Ecirc;`],
+        [0, `&Euml;`],
+        [0, `&Igrave;`],
+        [0, `&Iacute;`],
+        [0, `&Icirc;`],
+        [0, `&Iuml;`],
+        [0, `&ETH;`],
+        [0, `&Ntilde;`],
+        [0, `&Ograve;`],
+        [0, `&Oacute;`],
+        [0, `&Ocirc;`],
+        [0, `&Otilde;`],
+        [0, `&Ouml;`],
+        [0, `&times;`],
+        [0, `&Oslash;`],
+        [0, `&Ugrave;`],
+        [0, `&Uacute;`],
+        [0, `&Ucirc;`],
+        [0, `&Uuml;`],
+        [0, `&Yacute;`],
+        [0, `&THORN;`],
+        [0, `&szlig;`],
+        [0, `&agrave;`],
+        [0, `&aacute;`],
+        [0, `&acirc;`],
+        [0, `&atilde;`],
+        [0, `&auml;`],
+        [0, `&aring;`],
+        [0, `&aelig;`],
+        [0, `&ccedil;`],
+        [0, `&egrave;`],
+        [0, `&eacute;`],
+        [0, `&ecirc;`],
+        [0, `&euml;`],
+        [0, `&igrave;`],
+        [0, `&iacute;`],
+        [0, `&icirc;`],
+        [0, `&iuml;`],
+        [0, `&eth;`],
+        [0, `&ntilde;`],
+        [0, `&ograve;`],
+        [0, `&oacute;`],
+        [0, `&ocirc;`],
+        [0, `&otilde;`],
+        [0, `&ouml;`],
+        [0, `&div;`],
+        [0, `&oslash;`],
+        [0, `&ugrave;`],
+        [0, `&uacute;`],
+        [0, `&ucirc;`],
+        [0, `&uuml;`],
+        [0, `&yacute;`],
+        [0, `&thorn;`],
+        [0, `&yuml;`],
+        [0, `&Amacr;`],
+        [0, `&amacr;`],
+        [0, `&Abreve;`],
+        [0, `&abreve;`],
+        [0, `&Aogon;`],
+        [0, `&aogon;`],
+        [0, `&Cacute;`],
+        [0, `&cacute;`],
+        [0, `&Ccirc;`],
+        [0, `&ccirc;`],
+        [0, `&Cdot;`],
+        [0, `&cdot;`],
+        [0, `&Ccaron;`],
+        [0, `&ccaron;`],
+        [0, `&Dcaron;`],
+        [0, `&dcaron;`],
+        [0, `&Dstrok;`],
+        [0, `&dstrok;`],
+        [0, `&Emacr;`],
+        [0, `&emacr;`],
+        [2, `&Edot;`],
+        [0, `&edot;`],
+        [0, `&Eogon;`],
+        [0, `&eogon;`],
+        [0, `&Ecaron;`],
+        [0, `&ecaron;`],
+        [0, `&Gcirc;`],
+        [0, `&gcirc;`],
+        [0, `&Gbreve;`],
+        [0, `&gbreve;`],
+        [0, `&Gdot;`],
+        [0, `&gdot;`],
+        [0, `&Gcedil;`],
+        [1, `&Hcirc;`],
+        [0, `&hcirc;`],
+        [0, `&Hstrok;`],
+        [0, `&hstrok;`],
+        [0, `&Itilde;`],
+        [0, `&itilde;`],
+        [0, `&Imacr;`],
+        [0, `&imacr;`],
+        [2, `&Iogon;`],
+        [0, `&iogon;`],
+        [0, `&Idot;`],
+        [0, `&imath;`],
+        [0, `&IJlig;`],
+        [0, `&ijlig;`],
+        [0, `&Jcirc;`],
+        [0, `&jcirc;`],
+        [0, `&Kcedil;`],
+        [0, `&kcedil;`],
+        [0, `&kgreen;`],
+        [0, `&Lacute;`],
+        [0, `&lacute;`],
+        [0, `&Lcedil;`],
+        [0, `&lcedil;`],
+        [0, `&Lcaron;`],
+        [0, `&lcaron;`],
+        [0, `&Lmidot;`],
+        [0, `&lmidot;`],
+        [0, `&Lstrok;`],
+        [0, `&lstrok;`],
+        [0, `&Nacute;`],
+        [0, `&nacute;`],
+        [0, `&Ncedil;`],
+        [0, `&ncedil;`],
+        [0, `&Ncaron;`],
+        [0, `&ncaron;`],
+        [0, `&napos;`],
+        [0, `&ENG;`],
+        [0, `&eng;`],
+        [0, `&Omacr;`],
+        [0, `&omacr;`],
+        [2, `&Odblac;`],
+        [0, `&odblac;`],
+        [0, `&OElig;`],
+        [0, `&oelig;`],
+        [0, `&Racute;`],
+        [0, `&racute;`],
+        [0, `&Rcedil;`],
+        [0, `&rcedil;`],
+        [0, `&Rcaron;`],
+        [0, `&rcaron;`],
+        [0, `&Sacute;`],
+        [0, `&sacute;`],
+        [0, `&Scirc;`],
+        [0, `&scirc;`],
+        [0, `&Scedil;`],
+        [0, `&scedil;`],
+        [0, `&Scaron;`],
+        [0, `&scaron;`],
+        [0, `&Tcedil;`],
+        [0, `&tcedil;`],
+        [0, `&Tcaron;`],
+        [0, `&tcaron;`],
+        [0, `&Tstrok;`],
+        [0, `&tstrok;`],
+        [0, `&Utilde;`],
+        [0, `&utilde;`],
+        [0, `&Umacr;`],
+        [0, `&umacr;`],
+        [0, `&Ubreve;`],
+        [0, `&ubreve;`],
+        [0, `&Uring;`],
+        [0, `&uring;`],
+        [0, `&Udblac;`],
+        [0, `&udblac;`],
+        [0, `&Uogon;`],
+        [0, `&uogon;`],
+        [0, `&Wcirc;`],
+        [0, `&wcirc;`],
+        [0, `&Ycirc;`],
+        [0, `&ycirc;`],
+        [0, `&Yuml;`],
+        [0, `&Zacute;`],
+        [0, `&zacute;`],
+        [0, `&Zdot;`],
+        [0, `&zdot;`],
+        [0, `&Zcaron;`],
+        [0, `&zcaron;`],
+        [19, `&fnof;`],
+        [34, `&imped;`],
+        [63, `&gacute;`],
+        [65, `&jmath;`],
+        [142, `&circ;`],
+        [0, `&caron;`],
+        [16, `&breve;`],
+        [0, `&DiacriticalDot;`],
+        [0, `&ring;`],
+        [0, `&ogon;`],
+        [0, `&DiacriticalTilde;`],
+        [0, `&dblac;`],
+        [51, `&DownBreve;`],
+        [127, `&Alpha;`],
+        [0, `&Beta;`],
+        [0, `&Gamma;`],
+        [0, `&Delta;`],
+        [0, `&Epsilon;`],
+        [0, `&Zeta;`],
+        [0, `&Eta;`],
+        [0, `&Theta;`],
+        [0, `&Iota;`],
+        [0, `&Kappa;`],
+        [0, `&Lambda;`],
+        [0, `&Mu;`],
+        [0, `&Nu;`],
+        [0, `&Xi;`],
+        [0, `&Omicron;`],
+        [0, `&Pi;`],
+        [0, `&Rho;`],
+        [1, `&Sigma;`],
+        [0, `&Tau;`],
+        [0, `&Upsilon;`],
+        [0, `&Phi;`],
+        [0, `&Chi;`],
+        [0, `&Psi;`],
+        [0, `&ohm;`],
+        [7, `&alpha;`],
+        [0, `&beta;`],
+        [0, `&gamma;`],
+        [0, `&delta;`],
+        [0, `&epsi;`],
+        [0, `&zeta;`],
+        [0, `&eta;`],
+        [0, `&theta;`],
+        [0, `&iota;`],
+        [0, `&kappa;`],
+        [0, `&lambda;`],
+        [0, `&mu;`],
+        [0, `&nu;`],
+        [0, `&xi;`],
+        [0, `&omicron;`],
+        [0, `&pi;`],
+        [0, `&rho;`],
+        [0, `&sigmaf;`],
+        [0, `&sigma;`],
+        [0, `&tau;`],
+        [0, `&upsi;`],
+        [0, `&phi;`],
+        [0, `&chi;`],
+        [0, `&psi;`],
+        [0, `&omega;`],
+        [7, `&thetasym;`],
+        [0, `&Upsi;`],
+        [2, `&phiv;`],
+        [0, `&piv;`],
+        [5, `&Gammad;`],
+        [0, `&digamma;`],
+        [18, `&kappav;`],
+        [0, `&rhov;`],
+        [3, `&epsiv;`],
+        [0, `&backepsilon;`],
+        [10, `&IOcy;`],
+        [0, `&DJcy;`],
+        [0, `&GJcy;`],
+        [0, `&Jukcy;`],
+        [0, `&DScy;`],
+        [0, `&Iukcy;`],
+        [0, `&YIcy;`],
+        [0, `&Jsercy;`],
+        [0, `&LJcy;`],
+        [0, `&NJcy;`],
+        [0, `&TSHcy;`],
+        [0, `&KJcy;`],
+        [1, `&Ubrcy;`],
+        [0, `&DZcy;`],
+        [0, `&Acy;`],
+        [0, `&Bcy;`],
+        [0, `&Vcy;`],
+        [0, `&Gcy;`],
+        [0, `&Dcy;`],
+        [0, `&IEcy;`],
+        [0, `&ZHcy;`],
+        [0, `&Zcy;`],
+        [0, `&Icy;`],
+        [0, `&Jcy;`],
+        [0, `&Kcy;`],
+        [0, `&Lcy;`],
+        [0, `&Mcy;`],
+        [0, `&Ncy;`],
+        [0, `&Ocy;`],
+        [0, `&Pcy;`],
+        [0, `&Rcy;`],
+        [0, `&Scy;`],
+        [0, `&Tcy;`],
+        [0, `&Ucy;`],
+        [0, `&Fcy;`],
+        [0, `&KHcy;`],
+        [0, `&TScy;`],
+        [0, `&CHcy;`],
+        [0, `&SHcy;`],
+        [0, `&SHCHcy;`],
+        [0, `&HARDcy;`],
+        [0, `&Ycy;`],
+        [0, `&SOFTcy;`],
+        [0, `&Ecy;`],
+        [0, `&YUcy;`],
+        [0, `&YAcy;`],
+        [0, `&acy;`],
+        [0, `&bcy;`],
+        [0, `&vcy;`],
+        [0, `&gcy;`],
+        [0, `&dcy;`],
+        [0, `&iecy;`],
+        [0, `&zhcy;`],
+        [0, `&zcy;`],
+        [0, `&icy;`],
+        [0, `&jcy;`],
+        [0, `&kcy;`],
+        [0, `&lcy;`],
+        [0, `&mcy;`],
+        [0, `&ncy;`],
+        [0, `&ocy;`],
+        [0, `&pcy;`],
+        [0, `&rcy;`],
+        [0, `&scy;`],
+        [0, `&tcy;`],
+        [0, `&ucy;`],
+        [0, `&fcy;`],
+        [0, `&khcy;`],
+        [0, `&tscy;`],
+        [0, `&chcy;`],
+        [0, `&shcy;`],
+        [0, `&shchcy;`],
+        [0, `&hardcy;`],
+        [0, `&ycy;`],
+        [0, `&softcy;`],
+        [0, `&ecy;`],
+        [0, `&yucy;`],
+        [0, `&yacy;`],
+        [1, `&iocy;`],
+        [0, `&djcy;`],
+        [0, `&gjcy;`],
+        [0, `&jukcy;`],
+        [0, `&dscy;`],
+        [0, `&iukcy;`],
+        [0, `&yicy;`],
+        [0, `&jsercy;`],
+        [0, `&ljcy;`],
+        [0, `&njcy;`],
+        [0, `&tshcy;`],
+        [0, `&kjcy;`],
+        [1, `&ubrcy;`],
+        [0, `&dzcy;`],
+        [7074, `&ensp;`],
+        [0, `&emsp;`],
+        [0, `&emsp13;`],
+        [0, `&emsp14;`],
+        [1, `&numsp;`],
+        [0, `&puncsp;`],
+        [0, `&ThinSpace;`],
+        [0, `&hairsp;`],
+        [0, `&NegativeMediumSpace;`],
+        [0, `&zwnj;`],
+        [0, `&zwj;`],
+        [0, `&lrm;`],
+        [0, `&rlm;`],
+        [0, `&dash;`],
+        [2, `&ndash;`],
+        [0, `&mdash;`],
+        [0, `&horbar;`],
+        [0, `&Verbar;`],
+        [1, `&lsquo;`],
+        [0, `&CloseCurlyQuote;`],
+        [0, `&lsquor;`],
+        [1, `&ldquo;`],
+        [0, `&CloseCurlyDoubleQuote;`],
+        [0, `&bdquo;`],
+        [1, `&dagger;`],
+        [0, `&Dagger;`],
+        [0, `&bull;`],
+        [2, `&nldr;`],
+        [0, `&hellip;`],
+        [9, `&permil;`],
+        [0, `&pertenk;`],
+        [0, `&prime;`],
+        [0, `&Prime;`],
+        [0, `&tprime;`],
+        [0, `&backprime;`],
+        [3, `&lsaquo;`],
+        [0, `&rsaquo;`],
+        [3, `&oline;`],
+        [2, `&caret;`],
+        [1, `&hybull;`],
+        [0, `&frasl;`],
+        [10, `&bsemi;`],
+        [7, `&qprime;`],
+        [7, { v: `&MediumSpace;`, n: 8202, o: `&ThickSpace;` }],
+        [0, `&NoBreak;`],
+        [0, `&af;`],
+        [0, `&InvisibleTimes;`],
+        [0, `&ic;`],
+        [72, `&euro;`],
+        [46, `&tdot;`],
+        [0, `&DotDot;`],
+        [37, `&complexes;`],
+        [2, `&incare;`],
+        [4, `&gscr;`],
+        [0, `&hamilt;`],
+        [0, `&Hfr;`],
+        [0, `&Hopf;`],
+        [0, `&planckh;`],
+        [0, `&hbar;`],
+        [0, `&imagline;`],
+        [0, `&Ifr;`],
+        [0, `&lagran;`],
+        [0, `&ell;`],
+        [1, `&naturals;`],
+        [0, `&numero;`],
+        [0, `&copysr;`],
+        [0, `&weierp;`],
+        [0, `&Popf;`],
+        [0, `&Qopf;`],
+        [0, `&realine;`],
+        [0, `&real;`],
+        [0, `&reals;`],
+        [0, `&rx;`],
+        [3, `&trade;`],
+        [1, `&integers;`],
+        [2, `&mho;`],
+        [0, `&zeetrf;`],
+        [0, `&iiota;`],
+        [2, `&bernou;`],
+        [0, `&Cayleys;`],
+        [1, `&escr;`],
+        [0, `&Escr;`],
+        [0, `&Fouriertrf;`],
+        [1, `&Mellintrf;`],
+        [0, `&order;`],
+        [0, `&alefsym;`],
+        [0, `&beth;`],
+        [0, `&gimel;`],
+        [0, `&daleth;`],
+        [12, `&CapitalDifferentialD;`],
+        [0, `&dd;`],
+        [0, `&ee;`],
+        [0, `&ii;`],
+        [10, `&frac13;`],
+        [0, `&frac23;`],
+        [0, `&frac15;`],
+        [0, `&frac25;`],
+        [0, `&frac35;`],
+        [0, `&frac45;`],
+        [0, `&frac16;`],
+        [0, `&frac56;`],
+        [0, `&frac18;`],
+        [0, `&frac38;`],
+        [0, `&frac58;`],
+        [0, `&frac78;`],
+        [49, `&larr;`],
+        [0, `&ShortUpArrow;`],
+        [0, `&rarr;`],
+        [0, `&darr;`],
+        [0, `&harr;`],
+        [0, `&updownarrow;`],
+        [0, `&nwarr;`],
+        [0, `&nearr;`],
+        [0, `&LowerRightArrow;`],
+        [0, `&LowerLeftArrow;`],
+        [0, `&nlarr;`],
+        [0, `&nrarr;`],
+        [1, { v: `&rarrw;`, n: 824, o: `&nrarrw;` }],
+        [0, `&Larr;`],
+        [0, `&Uarr;`],
+        [0, `&Rarr;`],
+        [0, `&Darr;`],
+        [0, `&larrtl;`],
+        [0, `&rarrtl;`],
+        [0, `&LeftTeeArrow;`],
+        [0, `&mapstoup;`],
+        [0, `&map;`],
+        [0, `&DownTeeArrow;`],
+        [1, `&hookleftarrow;`],
+        [0, `&hookrightarrow;`],
+        [0, `&larrlp;`],
+        [0, `&looparrowright;`],
+        [0, `&harrw;`],
+        [0, `&nharr;`],
+        [1, `&lsh;`],
+        [0, `&rsh;`],
+        [0, `&ldsh;`],
+        [0, `&rdsh;`],
+        [1, `&crarr;`],
+        [0, `&cularr;`],
+        [0, `&curarr;`],
+        [2, `&circlearrowleft;`],
+        [0, `&circlearrowright;`],
+        [0, `&leftharpoonup;`],
+        [0, `&DownLeftVector;`],
+        [0, `&RightUpVector;`],
+        [0, `&LeftUpVector;`],
+        [0, `&rharu;`],
+        [0, `&DownRightVector;`],
+        [0, `&dharr;`],
+        [0, `&dharl;`],
+        [0, `&RightArrowLeftArrow;`],
+        [0, `&udarr;`],
+        [0, `&LeftArrowRightArrow;`],
+        [0, `&leftleftarrows;`],
+        [0, `&upuparrows;`],
+        [0, `&rightrightarrows;`],
+        [0, `&ddarr;`],
+        [0, `&leftrightharpoons;`],
+        [0, `&Equilibrium;`],
+        [0, `&nlArr;`],
+        [0, `&nhArr;`],
+        [0, `&nrArr;`],
+        [0, `&DoubleLeftArrow;`],
+        [0, `&DoubleUpArrow;`],
+        [0, `&DoubleRightArrow;`],
+        [0, `&dArr;`],
+        [0, `&DoubleLeftRightArrow;`],
+        [0, `&DoubleUpDownArrow;`],
+        [0, `&nwArr;`],
+        [0, `&neArr;`],
+        [0, `&seArr;`],
+        [0, `&swArr;`],
+        [0, `&lAarr;`],
+        [0, `&rAarr;`],
+        [1, `&zigrarr;`],
+        [6, `&larrb;`],
+        [0, `&rarrb;`],
+        [15, `&DownArrowUpArrow;`],
+        [7, `&loarr;`],
+        [0, `&roarr;`],
+        [0, `&hoarr;`],
+        [0, `&forall;`],
+        [0, `&comp;`],
+        [0, { v: `&part;`, n: 824, o: `&npart;` }],
+        [0, `&exist;`],
+        [0, `&nexist;`],
+        [0, `&empty;`],
+        [1, `&Del;`],
+        [0, `&Element;`],
+        [0, `&NotElement;`],
+        [1, `&ni;`],
+        [0, `&notni;`],
+        [2, `&prod;`],
+        [0, `&coprod;`],
+        [0, `&sum;`],
+        [0, `&minus;`],
+        [0, `&MinusPlus;`],
+        [0, `&dotplus;`],
+        [1, `&Backslash;`],
+        [0, `&lowast;`],
+        [0, `&compfn;`],
+        [1, `&radic;`],
+        [2, `&prop;`],
+        [0, `&infin;`],
+        [0, `&angrt;`],
+        [0, { v: `&ang;`, n: 8402, o: `&nang;` }],
+        [0, `&angmsd;`],
+        [0, `&angsph;`],
+        [0, `&mid;`],
+        [0, `&nmid;`],
+        [0, `&DoubleVerticalBar;`],
+        [0, `&NotDoubleVerticalBar;`],
+        [0, `&and;`],
+        [0, `&or;`],
+        [0, { v: `&cap;`, n: 65024, o: `&caps;` }],
+        [0, { v: `&cup;`, n: 65024, o: `&cups;` }],
+        [0, `&int;`],
+        [0, `&Int;`],
+        [0, `&iiint;`],
+        [0, `&conint;`],
+        [0, `&Conint;`],
+        [0, `&Cconint;`],
+        [0, `&cwint;`],
+        [0, `&ClockwiseContourIntegral;`],
+        [0, `&awconint;`],
+        [0, `&there4;`],
+        [0, `&becaus;`],
+        [0, `&ratio;`],
+        [0, `&Colon;`],
+        [0, `&dotminus;`],
+        [1, `&mDDot;`],
+        [0, `&homtht;`],
+        [0, { v: `&sim;`, n: 8402, o: `&nvsim;` }],
+        [0, { v: `&backsim;`, n: 817, o: `&race;` }],
+        [0, { v: `&ac;`, n: 819, o: `&acE;` }],
+        [0, `&acd;`],
+        [0, `&VerticalTilde;`],
+        [0, `&NotTilde;`],
+        [0, { v: `&eqsim;`, n: 824, o: `&nesim;` }],
+        [0, `&sime;`],
+        [0, `&NotTildeEqual;`],
+        [0, `&cong;`],
+        [0, `&simne;`],
+        [0, `&ncong;`],
+        [0, `&ap;`],
+        [0, `&nap;`],
+        [0, `&ape;`],
+        [0, { v: `&apid;`, n: 824, o: `&napid;` }],
+        [0, `&backcong;`],
+        [0, { v: `&asympeq;`, n: 8402, o: `&nvap;` }],
+        [0, { v: `&bump;`, n: 824, o: `&nbump;` }],
+        [0, { v: `&bumpe;`, n: 824, o: `&nbumpe;` }],
+        [0, { v: `&doteq;`, n: 824, o: `&nedot;` }],
+        [0, `&doteqdot;`],
+        [0, `&efDot;`],
+        [0, `&erDot;`],
+        [0, `&Assign;`],
+        [0, `&ecolon;`],
+        [0, `&ecir;`],
+        [0, `&circeq;`],
+        [1, `&wedgeq;`],
+        [0, `&veeeq;`],
+        [1, `&triangleq;`],
+        [2, `&equest;`],
+        [0, `&ne;`],
+        [0, { v: `&Congruent;`, n: 8421, o: `&bnequiv;` }],
+        [0, `&nequiv;`],
+        [1, { v: `&le;`, n: 8402, o: `&nvle;` }],
+        [0, { v: `&ge;`, n: 8402, o: `&nvge;` }],
+        [0, { v: `&lE;`, n: 824, o: `&nlE;` }],
+        [0, { v: `&gE;`, n: 824, o: `&ngE;` }],
+        [0, { v: `&lnE;`, n: 65024, o: `&lvertneqq;` }],
+        [0, { v: `&gnE;`, n: 65024, o: `&gvertneqq;` }],
+        [
+          0,
+          {
+            v: `&ll;`,
+            n: new Map(
+              t([
+                [824, `&nLtv;`],
+                [7577, `&nLt;`],
+              ]),
+            ),
+          },
+        ],
+        [
+          0,
+          {
+            v: `&gg;`,
+            n: new Map(
+              t([
+                [824, `&nGtv;`],
+                [7577, `&nGt;`],
+              ]),
+            ),
+          },
+        ],
+        [0, `&between;`],
+        [0, `&NotCupCap;`],
+        [0, `&nless;`],
+        [0, `&ngt;`],
+        [0, `&nle;`],
+        [0, `&nge;`],
+        [0, `&lesssim;`],
+        [0, `&GreaterTilde;`],
+        [0, `&nlsim;`],
+        [0, `&ngsim;`],
+        [0, `&LessGreater;`],
+        [0, `&gl;`],
+        [0, `&NotLessGreater;`],
+        [0, `&NotGreaterLess;`],
+        [0, `&pr;`],
+        [0, `&sc;`],
+        [0, `&prcue;`],
+        [0, `&sccue;`],
+        [0, `&PrecedesTilde;`],
+        [0, { v: `&scsim;`, n: 824, o: `&NotSucceedsTilde;` }],
+        [0, `&NotPrecedes;`],
+        [0, `&NotSucceeds;`],
+        [0, { v: `&sub;`, n: 8402, o: `&NotSubset;` }],
+        [0, { v: `&sup;`, n: 8402, o: `&NotSuperset;` }],
+        [0, `&nsub;`],
+        [0, `&nsup;`],
+        [0, `&sube;`],
+        [0, `&supe;`],
+        [0, `&NotSubsetEqual;`],
+        [0, `&NotSupersetEqual;`],
+        [0, { v: `&subne;`, n: 65024, o: `&varsubsetneq;` }],
+        [0, { v: `&supne;`, n: 65024, o: `&varsupsetneq;` }],
+        [1, `&cupdot;`],
+        [0, `&UnionPlus;`],
+        [0, { v: `&sqsub;`, n: 824, o: `&NotSquareSubset;` }],
+        [0, { v: `&sqsup;`, n: 824, o: `&NotSquareSuperset;` }],
+        [0, `&sqsube;`],
+        [0, `&sqsupe;`],
+        [0, { v: `&sqcap;`, n: 65024, o: `&sqcaps;` }],
+        [0, { v: `&sqcup;`, n: 65024, o: `&sqcups;` }],
+        [0, `&CirclePlus;`],
+        [0, `&CircleMinus;`],
+        [0, `&CircleTimes;`],
+        [0, `&osol;`],
+        [0, `&CircleDot;`],
+        [0, `&circledcirc;`],
+        [0, `&circledast;`],
+        [1, `&circleddash;`],
+        [0, `&boxplus;`],
+        [0, `&boxminus;`],
+        [0, `&boxtimes;`],
+        [0, `&dotsquare;`],
+        [0, `&RightTee;`],
+        [0, `&dashv;`],
+        [0, `&DownTee;`],
+        [0, `&bot;`],
+        [1, `&models;`],
+        [0, `&DoubleRightTee;`],
+        [0, `&Vdash;`],
+        [0, `&Vvdash;`],
+        [0, `&VDash;`],
+        [0, `&nvdash;`],
+        [0, `&nvDash;`],
+        [0, `&nVdash;`],
+        [0, `&nVDash;`],
+        [0, `&prurel;`],
+        [1, `&LeftTriangle;`],
+        [0, `&RightTriangle;`],
+        [0, { v: `&LeftTriangleEqual;`, n: 8402, o: `&nvltrie;` }],
+        [0, { v: `&RightTriangleEqual;`, n: 8402, o: `&nvrtrie;` }],
+        [0, `&origof;`],
+        [0, `&imof;`],
+        [0, `&multimap;`],
+        [0, `&hercon;`],
+        [0, `&intcal;`],
+        [0, `&veebar;`],
+        [1, `&barvee;`],
+        [0, `&angrtvb;`],
+        [0, `&lrtri;`],
+        [0, `&bigwedge;`],
+        [0, `&bigvee;`],
+        [0, `&bigcap;`],
+        [0, `&bigcup;`],
+        [0, `&diam;`],
+        [0, `&sdot;`],
+        [0, `&sstarf;`],
+        [0, `&divideontimes;`],
+        [0, `&bowtie;`],
+        [0, `&ltimes;`],
+        [0, `&rtimes;`],
+        [0, `&leftthreetimes;`],
+        [0, `&rightthreetimes;`],
+        [0, `&backsimeq;`],
+        [0, `&curlyvee;`],
+        [0, `&curlywedge;`],
+        [0, `&Sub;`],
+        [0, `&Sup;`],
+        [0, `&Cap;`],
+        [0, `&Cup;`],
+        [0, `&fork;`],
+        [0, `&epar;`],
+        [0, `&lessdot;`],
+        [0, `&gtdot;`],
+        [0, { v: `&Ll;`, n: 824, o: `&nLl;` }],
+        [0, { v: `&Gg;`, n: 824, o: `&nGg;` }],
+        [0, { v: `&leg;`, n: 65024, o: `&lesg;` }],
+        [0, { v: `&gel;`, n: 65024, o: `&gesl;` }],
+        [2, `&cuepr;`],
+        [0, `&cuesc;`],
+        [0, `&NotPrecedesSlantEqual;`],
+        [0, `&NotSucceedsSlantEqual;`],
+        [0, `&NotSquareSubsetEqual;`],
+        [0, `&NotSquareSupersetEqual;`],
+        [2, `&lnsim;`],
+        [0, `&gnsim;`],
+        [0, `&precnsim;`],
+        [0, `&scnsim;`],
+        [0, `&nltri;`],
+        [0, `&NotRightTriangle;`],
+        [0, `&nltrie;`],
+        [0, `&NotRightTriangleEqual;`],
+        [0, `&vellip;`],
+        [0, `&ctdot;`],
+        [0, `&utdot;`],
+        [0, `&dtdot;`],
+        [0, `&disin;`],
+        [0, `&isinsv;`],
+        [0, `&isins;`],
+        [0, { v: `&isindot;`, n: 824, o: `&notindot;` }],
+        [0, `&notinvc;`],
+        [0, `&notinvb;`],
+        [1, { v: `&isinE;`, n: 824, o: `&notinE;` }],
+        [0, `&nisd;`],
+        [0, `&xnis;`],
+        [0, `&nis;`],
+        [0, `&notnivc;`],
+        [0, `&notnivb;`],
+        [6, `&barwed;`],
+        [0, `&Barwed;`],
+        [1, `&lceil;`],
+        [0, `&rceil;`],
+        [0, `&LeftFloor;`],
+        [0, `&rfloor;`],
+        [0, `&drcrop;`],
+        [0, `&dlcrop;`],
+        [0, `&urcrop;`],
+        [0, `&ulcrop;`],
+        [0, `&bnot;`],
+        [1, `&profline;`],
+        [0, `&profsurf;`],
+        [1, `&telrec;`],
+        [0, `&target;`],
+        [5, `&ulcorn;`],
+        [0, `&urcorn;`],
+        [0, `&dlcorn;`],
+        [0, `&drcorn;`],
+        [2, `&frown;`],
+        [0, `&smile;`],
+        [9, `&cylcty;`],
+        [0, `&profalar;`],
+        [7, `&topbot;`],
+        [6, `&ovbar;`],
+        [1, `&solbar;`],
+        [60, `&angzarr;`],
+        [51, `&lmoustache;`],
+        [0, `&rmoustache;`],
+        [2, `&OverBracket;`],
+        [0, `&bbrk;`],
+        [0, `&bbrktbrk;`],
+        [37, `&OverParenthesis;`],
+        [0, `&UnderParenthesis;`],
+        [0, `&OverBrace;`],
+        [0, `&UnderBrace;`],
+        [2, `&trpezium;`],
+        [4, `&elinters;`],
+        [59, `&blank;`],
+        [164, `&circledS;`],
+        [55, `&boxh;`],
+        [1, `&boxv;`],
+        [9, `&boxdr;`],
+        [3, `&boxdl;`],
+        [3, `&boxur;`],
+        [3, `&boxul;`],
+        [3, `&boxvr;`],
+        [7, `&boxvl;`],
+        [7, `&boxhd;`],
+        [7, `&boxhu;`],
+        [7, `&boxvh;`],
+        [19, `&boxH;`],
+        [0, `&boxV;`],
+        [0, `&boxdR;`],
+        [0, `&boxDr;`],
+        [0, `&boxDR;`],
+        [0, `&boxdL;`],
+        [0, `&boxDl;`],
+        [0, `&boxDL;`],
+        [0, `&boxuR;`],
+        [0, `&boxUr;`],
+        [0, `&boxUR;`],
+        [0, `&boxuL;`],
+        [0, `&boxUl;`],
+        [0, `&boxUL;`],
+        [0, `&boxvR;`],
+        [0, `&boxVr;`],
+        [0, `&boxVR;`],
+        [0, `&boxvL;`],
+        [0, `&boxVl;`],
+        [0, `&boxVL;`],
+        [0, `&boxHd;`],
+        [0, `&boxhD;`],
+        [0, `&boxHD;`],
+        [0, `&boxHu;`],
+        [0, `&boxhU;`],
+        [0, `&boxHU;`],
+        [0, `&boxvH;`],
+        [0, `&boxVh;`],
+        [0, `&boxVH;`],
+        [19, `&uhblk;`],
+        [3, `&lhblk;`],
+        [3, `&block;`],
+        [8, `&blk14;`],
+        [0, `&blk12;`],
+        [0, `&blk34;`],
+        [13, `&square;`],
+        [8, `&blacksquare;`],
+        [0, `&EmptyVerySmallSquare;`],
+        [1, `&rect;`],
+        [0, `&marker;`],
+        [2, `&fltns;`],
+        [1, `&bigtriangleup;`],
+        [0, `&blacktriangle;`],
+        [0, `&triangle;`],
+        [2, `&blacktriangleright;`],
+        [0, `&rtri;`],
+        [3, `&bigtriangledown;`],
+        [0, `&blacktriangledown;`],
+        [0, `&dtri;`],
+        [2, `&blacktriangleleft;`],
+        [0, `&ltri;`],
+        [6, `&loz;`],
+        [0, `&cir;`],
+        [32, `&tridot;`],
+        [2, `&bigcirc;`],
+        [8, `&ultri;`],
+        [0, `&urtri;`],
+        [0, `&lltri;`],
+        [0, `&EmptySmallSquare;`],
+        [0, `&FilledSmallSquare;`],
+        [8, `&bigstar;`],
+        [0, `&star;`],
+        [7, `&phone;`],
+        [49, `&female;`],
+        [1, `&male;`],
+        [29, `&spades;`],
+        [2, `&clubs;`],
+        [1, `&hearts;`],
+        [0, `&diamondsuit;`],
+        [3, `&sung;`],
+        [2, `&flat;`],
+        [0, `&natural;`],
+        [0, `&sharp;`],
+        [163, `&check;`],
+        [3, `&cross;`],
+        [8, `&malt;`],
+        [21, `&sext;`],
+        [33, `&VerticalSeparator;`],
+        [25, `&lbbrk;`],
+        [0, `&rbbrk;`],
+        [84, `&bsolhsub;`],
+        [0, `&suphsol;`],
+        [28, `&LeftDoubleBracket;`],
+        [0, `&RightDoubleBracket;`],
+        [0, `&lang;`],
+        [0, `&rang;`],
+        [0, `&Lang;`],
+        [0, `&Rang;`],
+        [0, `&loang;`],
+        [0, `&roang;`],
+        [7, `&longleftarrow;`],
+        [0, `&longrightarrow;`],
+        [0, `&longleftrightarrow;`],
+        [0, `&DoubleLongLeftArrow;`],
+        [0, `&DoubleLongRightArrow;`],
+        [0, `&DoubleLongLeftRightArrow;`],
+        [1, `&longmapsto;`],
+        [2, `&dzigrarr;`],
+        [258, `&nvlArr;`],
+        [0, `&nvrArr;`],
+        [0, `&nvHarr;`],
+        [0, `&Map;`],
+        [6, `&lbarr;`],
+        [0, `&bkarow;`],
+        [0, `&lBarr;`],
+        [0, `&dbkarow;`],
+        [0, `&drbkarow;`],
+        [0, `&DDotrahd;`],
+        [0, `&UpArrowBar;`],
+        [0, `&DownArrowBar;`],
+        [2, `&Rarrtl;`],
+        [2, `&latail;`],
+        [0, `&ratail;`],
+        [0, `&lAtail;`],
+        [0, `&rAtail;`],
+        [0, `&larrfs;`],
+        [0, `&rarrfs;`],
+        [0, `&larrbfs;`],
+        [0, `&rarrbfs;`],
+        [2, `&nwarhk;`],
+        [0, `&nearhk;`],
+        [0, `&hksearow;`],
+        [0, `&hkswarow;`],
+        [0, `&nwnear;`],
+        [0, `&nesear;`],
+        [0, `&seswar;`],
+        [0, `&swnwar;`],
+        [8, { v: `&rarrc;`, n: 824, o: `&nrarrc;` }],
+        [1, `&cudarrr;`],
+        [0, `&ldca;`],
+        [0, `&rdca;`],
+        [0, `&cudarrl;`],
+        [0, `&larrpl;`],
+        [2, `&curarrm;`],
+        [0, `&cularrp;`],
+        [7, `&rarrpl;`],
+        [2, `&harrcir;`],
+        [0, `&Uarrocir;`],
+        [0, `&lurdshar;`],
+        [0, `&ldrushar;`],
+        [2, `&LeftRightVector;`],
+        [0, `&RightUpDownVector;`],
+        [0, `&DownLeftRightVector;`],
+        [0, `&LeftUpDownVector;`],
+        [0, `&LeftVectorBar;`],
+        [0, `&RightVectorBar;`],
+        [0, `&RightUpVectorBar;`],
+        [0, `&RightDownVectorBar;`],
+        [0, `&DownLeftVectorBar;`],
+        [0, `&DownRightVectorBar;`],
+        [0, `&LeftUpVectorBar;`],
+        [0, `&LeftDownVectorBar;`],
+        [0, `&LeftTeeVector;`],
+        [0, `&RightTeeVector;`],
+        [0, `&RightUpTeeVector;`],
+        [0, `&RightDownTeeVector;`],
+        [0, `&DownLeftTeeVector;`],
+        [0, `&DownRightTeeVector;`],
+        [0, `&LeftUpTeeVector;`],
+        [0, `&LeftDownTeeVector;`],
+        [0, `&lHar;`],
+        [0, `&uHar;`],
+        [0, `&rHar;`],
+        [0, `&dHar;`],
+        [0, `&luruhar;`],
+        [0, `&ldrdhar;`],
+        [0, `&ruluhar;`],
+        [0, `&rdldhar;`],
+        [0, `&lharul;`],
+        [0, `&llhard;`],
+        [0, `&rharul;`],
+        [0, `&lrhard;`],
+        [0, `&udhar;`],
+        [0, `&duhar;`],
+        [0, `&RoundImplies;`],
+        [0, `&erarr;`],
+        [0, `&simrarr;`],
+        [0, `&larrsim;`],
+        [0, `&rarrsim;`],
+        [0, `&rarrap;`],
+        [0, `&ltlarr;`],
+        [1, `&gtrarr;`],
+        [0, `&subrarr;`],
+        [1, `&suplarr;`],
+        [0, `&lfisht;`],
+        [0, `&rfisht;`],
+        [0, `&ufisht;`],
+        [0, `&dfisht;`],
+        [5, `&lopar;`],
+        [0, `&ropar;`],
+        [4, `&lbrke;`],
+        [0, `&rbrke;`],
+        [0, `&lbrkslu;`],
+        [0, `&rbrksld;`],
+        [0, `&lbrksld;`],
+        [0, `&rbrkslu;`],
+        [0, `&langd;`],
+        [0, `&rangd;`],
+        [0, `&lparlt;`],
+        [0, `&rpargt;`],
+        [0, `&gtlPar;`],
+        [0, `&ltrPar;`],
+        [3, `&vzigzag;`],
+        [1, `&vangrt;`],
+        [0, `&angrtvbd;`],
+        [6, `&ange;`],
+        [0, `&range;`],
+        [0, `&dwangle;`],
+        [0, `&uwangle;`],
+        [0, `&angmsdaa;`],
+        [0, `&angmsdab;`],
+        [0, `&angmsdac;`],
+        [0, `&angmsdad;`],
+        [0, `&angmsdae;`],
+        [0, `&angmsdaf;`],
+        [0, `&angmsdag;`],
+        [0, `&angmsdah;`],
+        [0, `&bemptyv;`],
+        [0, `&demptyv;`],
+        [0, `&cemptyv;`],
+        [0, `&raemptyv;`],
+        [0, `&laemptyv;`],
+        [0, `&ohbar;`],
+        [0, `&omid;`],
+        [0, `&opar;`],
+        [1, `&operp;`],
+        [1, `&olcross;`],
+        [0, `&odsold;`],
+        [1, `&olcir;`],
+        [0, `&ofcir;`],
+        [0, `&olt;`],
+        [0, `&ogt;`],
+        [0, `&cirscir;`],
+        [0, `&cirE;`],
+        [0, `&solb;`],
+        [0, `&bsolb;`],
+        [3, `&boxbox;`],
+        [3, `&trisb;`],
+        [0, `&rtriltri;`],
+        [0, { v: `&LeftTriangleBar;`, n: 824, o: `&NotLeftTriangleBar;` }],
+        [0, { v: `&RightTriangleBar;`, n: 824, o: `&NotRightTriangleBar;` }],
+        [11, `&iinfin;`],
+        [0, `&infintie;`],
+        [0, `&nvinfin;`],
+        [4, `&eparsl;`],
+        [0, `&smeparsl;`],
+        [0, `&eqvparsl;`],
+        [5, `&blacklozenge;`],
+        [8, `&RuleDelayed;`],
+        [1, `&dsol;`],
+        [9, `&bigodot;`],
+        [0, `&bigoplus;`],
+        [0, `&bigotimes;`],
+        [1, `&biguplus;`],
+        [1, `&bigsqcup;`],
+        [5, `&iiiint;`],
+        [0, `&fpartint;`],
+        [2, `&cirfnint;`],
+        [0, `&awint;`],
+        [0, `&rppolint;`],
+        [0, `&scpolint;`],
+        [0, `&npolint;`],
+        [0, `&pointint;`],
+        [0, `&quatint;`],
+        [0, `&intlarhk;`],
+        [10, `&pluscir;`],
+        [0, `&plusacir;`],
+        [0, `&simplus;`],
+        [0, `&plusdu;`],
+        [0, `&plussim;`],
+        [0, `&plustwo;`],
+        [1, `&mcomma;`],
+        [0, `&minusdu;`],
+        [2, `&loplus;`],
+        [0, `&roplus;`],
+        [0, `&Cross;`],
+        [0, `&timesd;`],
+        [0, `&timesbar;`],
+        [1, `&smashp;`],
+        [0, `&lotimes;`],
+        [0, `&rotimes;`],
+        [0, `&otimesas;`],
+        [0, `&Otimes;`],
+        [0, `&odiv;`],
+        [0, `&triplus;`],
+        [0, `&triminus;`],
+        [0, `&tritime;`],
+        [0, `&intprod;`],
+        [2, `&amalg;`],
+        [0, `&capdot;`],
+        [1, `&ncup;`],
+        [0, `&ncap;`],
+        [0, `&capand;`],
+        [0, `&cupor;`],
+        [0, `&cupcap;`],
+        [0, `&capcup;`],
+        [0, `&cupbrcap;`],
+        [0, `&capbrcup;`],
+        [0, `&cupcup;`],
+        [0, `&capcap;`],
+        [0, `&ccups;`],
+        [0, `&ccaps;`],
+        [2, `&ccupssm;`],
+        [2, `&And;`],
+        [0, `&Or;`],
+        [0, `&andand;`],
+        [0, `&oror;`],
+        [0, `&orslope;`],
+        [0, `&andslope;`],
+        [1, `&andv;`],
+        [0, `&orv;`],
+        [0, `&andd;`],
+        [0, `&ord;`],
+        [1, `&wedbar;`],
+        [6, `&sdote;`],
+        [3, `&simdot;`],
+        [2, { v: `&congdot;`, n: 824, o: `&ncongdot;` }],
+        [0, `&easter;`],
+        [0, `&apacir;`],
+        [0, { v: `&apE;`, n: 824, o: `&napE;` }],
+        [0, `&eplus;`],
+        [0, `&pluse;`],
+        [0, `&Esim;`],
+        [0, `&Colone;`],
+        [0, `&Equal;`],
+        [1, `&ddotseq;`],
+        [0, `&equivDD;`],
+        [0, `&ltcir;`],
+        [0, `&gtcir;`],
+        [0, `&ltquest;`],
+        [0, `&gtquest;`],
+        [0, { v: `&leqslant;`, n: 824, o: `&nleqslant;` }],
+        [0, { v: `&geqslant;`, n: 824, o: `&ngeqslant;` }],
+        [0, `&lesdot;`],
+        [0, `&gesdot;`],
+        [0, `&lesdoto;`],
+        [0, `&gesdoto;`],
+        [0, `&lesdotor;`],
+        [0, `&gesdotol;`],
+        [0, `&lap;`],
+        [0, `&gap;`],
+        [0, `&lne;`],
+        [0, `&gne;`],
+        [0, `&lnap;`],
+        [0, `&gnap;`],
+        [0, `&lEg;`],
+        [0, `&gEl;`],
+        [0, `&lsime;`],
+        [0, `&gsime;`],
+        [0, `&lsimg;`],
+        [0, `&gsiml;`],
+        [0, `&lgE;`],
+        [0, `&glE;`],
+        [0, `&lesges;`],
+        [0, `&gesles;`],
+        [0, `&els;`],
+        [0, `&egs;`],
+        [0, `&elsdot;`],
+        [0, `&egsdot;`],
+        [0, `&el;`],
+        [0, `&eg;`],
+        [2, `&siml;`],
+        [0, `&simg;`],
+        [0, `&simlE;`],
+        [0, `&simgE;`],
+        [0, { v: `&LessLess;`, n: 824, o: `&NotNestedLessLess;` }],
+        [0, { v: `&GreaterGreater;`, n: 824, o: `&NotNestedGreaterGreater;` }],
+        [1, `&glj;`],
+        [0, `&gla;`],
+        [0, `&ltcc;`],
+        [0, `&gtcc;`],
+        [0, `&lescc;`],
+        [0, `&gescc;`],
+        [0, `&smt;`],
+        [0, `&lat;`],
+        [0, { v: `&smte;`, n: 65024, o: `&smtes;` }],
+        [0, { v: `&late;`, n: 65024, o: `&lates;` }],
+        [0, `&bumpE;`],
+        [0, { v: `&PrecedesEqual;`, n: 824, o: `&NotPrecedesEqual;` }],
+        [0, { v: `&sce;`, n: 824, o: `&NotSucceedsEqual;` }],
+        [2, `&prE;`],
+        [0, `&scE;`],
+        [0, `&precneqq;`],
+        [0, `&scnE;`],
+        [0, `&prap;`],
+        [0, `&scap;`],
+        [0, `&precnapprox;`],
+        [0, `&scnap;`],
+        [0, `&Pr;`],
+        [0, `&Sc;`],
+        [0, `&subdot;`],
+        [0, `&supdot;`],
+        [0, `&subplus;`],
+        [0, `&supplus;`],
+        [0, `&submult;`],
+        [0, `&supmult;`],
+        [0, `&subedot;`],
+        [0, `&supedot;`],
+        [0, { v: `&subE;`, n: 824, o: `&nsubE;` }],
+        [0, { v: `&supE;`, n: 824, o: `&nsupE;` }],
+        [0, `&subsim;`],
+        [0, `&supsim;`],
+        [2, { v: `&subnE;`, n: 65024, o: `&varsubsetneqq;` }],
+        [0, { v: `&supnE;`, n: 65024, o: `&varsupsetneqq;` }],
+        [2, `&csub;`],
+        [0, `&csup;`],
+        [0, `&csube;`],
+        [0, `&csupe;`],
+        [0, `&subsup;`],
+        [0, `&supsub;`],
+        [0, `&subsub;`],
+        [0, `&supsup;`],
+        [0, `&suphsub;`],
+        [0, `&supdsub;`],
+        [0, `&forkv;`],
+        [0, `&topfork;`],
+        [0, `&mlcp;`],
+        [8, `&Dashv;`],
+        [1, `&Vdashl;`],
+        [0, `&Barv;`],
+        [0, `&vBar;`],
+        [0, `&vBarv;`],
+        [1, `&Vbar;`],
+        [0, `&Not;`],
+        [0, `&bNot;`],
+        [0, `&rnmid;`],
+        [0, `&cirmid;`],
+        [0, `&midcir;`],
+        [0, `&topcir;`],
+        [0, `&nhpar;`],
+        [0, `&parsim;`],
+        [9, { v: `&parsl;`, n: 8421, o: `&nparsl;` }],
+        [
+          44343,
+          {
+            n: new Map(
+              t([
+                [56476, `&Ascr;`],
+                [1, `&Cscr;`],
+                [0, `&Dscr;`],
+                [2, `&Gscr;`],
+                [2, `&Jscr;`],
+                [0, `&Kscr;`],
+                [2, `&Nscr;`],
+                [0, `&Oscr;`],
+                [0, `&Pscr;`],
+                [0, `&Qscr;`],
+                [1, `&Sscr;`],
+                [0, `&Tscr;`],
+                [0, `&Uscr;`],
+                [0, `&Vscr;`],
+                [0, `&Wscr;`],
+                [0, `&Xscr;`],
+                [0, `&Yscr;`],
+                [0, `&Zscr;`],
+                [0, `&ascr;`],
+                [0, `&bscr;`],
+                [0, `&cscr;`],
+                [0, `&dscr;`],
+                [1, `&fscr;`],
+                [1, `&hscr;`],
+                [0, `&iscr;`],
+                [0, `&jscr;`],
+                [0, `&kscr;`],
+                [0, `&lscr;`],
+                [0, `&mscr;`],
+                [0, `&nscr;`],
+                [1, `&pscr;`],
+                [0, `&qscr;`],
+                [0, `&rscr;`],
+                [0, `&sscr;`],
+                [0, `&tscr;`],
+                [0, `&uscr;`],
+                [0, `&vscr;`],
+                [0, `&wscr;`],
+                [0, `&xscr;`],
+                [0, `&yscr;`],
+                [0, `&zscr;`],
+                [52, `&Afr;`],
+                [0, `&Bfr;`],
+                [1, `&Dfr;`],
+                [0, `&Efr;`],
+                [0, `&Ffr;`],
+                [0, `&Gfr;`],
+                [2, `&Jfr;`],
+                [0, `&Kfr;`],
+                [0, `&Lfr;`],
+                [0, `&Mfr;`],
+                [0, `&Nfr;`],
+                [0, `&Ofr;`],
+                [0, `&Pfr;`],
+                [0, `&Qfr;`],
+                [1, `&Sfr;`],
+                [0, `&Tfr;`],
+                [0, `&Ufr;`],
+                [0, `&Vfr;`],
+                [0, `&Wfr;`],
+                [0, `&Xfr;`],
+                [0, `&Yfr;`],
+                [1, `&afr;`],
+                [0, `&bfr;`],
+                [0, `&cfr;`],
+                [0, `&dfr;`],
+                [0, `&efr;`],
+                [0, `&ffr;`],
+                [0, `&gfr;`],
+                [0, `&hfr;`],
+                [0, `&ifr;`],
+                [0, `&jfr;`],
+                [0, `&kfr;`],
+                [0, `&lfr;`],
+                [0, `&mfr;`],
+                [0, `&nfr;`],
+                [0, `&ofr;`],
+                [0, `&pfr;`],
+                [0, `&qfr;`],
+                [0, `&rfr;`],
+                [0, `&sfr;`],
+                [0, `&tfr;`],
+                [0, `&ufr;`],
+                [0, `&vfr;`],
+                [0, `&wfr;`],
+                [0, `&xfr;`],
+                [0, `&yfr;`],
+                [0, `&zfr;`],
+                [0, `&Aopf;`],
+                [0, `&Bopf;`],
+                [1, `&Dopf;`],
+                [0, `&Eopf;`],
+                [0, `&Fopf;`],
+                [0, `&Gopf;`],
+                [1, `&Iopf;`],
+                [0, `&Jopf;`],
+                [0, `&Kopf;`],
+                [0, `&Lopf;`],
+                [0, `&Mopf;`],
+                [1, `&Oopf;`],
+                [3, `&Sopf;`],
+                [0, `&Topf;`],
+                [0, `&Uopf;`],
+                [0, `&Vopf;`],
+                [0, `&Wopf;`],
+                [0, `&Xopf;`],
+                [0, `&Yopf;`],
+                [1, `&aopf;`],
+                [0, `&bopf;`],
+                [0, `&copf;`],
+                [0, `&dopf;`],
+                [0, `&eopf;`],
+                [0, `&fopf;`],
+                [0, `&gopf;`],
+                [0, `&hopf;`],
+                [0, `&iopf;`],
+                [0, `&jopf;`],
+                [0, `&kopf;`],
+                [0, `&lopf;`],
+                [0, `&mopf;`],
+                [0, `&nopf;`],
+                [0, `&oopf;`],
+                [0, `&popf;`],
+                [0, `&qopf;`],
+                [0, `&ropf;`],
+                [0, `&sopf;`],
+                [0, `&topf;`],
+                [0, `&uopf;`],
+                [0, `&vopf;`],
+                [0, `&wopf;`],
+                [0, `&xopf;`],
+                [0, `&yopf;`],
+                [0, `&zopf;`],
+              ]),
+            ),
+          },
+        ],
+        [8906, `&fflig;`],
+        [0, `&filig;`],
+        [0, `&fllig;`],
+        [0, `&ffilig;`],
+        [0, `&ffllig;`],
+      ]),
+    );
+  }),
+  g = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.escapeText =
+        e.escapeAttribute =
+        e.escapeUTF8 =
+        e.escape =
+        e.encodeXML =
+        e.getCodePoint =
+        e.xmlReplacer =
+          void 0),
+      (e.xmlReplacer = /["&'<>$\x80-\uFFFF]/g));
+    var t = new Map([
+      [34, `&quot;`],
+      [38, `&amp;`],
+      [39, `&apos;`],
+      [60, `&lt;`],
+      [62, `&gt;`],
+    ]);
+    e.getCodePoint =
+      String.prototype.codePointAt == null
+        ? function (e, t) {
+            return (e.charCodeAt(t) & 64512) == 55296
+              ? (e.charCodeAt(t) - 55296) * 1024 +
+                  e.charCodeAt(t + 1) -
+                  56320 +
+                  65536
+              : e.charCodeAt(t);
+          }
+        : function (e, t) {
+            return e.codePointAt(t);
+          };
+    function n(n) {
+      for (var r = ``, i = 0, a; (a = e.xmlReplacer.exec(n)) !== null;) {
+        var o = a.index,
+          s = n.charCodeAt(o),
+          c = t.get(s);
+        c === void 0
+          ? ((r += `${n.substring(i, o)}&#x${(0, e.getCodePoint)(n, o).toString(16)};`),
+            (i = e.xmlReplacer.lastIndex += Number((s & 64512) == 55296)))
+          : ((r += n.substring(i, o) + c), (i = o + 1));
+      }
+      return r + n.substr(i);
+    }
+    ((e.encodeXML = n), (e.escape = n));
+    function r(e, t) {
+      return function (n) {
+        for (var r, i = 0, a = ``; (r = e.exec(n));)
+          (i !== r.index && (a += n.substring(i, r.index)),
+            (a += t.get(r[0].charCodeAt(0))),
+            (i = r.index + 1));
+        return a + n.substring(i);
+      };
+    }
+    ((e.escapeUTF8 = r(/[&<>'"]/g, t)),
+      (e.escapeAttribute = r(
+        /["&\u00A0]/g,
+        new Map([
+          [34, `&quot;`],
+          [38, `&amp;`],
+          [160, `&nbsp;`],
+        ]),
+      )),
+      (e.escapeText = r(
+        /[&<>\u00A0]/g,
+        new Map([
+          [38, `&amp;`],
+          [60, `&lt;`],
+          [62, `&gt;`],
+          [160, `&nbsp;`],
+        ]),
+      )));
+  }),
+  _ = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.encodeNonAsciiHTML = e.encodeHTML = void 0));
+    var n = t(h()),
+      r = g(),
+      i = /[\t\n!-,./:-@[-`\f{-}$\x80-\uFFFF]/g;
+    function a(e) {
+      return s(i, e);
+    }
+    e.encodeHTML = a;
+    function o(e) {
+      return s(r.xmlReplacer, e);
+    }
+    e.encodeNonAsciiHTML = o;
+    function s(e, t) {
+      for (var i = ``, a = 0, o; (o = e.exec(t)) !== null;) {
+        var s = o.index;
+        i += t.substring(a, s);
+        var c = t.charCodeAt(s),
+          l = n.default.get(c);
+        if (typeof l == `object`) {
+          if (s + 1 < t.length) {
+            var u = t.charCodeAt(s + 1),
+              d =
+                typeof l.n == `number`
+                  ? l.n === u
+                    ? l.o
+                    : void 0
+                  : l.n.get(u);
+            if (d !== void 0) {
+              ((i += d), (a = e.lastIndex += 1));
+              continue;
+            }
+          }
+          l = l.v;
+        }
+        if (l !== void 0) ((i += l), (a = s + 1));
+        else {
+          var f = (0, r.getCodePoint)(t, s);
+          ((i += `&#x${f.toString(16)};`),
+            (a = e.lastIndex += Number(f !== c)));
+        }
+      }
+      return i + t.substr(a);
+    }
+  }),
+  v = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.decodeXMLStrict =
+        e.decodeHTML5Strict =
+        e.decodeHTML4Strict =
+        e.decodeHTML5 =
+        e.decodeHTML4 =
+        e.decodeHTMLAttribute =
+        e.decodeHTMLStrict =
+        e.decodeHTML =
+        e.decodeXML =
+        e.DecodingMode =
+        e.EntityDecoder =
+        e.encodeHTML5 =
+        e.encodeHTML4 =
+        e.encodeNonAsciiHTML =
+        e.encodeHTML =
+        e.escapeText =
+        e.escapeAttribute =
+        e.escapeUTF8 =
+        e.escape =
+        e.encodeXML =
+        e.encode =
+        e.decodeStrict =
+        e.decode =
+        e.EncodingMode =
+        e.EntityLevel =
+          void 0));
+    var t = m(),
+      n = _(),
+      r = g(),
+      i;
+    (function (e) {
+      ((e[(e.XML = 0)] = `XML`), (e[(e.HTML = 1)] = `HTML`));
+    })((i = e.EntityLevel ||= {}));
+    var a;
+    (function (e) {
+      ((e[(e.UTF8 = 0)] = `UTF8`),
+        (e[(e.ASCII = 1)] = `ASCII`),
+        (e[(e.Extensive = 2)] = `Extensive`),
+        (e[(e.Attribute = 3)] = `Attribute`),
+        (e[(e.Text = 4)] = `Text`));
+    })((a = e.EncodingMode ||= {}));
+    function o(e, n) {
+      if (
+        (n === void 0 && (n = i.XML),
+        (typeof n == `number` ? n : n.level) === i.HTML)
+      ) {
+        var r = typeof n == `object` ? n.mode : void 0;
+        return (0, t.decodeHTML)(e, r);
+      }
+      return (0, t.decodeXML)(e);
+    }
+    e.decode = o;
+    function s(e, n) {
+      n === void 0 && (n = i.XML);
+      var r = typeof n == `number` ? { level: n } : n;
+      return ((r.mode ??= t.DecodingMode.Strict), o(e, r));
+    }
+    e.decodeStrict = s;
+    function c(e, t) {
+      t === void 0 && (t = i.XML);
+      var o = typeof t == `number` ? { level: t } : t;
+      return o.mode === a.UTF8
+        ? (0, r.escapeUTF8)(e)
+        : o.mode === a.Attribute
+          ? (0, r.escapeAttribute)(e)
+          : o.mode === a.Text
+            ? (0, r.escapeText)(e)
+            : o.level === i.HTML
+              ? o.mode === a.ASCII
+                ? (0, n.encodeNonAsciiHTML)(e)
+                : (0, n.encodeHTML)(e)
+              : (0, r.encodeXML)(e);
+    }
+    e.encode = c;
+    var l = g();
+    (Object.defineProperty(e, "encodeXML", {
+      enumerable: !0,
+      get: function () {
+        return l.encodeXML;
+      },
+    }),
+      Object.defineProperty(e, "escape", {
+        enumerable: !0,
+        get: function () {
+          return l.escape;
+        },
+      }),
+      Object.defineProperty(e, "escapeUTF8", {
+        enumerable: !0,
+        get: function () {
+          return l.escapeUTF8;
+        },
+      }),
+      Object.defineProperty(e, "escapeAttribute", {
+        enumerable: !0,
+        get: function () {
+          return l.escapeAttribute;
+        },
+      }),
+      Object.defineProperty(e, "escapeText", {
+        enumerable: !0,
+        get: function () {
+          return l.escapeText;
+        },
+      }));
+    var u = _();
+    (Object.defineProperty(e, "encodeHTML", {
+      enumerable: !0,
+      get: function () {
+        return u.encodeHTML;
+      },
+    }),
+      Object.defineProperty(e, "encodeNonAsciiHTML", {
+        enumerable: !0,
+        get: function () {
+          return u.encodeNonAsciiHTML;
+        },
+      }),
+      Object.defineProperty(e, "encodeHTML4", {
+        enumerable: !0,
+        get: function () {
+          return u.encodeHTML;
+        },
+      }),
+      Object.defineProperty(e, "encodeHTML5", {
+        enumerable: !0,
+        get: function () {
+          return u.encodeHTML;
+        },
+      }));
+    var d = m();
+    (Object.defineProperty(e, "EntityDecoder", {
+      enumerable: !0,
+      get: function () {
+        return d.EntityDecoder;
+      },
+    }),
+      Object.defineProperty(e, "DecodingMode", {
+        enumerable: !0,
+        get: function () {
+          return d.DecodingMode;
+        },
+      }),
+      Object.defineProperty(e, "decodeXML", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeXML;
+        },
+      }),
+      Object.defineProperty(e, "decodeHTML", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeHTML;
+        },
+      }),
+      Object.defineProperty(e, "decodeHTMLStrict", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeHTMLStrict;
+        },
+      }),
+      Object.defineProperty(e, "decodeHTMLAttribute", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeHTMLAttribute;
+        },
+      }),
+      Object.defineProperty(e, "decodeHTML4", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeHTML;
+        },
+      }),
+      Object.defineProperty(e, "decodeHTML5", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeHTML;
+        },
+      }),
+      Object.defineProperty(e, "decodeHTML4Strict", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeHTMLStrict;
+        },
+      }),
+      Object.defineProperty(e, "decodeHTML5Strict", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeHTMLStrict;
+        },
+      }),
+      Object.defineProperty(e, "decodeXMLStrict", {
+        enumerable: !0,
+        get: function () {
+          return d.decodeXML;
+        },
+      }));
+  }),
+  y = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.attributeNames = e.elementNames = void 0),
+      (e.elementNames = new Map(
+        `altGlyph.altGlyphDef.altGlyphItem.animateColor.animateMotion.animateTransform.clipPath.feBlend.feColorMatrix.feComponentTransfer.feComposite.feConvolveMatrix.feDiffuseLighting.feDisplacementMap.feDistantLight.feDropShadow.feFlood.feFuncA.feFuncB.feFuncG.feFuncR.feGaussianBlur.feImage.feMerge.feMergeNode.feMorphology.feOffset.fePointLight.feSpecularLighting.feSpotLight.feTile.feTurbulence.foreignObject.glyphRef.linearGradient.radialGradient.textPath`
+          .split(`.`)
+          .map(function (e) {
+            return [e.toLowerCase(), e];
+          }),
+      )),
+      (e.attributeNames = new Map(
+        `definitionURL.attributeName.attributeType.baseFrequency.baseProfile.calcMode.clipPathUnits.diffuseConstant.edgeMode.filterUnits.glyphRef.gradientTransform.gradientUnits.kernelMatrix.kernelUnitLength.keyPoints.keySplines.keyTimes.lengthAdjust.limitingConeAngle.markerHeight.markerUnits.markerWidth.maskContentUnits.maskUnits.numOctaves.pathLength.patternContentUnits.patternTransform.patternUnits.pointsAtX.pointsAtY.pointsAtZ.preserveAlpha.preserveAspectRatio.primitiveUnits.refX.refY.repeatCount.repeatDur.requiredExtensions.requiredFeatures.specularConstant.specularExponent.spreadMethod.startOffset.stdDeviation.stitchTiles.surfaceScale.systemLanguage.tableValues.targetX.targetY.textLength.viewBox.viewTarget.xChannelSelector.yChannelSelector.zoomAndPan`
+          .split(`.`)
+          .map(function (e) {
+            return [e.toLowerCase(), e];
+          }),
+      )));
+  }),
+  b = r((e) => {
+    var t =
+        (e && e.__assign) ||
+        function () {
+          return (
+            (t =
+              Object.assign ||
+              function (e) {
+                for (var t, n = 1, r = arguments.length; n < r; n++)
+                  for (var i in ((t = arguments[n]), t))
+                    Object.prototype.hasOwnProperty.call(t, i) && (e[i] = t[i]);
+                return e;
+              }),
+            t.apply(this, arguments)
+          );
+        },
+      n =
+        (e && e.__createBinding) ||
+        (Object.create
+          ? function (e, t, n, r) {
+              r === void 0 && (r = n);
+              var i = Object.getOwnPropertyDescriptor(t, n);
+              ((!i ||
+                (`get` in i ? !t.__esModule : i.writable || i.configurable)) &&
+                (i = {
+                  enumerable: !0,
+                  get: function () {
+                    return t[n];
+                  },
+                }),
+                Object.defineProperty(e, r, i));
+            }
+          : function (e, t, n, r) {
+              (r === void 0 && (r = n), (e[r] = t[n]));
+            }),
+      r =
+        (e && e.__setModuleDefault) ||
+        (Object.create
+          ? function (e, t) {
+              Object.defineProperty(e, "default", { enumerable: !0, value: t });
+            }
+          : function (e, t) {
+              e.default = t;
+            }),
+      i =
+        (e && e.__importStar) ||
+        function (e) {
+          if (e && e.__esModule) return e;
+          var t = {};
+          if (e != null)
+            for (var i in e)
+              i !== "default" &&
+                Object.prototype.hasOwnProperty.call(e, i) &&
+                n(t, e, i);
+          return (r(t, e), t);
+        };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.render = void 0));
+    var a = i(c()),
+      o = v(),
+      s = y(),
+      l = new Set([
+        `style`,
+        `script`,
+        `xmp`,
+        `iframe`,
+        `noembed`,
+        `noframes`,
+        `plaintext`,
+        `noscript`,
+      ]);
+    function u(e) {
+      return e.replace(/"/g, `&quot;`);
+    }
+    function d(e, t) {
+      if (e) {
+        var n =
+          (t.encodeEntities ?? t.decodeEntities) === !1
+            ? u
+            : t.xmlMode || t.encodeEntities !== `utf8`
+              ? o.encodeXML
+              : o.escapeAttribute;
+        return Object.keys(e)
+          .map(function (r) {
+            var i = e[r] ?? ``;
+            return (
+              t.xmlMode === `foreign` && (r = s.attributeNames.get(r) ?? r),
+              !t.emptyAttrs && !t.xmlMode && i === `` ? r : `${r}="${n(i)}"`
+            );
+          })
+          .join(` `);
+      }
+    }
+    var f = new Set([
+      `area`,
+      `base`,
+      `basefont`,
+      `br`,
+      `col`,
+      `command`,
+      `embed`,
+      `frame`,
+      `hr`,
+      `img`,
+      `input`,
+      `isindex`,
+      `keygen`,
+      `link`,
+      `meta`,
+      `param`,
+      `source`,
+      `track`,
+      `wbr`,
+    ]);
+    function p(e, t) {
+      t === void 0 && (t = {});
+      for (var n = (`length` in e) ? e : [e], r = ``, i = 0; i < n.length; i++)
+        r += m(n[i], t);
+      return r;
+    }
+    ((e.render = p), (e.default = p));
+    function m(e, t) {
+      switch (e.type) {
+        case a.Root:
+          return p(e.children, t);
+        case a.Doctype:
+        case a.Directive:
+          return b(e);
+        case a.Comment:
+          return C(e);
+        case a.CDATA:
+          return S(e);
+        case a.Script:
+        case a.Style:
+        case a.Tag:
+          return _(e, t);
+        case a.Text:
+          return x(e, t);
+      }
+    }
+    var h = new Set([
+        `mi`,
+        `mo`,
+        `mn`,
+        `ms`,
+        `mtext`,
+        `annotation-xml`,
+        `foreignObject`,
+        `desc`,
+        `title`,
+      ]),
+      g = new Set([`svg`, `math`]);
+    function _(e, n) {
+      (n.xmlMode === `foreign` &&
+        ((e.name = s.elementNames.get(e.name) ?? e.name),
+        e.parent && h.has(e.parent.name) && (n = t(t({}, n), { xmlMode: !1 }))),
+        !n.xmlMode &&
+          g.has(e.name) &&
+          (n = t(t({}, n), { xmlMode: `foreign` })));
+      var r = `<${e.name}`,
+        i = d(e.attribs, n);
+      return (
+        i && (r += ` ${i}`),
+        e.children.length === 0 &&
+        (n.xmlMode
+          ? n.selfClosingTags !== !1
+          : n.selfClosingTags && f.has(e.name))
+          ? (n.xmlMode || (r += ` `), (r += `/>`))
+          : ((r += `>`),
+            e.children.length > 0 && (r += p(e.children, n)),
+            (n.xmlMode || !f.has(e.name)) && (r += `</${e.name}>`)),
+        r
+      );
+    }
+    function b(e) {
+      return `<${e.data}>`;
+    }
+    function x(e, t) {
+      var n = e.data || ``;
+      return (
+        (t.encodeEntities ?? t.decodeEntities) !== !1 &&
+          !(!t.xmlMode && e.parent && l.has(e.parent.name)) &&
+          (n =
+            t.xmlMode || t.encodeEntities !== `utf8`
+              ? (0, o.encodeXML)(n)
+              : (0, o.escapeText)(n)),
+        n
+      );
+    }
+    function S(e) {
+      return `<![CDATA[${e.children[0].data}]]>`;
+    }
+    function C(e) {
+      return `<!--${e.data}-->`;
+    }
+  }),
+  x = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.getOuterHTML = a),
+      (e.getInnerHTML = o),
+      (e.getText = s),
+      (e.textContent = l),
+      (e.innerText = d));
+    var n = u(),
+      r = t(b()),
+      i = c();
+    function a(e, t) {
+      return (0, r.default)(e, t);
+    }
+    function o(e, t) {
+      return (0, n.hasChildren)(e)
+        ? e.children
+            .map(function (e) {
+              return a(e, t);
+            })
+            .join(``)
+        : ``;
+    }
+    function s(e) {
+      return Array.isArray(e)
+        ? e.map(s).join(``)
+        : (0, n.isTag)(e)
+          ? e.name === `br`
+            ? `
+`
+            : s(e.children)
+          : (0, n.isCDATA)(e)
+            ? s(e.children)
+            : (0, n.isText)(e)
+              ? e.data
+              : ``;
+    }
+    function l(e) {
+      return Array.isArray(e)
+        ? e.map(l).join(``)
+        : (0, n.hasChildren)(e) && !(0, n.isComment)(e)
+          ? l(e.children)
+          : (0, n.isText)(e)
+            ? e.data
+            : ``;
+    }
+    function d(e) {
+      return Array.isArray(e)
+        ? e.map(d).join(``)
+        : (0, n.hasChildren)(e) &&
+            (e.type === i.ElementType.Tag || (0, n.isCDATA)(e))
+          ? d(e.children)
+          : (0, n.isText)(e)
+            ? e.data
+            : ``;
+    }
+  }),
+  S = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.getChildren = n),
+      (e.getParent = r),
+      (e.getSiblings = i),
+      (e.getAttributeValue = a),
+      (e.hasAttrib = o),
+      (e.getName = s),
+      (e.nextElementSibling = c),
+      (e.prevElementSibling = l));
+    var t = u();
+    function n(e) {
+      return (0, t.hasChildren)(e) ? e.children : [];
+    }
+    function r(e) {
+      return e.parent || null;
+    }
+    function i(e) {
+      var t,
+        i,
+        a = r(e);
+      if (a != null) return n(a);
+      for (var o = [e], s = e.prev, c = e.next; s != null;)
+        (o.unshift(s), (t = s), (s = t.prev));
+      for (; c != null;) (o.push(c), (i = c), (c = i.next));
+      return o;
+    }
+    function a(e, t) {
+      return e.attribs?.[t];
+    }
+    function o(e, t) {
+      return (
+        e.attribs != null &&
+        Object.prototype.hasOwnProperty.call(e.attribs, t) &&
+        e.attribs[t] != null
+      );
+    }
+    function s(e) {
+      return e.name;
+    }
+    function c(e) {
+      for (var n, r = e.next; r !== null && !(0, t.isTag)(r);)
+        ((n = r), (r = n.next));
+      return r;
+    }
+    function l(e) {
+      for (var n, r = e.prev; r !== null && !(0, t.isTag)(r);)
+        ((n = r), (r = n.prev));
+      return r;
+    }
+  }),
+  C = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.removeElement = t),
+      (e.replaceElement = n),
+      (e.appendChild = r),
+      (e.append = i),
+      (e.prependChild = a),
+      (e.prepend = o));
+    function t(e) {
+      if (
+        (e.prev && (e.prev.next = e.next),
+        e.next && (e.next.prev = e.prev),
+        e.parent)
+      ) {
+        var t = e.parent.children,
+          n = t.lastIndexOf(e);
+        n >= 0 && t.splice(n, 1);
+      }
+      ((e.next = null), (e.prev = null), (e.parent = null));
+    }
+    function n(e, t) {
+      var n = (t.prev = e.prev);
+      n && (n.next = t);
+      var r = (t.next = e.next);
+      r && (r.prev = t);
+      var i = (t.parent = e.parent);
+      if (i) {
+        var a = i.children;
+        ((a[a.lastIndexOf(e)] = t), (e.parent = null));
+      }
+    }
+    function r(e, n) {
+      if ((t(n), (n.next = null), (n.parent = e), e.children.push(n) > 1)) {
+        var r = e.children[e.children.length - 2];
+        ((r.next = n), (n.prev = r));
+      } else n.prev = null;
+    }
+    function i(e, n) {
+      t(n);
+      var r = e.parent,
+        i = e.next;
+      if (((n.next = i), (n.prev = e), (e.next = n), (n.parent = r), i)) {
+        if (((i.prev = n), r)) {
+          var a = r.children;
+          a.splice(a.lastIndexOf(i), 0, n);
+        }
+      } else r && r.children.push(n);
+    }
+    function a(e, n) {
+      if (
+        (t(n), (n.parent = e), (n.prev = null), e.children.unshift(n) !== 1)
+      ) {
+        var r = e.children[1];
+        ((r.prev = n), (n.next = r));
+      } else n.next = null;
+    }
+    function o(e, n) {
+      t(n);
+      var r = e.parent;
+      if (r) {
+        var i = r.children;
+        i.splice(i.indexOf(e), 0, n);
+      }
+      (e.prev && (e.prev.next = n),
+        (n.parent = r),
+        (n.prev = e.prev),
+        (n.next = e),
+        (e.prev = n));
+    }
+  }),
+  w = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.filter = n),
+      (e.find = r),
+      (e.findOneChild = i),
+      (e.findOne = a),
+      (e.existsOne = o),
+      (e.findAll = s));
+    var t = u();
+    function n(e, t, n, i) {
+      return (
+        n === void 0 && (n = !0),
+        i === void 0 && (i = 1 / 0),
+        r(e, Array.isArray(t) ? t : [t], n, i)
+      );
+    }
+    function r(e, n, r, i) {
+      for (var a = [], o = [Array.isArray(n) ? n : [n]], s = [0]; ;) {
+        if (s[0] >= o[0].length) {
+          if (s.length === 1) return a;
+          (o.shift(), s.shift());
+          continue;
+        }
+        var c = o[0][s[0]++];
+        if (e(c) && (a.push(c), --i <= 0)) return a;
+        r &&
+          (0, t.hasChildren)(c) &&
+          c.children.length > 0 &&
+          (s.unshift(0), o.unshift(c.children));
+      }
+    }
+    function i(e, t) {
+      return t.find(e);
+    }
+    function a(e, n, r) {
+      r === void 0 && (r = !0);
+      for (var i = Array.isArray(n) ? n : [n], o = 0; o < i.length; o++) {
+        var s = i[o];
+        if ((0, t.isTag)(s) && e(s)) return s;
+        if (r && (0, t.hasChildren)(s) && s.children.length > 0) {
+          var c = a(e, s.children, !0);
+          if (c) return c;
+        }
+      }
+      return null;
+    }
+    function o(e, n) {
+      return (Array.isArray(n) ? n : [n]).some(function (n) {
+        return (
+          ((0, t.isTag)(n) && e(n)) ||
+          ((0, t.hasChildren)(n) && o(e, n.children))
+        );
+      });
+    }
+    function s(e, n) {
+      for (var r = [], i = [Array.isArray(n) ? n : [n]], a = [0]; ;) {
+        if (a[0] >= i[0].length) {
+          if (i.length === 1) return r;
+          (i.shift(), a.shift());
+          continue;
+        }
+        var o = i[0][a[0]++];
+        ((0, t.isTag)(o) && e(o) && r.push(o),
+          (0, t.hasChildren)(o) &&
+            o.children.length > 0 &&
+            (a.unshift(0), i.unshift(o.children)));
+      }
+    }
+  }),
+  T = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.testElement = s),
+      (e.getElements = c),
+      (e.getElementById = l),
+      (e.getElementsByTagName = d),
+      (e.getElementsByClassName = f),
+      (e.getElementsByTagType = p));
+    var t = u(),
+      n = w(),
+      r = {
+        tag_name: function (e) {
+          return typeof e == `function`
+            ? function (n) {
+                return (0, t.isTag)(n) && e(n.name);
+              }
+            : e === `*`
+              ? t.isTag
+              : function (n) {
+                  return (0, t.isTag)(n) && n.name === e;
+                };
+        },
+        tag_type: function (e) {
+          return typeof e == `function`
+            ? function (t) {
+                return e(t.type);
+              }
+            : function (t) {
+                return t.type === e;
+              };
+        },
+        tag_contains: function (e) {
+          return typeof e == `function`
+            ? function (n) {
+                return (0, t.isText)(n) && e(n.data);
+              }
+            : function (n) {
+                return (0, t.isText)(n) && n.data === e;
+              };
+        },
+      };
+    function i(e, n) {
+      return typeof n == `function`
+        ? function (r) {
+            return (0, t.isTag)(r) && n(r.attribs[e]);
+          }
+        : function (r) {
+            return (0, t.isTag)(r) && r.attribs[e] === n;
+          };
+    }
+    function a(e, t) {
+      return function (n) {
+        return e(n) || t(n);
+      };
+    }
+    function o(e) {
+      var t = Object.keys(e).map(function (t) {
+        var n = e[t];
+        return Object.prototype.hasOwnProperty.call(r, t) ? r[t](n) : i(t, n);
+      });
+      return t.length === 0 ? null : t.reduce(a);
+    }
+    function s(e, t) {
+      var n = o(e);
+      return n ? n(t) : !0;
+    }
+    function c(e, t, r, i) {
+      i === void 0 && (i = 1 / 0);
+      var a = o(e);
+      return a ? (0, n.filter)(a, t, r, i) : [];
+    }
+    function l(e, t, r) {
+      return (
+        r === void 0 && (r = !0),
+        Array.isArray(t) || (t = [t]),
+        (0, n.findOne)(i(`id`, e), t, r)
+      );
+    }
+    function d(e, t, i, a) {
+      return (
+        i === void 0 && (i = !0),
+        a === void 0 && (a = 1 / 0),
+        (0, n.filter)(r.tag_name(e), t, i, a)
+      );
+    }
+    function f(e, t, r, a) {
+      return (
+        r === void 0 && (r = !0),
+        a === void 0 && (a = 1 / 0),
+        (0, n.filter)(i(`class`, e), t, r, a)
+      );
+    }
+    function p(e, t, i, a) {
+      return (
+        i === void 0 && (i = !0),
+        a === void 0 && (a = 1 / 0),
+        (0, n.filter)(r.tag_type(e), t, i, a)
+      );
+    }
+  }),
+  E = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.DocumentPosition = void 0),
+      (e.removeSubsets = n),
+      (e.compareDocumentPosition = i),
+      (e.uniqueSort = a));
+    var t = u();
+    function n(e) {
+      for (var t = e.length; --t >= 0;) {
+        var n = e[t];
+        if (t > 0 && e.lastIndexOf(n, t - 1) >= 0) {
+          e.splice(t, 1);
+          continue;
+        }
+        for (var r = n.parent; r; r = r.parent)
+          if (e.includes(r)) {
+            e.splice(t, 1);
+            break;
+          }
+      }
+      return e;
+    }
+    var r;
+    (function (e) {
+      ((e[(e.DISCONNECTED = 1)] = `DISCONNECTED`),
+        (e[(e.PRECEDING = 2)] = `PRECEDING`),
+        (e[(e.FOLLOWING = 4)] = `FOLLOWING`),
+        (e[(e.CONTAINS = 8)] = `CONTAINS`),
+        (e[(e.CONTAINED_BY = 16)] = `CONTAINED_BY`));
+    })(r || (e.DocumentPosition = r = {}));
+    function i(e, n) {
+      var i = [],
+        a = [];
+      if (e === n) return 0;
+      for (var o = (0, t.hasChildren)(e) ? e : e.parent; o;)
+        (i.unshift(o), (o = o.parent));
+      for (o = (0, t.hasChildren)(n) ? n : n.parent; o;)
+        (a.unshift(o), (o = o.parent));
+      for (var s = Math.min(i.length, a.length), c = 0; c < s && i[c] === a[c];)
+        c++;
+      if (c === 0) return r.DISCONNECTED;
+      var l = i[c - 1],
+        u = l.children,
+        d = i[c],
+        f = a[c];
+      return u.indexOf(d) > u.indexOf(f)
+        ? l === n
+          ? r.FOLLOWING | r.CONTAINED_BY
+          : r.FOLLOWING
+        : l === e
+          ? r.PRECEDING | r.CONTAINS
+          : r.PRECEDING;
+    }
+    function a(e) {
+      return (
+        (e = e.filter(function (e, t, n) {
+          return !n.includes(e, t + 1);
+        })),
+        e.sort(function (e, t) {
+          var n = i(e, t);
+          return n & r.PRECEDING ? -1 : n & r.FOLLOWING ? 1 : 0;
+        }),
+        e
+      );
+    }
+  }),
+  D = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }), (e.getFeed = r));
+    var t = x(),
+      n = T();
+    function r(e) {
+      var t = l(f, e);
+      return t ? (t.name === `feed` ? i(t) : a(t)) : null;
+    }
+    function i(e) {
+      var t = e.children,
+        r = {
+          type: `atom`,
+          items: (0, n.getElementsByTagName)(`entry`, t).map(function (e) {
+            var t = e.children,
+              n = { media: c(t) };
+            (d(n, `id`, `id`, t), d(n, `title`, `title`, t));
+            var r = l(`link`, t)?.attribs.href;
+            r && (n.link = r);
+            var i = u(`summary`, t) || u(`content`, t);
+            i && (n.description = i);
+            var a = u(`updated`, t);
+            return (a && (n.pubDate = new Date(a)), n);
+          }),
+        };
+      (d(r, `id`, `id`, t), d(r, `title`, `title`, t));
+      var i = l(`link`, t)?.attribs.href;
+      (i && (r.link = i), d(r, `description`, `subtitle`, t));
+      var a = u(`updated`, t);
+      return (
+        a && (r.updated = new Date(a)),
+        d(r, `author`, `email`, t, !0),
+        r
+      );
+    }
+    function a(e) {
+      var t = l(`channel`, e.children)?.children ?? [],
+        r = {
+          type: e.name.substr(0, 3),
+          id: ``,
+          items: (0, n.getElementsByTagName)(`item`, e.children).map(
+            function (e) {
+              var t = e.children,
+                n = { media: c(t) };
+              (d(n, `id`, `guid`, t),
+                d(n, `title`, `title`, t),
+                d(n, `link`, `link`, t),
+                d(n, `description`, `description`, t));
+              var r = u(`pubDate`, t) || u(`dc:date`, t);
+              return (r && (n.pubDate = new Date(r)), n);
+            },
+          ),
+        };
+      (d(r, `title`, `title`, t),
+        d(r, `link`, `link`, t),
+        d(r, `description`, `description`, t));
+      var i = u(`lastBuildDate`, t);
+      return (
+        i && (r.updated = new Date(i)),
+        d(r, `author`, `managingEditor`, t, !0),
+        r
+      );
+    }
+    var o = [`url`, `type`, `lang`],
+      s = [
+        `fileSize`,
+        `bitrate`,
+        `framerate`,
+        `samplingrate`,
+        `channels`,
+        `duration`,
+        `height`,
+        `width`,
+      ];
+    function c(e) {
+      return (0, n.getElementsByTagName)(`media:content`, e).map(function (e) {
+        for (
+          var t = e.attribs,
+            n = { medium: t.medium, isDefault: !!t.isDefault },
+            r = 0,
+            i = o;
+          r < i.length;
+          r++
+        ) {
+          var a = i[r];
+          t[a] && (n[a] = t[a]);
+        }
+        for (var c = 0, l = s; c < l.length; c++) {
+          var a = l[c];
+          t[a] && (n[a] = parseInt(t[a], 10));
+        }
+        return (t.expression && (n.expression = t.expression), n);
+      });
+    }
+    function l(e, t) {
+      return (0, n.getElementsByTagName)(e, t, !0, 1)[0];
+    }
+    function u(e, r, i) {
+      return (
+        i === void 0 && (i = !1),
+        (0, t.textContent)((0, n.getElementsByTagName)(e, r, i, 1)).trim()
+      );
+    }
+    function d(e, t, n, r, i) {
+      i === void 0 && (i = !1);
+      var a = u(n, r, i);
+      a && (e[t] = a);
+    }
+    function f(e) {
+      return e === `rss` || e === `feed` || e === `rdf:RDF`;
+    }
+  }),
+  O = r((e) => {
+    var t =
+        (e && e.__createBinding) ||
+        (Object.create
+          ? function (e, t, n, r) {
+              r === void 0 && (r = n);
+              var i = Object.getOwnPropertyDescriptor(t, n);
+              ((!i ||
+                (`get` in i ? !t.__esModule : i.writable || i.configurable)) &&
+                (i = {
+                  enumerable: !0,
+                  get: function () {
+                    return t[n];
+                  },
+                }),
+                Object.defineProperty(e, r, i));
+            }
+          : function (e, t, n, r) {
+              (r === void 0 && (r = n), (e[r] = t[n]));
+            }),
+      n =
+        (e && e.__exportStar) ||
+        function (e, n) {
+          for (var r in e)
+            r !== "default" &&
+              !Object.prototype.hasOwnProperty.call(n, r) &&
+              t(n, e, r);
+        };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.hasChildren =
+        e.isDocument =
+        e.isComment =
+        e.isText =
+        e.isCDATA =
+        e.isTag =
+          void 0),
+      n(x(), e),
+      n(S(), e),
+      n(C(), e),
+      n(w(), e),
+      n(T(), e),
+      n(E(), e),
+      n(D(), e));
+    var r = u();
+    (Object.defineProperty(e, "isTag", {
+      enumerable: !0,
+      get: function () {
+        return r.isTag;
+      },
+    }),
+      Object.defineProperty(e, "isCDATA", {
+        enumerable: !0,
+        get: function () {
+          return r.isCDATA;
+        },
+      }),
+      Object.defineProperty(e, "isText", {
+        enumerable: !0,
+        get: function () {
+          return r.isText;
+        },
+      }),
+      Object.defineProperty(e, "isComment", {
+        enumerable: !0,
+        get: function () {
+          return r.isComment;
+        },
+      }),
+      Object.defineProperty(e, "isDocument", {
+        enumerable: !0,
+        get: function () {
+          return r.isDocument;
+        },
+      }),
+      Object.defineProperty(e, "hasChildren", {
+        enumerable: !0,
+        get: function () {
+          return r.hasChildren;
+        },
+      }));
+  }),
+  k = r((e, t) => {
+    t.exports = {
+      trueFunc: function () {
+        return !0;
+      },
+      falseFunc: function () {
+        return !1;
+      },
+    };
+  }),
+  A,
+  j,
+  M,
+  N = e(() => {
+    ((function (e) {
+      ((e.Attribute = `attribute`),
+        (e.Pseudo = `pseudo`),
+        (e.PseudoElement = `pseudo-element`),
+        (e.Tag = `tag`),
+        (e.Universal = `universal`),
+        (e.Adjacent = `adjacent`),
+        (e.Child = `child`),
+        (e.Descendant = `descendant`),
+        (e.Parent = `parent`),
+        (e.Sibling = `sibling`),
+        (e.ColumnCombinator = `column-combinator`));
+    })((A ||= {})),
+      (j = {
+        Unknown: null,
+        QuirksMode: `quirks`,
+        IgnoreCase: !0,
+        CaseSensitive: !1,
+      }),
+      (function (e) {
+        ((e.Any = `any`),
+          (e.Element = `element`),
+          (e.End = `end`),
+          (e.Equals = `equals`),
+          (e.Exists = `exists`),
+          (e.Hyphen = `hyphen`),
+          (e.Not = `not`),
+          (e.Start = `start`));
+      })((M ||= {})));
+  });
+function P(e) {
+  switch (e.type) {
+    case A.Adjacent:
+    case A.Child:
+    case A.Descendant:
+    case A.Parent:
+    case A.Sibling:
+    case A.ColumnCombinator:
+      return !0;
+    default:
+      return !1;
+  }
+}
+function ee(e, t, n) {
+  let r = parseInt(t, 16) - 65536;
+  return r !== r || n
+    ? t
+    : r < 0
+      ? String.fromCharCode(r + 65536)
+      : String.fromCharCode((r >> 10) | 55296, (r & 1023) | 56320);
+}
+function F(e) {
+  return e.replace(ne, ee);
+}
+function I(e) {
+  return e === 39 || e === 34;
+}
+function L(e) {
+  return e === 32 || e === 9 || e === 10 || e === 12 || e === 13;
+}
+function te(e) {
+  let t = [],
+    n = R(t, `${e}`, 0);
+  if (n < e.length) throw Error(`Unmatched selector: ${e.slice(n)}`);
+  return t;
+}
+function R(e, t, n) {
+  let r = [];
+  function i(e) {
+    let r = t.slice(n + e).match(z);
+    if (!r) throw Error(`Expected name, found ${t.slice(n)}`);
+    let [i] = r;
+    return ((n += e + i.length), F(i));
+  }
+  function a(e) {
+    for (n += e; n < t.length && L(t.charCodeAt(n));) n++;
+  }
+  function o() {
+    n += 1;
+    let e = n,
+      r = 1;
+    for (; r > 0 && n < t.length; n++)
+      t.charCodeAt(n) === 40 && !s(n)
+        ? r++
+        : t.charCodeAt(n) === 41 && !s(n) && r--;
+    if (r) throw Error(`Parenthesis not matched`);
+    return F(t.slice(e, n - 1));
+  }
+  function s(e) {
+    let n = 0;
+    for (; t.charCodeAt(--e) === 92;) n++;
+    return (n & 1) == 1;
+  }
+  function c() {
+    if (r.length > 0 && P(r[r.length - 1]))
+      throw Error(`Did not expect successive traversals.`);
+  }
+  function l(e) {
+    if (r.length > 0 && r[r.length - 1].type === A.Descendant) {
+      r[r.length - 1].type = e;
+      return;
+    }
+    (c(), r.push({ type: e }));
+  }
+  function u(e, t) {
+    r.push({
+      type: A.Attribute,
+      name: e,
+      action: t,
+      value: i(1),
+      namespace: null,
+      ignoreCase: `quirks`,
+    });
+  }
+  function d() {
+    if (
+      (r.length && r[r.length - 1].type === A.Descendant && r.pop(),
+      r.length === 0)
+    )
+      throw Error(`Empty sub-selector`);
+    e.push(r);
+  }
+  if ((a(0), t.length === n)) return n;
+  loop: for (; n < t.length;) {
+    let e = t.charCodeAt(n);
+    switch (e) {
+      case 32:
+      case 9:
+      case 10:
+      case 12:
+      case 13:
+        ((r.length === 0 || r[0].type !== A.Descendant) &&
+          (c(), r.push({ type: A.Descendant })),
+          a(1));
+        break;
+      case 62:
+        (l(A.Child), a(1));
+        break;
+      case 60:
+        (l(A.Parent), a(1));
+        break;
+      case 126:
+        (l(A.Sibling), a(1));
+        break;
+      case 43:
+        (l(A.Adjacent), a(1));
+        break;
+      case 46:
+        u(`class`, M.Element);
+        break;
+      case 35:
+        u(`id`, M.Equals);
+        break;
+      case 91: {
+        a(1);
+        let e,
+          o = null;
+        (t.charCodeAt(n) === 124
+          ? (e = i(1))
+          : t.startsWith(`*|`, n)
+            ? ((o = `*`), (e = i(2)))
+            : ((e = i(0)),
+              t.charCodeAt(n) === 124 &&
+                t.charCodeAt(n + 1) !== 61 &&
+                ((o = e), (e = i(1)))),
+          a(0));
+        let c = M.Exists,
+          l = re.get(t.charCodeAt(n));
+        if (l) {
+          if (((c = l), t.charCodeAt(n + 1) !== 61))
+            throw Error("Expected `=`");
+          a(2);
+        } else t.charCodeAt(n) === 61 && ((c = M.Equals), a(1));
+        let u = ``,
+          d = null;
+        if (c !== `exists`) {
+          if (I(t.charCodeAt(n))) {
+            let e = t.charCodeAt(n),
+              r = n + 1;
+            for (; r < t.length && (t.charCodeAt(r) !== e || s(r));) r += 1;
+            if (t.charCodeAt(r) !== e)
+              throw Error(`Attribute value didn't end`);
+            ((u = F(t.slice(n + 1, r))), (n = r + 1));
+          } else {
+            let e = n;
+            for (
+              ;
+              n < t.length &&
+              ((!L(t.charCodeAt(n)) && t.charCodeAt(n) !== 93) || s(n));
+            )
+              n += 1;
+            u = F(t.slice(e, n));
+          }
+          a(0);
+          let e = t.charCodeAt(n) | 32;
+          e === 115 ? ((d = !1), a(1)) : e === 105 && ((d = !0), a(1));
+        }
+        if (t.charCodeAt(n) !== 93)
+          throw Error(`Attribute selector didn't terminate`);
+        n += 1;
+        let f = {
+          type: A.Attribute,
+          name: e,
+          action: c,
+          value: u,
+          namespace: o,
+          ignoreCase: d,
+        };
+        r.push(f);
+        break;
+      }
+      case 58: {
+        if (t.charCodeAt(n + 1) === 58) {
+          r.push({
+            type: A.PseudoElement,
+            name: i(2).toLowerCase(),
+            data: t.charCodeAt(n) === 40 ? o() : null,
+          });
+          continue;
+        }
+        let e = i(1).toLowerCase(),
+          a = null;
+        if (t.charCodeAt(n) === 40)
+          if (ie.has(e)) {
+            if (I(t.charCodeAt(n + 1)))
+              throw Error(`Pseudo-selector ${e} cannot be quoted`);
+            if (((a = []), (n = R(a, t, n + 1)), t.charCodeAt(n) !== 41))
+              throw Error(`Missing closing parenthesis in :${e} (${t})`);
+            n += 1;
+          } else {
+            if (((a = o()), ae.has(e))) {
+              let e = a.charCodeAt(0);
+              e === a.charCodeAt(a.length - 1) && I(e) && (a = a.slice(1, -1));
+            }
+            a = F(a);
+          }
+        r.push({ type: A.Pseudo, name: e, data: a });
+        break;
+      }
+      case 44:
+        (d(), (r = []), a(1));
+        break;
+      default: {
+        if (t.startsWith(`/*`, n)) {
+          let e = t.indexOf(`*/`, n + 2);
+          if (e < 0) throw Error(`Comment was not terminated`);
+          ((n = e + 2), r.length === 0 && a(0));
+          break;
+        }
+        let o = null,
+          s;
+        if (e === 42) ((n += 1), (s = `*`));
+        else if (e === 124) {
+          if (((s = ``), t.charCodeAt(n + 1) === 124)) {
+            (l(A.ColumnCombinator), a(2));
+            break;
+          }
+        } else if (z.test(t.slice(n))) s = i(0);
+        else break loop;
+        (t.charCodeAt(n) === 124 &&
+          t.charCodeAt(n + 1) !== 124 &&
+          ((o = s),
+          t.charCodeAt(n + 1) === 42 ? ((s = `*`), (n += 2)) : (s = i(1))),
+          r.push(
+            s === `*`
+              ? { type: A.Universal, namespace: o }
+              : { type: A.Tag, name: s, namespace: o },
+          ));
+      }
+    }
+  }
+  return (d(), n);
+}
+var z,
+  ne,
+  re,
+  ie,
+  ae,
+  oe = e(() => {
+    (N(),
+      (z = /^[^\\#]?(?:\\(?:[\da-f]{1,6}\s?|.)|[\w\-\u00b0-\uFFFF])+/),
+      (ne = /\\([\da-f]{1,6}\s?|(\s)|.)/gi),
+      (re = new Map([
+        [126, M.Element],
+        [94, M.Start],
+        [36, M.End],
+        [42, M.Any],
+        [33, M.Not],
+        [124, M.Hyphen],
+      ])),
+      (ie = new Set([
+        `has`,
+        `not`,
+        `matches`,
+        `is`,
+        `where`,
+        `host`,
+        `host-context`,
+      ])),
+      (ae = new Set([`contains`, `icontains`])));
+  });
+function B(e) {
+  return e.map((e) => e.map(se).join(``)).join(`, `);
+}
+function se(e, t, n) {
+  switch (e.type) {
+    case A.Child:
+      return t === 0 ? `> ` : ` > `;
+    case A.Parent:
+      return t === 0 ? `< ` : ` < `;
+    case A.Sibling:
+      return t === 0 ? `~ ` : ` ~ `;
+    case A.Adjacent:
+      return t === 0 ? `+ ` : ` + `;
+    case A.Descendant:
+      return ` `;
+    case A.ColumnCombinator:
+      return t === 0 ? `|| ` : ` || `;
+    case A.Universal:
+      return e.namespace === `*` && t + 1 < n.length && `name` in n[t + 1]
+        ? ``
+        : `${H(e.namespace)}*`;
+    case A.Tag:
+      return V(e);
+    case A.PseudoElement:
+      return `::${U(e.name, J)}${e.data === null ? `` : `(${U(e.data, q)})`}`;
+    case A.Pseudo:
+      return `:${U(e.name, J)}${e.data === null ? `` : `(${typeof e.data == `string` ? U(e.data, q) : B(e.data)})`}`;
+    case A.Attribute: {
+      if (
+        e.name === `id` &&
+        e.action === M.Equals &&
+        e.ignoreCase === `quirks` &&
+        !e.namespace
+      )
+        return `#${U(e.value, J)}`;
+      if (
+        e.name === `class` &&
+        e.action === M.Element &&
+        e.ignoreCase === `quirks` &&
+        !e.namespace
+      )
+        return `.${U(e.value, J)}`;
+      let t = V(e);
+      return e.action === M.Exists
+        ? `[${t}]`
+        : `[${t}${ce(e.action)}="${U(e.value, K)}"${e.ignoreCase === null ? `` : e.ignoreCase ? ` i` : ` s`}]`;
+    }
+  }
+}
+function ce(e) {
+  switch (e) {
+    case M.Equals:
+      return ``;
+    case M.Element:
+      return `~`;
+    case M.Start:
+      return `^`;
+    case M.End:
+      return `$`;
+    case M.Any:
+      return `*`;
+    case M.Not:
+      return `!`;
+    case M.Hyphen:
+      return `|`;
+    case M.Exists:
+      throw Error(`Shouldn't be here`);
+  }
+}
+function V(e) {
+  return `${H(e.namespace)}${U(e.name, J)}`;
+}
+function H(e) {
+  return e === null ? `` : `${e === `*` ? `*` : U(e, J)}|`;
+}
+function U(e, t) {
+  let n = 0,
+    r = ``;
+  for (let i = 0; i < e.length; i++)
+    t.has(e.charCodeAt(i)) &&
+      ((r += `${e.slice(n, i)}\\${e.charAt(i)}`), (n = i + 1));
+  return r.length > 0 ? r + e.slice(n) : e;
+}
+var W,
+  G,
+  K,
+  q,
+  J,
+  le = e(() => {
+    (N(),
+      (W = [`\\`, `"`]),
+      (G = [...W, `(`, `)`]),
+      (K = new Set(W.map((e) => e.charCodeAt(0)))),
+      (q = new Set(G.map((e) => e.charCodeAt(0)))),
+      (J = new Set(
+        [...G, `~`, `^`, `$`, `*`, `+`, `!`, `|`, `:`, `[`, `]`, ` `, `.`].map(
+          (e) => e.charCodeAt(0),
+        ),
+      )));
+  }),
+  Y = n({
+    AttributeAction: () => M,
+    IgnoreCaseMode: () => j,
+    SelectorType: () => A,
+    isTraversal: () => P,
+    parse: () => te,
+    stringify: () => B,
+  }),
+  X = e(() => {
+    (N(), oe(), le());
+  }),
+  ue = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.isTraversal = void 0));
+    var n = (X(), t(Y)),
+      r = new Map([
+        [n.SelectorType.Universal, 50],
+        [n.SelectorType.Tag, 30],
+        [n.SelectorType.Attribute, 1],
+        [n.SelectorType.Pseudo, 0],
+      ]);
+    function i(e) {
+      return !r.has(e.type);
+    }
+    e.isTraversal = i;
+    var a = new Map([
+      [n.AttributeAction.Exists, 10],
+      [n.AttributeAction.Equals, 8],
+      [n.AttributeAction.Not, 7],
+      [n.AttributeAction.Start, 6],
+      [n.AttributeAction.End, 6],
+      [n.AttributeAction.Any, 5],
+    ]);
+    function o(e) {
+      for (var t = e.map(s), n = 1; n < e.length; n++) {
+        var r = t[n];
+        if (!(r < 0))
+          for (var i = n - 1; i >= 0 && r < t[i]; i--) {
+            var a = e[i + 1];
+            ((e[i + 1] = e[i]), (e[i] = a), (t[i + 1] = t[i]), (t[i] = r));
+          }
+      }
+    }
+    e.default = o;
+    function s(e) {
+      var t = r.get(e.type) ?? -1;
+      return (
+        e.type === n.SelectorType.Attribute
+          ? ((t = a.get(e.action) ?? 4),
+            e.action === n.AttributeAction.Equals && e.name === `id` && (t = 9),
+            e.ignoreCase && (t >>= 1))
+          : e.type === n.SelectorType.Pseudo &&
+            (e.data
+              ? e.name === `has` || e.name === `contains`
+                ? (t = 0)
+                : Array.isArray(e.data)
+                  ? ((t = Math.min.apply(
+                      Math,
+                      e.data.map(function (e) {
+                        return Math.min.apply(Math, e.map(s));
+                      }),
+                    )),
+                    t < 0 && (t = 0))
+                  : (t = 2)
+              : (t = 3)),
+        t
+      );
+    }
+  }),
+  de = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.attributeRules = void 0));
+    var n = t(k()),
+      r = /[-[\]{}()*+?.,\\^$|#\s]/g;
+    function i(e) {
+      return e.replace(r, `\\$&`);
+    }
+    var a = new Set(
+      `accept.accept-charset.align.alink.axis.bgcolor.charset.checked.clear.codetype.color.compact.declare.defer.dir.direction.disabled.enctype.face.frame.hreflang.http-equiv.lang.language.link.media.method.multiple.nohref.noresize.noshade.nowrap.readonly.rel.rev.rules.scope.scrolling.selected.shape.target.text.type.valign.valuetype.vlink`.split(
+        `.`,
+      ),
+    );
+    function o(e, t) {
+      return typeof e.ignoreCase == `boolean`
+        ? e.ignoreCase
+        : e.ignoreCase === `quirks`
+          ? !!t.quirksMode
+          : !t.xmlMode && a.has(e.name);
+    }
+    e.attributeRules = {
+      equals: function (e, t, n) {
+        var r = n.adapter,
+          i = t.name,
+          a = t.value;
+        return o(t, n)
+          ? ((a = a.toLowerCase()),
+            function (t) {
+              var n = r.getAttributeValue(t, i);
+              return (
+                n != null &&
+                n.length === a.length &&
+                n.toLowerCase() === a &&
+                e(t)
+              );
+            })
+          : function (t) {
+              return r.getAttributeValue(t, i) === a && e(t);
+            };
+      },
+      hyphen: function (e, t, n) {
+        var r = n.adapter,
+          i = t.name,
+          a = t.value,
+          s = a.length;
+        return o(t, n)
+          ? ((a = a.toLowerCase()),
+            function (t) {
+              var n = r.getAttributeValue(t, i);
+              return (
+                n != null &&
+                (n.length === s || n.charAt(s) === `-`) &&
+                n.substr(0, s).toLowerCase() === a &&
+                e(t)
+              );
+            })
+          : function (t) {
+              var n = r.getAttributeValue(t, i);
+              return (
+                n != null &&
+                (n.length === s || n.charAt(s) === `-`) &&
+                n.substr(0, s) === a &&
+                e(t)
+              );
+            };
+      },
+      element: function (e, t, r) {
+        var a = r.adapter,
+          s = t.name,
+          c = t.value;
+        if (/\s/.test(c)) return n.default.falseFunc;
+        var l = RegExp(`(?:^|\\s)${i(c)}(?:\$|\\s)`, o(t, r) ? `i` : ``);
+        return function (t) {
+          var n = a.getAttributeValue(t, s);
+          return n != null && n.length >= c.length && l.test(n) && e(t);
+        };
+      },
+      exists: function (e, t, n) {
+        var r = t.name,
+          i = n.adapter;
+        return function (t) {
+          return i.hasAttrib(t, r) && e(t);
+        };
+      },
+      start: function (e, t, r) {
+        var i = r.adapter,
+          a = t.name,
+          s = t.value,
+          c = s.length;
+        return c === 0
+          ? n.default.falseFunc
+          : o(t, r)
+            ? ((s = s.toLowerCase()),
+              function (t) {
+                var n = i.getAttributeValue(t, a);
+                return (
+                  n != null &&
+                  n.length >= c &&
+                  n.substr(0, c).toLowerCase() === s &&
+                  e(t)
+                );
+              })
+            : function (t) {
+                return !!i.getAttributeValue(t, a)?.startsWith(s) && e(t);
+              };
+      },
+      end: function (e, t, r) {
+        var i = r.adapter,
+          a = t.name,
+          s = t.value,
+          c = -s.length;
+        return c === 0
+          ? n.default.falseFunc
+          : o(t, r)
+            ? ((s = s.toLowerCase()),
+              function (t) {
+                return (
+                  i.getAttributeValue(t, a)?.substr(c).toLowerCase() === s &&
+                  e(t)
+                );
+              })
+            : function (t) {
+                return !!i.getAttributeValue(t, a)?.endsWith(s) && e(t);
+              };
+      },
+      any: function (e, t, r) {
+        var a = r.adapter,
+          s = t.name,
+          c = t.value;
+        if (c === ``) return n.default.falseFunc;
+        if (o(t, r)) {
+          var l = new RegExp(i(c), `i`);
+          return function (t) {
+            var n = a.getAttributeValue(t, s);
+            return n != null && n.length >= c.length && l.test(n) && e(t);
+          };
+        }
+        return function (t) {
+          return !!a.getAttributeValue(t, s)?.includes(c) && e(t);
+        };
+      },
+      not: function (e, t, n) {
+        var r = n.adapter,
+          i = t.name,
+          a = t.value;
+        return a === ``
+          ? function (t) {
+              return !!r.getAttributeValue(t, i) && e(t);
+            }
+          : o(t, n)
+            ? ((a = a.toLowerCase()),
+              function (t) {
+                var n = r.getAttributeValue(t, i);
+                return (
+                  (n == null ||
+                    n.length !== a.length ||
+                    n.toLowerCase() !== a) &&
+                  e(t)
+                );
+              })
+            : function (t) {
+                return r.getAttributeValue(t, i) !== a && e(t);
+              };
+      },
+    };
+  }),
+  fe = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }), (e.parse = void 0));
+    var t = new Set([9, 10, 12, 13, 32]),
+      n = 48,
+      r = 57;
+    function i(e) {
+      if (((e = e.trim().toLowerCase()), e === `even`)) return [2, 0];
+      if (e === `odd`) return [2, 1];
+      var i = 0,
+        a = 0,
+        o = c(),
+        s = l();
+      if (
+        (i < e.length &&
+          e.charAt(i) === `n` &&
+          (i++,
+          (a = o * (s ?? 1)),
+          u(),
+          i < e.length ? ((o = c()), u(), (s = l())) : (o = s = 0)),
+        s === null || i < e.length)
+      )
+        throw Error(`n-th rule couldn't be parsed ('${e}')`);
+      return [a, o * s];
+      function c() {
+        return e.charAt(i) === `-`
+          ? (i++, -1)
+          : (e.charAt(i) === `+` && i++, 1);
+      }
+      function l() {
+        for (
+          var t = i, a = 0;
+          i < e.length && e.charCodeAt(i) >= n && e.charCodeAt(i) <= r;
+        )
+          ((a = a * 10 + (e.charCodeAt(i) - n)), i++);
+        return i === t ? null : a;
+      }
+      function u() {
+        for (; i < e.length && t.has(e.charCodeAt(i));) i++;
+      }
+    }
+    e.parse = i;
+  }),
+  pe = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.generate = e.compile = void 0));
+    var n = t(k());
+    function r(e) {
+      var t = e[0],
+        r = e[1] - 1;
+      if (r < 0 && t <= 0) return n.default.falseFunc;
+      if (t === -1)
+        return function (e) {
+          return e <= r;
+        };
+      if (t === 0)
+        return function (e) {
+          return e === r;
+        };
+      if (t === 1)
+        return r < 0
+          ? n.default.trueFunc
+          : function (e) {
+              return e >= r;
+            };
+      var i = Math.abs(t),
+        a = ((r % i) + i) % i;
+      return t > 1
+        ? function (e) {
+            return e >= r && e % i === a;
+          }
+        : function (e) {
+            return e <= r && e % i === a;
+          };
+    }
+    e.compile = r;
+    function i(e) {
+      var t = e[0],
+        n = e[1] - 1,
+        r = 0;
+      if (t < 0) {
+        var i = -t,
+          a = ((n % i) + i) % i;
+        return function () {
+          var e = a + i * r++;
+          return e > n ? null : e;
+        };
+      }
+      return t === 0
+        ? n < 0
+          ? function () {
+              return null;
+            }
+          : function () {
+              return r++ === 0 ? n : null;
+            }
+        : (n < 0 && (n += t * Math.ceil(-n / t)),
+          function () {
+            return t * r++ + n;
+          });
+    }
+    e.generate = i;
+  }),
+  me = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.sequence = e.generate = e.compile = e.parse = void 0));
+    var t = fe();
+    Object.defineProperty(e, "parse", {
+      enumerable: !0,
+      get: function () {
+        return t.parse;
+      },
+    });
+    var n = pe();
+    (Object.defineProperty(e, "compile", {
+      enumerable: !0,
+      get: function () {
+        return n.compile;
+      },
+    }),
+      Object.defineProperty(e, "generate", {
+        enumerable: !0,
+        get: function () {
+          return n.generate;
+        },
+      }));
+    function r(e) {
+      return (0, n.compile)((0, t.parse)(e));
+    }
+    e.default = r;
+    function i(e) {
+      return (0, n.generate)((0, t.parse)(e));
+    }
+    e.sequence = i;
+  }),
+  he = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.filters = void 0));
+    var n = t(me()),
+      r = t(k());
+    function i(e, t) {
+      return function (n) {
+        var r = t.getParent(n);
+        return r != null && t.isTag(r) && e(n);
+      };
+    }
+    e.filters = {
+      contains: function (e, t, n) {
+        var r = n.adapter;
+        return function (n) {
+          return e(n) && r.getText(n).includes(t);
+        };
+      },
+      icontains: function (e, t, n) {
+        var r = n.adapter,
+          i = t.toLowerCase();
+        return function (t) {
+          return e(t) && r.getText(t).toLowerCase().includes(i);
+        };
+      },
+      "nth-child": function (e, t, a) {
+        var o = a.adapter,
+          s = a.equals,
+          c = (0, n.default)(t);
+        return c === r.default.falseFunc
+          ? r.default.falseFunc
+          : c === r.default.trueFunc
+            ? i(e, o)
+            : function (t) {
+                for (
+                  var n = o.getSiblings(t), r = 0, i = 0;
+                  i < n.length && !s(t, n[i]);
+                  i++
+                )
+                  o.isTag(n[i]) && r++;
+                return c(r) && e(t);
+              };
+      },
+      "nth-last-child": function (e, t, a) {
+        var o = a.adapter,
+          s = a.equals,
+          c = (0, n.default)(t);
+        return c === r.default.falseFunc
+          ? r.default.falseFunc
+          : c === r.default.trueFunc
+            ? i(e, o)
+            : function (t) {
+                for (
+                  var n = o.getSiblings(t), r = 0, i = n.length - 1;
+                  i >= 0 && !s(t, n[i]);
+                  i--
+                )
+                  o.isTag(n[i]) && r++;
+                return c(r) && e(t);
+              };
+      },
+      "nth-of-type": function (e, t, a) {
+        var o = a.adapter,
+          s = a.equals,
+          c = (0, n.default)(t);
+        return c === r.default.falseFunc
+          ? r.default.falseFunc
+          : c === r.default.trueFunc
+            ? i(e, o)
+            : function (t) {
+                for (
+                  var n = o.getSiblings(t), r = 0, i = 0;
+                  i < n.length;
+                  i++
+                ) {
+                  var a = n[i];
+                  if (s(t, a)) break;
+                  o.isTag(a) && o.getName(a) === o.getName(t) && r++;
+                }
+                return c(r) && e(t);
+              };
+      },
+      "nth-last-of-type": function (e, t, a) {
+        var o = a.adapter,
+          s = a.equals,
+          c = (0, n.default)(t);
+        return c === r.default.falseFunc
+          ? r.default.falseFunc
+          : c === r.default.trueFunc
+            ? i(e, o)
+            : function (t) {
+                for (
+                  var n = o.getSiblings(t), r = 0, i = n.length - 1;
+                  i >= 0;
+                  i--
+                ) {
+                  var a = n[i];
+                  if (s(t, a)) break;
+                  o.isTag(a) && o.getName(a) === o.getName(t) && r++;
+                }
+                return c(r) && e(t);
+              };
+      },
+      root: function (e, t, n) {
+        var r = n.adapter;
+        return function (t) {
+          var n = r.getParent(t);
+          return (n == null || !r.isTag(n)) && e(t);
+        };
+      },
+      scope: function (t, n, r, i) {
+        var a = r.equals;
+        return !i || i.length === 0
+          ? e.filters.root(t, n, r)
+          : i.length === 1
+            ? function (e) {
+                return a(i[0], e) && t(e);
+              }
+            : function (e) {
+                return i.includes(e) && t(e);
+              };
+      },
+      hover: a(`isHovered`),
+      visited: a(`isVisited`),
+      active: a(`isActive`),
+    };
+    function a(e) {
+      return function (t, n, i) {
+        var a = i.adapter[e];
+        return typeof a == `function`
+          ? function (e) {
+              return a(e) && t(e);
+            }
+          : r.default.falseFunc;
+      };
+    }
+  }),
+  ge = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.verifyPseudoArgs = e.pseudos = void 0),
+      (e.pseudos = {
+        empty: function (e, t) {
+          var n = t.adapter;
+          return !n.getChildren(e).some(function (e) {
+            return n.isTag(e) || n.getText(e) !== ``;
+          });
+        },
+        "first-child": function (e, t) {
+          var n = t.adapter,
+            r = t.equals;
+          if (n.prevElementSibling) return n.prevElementSibling(e) == null;
+          var i = n.getSiblings(e).find(function (e) {
+            return n.isTag(e);
+          });
+          return i != null && r(e, i);
+        },
+        "last-child": function (e, t) {
+          for (
+            var n = t.adapter,
+              r = t.equals,
+              i = n.getSiblings(e),
+              a = i.length - 1;
+            a >= 0;
+            a--
+          ) {
+            if (r(e, i[a])) return !0;
+            if (n.isTag(i[a])) break;
+          }
+          return !1;
+        },
+        "first-of-type": function (e, t) {
+          for (
+            var n = t.adapter,
+              r = t.equals,
+              i = n.getSiblings(e),
+              a = n.getName(e),
+              o = 0;
+            o < i.length;
+            o++
+          ) {
+            var s = i[o];
+            if (r(e, s)) return !0;
+            if (n.isTag(s) && n.getName(s) === a) break;
+          }
+          return !1;
+        },
+        "last-of-type": function (e, t) {
+          for (
+            var n = t.adapter,
+              r = t.equals,
+              i = n.getSiblings(e),
+              a = n.getName(e),
+              o = i.length - 1;
+            o >= 0;
+            o--
+          ) {
+            var s = i[o];
+            if (r(e, s)) return !0;
+            if (n.isTag(s) && n.getName(s) === a) break;
+          }
+          return !1;
+        },
+        "only-of-type": function (e, t) {
+          var n = t.adapter,
+            r = t.equals,
+            i = n.getName(e);
+          return n.getSiblings(e).every(function (t) {
+            return r(e, t) || !n.isTag(t) || n.getName(t) !== i;
+          });
+        },
+        "only-child": function (e, t) {
+          var n = t.adapter,
+            r = t.equals;
+          return n.getSiblings(e).every(function (t) {
+            return r(e, t) || !n.isTag(t);
+          });
+        },
+      }));
+    function t(e, t, n, r) {
+      if (n === null) {
+        if (e.length > r)
+          throw Error(`Pseudo-class :${t} requires an argument`);
+      } else if (e.length === r)
+        throw Error(`Pseudo-class :${t} doesn't have any arguments`);
+    }
+    e.verifyPseudoArgs = t;
+  }),
+  _e = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.aliases = void 0),
+      (e.aliases = {
+        "any-link": `:is(a, area, link)[href]`,
+        link: `:any-link:not(:visited)`,
+        disabled: `:is(
+        :is(button, input, select, textarea, optgroup, option)[disabled],
+        optgroup[disabled] > option,
+        fieldset[disabled]:not(fieldset[disabled] legend:first-of-type *)
+    )`,
+        enabled: `:not(:disabled)`,
+        checked: `:is(:is(input[type=radio], input[type=checkbox])[checked], option:selected)`,
+        required: `:is(input, select, textarea)[required]`,
+        optional: `:is(input, select, textarea):not([required])`,
+        selected: `option:is([selected], select:not([multiple]):not(:has(> option[selected])) > :first-of-type)`,
+        checkbox: `[type=checkbox]`,
+        file: `[type=file]`,
+        password: `[type=password]`,
+        radio: `[type=radio]`,
+        reset: `[type=reset]`,
+        image: `[type=image]`,
+        submit: `[type=submit]`,
+        parent: `:not(:empty)`,
+        header: `:is(h1, h2, h3, h4, h5, h6)`,
+        button: `:is(button, input[type=button])`,
+        input: `:is(input, textarea, select, button)`,
+        text: `input:is(:not([type!='']), [type=text])`,
+      }));
+  }),
+  Z = r((e) => {
+    var t =
+        (e && e.__spreadArray) ||
+        function (e, t, n) {
+          if (n || arguments.length === 2)
+            for (var r = 0, i = t.length, a; r < i; r++)
+              (a || !(r in t)) &&
+                ((a ||= Array.prototype.slice.call(t, 0, r)), (a[r] = t[r]));
+          return e.concat(a || Array.prototype.slice.call(t));
+        },
+      n =
+        (e && e.__importDefault) ||
+        function (e) {
+          return e && e.__esModule ? e : { default: e };
+        };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.subselects =
+        e.getNextSiblings =
+        e.ensureIsTag =
+        e.PLACEHOLDER_ELEMENT =
+          void 0));
+    var r = n(k()),
+      i = ue();
+    e.PLACEHOLDER_ELEMENT = {};
+    function a(e, t) {
+      return e === r.default.falseFunc
+        ? r.default.falseFunc
+        : function (n) {
+            return t.isTag(n) && e(n);
+          };
+    }
+    e.ensureIsTag = a;
+    function o(e, t) {
+      var n = t.getSiblings(e);
+      if (n.length <= 1) return [];
+      var r = n.indexOf(e);
+      return r < 0 || r === n.length - 1 ? [] : n.slice(r + 1).filter(t.isTag);
+    }
+    e.getNextSiblings = o;
+    function s(e) {
+      return {
+        xmlMode: !!e.xmlMode,
+        lowerCaseAttributeNames: !!e.lowerCaseAttributeNames,
+        lowerCaseTags: !!e.lowerCaseTags,
+        quirksMode: !!e.quirksMode,
+        cacheResults: !!e.cacheResults,
+        pseudos: e.pseudos,
+        adapter: e.adapter,
+        equals: e.equals,
+      };
+    }
+    var c = function (e, t, n, i, a) {
+      var o = a(t, s(n), i);
+      return o === r.default.trueFunc
+        ? e
+        : o === r.default.falseFunc
+          ? r.default.falseFunc
+          : function (t) {
+              return o(t) && e(t);
+            };
+    };
+    e.subselects = {
+      is: c,
+      matches: c,
+      where: c,
+      not: function (e, t, n, i, a) {
+        var o = a(t, s(n), i);
+        return o === r.default.falseFunc
+          ? e
+          : o === r.default.trueFunc
+            ? r.default.falseFunc
+            : function (t) {
+                return !o(t) && e(t);
+              };
+      },
+      has: function (n, c, l, u, d) {
+        var f = l.adapter,
+          p = s(l);
+        p.relativeSelector = !0;
+        var m = c.some(function (e) {
+            return e.some(i.isTraversal);
+          })
+            ? [e.PLACEHOLDER_ELEMENT]
+            : void 0,
+          h = d(c, p, m);
+        if (h === r.default.falseFunc) return r.default.falseFunc;
+        var g = a(h, f);
+        if (m && h !== r.default.trueFunc) {
+          var _ = h.shouldTestNextSiblings,
+            v = _ === void 0 ? !1 : _;
+          return function (e) {
+            if (!n(e)) return !1;
+            m[0] = e;
+            var r = f.getChildren(e),
+              i = v ? t(t([], r, !0), o(e, f), !0) : r;
+            return f.existsOne(g, i);
+          };
+        }
+        return function (e) {
+          return n(e) && f.existsOne(g, f.getChildren(e));
+        };
+      },
+    };
+  }),
+  Q = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.compilePseudoSelector = e.aliases = e.pseudos = e.filters = void 0));
+    var n = (X(), t(Y)),
+      r = he();
+    Object.defineProperty(e, "filters", {
+      enumerable: !0,
+      get: function () {
+        return r.filters;
+      },
+    });
+    var i = ge();
+    Object.defineProperty(e, "pseudos", {
+      enumerable: !0,
+      get: function () {
+        return i.pseudos;
+      },
+    });
+    var a = _e();
+    Object.defineProperty(e, "aliases", {
+      enumerable: !0,
+      get: function () {
+        return a.aliases;
+      },
+    });
+    var o = Z();
+    function s(e, t, s, c, l) {
+      var u = t.name,
+        d = t.data;
+      if (Array.isArray(d)) {
+        if (!(u in o.subselects))
+          throw Error(`Unknown pseudo-class :${u}(${d})`);
+        return o.subselects[u](e, d, s, c, l);
+      }
+      var f = s.pseudos?.[u],
+        p = typeof f == `string` ? f : a.aliases[u];
+      if (typeof p == `string`) {
+        if (d != null) throw Error(`Pseudo ${u} doesn't have any arguments`);
+        var m = (0, n.parse)(p);
+        return o.subselects.is(e, m, s, c, l);
+      }
+      if (typeof f == `function`)
+        return (
+          (0, i.verifyPseudoArgs)(f, u, d, 1),
+          function (t) {
+            return f(t, d) && e(t);
+          }
+        );
+      if (u in r.filters) return r.filters[u](e, d, s, c);
+      if (u in i.pseudos) {
+        var h = i.pseudos[u];
+        return (
+          (0, i.verifyPseudoArgs)(h, u, d, 2),
+          function (t) {
+            return h(t, s, d) && e(t);
+          }
+        );
+      }
+      throw Error(`Unknown pseudo-class :${u}`);
+    }
+    e.compilePseudoSelector = s;
+  }),
+  ve = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.compileGeneralSelector = void 0));
+    var n = de(),
+      r = Q(),
+      i = (X(), t(Y));
+    function a(e, t) {
+      var n = t.getParent(e);
+      return n && t.isTag(n) ? n : null;
+    }
+    function o(e, t, o, s, c) {
+      var l = o.adapter,
+        u = o.equals;
+      switch (t.type) {
+        case i.SelectorType.PseudoElement:
+          throw Error(`Pseudo-elements are not supported by css-select`);
+        case i.SelectorType.ColumnCombinator:
+          throw Error(`Column combinators are not yet supported by css-select`);
+        case i.SelectorType.Attribute:
+          if (t.namespace != null)
+            throw Error(
+              `Namespaced attributes are not yet supported by css-select`,
+            );
+          return (
+            (!o.xmlMode || o.lowerCaseAttributeNames) &&
+              (t.name = t.name.toLowerCase()),
+            n.attributeRules[t.action](e, t, o)
+          );
+        case i.SelectorType.Pseudo:
+          return (0, r.compilePseudoSelector)(e, t, o, s, c);
+        case i.SelectorType.Tag:
+          if (t.namespace != null)
+            throw Error(
+              `Namespaced tag names are not yet supported by css-select`,
+            );
+          var d = t.name;
+          return (
+            (!o.xmlMode || o.lowerCaseTags) && (d = d.toLowerCase()),
+            function (t) {
+              return l.getName(t) === d && e(t);
+            }
+          );
+        case i.SelectorType.Descendant:
+          if (o.cacheResults === !1 || typeof WeakSet > `u`)
+            return function (t) {
+              for (var n = t; (n = a(n, l));) if (e(n)) return !0;
+              return !1;
+            };
+          var f = new WeakSet();
+          return function (t) {
+            for (var n = t; (n = a(n, l));)
+              if (!f.has(n)) {
+                if (l.isTag(n) && e(n)) return !0;
+                f.add(n);
+              }
+            return !1;
+          };
+        case `_flexibleDescendant`:
+          return function (t) {
+            var n = t;
+            do if (e(n)) return !0;
+            while ((n = a(n, l)));
+            return !1;
+          };
+        case i.SelectorType.Parent:
+          return function (t) {
+            return l.getChildren(t).some(function (t) {
+              return l.isTag(t) && e(t);
+            });
+          };
+        case i.SelectorType.Child:
+          return function (t) {
+            var n = l.getParent(t);
+            return n != null && l.isTag(n) && e(n);
+          };
+        case i.SelectorType.Sibling:
+          return function (t) {
+            for (var n = l.getSiblings(t), r = 0; r < n.length; r++) {
+              var i = n[r];
+              if (u(t, i)) break;
+              if (l.isTag(i) && e(i)) return !0;
+            }
+            return !1;
+          };
+        case i.SelectorType.Adjacent:
+          return l.prevElementSibling
+            ? function (t) {
+                var n = l.prevElementSibling(t);
+                return n != null && e(n);
+              }
+            : function (t) {
+                for (var n = l.getSiblings(t), r, i = 0; i < n.length; i++) {
+                  var a = n[i];
+                  if (u(t, a)) break;
+                  l.isTag(a) && (r = a);
+                }
+                return !!r && e(r);
+              };
+        case i.SelectorType.Universal:
+          if (t.namespace != null && t.namespace !== `*`)
+            throw Error(
+              `Namespaced universal selectors are not yet supported by css-select`,
+            );
+          return e;
+      }
+    }
+    e.compileGeneralSelector = o;
+  }),
+  ye = r((e) => {
+    var n =
+        (e && e.__createBinding) ||
+        (Object.create
+          ? function (e, t, n, r) {
+              r === void 0 && (r = n);
+              var i = Object.getOwnPropertyDescriptor(t, n);
+              ((!i ||
+                (`get` in i ? !t.__esModule : i.writable || i.configurable)) &&
+                (i = {
+                  enumerable: !0,
+                  get: function () {
+                    return t[n];
+                  },
+                }),
+                Object.defineProperty(e, r, i));
+            }
+          : function (e, t, n, r) {
+              (r === void 0 && (r = n), (e[r] = t[n]));
+            }),
+      r =
+        (e && e.__setModuleDefault) ||
+        (Object.create
+          ? function (e, t) {
+              Object.defineProperty(e, "default", { enumerable: !0, value: t });
+            }
+          : function (e, t) {
+              e.default = t;
+            }),
+      i =
+        (e && e.__importStar) ||
+        function (e) {
+          if (e && e.__esModule) return e;
+          var t = {};
+          if (e != null)
+            for (var i in e)
+              i !== "default" &&
+                Object.prototype.hasOwnProperty.call(e, i) &&
+                n(t, e, i);
+          return (r(t, e), t);
+        },
+      a =
+        (e && e.__importDefault) ||
+        function (e) {
+          return e && e.__esModule ? e : { default: e };
+        };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.compileToken = e.compileUnsafe = e.compile = void 0));
+    var o = (X(), t(Y)),
+      s = a(k()),
+      c = i(ue()),
+      l = ve(),
+      u = Z();
+    function d(e, t, n) {
+      var r = f(e, t, n);
+      return (0, u.ensureIsTag)(r, t.adapter);
+    }
+    e.compile = d;
+    function f(e, t, n) {
+      return v(typeof e == `string` ? (0, o.parse)(e) : e, t, n);
+    }
+    e.compileUnsafe = f;
+    function p(e) {
+      return (
+        e.type === o.SelectorType.Pseudo &&
+        (e.name === `scope` ||
+          (Array.isArray(e.data) &&
+            e.data.some(function (e) {
+              return e.some(p);
+            })))
+      );
+    }
+    var m = { type: o.SelectorType.Descendant },
+      h = { type: `_flexibleDescendant` },
+      g = { type: o.SelectorType.Pseudo, name: `scope`, data: null };
+    function _(e, t, n) {
+      for (
+        var r = t.adapter,
+          i = !!n?.every(function (e) {
+            var t = r.isTag(e) && r.getParent(e);
+            return e === u.PLACEHOLDER_ELEMENT || (t && r.isTag(t));
+          }),
+          a = 0,
+          s = e;
+        a < s.length;
+        a++
+      ) {
+        var l = s[a];
+        if (!(
+          l.length > 0 &&
+          (0, c.isTraversal)(l[0]) &&
+          l[0].type !== o.SelectorType.Descendant
+        ))
+          if (i && !l.some(p)) l.unshift(m);
+          else continue;
+        l.unshift(g);
+      }
+    }
+    function v(e, t, n) {
+      (e.forEach(c.default), (n = t.context ?? n));
+      var r = Array.isArray(n),
+        i = n && (Array.isArray(n) ? n : [n]);
+      if (t.relativeSelector !== !1) _(e, t, i);
+      else if (
+        e.some(function (e) {
+          return e.length > 0 && (0, c.isTraversal)(e[0]);
+        })
+      )
+        throw Error(
+          "Relative selectors are not allowed when the `relativeSelector` option is disabled",
+        );
+      var a = !1,
+        l = e
+          .map(function (e) {
+            if (e.length >= 2) {
+              var n = e[0],
+                s = e[1];
+              n.type !== o.SelectorType.Pseudo ||
+                n.name !== `scope` ||
+                (r && s.type === o.SelectorType.Descendant
+                  ? (e[1] = h)
+                  : (s.type === o.SelectorType.Adjacent ||
+                      s.type === o.SelectorType.Sibling) &&
+                    (a = !0));
+            }
+            return y(e, t, i);
+          })
+          .reduce(b, s.default.falseFunc);
+      return ((l.shouldTestNextSiblings = a), l);
+    }
+    e.compileToken = v;
+    function y(e, t, n) {
+      return e.reduce(function (e, r) {
+        return e === s.default.falseFunc
+          ? s.default.falseFunc
+          : (0, l.compileGeneralSelector)(e, r, t, n, v);
+      }, t.rootFunc ?? s.default.trueFunc);
+    }
+    function b(e, t) {
+      return t === s.default.falseFunc || e === s.default.trueFunc
+        ? e
+        : e === s.default.falseFunc || t === s.default.trueFunc
+          ? t
+          : function (n) {
+              return e(n) || t(n);
+            };
+    }
+  }),
+  be = r((e) => {
+    var t =
+        (e && e.__createBinding) ||
+        (Object.create
+          ? function (e, t, n, r) {
+              r === void 0 && (r = n);
+              var i = Object.getOwnPropertyDescriptor(t, n);
+              ((!i ||
+                (`get` in i ? !t.__esModule : i.writable || i.configurable)) &&
+                (i = {
+                  enumerable: !0,
+                  get: function () {
+                    return t[n];
+                  },
+                }),
+                Object.defineProperty(e, r, i));
+            }
+          : function (e, t, n, r) {
+              (r === void 0 && (r = n), (e[r] = t[n]));
+            }),
+      n =
+        (e && e.__setModuleDefault) ||
+        (Object.create
+          ? function (e, t) {
+              Object.defineProperty(e, "default", { enumerable: !0, value: t });
+            }
+          : function (e, t) {
+              e.default = t;
+            }),
+      r =
+        (e && e.__importStar) ||
+        function (e) {
+          if (e && e.__esModule) return e;
+          var r = {};
+          if (e != null)
+            for (var i in e)
+              i !== "default" &&
+                Object.prototype.hasOwnProperty.call(e, i) &&
+                t(r, e, i);
+          return (n(r, e), r);
+        },
+      i =
+        (e && e.__importDefault) ||
+        function (e) {
+          return e && e.__esModule ? e : { default: e };
+        };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.aliases =
+        e.pseudos =
+        e.filters =
+        e.is =
+        e.selectOne =
+        e.selectAll =
+        e.prepareContext =
+        e._compileToken =
+        e._compileUnsafe =
+        e.compile =
+          void 0));
+    var a = r(O()),
+      o = i(k()),
+      s = ye(),
+      c = Z(),
+      l = function (e, t) {
+        return e === t;
+      },
+      u = { adapter: a, equals: l };
+    function d(e) {
+      var t = e ?? u;
+      return ((t.adapter ??= a), (t.equals ??= t.adapter?.equals ?? l), t);
+    }
+    function f(e) {
+      return function (t, n, r) {
+        return e(t, d(n), r);
+      };
+    }
+    ((e.compile = f(s.compile)),
+      (e._compileUnsafe = f(s.compileUnsafe)),
+      (e._compileToken = f(s.compileToken)));
+    function p(e) {
+      return function (t, n, r) {
+        var i = d(r);
+        typeof t != `function` && (t = (0, s.compileUnsafe)(t, i, n));
+        var a = m(n, i.adapter, t.shouldTestNextSiblings);
+        return e(t, a, i);
+      };
+    }
+    function m(e, t, n) {
+      return (
+        n === void 0 && (n = !1),
+        n && (e = h(e, t)),
+        Array.isArray(e) ? t.removeSubsets(e) : t.getChildren(e)
+      );
+    }
+    e.prepareContext = m;
+    function h(e, t) {
+      for (
+        var n = Array.isArray(e) ? e.slice(0) : [e], r = n.length, i = 0;
+        i < r;
+        i++
+      ) {
+        var a = (0, c.getNextSiblings)(n[i], t);
+        n.push.apply(n, a);
+      }
+      return n;
+    }
+    ((e.selectAll = p(function (e, t, n) {
+      return e === o.default.falseFunc || !t || t.length === 0
+        ? []
+        : n.adapter.findAll(e, t);
+    })),
+      (e.selectOne = p(function (e, t, n) {
+        return e === o.default.falseFunc || !t || t.length === 0
+          ? null
+          : n.adapter.findOne(e, t);
+      })));
+    function g(e, t, n) {
+      var r = d(n);
+      return (typeof t == `function` ? t : (0, s.compile)(t, r))(e);
+    }
+    ((e.is = g), (e.default = e.selectAll));
+    var _ = Q();
+    (Object.defineProperty(e, "filters", {
+      enumerable: !0,
+      get: function () {
+        return _.filters;
+      },
+    }),
+      Object.defineProperty(e, "pseudos", {
+        enumerable: !0,
+        get: function () {
+          return _.pseudos;
+        },
+      }),
+      Object.defineProperty(e, "aliases", {
+        enumerable: !0,
+        get: function () {
+          return _.aliases;
+        },
+      }));
+  }),
+  xe = r((e) => {
+    Object.defineProperty(e, "__esModule", { value: !0 });
+    function t(e) {
+      return e[e.length - 1];
+    }
+    e.default = t;
+  }),
+  Se = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    Object.defineProperty(e, "__esModule", { value: !0 });
+    var n = t(o());
+    function r(e) {
+      return e && e.nodeType === n.default.ELEMENT_NODE;
+    }
+    function i(e, t) {
+      return r(e) ? e.getAttribute(t) : void 0;
+    }
+    function a(e) {
+      return ((e && e.rawTagName) || ``).toLowerCase();
+    }
+    function s(e) {
+      return e && e.childNodes;
+    }
+    function c(e) {
+      return e ? e.parentNode : null;
+    }
+    function l(e) {
+      return e.text;
+    }
+    function u(e) {
+      let t = e.length,
+        n,
+        r,
+        i;
+      for (; --t > -1;) {
+        for (n = r = e[t], e[t] = null, i = !0; r;) {
+          if (e.indexOf(r) > -1) {
+            ((i = !1), e.splice(t, 1));
+            break;
+          }
+          r = c(r);
+        }
+        i && (e[t] = n);
+      }
+      return e;
+    }
+    function d(e, t) {
+      return t.some((t) => (r(t) ? e(t) || d(e, s(t)) : !1));
+    }
+    function f(e) {
+      let t = c(e);
+      return t ? s(t) : [];
+    }
+    function p(e, t) {
+      return i(e, t) !== void 0;
+    }
+    function m(e, t) {
+      let n = null;
+      for (let r = 0, i = t?.length; r < i && !n; r++) {
+        let i = t[r];
+        if (e(i)) n = i;
+        else {
+          let t = s(i);
+          t && t.length > 0 && (n = m(e, t));
+        }
+      }
+      return n;
+    }
+    function h(e, t) {
+      let n = [];
+      for (let i = 0, a = t.length; i < a; i++) {
+        if (!r(t[i])) continue;
+        e(t[i]) && n.push(t[i]);
+        let a = s(t[i]);
+        a && (n = n.concat(h(e, a)));
+      }
+      return n;
+    }
+    e.default = {
+      isTag: r,
+      getAttributeValue: i,
+      getName: a,
+      getChildren: s,
+      getParent: c,
+      getText: l,
+      removeSubsets: u,
+      existsOne: d,
+      getSiblings: f,
+      hasAttrib: p,
+      findOne: m,
+      findAll: h,
+    };
+  }),
+  Ce = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.default = class {
+        constructor(e = !1, t) {
+          ((this.addClosingSlash = e),
+            Array.isArray(t)
+              ? (this.voidTags = t.reduce(
+                  (e, t) => e.add(t.toLowerCase()).add(t.toUpperCase()).add(t),
+                  new Set(),
+                ))
+              : (this.voidTags = [
+                  `area`,
+                  `base`,
+                  `br`,
+                  `col`,
+                  `embed`,
+                  `hr`,
+                  `img`,
+                  `input`,
+                  `link`,
+                  `meta`,
+                  `param`,
+                  `source`,
+                  `track`,
+                  `wbr`,
+                ].reduce(
+                  (e, t) => e.add(t.toLowerCase()).add(t.toUpperCase()).add(t),
+                  new Set(),
+                )));
+        }
+        formatNode(e, t, n) {
+          let r = this.addClosingSlash,
+            i = r && t && !t.endsWith(` `) ? ` ` : ``,
+            a = r ? `${i}/` : ``;
+          return this.isVoidElement(e.toLowerCase())
+            ? `<${e}${t}${a}>`
+            : `<${e}${t}>${n}</${e}>`;
+        }
+        isVoidElement(e) {
+          return this.voidTags.has(e);
+        }
+      }));
+  }),
+  we = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    Object.defineProperty(e, "__esModule", { value: !0 });
+    var n = i(),
+      r = t(a()),
+      s = t(o());
+    e.default = class e extends r.default {
+      clone() {
+        return new e(this._rawText, null);
+      }
+      constructor(e, t = null, n) {
+        (super(t, n),
+          (this.nodeType = s.default.TEXT_NODE),
+          (this.rawTagName = ``),
+          (this._rawText = e));
+      }
+      get rawText() {
+        return this._rawText;
+      }
+      set rawText(e) {
+        ((this._rawText = e),
+          (this._trimmedRawText = void 0),
+          (this._trimmedText = void 0));
+      }
+      get trimmedRawText() {
+        return (
+          this._trimmedRawText === void 0 &&
+            (this._trimmedRawText = c(this.rawText)),
+          this._trimmedRawText
+        );
+      }
+      get trimmedText() {
+        return (
+          this._trimmedText === void 0 && (this._trimmedText = c(this.text)),
+          this._trimmedText
+        );
+      }
+      get text() {
+        return (0, n.decode)(this.rawText);
+      }
+      get isWhitespace() {
+        return /^(\s|&nbsp;)*$/.test(this.rawText);
+      }
+      toString() {
+        return this.rawText;
+      }
+    };
+    function c(e) {
+      let t = 0,
+        n,
+        r;
+      for (; t >= 0 && t < e.length;)
+        (/\S/.test(e[t]) &&
+          (n === void 0 ? ((n = t), (t = e.length)) : ((r = t), (t = void 0))),
+          n === void 0 ? t++ : t--);
+      (n === void 0 && (n = 0), r === void 0 && (r = e.length - 1));
+      let i = n > 0 && /[^\S\r\n]/.test(e[n - 1]),
+        a = r < e.length - 1 && /[^\S\r\n]/.test(e[r + 1]);
+      return (i ? ` ` : ``) + e.slice(n, r + 1) + (a ? ` ` : ``);
+    }
+  }),
+  $ = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.parse = e.base_parse = void 0));
+    var n = be(),
+      r = t(i()),
+      c = t(xe()),
+      l = t(Se()),
+      u = t(Ce()),
+      d = t(s()),
+      f = t(a()),
+      p = t(we()),
+      m = t(o());
+    function h(e) {
+      return JSON.parse(JSON.stringify(r.default.decode(e)));
+    }
+    var g = [`h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hgroup`],
+      _ = [`details`, `dialog`, `dd`, `div`, `dt`],
+      v = [`fieldset`, `figcaption`, `figure`, `footer`, `form`],
+      y = [`table`, `td`, `tr`],
+      b = [
+        `address`,
+        `article`,
+        `aside`,
+        `blockquote`,
+        `br`,
+        `hr`,
+        `li`,
+        `main`,
+        `nav`,
+        `ol`,
+        `p`,
+        `pre`,
+        `section`,
+        `ul`,
+      ],
+      x = new Set();
+    function S(...e) {
+      let t = (e) => {
+        for (let t = 0; t < e.length; t++) {
+          let n = e[t];
+          (x.add(n), x.add(n.toUpperCase()));
+        }
+      };
+      for (let n of e) t(n);
+    }
+    S(g, _, v, y, b);
+    var C = class {
+        _validate(e) {
+          if (/\s/.test(e))
+            throw Error(
+              `DOMException in DOMTokenList.add: The token '${e}' contains HTML space characters, which are not valid in tokens.`,
+            );
+        }
+        constructor(e = [], t = () => null) {
+          ((this._set = new Set(e)), (this._afterUpdate = t));
+        }
+        add(e) {
+          (this._validate(e), this._set.add(e), this._afterUpdate(this));
+        }
+        replace(e, t) {
+          (this._validate(t),
+            this._set.delete(e),
+            this._set.add(t),
+            this._afterUpdate(this));
+        }
+        remove(e) {
+          this._set.delete(e) && this._afterUpdate(this);
+        }
+        toggle(e) {
+          (this._validate(e),
+            this._set.has(e) ? this._set.delete(e) : this._set.add(e),
+            this._afterUpdate(this));
+        }
+        contains(e) {
+          return this._set.has(e);
+        }
+        get length() {
+          return this._set.size;
+        }
+        values() {
+          return this._set.values();
+        }
+        get value() {
+          return Array.from(this._set.values());
+        }
+        toString() {
+          return Array.from(this._set.values()).join(` `);
+        }
+      },
+      w = class e extends f.default {
+        quoteAttribute(e) {
+          return e == null
+            ? `null`
+            : JSON.stringify(e.replace(/"/g, `&quot;`))
+                .replace(/\\t/g, `	`)
+                .replace(
+                  /\\n/g,
+                  `
+`,
+                )
+                .replace(/\\r/g, `\r`)
+                .replace(/\\/g, ``);
+        }
+        constructor(e, t, n = ``, r = null, i, a = new u.default(), o = {}) {
+          if (
+            (super(r, i),
+            (this.rawAttrs = n),
+            (this.voidTag = a),
+            (this.nodeType = m.default.ELEMENT_NODE),
+            (this.rawTagName = e),
+            (this.rawAttrs = n || ``),
+            (this._id = t.id || ``),
+            (this.childNodes = []),
+            (this._parseOptions = o),
+            (this.classList = new C(t.class ? t.class.split(/\s+/) : [], (e) =>
+              this.setAttribute(`class`, e.toString()),
+            )),
+            t.id && (n || (this.rawAttrs = `id="${t.id}"`)),
+            t.class && !n)
+          ) {
+            let e = `class="${this.classList.toString()}"`;
+            this.rawAttrs ? (this.rawAttrs += ` ${e}`) : (this.rawAttrs = e);
+          }
+        }
+        removeChild(e) {
+          return (
+            (this.childNodes = this.childNodes.filter((t) => t !== e)),
+            this
+          );
+        }
+        exchangeChild(e, t) {
+          let n = this.childNodes;
+          return ((this.childNodes = n.map((n) => (n === e ? t : n))), this);
+        }
+        get tagName() {
+          return this.rawTagName
+            ? this.rawTagName.toUpperCase()
+            : this.rawTagName;
+        }
+        set tagName(e) {
+          this.rawTagName = e.toLowerCase();
+        }
+        get localName() {
+          return this.rawTagName.toLowerCase();
+        }
+        get isVoidElement() {
+          return this.voidTag.isVoidElement(this.localName);
+        }
+        get id() {
+          return this._id;
+        }
+        set id(e) {
+          this.setAttribute(`id`, e);
+        }
+        get rawText() {
+          return /^br$/i.test(this.rawTagName)
+            ? `
+`
+            : this.childNodes.reduce((e, t) => (e += t.rawText), ``);
+        }
+        get textContent() {
+          return h(this.rawText);
+        }
+        set textContent(e) {
+          let t = [new p.default(e, this)];
+          this.childNodes = t;
+        }
+        get text() {
+          return h(this.rawText);
+        }
+        get structuredText() {
+          let e = [],
+            t = [e];
+          function n(r) {
+            if (r.nodeType === m.default.ELEMENT_NODE)
+              x.has(r.rawTagName)
+                ? (e.length > 0 && t.push((e = [])),
+                  r.childNodes.forEach(n),
+                  e.length > 0 && t.push((e = [])))
+                : r.childNodes.forEach(n);
+            else if (r.nodeType === m.default.TEXT_NODE)
+              if (r.isWhitespace) e.prependWhitespace = !0;
+              else {
+                let t = r.trimmedText;
+                (e.prependWhitespace &&
+                  ((t = ` ${t}`), (e.prependWhitespace = !1)),
+                  e.push(t));
+              }
+          }
+          return (
+            n(this),
+            t
+              .map((e) => e.join(``).replace(/\s{2,}/g, ` `))
+              .join(
+                `
+`,
+              )
+              .replace(/\s+$/, ``)
+          );
+        }
+        toString() {
+          let e = this.rawTagName;
+          if (e) {
+            let t = this.rawAttrs ? ` ${this.rawAttrs}` : ``;
+            return this.voidTag.formatNode(e, t, this.innerHTML);
+          }
+          return this.innerHTML;
+        }
+        get innerHTML() {
+          return this.childNodes.map((e) => e.toString()).join(``);
+        }
+        set innerHTML(e) {
+          let t = M(e, this._parseOptions),
+            n = t.childNodes.length ? t.childNodes : [new p.default(e, this)];
+          (P(n, this), P(this.childNodes, null), (this.childNodes = n));
+        }
+        set_content(e, t = {}) {
+          if (e instanceof f.default) e = [e];
+          else if (typeof e == `string`) {
+            t = Object.assign(Object.assign({}, this._parseOptions), t);
+            let n = M(e, t);
+            e = n.childNodes.length
+              ? n.childNodes
+              : [new p.default(n.innerHTML, this)];
+          }
+          return (
+            P(this.childNodes, null),
+            P(e, this),
+            (this.childNodes = e),
+            this
+          );
+        }
+        replaceWith(...e) {
+          let t = this.parentNode,
+            n = e
+              .map((e) => {
+                if (e instanceof f.default) return [e];
+                if (typeof e == `string`) {
+                  let t = M(e, this._parseOptions);
+                  return t.childNodes.length
+                    ? t.childNodes
+                    : [new p.default(e, this)];
+                }
+                return [];
+              })
+              .flat(),
+            r = t.childNodes.findIndex((e) => e === this);
+          return (
+            P([this], null),
+            (t.childNodes = [
+              ...t.childNodes.slice(0, r),
+              ...P(n, t),
+              ...t.childNodes.slice(r + 1),
+            ]),
+            this
+          );
+        }
+        get outerHTML() {
+          return this.toString();
+        }
+        trimRight(e) {
+          for (let t = 0; t < this.childNodes.length; t++) {
+            let n = this.childNodes[t];
+            if (n.nodeType === m.default.ELEMENT_NODE) n.trimRight(e);
+            else {
+              let r = n.rawText.search(e);
+              r > -1 &&
+                ((n.rawText = n.rawText.substr(0, r)),
+                (this.childNodes.length = t + 1));
+            }
+          }
+          return this;
+        }
+        get structure() {
+          let e = [],
+            t = 0;
+          function n(n) {
+            e.push(`  `.repeat(t) + n);
+          }
+          function r(e) {
+            let i = e._id ? `#${e._id}` : ``,
+              a = e.classList.length ? `.${e.classList.value.join(`.`)}` : ``;
+            (n(`${e.rawTagName}${i}${a}`),
+              t++,
+              e.childNodes.forEach((e) => {
+                e.nodeType === m.default.ELEMENT_NODE
+                  ? r(e)
+                  : e.nodeType === m.default.TEXT_NODE &&
+                    (e.isWhitespace || n(`#text`));
+              }),
+              t--);
+          }
+          return (
+            r(this),
+            e.join(`
+`)
+          );
+        }
+        removeWhitespace() {
+          let e = 0;
+          (this.childNodes.forEach((t) => {
+            if (t.nodeType === m.default.TEXT_NODE) {
+              if (t.isWhitespace) return;
+              t.rawText = t.trimmedRawText;
+            } else
+              t.nodeType === m.default.ELEMENT_NODE && t.removeWhitespace();
+            this.childNodes[e++] = t;
+          }),
+            (this.childNodes.length = e));
+          let t = Object.keys(this.rawAttributes)
+            .map((e) => {
+              let t = this.rawAttributes[e];
+              return `${e}=${JSON.stringify(t)}`;
+            })
+            .join(` `);
+          return ((this.rawAttrs = t), delete this._rawAttrs, this);
+        }
+        querySelectorAll(e) {
+          return (0, n.selectAll)(e, this, { xmlMode: !0, adapter: l.default });
+        }
+        querySelector(e) {
+          return (0, n.selectOne)(e, this, { xmlMode: !0, adapter: l.default });
+        }
+        matches(e) {
+          return (0, n.is)(this, e, { xmlMode: !0, adapter: l.default });
+        }
+        getElementsByTagName(e) {
+          let t = e.toUpperCase(),
+            n = [],
+            r = [],
+            i = this,
+            a = 0;
+          for (; a !== void 0;) {
+            let o;
+            do o = i.childNodes[a++];
+            while (a < i.childNodes.length && o === void 0);
+            if (o === void 0) {
+              ((i = i.parentNode), (a = r.pop()));
+              continue;
+            }
+            o.nodeType === m.default.ELEMENT_NODE &&
+              ((e === `*` || o.tagName === t) && n.push(o),
+              o.childNodes.length > 0 && (r.push(a), (i = o), (a = 0)));
+          }
+          return n;
+        }
+        getElementById(e) {
+          let t = [],
+            n = this,
+            r = 0;
+          for (; r !== void 0;) {
+            let i;
+            do i = n.childNodes[r++];
+            while (r < n.childNodes.length && i === void 0);
+            if (i === void 0) {
+              ((n = n.parentNode), (r = t.pop()));
+              continue;
+            }
+            if (i.nodeType === m.default.ELEMENT_NODE) {
+              if (i._id === e) return i;
+              i.childNodes.length > 0 && (t.push(r), (n = i), (r = 0));
+            }
+          }
+          return null;
+        }
+        closest(e) {
+          let t = new Map(),
+            r = this,
+            i = null;
+          function a(e, n) {
+            let r = null;
+            for (let i = 0, o = n.length; i < o && !r; i++) {
+              let o = n[i];
+              if (e(o)) r = o;
+              else {
+                let n = t.get(o);
+                n && (r = a(e, [n]));
+              }
+            }
+            return r;
+          }
+          for (; r;) (t.set(r, i), (i = r), (r = r.parentNode));
+          for (r = this; r;) {
+            let i = (0, n.selectOne)(e, r, {
+              xmlMode: !0,
+              adapter: Object.assign(Object.assign({}, l.default), {
+                getChildren(e) {
+                  let n = t.get(e);
+                  return n && [n];
+                },
+                getSiblings(e) {
+                  return [e];
+                },
+                findOne: a,
+                findAll() {
+                  return [];
+                },
+              }),
+            });
+            if (i) return i;
+            r = r.parentNode;
+          }
+          return null;
+        }
+        appendChild(e) {
+          return (this.append(e), e);
+        }
+        get attrs() {
+          if (this._attrs) return this._attrs;
+          this._attrs = {};
+          let e = this.rawAttributes;
+          for (let t in e) {
+            let n = e[t] || ``;
+            this._attrs[t.toLowerCase()] = h(n);
+          }
+          return this._attrs;
+        }
+        get attributes() {
+          let e = {},
+            t = this.rawAttributes;
+          for (let n in t) e[n] = h(t[n] || ``);
+          return e;
+        }
+        get rawAttributes() {
+          if (this._rawAttrs) return this._rawAttrs;
+          let e = {};
+          if (this.rawAttrs) {
+            let t =
+                /([a-zA-Z()[\]#@$.?:][a-zA-Z0-9-._:()[\]#]*)(?:\s*=\s*((?:'[^']*')|(?:"[^"]*")|\S+))?/g,
+              n;
+            for (; (n = t.exec(this.rawAttrs));) {
+              let t = n[1],
+                r = n[2] || null;
+              (r &&
+                (r[0] === `'` || r[0] === `"`) &&
+                (r = r.slice(1, r.length - 1)),
+                (e[t] = e[t] || r));
+            }
+          }
+          return ((this._rawAttrs = e), e);
+        }
+        removeAttribute(e) {
+          let t = this.rawAttributes;
+          return (
+            delete t[e],
+            this._attrs && delete this._attrs[e],
+            (this.rawAttrs = Object.keys(t)
+              .map((e) => {
+                let n = this.quoteAttribute(t[e]);
+                return n === `null` || n === `""` ? e : `${e}=${n}`;
+              })
+              .join(` `)),
+            e === `id` && (this._id = ``),
+            this
+          );
+        }
+        hasAttribute(e) {
+          return e.toLowerCase() in this.attrs;
+        }
+        getAttribute(e) {
+          return this.attrs[e.toLowerCase()];
+        }
+        setAttribute(e, t) {
+          if (arguments.length < 2)
+            throw Error(`Failed to execute 'setAttribute' on 'Element'`);
+          let n = e.toLowerCase(),
+            r = this.rawAttributes;
+          for (let t in r)
+            if (t.toLowerCase() === n) {
+              e = t;
+              break;
+            }
+          return (
+            (r[e] = String(t)),
+            this._attrs && (this._attrs[n] = h(r[e])),
+            (this.rawAttrs = Object.keys(r)
+              .map((e) => {
+                let t = this.quoteAttribute(r[e]);
+                return t === `null` || t === `""` ? e : `${e}=${t}`;
+              })
+              .join(` `)),
+            e === `id` && (this._id = t),
+            this
+          );
+        }
+        setAttributes(e) {
+          return (
+            this._attrs && delete this._attrs,
+            this._rawAttrs && delete this._rawAttrs,
+            (this.rawAttrs = Object.keys(e)
+              .map((t) => {
+                let n = e[t];
+                return n === `null` || n === `""`
+                  ? t
+                  : `${t}=${this.quoteAttribute(String(n))}`;
+              })
+              .join(` `)),
+            `id` in e && (this._id = e.id),
+            this
+          );
+        }
+        insertAdjacentHTML(e, t) {
+          if (arguments.length < 2) throw Error(`2 arguments required`);
+          let n = M(t, this._parseOptions);
+          if (e === `afterend`) this.after(...n.childNodes);
+          else if (e === `afterbegin`) this.prepend(...n.childNodes);
+          else if (e === `beforeend`) this.append(...n.childNodes);
+          else if (e === `beforebegin`) this.before(...n.childNodes);
+          else
+            throw Error(
+              `The value provided ('${e}') is not one of 'beforebegin', 'afterbegin', 'beforeend', or 'afterend'`,
+            );
+          return this;
+        }
+        prepend(...e) {
+          let t = N(e);
+          (P(t, this), this.childNodes.unshift(...t));
+        }
+        append(...e) {
+          let t = N(e);
+          (P(t, this), this.childNodes.push(...t));
+        }
+        before(...e) {
+          let t = N(e),
+            n = this.parentNode.childNodes;
+          (P(t, this.parentNode), n.splice(n.indexOf(this), 0, ...t));
+        }
+        after(...e) {
+          let t = N(e),
+            n = this.parentNode.childNodes;
+          (P(t, this.parentNode), n.splice(n.indexOf(this) + 1, 0, ...t));
+        }
+        get nextSibling() {
+          if (this.parentNode) {
+            let e = this.parentNode.childNodes,
+              t = 0;
+            for (; t < e.length;) {
+              let n = e[t++];
+              if (this === n) return e[t] || null;
+            }
+            return null;
+          }
+        }
+        get nextElementSibling() {
+          if (this.parentNode) {
+            let t = this.parentNode.childNodes,
+              n = 0,
+              r = !1;
+            for (; n < t.length;) {
+              let i = t[n++];
+              if (r) {
+                if (i instanceof e) return i || null;
+              } else this === i && (r = !0);
+            }
+            return null;
+          }
+        }
+        get previousSibling() {
+          if (this.parentNode) {
+            let e = this.parentNode.childNodes,
+              t = e.length;
+            for (; t > 0;) {
+              let n = e[--t];
+              if (this === n) return e[t - 1] || null;
+            }
+            return null;
+          }
+        }
+        get previousElementSibling() {
+          if (this.parentNode) {
+            let t = this.parentNode.childNodes,
+              n = t.length,
+              r = !1;
+            for (; n > 0;) {
+              let i = t[--n];
+              if (r) {
+                if (i instanceof e) return i || null;
+              } else this === i && (r = !0);
+            }
+            return null;
+          }
+        }
+        get children() {
+          let t = [];
+          for (let n of this.childNodes) n instanceof e && t.push(n);
+          return t;
+        }
+        get firstChild() {
+          return this.childNodes[0];
+        }
+        get firstElementChild() {
+          return this.children[0];
+        }
+        get lastChild() {
+          return (0, c.default)(this.childNodes);
+        }
+        get lastElementChild() {
+          return this.children[this.children.length - 1];
+        }
+        get childElementCount() {
+          return this.children.length;
+        }
+        get classNames() {
+          return this.classList.toString();
+        }
+        clone() {
+          return M(this.toString(), this._parseOptions).firstChild;
+        }
+      };
+    e.default = w;
+    var T =
+        /<!--[\s\S]*?-->|<(\/?)([a-zA-Z][-.:0-9_a-zA-Z@\xB7\xC0-\xD6\xD8-\xF6\u00F8-\u03A1\u03A3-\u03D9\u03DB-\u03EF\u03F7-\u03FF\u0400-\u04FF\u0500-\u052F\u1D00-\u1D2B\u1D6B-\u1D77\u1D79-\u1D9A\u1E00-\u1E9B\u1F00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u2126\u212A-\u212B\u2132\u214E\u2160-\u2188\u2C60-\u2C7F\uA722-\uA787\uA78B-\uA78E\uA790-\uA7AD\uA7B0-\uA7B7\uA7F7-\uA7FF\uAB30-\uAB5A\uAB5C-\uAB5F\uAB64-\uAB65\uFB00-\uFB06\uFB13-\uFB17\uFF21-\uFF3A\uFF41-\uFF5A\x37F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD]*)((?:\s+[^>]*?(?:(?:'[^']*')|(?:"[^"]*"))?)*)\s*(\/?)>/gu,
+      E = /(?:^|\s)(id|class)\s*=\s*((?:'[^']*')|(?:"[^"]*")|\S+)/gi,
+      D = {
+        li: { li: !0, LI: !0 },
+        LI: { li: !0, LI: !0 },
+        p: { p: !0, div: !0, P: !0, DIV: !0 },
+        P: { p: !0, div: !0, P: !0, DIV: !0 },
+        b: { div: !0, DIV: !0 },
+        B: { div: !0, DIV: !0 },
+        td: { td: !0, th: !0, TD: !0, TH: !0 },
+        TD: { td: !0, th: !0, TD: !0, TH: !0 },
+        th: { td: !0, th: !0, TD: !0, TH: !0 },
+        TH: { td: !0, th: !0, TD: !0, TH: !0 },
+        h1: { h1: !0, H1: !0 },
+        H1: { h1: !0, H1: !0 },
+        h2: { h2: !0, H2: !0 },
+        H2: { h2: !0, H2: !0 },
+        h3: { h3: !0, H3: !0 },
+        H3: { h3: !0, H3: !0 },
+        h4: { h4: !0, H4: !0 },
+        H4: { h4: !0, H4: !0 },
+        h5: { h5: !0, H5: !0 },
+        H5: { h5: !0, H5: !0 },
+        h6: { h6: !0, H6: !0 },
+        H6: { h6: !0, H6: !0 },
+      },
+      O = {
+        li: { ul: !0, ol: !0, UL: !0, OL: !0 },
+        LI: { ul: !0, ol: !0, UL: !0, OL: !0 },
+        a: { div: !0, DIV: !0 },
+        A: { div: !0, DIV: !0 },
+        b: { div: !0, DIV: !0 },
+        B: { div: !0, DIV: !0 },
+        i: { div: !0, DIV: !0 },
+        I: { div: !0, DIV: !0 },
+        p: { div: !0, DIV: !0 },
+        P: { div: !0, DIV: !0 },
+        td: { tr: !0, table: !0, TR: !0, TABLE: !0 },
+        TD: { tr: !0, table: !0, TR: !0, TABLE: !0 },
+        th: { tr: !0, table: !0, TR: !0, TABLE: !0 },
+        TH: { tr: !0, table: !0, TR: !0, TABLE: !0 },
+      },
+      k = {
+        p: {
+          a: !0,
+          audio: !0,
+          del: !0,
+          ins: !0,
+          map: !0,
+          noscript: !0,
+          video: !0,
+        },
+      },
+      A = `documentfragmentcontainer`;
+    function j(e, t = {}) {
+      let n = new u.default(t?.voidTag?.closingSlash, t?.voidTag?.tags),
+        r = t.blockTextElements || {
+          script: !0,
+          noscript: !0,
+          style: !0,
+          pre: !0,
+        },
+        i = Object.keys(r),
+        a = i.map((e) => RegExp(`^${e}$`, `i`)),
+        o = i.filter((e) => !!r[e]).map((e) => RegExp(`^${e}$`, `i`));
+      function s(e) {
+        return o.some((t) => t.test(e));
+      }
+      function l(e) {
+        return a.some((t) => t.test(e));
+      }
+      let f = (e, t) => [e - C, t - C],
+        m = new w(null, {}, ``, null, [0, e.length], n, t),
+        h = m,
+        g = [m],
+        _ = -1,
+        v,
+        y;
+      e = `<${A}>${e}</${A}>`;
+      let { lowerCaseTagName: b, fixNestedATags: x } = t,
+        S = e.length - 27,
+        C = 27;
+      for (; (y = T.exec(e));) {
+        let { 0: r, 1: i, 2: a, 3: o, 4: u } = y,
+          m = r.length,
+          C = T.lastIndex - m,
+          j = T.lastIndex;
+        if (_ > -1 && _ + m < j) {
+          let t = e.substring(_, C);
+          h.appendChild(new p.default(t, h, f(_, C)));
+        }
+        if (((_ = T.lastIndex), a !== A)) {
+          if (r[1] === `!`) {
+            if (t.comment) {
+              let t = e.substring(C + 4, j - 3);
+              h.appendChild(new d.default(t, h, f(C, j)));
+            }
+            continue;
+          }
+          if ((b && (a = a.toLowerCase()), !i)) {
+            let r = {};
+            for (let e; (e = E.exec(o));) {
+              let { 1: t, 2: n } = e,
+                i = n[0] === `'` || n[0] === `"`;
+              r[t.toLowerCase()] = i ? n.slice(1, n.length - 1) : n;
+            }
+            let d = h.rawTagName;
+            (!u &&
+              !t.preserveTagNesting &&
+              D[d] &&
+              D[d][a] &&
+              (g.pop(), (h = (0, c.default)(g))),
+              x &&
+                (a === `a` || a === `A`) &&
+                (v !== void 0 && (g.splice(v), (h = (0, c.default)(g))),
+                (v = g.length)));
+            let y = T.lastIndex,
+              C = y - m;
+            if (
+              ((h = h.appendChild(
+                new w(a, r, o.slice(1), null, f(C, y), n, t),
+              )),
+              g.push(h),
+              l(a))
+            ) {
+              let t = `</${a}>`,
+                n = b
+                  ? e.toLocaleLowerCase().indexOf(t, T.lastIndex)
+                  : e.indexOf(t, T.lastIndex),
+                r = n === -1 ? S : n;
+              if (s(a)) {
+                let t = e.substring(y, r);
+                t.length > 0 &&
+                  /\S/.test(t) &&
+                  h.appendChild(new p.default(t, h, f(y, r)));
+              }
+              n === -1
+                ? (_ = T.lastIndex = e.length + 1)
+                : ((_ = T.lastIndex = n + t.length), (i = `/`));
+            }
+          }
+          if (i || u || n.isVoidElement(a))
+            for (;;)
+              if (
+                (v != null && (a === `a` || a === `A`) && (v = void 0),
+                h.rawTagName === a)
+              ) {
+                ((h.range[1] = f(-1, Math.max(_, j))[1]),
+                  g.pop(),
+                  (h = (0, c.default)(g)));
+                break;
+              } else {
+                let e = h.tagName;
+                if (O[e] && O[e][a]) {
+                  (g.pop(), (h = (0, c.default)(g)));
+                  continue;
+                }
+                let n = h.rawTagName ? h.rawTagName.toLowerCase() : ``;
+                if (k[n]) {
+                  let e = a.toLowerCase();
+                  if (g.length > 1) {
+                    let t = g[g.length - 2];
+                    if (
+                      t &&
+                      t.rawTagName &&
+                      t.rawTagName.toLowerCase() === e &&
+                      !k[n][e]
+                    ) {
+                      ((h.range[1] = f(-1, Math.max(_, j))[1]),
+                        g.pop(),
+                        (h = (0, c.default)(g)));
+                      continue;
+                    }
+                  }
+                }
+                if (t.closeAllByClosing === !0) {
+                  let e;
+                  for (e = g.length - 2; e >= 0 && g[e].rawTagName !== a; e--);
+                  if (e >= 0) {
+                    for (; g.length > e;)
+                      ((h.range[1] = f(-1, Math.max(_, j))[1]),
+                        g.pop(),
+                        (h = (0, c.default)(g)));
+                    continue;
+                  }
+                }
+                break;
+              }
+        }
+      }
+      return g;
+    }
+    e.base_parse = j;
+    function M(e, t = {}) {
+      let n = j(e, t),
+        [r] = n;
+      for (; n.length > 1;) {
+        let e = n.pop(),
+          r = (0, c.default)(n);
+        e.parentNode &&
+          e.parentNode.parentNode &&
+          (e.parentNode === r && e.tagName === r.tagName
+            ? t.parseNoneClosedTags !== !0 &&
+              (r.removeChild(e),
+              e.childNodes.forEach((e) => {
+                r.parentNode.appendChild(e);
+              }),
+              n.pop())
+            : t.parseNoneClosedTags !== !0 &&
+              (r.removeChild(e),
+              e.childNodes.forEach((e) => {
+                r.appendChild(e);
+              })));
+      }
+      return r;
+    }
+    e.parse = M;
+    function N(e) {
+      return e.map((e) =>
+        typeof e == `string` ? new p.default(e) : (e.remove(), e),
+      );
+    }
+    function P(e, t) {
+      return e.map((e) => ((e.parentNode = t), e));
+    }
+  }),
+  Te = r((e) => {
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.default = void 0));
+    var t = $();
+    Object.defineProperty(e, "default", {
+      enumerable: !0,
+      get: function () {
+        return t.parse;
+      },
+    });
+  }),
+  Ee = r((e) => {
+    Object.defineProperty(e, "__esModule", { value: !0 });
+    var t = $();
+    function n(e, n = {}) {
+      return (0, t.base_parse)(e, n).length === 1;
+    }
+    e.default = n;
+  }),
+  De = r((e) => {
+    var t =
+      (e && e.__importDefault) ||
+      function (e) {
+        return e && e.__esModule ? e : { default: e };
+      };
+    (Object.defineProperty(e, "__esModule", { value: !0 }),
+      (e.NodeType =
+        e.TextNode =
+        e.Node =
+        e.valid =
+        e.CommentNode =
+        e.HTMLElement =
+        e.parse =
+          void 0));
+    var n = t(s());
+    e.CommentNode = n.default;
+    var r = t($());
+    e.HTMLElement = r.default;
+    var i = t(a());
+    e.Node = i.default;
+    var c = t(we());
+    e.TextNode = c.default;
+    var l = t(o());
+    e.NodeType = l.default;
+    var u = t(Te()),
+      d = t(Ee());
+    e.valid = d.default;
+    function f(e, t = {}) {
+      return (0, u.default)(e, t);
+    }
+    ((e.parse = f),
+      (f.parse = u.default),
+      (f.HTMLElement = r.default),
+      (f.CommentNode = n.default),
+      (f.valid = d.default),
+      (f.Node = i.default),
+      (f.TextNode = c.default),
+      (f.NodeType = l.default));
+  });
+export { De as t };
+//# sourceMappingURL=app-initial~artifact-tab-content.electron~app-main~pull-request-route~pull-request-code-rev~fzrvbq9l-sutawCMW.js.map

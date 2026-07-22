@@ -1,0 +1,3 @@
+import { n as e, t } from "./pill-Ct2zlnBY-DE7gcNmx.js";
+t();
+export { e as default };

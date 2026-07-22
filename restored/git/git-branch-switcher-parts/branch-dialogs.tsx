@@ -262,8 +262,7 @@ export function UncommittedChangesDialog({
   ) as GitOperationResult<ReviewSummary>;
   const reviewSummaries = [stagedSummary, unstagedSummary];
   const mergedSummary = mergeReviewSummaryStats(reviewSummaries) as
-    | ReviewSummary
-    | undefined;
+    ReviewSummary | undefined;
   const totalAdditions = mergedSummary?.totalAdditions ?? 0;
   const totalDeletions = mergedSummary?.totalDeletions ?? 0;
   const hasDiffStats = totalAdditions + totalDeletions > 0;

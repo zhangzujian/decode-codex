@@ -9,15 +9,9 @@ import {
 import { rightAppShellTabController } from "../app-shell/app-shell-tab-controller";
 import { useMotionValue, type MotionValue } from "../utils/use-transform";
 
-export const hideWhitespaceAtom = appScopeUnderscore(
-  appScopeRoot,
-  () => false,
-);
+export const hideWhitespaceAtom = appScopeUnderscore(appScopeRoot, () => false);
 
-export const reviewExpandedAtom = appScopeUnderscore(
-  appScopeRoot,
-  () => false,
-);
+export const reviewExpandedAtom = appScopeUnderscore(appScopeRoot, () => false);
 
 export const reviewExpandedActionsPortalContext =
   React.createContext<HTMLElement | null>(null);
@@ -68,10 +62,7 @@ export const reviewHostAtom = appScopeUnderscore(appScopeRoot, () => ({
   id: "local",
 }));
 
-export const fileTreeOpenAtom = appScopeUnderscore(
-  appScopeRoot,
-  () => false,
-);
+export const fileTreeOpenAtom = appScopeUnderscore(appScopeRoot, () => false);
 
 export const reviewSidePanelAnimationAtom = appScopeUnderscore(
   appScopeRoot,
@@ -88,8 +79,10 @@ export const reviewReserveBottomPaddingAtom = appScopeUnderscore(
   () => false,
 );
 
-export const reviewReserveBottomPaddingWidthThresholdAtom =
-  appScopeUnderscore(appScopeRoot, () => 360);
+export const reviewReserveBottomPaddingWidthThresholdAtom = appScopeUnderscore(
+  appScopeRoot,
+  () => 360,
+);
 
 export const reviewGitActionsAllowedAtom = appScopeUnderscore(
   appScopeRoot,

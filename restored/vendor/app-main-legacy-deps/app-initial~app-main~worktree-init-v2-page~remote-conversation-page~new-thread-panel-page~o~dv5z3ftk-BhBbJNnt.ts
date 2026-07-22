@@ -2844,7 +2844,7 @@ var En,
           l = new WeakSet(),
           u = new WeakSet(),
           d = Array.from(i);
-        for (; d.length; ) {
+        for (; d.length;) {
           let t = d[d.length - 1],
             i = a(e, t);
           if (u.has(t)) {
@@ -2980,7 +2980,7 @@ var En,
           i = n[2],
           a = n[11],
           o = [t];
-        for (; o.length; ) {
+        for (; o.length;) {
           let t = o.pop(),
             n = a(e, t);
           for (let s of Sn(t, n, r)) {
@@ -4222,7 +4222,7 @@ function Oi(e, t, n) {
   if (!e.imperativeReadAtoms.has(t)) return e.store.get(t);
   let r = [],
     i = e;
-  for (; i != null; ) ((i.imperativeReadDepth += 1), r.push(i), (i = i.parent));
+  for (; i != null;) ((i.imperativeReadDepth += 1), r.push(i), (i = i.parent));
   try {
     let n = e.store.sub(t, () => {});
     try {
@@ -4519,7 +4519,7 @@ function $i(e, t) {
 function ea(e, t) {
   let n = new Map(),
     r = t.parent;
-  for (; r != null; ) {
+  for (; r != null;) {
     let t = e.get(r.id);
     if (t == null) break;
     (n.set(r.id, t), (r = r.parent));
@@ -4528,7 +4528,7 @@ function ea(e, t) {
 }
 function ta(e, t) {
   let n = e;
-  for (; n != null; ) {
+  for (; n != null;) {
     if (n.token === t) return n;
     n = n.parent;
   }
@@ -5062,7 +5062,7 @@ var ka = e(() => {
   Ma = r((e, t) => {
     var n = ja();
     function r(e, t) {
-      for (var r = e.length; r--; ) if (n(e[r][0], t)) return r;
+      for (var r = e.length; r--;) if (n(e[r][0], t)) return r;
       return -1;
     }
     t.exports = r;
@@ -5113,7 +5113,7 @@ var ka = e(() => {
     function s(e) {
       var t = -1,
         n = e == null ? 0 : e.length;
-      for (this.clear(); ++t < n; ) {
+      for (this.clear(); ++t < n;) {
         var r = e[t];
         this.set(r[0], r[1]);
       }
@@ -5364,7 +5364,7 @@ var ka = e(() => {
     function s(e) {
       var t = -1,
         n = e == null ? 0 : e.length;
-      for (this.clear(); ++t < n; ) {
+      for (this.clear(); ++t < n;) {
         var r = e[t];
         this.set(r[0], r[1]);
       }
@@ -5447,7 +5447,7 @@ var ka = e(() => {
     function s(e) {
       var t = -1,
         n = e == null ? 0 : e.length;
-      for (this.clear(); ++t < n; ) {
+      for (this.clear(); ++t < n;) {
         var r = e[t];
         this.set(r[0], r[1]);
       }
@@ -5513,7 +5513,7 @@ var ka = e(() => {
     function a(e) {
       var t = -1,
         r = e == null ? 0 : e.length;
-      for (this.__data__ = new n(); ++t < r; ) this.add(e[t]);
+      for (this.__data__ = new n(); ++t < r;) this.add(e[t]);
     }
     ((a.prototype.add = a.prototype.push = r),
       (a.prototype.has = i),
@@ -5521,7 +5521,7 @@ var ka = e(() => {
   }),
   wo = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = e == null ? 0 : e.length; ++n < r; )
+      for (var n = -1, r = e == null ? 0 : e.length; ++n < r;)
         if (t(e[n], n, e)) return !0;
       return !1;
     }
@@ -5550,7 +5550,7 @@ var ka = e(() => {
       var g = -1,
         _ = !0,
         v = s & o ? new n() : void 0;
-      for (u.set(e, t), u.set(t, e); ++g < f; ) {
+      for (u.set(e, t), u.set(t, e); ++g < f;) {
         var y = e[g],
           b = t[g];
         if (c) var x = d ? c(b, y, g, t, e, u) : c(y, b, g, e, t, u);
@@ -5664,7 +5664,7 @@ var ka = e(() => {
   }),
   jo = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = t.length, i = e.length; ++n < r; ) e[i + n] = t[n];
+      for (var n = -1, r = t.length, i = e.length; ++n < r;) e[i + n] = t[n];
       return e;
     }
     t.exports = n;
@@ -5683,7 +5683,7 @@ var ka = e(() => {
   }),
   Po = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = e == null ? 0 : e.length, i = 0, a = []; ++n < r; ) {
+      for (var n = -1, r = e == null ? 0 : e.length, i = 0, a = []; ++n < r;) {
         var o = e[n];
         t(o, n, e) && (a[i++] = o);
       }
@@ -5715,7 +5715,7 @@ var ka = e(() => {
   }),
   Lo = r((e, t) => {
     function n(e, t) {
-      for (var n = -1, r = Array(e); ++n < e; ) r[n] = t(n);
+      for (var n = -1, r = Array(e); ++n < e;) r[n] = t(n);
       return r;
     }
     t.exports = n;
@@ -5965,7 +5965,7 @@ var ka = e(() => {
         u = n(e),
         d = u.length;
       if (d != n(t).length && !l) return !1;
-      for (var f = d; f--; ) {
+      for (var f = d; f--;) {
         var p = u[f];
         if (!(l ? p in t : i.call(t, p))) return !1;
       }
@@ -5974,7 +5974,7 @@ var ka = e(() => {
       if (m && h) return m == t && h == e;
       var g = !0;
       (c.set(e, t), c.set(t, e));
-      for (var _ = l; ++f < d; ) {
+      for (var _ = l; ++f < d;) {
         p = u[f];
         var v = e[p],
           y = t[p];
@@ -6296,7 +6296,7 @@ function _s(e, t) {
   if (n == null) return;
   let r = e.retainedScopeEntries.get(t);
   if (r != null)
-    for (; r.size > n; ) {
+    for (; r.size > n;) {
       let e = vs(r);
       if (e == null) return;
       (r.delete(e.key), Ei(e.entry.node));
@@ -7090,7 +7090,7 @@ function Yc(e, t = (e) => e.message) {
         else {
           let e = n,
             r = 0;
-          for (; r < i.path.length; ) {
+          for (; r < i.path.length;) {
             let n = i.path[r];
             (r === i.path.length - 1
               ? ((e[n] = e[n] || { _errors: [] }), e[n]._errors.push(t(i)))
@@ -7119,7 +7119,7 @@ function Xc(e, t = (e) => e.message) {
           }
           let r = n,
             c = 0;
-          for (; c < e.length; ) {
+          for (; c < e.length;) {
             let n = e[c],
               i = c === e.length - 1;
             (typeof n == `string`
@@ -20654,7 +20654,7 @@ function TO(e, t) {
   let n = t + 1,
     r = ``,
     i = ``;
-  for (; n < e.length; ) {
+  for (; n < e.length;) {
     let t = e[n];
     if (t == null) return null;
     if (t === `"`)
@@ -21728,7 +21728,6 @@ var Zj,
           ;
           this.headIndex < this.entries.length &&
           this.entries[this.headIndex].atMs < t;
-
         )
           ((this.rollingSum -= this.entries[this.headIndex].value),
             (this.headIndex += 1));

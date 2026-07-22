@@ -1,0 +1,3 @@
+import { n as e, t } from "./crown-DG0vHdYV-CS8MXdM-.js";
+t();
+export { e as default };

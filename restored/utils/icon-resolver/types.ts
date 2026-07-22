@@ -1,23 +1,15 @@
 // Restored from ref/webview/assets/iconResolver-DrMXO_qJ.js
 
 export type FileTreeIconSet =
-  | "none"
-  | "minimal"
-  | "standard"
-  | "complete"
-  | string;
+  "none" | "minimal" | "standard" | "complete" | string;
 
 export type IconRemapValue =
-  | string
-  | ({ name: string } & Record<string, unknown>);
+  string | ({ name: string } & Record<string, unknown>);
 
 export type IconRemapTable = Record<string, IconRemapValue>;
 
 export type FileTreeIconResolverInput =
-  | FileTreeIconSet
-  | FileTreeIconResolverConfig
-  | null
-  | undefined;
+  FileTreeIconSet | FileTreeIconResolverConfig | null | undefined;
 
 export interface FileTreeIconResolverConfig {
   set?: FileTreeIconSet;
@@ -30,8 +22,7 @@ export interface FileTreeIconResolverConfig {
   [key: string]: unknown;
 }
 
-export interface NormalizedFileTreeIconResolverConfig
-  extends FileTreeIconResolverConfig {
+export interface NormalizedFileTreeIconResolverConfig extends FileTreeIconResolverConfig {
   set: FileTreeIconSet;
   colored: boolean;
 }

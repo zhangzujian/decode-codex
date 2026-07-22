@@ -1,0 +1,3 @@
+import { n as e, t } from "./message-circle-question-DvgYThMb-D0PlJlc4.js";
+e();
+export { t as default };

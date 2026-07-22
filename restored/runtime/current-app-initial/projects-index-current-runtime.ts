@@ -30,126 +30,242 @@ import {
 } from "../../projects/projects-index-current-app-main/navigation";
 import * as projectsIndexCurrentRuntime from "../../vendor/projects-index-current-runtime";
 
-export const projectsIndexCurrentCompatSlotDollar = projectsIndexCurrentRuntime.$;
-export const projectsIndexCurrentCompatSlotDollarLowerT = projectsIndexCurrentRuntime.$t;
-export const projectsIndexCurrentCompatSlotUpperA = projectsIndexCurrentRuntime.A;
-export const projectsIndexCurrentCompatSlotUpperALowerT = projectsIndexCurrentRuntime.At;
-export const projectsIndexCurrentCompatSlotUpperB = getProjectIndexPullRequestStatus;
-export const projectsIndexCurrentCompatSlotUpperBLowerT = navigateToPluginDirectoryFromSidebar;
-export const projectsIndexCurrentCompatSlotUpperC = projectsIndexCurrentRuntime.C;
-export const projectsIndexCurrentCompatSlotUpperCLowerT = projectsIndexCurrentRuntime.Ct;
-export const projectsIndexCurrentCompatSlotUpperD = projectsIndexCurrentRuntime.D;
-export const projectsIndexCurrentCompatSlotUpperDLowerT = projectsIndexCurrentRuntime.Dt;
-export const projectsIndexCurrentCompatSlotUpperE = projectsIndexCurrentRuntime.E;
-export const projectsIndexCurrentCompatSlotUpperELowerT = applyPendingThreadDropsToContainer;
-export const projectsIndexCurrentCompatSlotUpperF = getProjectIndexTaskPullRequestStatus;
-export const projectsIndexCurrentCompatSlotUpperFLowerT = projectsIndexCurrentRuntime.Ft;
-export const projectsIndexCurrentCompatSlotUpperG = projectsIndexCurrentRuntime.G;
-export const projectsIndexCurrentCompatSlotUpperGLowerT = projectsIndexCurrentRuntime.Gt;
-export const projectsIndexCurrentCompatSlotUpperH = projectsIndexCurrentRuntime.H;
-export const projectsIndexCurrentCompatSlotUpperHLowerT = openRemoteProjectSelection;
-export const projectsIndexCurrentCompatSlotUpperI = projectsIndexCurrentRuntime.I;
-export const projectsIndexCurrentCompatSlotUpperILowerT = navigateToAutomationsPage;
-export const projectsIndexCurrentCompatSlotUpperJ = projectsIndexCurrentRuntime.J;
-export const projectsIndexCurrentCompatSlotUpperJLowerT = projectsIndexCurrentRuntime.Jt;
-export const projectsIndexCurrentCompatSlotUpperK = projectsIndexCurrentRuntime.K;
-export const projectsIndexCurrentCompatSlotUpperKLowerT = getProjectGroupCollapseAction;
-export const projectsIndexCurrentCompatSlotUpperL = projectsIndexCurrentRuntime.L;
+export const projectsIndexCurrentCompatSlotDollar =
+  projectsIndexCurrentRuntime.$;
+export const projectsIndexCurrentCompatSlotDollarLowerT =
+  projectsIndexCurrentRuntime.$t;
+export const projectsIndexCurrentCompatSlotUpperA =
+  projectsIndexCurrentRuntime.A;
+export const projectsIndexCurrentCompatSlotUpperALowerT =
+  projectsIndexCurrentRuntime.At;
+export const projectsIndexCurrentCompatSlotUpperB =
+  getProjectIndexPullRequestStatus;
+export const projectsIndexCurrentCompatSlotUpperBLowerT =
+  navigateToPluginDirectoryFromSidebar;
+export const projectsIndexCurrentCompatSlotUpperC =
+  projectsIndexCurrentRuntime.C;
+export const projectsIndexCurrentCompatSlotUpperCLowerT =
+  projectsIndexCurrentRuntime.Ct;
+export const projectsIndexCurrentCompatSlotUpperD =
+  projectsIndexCurrentRuntime.D;
+export const projectsIndexCurrentCompatSlotUpperDLowerT =
+  projectsIndexCurrentRuntime.Dt;
+export const projectsIndexCurrentCompatSlotUpperE =
+  projectsIndexCurrentRuntime.E;
+export const projectsIndexCurrentCompatSlotUpperELowerT =
+  applyPendingThreadDropsToContainer;
+export const projectsIndexCurrentCompatSlotUpperF =
+  getProjectIndexTaskPullRequestStatus;
+export const projectsIndexCurrentCompatSlotUpperFLowerT =
+  projectsIndexCurrentRuntime.Ft;
+export const projectsIndexCurrentCompatSlotUpperG =
+  projectsIndexCurrentRuntime.G;
+export const projectsIndexCurrentCompatSlotUpperGLowerT =
+  projectsIndexCurrentRuntime.Gt;
+export const projectsIndexCurrentCompatSlotUpperH =
+  projectsIndexCurrentRuntime.H;
+export const projectsIndexCurrentCompatSlotUpperHLowerT =
+  openRemoteProjectSelection;
+export const projectsIndexCurrentCompatSlotUpperI =
+  projectsIndexCurrentRuntime.I;
+export const projectsIndexCurrentCompatSlotUpperILowerT =
+  navigateToAutomationsPage;
+export const projectsIndexCurrentCompatSlotUpperJ =
+  projectsIndexCurrentRuntime.J;
+export const projectsIndexCurrentCompatSlotUpperJLowerT =
+  projectsIndexCurrentRuntime.Jt;
+export const projectsIndexCurrentCompatSlotUpperK =
+  projectsIndexCurrentRuntime.K;
+export const projectsIndexCurrentCompatSlotUpperKLowerT =
+  getProjectGroupCollapseAction;
+export const projectsIndexCurrentCompatSlotUpperL =
+  projectsIndexCurrentRuntime.L;
 export const projectsIndexCurrentCompatSlotUpperLLowerT = navigateToLibraryPage;
-export const projectsIndexCurrentCompatSlotUpperM = projectsIndexCurrentRuntime.M;
-export const projectsIndexCurrentCompatSlotUpperMLowerT = projectsIndexCurrentRuntime.Mt;
-export const projectsIndexCurrentCompatSlotUpperN = projectsIndexCurrentRuntime.N;
-export const projectsIndexCurrentCompatSlotUpperNLowerT = applyProjectGroupCollapseAction;
-export const projectsIndexCurrentCompatSlotUpperO = projectsIndexCurrentRuntime.O;
-export const projectsIndexCurrentCompatSlotUpperOLowerT = projectsIndexCurrentRuntime.Ot;
-export const projectsIndexCurrentCompatSlotUpperP = projectsIndexCurrentRuntime.P;
+export const projectsIndexCurrentCompatSlotUpperM =
+  projectsIndexCurrentRuntime.M;
+export const projectsIndexCurrentCompatSlotUpperMLowerT =
+  projectsIndexCurrentRuntime.Mt;
+export const projectsIndexCurrentCompatSlotUpperN =
+  projectsIndexCurrentRuntime.N;
+export const projectsIndexCurrentCompatSlotUpperNLowerT =
+  applyProjectGroupCollapseAction;
+export const projectsIndexCurrentCompatSlotUpperO =
+  projectsIndexCurrentRuntime.O;
+export const projectsIndexCurrentCompatSlotUpperOLowerT =
+  projectsIndexCurrentRuntime.Ot;
+export const projectsIndexCurrentCompatSlotUpperP =
+  projectsIndexCurrentRuntime.P;
 export const projectsIndexCurrentCompatSlotUpperPLowerT = hideAddProjectMenu;
-export const projectsIndexCurrentCompatSlotUpperQ = projectsIndexCurrentRuntime.Q;
-export const projectsIndexCurrentCompatSlotUpperQLowerT = projectsIndexCurrentRuntime.Qt;
-export const projectsIndexCurrentCompatSlotUpperR = projectsIndexCurrentRuntime.R;
-export const projectsIndexCurrentCompatSlotUpperRLowerT = navigateToPullRequestsPage;
-export const projectsIndexCurrentCompatSlotUpperS = projectsIndexCurrentRuntime.S;
-export const projectsIndexCurrentCompatSlotUpperSLowerT = projectsIndexCurrentRuntime.St;
-export const projectsIndexCurrentCompatSlotUpperT = projectsIndexCurrentRuntime.T;
-export const projectsIndexCurrentCompatSlotUpperTLowerT = projectsIndexCurrentRuntime.Tt;
-export const projectsIndexCurrentCompatSlotUpperU = projectsIndexCurrentRuntime.U;
-export const projectsIndexCurrentCompatSlotUpperULowerT = toggleRecentSidebarSection;
-export const projectsIndexCurrentCompatSlotUpperV = projectsIndexCurrentRuntime.V;
-export const projectsIndexCurrentCompatSlotUpperVLowerT = openLocalProjectCreationDialog;
-export const projectsIndexCurrentCompatSlotUpperW = projectsIndexCurrentRuntime.W;
+export const projectsIndexCurrentCompatSlotUpperQ =
+  projectsIndexCurrentRuntime.Q;
+export const projectsIndexCurrentCompatSlotUpperQLowerT =
+  projectsIndexCurrentRuntime.Qt;
+export const projectsIndexCurrentCompatSlotUpperR =
+  projectsIndexCurrentRuntime.R;
+export const projectsIndexCurrentCompatSlotUpperRLowerT =
+  navigateToPullRequestsPage;
+export const projectsIndexCurrentCompatSlotUpperS =
+  projectsIndexCurrentRuntime.S;
+export const projectsIndexCurrentCompatSlotUpperSLowerT =
+  projectsIndexCurrentRuntime.St;
+export const projectsIndexCurrentCompatSlotUpperT =
+  projectsIndexCurrentRuntime.T;
+export const projectsIndexCurrentCompatSlotUpperTLowerT =
+  projectsIndexCurrentRuntime.Tt;
+export const projectsIndexCurrentCompatSlotUpperU =
+  projectsIndexCurrentRuntime.U;
+export const projectsIndexCurrentCompatSlotUpperULowerT =
+  toggleRecentSidebarSection;
+export const projectsIndexCurrentCompatSlotUpperV =
+  projectsIndexCurrentRuntime.V;
+export const projectsIndexCurrentCompatSlotUpperVLowerT =
+  openLocalProjectCreationDialog;
+export const projectsIndexCurrentCompatSlotUpperW =
+  projectsIndexCurrentRuntime.W;
 export const projectsIndexCurrentCompatSlotUpperWLowerT = openAddProjectFlow;
-export const projectsIndexCurrentCompatSlotUpperX = projectsIndexCurrentRuntime.X;
-export const projectsIndexCurrentCompatSlotUpperXLowerT = projectsIndexCurrentRuntime.Xt;
-export const projectsIndexCurrentCompatSlotUpperY = projectsIndexCurrentRuntime.Y;
-export const projectsIndexCurrentCompatSlotUpperYLowerT = projectsIndexCurrentRuntime.Yt;
-export const projectsIndexCurrentCompatSlotUpperZ = projectsIndexCurrentRuntime.Z;
-export const projectsIndexCurrentCompatSlotUpperZLowerT = projectsIndexCurrentRuntime.Zt;
-export const projectsIndexCurrentCompatSlotUnderscore = projectsIndexCurrentRuntime._;
-export const projectsIndexCurrentCompatSlotUnderscoreLowerT = projectsIndexCurrentRuntime._t;
-export const projectsIndexCurrentCompatSlotLowerA = projectsIndexCurrentRuntime.a;
-export const projectsIndexCurrentCompatSlotLowerALowerN = projectsIndexCurrentRuntime.an;
-export const projectsIndexCurrentCompatSlotLowerALowerT = projectsIndexCurrentRuntime.at;
-export const projectsIndexCurrentCompatSlotLowerB = projectsIndexCurrentRuntime.b;
-export const projectsIndexCurrentCompatSlotLowerBLowerT = projectsIndexCurrentRuntime.bt;
-export const projectsIndexCurrentCompatSlotLowerC = projectsIndexCurrentRuntime.c;
-export const projectsIndexCurrentCompatSlotLowerCLowerN = projectsIndexCurrentRuntime.cn;
-export const projectsIndexCurrentCompatSlotLowerCLowerT = projectsIndexCurrentRuntime.ct;
+export const projectsIndexCurrentCompatSlotUpperX =
+  projectsIndexCurrentRuntime.X;
+export const projectsIndexCurrentCompatSlotUpperXLowerT =
+  projectsIndexCurrentRuntime.Xt;
+export const projectsIndexCurrentCompatSlotUpperY =
+  projectsIndexCurrentRuntime.Y;
+export const projectsIndexCurrentCompatSlotUpperYLowerT =
+  projectsIndexCurrentRuntime.Yt;
+export const projectsIndexCurrentCompatSlotUpperZ =
+  projectsIndexCurrentRuntime.Z;
+export const projectsIndexCurrentCompatSlotUpperZLowerT =
+  projectsIndexCurrentRuntime.Zt;
+export const projectsIndexCurrentCompatSlotUnderscore =
+  projectsIndexCurrentRuntime._;
+export const projectsIndexCurrentCompatSlotUnderscoreLowerT =
+  projectsIndexCurrentRuntime._t;
+export const projectsIndexCurrentCompatSlotLowerA =
+  projectsIndexCurrentRuntime.a;
+export const projectsIndexCurrentCompatSlotLowerALowerN =
+  projectsIndexCurrentRuntime.an;
+export const projectsIndexCurrentCompatSlotLowerALowerT =
+  projectsIndexCurrentRuntime.at;
+export const projectsIndexCurrentCompatSlotLowerB =
+  projectsIndexCurrentRuntime.b;
+export const projectsIndexCurrentCompatSlotLowerBLowerT =
+  projectsIndexCurrentRuntime.bt;
+export const projectsIndexCurrentCompatSlotLowerC =
+  projectsIndexCurrentRuntime.c;
+export const projectsIndexCurrentCompatSlotLowerCLowerN =
+  projectsIndexCurrentRuntime.cn;
+export const projectsIndexCurrentCompatSlotLowerCLowerT =
+  projectsIndexCurrentRuntime.ct;
 export const projectsIndexCurrentCompatSlotLowerD = openProjectInHomeRoute;
-export const projectsIndexCurrentCompatSlotLowerDLowerN = projectsIndexCurrentRuntime.dn;
-export const projectsIndexCurrentCompatSlotLowerDLowerT = projectsIndexCurrentRuntime.dt;
-export const projectsIndexCurrentCompatSlotLowerELowerN = projectsIndexCurrentRuntime.en;
-export const projectsIndexCurrentCompatSlotLowerELowerT = projectsIndexCurrentRuntime.et;
-export const projectsIndexCurrentCompatSlotLowerF = projectsIndexCurrentRuntime.f;
-export const projectsIndexCurrentCompatSlotLowerFLowerN = projectsIndexCurrentRuntime.fn;
-export const projectsIndexCurrentCompatSlotLowerFLowerT = projectsIndexCurrentRuntime.ft;
-export const projectsIndexCurrentCompatSlotLowerG = projectsIndexCurrentRuntime.g;
-export const projectsIndexCurrentCompatSlotLowerGLowerT = projectsIndexCurrentRuntime.gt;
-export const projectsIndexCurrentCompatSlotLowerH = projectsIndexCurrentRuntime.h;
-export const projectsIndexCurrentCompatSlotLowerHLowerT = projectsIndexCurrentRuntime.ht;
-export const projectsIndexCurrentCompatSlotLowerI = projectsIndexCurrentRuntime.i;
-export const projectsIndexCurrentCompatSlotLowerILowerN = projectsIndexCurrentRuntime.in;
-export const projectsIndexCurrentCompatSlotLowerILowerT = projectsIndexCurrentRuntime.it;
-export const projectsIndexCurrentCompatSlotLowerJ = projectsIndexCurrentRuntime.j;
-export const projectsIndexCurrentCompatSlotLowerJLowerT = projectsIndexCurrentRuntime.jt;
-export const projectsIndexCurrentCompatSlotLowerK = projectsIndexCurrentRuntime.k;
-export const projectsIndexCurrentCompatSlotLowerKLowerT = resolveProjectCreationFlow;
-export const projectsIndexCurrentCompatSlotLowerL = projectsIndexCurrentRuntime.l;
-export const projectsIndexCurrentCompatSlotLowerLLowerN = projectsIndexCurrentRuntime.ln;
-export const projectsIndexCurrentCompatSlotLowerLLowerT = projectsIndexCurrentRuntime.lt;
-export const projectsIndexCurrentCompatSlotLowerM = projectsIndexCurrentRuntime.m;
-export const projectsIndexCurrentCompatSlotLowerMLowerT = projectsIndexCurrentRuntime.mt;
-export const projectsIndexCurrentCompatSlotLowerN = projectsIndexCurrentRuntime.n;
-export const projectsIndexCurrentCompatSlotLowerNLowerN = projectsIndexCurrentRuntime.nn;
-export const projectsIndexCurrentCompatSlotLowerNLowerT = projectsIndexCurrentRuntime.nt;
-export const projectsIndexCurrentCompatSlotLowerO = projectsIndexCurrentRuntime.o;
-export const projectsIndexCurrentCompatSlotLowerOLowerN = projectsIndexCurrentRuntime.on;
-export const projectsIndexCurrentCompatSlotLowerOLowerT = projectsIndexCurrentRuntime.ot;
-export const projectsIndexCurrentCompatSlotLowerP = projectsIndexCurrentRuntime.p;
-export const projectsIndexCurrentCompatSlotLowerPLowerN = projectsIndexCurrentRuntime.pn;
-export const projectsIndexCurrentCompatSlotLowerPLowerT = projectsIndexCurrentRuntime.pt;
-export const projectsIndexCurrentCompatSlotLowerQ = projectsIndexCurrentRuntime.q;
-export const projectsIndexCurrentCompatSlotLowerQLowerT = projectsIndexCurrentRuntime.qt;
-export const projectsIndexCurrentCompatSlotLowerR = projectsIndexCurrentRuntime.r;
-export const projectsIndexCurrentCompatSlotLowerRLowerN = projectsIndexCurrentRuntime.rn;
-export const projectsIndexCurrentCompatSlotLowerRLowerT = projectsIndexCurrentRuntime.rt;
-export const projectsIndexCurrentCompatSlotLowerS = projectsIndexCurrentRuntime.s;
-export const projectsIndexCurrentCompatSlotLowerSLowerN = projectsIndexCurrentRuntime.sn;
-export const projectsIndexCurrentCompatSlotLowerSLowerT = projectsIndexCurrentRuntime.st;
-export const projectsIndexCurrentCompatSlotLowerT = projectsIndexCurrentRuntime.t;
-export const projectsIndexCurrentCompatSlotLowerTLowerN = projectsIndexCurrentRuntime.tn;
-export const projectsIndexCurrentCompatSlotLowerTLowerT = projectsIndexCurrentRuntime.tt;
-export const projectsIndexCurrentCompatSlotLowerU = projectsIndexCurrentRuntime.u;
-export const projectsIndexCurrentCompatSlotLowerULowerN = projectsIndexCurrentRuntime.un;
-export const projectsIndexCurrentCompatSlotLowerULowerT = projectsIndexCurrentRuntime.ut;
-export const projectsIndexCurrentCompatSlotLowerV = projectsIndexCurrentRuntime.v;
-export const projectsIndexCurrentCompatSlotLowerVLowerT = projectsIndexCurrentRuntime.vt;
-export const projectsIndexCurrentCompatSlotLowerW = projectsIndexCurrentRuntime.w;
-export const projectsIndexCurrentCompatSlotLowerWLowerT = projectsIndexCurrentRuntime.wt;
-export const projectsIndexCurrentCompatSlotLowerX = createSidebarShortcutLabelMap;
-export const projectsIndexCurrentCompatSlotLowerXLowerT = projectsIndexCurrentRuntime.xt;
-export const projectsIndexCurrentCompatSlotLowerY = projectsIndexCurrentRuntime.y;
-export const projectsIndexCurrentCompatSlotLowerYLowerT = projectsIndexCurrentRuntime.yt;
-export const projectsIndexCurrentCompatSlotLowerZ = parsePullRequestNumberFromUrl;
+export const projectsIndexCurrentCompatSlotLowerDLowerN =
+  projectsIndexCurrentRuntime.dn;
+export const projectsIndexCurrentCompatSlotLowerDLowerT =
+  projectsIndexCurrentRuntime.dt;
+export const projectsIndexCurrentCompatSlotLowerELowerN =
+  projectsIndexCurrentRuntime.en;
+export const projectsIndexCurrentCompatSlotLowerELowerT =
+  projectsIndexCurrentRuntime.et;
+export const projectsIndexCurrentCompatSlotLowerF =
+  projectsIndexCurrentRuntime.f;
+export const projectsIndexCurrentCompatSlotLowerFLowerN =
+  projectsIndexCurrentRuntime.fn;
+export const projectsIndexCurrentCompatSlotLowerFLowerT =
+  projectsIndexCurrentRuntime.ft;
+export const projectsIndexCurrentCompatSlotLowerG =
+  projectsIndexCurrentRuntime.g;
+export const projectsIndexCurrentCompatSlotLowerGLowerT =
+  projectsIndexCurrentRuntime.gt;
+export const projectsIndexCurrentCompatSlotLowerH =
+  projectsIndexCurrentRuntime.h;
+export const projectsIndexCurrentCompatSlotLowerHLowerT =
+  projectsIndexCurrentRuntime.ht;
+export const projectsIndexCurrentCompatSlotLowerI =
+  projectsIndexCurrentRuntime.i;
+export const projectsIndexCurrentCompatSlotLowerILowerN =
+  projectsIndexCurrentRuntime.in;
+export const projectsIndexCurrentCompatSlotLowerILowerT =
+  projectsIndexCurrentRuntime.it;
+export const projectsIndexCurrentCompatSlotLowerJ =
+  projectsIndexCurrentRuntime.j;
+export const projectsIndexCurrentCompatSlotLowerJLowerT =
+  projectsIndexCurrentRuntime.jt;
+export const projectsIndexCurrentCompatSlotLowerK =
+  projectsIndexCurrentRuntime.k;
+export const projectsIndexCurrentCompatSlotLowerKLowerT =
+  resolveProjectCreationFlow;
+export const projectsIndexCurrentCompatSlotLowerL =
+  projectsIndexCurrentRuntime.l;
+export const projectsIndexCurrentCompatSlotLowerLLowerN =
+  projectsIndexCurrentRuntime.ln;
+export const projectsIndexCurrentCompatSlotLowerLLowerT =
+  projectsIndexCurrentRuntime.lt;
+export const projectsIndexCurrentCompatSlotLowerM =
+  projectsIndexCurrentRuntime.m;
+export const projectsIndexCurrentCompatSlotLowerMLowerT =
+  projectsIndexCurrentRuntime.mt;
+export const projectsIndexCurrentCompatSlotLowerN =
+  projectsIndexCurrentRuntime.n;
+export const projectsIndexCurrentCompatSlotLowerNLowerN =
+  projectsIndexCurrentRuntime.nn;
+export const projectsIndexCurrentCompatSlotLowerNLowerT =
+  projectsIndexCurrentRuntime.nt;
+export const projectsIndexCurrentCompatSlotLowerO =
+  projectsIndexCurrentRuntime.o;
+export const projectsIndexCurrentCompatSlotLowerOLowerN =
+  projectsIndexCurrentRuntime.on;
+export const projectsIndexCurrentCompatSlotLowerOLowerT =
+  projectsIndexCurrentRuntime.ot;
+export const projectsIndexCurrentCompatSlotLowerP =
+  projectsIndexCurrentRuntime.p;
+export const projectsIndexCurrentCompatSlotLowerPLowerN =
+  projectsIndexCurrentRuntime.pn;
+export const projectsIndexCurrentCompatSlotLowerPLowerT =
+  projectsIndexCurrentRuntime.pt;
+export const projectsIndexCurrentCompatSlotLowerQ =
+  projectsIndexCurrentRuntime.q;
+export const projectsIndexCurrentCompatSlotLowerQLowerT =
+  projectsIndexCurrentRuntime.qt;
+export const projectsIndexCurrentCompatSlotLowerR =
+  projectsIndexCurrentRuntime.r;
+export const projectsIndexCurrentCompatSlotLowerRLowerN =
+  projectsIndexCurrentRuntime.rn;
+export const projectsIndexCurrentCompatSlotLowerRLowerT =
+  projectsIndexCurrentRuntime.rt;
+export const projectsIndexCurrentCompatSlotLowerS =
+  projectsIndexCurrentRuntime.s;
+export const projectsIndexCurrentCompatSlotLowerSLowerN =
+  projectsIndexCurrentRuntime.sn;
+export const projectsIndexCurrentCompatSlotLowerSLowerT =
+  projectsIndexCurrentRuntime.st;
+export const projectsIndexCurrentCompatSlotLowerT =
+  projectsIndexCurrentRuntime.t;
+export const projectsIndexCurrentCompatSlotLowerTLowerN =
+  projectsIndexCurrentRuntime.tn;
+export const projectsIndexCurrentCompatSlotLowerTLowerT =
+  projectsIndexCurrentRuntime.tt;
+export const projectsIndexCurrentCompatSlotLowerU =
+  projectsIndexCurrentRuntime.u;
+export const projectsIndexCurrentCompatSlotLowerULowerN =
+  projectsIndexCurrentRuntime.un;
+export const projectsIndexCurrentCompatSlotLowerULowerT =
+  projectsIndexCurrentRuntime.ut;
+export const projectsIndexCurrentCompatSlotLowerV =
+  projectsIndexCurrentRuntime.v;
+export const projectsIndexCurrentCompatSlotLowerVLowerT =
+  projectsIndexCurrentRuntime.vt;
+export const projectsIndexCurrentCompatSlotLowerW =
+  projectsIndexCurrentRuntime.w;
+export const projectsIndexCurrentCompatSlotLowerWLowerT =
+  projectsIndexCurrentRuntime.wt;
+export const projectsIndexCurrentCompatSlotLowerX =
+  createSidebarShortcutLabelMap;
+export const projectsIndexCurrentCompatSlotLowerXLowerT =
+  projectsIndexCurrentRuntime.xt;
+export const projectsIndexCurrentCompatSlotLowerY =
+  projectsIndexCurrentRuntime.y;
+export const projectsIndexCurrentCompatSlotLowerYLowerT =
+  projectsIndexCurrentRuntime.yt;
+export const projectsIndexCurrentCompatSlotLowerZ =
+  parsePullRequestNumberFromUrl;
 export const projectsIndexCurrentCompatSlotLowerZLowerT = navigateToSitesPage;
 
 // prettier-ignore

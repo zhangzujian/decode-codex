@@ -1,0 +1,3 @@
+import { n as e, t } from "./user-round-check-D7hrPlza-BWRbr59F.js";
+t();
+export { e as default };

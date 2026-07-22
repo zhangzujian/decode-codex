@@ -29,13 +29,7 @@ export function buildBrowserCommentPopupFrameName({
   sessionId: string;
   windowId: string;
 }): string {
-  return [
-    "codex",
-    windowId,
-    browserTabId,
-    conversationId,
-    sessionId,
-  ]
+  return ["codex", windowId, browserTabId, conversationId, sessionId]
     .map(encodeFrameNamePart)
     .join(":");
 }

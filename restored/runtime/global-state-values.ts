@@ -88,8 +88,7 @@ export function normalizeGlobalStateValue<TData = unknown>(
       : value;
 
   return (normalizedValue ?? getDefaultGlobalStateValue(settingKey)) as
-    | TData
-    | undefined;
+    TData | undefined;
 }
 
 export function unwrapGlobalStateHostResponse(value: unknown): unknown {

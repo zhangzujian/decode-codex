@@ -1,6 +1,7 @@
 // Restored from ref/webview/assets/tooltip-dismiss-BS2Xt99s.js
 // tooltip-dismiss-BS2Xt99s chunk restored from the Codex webview bundle.
-const TOOLTIP_DISMISS_EVENT = "codex:dismiss-tooltips";
+const DISMISS_TOOLTIPS_EVENT = "codex:dismiss-tooltips";
+const TOOLTIP_DISMISS_EVENT = DISMISS_TOOLTIPS_EVENT;
 
 export function dismissTooltips(): void {
   if (typeof window <= "u") {
@@ -8,4 +9,4 @@ export function dismissTooltips(): void {
   }
 }
 
-export { TOOLTIP_DISMISS_EVENT };
+export { DISMISS_TOOLTIPS_EVENT, TOOLTIP_DISMISS_EVENT };

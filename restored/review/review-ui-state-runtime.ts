@@ -31,7 +31,10 @@ export interface ReviewFindState {
 }
 
 export const gitBlameEnabledAtom = persistedAtom("git-blame-enabled", false);
-export const richPreviewEnabledAtom = persistedAtom("rich-preview-enabled", true);
+export const richPreviewEnabledAtom = persistedAtom(
+  "rich-preview-enabled",
+  true,
+);
 export const wordWrapEnabledAtom = persistedAtom("word-wrap-enabled", false);
 
 export const reviewDiffModeAtom = persistedAtom<"unified" | "split">(
@@ -113,7 +116,10 @@ export const reviewCappedModeAtom = createComputedAtom(
   () => false,
 );
 
-export const reviewCanRefreshAtom = createComputedAtom(appAtomScope, () => true);
+export const reviewCanRefreshAtom = createComputedAtom(
+  appAtomScope,
+  () => true,
+);
 export const reviewBranchDiffAvailableAtom = createComputedAtom(
   threadAtomScope,
   () => false,

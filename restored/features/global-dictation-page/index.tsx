@@ -31,11 +31,7 @@ import {
   useRecordingWaveform,
 } from "../../utils/use-recording-waveform";
 type GlobalDictationStatus =
-  | "initializing"
-  | "idle"
-  | "listening"
-  | "transcribing"
-  | "error";
+  "initializing" | "idle" | "listening" | "transcribing" | "error";
 type GlobalDictationHotkeyMessage = {
   configuredHotkey: string | null;
   configuredToggleHotkey: string | null;

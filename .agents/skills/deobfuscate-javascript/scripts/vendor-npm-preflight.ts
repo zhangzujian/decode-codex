@@ -47,9 +47,42 @@ const PUBLIC_LOCAL_VENDOR_BODY_PROOFS: Record<
       /\brelationMarkerOffsets\b[\s\S]*\bgetLineFunctionsWithOffset\b/,
     reason: "Mermaid relation-marker geometry wrapper",
   },
+  "chunk-extu4-wie": {
+    sourcePattern:
+      /(?=[\s\S]*\bselectSvgElement\b)(?=[\s\S]*\b(?:getConfig|initLegacyMermaidCommonRuntime)\b)/,
+    reason: "Mermaid runtime SVG selection wrapper",
+  },
   "xlsx-address-utils": {
     sourcePattern: /\bencodeCellAddress\b[\s\S]*\bparseCellRangeReference\b/,
     reason: "XLSX address, range, color, and sizing wrapper",
+  },
+  "pdf-preview-panel-runtime": {
+    sourcePattern: /ref\/webview\/assets\/pdf-preview-panel-[\w-]+\.js/,
+    reason: "Codex PDF preview panel application runtime",
+  },
+  "popcorn-electron-surface-style-runtime": {
+    sourcePattern:
+      /ref\/webview\/assets\/popcorn-electron-surface-style-[\w-]+\.js/,
+    reason: "Codex Popcorn electron surface application runtime",
+  },
+  "pull-request-new-thread-current-runtime": {
+    sourcePattern:
+      /ref\/webview\/assets\/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~pull-requests-page~new-~/,
+    reason: "Codex pull-request new-thread application runtime",
+  },
+  "remote-text-edit-session-runtime": {
+    sourcePattern:
+      /ref\/webview\/assets\/remote-text-edit-session-[\w-]+\.js/,
+    reason: "Codex remote text-edit session application runtime",
+  },
+  "chunk-qn33-pnhl": {
+    sourcePattern:
+      /(?=[\s\S]*ref\/webview\/assets\/chunk-QN33PNHL-)(?=[\s\S]*\bsetupViewPortForSVG\b|[\s\S]*\bconfigureSvgSize\b)/,
+    reason: "Mermaid SVG viewport geometry wrapper",
+  },
+  "docx-preview-panel-runtime": {
+    sourcePattern: /ref\/webview\/assets\/docx-preview-panel-[\w-]+\.js/,
+    reason: "Codex DOCX preview panel application runtime",
   },
 };
 

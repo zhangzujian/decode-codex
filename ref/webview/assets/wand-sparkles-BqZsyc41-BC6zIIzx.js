@@ -1,0 +1,3 @@
+import { n as e, t } from "./wand-sparkles-BqZsyc41-DEJZNKdF.js";
+t();
+export { e as default };

@@ -69,8 +69,20 @@ type ImportMap = {
   [k: string]: unknown;
 };
 
+type LedgerSymbol = {
+  id: string;
+  originalName?: string;
+  isExport?: boolean;
+  exportedAs?: string;
+};
+
+type LedgerFile = {
+  totals?: { pending: number; claimed: number; done: number };
+  symbols?: LedgerSymbol[];
+};
+
 type Ledger = {
-  files?: Record<string, unknown>;
+  files?: Record<string, LedgerFile>;
   crossFileBindings?: unknown[];
 };
 
@@ -188,24 +200,27 @@ function addRenamedImportAliases(
     const replacement = exports[imported];
     if (!replacement) continue;
     if (!exports[local]) exports[local] = replacement;
-    const renamed = firstAutoRenameForLocal(local, consumerRenames);
-    if (renamed && !exports[renamed]) exports[renamed] = replacement;
+    for (const renamed of autoRenamesForLocal(local, consumerRenames)) {
+      if (!exports[renamed]) exports[renamed] = replacement;
+    }
   }
 }
 
-function firstAutoRenameForLocal(
+function autoRenamesForLocal(
   local: string,
   consumerRenames?: Record<string, string>,
-): string | null {
-  let best: { offset: number; renamed: string } | null = null;
+): string[] {
+  const matches: Array<{ offset: number; renamed: string }> = [];
   for (const [key, renamed] of Object.entries(consumerRenames ?? {})) {
     const [name, rawOffset] = key.split("@");
     if (name !== local) continue;
     const offset = Number(rawOffset);
     if (!Number.isFinite(offset)) continue;
-    if (!best || offset < best.offset) best = { offset, renamed };
+    matches.push({ offset, renamed });
   }
-  return best?.renamed ?? null;
+  return matches
+    .sort((a, b) => a.offset - b.offset)
+    .map(({ renamed }) => renamed);
 }
 
 type Built = {
@@ -283,7 +298,6 @@ export function inferManualExportMap(
     });
     traverse(ast, {
       ExportNamedDeclaration(exportPath) {
-        if (exportPath.node.source) return;
         const declaration = exportPath.node.declaration;
         if (t.isVariableDeclaration(declaration)) {
           for (const declarator of declaration.declarations) {
@@ -366,6 +380,126 @@ export function inferManualExportMap(
   return out;
 }
 
+export function inferCheckpointExportMap(
+  code: string,
+  chunk: ManifestFile,
+  ledgerFile: LedgerFile | undefined,
+  autoRenames: Record<string, string>,
+): Record<string, string> {
+  const sourceExports = chunk.exports ?? [];
+  const symbols = ledgerFile?.symbols ?? [];
+  const publicNamesByLocal = new Map<string, string[]>();
+  const recordPublicName = (local: string, publicName: string): void => {
+    const names = publicNamesByLocal.get(local) ?? [];
+    if (!names.includes(publicName)) names.push(publicName);
+    publicNamesByLocal.set(local, names);
+  };
+  const ast = parser.parse(code, {
+    sourceType: "module",
+    errorRecovery: true,
+    allowImportExportEverywhere: true,
+    allowReturnOutsideFunction: true,
+    allowAwaitOutsideFunction: true,
+    allowUndeclaredExports: true,
+    plugins: PARSER_PLUGINS,
+  });
+  traverse(ast, {
+    ExportNamedDeclaration(exportPath) {
+      const declaration = exportPath.node.declaration;
+      if (t.isVariableDeclaration(declaration)) {
+        for (const declarator of declaration.declarations) {
+          for (const name of Object.keys(t.getBindingIdentifiers(declarator.id))) {
+            recordPublicName(name, name);
+          }
+        }
+      } else if (
+        (t.isFunctionDeclaration(declaration) ||
+          t.isClassDeclaration(declaration)) &&
+        declaration.id
+      ) {
+        recordPublicName(declaration.id.name, declaration.id.name);
+      }
+      for (const specifier of exportPath.node.specifiers) {
+        if (!t.isExportSpecifier(specifier)) continue;
+        const local = t.isIdentifier(specifier.local)
+          ? specifier.local.name
+          : specifier.local.value;
+        recordPublicName(local, exportedName(specifier.exported));
+      }
+    },
+    ExportDefaultDeclaration(exportPath) {
+      const declaration = exportPath.node.declaration;
+      if (t.isIdentifier(declaration)) {
+        recordPublicName(declaration.name, "default");
+      } else if (
+        (t.isFunctionDeclaration(declaration) ||
+          t.isClassDeclaration(declaration)) &&
+        declaration.id
+      ) {
+        recordPublicName(declaration.id.name, "default");
+      }
+    },
+  });
+  const out: Record<string, string> = {};
+  const usedSymbolIds = new Set<string>();
+  const usedRenamedBindings = new Set<string>();
+  const usedPublicNames = new Set<string>();
+
+  for (const sourceExport of sourceExports) {
+    if (out[sourceExport.exported]) {
+      throw new Error(
+        `duplicate source export alias ${sourceExport.exported} for ${chunk.basename}`,
+      );
+    }
+    const matches = symbols.filter(
+      (symbol) =>
+        symbol.isExport === true &&
+        symbol.exportedAs === sourceExport.exported &&
+        symbol.originalName === sourceExport.local,
+    );
+    if (matches.length !== 1) {
+      throw new Error(
+        `expected one ledger symbol for ${chunk.basename}:${sourceExport.local} as ${sourceExport.exported}, found ${matches.length}`,
+      );
+    }
+    const symbol = matches[0]!;
+    if (usedSymbolIds.has(symbol.id)) {
+      throw new Error(
+        `ledger symbol ${symbol.id} maps more than one export in ${chunk.basename}`,
+      );
+    }
+    const renamed = autoRenames[symbol.id];
+    if (!renamed) {
+      throw new Error(
+        `missing auto rename for exported symbol ${symbol.id} in ${chunk.basename}`,
+      );
+    }
+    if (usedRenamedBindings.has(renamed)) {
+      throw new Error(
+        `checkpoint binding ${renamed} maps more than one export in ${chunk.basename}`,
+      );
+    }
+    const publicNames = publicNamesByLocal.get(renamed) ?? [];
+    if (publicNames.length !== 1) {
+      throw new Error(
+        `expected one checkpoint export for ${renamed} in ${chunk.basename}, found ${publicNames.length}`,
+      );
+    }
+    const publicName = publicNames[0]!;
+    if (usedPublicNames.has(publicName)) {
+      throw new Error(
+        `checkpoint public export ${publicName} maps more than one export in ${chunk.basename}`,
+      );
+    }
+    usedSymbolIds.add(symbol.id);
+    usedRenamedBindings.add(renamed);
+    usedPublicNames.add(publicName);
+    out[sourceExport.exported] = publicName;
+  }
+
+  return out;
+}
+
 /**
  * Build a chunk's deliverable file set (contents + final relative paths) without
  * touching disk. icon/button use the typed semantic-finalize recipe; manual/split
@@ -385,6 +519,7 @@ function buildCandidate(
     importMap: ImportMap;
     rootDir?: string;
     manifest?: Manifest;
+    ledgerFile?: LedgerFile;
   },
 ): Built {
   const { basename, semanticPath, recipe, fullDir } = args;
@@ -482,8 +617,9 @@ function buildCandidate(
     };
   }
 
-  const source =
-    readCandidate(fullDir, basename) ?? readCheckpoint(fullDir, basename);
+  const candidate = readCandidate(fullDir, basename);
+  const checkpoint = candidate == null ? readCheckpoint(fullDir, basename) : null;
+  const source = candidate ?? checkpoint;
   if (source == null) {
     throw new Error(`no candidate or checkpoint for ${basename}`);
   }
@@ -496,7 +632,15 @@ function buildCandidate(
     ],
     promotionRoot: semanticPath,
     restoredPath: semanticPath,
-    exportMap: inferManualExportMap(source, chunk),
+    exportMap:
+      candidate != null
+        ? inferManualExportMap(source, chunk)
+        : inferCheckpointExportMap(
+            source,
+            chunk,
+            args.ledgerFile,
+            consumerRenames,
+          ),
   };
 }
 
@@ -551,6 +695,277 @@ function readCandidateDirectory(
     files[0]!.relPath;
   const entrySource = files.find((f) => f.relPath === entry)!.code;
   return { files, entry, entrySource };
+}
+
+function candidateUsesOnlyExternalImports(
+  fullDir: string,
+  basename: string,
+): boolean {
+  const directory = readCandidateDirectory(fullDir, basename);
+  const sources = directory
+    ? directory.files.map((file) => file.code)
+    : [readCandidate(fullDir, basename)].filter(
+        (source): source is string => source != null,
+      );
+  return (
+    sources.length > 0 &&
+    sources.every(
+      (source) =>
+        !/(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s*)["']\./.test(source),
+    )
+  );
+}
+
+function relativeModuleSpecifiers(source: string): string[] {
+  return [
+    ...source.matchAll(
+      /(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s*)["'](\.{1,2}\/[^"']+)["']/g,
+    ),
+  ].map((match) => match[1]!);
+}
+
+function moduleResolutionPaths(input: string): string[] {
+  const extension = path.extname(input);
+  const base = extension ? input.slice(0, -extension.length) : input;
+  return [
+    input,
+    ...[".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs"].map(
+      (ext) => `${base}${ext}`,
+    ),
+    ...[".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs"].map((ext) =>
+      path.join(base, `index${ext}`),
+    ),
+  ];
+}
+
+function candidateDependenciesReady(
+  target: string,
+  fullDir: string,
+  file: ManifestFile,
+): boolean {
+  const semanticPath = file.organization?.semanticPath;
+  if (!semanticPath) return false;
+  const directory = readCandidateDirectory(fullDir, file.basename);
+  const sources = directory
+    ? (() => {
+        const baseDir =
+          path.posix.basename(stripSourceExtension(semanticPath)) === "index"
+            ? path.posix.dirname(semanticPath)
+            : stripSourceExtension(semanticPath);
+        return directory.files.map((candidate) => ({
+          relPath: path.posix.join(baseDir, candidate.relPath),
+          code: candidate.code,
+        }));
+      })()
+    : (() => {
+        const source = readCandidate(fullDir, file.basename);
+        return source ? [{ relPath: semanticPath, code: source }] : [];
+      })();
+  if (sources.length === 0) return false;
+
+  const targetRoot = path.resolve(target);
+  const candidateFiles = new Set(
+    sources.map((source) => path.resolve(target, source.relPath)),
+  );
+  for (const source of sources) {
+    const importerDir = path.dirname(path.resolve(target, source.relPath));
+    for (const specifier of relativeModuleSpecifiers(source.code)) {
+      const resolved = path.resolve(importerDir, specifier);
+      const relative = path.relative(targetRoot, resolved);
+      if (relative.startsWith("..") || path.isAbsolute(relative)) return false;
+      const paths = moduleResolutionPaths(resolved);
+      if (
+        !paths.some(
+          (candidatePath) =>
+            candidateFiles.has(candidatePath) || fs.existsSync(candidatePath),
+        )
+      ) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function candidateEntrySource(fullDir: string, basename: string): string | null {
+  return (
+    readCandidateDirectory(fullDir, basename)?.entrySource ??
+    readCandidate(fullDir, basename) ??
+    readCheckpoint(fullDir, basename)
+  );
+}
+
+function plannedRestoredPath(
+  fullDir: string,
+  file: ManifestFile,
+): string | null {
+  const semanticPath = file.organization?.semanticPath;
+  if (!semanticPath) return null;
+  const directory = readCandidateDirectory(fullDir, file.basename);
+  if (!directory) return semanticPath;
+  const baseDir =
+    path.posix.basename(stripSourceExtension(semanticPath)) === "index"
+      ? path.posix.dirname(semanticPath)
+      : stripSourceExtension(semanticPath);
+  return path.posix.join(baseDir, directory.entry);
+}
+
+function plannedImportMapForWave(
+  importMap: ImportMap,
+  manifest: Manifest,
+  ledger: Ledger,
+  fullDir: string,
+  wave: FrontierItem[],
+): ImportMap {
+  const planned: ImportMap = {
+    ...importMap,
+    chunks: { ...(importMap.chunks ?? {}) },
+  };
+  for (const item of wave) {
+    const file = manifest.files[item.basename];
+    const directory = file && readCandidateDirectory(fullDir, item.basename);
+    const candidate = file && readCandidate(fullDir, item.basename);
+    const checkpoint = file && readCheckpoint(fullDir, item.basename);
+    const source = directory?.entrySource ?? candidate ?? checkpoint;
+    const restored = file && plannedRestoredPath(fullDir, file);
+    if (!file || !source || !restored) continue;
+    const autoRenames =
+      readJson<Record<string, string>>(
+        path.join(fullDir, "files", item.basename, "auto-renames.json"),
+      ) ?? {};
+    planned.chunks![item.basename] = {
+      ...(planned.chunks![item.basename] ?? {}),
+      restored,
+      exports:
+        directory || candidate
+          ? inferManualExportMap(source, file)
+          : inferCheckpointExportMap(
+              source,
+              file,
+              ledger.files?.[item.basename],
+              autoRenames,
+            ),
+      status: "done",
+    };
+  }
+  return planned;
+}
+
+/**
+ * Find an organized strongly-connected component whose dependencies outside
+ * the component are already promoted. The whole component can be written and
+ * gated as one promotion wave, so its relative imports resolve without
+ * weakening the normal producer-before-consumer rule.
+ */
+function promotableCycleWave(
+  manifest: Manifest,
+  ledger: Ledger,
+  fullDir: string,
+  target: string,
+  attempted: Set<string>,
+  only?: Set<string> | null,
+): FrontierItem[] {
+  const pending = Object.values(manifest.files).filter(
+    (file) =>
+      file.kind === "local" && !file.stages?.promoted && !file.stages?.faced,
+  );
+  const pendingNames = new Set(pending.map((file) => file.basename));
+  const edges = new Map<string, string[]>();
+  for (const file of pending) {
+    edges.set(
+      file.basename,
+      (file.imports ?? [])
+        .filter((imp) => imp.kind === "local" && pendingNames.has(imp.target))
+        .map((imp) => imp.target),
+    );
+  }
+
+  let nextIndex = 0;
+  const indices = new Map<string, number>();
+  const lowLinks = new Map<string, number>();
+  const stack: string[] = [];
+  const onStack = new Set<string>();
+  const components: string[][] = [];
+  const visit = (basename: string): void => {
+    indices.set(basename, nextIndex);
+    lowLinks.set(basename, nextIndex);
+    nextIndex += 1;
+    stack.push(basename);
+    onStack.add(basename);
+
+    for (const dependency of edges.get(basename) ?? []) {
+      if (!indices.has(dependency)) {
+        visit(dependency);
+        lowLinks.set(
+          basename,
+          Math.min(lowLinks.get(basename)!, lowLinks.get(dependency)!),
+        );
+      } else if (onStack.has(dependency)) {
+        lowLinks.set(
+          basename,
+          Math.min(lowLinks.get(basename)!, indices.get(dependency)!),
+        );
+      }
+    }
+
+    if (lowLinks.get(basename) !== indices.get(basename)) return;
+    const component: string[] = [];
+    for (;;) {
+      const member = stack.pop()!;
+      onStack.delete(member);
+      component.push(member);
+      if (member === basename) break;
+    }
+    components.push(component);
+  };
+  for (const file of pending) {
+    if (!indices.has(file.basename)) visit(file.basename);
+  }
+
+  const candidates = components.filter((component) => {
+    const members = new Set(component);
+    const cyclic =
+      component.length > 1 ||
+      (edges.get(component[0]!) ?? []).includes(component[0]!);
+    if (!cyclic) return false;
+    return component.every((basename) => {
+      const file = manifest.files[basename]!;
+      if (!file.organization?.semanticPath || attempted.has(basename)) {
+        return false;
+      }
+      if (only && !only.has(basename)) return false;
+      if (!candidateEntrySource(fullDir, basename)) return false;
+      const candidateReplacesDependencies =
+        candidateUsesOnlyExternalImports(fullDir, basename) ||
+        candidateDependenciesReady(target, fullDir, file);
+      return (file.imports ?? []).every((imp) => {
+        if (imp.kind !== "local") return true;
+        const dependency = manifest.files[imp.target];
+        if (!dependency || dependency.kind !== "local") return true;
+        return (
+          dependency.stages?.promoted ||
+          dependency.stages?.faced ||
+          members.has(imp.target) ||
+          candidateReplacesDependencies
+        );
+      });
+    });
+  });
+  candidates.sort((a, b) => {
+    const depthA = Math.max(...a.map((name) => manifest.files[name]!.depth));
+    const depthB = Math.max(...b.map((name) => manifest.files[name]!.depth));
+    return depthB - depthA || a[0]!.localeCompare(b[0]!);
+  });
+  const component = candidates[0];
+  if (!component) return [];
+  return component
+    .map((basename) => ({
+      basename,
+      stage: "promote" as const,
+      pending: ledger.files[basename]?.totals.pending ?? 0,
+      depth: manifest.files[basename]!.depth,
+    }))
+    .sort((a, b) => b.depth - a.depth || a.basename.localeCompare(b.basename));
 }
 
 function qualityOptionsFor(
@@ -686,6 +1101,7 @@ export function promoteOrganized(
   // Chunks we tried this run but couldn't promote (gate fail / lock / error) —
   // skip them so the loop drains instead of re-picking the same stuck chunk.
   const attempted = new Set<string>();
+  const dependencyReadyCache = new Map<string, boolean>();
   // Drain the promote frontier one WAVE at a time. Producers promote before
   // consumers, so every chunk in a frontier snapshot already has its producer
   // deps promoted by earlier waves — the chunks in a wave are independent of
@@ -700,10 +1116,20 @@ export function promoteOrganized(
     rollbackSnapshot: RollbackSnapshot;
     lockHeld: boolean;
   };
-  for (;;) {
+  promotionLoop: for (;;) {
     if (opts.limit !== undefined && processed >= opts.limit) break;
     const frontier = computeFrontier(manifest, ledger as never, paths.fullDir, {
       stage: "promote",
+      dependencyReady: (file) => {
+        let ready = dependencyReadyCache.get(file.basename);
+        if (ready === undefined) {
+          ready =
+            candidateUsesOnlyExternalImports(paths.fullDir, file.basename) ||
+            candidateDependenciesReady(opts.target, paths.fullDir, file);
+          dependencyReadyCache.set(file.basename, ready);
+        }
+        return ready;
+      },
     });
     let wave = frontier.filter((item) => {
       const file = manifest.files[item.basename];
@@ -712,6 +1138,28 @@ export function promoteOrganized(
       if (attempted.has(item.basename)) return false;
       return true;
     });
+    let waveImportMap = importMap;
+    let atomicWave = false;
+    if (wave.length === 0) {
+      wave = promotableCycleWave(
+        manifest,
+        ledger as never,
+        paths.fullDir,
+        opts.target,
+        attempted,
+        opts.only,
+      );
+      if (wave.length > 0) {
+        atomicWave = true;
+        waveImportMap = plannedImportMapForWave(
+          importMap,
+          manifest,
+          ledger,
+          paths.fullDir,
+          wave,
+        );
+      }
+    }
     if (opts.limit !== undefined) {
       wave = wave.slice(0, Math.max(0, opts.limit - processed));
     }
@@ -738,9 +1186,10 @@ export function promoteOrganized(
           semanticPath: org.semanticPath,
           recipe: org.recipe ?? "manual",
           fullDir: paths.fullDir,
-          importMap,
+          importMap: waveImportMap,
           rootDir: manifest.rootDir,
           manifest,
+          ledgerFile: ledger.files?.[basename],
         });
         // Write at the FINAL location so relative imports to promoted siblings
         // resolve, gate in place, then keep or roll back.
@@ -781,6 +1230,69 @@ export function promoteOrganized(
     // ---- Phase B: format the whole wave in one prettier spawn (before gating).
     formatWave(staged.map((s) => s.built));
 
+    // A strongly-connected component is one logical unit: every member was
+    // written so its peers' relative imports resolve. If any member fails the
+    // gate, roll the whole wave back before committing any manifest/import-map
+    // state, otherwise a passing member could retain imports to a rolled-back
+    // peer.
+    if (atomicWave) {
+      const issueMap = new Map<string, string[]>();
+      for (const s of staged) {
+        const qopts = qualityOptionsFor(
+          s.file.organization?.classification,
+          opts.tier ?? "deep",
+        );
+        issueMap.set(
+          s.basename,
+          [
+            ...new Set(
+              s.built.files.flatMap((f) => {
+                const dest = path.join(opts.target, f.relPath);
+                const code = fs.existsSync(dest)
+                  ? fs.readFileSync(dest, "utf-8")
+                  : f.code;
+                return analyzeSource(code, dest, qopts).issues.map(
+                  (issue) => issue.code,
+                );
+              }),
+            ),
+          ],
+        );
+      }
+      if ([...issueMap.values()].some((issues) => issues.length > 0)) {
+        for (const s of staged) {
+          rollback(s.rollbackSnapshot);
+          if (s.lockHeld) {
+            try {
+              releaseLock(paths.fullDir, s.basename, "promote", {
+                force: true,
+              });
+            } catch {
+              // best-effort
+            }
+          }
+          const issues = issueMap.get(s.basename) ?? [];
+          log(
+            issues.length > 0
+              ? `promote: FAIL ${s.basename} (${issues.join(", ")})`
+              : `promote: BLOCKED ${s.basename} (cyclic peer gate failed)`,
+          );
+          results.push({
+            basename: s.basename,
+            promoted: false,
+            semanticPath: s.file.organization!.semanticPath,
+            reason:
+              issues.length > 0
+                ? "gate rejected candidate"
+                : "cyclic peer gate failed",
+            ...(issues.length > 0 ? { issues } : {}),
+          });
+          attempted.add(s.basename);
+        }
+        continue promotionLoop;
+      }
+    }
+
     // ---- Phase C: gate the FORMATTED output, then commit or roll back per chunk.
     for (const s of staged) {
       const { basename, file, built } = s;
@@ -788,27 +1300,33 @@ export function promoteOrganized(
       let rollbackSnapshot: RollbackSnapshot | null = s.rollbackSnapshot;
       try {
         const qopts = qualityOptionsFor(org.classification, opts.tier ?? "deep");
+        const issueDetails = built.files.map((f) => {
+          const dest = path.join(opts.target, f.relPath);
+          // Gate the on-disk (formatted) output; fall back to the built code
+          // if the file vanished (never expected — snapshot still rolls back).
+          let code = f.code;
+          try {
+            code = fs.readFileSync(dest, "utf-8");
+          } catch {
+            // keep built code
+          }
+          return {
+            relPath: f.relPath,
+            issues: analyzeSource(code, dest, qopts).issues.map((i) => i.code),
+          };
+        });
         const issues = [
-          ...new Set(
-            built.files.flatMap((f) => {
-              const dest = path.join(opts.target, f.relPath);
-              // Gate the on-disk (formatted) output; fall back to the built code
-              // if the file vanished (never expected — snapshot still rolls back).
-              let code = f.code;
-              try {
-                code = fs.readFileSync(dest, "utf-8");
-              } catch {
-                // keep built code
-              }
-              return analyzeSource(code, dest, qopts).issues.map((i) => i.code);
-            }),
-          ),
+          ...new Set(issueDetails.flatMap((detail) => detail.issues)),
         ];
 
         if (issues.length > 0) {
           rollback(rollbackSnapshot);
           rollbackSnapshot = null;
-          log(`promote: FAIL ${basename} (${issues.join(", ")})`);
+          const detail = issueDetails
+            .filter((item) => item.issues.length > 0)
+            .map((item) => `${item.relPath}: ${item.issues.join(", ")}`)
+            .join("; ");
+          log(`promote: FAIL ${basename} (${detail})`);
           results.push({
             basename,
             promoted: false,

@@ -261,9 +261,9 @@ function CodeSnippet({
         try {
           setHighlightedCode(module.highlightCode(nextContent, nextLanguage));
         } catch (error) {
-          if (
-            !(error instanceof Error && /Unknown language/i.test(error.message))
-          ) {
+          if (!(
+            error instanceof Error && /Unknown language/i.test(error.message)
+          )) {
             throw error;
           }
         }

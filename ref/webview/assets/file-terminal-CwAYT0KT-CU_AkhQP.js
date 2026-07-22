@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-terminal-CwAYT0KT-BpoxG7_X.js";
+t();
+export { e as default };

@@ -20,16 +20,14 @@ export function getDesktopSettingDefinition(
   key: string,
 ): DesktopSettingDefinition | null {
   const getDefinition = sharedRuntime.getDesktopSettingDefinition as
-    | ((key: string) => unknown)
-    | undefined;
+    ((key: string) => unknown) | undefined;
   const definition = getDefinition?.(key);
   return isDesktopSettingDefinition(definition) ? definition : null;
 }
 
 export function getDesktopSettingSchema(key: string): unknown {
   const getSchema = sharedRuntime.getDesktopSettingSchema as
-    | ((key: string) => unknown)
-    | undefined;
+    ((key: string) => unknown) | undefined;
   return getSchema?.(key) ?? getDesktopSettingDefinition(key)?.schema;
 }
 
@@ -110,8 +108,7 @@ export function persistGlobalStateMap(
 
 export function getDefaultGlobalStateValue(key: string): unknown {
   const getDefault = sharedRuntime.getDefaultGlobalStateValue as
-    | ((key: string) => unknown | null | undefined)
-    | undefined;
+    ((key: string) => unknown | null | undefined) | undefined;
   return getDefault?.(key) ?? null;
 }
 

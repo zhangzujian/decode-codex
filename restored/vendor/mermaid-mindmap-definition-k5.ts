@@ -608,7 +608,6 @@ var mindmapDefinitionQFDTVHPHValue1 = (function () {
             mindmapDefinitionQFDTVHPHValue52,
             mindmapDefinitionQFDTVHPHValue53;
           ;
-
         ) {
           if (
             ((mindmapDefinitionQFDTVHPHValue46 =

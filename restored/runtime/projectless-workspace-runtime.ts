@@ -30,11 +30,7 @@ export async function resolveProjectlessWorkspace(
     };
   }
 
-  const {
-    cwd,
-    outputDirectory,
-    workspaceRoot,
-  } = await sendHostRequest<{
+  const { cwd, outputDirectory, workspaceRoot } = await sendHostRequest<{
     cwd: string | null;
     outputDirectory: string | null;
     workspaceRoot: string;

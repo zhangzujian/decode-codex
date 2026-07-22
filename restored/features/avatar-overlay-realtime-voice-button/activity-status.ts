@@ -15,12 +15,7 @@ export type AvatarOverlayNotificationActivity =
       level?: "warning" | "danger" | "success" | "info";
     };
 export type AvatarOverlayMascotState =
-  | "idle"
-  | "waving"
-  | "running"
-  | "waiting"
-  | "failed"
-  | "review";
+  "idle" | "waving" | "running" | "waiting" | "failed" | "review";
 export type AvatarOverlayActivityStatusConfig = {
   badgeBackgroundColor: string;
   badgeForegroundColor: string;

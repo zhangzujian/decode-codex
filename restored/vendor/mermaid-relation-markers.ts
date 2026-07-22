@@ -1,14 +1,12 @@
-// Restored from ref/webview/assets/chunk-HN2XXSSU-BJwKN-er.js
+// Restored from ref/webview/assets/chunk-HN2XXSSU-C3555Ac7.js
 // Vendored Mermaid relation marker geometry helpers restored from the Codex webview bundle.
 import { chunkAGHRB4JFN } from "./dayjs-core-alt";
-
 type PointTuple = [number, number];
 type PointObject = {
   x: number;
   y: number;
 };
 type PointLike = PointTuple | PointObject;
-
 type MarkerArrowType =
   | "aggregation"
   | "extension"
@@ -16,25 +14,20 @@ type MarkerArrowType =
   | "dependency"
   | "lollipop"
   | "arrow_point";
-
 type NeoMarkerArrowType = "arrow_point" | "arrow_cross" | "arrow_circle";
-
 type RelationMarkerConfig = {
   arrowTypeStart?: string;
   arrowTypeEnd?: string;
 };
-
 type DeltaAndAngle = {
   angle: number;
   deltaX: number;
   deltaY: number;
 };
-
 type OffsetLineAccessors = {
   x(point: PointLike, index: number, points: PointLike[]): number;
   y(point: PointLike, index: number, points: PointLike[]): number;
 };
-
 export const relationMarkerOffsets: Record<MarkerArrowType, number> = {
   aggregation: 17.25,
   extension: 17.25,
@@ -43,13 +36,11 @@ export const relationMarkerOffsets: Record<MarkerArrowType, number> = {
   lollipop: 13.5,
   arrow_point: 4,
 };
-
 export const neoMarkerOffsets: Record<NeoMarkerArrowType, number> = {
   arrow_point: 9,
   arrow_cross: 12.5,
   arrow_circle: 12.5,
 };
-
 function hasRelationMarkerOffset(
   arrowType: string | undefined,
 ): arrowType is MarkerArrowType {
@@ -57,7 +48,6 @@ function hasRelationMarkerOffset(
     arrowType !== undefined && Object.hasOwn(relationMarkerOffsets, arrowType)
   );
 }
-
 const toPoint = chunkAGHRB4JFN((point: PointLike): PointObject => {
   return Array.isArray(point)
     ? {
@@ -66,7 +56,6 @@ const toPoint = chunkAGHRB4JFN((point: PointLike): PointObject => {
       }
     : point;
 }, "pointTransformer");
-
 const calculateDeltaAndAngle = chunkAGHRB4JFN(
   (fromPoint?: PointLike, toPointInput?: PointLike): DeltaAndAngle => {
     if (fromPoint === undefined || toPointInput === undefined) {
@@ -76,12 +65,10 @@ const calculateDeltaAndAngle = chunkAGHRB4JFN(
         deltaY: 0,
       };
     }
-
     const from = toPoint(fromPoint);
     const to = toPoint(toPointInput);
     const deltaX = to.x - from.x;
     const deltaY = to.y - from.y;
-
     return {
       angle: Math.atan(deltaY / deltaX),
       deltaX,
@@ -90,7 +77,6 @@ const calculateDeltaAndAngle = chunkAGHRB4JFN(
   },
   "calculateDeltaAndAngle",
 );
-
 export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
   (markerConfig: RelationMarkerConfig): OffsetLineAccessors => ({
     x(point: PointLike, index: number, points: PointLike[]): number {
@@ -98,7 +84,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
       const firstPoint = toPoint(points[0]);
       const lastPoint = toPoint(points[points.length - 1]);
       const horizontalDirection = firstPoint.x < lastPoint.x ? "left" : "right";
-
       if (index === 0 && hasRelationMarkerOffset(markerConfig.arrowTypeStart)) {
         const { angle, deltaX } = calculateDeltaAndAngle(points[0], points[1]);
         offset =
@@ -118,7 +103,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
           Math.cos(angle) *
           (deltaX >= 0 ? 1 : -1);
       }
-
       const currentPoint = toPoint(point);
       const distanceToEndX = Math.abs(currentPoint.x - lastPoint.x);
       const distanceToEndY = Math.abs(currentPoint.y - lastPoint.y);
@@ -128,7 +112,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         relationMarkerOffsets[markerConfig.arrowTypeStart as MarkerArrowType];
       const endMarkerOffset =
         relationMarkerOffsets[markerConfig.arrowTypeEnd as MarkerArrowType];
-
       if (
         distanceToEndX < endMarkerOffset &&
         distanceToEndX > 0 &&
@@ -138,7 +121,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         overlapOffset *= horizontalDirection === "right" ? -1 : 1;
         offset -= overlapOffset;
       }
-
       if (
         distanceToStartX < startMarkerOffset &&
         distanceToStartX > 0 &&
@@ -148,7 +130,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         overlapOffset *= horizontalDirection === "right" ? -1 : 1;
         offset += overlapOffset;
       }
-
       return currentPoint.x + offset;
     },
     y(point: PointLike, index: number, points: PointLike[]): number {
@@ -156,7 +137,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
       const firstPoint = toPoint(points[0]);
       const lastPoint = toPoint(points[points.length - 1]);
       const verticalDirection = firstPoint.y < lastPoint.y ? "down" : "up";
-
       if (index === 0 && hasRelationMarkerOffset(markerConfig.arrowTypeStart)) {
         const { angle, deltaY } = calculateDeltaAndAngle(points[0], points[1]);
         offset =
@@ -176,7 +156,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
           Math.abs(Math.sin(angle)) *
           (deltaY >= 0 ? 1 : -1);
       }
-
       const currentPoint = toPoint(point);
       const distanceToEndY = Math.abs(currentPoint.y - lastPoint.y);
       const distanceToEndX = Math.abs(currentPoint.x - lastPoint.x);
@@ -186,7 +165,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         relationMarkerOffsets[markerConfig.arrowTypeStart as MarkerArrowType];
       const endMarkerOffset =
         relationMarkerOffsets[markerConfig.arrowTypeEnd as MarkerArrowType];
-
       if (
         distanceToEndY < endMarkerOffset &&
         distanceToEndY > 0 &&
@@ -196,7 +174,6 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         overlapOffset *= verticalDirection === "up" ? -1 : 1;
         offset -= overlapOffset;
       }
-
       if (
         distanceToStartY < startMarkerOffset &&
         distanceToStartY > 0 &&
@@ -206,15 +183,12 @@ export const getLineFunctionsWithOffset = chunkAGHRB4JFN(
         overlapOffset *= verticalDirection === "up" ? -1 : 1;
         offset += overlapOffset;
       }
-
       return currentPoint.y + offset;
     },
   }),
   "getLineFunctionsWithOffset",
 );
-
 export const chunkHN2XXSSUN = relationMarkerOffsets;
 export const chunkHN2XXSSUR = neoMarkerOffsets;
 export const chunkHN2XXSSUT = getLineFunctionsWithOffset;
-
 export function initChunkHN2XXSSU() {}

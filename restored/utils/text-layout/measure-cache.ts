@@ -33,17 +33,14 @@ const EMOJI_RELATED =
   /[\p{Emoji_Presentation}\p{Extended_Pictographic}\p{Regional_Indicator}️⃣]/u;
 
 let sharedContext:
-  | CanvasRenderingContext2D
-  | OffscreenCanvasRenderingContext2D
-  | null = null;
+  CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D | null = null;
 const fontCachesByFont = new Map<string, SegmentCache>();
 let engineConfig: EngineConfig | null = null;
 let graphemeSegmenter: Intl.Segmenter | null = null;
 const emojiCorrectionByFont = new Map<string, number>();
 
 function getMeasurementContext():
-  | CanvasRenderingContext2D
-  | OffscreenCanvasRenderingContext2D {
+  CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D {
   if (sharedContext !== null) return sharedContext;
   if (typeof OffscreenCanvas < "u")
     return new OffscreenCanvas(1, 1).getContext(

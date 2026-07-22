@@ -6,13 +6,7 @@ import { Tooltip } from "../ui/tooltip-b";
 import { FormattedMessage, type IntlShape } from "../vendor/react-intl";
 
 type ProfileReasoningEffort =
-  | "none"
-  | "minimal"
-  | "low"
-  | "medium"
-  | "high"
-  | "xhigh"
-  | "max";
+  "none" | "minimal" | "low" | "medium" | "high" | "xhigh" | "max";
 
 export type ProfileActivityMetricRowProps = {
   isEmpty: boolean;

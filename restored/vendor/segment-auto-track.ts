@@ -3,8 +3,7 @@
 import { withTimeout } from "../utils/callback";
 type SegmentTrackOptions = Record<string, unknown>;
 type SegmentTrackValue<TElement extends Element> =
-  | unknown
-  | ((element: TElement) => unknown);
+  unknown | ((element: TElement) => unknown);
 type TrackableElementCollection<TElement extends Element> =
   | TElement
   | ArrayLike<TElement>
@@ -60,9 +59,9 @@ function toElementArray<TElement extends Element>(
 function isModifiedClick(event: MouseEvent): boolean {
   return Boolean(
     event.ctrlKey ||
-      event.shiftKey ||
-      event.metaKey ||
-      (event.button && event.button === 1),
+    event.shiftKey ||
+    event.metaKey ||
+    (event.button && event.button === 1),
   );
 }
 function opensInNewBrowsingContext(

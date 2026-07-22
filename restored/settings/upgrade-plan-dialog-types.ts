@@ -13,10 +13,7 @@ export type ConsumerPlanSku =
   | typeof Sku.PROLITE
   | typeof Sku.PRO;
 export type PaidConsumerPlanSku =
-  | typeof Sku.GO
-  | typeof Sku.PLUS
-  | typeof Sku.PROLITE
-  | typeof Sku.PRO;
+  typeof Sku.GO | typeof Sku.PLUS | typeof Sku.PROLITE | typeof Sku.PRO;
 export type ProPlanSku = typeof Sku.PROLITE | typeof Sku.PRO;
 export type UpgradePlanDefaultTab = "business" | "personal";
 export type PlanChangeAction = "current" | "downgrade" | "upgrade";

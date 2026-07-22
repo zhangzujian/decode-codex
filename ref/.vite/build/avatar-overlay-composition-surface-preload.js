@@ -1,4 +1,4 @@
-let e = require(`electron`);
+let e = require("electron");
 var t = `avatar-overlay-composition:focus-composer`,
   n = `avatar-overlay-composition:connect-host`,
   r = `avatar-overlay-composition:surface-preparation-updated`;

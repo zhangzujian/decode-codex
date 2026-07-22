@@ -1,0 +1,3 @@
+import { n as e, t } from "./film-3KOuGSPZ-eidrslud.js";
+e();
+export { t as default };

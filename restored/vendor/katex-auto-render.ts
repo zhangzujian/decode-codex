@@ -103,7 +103,7 @@ function chunkABZYJK2DHelper3(chunkABZYJK2DParam36, chunkABZYJK2DParam37) {
       : chunkABZYJK2DValue6;
   setPrototypeOf && setPrototypeOf(chunkABZYJK2DParam36, null);
   let chunkABZYJK2DValue201 = chunkABZYJK2DParam37.length;
-  for (; chunkABZYJK2DValue201--; ) {
+  for (; chunkABZYJK2DValue201--;) {
     let chunkABZYJK2DValue238 = chunkABZYJK2DParam37[chunkABZYJK2DValue201];
     if (typeof chunkABZYJK2DValue238 == "string") {
       let chunkABZYJK2DValue266 = chunkABZYJK2DValue200(chunkABZYJK2DValue238);
@@ -146,7 +146,7 @@ function chunkABZYJK2DHelper5(chunkABZYJK2DParam50) {
   return chunkABZYJK2DValue216;
 }
 function chunkABZYJK2DHelper6(chunkABZYJK2DParam51, chunkABZYJK2DParam52) {
-  for (; chunkABZYJK2DParam51 !== null; ) {
+  for (; chunkABZYJK2DParam51 !== null;) {
     let chunkABZYJK2DValue235 = getOwnPropertyDescriptor(
       chunkABZYJK2DParam51,
       chunkABZYJK2DParam52,
@@ -1257,38 +1257,35 @@ function chunkABZYJK2DHelper7() {
           !chunkABZYJK2DValue109[chunkABZYJK2DParam8] ||
           chunkABZYJK2DValue112[chunkABZYJK2DParam8]
         ) {
-          if (
-            !(
-              (__chunkABZYJK2DA(chunkABZYJK2DParam7) &&
-                ((chunkABZYJK2DValue110.tagNameCheck instanceof RegExp &&
-                  chunkABZYJK2DValue13(
-                    chunkABZYJK2DValue110.tagNameCheck,
-                    chunkABZYJK2DParam7,
-                  )) ||
-                  (chunkABZYJK2DValue110.tagNameCheck instanceof Function &&
-                    chunkABZYJK2DValue110.tagNameCheck(chunkABZYJK2DParam7))) &&
-                ((chunkABZYJK2DValue110.attributeNameCheck instanceof RegExp &&
-                  chunkABZYJK2DValue13(
-                    chunkABZYJK2DValue110.attributeNameCheck,
+          if (!(
+            (__chunkABZYJK2DA(chunkABZYJK2DParam7) &&
+              ((chunkABZYJK2DValue110.tagNameCheck instanceof RegExp &&
+                chunkABZYJK2DValue13(
+                  chunkABZYJK2DValue110.tagNameCheck,
+                  chunkABZYJK2DParam7,
+                )) ||
+                (chunkABZYJK2DValue110.tagNameCheck instanceof Function &&
+                  chunkABZYJK2DValue110.tagNameCheck(chunkABZYJK2DParam7))) &&
+              ((chunkABZYJK2DValue110.attributeNameCheck instanceof RegExp &&
+                chunkABZYJK2DValue13(
+                  chunkABZYJK2DValue110.attributeNameCheck,
+                  chunkABZYJK2DParam8,
+                )) ||
+                (chunkABZYJK2DValue110.attributeNameCheck instanceof Function &&
+                  chunkABZYJK2DValue110.attributeNameCheck(
                     chunkABZYJK2DParam8,
-                  )) ||
-                  (chunkABZYJK2DValue110.attributeNameCheck instanceof
-                    Function &&
-                    chunkABZYJK2DValue110.attributeNameCheck(
-                      chunkABZYJK2DParam8,
-                      chunkABZYJK2DParam7,
-                    )))) ||
-              (chunkABZYJK2DParam8 === "is" &&
-                chunkABZYJK2DValue110.allowCustomizedBuiltInElements &&
-                ((chunkABZYJK2DValue110.tagNameCheck instanceof RegExp &&
-                  chunkABZYJK2DValue13(
-                    chunkABZYJK2DValue110.tagNameCheck,
-                    chunkABZYJK2DParam9,
-                  )) ||
-                  (chunkABZYJK2DValue110.tagNameCheck instanceof Function &&
-                    chunkABZYJK2DValue110.tagNameCheck(chunkABZYJK2DParam9))))
-            )
-          )
+                    chunkABZYJK2DParam7,
+                  )))) ||
+            (chunkABZYJK2DParam8 === "is" &&
+              chunkABZYJK2DValue110.allowCustomizedBuiltInElements &&
+              ((chunkABZYJK2DValue110.tagNameCheck instanceof RegExp &&
+                chunkABZYJK2DValue13(
+                  chunkABZYJK2DValue110.tagNameCheck,
+                  chunkABZYJK2DParam9,
+                )) ||
+                (chunkABZYJK2DValue110.tagNameCheck instanceof Function &&
+                  chunkABZYJK2DValue110.tagNameCheck(chunkABZYJK2DParam9))))
+          ))
             return false;
         } else if (
           !chunkABZYJK2DValue129[chunkABZYJK2DParam8] &&
@@ -1339,7 +1336,7 @@ function chunkABZYJK2DHelper7() {
           forceKeepAttr: undefined,
         },
         chunkABZYJK2DValue158 = attributes.length;
-      for (; chunkABZYJK2DValue158--; ) {
+      for (; chunkABZYJK2DValue158--;) {
         let { name, namespaceURI, value } = attributes[chunkABZYJK2DValue158],
           chunkABZYJK2DValue161 = ___chunkABZYJK2DD(name),
           chunkABZYJK2DValue162 = value,
@@ -1472,7 +1469,6 @@ function chunkABZYJK2DHelper7() {
           null,
         );
         (chunkABZYJK2DValue202 = chunkABZYJK2DValue203.nextNode());
-
       ) {
         __chunkABZYJK2DH(
           chunkABZYJK2DValue107.uponSanitizeShadowNode,
@@ -1568,7 +1564,7 @@ function chunkABZYJK2DHelper7() {
       let chunkABZYJK2DValue155 = chunkABZYJK2DValue142(
         chunkABZYJK2DValue124 ? chunkABZYJK2DParam1 : chunkABZYJK2DValue151,
       );
-      for (; (chunkABZYJK2DValue153 = chunkABZYJK2DValue155.nextNode()); ) {
+      for (; (chunkABZYJK2DValue153 = chunkABZYJK2DValue155.nextNode());) {
         chunkABZYJK2DValue144(chunkABZYJK2DValue153);
         chunkABZYJK2DValue146(chunkABZYJK2DValue153);
         chunkABZYJK2DValue153.content instanceof DocumentFragment &&
@@ -1582,7 +1578,6 @@ function chunkABZYJK2DHelper7() {
               chunkABZYJK2DValue151.ownerDocument,
             );
             chunkABZYJK2DValue151.firstChild;
-
           )
             chunkABZYJK2DValue154.appendChild(chunkABZYJK2DValue151.firstChild);
         else chunkABZYJK2DValue154 = chunkABZYJK2DValue151;
@@ -5576,7 +5571,6 @@ var chunkABZYJK2DValue68 = chunkAGHRB4JFN(
       chunkABZYJK2DValue189 !== -1 &&
       chunkABZYJK2DValue190 !== -1 &&
       chunkABZYJK2DValue189 !== chunkABZYJK2DValue190;
-
     ) {
       chunkABZYJK2DValue188[chunkABZYJK2DValue189] = "<";
       chunkABZYJK2DValue188[chunkABZYJK2DValue190] = ">";
@@ -5601,13 +5595,11 @@ var chunkABZYJK2DValue68 = chunkAGHRB4JFN(
   chunkABZYJK2DValue82 = chunkAGHRB4JFN(
     async (chunkABZYJK2DParam10, chunkABZYJK2DParam11) => {
       if (!chunkABZYJK2DO(chunkABZYJK2DParam10)) return chunkABZYJK2DParam10;
-      if (
-        !(
-          chunkABZYJK2DValue80() ||
-          chunkABZYJK2DParam11.legacyMathML ||
-          chunkABZYJK2DParam11.forceLegacyMathML
-        )
-      )
+      if (!(
+        chunkABZYJK2DValue80() ||
+        chunkABZYJK2DParam11.legacyMathML ||
+        chunkABZYJK2DParam11.forceLegacyMathML
+      ))
         return chunkABZYJK2DParam10.replace(
           chunkABZYJK2DValue81,
           "MathML is unsupported in this environment.",

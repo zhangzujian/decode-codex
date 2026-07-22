@@ -15,4 +15,3 @@ export class HostRequestError extends Error {
     this.status = options.status;
   }
 }
-

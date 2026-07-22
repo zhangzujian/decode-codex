@@ -30,7 +30,10 @@ export function requestReviewPatchAction(
   scope: AppScope,
   params: PatchActionParams,
 ): void {
-  void startPatchAction(scope as Parameters<typeof startPatchAction>[0], params);
+  void startPatchAction(
+    scope as Parameters<typeof startPatchAction>[0],
+    params,
+  );
 }
 
 export function closeRevertConfirmDialog(scope: AppScope): void {

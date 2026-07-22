@@ -1,7 +1,4 @@
-// Restored from ref/webview/assets/css-CbzfSxcr.js
+// Restored from ref/webview/assets/css-V-D1sJxY.js
 // Shiki CSS grammar wrapper; the grammar payload stays in @shikijs/langs/css.
-import { n as cssGrammar, t as initCssGrammar } from "@shikijs/langs/css";
-
-initCssGrammar();
-
-export { cssGrammar as default };
+import cssGrammar from "@shikijs/langs/css";
+export default cssGrammar;

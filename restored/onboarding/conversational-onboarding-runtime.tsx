@@ -8,9 +8,7 @@ import {
   createJsonSchemaParser,
   zodToJsonSchema,
 } from "../boundaries/src-l0hb-mz-p";
-import {
-  appScopeUnderscore as createScopedAtom,
-} from "../boundaries/app-scope";
+import { appScopeUnderscore as createScopedAtom } from "../boundaries/app-scope";
 import { Button } from "../ui/button";
 import { ConnectorLogo } from "../utils/connector-logo";
 import { sendHostRequest } from "../runtime/host-request-runtime";
@@ -38,8 +36,9 @@ type ConnectorTaskOptions = {
   option: Record<string, unknown>;
 };
 
-export const conversationalOnboardingActiveTaskStateSignal =
-  createScopedAtom<unknown | null>(conversationalOnboardingTaskScope, null);
+export const conversationalOnboardingActiveTaskStateSignal = createScopedAtom<
+  unknown | null
+>(conversationalOnboardingTaskScope, null);
 export const conversationalOnboardingAllSetSignal = createScopedAtom<boolean>(
   conversationalOnboardingTaskScope,
   false,
@@ -53,7 +52,9 @@ export const conversationalOnboardingIntlAtom = createScopedAtom(
   createFallbackIntl,
 );
 
-export function prepareConversationalOnboardingExecution(store: StoreLike): void {
+export function prepareConversationalOnboardingExecution(
+  store: StoreLike,
+): void {
   store.set(conversationalOnboardingAllSetSignal, false);
   store.set(conversationalOnboardingExecutionFailedSignal, false);
 }
@@ -244,7 +245,9 @@ export const conversationalOnboardingTool = {
   name: "complete_conversational_onboarding_task",
   description:
     "Report the completed plugin-based conversational onboarding task before the final response. Include a short text result and the created event or message URL.",
-  inputSchema: createJsonSchemaParser().parse(zodToJsonSchema(completionSchema)),
+  inputSchema: createJsonSchemaParser().parse(
+    zodToJsonSchema(completionSchema),
+  ),
 };
 
 type KnownAppLogoProps = Omit<

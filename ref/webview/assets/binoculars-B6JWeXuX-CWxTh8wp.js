@@ -1,0 +1,3 @@
+import { n as e, t } from "./binoculars-B6JWeXuX-DxnOb70J.js";
+e();
+export { t as default };

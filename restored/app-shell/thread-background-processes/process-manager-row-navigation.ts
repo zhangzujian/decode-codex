@@ -6,11 +6,7 @@ const PROCESS_MANAGER_ROW_SELECTOR = "[data-process-manager-row='true']";
 const DEFAULT_PAGE_SIZE = 5;
 
 type RowFocusDirection =
-  | "first"
-  | "ArrowDown"
-  | "ArrowUp"
-  | "PageDown"
-  | "PageUp";
+  "first" | "ArrowDown" | "ArrowUp" | "PageDown" | "PageUp";
 
 export function focusFirstRowRef(element: HTMLElement | null): void {
   if (element == null) return;

@@ -41,8 +41,7 @@ export type NativeContextMenuCommandItem = {
   submenu?: NativeContextMenuItem[];
 };
 export type NativeContextMenuItem =
-  | NativeContextMenuSeparatorItem
-  | NativeContextMenuCommandItem;
+  NativeContextMenuSeparatorItem | NativeContextMenuCommandItem;
 
 export function registerShowApplicationMenuIpc(
   isTrustedIpcEvent: TrustedIpcEventPredicate,

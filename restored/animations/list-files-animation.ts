@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/list_files_animation-C8aBLLN5.js
+// Restored from ref/webview/assets/list_files_animation-C7_FabSp.js
 // Lottie animation data restored from the Codex webview bundle.
 export const listFilesAnimation = {
   v: "5.7.0",

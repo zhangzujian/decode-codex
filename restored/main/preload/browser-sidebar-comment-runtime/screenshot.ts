@@ -24,10 +24,10 @@ export type BrowserSidebarScreenshotAnnotationBase = {
 };
 
 export type BrowserSidebarScreenshotAnnotation<
-  TComment extends
-    BrowserSidebarScreenshotAnnotationBase = BrowserSidebarScreenshotAnnotationBase,
-  TDesign extends
-    BrowserSidebarScreenshotAnnotationBase = BrowserSidebarScreenshotAnnotationBase,
+  TComment extends BrowserSidebarScreenshotAnnotationBase =
+    BrowserSidebarScreenshotAnnotationBase,
+  TDesign extends BrowserSidebarScreenshotAnnotationBase =
+    BrowserSidebarScreenshotAnnotationBase,
 > =
   | {
       annotation: TComment;

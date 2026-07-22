@@ -1,0 +1,3 @@
+import { n as e, t } from "./dice-1-Lv2xoxW0-us5O_kgD.js";
+t();
+export { e as default };

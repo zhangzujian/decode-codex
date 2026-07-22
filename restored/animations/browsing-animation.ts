@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/browsing_animation-ziZqoAwk.js
+// Restored from ref/webview/assets/browsing_animation-CoOcX3cJ.js
 // Lottie animation data restored from the Codex webview bundle.
 export const browsingAnimation = {
   v: "5.7.0",

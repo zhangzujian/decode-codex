@@ -392,7 +392,7 @@ var documentT,
                 ? documentValue1.len
                 : documentValue1.pos + documentParam2,
             documentValue3 = documentHelper1();
-          for (; documentValue1.pos < documentValue2; ) {
+          for (; documentValue1.pos < documentValue2;) {
             let documentValue4 = documentValue1.uint32();
             switch (documentValue4 >>> 3) {
               case 6:
@@ -635,7 +635,7 @@ var documentT,
                 ? documentValue51.len
                 : documentValue51.pos + documentParam36,
             documentValue53 = documentHelper2();
-          for (; documentValue51.pos < documentValue52; ) {
+          for (; documentValue51.pos < documentValue52;) {
             let documentValue74 = documentValue51.uint32();
             switch (documentValue74 >>> 3) {
               case 1:
@@ -702,7 +702,7 @@ var documentT,
                 ? documentValue54.len
                 : documentValue54.pos + documentParam38,
             documentValue56 = documentHelper3();
-          for (; documentValue54.pos < documentValue55; ) {
+          for (; documentValue54.pos < documentValue55;) {
             let documentValue75 = documentValue54.uint32();
             switch (documentValue75 >>> 3) {
               case 1:
@@ -773,7 +773,7 @@ var documentT,
                 ? documentValue32.len
                 : documentValue32.pos + documentParam24,
             documentValue34 = documentHelper4();
-          for (; documentValue32.pos < documentValue33; ) {
+          for (; documentValue32.pos < documentValue33;) {
             let documentValue46 = documentValue32.uint32();
             switch (documentValue46 >>> 3) {
               case 1:
@@ -843,7 +843,7 @@ var documentT,
                 ? documentValue70.len
                 : documentValue70.pos + documentParam50,
             documentValue72 = documentHelper5();
-          for (; documentValue70.pos < documentValue71; ) {
+          for (; documentValue70.pos < documentValue71;) {
             let documentValue83 = documentValue70.uint32();
             switch (documentValue83 >>> 3) {
               case 1:
@@ -903,7 +903,7 @@ var documentT,
                 ? documentValue28.len
                 : documentValue28.pos + documentParam22,
             documentValue30 = documentHelper6();
-          for (; documentValue28.pos < documentValue29; ) {
+          for (; documentValue28.pos < documentValue29;) {
             let documentValue45 = documentValue28.uint32();
             switch (documentValue45 >>> 3) {
               case 1:
@@ -1000,7 +1000,7 @@ var documentT,
                 ? documentValue11.len
                 : documentValue11.pos + documentParam12,
             documentValue13 = documentHelper7();
-          for (; documentValue11.pos < documentValue12; ) {
+          for (; documentValue11.pos < documentValue12;) {
             let documentValue20 = documentValue11.uint32();
             switch (documentValue20 >>> 3) {
               case 1:
@@ -1106,7 +1106,7 @@ var documentT,
                 ? documentValue21.len
                 : documentValue21.pos + documentParam18,
             documentValue23 = documentHelper8();
-          for (; documentValue21.pos < documentValue22; ) {
+          for (; documentValue21.pos < documentValue22;) {
             let documentValue39 = documentValue21.uint32();
             switch (documentValue39 >>> 3) {
               case 1:
@@ -1179,7 +1179,7 @@ var documentT,
                 ? documentValue41.len
                 : documentValue41.pos + documentParam29,
             documentValue43 = documentHelper9();
-          for (; documentValue41.pos < documentValue42; ) {
+          for (; documentValue41.pos < documentValue42;) {
             let documentValue69 = documentValue41.uint32();
             switch (documentValue69 >>> 3) {
               case 1:
@@ -1253,7 +1253,7 @@ var documentT,
                 ? documentValue17.len
                 : documentValue17.pos + documentParam16,
             documentValue19 = documentHelper10();
-          for (; documentValue17.pos < documentValue18; ) {
+          for (; documentValue17.pos < documentValue18;) {
             let documentValue31 = documentValue17.uint32();
             switch (documentValue31 >>> 3) {
               case 1:
@@ -1334,7 +1334,7 @@ var documentT,
                 ? documentValue57.len
                 : documentValue57.pos + documentParam40,
             documentValue59 = documentHelper11();
-          for (; documentValue57.pos < documentValue58; ) {
+          for (; documentValue57.pos < documentValue58;) {
             let documentValue76 = documentValue57.uint32();
             switch (documentValue76 >>> 3) {
               case 1:
@@ -1405,7 +1405,7 @@ var documentT,
                 ? documentValue25.len
                 : documentValue25.pos + documentParam20,
             documentValue27 = documentHelper12();
-          for (; documentValue25.pos < documentValue26; ) {
+          for (; documentValue25.pos < documentValue26;) {
             let documentValue40 = documentValue25.uint32();
             switch (documentValue40 >>> 3) {
               case 1:
@@ -1424,7 +1424,7 @@ var documentT,
                 if (documentValue40 === 26) {
                   let documentValue102 =
                     documentValue25.uint32() + documentValue25.pos;
-                  for (; documentValue25.pos < documentValue102; )
+                  for (; documentValue25.pos < documentValue102;)
                     documentValue27.widths.push(documentValue25.int32());
                   continue;
                 }
@@ -1479,7 +1479,7 @@ var documentT,
                 ? documentValue63.len
                 : documentValue63.pos + documentParam44,
             documentValue65 = documentHelper13();
-          for (; documentValue63.pos < documentValue64; ) {
+          for (; documentValue63.pos < documentValue64;) {
             let documentValue78 = documentValue63.uint32();
             switch (documentValue78 >>> 3) {
               case 1:
@@ -1531,7 +1531,7 @@ var documentT,
                 ? documentValue80.len
                 : documentValue80.pos + documentParam55,
             documentValue82 = documentHelper14();
-          for (; documentValue80.pos < documentValue81; ) {
+          for (; documentValue80.pos < documentValue81;) {
             let documentValue91 = documentValue80.uint32();
             switch (documentValue91 >>> 3) {
               case 1:
@@ -1591,7 +1591,7 @@ var documentT,
                 ? documentValue35.len
                 : documentValue35.pos + documentParam26,
             documentValue37 = documentHelper15();
-          for (; documentValue35.pos < documentValue36; ) {
+          for (; documentValue35.pos < documentValue36;) {
             let documentValue47 = documentValue35.uint32();
             switch (documentValue47 >>> 3) {
               case 1:
@@ -1658,7 +1658,7 @@ var documentT,
                 ? documentValue60.len
                 : documentValue60.pos + documentParam42,
             documentValue62 = documentHelper16();
-          for (; documentValue60.pos < documentValue61; ) {
+          for (; documentValue60.pos < documentValue61;) {
             let documentValue77 = documentValue60.uint32();
             switch (documentValue77 >>> 3) {
               case 1:
@@ -1720,7 +1720,7 @@ var documentT,
                 ? documentValue66.len
                 : documentValue66.pos + documentParam46,
             documentValue68 = documentHelper17();
-          for (; documentValue66.pos < documentValue67; ) {
+          for (; documentValue66.pos < documentValue67;) {
             let documentValue79 = documentValue66.uint32();
             switch (documentValue79 >>> 3) {
               case 1:
@@ -1841,7 +1841,7 @@ var documentT,
                 ? documentValue5.len
                 : documentValue5.pos + documentParam4,
             documentValue7 = documentHelper18();
-          for (; documentValue5.pos < documentValue6; ) {
+          for (; documentValue5.pos < documentValue6;) {
             let documentValue8 = documentValue5.uint32();
             switch (documentValue8 >>> 3) {
               case 1:
@@ -2010,7 +2010,7 @@ var documentT,
                 ? documentValue48.len
                 : documentValue48.pos + documentParam34,
             documentValue50 = documentHelper19();
-          for (; documentValue48.pos < documentValue49; ) {
+          for (; documentValue48.pos < documentValue49;) {
             let documentValue73 = documentValue48.uint32();
             switch (documentValue73 >>> 3) {
               case 1:
@@ -2110,7 +2110,7 @@ var documentT,
                 ? documentValue14.len
                 : documentValue14.pos + documentParam14,
             documentValue16 = documentHelper20();
-          for (; documentValue14.pos < documentValue15; ) {
+          for (; documentValue14.pos < documentValue15;) {
             let documentValue24 = documentValue14.uint32();
             switch (documentValue24 >>> 3) {
               case 10:
