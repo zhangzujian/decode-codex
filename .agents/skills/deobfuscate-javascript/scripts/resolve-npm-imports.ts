@@ -108,6 +108,7 @@ export const CHUNK_NAME_REGISTRY: Record<string, ChunkRule> = {
   marked: { package: "marked", namedOnly: true },
   // Mermaid and search vendor chunks surfaced in Codex.app webview bundles.
   fuse: { package: "fuse.js", defaultName: "Fuse" },
+  tldts: { package: "tldts", namedOnly: true },
   "rough.esm": { package: "roughjs", defaultName: "rough" },
   "react-style-singleton": {
     package: "react-style-singleton",
@@ -268,6 +269,9 @@ export const ALIAS_REGISTRY: Record<string, AliasRule> = {
 
   // Day.js
   dayjs: { package: "dayjs", style: "default" },
+
+  // tldts
+  parseDomain: { package: "tldts", style: "named", importedAs: "parse" },
 
   // KaTeX
   katex: { package: "katex", style: "default" },

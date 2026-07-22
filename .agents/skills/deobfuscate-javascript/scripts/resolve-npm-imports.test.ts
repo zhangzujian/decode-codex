@@ -304,6 +304,23 @@ describe("resolveNpmImports (chunk-name based)", () => {
     expect(out.stats.specifiersResolved).toBe(3);
   });
 
+  test("rewrites tldts chunks to the npm package", () => {
+    const src = `
+      import {
+        parse as parseDomain,
+        getPublicSuffix,
+      } from "../tldts-BkQYZ_Iz.js";
+      parseDomain; getPublicSuffix;
+    `;
+    const out = resolveNpmImports(src);
+    const n = normalize(out.code);
+    expect(n).toContain('from "tldts"');
+    expect(n).toContain("parseDomain");
+    expect(n).toContain("getPublicSuffix");
+    expect(n).not.toContain("tldts-BkQYZ_Iz");
+    expect(out.stats.specifiersResolved).toBe(2);
+  });
+
   test("rewrites Graphlib and Dagre chunks to npm packages", () => {
     const src = `
       import { Graph as Graphlib } from "../graphlib-DGNlaJmK.js";
