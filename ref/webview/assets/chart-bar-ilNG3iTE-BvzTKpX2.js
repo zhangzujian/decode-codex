@@ -1,3 +1,0 @@
-import { n as e, t } from "./chart-bar-ilNG3iTE-DVzw_yMt.js";
-e();
-export { t as default };

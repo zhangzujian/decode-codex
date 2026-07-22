@@ -1,3 +1,0 @@
-import { n as e, t } from "./folder-git-Dh2S5qS2-jk9oI0JE.js";
-t();
-export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./picture-in-picture-2-ztbkIAHj-Bg2RcEaL.js";
+e();
+export { t as default };

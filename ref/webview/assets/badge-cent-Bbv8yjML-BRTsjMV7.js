@@ -1,3 +1,0 @@
-import { n as e, t } from "./badge-cent-Bbv8yjML-CCFld2yi.js";
-t();
-export { e as default };

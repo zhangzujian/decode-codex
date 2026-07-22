@@ -1,3 +1,0 @@
-import { n as e, t } from "./arrow-big-left-dash-DDJhiny--CHoTpmK-.js";
-e();
-export { t as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./sliders-vertical-DaQqTBfd-CYipgaqq.js";
-t();
-export { e as default };

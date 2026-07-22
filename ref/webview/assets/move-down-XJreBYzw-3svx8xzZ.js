@@ -1,3 +1,0 @@
-import { n as e, t } from "./move-down-XJreBYzw-CgMsBKMW.js";
-t();
-export { e as default };

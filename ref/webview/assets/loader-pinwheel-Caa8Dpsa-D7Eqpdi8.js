@@ -1,3 +1,0 @@
-import { n as e, t } from "./loader-pinwheel-Caa8Dpsa-Q0-sKx2c.js";
-e();
-export { t as default };

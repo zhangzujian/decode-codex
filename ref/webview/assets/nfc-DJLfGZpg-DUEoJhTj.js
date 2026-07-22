@@ -1,3 +1,0 @@
-import { n as e, t } from "./nfc-DJLfGZpg-BikL-DhL.js";
-t();
-export { e as default };

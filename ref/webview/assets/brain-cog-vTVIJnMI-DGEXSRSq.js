@@ -1,3 +1,0 @@
-import { n as e, t } from "./brain-cog-vTVIJnMI-DovYeE39.js";
-t();
-export { e as default };

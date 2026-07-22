@@ -1,0 +1,3 @@
+import { n as e, t } from "./git-pull-request-arrow-C_ZIkhhi-8VWupTJk.js";
+t();
+export { e as default };

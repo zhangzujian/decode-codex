@@ -1,3 +1,0 @@
-import { n as e, t } from "./check-check-CBmD_Cz--CaIgGV1s.js";
-t();
-export { e as default };

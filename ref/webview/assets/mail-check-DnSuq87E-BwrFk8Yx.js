@@ -1,3 +1,0 @@
-import { n as e, t } from "./mail-check-DnSuq87E-BnkgECTD.js";
-e();
-export { t as default };

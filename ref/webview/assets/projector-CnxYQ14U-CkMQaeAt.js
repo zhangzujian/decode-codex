@@ -1,3 +1,0 @@
-import { n as e, t } from "./projector-CnxYQ14U-w94OdaUO.js";
-t();
-export { e as default };

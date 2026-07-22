@@ -1,3 +1,0 @@
-import { n as e, t } from "./chrome-CkkewYrQ-1fqJlYcR.js";
-e();
-export { t as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./subscript-BoYLrmtD-Bi-KvbI6.js";
-e();
-export { t as default };

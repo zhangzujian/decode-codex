@@ -1,3 +1,0 @@
-import { n as e, t } from "./file-heart-BzodOUhg-o40GphBA.js";
-t();
-export { e as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./shield-off-C3-EHnzE-BOAY1Wet.js";
-t();
-export { e as default };

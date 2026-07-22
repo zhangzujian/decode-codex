@@ -1,3 +1,0 @@
-import { n as e, t } from "./pencil-ruler-D7WZznOA-BR3fysCj.js";
-t();
-export { e as default };

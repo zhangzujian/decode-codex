@@ -1,3 +1,0 @@
-import { n as e, t } from "./view-Bp7jtIVz-Bd0TIid3.js";
-e();
-export { t as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./animated-icon-lgQBewUL.js";
-e();
-export { t as AnimatedIcon };

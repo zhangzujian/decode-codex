@@ -2,5 +2,5 @@
   require("./desktop-open-path-queue-DVi5tft2.js").r(
     process.platform === `darwin`,
   ),
-  Promise.resolve().then(() => require("./bootstrap-yoLi0rMn.js")));
+  Promise.resolve().then(() => require("./bootstrap-ma4GMiLw.js")));
 //# sourceMappingURL=early-bootstrap.js.map

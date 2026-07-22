@@ -1,3 +1,0 @@
-import { n as e, t } from "./sailboat-DJ7tezH1-_0Kgm5TN.js";
-e();
-export { t as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./move-left-BUUzHmXs-DOMOfndf.js";
-t();
-export { e as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./cannabis-BVJC96En-CciWZhB6.js";
-t();
-export { e as default };

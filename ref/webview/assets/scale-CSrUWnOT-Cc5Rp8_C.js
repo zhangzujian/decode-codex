@@ -1,3 +1,0 @@
-import { n as e, t } from "./scale-CSrUWnOT-BQIi2rvP.js";
-e();
-export { t as default };

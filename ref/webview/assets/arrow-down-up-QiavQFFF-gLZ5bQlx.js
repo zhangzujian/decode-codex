@@ -1,3 +1,0 @@
-import { n as e, t } from "./arrow-down-up-QiavQFFF-BSsORAYa.js";
-t();
-export { e as default };

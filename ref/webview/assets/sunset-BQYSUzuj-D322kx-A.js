@@ -1,3 +1,0 @@
-import { n as e, t } from "./sunset-BQYSUzuj-H2_S2R9v.js";
-t();
-export { e as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./graduation-cap-DOrElkZU-BauGuTCi.js";
-e();
-export { t as default };

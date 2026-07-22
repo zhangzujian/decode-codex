@@ -1,3 +1,0 @@
-import { n as e, t } from "./pause-CYJiTe7v-B-YrpVqp.js";
-t();
-export { e as default };

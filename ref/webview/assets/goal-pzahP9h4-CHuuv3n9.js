@@ -1,3 +1,0 @@
-import { n as e, t } from "./goal-pzahP9h4-DVSSYOud.js";
-t();
-export { e as default };

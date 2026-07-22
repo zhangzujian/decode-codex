@@ -1,3 +1,0 @@
-import { n as e, t } from "./square-Bi2LiMbD-BDVDs1ql.js";
-t();
-export { e as default };

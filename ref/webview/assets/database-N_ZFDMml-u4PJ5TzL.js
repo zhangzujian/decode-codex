@@ -1,3 +1,0 @@
-import { n as e, t } from "./database-N_ZFDMml-C2zRGCYW.js";
-t();
-export { e as default };

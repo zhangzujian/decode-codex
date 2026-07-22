@@ -1,0 +1,3 @@
+import { n as e, t } from "./clock-3-Bo3EbZEc-1OURc3dp.js";
+t();
+export { e as default };

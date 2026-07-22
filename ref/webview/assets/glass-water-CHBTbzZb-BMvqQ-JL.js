@@ -1,3 +1,0 @@
-import { n as e, t } from "./glass-water-CHBTbzZb-CJhWrwdC.js";
-e();
-export { t as default };

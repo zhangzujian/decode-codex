@@ -1,3 +1,0 @@
-import { n as e, t } from "./webhook-off--jkZm6ab-BfruNzMv.js";
-t();
-export { e as default };

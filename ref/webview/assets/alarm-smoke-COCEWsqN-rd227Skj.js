@@ -1,3 +1,0 @@
-import { n as e, t } from "./alarm-smoke-COCEWsqN-EFlCdLou.js";
-e();
-export { t as default };

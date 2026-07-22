@@ -1,3 +1,0 @@
-import { n as e, t } from "./chart-bar-decreasing-BUYk0Vpy-DL0rE1N0.js";
-t();
-export { e as default };

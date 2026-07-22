@@ -1,3 +1,0 @@
-import { n as e, t } from "./sofa-CtVfMmsA-bdONEdaq.js";
-t();
-export { e as default };

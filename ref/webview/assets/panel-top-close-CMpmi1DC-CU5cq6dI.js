@@ -1,3 +1,0 @@
-import { n as e, t } from "./panel-top-close-CMpmi1DC-BygMFIlR.js";
-e();
-export { t as default };

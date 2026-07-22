@@ -1,3 +1,0 @@
-import { n as e, t } from "./shopping-cart-C5YhUKGS-BDKpi1cL.js";
-t();
-export { e as default };

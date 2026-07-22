@@ -1,3 +1,0 @@
-import { n as e, t } from "./snail-CZurTOga-BBrDgjSs.js";
-t();
-export { e as default };
