@@ -348,7 +348,7 @@ export function inferManualExportMap(
   // unique suffix before falling back to positional pairing. Do not suffix-match
   // one-letter bundle aliases: `a` must not accidentally bind to `data`.
   for (const sourceExport of sourceExports) {
-    if (out[sourceExport.exported] || sourceExport.exported.length < 2) continue;
+    if (out[sourceExport.exported] || sourceExport.exported.length < 3) continue;
     const suffix = sourceExport.exported.toLowerCase();
     const matches = [...available].filter((name) =>
       name.toLowerCase().endsWith(suffix),

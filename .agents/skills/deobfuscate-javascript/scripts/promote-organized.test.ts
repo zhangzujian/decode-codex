@@ -578,6 +578,23 @@ describe("relativeImport / buildImportMappings", () => {
     ).toEqual({ a: "isString", b: "isNumber" });
   });
 
+  test("inferManualExportMap does not suffix-match two-letter bundle aliases", () => {
+    const chunk = {
+      basename: "router-shared-AbCdEf12",
+      kind: "local",
+      exports: [
+        { exported: "et", local: "link", kind: "named" },
+        { exported: "f", local: "outlet", kind: "named" },
+      ],
+    } as ManifestFile;
+    expect(
+      inferManualExportMap(
+        'export { Link, Outlet } from "../shared";',
+        chunk,
+      ),
+    ).toEqual({ et: "Link", f: "Outlet" });
+  });
+
   test("inferManualExportMap maps direct named re-exports by export order", () => {
     const chunk = {
       basename: "current-alias-AbCdEf12",
