@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-merge-TvL1qs_c-DPsT493v.js
+// Restored from ref/webview/assets/git-merge-TvL1qs_c-vf1GCA1i.js
 // Exact npm-backed Lucide default-export compatibility entry.
 import { GitMerge } from "lucide-react";
 export default GitMerge;

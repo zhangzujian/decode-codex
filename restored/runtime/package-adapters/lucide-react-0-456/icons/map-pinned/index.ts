@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/map-pinned-yDNsntrl-CAUNL-DI.js
+// Restored from ref/webview/assets/map-pinned-yDNsntrl-CHjccbdp.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { MapPinned } from "lucide-react";
 function initMapPinnedIconChunk(): void {}
-export { MapPinned, initMapPinnedIconChunk };
+export { initMapPinnedIconChunk, MapPinned };

@@ -1,6 +1,12 @@
-// Restored from ref/webview/assets/chatgpt-temporary-chat-ui-B9dRzsOI.js
+// Restored from ref/webview/assets/chatgpt-temporary-chat-ui-DnYe6tP5.js
 // Current entry wrapper for temporary-chat onboarding and toggle controls.
-export {
-  chatgptTemporaryChatUiRuntimeVariant2Member0003 as ChatGptTemporaryChatOnboardingModalHost,
-  chatgptTemporaryChatUiRuntimeVariant2Member0001 as ChatGptTemporaryChatToggleButton,
+import {
+  ChatGptTemporaryChatOnboardingModalHost,
+  ChatGptTemporaryChatToggleButton,
+  initializeChatGptTemporaryChatUi,
 } from "./index";
+initializeChatGptTemporaryChatUi();
+export {
+  ChatGptTemporaryChatOnboardingModalHost,
+  ChatGptTemporaryChatToggleButton,
+};

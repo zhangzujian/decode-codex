@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/use-searchable-page-title-visibility-CMbzIe9C.js
+// Restored from ref/webview/assets/use-searchable-page-title-visibility-wa1HN-nr.js
 // Current-build entry reusing the fingerprint-verified semantic module.
 export {
   useAppgenScrollablePageTitle,

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/rpc-CB_vtaGS.js
-// Current-build entry for the restored app host service runtime.
+// Restored from ref/webview/assets/rpc-YvKadVpS.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 export {
   appHost,
   appServices,

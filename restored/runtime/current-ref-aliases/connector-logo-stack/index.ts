@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/connector-logo-stack-OG4VPj_G.js
+// Restored from ref/webview/assets/connector-logo-stack-y1MyxZ74.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   initConnectorLogoStackChunk,
   ConnectorLogoStack,
 } from "../../../ui/connector-logo-stack";
-export { initConnectorLogoStackChunk, ConnectorLogoStack };

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/square-plus-DKAg5Cx2-CPhGtfKW.js
+// Restored from ref/webview/assets/square-plus-DKAg5Cx2-CAmST_EH.js
 // Exact npm-backed Lucide default-export compatibility entry.
 import { SquarePlus } from "lucide-react";
 export default SquarePlus;

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/codex-mobile-setup-flow-pKUGb8wW.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/codex-mobile-setup-flow-3rI8ECZG.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   codexMobileSetupFlowA,
   codexMobileSetupFlowC,

@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/upgrade-plan-dialog-_eGDf9MP.js
+// Restored from ref/webview/assets/upgrade-plan-dialog-DQS18rIq.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   UpgradePlanDialog,
   UpgradePlanDialogModal,
 } from "../../../settings/upgrade-plan-dialog";
-export { UpgradePlanDialog, UpgradePlanDialogModal };

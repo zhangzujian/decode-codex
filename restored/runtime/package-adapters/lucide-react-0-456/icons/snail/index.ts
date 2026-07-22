@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/snail-CZurTOga-BBrDgjSs.js
+// Restored from ref/webview/assets/snail-CZurTOga-C3YpplgP.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Snail } from "lucide-react";
 function initSnailIconChunk(): void {}

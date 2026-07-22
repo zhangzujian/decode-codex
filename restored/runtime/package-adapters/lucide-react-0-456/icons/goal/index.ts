@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/goal-pzahP9h4-DVSSYOud.js
+// Restored from ref/webview/assets/goal-pzahP9h4-COK3wfXS.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Goal } from "lucide-react";
 function initGoalIconChunk(): void {}

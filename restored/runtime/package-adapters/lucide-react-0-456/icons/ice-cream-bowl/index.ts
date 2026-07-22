@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/ice-cream-bowl-B2k7AmDl-qjVQjfqK.js
+// Restored from ref/webview/assets/ice-cream-bowl-B2k7AmDl-eigKm0Uc.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { IceCreamBowl } from "lucide-react";
 function initIceCreamBowlIconChunk(): void {}
-export { IceCreamBowl, initIceCreamBowlIconChunk };
+export { initIceCreamBowlIconChunk, IceCreamBowl };

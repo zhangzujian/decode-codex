@@ -1936,6 +1936,10 @@ export function initializeBrowserUseSettingsChunk() {
   return true;
 }
 
+export function initializeBrowserUseSitePermissions() {
+  return true;
+}
+
 export function initializePluginControlList() {
   return true;
 }

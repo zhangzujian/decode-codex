@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/headphones-DRfeoUns-Bs2bzPf0.js
+// Restored from ref/webview/assets/headphones-DRfeoUns-D4QqCC9i.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Headphones } from "lucide-react";
 function initHeadphonesIconChunk(): void {}

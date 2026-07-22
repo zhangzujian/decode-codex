@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/avatar-overlay-mascot-size-CKGhZi9K.js
-// Current-build alias for the typed avatar overlay mascot width helpers.
+// Restored from ref/webview/assets/avatar-overlay-mascot-size-DMcPSp19.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 export {
   initAvatarOverlayMascotWidthChunk,
   createAvatarOverlayMascotWidthStyle,

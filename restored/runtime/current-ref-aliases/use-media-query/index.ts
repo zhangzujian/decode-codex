@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/use-media-query-B_niEXHj.js
+// Restored from ref/webview/assets/use-media-query-BEai5rax.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   useMediaQuery,
   initUseMediaQueryChunk,
 } from "../../../utils/use-media-query";
-export { useMediaQuery, initUseMediaQueryChunk };

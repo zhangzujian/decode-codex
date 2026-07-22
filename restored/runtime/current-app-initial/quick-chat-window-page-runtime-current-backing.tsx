@@ -30,7 +30,7 @@ import {
 import {
   initReactRouterRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sGt,
   useSearchParams as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sQ,
-  initRouteScopeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sT,
+  useParams as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sT,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {
   appgenSettingsSharedRuntimeVariant3Member0007 as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainAppgenSettingsPGy16mploA,

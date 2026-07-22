@@ -55,8 +55,8 @@ import {
   businessCheckoutSharedMember0537 as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcI,
 } from "../current-ref-aliases/business-checkout-shared/index";
 import {
-  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
-  useParams as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sH,
+  initRouteScopeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
+  getRouteIdentity as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sH,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {
   pullRequestRoutRuntimeVariant9Member0053 as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainPullRequestRoutHyp4gsv8Dt,

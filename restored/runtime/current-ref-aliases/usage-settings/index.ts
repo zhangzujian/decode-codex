@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/usage-settings-DXlBEK-3.js
+// Restored from ref/webview/assets/usage-settings-BA8HQm_y.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { UsageSettings } from "../../current-app-initial/usage-settings-current-runtime";
-export { UsageSettings };
+export { UsageSettings } from "../../current-app-initial/usage-settings-current-runtime";

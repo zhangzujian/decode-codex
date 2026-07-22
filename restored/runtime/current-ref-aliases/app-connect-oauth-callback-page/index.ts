@@ -1,3 +1,3 @@
-// Restored from ref/webview/assets/app-connect-oauth-callback-page-DjjkvTOu.js
-// Current-build entry for the restored app-connect OAuth callback route.
+// Restored from ref/webview/assets/app-connect-oauth-callback-page-C4J82KC8.js
+// Current-build entry using the compatible prior stable-stem export map.
 export { AppConnectOAuthCallbackPage } from "../../../routes/app-connect-oauth-callback-page";

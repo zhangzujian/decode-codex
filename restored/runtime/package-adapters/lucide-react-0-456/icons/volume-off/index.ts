@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/volume-off-CY7Rmj1N-DhaZ3udQ.js
+// Restored from ref/webview/assets/volume-off-CY7Rmj1N-CRm0UDjP.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { VolumeOff } from "lucide-react";
 function initVolumeOffIconChunk(): void {}

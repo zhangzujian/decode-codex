@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/indent-increase-CvihrfN0-CBIDmi8U.js
+// Restored from ref/webview/assets/indent-increase-CvihrfN0-Cg1uHKhb.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { IndentIncrease } from "lucide-react";
 function initIndentIncreaseIconChunk(): void {}
-export { IndentIncrease, initIndentIncreaseIconChunk };
+export { initIndentIncreaseIconChunk, IndentIncrease };

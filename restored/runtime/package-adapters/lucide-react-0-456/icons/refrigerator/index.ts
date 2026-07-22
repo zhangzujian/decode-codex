@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/refrigerator-DcnK3UR0-DtFfu0Yv.js
+// Restored from ref/webview/assets/refrigerator-DcnK3UR0-BPoMd9Mo.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Refrigerator } from "lucide-react";
 function initRefrigeratorIconChunk(): void {}

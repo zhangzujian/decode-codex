@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/camera-DK7jPWyu-D5UlJ8_v.js
+// Restored from ref/webview/assets/camera-DK7jPWyu-c8Vh0jog.js
 // Exact npm-backed Lucide default-export compatibility entry.
 import { Camera } from "lucide-react";
 export default Camera;

@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/appshots-settings-DAm5zvu5.js
-// Current-build entry for the stable restored semantic module.
-import { AppshotsSettings } from "../../../settings/appshots-settings";
-export { AppshotsSettings };
+// Restored from ref/webview/assets/appshots-settings-qeumsqMo.js
+// Current-build entry using the compatible prior stable-stem export map.
+export { AppshotsSettings } from "../../../settings/appshots-settings";

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/use-hotkey-window-detail-layout-BIfbOsY8.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/use-hotkey-window-detail-layout-BKfpOypN.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   initHotkeyWindowDetailLayoutChunk,
   useHotkeyWindowDetailLayout,

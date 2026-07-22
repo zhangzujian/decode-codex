@@ -134,7 +134,7 @@ import {
 } from "../current-ref-aliases/business-checkout-shared/index";
 import {
   initReactRouterRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sFt,
-  RouteScopeSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sO,
+  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sO,
   dispatchOpenInBrowser as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sQ,
   initOpenInBrowserRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sR,
 } from "../current-ref-aliases/react-router-host-shared/index";

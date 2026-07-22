@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/folder-check-Brv_o_GQ-1y2hgxXO.js
+// Restored from ref/webview/assets/folder-check-Brv_o_GQ-QMA7sYOr.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { FolderCheck } from "lucide-react";
 function initFolderCheckIconChunk(): void {}

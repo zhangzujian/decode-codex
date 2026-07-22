@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/map-pin-check-inside-82CtvMq0-BDbPdodj.js
+// Restored from ref/webview/assets/map-pin-check-inside-82CtvMq0--HaCBeYQ.js
 // Exact npm-backed Lucide default-export compatibility entry.
 import { MapPinCheckInside } from "lucide-react";
 export default MapPinCheckInside;

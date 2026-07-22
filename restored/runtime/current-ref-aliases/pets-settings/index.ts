@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/pets-settings-SxhikPzj.js
+// Restored from ref/webview/assets/pets-settings-DL_bLra7.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { PetsSettings } from "../../current-app-initial/pets-settings-current-runtime";
-export { PetsSettings };
+export { PetsSettings } from "../../current-app-initial/pets-settings-current-runtime";

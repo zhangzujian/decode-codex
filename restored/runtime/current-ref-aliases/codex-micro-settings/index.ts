@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/codex-micro-settings-A-ozUbrx.js
+// Restored from ref/webview/assets/codex-micro-settings-Ddm-u3sq.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { codexMicroSettingsRuntimeMember0001 } from "../codex-micro-settings-runtime";
-export { codexMicroSettingsRuntimeMember0001 };
+export { codexMicroSettingsRuntimeMember0001 } from "../codex-micro-settings-runtime";

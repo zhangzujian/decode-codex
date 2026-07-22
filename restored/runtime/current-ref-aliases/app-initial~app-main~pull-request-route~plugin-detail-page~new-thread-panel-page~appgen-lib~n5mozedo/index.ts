@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~pull-request-route~plugin-detail-page~new-thread-panel-page~appgen-lib~n5mozedo-BlXEIWJB.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/app-initial~app-main~pull-request-route~plugin-detail-page~new-thread-panel-page~appgen-lib~n5mozedo-DyaB_rqV.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   newThreadPanelPageAppgenLibRuntimeMember0001,
   newThreadPanelPageAppgenLibRuntimeMember0002,

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~quick-chat-window-page~chatgpt-conversation-page~composer-project-sele~kuwa4oig-2yYLlMiK.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/app-initial~app-main~quick-chat-window-page~chatgpt-conversation-page~composer-project-sele~kuwa4oig-KfD6QNXg.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   chatgptConversationPageComposerProjectSeleRuntimeMember0001,
   chatgptConversationPageComposerProjectSeleRuntimeMember0002,

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/pi-Bc5qSlNx-DBh042uD.js
+// Restored from ref/webview/assets/pi-Bc5qSlNx-DpxHGYU-.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Pi } from "lucide-react";
 function initPiIconChunk(): void {}
-export { Pi, initPiIconChunk };
+export { initPiIconChunk, Pi };

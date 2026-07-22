@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/activity-DpUQtFSG-BfaPbTB2.js
+// Restored from ref/webview/assets/activity-DpUQtFSG-DoxOgd-C.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Activity } from "lucide-react";
 function initActivityIconChunk(): void {}
-export { Activity, initActivityIconChunk };
+export { initActivityIconChunk, Activity };

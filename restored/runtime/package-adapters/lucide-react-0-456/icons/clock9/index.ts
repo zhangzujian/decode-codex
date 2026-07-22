@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/clock-9-C_JcWrqJ-C5TmZvT_.js
+// Restored from ref/webview/assets/clock-9-C_JcWrqJ-Bzv7B5rq.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Clock9 } from "lucide-react";
 function initClock9IconChunk(): void {}

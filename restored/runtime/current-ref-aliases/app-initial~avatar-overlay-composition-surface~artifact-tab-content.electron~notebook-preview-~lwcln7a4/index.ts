@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~avatarOverlayCompositionSurface~artifact-tab-content.electron~notebook-preview-~lwcln7a4-CTqMp9CG.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/app-initial~avatarOverlayCompositionSurface~artifact-tab-content.electron~notebook-preview-~lwcln7a4-DZ9RGu5U.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   notebookPreviewRuntimeVariant2Member0001,
   notebookPreviewRuntimeVariant2Member0002,

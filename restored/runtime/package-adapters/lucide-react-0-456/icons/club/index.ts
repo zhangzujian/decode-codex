@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/club-C6B5acQO-OtwsRGqn.js
+// Restored from ref/webview/assets/club-C6B5acQO-rb3mYl_q.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Club } from "lucide-react";
 function initClubIconChunk(): void {}

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/download-BsR-pTUr-IHJhpWYV.js
+// Restored from ref/webview/assets/download-BsR-pTUr-CdrFCSTe.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Download } from "lucide-react";
 function initDownloadIconChunk(): void {}
-export { Download, initDownloadIconChunk };
+export { initDownloadIconChunk, Download };

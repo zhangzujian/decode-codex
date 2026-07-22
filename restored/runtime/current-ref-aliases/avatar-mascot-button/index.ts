@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/avatar-mascot-button-D-9wvrzc.js
+// Restored from ref/webview/assets/avatar-mascot-button-Cv455Ks5.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   initAvatarMascotButtonChunk,
   AvatarMascotButton,
 } from "../../../ui/avatar-mascot-button";
-export { initAvatarMascotButtonChunk, AvatarMascotButton };

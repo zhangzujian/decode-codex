@@ -115,7 +115,7 @@ import {
 import {
   initReactRouterRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sA,
   handleExternalLink as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sEt,
-  Outlet as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sQ,
+  Link as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sQ,
   initOpenInBrowserRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sR,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/signature-GIIkeGou-FGah3-0Y.js
+// Restored from ref/webview/assets/signature-GIIkeGou-BKq0cQyE.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Signature } from "lucide-react";
 function initSignatureIconChunk(): void {}
-export { Signature, initSignatureIconChunk };
+export { initSignatureIconChunk, Signature };

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/pet-install-state-RUjtkmvI.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/pet-install-state-BuxWewdg.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   startPetInstallSession,
   petInstallSession$,

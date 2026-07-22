@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/dice-2-C1nqX5_7-BcUMLzN9.js
+// Restored from ref/webview/assets/dice-2-C1nqX5_7-Dyka0Gp1.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Dice2 } from "lucide-react";
 function initDice2IconChunk(): void {}
-export { Dice2, initDice2IconChunk };
+export { initDice2IconChunk, Dice2 };

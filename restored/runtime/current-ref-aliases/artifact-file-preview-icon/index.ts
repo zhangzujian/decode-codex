@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/artifact-file-preview-icon-Dzcf1XhM.js
+// Restored from ref/webview/assets/artifact-file-preview-icon-CAaP-0tc.js
 // Current-build entry reusing the fingerprint-verified semantic module.
 import {
   initArtifactFilePreviewIconChunk,

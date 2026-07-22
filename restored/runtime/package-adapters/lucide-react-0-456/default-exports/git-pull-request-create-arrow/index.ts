@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/git-pull-request-create-arrow-CHQ09303-BrMxp5Ze.js
+// Restored from ref/webview/assets/git-pull-request-create-arrow-CHQ09303-Dmw3Smm4.js
 // Exact npm-backed Lucide default-export compatibility entry.
 import { GitPullRequestCreateArrow } from "lucide-react";
 export default GitPullRequestCreateArrow;

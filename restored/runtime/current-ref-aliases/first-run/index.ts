@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/first-run-CRvXKM23.js
+// Restored from ref/webview/assets/first-run-DxzTzkQA.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { FirstRunPage } from "../../../routes/first-run";
-export { FirstRunPage };
+export { FirstRunPage } from "../../../routes/first-run";

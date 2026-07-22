@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/message-circle-B3Lerrfw-BQuf3mc6.js
+// Restored from ref/webview/assets/message-circle-B3Lerrfw-xdfjrVOr.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { MessageCircle } from "lucide-react";
 function initMessageCircleIconChunk(): void {}
-export { MessageCircle, initMessageCircleIconChunk };
+export { initMessageCircleIconChunk, MessageCircle };

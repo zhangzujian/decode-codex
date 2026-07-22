@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/auto-track-P_bgwk2P.js
+// Restored from ref/webview/assets/auto-track-6U5EH4r5.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   autoTrackForm,
   autoTrackLink,
 } from "../../../vendor/segment-auto-track";
-export { autoTrackForm, autoTrackLink };

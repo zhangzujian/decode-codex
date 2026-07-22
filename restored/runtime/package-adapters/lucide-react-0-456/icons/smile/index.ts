@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/smile-0ulXM4jt-BAgD3OaE.js
+// Restored from ref/webview/assets/smile-0ulXM4jt-Bo-WyapD.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Smile } from "lucide-react";
 function initSmileIconChunk(): void {}
-export { Smile, initSmileIconChunk };
+export { initSmileIconChunk, Smile };

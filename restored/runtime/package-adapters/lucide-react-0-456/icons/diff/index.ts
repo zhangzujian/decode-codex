@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/diff-idQTPOBZ-DefI1QJf.js
+// Restored from ref/webview/assets/diff-idQTPOBZ-BlOwtsGJ.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Diff } from "lucide-react";
 function initDiffIconChunk(): void {}
-export { Diff, initDiffIconChunk };
+export { initDiffIconChunk, Diff };

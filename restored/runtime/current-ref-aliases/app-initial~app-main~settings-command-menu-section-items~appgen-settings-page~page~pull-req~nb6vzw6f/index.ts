@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~settings-command-menu-section-items~appgen-settings-page~page~pull-req~nb6vzw6f-BezkCasK.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/app-initial~app-main~settings-command-menu-section-items~appgen-settings-page~page~pull-req~nb6vzw6f-CtpDXO6Z.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   settingsCommandSharedRuntimeVariant20Member0001,
   settingsCommandSharedRuntimeVariant20Member0002,

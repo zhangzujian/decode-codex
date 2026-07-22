@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/receipt-pound-sterling-BhOPeb-h-B13ZqkWQ.js
+// Restored from ref/webview/assets/receipt-pound-sterling-BhOPeb-h-DOMS5hI8.js
 // Exact npm-backed Lucide default-export compatibility entry.
 import { ReceiptPoundSterling } from "lucide-react";
 export default ReceiptPoundSterling;

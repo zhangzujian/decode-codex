@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/docx-preview-panel-BRzAQ0cI.js
+// Restored from ref/webview/assets/docx-preview-panel-CE06mnUm.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { DocxPreviewPanel } from "../../../vendor/docx-preview-panel-runtime";
-export { DocxPreviewPanel };
+export { DocxPreviewPanel } from "../../../vendor/docx-preview-panel-runtime";

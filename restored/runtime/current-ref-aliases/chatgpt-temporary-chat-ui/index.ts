@@ -1,12 +1,7 @@
-// Restored from ref/webview/assets/chatgpt-temporary-chat-ui-BRuEg5D3.js
-// Current-build entry using the compatible prior stable-stem export map.
-import {
-  chatgptTemporaryChatUiRuntimeVariant2Member0001,
-  chatgptTemporaryChatUiRuntimeVariant2Member0002,
-  chatgptTemporaryChatUiRuntimeVariant2Member0003,
-} from "../chatgpt-temporary-chat-ui-runtime-variant-2";
+// Restored from ref/webview/assets/chatgpt-temporary-chat-ui-OgWxfhZa.js
+// Current-build aliases for temporary-chat controls and onboarding.
 export {
-  chatgptTemporaryChatUiRuntimeVariant2Member0001,
-  chatgptTemporaryChatUiRuntimeVariant2Member0002,
-  chatgptTemporaryChatUiRuntimeVariant2Member0003,
-};
+  chatgptTemporaryChatUiN as ChatGptTemporaryChatToggleButton,
+  chatgptTemporaryChatUiR as initializeChatGptTemporaryChatUi,
+  chatgptTemporaryChatUiT as ChatGptTemporaryChatOnboardingModalHost,
+} from "../../current-app-initial/chatgpt-temporary-chat-ui-runtime-variant-2-current-backing";

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/iteration-ccw-BLSsFETu-CGzvrUj9.js
+// Restored from ref/webview/assets/iteration-ccw-BLSsFETu-BYIOkAQ5.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { IterationCcw } from "lucide-react";
 function initIterationCcwIconChunk(): void {}

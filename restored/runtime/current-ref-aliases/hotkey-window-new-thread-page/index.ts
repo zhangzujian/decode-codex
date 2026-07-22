@@ -1,3 +1,3 @@
-// Restored from ref/webview/assets/hotkey-window-new-thread-page-6AgePTK3.js
-// Current-build entry for the restored hotkey new-thread window.
-export { HotkeyWindowNewThreadPage } from "../../../hotkey-window/new-thread-page";
+// Restored from ref/webview/assets/hotkey-window-new-thread-page-CJfD_1Ef.js
+// Current-build entry using the compatible prior stable-stem export map.
+export { HotkeyWindowNewThreadPage } from "../../current-app-initial/hotkey-window-new-thread-page-current-runtime";

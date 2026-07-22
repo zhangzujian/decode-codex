@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~onboarding-page~hotkey-window-thread-page~thread-app-shell-chrome~remo~c1415s9d-BcZmBu89.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/app-initial~app-main~onboarding-page~hotkey-window-thread-page~thread-app-shell-chrome~remo~c1415s9d-CF24qAIu.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   threadAppShellChromeRemoRuntimeMember0001,
   threadAppShellChromeRemoRuntimeMember0002,

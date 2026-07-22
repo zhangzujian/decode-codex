@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/conversation-markdown-B-TpbyV4.js
-// Current-build entry for the stable restored semantic module.
-import { renderConversationMarkdown } from "../../../conversations/conversation-markdown";
-export { renderConversationMarkdown };
+// Restored from ref/webview/assets/conversation-markdown-RKne45LC.js
+// Current-build entry using the compatible prior stable-stem export map.
+export { renderConversationMarkdown } from "../../../conversations/conversation-markdown";

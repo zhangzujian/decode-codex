@@ -35,8 +35,8 @@ import {
   appgenSettingsSharedRuntimeVariant8Member0004 as appInitialAvatarOverlayCompositionSurfaceNotebookPreviewPanelAppMainAppgenSettingsEl5fc9d5T,
 } from "../current-ref-aliases/appgen-settings-shared-runtime-variant-8/index";
 import {
-  Link as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
-  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
+  RouteScopeSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
+  initRouteScopeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {
   settingsCommandSharedRuntimeVariant6Member0004 as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainSettingsCommandEurqfy6eD,

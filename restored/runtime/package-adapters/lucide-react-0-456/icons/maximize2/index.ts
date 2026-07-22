@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/maximize-2-cJ3glxtr-BGTfotrK.js
+// Restored from ref/webview/assets/maximize-2-cJ3glxtr-CSbRe9sR.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Maximize2 } from "lucide-react";
 function initMaximize2IconChunk(): void {}

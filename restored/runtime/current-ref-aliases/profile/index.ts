@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/profile-uES9ukHb.js
+// Restored from ref/webview/assets/profile-hvhF6zcP.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { Profile } from "../../current-app-initial/profile-current-runtime";
-export { Profile };
+export { Profile } from "../../current-app-initial/profile-current-runtime";

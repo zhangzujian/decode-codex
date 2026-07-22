@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/hammer-C9rFj6M_-CLuvvICS.js
+// Restored from ref/webview/assets/hammer-C9rFj6M_-DB3et7h8.js
 // Exact npm-backed Lucide default-export compatibility entry.
 import { Hammer } from "lucide-react";
 export default Hammer;

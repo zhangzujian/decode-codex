@@ -47,8 +47,8 @@ import {
   useStableCallback as appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewKr7rxhqeS,
 } from "../../ui/tooltip-current/index";
 import {
-  Link as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
-  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
+  RouteScopeSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
+  initRouteScopeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {
   pullRequestCodeReviewNewThreadPaneRuntimeVariant2Member0001 as appInitialArtifactTabContentElectronAppMainPullRequestCodeReviewNewThreadPaneO1pkxa0iA,

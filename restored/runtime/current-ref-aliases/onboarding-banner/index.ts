@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/onboarding-banner-B9CvD59W.js
+// Restored from ref/webview/assets/onboarding-banner-C9YIURFd.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   onboardingBannerRuntimeMember0001,
   onboardingBannerRuntimeMember0002,
 } from "../onboarding-banner-runtime";
-export { onboardingBannerRuntimeMember0001, onboardingBannerRuntimeMember0002 };

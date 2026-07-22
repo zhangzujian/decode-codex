@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/copyright-C-hM6IaY-Dpa-dIcX.js
+// Restored from ref/webview/assets/copyright-C-hM6IaY-RgVgfLSr.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Copyright } from "lucide-react";
 function initCopyrightIconChunk(): void {}

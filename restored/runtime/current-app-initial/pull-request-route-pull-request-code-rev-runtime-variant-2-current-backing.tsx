@@ -55,9 +55,9 @@ import {
 import { loadNodeHtmlParser as AppInitialArtifactTabContentElectronAppMainPullRequestRoutePullRequestCodeRevFzrvbq9l } from "../package-adapters/node-html-parser-current/index";
 import {
   handleExternalLink as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sA,
-  Link as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
-  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
-  useParams as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sH,
+  RouteScopeSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
+  initRouteScopeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
+  getRouteIdentity as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sH,
   initOpenInBrowserRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sR,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {

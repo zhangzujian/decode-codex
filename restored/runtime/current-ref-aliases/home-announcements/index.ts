@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/home-announcements-BPtAjM8D.js
+// Restored from ref/webview/assets/home-announcements-BVgdEjD6.js
 // Current-build entry reusing the fingerprint-verified semantic module.
 import {
   initHomeAnnouncementsChunk,

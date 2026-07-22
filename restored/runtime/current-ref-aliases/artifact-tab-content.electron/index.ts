@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/artifact-tab-content.electron-DeFY-W5t.js
+// Restored from ref/webview/assets/artifact-tab-content.electron-C9MBPVOY.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { ArtifactTabContent } from "../../../ui/artifact-tab-content";
-export { ArtifactTabContent };
+export { ArtifactTabContent } from "../../../ui/artifact-tab-content";

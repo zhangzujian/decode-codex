@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/thread-panel-toggle-button-BAif7myp.js
+// Restored from ref/webview/assets/thread-panel-toggle-button-Cc7J9GNP.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   initThreadPanelToggleButtonChunk,
   ThreadPanelToggleButton,
 } from "../../../app-shell/thread-panel-toggle-button";
-export { initThreadPanelToggleButtonChunk, ThreadPanelToggleButton };

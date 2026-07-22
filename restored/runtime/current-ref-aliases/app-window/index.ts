@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-window-0yOkLML_.js
-// Current-build compatibility entry for the semantic app-window icon.
+// Restored from ref/webview/assets/app-window-DHI8Eigj.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 export {
   initAppWindowIconChunk,
   AppWindowIcon,

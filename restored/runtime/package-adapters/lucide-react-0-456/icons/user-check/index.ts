@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/user-check-Cu7sKiIR-BZc8lnwO.js
+// Restored from ref/webview/assets/user-check-Cu7sKiIR-CsnMuEDd.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { UserCheck } from "lucide-react";
 function initUserCheckIconChunk(): void {}

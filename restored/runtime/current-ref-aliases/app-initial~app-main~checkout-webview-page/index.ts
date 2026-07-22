@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~checkout-webview-page-CLcqlRJ2.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/app-initial~app-main~checkout-webview-page-C-JxhURz.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   checkoutWebviewPageRuntimeMember0001,
   checkoutWebviewPageRuntimeMember0002,

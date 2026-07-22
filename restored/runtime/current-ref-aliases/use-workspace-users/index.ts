@@ -1,22 +1,5 @@
-// Restored from ref/webview/assets/use-workspace-users-C1fzB4Ry.js
+// Restored from ref/webview/assets/use-workspace-users-DJ-TXJoQ.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
-  initShareTargetRowChunk,
-  filterAvailableWorkspaceUsers,
-  initWorkspaceUserQueryHelpersChunk,
-  ShareDialogPrimaryActions,
-  initWorkspaceAccessSelectChunk,
-  ShareTargetRow,
-  workspaceUserToShareTargetOption,
-  WorkspaceAccessSelect,
-  useWorkspaceGroupsQuery,
-  WorkspaceAccessDropdown,
-  initShareDialogPrimaryActionsChunk,
-  useWorkspaceUsersQuery,
-  initWorkspaceAccessDropdownChunk,
-  initWorkspaceUserQueriesChunk,
-  getWorkspaceUserDisplayName,
-} from "../../../collaboration/use-workspace-users";
 export {
   initShareTargetRowChunk,
   filterAvailableWorkspaceUsers,
@@ -33,4 +16,4 @@ export {
   initWorkspaceAccessDropdownChunk,
   initWorkspaceUserQueriesChunk,
   getWorkspaceUserDisplayName,
-};
+} from "../../../collaboration/use-workspace-users";

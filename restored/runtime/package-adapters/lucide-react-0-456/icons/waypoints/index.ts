@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/waypoints-CQS6TFqp-BZALIeoE.js
+// Restored from ref/webview/assets/waypoints-CQS6TFqp-ClffQyRZ.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Waypoints } from "lucide-react";
 function initWaypointsIconChunk(): void {}

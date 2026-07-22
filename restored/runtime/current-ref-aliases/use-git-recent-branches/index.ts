@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/use-git-recent-branches-LpNua5GR.js
+// Restored from ref/webview/assets/use-git-recent-branches-CG0wp6Xr.js
 // Current-build entry reusing the fingerprint-verified semantic module.
 import {
   useGitRecentBranches,

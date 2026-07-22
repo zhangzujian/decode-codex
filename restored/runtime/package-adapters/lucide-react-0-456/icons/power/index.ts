@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/power-BxBMomhj-CL2qLTfs.js
+// Restored from ref/webview/assets/power-BxBMomhj-DRlOnPgk.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Power } from "lucide-react";
 function initPowerIconChunk(): void {}
-export { Power, initPowerIconChunk };
+export { initPowerIconChunk, Power };

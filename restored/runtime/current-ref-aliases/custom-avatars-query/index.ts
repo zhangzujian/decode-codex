@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/custom-avatars-query-ZfMaMCDW.js
-// Current-build entry for the custom-avatar query signals.
+// Restored from ref/webview/assets/custom-avatars-query-l6UfnFl4.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   selectedCustomAvatarRefreshQuery,
   customAvatarsQuery,

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~app-main~new-thread-panel-page~appgen-library-page~hotkey-window-thread-page~ho~ks79et1p-CMYq-SPH.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/app-initial~app-main~new-thread-panel-page~appgen-library-page~hotkey-window-thread-page~ho~ks79et1p-BUQVTvo7.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   hotkeyWindowThreadPageHoRuntimeVariant3Member0001,
   hotkeyWindowThreadPageHoRuntimeVariant3Member0002,

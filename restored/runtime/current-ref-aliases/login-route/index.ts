@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/login-route-BWCACVOW.js
+// Restored from ref/webview/assets/login-route-C4Xwa439.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { LoginRoute } from "../../current-app-initial/login-route-current-runtime";
-export { LoginRoute };
+export { LoginRoute } from "../../current-app-initial/login-route-current-runtime";

@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/group-L_OL-LLd-BftTnKdT.js
+// Restored from ref/webview/assets/group-L_OL-LLd-BboQMFoD.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Group } from "lucide-react";
 function initGroupIconChunk(): void {}
-export { Group, initGroupIconChunk };
+export { initGroupIconChunk, Group };

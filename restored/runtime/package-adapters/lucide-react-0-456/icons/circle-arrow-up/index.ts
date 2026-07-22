@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/circle-arrow-up-xK4oCIHv-32ciXPFB.js
+// Restored from ref/webview/assets/circle-arrow-up-xK4oCIHv-Dt9H0PJc.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { CircleArrowUp } from "lucide-react";
 function initCircleArrowUpIconChunk(): void {}
-export { CircleArrowUp, initCircleArrowUpIconChunk };
+export { initCircleArrowUpIconChunk, CircleArrowUp };

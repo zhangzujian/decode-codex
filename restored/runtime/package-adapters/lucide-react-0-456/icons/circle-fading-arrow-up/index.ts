@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/circle-fading-arrow-up-fIJ037gH-ChwfJQKM.js
+// Restored from ref/webview/assets/circle-fading-arrow-up-fIJ037gH-DrQn1qaU.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { CircleFadingArrowUp } from "lucide-react";
 function initCircleFadingArrowUpIconChunk(): void {}

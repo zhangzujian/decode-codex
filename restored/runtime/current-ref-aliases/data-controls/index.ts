@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/data-controls-eH5dBHDX.js
+// Restored from ref/webview/assets/data-controls-BBT6vbVe.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { DataControlsSettings } from "../../current-app-initial/data-controls-current-runtime";
-export { DataControlsSettings };
+export { DataControlsSettings } from "../../current-app-initial/data-controls-current-runtime";

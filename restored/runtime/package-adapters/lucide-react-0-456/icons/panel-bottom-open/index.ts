@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/panel-bottom-open-BUsGE7I2-DyIhfFJp.js
+// Restored from ref/webview/assets/panel-bottom-open-BUsGE7I2-BQZ1PXnV.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { PanelBottomOpen } from "lucide-react";
 function initPanelBottomOpenIconChunk(): void {}
-export { PanelBottomOpen, initPanelBottomOpenIconChunk };
+export { initPanelBottomOpenIconChunk, PanelBottomOpen };

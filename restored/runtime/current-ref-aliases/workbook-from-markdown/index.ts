@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/workbook-from-markdown-NwjaLZD6.js
+// Restored from ref/webview/assets/workbook-from-markdown-_msOVAc5.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   buildTableValuesFromMarkdown,
   sanitizeSheetName,
 } from "../../../utils/workbook-from-markdown";
-export { buildTableValuesFromMarkdown, sanitizeSheetName };

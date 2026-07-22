@@ -47,8 +47,8 @@ import {
   businessCheckoutSharedMember0858 as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcWt,
 } from "../current-ref-aliases/business-checkout-shared/index";
 import {
-  Link as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
-  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
+  RouteScopeSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
+  initRouteScopeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {
   hotkeyWindowThreadPageChatgptRuntimeMember0002 as appInitialAppMainOnboardingPageProjectsIndexPageHotkeyWindowThreadPageChatgptJ34jmud9Underscore,

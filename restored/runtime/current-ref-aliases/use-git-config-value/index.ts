@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/use-git-config-value-CE1ueLDv.js
+// Restored from ref/webview/assets/use-git-config-value-DAyQnRkn.js
 // Current-build entry reusing the fingerprint-verified semantic module.
 import {
   useGitConfigValue,

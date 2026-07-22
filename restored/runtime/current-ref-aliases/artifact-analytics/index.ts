@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/artifact-analytics-BkYiAjvs.js
-// Current-build positional entry for the stable semantic module.
+// Restored from ref/webview/assets/artifact-analytics-LZvb_idt.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   trackArtifactAnnotationCanceled,
   trackArtifactAnnotationSubmitted,

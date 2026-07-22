@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/message-circle-x-BwS0Xkpq-VLN5Xx7l.js
+// Restored from ref/webview/assets/message-circle-x-BwS0Xkpq-B9wJiHYr.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { MessageCircleX } from "lucide-react";
 function initMessageCircleXIconChunk(): void {}

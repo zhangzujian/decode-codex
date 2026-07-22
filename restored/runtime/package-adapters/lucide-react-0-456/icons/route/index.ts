@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/route-b6ohBPAk-Ba2Z71mS.js
+// Restored from ref/webview/assets/route-b6ohBPAk-B4esQwYe.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Route } from "lucide-react";
 function initRouteIconChunk(): void {}

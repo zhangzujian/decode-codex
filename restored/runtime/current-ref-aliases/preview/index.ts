@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/preview-B-ZZdU9v.js
+// Restored from ref/webview/assets/preview-B359OF1q.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { PdbPreviewFromFile } from "../../../ui/pdb-preview";
-export { PdbPreviewFromFile };
+export { PdbPreviewFromFile } from "../../../ui/pdb-preview";

@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/projects-index-page-B2eCYeAz.js
+// Restored from ref/webview/assets/projects-index-page-LymLr4qx.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { ProjectsIndexPage } from "../../current-app-initial/projects-index-page-current-runtime";
-export { ProjectsIndexPage };
+export { ProjectsIndexPage } from "../../current-app-initial/projects-index-page-current-runtime";

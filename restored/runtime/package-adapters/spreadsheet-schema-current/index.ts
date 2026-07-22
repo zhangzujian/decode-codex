@@ -3,12 +3,6 @@
 
 // Generated protobuf codecs for the current spreadsheet schema delta.
 
-import { initSpreadsheetSchema as initializeSpreadsheetSchema } from "./runtime";
-
-export function initializeCurrentSpreadsheetSchema(): void {
-  initializeSpreadsheetSchema();
-}
-
 export * from "../../../vendor/spreadsheet-schema-entry-current";
 export { CacheField } from "./cache/cache-field";
 export { CacheHierarchy } from "./cache/cache-hierarchy";

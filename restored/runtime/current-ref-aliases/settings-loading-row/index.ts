@@ -1,7 +1,6 @@
-// Restored from ref/webview/assets/settings-loading-row-BBNN4NrH.js
+// Restored from ref/webview/assets/settings-loading-row-dPES0bKs.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   initSettingsLoadingRowChunk,
   SettingsLoadingRow,
 } from "../../../settings/settings-loading-row";
-export { initSettingsLoadingRowChunk, SettingsLoadingRow };

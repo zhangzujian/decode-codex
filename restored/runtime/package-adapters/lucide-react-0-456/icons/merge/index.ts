@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/merge-D8ywS1pX-TggEHlve.js
+// Restored from ref/webview/assets/merge-D8ywS1pX-wQXjaEMV.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Merge } from "lucide-react";
 function initMergeIconChunk(): void {}

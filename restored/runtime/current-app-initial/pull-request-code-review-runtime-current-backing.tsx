@@ -58,8 +58,8 @@ import {
   firstRuRuntimeMember0017 as appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronAppMainFirstRuIo63sqtcUnderscore,
 } from "../current-ref-aliases/first-ru-runtime/index";
 import {
-  Link as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
-  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
+  RouteScopeSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
+  initRouteScopeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {
   hostConfigByIdSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutMgfw3nlsM,

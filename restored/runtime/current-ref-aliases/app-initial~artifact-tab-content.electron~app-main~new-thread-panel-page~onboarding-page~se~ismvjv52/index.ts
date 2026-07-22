@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/app-initial~artifact-tab-content.electron~app-main~new-thread-panel-page~onboarding-page~se~ismvjv52-DLfZNKFx.js
-// Current-build entry using the compatible prior stable-stem export map.
+// Restored from ref/webview/assets/app-initial~artifact-tab-content.electron~app-main~new-thread-panel-page~onboarding-page~se~ismvjv52-DOg-s8wB.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 import {
   newThreadOnboardingSharedRuntimeVariant15Member0001,
   newThreadOnboardingSharedRuntimeVariant15Member0002,

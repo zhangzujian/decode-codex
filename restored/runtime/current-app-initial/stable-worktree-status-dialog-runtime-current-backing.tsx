@@ -42,7 +42,7 @@ import {
 } from "../current-ref-aliases/pull-request-rout-runtime-variant-3/index";
 import {
   initReactRouterRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sFt,
-  RouteScopeSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sMt,
+  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sMt,
   useNavigate as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sQ,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {

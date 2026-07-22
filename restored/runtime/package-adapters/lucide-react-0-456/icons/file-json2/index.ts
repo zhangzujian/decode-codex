@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/file-json-2-DQOBYeNW-qttx-osu.js
+// Restored from ref/webview/assets/file-json-2-DQOBYeNW-mRAPN7Hj.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { FileJson2 } from "lucide-react";
 function initFileJson2IconChunk(): void {}

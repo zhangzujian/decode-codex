@@ -1,8 +1,6 @@
-// Restored from ref/webview/assets/header-C2pNw-gy.js
+// Restored from ref/webview/assets/header--yWHYFJr.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
+export {
   initChromeExtensionHeaderChunk,
   ChromeExtensionHeader,
 } from "../../../browser/chrome-extension-header";
-export { initChromeExtensionHeaderChunk, ChromeExtensionHeader };
-export { ChromeExtensionHeader as Header };

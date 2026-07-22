@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/thread-scroll-layout-5KAbyTVi.js
+// Restored from ref/webview/assets/thread-scroll-layout-KXtNx4l8.js
 // Current-build entry reusing the fingerprint-verified semantic module.
 import {
   initThreadScrollLayoutChunk,

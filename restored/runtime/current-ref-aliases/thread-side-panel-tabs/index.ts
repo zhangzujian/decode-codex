@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/thread-side-panel-tabs-D8Ww-zc2.js
-// Current-build alias for the semantic thread side-panel tab API.
+// Restored from ref/webview/assets/thread-side-panel-tabs-CyMIGcBy.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 export {
   THREAD_SIDE_PANEL_TAB,
   closeThreadMcpAppSidePanelTab,

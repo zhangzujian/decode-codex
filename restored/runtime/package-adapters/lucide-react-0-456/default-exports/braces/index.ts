@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/braces-BJijY9RE-BgDy1FJj.js
+// Restored from ref/webview/assets/braces-BJijY9RE-fBBDypgu.js
 // Exact npm-backed Lucide default-export compatibility entry.
 import { Braces } from "lucide-react";
 export default Braces;

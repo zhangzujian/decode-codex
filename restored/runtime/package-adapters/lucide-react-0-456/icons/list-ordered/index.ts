@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/list-ordered-db1dmAOz-CXtXpiDy.js
+// Restored from ref/webview/assets/list-ordered-db1dmAOz-Cle1cG2n.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { ListOrdered } from "lucide-react";
 function initListOrderedIconChunk(): void {}

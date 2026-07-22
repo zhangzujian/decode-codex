@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/new-chat-suggestion-source-debug-state-kph85gzM.js
-// Semantic positional adapter for the current-build runtime.
+// Restored from ref/webview/assets/new-chat-suggestion-source-debug-state-bknlH9QU.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 
 import * as currentBacking from "../../current-app-initial/new-chat-suggestion-source-debug-state-current-backing";
 export const ambientSuggestionsLoadedSignal =

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/chunk-S3R3BYOJ-CtaVEEbR.js
+// Restored from ref/webview/assets/chunk-5PVQY5BW-BbQZwqS7.js
 // Also covers ref/webview/assets/chunk-S3R3BYOJ-CtaVEEbR.js.
 export {
   chunk5PVQY5BWG as wrapLabel,

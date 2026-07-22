@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/appgen-page-Dhq8P9WH.js
+// Restored from ref/webview/assets/appgen-page-BGhB8YqI.js
 // Current-build entry using the compatible prior stable-stem export map.
-import { AppgenPage } from "../../../appgen/appgen-page";
-export { AppgenPage };
+export { AppgenPage } from "../../../appgen/appgen-page";

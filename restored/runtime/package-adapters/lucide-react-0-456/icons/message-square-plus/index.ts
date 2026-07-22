@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/message-square-plus-BW5e2uum-CED9wcqA.js
+// Restored from ref/webview/assets/message-square-plus-BW5e2uum-BA7bc9yW.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { MessageSquarePlus } from "lucide-react";
 function initMessageSquarePlusIconChunk(): void {}

@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/moon-CDZ8cMfT-IbskxIam.js
+// Restored from ref/webview/assets/moon-CDZ8cMfT-CNAoPun7.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Moon } from "lucide-react";
 function initMoonIconChunk(): void {}

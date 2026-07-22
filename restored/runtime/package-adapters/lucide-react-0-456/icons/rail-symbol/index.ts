@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/rail-symbol-CVSdCtbx-DJdsMwYq.js
+// Restored from ref/webview/assets/rail-symbol-CVSdCtbx-BK4D09pw.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { RailSymbol } from "lucide-react";
 function initRailSymbolIconChunk(): void {}

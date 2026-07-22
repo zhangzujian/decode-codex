@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/percent-CY3lSw9p-DFXRCuxr.js
+// Restored from ref/webview/assets/percent-CY3lSw9p-BtX9ke5c.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { Percent } from "lucide-react";
 function initPercentIconChunk(): void {}

@@ -45,7 +45,7 @@ import {
 } from "../current-ref-aliases/business-checkout-shared/index";
 import {
   initWindowChromeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sBt,
-  completeClientThreadPromotion as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sVt,
+  detectNavigatorPlatform as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sVt,
   resolveWindowChromeKind as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sYt,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {

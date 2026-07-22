@@ -1,4 +1,3 @@
-// Restored from ref/webview/assets/keyboard-shortcuts-settings-CgGBoD_A.js
-// Exact semantic-stem entry for the already restored public module.
-import { KeyboardShortcutsSettings } from "../../../settings/keyboard-shortcuts-settings";
-export { KeyboardShortcutsSettings };
+// Restored from ref/webview/assets/keyboard-shortcuts-settings-DNGYubKo.js
+// Current-build entry using the compatible prior stable-stem export map.
+export { KeyboardShortcutsSettings } from "../../../settings/keyboard-shortcuts-settings";

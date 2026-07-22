@@ -76,7 +76,7 @@ import {
 } from "../current-ref-aliases/business-checkout-shared/index";
 import {
   handleExternalLink as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sA,
-  useNavigationType as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sI,
+  renderMatches as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sI,
   dispatchOpenInBrowser as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sO,
   initOpenInBrowserRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sR,
 } from "../current-ref-aliases/react-router-host-shared/index";

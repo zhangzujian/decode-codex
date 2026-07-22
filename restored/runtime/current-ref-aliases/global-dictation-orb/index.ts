@@ -1,13 +1,5 @@
-// Restored from ref/webview/assets/global-dictation-orb-DDnTtWi5.js
+// Restored from ref/webview/assets/global-dictation-orb-BzhvOFiE.js
 // Current-build entry using the compatible prior stable-stem export map.
-import {
-  startGlobalDictation,
-  retryGlobalDictation,
-  initGlobalDictationOrbChunk,
-  stopGlobalDictation,
-  initGlobalDictationSessionControllerChunk,
-  GlobalDictationOrb,
-} from "../../../features/global-dictation-orb";
 export {
   startGlobalDictation,
   retryGlobalDictation,
@@ -15,4 +7,4 @@ export {
   stopGlobalDictation,
   initGlobalDictationSessionControllerChunk,
   GlobalDictationOrb,
-};
+} from "../../../features/global-dictation-orb";

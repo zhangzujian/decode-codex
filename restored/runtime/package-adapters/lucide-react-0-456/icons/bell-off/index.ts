@@ -1,4 +1,4 @@
-// Restored from ref/webview/assets/bell-off-Bi7B-8mk-CxMBaVqg.js
+// Restored from ref/webview/assets/bell-off-Bi7B-8mk-CMjqEM7T.js
 // Exact npm-backed Lucide icon with current-build initializer compatibility.
 import { BellOff } from "lucide-react";
 function initBellOffIconChunk(): void {}

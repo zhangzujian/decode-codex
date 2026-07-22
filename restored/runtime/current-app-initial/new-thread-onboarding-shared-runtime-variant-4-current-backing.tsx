@@ -149,8 +149,8 @@ import {
   businessCheckoutSharedInitializer0829 as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcVd,
 } from "../current-ref-aliases/business-checkout-shared/index";
 import {
-  Link as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
-  useLocation as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
+  RouteScopeSignal as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sF,
+  initRouteScopeRuntime as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutC1u3yp5sG,
 } from "../current-ref-aliases/react-router-host-shared/index";
 import {
   workspaceRootOptionsQuery as appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutMgfw3nlsH,

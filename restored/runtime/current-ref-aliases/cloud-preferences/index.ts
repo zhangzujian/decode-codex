@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/cloud-preferences-CjNs9hwm.js
-// Current-build entry for the restored cloud preferences hooks and validators.
+// Restored from ref/webview/assets/cloud-preferences-CKRNz61y.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 export {
   useCloudUserPreferences,
   useCloudPreferencesConfig,
