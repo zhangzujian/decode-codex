@@ -1,3 +1,0 @@
-import { n as e, t } from "./triangle-x1Q_W7ZL-CD_7-80s.js";
-t();
-export { e as default };

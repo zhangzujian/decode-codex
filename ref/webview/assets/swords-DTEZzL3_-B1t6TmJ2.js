@@ -1,0 +1,3 @@
+import { n as e, t } from "./swords-DTEZzL3_-BdbIFg9a.js";
+t();
+export { e as default };

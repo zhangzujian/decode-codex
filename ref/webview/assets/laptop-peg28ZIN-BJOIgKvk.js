@@ -1,0 +1,3 @@
+import { n as e, t } from "./laptop-peg28ZIN-wQPKJkhR.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./calendar-plus-D_ga-adp-C5U2ZTZT.js";
+e();
+export { t as default };

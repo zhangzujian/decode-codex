@@ -1,0 +1,3 @@
+import { n as e, t } from "./shrub-Ci1EwZtZ-BmIGTKUP.js";
+t();
+export { e as default };

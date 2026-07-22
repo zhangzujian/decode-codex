@@ -1,3 +1,0 @@
-import { n as e, t } from "./printer-check-CToDtujo-DDMC6cpL.js";
-t();
-export { e as default };

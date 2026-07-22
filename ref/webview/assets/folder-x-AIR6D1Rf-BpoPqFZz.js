@@ -1,0 +1,3 @@
+import { n as e, t } from "./folder-x-AIR6D1Rf-CI0B5LYY.js";
+t();
+export { e as default };

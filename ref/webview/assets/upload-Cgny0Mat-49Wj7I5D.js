@@ -1,0 +1,3 @@
+import { n as e, t } from "./upload-Cgny0Mat-jjn7vaBw.js";
+e();
+export { t as default };

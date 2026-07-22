@@ -1,0 +1,3 @@
+import { n as e, t } from "./bell-dot-cz9r8Yl8-BdCz_FKK.js";
+t();
+export { e as default };

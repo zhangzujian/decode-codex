@@ -1,3 +1,0 @@
-import { n as e, t } from "./scroll-DM0ogHht-BW3SBkT2.js";
-e();
-export { t as default };

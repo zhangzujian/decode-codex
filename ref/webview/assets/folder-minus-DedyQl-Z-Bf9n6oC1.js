@@ -1,3 +1,0 @@
-import { n as e, t } from "./folder-minus-DedyQl-Z-BVazdjxR.js";
-t();
-export { e as default };

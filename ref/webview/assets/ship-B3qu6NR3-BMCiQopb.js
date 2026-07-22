@@ -1,0 +1,3 @@
+import { n as e, t } from "./ship-B3qu6NR3-D-UuOVuk.js";
+e();
+export { t as default };

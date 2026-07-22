@@ -1,0 +1,3 @@
+import { n as e, t } from "./plugins-settings-BPdufMjJ.js";
+e();
+export { t as PluginsSettings };

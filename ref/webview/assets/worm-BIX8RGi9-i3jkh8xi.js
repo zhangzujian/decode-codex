@@ -1,0 +1,3 @@
+import { n as e, t } from "./worm-BIX8RGi9-B3ig0LpJ.js";
+e();
+export { t as default };

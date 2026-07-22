@@ -1,0 +1,3 @@
+import { n as e, t } from "./biceps-flexed-Bk2d_pno-D_kFp424.js";
+e();
+export { t as default };

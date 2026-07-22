@@ -1,0 +1,3 @@
+import { n as e, t } from "./message-square-off-BLHmNpIn-B1b3HKeg.js";
+t();
+export { e as default };

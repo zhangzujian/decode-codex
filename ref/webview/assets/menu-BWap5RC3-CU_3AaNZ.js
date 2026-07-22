@@ -1,0 +1,3 @@
+import { n as e, t } from "./menu-BWap5RC3-CXIv4vs5.js";
+t();
+export { e as default };

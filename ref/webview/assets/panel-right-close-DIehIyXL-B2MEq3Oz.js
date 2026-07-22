@@ -1,0 +1,3 @@
+import { n as e, t } from "./panel-right-close-DIehIyXL-Bz42v4e_.js";
+e();
+export { t as default };

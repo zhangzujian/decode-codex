@@ -1,0 +1,3 @@
+import { n as e, t } from "./tower-control-BPhVtcIj-Ci_GsEk1.js";
+e();
+export { t as default };

@@ -1,7 +1,0 @@
-import { n as e } from "./rolldown-runtime-BG2f4sTM.js";
-import { n as t, t as n } from "./file-pen-line-DrcY85rK-BWmPYVDG.js";
-e(() => {
-  n();
-})();
-export { t as default };
-//# sourceMappingURL=file-signature-UlpRvDgM-BckQRNzC.js.map

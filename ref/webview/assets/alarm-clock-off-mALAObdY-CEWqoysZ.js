@@ -1,0 +1,3 @@
+import { n as e, t } from "./alarm-clock-off-mALAObdY-CiC47elG.js";
+e();
+export { t as default };

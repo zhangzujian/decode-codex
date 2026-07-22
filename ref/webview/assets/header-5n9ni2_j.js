@@ -1,0 +1,3 @@
+import { n as e, t } from "./header--yWHYFJr.js";
+e();
+export { t as Header };

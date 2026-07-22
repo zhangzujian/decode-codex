@@ -1,0 +1,3 @@
+import { n as e, t } from "./smile-0ulXM4jt-Bo-WyapD.js";
+e();
+export { t as default };

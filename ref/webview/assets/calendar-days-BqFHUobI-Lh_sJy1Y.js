@@ -1,0 +1,3 @@
+import { n as e, t } from "./calendar-days-BqFHUobI-CgboXtcM.js";
+t();
+export { e as default };

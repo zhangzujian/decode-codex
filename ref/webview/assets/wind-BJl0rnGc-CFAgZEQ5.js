@@ -1,0 +1,3 @@
+import { n as e, t } from "./wind-BJl0rnGc-Id4Sad6G.js";
+t();
+export { e as default };

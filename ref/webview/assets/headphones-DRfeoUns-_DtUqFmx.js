@@ -1,0 +1,3 @@
+import { n as e, t } from "./headphones-DRfeoUns-D4QqCC9i.js";
+t();
+export { e as default };

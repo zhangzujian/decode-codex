@@ -1,0 +1,3 @@
+import { n as e, t } from "./indian-rupee-Dd0vOSTp-_epMAOi4.js";
+t();
+export { e as default };

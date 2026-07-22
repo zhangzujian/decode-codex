@@ -1,0 +1,3 @@
+import { n as e, t } from "./paint-roller-DQ8CByTW-DeS4Q5Ht.js";
+e();
+export { t as default };

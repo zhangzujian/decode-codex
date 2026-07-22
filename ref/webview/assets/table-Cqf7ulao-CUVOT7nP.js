@@ -1,0 +1,3 @@
+import { n as e, t } from "./table-Cqf7ulao-DlzpANjG.js";
+e();
+export { t as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./diameter-NfyJz2vb-Dlsqt_G7.js";
+e();
+export { t as default };

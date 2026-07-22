@@ -1,0 +1,3 @@
+import { n as e, t } from "./receipt-cent-VJLKIcDj-B9ikVS8L.js";
+e();
+export { t as default };

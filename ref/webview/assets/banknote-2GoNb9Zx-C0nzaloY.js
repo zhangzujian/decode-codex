@@ -1,0 +1,3 @@
+import { n as e, t } from "./banknote-2GoNb9Zx-DzapqN-o.js";
+t();
+export { e as default };

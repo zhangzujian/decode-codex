@@ -1,0 +1,3 @@
+import { n as e, t } from "./settings-2-CTBBUiFs-D5rRl9kx.js";
+t();
+export { e as default };

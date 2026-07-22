@@ -1,0 +1,3 @@
+import { n as e, t } from "./volume-1-3ViRvR12-M-fr_BP8.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./phone-ClYFT-A0-CNsIRmqu.js";
+t();
+export { e as default };

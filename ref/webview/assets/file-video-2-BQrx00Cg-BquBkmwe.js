@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-video-2-BQrx00Cg-DPliSTuy.js";
+e();
+export { t as default };

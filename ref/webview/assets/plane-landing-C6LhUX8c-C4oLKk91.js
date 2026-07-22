@@ -1,3 +1,0 @@
-import { n as e, t } from "./plane-landing-C6LhUX8c-8pvxT3vY.js";
-e();
-export { t as default };

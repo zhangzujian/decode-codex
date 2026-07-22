@@ -1,0 +1,3 @@
+import { n as e, t } from "./mail-plus-mHeqQDFn-H1r_EVRp.js";
+e();
+export { t as default };

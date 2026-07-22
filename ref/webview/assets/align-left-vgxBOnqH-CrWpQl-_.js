@@ -1,0 +1,3 @@
+import { n as e, t } from "./align-left-vgxBOnqH-C2B4en95.js";
+e();
+export { t as default };

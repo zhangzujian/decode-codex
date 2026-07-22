@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-archive-DedgxlWN-DDVQXjPi.js";
+e();
+export { t as default };

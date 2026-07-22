@@ -1,0 +1,6 @@
+import {
+  n as e,
+  t,
+} from "./align-horizontal-space-around-CPFBsq_B-yltBpuuY.js";
+t();
+export { e as default };

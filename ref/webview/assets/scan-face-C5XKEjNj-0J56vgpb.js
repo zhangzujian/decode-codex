@@ -1,0 +1,3 @@
+import { n as e, t } from "./scan-face-C5XKEjNj-C31e3Cv6.js";
+e();
+export { t as default };

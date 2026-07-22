@@ -1,0 +1,3 @@
+import { n as e, t } from "./glass-water-CHBTbzZb-BkprfbTp.js";
+e();
+export { t as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./folder-closed-CigqKhtt-taGabZhk.js";
+e();
+export { t as default };

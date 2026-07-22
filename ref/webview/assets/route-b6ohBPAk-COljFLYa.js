@@ -1,0 +1,3 @@
+import { n as e, t } from "./route-b6ohBPAk-B4esQwYe.js";
+t();
+export { e as default };

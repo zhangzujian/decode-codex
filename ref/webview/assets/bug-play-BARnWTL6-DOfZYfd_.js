@@ -1,0 +1,3 @@
+import { n as e, t } from "./bug-play-BARnWTL6-ByGOTW9H.js";
+e();
+export { t as default };

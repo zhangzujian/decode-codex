@@ -1,0 +1,6 @@
+import {
+  n as e,
+  t,
+} from "./align-horizontal-justify-center-C-Nxk-xh-COIpEvvy.js";
+t();
+export { e as default };

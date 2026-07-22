@@ -1,0 +1,3 @@
+import { n as e, t } from "./ticket-plus-DDekpXqS-DUt6Pdyh.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./heading-DYfdGojA-BA_Ehpx1.js";
+t();
+export { e as default };

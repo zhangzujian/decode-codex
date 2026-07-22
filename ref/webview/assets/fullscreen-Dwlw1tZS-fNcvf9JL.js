@@ -1,0 +1,3 @@
+import { n as e, t } from "./fullscreen-Dwlw1tZS-gwmVnLL1.js";
+t();
+export { e as default };

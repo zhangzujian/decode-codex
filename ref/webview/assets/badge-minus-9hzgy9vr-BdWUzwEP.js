@@ -1,3 +1,0 @@
-import { n as e, t } from "./badge-minus-9hzgy9vr-DMJT5EaX.js";
-e();
-export { t as default };

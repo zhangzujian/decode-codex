@@ -1,0 +1,3 @@
+import { n as e, t } from "./twitch-DF6XMo9o-C4OnUQvJ.js";
+e();
+export { t as default };

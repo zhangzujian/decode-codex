@@ -1,0 +1,3 @@
+import { n as e, t } from "./square-library-2rA4qKxk-Bvv_sp9j.js";
+t();
+export { e as default };

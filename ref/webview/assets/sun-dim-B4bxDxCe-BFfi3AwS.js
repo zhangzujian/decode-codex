@@ -1,0 +1,3 @@
+import { n as e, t } from "./sun-dim-B4bxDxCe-CTdgjyfv.js";
+t();
+export { e as default };

@@ -1,0 +1,3 @@
+import { n as e, t } from "./message-square-x-BhfxyTg8-B0WMe30G.js";
+t();
+export { e as default };

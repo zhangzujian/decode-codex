@@ -1,3 +1,0 @@
-import { n as e, t } from "./chevrons-right-left-D4nf57vH-CKx6d7F8.js";
-t();
-export { e as default };

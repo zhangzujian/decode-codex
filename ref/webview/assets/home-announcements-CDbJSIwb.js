@@ -1,0 +1,3 @@
+import { n as e, t } from "./home-announcements-BVgdEjD6.js";
+e();
+export { t as HomeAnnouncements };

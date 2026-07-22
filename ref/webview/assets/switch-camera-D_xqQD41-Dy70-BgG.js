@@ -1,0 +1,3 @@
+import { n as e, t } from "./switch-camera-D_xqQD41-BtR7DOwR.js";
+t();
+export { e as default };

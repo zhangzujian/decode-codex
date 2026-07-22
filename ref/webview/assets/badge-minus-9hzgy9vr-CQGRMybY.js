@@ -1,0 +1,3 @@
+import { n as e, t } from "./badge-minus-9hzgy9vr-Bq56gULk.js";
+e();
+export { t as default };

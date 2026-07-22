@@ -1,0 +1,3 @@
+import { n as e, t } from "./external-link-Gxu_V2Eg-DHegBg5X.js";
+e();
+export { t as default };

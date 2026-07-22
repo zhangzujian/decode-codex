@@ -1,0 +1,3 @@
+import { n as e, t } from "./paintbrush-B8l_NroG-C0o6Bos8.js";
+e();
+export { t as default };

@@ -1,3 +1,0 @@
-import { n as e, t } from "./globe-CS3LplN4-C9QDyoUn.js";
-e();
-export { t as default };

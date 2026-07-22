@@ -1,0 +1,3 @@
+import { n as e, t } from "./calendar-minus-BaWAY2xN-DA8pd4n_.js";
+t();
+export { e as default };

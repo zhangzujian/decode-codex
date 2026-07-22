@@ -1,0 +1,3 @@
+import { n as e, t } from "./ice-cream-cone-GvRmcO6L-LXDgClxa.js";
+t();
+export { e as default };

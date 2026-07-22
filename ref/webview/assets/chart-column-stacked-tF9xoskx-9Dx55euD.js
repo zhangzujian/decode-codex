@@ -1,0 +1,3 @@
+import { n as e, t } from "./chart-column-stacked-tF9xoskx-H6PB5ieB.js";
+e();
+export { t as default };

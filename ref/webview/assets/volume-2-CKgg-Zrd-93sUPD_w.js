@@ -1,0 +1,3 @@
+import { n as e, t } from "./volume-2-CKgg-Zrd-CW_1vMin.js";
+t();
+export { e as default };

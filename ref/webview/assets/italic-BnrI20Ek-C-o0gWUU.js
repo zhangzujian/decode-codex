@@ -1,0 +1,3 @@
+import { n as e, t } from "./italic-BnrI20Ek-BPWMTBSE.js";
+e();
+export { t as default };

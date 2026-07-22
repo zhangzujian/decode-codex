@@ -1,0 +1,3 @@
+import { n as e, t } from "./file-question-COtPmDf4-CxHd2_Ua.js";
+t();
+export { e as default };

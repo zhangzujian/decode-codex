@@ -1,3 +1,0 @@
-import { n as e, t } from "./align-start-horizontal-C7IobzsY-BGLx_AJd.js";
-e();
-export { t as default };

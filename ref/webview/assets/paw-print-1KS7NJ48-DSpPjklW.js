@@ -1,0 +1,3 @@
+import { n as e, t } from "./paw-print-1KS7NJ48-DbAAl5hT.js";
+t();
+export { e as default };
