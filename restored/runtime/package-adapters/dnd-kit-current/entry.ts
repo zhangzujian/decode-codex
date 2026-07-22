@@ -1,0 +1,28 @@
+// Restored from ref/webview/assets/app-initial~artifact-tab-content.electron~app-main~appgen-settings-page~page~pull-request-r~i9veoilb-2NQd-tpH.js
+// Exact historical bundle match re-exporting the reviewed semantic authority.
+export {
+  useIsomorphicLayoutEffect,
+  useCombinedRefs,
+  useSensors,
+  PointerSensor,
+  isKeyboardEvent,
+  getClientRect,
+  initDndKitCoreRuntime,
+  pointerWithin,
+  useSensor,
+  useDroppable,
+  KeyboardSensor,
+  getFirstCollision,
+  useDraggable,
+  DragOverlay,
+  closestCenter,
+  useDndContext,
+  KeyboardCode,
+  closestCorners,
+  DndContext,
+  getScrollableAncestors,
+  CSS,
+  useUniqueId,
+  subtract,
+  initDndKitUtilitiesRuntime,
+} from "./index";
