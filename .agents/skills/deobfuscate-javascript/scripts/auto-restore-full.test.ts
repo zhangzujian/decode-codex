@@ -142,7 +142,19 @@ test("--format only formats checkpoints from the current report", () => {
   fs.mkdirSync(workspace, { recursive: true });
   fs.mkdirSync(checkpoints, { recursive: true });
 
-  const current = "export const currentValue = 1;\n";
+  const current = `const predicates = [
+  (
+    appInitialAvatarOverlayCompositionSurfaceAppMainPetInstallModalHostQuickChatWindOieh6gbsParam11762,
+  ) =>
+    appInitialAvatarOverlayCompositionSurfaceAppMainPetInstallModalHostQuickChatWindOieh6gbsParam11762.x <
+    0,
+  (
+    appInitialAvatarOverlayCompositionSurfaceAppMainPetInstallModalHostQuickChatWindOieh6gbsParam11763,
+  ) =>
+    appInitialAvatarOverlayCompositionSurfaceAppMainPetInstallModalHostQuickChatWindOieh6gbsParam11763.x >
+    8192,
+];
+`;
   const staleInvalid = "export const broken = ;\n";
   fs.writeFileSync(path.join(workspace, "original.js"), current);
   fs.writeFileSync(path.join(workspace, "auto-polished.tsx"), current);

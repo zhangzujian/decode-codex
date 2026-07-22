@@ -26,6 +26,8 @@ export type FormatOptions = {
   check?: boolean;
   /** Glob to limit which files prettier touches (passed via --no-error-on-unmatched-pattern). */
   glob?: string;
+  /** Force a Prettier parser when the filename extension is intentionally broader. */
+  parser?: string;
 };
 
 function which(cmd: string): string | null {
@@ -63,6 +65,7 @@ function runPrettier(
   const prettierArgs = [
     opts.check ? "--check" : "--write",
     "--no-error-on-unmatched-pattern",
+    ...(opts.parser ? ["--parser", opts.parser] : []),
     ...cacheArgs,
     // Prettier 3 honours `.gitignore` by default. Restore deliverables routinely
     // live under a gitignored tree (e.g. a repo that gitignores `restored/`), so

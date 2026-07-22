@@ -983,7 +983,7 @@ async function main(): Promise<void> {
       file.checkpointOutput,
       ...(file.targetCheckpointOutput ? [file.targetCheckpointOutput] : []),
     ]);
-    const formatted = formatPaths(formatTargets);
+    const formatted = formatPaths(formatTargets, { parser: "babel" });
     if (formatted.stdout) process.stdout.write(formatted.stdout);
     if (formatted.stderr) process.stderr.write(formatted.stderr);
     if (!formatted.ok) process.exit(formatted.code);
