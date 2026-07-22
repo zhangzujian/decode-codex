@@ -8,7 +8,7 @@ import babelGenerator from "@babel/generator";
 import * as t from "@babel/types";
 import { applyRenames } from "./apply.ts";
 import { extractSymbols, type SymbolEntry } from "./extract.ts";
-import { formatPath } from "./format.ts";
+import { formatPaths } from "./format.ts";
 import { polish } from "./polish.ts";
 import { findRenames } from "./smart-rename.ts";
 import { JS_GLOBALS } from "./chunk-classification.ts";
@@ -979,7 +979,11 @@ async function main(): Promise<void> {
   fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
 
   if (parsed.values.format) {
-    const formatted = formatPath(targetDir);
+    const formatTargets = report.files.flatMap((file) => [
+      file.checkpointOutput,
+      ...(file.targetCheckpointOutput ? [file.targetCheckpointOutput] : []),
+    ]);
+    const formatted = formatPaths(formatTargets);
     if (formatted.stdout) process.stdout.write(formatted.stdout);
     if (formatted.stderr) process.stderr.write(formatted.stderr);
     if (!formatted.ok) process.exit(formatted.code);

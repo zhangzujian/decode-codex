@@ -133,4 +133,80 @@ test("--resume preserves cached files in the aggregate report", () => {
   }
 });
 
+test("--format only formats checkpoints from the current report", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "auto-restore-format-"));
+  const target = path.join(root, "restored");
+  const full = path.join(target, ".deobfuscate-javascript", "_full");
+  const checkpoints = path.join(full, "checkpoints");
+  const workspace = path.join(full, "files", "current");
+  fs.mkdirSync(workspace, { recursive: true });
+  fs.mkdirSync(checkpoints, { recursive: true });
+
+  const current = "export const currentValue = 1;\n";
+  const staleInvalid = "export const broken = ;\n";
+  fs.writeFileSync(path.join(workspace, "original.js"), current);
+  fs.writeFileSync(path.join(workspace, "auto-polished.tsx"), current);
+  fs.writeFileSync(path.join(checkpoints, "current.tsx"), current);
+  fs.writeFileSync(path.join(checkpoints, "stale.tsx"), staleInvalid);
+  fs.writeFileSync(path.join(target, "unrelated.tsx"), staleInvalid);
+  fs.writeFileSync(
+    path.join(full, "manifest.json"),
+    JSON.stringify({
+      targetDir: target,
+      files: {
+        current: {
+          path: path.join(workspace, "original.js"),
+          basename: "current",
+          kind: "local",
+          imports: [],
+          exports: [],
+          stages: {},
+        },
+      },
+    }),
+  );
+  fs.writeFileSync(
+    path.join(full, "ledger.json"),
+    JSON.stringify({ files: { current: { symbols: [] } } }),
+  );
+  fs.writeFileSync(
+    path.join(full, "auto-restore-report.json"),
+    JSON.stringify({
+      target,
+      files: [
+        {
+          basename: "current",
+          source: path.join(workspace, "original.js"),
+          checkpointOutput: path.join(checkpoints, "current.tsx"),
+          symbols: 0,
+          renames: 0,
+          smartRenames: 0,
+          fallbackRenames: 0,
+          importRenames: 0,
+          exportRenames: 0,
+          ignoredRenames: 0,
+          needsAgentRewrite: true,
+        },
+      ],
+    }),
+  );
+
+  try {
+    const result = spawnSync(
+      "bun",
+      [SCRIPT, "--target", target, "--resume", "--format"],
+      { encoding: "utf-8" },
+    );
+    expect(result.status).toBe(0);
+    expect(fs.readFileSync(path.join(checkpoints, "stale.tsx"), "utf-8")).toBe(
+      staleInvalid,
+    );
+    expect(fs.readFileSync(path.join(target, "unrelated.tsx"), "utf-8")).toBe(
+      staleInvalid,
+    );
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
 const JS_GLOBAL_LIKE = /^_{1,2}[A-Z]/;
