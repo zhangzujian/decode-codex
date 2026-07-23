@@ -94,6 +94,32 @@ export type PromoteResult = {
   issues?: string[];
 };
 
+/**
+ * Prettier can drop parentheses from multiline arrow comparison bodies inside
+ * generated TSX arrays and emit output its own parser rejects. Restore only the
+ * captured coordinate-boundary shape; the added parentheses are semantic no-ops.
+ */
+export function stabilizeGeneratedRuntimeArrowComparisons(
+  source: string,
+): string {
+  const lines = source.split("\n");
+  for (let index = 0; index + 2 < lines.length; index += 1) {
+    const arrowLine = lines[index]!;
+    const comparisonLine = lines[index + 1]!;
+    const thresholdLine = lines[index + 2]!;
+    if (!/\)\s*=>\s*$/.test(arrowLine)) continue;
+    if (!/\.[xy]\s*[<>]=?\s*$/.test(comparisonLine)) continue;
+    if (!/^\s*(?:0|8192),\s*$/.test(thresholdLine)) continue;
+
+    const indent = arrowLine.match(/^\s*/)?.[0] ?? "";
+    lines[index] = `${arrowLine} (`;
+    lines[index + 2] = thresholdLine.replace(/,\s*$/, "");
+    lines.splice(index + 3, 0, `${indent}),`);
+    index += 3;
+  }
+  return lines.join("\n");
+}
+
 function readJson<T>(p: string): T | null {
   try {
     return JSON.parse(fs.readFileSync(p, "utf-8")) as T;
@@ -135,6 +161,7 @@ export function buildImportMappings(
   consumerRenames?: Record<string, string>,
 ): SemanticImportMapping[] {
   const mappings: SemanticImportMapping[] = [];
+  const renamesByLocal = indexAutoRenamesByLocal(consumerRenames);
   for (const imp of chunk.imports ?? []) {
     // Vendor data: redirect to the bare specifier regardless of the (stale)
     // edge kind recorded before the target's content was fingerprinted.
@@ -149,7 +176,7 @@ export function buildImportMappings(
     }
     if (target?.kind === "npm-leaf" && target.npmPackage) {
       const exports = npmLeafExports(target.npmPackage);
-      addRenamedImportAliases(exports, imp, consumerRenames);
+      addRenamedImportAliases(exports, imp, renamesByLocal);
       mappings.push({
         source: imp.source,
         to: target.npmPackage,
@@ -161,7 +188,7 @@ export function buildImportMappings(
     const producer = importMap.chunks?.[imp.target];
     if (!producer?.restored || producer.status !== "done") continue;
     const exports = { ...(producer.exports ?? {}) };
-    addRenamedImportAliases(exports, imp, consumerRenames);
+    addRenamedImportAliases(exports, imp, renamesByLocal);
     mappings.push({
       source: imp.source,
       to: relativeImport(semanticPath, producer.restored),
@@ -188,7 +215,7 @@ function npmLeafExports(npmPackage: string): Record<string, string> {
 function addRenamedImportAliases(
   exports: Record<string, string>,
   imp: NonNullable<ManifestFile["imports"]>[number],
-  consumerRenames?: Record<string, string>,
+  renamesByLocal: Map<string, string[]>,
 ): void {
   for (const spec of imp.specifiers ?? []) {
     if (spec.kind !== "named") continue;
@@ -200,27 +227,36 @@ function addRenamedImportAliases(
     const replacement = exports[imported];
     if (!replacement) continue;
     if (!exports[local]) exports[local] = replacement;
-    for (const renamed of autoRenamesForLocal(local, consumerRenames)) {
+    for (const renamed of renamesByLocal.get(local) ?? []) {
       if (!exports[renamed]) exports[renamed] = replacement;
     }
   }
 }
 
-function autoRenamesForLocal(
-  local: string,
+function indexAutoRenamesByLocal(
   consumerRenames?: Record<string, string>,
-): string[] {
-  const matches: Array<{ offset: number; renamed: string }> = [];
+): Map<string, string[]> {
+  const matchesByLocal = new Map<
+    string,
+    Array<{ offset: number; renamed: string }>
+  >();
   for (const [key, renamed] of Object.entries(consumerRenames ?? {})) {
     const [name, rawOffset] = key.split("@");
-    if (name !== local) continue;
+    if (!name) continue;
     const offset = Number(rawOffset);
     if (!Number.isFinite(offset)) continue;
+    const matches = matchesByLocal.get(name) ?? [];
     matches.push({ offset, renamed });
+    matchesByLocal.set(name, matches);
   }
-  return matches
-    .sort((a, b) => a.offset - b.offset)
-    .map(({ renamed }) => renamed);
+  return new Map(
+    [...matchesByLocal].map(([name, matches]) => [
+      name,
+      matches
+        .sort((a, b) => a.offset - b.offset)
+        .map(({ renamed }) => renamed),
+    ]),
+  );
 }
 
 type Built = {
@@ -539,7 +575,14 @@ function buildCandidate(
     consumerRenames,
   );
   const rewrite = (code: string) =>
-    mappings.length > 0 ? rewriteSemanticImports(code, mappings) : code;
+    mappings.length > 0
+      ? rewriteSemanticImports(code, mappings, {
+          preserveLocalBindings:
+            chunk.organization?.classification === "generated-runtime",
+          preserveParentheses:
+            chunk.organization?.classification === "generated-runtime",
+        })
+      : code;
 
   if (recipe === "icon" || recipe === "button") {
     const checkpoint = readCheckpoint(fullDir, basename);
@@ -601,7 +644,12 @@ function buildCandidate(
       );
       const code =
         perFileMappings.length > 0
-          ? rewriteSemanticImports(f.code, perFileMappings)
+          ? rewriteSemanticImports(f.code, perFileMappings, {
+              preserveLocalBindings:
+                chunk.organization?.classification === "generated-runtime",
+              preserveParentheses:
+                chunk.organization?.classification === "generated-runtime",
+            })
           : f.code;
       return {
         relPath,
@@ -968,11 +1016,15 @@ function promotableCycleWave(
     .sort((a, b) => b.depth - a.depth || a.basename.localeCompare(b.basename));
 }
 
-function qualityOptionsFor(
+export function qualityOptionsFor(
   classification: string | undefined,
   tier: "readable" | "deep",
 ): QualityGateOptions {
-  if (classification === "vendor-runtime" || classification === "boundary") {
+  if (
+    classification === "generated-runtime" ||
+    classification === "vendor-runtime" ||
+    classification === "boundary"
+  ) {
     return {
       ...DEFAULT_OPTIONS,
       vendored: true,
@@ -1072,6 +1124,20 @@ export function promoteOrganized(
     const fmt = formatPaths(targets);
     if (!fmt.ok && fmt.stderr) {
       log(`  prettier skipped for wave (${targets.length} file(s)): ${fmt.stderr.trim()}`);
+    }
+  };
+  const stabilizeGeneratedRuntimes = (staged: StagedChunk[]): void => {
+    for (const item of staged) {
+      if (item.file.organization?.classification !== "generated-runtime") {
+        continue;
+      }
+      for (const builtFile of item.built.files) {
+        const dest = path.join(opts.target, builtFile.relPath);
+        if (!fs.existsSync(dest)) continue;
+        const source = fs.readFileSync(dest, "utf-8");
+        const stabilized = stabilizeGeneratedRuntimeArrowComparisons(source);
+        if (stabilized !== source) fs.writeFileSync(dest, stabilized);
+      }
     }
   };
   const rollback = (snapshot: RollbackSnapshot): void => {
@@ -1229,6 +1295,7 @@ export function promoteOrganized(
 
     // ---- Phase B: format the whole wave in one prettier spawn (before gating).
     formatWave(staged.map((s) => s.built));
+    stabilizeGeneratedRuntimes(staged);
 
     // A strongly-connected component is one logical unit: every member was
     // written so its peers' relative imports resolve. If any member fails the
@@ -1312,19 +1379,49 @@ export function promoteOrganized(
           }
           return {
             relPath: f.relPath,
-            issues: analyzeSource(code, dest, qopts).issues.map((i) => i.code),
+            issues: analyzeSource(code, dest, qopts).issues.map((issue) => ({
+              code: issue.code,
+              message: issue.message,
+            })),
           };
         });
         const issues = [
-          ...new Set(issueDetails.flatMap((detail) => detail.issues)),
+          ...new Set(
+            issueDetails.flatMap((detail) =>
+              detail.issues.map((issue) => issue.code),
+            ),
+          ),
         ];
 
         if (issues.length > 0) {
+          if (issues.includes("parse-error")) {
+            const diagnosticDir = path.join(
+              paths.fullDir,
+              "files",
+              basename,
+              "promotion-failure",
+            );
+            fs.mkdirSync(diagnosticDir, { recursive: true });
+            for (const builtFile of built.files) {
+              const sourcePath = path.join(opts.target, builtFile.relPath);
+              if (!fs.existsSync(sourcePath)) continue;
+              fs.copyFileSync(
+                sourcePath,
+                path.join(diagnosticDir, path.basename(builtFile.relPath)),
+              );
+            }
+            log(`  parse diagnostic saved under ${diagnosticDir}`);
+          }
           rollback(rollbackSnapshot);
           rollbackSnapshot = null;
           const detail = issueDetails
             .filter((item) => item.issues.length > 0)
-            .map((item) => `${item.relPath}: ${item.issues.join(", ")}`)
+            .map(
+              (item) =>
+                `${item.relPath}: ${item.issues
+                  .map((issue) => `${issue.code} (${issue.message})`)
+                  .join(", ")}`,
+            )
             .join("; ");
           log(`promote: FAIL ${basename} (${detail})`);
           results.push({

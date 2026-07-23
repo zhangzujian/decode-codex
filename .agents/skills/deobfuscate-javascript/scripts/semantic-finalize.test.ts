@@ -248,6 +248,32 @@ describe("semantic-finalize", () => {
     parseModule(out);
   });
 
+  test("can preserve generated-runtime local bindings while rewriting producer exports", () => {
+    const source = [
+      `import { t as Ke } from "./download-Cf0FyA1Y.js";`,
+      `const isOutside = (item: { x: number }) => (item.x <= 0);`,
+      `export function Toolbar() { return <Ke />; }`,
+    ].join("\n");
+    const out = rewriteSemanticImports(
+      source,
+      [
+        {
+          source: "./download-Cf0FyA1Y.js",
+          to: "./download-icon",
+          exports: { t: "DownloadIcon" },
+        },
+      ],
+      { preserveLocalBindings: true, preserveParentheses: true },
+    );
+
+    expect(out).toContain(
+      'import { DownloadIcon as Ke } from "./download-icon"',
+    );
+    expect(out).toContain("return <Ke />");
+    expect(out).toContain("(item.x <= 0)");
+    parseModule(out);
+  });
+
   test("rewrites generated fallback aliases and their references", () => {
     const source = [
       `import { t as ImportedBinding34 } from "./button-bq66r8jD.js";`,

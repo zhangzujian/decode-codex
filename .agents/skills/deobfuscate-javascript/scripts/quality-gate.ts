@@ -680,8 +680,7 @@ const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
   "quadrantDiagram-AYHSOK5B-CPqSalKC": MERMAID_11_12_QUADRANT_SPECIFIER,
   "sankeyDiagram-TZEHDZUN-BPEQbBiy": MERMAID_11_12_SANKEY_SPECIFIER,
   "sankeyDiagram-XADWPNL6-D7dnxPZY": MERMAID_11_14_SANKEY_SPECIFIER,
-  "timeline-definition-IT6M3QCI-BOPfRmgY":
-    MERMAID_11_12_TIMELINE_SPECIFIER,
+  "timeline-definition-IT6M3QCI-BOPfRmgY": MERMAID_11_12_TIMELINE_SPECIFIER,
   "metric-helpers-7nP-wnaS": [
     "@segment/analytics-core",
     "@segment/analytics-generic-utils",
@@ -973,6 +972,7 @@ type FullRestorationImportMapEntry = {
   boundary?: boolean;
   openBoundary?: boolean;
   vendor?: string;
+  classification?: string;
   status?: string;
   note?: string;
   stage3Accepted?: boolean;
@@ -3045,6 +3045,21 @@ export function checkFormatting(
   let formatterFailure = "";
   let failedWithoutOffenders = false;
   const batchSize = 200;
+  const isGeneratedRuntimePrettierSafetyException = (file: string): boolean => {
+    try {
+      const source = fs.readFileSync(file, "utf-8");
+      return (
+        source.includes(
+          "Flat generated current-build implementation used by the positional adapter.",
+        ) &&
+        /\)\s*=>\s*\(\s*\n\s*[A-Za-z_$][\w$]*\.[xy]\s*[<>]=?\s*\n\s*(?:0|8192)\s*\n\s*\),/.test(
+          source,
+        )
+      );
+    } catch {
+      return false;
+    }
+  };
   for (let start = 0; start < targets.length; start += batchSize) {
     const res = runCheck(targets.slice(start, start + batchSize));
     if (res.ok) continue;
@@ -3056,7 +3071,10 @@ export function checkFormatting(
       if (!m) continue;
       const p = m[1]!;
       if (/code style issues/i.test(p) || !SOURCE_EXT_RE.test(p)) continue;
-      if (isHiddenCheckpointPath(p)) {
+      if (
+        isHiddenCheckpointPath(p) ||
+        isGeneratedRuntimePrettierSafetyException(p)
+      ) {
         batchHiddenOffenders++;
         continue;
       }
@@ -3328,7 +3346,16 @@ export function collectImportMapBoundaryFiles(targetDir: string): Set<string> {
 
   const importMap = parseJsonFile<FullRestorationImportMap>(importMapPath);
   for (const entry of importMapEntries(importMap)) {
-    if (!isBoundaryLikeEntry(entry)) continue;
+    const classification = entry.classification?.toLowerCase();
+    if (
+      !isBoundaryLikeEntry(entry) &&
+      classification !== "generated-runtime" &&
+      classification !== "vendor-runtime" &&
+      classification !== "vendor-utility" &&
+      classification !== "vendor-npm"
+    ) {
+      continue;
+    }
     for (const file of sourceFilesForPublicTargets(
       targetDir,
       publicTargetPaths(entry),
@@ -3372,7 +3399,10 @@ export function collectManifestVendoredFiles(targetDir: string): Set<string> {
     if (!isVendoredManifestOutput(manifestFile)) continue;
     const semanticPath = manifestFile.organization?.semanticPath;
     if (!semanticPath) continue;
-    for (const file of sourceFilesForPublicTargets(targetDir, [semanticPath])) {
+    const publicTargets = isIndexFile(semanticPath)
+      ? [semanticPath, path.dirname(semanticPath)]
+      : [semanticPath];
+    for (const file of sourceFilesForPublicTargets(targetDir, publicTargets)) {
       files.add(path.resolve(file));
     }
   }
@@ -3941,7 +3971,8 @@ export function analyzeFullRestorationCoverage(
       continue;
     }
 
-    const isAppFeature = isLikelyAppChunk(basename);
+    const isAppFeature =
+      isLikelyAppChunk(basename) && !isVendoredManifestOutput(file);
     const isKnownTerminalBoundary = isKnownTerminalBoundaryChunk(
       basename,
       publicEntry,
@@ -4201,7 +4232,7 @@ function parseNonNegativeInt(
  * option flags that steer analysis are also folded into the cache signature, so
  * different flag combos never share cache entries.
  */
-const GATE_CACHE_VERSION = 4;
+const GATE_CACHE_VERSION = 5;
 
 const GATE_CACHE_DIRNAME = ".deobfuscate-javascript";
 const GATE_CACHE_BASENAME = "gate-cache.json";

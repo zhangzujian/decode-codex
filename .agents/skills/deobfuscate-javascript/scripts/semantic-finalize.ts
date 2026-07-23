@@ -80,7 +80,10 @@ type ButtonModel = {
   baseClassName: string;
 };
 
-function parseSource(source: string): t.File {
+function parseSource(
+  source: string,
+  options: { preserveParentheses?: boolean } = {},
+): t.File {
   return parser.parse(source, {
     sourceType: "module",
     errorRecovery: true,
@@ -88,6 +91,7 @@ function parseSource(source: string): t.File {
     allowReturnOutsideFunction: true,
     allowAwaitOutsideFunction: true,
     allowUndeclaredExports: true,
+    createParenthesizedExpressions: options.preserveParentheses ?? false,
     plugins: PARSER_PLUGINS,
   });
 }
@@ -706,8 +710,12 @@ function rewriteBindingReferences(
 export function rewriteSemanticImports(
   source: string,
   mappings: SemanticImportMapping[],
+  options: {
+    preserveLocalBindings?: boolean;
+    preserveParentheses?: boolean;
+  } = {},
 ): string {
-  const ast = parseSource(source);
+  const ast = parseSource(source, options);
   traverse(ast, {
     ImportDeclaration(path) {
       const sourceValue = path.node.source.value;
@@ -723,6 +731,7 @@ export function rewriteSemanticImports(
         if (!replacement) continue;
         const oldLocalName = spec.local.name;
         spec.imported = t.identifier(replacement);
+        if (options.preserveLocalBindings) continue;
         if (!t.isValidIdentifier(replacement)) continue;
         if (
           oldLocalName === importedName ||

@@ -9,7 +9,9 @@ import {
   inferCheckpointExportMap,
   inferManualExportMap,
   promoteOrganized,
+  qualityOptionsFor,
   relativeImport,
+  stabilizeGeneratedRuntimeArrowComparisons,
 } from "./promote-organized.ts";
 import type { ManifestFile } from "./build-import-graph.ts";
 
@@ -282,6 +284,21 @@ export function cycleBValue(): string { return missingCycleHelper(cycleAValue())
 }
 
 describe("relativeImport / buildImportMappings", () => {
+  test("restores parentheses after Prettier breaks generated comparison arrows", () => {
+    const source = [
+      "const checks = [",
+      "  (point) =>",
+      "    point.x >",
+      "    8192,",
+      "  (point) => point.active,",
+      "];",
+    ].join("\n");
+
+    expect(stabilizeGeneratedRuntimeArrowComparisons(source)).toContain(
+      ["  (point) => (", "    point.x >", "    8192", "  ),"].join("\n"),
+    );
+  });
+
   test("ensureProvenanceHeader normalizes absolute restored paths", () => {
     const absolute = path.join(
       process.cwd(),
@@ -435,8 +452,10 @@ describe("relativeImport / buildImportMappings", () => {
       },
       undefined,
       {
+        "unrelated@5": "unrelatedLocal",
         "i@1": "mapDependencyIndex",
         "i@120": "renamedImportedInitializer",
+        "invalid@offset": "ignoredInvalidOffset",
       },
     );
 
@@ -690,6 +709,14 @@ describe("relativeImport / buildImportMappings", () => {
 });
 
 describe("promoteOrganized", () => {
+  test("treats generated runtimes as mechanical runtime candidates", () => {
+    expect(qualityOptionsFor("generated-runtime", "deep")).toMatchObject({
+      vendored: true,
+      allowFlat: true,
+      allowMechanicalNames: true,
+    });
+  });
+
   test("maps mechanical checkpoint exports by ledger symbol id, not declaration order", () => {
     const target = makeTmpRoot();
     const fullDir = path.join(target, ".deobfuscate-javascript", "_full");

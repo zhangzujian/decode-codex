@@ -5838,6 +5838,64 @@ describe("vendored / facade relaxation", () => {
     );
   });
 
+  test("manifest generated runtime index relaxes sibling backing files", () => {
+    const targetDir = makeTmpRoot();
+    const runtimeDir = path.join(targetDir, "runtime", "generated-current");
+    fs.mkdirSync(runtimeDir, { recursive: true });
+    const indexFile = path.join(runtimeDir, "index.ts");
+    const backingFile = path.join(runtimeDir, "current-backing.tsx");
+    fs.writeFileSync(indexFile, "export * from './current-backing';\n");
+    fs.writeFileSync(backingFile, "export const generatedValue1 = 1;\n");
+    fs.mkdirSync(path.join(targetDir, ".deobfuscate-javascript", "_full"), {
+      recursive: true,
+    });
+    fs.writeFileSync(
+      path.join(targetDir, ".deobfuscate-javascript", "_full", "manifest.json"),
+      JSON.stringify({
+        files: {
+          "appgen-page-runtime-AbCdEf12": {
+            basename: "appgen-page-runtime-AbCdEf12",
+            kind: "local",
+            stages: { finalized: true, promoted: true },
+            organization: {
+              domain: "runtime",
+              semanticPath: "runtime/generated-current/index.ts",
+              classification: "generated-runtime",
+            },
+          },
+        },
+      }),
+    );
+
+    const vendoredFiles = collectManifestVendoredFiles(targetDir);
+    expect(vendoredFiles).toContain(path.resolve(indexFile));
+    expect(vendoredFiles).toContain(path.resolve(backingFile));
+  });
+
+  test("import map classification relaxes legacy generated runtime outputs", () => {
+    const targetDir = makeTmpRoot();
+    const runtimeDir = path.join(targetDir, "runtime", "granola");
+    fs.mkdirSync(runtimeDir, { recursive: true });
+    const runtimeFile = path.join(runtimeDir, "workbook-runtime.ts");
+    fs.writeFileSync(runtimeFile, "export const workbookValue1 = 1;\n");
+    fs.writeFileSync(
+      path.join(targetDir, "IMPORT_MAP.json"),
+      JSON.stringify({
+        chunks: {
+          "workbook-AbCdEf12": {
+            restored: "runtime/granola/workbook-runtime.ts",
+            classification: "generated-runtime",
+            status: "done",
+          },
+        },
+      }),
+    );
+
+    expect(collectImportMapBoundaryFiles(targetDir)).toContain(
+      path.resolve(runtimeFile),
+    );
+  });
+
   test("CLI relaxes current manifest vendor/generated outputs but not app-feature outputs", () => {
     const targetDir = makeTmpRoot();
     const vendorDir = path.join(targetDir, "vendor");
@@ -5869,10 +5927,10 @@ describe("vendored / facade relaxation", () => {
       JSON.stringify(
         {
           files: {
-            "vendor-runtime-AbCdEf12": {
-              basename: "vendor-runtime-AbCdEf12",
+            "app-initial~vendor-runtime-AbCdEf12": {
+              basename: "app-initial~vendor-runtime-AbCdEf12",
               kind: "local",
-              stages: { finalized: true, promoted: true },
+              stages: { finalized: false, promoted: true },
               organization: {
                 domain: "vendor",
                 semanticPath: "vendor/vendor-runtime.ts",
@@ -5882,17 +5940,17 @@ describe("vendored / facade relaxation", () => {
             "docx-preview-panel-GhIjKl34": {
               basename: "docx-preview-panel-GhIjKl34",
               kind: "local",
-              stages: { finalized: true, promoted: true },
+              stages: { finalized: false, promoted: true },
               organization: {
                 domain: "vendor",
                 semanticPath: "vendor/docx-preview-panel.ts",
                 classification: "app-feature",
               },
             },
-            "popcorn-runtime-MnOpQr56": {
-              basename: "popcorn-runtime-MnOpQr56",
+            "appgen-page-runtime-MnOpQr56": {
+              basename: "appgen-page-runtime-MnOpQr56",
               kind: "local",
-              stages: { finalized: true, promoted: true },
+              stages: { finalized: false, promoted: true },
               organization: {
                 domain: "generated",
                 semanticPath: "generated/popcorn-runtime.ts",
@@ -5910,16 +5968,15 @@ describe("vendored / facade relaxation", () => {
       JSON.stringify(
         {
           chunks: {
-            "vendor-runtime-AbCdEf12": {
+            "app-initial~vendor-runtime-AbCdEf12": {
               restored: "vendor/vendor-runtime.ts",
               status: "done",
             },
             "docx-preview-panel-GhIjKl34": {
               restored: "vendor/docx-preview-panel.ts",
               status: "done",
-              stage3Accepted: true,
             },
-            "popcorn-runtime-MnOpQr56": {
+            "appgen-page-runtime-MnOpQr56": {
               restored: "generated/popcorn-runtime.ts",
               status: "done",
             },
@@ -5972,6 +6029,12 @@ describe("vendored / facade relaxation", () => {
     expect(generatedCodes).not.toContain("split-required");
     expect(appFeatureCodes).toContain("mechanical-names");
     expect(appFeatureCodes).toContain("split-required");
+    const coverageIssue = reports
+      .flatMap((report) => report.issues)
+      .find(
+        (issue) => issue.code === "full-restoration-app-feature-not-accepted",
+      );
+    expect(coverageIssue?.detail).toEqual(["docx-preview-panel-GhIjKl34"]);
   });
 
   test("a generated facade is auto-relaxed by its marker (no --vendored)", () => {
@@ -6343,6 +6406,32 @@ describe("checkFormatting", () => {
     });
     const reports = checkFormatting(root, fakeRun);
     expect(reports.map((r) => r.file)).toEqual([publicFile]);
+  });
+
+  test("allows the generated-runtime arrow comparison needed to avoid invalid Prettier output", () => {
+    const root = makeTmpRoot();
+    const runtimeFile = path.join(root, "runtime", "current-backing.tsx");
+    fs.mkdirSync(path.dirname(runtimeFile), { recursive: true });
+    fs.writeFileSync(
+      runtimeFile,
+      [
+        "// Restored from ref/webview/assets/runtime-AbCdEf12.js",
+        "// Flat generated current-build implementation used by the positional adapter.",
+        "const checks = [",
+        "  (point) => (",
+        "    point.x >",
+        "    8192",
+        "  ),",
+        "];",
+      ].join("\n"),
+    );
+
+    const reports = checkFormatting(root, () => ({
+      ok: false,
+      stdout: `Checking formatting...\n[warn] ${runtimeFile}\n[warn] Code style issues found in 1 file.\n`,
+      stderr: "",
+    }));
+    expect(reports).toEqual([]);
   });
 
   test("returns no issues when everything is prettier-clean", () => {
