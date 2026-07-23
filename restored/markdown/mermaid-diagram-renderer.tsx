@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 import { CopyButton } from "../ui/copy-button";
 import { Tooltip } from "../ui/tooltip-b";
 import { copyToClipboard } from "../utils/copy-to-clipboard";
-import { MermaidCore } from "../vendor/mermaid-core";
+import mermaidRuntime from "mermaid";
 import { FormattedMessage, useIntl } from "../vendor/react-intl";
 type MermaidDiagramRendererProps = {
   code: string;
@@ -31,7 +31,7 @@ type MermaidApi = {
     container?: Element,
   ) => Promise<MermaidRenderResult>;
 };
-const mermaid = MermaidCore as MermaidApi;
+const mermaid = mermaidRuntime as MermaidApi;
 const FRONT_MATTER_PATTERN = /%%\{[\s\S]*?\}%%/g;
 const SECURITY_LEVEL_PATTERN = /securityLevel\s*:/i;
 const CLICK_DIRECTIVE_PATTERN = /^\s*click\s+.*$/gim;

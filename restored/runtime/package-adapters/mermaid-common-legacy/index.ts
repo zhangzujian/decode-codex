@@ -1,62 +1,57 @@
 // Restored from ref/webview/assets/chunk-ABZYJK2D-C7_WFFRt.js
 // Legacy Mermaid common-runtime surface backed by the restored vendor runtime.
 import {
-  _chunkABZYJK2DA as clearCommonDb,
-  _chunkABZYJK2DB as getConfig,
-  _chunkABZYJK2DC as getDiagramTitle,
-  _chunkABZYJK2DD as getUserDefinedConfig,
-  _chunkABZYJK2DF as sanitizeDirective,
-  _chunkABZYJK2DG as setupGraphViewbox,
-  _chunkABZYJK2DI as calculateMathMLDimensions,
-  _chunkABZYJK2DJ as registerDiagram,
-  _chunkABZYJK2DL as sanitizeText,
-  _chunkABZYJK2DM as registerLazyLoadedDiagrams,
-  _chunkABZYJK2DN as renderKatexSanitized,
-  _chunkABZYJK2DO as commonDb,
-  _chunkABZYJK2DP as resetConfig,
-  _chunkABZYJK2DS as commonUtils,
-  _chunkABZYJK2DT as getThemeVariables,
-  _chunkABZYJK2DV as getAccTitle,
-  _chunkABZYJK2DW as getSiteConfig,
-  _chunkABZYJK2DX as getDiagram,
-  _chunkABZYJK2DY as getConfigAlias,
-  _chunkABZYJK2DZ as saveConfigFromInitialize,
-  chunkABZYJK2DA as parseGenericTypes,
-  chunkABZYJK2DB as setAccTitle,
-  chunkABZYJK2DC as configureSvgSize,
-  chunkABZYJK2DD as defaultConfig,
-  chunkABZYJK2DE as getUrl,
-  chunkABZYJK2DF as detectType,
-  chunkABZYJK2DH as evaluate,
-  chunkABZYJK2DI as sanitizeTextWithConfig,
-  chunkABZYJK2DJ as themeRegistry,
-  chunkABZYJK2DN as addDirective,
-  chunkABZYJK2DO as hasKatex,
-  chunkABZYJK2DP as diagramDetectors,
-  chunkABZYJK2DQ as getStyles,
-  chunkABZYJK2DR as assignWithDepth,
-  chunkABZYJK2DS as getDiagramLoader,
-  chunkABZYJK2DU as setDiagramTitle,
-  chunkABZYJK2DUnderscore as getAccDescription,
-  chunkABZYJK2DV as setConfig,
-  chunkABZYJK2DW as setSiteConfig,
-  chunkABZYJK2DX as sanitizeHtml,
-  chunkABZYJK2DY as updateSiteConfig,
-  chunkABZYJK2DZ as setAccDescription,
-} from "../../../vendor/katex-auto-render";
-const lineBreakRegex = /<br\s*\/?>/gi;
-const frontMatterRegex = /^-{3}\s*[\n\r](.*?)[\n\r]-{3}\s*[\n\r]+/s;
-const directiveRegex =
-  /%{2}{\s*(?:(\w+)\s*:|(\w+))\s*(?:(\w+)|((?:(?!}%{2}).|\r?\n)*))?\s*(?:}%{2})?/gi;
-class UnknownDiagramError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = "UnknownDiagramError";
-  }
-}
+  UnknownDiagramError,
+  addDirective,
+  assignWithDepth_default as assignWithDepth,
+  calculateMathMLDimensions,
+  clear as clearCommonDb,
+  common_default as commonUtils,
+  commonDb_exports as commonDb,
+  configureSvgSize,
+  defaultConfig,
+  detectType,
+  detectors as diagramDetectors,
+  directiveRegex,
+  evaluate,
+  frontMatterRegex,
+  getAccDescription,
+  getAccTitle,
+  getConfig,
+  getConfig2 as getConfigAlias,
+  getDiagram,
+  getDiagramLoader,
+  getDiagramTitle,
+  getSiteConfig,
+  getThemeVariables,
+  getUrl,
+  getUserDefinedConfig,
+  hasKatex,
+  lineBreakRegex,
+  parseGenericTypes,
+  registerDiagram,
+  registerLazyLoadedDiagrams,
+  renderKatexSanitized,
+  reset as resetConfig,
+  sanitizeDirective,
+  sanitizeText as sanitizeTextWithConfig,
+  sanitizeText2,
+  saveConfigFromInitialize,
+  setAccDescription,
+  setAccTitle,
+  setConfig,
+  setDiagramTitle,
+  setSiteConfig,
+  setupGraphViewbox,
+  setupGraphViewbox2 as setupGraphViewboxAlias,
+  styles_default as getStyles,
+  themes_default as themeRegistry,
+  updateSiteConfig,
+} from "mermaid/dist/chunks/mermaid.core/chunk-ABZYJK2D.mjs";
+const sanitizeHtml = sanitizeText2;
+const sanitizeText = sanitizeText2;
 const defaultConfigFrozen = Object.freeze(defaultConfig);
 const setConfigAlias = setConfig;
-const setupGraphViewboxAlias = setupGraphViewbox;
 function initDomPurifyRuntime(): void {}
 function initLegacyMermaidCommonRuntime(): void {}
 export {

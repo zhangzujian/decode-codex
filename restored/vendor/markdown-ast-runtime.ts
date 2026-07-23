@@ -1,6 +1,8 @@
 // Restored from ref/webview/assets/app-initial~app-main~onboarding-page-CgNc-Bk2.js
 // Semantic aliases for bundled unist/mdast traversal helpers.
-import { handleO, handleS, handleT } from "./unist-handle";
+import { defaultHandlers } from "mdast-util-to-markdown";
+import { convert } from "unist-util-is";
+import { visitParents } from "unist-util-visit-parents";
 
 export type UnistNode = {
   children?: UnistNode[];
@@ -34,10 +36,10 @@ export type UnistNodePredicate = (
   parent?: UnistNode,
 ) => boolean;
 
-export const mdastToMarkdownDefaultHandlers = handleT;
+export const mdastToMarkdownDefaultHandlers = defaultHandlers;
 
 export function convertUnistTest(test?: UnistTest): UnistNodePredicate {
-  return handleS(test as never) as UnistNodePredicate;
+  return convert(test as never) as UnistNodePredicate;
 }
 
 export function initUnistUtilIsRuntimeChunk(): void {}
@@ -59,7 +61,7 @@ export function visitUnistParents(
   visitorOrReverse?: UnistVisitor | boolean,
   reverse?: boolean,
 ): void {
-  handleO(
+  visitParents(
     tree as never,
     testOrVisitor as never,
     visitorOrReverse as never,

@@ -1,5 +1,10 @@
 // Restored from ref/webview/assets/app-initial~app-main~worktree-init-v2-page~remote-conversation-page~new-thread-panel-page~o~bj5tp28r-Dcs9S3fj.js
 // Small Radix helper primitives bundled alongside dialog/menu internals.
+export * from "@radix-ui/react-context";
+export * from "@radix-ui/react-use-controllable-state";
+export * from "@radix-ui/react-id";
+export * from "aria-hidden";
+
 import React, {
   type ComponentType,
   type ReactNode,

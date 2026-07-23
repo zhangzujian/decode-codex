@@ -1,5 +1,6 @@
 // Restored from ref/webview/assets/merge-Baqijoc_.js
 // Compatibility barrel for Codex's bundled lodash merge helper cluster.
+export * from "lodash";
 export {
   assignValue as mergeP,
   baseAssignValue as mergeM,
