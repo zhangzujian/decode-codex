@@ -66,6 +66,8 @@ make_feed "$feed" "$version" "$build" "$(stat -c%s "$archive")"
 downloads="$tmp/downloads"
 mkdir -p "$downloads/ChatGPT-darwin-arm64-26.715.1"
 : >"$downloads/ChatGPT-darwin-arm64-26.715.1.zip"
+mkdir -p "$downloads/ChatGPT-darwin-arm64-not-a-version"
+printf 'near miss marker\n' >"$downloads/ChatGPT-darwin-arm64-not-a-version/marker"
 printf 'unrelated file\n' >"$downloads/keep.zip"
 mkdir -p "$downloads/unrelated"
 printf 'unrelated directory\n' >"$downloads/unrelated/marker"
@@ -79,6 +81,8 @@ test -f "$downloads/keep.zip" || fail 'unrelated file deleted'
 [[ $(<"$downloads/keep.zip") == 'unrelated file' ]] || fail 'unrelated file changed'
 test -f "$downloads/unrelated/marker" || fail 'unrelated directory deleted'
 [[ $(<"$downloads/unrelated/marker") == 'unrelated directory' ]] || fail 'unrelated directory changed'
+test -f "$downloads/ChatGPT-darwin-arm64-not-a-version/marker" || fail 'prefix-shaped near-miss deleted'
+[[ $(<"$downloads/ChatGPT-darwin-arm64-not-a-version/marker") == 'near miss marker' ]] || fail 'prefix-shaped near-miss changed'
 
 printf 'latest marker\n' >"$latest/fixture-marker"
 latest_marker=$(cksum "$latest/fixture-marker")
