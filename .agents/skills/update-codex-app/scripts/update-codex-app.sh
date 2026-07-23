@@ -2,6 +2,11 @@
 set -euo pipefail
 
 die() { printf 'error: %s\n' "$*" >&2; exit 1; }
+remove_path() {
+  if ! rm -rf -- "$1"; then
+    die "failed to remove $1"
+  fi
+}
 
 for required in awk curl find mkdir mktemp mv rm sort stat unzip; do
   command -v "$required" >/dev/null 2>&1 || die "required command not found: $required"
@@ -131,19 +136,33 @@ unzip -q "$archive" -d "$stage"
 app_is_valid "$stage/ChatGPT.app" "$official_version" "$official_build" || die 'staged app version or build does not match appcast'
 
 target="$downloads_dir/ChatGPT-darwin-arm64-$official_version"
-[[ ! -e "$target" ]] || rm -rf -- "$target"
-mv -- "$stage" "$target"
+backup_parent=
+backup=
+if [[ -e "$target" || -L "$target" ]]; then
+  backup_parent=$(mktemp -d "$downloads_dir/.update-codex-app-backup.XXXXXX")
+  backup="$backup_parent/${target##*/}"
+  mv -- "$target" "$backup" || die "failed to preserve existing target at $target"
+fi
+if ! mv -- "$stage" "$target"; then
+  if [[ -n "$backup" && ! -e "$target" && ! -L "$target" ]] && mv -- "$backup" "$target"; then
+    remove_path "$backup_parent"
+    die 'promotion failed; previous target restored'
+  fi
+  [[ -z "$backup" ]] || printf 'error: promotion failed; previous target retained at %s\n' "$backup" >&2
+  exit 1
+fi
+[[ -z "$backup_parent" ]] || remove_path "$backup_parent"
 
 shopt -s nullglob
 for candidate in "$downloads_dir"/ChatGPT-darwin-arm64-*; do
   name=${candidate##*/}
   [[ -d "$candidate" && "$name" =~ ^ChatGPT-darwin-arm64-([0-9]+(\.[0-9]+)+)$ && "$candidate" != "$target" ]] || continue
-  rm -rf -- "$candidate"
+  remove_path "$candidate"
 done
 for candidate in "$downloads_dir"/ChatGPT-darwin-arm64-*.zip; do
   name=${candidate##*/}
   [[ -f "$candidate" && "$name" =~ ^ChatGPT-darwin-arm64-([0-9]+(\.[0-9]+)+)\.zip$ ]] || continue
-  rm -f -- "$candidate"
+  remove_path "$candidate"
 done
 
 printf 'Official version: %s\nBuild: %s\nChatGPT.app: %s\n' \

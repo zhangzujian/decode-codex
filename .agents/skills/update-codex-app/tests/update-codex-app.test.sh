@@ -54,6 +54,18 @@ esac
 SH
 chmod +x "$tmp/bin/curl"
 
+cat >"$tmp/bin/mv" <<'SH'
+#!/usr/bin/env bash
+set -euo pipefail
+source=${@: -2:1}
+destination=${@: -1}
+if [[ ${TEST_FAIL_PROMOTION:-} == 1 && "$source" == */.update-codex-app.*/ChatGPT-darwin-arm64-* && "$destination" == "$TEST_PROMOTION_TARGET" ]]; then
+  exit 1
+fi
+exec /bin/mv "$@"
+SH
+chmod +x "$tmp/bin/mv"
+
 version=26.715.99999
 build=9999
 fixture="$tmp/fixture"
@@ -103,11 +115,21 @@ grep -q '\.zip$' "$TEST_CURL_LOG" || fail 'same-version build mismatch did not r
 test ! -e "$build_mismatch/ChatGPT-darwin-arm64-$version/fixture-marker" || fail 'same-version build mismatch was not replaced'
 grep -A1 '<key>CFBundleVersion</key>' "$build_mismatch/ChatGPT-darwin-arm64-$version/ChatGPT.app/Contents/Info.plist" | grep -qx "<string>$build</string>" || fail 'promoted build does not match appcast'
 
+promotion_failed="$tmp/promotion-failed"
+mkdir -p "$promotion_failed/ChatGPT-darwin-arm64-$version"
+make_archive "$promotion_failed/ChatGPT-darwin-arm64-$version" "$version" 9998 "$tmp/promotion-failed.zip"
+printf 'old target marker\n' >"$promotion_failed/ChatGPT-darwin-arm64-$version/fixture-marker"
+TEST_FAIL_PROMOTION=1 TEST_PROMOTION_TARGET="$promotion_failed/ChatGPT-darwin-arm64-$version" PATH="$tmp/bin:$PATH" "$updater" "$promotion_failed" && fail 'promotion failure accepted'
+test -f "$promotion_failed/ChatGPT-darwin-arm64-$version/fixture-marker" || fail 'target was not restored after promotion failure'
+[[ $(<"$promotion_failed/ChatGPT-darwin-arm64-$version/fixture-marker") == 'old target marker' ]] || fail 'restored target changed after promotion failure'
+
 failed="$tmp/failed"
 mkdir -p "$failed/ChatGPT-darwin-arm64-26.715.1"
 printf 'old release marker\n' >"$failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker"
 printf 'invalid zip\n' >"$tmp/invalid.zip"
-TEST_ARCHIVE=$tmp/invalid.zip PATH="$tmp/bin:$PATH" "$updater" "$failed" && fail 'invalid ZIP accepted'
+invalid_feed="$tmp/invalid.xml"
+make_feed "$invalid_feed" "$version" "$build" "$(stat -c%s "$tmp/invalid.zip")"
+TEST_APPCAST=$invalid_feed TEST_ARCHIVE=$tmp/invalid.zip PATH="$tmp/bin:$PATH" "$updater" "$failed" && fail 'invalid ZIP accepted'
 test -d "$failed/ChatGPT-darwin-arm64-26.715.1" || fail 'old release deleted after failure'
 test -f "$failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker" || fail 'old release marker deleted after failure'
 [[ $(<"$failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker") == 'old release marker' ]] || fail 'old release changed after failure'
