@@ -1,4 +1,4 @@
 interface:
   display_name: "Codex App Updater"
-  short_description: "Download and retain the latest Codex app"
-  default_prompt: "Use $update-codex-app to update the macOS arm64 Codex Desktop App and clean old downloads."
+  short_description: "Update production macOS arm64 Codex apps"
+  default_prompt: "Use $update-codex-app to check for and install the latest production macOS arm64 Codex Desktop App."
