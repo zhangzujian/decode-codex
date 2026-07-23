@@ -101,6 +101,31 @@ describe("vendor-npm-preflight CLI", () => {
     }
   });
 
+  test("classifies generic diagram filenames by Mermaid provenance", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+    const target = path.join(vendorDir, "block-diagram-dxyqgd6d.ts");
+    fs.writeFileSync(
+      target,
+      "// Restored from ref/webview/assets/blockDiagram-DXYQGD6D-CTLy8H2I.js\nexport const bundledBody = true;",
+    );
+
+    const result = runDecisionCLI(target);
+    expect(result.code).toBe(0);
+    const decisions = JSON.parse(result.stdout) as Array<{
+      decision: string;
+      specifiers: string[];
+    }>;
+    expect(decisions[0]).toMatchObject({
+      decision: "npm-shim",
+      specifiers: [
+        "mermaid-k5/dist/chunks/mermaid.core/blockDiagram-DXYQGD6D.mjs",
+      ],
+    });
+  });
+
   test("rejects a retained package body hidden behind valid npm re-exports", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");

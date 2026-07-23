@@ -201,9 +201,31 @@ describe("quality-gate", () => {
       "chunk-qn33-pnhl.ts",
     ]) {
       expect(
-        expectedPublicNpmVendorSpecifiers(`restored/vendor/${filename}`),
+        expectedPublicNpmVendorSpecifiers(
+          `restored/vendor/${filename}`,
+          `// Restored from ref/webview/assets/chunk-BSJP7CBP-build.js\nexport const localWrapper = true;`,
+        ),
       ).toBeNull();
     }
+  });
+
+  test("recognizes generically named Mermaid package files from provenance stems", () => {
+    expect(
+      expectedPublicNpmVendorSpecifiers(
+        "restored/vendor/block-diagram-dxyqgd6d.ts",
+        "// Restored from ref/webview/assets/blockDiagram-DXYQGD6D-CTLy8H2I.js",
+      ),
+    ).toEqual([
+      "mermaid-k5/dist/chunks/mermaid.core/blockDiagram-DXYQGD6D.mjs",
+    ]);
+    expect(
+      expectedPublicNpmVendorSpecifiers(
+        "restored/vendor/sequence-diagram-wl72ismw.ts",
+        "// Restored from ref/webview/assets/sequenceDiagram-WL72ISMW-Dy4xSVKS.js",
+      ),
+    ).toEqual([
+      "mermaid/dist/chunks/mermaid.core/sequenceDiagram-WL72ISMW.mjs",
+    ]);
   });
 
   test("accepts an npm package subpath re-export for a package-root identity", () => {

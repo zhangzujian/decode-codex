@@ -530,6 +530,86 @@ const PUBLIC_LOCAL_VENDOR_BODY_BASENAMES = new Set([
   "mermaid-subgraph-title-margins",
 ]);
 
+const MERMAID_INTERNAL_SOURCE_STEMS: Record<string, "mermaid" | "mermaid-k5"> = {
+  "architectureDiagram-Q4EWVU46": "mermaid-k5",
+  "architectureDiagram-VXUJARFQ": "mermaid",
+  "blockDiagram-DXYQGD6D": "mermaid-k5",
+  "blockDiagram-VD42YOAC": "mermaid",
+  "c4Diagram-AHTNJAMY": "mermaid-k5",
+  "c4Diagram-YG6GDRKO": "mermaid",
+  "chunk-336JU56O": "mermaid-k5",
+  "chunk-426QAEUC": "mermaid-k5",
+  "chunk-4TB4RGXK": "mermaid-k5",
+  "chunk-5FUZZQ4R": "mermaid-k5",
+  "chunk-5PVQY5BW": "mermaid-k5",
+  "chunk-ATLVNIR6": "mermaid",
+  "chunk-DI55MBZ5": "mermaid",
+  "chunk-EDXVE4YY": "mermaid-k5",
+  "chunk-ENJZ2VHE": "mermaid-k5",
+  "chunk-ICPOFSXX": "mermaid-k5",
+  "chunk-JA3XYJ7Z": "mermaid",
+  "chunk-JZLCHNYA": "mermaid",
+  "chunk-N4CR4FBY": "mermaid",
+  "chunk-OYMX7WX6": "mermaid-k5",
+  "chunk-QXUST7PY": "mermaid",
+  "chunk-S3R3BYOJ": "mermaid",
+  "chunk-TZMSLE5B": "mermaid",
+  "chunk-U2HBQHQK": "mermaid-k5",
+  "chunk-X2U36JSP": "mermaid-k5",
+  "chunk-YZCP3GAM": "mermaid-k5",
+  "chunk-ZZ45TVLE": "mermaid-k5",
+  "classDiagram-2ON5EDUG": "mermaid",
+  "classDiagram-6PBFFD2Q": "mermaid-k5",
+  "classDiagram-v2-HSJHXN6E": "mermaid-k5",
+  "classDiagram-v2-WZHVMYZB": "mermaid",
+  "dagre-6UL2VRFP": "mermaid",
+  "dagre-KV5264BT": "mermaid-k5",
+  "diagram-5BDNPKRD": "mermaid-k5",
+  "diagram-G4DWMVQ6": "mermaid-k5",
+  "diagram-MMDJMWI5": "mermaid-k5",
+  "diagram-PSM6KHXK": "mermaid",
+  "diagram-QEK2KX5R": "mermaid",
+  "diagram-S2PKOQOG": "mermaid",
+  "diagram-TYMM5635": "mermaid-k5",
+  "erDiagram-Q2GNP2WA": "mermaid",
+  "erDiagram-SMLLAGMA": "mermaid-k5",
+  "flowDiagram-DWJPFMVM": "mermaid-k5",
+  "flowDiagram-NV44I4VS": "mermaid",
+  "ganttDiagram-LVOFAZNH": "mermaid",
+  "ganttDiagram-T4ZO3ILL": "mermaid-k5",
+  "gitGraphDiagram-NY62KEGX": "mermaid",
+  "gitGraphDiagram-UUTBAWPF": "mermaid-k5",
+  "infoDiagram-42DDH7IO": "mermaid-k5",
+  "infoDiagram-F6ZHWCRC": "mermaid",
+  "ishikawaDiagram-UXIWVN3A": "mermaid-k5",
+  "journeyDiagram-VCZTEJTY": "mermaid-k5",
+  "journeyDiagram-XKPGCS4Q": "mermaid",
+  "kanban-definition-3W4ZIXB7": "mermaid",
+  "kanban-definition-6JOO6SKY": "mermaid-k5",
+  "mindmap-definition-QFDTVHPH": "mermaid-k5",
+  "mindmap-definition-VGOIOE7T": "mermaid",
+  "pieDiagram-ADFJNKIX": "mermaid",
+  "pieDiagram-DEJITSTG": "mermaid-k5",
+  "quadrantDiagram-34T5L4WZ": "mermaid-k5",
+  "quadrantDiagram-AYHSOK5B": "mermaid",
+  "requirementDiagram-MS252O5E": "mermaid-k5",
+  "requirementDiagram-UZGBJVZJ": "mermaid",
+  "sankeyDiagram-TZEHDZUN": "mermaid",
+  "sankeyDiagram-XADWPNL6": "mermaid-k5",
+  "sequenceDiagram-FGHM5R23": "mermaid-k5",
+  "sequenceDiagram-WL72ISMW": "mermaid",
+  "stateDiagram-FHFEXIEX": "mermaid-k5",
+  "stateDiagram-FKZM4ZOC": "mermaid",
+  "stateDiagram-v2-4FDKWEC3": "mermaid",
+  "stateDiagram-v2-QKLJ7IA2": "mermaid-k5",
+  "timeline-definition-GMOUNBTQ": "mermaid-k5",
+  "timeline-definition-IT6M3QCI": "mermaid",
+  "vennDiagram-DHZGUBPP": "mermaid-k5",
+  "wardleyDiagram-NUSXRM2D": "mermaid-k5",
+  "xychartDiagram-5P7HB3ND": "mermaid-k5",
+  "xychartDiagram-PRI3JC2R": "mermaid",
+};
+
 const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   cmdk: "cmdk",
   "cytoscape-cose-bilkent": "cytoscape-cose-bilkent",
@@ -1311,6 +1391,28 @@ function expectedPublicNpmVendorSpecifiersByApiFingerprint(
   return null;
 }
 
+function expectedPublicNpmVendorSpecifiersByMermaidSource(
+  source: string,
+): string[] | null {
+  const sourceChunkBasename = restoredSourceChunkBasename(source);
+  if (sourceChunkBasename == null) return null;
+
+  for (const [sourceStem, packageName] of Object.entries(
+    MERMAID_INTERNAL_SOURCE_STEMS,
+  )) {
+    if (
+      sourceChunkBasename !== sourceStem &&
+      !sourceChunkBasename.startsWith(`${sourceStem}-`)
+    ) {
+      continue;
+    }
+    return [
+      `${packageName}/dist/chunks/mermaid.core/${sourceStem}.mjs`,
+    ];
+  }
+  return null;
+}
+
 function expectedPublicNpmVendorSpecifiersByFilenameFamily(
   extensionlessBasename: string,
 ): string[] | null {
@@ -1340,6 +1442,15 @@ export function expectedPublicNpmVendorSpecifiers(
       PUBLIC_NPM_VENDOR_SHIMS[extensionlessBasename],
     );
     if (specifiers != null) return specifiers;
+
+    if (
+      source != null &&
+      !PUBLIC_LOCAL_VENDOR_BODY_BASENAMES.has(extensionlessBasename)
+    ) {
+      const mermaidSourceSpecifiers =
+        expectedPublicNpmVendorSpecifiersByMermaidSource(source);
+      if (mermaidSourceSpecifiers != null) return mermaidSourceSpecifiers;
+    }
 
     const familySpecifiers =
       expectedPublicNpmVendorSpecifiersByFilenameFamily(extensionlessBasename);
