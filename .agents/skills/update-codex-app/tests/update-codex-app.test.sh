@@ -123,6 +123,14 @@ TEST_FAIL_PROMOTION=1 TEST_PROMOTION_TARGET="$promotion_failed/ChatGPT-darwin-ar
 test -f "$promotion_failed/ChatGPT-darwin-arm64-$version/fixture-marker" || fail 'target was not restored after promotion failure'
 [[ $(<"$promotion_failed/ChatGPT-darwin-arm64-$version/fixture-marker") == 'old target marker' ]] || fail 'restored target changed after promotion failure'
 
+unsafe_target="$tmp/unsafe-target"
+mkdir -p "$unsafe_target"
+printf 'must survive\n' >"$unsafe_target/ChatGPT-darwin-arm64-$version"
+PATH="$tmp/bin:$PATH" "$updater" "$unsafe_target" && fail 'non-directory target accepted'
+test -f "$unsafe_target/ChatGPT-darwin-arm64-$version" || fail 'non-directory target removed'
+[[ $(<"$unsafe_target/ChatGPT-darwin-arm64-$version") == 'must survive' ]] || fail 'non-directory target changed'
+test ! -e "$unsafe_target/ChatGPT-darwin-arm64-$version/ChatGPT.app" || fail 'app promoted over non-directory target'
+
 failed="$tmp/failed"
 mkdir -p "$failed/ChatGPT-darwin-arm64-26.715.1"
 printf 'old release marker\n' >"$failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker"

@@ -139,6 +139,7 @@ target="$downloads_dir/ChatGPT-darwin-arm64-$official_version"
 backup_parent=
 backup=
 if [[ -e "$target" || -L "$target" ]]; then
+  [[ -d "$target" && ! -L "$target" ]] || die "refusing non-directory target: $target"
   backup_parent=$(mktemp -d "$downloads_dir/.update-codex-app-backup.XXXXXX")
   backup="$backup_parent/${target##*/}"
   mv -- "$target" "$backup" || die "failed to preserve existing target at $target"
