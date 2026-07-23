@@ -26,7 +26,12 @@ The script checks the official production appcast, downloads a newer release, ve
 ## Preserve cleanup semantics
 
 - After a successful update, keep only the latest verified extracted directory and delete every matching ZIP and older matching release directory.
-- On failure or when no update is available, do not clean up existing downloads.
-- Do not manually delete or rename files around the script.
+- When no update is available, do not clean up existing downloads.
+- If fetching, parsing, downloading, verification, extraction, or promotion fails before cleanup begins, keep all old releases. A partial download or ZIP may remain for resuming or diagnosis; do not delete it manually.
+- If cleanup itself fails, the script exits nonzero and reports the path it could not remove. Do not continue cleanup manually.
 
-Report the version, build, and extracted path from a successful update. Otherwise report the no-update result.
+## Report
+
+- **Success:** Report the version, build, and extracted path.
+- **No update:** Report no update only when the script says so.
+- **Failure:** Report the actual error and any preserved or remaining path named by the script. Never report failure as no update or perform cleanup yourself.
