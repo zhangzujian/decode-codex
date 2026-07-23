@@ -578,11 +578,34 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   "entities-escape": "@braintree/sanitize-url",
   "highlight-js-core": "highlight.js/lib/core",
   "iconify-core": "@iconify/utils",
+  "chunk-426qaeuc":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-426QAEUC.mjs",
+  "chunk-55-iaceb6":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-55IACEB6.mjs",
+  "chunk-55-iaceb6-cslsub-lb":
+    "mermaid/dist/chunks/mermaid.core/chunk-55IACEB6.mjs",
+  "chunk-5pvqy5bw":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-5PVQY5BW.mjs",
+  "chunk-atlvnir6": "mermaid/dist/chunks/mermaid.core/chunk-ATLVNIR6.mjs",
+  "chunk-edxve4yy":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-EDXVE4YY.mjs",
   "chunk-xpw4576i": "js-yaml",
   "chunk-icpofsxx":
     "mermaid-k5/dist/chunks/mermaid.core/chunk-ICPOFSXX.mjs",
   "chunk-jzlchnya": "mermaid/dist/chunks/mermaid.core/chunk-JZLCHNYA.mjs",
   "chunk-s3r3byoj": "mermaid/dist/chunks/mermaid.core/chunk-S3R3BYOJ.mjs",
+  "chunk-ja3xyj7z": "mermaid/dist/chunks/mermaid.core/chunk-JA3XYJ7Z.mjs",
+  "chunk-qn33-pnhl-dv-z-pb-bs-u":
+    "mermaid/dist/chunks/mermaid.core/chunk-QN33PNHL.mjs",
+  "chunk-tzmsle5b": "mermaid/dist/chunks/mermaid.core/chunk-TZMSLE5B.mjs",
+  "chunk-u2hbqhqk":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-U2HBQHQK.mjs",
+  "chunk-x2u36jsp":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-X2U36JSP.mjs",
+  "chunk-yzcp3gam":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-YZCP3GAM.mjs",
+  "chunk-zz45tvle":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-ZZ45TVLE.mjs",
   jotai: "jotai",
   "jotai-runtime": "jotai",
   katex: "katex",

@@ -78,6 +78,14 @@ describe("vendor-npm-preflight CLI", () => {
       ["segment-load-script.ts", ["@segment/analytics-next"]],
       ["mermaid-flow-diagram-k5.ts", ["mermaid-k5"]],
       ["mermaid-flow-diagram-fpaj.ts", ["mermaid"]],
+      [
+        "chunk-426qaeuc.ts",
+        ["mermaid-k5/dist/chunks/mermaid.core/chunk-426QAEUC.mjs"],
+      ],
+      [
+        "chunk-ja3xyj7z.ts",
+        ["mermaid/dist/chunks/mermaid.core/chunk-JA3XYJ7Z.mjs"],
+      ],
       ["mermaid-parser-runtime-k5.ts", ["@mermaid-js/parser"]],
       ["mermaid-parser-runtime-fpajggoc.ts", ["@mermaid-js/parser-legacy"]],
     ];
