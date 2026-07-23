@@ -1,0 +1,22 @@
+// Restored from ref/webview/assets/app-initial~app-main~projects-index-page~hotkey-window-new-thread-page~hotkey-window-home-p~dw4jijov-C2WWQYCH.js
+// Current-build compatibility aliases over the reviewed predecessor implementation.
+export {
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0001,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0002,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0003,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0004,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0005,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0006,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0007,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0008,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0009,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0010,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0011,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0012,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0013,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0014,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0015,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0016,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0017,
+  hotkeyWindowNewThreadPageHotkeyWindowHomePRuntimeMember0018,
+} from "../hotkey-window-new-thread-page-hotkey-window-home-p-runtime";

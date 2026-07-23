@@ -1,0 +1,24 @@
+// Restored from ref/webview/assets/app-initial~app-main~new-thread-panel-page~codex-micro-settings~codex-micro-onboarding-host~ei5mtuuv-Dd4yTOOV.js
+// Current-build compatibility aliases over the reviewed predecessor implementation.
+export {
+  newThreadOnboardingSharedRuntimeVariant19Member0001,
+  newThreadOnboardingSharedRuntimeVariant19Member0002,
+  newThreadOnboardingSharedRuntimeVariant19Member0003,
+  newThreadOnboardingSharedRuntimeVariant19Member0004,
+  newThreadOnboardingSharedRuntimeVariant19Member0005,
+  newThreadOnboardingSharedRuntimeVariant19Member0006,
+  newThreadOnboardingSharedRuntimeVariant19Member0007,
+  newThreadOnboardingSharedRuntimeVariant19Member0008,
+  newThreadOnboardingSharedRuntimeVariant19Member0009,
+  newThreadOnboardingSharedRuntimeVariant19Member0010,
+  newThreadOnboardingSharedRuntimeVariant19Member0011,
+  newThreadOnboardingSharedRuntimeVariant19Member0012,
+  newThreadOnboardingSharedRuntimeVariant19Member0013,
+  newThreadOnboardingSharedRuntimeVariant19Member0014,
+  newThreadOnboardingSharedRuntimeVariant19Member0015,
+  newThreadOnboardingSharedRuntimeVariant19Member0016,
+  newThreadOnboardingSharedRuntimeVariant19Member0017,
+  newThreadOnboardingSharedRuntimeVariant19Member0018,
+  newThreadOnboardingSharedRuntimeVariant19Member0019,
+  newThreadOnboardingSharedRuntimeVariant19Member0020,
+} from "../new-thread-onboarding-shared-runtime-variant-19";

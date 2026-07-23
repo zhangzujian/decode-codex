@@ -1,0 +1,13360 @@
+// Restored from ref/webview/assets/app-initial~app-main~onboarding-page~hotkey-window-thread-page~quick-chat-window-page~chatg~f5p8e1kp-B1NDMoKY.js
+// Flat generated current-build implementation used by the positional adapter.
+import { createLazyEsmInitializer, toEsm } from "../rolldown-runtime";
+import {
+  currentReactAliasLowerb,
+  currentReactAliasLowerc,
+  currentReactAliasUpperE,
+  currentReactAliasLowerl,
+  currentReactAliasUpperSLowert,
+  currentReactAliasLoweruLowern,
+  currentReactAliasUnderscore,
+  currentReactAliasLowerv,
+  currentReactAliasLowerx,
+  currentReactAliasLowery,
+  currentReactAliasLowerzLowert,
+} from "../app-initial-react-runtime";
+import {
+  currentQueryRpcAliasUnderscoreLowero as _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzO,
+  currentQueryRpcAliasUpperPLoweri as _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzPi,
+  currentQueryRpcAliasUpperALowern,
+  currentQueryRpcAliasUpperALowers,
+  currentQueryRpcAliasLowerb,
+  currentQueryRpcAliasLowercLowerl,
+  currentQueryRpcAliasUpperCLowern,
+  currentQueryRpcAliasLowerdLowerl,
+  currentQueryRpcAliasLowereLowerl,
+  currentQueryRpcAliasUpperFLowerl,
+  currentQueryRpcAliasUpperHLowera,
+  currentQueryRpcAliasUpperHLowerc,
+  currentQueryRpcAliasLoweriLowerl,
+  currentQueryRpcAliasUpperJLowerc,
+  currentQueryRpcAliasLowerjLowern,
+  currentQueryRpcAliasUpperKLowerc,
+  currentQueryRpcAliasLowerlLowerl,
+  currentQueryRpcAliasLowerm,
+  currentQueryRpcAliasLowern,
+  currentQueryRpcAliasUnderscoreLowero,
+  currentQueryRpcAliasLoweroLowero,
+  currentQueryRpcAliasLowerp,
+  currentQueryRpcAliasUpperPLoweri,
+  currentQueryRpcAliasLowerpLowerl,
+  currentQueryRpcAliasUpperRLowerc,
+  currentQueryRpcAliasLowerrLowerl,
+  currentQueryRpcAliasLowersLowern,
+  currentQueryRpcAliasLowertLowerl,
+  currentQueryRpcAliasUpperULowera,
+  currentQueryRpcAliasLoweruLoweri,
+  currentQueryRpcAliasLowervLowerl,
+  currentQueryRpcAliasLowervLowert,
+  currentQueryRpcAliasLowerw,
+  currentQueryRpcAliasLowerwLowern,
+  currentQueryRpcAliasUpperWLowero,
+  currentQueryRpcAliasLowerx,
+  currentQueryRpcAliasUpperXLowerc,
+  currentQueryRpcAliasLowerxLowerl,
+  currentQueryRpcAliasUpperYLowerc,
+  currentQueryRpcAliasUpperZLowero,
+} from "../app-initial-query-rpc-runtime";
+import {
+  defineMessages,
+  FormattedMessage,
+  useIntl,
+  initReactIntlRuntimeChunk,
+} from "../../package-adapters/react-intl-current/entry";
+import {
+  initSpinnerRuntime,
+  Spinner,
+} from "../../current-app-initial/persisted-ui-runtime-entry";
+import {
+  currentHostServicesAliasUpperC,
+  currentHostServicesAliasUpperD,
+  currentHostServicesAliasLowerfLowert,
+  currentHostServicesAliasLowerhLowert,
+  currentHostServicesAliasLowerlLowert,
+  currentHostServicesAliasLowermLowert,
+  currentHostServicesAliasUpperO,
+  currentHostServicesAliasLowerpLowert,
+  currentHostServicesAliasUpperR,
+  currentHostServicesAliasUpperS,
+  currentHostServicesAliasUpperT,
+  currentHostServicesAliasUpperW,
+} from "../app-initial-host-services-runtime";
+import {
+  threadRuntimeCanonicalFunction as _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewG8980z4eNt,
+  initToastRuntime,
+  interactiveOnboardingToolDefinitions,
+  requestOptionPickerToolName,
+  parseCodexDelegationXml,
+  writeHtmlDocumentToTarget,
+  initAttachmentFilteringRuntime,
+  getExhaustedCanonicalIsland,
+  windowContinuationRetryDelayMs,
+  lodashGetOrDefault,
+  initCanonicalConversationLibraryRuntime,
+  windowContinuationWarningMessage,
+  threadRuntimeCanonicalFunction,
+  OpenApiRequestBuilderClass,
+  currentAppInitialSharedMember0805,
+  initMarkdownCommentRuntime,
+  parseIdeSelectionsFromPrompt,
+  initLodashInteropRuntime,
+  initGoalPromptDependencies,
+  mergeDiffLineRanges,
+  currentAppInitialSharedFunction0844,
+  normalizeTaskCompletionState,
+  setupCodexContextPickerToolName,
+  parsePullRequestNumberFromContent,
+  interactiveOnboardingFeatureFlag,
+  currentAppInitialSharedMember0314,
+} from "../current-app-shared-current";
+import {
+  notebookPreviewRuntimeVariant3Member0002,
+  notebookPreviewRuntimeVariant3Member0021,
+} from "../notebook-preview-runtime-variant-3-current";
+import {
+  initStatsigGateStore,
+  checkStatsigGateFromStore,
+} from "../../package-adapters/statsig-current/entry";
+import {
+  pluginDetailRuntimeMember0017,
+  pluginDetailRuntimeMember0018,
+} from "../plugin-detail-runtime-current";
+import {
+  requestRemoteHostConfigRead as _appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcAd,
+  businessCheckoutSharedMember0239 as _appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcNi,
+  requestRemoteHostConfigRead,
+  businessCheckoutSharedMember0476,
+  businessCheckoutSharedInitializer0025,
+  businessCheckoutSharedMember0040,
+  businessCheckoutSharedInitializer0048,
+  businessCheckoutSharedMember0049,
+  businessCheckoutSharedMember0051,
+  businessCheckoutSharedMember0057,
+  businessCheckoutSharedMember0065,
+  businessCheckoutSharedMember0066,
+  businessCheckoutSharedMember0091,
+  businessCheckoutSharedMember0102,
+  businessCheckoutSharedInitializer0573,
+  businessCheckoutSharedMember0584,
+  businessCheckoutSharedInitializer0137,
+  businessCheckoutSharedFunction0149,
+  businessCheckoutSharedInitializer0633,
+  businessCheckoutSharedMember0187,
+  businessCheckoutSharedFunction0650,
+  threadRuntimeUpdateThreadGitFunction,
+  businessCheckoutSharedInitializer0656,
+  businessCheckoutSharedMember0202,
+  readThreadTerminalToolDefinition,
+  businessCheckoutSharedMember0676,
+  businessCheckoutSharedMember0218,
+  businessCheckoutSharedInitializer0695,
+  businessCheckoutSharedMember0239,
+  businessCheckoutSharedInitializer0711,
+  computerUseComputerCaptureFunction,
+  businessCheckoutSharedMember0263,
+  businessCheckoutSharedMember0283,
+  businessCheckoutSharedMember0296,
+  businessCheckoutSharedInitializer0464,
+  threadRuntimeNeedsResumeResumingFunction,
+  businessCheckoutSharedInitializer0765,
+  reactRouterInvalidateGitReadFunction,
+  createAbortError,
+  businessCheckoutSharedMember0332,
+  computerUseToolSurfaceSchema,
+  businessCheckoutSharedMember0340,
+  businessCheckoutSharedMember0349,
+  businessCheckoutSharedMember0364,
+  businessCheckoutSharedFunction0374,
+  businessCheckoutSharedMember0382,
+  businessCheckoutSharedMember0384,
+  businessCheckoutSharedFunction0850,
+  businessCheckoutSharedMember0867,
+  businessCheckoutSharedInitializer0902,
+} from "../business-checkout-shared-current";
+import {
+  remoteConnectionsSignal,
+  initWorkspaceConfigSignalsRuntime,
+  threadProjectAssignmentsSignal,
+} from "../business-checkout-config/entry";
+import {
+  pullRequestRoutRuntimeVariant12Member0024,
+  pullRequestRoutRuntimeVariant12Member0017,
+  pullRequestRoutRuntimeVariant12Member0042,
+} from "../pull-request-rout-runtime-variant-12-current";
+import {
+  settingsCommandSharedRuntimeVariant4Member0001,
+  settingsCommandSharedRuntimeVariant4Member0027,
+} from "../settings-command-shared-runtime-variant-4-current";
+import {
+  settingsCommandSharedRuntimeVariant11Member0010,
+  settingsCommandSharedRuntimeVariant11Member0030,
+} from "../settings-command-shared-runtime-variant-11-current";
+import {
+  appgenSettingsSharedRuntimeVariant11Member0021,
+  appgenSettingsSharedRuntimeVariant11Member0024,
+  appgenSettingsSharedRuntimeVariant11Member0025,
+} from "../appgen-settings-shared-runtime-variant-11-current";
+import {
+  settingsCommandSharedRuntimeVariant18Member0033,
+  settingsCommandSharedRuntimeVariant18Member0027,
+} from "../settings-command-shared-runtime-variant-18-current";
+import {
+  settingsCommandSharedRuntimeVariant6Member0007,
+  settingsCommandSharedRuntimeVariant6Member0026,
+} from "../settings-command-shared-runtime-variant-6-current";
+import {
+  pullRequestCodeReviewNewThreadPaneRuntimeVariant7Member0017,
+  pullRequestCodeReviewNewThreadPaneRuntimeVariant7Member0028,
+} from "../pull-request-code-review-new-thread-pane-runtime-variant-7-current";
+import {
+  newThreadOnboardingSharedRuntimeMember0014,
+  newThreadOnboardingSharedRuntimeMember0018,
+  newThreadOnboardingSharedRuntimeMember0005,
+  newThreadOnboardingSharedRuntimeFunction0028,
+} from "../new-thread-onboarding-shared-runtime-current";
+import {
+  newThreadOnboardingSharedRuntimeVariant15Member0003,
+  newThreadOnboardingSharedRuntimeVariant15Member0020,
+} from "../app-initial~artifact-tab-content.electron~app-main~new-thread-panel-page~onboarding-page~se~ismvjv52";
+import {
+  quickChatWindowPageChatgRuntimeVariant2Member0008,
+  quickChatWindowPageChatgRuntimeVariant2Member0010,
+  quickChatWindowPageChatgRuntimeVariant2Member0016,
+  quickChatWindowPageChatgRuntimeVariant2Member0017,
+  quickChatWindowPageChatgRuntimeVariant2Member0019,
+  quickChatWindowPageChatgRuntimeVariant2Member0004,
+  quickChatWindowPageChatgRuntimeVariant2Member0024,
+} from "../quick-chat-window-page-chatg-runtime-variant-2-current";
+import {
+  pullRequestRoutRuntimeVariant4Member0092,
+  pullRequestRoutRuntimeVariant4Member0111,
+  pullRequestRoutRuntimeVariant4Member0115,
+  pullRequestRoutRuntimeVariant4Member0133,
+  pullRequestRoutRuntimeVariant4Member0084,
+  pullRequestRoutRuntimeVariant4Member0168,
+  pullRequestRoutRuntimeVariant4Member0178,
+} from "../pull-request-rout-runtime-variant-4-current";
+import {
+  appgenSettingsSharedRuntimeVariant9Member0001,
+  appgenSettingsSharedRuntimeVariant9Member0017,
+  appgenSettingsSharedRuntimeVariant9Member0018,
+  appgenSettingsSharedRuntimeVariant9Member0005,
+  appgenSettingsSharedRuntimeVariant9Member0008,
+  appgenSettingsSharedRuntimeVariant9Member0028,
+} from "../appgen-settings-shared-runtime-variant-9-current";
+import {
+  pullRequestRoutRuntimeVariant6Member0036,
+  pullRequestRoutRuntimeVariant6Member0039,
+} from "../pull-request-rout-runtime-variant-6-current";
+import {
+  newThreadOnboardingSharedRuntimeVariant7Member0009 as _appInitialAppMainNewThreadPanelPageOnboardingPageAppgenLibraryPageHotkeyWindoIm5yc0bwI,
+  newThreadOnboardingSharedRuntimeVariant7Member0015 as _appInitialAppMainNewThreadPanelPageOnboardingPageAppgenLibraryPageHotkeyWindoIm5yc0bwR,
+  newThreadOnboardingSharedRuntimeVariant7Member0005,
+  newThreadOnboardingSharedRuntimeVariant7Member0006,
+  newThreadOnboardingSharedRuntimeVariant7Member0007,
+  newThreadOnboardingSharedRuntimeVariant7Member0009,
+  newThreadOnboardingSharedRuntimeVariant7Member0010,
+  newThreadOnboardingSharedRuntimeVariant7Member0015,
+  newThreadOnboardingSharedRuntimeVariant7Member0016,
+  newThreadOnboardingSharedRuntimeVariant7Member0017,
+  newThreadOnboardingSharedRuntimeVariant7Member0018,
+  newThreadOnboardingSharedRuntimeVariant7Member0019,
+  newThreadOnboardingSharedRuntimeVariant7Member0020,
+  newThreadOnboardingSharedRuntimeVariant7Member0043,
+} from "../new-thread-onboarding-shared-runtime-variant-7-current";
+import {
+  initCheckCircleIconRuntime,
+  CheckCircleIcon,
+} from "../../../composer/current-composer-runtime-entry";
+import {
+  initScoreQueryMatchRuntime,
+  scoreQueryMatch,
+} from "../app-initial~artifact-tab-content.electron~app-main~pull-request-code-review~new-thread-pane~b6mb9dk4";
+import {
+  newThreadOnboardingSharedRuntimeVariant9Member0005,
+  newThreadOnboardingSharedRuntimeVariant9Member0006,
+  newThreadOnboardingSharedRuntimeVariant9Member0016,
+} from "../new-thread-onboarding-shared-runtime-variant-9-current";
+import {
+  settingsCommandSharedRuntimeVariant18PullMember0029,
+  settingsCommandSharedRuntimeVariant18PullMember0031,
+} from "../settings-command-shared-runtime-variant-18-pull-current";
+import {
+  appgenSettingsSharedRuntimeVariant7Member0001,
+  appgenSettingsSharedRuntimeVariant7Member0018,
+} from "../appgen-settings-shared-runtime-variant-7-current";
+import {
+  hotkeyWindowHomePageQuicRuntimeMember0032,
+  hotkeyWindowHomePageQuicRuntimeMember0057,
+} from "../hotkey-window-home-page-quic-runtime-current";
+import {
+  planSummaryPageHotkeyWindowThreadRuntimeMember0006,
+  planSummaryPageHotkeyWindowThreadRuntimeMember0013,
+  planSummaryPageHotkeyWindowThreadRuntimeMember0014,
+  planSummaryPageHotkeyWindowThreadRuntimeMember0016,
+  planSummaryPageHotkeyWindowThreadRuntimeMember0018,
+  planSummaryPageHotkeyWindowThreadRuntimeMember0019,
+  planSummaryPageHotkeyWindowThreadRuntimeMember0022,
+  planSummaryPageHotkeyWindowThreadRuntimeMember0023,
+} from "../plan-summary-page-hotkey-window-thread-runtime-current";
+import {
+  projectsIndexPageHotkeyWindowTRuntimeMember0005,
+  projectsIndexPageHotkeyWindowTRuntimeMember0006,
+  projectsIndexPageHotkeyWindowTRuntimeMember0007,
+  projectsIndexPageHotkeyWindowTRuntimeMember0011,
+} from "../projects-index-page-hotkey-window-t-runtime-current";
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue1,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue2,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue3,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRn,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpNn =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasUpperRLowerc();
+      currentHostServicesAliasUpperW();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue1 =
+        currentQueryRpcAliasLowercLowerl({
+          type: currentQueryRpcAliasLowertLowerl("review"),
+          view: currentQueryRpcAliasUpperHLowerc([
+            "last-turn",
+            "branch",
+            "unstaged",
+            "staged",
+          ]).optional(),
+          path: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue2 =
+        currentQueryRpcAliasLowercLowerl({
+          type: currentQueryRpcAliasLowertLowerl("review"),
+          baseBranch: currentQueryRpcAliasLowerlLowerl()
+            .min(1)
+            .describe(
+              "Git revision to compare with HEAD. Must resolve locally to a commit. Selects branch view.",
+            ),
+          view: currentQueryRpcAliasLowertLowerl("branch").optional(),
+          path: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue3 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl()
+            .min(1)
+            .optional()
+            .describe(
+              "Visible thread whose Codex panel should receive the tab. Defaults to the calling thread, which must be visible in the targeted main window.",
+            ),
+          target: currentQueryRpcAliasLowerdLowerl([
+            currentQueryRpcAliasLowercLowerl({
+              type: currentQueryRpcAliasLowertLowerl("file"),
+              path: currentQueryRpcAliasLowerlLowerl().min(1),
+              line: currentQueryRpcAliasLowerrLowerl()
+                .int()
+                .positive()
+                .optional(),
+            }),
+            currentQueryRpcAliasLowercLowerl({
+              type: currentQueryRpcAliasLowertLowerl("browser"),
+              url: currentQueryRpcAliasLowerpLowerl().optional(),
+              tabId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+            }),
+            currentQueryRpcAliasLowercLowerl({
+              type: currentQueryRpcAliasLowertLowerl("terminal"),
+              sessionId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+            }),
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue1,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue2,
+          ]),
+          placement: currentQueryRpcAliasUpperHLowerc([
+            "right",
+            "bottom",
+          ]).optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRn =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue3.extend(
+          {
+            type: currentQueryRpcAliasLowertLowerl("windows.tabs.open"),
+            windowId: currentHostServicesAliasUpperR,
+          },
+        );
+    });
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpTn({
+  scope,
+  cursor,
+  hostId,
+  includeOutputs,
+  maxOutputCharsPerItem,
+  threadId,
+  turnLimit,
+}) {
+  let { hostId: _hostId, manager } =
+      await pullRequestRoutRuntimeVariant4Member0084({
+        scope,
+        threadId,
+        preferredHostId: hostId,
+      }),
+    { thread } = await manager.readThread(threadId, {
+      includeTurns: true,
+    }),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue342 =
+      cursor == null
+        ? thread.turns.length
+        : thread.turns.findIndex((item) => item.id === cursor);
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue342 <
+    0
+  )
+    throw Error(`Unknown cursor for thread ${threadId}: ${cursor}`);
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue343 =
+      thread.turns.slice(
+        0,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue342,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue344 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue343
+        .slice(-turnLimit)
+        .reverse();
+  return {
+    schemaVersion: 1,
+    thread: {
+      id: thread.id,
+      hostId: _hostId,
+      title: thread.name,
+      preview: thread.preview,
+      status:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper1(
+          thread.status,
+        ),
+      cwd: thread.cwd,
+      createdAt: thread.createdAt,
+      updatedAt: thread.updatedAt,
+    },
+    page: {
+      order: "newest_first",
+      limit: turnLimit,
+      nextCursor:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue343.length >
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue344.length
+          ? (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue344.at(
+              -1,
+            )?.id ?? null)
+          : null,
+      hasMore:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue343.length >
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue344.length,
+    },
+    turns:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue344.map(
+        (item) =>
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper2(
+            item,
+            includeOutputs,
+            maxOutputCharsPerItem,
+          ),
+      ),
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper1(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam149,
+) {
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam149.type
+  ) {
+    case "active":
+      return {
+        type: "active",
+        activeFlags:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam149.activeFlags,
+      };
+    case "idle":
+    case "notLoaded":
+    case "systemError":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam149.type,
+      };
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper2(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam95,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam96,
+) {
+  return {
+    id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94.id,
+    status:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94.status,
+    error:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94.error ==
+      null
+        ? null
+        : {
+            message:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94
+                .error.message,
+            additionalDetails:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94
+                .error.additionalDetails,
+          },
+    startedAt:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94.startedAt,
+    completedAt:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94.completedAt,
+    durationMs:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94.durationMs,
+    items:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam94.items.map(
+        (item) =>
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper3(
+            item,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam95,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam96,
+          ),
+      ),
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper3(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam16,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam17,
+) {
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type
+  ) {
+    case "userMessage":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        content:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.content.map(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper4,
+          ),
+      };
+    case "agentMessage":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        text: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.text,
+        phase:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.phase,
+      };
+    case "plan":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        text: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.text,
+      };
+    case "reasoning":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        summary:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.summary,
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam16
+          ? {
+              content:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.content.map(
+                  (item) =>
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper5(
+                      item,
+                      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam17,
+                    ),
+                ),
+            }
+          : {}),
+      };
+    case "commandExecution":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        command:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.command,
+        cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.cwd,
+        status:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.status,
+        exitCode:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.exitCode,
+        durationMs:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.durationMs,
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam16 &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.aggregatedOutput !=
+          null
+          ? {
+              output:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper5(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.aggregatedOutput,
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam17,
+                ),
+            }
+          : {}),
+      };
+    case "fileChange":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        status:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.status,
+        changes:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.changes.map(
+            (item) => ({
+              path: item.path,
+              kind: item.kind,
+              ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam16
+                ? {
+                    diff: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper5(
+                      item.diff,
+                      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam17,
+                    ),
+                  }
+                : {}),
+            }),
+          ),
+      };
+    case "mcpToolCall":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        server:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.server,
+        tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.tool,
+        arguments:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.arguments,
+        status:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.status,
+        durationMs:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.durationMs,
+      };
+    case "dynamicToolCall":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.tool,
+        arguments:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.arguments,
+        status:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.status,
+        success:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.success,
+        durationMs:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.durationMs,
+      };
+    case "collabAgentToolCall":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.tool,
+        status:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.status,
+        senderThreadId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.senderThreadId,
+        receiverThreadIds:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.receiverThreadIds,
+        prompt:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.prompt,
+        model:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.model,
+        reasoningEffort:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.reasoningEffort,
+      };
+    case "subAgentActivity":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        kind: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.kind,
+        agentThreadId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.agentThreadId,
+        agentPath:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.agentPath,
+      };
+    case "webSearch":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        query:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.query,
+        action:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.action,
+      };
+    case "imageView":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        path: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.path,
+      };
+    case "sleep":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        durationMs:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.durationMs,
+      };
+    case "imageGeneration":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        status:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.status,
+        revisedPrompt:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.revisedPrompt,
+        result:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.result,
+        savedPath:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.savedPath ??
+          null,
+      };
+    case "enteredReviewMode":
+    case "exitedReviewMode":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        review:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.review,
+      };
+    case "hookPrompt":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+        fragmentCount:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15
+            .fragments.length,
+      };
+    case "contextCompaction":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.type,
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam15.id,
+      };
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper4(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68,
+) {
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.type
+  ) {
+    case "text": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue534 =
+        interactiveOnboardingToolDefinitions(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.text,
+        );
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.type,
+        text: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.text,
+        codexDelegation:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue534 ==
+          null
+            ? undefined
+            : {
+                sourceThreadId:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue534.sourceThreadId,
+                input:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue534.input,
+              },
+      };
+    }
+    case "image":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.type,
+        url: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.url,
+      };
+    case "localImage":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.type,
+        path: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.path,
+      };
+    case "skill":
+    case "mention":
+      return {
+        type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.type,
+        name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.name,
+        path: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam68.path,
+      };
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper5(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam189,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam190,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam189.length <=
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam190
+    ? {
+        text: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam189,
+        truncated: false,
+      }
+    : {
+        text: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam189.slice(
+          0,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam190,
+        ),
+        truncated: true,
+        originalChars:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam189.length,
+      };
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpEn =
+  createLazyEsmInitializer(() => {
+    initGoalPromptDependencies();
+    pullRequestRoutRuntimeVariant4Member0111();
+  });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt({
+  sourceConversationId,
+  targetConversationId,
+  diffComments,
+}) {
+  if (sourceConversationId === targetConversationId || diffComments == null)
+    return diffComments;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue535 =
+    diffComments[sourceConversationId];
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue535 ==
+    null
+  )
+    return diffComments;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue536 =
+    {
+      ...diffComments,
+    };
+  return (
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue536[
+      targetConversationId
+    ] =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue535),
+    delete appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue536[
+      sourceConversationId
+    ],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue536
+  );
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT =
+  createLazyEsmInitializer(() => {});
+function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam160,
+) {
+  return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue4.test(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam160,
+  ) ||
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue5.test(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam160,
+    )
+    ? null
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue6.test(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam160,
+        )
+      ? "create"
+      : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue7.test(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam160,
+          )
+        ? "update"
+        : ui.test(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam160,
+            )
+          ? null
+          : "create";
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpXt(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam158,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam158 ==
+    null
+  )
+    return true;
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam158
+  ) {
+    case "inProgress":
+    case "completed":
+      return true;
+    case "failed":
+    case "declined":
+    case "interrupted":
+      return false;
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper6(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam225,
+) {
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam225?.skillId.toLowerCase() ===
+      "visualize" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam225.isSkillDefinitionFile
+  );
+}
+export function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpJt(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam56,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam57,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue379 =
+    [
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam56,
+    ];
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue573 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam57) {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue573.type ===
+      "userMessage" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue379.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue573.content,
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue573.type ===
+      "steeringUserMessage" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue573.status ===
+        "accepted" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue379.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue573.input,
+      );
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue380 = false;
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue464 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue379)
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue475 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue464) {
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue475.type !==
+        "text"
+      )
+        continue;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue12.test(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue475.text,
+      ) &&
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue380 = true);
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue479 = 0;
+      for (
+        ;
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue479 <
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue475
+          .text.length;
+      ) {
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue545 =
+          businessCheckoutSharedMember0239(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue475.text,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue479,
+          );
+        if (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue545 ==
+          null
+        )
+          break;
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue546 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue11
+            .exec(
+              businessCheckoutSharedFunction0374(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue545.path,
+              ),
+            )?.[1]
+            ?.trim()
+            .toLowerCase();
+        if (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue546 ===
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue8 ||
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue546 ===
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue9 ||
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue546 ===
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue10
+        )
+          return "explicit";
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue479 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue545.end;
+      }
+    }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue380
+    ? "soft"
+    : "none";
+}
+export function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpGt(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam210,
+) {
+  return [
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam210.completedVisualizationCommandCount,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam210.runningVisualizationCommandCount,
+  ];
+}
+export function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpKt({
+  intl,
+  kind,
+  isFinished,
+  isLeadingSegment,
+}) {
+  switch (kind) {
+    case "create":
+      return isFinished
+        ? isLeadingSegment
+          ? intl.formatMessage(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt.summaryCreatedLeading,
+            )
+          : intl.formatMessage(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt.summaryCreated,
+            )
+        : isLeadingSegment
+          ? intl.formatMessage(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt.summaryCreatingLeading,
+            )
+          : intl.formatMessage(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt.summaryCreating,
+            );
+    case "update":
+      return isFinished
+        ? isLeadingSegment
+          ? intl.formatMessage(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt.summaryUpdatedLeading,
+            )
+          : intl.formatMessage(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt.summaryUpdated,
+            )
+        : isLeadingSegment
+          ? intl.formatMessage(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt.summaryUpdatingLeading,
+            )
+          : intl.formatMessage(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt.summaryUpdating,
+            );
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue4,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue5,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue6,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue7,
+  ui,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue8,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue9,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue10,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue11,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue12,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasLowerw();
+      initReactIntlRuntimeChunk();
+      readThreadTerminalToolDefinition();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue4 =
+        /(?:^|[\\/])visualizations(?:[\\/"'\s;]|$)/i;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue5 =
+        /(?:^|\s)(?:apply_patch|mkdir|tee|touch|cp|mv|install)(?:\s|$)|(?:^|[^<])>>?/;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue6 =
+        /\*\*\* Add File:[^\r\n]*[\\/]visualizations(?:[\\/"'\s;]|$)/i;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue7 =
+        /\*\*\* Update File:[^\r\n]*[\\/]visualizations(?:[\\/"'\s;]|$)/i;
+      ui = /\*\*\* Delete File:[^\r\n]*[\\/]visualizations(?:[\\/"'\s;]|$)/i;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue8 = `${currentQueryRpcAliasUpperHLowera}@${currentQueryRpcAliasUpperULowera}`;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue9 = `${currentQueryRpcAliasUpperHLowera}@${currentQueryRpcAliasUpperCLowern}`;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue10 = `${currentQueryRpcAliasUpperHLowera}@${currentQueryRpcAliasLowerwLowern}`;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue11 =
+        /^plugin:\/\/([^?]+)(?:\?|$)/i;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue12 =
+        /\b(?:visuals?|visuali[sz](?:e|ed|es|er|ers|ing|ations?)|(?:flow)?charts?|plot(?:s|ted|ting)?|graphs?|diagrams?|maps?|simulat(?:e|ed|es|ing|ions?|ors?)|labs?|compar(?:e|ed|es|ing|isons?)|scenarios?|explor(?:e|ed|es|ing|ations?)|interactive|adjustable[-\s]+inputs?)\b|\bshow\s+(?:(?:me|us)\s+)?how\b/i;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt =
+        defineMessages({
+          activeCreating: {
+            id: "codex.visualization.activity.active.creating",
+            defaultMessage:
+              "<action>Creating</action> <detail>visualization</detail>",
+            description:
+              "Active tool activity summary while Codex creates an inline visualization",
+          },
+          activeUpdating: {
+            id: "codex.visualization.activity.active.updating",
+            defaultMessage:
+              "<action>Updating</action> <detail>visualization</detail>",
+            description:
+              "Active tool activity summary while Codex updates an inline visualization",
+          },
+          rowCreating: {
+            id: "codex.visualization.activity.row.creating",
+            defaultMessage: "<verb>Creating</verb> visualization",
+            description:
+              "Tool activity row while Codex creates an inline visualization",
+          },
+          rowCreated: {
+            id: "codex.visualization.activity.row.created",
+            defaultMessage: "<verb>Created</verb> visualization",
+            description:
+              "Tool activity row after Codex creates an inline visualization",
+          },
+          rowUpdating: {
+            id: "codex.visualization.activity.row.updating",
+            defaultMessage: "<verb>Updating</verb> visualization",
+            description:
+              "Tool activity row while Codex updates an inline visualization",
+          },
+          rowUpdated: {
+            id: "codex.visualization.activity.row.updated",
+            defaultMessage: "<verb>Updated</verb> visualization",
+            description:
+              "Tool activity row after Codex updates an inline visualization",
+          },
+          summaryCreatingLeading: {
+            id: "codex.visualization.activity.summary.creating.leading",
+            defaultMessage: "Creating visualization",
+            description:
+              "Leading collapsed tool activity summary while Codex creates an inline visualization",
+          },
+          summaryCreating: {
+            id: "codex.visualization.activity.summary.creating",
+            defaultMessage: "creating visualization",
+            description:
+              "Collapsed tool activity summary while Codex creates an inline visualization",
+          },
+          summaryCreatedLeading: {
+            id: "codex.visualization.activity.summary.created.leading",
+            defaultMessage: "Created visualization",
+            description:
+              "Leading collapsed tool activity summary after Codex creates an inline visualization",
+          },
+          summaryCreated: {
+            id: "codex.visualization.activity.summary.created",
+            defaultMessage: "created visualization",
+            description:
+              "Collapsed tool activity summary after Codex creates an inline visualization",
+          },
+          summaryUpdatingLeading: {
+            id: "codex.visualization.activity.summary.updating.leading",
+            defaultMessage: "Updating visualization",
+            description:
+              "Leading collapsed tool activity summary while Codex updates an inline visualization",
+          },
+          summaryUpdating: {
+            id: "codex.visualization.activity.summary.updating",
+            defaultMessage: "updating visualization",
+            description:
+              "Collapsed tool activity summary while Codex updates an inline visualization",
+          },
+          summaryUpdatedLeading: {
+            id: "codex.visualization.activity.summary.updated.leading",
+            defaultMessage: "Updated visualization",
+            description:
+              "Leading collapsed tool activity summary after Codex updates an inline visualization",
+          },
+          summaryUpdated: {
+            id: "codex.visualization.activity.summary.updated",
+            defaultMessage: "updated visualization",
+            description:
+              "Collapsed tool activity summary after Codex updates an inline visualization",
+          },
+        });
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpWt({
+  summary,
+  cwd,
+}) {
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHt(
+      {
+        summary,
+        cwd,
+      },
+    )?.isSkillDefinitionFile === true
+  );
+}
+export function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpVt({
+  summary,
+  cwd,
+  intl,
+  threadDetailLevel,
+  formatSearchQuery,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHt(
+      {
+        summary,
+        cwd,
+      },
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206
+  )
+    return null;
+  switch (summary.type) {
+    case "read":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206.isSkillDefinitionFile
+        ? businessCheckoutSharedFunction0850(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206,
+          )
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper7(
+              {
+                isFinished: summary.isFinished,
+                intl,
+                threadDetailLevel,
+              },
+            )
+          : threadDetailLevel === "STEPS_PROSE"
+            ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper8(
+                {
+                  skillName:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206.skillName,
+                  isFinished: summary.isFinished,
+                  intl,
+                },
+              )
+            : intl.formatMessage(
+                {
+                  id: "localConversationTurn.exploration.skill.definition.read",
+                  defaultMessage: "Read {skillName} skill",
+                  description:
+                    "Exploration row for reading a Codex skill definition",
+                },
+                {
+                  skillName:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206.skillName,
+                },
+              )
+        : intl.formatMessage(
+            {
+              id: "localConversationTurn.exploration.skill.read",
+              defaultMessage: "Read {skillName} skill",
+              description:
+                "Exploration row for reading a file from a Codex skill directory",
+            },
+            {
+              skillName:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206.skillName,
+            },
+          );
+    case "list_files":
+      return intl.formatMessage(
+        {
+          id: "localConversationTurn.exploration.skill.listFiles",
+          defaultMessage: "Listed files in {skillName} skill",
+          description:
+            "Exploration row for listing files in a Codex skill directory",
+        },
+        {
+          skillName:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206.skillName,
+        },
+      );
+    case "search":
+      if (summary.query && summary.query.trim().length > 0) {
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue449 =
+          formatSearchQuery?.(summary.query) ?? summary.query;
+        return intl.formatMessage(
+          {
+            id: "localConversationTurn.exploration.skill.searchFor",
+            defaultMessage: "Searched for {query} in {skillName} skill",
+            description:
+              "Exploration row for searching for a query in a Codex skill directory",
+          },
+          {
+            query:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue449,
+            skillName:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206.skillName,
+          },
+        );
+      }
+      return intl.formatMessage(
+        {
+          id: "localConversationTurn.exploration.skill.search",
+          defaultMessage: "Searched in {skillName} skill",
+          description:
+            "Exploration row for searching in a Codex skill directory",
+        },
+        {
+          skillName:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue206.skillName,
+        },
+      );
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper7({
+  isFinished,
+  intl,
+  threadDetailLevel,
+}) {
+  return threadDetailLevel !== "STEPS_PROSE" || isFinished
+    ? intl.formatMessage({
+        id: "localConversationTurn.exploration.skill.internalKnowledge.read",
+        defaultMessage: "Read Internal Knowledge",
+        description:
+          "Exploration row for reading the canonical Internal Knowledge skill definition",
+      })
+    : intl.formatMessage(
+        {
+          id: "localConversationTurn.exploration.skill.internalKnowledge.read.active",
+          defaultMessage: "Reading {skillName}",
+          description:
+            "Simplified exploration row while Codex is reading the canonical Internal Knowledge skill definition",
+        },
+        {
+          skillName: businessCheckoutSharedMember0867,
+        },
+      );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper8({
+  skillName,
+  isFinished,
+  intl,
+}) {
+  return isFinished
+    ? intl.formatMessage(
+        {
+          id: "localConversationTurn.exploration.skill.definition.read.steps.complete",
+          defaultMessage: "Read {skillName} skill",
+          description:
+            "Simplified exploration row after Codex finishes reading a skill definition",
+        },
+        {
+          skillName,
+        },
+      )
+    : intl.formatMessage(
+        {
+          id: "localConversationTurn.exploration.skill.definition.read.steps.active",
+          defaultMessage: "Reading {skillName} skill",
+          description:
+            "Simplified exploration row while Codex is reading a skill definition",
+        },
+        {
+          skillName,
+        },
+      );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHt({
+  summary,
+  cwd,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue601 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper9(
+      {
+        summary,
+        cwd,
+      },
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue601
+    ? createAbortError(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue601,
+      )
+    : null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper9({
+  summary,
+  cwd,
+}) {
+  switch (summary.type) {
+    case "read":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper10(
+        {
+          path: summary.path ?? summary.name,
+          cwd,
+        },
+      );
+    case "list_files":
+      return summary.path
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper10(
+            {
+              path: summary.path,
+              cwd,
+            },
+          )
+        : null;
+    case "search":
+      return summary.path
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper10(
+            {
+              path: summary.path,
+              cwd,
+            },
+          )
+        : null;
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper10({
+  path,
+  cwd,
+}) {
+  if (!path) return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue588 =
+    businessCheckoutSharedMember0091(path);
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue588.length ===
+    0
+    ? null
+    : cwd == null
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue588
+      : businessCheckoutSharedMember0091(
+          currentHostServicesAliasLowerhLowert(
+            cwd,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue588,
+          ),
+        );
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpUt =
+  createLazyEsmInitializer(() => {
+    businessCheckoutSharedInitializer0656();
+    currentHostServicesAliasLowerlLowert();
+    businessCheckoutSharedMember0340();
+    businessCheckoutSharedMember0057();
+  });
+export async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt({
+  argumentsValue,
+  hostId,
+  threadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue381 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue13.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue381.success
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt} received invalid arguments.`,
+    );
+  try {
+    return (
+      await quickChatWindowPageChatgRuntimeVariant2Member0017(
+        {
+          type: "windows.show_thread",
+          windowId: "current",
+          threadId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue381
+              .data.threadId,
+        },
+        {
+          sourceHostId: hostId,
+          sourceThreadId: threadId,
+        },
+      ),
+      {
+        contentItems: [
+          {
+            type: "inputText",
+            text: JSON.stringify({
+              navigated: true,
+            }),
+          },
+        ],
+        success: true,
+      }
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue614) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue614 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue614.message
+        : "Failed to navigate Codex.",
+    );
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue13,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue14,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpBt =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasUpperRLowerc();
+      quickChatWindowPageChatgRuntimeVariant2Member0010();
+      businessCheckoutSharedMember0218();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt =
+        "navigate_to_codex_page";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue13 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl()
+            .min(1)
+            .describe("Thread id to show in Codex."),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue14 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt,
+          description:
+            "Navigate the most recently focused main Codex window to a thread. Use this when the user asks to open or show a Codex thread in the app.",
+          inputSchema: currentQueryRpcAliasLowereLowerl().parse(
+            currentQueryRpcAliasLowervLowerl(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue13,
+            ),
+          ),
+        };
+    });
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpIt({
+  argumentsValue,
+  hostId,
+  threadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue408 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue3.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue408.success
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt} received invalid arguments.`,
+    );
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue525 =
+      await quickChatWindowPageChatgRuntimeVariant2Member0017(
+        {
+          type: "windows.tabs.open",
+          windowId: "current",
+          ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue408.data,
+        },
+        {
+          sourceHostId: hostId,
+          sourceThreadId: threadId,
+        },
+      );
+    return {
+      contentItems: [
+        {
+          type: "inputText",
+          text: JSON.stringify(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue525,
+          ),
+        },
+      ],
+      success: true,
+    };
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue615) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue615 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue615.message
+        : "Failed to open Codex tab.",
+    );
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue15,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpLt =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasUpperRLowerc();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpNn();
+      quickChatWindowPageChatgRuntimeVariant2Member0010();
+      businessCheckoutSharedMember0218();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt =
+        "open_in_codex";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue15 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt,
+          description:
+            "Show a workspace file, browser tab, terminal, or review in a Codex panel. The most recently focused main window is targeted. threadId defaults to the calling thread, and the selected thread must be visible in that window. Use this after creating or editing an artifact when showing the result would help the user. Terminals require a local thread. This only opens Codex UI; use file, browser, or terminal tools to inspect or interact with the content.",
+          inputSchema: currentQueryRpcAliasLowereLowerl().parse(
+            currentQueryRpcAliasLowervLowerl(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue3,
+            ),
+          ),
+        };
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper11({
+  hostId,
+  queryClient,
+}) {
+  return !projectsIndexPageHotkeyWindowTRuntimeMember0007(hostId) ||
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper13(
+      {
+        hostId,
+        queryClient,
+      },
+    )
+    ? []
+    : [
+        {
+          type: "namespace",
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpMt,
+          description: "Tools provided by the Plugin Management app in Codex.",
+          tools: [
+            {
+              type: "function",
+              ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue19,
+              deferLoading: true,
+            },
+          ],
+        },
+      ];
+}
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpNt(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam182,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam183,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam182.tool ===
+    "uninstall_plugin"
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper12(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam182.arguments,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam183,
+      )
+    : requestRemoteHostConfigRead(
+        `Unsupported Plugin Management dynamic tool: ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam182.tool}.`,
+      );
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper12(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam33,
+  { cwd, hostId, queryClient, scope },
+) {
+  if (!projectsIndexPageHotkeyWindowTRuntimeMember0007(hostId))
+    return requestRemoteHostConfigRead(
+      "Plugin uninstall is only supported for local desktop threads.",
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue274 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue18.safeParse(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam33,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue274.success
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue17} received invalid arguments.`,
+    );
+  if (
+    !(await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper14(
+      {
+        hostId,
+        queryClient,
+      },
+    ))
+  )
+    return requestRemoteHostConfigRead(
+      "Plugin Management is not currently available.",
+    );
+  try {
+    let { marketplaces, marketplaceLoadErrors } =
+      await currentHostServicesAliasUpperO("send-cli-request-for-host", {
+        hostId,
+        method: "plugin/installed",
+        params: {
+          cwds: cwd == null || cwd === "~" ? null : [cwd],
+        },
+      });
+    if (marketplaceLoadErrors.length > 0)
+      return requestRemoteHostConfigRead(
+        "Could not load all installed plugins. Try again.",
+      );
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue337 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper16(
+        pullRequestRoutRuntimeVariant12Member0042(marketplaces),
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue274
+          .data.plugin,
+      );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue337.kind ===
+      "none"
+    )
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper20(
+        {
+          status: "not_installed",
+        },
+      );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue337.kind ===
+        "separator_insensitive" ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue337
+        .plugins.length > 1
+    )
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper20(
+        {
+          status: "ambiguous",
+          plugins:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue337.plugins.map(
+              (item) => ({
+                id: pullRequestRoutRuntimeVariant12Member0024(item),
+                name: notebookPreviewRuntimeVariant3Member0002(item),
+              }),
+            ),
+        },
+      );
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue338 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue337
+        .plugins[0];
+    return (
+      await settingsCommandSharedRuntimeVariant11Member0030({
+        hostId,
+        marketplaceName:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue338.marketplaceName,
+        pluginId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue338
+            .plugin.id,
+        pluginName:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue338
+            .plugin.name,
+        queryClient,
+        requestPluginId: pullRequestRoutRuntimeVariant12Member0024(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue338,
+        ),
+        scope,
+      }),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper20(
+        {
+          status: "uninstalled",
+          plugin: {
+            id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue338
+              .plugin.id,
+            name: notebookPreviewRuntimeVariant3Member0002(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue338,
+            ),
+          },
+        },
+      )
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue561) {
+    return (
+      currentQueryRpcAliasLowerx.error("plugin_management_uninstall_failed", {
+        safe: {},
+        sensitive: {
+          error:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue561,
+        },
+      }),
+      requestRemoteHostConfigRead("Failed to uninstall plugin.")
+    );
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper13({
+  hostId,
+  queryClient,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue592 =
+    queryClient.getQueryState(
+      appgenSettingsSharedRuntimeVariant11Member0021(hostId),
+    );
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue592?.status ===
+      "success" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper15(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue592.data,
+    )
+  );
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper14({
+  hostId,
+  queryClient,
+}) {
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper15(
+      await queryClient.fetchQuery(
+        appgenSettingsSharedRuntimeVariant11Member0024(hostId),
+      ),
+    );
+  } catch {
+    return false;
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper15(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam217,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue600 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam217?.find(
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam287,
+      ) =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam287.id ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue16,
+    );
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue600?.isAccessible ===
+      true &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue600.isEnabled
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper16(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam54,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam55,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue372 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam54.filter(
+        (item) => item.plugin.installed,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue373 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper17(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam55,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue374 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue372.filter(
+        (item) =>
+          [
+            item.plugin.id,
+            item.plugin.remotePluginId,
+            `${item.plugin.name}@${item.marketplaceName}`,
+          ].some(
+            (_item) =>
+              _item != null &&
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper17(
+                _item,
+              ) ===
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue373,
+          ),
+      );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue374.length >
+    0
+  )
+    return {
+      kind: "exact",
+      plugins:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue374,
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue375 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper18(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam55,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue376 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue372.filter(
+        (item) =>
+          [
+            notebookPreviewRuntimeVariant3Member0002(item),
+            item.plugin.name,
+          ].some(
+            (_item) =>
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper18(
+                _item,
+              ) ===
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue375,
+          ),
+      );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue376.length >
+    0
+  )
+    return {
+      kind: "exact",
+      plugins:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue376,
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue377 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper19(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam55,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue378 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue372.filter(
+        (item) =>
+          [
+            notebookPreviewRuntimeVariant3Member0002(item),
+            item.plugin.name,
+          ].some(
+            (_item) =>
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper19(
+                _item,
+              ) ===
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue377,
+          ),
+      );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue378.length >
+    0
+    ? {
+        kind: "separator_insensitive",
+        plugins:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue378,
+      }
+    : {
+        kind: "none",
+      };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper17(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam255,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam255
+    .normalize("NFKC")
+    .trim()
+    .toLowerCase();
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper18(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam263,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper17(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam263,
+  ).replace(/\s+/gu, " ");
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper19(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam262,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper18(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam262,
+  ).replace(/[\s_-]+/gu, "");
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper20(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam206,
+) {
+  return {
+    contentItems: [
+      {
+        type: "inputText",
+        text: JSON.stringify(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam206,
+        ),
+      },
+    ],
+    success: true,
+  };
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue16,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpMt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue17,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue18,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue19,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpPt =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasLowerw();
+      currentQueryRpcAliasUpperRLowerc();
+      businessCheckoutSharedMember0218();
+      currentHostServicesAliasUpperD();
+      projectsIndexPageHotkeyWindowTRuntimeMember0006();
+      notebookPreviewRuntimeVariant3Member0021();
+      settingsCommandSharedRuntimeVariant11Member0010();
+      pullRequestRoutRuntimeVariant12Member0017();
+      appgenSettingsSharedRuntimeVariant11Member0025();
+      currentQueryRpcAliasLowerb();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue16 =
+        "connector_openai_plugin_management";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpMt =
+        "plugin_management";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue17 =
+        "uninstall_plugin";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue18 =
+        currentQueryRpcAliasLowercLowerl({
+          plugin: currentQueryRpcAliasLowerlLowerl()
+            .trim()
+            .min(1)
+            .refine(
+              (
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam280,
+              ) =>
+                /[\p{L}\p{N}]/u.test(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam280,
+                ),
+            ),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue19 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue17,
+          description:
+            "Uninstall an installed Codex plugin when the user explicitly asks to uninstall or remove it. The explicit request is authorization; do not ask for another confirmation. If the result is ambiguous, ask the user to choose an exact plugin ID before retrying. Do not use this tool for ChatGPT apps, status, or permission questions.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              plugin: {
+                type: "string",
+                description:
+                  "The plugin's user-facing name or exact plugin ID.",
+              },
+            },
+            required: ["plugin"],
+            additionalProperties: false,
+          },
+        };
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam134,
+) {
+  return new Promise(
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam155,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam156,
+    ) => {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue550 =
+        setTimeout(() => {
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam156(
+            Error("Timed out loading thread tool model guidance."),
+          );
+        }, appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue20);
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper21(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam134,
+      )
+        .then(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam155,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam156,
+        )
+        .finally(() => {
+          clearTimeout(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue550,
+          );
+        });
+    },
+  );
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper21(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam159,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue555 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue556 =
+      null;
+  do {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue595 =
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam159(
+        {
+          cursor:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue556,
+          includeHidden: true,
+          limit: $i,
+        },
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue555.push(
+      ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue595.data,
+    );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue556 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue595.nextCursor;
+  } while (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue556 !=
+    null
+  );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue555;
+}
+var $i,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue20,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpJt =
+    createLazyEsmInitializer(() => {
+      $i = 100;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue20 = 1e3;
+    }),
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpOt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue21,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue22,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpKt =
+    createLazyEsmInitializer(() => {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDt =
+        "read_settings";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpOt =
+        "write_settings";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue21 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDt,
+          description:
+            "Read Codex settings, effective values after defaults, and the machine-readable setting definitions that Codex is allowed to inspect. Use this to learn how the app can be configured before suggesting or changing settings.",
+          inputSchema: {
+            type: "object",
+            properties: {},
+            additionalProperties: false,
+          },
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue22 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpOt,
+          description:
+            "Update one or more Codex settings by writing a partial JSON settings object. Only ordinary settings marked writable for Codex can be changed.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              settings: {
+                type: "object",
+                description: "Partial JSON settings object to update.",
+                additionalProperties: true,
+              },
+            },
+            required: ["settings"],
+            additionalProperties: false,
+          },
+        };
+    });
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper22({
+  scope,
+}) {
+  return (
+    await scope.query
+      .snapshot(
+        currentHostServicesAliasUpperC,
+        currentQueryRpcAliasUnderscoreLowero.LOCAL_PROJECTS,
+      )
+      .fetch(),
+    {
+      schemaVersion: 1,
+      projects:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper23(
+          scope,
+        ),
+    }
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper23(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam64,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam64
+    .get(pullRequestCodeReviewNewThreadPaneRuntimeVariant7Member0017)
+    .map((item) => {
+      if (item.projectKind === "local")
+        return {
+          projectId: item.projectId,
+          projectKind: "local",
+          label: item.label,
+          path: item.path ?? undefined,
+          hostId: windowContinuationRetryDelayMs,
+          hostDisplayName: null,
+        };
+      if (item.hostId == null)
+        throw Error(`Remote project has no hostId: ${item.projectId}`);
+      return {
+        projectId: item.projectId,
+        projectKind: "remote",
+        label: item.label,
+        path: item.path,
+        hostId: item.hostId,
+        hostDisplayName: item.hostDisplayName ?? null,
+      };
+    });
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue23 =
+  createLazyEsmInitializer(() => {
+    currentQueryRpcAliasLowerw();
+    currentHostServicesAliasUpperT();
+    windowContinuationWarningMessage();
+    pullRequestCodeReviewNewThreadPaneRuntimeVariant7Member0028();
+  });
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpTt({
+  environment = {
+    type: "same-directory",
+  },
+  scope,
+  sourceThreadId,
+  targetThreadId,
+  threadSource = "subagent",
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226 =
+      currentQueryRpcAliasUpperWLowero(targetThreadId ?? sourceThreadId),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue227 =
+      scope.get(
+        businessCheckoutSharedMember0065,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue228 =
+      scope.get(
+        businessCheckoutSharedMember0049,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue229 =
+      scope.get(
+        businessCheckoutSharedMember0283,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+      );
+  switch (environment.type) {
+    case "same-directory": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue447 =
+        await currentHostServicesAliasUpperO("fork-conversation-from-latest", {
+          hostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue227,
+          conversationId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+          cwd:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue228 ??
+            undefined,
+          workspaceRoots:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue228 ==
+            null
+              ? undefined
+              : [
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue228,
+                ],
+          collaborationMode:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue229,
+          threadSource,
+        });
+      return (
+        newThreadOnboardingSharedRuntimeVariant9Member0005(scope, {
+          sourceConversationId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+          targetConversationId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue447,
+        }),
+        {
+          environment,
+          sourceThreadId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+          threadId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue447,
+          continuation:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue24,
+        }
+      );
+    }
+    case "worktree": {
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue228 ==
+        null
+      )
+        throw Error(
+          "Cannot fork into a worktree because the source thread has no current directory.",
+        );
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue304 =
+          scope.get(newThreadOnboardingSharedRuntimeMember0005),
+        { clientThreadId, pendingWorktreeId } =
+          newThreadOnboardingSharedRuntimeFunction0028({
+            hostId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue227,
+            label:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue304.formatMessage(
+                appgenSettingsSharedRuntimeVariant9Member0028.forkPendingWorktreeTitle,
+              ),
+            sourceWorkspaceRoot:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue228,
+            startingState: {
+              type: "working-tree",
+            },
+            localEnvironmentConfigPath: null,
+            launchMode: "fork-conversation",
+            projectAssignment:
+              newThreadOnboardingSharedRuntimeVariant15Member0003({
+                type: "assignment",
+                assignment: scope.get(threadProjectAssignmentsSignal)?.[
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226
+                ],
+                executionHostId:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue227,
+              }),
+            prompt:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue304.formatMessage(
+                appgenSettingsSharedRuntimeVariant9Member0028.forkPendingWorktreePrompt,
+              ),
+            startConversationParamsInput: null,
+            sourceConversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+            sourceCollaborationMode:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue229,
+            targetTurnId: null,
+            threadSource,
+          });
+      return (
+        newThreadOnboardingSharedRuntimeVariant9Member0006(scope, {
+          pendingWorktreeId,
+          sourceConversationId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+          sourceWorkspaceRoot:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue228,
+        }),
+        {
+          environment: {
+            type: "worktree",
+          },
+          clientThreadId,
+          sourceThreadId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue226,
+          threadId: null,
+          continuation:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue25,
+        }
+      );
+    }
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue24,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue25,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpEt =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasLowerw();
+      businessCheckoutSharedFunction0149();
+      currentHostServicesAliasUpperD();
+      newThreadOnboardingSharedRuntimeVariant9Member0016();
+      newThreadOnboardingSharedRuntimeMember0018();
+      appgenSettingsSharedRuntimeVariant9Member0008();
+      initWorkspaceConfigSignalsRuntime();
+      newThreadOnboardingSharedRuntimeVariant15Member0020();
+      newThreadOnboardingSharedRuntimeMember0014();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue24 =
+        "The fork contains completed history only. If the source thread was running, the active turn and unfinished response are not in the child. Send a follow-up message to threadId only if the task requires work to continue there.";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue25 =
+        "The worktree is being created asynchronously, so no child thread id exists yet. Wait for worktree setup to finish, then send a follow-up message to the child only if the task requires work to continue there.";
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper24(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam223,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue606 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam223.name?.trim() ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam223.preview.trim();
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue606.length >
+    0
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue606
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam223.id;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper25(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam213,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam214,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam215,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam216 = () =>
+    null,
+) {
+  return _a(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam213.map(
+      (item) =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper26(
+          item,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam216(
+            item.id,
+          ),
+        ),
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam214,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam215,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper26(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam138,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam139,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue538 =
+    Number(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam138.recencyAt ??
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam138.updatedAt,
+    ) * 1e3;
+  return {
+    threadId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam138.id,
+    title:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper24(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam138,
+      ),
+    ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam139 ==
+    null
+      ? {}
+      : {
+          description:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam139,
+        }),
+    cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam138.cwd,
+    updatedAt: Number.isFinite(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue538,
+    )
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue538
+      : 0,
+  };
+}
+function _a(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam85,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam86,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam87,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam87 <=
+    0
+  )
+    return [];
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue458 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam86.trim();
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue458.length ===
+    0
+  )
+    return [];
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue459 =
+    [];
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue543 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam85) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue552 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper27(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue543,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue458,
+      );
+    if (
+      !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue552
+    )
+      continue;
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue553 =
+      {
+        candidate:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue543,
+        match:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue552,
+      };
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue459.length <
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam87
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue459.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue553,
+      );
+      continue;
+    }
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue554 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper28(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue459,
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper29(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue553,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue459[
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue554
+      ],
+    ) < 0 &&
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue459[
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue554
+      ] =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue553);
+  }
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue459.sort(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper29,
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue459.map(
+      ({ candidate }) => candidate,
+    )
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper27(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam187,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam188,
+) {
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper30(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam187.title,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam188,
+      0,
+    ) ??
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper30(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam187.description ??
+        "",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam188,
+      1,
+    ) ??
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper30(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam187.branch ??
+        "",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam188,
+      2,
+    ) ??
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper30(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam187.cwd,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam188,
+      3,
+    )
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper28(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam212,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue597 = 0;
+  for (
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue634 = 1;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue634 <
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam212.length;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue634 += 1
+  )
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper29(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam212[
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue597
+      ],
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam212[
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue634
+      ],
+    ) < 0 &&
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue597 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue634);
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue597;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper29(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam150,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam151,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue547 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam150
+      .match.fieldPriority -
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam151
+      .match.fieldPriority;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue547 !==
+    0
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue547;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue548 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam151
+      .match.score -
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam150
+      .match.score;
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue548 ===
+    0
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam151
+        .candidate.updatedAt -
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam150
+          .candidate.updatedAt
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue548;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper30(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam219,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam220,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam221,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue603 =
+    scoreQueryMatch(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam219,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam220,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue603 ===
+    0
+    ? null
+    : {
+        fieldPriority:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam221,
+        score:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue603,
+      };
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue26 =
+  createLazyEsmInitializer(() => {
+    initScoreQueryMatchRuntime();
+  });
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper31({
+  scope,
+  limit,
+  query,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue401 =
+      query?.trim() ?? "",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue402 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper34(
+        scope,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue401,
+        limit,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue403 =
+      await Promise.all(
+        pullRequestRoutRuntimeVariant4Member0168(scope).map((item) =>
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper32(
+            item,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue401,
+            limit,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue402,
+          ),
+        ),
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue404 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue403.flatMap(
+        (item) => item.threads,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue405 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue403.flatMap(
+        (item) => (item.unavailableHost == null ? [] : [item.unavailableHost]),
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue406 =
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam288,
+      ) =>
+        businessCheckoutSharedFunction0650(
+          scope,
+          currentQueryRpcAliasUpperWLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam288,
+          ),
+        );
+  return {
+    schemaVersion: 2,
+    query:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue401.length >
+      0
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue401
+        : null,
+    threads:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper35(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue404,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue401,
+        limit,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue406,
+      ).map(({ hasUnreadTurn, hostId, thread }) =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper36(
+          thread,
+          hostId,
+          hasUnreadTurn,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue406(
+            thread.id,
+          ),
+        ),
+      ),
+    unavailableHosts:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue405,
+  };
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper32(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam103,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam104,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam105,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam106,
+) {
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue530 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam103.getHostId();
+    return {
+      threads:
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam104.length ===
+        0
+          ? await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam103.listRecentThreads(
+              {
+                limit:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam105,
+              },
+            )
+          : await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper33(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam103,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam104,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam105,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam106,
+            )
+        ).map((item) => ({
+          hasUnreadTurn:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper39(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam103,
+              item.id,
+            ),
+          hostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue530,
+          thread: item,
+        })),
+    };
+  } catch {
+    return {
+      threads: [],
+      unavailableHost: pullRequestRoutRuntimeVariant4Member0178(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam103,
+      ),
+    };
+  }
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper33(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam75,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam76,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam77,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam78,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue433 =
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam75.searchThreads(
+        {
+          query:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam76,
+          limit:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam77,
+        },
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue434 =
+      new Set(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue433.map(
+          (item) => item.id,
+        ),
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue435 =
+      await Promise.all(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam78
+          .filter(
+            ({ threadId }) =>
+              !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue434.has(
+                threadId,
+              ),
+          )
+          .map(async ({ threadId }) => {
+            try {
+              return (
+                await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam75.readThread(
+                  threadId,
+                )
+              ).thread;
+            } catch {
+              return null;
+            }
+          }),
+      );
+  return [
+    ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue433,
+    ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue435.filter(
+      (item) => item != null,
+    ),
+  ];
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper34(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam172,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam173,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam174,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam173.length ===
+    0
+    ? []
+    : _a(
+        businessCheckoutSharedInitializer0025(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam172,
+        ).map((item) => ({
+          ...item,
+          cwd: "",
+          title: "",
+          updatedAt: 0,
+        })),
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam173,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam174,
+      );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper35(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam70,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam71,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam72,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam73,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam71.length ===
+    0
+  )
+    return [
+      ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam70,
+    ]
+      .sort(
+        (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam208,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam209,
+        ) =>
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam209
+            .thread.recencyAt ??
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam209
+              .thread.updatedAt) -
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam208
+            .thread.recencyAt ??
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam208
+              .thread.updatedAt),
+      )
+      .slice(
+        0,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam72,
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue426 =
+      new Map(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam70.map(
+          (item) => [item.thread.id, item],
+        ),
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue427 =
+      [];
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue587 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper25(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam70.map(
+      ({ thread }) => thread,
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam71,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam72,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam73,
+  )) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue638 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue426.get(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue587.threadId,
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue638 !=
+      null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue427.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue638,
+      );
+  }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue427;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper36(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam115,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam116,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam117,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam118,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue500 =
+    {
+      id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam115.id,
+      hostId:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam116,
+      status:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam115
+          .status.type,
+      hasUnreadTurn:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam117,
+      cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam115.cwd,
+      createdAt:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam115.createdAt,
+      updatedAt:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam115.updatedAt,
+    };
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper37(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue500,
+      "title",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper40(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam115,
+      ),
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper37(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue500,
+      "description",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam118,
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper37(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue500,
+      "preview",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam115.preview,
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue500
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper37(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam152,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam153,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam154,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam154 ==
+    null
+  ) {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam152[
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam153
+    ] = null;
+    return;
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue549 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper38(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam154,
+    );
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam152[
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam153
+  ] =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue549.text;
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue549.truncated &&
+    ((appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam152[
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam153}Truncated`
+    ] = true),
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam152[
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam153}OriginalChars`
+    ] =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue549.originalChars));
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper38(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam171,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam171.length <=
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue27
+    ? {
+        originalChars:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam171.length,
+        text: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam171,
+        truncated: false,
+      }
+    : {
+        originalChars:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam171.length,
+        text: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam171.slice(
+          0,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue27,
+        ),
+        truncated: true,
+      };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper39(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam166,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam167,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue564 =
+    currentQueryRpcAliasUpperWLowero(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam167,
+    );
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam166.getConversation(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue564,
+    )?.hasUnreadTurn ??
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam166
+      .getThreadSummaries()
+      .find(
+        (item) =>
+          item.conversationId ===
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue564,
+      )?.hasUnreadTurn ??
+    false
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper40(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam224,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue607 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam224.name?.trim() ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam224.preview.trim();
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue607.length >
+    0
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue607
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam224.id;
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue27,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue28 =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasLowerw();
+      businessCheckoutSharedInitializer0633();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue26();
+      pullRequestRoutRuntimeVariant4Member0092();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue27 = 2e3;
+    });
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper41({
+  scope,
+  afterCursor,
+  hostId,
+  threadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue438 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper44(
+      scope,
+      hostId,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue438 !=
+    null
+  )
+    try {
+      return await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper45(
+        {
+          afterCursor,
+          hostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue438.hostId,
+          manager:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue438.manager,
+          threadId,
+        },
+      );
+    } catch {}
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue439 =
+    await pullRequestRoutRuntimeVariant4Member0084({
+      scope,
+      requestOptions:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue30,
+      threadId,
+    });
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper45(
+    {
+      afterCursor,
+      hostId:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue439.hostId,
+      manager:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue439.manager,
+      threadId,
+    },
+  );
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper42({
+  scope,
+  afterCursor,
+  hostId,
+  ignoreUnchangedTerminal = false,
+  signal,
+  threadId,
+  timeoutMs = 12e4,
+}) {
+  if ((signal?.throwIfAborted(), timeoutMs === 0)) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue522 =
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper41(
+        {
+          scope,
+          afterCursor,
+          hostId,
+          threadId,
+        },
+      );
+    signal?.throwIfAborted();
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue523 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper54(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue522,
+          ignoreUnchangedTerminal,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue524 =
+        ignoreUnchangedTerminal &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper55(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue522,
+        );
+    return {
+      timedOut:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue523 ==
+          null &&
+        !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue524,
+      wake: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue523,
+      poll:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue523 ==
+          null &&
+        !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue524
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper57(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue522,
+            )
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue522,
+    };
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue133 =
+      Date.now() + timeoutMs,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue134 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper44(
+        scope,
+        hostId,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue134 ??
+      (await pullRequestRoutRuntimeVariant4Member0084({
+        scope,
+        requestOptions:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue30,
+        threadId,
+      }));
+  signal?.throwIfAborted();
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136 = false,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue137 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue138 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue139 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue140 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue141 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue142 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue143 =
+      currentQueryRpcAliasUpperPLoweri(),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue144 =
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam268,
+      ) => {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136 ||
+          ((appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136 = true),
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue143.resolve(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam268,
+          ));
+      },
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue145 =
+      () => {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue142?.();
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue142 =
+          null;
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue140 !=
+          null &&
+          (globalThis.clearTimeout(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue140,
+          ),
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue140 =
+            null));
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue141 !=
+          null &&
+          (globalThis.clearInterval(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue141,
+          ),
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue141 =
+            null));
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue144(
+          null,
+        );
+      };
+  signal?.addEventListener(
+    "abort",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue145,
+    {
+      once: true,
+    },
+  );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue146 =
+      () => {
+        if (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136 ||
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue137 !=
+            null
+        )
+          return;
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue446 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId;
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue137 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper45(
+            {
+              afterCursor,
+              hostId:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId,
+              manager:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.manager,
+              threadId,
+            },
+          )
+            .then((value) => {
+              if (
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue446 !==
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId
+              )
+                return;
+              let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue598 =
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper54(
+                  value,
+                  ignoreUnchangedTerminal,
+                );
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue598 !=
+                null &&
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue144(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue598,
+                );
+            })
+            .catch(() => {})
+            .finally(() => {
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue446 ===
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId &&
+                (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue137 =
+                  null);
+            });
+      },
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue147 =
+      () =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.manager.addNotificationCallback(
+          ["turn/completed", "thread/status/changed"],
+          (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam74,
+          ) => {
+            if (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam74
+                .params.threadId !== threadId ||
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136
+            )
+              return;
+            if (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam74.method ===
+              "turn/completed"
+            ) {
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue138 =
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam74
+                  .params.turn;
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue144(
+                {
+                  reason: "turnCompleted",
+                  turnId:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam74
+                      .params.turn.id,
+                },
+              );
+              return;
+            }
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue139 =
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam74
+                .params.status;
+            let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue428 =
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper56(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam74
+                  .params.status,
+              );
+            if (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue428 !=
+              null
+            ) {
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue144(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue428,
+              );
+              return;
+            }
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam74
+              .params.status.type === "idle" &&
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue146();
+          },
+        );
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue142 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue147();
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211;
+    try {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211 =
+        await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper45(
+          {
+            afterCursor,
+            hostId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId,
+            manager:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.manager,
+            threadId,
+          },
+        );
+    } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue345) {
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue134 ==
+        null
+      )
+        throw appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue345;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue142?.();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue142 =
+        null;
+      try {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135 =
+          await pullRequestRoutRuntimeVariant4Member0084({
+            scope,
+            requestOptions:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue30,
+            threadId,
+          });
+        signal?.throwIfAborted();
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId !==
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue134.hostId &&
+          ((appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136 = false),
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue137 =
+            null),
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue138 =
+            null),
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue139 =
+            null),
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue143 =
+            currentQueryRpcAliasUpperPLoweri()));
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue142 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue147();
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211 =
+          await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper45(
+            {
+              afterCursor,
+              hostId:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId,
+              manager:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.manager,
+              threadId,
+            },
+          );
+      } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue443) {
+        if (
+          !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136
+        )
+          throw appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue443;
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue444 =
+            await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue143.promise,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue445 =
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper47(
+              {
+                afterCursor,
+                completedTurn:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue138,
+                hostId:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId,
+                observedStatus:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue139,
+                threadId,
+              },
+            );
+        if (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue445 ==
+            null ||
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue444 ==
+            null
+        )
+          throw appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue443;
+        return {
+          timedOut: false,
+          wake: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue444,
+          poll:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue444.reason ===
+            "turnCompleted"
+              ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue445
+              : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper57(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue445,
+                ),
+        };
+      }
+    }
+    signal?.throwIfAborted();
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue212 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper54(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211,
+        ignoreUnchangedTerminal,
+      );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue212 !=
+        null &&
+      !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136
+    )
+      return {
+        timedOut: false,
+        wake: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue212,
+        poll: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211,
+      };
+    if (
+      ignoreUnchangedTerminal &&
+      !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136 &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper55(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211,
+      )
+    )
+      return {
+        timedOut: false,
+        wake: null,
+        poll: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211,
+      };
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue213 =
+      Math.max(
+        0,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue133 -
+          Date.now(),
+      );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue213 ===
+        0 &&
+      !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue136
+    )
+      return {
+        timedOut: true,
+        wake: null,
+        poll: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper57(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211,
+        ),
+      };
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue140 =
+      globalThis.setTimeout(() => {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue144(
+          null,
+        );
+      }, appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue213);
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue141 =
+      globalThis.setInterval(() => {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue146();
+      }, to);
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue214 =
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue143.promise;
+    signal?.throwIfAborted();
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue215;
+    try {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue215 =
+        await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper45(
+          {
+            afterCursor,
+            completedTurn:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue138,
+            hostId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId,
+            manager:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.manager,
+            threadId,
+          },
+        );
+    } catch {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue215 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper47(
+          {
+            afterCursor,
+            completedTurn:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue138,
+            hostId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue135.hostId,
+            observedStatus:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue139,
+            threadId,
+          },
+        ) ??
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue211;
+    }
+    return {
+      timedOut:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue214 ==
+        null,
+      wake: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue214,
+      poll:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue214?.reason ===
+        "turnCompleted"
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue215
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper57(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue215,
+            ),
+    };
+  } finally {
+    signal?.removeEventListener(
+      "abort",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue145,
+    );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue142?.();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue140 !=
+      null &&
+      globalThis.clearTimeout(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue140,
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue141 !=
+      null &&
+      globalThis.clearInterval(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue141,
+      );
+  }
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper43({
+  scope,
+  targets,
+  timeoutMs = 12e4,
+  signal,
+}) {
+  if ((signal?.throwIfAborted(), targets.length === 0))
+    return {
+      timedOut: true,
+      wake: null,
+      polls: [],
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue220 =
+      Date.now() + timeoutMs,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue221 =
+      new AbortController(),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue222 =
+      currentQueryRpcAliasUpperPLoweri(),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue223 =
+      () => {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue221.abort(
+          signal?.reason,
+        );
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue222.resolve(
+          undefined,
+        );
+      };
+  signal?.addEventListener(
+    "abort",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue223,
+    {
+      once: true,
+    },
+  );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue224 =
+      Array(targets.length),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue225 =
+      targets.length;
+  targets.forEach((item, index) => {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper42(
+      {
+        scope,
+        ...item,
+        ignoreUnchangedTerminal: true,
+        signal:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue221.signal,
+        timeoutMs: Math.max(
+          0,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue220 -
+            Date.now(),
+        ),
+      },
+    ).then(
+      (value) => {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue224[
+          index
+        ] = {
+          result: value,
+        };
+        --appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue225;
+        (value.wake != null ||
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue225 ===
+            0) &&
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue222.resolve(
+            undefined,
+          );
+      },
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam168,
+      ) => {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue224[
+          index
+        ] = {
+          error:
+            (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam168 instanceof
+            Error
+              ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam168.message
+              : String(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam168,
+                )
+            ).slice(
+              0,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue29,
+            ),
+        };
+        --appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue225;
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue225 ===
+          0 &&
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue222.resolve(
+            undefined,
+          );
+      },
+    );
+  });
+  try {
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue222.promise;
+    await Promise.resolve();
+    signal?.throwIfAborted();
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue339 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue224.find(
+          (item) =>
+            item != null && "result" in item && item.result.wake != null,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue340 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue224.flatMap(
+          (item) =>
+            item != null && "result" in item ? [item.result.poll] : [],
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue341 =
+        targets.flatMap((item, index) => {
+          let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue570 =
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue224[
+              index
+            ];
+          return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue570 !=
+            null &&
+            "error" in
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue570
+            ? [
+                {
+                  threadId: item.threadId,
+                  hostId: item.hostId,
+                  message:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue570.error,
+                },
+              ]
+            : [];
+        });
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue339 ==
+      null ||
+      !(
+        "result" in
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue339
+      ) ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue339
+        .result.wake == null
+      ? {
+          timedOut:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue224.some(
+              (item) =>
+                item != null && "result" in item && item.result.timedOut,
+            ),
+          wake: null,
+          polls:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue340,
+          ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue341.length >
+          0
+            ? {
+                errors:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue341,
+              }
+            : {}),
+        }
+      : {
+          timedOut: false,
+          wake: {
+            ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue339
+              .result.wake,
+            threadId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue339
+                .result.poll.thread.id,
+            hostId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue339
+                .result.poll.thread.hostId,
+          },
+          polls:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue340,
+          ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue341.length >
+          0
+            ? {
+                errors:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue341,
+              }
+            : {}),
+        };
+  } finally {
+    signal?.removeEventListener(
+      "abort",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue223,
+    );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue221.abort();
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper44(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam184,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam185,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam185 ==
+    null
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue585 =
+    pullRequestRoutRuntimeVariant4Member0168(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam184,
+    ).find(
+      (item) =>
+        item.getHostId() ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam185,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue585 ==
+    null
+    ? null
+    : {
+        hostId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam185,
+        manager:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue585,
+      };
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper45({
+  afterCursor,
+  completedTurn,
+  hostId,
+  manager,
+  threadId,
+}) {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue32 += 1;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue266 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue32,
+    [
+      {
+        thread:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue267,
+      },
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue268,
+    ] = await Promise.all([
+      manager.readThread(threadId, {
+        includeTurns: false,
+        requestOptions:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue30,
+      }),
+      manager.listThreadTurns(threadId, {
+        itemsView: "full",
+        limit: 1,
+        requestOptions:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue30,
+      }),
+    ]),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue268
+        .data[0] ?? null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue270 =
+      completedTurn != null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269?.id ===
+        completedTurn.id &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269.itemsView ===
+        "full" &&
+      completedTurn.itemsView !== "full"
+        ? {
+            ...completedTurn,
+            items:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269.items,
+            itemsView:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269.itemsView,
+          }
+        : completedTurn,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue270 !=
+        null &&
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269 ==
+        null ||
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue270.id ===
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269.id &&
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269.status ===
+            "inProgress") ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper50(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue270,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269,
+        ))
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue270
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue269,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue272 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper48(
+        hostId,
+        threadId,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue273 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue270 !=
+        null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue270.itemsView !==
+        "full" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271?.id ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue270.id &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue272
+        ?.latestTurn?.id ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271?.id;
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper46(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper49(
+      {
+        hostId,
+        readOrdinal:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue266,
+        threadId,
+        candidate: {
+          thread: {
+            id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue267.id,
+            hostId,
+            status:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue267.status,
+          },
+          latestTurn:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271 ==
+            null
+              ? null
+              : {
+                  id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271.id,
+                  status:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271.status,
+                  error:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271.error ==
+                    null
+                      ? null
+                      : {
+                          message:
+                            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271.error.message.slice(
+                              0,
+                              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue29,
+                            ),
+                        },
+                  startedAt:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271.startedAt,
+                  completedAt:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271.completedAt,
+                  durationMs:
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271.durationMs,
+                },
+          latestAssistantMessage:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper52(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271,
+            ) ??
+            (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue273
+              ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue272.latestAssistantMessage
+              : null),
+          latestToolMarker:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper53(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue271,
+            ) ??
+            (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue273
+              ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue272.latestToolMarker
+              : null),
+        },
+      },
+    ),
+    afterCursor,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper46(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam53,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue368 = `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52.generation}:${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52.revision}`,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue369 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper51(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam53,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52.generation,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue370 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam53 !=
+        null &&
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue369 ==
+        null ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue369 >
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52.revision),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue371 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue370 ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue369 !==
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52.revision;
+  return {
+    schemaVersion: 1,
+    cursor:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue368,
+    revision:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52.revision,
+    changed:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue371,
+    ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue370
+      ? {
+          cursorReset: true,
+        }
+      : {}),
+    thread:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52
+        .projection.thread,
+    latestTurn:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52
+        .projection.latestTurn,
+    latestAssistantMessageId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52
+        .projection.latestAssistantMessage?.id ?? null,
+    latestAssistantMessage:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue371
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52
+            .projection.latestAssistantMessage
+        : null,
+    latestToolMarkerId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52
+        .projection.latestToolMarker?.id ?? null,
+    latestToolMarker:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue371
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam52
+            .projection.latestToolMarker
+        : null,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper47({
+  afterCursor,
+  completedTurn,
+  hostId,
+  observedStatus,
+  threadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue277 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper48(
+      hostId,
+      threadId,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue277 ==
+      null &&
+    completedTurn == null
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue278 =
+      completedTurn != null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue277
+        ?.latestTurn?.id === completedTurn.id
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue277
+        : null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue279 =
+      completedTurn == null
+        ? (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue277?.latestTurn ??
+          null)
+        : {
+            id: completedTurn.id,
+            status: completedTurn.status,
+            error:
+              completedTurn.error == null
+                ? null
+                : {
+                    message: completedTurn.error.message.slice(
+                      0,
+                      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue29,
+                    ),
+                  },
+            startedAt: completedTurn.startedAt,
+            completedAt: completedTurn.completedAt,
+            durationMs: completedTurn.durationMs,
+          };
+  return (
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue32 += 1),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper46(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper49(
+        {
+          hostId,
+          readOrdinal:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue32,
+          threadId,
+          candidate: {
+            thread: {
+              id: threadId,
+              hostId,
+              status:
+                completedTurn != null &&
+                (observedStatus?.type !== "active" ||
+                  observedStatus.activeFlags.length === 0)
+                  ? {
+                      type: "idle",
+                    }
+                  : (observedStatus ??
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue277
+                      ?.thread.status ?? {
+                      type: "active",
+                      activeFlags: [],
+                    }),
+            },
+            latestTurn:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue279,
+            latestAssistantMessage:
+              completedTurn == null
+                ? (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue277?.latestAssistantMessage ??
+                  null)
+                : (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper52(
+                    completedTurn,
+                  ) ??
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue278?.latestAssistantMessage ??
+                  null),
+            latestToolMarker:
+              completedTurn == null
+                ? (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue277?.latestToolMarker ??
+                  null)
+                : (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper53(
+                    completedTurn,
+                  ) ??
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue278?.latestToolMarker ??
+                  null),
+          },
+        },
+      ),
+      afterCursor,
+    )
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper48(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam237,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam238,
+) {
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31.get(
+      JSON.stringify([
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam237,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam238,
+      ]),
+    )?.projection ?? null
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper49({
+  candidate,
+  hostId,
+  readOrdinal,
+  threadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue292 =
+      JSON.stringify([hostId, threadId]),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31.get(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue292,
+      );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293 !=
+      null &&
+    readOrdinal <
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293.lastCommittedReadOrdinal
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294 =
+      candidate,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue295 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293
+        ?.projection.latestTurn,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue296 =
+      candidate.latestTurn,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue297 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293
+        ?.projection.latestAssistantMessage,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue298 =
+      candidate.latestAssistantMessage;
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293 !=
+    null &&
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue295 !=
+    null &&
+  (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue296 ==
+    null ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper50(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue295,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue296,
+    ) ||
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue295.id ===
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue296.id &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue295.status !==
+        "inProgress" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue296.status ===
+        "inProgress"))
+    ? (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294 =
+        {
+          ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293.projection,
+          thread: candidate.thread,
+        })
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue296?.status ===
+        "inProgress" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue297 !=
+        null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue298 !=
+        null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue297.id ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue298.id &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue297
+        .text.length >
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue298
+          .text.length &&
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294 =
+        {
+          ...candidate,
+          latestAssistantMessage:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue297,
+        });
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue299 =
+      JSON.stringify({
+        status:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294
+            .thread.status,
+        turnId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294
+            .latestTurn?.id ?? null,
+        turnStatus:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294
+            .latestTurn?.status ?? null,
+        turnError:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294
+            .latestTurn?.error?.message ?? null,
+        assistant:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294.latestAssistantMessage,
+        tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294.latestToolMarker,
+      }),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue300 =
+      {
+        generation:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293?.generation ??
+          crypto.randomUUID(),
+        revision:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293 ==
+          null
+            ? 1
+            : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293.revision +
+              (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue293.fingerprint ===
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue299
+                ? 0
+                : 1),
+        fingerprint:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue299,
+        lastCommittedReadOrdinal: readOrdinal,
+        projection:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue294,
+      };
+  if (
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31.delete(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue292,
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31.set(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue292,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue300,
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31.size >
+      $a)
+  ) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue633 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31
+        .keys()
+        .next().value;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue633 !=
+      null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31.delete(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue633,
+      );
+  }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue300;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper50(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam129,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam130,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam129.id ===
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam130.id
+    ? false
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam129.startedAt !=
+          null &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam130.startedAt !=
+          null &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam129.startedAt !==
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam130.startedAt
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam129.startedAt >
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam130.startedAt
+      : no.test(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam129.id,
+          ) &&
+          no.test(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam130.id,
+          )
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam129.id.toLowerCase() >
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam130.id.toLowerCase()
+        : false;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper51(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam140,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam141,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue539 = `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam141}:`;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam140 ==
+      null ||
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam140.startsWith(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue539,
+    )
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue540 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam140.slice(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue539.length,
+    );
+  if (
+    !/^\d+$/u.test(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue540,
+    )
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue541 =
+    Number(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue540,
+    );
+  return Number.isSafeInteger(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue541,
+  ) &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue541 >
+      0
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue541
+    : null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper52(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam49,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam49 ==
+    null
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue361 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam49.status ===
+    "inProgress"
+      ? threadRuntimeCanonicalFunction(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam49.items,
+        )
+      : -1;
+  for (
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue386 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam49
+        .items.length - 1;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue386 >=
+    0;
+    --appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue386
+  ) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue393 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam49
+        .items[
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue386
+      ];
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue393?.type !==
+      "agentMessage"
+    )
+      continue;
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue394 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue386 ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue361,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue395 =
+        initCanonicalConversationLibraryRuntime(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue393.text,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue394,
+        );
+    if (
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue395.removed &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue395
+          .content.length === 0) ||
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue394 &&
+        getExhaustedCanonicalIsland(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue395.content,
+        ))
+    )
+      continue;
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue396 =
+        parsePullRequestNumberFromContent(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue395.content,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue397 =
+        mergeDiffLineRanges(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue396 ==
+            null
+            ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue395.content
+            : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue396.visibleText ||
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue396.notificationMessage ||
+                "",
+        );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue397.length !==
+      0
+    )
+      return {
+        id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue393.id,
+        turnId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam49.id,
+        phase:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue393.phase,
+        text: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue397.slice(
+          0,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue29,
+        ),
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue397.length >
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue29
+          ? {
+              truncated: true,
+              originalChars:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue397.length,
+            }
+          : {}),
+      };
+  }
+  return null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper53(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam38,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam38 ==
+    null
+  )
+    return null;
+  for (
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue308 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam38
+        .items.length - 1;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue308 >=
+    0;
+    --appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue308
+  ) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam38
+        .items[
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue308
+      ];
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309 !=
+      null
+    )
+      switch (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.type
+      ) {
+        case "commandExecution":
+        case "fileChange":
+        case "imageGeneration":
+          return {
+            id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.id,
+            turnId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam38.id,
+            type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.type,
+            name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.type,
+            status:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.status,
+          };
+        case "collabAgentToolCall":
+        case "dynamicToolCall":
+        case "mcpToolCall":
+          return {
+            id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.id,
+            turnId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam38.id,
+            type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.type,
+            name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.tool,
+            status:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.status,
+          };
+        case "sleep":
+        case "webSearch":
+          return {
+            id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.id,
+            turnId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam38.id,
+            type: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.type,
+            name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue309.type,
+            status: null,
+          };
+        case "agentMessage":
+        case "contextCompaction":
+        case "enteredReviewMode":
+        case "exitedReviewMode":
+        case "hookPrompt":
+        case "imageView":
+        case "plan":
+        case "reasoning":
+        case "subAgentActivity":
+        case "userMessage":
+          break;
+      }
+  }
+  return null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper54(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam107,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam108,
+) {
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper56(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam107
+        .thread.status,
+    ) ??
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam107
+      .thread.status.type === "idle"
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam107.latestTurn ==
+        null
+        ? {
+            reason: "inactiveStatus",
+          }
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam107
+              .latestTurn.status === "inProgress" ||
+            (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam108 &&
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper55(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam107,
+              ))
+          ? null
+          : {
+              reason: "turnCompleted",
+              turnId:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam107
+                  .latestTurn.id,
+            }
+      : null)
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper55(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam177,
+) {
+  return (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam177.changed &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam177
+      .thread.status.type === "idle" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam177.latestTurn !=
+      null &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam177
+      .latestTurn.status !== "inProgress"
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper56(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam132,
+) {
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam132.type
+  ) {
+    case "systemError":
+    case "notLoaded":
+      return {
+        reason: "inactiveStatus",
+      };
+    case "active":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam132
+        .activeFlags.length > 0
+        ? {
+            reason: "actionableStatus",
+          }
+        : null;
+    case "idle":
+      return null;
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper57(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam128,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue511 =
+      JSON.stringify([
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam128
+          .thread.hostId,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam128
+          .thread.id,
+      ]),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue512 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31.get(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue511,
+      )?.projection;
+  return {
+    ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam128,
+    latestAssistantMessage:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue512?.latestAssistantMessage ??
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam128.latestAssistantMessage,
+    latestToolMarker:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue512?.latestToolMarker ??
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam128.latestToolMarker,
+  };
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue29,
+  $a,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue30,
+  to,
+  no,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue32,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue33 =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasLowerw();
+      currentAppInitialSharedMember0314();
+      OpenApiRequestBuilderClass();
+      parseIdeSelectionsFromPrompt();
+      pullRequestRoutRuntimeVariant4Member0092();
+      pullRequestRoutRuntimeVariant4Member0111();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue29 = 2e3;
+      $a = 256;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue30 =
+        {
+          priority: "background",
+          source: "tail_history",
+          timeoutMs: 15e3,
+        };
+      to = 5e3;
+      no =
+        /^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue31 =
+        new Map();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue32 = 0;
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper58(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam269,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam270,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam269.get(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue35,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam270,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper59(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam123,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam124,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam125,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue504 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper58(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam123,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam124,
+    );
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam123.set(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue35,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam124,
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam165,
+    ) => {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue562 =
+        typeof appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam125 ==
+        "function"
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam125(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam165,
+            )
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam125;
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue562 ==
+        null ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam165 ==
+          null ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue562 ===
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam165 ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue562.revision !==
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam165.revision
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue562
+        : {
+            ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue562,
+            revision:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam165.revision +
+              1,
+          };
+    },
+  );
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper58(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam123,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam124,
+  )?.revision !==
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue504?.revision &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper62(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam124,
+    );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper60({
+  scope,
+  operationId,
+  waitMs,
+  afterRevision,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue411 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper58(
+      scope,
+      operationId,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue411 ==
+    null ||
+    waitMs === 0 ||
+    (afterRevision != null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue411.revision >
+        afterRevision) ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper61(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue411.status,
+    )
+    ? Promise.resolve(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue411,
+      )
+    : new Promise(
+        (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam127,
+        ) => {
+          let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue508 =
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue34.get(
+              operationId,
+            ) ?? new Set();
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue34.set(
+            operationId,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue508,
+          );
+          let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue509 =
+              () => {
+                clearTimeout(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue510,
+                );
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue508.delete(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue509,
+                );
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue508.size ===
+                  0 &&
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue34.delete(
+                    operationId,
+                  );
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam127(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper58(
+                    scope,
+                    operationId,
+                  ),
+                );
+              },
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue510 =
+              setTimeout(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue509,
+                waitMs,
+              );
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue508.add(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue509,
+          );
+        },
+      );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper61(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam239,
+) {
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam239 ===
+      "success" ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam239 ===
+      "warning" ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam239 ===
+      "error"
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper62(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam242,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue617 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue34.get(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam242,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue617 !=
+    null
+  )
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue648 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue617)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue648();
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue34,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue35,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue36 =
+    createLazyEsmInitializer(() => {
+      currentReactAliasLowerx();
+      currentReactAliasLowerb();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue34 =
+        new Map();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue35 =
+        currentReactAliasUpperSLowert(
+          currentReactAliasLowery,
+          (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam296,
+          ) => null,
+        );
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt({
+  cwd,
+  sourceWorktreeRoot,
+  repoWorktreeEntries,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue486 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper63(
+        {
+          cwd,
+          sourceWorktreeRoot,
+        },
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue487 =
+      currentHostServicesAliasLowerpLowert(sourceWorktreeRoot);
+  return (repoWorktreeEntries ?? [])
+    .filter(
+      (item) =>
+        currentHostServicesAliasLowerpLowert(item.root) !==
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue487,
+    )
+    .map((item) => {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue594 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue486.length >
+        0
+          ? currentHostServicesAliasLowerfLowert(
+              item.root,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue486,
+            )
+          : item.root;
+      return {
+        gitRoot: item.root,
+        workspaceRoot:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue594,
+      };
+    });
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper63({
+  cwd,
+  sourceWorktreeRoot,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue513 =
+      currentHostServicesAliasLowermLowert(cwd),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue514 =
+      currentHostServicesAliasLowermLowert(sourceWorktreeRoot).replace(
+        /\/+$/,
+        "",
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue515 =
+      currentHostServicesAliasLowerpLowert(cwd),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue516 =
+      currentHostServicesAliasLowerpLowert(sourceWorktreeRoot).replace(
+        /\/+$/,
+        "",
+      );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue515 ===
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue516
+  )
+    return "";
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue517 = `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue516}/`;
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue515.startsWith(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue517,
+    )
+  )
+    return "";
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue518 = `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue514}/`;
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue513.slice(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue518.length,
+  );
+}
+var _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpWt =
+  createLazyEsmInitializer(() => {
+    currentHostServicesAliasLowerlLowert();
+  });
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt({
+  conversationId,
+  sourceThreadRunning,
+}) {
+  sourceThreadRunning &&
+    (await currentHostServicesAliasUpperO("interrupt-conversation", {
+      conversationId,
+      initiatedBy: "system",
+    }));
+}
+var _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpXt =
+    createLazyEsmInitializer(() => {
+      currentHostServicesAliasUpperD();
+    }),
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpBt =
+    createLazyEsmInitializer(() => {
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt =
+        [
+          "prepare-host-transfer",
+          "transfer-host-artifacts",
+          "create-new-worktree",
+          "reuse-existing-worktree",
+          "stash-source-changes",
+          "detach-worktree-branch",
+          "checkout-local-branch",
+          "stash-target-worktree-changes",
+          "checkout-worktree-branch",
+          "apply-changes-to-worktree",
+          "apply-changes-to-local",
+          "switching-thread",
+        ];
+    });
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper64({
+  sourceConversationId,
+  targetConversationId,
+}) {
+  if (sourceConversationId === targetConversationId) return;
+  let { threadIds } = await currentQueryRpcAliasLowern(
+    "list-pinned-threads",
+    {},
+  );
+  threadIds.indexOf(sourceConversationId) !== -1 &&
+    (await currentQueryRpcAliasLowern("set-pinned-threads-order", {
+      params: {
+        threadIds: threadIds
+          .map((item) =>
+            item === sourceConversationId ? targetConversationId : item,
+          )
+          .filter((item, index, array) => array.indexOf(item) === index),
+      },
+    }));
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue37 =
+  createLazyEsmInitializer(() => {
+    _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzO();
+  });
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper65({
+  sourceConversationId,
+  targetConversationId,
+  getTitle,
+  setTitle,
+}) {
+  if (sourceConversationId === targetConversationId) return;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue565 =
+    getTitle(sourceConversationId);
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue565 !=
+    null &&
+    (await setTitle(
+      targetConversationId,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue565,
+    ));
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue38 =
+  createLazyEsmInitializer(() => {});
+async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpVt({
+  conversationId,
+  sourceBranch,
+  cwd,
+  destinationWorkspaceRoot,
+  intl,
+  appServerManager,
+  sourceHostConfig,
+  destinationHostConfig,
+  transferBrowserState,
+  setDiffComments,
+  queryClient,
+  operationId,
+  onSwitchingThreadStart,
+  onSwitchingThreadDone,
+  onSwitchingThreadFailed,
+  onTargetCwd,
+  onTargetConversationId,
+  onStepStatus:
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam1,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue126 =
+      appServerManager.getConversation(conversationId),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue127 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue126?.rolloutPath ??
+      null;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue127 ==
+      null ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue127.trim()
+      .length === 0
+  )
+    return {
+      status: "error",
+      message: intl.formatMessage({
+        id: "localConversation.moveToHostWorktree.error.rolloutMissing",
+        defaultMessage: "This chat does not have a rollout file to move",
+        description:
+          "Error shown when cross-host handoff cannot find the source rollout file",
+      }),
+      execOutput: null,
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue128 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue129 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue130 = false;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue126?.forkedFromId !=
+    null
+  )
+    try {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue470 =
+        await computerUseComputerCaptureFunction("git").request({
+          method: "resolve-worktree-for-thread",
+          params: {
+            cwd: destinationWorkspaceRoot,
+            conversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue126.forkedFromId,
+            hostConfig: destinationHostConfig,
+            operationSource: "move_to_host_worktree",
+          },
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue128 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue470.worktreeGitRoot;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue129 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue470.worktreeWorkspaceRoot;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue130 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue470.hasUncommittedChanges;
+    } catch {
+      currentQueryRpcAliasLowerx.warning(
+        "Failed to resolve a reusable cross-host worktree. Falling back to creating a new worktree.",
+      );
+    }
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue128 !=
+    null &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue129 !=
+      null &&
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam1?.(
+      "reuse-existing-worktree",
+      "running",
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam1?.(
+      "reuse-existing-worktree",
+      "done",
+    ));
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131 =
+    await computerUseComputerCaptureFunction("git").request({
+      method: "move-thread-to-host-worktree",
+      params: {
+        operationId,
+        hostConfig: sourceHostConfig,
+        operationSource: "move_to_host_worktree",
+        sourceCwd: cwd,
+        sourceBranch,
+        sourceRolloutPath:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue127,
+        destinationHostConfig,
+        destinationWorkspaceRoot,
+        destinationWorktreeGitRoot:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue128,
+        destinationWorktreeWorkspaceRoot:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue129,
+        stashDestinationWorktree:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue130,
+      },
+    });
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.status ===
+    "error"
+  )
+    return {
+      status: "error",
+      message: intl.formatMessage(
+        {
+          id: "localConversation.moveToHostWorktree.error.move",
+          defaultMessage: "Failed to continue on another host: {message}",
+          description:
+            "Error shown when cross-host handoff git or artifact transfer fails",
+        },
+        {
+          message:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.message,
+        },
+      ),
+      execOutput:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.execOutput ??
+        null,
+    };
+  queryClient.invalidateQueries({
+    queryKey: newThreadOnboardingSharedRuntimeVariant7Member0017(
+      _appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcNi(
+        destinationHostConfig,
+      ),
+    ),
+  });
+  onSwitchingThreadStart?.();
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132;
+  try {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132 =
+      await currentHostServicesAliasUpperO(
+        "fork-conversation-from-rollout-path",
+        {
+          hostId: destinationHostConfig.id,
+          conversationId,
+          rolloutPath:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.rolloutPath,
+          cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.worktreeWorkspaceRoot,
+          workspaceRoots: [
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.worktreeWorkspaceRoot,
+          ],
+          addForkedSyntheticItem: false,
+        },
+      );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue429) {
+    try {
+      await currentQueryRpcAliasLowern("worktree-set-owner-thread", {
+        params: {
+          hostId: destinationHostConfig.id,
+          worktree:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.worktreeGitRoot,
+          conversationId,
+        },
+      });
+    } catch {}
+    return (
+      currentQueryRpcAliasLowerx.warning(
+        "Cross-host handoff moved git state, but conversation fork failed: {}",
+        {
+          sensitive: {
+            error: currentQueryRpcAliasLoweroLowero(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue429,
+            ),
+          },
+          safe: {},
+        },
+      ),
+      onSwitchingThreadFailed?.(),
+      {
+        status: "success",
+        conversationId,
+      }
+    );
+  } finally {
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper66(
+      "Cross-host handoff copied rollout cleanup failed: {}",
+      () =>
+        computerUseComputerCaptureFunction("git").request({
+          method: "cleanup-host-handoff-transfer",
+          params: {
+            hostConfig: destinationHostConfig,
+            operationSource: "move_to_host_worktree",
+            rolloutPath:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.rolloutPath,
+          },
+        }),
+    );
+  }
+  return (
+    onTargetConversationId?.(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132,
+    ),
+    onTargetCwd?.(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.worktreeWorkspaceRoot,
+    ),
+    await threadRuntimeUpdateThreadGitFunction(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132,
+      sourceBranch,
+    ),
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper66(
+      "Cross-host handoff succeeded, but worktree ownership metadata could not be updated: {}",
+      () =>
+        currentQueryRpcAliasLowern("worktree-set-owner-thread", {
+          params: {
+            hostId: destinationHostConfig.id,
+            worktree:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue131.worktreeGitRoot,
+            conversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132,
+          },
+        }),
+    ),
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper66(
+      "Cross-host handoff succeeded, but browser state could not be transferred: {}",
+      () =>
+        transferBrowserState(
+          conversationId,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132,
+        ),
+    ),
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper66(
+      "Cross-host handoff succeeded, but thread title could not be transferred: {}",
+      () =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper65(
+          {
+            sourceConversationId: conversationId,
+            targetConversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132,
+            getTitle: (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam271,
+            ) =>
+              appServerManager.getConversation(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam271,
+              )?.title ?? null,
+            setTitle: (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam245,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam246,
+            ) =>
+              currentHostServicesAliasUpperO("set-thread-title", {
+                conversationId:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam245,
+                title:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam246,
+              }),
+          },
+        ),
+    ),
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper66(
+      "Cross-host handoff succeeded, but saved diff comments could not be transferred: {}",
+      () => {
+        setDiffComments(
+          (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam195,
+          ) =>
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt(
+              {
+                sourceConversationId: conversationId,
+                targetConversationId:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132,
+                diffComments:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam195,
+              },
+            ),
+        );
+      },
+    ),
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper66(
+      "Cross-host handoff succeeded, but pinned-thread state could not be transferred: {}",
+      () =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper64(
+          {
+            sourceConversationId: conversationId,
+            targetConversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132,
+          },
+        ),
+    ),
+    onSwitchingThreadDone?.(),
+    {
+      status: "success",
+      conversationId:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue132,
+    }
+  );
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper66(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam201,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam202,
+) {
+  try {
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam202();
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue621) {
+    currentQueryRpcAliasLowerx.warning(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam201,
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue621,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+}
+var _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT =
+  createLazyEsmInitializer(() => {
+    currentQueryRpcAliasLowerw();
+    currentHostServicesAliasUpperD();
+    businessCheckoutSharedMember0263();
+    businessCheckoutSharedInitializer0765();
+    currentQueryRpcAliasLowerb();
+    _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzO();
+    businessCheckoutSharedMember0476();
+    newThreadOnboardingSharedRuntimeVariant7Member0005();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue37();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue38();
+  });
+async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpGt({
+  conversationId,
+  currentBranch,
+  cwd,
+  localGitRoot,
+  localWorkspaceRoot,
+  worktreeRoot,
+  branchCheckedOutElsewhere,
+  intl,
+  appServerManager,
+  transferBrowserState,
+  setDiffComments,
+  hostConfig,
+  operationId,
+  onSwitchingThreadStart,
+  onSwitchingThreadDone,
+  onSwitchingThreadFailed,
+  onTargetCwd,
+  onTargetConversationId:
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam7,
+}) {
+  if (
+    localGitRoot == null ||
+    localWorkspaceRoot == null ||
+    worktreeRoot == null ||
+    branchCheckedOutElsewhere
+  )
+    return {
+      status: "error",
+      message: intl.formatMessage({
+        id: "localConversation.moveToLocal.error.prerequisites",
+        defaultMessage:
+          "Unable to move right now. Check local workspace state and retry.",
+        description:
+          "Error shown when move-to-local cannot start due to missing prerequisites",
+      }),
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue148 =
+    _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzPi(
+      localWorkspaceRoot,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue148 ==
+    null
+  )
+    return {
+      status: "error",
+      message: intl.formatMessage(
+        {
+          id: "localConversation.moveToLocal.error.fork",
+          defaultMessage: "{message}",
+          description: "Error shown when Move to local fails",
+        },
+        {
+          message: "Invalid local workspace root",
+        },
+      ),
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue149 =
+    await computerUseComputerCaptureFunction("git").request({
+      method: "move-thread-to-local",
+      params: {
+        operationId,
+        hostConfig,
+        operationSource: "move_to_local_dialog",
+        sourceWorktreeCwd: cwd,
+        sourceWorktreeRoot: worktreeRoot,
+        localGitRoot,
+        sourceBranch: currentBranch,
+      },
+    });
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue149.status ===
+    "error"
+  ) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue418 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue149
+        .rollbackErrors.length > 0
+        ? intl.formatMessage({
+            id: "localConversation.moveToLocal.error.rollbackIssues",
+            defaultMessage: " Some cleanup steps could not be completed",
+            description:
+              "Suffix appended to move-to-local error message when rollback has issues",
+          })
+        : "";
+    return {
+      status: "error",
+      message: `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper67(
+        {
+          branch: currentBranch,
+          error:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue149.error,
+          intl,
+        },
+      )}${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue418}`,
+      execOutput:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue149.execOutput,
+    };
+  }
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue149.warnings.includes(
+    "drop-source-stash-failed",
+  ) &&
+    currentQueryRpcAliasLowerx.warning(
+      "Move to local succeeded, but source stash cleanup failed",
+    );
+  onSwitchingThreadStart?.();
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150;
+  try {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150 =
+      await currentHostServicesAliasUpperO("fork-conversation-from-latest", {
+        hostId: appServerManager.getHostId(),
+        conversationId,
+        cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue148,
+        workspaceRoots: [
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue148,
+        ],
+        addForkedSyntheticItem: false,
+      });
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue527) {
+    return (
+      currentQueryRpcAliasLowerx.warning(
+        "Move to local git operations succeeded, but conversation fork failed: {}",
+        {
+          sensitive: {
+            error: currentQueryRpcAliasLoweroLowero(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue527,
+            ),
+          },
+          safe: {},
+        },
+      ),
+      onSwitchingThreadFailed?.(),
+      {
+        status: "success",
+        conversationId,
+      }
+    );
+  }
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam7?.(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150,
+  );
+  onTargetCwd?.(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue148,
+  );
+  try {
+    await currentQueryRpcAliasLowern("worktree-set-owner-thread", {
+      params: {
+        hostId: hostConfig.id,
+        worktree: worktreeRoot,
+        conversationId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150,
+      },
+    });
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue567) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to local succeeded, but worktree ownership metadata could not be updated: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue567,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  try {
+    transferBrowserState(
+      conversationId,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150,
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue577) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to local succeeded, but browser state could not be transferred: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue577,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  try {
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper65(
+      {
+        sourceConversationId: conversationId,
+        targetConversationId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150,
+        getTitle: (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam272,
+        ) =>
+          appServerManager.getConversation(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam272,
+          )?.title ?? null,
+        setTitle: (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam250,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam251,
+        ) =>
+          currentHostServicesAliasUpperO("set-thread-title", {
+            conversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam250,
+            title:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam251,
+          }),
+      },
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue578) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to local succeeded, but thread title could not be transferred: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue578,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  try {
+    setDiffComments(
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam235,
+      ) =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt(
+          {
+            sourceConversationId: conversationId,
+            targetConversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150,
+            diffComments:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam235,
+          },
+        ),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue571) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to local succeeded, but saved diff comments could not be transferred: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue571,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  try {
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper64(
+      {
+        sourceConversationId: conversationId,
+        targetConversationId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150,
+      },
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue572) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to local succeeded, but pinned-thread state could not be transferred: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue572,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  return (
+    onSwitchingThreadDone?.(),
+    {
+      status: "success",
+      conversationId:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue150,
+    }
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper67({
+  branch,
+  error,
+  intl,
+}) {
+  switch (error) {
+    case "invalid-params":
+      return intl.formatMessage({
+        id: "localConversation.moveToLocal.error.invalidParams",
+        defaultMessage:
+          "Unable to move right now. Check local workspace state and retry",
+        description:
+          "Error shown when move-to-local receives invalid worker parameters",
+      });
+    case "branch-checked-out-elsewhere":
+      return intl.formatMessage({
+        id: "localConversation.moveToLocal.error.branchCheckedOutElsewhere",
+        defaultMessage: "Branch is already checked out in another worktree",
+        description:
+          "Error shown when move-to-local cannot use a branch that is checked out in another worktree",
+      });
+    case "source-detach-failed":
+      return intl.formatMessage({
+        id: "localConversation.moveToLocal.error.sourceDetachFailed",
+        defaultMessage: "Failed to detach the worktree branch",
+        description:
+          "Error shown when move-to-local cannot detach the source worktree",
+      });
+    case "local-status-check-failed":
+      return intl.formatMessage({
+        id: "localConversation.moveToLocal.error.localStatusCheckFailed",
+        defaultMessage:
+          "Unable to determine whether the local workspace is clean",
+        description:
+          "Error shown when move-to-local cannot read the destination workspace status",
+      });
+    case "local-destination-has-tracked-changes":
+      return intl.formatMessage({
+        id: "localConversation.moveToLocal.error.localDestinationHasTrackedChanges",
+        defaultMessage: "Stash or commit your local changes to hand off",
+        description:
+          "Error shown when move-to-local is blocked by local workspace changes",
+      });
+    case "local-branch-head-mismatch":
+      return intl.formatMessage(
+        {
+          id: "localConversation.moveToLocal.error.localBranchHeadMismatch",
+          defaultMessage:
+            "Branch “{branch}” already exists at a different commit",
+          description:
+            "Error shown when move-to-local finds that the requested local branch points at a different commit",
+        },
+        {
+          branch,
+        },
+      );
+    case "checkout-local-failed":
+      return intl.formatMessage(
+        {
+          id: "localConversation.moveToLocal.error.checkoutLocalFailed",
+          defaultMessage: "Failed to check out branch “{branch}” locally",
+          description:
+            "Error shown when move-to-local cannot check out the destination branch",
+        },
+        {
+          branch,
+        },
+      );
+    case "apply-source-stash-failed":
+      return intl.formatMessage({
+        id: "localConversation.moveToLocal.error.applySourceStashFailed",
+        defaultMessage: "Failed to apply worktree changes locally",
+        description:
+          "Error shown when move-to-local cannot apply the source worktree changes",
+      });
+    case "rollback-failed":
+      return intl.formatMessage({
+        id: "localConversation.moveToLocal.error.rollbackFailed",
+        defaultMessage: "Failed to restore state after the handoff failed",
+        description:
+          "Error shown when move-to-local cannot restore state after a failed operation",
+      });
+    case "unexpected-error":
+      return intl.formatMessage({
+        id: "localConversation.moveToLocal.error.unexpected",
+        defaultMessage: "Failed to move to local",
+        description: "Fallback error shown when move-to-local fails",
+      });
+  }
+}
+var _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHt =
+  createLazyEsmInitializer(() => {
+    currentQueryRpcAliasLowerw();
+    currentHostServicesAliasUpperD();
+    currentQueryRpcAliasLowerb();
+    _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzO();
+    businessCheckoutSharedMember0476();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue37();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue38();
+  });
+async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpMt({
+  conversationId,
+  currentBranch,
+  cwd,
+  worktreeCheckoutBranch,
+  selectedLocalCheckoutBranch,
+  intl,
+  appServerManager,
+  defaultBranch,
+  transferBrowserState,
+  setDiffComments,
+  hostConfig,
+  queryClient,
+  operationId,
+  onStepStatus,
+  onTargetCwd,
+  onTargetConversationId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue117 =
+    worktreeCheckoutBranch.trim();
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue117.length ===
+    0
+  )
+    return {
+      status: "error",
+      message: intl.formatMessage({
+        id: "localConversation.moveToWorktree.error.branchRequired",
+        defaultMessage: "Worktree branch name is required",
+        description:
+          "Error shown when move-to-worktree is attempted without a target worktree branch name",
+      }),
+      execOutput: null,
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue120 = false,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue121 = false,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue122 =
+      "create-new-worktree";
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue484 =
+      await computerUseComputerCaptureFunction("git").request({
+        method: "resolve-worktree-for-thread",
+        params: {
+          cwd,
+          conversationId,
+          hostConfig,
+          operationSource: "move_to_worktree_dialog",
+        },
+      });
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue484.worktreeGitRoot;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue484.worktreeWorkspaceRoot;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue121 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue484.hasUncommittedChanges;
+  } catch {
+    currentQueryRpcAliasLowerx.warning(
+      "Failed to resolve an existing worktree for thread. Falling back to creating a new worktree.",
+    );
+  }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118 !=
+      null &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119 !=
+      null
+  ) {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue122 =
+      "reuse-existing-worktree";
+    onStepStatus?.(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue122,
+      "running",
+    );
+    onStepStatus?.(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue122,
+      "done",
+    );
+  } else {
+    onStepStatus?.(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue122,
+      "running",
+    );
+    try {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue425 =
+        await currentQueryRpcAliasLowern("worktree-create-managed", {
+          params: {
+            hostId: hostConfig.id,
+            cwd,
+            startingState: {
+              type: "branch",
+              branchName: currentBranch,
+            },
+            localEnvironmentConfigPath: null,
+            streamId: businessCheckoutSharedMember0187(),
+          },
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue425.worktreeGitRoot;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue425.worktreeWorkspaceRoot;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue120 = true;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue121 = false;
+      onStepStatus?.(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue122,
+        "done",
+      );
+      queryClient.invalidateQueries({
+        queryKey: newThreadOnboardingSharedRuntimeVariant7Member0017(
+          _appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcNi(
+            hostConfig,
+          ),
+        ),
+      });
+    } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue419) {
+      return (
+        onStepStatus?.(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue122,
+          "failed",
+        ),
+        {
+          status: "error",
+          message: intl.formatMessage(
+            {
+              id: "localConversation.moveToWorktree.error.createWorktree",
+              defaultMessage: "Failed to create worktree: {message}",
+              description:
+                "Error shown when Move to worktree fails to create a worktree",
+            },
+            {
+              message: currentQueryRpcAliasLoweroLowero(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue419,
+              ),
+            },
+          ),
+          execOutput: null,
+        }
+      );
+    }
+  }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118 ==
+      null ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119 ==
+      null
+  )
+    return {
+      status: "error",
+      message: intl.formatMessage({
+        id: "localConversation.moveToWorktree.error.unknown",
+        defaultMessage: "Failed to move to worktree. Please retry.",
+        description: "Fallback error shown when move-to-worktree fails",
+      }),
+      execOutput: null,
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue123 =
+    await currentQueryRpcAliasLowern("git-create-branch", {
+      source: "move_to_worktree_dialog",
+      params: {
+        cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119,
+        branch:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue117,
+        hostId: hostConfig.id,
+        mode: "worktree",
+      },
+    });
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue123.status ===
+    "error"
+  ) {
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue120
+    )
+      try {
+        await currentQueryRpcAliasLowern("worktree-delete", {
+          params: {
+            hostId: hostConfig.id,
+            worktree:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118,
+            reason: "new-branch-cleanup",
+          },
+        });
+      } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue581) {
+        currentQueryRpcAliasLowerx.warning(
+          "Failed to clean up the newly created worktree: {}",
+          {
+            sensitive: {
+              error: currentQueryRpcAliasLoweroLowero(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue581,
+              ),
+            },
+            safe: {},
+          },
+        );
+      } finally {
+        queryClient.invalidateQueries({
+          queryKey: newThreadOnboardingSharedRuntimeVariant7Member0017(
+            _appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcNi(
+              hostConfig,
+            ),
+          ),
+        });
+      }
+    return {
+      status: "error",
+      message: intl.formatMessage(
+        {
+          id: "localConversation.moveToWorktree.error.prepareBranch",
+          defaultMessage:
+            "Failed to prepare worktree branch “{branch}”: {message}",
+          description:
+            "Error shown when move-to-worktree cannot create or resolve the target worktree branch",
+        },
+        {
+          branch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue117,
+          message:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue123.error,
+        },
+      ),
+      execOutput:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue123.execOutput,
+    };
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124 =
+    await computerUseComputerCaptureFunction("git").request({
+      method: "move-thread-to-worktree",
+      params: {
+        operationId,
+        hostConfig,
+        operationSource: "move_to_worktree_dialog",
+        localCwd: cwd,
+        sourceBranch: currentBranch,
+        defaultBranch,
+        localCheckoutBranch: selectedLocalCheckoutBranch,
+        worktreeCheckoutBranch:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue117,
+        worktreeGitRoot:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118,
+        worktreeWorkspaceRoot:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119,
+        stashTargetWorktree:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue121,
+        createdWorktree:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue120,
+      },
+    });
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124.status ===
+    "error"
+  ) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue305 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124
+        .rollbackErrors.length > 0
+        ? intl.formatMessage(
+            {
+              id: "localConversation.moveToWorktree.error.rollbackIssues",
+              defaultMessage: " Rollback issues: {issues}",
+              description:
+                "Suffix appended to move-to-worktree error message when rollback has issues",
+            },
+            {
+              issues:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124.rollbackErrors.join(
+                  ", ",
+                ),
+            },
+          )
+        : "";
+    return {
+      status: "error",
+      message:
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124
+          .execOutput?.output.length ?? 0) > 0
+          ? `${intl.formatMessage({
+              id: "localConversation.moveToWorktree.error.moveWithTerminalOutput",
+              defaultMessage: "Failed to move to worktree",
+              description:
+                "Error shown when Move to worktree git operations fail with command output shown separately",
+            })}${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue305}`
+          : intl.formatMessage(
+              {
+                id: "localConversation.moveToWorktree.error.move",
+                defaultMessage: "Failed to move to worktree: {message}",
+                description:
+                  "Error shown when Move to worktree git operations fail in the worker",
+              },
+              {
+                message: `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124.message}${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue305}`,
+              },
+            ),
+      execOutput:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124.execOutput,
+    };
+  }
+  onStepStatus?.("switching-thread", "running");
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125;
+  try {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125 =
+      await currentHostServicesAliasUpperO("fork-conversation-from-latest", {
+        hostId: appServerManager.getHostId(),
+        conversationId,
+        cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119,
+        workspaceRoots: [
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119,
+        ],
+        addForkedSyntheticItem: false,
+      });
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue442) {
+    try {
+      await currentQueryRpcAliasLowern("worktree-set-owner-thread", {
+        params: {
+          hostId: hostConfig.id,
+          worktree:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118,
+          conversationId,
+        },
+      });
+    } catch {}
+    return (
+      currentQueryRpcAliasLowerx.warning(
+        "Move to worktree git operations succeeded, but conversation fork failed: {}",
+        {
+          sensitive: {
+            error: currentQueryRpcAliasLoweroLowero(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue442,
+            ),
+          },
+          safe: {},
+        },
+      ),
+      onStepStatus?.("switching-thread", "failed"),
+      {
+        status: "success",
+        conversationId,
+      }
+    );
+  }
+  onTargetConversationId?.(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125,
+  );
+  onTargetCwd?.(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue119,
+  );
+  try {
+    await currentQueryRpcAliasLowern("worktree-set-owner-thread", {
+      params: {
+        hostId: hostConfig.id,
+        worktree:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue118,
+        conversationId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125,
+      },
+    });
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue566) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to worktree succeeded, but worktree ownership metadata could not be updated: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue566,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  try {
+    transferBrowserState(
+      conversationId,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125,
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue574) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to worktree succeeded, but browser state could not be transferred: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue574,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  try {
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper65(
+      {
+        sourceConversationId: conversationId,
+        targetConversationId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125,
+        getTitle: (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam273,
+        ) =>
+          appServerManager.getConversation(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam273,
+          )?.title ?? null,
+        setTitle: (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam252,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam253,
+        ) =>
+          currentHostServicesAliasUpperO("set-thread-title", {
+            conversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam252,
+            title:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam253,
+          }),
+      },
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue576) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to worktree succeeded, but thread title could not be transferred: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue576,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  try {
+    setDiffComments(
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam236,
+      ) =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt(
+          {
+            sourceConversationId: conversationId,
+            targetConversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125,
+            diffComments:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam236,
+          },
+        ),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue568) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to worktree succeeded, but saved diff comments could not be transferred: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue568,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124.warnings.includes(
+    "stashed-target-worktree-changes",
+  ) &&
+    currentQueryRpcAliasLowerx.warning(
+      "Move to worktree stashed uncommitted changes in the reused worktree",
+    );
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124.warnings.includes(
+    "drop-source-stash-failed",
+  ) &&
+    currentQueryRpcAliasLowerx.warning(
+      "Move to worktree succeeded, but source stash cleanup failed",
+    );
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue124.warnings.includes(
+    "drop-target-stash-failed",
+  ) &&
+    currentQueryRpcAliasLowerx.warning(
+      "Move to worktree succeeded, but target stash cleanup failed",
+    );
+  try {
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper64(
+      {
+        sourceConversationId: conversationId,
+        targetConversationId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125,
+      },
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue569) {
+    currentQueryRpcAliasLowerx.warning(
+      "Move to worktree succeeded, but pinned-thread state could not be transferred: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue569,
+          ),
+        },
+        safe: {},
+      },
+    );
+  }
+  return (
+    onStepStatus?.("switching-thread", "done"),
+    {
+      status: "success",
+      conversationId:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue125,
+    }
+  );
+}
+var _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpPt =
+  createLazyEsmInitializer(() => {
+    currentQueryRpcAliasLowerw();
+    businessCheckoutSharedInitializer0137();
+    currentHostServicesAliasUpperD();
+    businessCheckoutSharedInitializer0765();
+    currentQueryRpcAliasLowerb();
+    _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzO();
+    businessCheckoutSharedMember0476();
+    newThreadOnboardingSharedRuntimeVariant7Member0005();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue37();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue38();
+  });
+function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDt(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam200,
+) {
+  return os.default(
+    [
+      parseCodexDelegationXml(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam200.get,
+        "host_config",
+      ) ??
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue41,
+      ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam200
+        .get(remoteConnectionsSignal)
+        .map(currentQueryRpcAliasLoweruLoweri),
+    ],
+    ({ id }) => id,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper68(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam28 = [
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue41,
+  ],
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam29 = false,
+) {
+  return {
+    name: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt,
+    description:
+      "Move another Codex thread and its associated git state between its checkout and Codex worktree on its current host. Running threads are interrupted before handoff. Omit destinationHostId for this current-host toggle. The calling thread cannot move itself, and cloud handoff is not supported." +
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam29
+        ? " You can also choose another host to move the thread to a matching saved-project worktree."
+        : "") +
+      " Returns quickly with an operationId and revision. The UI continues to show live progress in the original handoff item. For model-visible completion, call get_handoff_status with afterRevision and a 30000-60000 waitMs, then back off if the revision does not change.",
+    inputSchema: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        threadId: {
+          type: "string",
+          description: "Other thread id to hand off.",
+        },
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam29
+          ? {
+              destinationHostId: {
+                type: "string",
+                description: `Optional host that should run the thread after handoff. Omit to move between the source thread's checkout and Codex worktree on its current host. Choose another host to move to a matching saved-project worktree. Available hosts: ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam28
+                  .map(({ display_name, id }) => `${display_name} (${id})`)
+                  .join(", ")}.`,
+                enum: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam28.map(
+                  ({ id }) => id,
+                ),
+              },
+            }
+          : {}),
+        followUpPrompt: {
+          type: "string",
+          description:
+            "Optional prompt to send to the destination thread after handoff succeeds.",
+        },
+      },
+      required: ["threadId"],
+    },
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper69() {
+  return {
+    name: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt,
+    description:
+      "Read status for a handoff_thread operation. The user-facing UI already updates in the original handoff item, so avoid frequent polling. Prefer afterRevision with a 30000-60000 waitMs so the call returns only when progress changes or the timeout expires. Poll once after dispatch, then wait longer/back off; do not repeatedly poll unchanged state or narrate unchanged polls.",
+    inputSchema: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        operationId: {
+          type: "string",
+          description: "operationId returned by handoff_thread.",
+        },
+        afterRevision: {
+          type: "number",
+          description:
+            "Optional last revision already seen. When provided with waitMs, wait until the operation revision is greater than this value or the timeout expires.",
+        },
+        waitMs: {
+          type: "number",
+          description: `Optional maximum milliseconds to wait for a status change, from 0 to ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue40}.`,
+        },
+      },
+      required: ["operationId"],
+    },
+  };
+}
+export async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpUt({
+  scope,
+  appServerRegistry,
+  argumentsValue,
+  callId,
+  callingThreadId,
+  crossHostHandoffEnabled = checkStatsigGateFromStore(scope, "2256010998"),
+  queryClient,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue254 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue42.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue254.success
+  )
+    return requestRemoteHostConfigRead(
+      `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt} received invalid arguments.`,
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue255 =
+    currentQueryRpcAliasUpperWLowero(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue254
+        .data.threadId,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue255 ===
+    callingThreadId
+  )
+    return requestRemoteHostConfigRead(
+      "A thread cannot hand itself off. Choose another thread.",
+    );
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue319 =
+        callId,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue320 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper58(
+          scope,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue319,
+        );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue320 !=
+      null
+    )
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper82(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper83(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue320,
+        ),
+      );
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue321 =
+        _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDt(
+          scope,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue322 =
+        await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper70(
+          {
+            scope,
+            appServerRegistry,
+            operationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue319,
+            hosts:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue321,
+            queryClient,
+            threadId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue255,
+          },
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue323 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue254
+          .data.destinationHostId == null
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue322.hostConfig
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue321.find(
+              ({ id }) =>
+                id ===
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue254
+                  .data.destinationHostId,
+            );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue323 ==
+      null
+    )
+      throw Error(
+        `Host ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue254.data.destinationHostId} is not available for thread handoff.`,
+      );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue323.id !==
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue322
+          .hostConfig.id &&
+      !crossHostHandoffEnabled
+    )
+      throw Error("Cross-host thread handoff is not enabled.");
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt(
+      {
+        conversationId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue255,
+        sourceThreadRunning: threadRuntimeNeedsResumeResumingFunction(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue322.conversation,
+        ),
+      },
+    );
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue324 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue323.id ===
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue322
+        .hostConfig.id
+        ? await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper71(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue322,
+          )
+        : await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper72(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue322,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue323,
+          );
+    return (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper59(
+        scope,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue319,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue324.progress,
+      ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper73(
+        {
+          callingThreadId,
+          context:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue322,
+          destinationHostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue324.destinationHostId,
+          followUpPrompt:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue254
+              .data.followUpPrompt,
+          run: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue324.run,
+        },
+      ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper82(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper83(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper58(
+            scope,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue319,
+          ) ??
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue324.progress,
+        ),
+      )
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue531) {
+    return (
+      currentQueryRpcAliasLowerx.warning(
+        "Thread handoff dynamic tool failed: {}",
+        {
+          sensitive: {
+            error: currentQueryRpcAliasLoweroLowero(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue531,
+            ),
+          },
+          safe: {
+            threadId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue255,
+          },
+        },
+      ),
+      requestRemoteHostConfigRead(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue531 instanceof
+          Error
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue531.message
+          : "Thread handoff failed.",
+      )
+    );
+  }
+}
+export async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpLt({
+  scope,
+  argumentsValue,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue436 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue43.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue436.success
+  )
+    return requestRemoteHostConfigRead(
+      `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt} received invalid arguments.`,
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue437 =
+    await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper60(
+      {
+        afterRevision:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue436
+            .data.afterRevision ?? null,
+        scope,
+        operationId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue436
+            .data.operationId,
+        waitMs:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue436
+            .data.waitMs ?? 0,
+      },
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue437 ==
+    null
+    ? requestRemoteHostConfigRead(
+        `No thread handoff operation found for operationId ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue436.data.operationId}.`,
+      )
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper82(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper83(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue437,
+        ),
+      );
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper70({
+  scope,
+  appServerRegistry,
+  operationId,
+  hosts,
+  queryClient,
+  threadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue247 =
+    appServerRegistry.getMaybeForConversationId(threadId) ??
+    appServerRegistry.getDefault();
+  await currentHostServicesAliasUpperO("maybe-resume-conversation", {
+    hostId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue247.getHostId(),
+    conversationId: threadId,
+    model: null,
+    serviceTier: null,
+    reasoningEffort: null,
+    workspaceRoots: ["/"],
+    collaborationMode: null,
+    showThreadGoalResumeConfirmation: false,
+  });
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue248 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue247.getConversation(
+      threadId,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue248 ==
+    null
+  )
+    throw Error(`Thread ${threadId} could not be loaded for handoff.`);
+  if (
+    scope.get(
+      _appInitialAppMainNewThreadPanelPageOnboardingPageAppgenLibraryPageHotkeyWindoIm5yc0bwI,
+      threadId,
+    ) > 0 ||
+    (currentHostServicesAliasUpperS(
+      scope.get,
+      currentQueryRpcAliasUnderscoreLowero.QUEUED_FOLLOW_UPS,
+    )?.[threadId]?.length ?? 0) > 0
+  )
+    throw Error(
+      `Thread ${threadId} has pending composer state. Send or remove it before handing the thread off.`,
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue249 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue248.cwd?.trim() ??
+    "";
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue249.length ===
+    0
+  )
+    throw Error(`Thread ${threadId} does not have a workspace to hand off.`);
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue250 =
+    hosts.find(
+      ({ id }) =>
+        id ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue247.getHostId(),
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue250 ==
+    null
+  )
+    throw Error(`The source host for thread ${threadId} is not available.`);
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue251 =
+      _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzPi(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue249,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue252 =
+      await computerUseComputerCaptureFunction("git").request({
+        method: "stable-metadata",
+        params: {
+          cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue251,
+          hostConfig:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue250,
+          operationSource:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+        },
+      });
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue252 ==
+    null
+  )
+    throw Error("The source thread workspace is not a git repository.");
+  let { branch } = await computerUseComputerCaptureFunction("git").request({
+      method: "current-branch",
+      params: {
+        root: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue252.root,
+        hostConfig:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue250,
+        operationSource:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+      },
+    }),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue253 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue248.title?.trim() ??
+      "";
+  return {
+    operationId,
+    scope,
+    queryClient,
+    threadId,
+    threadTitle:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue253.length >
+      0
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue253
+        : threadId,
+    conversation:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue248,
+    manager:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue247,
+    hostConfig:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue250,
+    cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue251,
+    gitRoot:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue252.root,
+    currentBranch: branch,
+  };
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper71(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+) {
+  let { codexHome } = await currentQueryRpcAliasLowern("codex-home", {
+    params: {
+      hostId:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13
+          .hostConfig.id,
+    },
+  });
+  if (
+    currentQueryRpcAliasLowersLowern(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.cwd,
+      codexHome,
+    )
+  ) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue275 =
+        await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper76(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+          codexHome,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue276 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper78(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.currentBranch,
+        );
+    return {
+      destinationHostId:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13
+          .hostConfig.id,
+      progress:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper80(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+          {
+            destinationHostDisplayName:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13
+                .hostConfig.display_name,
+            destinationHostId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13
+                .hostConfig.id,
+            destinationCwd:
+              _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzPi(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue275.workspaceRoot,
+              ),
+            direction: "to-local",
+            localBranch:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue276,
+            sourceBranch:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue276,
+            steps:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper81(
+                [
+                  "stash-source-changes",
+                  "detach-worktree-branch",
+                  "checkout-local-branch",
+                  "apply-changes-to-local",
+                  "switching-thread",
+                ],
+              ),
+            worktreeBranch: null,
+          },
+        ),
+      run: () =>
+        _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpGt(
+          {
+            conversationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.threadId,
+            currentBranch:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue276,
+            cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.cwd,
+            localGitRoot:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue275.gitRoot,
+            localWorkspaceRoot:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue275.workspaceRoot,
+            worktreeRoot:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.gitRoot,
+            branchCheckedOutElsewhere: false,
+            intl: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.scope.get(
+              newThreadOnboardingSharedRuntimeMember0005,
+            ),
+            appServerManager:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.manager,
+            transferBrowserState:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper79,
+            setDiffComments: (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam274,
+            ) =>
+              initMarkdownCommentRuntime(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.scope,
+                "diff_comments",
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam274,
+              ),
+            hostConfig:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.hostConfig,
+            operationId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.operationId,
+            onSwitchingThreadStart: () =>
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+                "switching-thread",
+                "running",
+              ),
+            onSwitchingThreadDone: () =>
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+                "switching-thread",
+                "done",
+              ),
+            onSwitchingThreadFailed: () =>
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+                "switching-thread",
+                "failed",
+              ),
+            onTargetConversationId: (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam289,
+            ) =>
+              $o(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam289,
+              ),
+            onTargetCwd: (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam290,
+            ) =>
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper85(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam290,
+              ),
+          },
+        ),
+    };
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue178 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.currentBranch?.trim() ??
+    "";
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue178.length ===
+    0
+  )
+    throw Error(
+      "The source checkout is detached. Check out a branch before handing it off to a worktree.",
+    );
+  let { branch } = await computerUseComputerCaptureFunction("git").request({
+      method: "default-branch",
+      params: {
+        root: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.gitRoot,
+        hostConfig:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.hostConfig,
+        operationSource:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+      },
+    }),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue179 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue178 ===
+      branch
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper78(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+            null,
+          )
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue178,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue180 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue178 ===
+      branch
+        ? null
+        : await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper77(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue178,
+            branch,
+          );
+  return {
+    destinationHostId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13
+        .hostConfig.id,
+    progress:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper80(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+        {
+          destinationHostDisplayName:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13
+              .hostConfig.display_name,
+          destinationHostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13
+              .hostConfig.id,
+          destinationCwd: null,
+          direction: "to-worktree",
+          localBranch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue180,
+          sourceBranch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue178,
+          steps:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper81(
+              [
+                "stash-source-changes",
+                "checkout-local-branch",
+                "stash-target-worktree-changes",
+                "checkout-worktree-branch",
+                "apply-changes-to-worktree",
+                "switching-thread",
+              ],
+            ),
+          worktreeBranch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue179,
+        },
+      ),
+    run: () =>
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpMt(
+        {
+          conversationId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.threadId,
+          currentBranch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue178,
+          cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.cwd,
+          worktreeCheckoutBranch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue179,
+          selectedLocalCheckoutBranch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue180,
+          intl: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.scope.get(
+            newThreadOnboardingSharedRuntimeMember0005,
+          ),
+          appServerManager:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.manager,
+          defaultBranch: branch,
+          transferBrowserState:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper79,
+          setDiffComments: (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam275,
+          ) =>
+            initMarkdownCommentRuntime(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.scope,
+              "diff_comments",
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam275,
+            ),
+          hostConfig:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.hostConfig,
+          queryClient:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.queryClient,
+          operationId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13.operationId,
+          onStepStatus: (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam283,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam284,
+          ) =>
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam283,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam284,
+            ),
+          onTargetConversationId: (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam291,
+          ) =>
+            $o(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam291,
+            ),
+          onTargetCwd: (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam292,
+          ) =>
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper85(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam13,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam292,
+            ),
+        },
+      ),
+  };
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper72(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam22,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.conversation.rolloutPath.trim()
+      .length === 0
+  )
+    throw Error("This chat does not have a rollout file to move");
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue207 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper78(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.currentBranch,
+      ),
+    [
+      {
+        roots:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue208,
+      },
+      {
+        origins:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue209,
+      },
+    ] = await Promise.all([
+      currentQueryRpcAliasLowern("workspace-root-options", {
+        params: {
+          hostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam22.id,
+        },
+      }),
+      currentQueryRpcAliasLowern("git-origins", {
+        params: {
+          hostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21
+              .hostConfig.id,
+          dirs: [
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.cwd,
+          ],
+        },
+        source:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+      }),
+    ]),
+    { origins } = await currentQueryRpcAliasLowern("git-origins", {
+      params: {
+        hostId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam22.id,
+        dirs: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue208,
+      },
+      source:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+    }),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue210 =
+      settingsCommandSharedRuntimeVariant4Member0027({
+        sourceWorkspaceRoot:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.cwd,
+        sourceGitRoot:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.gitRoot,
+        sourceGitOrigins:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue209,
+        destinationWorkspaceRoots:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue208,
+        destinationGitOrigins: origins,
+      });
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue210 ==
+    null
+  )
+    throw Error(
+      `No matching saved project was found on ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam22.display_name}.`,
+    );
+  return {
+    destinationHostId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam22.id,
+    progress:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper80(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+        {
+          destinationHostDisplayName:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam22.display_name,
+          destinationHostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam22.id,
+          destinationCwd:
+            _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzPi(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue210,
+            ),
+          direction: "to-host-worktree",
+          localBranch: null,
+          sourceBranch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue207,
+          steps:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper81(
+              [
+                "prepare-host-transfer",
+                "transfer-host-artifacts",
+                "apply-changes-to-worktree",
+                "switching-thread",
+              ],
+            ),
+          worktreeBranch: null,
+        },
+      ),
+    run: () =>
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpVt(
+        {
+          conversationId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.threadId,
+          sourceBranch:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue207,
+          cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.cwd,
+          destinationWorkspaceRoot:
+            _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzPi(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue210,
+            ),
+          intl: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.scope.get(
+            newThreadOnboardingSharedRuntimeMember0005,
+          ),
+          appServerManager:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.manager,
+          sourceHostConfig:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.hostConfig,
+          destinationHostConfig:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam22,
+          transferBrowserState:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper79,
+          setDiffComments: (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam276,
+          ) =>
+            initMarkdownCommentRuntime(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.scope,
+              "diff_comments",
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam276,
+            ),
+          queryClient:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.queryClient,
+          operationId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21.operationId,
+          onSwitchingThreadStart: () =>
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+              "switching-thread",
+              "running",
+            ),
+          onSwitchingThreadDone: () =>
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+              "switching-thread",
+              "done",
+            ),
+          onSwitchingThreadFailed: () =>
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+              "switching-thread",
+              "failed",
+            ),
+          onTargetConversationId: (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam293,
+          ) =>
+            $o(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam293,
+            ),
+          onTargetCwd: (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam294,
+          ) =>
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper85(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam294,
+            ),
+          onStepStatus: (
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam285,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam286,
+          ) =>
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam21,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam285,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam286,
+            ),
+        },
+      ),
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper73({
+  callingThreadId,
+  context,
+  destinationHostId,
+  followUpPrompt,
+  run,
+}) {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper74(
+    {
+      callingThreadId,
+      context,
+      destinationHostId,
+      followUpPrompt,
+      run,
+    },
+  );
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper74({
+  callingThreadId,
+  context,
+  destinationHostId,
+  followUpPrompt,
+  run,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue291 =
+    computerUseComputerCaptureFunction("git").subscribe(
+      "thread-handoff-progress",
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam110,
+      ) => {
+        if (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam110.operationId !==
+          context.operationId
+        )
+          return;
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue488;
+        switch (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam110.status
+        ) {
+          case "completed":
+          case "skipped":
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue488 =
+              "done";
+            break;
+          case "started":
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue488 =
+              "running";
+            break;
+          case "failed":
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue488 =
+              "failed";
+            break;
+        }
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+          context,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam110.step,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue488,
+        );
+      },
+    );
+  try {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper86(
+      context,
+      "running",
+    );
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue385 =
+      await run();
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue385.status ===
+      "error"
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper87(
+        context,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue385.message,
+      );
+      return;
+    }
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue385.conversationId ===
+      context.threadId
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper88(
+        context,
+        "Git handoff completed, but the destination thread could not be created.",
+      );
+      return;
+    }
+    $o(
+      context,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue385.conversationId,
+    );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper75(
+      context,
+    );
+    followUpPrompt != null &&
+      (await pullRequestRoutRuntimeVariant4Member0115({
+        hostId: destinationHostId,
+        model: undefined,
+        prompt: followUpPrompt,
+        scope: context.scope,
+        sourceThreadId: callingThreadId,
+        threadId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue385.conversationId,
+        thinking: undefined,
+      }));
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper86(
+      context,
+      "success",
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue537) {
+    currentQueryRpcAliasLowerx.warning(
+      "Thread handoff failed unexpectedly: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue537,
+          ),
+        },
+        safe: {
+          operationId: context.operationId,
+        },
+      },
+    );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper87(
+      context,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue537 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue537.message
+        : "Thread handoff failed.",
+    );
+  } finally {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue291();
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper75(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam111,
+) {
+  currentHostServicesAliasUpperO("archive-conversation", {
+    conversationId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam111.threadId,
+    cleanupWorktree: false,
+    source: "thread_handoff",
+  }).catch((error) => {
+    currentQueryRpcAliasLowerx.warning(
+      "Thread handoff succeeded, but source archive failed: {}",
+      {
+        sensitive: {
+          error: currentQueryRpcAliasLoweroLowero(error),
+        },
+        safe: {
+          threadId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam111.threadId,
+        },
+      },
+    );
+  });
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper76(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam50,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam51,
+) {
+  let [
+      {
+        worktrees:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue362,
+      },
+      {
+        worktrees:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue363,
+      },
+    ] = await Promise.all([
+      computerUseComputerCaptureFunction("git").request({
+        method: "list-worktrees",
+        params: {
+          cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam50.cwd,
+          hostConfig:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam50.hostConfig,
+          operationSource:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+        },
+      }),
+      computerUseComputerCaptureFunction("git").request({
+        method: "codex-worktrees",
+        params: {
+          hostConfig:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam50.hostConfig,
+          operationSource:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+        },
+      }),
+    ]),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue364 =
+      new Set(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue363.map(
+          ({ dir }) => currentHostServicesAliasLowerpLowert(dir),
+        ),
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue365 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt(
+        {
+          cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam50.cwd,
+          sourceWorktreeRoot:
+            _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzPi(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam50.gitRoot,
+            ),
+          repoWorktreeEntries:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue362.filter(
+              ({ root }) =>
+                !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue364.has(
+                  currentHostServicesAliasLowerpLowert(root),
+                ) &&
+                !currentQueryRpcAliasLowersLowern(
+                  root,
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam51,
+                ),
+            ),
+        },
+      )[0];
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue365 ==
+    null
+  )
+    throw Error("No checkout was found for the source worktree.");
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue365;
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper77(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam82,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam83,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam84,
+) {
+  let { branches } = await computerUseComputerCaptureFunction("git").request({
+      method: "recent-branches",
+      params: {
+        root: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam82.gitRoot,
+        hostConfig:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam82.hostConfig,
+        operationSource:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+      },
+    }),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue457 =
+      [
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam84,
+        ...branches,
+      ].find(
+        (item) =>
+          item != null &&
+          item !==
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam83,
+      );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue457 ==
+    null
+  )
+    throw Error(
+      "No other checkout branch is available before handing this thread off to a worktree.",
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue457;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper78(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam113,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam114,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue497 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam114?.trim() ??
+    "";
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue497.length >
+    0
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue497;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue498 =
+      currentReactAliasLowerc(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam113
+          .scope.get,
+        currentQueryRpcAliasLowervLowert.branchPrefix,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue499 =
+      hotkeyWindowHomePageQuicRuntimeMember0057({
+        branchPrefix:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue498,
+        conversationTitle:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam113
+            .conversation.title,
+      });
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue499.length >
+    0 &&
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue499.endsWith(
+      "/",
+    )
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue499
+    : hotkeyWindowHomePageQuicRuntimeMember0057({
+        branchPrefix:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue498,
+        conversationTitle:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam113.threadId,
+      });
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper79(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam169,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam170,
+) {
+  currentQueryRpcAliasLowerm.dispatchMessage("browser-sidebar-command", {
+    conversationId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam169,
+    command: {
+      type: "transfer-conversation",
+      targetConversationId:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam170,
+    },
+  });
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper80(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam58,
+  {
+    destinationHostDisplayName,
+    destinationHostId,
+    destinationCwd,
+    direction,
+    localBranch,
+    sourceBranch,
+    steps,
+    worktreeBranch,
+  },
+) {
+  return {
+    destinationCwd,
+    destinationHostId,
+    destinationHostDisplayName,
+    destinationThreadId: null,
+    direction,
+    errorCode: null,
+    errorMessage: null,
+    localBranch,
+    operationId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam58.operationId,
+    retryable: null,
+    revision: 0,
+    sourceBranch,
+    status: "queued",
+    steps,
+    threadTitle:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam58.threadTitle,
+    warningMessage: null,
+    worktreeBranch,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper81(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam248,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam248.map(
+    (item) => ({
+      id: item,
+      status: "pending",
+    }),
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper82(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam207,
+) {
+  return {
+    contentItems: [
+      {
+        type: "inputText",
+        text: JSON.stringify(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam207,
+        ),
+      },
+    ],
+    success: true,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper83(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65,
+) {
+  return {
+    destinationCwd:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.destinationCwd ??
+      undefined,
+    destinationHostDisplayName:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.destinationHostDisplayName,
+    destinationHostId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.destinationHostId,
+    operationId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.operationId,
+    revision:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.revision,
+    status:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.status,
+    steps:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.steps,
+    threadTitle:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.threadTitle,
+    destinationThreadId:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.destinationThreadId ??
+      undefined,
+    errorCode:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.errorCode ??
+      undefined,
+    errorMessage:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.errorMessage ??
+      undefined,
+    retryable:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.retryable ??
+      undefined,
+    warningMessage:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam65.warningMessage ??
+      undefined,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper84(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam97,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam98,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam99,
+) {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper59(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam97.scope,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam97.operationId,
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam119,
+    ) => {
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam119 ==
+        null
+      )
+        return null;
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue501 =
+          {
+            id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam98,
+            status:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam99,
+          },
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue502 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam119.steps.find(
+            (item) =>
+              item.id ===
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam98,
+          );
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue502?.status ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam99
+      )
+        return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam119;
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue503 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue502 ==
+        null
+          ? [
+              ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam119.steps,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue501,
+            ].sort(as)
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam119.steps.map(
+              (item) =>
+                item.id ===
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam98
+                  ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue501
+                  : item,
+            );
+      return {
+        ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam119,
+        steps:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue503,
+      };
+    },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper85(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam196,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam197,
+) {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper59(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam196.scope,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam196.operationId,
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam240,
+    ) =>
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam240 ==
+        null ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam240.destinationCwd ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam197
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam240
+        : {
+            ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam240,
+            destinationCwd:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam197,
+          },
+  );
+}
+function $o(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam179,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam180,
+) {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper59(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam179.scope,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam179.operationId,
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam222,
+    ) =>
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam222 ==
+        null ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam222.destinationThreadId ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam180
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam222
+        : {
+            ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam222,
+            destinationThreadId:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam180,
+          },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper86(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam204,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam205,
+) {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper59(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam204.scope,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam204.operationId,
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam261,
+    ) =>
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam261 ==
+        null ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam261.status ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam205
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam261
+        : {
+            ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam261,
+            status:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam205,
+          },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper87(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam256,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam257,
+) {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper59(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam256.scope,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam256.operationId,
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam295,
+    ) =>
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper89(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam295,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam257,
+      ),
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper88(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam161,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam162,
+) {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper59(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam161.scope,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam161.operationId,
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam194,
+    ) =>
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam194 ==
+        null ||
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam194.status ===
+        "warning" &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam194.warningMessage ===
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam162)
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam194
+        : {
+            ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam194,
+            status: "warning",
+            warningMessage:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam162,
+          },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper89(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam91,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90 ==
+    null
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue465 =
+    is(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90.steps,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90.status ===
+    "error" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90.errorCode ===
+      "handoff_failed" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90.errorMessage ===
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam91 &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90.retryable ===
+      true &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue465 ===
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90.steps
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90
+    : {
+        ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam90,
+        errorCode: "handoff_failed",
+        errorMessage:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam91,
+        retryable: true,
+        status: "error",
+        steps:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue465,
+      };
+}
+function is(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam126,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam126.some(
+      (item) => item.status === "failed",
+    )
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam126;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue505 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam126.findIndex(
+        (item) => item.status === "running",
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue506 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam126.findIndex(
+        (item) => item.status === "pending",
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue507 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue505 ===
+      -1
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue506
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue505;
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue507 ===
+    -1
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam126
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam126.map(
+        (item, index) =>
+          index ===
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue507
+            ? {
+                ...item,
+                status: "failed",
+              }
+            : item,
+      );
+}
+function as(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam258,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam259,
+) {
+  return (
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt.indexOf(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam258.id,
+    ) -
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt.indexOf(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam259.id,
+    )
+  );
+}
+var os,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue40,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue41,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue42,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue43,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt =
+    createLazyEsmInitializer(() => {
+      os = toEsm(lodashGetOrDefault(), 1);
+      currentQueryRpcAliasLowerw();
+      currentQueryRpcAliasUpperRLowerc();
+      pullRequestRoutRuntimeVariant4Member0133();
+      businessCheckoutSharedMember0218();
+      currentHostServicesAliasUpperD();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue36();
+      businessCheckoutSharedInitializer0695();
+      _appInitialAppMainNewThreadPanelPageOnboardingPageAppgenLibraryPageHotkeyWindoIm5yc0bwR();
+      currentHostServicesAliasUpperT();
+      newThreadOnboardingSharedRuntimeMember0018();
+      hotkeyWindowHomePageQuicRuntimeMember0032();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpWt();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpXt();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpBt();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHt();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpPt();
+      currentQueryRpcAliasLowerp();
+      settingsCommandSharedRuntimeVariant4Member0001();
+      initWorkspaceConfigSignalsRuntime();
+      currentReactAliasLowerl();
+      initAttachmentFilteringRuntime();
+      windowContinuationWarningMessage();
+      initStatsigGateStore();
+      currentQueryRpcAliasLowerb();
+      currentHostServicesAliasLowerlLowert();
+      _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewNgwudnyzO();
+      businessCheckoutSharedMember0476();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue39 =
+        "local_remote_dropdown";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue40 = 6e4;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue41 =
+        {
+          id: windowContinuationRetryDelayMs,
+          display_name: "Local",
+          kind: "local",
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue42 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1),
+          destinationHostId: currentQueryRpcAliasLowerlLowerl()
+            .min(1)
+            .optional(),
+          followUpPrompt: currentQueryRpcAliasLowerlLowerl()
+            .trim()
+            .min(1)
+            .optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue43 =
+        currentQueryRpcAliasLowercLowerl({
+          operationId: currentQueryRpcAliasLowerlLowerl().min(1),
+          afterRevision: currentQueryRpcAliasLowerrLowerl()
+            .int()
+            .min(0)
+            .optional(),
+          waitMs: currentQueryRpcAliasLowerrLowerl()
+            .int()
+            .min(0)
+            .max(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue40,
+            )
+            .optional(),
+        });
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt =
+        "handoff_thread";
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt =
+        "get_handoff_status";
+    }),
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpIt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt,
+  _s,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue44,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue45,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue46,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue47,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue48,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpOt =
+    createLazyEsmInitializer(() => {
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpIt =
+        "list_projects";
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt =
+        "create_thread";
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt =
+        "send_message_to_thread";
+      _s = [
+        "none",
+        "minimal",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra",
+      ];
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue44 =
+        "Do not specify a model unless the user explicitly requests a specific model. Otherwise omit this field so the new thread uses the user's configured default model.";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue45 =
+        {
+          description:
+            "Where the project thread should run: directly in the saved project or in a new worktree.",
+          anyOf: [
+            {
+              type: "object",
+              additionalProperties: false,
+              properties: {
+                type: {
+                  type: "string",
+                  enum: ["local"],
+                },
+              },
+              required: ["type"],
+            },
+            {
+              type: "object",
+              additionalProperties: false,
+              properties: {
+                type: {
+                  type: "string",
+                  enum: ["worktree"],
+                },
+                startingState: {
+                  description:
+                    "Only specify this when the user explicitly asks to start from a particular existing git state. Use working-tree to include the current checkout and uncommitted changes. Use branch only for a branch or ref that already exists. Otherwise omit this field so the worktree starts from the project's default branch. Do not use this to name a new branch.",
+                  anyOf: [
+                    {
+                      type: "object",
+                      additionalProperties: false,
+                      properties: {
+                        type: {
+                          type: "string",
+                          enum: ["working-tree"],
+                        },
+                      },
+                      required: ["type"],
+                    },
+                    {
+                      type: "object",
+                      additionalProperties: false,
+                      properties: {
+                        type: {
+                          type: "string",
+                          enum: ["branch"],
+                        },
+                        branchName: {
+                          type: "string",
+                        },
+                      },
+                      required: ["type", "branchName"],
+                    },
+                  ],
+                },
+              },
+              required: ["type"],
+            },
+          ],
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue46 =
+        {
+          name: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpIt,
+          description:
+            "List local and remote projects available for background thread creation. Use a returned projectId with create_thread.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {},
+          },
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue47 =
+        {
+          name: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt,
+          description:
+            "Create a separate Codex thread only when the user explicitly asks for a new or background thread. Use list_projects first, then pass its projectId for repo-scoped work in any local or remote project. Use projectless targets for general tasks. Project targets must choose a local or worktree environment. Direct creation is non-blocking and returns threadId and hostId for wait_threads or set_thread_archived; queued worktrees return clientThreadId and are not waitable until a threadId exists.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              prompt: {
+                type: "string",
+                description: "Initial prompt for the new thread.",
+              },
+              target: {
+                description: "Where to create the thread.",
+                anyOf: [
+                  {
+                    type: "object",
+                    additionalProperties: false,
+                    properties: {
+                      type: {
+                        type: "string",
+                        enum: ["project"],
+                      },
+                      projectId: {
+                        type: "string",
+                        description: "Project id returned by list_projects.",
+                      },
+                      environment:
+                        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue45,
+                    },
+                    required: ["type", "projectId", "environment"],
+                  },
+                  {
+                    type: "object",
+                    additionalProperties: false,
+                    properties: {
+                      type: {
+                        type: "string",
+                        enum: ["projectless"],
+                      },
+                      directoryName: {
+                        type: "string",
+                        description:
+                          "Optional projectless output directory name.",
+                      },
+                    },
+                    required: ["type"],
+                  },
+                ],
+              },
+              model: {
+                type: "string",
+                description:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue44,
+              },
+              thinking: {
+                type: "string",
+                description:
+                  "Optional reasoning effort override. Must be supported by the selected model.",
+                enum: [..._s],
+              },
+            },
+            required: ["prompt", "target"],
+          },
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue48 =
+        {
+          name: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt,
+          description:
+            "Send a follow-up prompt to an existing Codex thread in the background. Omit model and thinking to keep the thread's current settings.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              threadId: {
+                type: "string",
+                description: "Thread id to continue.",
+              },
+              hostId: {
+                type: "string",
+                description:
+                  "Optional host id returned by create_thread or list_threads.",
+              },
+              prompt: {
+                type: "string",
+                description: "Follow-up prompt to send.",
+              },
+              model: {
+                type: "string",
+                description: "Optional model override.",
+              },
+              thinking: {
+                type: "string",
+                description:
+                  "Optional reasoning effort override. Must be supported by the selected model.",
+                enum: [..._s],
+              },
+            },
+            required: ["threadId", "prompt"],
+          },
+        };
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper90({
+  availableHandoffHosts,
+  availableModels = [],
+  crossHostHandoffEnabled = false,
+  deferLoading = false,
+  forkThreadEnabled = true,
+} = {}) {
+  return [
+    ...(forkThreadEnabled
+      ? [
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue71,
+        ]
+      : []),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper68(
+      availableHandoffHosts,
+      crossHostHandoffEnabled,
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper69(),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue46,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper95(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue47,
+      availableModels,
+    ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue72,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue73,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue74,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper95(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue48,
+      availableModels,
+    ),
+    _c,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue75,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue76,
+  ].map((item) =>
+    deferLoading
+      ? {
+          ...item,
+          deferLoading: true,
+        }
+      : item,
+  );
+}
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQ({
+  scope,
+  argumentsValue,
+  sourceThreadId,
+}) {
+  if (sourceThreadId == null)
+    return requestRemoteHostConfigRead(
+      `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ} missing calling thread id.`,
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue417 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue61.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue417.success
+  )
+    return requestRemoteHostConfigRead(
+      `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpTt(
+        {
+          scope,
+          sourceThreadId,
+          targetThreadId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue417
+              .data.threadId,
+          environment:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue417
+              .data.environment ?? {
+              type: "same-directory",
+            },
+        },
+      ),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue622) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue622 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue622.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue622,
+          ),
+    );
+  }
+}
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpK({
+  argumentsValue,
+  getAvailableModels,
+  scope,
+  sourceThreadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue60.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353.success
+  )
+    return requestRemoteHostConfigRead(
+      `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue409 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper91(
+          scope,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353
+            .data.target,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue410 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue409.type ===
+        "remoteProject"
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue409.hostId
+          : windowContinuationRetryDelayMs;
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353
+        .data.model != null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353
+        .data.thinking != null
+    ) {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue589 =
+          getAvailableModels == null
+            ? []
+            : await getAvailableModels(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue410,
+              ),
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue590 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper94(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353
+              .data.model,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353
+              .data.thinking,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue589,
+          );
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue590 !=
+        null
+      )
+        return requestRemoteHostConfigRead(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue590,
+        );
+    }
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      {
+        ...(await quickChatWindowPageChatgRuntimeVariant2Member0004({
+          model:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353
+              .data.model,
+          prompt:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353
+              .data.prompt,
+          scope,
+          sourceThreadId,
+          target:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue409,
+          thinking:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue353
+              .data.thinking,
+        })),
+        hostId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue410,
+      },
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue623) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue623 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue623.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue623,
+          ),
+    );
+  }
+}
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpJ({
+  scope,
+  argumentsValue,
+}) {
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue62.safeParse(
+      argumentsValue,
+    ).success
+  )
+    return requestRemoteHostConfigRead(
+      `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpIt} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper22(
+        {
+          scope,
+        },
+      ),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue624) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue624 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue624.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue624,
+          ),
+    );
+  }
+}
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpY({
+  scope,
+  argumentsValue,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue494 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue63.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue494.success
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper31(
+        {
+          scope,
+          limit:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue494
+              .data.limit ??
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue50,
+          query:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue494
+              .data.query,
+        },
+      ),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue625) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue625 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue625.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue625,
+          ),
+    );
+  }
+}
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpX({
+  scope,
+  argumentsValue,
+  sourceHostId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue392 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue64.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue392.success
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpV} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpTn(
+        {
+          scope,
+          cursor:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue392
+              .data.cursor,
+          hostId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue392
+              .data.hostId ?? sourceHostId,
+          includeOutputs:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue392
+              .data.includeOutputs ?? false,
+          maxOutputCharsPerItem:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue392
+              .data.maxOutputCharsPerItem ??
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue52,
+          threadId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue392
+              .data.threadId,
+          turnLimit:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue392
+              .data.turnLimit ??
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue51,
+        },
+      ),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue626) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue626 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue626.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue626,
+          ),
+    );
+  }
+}
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ({
+  argumentsValue,
+  scope,
+  sourceHostId,
+  sourceThreadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue400 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue67.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue400.success
+  )
+    return requestRemoteHostConfigRead(
+      `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await pullRequestRoutRuntimeVariant4Member0115({
+        hostId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue400
+            .data.hostId,
+        model:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue400
+            .data.model,
+        preferredHostId: sourceHostId,
+        prompt:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue400
+            .data.prompt,
+        scope,
+        sourceThreadId,
+        threadId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue400
+            .data.threadId,
+        thinking:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue400
+            .data.thinking,
+      }),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue627) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue627 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue627.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue627,
+          ),
+    );
+  }
+}
+export async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpTt({
+  scope,
+  argumentsValue,
+  signal,
+  sourceHostId,
+  sourceThreadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue359 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue66.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue359.success
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper93(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue359.error,
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue360 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue359.data.targets.map(
+      (item) => ({
+        ...item,
+        hostId: item.hostId ?? sourceHostId,
+      }),
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue360.some(
+      (item) => item.threadId === sourceThreadId,
+    )
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG} cannot wait on the calling thread.`,
+    );
+  if (
+    new Set(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue360.map(
+        (item) => item.threadId,
+      ),
+    ).size !==
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue360.length
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG} received duplicate targets. Each threadId must be unique.`,
+    );
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper43(
+        {
+          scope,
+          targets:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue360,
+          signal,
+          timeoutMs:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue359
+              .data.timeoutMs ??
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue53,
+        },
+      ),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue628) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue628 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue628.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue628,
+          ),
+    );
+  }
+}
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDollar({
+  argumentsValue,
+  scope,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue526 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue68.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue526.success
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await appgenSettingsSharedRuntimeVariant9Member0001({
+        ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue526.data,
+        scope,
+      }),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue629) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue629 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue629.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue629,
+          ),
+    );
+  }
+}
+export async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQ({
+  argumentsValue,
+  sourceHostId,
+  sourceThreadId,
+  scope,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue412 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue69.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue412.success
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue413 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue412
+      .data.threadId ?? sourceThreadId;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue413 ==
+    null
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH} missing calling thread id.`,
+    );
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await appgenSettingsSharedRuntimeVariant9Member0018({
+        ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue412.data,
+        hostId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue412
+            .data.hostId ??
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue413 ===
+          sourceThreadId
+            ? sourceHostId
+            : undefined),
+        threadId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue413,
+        scope,
+      }),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue630) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue630 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue630.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue630,
+          ),
+    );
+  }
+}
+export async function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpEt({
+  argumentsValue,
+  scope,
+  sourceThreadId,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue489 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue70.safeParse(
+      argumentsValue,
+    );
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue489.success
+  )
+    return requestRemoteHostConfigRead(
+      `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW} ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49}`,
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue490 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue489
+      .data.threadId ?? sourceThreadId;
+  try {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+      await appgenSettingsSharedRuntimeVariant9Member0017({
+        ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue489.data,
+        threadId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue490,
+        scope,
+      }),
+    );
+  } catch (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue631) {
+    return requestRemoteHostConfigRead(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue631 instanceof
+        Error
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue631.message
+        : String(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue631,
+          ),
+    );
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper91(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam66,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam67,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam67.type ===
+    "projectless"
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam67;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue407 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper23(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam66,
+    ).find(
+      (item) =>
+        item.projectId ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam67.projectId,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue407 ==
+    null
+  )
+    throw Error(
+      `Unknown projectId: ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam67.projectId}. Call list_projects to find available projects.`,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue407.projectKind ===
+    "remote"
+    ? {
+        type: "remoteProject",
+        projectId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue407.projectId,
+        hostId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue407.hostId,
+        path: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue407.path,
+        environment:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam67.environment,
+      }
+    : {
+        type: "project",
+        projectId:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue407.projectId,
+        environment:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam67.environment,
+      };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper92(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam203,
+) {
+  return {
+    contentItems: [
+      {
+        type: "inputText",
+        text: JSON.stringify(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam203 ??
+            null,
+        ),
+      },
+    ],
+    success: true,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper93(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam175,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam176,
+) {
+  return requestRemoteHostConfigRead(
+    `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam175} received invalid arguments: ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam176.issues.map((item) => `${item.path.join(".") || "arguments"}: ${item.message}`).join("; ")}.`,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper94(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam59,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam60,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam61,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue382 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam61.find(
+      (item) =>
+        item.model ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam59,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue382 ==
+    null
+  )
+    return `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt} could not validate reasoning effort "${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam60}" for model "${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam59}". Use a model and reasoning combination listed in the tool description, or omit thinking.`;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue383 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue382.supportedReasoningEfforts.map(
+      ({ reasoningEffort }) => reasoningEffort,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue383.includes(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam60,
+    )
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue384 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue383.length ===
+    0
+      ? "This model supports no reasoning effort overrides."
+      : `Supported reasoning efforts: ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue383.join(", ")}.`;
+  return `${_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt} rejected unsupported model/reasoning combination: "${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue382.model}" does not support "${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam60}". ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue384}`;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper95(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam41,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam42,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam42.length ===
+    0
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam41;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue336 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam42
+      .map((item) => {
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue476 =
+            item.supportedReasoningEfforts
+              .map(({ reasoningEffort }) => reasoningEffort)
+              .join(", "),
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue477 =
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue476
+              ? `supported reasoning efforts: ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue476}`
+              : "no reasoning effort overrides";
+        return item.description.trim().length === 0
+          ? `${item.model} (${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue477})`
+          : `${item.model} (${item.description.trim()}; ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue477})`;
+      })
+      .join(", ");
+  return {
+    ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam41,
+    inputSchema: {
+      ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam41.inputSchema,
+      properties: {
+        ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam41
+          .inputSchema.properties,
+        model: {
+          type: "string",
+          description: `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam41.inputSchema.properties.model.description} Models and supported reasoning efforts on the calling host: ${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue336}. A different destination host's combinations are validated when the tool runs. You may supply a newer model id when explicitly requested, but omit thinking unless its supported reasoning efforts are listed here.`,
+        },
+      },
+    },
+  };
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue50,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue51,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue52,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue53,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue54,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue55,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue56,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue57,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue58,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue59,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpV,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue60,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue61,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue62,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue63,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue64,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue65,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue66,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue67,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue68,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue69,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue70,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue71,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue72,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue73,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue74,
+  _c,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue75,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue76,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpNt =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasUpperRLowerc();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue23();
+      quickChatWindowPageChatgRuntimeVariant2Member0016();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpEt();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue28();
+      appgenSettingsSharedRuntimeVariant9Member0005();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue33();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpEn();
+      pullRequestRoutRuntimeVariant4Member0133();
+      businessCheckoutSharedMember0218();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt();
+      windowContinuationWarningMessage();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpOt();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue49 =
+        "received invalid arguments.";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue50 = 10;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue51 = 1;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue52 = 2e3;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue53 = 12e4;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue54 = 8;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue55 =
+        currentQueryRpcAliasUpperHLowerc(_s);
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue56 =
+        currentQueryRpcAliasUpperXLowerc("type", [
+          currentQueryRpcAliasLoweriLowerl({
+            type: currentQueryRpcAliasLowertLowerl("working-tree"),
+          }),
+          currentQueryRpcAliasLoweriLowerl({
+            type: currentQueryRpcAliasLowertLowerl("branch"),
+            branchName: currentQueryRpcAliasLowerlLowerl().min(1),
+          }),
+        ]);
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue57 =
+        currentQueryRpcAliasUpperXLowerc("type", [
+          currentQueryRpcAliasLoweriLowerl({
+            type: currentQueryRpcAliasLowertLowerl("local"),
+          }),
+          currentQueryRpcAliasLoweriLowerl({
+            type: currentQueryRpcAliasLowertLowerl("worktree"),
+            startingState:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue56.optional(),
+          }),
+        ]);
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue58 =
+        currentQueryRpcAliasUpperXLowerc("type", [
+          currentQueryRpcAliasLoweriLowerl({
+            type: currentQueryRpcAliasLowertLowerl("project"),
+            projectId: currentQueryRpcAliasLowerlLowerl().min(1),
+            environment:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue57,
+          }),
+          currentQueryRpcAliasLoweriLowerl({
+            type: currentQueryRpcAliasLowertLowerl("projectless"),
+            directoryName: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          }),
+        ]);
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue59 =
+        currentQueryRpcAliasUpperXLowerc("type", [
+          currentQueryRpcAliasLowercLowerl({
+            type: currentQueryRpcAliasLowertLowerl("same-directory"),
+          }),
+          currentQueryRpcAliasLowercLowerl({
+            type: currentQueryRpcAliasLowertLowerl("worktree"),
+          }),
+        ]);
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ =
+        "fork_thread";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB =
+        "list_threads";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpV =
+        "read_thread";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG =
+        "wait_threads";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU =
+        "set_thread_pinned";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH =
+        "set_thread_archived";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW =
+        "set_thread_title";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue60 =
+        currentQueryRpcAliasLowercLowerl({
+          prompt: currentQueryRpcAliasLowerlLowerl().min(1),
+          target:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue58,
+          model: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          thinking:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue55.optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue61 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          environment:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue59.optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue62 =
+        currentQueryRpcAliasLowercLowerl({});
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue63 =
+        currentQueryRpcAliasLowercLowerl({
+          query: currentQueryRpcAliasLowerlLowerl().optional(),
+          limit: currentQueryRpcAliasLowerrLowerl()
+            .int()
+            .min(1)
+            .max(50)
+            .optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue64 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1),
+          hostId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          cursor: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          turnLimit: currentQueryRpcAliasLowerrLowerl()
+            .int()
+            .min(1)
+            .max(10)
+            .optional(),
+          includeOutputs: currentQueryRpcAliasUpperJLowerc().optional(),
+          maxOutputCharsPerItem: currentQueryRpcAliasLowerrLowerl()
+            .int()
+            .min(0)
+            .max(2e4)
+            .optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue65 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1),
+          hostId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          afterCursor: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue66 =
+        currentQueryRpcAliasLowercLowerl({
+          targets: currentQueryRpcAliasUpperKLowerc(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue65,
+          )
+            .min(1)
+            .max(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue54,
+            ),
+          timeoutMs: currentQueryRpcAliasLowerrLowerl()
+            .int()
+            .min(0)
+            .max(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue53,
+            )
+            .optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue67 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1),
+          hostId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          prompt: currentQueryRpcAliasLowerlLowerl().min(1),
+          model: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          thinking:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue55.optional(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue68 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1),
+          pinned: currentQueryRpcAliasUpperJLowerc(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue69 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          hostId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          archived: currentQueryRpcAliasUpperJLowerc(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue70 =
+        currentQueryRpcAliasLowercLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+          title: currentQueryRpcAliasLowerlLowerl().min(1),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue71 =
+        {
+          name: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ,
+          description:
+            "Fork a Codex thread. Omit threadId to fork the calling thread, or pass a threadId to fork that specific thread. A same-directory fork returns a child threadId immediately; a worktree fork returns a clientThreadId while worktree setup creates the child. Forks contain completed history only: if the source thread is running, the active turn and unfinished response are not copied. Send a follow-up message to the child only if the task requires work to continue there.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              threadId: {
+                type: "string",
+                description:
+                  "Optional source thread id to fork. Omit to fork the calling thread.",
+              },
+              environment: {
+                description:
+                  "Where the fork should run. Omit for a same-directory fork.",
+                anyOf: [
+                  {
+                    type: "object",
+                    additionalProperties: false,
+                    properties: {
+                      type: {
+                        type: "string",
+                        enum: ["same-directory"],
+                      },
+                    },
+                    required: ["type"],
+                  },
+                  {
+                    type: "object",
+                    additionalProperties: false,
+                    properties: {
+                      type: {
+                        type: "string",
+                        enum: ["worktree"],
+                      },
+                    },
+                    required: ["type"],
+                  },
+                ],
+              },
+            },
+          },
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue72 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB,
+          description:
+            "List Codex threads across the local host and connected remote hosts. Usually omit query: the much faster unfiltered call returns recent threads with descriptions and is sufficient for normal discovery. Only pass query when you need to search older threads for a specific substring; querying can make this call significantly slower.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              query: {
+                type: "string",
+                description:
+                  "Specific substring to search for in older threads. Omit for normal recent-thread discovery because querying can make this call significantly slower.",
+              },
+              limit: {
+                type: "number",
+                description: "Maximum number of thread summaries to return.",
+              },
+            },
+          },
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue73 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpV,
+          description:
+            "Read recent status and turn summaries for one Codex thread without opening it. Use page cursors from earlier responses to read older turns.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              threadId: {
+                type: "string",
+                description: "Thread id to inspect.",
+              },
+              hostId: {
+                type: "string",
+                description:
+                  "Optional host id returned by create_thread or list_threads.",
+              },
+              cursor: {
+                type: "string",
+                description: "Optional cursor for older turns.",
+              },
+              turnLimit: {
+                type: "number",
+                description: "Maximum number of turns to return.",
+              },
+              includeOutputs: {
+                type: "boolean",
+                description:
+                  "Whether to include truncated tool or command outputs.",
+              },
+              maxOutputCharsPerItem: {
+                type: "number",
+                description:
+                  "Maximum output characters to keep for each included output item.",
+              },
+            },
+            required: ["threadId"],
+          },
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue74 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG,
+          description:
+            "Wait for the first of up to eight Codex threads to complete or need attention. Use timeoutMs: 0 for an immediate snapshot. Commentary never wakes the wait. An up-to-date cursor omits previously delivered final text; a timeout includes compact progress for all targets. Per-target failures are returned in errors.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              targets: {
+                type: "array",
+                minItems: 1,
+                maxItems:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue54,
+                description:
+                  "Threads to wait for. The first target that completes or needs attention wins.",
+                items: {
+                  type: "object",
+                  additionalProperties: false,
+                  properties: {
+                    threadId: {
+                      type: "string",
+                      minLength: 1,
+                      description: "Thread id to wait for.",
+                    },
+                    hostId: {
+                      type: "string",
+                      minLength: 1,
+                      description:
+                        "Optional host id returned by create_thread or list_threads.",
+                    },
+                    afterCursor: {
+                      type: "string",
+                      minLength: 1,
+                      description:
+                        "Optional cursor returned by an earlier wait.",
+                    },
+                  },
+                  required: ["threadId"],
+                },
+              },
+              timeoutMs: {
+                type: "integer",
+                minimum: 0,
+                maximum:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue53,
+                description:
+                  "Maximum event-wait time in milliseconds. A bounded snapshot fetch for fresh progress may add latency. Defaults to 120000.",
+              },
+            },
+            required: ["targets"],
+          },
+        };
+      _c = {
+        name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU,
+        description: "Pin or unpin a Codex thread in the background.",
+        inputSchema: {
+          type: "object",
+          additionalProperties: false,
+          properties: {
+            threadId: {
+              type: "string",
+              description: "Thread id to pin or unpin.",
+            },
+            pinned: {
+              type: "boolean",
+              description: "Whether the thread should be pinned.",
+            },
+          },
+          required: ["threadId", "pinned"],
+        },
+      };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue75 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH,
+          description: "Archive or unarchive a Codex thread in the background.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              threadId: {
+                type: "string",
+                minLength: 1,
+                description:
+                  "Thread id to archive or unarchive. Omit to target the calling thread.",
+              },
+              hostId: {
+                type: "string",
+                minLength: 1,
+                description:
+                  "Optional host id returned by create_thread, list_threads, or wait_threads.",
+              },
+              archived: {
+                type: "boolean",
+                description: "Whether the thread should be archived.",
+              },
+            },
+            required: ["archived"],
+          },
+        };
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue76 =
+        {
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW,
+          description: "Rename a Codex thread in the background.",
+          inputSchema: {
+            type: "object",
+            additionalProperties: false,
+            properties: {
+              threadId: {
+                type: "string",
+                description:
+                  "Thread id to rename. Omit to target the calling thread.",
+              },
+              title: {
+                type: "string",
+                description: "New thread title.",
+              },
+            },
+            required: ["title"],
+          },
+        };
+    });
+export async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpL({
+  availableHandoffHosts,
+  appshotsAvailable = false,
+  appshotsEnabled = false,
+  authMethod,
+  crossHostHandoffEnabled = false,
+  voiceCallEndEnabled = false,
+  enabledReasoningEfforts,
+  featureOverrides,
+  hostId,
+  includeUltraReasoningEffort,
+  isAuthLoading,
+  listExperimentalFeatures,
+  listModels,
+  modelAvailabilityConfig,
+  queryClient,
+  navigateToCodexPageEnabled = true,
+  speakToUserEnabled = false,
+  speakToUserToolDescription:
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam24,
+  mode = "default",
+  supportsDynamicToolNamespaces = true,
+  threadStartKind = "default",
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue230 =
+      projectsIndexPageHotkeyWindowTRuntimeMember0007(hostId),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue231 =
+      featureOverrides?.[businessCheckoutSharedMember0066] === true,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue232 =
+      featureOverrides?.[businessCheckoutSharedMember0332] === true,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue233 =
+      featureOverrides?.[interactiveOnboardingFeatureFlag] === true,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue234 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper11(
+        {
+          hostId,
+          queryClient,
+        },
+      ),
+    [
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue235,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue236,
+    ] = await Promise.all([
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue230
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper97(
+            listExperimentalFeatures,
+          )
+        : false,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue231
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper96(
+            {
+              authMethod,
+              enabledReasoningEfforts,
+              includeUltraReasoningEffort,
+              isAuthLoading,
+              listModels,
+              modelAvailabilityConfig,
+            },
+          )
+        : [],
+    ]),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue237 =
+      [
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue230
+          ? [reactRouterInvalidateGitReadFunction()]
+          : []),
+        ...(featureOverrides?.open_in_codex === true
+          ? [
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue15,
+            ]
+          : []),
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue230 &&
+        navigateToCodexPageEnabled
+          ? [
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue14,
+            ]
+          : []),
+        businessCheckoutSharedMember0102,
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue230 &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue235
+          ? [businessCheckoutSharedMember0676]
+          : []),
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue231
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper90(
+              {
+                availableHandoffHosts,
+                availableModels:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue236,
+                crossHostHandoffEnabled,
+                forkThreadEnabled: true,
+              },
+            ).filter((item) => true)
+          : []),
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue230 &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue232
+          ? [
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue21,
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue22,
+            ]
+          : []),
+        ...(threadStartKind === "conversational_onboarding"
+          ? [quickChatWindowPageChatgRuntimeVariant2Member0024]
+          : []),
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue233 &&
+        threadStartKind !== "conversational_onboarding"
+          ? [...initToastRuntime, normalizeTaskCompletionState]
+          : []),
+      ].map((item) => ({
+        type: "function",
+        ...item,
+        ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue78.has(
+          item.name,
+        )
+          ? {}
+          : {
+              deferLoading: true,
+            }),
+      }));
+  return supportsDynamicToolNamespaces
+    ? [
+        {
+          type: "namespace",
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          description: "Tools provided by the Codex app.",
+          tools:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue237,
+        },
+        ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue234,
+      ]
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue237;
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper96({
+  authMethod,
+  enabledReasoningEfforts,
+  includeUltraReasoningEffort,
+  isAuthLoading,
+  listModels,
+  modelAvailabilityConfig,
+}) {
+  if (isAuthLoading) return [];
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue416 =
+        await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt(
+          listModels,
+        ),
+      { models } = pluginDetailRuntimeMember0018({
+        authMethod,
+        availableModels: modelAvailabilityConfig.availableModels,
+        defaultModel: modelAvailabilityConfig.defaultModel,
+        enabledReasoningEfforts,
+        includeUltraReasoningEffort,
+        models:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue416,
+        useHiddenModels: modelAvailabilityConfig.useHiddenModels,
+      });
+    return models.map((item) => ({
+      ...item,
+      supportedReasoningEfforts:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue416.find(
+          (_item) => _item.model === item.model,
+        )?.supportedReasoningEfforts ?? item.supportedReasoningEfforts,
+    }));
+  } catch {
+    return [];
+  }
+}
+async function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper97(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam142,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam143 = null,
+) {
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue579 =
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam142(
+        {
+          cursor:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam143,
+          limit:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue77,
+        },
+      );
+    return newThreadOnboardingSharedRuntimeVariant7Member0015(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue579.data,
+    )
+      ? true
+      : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue579.nextCursor ==
+          null
+        ? false
+        : await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper97(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam142,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue579.nextCursor,
+          );
+  } catch {
+    return false;
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue77,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue78,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpR =
+    createLazyEsmInitializer(() => {
+      businessCheckoutSharedMember0051();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpBt();
+      quickChatWindowPageChatgRuntimeVariant2Member0008();
+      currentAppInitialSharedMember0805();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpLt();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpPt();
+      businessCheckoutSharedMember0202();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpJt();
+      businessCheckoutSharedInitializer0573();
+      newThreadOnboardingSharedRuntimeVariant7Member0010();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpKt();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpNt();
+      projectsIndexPageHotkeyWindowTRuntimeMember0006();
+      pluginDetailRuntimeMember0017();
+      businessCheckoutSharedMember0349();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue77 = 100;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI =
+        "codex_app";
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue78 =
+        new Set([
+          businessCheckoutSharedMember0102.name,
+          businessCheckoutSharedMember0676.name,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt,
+          currentAppInitialSharedFunction0844,
+          requestOptionPickerToolName,
+          setupCodexContextPickerToolName,
+          writeHtmlDocumentToTarget,
+          quickChatWindowPageChatgRuntimeVariant2Member0019,
+        ]);
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper98(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam260,
+) {
+  throw Error(
+    `Unexpected value: ${String(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam260)}`,
+  );
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue79 =
+  createLazyEsmInitializer(() => {});
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper99({
+  item,
+  mcpServerStatuses,
+}) {
+  if (item.isMcpAppWidgetSuperseded === true) return "not-mcp-app";
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue422 =
+    item.result?.type === "success" ? item.result.raw : null;
+  return item.mcpAppResourceUri != null ||
+    settingsCommandSharedRuntimeVariant18PullMember0029({
+      mcpServerStatuses,
+      server: item.invocation.server,
+      tool: item.invocation.tool,
+      toolResult:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue422,
+    }) != null
+    ? "mcp-app"
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue422 ==
+        null
+      ? "not-mcp-app"
+      : mcpServerStatuses == null
+        ? "maybe-mcp-app"
+        : "not-mcp-app";
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpM({
+  item,
+  mcpServerStatuses,
+}) {
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper99(
+      {
+        item,
+        mcpServerStatuses,
+      },
+    ) === "mcp-app"
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpP({
+  item,
+  mcpServerStatuses,
+}) {
+  return (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper99(
+      {
+        item,
+        mcpServerStatuses,
+      },
+    ) !== "not-mcp-app"
+  );
+}
+export function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpF(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam131,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam131.some(
+    (item) =>
+      item.kind !== "item" || item.item.type !== "mcp-tool-call"
+        ? false
+        : item.item.result?.type === "success" ||
+          (!item.item.completed &&
+            item.item.result == null &&
+            item.item.mcpAppResourceUri == null),
+  );
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpN =
+  createLazyEsmInitializer(() => {
+    settingsCommandSharedRuntimeVariant18PullMember0031();
+  });
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpK(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam47,
+  {
+    mcpServerStatuses,
+    resolvedApps = [],
+    shouldKeepMcpAppToolCallsExpandedByDefault,
+    modelProvider = null,
+    isTurnCancelled = false,
+  } = {},
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam47.kind ===
+    "multi-agent-group"
+    ? {
+        type: "other",
+      }
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam47.kind ===
+        "web-search-group"
+      ? {
+          type: "web-search",
+          count:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam47
+              .items.length,
+          runningCount:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam47.items.filter(
+              (item) => !item.completed,
+            ).length,
+        }
+      : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam47
+            .entry.kind === "exploration"
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper103(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam47.entry,
+          )
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpO(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam47
+              .entry.item,
+            {
+              mcpServerStatuses,
+              resolvedApps,
+              shouldKeepMcpAppToolCallsExpandedByDefault,
+              modelProvider,
+              isTurnCancelled,
+            },
+          );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpO(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8,
+  {
+    mcpServerStatuses,
+    resolvedApps = [],
+    shouldKeepMcpAppToolCallsExpandedByDefault,
+    modelProvider = null,
+    isTurnCancelled = false,
+  } = {},
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+    "assistant-message"
+  )
+    return {
+      type: "assistant-message",
+    };
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+    "patch"
+  )
+    return {
+      ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper104(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8,
+        isTurnCancelled,
+      ),
+      ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper102(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.automaticApprovalReviews,
+      ),
+    };
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+    "exec"
+  ) {
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper100(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8,
+        modelProvider,
+      ) ||
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8
+        .parsedCmd.type === "read" &&
+        !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8
+          .parsedCmd.isFinished &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpWt(
+          {
+            summary:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.parsedCmd,
+            cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.cwd,
+          },
+        ))
+    )
+      return {
+        type: "other",
+      };
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue347 =
+        !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8
+          .parsedCmd.isFinished,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue348 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8
+          .parsedCmd.type === "unknown"
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8
+              .parsedCmd.cmd
+          : null,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue349 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue348 !=
+          null &&
+        /^\s*mkdir(?:\s|$)/.test(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue348,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue350 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue348 !=
+          null &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpXt(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.executionStatus,
+        ) &&
+        _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue348,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue351 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue348 !=
+          null &&
+        _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpJ(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue348,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue352 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper102(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.automaticApprovalReviews,
+        );
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue350
+      ? {
+          type: "exec",
+          isInProgress:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue347,
+          visualizationActivityKind:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue350,
+          ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue352,
+        }
+      : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue349
+        ? {
+            type: "exec",
+            isInProgress:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue347,
+            createsFolder: true,
+            ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue352,
+          }
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue351 &&
+            (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue347 ||
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8
+                .output?.exitCode === 0)
+          ? {
+              type: "exec",
+              isInProgress:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue347,
+              searchesWeb: true,
+              ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue352,
+            }
+          : {
+              type: "exec",
+              isInProgress:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue347,
+              ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue352,
+            };
+  }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+    "mcp-tool-call"
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpM(
+      {
+        item: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8,
+        mcpServerStatuses,
+      },
+    ) ||
+      (shouldKeepMcpAppToolCallsExpandedByDefault === true &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpP(
+          {
+            item: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8,
+            mcpServerStatuses,
+          },
+        ))
+      ? {
+          type: "other",
+        }
+      : {
+          type: "mcp-tool-call",
+          isInProgress:
+            !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.completed,
+          source: businessCheckoutSharedMember0296({
+            functionName:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.functionName,
+            invocation:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.invocation,
+            resolvedApps,
+            source:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.source,
+          }),
+          ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper102(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.automaticApprovalReviews,
+          ),
+        };
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+    "automatic-approval-review"
+  )
+    switch (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.status
+    ) {
+      case "denied":
+      case "timedOut":
+        return {
+          type: "automatic-approval-review",
+          id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.id,
+          status:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.status,
+        };
+      case "aborted":
+      case "approved":
+      case "inProgress":
+        return {
+          type: "other",
+        };
+    }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+    "web-search"
+    ? {
+        type: "web-search",
+        count: 1,
+        runningCount:
+          +!appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.completed,
+      }
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "reasoning" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "todo-list" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "worked-for" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "multi-agent-action" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "proposed-plan" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "realtime-transcript" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "user-message" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "userInput" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "user-input-response" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "mcp-server-elicitation" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "permission-request" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "turn-diff" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "plan-implementation" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "system-error" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "steered" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "stream-error" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "subagent-activity" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "remote-task-created" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "context-compaction" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "personality-changed" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "forked-from-conversation" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "model-changed" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "model-rerouted" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "auto-review-interruption-warning" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "generated-image" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "image-view" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "automation-update" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "dynamic-tool-call" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8.type ===
+          "worktree-init"
+      ? {
+          type: "other",
+        }
+      : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper98(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam8,
+        );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper100(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam278,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam279,
+) {
+  return false;
+}
+function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpJ(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam163,
+) {
+  if (
+    !/^\s*curl(?:\s|$)/.test(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam163,
+    ) ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue80.test(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam163,
+    ) ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue81.test(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam163,
+    ) ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue82.test(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam163,
+    )
+  )
+    return false;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue559 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam163.match(
+      /\bhttps?:\/\/[^\s'"<>]+/gi,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue559 ==
+    null
+    ? false
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue559.some(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper101,
+      );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper101(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam181,
+) {
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue599 =
+      new URL(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam181,
+      ).hostname.toLowerCase();
+    return (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue599 !==
+        "localhost" &&
+      !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue599.startsWith(
+        "127.",
+      )
+    );
+  } catch {
+    return false;
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper102(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam102,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue480 =
+    [];
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue529 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam102 ??
+    [])
+    switch (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue529.status
+    ) {
+      case "denied":
+      case "timedOut":
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue480.push(
+          {
+            id: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue529.id,
+            status:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue529.status,
+          },
+        );
+        break;
+      case "aborted":
+      case "approved":
+      case "inProgress":
+        break;
+    }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue480.length ===
+    0
+    ? {}
+    : {
+        automaticApprovalReviewFailures:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue480,
+      };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper103(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam40,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue310 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue311 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue312 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue313 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue314 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue315 = 0,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue316 = 0,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue317 = 0,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue318 = 0;
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam40.items)
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366.type ===
+      "exec"
+    ) {
+      if (
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue310.push(
+          ...(appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366.automaticApprovalReviews ??
+            []),
+        ),
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+          .parsedCmd.type === "search")
+      ) {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue315 += 1;
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+          .parsedCmd.isFinished ||
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue316 += 1);
+        continue;
+      }
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+          .parsedCmd.type === "list_files"
+      ) {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue317 += 1;
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+          .parsedCmd.isFinished ||
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue318 += 1);
+        continue;
+      }
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+          .parsedCmd.type === "read"
+      ) {
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue519 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper105(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+              .parsedCmd.path ??
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+                .parsedCmd.name,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366.cwd,
+          );
+        if (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpWt(
+            {
+              summary:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366.parsedCmd,
+              cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366.cwd,
+            },
+          )
+        ) {
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue313.push(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue519,
+          );
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+            .parsedCmd.isFinished ||
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue314.push(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue519,
+            );
+          continue;
+        }
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue311.push(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue519,
+        );
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue366
+          .parsedCmd.isFinished ||
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue312.push(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue519,
+          );
+      }
+    }
+  return {
+    type: "exploration",
+    readPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue311,
+    runningReadPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue312,
+    loadedToolPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue313,
+    runningLoadedToolPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue314,
+    searchCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue315,
+    runningSearchCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue316,
+    listCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue317,
+    runningListCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue318,
+    ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper102(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue310,
+    ),
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper104(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam36,
+) {
+  if (
+    Object.keys(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.changes,
+    ).length === 0 &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.visualizationActivities !=
+      null &&
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ===
+      false ||
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ==
+        null &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam36))
+  )
+    return {
+      type: "other",
+    };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue281 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue282 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue283 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue284 = 0,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue285 = 0,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue286 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue287 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue288 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue289 =
+      [];
+  for (let [
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue431,
+  ] of Object.entries(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.changes,
+  )) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue453 =
+      newThreadOnboardingSharedRuntimeVariant7Member0043(
+        businessCheckoutSharedMember0382(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue431,
+        ),
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+      );
+    if (
+      ((appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue285 +=
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue453?.added ??
+          0) +
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue453?.deleted ??
+          0)),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue431.type ===
+        "add")
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue281.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+      );
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ==
+        null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam36
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue283.push(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+          )
+        : (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ??
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue282.push(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+          ),
+          (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue284 +=
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper106(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue431.content,
+            ))));
+      continue;
+    }
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue431.type ===
+      "delete"
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue288.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+      );
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ??
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue289.push(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+        );
+      continue;
+    }
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue286.push(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+    );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ??
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue287.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue430,
+      );
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue290 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.visualizationActivities ==
+      null ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ===
+      false ||
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ==
+      null &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam36)
+      ? undefined
+      : {
+          activities:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.visualizationActivities.map(
+              ({ path, kind }) => ({
+                path: businessCheckoutSharedMember0091(path),
+                kind,
+              }),
+            ),
+          isInProgress:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam35.success ==
+            null,
+        };
+  return {
+    type: "patch",
+    createdPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue281,
+    runningCreatedPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue282,
+    stoppedCreatedPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue283,
+    runningCreatedLineCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue284,
+    changedLineCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue285,
+    editedPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue286,
+    runningEditedPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue287,
+    deletedPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue288,
+    runningDeletedPaths:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue289,
+    visualizationActivity:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue290,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper105(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam243,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam244,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue618 =
+    businessCheckoutSharedMember0091(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam243,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam244 ==
+    null
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue618
+    : businessCheckoutSharedMember0091(
+        currentHostServicesAliasLowerhLowert(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam244,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue618,
+        ),
+      );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper106(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam186,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue586 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam186
+      .replace(/\r\n/g, "\n")
+      .split("\n");
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue586.length >
+    0 &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue586[
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue586.length -
+        1
+    ] === ""
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue586.length -
+        1
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue586.length;
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue80,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue81,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue82;
+export const appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpA =
+  createLazyEsmInitializer(() => {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue79();
+    currentHostServicesAliasLowerlLowert();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt();
+    businessCheckoutSharedMember0364();
+    newThreadOnboardingSharedRuntimeVariant7Member0016();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpN();
+    computerUseToolSurfaceSchema();
+    businessCheckoutSharedMember0340();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpUt();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue80 =
+      /(?:^|\s)(?:-X\s*|--request(?:=|\s+))(?:POST|PUT|PATCH|DELETE)\b/i;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue81 =
+      /(?:^|\s)(?:--data(?:-[^\s=]+)?|--json|--form|--upload-file)(?:=|\s|$)/;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue82 =
+      /(?:^|\s)-(?:d|F|T)(?:=|\s|$)/;
+  });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper107(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam88,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam89,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue460 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam88.favIconUrl?.trim();
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue460 ==
+      null ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue460.length ===
+      0
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue461 =
+    (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam88.url ??
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam88.pendingUrl ??
+      ""
+    ).trim();
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue461.length ===
+      0 ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam89 ==
+      null
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue460;
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue575 =
+      new URL(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam89.getURL(
+          "/_favicon/",
+        ),
+      );
+    return (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue575.searchParams.set(
+        "pageUrl",
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue461,
+      ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue575.searchParams.set(
+        "size",
+        "32",
+      ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue575.toString()
+    );
+  } catch {
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue460;
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue83 =
+  createLazyEsmInitializer(() => {
+    currentQueryRpcAliasUpperRLowerc();
+    currentQueryRpcAliasLoweriLowerl({
+      favIconUrl: currentQueryRpcAliasLowerlLowerl().optional(),
+      pendingUrl: currentQueryRpcAliasLowerlLowerl().optional(),
+      status: currentQueryRpcAliasUpperHLowerc([
+        "loading",
+        "complete",
+        "unloaded",
+      ]).optional(),
+      url: currentQueryRpcAliasLowerlLowerl().optional(),
+    });
+  });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper108(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam9,
+) {
+  let { item, tabId, variant, agentActivityIcon } =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam9,
+    { data } =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper110(
+        item,
+        tabId,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue152 =
+      data?.faviconUrl ?? null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue153 =
+      data?.title ?? null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue154;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue153 !=
+    null
+  ) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue346;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue346 =
+      item.completed
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsx(
+            FormattedMessage,
+            {
+              id: "localConversation.chromeExtensionToolCall.getTabContext.completedWithTitle",
+              defaultMessage: 'Read "{title}"',
+              description:
+                "Completed label for reading the contents of a Chrome tab with a known page title.",
+              values: {
+                title:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue153,
+              },
+            },
+          )
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsx(
+            FormattedMessage,
+            {
+              id: "localConversation.chromeExtensionToolCall.getTabContext.activeWithTitle",
+              defaultMessage: 'Reading "{title}"',
+              description:
+                "In-progress label for reading the contents of a Chrome tab with a known page title.",
+              values: {
+                title:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue153,
+              },
+            },
+          );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue154 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue346;
+  } else {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue367;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue367 =
+      item.completed
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsx(
+            FormattedMessage,
+            {
+              id: "localConversation.chromeExtensionToolCall.getTabContext.completed",
+              defaultMessage: "Read tab",
+              description:
+                "Completed label for reading the contents of a Chrome tab.",
+            },
+          )
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsx(
+            FormattedMessage,
+            {
+              id: "localConversation.chromeExtensionToolCall.getTabContext.active",
+              defaultMessage: "Reading tab",
+              description:
+                "In-progress label for reading the contents of a Chrome tab.",
+            },
+          );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue154 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue367;
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue155 =
+      !item.completed,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue156 =
+      variant !== "summary-text" && "min-w-0 truncate",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue157 =
+      currentReactAliasUnderscore(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue156,
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue158 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsx(
+      planSummaryPageHotkeyWindowThreadRuntimeMember0023,
+      {
+        active:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue155,
+        className:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue157,
+        children:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue154,
+      },
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue159 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue158;
+  if (variant === "row" && agentActivityIcon !== undefined) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue542;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsx(
+      planSummaryPageHotkeyWindowThreadRuntimeMember0018,
+      {
+        icon: agentActivityIcon,
+        summary:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue159,
+      },
+    );
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue160 =
+      variant === "row"
+        ? "text-token-conversation-summary-leading"
+        : "text-token-conversation-summary-trailing group-hover/activity-header:text-token-foreground",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue161 =
+      currentReactAliasUnderscore(
+        "text-size-chat",
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue160,
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue162 =
+    variant !== "summary-text" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue152 !=
+      null
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsx(
+          newThreadOnboardingSharedRuntimeVariant7Member0006,
+          {
+            src: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue152,
+            className: "icon-xs text-token-input-placeholder-foreground",
+            showFallbackWhileLoading: false,
+          },
+        )
+      : null;
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsxs(
+    planSummaryPageHotkeyWindowThreadRuntimeMember0016,
+    {
+      className:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue161,
+      children: [
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue162,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue159,
+      ],
+    },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper109(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam69,
+) {
+  let { item, tabId } =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam69,
+    { data } =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper110(
+        item,
+        tabId,
+      );
+  return data?.faviconUrl == null
+    ? null
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85.jsx(
+        newThreadOnboardingSharedRuntimeVariant7Member0006,
+        {
+          src: data.faviconUrl,
+          className: "icon-xs text-token-input-placeholder-foreground",
+          showFallbackWhileLoading: false,
+        },
+      );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper110(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam62,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam63,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue388 =
+      !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam62.completed,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue389 =
+      () =>
+        $c(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam63,
+        );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue390 =
+    [
+      "chrome-tab-context-tool-call-metadata",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam62.callId,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam63,
+    ];
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue391;
+  return (
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue391 =
+      {
+        enabled:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue388,
+        queryFn:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue389,
+        queryKey:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue390,
+        staleTime: 1 / 0,
+      }),
+    currentQueryRpcAliasUpperFLowerl(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue391,
+    )
+  );
+}
+async function $c(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam157,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue551 =
+    el();
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue551?.tabs ==
+    null
+  )
+    return null;
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue608 =
+      await appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue551.tabs.get(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam157,
+      );
+    return {
+      faviconUrl:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper107(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue608,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue551.runtime,
+        ),
+      title:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper111(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue608,
+        ),
+    };
+  } catch {
+    return null;
+  }
+}
+function el() {
+  return globalThis.chrome ?? null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper111(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam226,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue613 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam226.title?.trim();
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue613 ==
+    null ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue613.length ===
+      0
+    ? null
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue613;
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue84,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue86 =
+    createLazyEsmInitializer(() => {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue84 =
+        currentReactAliasLoweruLowern();
+      currentQueryRpcAliasLowerxLowerl();
+      currentReactAliasLowerv();
+      initReactIntlRuntimeChunk();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue83();
+      newThreadOnboardingSharedRuntimeVariant7Member0009();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0006();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0022();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0013();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue85 =
+        currentReactAliasLowerzLowert();
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper112(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam198,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue591 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue88.safeParse(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam198.arguments,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue591.success
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue87.jsx(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper109,
+        {
+          item: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam198,
+          tabId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue591
+              .data.tabId,
+        },
+      )
+    : null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper113(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam144,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam145,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam146,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue544 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue88.safeParse(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam144.arguments,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue544.success
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue87.jsx(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper108,
+        {
+          item: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam144,
+          tabId:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue544
+              .data.tabId,
+          variant:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam145,
+          agentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam146,
+        },
+      )
+    : null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper114(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam241,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue88.safeParse(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam241.arguments,
+  ).success
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam241.callId
+    : null;
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue87,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue88,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue89,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue90 =
+    createLazyEsmInitializer(() => {
+      currentQueryRpcAliasUpperRLowerc();
+      businessCheckoutSharedInitializer0711();
+      businessCheckoutSharedMember0384();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue86();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue87 =
+        currentReactAliasLowerzLowert();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue88 =
+        currentQueryRpcAliasLowercLowerl({
+          tabId: currentQueryRpcAliasLowerrLowerl().int().nonnegative(),
+        });
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue89 =
+        [
+          {
+            getCompletedSummaryPartKey:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper114,
+            namespace:
+              _appInitialArtifactTabContentElectronNotebookPreviewPanelAppMainBusinessCheckoutOxnpxkxcAd,
+            render:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper113,
+            renderAgentActivityIcon:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper112,
+            tool: businessCheckoutSharedInitializer0048,
+          },
+        ];
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper115() {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91.jsx(
+    settingsCommandSharedRuntimeVariant18Member0033,
+    {
+      className: "icon-xs shrink-0 text-token-conversation-body",
+    },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper116(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam231,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam232,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam233,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper118(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam231,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam231.completed
+      ? "readCompleted"
+      : "readActive",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam232,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam233,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper117(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam227,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam228,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam229,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper118(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam227,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam227.completed
+      ? "writeCompleted"
+      : "writeActive",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam228,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam229,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper118(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam43,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam44,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam45,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam46,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam45 ===
+    "row" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam46 !==
+      undefined
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91.jsx(
+        planSummaryPageHotkeyWindowThreadRuntimeMember0018,
+        {
+          icon: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam46,
+          summary:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91.jsx(
+              planSummaryPageHotkeyWindowThreadRuntimeMember0023,
+              {
+                active:
+                  !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam43.completed,
+                className: "min-w-0 truncate",
+                children:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91.jsx(
+                    FormattedMessage,
+                    {
+                      ..._l[
+                        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam44
+                      ],
+                    },
+                  ),
+              },
+            ),
+        },
+      )
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91.jsxs(
+        planSummaryPageHotkeyWindowThreadRuntimeMember0016,
+        {
+          className: currentReactAliasUnderscore(
+            "text-size-chat",
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam45 ===
+              "row"
+              ? "text-token-conversation-summary-leading"
+              : "text-token-conversation-summary-trailing group-hover/activity-header:text-token-foreground",
+          ),
+          children: [
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam45 ===
+            "summary-text"
+              ? null
+              : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper115(),
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91.jsx(
+              planSummaryPageHotkeyWindowThreadRuntimeMember0023,
+              {
+                active:
+                  !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam43.completed,
+                className: currentReactAliasUnderscore(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam45 !==
+                    "summary-text" && "min-w-0 truncate",
+                ),
+                children:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91.jsx(
+                    FormattedMessage,
+                    {
+                      ..._l[
+                        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam44
+                      ],
+                    },
+                  ),
+              },
+            ),
+          ],
+        },
+      );
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue92,
+  _l,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue93 =
+    createLazyEsmInitializer(() => {
+      currentReactAliasLowerv();
+      initReactIntlRuntimeChunk();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpR();
+      _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpKt();
+      settingsCommandSharedRuntimeVariant18Member0027();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0006();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0022();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0013();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue91 =
+        currentReactAliasLowerzLowert();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue92 =
+        [
+          {
+            namespace:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+            render:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper116,
+            renderAgentActivityIcon:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper115,
+            tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDt,
+          },
+          {
+            namespace:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+            render:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper117,
+            renderAgentActivityIcon:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper115,
+            tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpOt,
+          },
+        ];
+      _l = defineMessages({
+        readActive: {
+          id: "localConversation.settingsToolCall.read.active",
+          defaultMessage: "Reading settings",
+          description: "In-progress label for reading Codex settings.",
+        },
+        readCompleted: {
+          id: "localConversation.settingsToolCall.read.completed",
+          defaultMessage: "Read settings",
+          description: "Completed label for reading Codex settings.",
+        },
+        writeActive: {
+          id: "localConversation.settingsToolCall.write.active",
+          defaultMessage: "Updating settings",
+          description: "In-progress label for updating Codex settings.",
+        },
+        writeCompleted: {
+          id: "localConversation.settingsToolCall.write.completed",
+          defaultMessage: "Updated settings",
+          description: "Completed label for updating Codex settings.",
+        },
+      });
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper119(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam32,
+) {
+  let {
+      children,
+      compact = false,
+      status,
+    } = appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam32,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue258 =
+      compact ? "gap-2" : "gap-3",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue259 =
+      currentReactAliasUnderscore(
+        "flex items-center",
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue258,
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue260 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper120,
+      {
+        status,
+      },
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue261 =
+      compact
+        ? "text-size-chat text-token-conversation-summary-leading"
+        : "text-base leading-6 tracking-[-0.13px]",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue262 =
+      currentReactAliasUnderscore(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue261,
+        !compact && {
+          "font-medium text-token-foreground": status === "running",
+          "text-token-foreground": status === "done",
+          "text-token-editor-error-foreground": status === "failed",
+          "text-token-description-foreground": status === "pending",
+        },
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue263 =
+    (
+      <span className="sr-only">
+        {appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper121,
+          {
+            status,
+          },
+        )}
+      </span>
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue264 =
+    (
+      <div
+        className={
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue262
+        }
+      >
+        {
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue263
+        }
+        {children}
+      </div>
+    );
+  return (
+    <div
+      className={
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue259
+      }
+    >
+      {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue260
+      }
+      {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue264
+      }
+    </div>
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper120(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam37,
+) {
+  let { status } =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam37,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue302;
+  bb0: switch (status) {
+    case "running": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue557;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue557 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+          Spinner,
+          {
+            className: "icon-xs",
+          },
+        );
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue302 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue557;
+      break bb0;
+    }
+    case "done": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue558;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue558 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+          CheckCircleIcon,
+          {
+            className: "icon-xs",
+          },
+        );
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue302 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue558;
+      break bb0;
+    }
+    case "failed": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue521;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue521 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+          appgenSettingsSharedRuntimeVariant7Member0001,
+          {
+            className: "icon-xs text-token-editor-error-foreground",
+          },
+        );
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue302 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue521;
+      break bb0;
+    }
+    case "pending": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue563;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue563 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+          projectsIndexPageHotkeyWindowTRuntimeMember0011,
+          {
+            className: "icon-xs",
+          },
+        );
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue302 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue563;
+    }
+  }
+  return (
+    <span
+      aria-hidden={true}
+      className="flex h-4 w-4 shrink-0 items-center justify-center text-token-text-secondary"
+    >
+      {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue302
+      }
+    </span>
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper121(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam30,
+) {
+  let { status } =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam30;
+  switch (status) {
+    case "running": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue452;
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+        FormattedMessage,
+        {
+          id: "progressStep.status.running",
+          defaultMessage: "In progress:",
+          description:
+            "Screen reader status for a progress step that is currently running",
+        },
+      );
+    }
+    case "done": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue468;
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+        FormattedMessage,
+        {
+          id: "progressStep.status.done",
+          defaultMessage: "Completed:",
+          description: "Screen reader status for a completed progress step",
+        },
+      );
+    }
+    case "failed": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue474;
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+        FormattedMessage,
+        {
+          id: "progressStep.status.failed",
+          defaultMessage: "Failed:",
+          description: "Screen reader status for a failed progress step",
+        },
+      );
+    }
+    case "pending": {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue462;
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95.jsx(
+        FormattedMessage,
+        {
+          id: "progressStep.status.pending",
+          defaultMessage: "Pending:",
+          description:
+            "Screen reader status for a progress step that has not started",
+        },
+      );
+    }
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue94,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue96 =
+    createLazyEsmInitializer(() => {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue94 =
+        currentReactAliasLoweruLowern();
+      currentReactAliasLowerv();
+      initReactIntlRuntimeChunk();
+      initSpinnerRuntime();
+      initCheckCircleIconRuntime();
+      projectsIndexPageHotkeyWindowTRuntimeMember0005();
+      appgenSettingsSharedRuntimeVariant7Member0018();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue95 =
+        currentReactAliasLowerzLowert();
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpE(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam48,
+) {
+  let {
+      compact = false,
+      direction,
+      localBranch,
+      sourceBranch,
+      step,
+      worktreeBranch,
+    } = appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam48,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue356 =
+      step.status,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue357 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper122(
+        step.id,
+        direction,
+        localBranch,
+        sourceBranch,
+        worktreeBranch,
+      );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper119,
+    {
+      compact: compact,
+      status:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue356,
+      children:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue357,
+    },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper122(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam2,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam3,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam4,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam5,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam6,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam2 ===
+    "rolling-back-changes"
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.threadHandoff.step.rollingBackChanges",
+        defaultMessage: "Rolling back changes",
+        description:
+          "Progress step shown after a task handoff step fails while cleanup is still in progress",
+      },
+    );
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam2
+  ) {
+    case "prepare-host-transfer":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.prepareHostTransfer",
+          defaultMessage: "Preparing files for transfer",
+          description:
+            "Progress step shown while preparing cross-host git and rollout artifacts",
+        },
+      );
+    case "transfer-host-artifacts":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.transferHostArtifacts",
+          defaultMessage: "Copying files to the destination host",
+          description:
+            "Progress step shown while copying cross-host git and rollout artifacts",
+        },
+      );
+    case "create-new-worktree":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.createNewWorktree",
+          defaultMessage: "Creating a new worktree",
+          description:
+            "Progress step shown while creating a new worktree during task handoff",
+        },
+      );
+    case "reuse-existing-worktree":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.reuseExistingWorktree",
+          defaultMessage: "Reusing the existing worktree",
+          description:
+            "Progress step shown while reusing an existing worktree during task handoff",
+        },
+      );
+    case "stash-source-changes":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.stashSourceChanges",
+          defaultMessage: "Stashing uncommitted changes",
+          description:
+            "Progress step shown while stashing source changes during task handoff",
+        },
+      );
+    case "checkout-local-branch":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.checkoutLocalBranch",
+          defaultMessage: "Checking out {branch} locally",
+          description:
+            "Progress step shown while checking out a branch locally during task handoff",
+          values: {
+            branch:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam4 ??
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam5,
+          },
+        },
+      );
+    case "stash-target-worktree-changes":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.stashTargetWorktreeChanges",
+          defaultMessage: "Stashing worktree changes",
+          description:
+            "Progress step shown while stashing pre-existing worktree changes during task handoff",
+        },
+      );
+    case "checkout-worktree-branch":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.checkoutWorktreeBranch",
+          defaultMessage: "Checking out {branch} in worktree",
+          description:
+            "Progress step shown while checking out a branch in the worktree during task handoff",
+          values: {
+            branch:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam6 ??
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam5,
+          },
+        },
+      );
+    case "detach-worktree-branch":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.detachWorktreeBranch",
+          defaultMessage: "Detaching branch from worktree",
+          description:
+            "Progress step shown while detaching the worktree branch during handoff back to local",
+        },
+      );
+    case "apply-changes-to-worktree":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.applyChangesToWorktree",
+          defaultMessage: "Applying uncommitted changes to worktree",
+          description:
+            "Progress step shown while applying changes to the worktree during task handoff",
+        },
+      );
+    case "apply-changes-to-local":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.threadHandoff.step.applyChangesToLocal",
+          defaultMessage: "Applying uncommitted changes locally",
+          description:
+            "Progress step shown while applying changes locally during task handoff",
+        },
+      );
+    case "switching-thread":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam3 ===
+        "to-worktree"
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+            FormattedMessage,
+            {
+              id: "localConversation.threadHandoff.step.moveThreadToWorktree",
+              defaultMessage: "Moving chat to worktree",
+              description:
+                "Progress step shown while moving the task to a worktree after the git handoff",
+            },
+          )
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam3 ===
+            "to-host-worktree"
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+              FormattedMessage,
+              {
+                id: "localConversation.threadHandoff.step.moveThreadToHostWorktree",
+                defaultMessage: "Moving chat to the destination worktree",
+                description:
+                  "Progress step shown while moving the task to a destination-host worktree after transfer",
+              },
+            )
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98.jsx(
+              FormattedMessage,
+              {
+                id: "localConversation.threadHandoff.step.moveThreadToLocal",
+                defaultMessage: "Moving chat to local",
+                description:
+                  "Progress step shown while moving the task to local after the git handoff",
+              },
+            );
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue97,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpD =
+    createLazyEsmInitializer(() => {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue97 =
+        currentReactAliasLoweruLowern();
+      initReactIntlRuntimeChunk();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue96();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue98 =
+        currentReactAliasLowerzLowert();
+    });
+function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam10,
+) {
+  let { agentActivityIcon, item, operation, variant } =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam10,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue165 =
+      item != null && item.completed && item.success === true
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper126(
+            item.contentItems ?? null,
+          )
+        : null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue166 =
+      currentReactAliasUpperE(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue35,
+        operation == null
+          ? (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue165?.operationId ??
+              item.callId)
+          : operation.id,
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167 =
+      operation ??
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue166,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue168 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue166?.threadTitle ??
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue165?.threadTitle ??
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue169 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue166?.destinationHostDisplayName ??
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue165?.destinationHostDisplayName ??
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue170 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167 ==
+      null
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue165 ==
+          null
+          ? (item?.completed ?? false)
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper61(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue165.status,
+            )
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper61(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167.status,
+          ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue171 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167 ==
+      null
+        ? item?.success
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167.status ===
+            "error"
+          ? false
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167.status ===
+              "success" ||
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167.status ===
+              "warning",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue172 =
+      "running";
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue170 &&
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue172 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue171 ===
+      false
+        ? "failed"
+        : "completed");
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue173 =
+    operation == null
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper125,
+          {
+            completed:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue170,
+            destinationHostDisplayName:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue169,
+            success:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue171,
+            threadTitle:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue168,
+          },
+        )
+      : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper123,
+          {
+            operation,
+          },
+        );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue174 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue173;
+  if (variant !== "row") {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue325 =
+      variant === "summary-text"
+        ? null
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+            settingsCommandSharedRuntimeVariant6Member0007,
+            {
+              className: "icon-xs shrink-0 text-token-conversation-body",
+            },
+          );
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue326 =
+        !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue170,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue327 =
+        variant !== "summary-text" && "min-w-0 truncate",
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue328 =
+        currentReactAliasUnderscore(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue327,
+        );
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue329 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+        planSummaryPageHotkeyWindowThreadRuntimeMember0023,
+        {
+          active:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue326,
+          className:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue328,
+          children:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue174,
+        },
+      );
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue330;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsxs(
+      planSummaryPageHotkeyWindowThreadRuntimeMember0016,
+      {
+        className:
+          "text-size-chat text-token-conversation-summary-trailing group-hover/activity-header:text-token-foreground",
+        children: [
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue325,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue329,
+        ],
+      },
+    );
+  }
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue175 =
+    agentActivityIcon ??
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      settingsCommandSharedRuntimeVariant6Member0007,
+      {
+        className: "icon-xs shrink-0 text-token-conversation-body",
+      },
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue176 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167?.steps.map(
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam122,
+      ) =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpE,
+          {
+            compact: true,
+            direction:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167.direction,
+            localBranch:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167.localBranch,
+            sourceBranch:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167.sourceBranch,
+            step: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam122,
+            worktreeBranch:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue167.worktreeBranch,
+          },
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam122.id,
+        ),
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+    planSummaryPageHotkeyWindowThreadRuntimeMember0019,
+    {
+      indentContent: false,
+      icon: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue175,
+      status:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue172,
+      summary:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue174,
+      children:
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue176,
+    },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper123(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam23,
+) {
+  let { operation } =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam23,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue217 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper124,
+        {
+          operation,
+        },
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue218 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue217;
+  if (operation.status === "queued" || operation.status === "running") {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue441;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.threadHandoff.inline.active",
+        defaultMessage: "Handing off to {destination}",
+        description:
+          "In-progress label for handing the current task to another run location",
+        values: {
+          destination:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue218,
+        },
+      },
+    );
+  }
+  if (operation.status === "error") {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue440;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.threadHandoff.inline.failed",
+        defaultMessage: "Failed to hand off to {destination}",
+        description:
+          "Failed label for handing the current task to another run location",
+        values: {
+          destination:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue218,
+        },
+      },
+    );
+  }
+  if (operation.status === "warning") {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue432;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.threadHandoff.inline.warning",
+        defaultMessage: "Handoff to {destination} needs attention",
+        description:
+          "Warning label for handing the current task to another run location",
+        values: {
+          destination:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue218,
+        },
+      },
+    );
+  }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+    FormattedMessage,
+    {
+      id: "localConversation.threadHandoff.inline.completed",
+      defaultMessage: "Handed off to {destination}",
+      description:
+        "Completed label for handing the current task to another run location",
+      values: {
+        destination:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue218,
+      },
+    },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper124(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam39,
+) {
+  let { operation } =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam39;
+  if (operation.direction === "to-local") {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue466;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.threadHandoff.inline.destination.local",
+        defaultMessage: "local",
+        description: "Destination noun used in an inline task handoff status",
+      },
+    );
+  }
+  if (operation.direction === "to-worktree") {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue463;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.threadHandoff.inline.destination.worktree",
+        defaultMessage: "worktree",
+        description: "Destination noun used in an inline task handoff status",
+      },
+    );
+  }
+  return <>{operation.request.destinationLabel}</>;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper125(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam14,
+) {
+  let { completed, destinationHostDisplayName, success, threadTitle } =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam14;
+  if (threadTitle == null || destinationHostDisplayName == null) {
+    if (!completed) {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue424;
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.appControlToolCall.threadsHandoff.active",
+          defaultMessage: "Handing off chat",
+          description:
+            "In-progress label for handing off a Codex task when its title or destination host is unavailable",
+        },
+      );
+    }
+    if (success === false) {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue423;
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+        FormattedMessage,
+        {
+          id: "localConversation.appControlToolCall.threadsHandoff.failed",
+          defaultMessage: "Failed to hand off chat",
+          description:
+            "Failed label for handing off a Codex task when its title or destination host is unavailable",
+        },
+      );
+    }
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue280;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.appControlToolCall.threadsHandoff.completed",
+        defaultMessage: "Handed off chat",
+        description:
+          "Completed label for handing off a Codex task when its title or destination host is unavailable",
+      },
+    );
+  }
+  if (!completed) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue399;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.appControlToolCall.threadsHandoffToHost.active",
+        defaultMessage:
+          "Handing off {threadTitle} to {destinationHostDisplayName}",
+        description: "In-progress label for handing off a Codex task to a host",
+        values: {
+          destinationHostDisplayName,
+          threadTitle,
+        },
+      },
+    );
+  }
+  if (success === false) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue398;
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+      FormattedMessage,
+      {
+        id: "localConversation.appControlToolCall.threadsHandoffToHost.failed",
+        defaultMessage:
+          "Failed to hand off {threadTitle} to {destinationHostDisplayName}",
+        description: "Failed label for handing off a Codex task to a host",
+        values: {
+          destinationHostDisplayName,
+          threadTitle,
+        },
+      },
+    );
+  }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100.jsx(
+    FormattedMessage,
+    {
+      id: "localConversation.appControlToolCall.threadsHandoffToHost.completed",
+      defaultMessage:
+        "Handed off {threadTitle} to {destinationHostDisplayName}",
+      description: "Completed label for handing off a Codex task to a host",
+      values: {
+        destinationHostDisplayName,
+        threadTitle,
+      },
+    },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper126(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam135,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue532 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam135?.find(
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam281,
+      ) =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam281.type ===
+        "inputText",
+    )?.text;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue532 ==
+    null
+  )
+    return null;
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue609 =
+        JSON.parse(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue532,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue610 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue101.safeParse(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue609,
+        );
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue610.success
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue610.data
+      : null;
+  } catch {
+    return null;
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue99,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue101,
+  __appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT =
+    createLazyEsmInitializer(() => {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue99 =
+        currentReactAliasLoweruLowern();
+      currentReactAliasLowerv();
+      currentReactAliasLowerx();
+      initReactIntlRuntimeChunk();
+      currentQueryRpcAliasUpperRLowerc();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue36();
+      settingsCommandSharedRuntimeVariant6Member0026();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpD();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0022();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0013();
+      planSummaryPageHotkeyWindowThreadRuntimeMember0014();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue100 =
+        currentReactAliasLowerzLowert();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue101 =
+        currentQueryRpcAliasLoweriLowerl({
+          destinationHostDisplayName: currentQueryRpcAliasLowerlLowerl().min(1),
+          operationId: currentQueryRpcAliasLowerlLowerl().min(1),
+          status: currentQueryRpcAliasUpperHLowerc([
+            "queued",
+            "running",
+            "success",
+            "warning",
+            "error",
+          ]),
+          threadTitle: currentQueryRpcAliasLowerlLowerl().min(1),
+        });
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpS(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam18,
+) {
+  let { compact, result } =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam18,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue184 =
+      useIntl(),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue185 =
+      "clientThreadId" in result,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue186 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue184.formatMessage(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue185
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue104.openWorktreeSetup
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue104.openCreatedThread,
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue187 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue186,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue188 =
+      () => {
+        currentQueryRpcAliasLowerm.dispatchHostMessage({
+          type: "navigate-to-route",
+          path: currentQueryRpcAliasLowerjLowern(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue185
+              ? result.clientThreadId
+              : currentQueryRpcAliasUpperWLowero(result.threadId),
+          ),
+        });
+      };
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue189 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue188,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue190 =
+      compact ? "size-7 rounded-md" : "size-8 rounded-lg",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue191 =
+      currentReactAliasUnderscore(
+        "flex shrink-0 items-center justify-center bg-token-bg-secondary text-token-text-secondary",
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue190,
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue192 =
+      compact ? "icon-xs" : "icon-sm",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue193 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue103.jsx(
+        pullRequestRoutRuntimeVariant6Member0036,
+        {
+          className:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue192,
+          "aria-hidden": true,
+        },
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue194 =
+    (
+      <span
+        className={
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue191
+        }
+      >
+        {
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue193
+        }
+      </span>
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue195 =
+      compact ? "compact" : "default",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue196 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue185
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue104.worktreeThreadQueued
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue104.threadCreated,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue197 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue103.jsx(
+        FormattedMessage,
+        {
+          ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue196,
+        },
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue198 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue185
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue104.openSetup
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue104.openThread,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue199 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue103.jsx(
+        newThreadOnboardingSharedRuntimeVariant7Member0018,
+        {
+          label:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue103.jsx(
+              FormattedMessage,
+              {
+                ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue198,
+              },
+            ),
+        },
+      );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue200 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue103.jsx(
+      newThreadOnboardingSharedRuntimeVariant7Member0020,
+      {
+        icon: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue194,
+        padding:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue195,
+        title:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue197,
+        trailing:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue199,
+      },
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue201 =
+    (
+      <button
+        type="button"
+        aria-label={
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue187
+        }
+        className="w-full cursor-interaction text-left hover:bg-token-list-hover-background/30 focus-visible:ring-1 focus-visible:ring-token-focus-border focus-visible:outline-none focus-visible:ring-inset"
+        onClick={
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue189
+        }
+      >
+        {
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue200
+        }
+      </button>
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue202 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue201;
+  return compact
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue202
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue103.jsx(
+        newThreadOnboardingSharedRuntimeVariant7Member0019,
+        {
+          children:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue202,
+        },
+      );
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue102,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue103,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue104,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpC =
+    createLazyEsmInitializer(() => {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue102 =
+        currentReactAliasLoweruLowern();
+      currentReactAliasLowerv();
+      currentQueryRpcAliasLowerw();
+      initReactIntlRuntimeChunk();
+      pullRequestRoutRuntimeVariant6Member0039();
+      currentQueryRpcAliasLowerp();
+      newThreadOnboardingSharedRuntimeVariant7Member0007();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue103 =
+        currentReactAliasLowerzLowert();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue104 =
+        defineMessages({
+          threadCreated: {
+            id: "localConversation.appControlToolCall.threadCreated",
+            defaultMessage: "Chat created",
+            description:
+              "Title for a card shown after a Codex task is created.",
+          },
+          openCreatedThread: {
+            id: "localConversation.appControlToolCall.openCreatedThread",
+            defaultMessage: "Open chat",
+            description:
+              "Accessible label for opening a newly created Codex task.",
+          },
+          openThread: {
+            id: "localConversation.appControlToolCall.openThread",
+            defaultMessage: "Open chat",
+            description: "Button label for opening a newly created Codex task.",
+          },
+          worktreeThreadQueued: {
+            id: "localConversation.appControlToolCall.worktreeThreadQueued",
+            defaultMessage: "Worktree chat queued",
+            description:
+              "Title for a card shown after a worktree-backed Codex task is queued.",
+          },
+          openWorktreeSetup: {
+            id: "localConversation.appControlToolCall.openWorktreeSetup",
+            defaultMessage: "Open worktree setup",
+            description:
+              "Accessible label for opening setup for a queued worktree Codex task.",
+          },
+          openSetup: {
+            id: "localConversation.appControlToolCall.openSetup",
+            defaultMessage: "Open setup",
+            description:
+              "Button label for opening setup for a queued worktree Codex task.",
+          },
+        });
+    });
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam133,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105.jsx(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam133.tool ===
+      "create_thread" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam133.completed &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam133.success ===
+        true &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper133(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam133.contentItems ??
+          null,
+      ) != null
+      ? pullRequestRoutRuntimeVariant6Member0036
+      : settingsCommandSharedRuntimeVariant6Member0007,
+    {
+      className: "icon-xs shrink-0 text-token-conversation-body",
+    },
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper128(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam191,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam192,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam193,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue108.safeParse(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam191.arguments,
+  ).success
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105.jsx(
+        _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW,
+        {
+          agentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam193,
+          item: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam191,
+          variant:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam192,
+        },
+      )
+    : null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper129(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam178,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue582 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue108.safeParse(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam178.arguments,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue582.success
+    ? JSON.stringify([
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue582
+          .data.threadId,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue582
+          .data.destinationHostId ?? null,
+      ])
+    : null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper130(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam218,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue602 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue109.safeParse(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam218.arguments,
+    );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue602.success
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue602
+        .data.operationId
+    : null;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam26,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam27,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue238 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper132(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue238 ==
+    null
+  )
+    return null;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue239 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25.tool ===
+      "create_thread" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25.completed &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25.success ===
+      true &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam26 ===
+      "row"
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper133(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25.contentItems ??
+            null,
+        )
+      : null;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue239 !=
+    null
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105.jsx(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpS,
+      {
+        result:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue239,
+      },
+    );
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue240 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam26 ===
+        "row" &&
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25.tool ===
+        "read_thread" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25.tool ===
+          "send_message_to_thread")
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue110.safeParse(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25.arguments,
+          )
+        : null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue241 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue240?.success ===
+      true
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue240
+            .data.threadId
+        : null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue242 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam26 ===
+        "row" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam27 !==
+        undefined,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue243 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue242
+        ? "summary-text"
+        : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam26,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue244 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105.jsxs(
+        planSummaryPageHotkeyWindowThreadRuntimeMember0016,
+        {
+          className: currentReactAliasUnderscore(
+            "text-size-chat",
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue243 ===
+              "row"
+              ? "text-token-conversation-summary-leading"
+              : "text-token-conversation-summary-trailing group-hover/activity-header:text-token-foreground",
+          ),
+          children: [
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue243 ===
+            "summary-text"
+              ? null
+              : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25,
+                ),
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105.jsx(
+              planSummaryPageHotkeyWindowThreadRuntimeMember0023,
+              {
+                active:
+                  !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam25.completed,
+                className: currentReactAliasUnderscore(
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue243 !==
+                    "summary-text" && "min-w-0 truncate",
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue241 !=
+                    null && "group-hover:!text-token-foreground",
+                ),
+                children:
+                  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105.jsx(
+                    FormattedMessage,
+                    {
+                      ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue113[
+                        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue238
+                      ],
+                    },
+                  ),
+              },
+            ),
+          ],
+        },
+      ),
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue245 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue241 ==
+      null ? (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue244
+      ) : (
+        <button
+          type="button"
+          className="group max-w-full cursor-interaction rounded-md text-left focus-visible:ring-1 focus-visible:ring-token-focus-border focus-visible:outline-none"
+          onClick={() => {
+            let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue560 =
+              currentQueryRpcAliasUpperWLowero(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue241,
+              );
+            currentQueryRpcAliasLowerm.dispatchHostMessage({
+              type: "navigate-to-route",
+              path: businessCheckoutSharedMember0040()
+                ? currentQueryRpcAliasUpperALowern(
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue560,
+                  )
+                : currentQueryRpcAliasLowerjLowern(
+                    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue560,
+                  ),
+            });
+          }}
+        >
+          {
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue244
+          }
+        </button>
+      );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue242
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105.jsx(
+        planSummaryPageHotkeyWindowThreadRuntimeMember0018,
+        {
+          icon: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam27,
+          summary:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue245,
+        },
+      )
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue245;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper132(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31,
+) {
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.tool
+  ) {
+    case _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ: {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue481 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue107.safeParse(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.arguments,
+        );
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue481.success
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue481
+            .data.environment?.type === "worktree"
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+            ? "threadsForkInWorktreeCompleted"
+            : "threadsForkInWorktreeActive"
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+            ? "threadsForkCompleted"
+            : "threadsForkActive"
+        : null;
+    }
+    case _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt: {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue448 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue106.safeParse(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.arguments,
+        );
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue448.success
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue448
+            .data.target.type === "project" &&
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue448
+            .data.target.environment?.type === "worktree"
+          ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+            ? "threadsCreateInWorktreeCompleted"
+            : "threadsCreateInWorktreeActive"
+          : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+            ? "threadsCreateCompleted"
+            : "threadsCreateActive"
+        : null;
+    }
+    case appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB:
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+        ? "threadsListCompleted"
+        : "threadsListActive";
+    case appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpV:
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+        ? "threadsReadCompleted"
+        : "threadsReadActive";
+    case _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt:
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+        ? "threadsSendMessageCompleted"
+        : "threadsSendMessageActive";
+    case _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt:
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue109.safeParse(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.arguments,
+      ).success
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+          ? "threadsHandoffStatusCompleted"
+          : "threadsHandoffStatusActive"
+        : null;
+    case appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU:
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+        ? "threadsSetPinnedCompleted"
+        : "threadsSetPinnedActive";
+    case appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH:
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+        ? "threadsSetArchivedCompleted"
+        : "threadsSetArchivedActive";
+    case appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW:
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam31.completed
+        ? "threadsSetTitleCompleted"
+        : "threadsSetTitleActive";
+    default:
+      return null;
+  }
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper133(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam136,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue533 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam136?.find(
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam282,
+      ) =>
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam282.type ===
+        "inputText",
+    )?.text;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue533 ==
+    null
+  )
+    return null;
+  try {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue611 =
+        JSON.parse(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue533,
+        ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue612 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue111.safeParse(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue611,
+        );
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue612.success
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue612.data
+      : null;
+  } catch {
+    return null;
+  }
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue106,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue107,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue108,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue109,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue110,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue111,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue112,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue113,
+  $l = createLazyEsmInitializer(() => {
+    currentReactAliasLowerv();
+    currentQueryRpcAliasLowerw();
+    initReactIntlRuntimeChunk();
+    currentQueryRpcAliasUpperRLowerc();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpR();
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt();
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpNt();
+    businessCheckoutSharedInitializer0902();
+    pullRequestRoutRuntimeVariant6Member0039();
+    settingsCommandSharedRuntimeVariant6Member0026();
+    currentQueryRpcAliasLowerp();
+    planSummaryPageHotkeyWindowThreadRuntimeMember0006();
+    planSummaryPageHotkeyWindowThreadRuntimeMember0022();
+    __appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpC();
+    planSummaryPageHotkeyWindowThreadRuntimeMember0013();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue105 =
+      currentReactAliasLowerzLowert();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue106 =
+      currentQueryRpcAliasLoweriLowerl({
+        target: currentQueryRpcAliasLoweriLowerl({
+          type: currentQueryRpcAliasLowerlLowerl(),
+          environment: currentQueryRpcAliasLoweriLowerl({
+            type: currentQueryRpcAliasLowerlLowerl(),
+          }).optional(),
+        }),
+      });
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue107 =
+      currentQueryRpcAliasLoweriLowerl({
+        environment: currentQueryRpcAliasLoweriLowerl({
+          type: currentQueryRpcAliasLowerlLowerl(),
+        }).optional(),
+      });
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue108 =
+      currentQueryRpcAliasLoweriLowerl({
+        destinationHostId: currentQueryRpcAliasLowerlLowerl().min(1).optional(),
+        threadId: currentQueryRpcAliasLowerlLowerl().min(1),
+      });
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue109 =
+      currentQueryRpcAliasLoweriLowerl({
+        operationId: currentQueryRpcAliasLowerlLowerl().min(1),
+      });
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue110 =
+      currentQueryRpcAliasLoweriLowerl({
+        threadId: currentQueryRpcAliasLowerlLowerl().min(1),
+      });
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue111 =
+      currentQueryRpcAliasLowerdLowerl([
+        currentQueryRpcAliasLoweriLowerl({
+          threadId: currentQueryRpcAliasLowerlLowerl().min(1),
+        }),
+        currentQueryRpcAliasLoweriLowerl({
+          clientThreadId: currentQueryRpcAliasUpperYLowerc(
+            (
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam277,
+            ) =>
+              typeof appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam277 ==
+                "string" &&
+              currentQueryRpcAliasUpperZLowero(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam277,
+              ),
+          ),
+        }),
+      ]);
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue112 =
+      [
+        {
+          getCompletedSummaryPartKey:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper132,
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          tool: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ,
+        },
+        {
+          getCompletedSummaryPartKey:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper132,
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          tool: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt,
+        },
+        {
+          getCompletedSummaryPartKey:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper129,
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper128,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          standaloneInConversation: true,
+          tool: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt,
+        },
+        {
+          getCompletedSummaryPartKey:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper130,
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          summaryOnlyInConversationGroup: true,
+          tool: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt,
+        },
+        {
+          continuesLiveActivityBetweenCalls: true,
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB,
+        },
+        {
+          continuesLiveActivityBetweenCalls: true,
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpV,
+        },
+        {
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          tool: _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt,
+        },
+        {
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU,
+        },
+        {
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH,
+        },
+        {
+          namespace:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+          render:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper131,
+          renderAgentActivityIcon:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper127,
+          tool: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW,
+        },
+      ];
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue113 =
+      defineMessages({
+        threadsForkActive: {
+          id: "localConversation.appControlToolCall.threadsFork.active",
+          defaultMessage: "Creating new chat",
+          description: "In-progress label for continuing a chat in a new chat",
+        },
+        threadsForkCompleted: {
+          id: "localConversation.appControlToolCall.threadsFork.completed",
+          defaultMessage: "Created new chat",
+          description: "Completed label for continuing a chat in a new chat",
+        },
+        threadsForkInWorktreeActive: {
+          id: "localConversation.appControlToolCall.threadsForkInWorktree.active",
+          defaultMessage: "Creating chat in new worktree",
+          description:
+            "In-progress label for continuing a chat in a new worktree",
+        },
+        threadsForkInWorktreeCompleted: {
+          id: "localConversation.appControlToolCall.threadsForkInWorktree.completed",
+          defaultMessage: "Created chat in new worktree",
+          description:
+            "Completed label for continuing a chat in a new worktree",
+        },
+        threadsCreateActive: {
+          id: "localConversation.appControlToolCall.threadsCreate.active",
+          defaultMessage: "Creating chat",
+          description: "In-progress label for creating a Codex task.",
+        },
+        threadsCreateCompleted: {
+          id: "localConversation.appControlToolCall.threadsCreate.completed",
+          defaultMessage: "Created chat",
+          description: "Completed label for creating a Codex task.",
+        },
+        threadsCreateInWorktreeActive: {
+          id: "localConversation.appControlToolCall.threadsCreateInWorktree.active",
+          defaultMessage: "Creating worktree chat",
+          description: "In-progress label for creating a Codex worktree task.",
+        },
+        threadsCreateInWorktreeCompleted: {
+          id: "localConversation.appControlToolCall.threadsCreateInWorktree.completed",
+          defaultMessage: "Created worktree chat",
+          description: "Completed label for creating a Codex worktree task.",
+        },
+        threadsListActive: {
+          id: "localConversation.appControlToolCall.threadsList.active",
+          defaultMessage: "Listing chats",
+          description: "In-progress label for listing Codex tasks.",
+        },
+        threadsListCompleted: {
+          id: "localConversation.appControlToolCall.threadsList.completed",
+          defaultMessage: "Listed chats",
+          description: "Completed label for listing Codex tasks.",
+        },
+        threadsReadActive: {
+          id: "localConversation.appControlToolCall.threadsRead.active",
+          defaultMessage: "Reading chat",
+          description: "In-progress label for reading a Codex task.",
+        },
+        threadsReadCompleted: {
+          id: "localConversation.appControlToolCall.threadsRead.completed",
+          defaultMessage: "Read chat",
+          description: "Completed label for reading a Codex task.",
+        },
+        threadsHandoffStatusActive: {
+          id: "localConversation.appControlToolCall.threadsHandoffStatus.active",
+          defaultMessage: "Checking handoff status",
+          description:
+            "In-progress label for checking an asynchronous Codex task handoff operation.",
+        },
+        threadsHandoffStatusCompleted: {
+          id: "localConversation.appControlToolCall.threadsHandoffStatus.completed",
+          defaultMessage: "Checked handoff status",
+          description:
+            "Completed label for checking an asynchronous Codex task handoff operation.",
+        },
+        threadsSendMessageActive: {
+          id: "localConversation.appControlToolCall.threadsSendMessage.active",
+          defaultMessage: "Sending message to chat",
+          description:
+            "In-progress label for sending a message to a Codex task.",
+        },
+        threadsSendMessageCompleted: {
+          id: "localConversation.appControlToolCall.threadsSendMessage.completed",
+          defaultMessage: "Sent message to chat",
+          description: "Completed label for sending a message to a Codex task.",
+        },
+        threadsSetArchivedActive: {
+          id: "localConversation.appControlToolCall.threadsSetArchived.active",
+          defaultMessage: "Updating chat archive",
+          description:
+            "In-progress label for archiving or unarchiving a Codex chat.",
+        },
+        threadsSetArchivedCompleted: {
+          id: "localConversation.appControlToolCall.threadsSetArchived.completed",
+          defaultMessage: "Updated chat archive",
+          description:
+            "Completed label for archiving or unarchiving a Codex chat.",
+        },
+        threadsSetPinnedActive: {
+          id: "localConversation.appControlToolCall.threadsSetPinned.active",
+          defaultMessage: "Updating chat pin",
+          description:
+            "In-progress label for pinning or unpinning a Codex chat.",
+        },
+        threadsSetPinnedCompleted: {
+          id: "localConversation.appControlToolCall.threadsSetPinned.completed",
+          defaultMessage: "Updated chat pin",
+          description: "Completed label for pinning or unpinning a Codex chat.",
+        },
+        threadsSetTitleActive: {
+          id: "localConversation.appControlToolCall.threadsSetTitle.active",
+          defaultMessage: "Renaming chat",
+          description: "In-progress label for renaming a Codex chat.",
+        },
+        threadsSetTitleCompleted: {
+          id: "localConversation.appControlToolCall.threadsSetTitle.completed",
+          defaultMessage: "Renamed chat",
+          description: "Completed label for renaming a Codex chat.",
+        },
+      });
+  });
+function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpY(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam230,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue114.find(
+    (item) =>
+      item.namespace ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam230.namespace &&
+      item.tool ===
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam230.tool,
+  );
+}
+export function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpUnderscore(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam247,
+) {
+  return (
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpY(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam247,
+    )?.continuesLiveActivityBetweenCalls === true
+  );
+}
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpX(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam249,
+) {
+  return (
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpY(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam249,
+    )?.summaryOnlyInConversationGroup === true
+  );
+}
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpV(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam211,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue596 =
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpY(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam211,
+    )?.getCompletedSummaryPartKey?.(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam211,
+    );
+  return `${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam211.namespace}:${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam211.tool}:${appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue596 ?? ""}`;
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue114,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB =
+    createLazyEsmInitializer(() => {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue90();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue93();
+      $l();
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue114 =
+        [
+          ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue89,
+          ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue112,
+          ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue92,
+        ];
+    });
+function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam137,
+) {
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam137
+      .parsedCmd.type
+  ) {
+    case "read":
+    case "search":
+    case "list_files":
+      return true;
+    case "format":
+    case "lint":
+    case "noop":
+    case "test":
+    case "unknown":
+      return false;
+  }
+}
+var _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH =
+  createLazyEsmInitializer(() => {});
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpF(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+  { dynamicToolCallRenderer, mcpServerStatuses } = {},
+) {
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20.type
+  ) {
+    case "exec":
+      return $(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper135(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+        ),
+        "groupable",
+      );
+    case "patch":
+      return $(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper135(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+        ),
+        "groupable",
+      );
+    case "web-search":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20.query.trim()
+        .length === 0
+        ? null
+        : $(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+            "groupable",
+          );
+    case "mcp-tool-call":
+      return $(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper135(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+        ),
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper134(
+          {
+            item: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+            mcpServerStatuses,
+          },
+        )
+          ? "standalone"
+          : "groupable",
+      );
+    case "dynamic-tool-call":
+      return $(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+        (
+          dynamicToolCallRenderer ??
+          _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpY(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+          )
+        )?.standaloneInConversation === true
+          ? "standalone"
+          : "groupable",
+      );
+    case "image-view":
+      return $(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+        "standalone",
+      );
+    case "mcp-server-elicitation":
+      return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20.completed ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20
+          .elicitation.kind === "unsupportedOpenAIForm"
+        ? null
+        : $(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20
+              .elicitation.kind === "openaiForm" &&
+              Object.values(
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20
+                  .elicitation.schema.properties,
+              ).some(initLodashInteropRuntime)
+              ? "groupable"
+              : "standalone",
+          );
+    case "automatic-approval-review":
+      switch (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20.status
+      ) {
+        case "approved":
+          return null;
+        case "inProgress":
+          return $(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+            "groupable",
+          );
+        case "aborted":
+        case "denied":
+        case "timedOut":
+          return $(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+            "standalone",
+          );
+      }
+    case "assistant-message":
+    case "auto-review-interruption-warning":
+    case "context-compaction":
+    case "multi-agent-action":
+    case "realtime-transcript":
+    case "stream-error":
+    case "subagent-activity":
+    case "system-error":
+    case "user-input-response":
+    case "user-message":
+    case "worked-for":
+    case "worktree-init":
+      return $(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam20,
+        "standalone",
+      );
+    case "reasoning":
+    case "automation-update":
+    case "forked-from-conversation":
+    case "generated-image":
+    case "model-changed":
+    case "model-rerouted":
+    case "permission-request":
+    case "personality-changed":
+    case "plan-implementation":
+    case "proposed-plan":
+    case "remote-task-created":
+    case "todo-list":
+    case "turn-diff":
+    case "userInput":
+    case "steered":
+      return null;
+  }
+}
+function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpM(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam100,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam101,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam100.type ===
+    "exec" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpXt(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam100.executionStatus,
+    ) &&
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam100
+        .parsedCmd.cmd,
+    ) != null &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam101?.type ===
+      "patch" &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam101.visualizationActivities !=
+      null &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam101
+      .visualizationActivities.length > 0
+    ? true
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam100.type ===
+          "exec" &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam100
+          .parsedCmd.type === "read"
+      ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper6(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHt(
+            {
+              summary:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam100.parsedCmd,
+              cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam100.cwd,
+            },
+          ),
+        )
+      : false;
+}
+function $(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam266,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam267,
+) {
+  return {
+    item: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam266,
+    grouping:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam267,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper134({
+  item,
+  mcpServerStatuses,
+}) {
+  return item.source?.kind === "computerUse" ||
+    item.invocation.server === "computer-use"
+    ? true
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpM(
+        {
+          item,
+          mcpServerStatuses,
+        },
+      );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper135(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam112,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue495 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam112.automaticApprovalReviews;
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue495 ==
+    null
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam112;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue496 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue495.filter(
+      (item) => item.status !== "approved",
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue496.length >
+      0 &&
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue496.length ===
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue495.length
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam112;
+  let { automaticApprovalReviews, ...rest } =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam112;
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue496.length ===
+    0
+    ? rest
+    : {
+        ...rest,
+        automaticApprovalReviews:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue496,
+      };
+}
+var _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpP =
+  createLazyEsmInitializer(() => {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpN();
+    _appInitialAvatarOverlayCompositionSurfaceArtifactTabContentElectronNotebookPreviewG8980z4eNt();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpUt();
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB();
+  });
+function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpD(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34,
+) {
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34
+  )
+    return false;
+  switch (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.type
+  ) {
+    case "user-message":
+    case "realtime-transcript":
+    case "turn-diff":
+    case "system-error":
+    case "stream-error":
+    case "steered":
+    case "remote-task-created":
+    case "personality-changed":
+    case "forked-from-conversation":
+    case "model-changed":
+    case "model-rerouted":
+    case "auto-review-interruption-warning":
+    case "automation-update":
+    case "plan-implementation":
+    case "worked-for":
+    case "generated-image":
+    case "worktree-init":
+    case "subagent-activity":
+    case "image-view":
+      return false;
+    case "context-compaction":
+      return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.completed;
+    case "assistant-message":
+    case "proposed-plan":
+    case "reasoning":
+      return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.completed;
+    case "exec":
+      return (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34
+          .output?.exitCode === undefined
+      );
+    case "patch":
+      return (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.success ==
+        null
+      );
+    case "mcp-tool-call":
+    case "dynamic-tool-call":
+      return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.completed;
+    case "automatic-approval-review":
+      return (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.status ===
+        "inProgress"
+      );
+    case "multi-agent-action":
+      return (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.status ===
+        "inProgress"
+      );
+    case "web-search":
+      return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.completed;
+    case "todo-list":
+      return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.plan.some(
+        (item) => item.status !== "completed",
+      );
+    case "userInput":
+      return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.completed;
+    case "user-input-response":
+    case "mcp-server-elicitation":
+    case "permission-request":
+      return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam34.completed;
+  }
+}
+var _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU =
+  createLazyEsmInitializer(() => {});
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpL({
+  agentItems,
+  isTurnInProgress,
+  isAnyNonAgentItemInProgress,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue331 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332 =
+      null,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue333 = false,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue334 = false,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue335 =
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam199,
+      ) => {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332 &&
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332.length >
+            0 &&
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue331.push(
+            {
+              kind: "exploration",
+              items:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332,
+              status:
+                appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam199,
+            },
+          );
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332 =
+          null;
+      };
+  for (let [
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue482,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue483,
+  ] of agentItems.entries())
+    if (
+      !_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpM(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue483,
+        agentItems[
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue482 +
+            1
+        ],
+      )
+    ) {
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper136(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue483,
+        )
+      ) {
+        if (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332
+        ) {
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332.push(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue483,
+          );
+          continue;
+        }
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332 =
+          [
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue483,
+          ];
+        continue;
+      }
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue483.type ===
+        "reasoning"
+      ) {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332 &&
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332.push(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue483,
+          );
+        continue;
+      }
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332 &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue335(
+          "explored",
+        );
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue331.push(
+        {
+          kind: "item",
+          item: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue483,
+        },
+      );
+    }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332
+  ) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue605 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue332.some(
+        (item) =>
+          _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpD(
+            item,
+          ),
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue333 =
+      isTurnInProgress &&
+      (!isAnyNonAgentItemInProgress ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue605);
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue335(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue333
+        ? "exploring"
+        : "explored",
+    );
+  } else {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue580 =
+      _u.default(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue331,
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue580?.kind ===
+      "item" &&
+      ((appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue334 =
+        _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpD(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue580.item,
+        )),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue580
+        .item.type === "reasoning" &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue580
+          .item.completed === false &&
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue334 = false));
+  }
+  return {
+    renderableAgentItems:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue331,
+    isExploring:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue333,
+    isAnyNonExploringAgentItemInProgress:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue334,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper136(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam164,
+) {
+  return !(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam164.type !==
+      "exec" ||
+    !_appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam164,
+    ) ||
+    (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam164
+      .parsedCmd.type === "read" &&
+      !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam164
+        .parsedCmd.isFinished &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpWt(
+        {
+          summary:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam164.parsedCmd,
+          cwd: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam164.cwd,
+        },
+      ))
+  );
+}
+var _u;
+export const _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpC =
+  createLazyEsmInitializer(() => {
+    _u = toEsm(currentQueryRpcAliasUpperALowers(), 1);
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH();
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpP();
+    _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpUt();
+  });
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpA({
+  units,
+  isActivitySliceClosed,
+}) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue414 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue415 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper137(
+        units,
+        isActivitySliceClosed,
+      );
+  for (let {
+    startIndex,
+    endIndex,
+  } of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue415) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478 =
+      startIndex;
+    for (
+      ;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478 <
+      endIndex;
+    ) {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue491 =
+        units[
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478
+        ];
+      if (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue491 ==
+          null ||
+        !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper138(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue491,
+        )
+      ) {
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478 += 1;
+        continue;
+      }
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue492 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue493 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper139();
+      for (
+        ;
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478 <
+        endIndex;
+      ) {
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue604 =
+          units[
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478
+          ];
+        if (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue604 ==
+            null ||
+          !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper138(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue604,
+          )
+        )
+          break;
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper140(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue493,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue604,
+        );
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478 += 1;
+      }
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue414.push(
+        {
+          startIndex:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue492,
+          endIndex:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue478,
+          summary:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper141(
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue493,
+            ),
+        },
+      );
+    }
+  }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue414;
+}
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpO(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam234,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue616 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper139();
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue646 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam234)
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper138(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue646,
+    ) &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper140(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue616,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue646,
+      );
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper141(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue616,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper137(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam79,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam80,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue450 =
+    [];
+  for (let [
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue619,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue620,
+  ] of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam79.entries())
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue620.type ===
+      "assistant-message" &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue450.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue619,
+      );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue450.length ===
+    0
+  )
+    return !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam80 ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam79.length ===
+        0
+      ? []
+      : [
+          {
+            startIndex: 0,
+            endIndex:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam79.length,
+          },
+        ];
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue451 =
+    [];
+  for (let [
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue583,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue584,
+  ] of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue450.entries()) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue593 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue450[
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue583 +
+          1
+      ] ??
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam80
+        ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam79.length
+        : null);
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue593 ==
+      null ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue584 +
+        1 >=
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue593 ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue451.push(
+        {
+          startIndex:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue584 +
+            1,
+          endIndex:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue593,
+        },
+      );
+  }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue451;
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper138(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109.type ===
+    "assistant-message" ||
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109.type ===
+      "other"
+    ? false
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109.type ===
+          "exploration" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109.type ===
+          "patch" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109.type ===
+          "exec" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109.type ===
+          "mcp-tool-call" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109.type ===
+          "automatic-approval-review" ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109.type ===
+          "web-search"
+      ? true
+      : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper98(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam109,
+        );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper139() {
+  return {
+    createdPaths: new Set(),
+    runningCreatedPaths: new Set(),
+    stoppedCreatedPaths: new Set(),
+    runningCreatedLineCount: 0,
+    changedLineCount: 0,
+    editedPaths: new Set(),
+    runningEditedPaths: new Set(),
+    deletedPaths: new Set(),
+    runningDeletedPaths: new Set(),
+    visualizationActivitiesByPath: new Map(),
+    visualizationCommandKind: null,
+    exploredPaths: new Set(),
+    runningExploredPaths: new Set(),
+    loadedToolPaths: new Set(),
+    runningLoadedToolPaths: new Set(),
+    searchCount: 0,
+    runningSearchCount: 0,
+    listCount: 0,
+    runningListCount: 0,
+    automaticApprovalReviewFailureIds: new Set(),
+    deniedRequestCount: 0,
+    timedOutRequestCount: 0,
+    commandCount: 0,
+    runningCommandCount: 0,
+    completedWebSearchCommandCount: 0,
+    runningFolderCreationCommandCount: 0,
+    completedVisualizationCommandCount: 0,
+    runningVisualizationCommandCount: 0,
+    runningWebSearchCommandCount: 0,
+    mcpToolCallCount: 0,
+    mcpToolCallSources: new Map(),
+    webSearchCount: 0,
+    runningWebSearchCount: 0,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper140(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12,
+) {
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.type ===
+    "exploration"
+  ) {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper142(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.automaticApprovalReviewFailures,
+    );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue644 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.readPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.exploredPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue644,
+      );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue639 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningReadPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningExploredPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue639,
+      );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue641 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.loadedToolPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.loadedToolPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue641,
+      );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue632 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningLoadedToolPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningLoadedToolPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue632,
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.searchCount +=
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.searchCount;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningSearchCount +=
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningSearchCount;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.listCount +=
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.listCount;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningListCount +=
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningListCount;
+    return;
+  }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.type ===
+    "patch"
+  ) {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper142(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.automaticApprovalReviewFailures,
+    );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue642 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.createdPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.createdPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue642,
+      );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue635 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningCreatedPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningCreatedPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue635,
+      );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue636 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.stoppedCreatedPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.stoppedCreatedPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue636,
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningCreatedLineCount +=
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningCreatedLineCount;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.changedLineCount +=
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.changedLineCount;
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue645 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.editedPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.editedPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue645,
+      );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue640 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningEditedPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningEditedPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue640,
+      );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue643 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.deletedPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.deletedPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue643,
+      );
+    for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue637 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningDeletedPaths)
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningDeletedPaths.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue637,
+      );
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.visualizationActivity !=
+      null
+    )
+      for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue469 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12
+        .visualizationActivity.activities) {
+        let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue485 =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.visualizationActivitiesByPath.get(
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue469.path,
+          );
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.visualizationActivitiesByPath.set(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue469.path,
+          {
+            kind:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue485?.kind ===
+                "create" ||
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue469.kind ===
+                "create"
+                ? "create"
+                : "update",
+            isInProgress:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue485?.isInProgress ===
+                true ||
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12
+                .visualizationActivity.isInProgress,
+          },
+        );
+      }
+    return;
+  }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.type ===
+    "exec"
+  ) {
+    if (
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper142(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.automaticApprovalReviewFailures,
+      ),
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.commandCount += 1),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.visualizationActivityKind !=
+        null &&
+        ((appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.visualizationCommandKind =
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.visualizationCommandKind ===
+            "create" ||
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.visualizationActivityKind ===
+            "create"
+            ? "create"
+            : "update"),
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.isInProgress
+          ? (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningVisualizationCommandCount += 1)
+          : (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.completedVisualizationCommandCount += 1)),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.isInProgress)
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningCommandCount += 1;
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.createsFolder ===
+        true &&
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningFolderCreationCommandCount += 1);
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.searchesWeb ===
+        true &&
+        (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningWebSearchCommandCount += 1);
+      return;
+    }
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.searchesWeb ===
+      true &&
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.completedWebSearchCommandCount += 1);
+    return;
+  }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.type ===
+    "automatic-approval-review"
+  ) {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper143(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12,
+    );
+    return;
+  }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.type ===
+    "mcp-tool-call"
+  ) {
+    if (
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper142(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.automaticApprovalReviewFailures,
+      ),
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.mcpToolCallCount += 1),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.source !=
+        null)
+    ) {
+      let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue467 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.mcpToolCallSources.get(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12
+            .source.key,
+        );
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.mcpToolCallSources.set(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12
+          .source.key,
+        {
+          logoUrl:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12
+              .source.logoUrl,
+          logoUrlDark:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12
+              .source.logoUrlDark,
+          name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12
+            .source.name,
+          nativeAppReference:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12
+              .source.nativeAppReference,
+          count:
+            (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue467?.count ??
+              0) + 1,
+          runningCount:
+            (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue467?.runningCount ??
+              0) +
+            +!!appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.isInProgress,
+        },
+      );
+    }
+    return;
+  }
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.type ===
+    "web-search"
+  ) {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.webSearchCount +=
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.count;
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam11.runningWebSearchCount +=
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12.runningCount;
+    return;
+  }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper98(
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam12,
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper141(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue204 =
+      [
+        ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.visualizationActivitiesByPath.values(),
+      ],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue205 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.visualizationCommandKind !=
+        null ||
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue204.length >
+        0
+        ? {
+            kind:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.visualizationCommandKind ===
+                "create" ||
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue204.some(
+                ({ kind }) => kind === "create",
+              )
+                ? "create"
+                : "update",
+            isInProgress:
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningVisualizationCommandCount >
+                0 ||
+              appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue204.some(
+                ({ isInProgress }) => isInProgress,
+              ),
+          }
+        : undefined;
+  return {
+    createdFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .createdPaths.size,
+    runningCreatedFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .runningCreatedPaths.size,
+    stoppedCreatedFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .stoppedCreatedPaths.size,
+    runningCreatedLineCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningCreatedLineCount,
+    changedLineCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.changedLineCount,
+    editedFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .editedPaths.size,
+    runningEditedFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .runningEditedPaths.size,
+    deletedFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .deletedPaths.size,
+    runningDeletedFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .runningDeletedPaths.size,
+    exploredFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .exploredPaths.size,
+    runningExploredFileCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .runningExploredPaths.size,
+    loadedToolCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .loadedToolPaths.size,
+    runningLoadedToolCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19
+        .runningLoadedToolPaths.size,
+    searchCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.searchCount,
+    runningSearchCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningSearchCount,
+    listCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.listCount,
+    runningListCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningListCount,
+    deniedRequestCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.deniedRequestCount,
+    timedOutRequestCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.timedOutRequestCount,
+    commandCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.commandCount,
+    runningCommandCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningCommandCount,
+    completedWebSearchCommandCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.completedWebSearchCommandCount,
+    runningFolderCreationCommandCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningFolderCreationCommandCount,
+    visualizationActivity:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue205,
+    completedVisualizationCommandCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.completedVisualizationCommandCount,
+    runningVisualizationCommandCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningVisualizationCommandCount,
+    runningWebSearchCommandCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningWebSearchCommandCount,
+    mcpToolCallCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.mcpToolCallCount,
+    mcpToolCallSources: [
+      ...appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.mcpToolCallSources.entries(),
+    ].map(
+      ([
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam147,
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam148,
+      ]) => ({
+        key: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam147,
+        logoUrl:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam148.logoUrl,
+        logoUrlDark:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam148.logoUrlDark,
+        name: appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam148.name,
+        nativeAppReference:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam148.nativeAppReference,
+        count:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam148.count,
+        runningCount:
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam148.runningCount,
+      }),
+    ),
+    webSearchCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.webSearchCount,
+    runningWebSearchCount:
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam19.runningWebSearchCount,
+  };
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper142(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam264,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam265,
+) {
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue647 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam265 ??
+    [])
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper143(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam264,
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue647,
+    );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper143(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam120,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam121,
+) {
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam120.automaticApprovalReviewFailureIds.has(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam121.id,
+    )
+  )
+    switch (
+      (appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam120.automaticApprovalReviewFailureIds.add(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam121.id,
+      ),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam121.status)
+    ) {
+      case "denied":
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam120.deniedRequestCount += 1;
+        return;
+      case "timedOut":
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam120.timedOutRequestCount += 1;
+        return;
+    }
+}
+export const _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpS =
+  createLazyEsmInitializer(() => {
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue79();
+  });
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam254,
+) {
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam254.replaceAll(
+    /\uE200[^\uE201]*\uE201/g,
+    "",
+  );
+}
+export const _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpR =
+  createLazyEsmInitializer(() => {});
+export function _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpN(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam81,
+) {
+  if (
+    !appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam81.includes(
+      ":::writing",
+    )
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam81;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue454 =
+      [],
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue455 = false,
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue456 =
+      null;
+  for (let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue520 of appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam81.split(
+    "\n",
+  )) {
+    let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue528 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue456 !=
+      null;
+    if (
+      ((appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue456 =
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper144(
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue456,
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue520,
+        )),
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue528 ||
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue456 !=
+          null)
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue454.push(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue520,
+      );
+      continue;
+    }
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue115.test(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue520,
+      )
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue455 = true;
+      continue;
+    }
+    if (
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue455 &&
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue116.test(
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue520,
+      )
+    ) {
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue455 = false;
+      continue;
+    }
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue454.push(
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue520,
+    );
+  }
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue454.join(
+    "\n",
+  );
+}
+function appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHelper144(
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam92,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam93,
+) {
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue471 =
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam93.match(
+      /^ {0,3}(`{3,}|~{3,})(.*)$/,
+    );
+  if (
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue471 ==
+    null
+  )
+    return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam92;
+  let appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue472 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue471[1] ??
+      "",
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue473 =
+      appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue472.startsWith(
+        "`",
+      )
+        ? "`"
+        : "~";
+  return appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam92 ==
+    null
+    ? appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue473 ===
+        "`" &&
+      (
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue471[2] ??
+        ""
+      ).includes("`")
+      ? null
+      : {
+          length:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue472.length,
+          marker:
+            appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue473,
+        }
+    : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue473 ===
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam92.marker &&
+        appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue472.length >=
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam92.length &&
+        (
+          appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue471[2] ??
+          ""
+        ).trim().length === 0
+      ? null
+      : appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpParam92;
+}
+var appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue115,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue116;
+export const ___appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT =
+  createLazyEsmInitializer(() => {
+    businessCheckoutSharedMember0584();
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue115 =
+      RegExp(
+        `^ {0,3}:::${businessCheckoutSharedInitializer0464}(?:\\{.*)?\\s*$`,
+      );
+    appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpValue116 =
+      /^ {0,3}:::\s*$/;
+  });
+export {
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT as $t,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpBt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpC,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpD,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpE,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpEt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpI,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpLt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpM,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpMt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpN,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpO,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpOt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpP,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpPt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpR,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpS,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt,
+  __appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpTt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpUt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpV,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpWt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpXt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpT as _t,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpAt as at,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpB,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpBt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpCt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpD,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpDt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpEn,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpFt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpG,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpGt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpH,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpHt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpIt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpJ,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpJt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpKt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpM,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpMt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpNn,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpNt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpOt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpP,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpPt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpQt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRn,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpRt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpSt,
+  appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpTn,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpU,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpVt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpW,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpWt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpXt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpY,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpYt,
+  _appInitialAppMainOnboardingPageHotkeyWindowThreadPageQuickChatWindowPageChatgF5p8e1kpZ,
+};

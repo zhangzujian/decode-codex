@@ -10,7 +10,7 @@ export {
   generalSettingsN as GeneralSettingsContent,
   generalSettingsO as initGeneralSettingsPageChunk,
   generalSettingsT as WslCodexRuntimeSetting,
-} from "./general-settings-current";
+} from "../runtime/current-app-initial/general-settings-current-backing";
 export {
   PromptSubmitBehaviorLabel,
   PromptSubmitBehaviorLabel as formatPromptSubmitBehaviorLabel,

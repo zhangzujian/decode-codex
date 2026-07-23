@@ -1,0 +1,20 @@
+// Restored from ref/webview/assets/app-initial~app-main~codex-micro-settings~keyboard-shortcuts-settings~codex-micro-joystick-~oakijxdz-DppMeWM8.js
+// Current-build compatibility aliases over the reviewed predecessor implementation.
+export {
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0001,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0002,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0003,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0004,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0005,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0006,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0007,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0008,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0009,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0010,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0011,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0012,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0013,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0014,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0015,
+  keyboardShortcutsSettingsCodexMicroJoystickRuntimeMember0016,
+} from "../keyboard-shortcuts-settings-codex-micro-joystick-runtime";

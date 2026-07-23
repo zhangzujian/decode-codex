@@ -1,5 +1,5 @@
-// Restored from ref/webview/assets/debug-modal-ZKsQczm7.js
-// Current-build entry reusing the fingerprint-verified semantic module.
+// Restored from ref/webview/assets/debug-modal-CBLifYT2.js
+// Exact all-history bundle match reusing the reviewed current-alias module.
 
 import * as currentBacking from "../../current-app-initial/debug-modal-current-backing";
 export const debugModalN = currentBacking["debugModalN"];

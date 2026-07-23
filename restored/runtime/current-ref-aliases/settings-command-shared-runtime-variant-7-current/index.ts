@@ -1,0 +1,25 @@
+// Restored from ref/webview/assets/app-initial~app-main~settings-command-menu-section-items~new-thread-panel-page~onboarding-p~gtr83nev-DLC7obGh.js
+// Current-build compatibility aliases over the reviewed predecessor implementation.
+export {
+  settingsCommandSharedRuntimeVariant7Member0001,
+  settingsCommandSharedRuntimeVariant7Member0002,
+  settingsCommandSharedRuntimeVariant7Member0003,
+  settingsCommandSharedRuntimeVariant7Member0004,
+  settingsCommandSharedRuntimeVariant7Member0005,
+  settingsCommandSharedRuntimeVariant7Member0006,
+  settingsCommandSharedRuntimeVariant7Member0007,
+  settingsCommandSharedRuntimeVariant7Member0008,
+  settingsCommandSharedRuntimeVariant7Member0009,
+  settingsCommandSharedRuntimeVariant7Member0010,
+  settingsCommandSharedRuntimeVariant7Member0011,
+  settingsCommandSharedRuntimeVariant7Member0012,
+  settingsCommandSharedRuntimeVariant7Member0013,
+  settingsCommandSharedRuntimeVariant7Member0014,
+  settingsCommandSharedRuntimeVariant7Member0015,
+  settingsCommandSharedRuntimeVariant7Member0016,
+  settingsCommandSharedRuntimeVariant7Member0017,
+  settingsCommandSharedRuntimeVariant7Member0018,
+  settingsCommandSharedRuntimeVariant7Member0019,
+  settingsCommandSharedRuntimeVariant7Member0020,
+  settingsCommandSharedRuntimeVariant7Member0021,
+} from "../settings-command-shared-runtime-variant-7";

@@ -1,8 +1,8 @@
-// Restored from ref/webview/assets/workbook-C9Gx7OEE.js
-// Initializes and re-exports the workbook runtime entrypoint.
+// Restored from ref/webview/assets/workbook-Cm_SMNBT.js
+// Initializes and re-exports the current workbook runtime entrypoint.
 import {
-  n as initializeWorkbookRuntime,
-  t as workbookRuntimeWorkbook,
-} from "../boundaries/workbook-runtime";
+  __workbookT as Workbook,
+  WorkbookN as initializeWorkbookRuntime,
+} from "../runtime/current-ref-aliases/workbook-runtime";
 initializeWorkbookRuntime();
-export { workbookRuntimeWorkbook as Workbook };
+export { Workbook };

@@ -1,0 +1,24 @@
+// Restored from ref/webview/assets/app-initial~app-main~pull-request-route~new-thread-panel-page~onboarding-page~projects-inde~ldmpswh9-BbClLuNw.js
+// Current-build compatibility aliases over the reviewed predecessor implementation.
+export {
+  newThreadOnboardingSharedRuntimeVariant9Member0001,
+  newThreadOnboardingSharedRuntimeVariant9Member0002,
+  newThreadOnboardingSharedRuntimeVariant9Member0003,
+  newThreadOnboardingSharedRuntimeVariant9Member0004,
+  newThreadOnboardingSharedRuntimeVariant9Member0005,
+  newThreadOnboardingSharedRuntimeVariant9Member0006,
+  newThreadOnboardingSharedRuntimeVariant9Member0007,
+  newThreadOnboardingSharedRuntimeVariant9Member0008,
+  newThreadOnboardingSharedRuntimeVariant9Member0009,
+  newThreadOnboardingSharedRuntimeVariant9Member0010,
+  newThreadOnboardingSharedRuntimeVariant9Member0011,
+  newThreadOnboardingSharedRuntimeVariant9Member0012,
+  newThreadOnboardingSharedRuntimeVariant9Member0013,
+  newThreadOnboardingSharedRuntimeVariant9Member0014,
+  newThreadOnboardingSharedRuntimeVariant9Member0015,
+  newThreadOnboardingSharedRuntimeVariant9Member0016,
+  newThreadOnboardingSharedRuntimeVariant9Member0017,
+  newThreadOnboardingSharedRuntimeVariant9Member0018,
+  newThreadOnboardingSharedRuntimeVariant9Member0019,
+  newThreadOnboardingSharedRuntimeVariant9Member0020,
+} from "../new-thread-onboarding-shared-runtime-variant-9";
