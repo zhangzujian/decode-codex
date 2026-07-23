@@ -215,6 +215,9 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `pdfjs.ts` / `pdfjs-entry.ts` (`pdf-*` package chunks)                            | `pdfjs-dist`                                                              | PDF.js library aliases; worker stays an asset                               |
 | `docx-preview.ts` (`docx-preview-*`)                                              | `docx-preview`                                                            | Word document renderer; preserve renderAsync re-export                      |
 | `stylis.ts` (`stylis-*`)                                                          | `stylis`                                                                  | CSS parser/serializer helpers for document renderers                        |
+| `css-tree-serializer.ts`                                                          | `stylis`                                                                  | stock CSS serializer body; npm-backed shim                                  |
+| `iconify-core.ts`                                                                | `@iconify/utils`                                                          | Iconify parsing, validation, and icon-set helpers                           |
+| `color-convert.ts` / `color-channel.ts` / `mermaid-color-utils.ts`               | `khroma`                                                                  | Mermaid color parsing/conversion helpers                                    |
 | `entities-escape.ts` (`dist-CD74BDfk` and synced `dist-*` hashes)                 | `@braintree/sanitize-url`                                                 | Mermaid URL sanitizer CommonJS compatibility shim                           |
 | `react-dom-client.ts` (`client-*`)                                                | `react-dom/client`                                                        | client root loader/re-export shim                                           |
 | `react-intl.tsx` / `formatjs.ts` (`lib-BWT6A3Q0`)                                 | `react-intl`                                                              | FormatJS/React Intl; consumers import `useIntl`/`FormattedMessage`          |
@@ -229,6 +232,14 @@ repo (record the package in IMPORT_MAP `vendor`; `classifyBoundary()` reads it):
 | `chunk-xpw4576i.ts` / `mermaid-utils.ts` (`chunk-XPW4576I-*`, `chunk-MI3HLSF2-*`) | `js-yaml`                                                                 | Mermaid YAML loader/schema wrappers; keep only init/alias glue              |
 | `katex.ts` (`katex-*`)                                                            | `katex`                                                                   | pin to bundled KaTeX version; preserve internal alias exports               |
 | `roughjs.ts` (`rough.esm-*`)                                                      | `roughjs`                                                                 | RoughJS generator facade; use package default export                        |
+| `roughjs-geometry.ts`                                                            | `d3-selection` + `d3-transition` + `d3-zoom`                              | D3 selection/transition/zoom body bundled beside RoughJS                    |
+| `diagram-definition-current-runtime.ts`                                          | `d3`                                                                      | current D3 aggregate package body                                           |
+| `unist-handle.ts`                                                                | `unist-util-is` + `unist-util-visit-parents` + `mdast-util-to-*`          | unified/mdast traversal and serialization helpers                           |
+| `prosemirror-composer-runtime.ts`                                                 | `prosemirror-model` + `prosemirror-transform` + `prosemirror-state`       | stock ProseMirror model/state/transform body                                |
+| `radix-ui-core.tsx` / `radix-helpers.tsx` / `resize-observer-hook.ts`             | `@radix-ui/*` + `aria-hidden`                                             | stock Radix primitives, helpers, and use-size hook                          |
+| `mermaid-main.ts`                                                                | `vscode-jsonrpc` + `vscode-languageserver-textdocument`                   | language-server protocol/text-document body                                 |
+| `katex-auto-render.ts`, `chunk-ICPOFSXX`, `chunk-JZLCHNYA`, `chunk-S3R3BYOJ`     | `mermaid` / `mermaid-k5` internal subpaths                                | published Mermaid internal chunks; subpath re-export shims                  |
+| `mermaid-parser-*-k5.ts` / `mermaid-parser-*-fpaj*.ts`                           | `@mermaid-js/parser` / `@mermaid-js/parser-legacy`                        | parser packages for current and legacy Mermaid builds                       |
 | `jotai-runtime.ts` (`jotai-react-*`)                                              | `jotai`                                                                   | atom/store hooks; keep a thin app-facing alias shim only                    |
 | `dnd-kit-*.ts` (`core.esm-*`, etc.)                                               | `@dnd-kit/*`                                                              | core/sortable/utilities re-export shims                                     |
 | `framer-motion-single-value.ts` (`single-value-*`)                                | `framer-motion`                                                           | MotionValue/motionValue alias shim                                          |
@@ -270,12 +281,10 @@ alias the real package names instead of exporting missing members:
 `ReactIntlErrorCode as IntlErrorCode` / `ReactIntlErrorCode as
 IntlErrorCodeValue`, and `IntlConfig as ReactIntlConfig`.
 
-Three public vendor surfaces are registered `local-body` exceptions rather
-than stock-package bodies: `dayjs-core-alt.ts` is the thin Day.js-backed
-Mermaid logger wrapper over `dayjs-logger-runtime`; `segment-load-script.ts`
-combines `@segment/analytics-next` script loading with Segment CDN/global-state
-helpers that have no single public package surface; and `oniguruma-wasm.ts` is
-the exact bundled Oniguruma WASM binary data wrapper. Their target intent must
+Two public vendor surfaces are registered `local-body` exceptions rather than
+stock-package bodies: `dayjs-core-alt.ts` is the thin Day.js-backed Mermaid
+logger wrapper over `dayjs-logger-runtime`, and `oniguruma-wasm.ts` is the exact
+bundled Oniguruma WASM binary data wrapper. Their target intent must
 still pass `vendor-npm-preflight.ts --decision --intent local-body`, and the
 current bundle export/value fingerprints must be reverified before reuse.
 The same explicit proof registry covers the small Mermaid geometry/layout
@@ -286,6 +295,8 @@ current export-tail or behavior match.
 The same rule applies to Segment: a `vendor/*` file exporting
 `AnalyticsBrowser`, `ContextCancelation`, or `segmentio` should be resolved to
 `@segment/analytics-next` / `@segment/analytics-core`, not a local SDK body.
+This includes `segment-load-script.ts`: it comes from the published Segment
+runtime and is no longer a registered local-body exception.
 The historical `index.umd-*` bundle whose UMD global is
 `analyticsVideoPlugins` is the published
 `@segment/analytics.js-video-plugins@0.2.1` package. Its package root has no

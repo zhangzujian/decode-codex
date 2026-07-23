@@ -226,6 +226,10 @@ If identity is high-confidence and the package is not a proven Codex fork, the
 deliverable is a thin npm-backed re-export / alias shim:
 
 1. Import or re-export from the bare npm specifier.
+   A package-root identity may be satisfied by a real subpath of that package
+   (for example `mermaid/dist/chunks/...`), but a bare import by itself is not a
+   shim: the package API must be re-exported or exposed through a tiny typed
+   alias wrapper.
 2. Preserve legacy compatibility names by aliasing real package exports or by a
    tiny typed wrapper only when the upstream API truly lacks the legacy name.
    Do not re-export names that the package does not actually export; import the
@@ -238,6 +242,15 @@ deliverable is a thin npm-backed re-export / alias shim:
    `CHUNK_NAME_REGISTRY` / `ALIAS_REGISTRY` when the importer can automate it,
    add `PUBLIC_NPM_VENDOR_SHIMS`, provenance source chunks, or API fingerprints
    in `quality-gate.ts`, and include fail/pass tests for new package families.
+
+The quality gate treats more than 300 source lines as a retained package body,
+even when the file also contains every expected bare re-export. Do not append a
+package export to a deminified bundle and call it a shim. Split truly local glue
+into a separately proven app/runtime wrapper; the public stock-package boundary
+must stay at or below the thin-shim limit. Exact filename identities take
+priority over broad families (`mermaid-utils.ts` remains `js-yaml` before the
+`mermaid-*` rule, for example), and registered local Mermaid geometry wrappers
+remain explicit exceptions rather than family matches.
 
 Only hand-restore a vendor body after you have evidence it is a Codex fork,
 project runtime, or package-entangled wrapper. Record that reason in the

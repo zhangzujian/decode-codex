@@ -25,10 +25,6 @@ const PUBLIC_LOCAL_VENDOR_BODY_PROOFS: Record<
     sourcePattern: /dayjs-logger-runtime/,
     reason: "Day.js-backed Mermaid logger wrapper",
   },
-  "segment-load-script": {
-    sourcePattern: /\bloadScript[NT]\b/,
-    reason: "Segment package-entangled CDN and script-loader wrapper",
-  },
   "oniguruma-wasm": {
     sourcePattern: /\bwasmBinary\b[\s\S]*\bWebAssembly\.instantiate\b/,
     reason: "bundled Oniguruma WASM binary data wrapper",

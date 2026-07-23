@@ -520,6 +520,15 @@ const MERMAID_11_14_QUADRANT_SPECIFIER =
   "mermaid-k5/dist/chunks/mermaid.core/quadrantDiagram-34T5L4WZ.mjs";
 const MERMAID_11_14_SANKEY_SPECIFIER =
   "mermaid-k5/dist/chunks/mermaid.core/sankeyDiagram-XADWPNL6.mjs";
+const MAX_PUBLIC_NPM_VENDOR_SHIM_LINES = 300;
+
+const PUBLIC_LOCAL_VENDOR_BODY_BASENAMES = new Set([
+  "chunk-bsjp7cbp",
+  "chunk-extu4-wie",
+  "chunk-qn33-pnhl",
+  "mermaid-relation-markers",
+  "mermaid-subgraph-title-margins",
+]);
 
 const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   cmdk: "cmdk",
@@ -542,6 +551,7 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   "d3-scale-band": ["d3-array", "d3-scale"],
   "d3-scale-linear": ["d3-array", "d3-scale"],
   "d3-tableau10": "d3-scale-chromatic",
+  "diagram-definition-current-runtime": "d3",
   "d3-curve-monotone": "d3-shape",
   "d3-shape-arc": "d3-shape",
   "d3-shape-curve-bundle-factory": "d3-shape",
@@ -567,7 +577,12 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   "graphlib-alt": "graphlib",
   "entities-escape": "@braintree/sanitize-url",
   "highlight-js-core": "highlight.js/lib/core",
+  "iconify-core": "@iconify/utils",
   "chunk-xpw4576i": "js-yaml",
+  "chunk-icpofsxx":
+    "mermaid-k5/dist/chunks/mermaid.core/chunk-ICPOFSXX.mjs",
+  "chunk-jzlchnya": "mermaid/dist/chunks/mermaid.core/chunk-JZLCHNYA.mjs",
+  "chunk-s3r3byoj": "mermaid/dist/chunks/mermaid.core/chunk-S3R3BYOJ.mjs",
   jotai: "jotai",
   "jotai-runtime": "jotai",
   katex: "katex",
@@ -587,6 +602,17 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
     "lodash/orderBy",
   ],
   motion: "framer-motion",
+  "color-channel": "khroma",
+  "color-convert": "khroma",
+  "css-tree-serializer": "stylis",
+  "katex-auto-render":
+    "mermaid/dist/chunks/mermaid.core/chunk-ABZYJK2D.mjs",
+  "mermaid-color-utils": "khroma",
+  "mermaid-main": ["vscode-jsonrpc", "vscode-languageserver-textdocument"],
+  "mermaid-parser-core-fpaj": "@mermaid-js/parser-legacy",
+  "mermaid-parser-core-k5": "@mermaid-js/parser",
+  "mermaid-parser-runtime-fpajggoc": "@mermaid-js/parser-legacy",
+  "mermaid-parser-runtime-k5": "@mermaid-js/parser",
   "mermaid-utils": "js-yaml",
   "quadrant-diagram-34-t5-l4-wz": MERMAID_11_14_QUADRANT_SPECIFIER,
   "quadrant-diagram-ayhsok5-b-c-pq-sal-kc": MERMAID_11_12_QUADRANT_SPECIFIER,
@@ -604,6 +630,27 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
   "react-is-runtime": "react-is",
   "react-redux-provider-runtime": "react-redux",
   "react-style-singleton": "react-style-singleton",
+  "prosemirror-composer-runtime": [
+    "prosemirror-model",
+    "prosemirror-transform",
+    "prosemirror-state",
+  ],
+  "radix-helpers": [
+    "@radix-ui/react-context",
+    "@radix-ui/react-use-controllable-state",
+    "@radix-ui/react-id",
+    "aria-hidden",
+  ],
+  "radix-ui-core": [
+    "@radix-ui/primitive",
+    "@radix-ui/react-compose-refs",
+    "@radix-ui/react-primitive",
+    "@radix-ui/react-slot",
+    "@radix-ui/react-use-callback-ref",
+    "@radix-ui/react-use-controllable-state",
+  ],
+  "resize-observer-hook": "@radix-ui/react-use-size",
+  "roughjs-geometry": ["d3-selection", "d3-transition", "d3-zoom"],
   roughjs: "roughjs",
   stylis: "stylis",
   analytics: "@segment/analytics-next",
@@ -624,6 +671,12 @@ const PUBLIC_NPM_VENDOR_SHIMS: Record<string, PublicNpmVendorSpecifiers> = {
     "use-sync-external-store/shim/with-selector",
   "use-sync-external-store-with-selector":
     "use-sync-external-store/shim/with-selector",
+  "unist-handle": [
+    "unist-util-is",
+    "unist-util-visit-parents",
+    "mdast-util-to-string",
+    "mdast-util-to-markdown",
+  ],
 };
 
 const PUBLIC_NPM_VENDOR_SOURCE_CHUNKS: Record<
@@ -1235,6 +1288,22 @@ function expectedPublicNpmVendorSpecifiersByApiFingerprint(
   return null;
 }
 
+function expectedPublicNpmVendorSpecifiersByFilenameFamily(
+  extensionlessBasename: string,
+): string[] | null {
+  if (PUBLIC_LOCAL_VENDOR_BODY_BASENAMES.has(extensionlessBasename)) {
+    return null;
+  }
+  if (extensionlessBasename.startsWith("lodash-")) return ["lodash"];
+  if (extensionlessBasename.startsWith("segment-")) {
+    return ["@segment/analytics-next"];
+  }
+  if (extensionlessBasename.startsWith("mermaid-")) {
+    return [extensionlessBasename.endsWith("-k5") ? "mermaid-k5" : "mermaid"];
+  }
+  return null;
+}
+
 export function expectedPublicNpmVendorSpecifiers(
   file: string,
   source?: string,
@@ -1248,6 +1317,10 @@ export function expectedPublicNpmVendorSpecifiers(
       PUBLIC_NPM_VENDOR_SHIMS[extensionlessBasename],
     );
     if (specifiers != null) return specifiers;
+
+    const familySpecifiers =
+      expectedPublicNpmVendorSpecifiersByFilenameFamily(extensionlessBasename);
+    if (familySpecifiers != null) return familySpecifiers;
 
     if (source != null) {
       const apiFingerprintSpecifiers =
@@ -1272,8 +1345,12 @@ export function expectedPublicNpmVendorSpecifiers(
 
 function hasBareReexportFrom(source: string, specifier: string): boolean {
   const escapedSpecifier = specifier.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const acceptedSpecifier =
+    packageNameFromSpecifier(specifier) === specifier
+      ? `${escapedSpecifier}(?:/[^"']+)?`
+      : escapedSpecifier;
   return new RegExp(
-    String.raw`\bexport\s+(?:type\s+)?(?:\*|\{[\s\S]*?\})\s+from\s+["']${escapedSpecifier}["']`,
+    String.raw`\bexport\s+(?:type\s+)?(?:\*|\{[\s\S]*?\})\s+from\s+["']${acceptedSpecifier}["']`,
   ).test(source);
 }
 
@@ -2575,11 +2652,16 @@ export function analyzeSource(
     file,
     source,
   );
-  const isPublicNpmVendorReexportShim =
+  const hasRequiredPublicNpmVendorReexports =
     expectedNpmVendorSpecifiers != null &&
     expectedNpmVendorSpecifiers.every((specifier) =>
       hasPublicNpmVendorShimFrom(source, specifier),
     );
+  const hasRetainedPublicNpmVendorBody =
+    hasRequiredPublicNpmVendorReexports &&
+    lineCount > MAX_PUBLIC_NPM_VENDOR_SHIM_LINES;
+  const isPublicNpmVendorReexportShim =
+    hasRequiredPublicNpmVendorReexports && !hasRetainedPublicNpmVendorBody;
   // A faithful vendored module or a generated boundary facade is code we
   // deliberately did not rewrite — relax the semantic-naming/typing/split
   // checks that would false-positive on a package's own short API names or a
@@ -2644,7 +2726,23 @@ export function analyzeSource(
         "Flat boundary app/runtime bundle remains parked as a vendored bundle; split it into semantic files or replace it with a real third-party re-export boundary.",
     });
   }
-  if (expectedNpmVendorSpecifiers != null && !isPublicNpmVendorReexportShim) {
+  if (expectedNpmVendorSpecifiers != null && hasRetainedPublicNpmVendorBody) {
+    issues.push({
+      code: "third-party-npm-shim-body-retained",
+      message:
+        `Known third-party npm vendor shim is ${lineCount} lines after adding its package re-export; ` +
+        `keep the public shim at or below ${MAX_PUBLIC_NPM_VENDOR_SHIM_LINES} lines instead of retaining the local package body.`,
+      detail: {
+        expectedSpecifiers: expectedNpmVendorSpecifiers,
+        file: path.basename(file),
+        lineCount,
+        maxShimLines: MAX_PUBLIC_NPM_VENDOR_SHIM_LINES,
+      },
+    });
+  } else if (
+    expectedNpmVendorSpecifiers != null &&
+    !isPublicNpmVendorReexportShim
+  ) {
     const expectedSpecifiers = expectedNpmVendorSpecifiers.join("', '");
     issues.push({
       code: "third-party-npm-shim-not-reexport",

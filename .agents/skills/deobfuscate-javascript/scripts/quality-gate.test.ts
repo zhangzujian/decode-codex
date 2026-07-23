@@ -12,6 +12,7 @@ import {
   collectImportMapBoundaryFiles,
   collectManifestVendoredFiles,
   DEFAULT_OPTIONS,
+  expectedPublicNpmVendorSpecifiers,
 } from "./quality-gate.ts";
 
 const tmpRoots: string[] = [];
@@ -29,6 +30,175 @@ afterEach(() => {
 });
 
 describe("quality-gate", () => {
+  test("recognizes retained third-party package bodies by public vendor filename", () => {
+    const fixtures: Array<[string, string[]]> = [
+      ["iconify-core.ts", ["@iconify/utils"]],
+      ["mermaid-color-utils.ts", ["khroma"]],
+      ["color-convert.ts", ["khroma"]],
+      ["color-channel.ts", ["khroma"]],
+      ["css-tree-serializer.ts", ["stylis"]],
+      [
+        "roughjs-geometry.ts",
+        ["d3-selection", "d3-transition", "d3-zoom"],
+      ],
+      ["diagram-definition-current-runtime.ts", ["d3"]],
+      [
+        "unist-handle.ts",
+        [
+          "unist-util-is",
+          "unist-util-visit-parents",
+          "mdast-util-to-string",
+          "mdast-util-to-markdown",
+        ],
+      ],
+      [
+        "prosemirror-composer-runtime.ts",
+        [
+          "prosemirror-model",
+          "prosemirror-transform",
+          "prosemirror-state",
+        ],
+      ],
+      [
+        "radix-ui-core.tsx",
+        [
+          "@radix-ui/primitive",
+          "@radix-ui/react-compose-refs",
+          "@radix-ui/react-primitive",
+          "@radix-ui/react-slot",
+          "@radix-ui/react-use-callback-ref",
+          "@radix-ui/react-use-controllable-state",
+        ],
+      ],
+      [
+        "radix-helpers.tsx",
+        [
+          "@radix-ui/react-context",
+          "@radix-ui/react-use-controllable-state",
+          "@radix-ui/react-id",
+          "aria-hidden",
+        ],
+      ],
+      ["resize-observer-hook.ts", ["@radix-ui/react-use-size"]],
+      [
+        "mermaid-main.ts",
+        ["vscode-jsonrpc", "vscode-languageserver-textdocument"],
+      ],
+      [
+        "katex-auto-render.ts",
+        ["mermaid/dist/chunks/mermaid.core/chunk-ABZYJK2D.mjs"],
+      ],
+      [
+        "chunk-icpofsxx.ts",
+        ["mermaid-k5/dist/chunks/mermaid.core/chunk-ICPOFSXX.mjs"],
+      ],
+      [
+        "chunk-jzlchnya.ts",
+        ["mermaid/dist/chunks/mermaid.core/chunk-JZLCHNYA.mjs"],
+      ],
+      [
+        "chunk-s3r3byoj.ts",
+        ["mermaid/dist/chunks/mermaid.core/chunk-S3R3BYOJ.mjs"],
+      ],
+      ["mermaid-parser-runtime-k5.ts", ["@mermaid-js/parser"]],
+      ["mermaid-parser-runtime-fpajggoc.ts", ["@mermaid-js/parser-legacy"]],
+    ];
+
+    for (const [filename, specifiers] of fixtures) {
+      expect(
+        expectedPublicNpmVendorSpecifiers(
+          `restored/vendor/${filename}`,
+          "export const retainedPackageBody = true;",
+        ),
+      ).toEqual(specifiers);
+    }
+  });
+
+  test("recognizes lodash, Segment, and Mermaid package families with exact mappings first", () => {
+    expect(
+      expectedPublicNpmVendorSpecifiers(
+        "restored/vendor/lodash-clone-deep.ts",
+      ),
+    ).toEqual(["lodash"]);
+    expect(
+      expectedPublicNpmVendorSpecifiers(
+        "restored/vendor/segment-load-script.ts",
+      ),
+    ).toEqual(["@segment/analytics-next"]);
+    expect(
+      expectedPublicNpmVendorSpecifiers("restored/vendor/mermaid-utils.ts"),
+    ).toEqual(["js-yaml"]);
+    expect(
+      expectedPublicNpmVendorSpecifiers(
+        "restored/vendor/mermaid-flow-diagram-k5.ts",
+      ),
+    ).toEqual(["mermaid-k5"]);
+    expect(
+      expectedPublicNpmVendorSpecifiers(
+        "restored/vendor/mermaid-flow-diagram-fpaj.ts",
+      ),
+    ).toEqual(["mermaid"]);
+  });
+
+  test("keeps proven Mermaid local wrappers out of the npm package families", () => {
+    for (const filename of [
+      "mermaid-subgraph-title-margins.ts",
+      "mermaid-relation-markers.ts",
+      "chunk-bsjp7cbp.ts",
+      "chunk-extu4-wie.ts",
+      "chunk-qn33-pnhl.ts",
+    ]) {
+      expect(
+        expectedPublicNpmVendorSpecifiers(`restored/vendor/${filename}`),
+      ).toBeNull();
+    }
+  });
+
+  test("accepts an npm package subpath re-export for a package-root identity", () => {
+    const source = `
+      export * from "mermaid/dist/chunks/mermaid.core/accessibility.mjs";
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/mermaid-accessibility.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(
+      expectedPublicNpmVendorSpecifiers(
+        "restored/vendor/mermaid-accessibility.ts",
+        source,
+      ),
+    ).toEqual(["mermaid"]);
+    expect(report.issues).toEqual([]);
+  });
+
+  test("rejects retained package bodies that also include expected re-exports", () => {
+    const retainedBody = Array.from(
+      { length: 301 },
+      (_, index) => `const retainedPackageHelper${index} = ${index};`,
+    ).join("\n");
+    const source = `
+      export * from "@segment/analytics-next";
+      export * from "@segment/analytics-core";
+      export * from "@segment/facade";
+      ${retainedBody}
+    `;
+    const report = analyzeSource(
+      source,
+      "restored/vendor/segment-middleware.ts",
+      {
+        ...DEFAULT_OPTIONS,
+        allowFlat: true,
+      },
+    );
+    expect(report.issues.map((issue) => issue.code)).toContain(
+      "third-party-npm-shim-body-retained",
+    );
+  });
+
   test("passes a small readable TSX module", () => {
     const source = `
       import React from "react";

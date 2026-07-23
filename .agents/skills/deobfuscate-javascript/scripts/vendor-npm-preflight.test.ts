@@ -64,6 +64,68 @@ afterEach(() => {
 });
 
 describe("vendor-npm-preflight CLI", () => {
+  test("classifies newly identified package-family vendor targets before editing", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(path.join(root, "package.json"), JSON.stringify({}));
+
+    const fixtures: Array<[string, string[]]> = [
+      ["iconify-core.ts", ["@iconify/utils"]],
+      ["color-convert.ts", ["khroma"]],
+      ["css-tree-serializer.ts", ["stylis"]],
+      ["lodash-clone-deep.ts", ["lodash"]],
+      ["segment-load-script.ts", ["@segment/analytics-next"]],
+      ["mermaid-flow-diagram-k5.ts", ["mermaid-k5"]],
+      ["mermaid-flow-diagram-fpaj.ts", ["mermaid"]],
+      ["mermaid-parser-runtime-k5.ts", ["@mermaid-js/parser"]],
+      ["mermaid-parser-runtime-fpajggoc.ts", ["@mermaid-js/parser-legacy"]],
+    ];
+
+    for (const [filename, specifiers] of fixtures) {
+      const result = runDecisionCLI(path.join(vendorDir, filename));
+      expect(result.code).toBe(0);
+      const decisions = JSON.parse(result.stdout) as Array<{
+        decision: string;
+        specifiers: string[];
+      }>;
+      expect(decisions[0]).toMatchObject({ decision: "npm-shim", specifiers });
+    }
+  });
+
+  test("rejects a retained package body hidden behind valid npm re-exports", () => {
+    const root = makeTmpRoot();
+    const vendorDir = path.join(root, "restored", "vendor");
+    fs.mkdirSync(vendorDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(root, "package.json"),
+      JSON.stringify({
+        dependencies: {
+          "@segment/analytics-next": "1.0.0",
+          "@segment/analytics-core": "1.0.0",
+          "@segment/facade": "1.0.0",
+        },
+      }),
+    );
+    const retainedBody = Array.from(
+      { length: 301 },
+      (_, index) => `const retainedPackageHelper${index} = ${index};`,
+    ).join("\n");
+    fs.writeFileSync(
+      path.join(vendorDir, "segment-middleware.ts"),
+      `
+        export * from "@segment/analytics-next";
+        export * from "@segment/analytics-core";
+        export * from "@segment/facade";
+        ${retainedBody}
+      `,
+    );
+
+    const result = runCLI(path.join(root, "restored"));
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain("third-party-npm-shim-body-retained");
+  });
+
   test("classifies known package vendor targets before the file exists", () => {
     const root = makeTmpRoot();
     const vendorDir = path.join(root, "restored", "vendor");
@@ -400,14 +462,6 @@ describe("vendor-npm-preflight CLI", () => {
         source: `
           // Restored from ref/webview/assets/chunk-AGHRB4JF-current.js
           export { loadDayjsCommonJsModule } from "./dayjs-logger-runtime";
-        `,
-      },
-      {
-        filename: "segment-load-script.ts",
-        source: `
-          // Restored from ref/webview/assets/load-script-current.js
-          export function loadScriptT() {}
-          export function loadScriptN() {}
         `,
       },
       {
