@@ -93,6 +93,16 @@ grep -q '\.zip$' "$TEST_CURL_LOG" && fail 'up-to-date release downloaded again'
 test -f "$latest/fixture-marker" || fail 'current release replaced during no-update check'
 [[ $(cksum "$latest/fixture-marker") == "$latest_marker" ]] || fail 'current release changed during no-update check'
 
+build_mismatch="$tmp/build-mismatch"
+mkdir -p "$build_mismatch/ChatGPT-darwin-arm64-$version"
+make_archive "$build_mismatch/ChatGPT-darwin-arm64-$version" "$version" 9998 "$tmp/mismatch.zip"
+printf 'old build marker\n' >"$build_mismatch/ChatGPT-darwin-arm64-$version/fixture-marker"
+: >"$TEST_CURL_LOG"
+PATH="$tmp/bin:$PATH" "$updater" "$build_mismatch"
+grep -q '\.zip$' "$TEST_CURL_LOG" || fail 'same-version build mismatch did not request ZIP'
+test ! -e "$build_mismatch/ChatGPT-darwin-arm64-$version/fixture-marker" || fail 'same-version build mismatch was not replaced'
+grep -A1 '<key>CFBundleVersion</key>' "$build_mismatch/ChatGPT-darwin-arm64-$version/ChatGPT.app/Contents/Info.plist" | grep -qx "<string>$build</string>" || fail 'promoted build does not match appcast'
+
 failed="$tmp/failed"
 mkdir -p "$failed/ChatGPT-darwin-arm64-26.715.1"
 printf 'old release marker\n' >"$failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker"
@@ -102,5 +112,18 @@ test -d "$failed/ChatGPT-darwin-arm64-26.715.1" || fail 'old release deleted aft
 test -f "$failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker" || fail 'old release marker deleted after failure'
 [[ $(<"$failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker") == 'old release marker' ]] || fail 'old release changed after failure'
 test ! -e "$failed/ChatGPT-darwin-arm64-$version" || fail 'failed release promoted'
+
+bad_plist_root="$tmp/bad-plist-root"
+bad_plist_archive="$tmp/bad-plist.zip"
+mkdir -p "$bad_plist_root"
+make_archive "$bad_plist_root" "$version" 9998 "$bad_plist_archive"
+bad_plist_feed="$tmp/bad-plist.xml"
+make_feed "$bad_plist_feed" "$version" "$build" "$(stat -c%s "$bad_plist_archive")"
+staged_failed="$tmp/staged-failed"
+mkdir -p "$staged_failed/ChatGPT-darwin-arm64-26.715.1"
+printf 'old release marker\n' >"$staged_failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker"
+TEST_APPCAST=$bad_plist_feed TEST_ARCHIVE=$bad_plist_archive PATH="$tmp/bin:$PATH" "$updater" "$staged_failed" && fail 'staged build mismatch accepted'
+test -f "$staged_failed/ChatGPT-darwin-arm64-26.715.1/fixture-marker" || fail 'old release deleted after staged plist failure'
+test ! -e "$staged_failed/ChatGPT-darwin-arm64-$version" || fail 'staged plist mismatch promoted'
 
 printf 'PASS: update-codex-app\n'

@@ -112,7 +112,7 @@ while IFS= read -r -d '' candidate; do
   fi
 done < <(find "$downloads_dir" -mindepth 1 -maxdepth 1 -type d -name 'ChatGPT-darwin-arm64-*' -print0)
 
-if [[ -n "$newest_local" && "$(printf '%s\n%s\n' "$newest_local" "$official_version" | sort -V | awk 'END { print }')" == "$newest_local" ]]; then
+if [[ -n "$newest_local" && ( "$newest_local" != "$official_version" || "$newest_build" == "$official_build" ) && "$(printf '%s\n%s\n' "$newest_local" "$official_version" | sort -V | awk 'END { print }')" == "$newest_local" ]]; then
   printf 'No update: current version %s (build %s); official version %s (build %s).\n' \
     "$newest_local" "$newest_build" "$official_version" "$official_build"
   exit 0
@@ -134,16 +134,17 @@ target="$downloads_dir/ChatGPT-darwin-arm64-$official_version"
 [[ ! -e "$target" ]] || rm -rf -- "$target"
 mv -- "$stage" "$target"
 
-while IFS= read -r -d '' candidate; do
+shopt -s nullglob
+for candidate in "$downloads_dir"/ChatGPT-darwin-arm64-*; do
   name=${candidate##*/}
-  [[ "$name" =~ ^ChatGPT-darwin-arm64-([0-9]+(\.[0-9]+)+)$ && "$candidate" != "$target" ]] || continue
+  [[ -d "$candidate" && "$name" =~ ^ChatGPT-darwin-arm64-([0-9]+(\.[0-9]+)+)$ && "$candidate" != "$target" ]] || continue
   rm -rf -- "$candidate"
-done < <(find "$downloads_dir" -mindepth 1 -maxdepth 1 -type d -name 'ChatGPT-darwin-arm64-*' -print0)
-while IFS= read -r -d '' candidate; do
+done
+for candidate in "$downloads_dir"/ChatGPT-darwin-arm64-*.zip; do
   name=${candidate##*/}
-  [[ "$name" =~ ^ChatGPT-darwin-arm64-([0-9]+(\.[0-9]+)+)\.zip$ ]] || continue
+  [[ -f "$candidate" && "$name" =~ ^ChatGPT-darwin-arm64-([0-9]+(\.[0-9]+)+)\.zip$ ]] || continue
   rm -f -- "$candidate"
-done < <(find "$downloads_dir" -mindepth 1 -maxdepth 1 -type f -name 'ChatGPT-darwin-arm64-*.zip' -print0)
+done
 
 printf 'Official version: %s\nBuild: %s\nChatGPT.app: %s\n' \
   "$official_version" "$official_build" "$target/ChatGPT.app"
