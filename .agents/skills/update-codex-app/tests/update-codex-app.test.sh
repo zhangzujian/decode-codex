@@ -66,6 +66,18 @@ exec /bin/mv "$@"
 SH
 chmod +x "$tmp/bin/mv"
 
+cat >"$tmp/bin/unzip" <<'SH'
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ ${1:-} == -q ]]; then
+  printf '%s\n' \
+    'lchmod (file attributes) error: Operation not supported' \
+    'unzip sentinel diagnostic' >&2
+fi
+exec /usr/bin/unzip "$@"
+SH
+chmod +x "$tmp/bin/unzip"
+
 version=26.715.99999
 build=9999
 fixture="$tmp/fixture"
@@ -84,7 +96,9 @@ printf 'unrelated file\n' >"$downloads/keep.zip"
 mkdir -p "$downloads/unrelated"
 printf 'unrelated directory\n' >"$downloads/unrelated/marker"
 export TEST_APPCAST=$feed TEST_ARCHIVE=$archive TEST_CURL_LOG=$tmp/curl.log
-PATH="$tmp/bin:$PATH" "$updater" "$downloads"
+PATH="$tmp/bin:$PATH" "$updater" "$downloads" 2>"$tmp/update.stderr"
+grep -Fqx 'lchmod (file attributes) error: Operation not supported' "$tmp/update.stderr" && fail 'known lchmod warning leaked'
+grep -Fqx 'unzip sentinel diagnostic' "$tmp/update.stderr" || fail 'unrelated unzip diagnostic hidden'
 latest="$downloads/ChatGPT-darwin-arm64-$version"
 test -d "$latest/ChatGPT.app" || fail 'latest app missing'
 test ! -e "$downloads/ChatGPT-darwin-arm64-26.715.1" || fail 'old directory retained'

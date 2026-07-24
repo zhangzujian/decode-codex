@@ -132,7 +132,8 @@ unzip -tq "$archive" >/dev/null
 
 stage="$temp_dir/ChatGPT-darwin-arm64-$official_version"
 mkdir -- "$stage"
-unzip -q "$archive" -d "$stage"
+unzip -q "$archive" -d "$stage" 2>&1 |
+  awk '$0 != "lchmod (file attributes) error: Operation not supported"' >&2
 app_is_valid "$stage/ChatGPT.app" "$official_version" "$official_build" || die 'staged app version or build does not match appcast'
 
 target="$downloads_dir/ChatGPT-darwin-arm64-$official_version"
